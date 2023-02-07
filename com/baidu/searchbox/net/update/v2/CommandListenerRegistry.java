@@ -46,7 +46,10 @@ public final class CommandListenerRegistry {
             }
         }
         this.mListenerMap = new HashMap();
-        registerListeners();
+        try {
+            registerListeners();
+        } catch (Error unused) {
+        }
     }
 
     private void collectPostData(Context context, AbstractCommandListener abstractCommandListener, CommandPostData commandPostData, String str, String str2) throws JSONException {
@@ -94,8 +97,8 @@ public final class CommandListenerRegistry {
                     try {
                         collectPostData(context, getCommandListener((String) pair.first, (String) pair.second), commandPostData, (String) pair.first, (String) pair.second);
                     } catch (Exception e) {
-                        e.printStackTrace();
                         if (AppConfig.isDebug()) {
+                            e.printStackTrace();
                             Log.e(TAG, "addPostData error " + e.getMessage());
                         }
                     }

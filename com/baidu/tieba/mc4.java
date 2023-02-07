@@ -1,82 +1,87 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class mc4 extends jc4<gd4> {
+public class mc4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public mc4() {
+    @NonNull
+    public static RecommendItemModel a(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
+            RecommendItemModel recommendItemModel = new RecommendItemModel();
+            recommendItemModel.appName = jSONObject.optString("app_name");
+            recommendItemModel.appKey = jSONObject.optString("app_key");
+            recommendItemModel.iconUrl = jSONObject.optString("icon_url");
+            recommendItemModel.scheme = jSONObject.optString("scheme");
+            recommendItemModel.desc = jSONObject.optString("desc");
+            JSONObject optJSONObject = jSONObject.optJSONObject(NativeConstants.ID_BUTTON);
+            if (optJSONObject != null) {
+                recommendItemModel.buttonText = optJSONObject.optString("text");
             }
+            return recommendItemModel;
         }
+        return (RecommendItemModel) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jc4
-    /* renamed from: f */
-    public ContentValues c(gd4 gd4Var) {
+    @NonNull
+    public static lc4 b(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, gd4Var)) == null) {
-            return a(gd4Var);
-        }
-        return (ContentValues) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jc4
-    /* renamed from: g */
-    public gd4 d(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
-            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
-                gd4 gd4Var = new gd4();
-                if (b(cursor, gd4Var)) {
-                    return gd4Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            lc4 lc4Var = new lc4();
+            if (jSONObject == null) {
+                return lc4Var;
+            }
+            JSONObject optJSONObject = jSONObject.optJSONObject("game_center");
+            if (optJSONObject != null) {
+                lc4Var.a = a(optJSONObject);
+            }
+            lc4Var.b = new ArrayList();
+            JSONArray optJSONArray = jSONObject.optJSONArray("app_list");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    lc4Var.b.add(a(optJSONArray.optJSONObject(i)));
                 }
-                return null;
             }
-            return null;
+            return lc4Var;
         }
-        return (gd4) invokeL.objValue;
+        return (lc4) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.jc4
-    public List<gd4> e(Cursor cursor) {
+    @NonNull
+    public static nc4 c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
-                do {
-                    gd4 gd4Var = new gd4();
-                    if (b(cursor, gd4Var)) {
-                        arrayList.add(gd4Var);
-                    }
-                } while (cursor.moveToNext());
-                return arrayList;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            nc4 nc4Var = new nc4();
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                nc4Var.a = jSONObject.getInt("errno");
+                nc4Var.b = jSONObject.optString("errmsg");
+                nc4Var.c = jSONObject.optJSONObject("data");
+                return nc4Var;
+            } catch (JSONException e) {
+                nc4Var.a = -1;
+                nc4Var.b = "network error: response parse failed.";
+                if (gp1.a) {
+                    Log.e("RecommendModelParser", "parseResponseModel error:" + e);
+                }
+                return nc4Var;
             }
-            return arrayList;
         }
-        return (List) invokeL.objValue;
+        return (nc4) invokeL.objValue;
     }
 }

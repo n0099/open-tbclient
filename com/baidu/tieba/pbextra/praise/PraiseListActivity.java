@@ -13,24 +13,24 @@ import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.atomData.PraiseListActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dr4;
-import com.baidu.tieba.md8;
-import com.baidu.tieba.mk5;
-import com.baidu.tieba.pd8;
-import com.baidu.tieba.qd8;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.dj;
+import com.baidu.tieba.fh8;
+import com.baidu.tieba.ih8;
+import com.baidu.tieba.jh8;
+import com.baidu.tieba.qv4;
+import com.baidu.tieba.xo5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class PraiseListActivity extends BaseActivity<PraiseListActivity> implements pd8.b, View.OnClickListener, AdapterView.OnItemClickListener {
+public class PraiseListActivity extends BaseActivity<PraiseListActivity> implements ih8.b, View.OnClickListener, AdapterView.OnItemClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public qd8 b;
-    public pd8 c;
+    public jh8 b;
+    public ih8 c;
 
     public PraiseListActivity() {
         Interceptable interceptable = $ic;
@@ -64,30 +64,30 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onResume();
-            this.b.n();
+            this.b.o();
         }
     }
 
     public final void w1() {
-        pd8 pd8Var;
+        ih8 ih8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (pd8Var = this.c) != null) {
-            pd8Var.v();
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (ih8Var = this.c) != null) {
+            ih8Var.v();
         }
     }
 
-    @Override // com.baidu.tieba.pd8.b
-    public void O0(int i, List<md8> list, int i2, int i3) {
+    @Override // com.baidu.tieba.ih8.b
+    public void O0(int i, List<fh8> list, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), list, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            this.b.r(i, list, i2, i3);
+            this.b.s(i, list, i2, i3);
         }
     }
 
     public void changSkinType(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            dr4 layoutMode = getLayoutMode();
+            qv4 layoutMode = getLayoutMode();
             boolean z = true;
             if (TbadkCoreApplication.getInst().getSkinType() != 1) {
                 z = false;
@@ -97,15 +97,15 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
         }
     }
 
-    @Override // com.baidu.tieba.pd8.b
+    @Override // com.baidu.tieba.ih8.b
     public void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (yi.isEmpty(str)) {
-                str = getResources().getString(R.string.obfuscated_res_0x7f0f0cd1);
+            if (dj.isEmpty(str)) {
+                str = getResources().getString(R.string.obfuscated_res_0x7f0f0cfe);
             }
-            this.b.q();
-            this.b.o(str, this.a);
+            this.b.r();
+            this.b.p(str, this.a);
         }
     }
 
@@ -113,7 +113,7 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.b.i(getLayoutMode(), i);
+            this.b.k(getLayoutMode(), i);
         }
     }
 
@@ -121,15 +121,15 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            if (view2 == this.b.l()) {
+            if (view2 == this.b.m()) {
                 w1();
                 if (this.c.l()) {
                     finish();
                     return;
                 }
-                mk5.a(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(this.c.k(), null, "praise_list"));
-            } else if (view2 == this.b.k() && !this.b.m()) {
-                this.b.p(true);
+                xo5.a(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(this.c.k(), null, "praise_list"));
+            } else if (view2 == this.b.l() && !this.b.n()) {
+                this.b.q(true);
                 this.c.m(this.a);
             }
         }
@@ -144,33 +144,33 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
             if (bundle != null) {
                 this.a = bundle.getInt(IntentConfig.LIST_TYPE, 0);
                 z = bundle.getBoolean(PraiseListActivityConfig.IS_AUTHOR);
-                pd8 pd8Var = new pd8(bundle.getString("thread_id"), bundle.getString("post_id"), bundle.getString(IntentConfig.POST_DESC), bundle.getBoolean(IntentConfig.IS_FROM_PB, true), this);
-                this.c = pd8Var;
-                pd8Var.u(bundle.getInt("KeyIntentPraiseId"));
+                ih8 ih8Var = new ih8(bundle.getString("thread_id"), bundle.getString("post_id"), bundle.getString(IntentConfig.POST_DESC), bundle.getBoolean(IntentConfig.IS_FROM_PB, true), this);
+                this.c = ih8Var;
+                ih8Var.u(bundle.getInt("KeyIntentPraiseId"));
             } else if (getIntent() != null) {
                 this.a = getIntent().getIntExtra(IntentConfig.LIST_TYPE, 0);
                 z = getIntent().getBooleanExtra(PraiseListActivityConfig.IS_AUTHOR, false);
-                this.c = new pd8(getIntent().getStringExtra("thread_id"), getIntent().getStringExtra("post_id"), getIntent().getStringExtra(IntentConfig.POST_DESC), getIntent().getBooleanExtra(IntentConfig.IS_FROM_PB, true), this);
+                this.c = new ih8(getIntent().getStringExtra("thread_id"), getIntent().getStringExtra("post_id"), getIntent().getStringExtra(IntentConfig.POST_DESC), getIntent().getBooleanExtra(IntentConfig.IS_FROM_PB, true), this);
             } else {
                 z = false;
             }
             if (this.c == null) {
-                this.c = new pd8();
+                this.c = new ih8();
             }
             this.c.t(z);
-            qd8 qd8Var = new qd8(this, this.c.i());
-            this.b = qd8Var;
-            qd8Var.p(false);
+            jh8 jh8Var = new jh8(this, this.c.i());
+            this.b = jh8Var;
+            jh8Var.q(false);
             this.c.m(this.a);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-        md8 j2;
+        fh8 j2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) && (j2 = this.c.j(i)) != null) {
-            mk5.a(2002003, new PersonInfoActivityConfig(getPageContext().getPageActivity(), j2.c(), j2.b(), null, AddFriendActivityConfig.TYPE_FAVOR_LIST));
+            xo5.a(2002003, new PersonInfoActivityConfig(getPageContext().getPageActivity(), j2.c(), j2.b(), null, AddFriendActivityConfig.TYPE_FAVOR_LIST));
         }
     }
 

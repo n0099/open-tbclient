@@ -5,8 +5,8 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.nk5;
-import com.baidu.tieba.yg;
+import com.baidu.tieba.dh;
+import com.baidu.tieba.yo5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,7 +50,7 @@ public class GetRepostForumReqMessage extends NetMessage {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    nk5.a(builder, true);
+                    yo5.a(builder, true);
                 }
                 builder.title = this.threadTitle;
                 builder.content = this.threadContent;
@@ -77,7 +77,7 @@ public class GetRepostForumReqMessage extends NetMessage {
     public void setForumId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.forumId = yg.g(str, 0L);
+            this.forumId = dh.g(str, 0L);
         }
     }
 

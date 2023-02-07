@@ -7,7 +7,7 @@ import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.dg1;
+import com.baidu.tieba.ok1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
-public class SpeedRuntimeProvider extends dg1<ISpeedContext> {
+public class SpeedRuntimeProvider extends ok1<ISpeedContext> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MAIN_ACTIVITY_NAME = "com.baidu.tieba.tblauncher.MainTabActivity";
     public static final String SCHEMA_ACTIVITY_NAME = "com.baidu.tieba.tblauncher.SchemaRouteActivity";
@@ -38,7 +38,7 @@ public class SpeedRuntimeProvider extends dg1<ISpeedContext> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.dg1
+    @Override // com.baidu.tieba.ok1
     public ISpeedContext createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

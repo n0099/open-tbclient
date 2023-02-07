@@ -15,8 +15,8 @@ import android.view.inputmethod.InputConnectionWrapper;
 import androidx.appcompat.widget.AppCompatEditText;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ei3;
-import com.baidu.tieba.w13;
+import com.baidu.tieba.j63;
+import com.baidu.tieba.rm3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +31,7 @@ public class EmojiEditText extends AppCompatEditText {
     public e a;
     public f b;
     public String c;
-    public ei3 d;
+    public rm3 d;
     public Runnable e;
     public int f;
 
@@ -375,7 +375,7 @@ public class EmojiEditText extends AppCompatEditText {
     public final void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.d = ei3.b(getContext());
+            this.d = rm3.b(getContext());
             setText(getText());
             setOnTouchListener(new a(this));
             addTextChangedListener(new d(this, null));
@@ -389,7 +389,7 @@ public class EmojiEditText extends AppCompatEditText {
             if (TextUtils.isEmpty(editableText) || !Pattern.compile("\\[([一-龥\\w])+\\]").matcher(editableText).find()) {
                 return;
             }
-            getEditableText().replace(0, editableText.length(), w13.c().g(getContext(), editableText, this));
+            getEditableText().replace(0, editableText.length(), j63.c().g(getContext(), editableText, this));
         }
     }
 
@@ -459,7 +459,7 @@ public class EmojiEditText extends AppCompatEditText {
                 }
                 this.c = a2.toString();
                 this.d.c(" ");
-                SpannableString g = w13.c().g(getContext(), this.c, this);
+                SpannableString g = j63.c().g(getContext(), this.c, this);
                 int selectionStart = getSelectionStart();
                 Editable editableText = getEditableText();
                 editableText.insert(selectionStart, g);

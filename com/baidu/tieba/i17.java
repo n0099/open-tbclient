@@ -1,45 +1,15 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.module.frs.Frs$From;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.Serializable;
+import com.baidu.tieba.frs.mc.FrsModelController;
 /* loaded from: classes4.dex */
-public final class i17 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface i17 {
+    FrsModelController Q0();
 
-    public static final long d(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bundle)) == null) {
-            return bundle.getLong("extra_fid");
-        }
-        return invokeL.longValue;
-    }
+    void b();
 
-    public static final String e(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle)) == null) {
-            return bundle.getString("extra_forum_name");
-        }
-        return (String) invokeL.objValue;
-    }
+    z07 j1();
 
-    public static final Frs$From f(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bundle)) == null) {
-            Serializable serializable = bundle.getSerializable("extra_from");
-            if (serializable != null) {
-                return (Frs$From) serializable;
-            }
-            throw new NullPointerException("null cannot be cast to non-null type com.baidu.tbadk.module.frs.Frs.From");
-        }
-        return (Frs$From) invokeL.objValue;
-    }
+    b57 s0();
+
+    gs6 u1();
 }

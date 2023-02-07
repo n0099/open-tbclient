@@ -1,22 +1,21 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class oi0 {
+public class oi0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract String a();
+    public JSONObject a;
+    public Map<String, String> b;
+    public Map<String, String> c;
 
     public oi0() {
         Interceptable interceptable = $ic;
@@ -32,28 +31,30 @@ public abstract class oi0 {
         }
     }
 
-    @CallSuper
-    public boolean b(@NonNull Context context, @NonNull si0 si0Var, @Nullable Map<String, Object> map, @Nullable wi0 wi0Var) {
-        InterceptResult invokeLLLL;
+    public static oi0 a(@NonNull HashMap<String, ?> hashMap) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, si0Var, map, wi0Var)) == null) {
-            f11.b((String) v01.b(si0Var.d(), "charge_url"));
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hashMap)) == null) {
+            oi0 oi0Var = new oi0();
+            if (hashMap.get("cmd_map") instanceof String) {
+                JSONObject c = y11.c((String) hashMap.get("cmd_map"));
+                oi0Var.a = c;
+                oi0Var.b = y11.b(c);
+            }
+            if (hashMap.get("area_cmd") instanceof String) {
+                oi0Var.c = y11.b(y11.c((String) hashMap.get("area_cmd")));
+            }
+            if (hashMap.get("charge_map") instanceof String) {
+                y11.b(y11.c((String) hashMap.get("charge_map")));
+            }
+            if (hashMap.get("parallel_charge_urls") instanceof JSONObject) {
+                y11.b((JSONObject) hashMap.get("parallel_charge_urls"));
+            }
+            if (hashMap.get("defer_charge_urls") instanceof JSONObject) {
+                y11.b((JSONObject) hashMap.get("defer_charge_urls"));
+            }
+            return oi0Var;
         }
-        return invokeLLLL.booleanValue;
-    }
-
-    public void c(wi0 wi0Var, @Nullable si0 si0Var, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{wi0Var, si0Var, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            bj0.b(wi0Var, si0Var, i, z);
-        }
-    }
-
-    public void d(wi0 wi0Var, @Nullable si0 si0Var, @Nullable String str, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{wi0Var, si0Var, str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            bj0.c(wi0Var, si0Var, str, i, z);
-        }
+        return (oi0) invokeL.objValue;
     }
 }

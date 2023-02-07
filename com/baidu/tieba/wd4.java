@@ -1,134 +1,92 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.df4;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.RectF;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import com.baidu.mapapi.map.BitmapDescriptor;
+import com.baidu.mapapi.map.BitmapDescriptorFactory;
+import com.baidu.mapapi.map.MarkerOptions;
+import com.baidu.mapapi.map.OverlayOptions;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.tieba.qv2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
 /* loaded from: classes6.dex */
 public class wd4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static <T> void a(@NonNull oe4 oe4Var, @NonNull List<le4<T>> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, oe4Var, list) == null) {
-            for (le4<T> le4Var : list) {
-                oe4Var.c(je4.b().a(le4Var));
-            }
-        }
-    }
-
-    public static synchronized void d(ff4 ff4Var, ec4 ec4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, ff4Var, ec4Var) == null) {
-            synchronized (wd4.class) {
-                le4<kd4> i = ne4.i(ff4Var.a, ec4Var);
-                oe4 oe4Var = new oe4(ec4Var);
-                oe4Var.c(je4.b().a(i));
-                oe4Var.e();
-            }
-        }
-    }
-
-    public static synchronized void g(List<kd4> list, ec4 ec4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, list, ec4Var) == null) {
-            synchronized (wd4.class) {
-                List<le4<kd4>> e = ne4.e(list, ec4Var);
-                oe4 oe4Var = new oe4(ec4Var);
-                a(oe4Var, e);
-                oe4Var.e();
-            }
-        }
-    }
-
-    @NonNull
-    public static oe4 b(df4 df4Var, ec4 ec4Var) {
+    public static OverlayOptions a(ge4 ge4Var, fe4 fe4Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, df4Var, ec4Var)) == null) {
-            List<le4<df4.a>> f = ne4.f(df4Var.a, ec4Var);
-            oe4 oe4Var = new oe4(ec4Var);
-            for (le4<df4.a> le4Var : f) {
-                oe4Var.c(je4.b().a(le4Var));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, ge4Var, fe4Var)) == null) {
+            w52.i("map", "createLabel start");
+            if (fe4Var == null) {
+                return null;
             }
-            return oe4Var;
-        }
-        return (oe4) invokeLL.objValue;
-    }
-
-    public static synchronized void e(gf4 gf4Var, ec4 ec4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, gf4Var, ec4Var) == null) {
-            synchronized (wd4.class) {
-                List<le4<jd4>> h = ne4.h(gf4Var.a, ec4Var);
-                oe4 oe4Var = new oe4(ec4Var);
-                for (le4<jd4> le4Var : h) {
-                    oe4Var.c(je4.b().a(le4Var));
-                }
-                oe4Var.e();
-            }
-        }
-    }
-
-    public static synchronized void c(ef4 ef4Var, ec4 ec4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, ef4Var, ec4Var) == null) {
-            synchronized (wd4.class) {
-                le4<gd4> d = ne4.d(ef4Var.d, ec4Var);
-                le4<id4> g = ne4.g(ef4Var.a, ec4Var);
-                le4<ed4> c = ne4.c(ef4Var.f, ec4Var);
-                List<le4<jd4>> h = ne4.h(ef4Var.b, ec4Var);
-                List<le4<kd4>> e = ne4.e(ef4Var.c, ec4Var);
-                oe4 oe4Var = new oe4(ec4Var);
-                oe4Var.c(je4.b().a(d));
-                oe4Var.c(je4.b().a(g));
-                oe4Var.c(je4.b().a(c));
-                a(oe4Var, h);
-                a(oe4Var, e);
-                oe4Var.e();
-            }
-        }
-    }
-
-    public static synchronized void f(bh4 bh4Var, ec4 ec4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, bh4Var, ec4Var) == null) {
-            synchronized (wd4.class) {
-                le4<gd4> d = ne4.d(bh4Var.b, ec4Var);
-                le4<gd4> d2 = ne4.d(bh4Var.a, ec4Var);
-                le4<ed4> c = ne4.c(bh4Var.c, ec4Var);
-                oe4 oe4Var = new oe4(ec4Var);
-                if (d != null) {
-                    oe4Var.c(je4.b().a(d));
-                }
-                if (d2 != null) {
-                    oe4Var.c(je4.b().a(d2));
-                }
-                if (c != null) {
-                    oe4Var.c(je4.b().a(c));
-                }
-                if (bh4Var.d != null) {
-                    for (ld4 ld4Var : bh4Var.d) {
-                        le4<ld4> j = ne4.j(ld4Var, ec4Var);
-                        if (j != null) {
-                            oe4Var.c(je4.b().a(j));
-                        }
+            qv2 qv2Var = fe4Var.a;
+            if (qv2Var != null && qv2Var.j != null && qv2Var.b != null) {
+                Paint paint = new Paint();
+                paint.setAntiAlias(true);
+                paint.setStyle(Paint.Style.FILL_AND_STROKE);
+                paint.setColor(qv2Var.j.b);
+                paint.setTextSize(qv2Var.j.c);
+                qv2.c cVar = qv2Var.j;
+                float f = cVar.e;
+                float f2 = cVar.j;
+                Paint paint2 = new Paint();
+                paint2.setAntiAlias(true);
+                paint2.setStyle(Paint.Style.FILL_AND_STROKE);
+                paint2.setColor(qv2Var.j.d);
+                String str = qv2Var.j.a;
+                float f3 = f * 2.0f;
+                float measureText = paint.measureText(str) + f3;
+                float f4 = (paint.getFontMetrics().bottom - paint.getFontMetrics().top) + f3;
+                if (f4 > 0.0f && measureText > 0.0f) {
+                    float f5 = qv2Var.j.h;
+                    Bitmap createBitmap = Bitmap.createBitmap((int) (measureText + f5 + 0.5d), (int) (f4 + f5 + 0.5d), Bitmap.Config.ARGB_8888);
+                    createBitmap.eraseColor(Color.argb(0, 0, 0, 0));
+                    Canvas canvas = new Canvas(createBitmap);
+                    canvas.drawColor(0, PorterDuff.Mode.CLEAR);
+                    RectF rectF = new RectF();
+                    float f6 = f5 / 2.0f;
+                    rectF.left = f6;
+                    rectF.top = f6;
+                    rectF.bottom = f4 + f6;
+                    rectF.right = measureText + f6;
+                    canvas.drawRoundRect(rectF, f2, f2, paint2);
+                    if (f5 > 0.0f) {
+                        paint2.setStyle(Paint.Style.STROKE);
+                        paint2.setColor(qv2Var.j.i);
+                        paint2.setStrokeWidth(f5);
+                        canvas.drawRoundRect(rectF, f2, f2, paint2);
                     }
+                    canvas.drawText(str, f + f6, (-paint.getFontMetrics().top) + f + f6, paint);
+                    ImageView imageView = new ImageView(AppRuntime.getAppContext());
+                    imageView.setLayoutParams(new ViewGroup.LayoutParams(createBitmap.getWidth(), createBitmap.getHeight()));
+                    qv2.c cVar2 = qv2Var.j;
+                    imageView.setPadding((int) cVar2.f, (int) cVar2.g, 0, 0);
+                    imageView.setImageBitmap(createBitmap);
+                    BitmapDescriptor fromView = BitmapDescriptorFactory.fromView(imageView);
+                    MarkerOptions markerOptions = new MarkerOptions();
+                    pv2 pv2Var = qv2Var.b;
+                    MarkerOptions zIndex = markerOptions.position(new LatLng(pv2Var.a, pv2Var.b)).icon(fromView).anchor(0.0f, 0.0f).zIndex(66);
+                    w52.i("map", "createLabel end");
+                    return zIndex;
                 }
-                if (bh4Var.e != null) {
-                    for (kd4 kd4Var : bh4Var.e) {
-                        le4<kd4> i = ne4.i(kd4Var, ec4Var);
-                        if (i != null) {
-                            oe4Var.c(je4.b().a(i));
-                        }
-                    }
-                }
-                oe4Var.e();
+                w52.c("map", "label heigth or width is 0");
+                return null;
             }
+            w52.c("map", "marker data error");
+            return null;
         }
+        return (OverlayOptions) invokeLL.objValue;
     }
 }

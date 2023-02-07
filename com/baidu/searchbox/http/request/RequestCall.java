@@ -213,6 +213,10 @@ public class RequestCall implements Cancelable, IRequestCall {
                 }
                 if (this.httpRequest.cookieManager != null) {
                     newBuilder.cookieJar(new CookieJarImpl(this.httpRequest.cookieManager));
+                    NetworkStatRecord requestNetStat = this.httpRequest.getRequestNetStat();
+                    if (requestNetStat != null) {
+                        requestNetStat.hasCookieManager = true;
+                    }
                 }
                 Proxy proxy = this.httpRequest.proxy;
                 if (proxy != null) {

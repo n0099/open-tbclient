@@ -11,6 +11,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.view.BottomCommonTipLayout;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.ForumUserLiveActiivtyConfig;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.tbadk.core.util.MemberBroadcastHelper;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -19,15 +20,15 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.data.MemberBroadcastData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabYYSubFragment;
-import com.baidu.tieba.cx4;
-import com.baidu.tieba.cx5;
+import com.baidu.tieba.o16;
+import com.baidu.tieba.p15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ForumUserLiveActivity extends BaseFragmentActivity implements cx5 {
+public class ForumUserLiveActivity extends BaseFragmentActivity implements o16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NavigationBar a;
@@ -37,13 +38,14 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements cx5 {
     public String e;
     public BottomCommonTipLayout f;
     public boolean g;
-    public CustomMessageListener h;
+    public PollingModel h;
+    public CustomMessageListener i;
 
-    @Override // com.baidu.tieba.cx5
-    public boolean y0() {
+    @Override // com.baidu.tieba.o16
+    public boolean U0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return true;
         }
         return invokeV.booleanValue;
@@ -86,7 +88,7 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements cx5 {
                 if (!this.a.g || !memberBroadcastHelper.isMeetFrequency()) {
                     return;
                 }
-                this.a.R0(memberBroadcastData);
+                this.a.s1(memberBroadcastData);
             }
         }
     }
@@ -137,10 +139,10 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements cx5 {
                 return;
             }
         }
-        this.h = new a(this, 2921774);
+        this.i = new a(this, 2921774);
     }
 
-    @Override // com.baidu.tieba.cx5
+    @Override // com.baidu.tieba.o16
     public String getFrom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -168,9 +170,57 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements cx5 {
         }
     }
 
-    public final void R0(MemberBroadcastData memberBroadcastData) {
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, memberBroadcastData) != null) || memberBroadcastData == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.a.onChangeSkinType(getPageContext(), i);
+            p15.d(this.b).f(R.color.CAM_X0202);
+            LiveTabYYSubFragment liveTabYYSubFragment = this.c;
+            if (liveTabYYSubFragment != null) {
+                liveTabYYSubFragment.changeSkinType(i);
+            }
+            BottomCommonTipLayout bottomCommonTipLayout = this.f;
+            if (bottomCommonTipLayout != null) {
+                bottomCommonTipLayout.g();
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+            super.onCreate(bundle);
+            setContentView(R.layout.obfuscated_res_0x7f0d02d1);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09171b);
+            this.a = navigationBar;
+            navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f071f));
+            int i = 2;
+            this.c = LiveTabYYSubFragment.T1(false, 2, 4);
+            this.b = findViewById(R.id.obfuscated_res_0x7f09070d);
+            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f09070d, this.c).commitAllowingStateLoss();
+            this.e = getIntent().getStringExtra("KEY_FORUM_ID");
+            String stringExtra = getIntent().getStringExtra(ForumUserLiveActiivtyConfig.KEY_FORUM_NAME);
+            this.d = getIntent().getStringExtra("from");
+            this.c.E1(this.e, stringExtra);
+            this.a.post(new b(this));
+            StatisticItem param = new StatisticItem("c14703").param("fid", this.e);
+            if (TextUtils.equals(ForumUserLiveActiivtyConfig.KEY_FROM_FRS_CARD, this.d)) {
+                i = 1;
+            }
+            TiebaStatic.log(param.param("obj_source", i));
+            registerListener(this.i);
+            PollingModel pollingModel = new PollingModel(getPageContext(), getUniqueId());
+            this.h = pollingModel;
+            pollingModel.n0(PollingModel.MEMBER_BROADCAST);
+        }
+    }
+
+    public final void s1(MemberBroadcastData memberBroadcastData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, memberBroadcastData) != null) || memberBroadcastData == null) {
             return;
         }
         if (this.f == null) {
@@ -192,50 +242,5 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements cx5 {
             str = "";
         }
         bottomCommonTipLayout.o(memberBroadcastData, "frs_list_vip_brd", 2, str);
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.a.onChangeSkinType(getPageContext(), i);
-            cx4.d(this.b).f(R.color.CAM_X0202);
-            LiveTabYYSubFragment liveTabYYSubFragment = this.c;
-            if (liveTabYYSubFragment != null) {
-                liveTabYYSubFragment.changeSkinType(i);
-            }
-            BottomCommonTipLayout bottomCommonTipLayout = this.f;
-            if (bottomCommonTipLayout != null) {
-                bottomCommonTipLayout.g();
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
-            super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d02d2);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0916d6);
-            this.a = navigationBar;
-            navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f06fd));
-            int i = 2;
-            this.c = LiveTabYYSubFragment.T1(false, 2, 4);
-            this.b = findViewById(R.id.obfuscated_res_0x7f0906fb);
-            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f0906fb, this.c).commitAllowingStateLoss();
-            this.e = getIntent().getStringExtra("KEY_FORUM_ID");
-            String stringExtra = getIntent().getStringExtra(ForumUserLiveActiivtyConfig.KEY_FORUM_NAME);
-            this.d = getIntent().getStringExtra("from");
-            this.c.E1(this.e, stringExtra);
-            this.a.post(new b(this));
-            StatisticItem param = new StatisticItem("c14703").param("fid", this.e);
-            if (TextUtils.equals(ForumUserLiveActiivtyConfig.KEY_FROM_FRS_CARD, this.d)) {
-                i = 1;
-            }
-            TiebaStatic.log(param.param("obj_source", i));
-            registerListener(this.h);
-        }
     }
 }

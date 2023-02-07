@@ -1,20 +1,21 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
+import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import tbclient.GetLockWindowMsg.DataRes;
 /* loaded from: classes3.dex */
 public class aq8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> a;
+    public String a;
+    public String b;
+    public bq8 c;
+    public MetaData d;
 
     public aq8() {
         Interceptable interceptable = $ic;
@@ -26,33 +27,59 @@ public class aq8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        b();
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.a == null) {
-                this.a = new ArrayList();
-            }
-            this.a.clear();
-            this.a.add(BdUniDispatchSchemeController.PARAM_SHOUBAI);
-            this.a.add(BdUniDispatchSchemeController.PARAM_WISE);
         }
     }
 
-    public boolean a(Uri uri) {
-        InterceptResult invokeL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uri)) == null) {
-            if (uri == null) {
-                return false;
-            }
-            return this.a.contains(uri.getQueryParameter("obj_source"));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return invokeL.booleanValue;
+        return (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public bq8 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (bq8) invokeV.objValue;
+    }
+
+    public MetaData d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return (MetaData) invokeV.objValue;
+    }
+
+    public void e(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, dataRes) != null) || dataRes == null) {
+            return;
+        }
+        this.a = dataRes.publish_user;
+        this.b = dataRes.publish_pic;
+        MetaData metaData = new MetaData();
+        this.d = metaData;
+        metaData.parserProtobuf(dataRes.author);
+        this.d.setPendantData(null);
+        bq8 bq8Var = new bq8();
+        this.c = bq8Var;
+        bq8Var.e(dataRes.thread_info);
     }
 }

@@ -1,216 +1,96 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.text.TextUtils;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.lib.util.StringUtils;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
+import android.text.style.ImageSpan;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkSettings;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.lang.ref.WeakReference;
 /* loaded from: classes4.dex */
-public class f45 {
+public class f45 extends ImageSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public WeakReference<Drawable> a;
 
-    /* loaded from: classes4.dex */
-    public static class a extends BdAsyncTask<String, Integer, Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public NetWork a;
-        public final String b;
-        public final String c;
-        public final String d;
-
-        public a(String str, String str2, String str3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, str3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = null;
-            this.b = str;
-            this.c = str2;
-            this.d = str3;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Boolean doInBackground(String... strArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                Boolean bool = Boolean.FALSE;
-                try {
-                    NetWork netWork = new NetWork(this.b);
-                    this.a = netWork;
-                    bool = Boolean.valueOf(netWork.downloadFile(this.c + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
-                    if (bool != null && bool.booleanValue()) {
-                        if (!StringUtils.isNull(FileHelper.renameTo(null, this.c + ".tmp", null, this.c)) && !TextUtils.isEmpty(this.b) && !this.b.equals(this.d)) {
-                            FileHelper.DelFile(TbMd5.getNameMd5FromUrl(this.d));
-                        }
-                    } else {
-                        FileHelper.DelFile(this.c + ".tmp");
-                    }
-                } catch (Exception unused) {
-                }
-                return bool;
-            }
-            return (Boolean) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(Boolean bool) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) {
-                super.onPostExecute((a) bool);
-                if (bool != null && bool.booleanValue()) {
-                    new f45().g();
-                }
-            }
-        }
-    }
-
-    public f45() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f45(Drawable drawable) {
+        super(drawable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {drawable};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Drawable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public String b() {
+    public final Drawable a() {
         InterceptResult invokeV;
+        Drawable drawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return TbadkSettings.getInst().loadString("launch_config_local_url", "");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            String loadString = TbadkSettings.getInst().loadString("launch_config_remote_url", null);
-            if (StringUtils.isNull(loadString)) {
-                return;
+            WeakReference<Drawable> weakReference = this.a;
+            if (weakReference != null) {
+                drawable = weakReference.get();
+            } else {
+                drawable = null;
             }
-            TbadkSettings.getInst().saveString("launch_config_local_url", loadString);
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            String b = b();
-            if (TextUtils.equals(b, str) && e(b)) {
-                return;
+            if (drawable == null) {
+                Drawable drawable2 = getDrawable();
+                this.a = new WeakReference<>(drawable2);
+                return drawable2;
             }
-            f(str, b);
+            return drawable;
+        }
+        return (Drawable) invokeV.objValue;
+    }
+
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
+            Drawable a = a();
+            canvas.save();
+            canvas.translate(f, ((i5 - a.getBounds().bottom) - paint.getFontMetricsInt().descent) / 2);
+            a.draw(canvas);
+            canvas.restore();
         }
     }
 
-    public final boolean e(String str) {
-        InterceptResult invokeL;
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            File GetFile = FileHelper.GetFile(TbMd5.getNameMd5FromUrl(str));
-            if (GetFile != null && GetFile.exists() && GetFile.isFile()) {
-                return true;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
+            Rect bounds = a().getBounds();
+            if (fontMetricsInt != null) {
+                Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
+                int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
+                int i4 = (bounds.bottom - bounds.top) / 2;
+                int i5 = i3 / 4;
+                int i6 = i4 - i5;
+                int i7 = -(i4 + i5);
+                fontMetricsInt.ascent = i7;
+                fontMetricsInt.top = i7;
+                fontMetricsInt.bottom = i6;
+                fontMetricsInt.descent = i6;
             }
-            return false;
+            return bounds.right;
         }
-        return invokeL.booleanValue;
-    }
-
-    public void c(JSONObject jSONObject) {
-        JSONArray jSONArray;
-        JSONObject optJSONObject;
-        String str;
-        String str2;
-        JSONObject optJSONObject2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        try {
-            jSONArray = jSONObject.getJSONArray("APP_INDEX_START");
-        } catch (JSONException e) {
-            e.printStackTrace();
-            jSONArray = null;
-        }
-        TbadkSettings inst = TbadkSettings.getInst();
-        if (jSONArray == null || jSONArray.length() == 0 || (optJSONObject = jSONArray.optJSONObject(0)) == null) {
-            return;
-        }
-        int optInt = optJSONObject.optInt("url_type");
-        String optString = optJSONObject.optString("url");
-        String optString2 = optJSONObject.optString("apk_url");
-        String optString3 = optJSONObject.optString("apk_name");
-        String optString4 = optJSONObject.optString("app_name");
-        inst.saveString("url", optString);
-        inst.saveInt("url_type", optInt);
-        inst.saveString("apk_url", optString2);
-        inst.saveString("apk_name", optString3);
-        inst.saveString("app_name", optString4);
-        JSONArray optJSONArray = optJSONObject.optJSONArray("goods_info");
-        if (optJSONArray != null && optJSONArray.length() != 0 && (optJSONObject2 = optJSONArray.optJSONObject(0)) != null) {
-            str = optJSONObject2.optString("thread_pic");
-            str2 = optJSONObject2.optString("thread_pic_md5");
-            inst.saveString("apk_size", optJSONObject2.optString("apk_size"));
-        } else {
-            str = null;
-            str2 = null;
-        }
-        if (!StringUtils.isNull(str2) && !StringUtils.isNull(str)) {
-            String loadString = inst.loadString("launch_config_md5", null);
-            if (StringUtils.isNull(loadString)) {
-                inst.saveString("launch_config_md5", str2);
-                inst.saveString("launch_config_remote_url", str);
-                d(str);
-            } else if (!TextUtils.equals(loadString, str2)) {
-                inst.saveString("launch_config_md5", str2);
-                inst.saveString("launch_config_remote_url", str);
-                d(str);
-            }
-        }
-    }
-
-    public final void f(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048580, this, str, str2) != null) || !BdNetTypeUtil.isWifiNet()) {
-            return;
-        }
-        new a(str, TbMd5.getNameMd5FromUrl(str), str2).execute(new String[0]);
+        return invokeCommon.intValue;
     }
 }

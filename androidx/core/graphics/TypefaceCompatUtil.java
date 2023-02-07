@@ -8,9 +8,11 @@ import android.os.ParcelFileDescriptor;
 import android.os.Process;
 import android.os.StrictMode;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
+import androidx.core.provider.FontsContractCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -26,6 +28,9 @@ import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class TypefaceCompatUtil {
@@ -78,6 +83,27 @@ public class TypefaceCompatUtil {
             }
         }
         return (ByteBuffer) invokeLLI.objValue;
+    }
+
+    @NonNull
+    @RequiresApi(19)
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public static Map<Uri, ByteBuffer> readFontInfoIntoByteBuffer(@NonNull Context context, @NonNull FontsContractCompat.FontInfo[] fontInfoArr, @Nullable CancellationSignal cancellationSignal) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, context, fontInfoArr, cancellationSignal)) == null) {
+            HashMap hashMap = new HashMap();
+            for (FontsContractCompat.FontInfo fontInfo : fontInfoArr) {
+                if (fontInfo.getResultCode() == 0) {
+                    Uri uri = fontInfo.getUri();
+                    if (!hashMap.containsKey(uri)) {
+                        hashMap.put(uri, mmap(context, cancellationSignal, uri));
+                    }
+                }
+            }
+            return Collections.unmodifiableMap(hashMap);
+        }
+        return (Map) invokeLLL.objValue;
     }
 
     public static boolean copyToFile(File file, Resources resources, int i) {

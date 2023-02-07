@@ -1,41 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.Unit;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.functions.Function0;
+import java.io.Closeable;
 /* loaded from: classes6.dex */
-public final class qt {
+public class qt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448315370, "Lcom/baidu/tieba/qt;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448315370, "Lcom/baidu/tieba/qt;");
-        }
-    }
-
-    @JvmStatic
-    public static final void a(Function0<Unit> function0) {
+    public static void a(Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, function0) == null) {
+        if ((interceptable == null || interceptable.invokeL(65536, null, closeable) == null) && closeable != null) {
             try {
-                function0.invoke();
-            } catch (Throwable th) {
-                th.printStackTrace();
+                closeable.close();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }

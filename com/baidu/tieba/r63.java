@@ -1,133 +1,109 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.favordata.SwanFavorDataManager;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class r63 extends n63 {
+public class r63 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public class a implements cg2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ UnitedSchemeEntity b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ r63 d;
-
-        public a(r63 r63Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948073530, "Lcom/baidu/tieba/r63;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r63Var, callbackHandler, unitedSchemeEntity, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.d = r63Var;
-            this.a = callbackHandler;
-            this.b = unitedSchemeEntity;
-            this.c = str;
-        }
-
-        @Override // com.baidu.tieba.cg2
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.d.n(this.b, this.a, this.c);
-            }
-        }
-
-        @Override // com.baidu.tieba.cg2
-        public void b(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-                this.d.n(this.b, this.a, this.c);
-            }
-        }
-
-        @Override // com.baidu.tieba.cg2
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("success", "1");
-                } catch (JSONException e) {
-                    if (tk1.a) {
-                        e.printStackTrace();
-                    }
-                }
-                UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.c);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r63(g53 g53Var) {
-        super(g53Var, "/swanAPI/topFavor");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {g53Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((g53) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948073530, "Lcom/baidu/tieba/r63;");
                 return;
             }
         }
+        a = gp1.a;
     }
 
-    @Override // com.baidu.tieba.n63
-    public boolean j(j43 j43Var, UnitedSchemeEntity unitedSchemeEntity) {
+    public static JSONObject a(List<String> list, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65537, null, list, f)) == null) {
+            if (a) {
+                Log.d("PublisherCompress", "start compress");
+            }
+            ArrayList arrayList = new ArrayList();
+            w83 M = w83.M();
+            if (M == null) {
+                return null;
+            }
+            for (String str : list) {
+                if (!TextUtils.isEmpty(str)) {
+                    File file = new File(str);
+                    File k = ul3.k(file.getName());
+                    if (ul3.b(file, k, (int) (100.0f * f))) {
+                        arrayList.add(k);
+                    }
+                }
+            }
+            return b(arrayList, M);
+        }
+        return (JSONObject) invokeLF.objValue;
+    }
+
+    public static JSONObject b(ArrayList<File> arrayList, w83 w83Var) {
         InterceptResult invokeLL;
+        String J;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, j43Var, unitedSchemeEntity)) == null) {
-            String param = unitedSchemeEntity.getParam("params");
-            if (TextUtils.isEmpty(param)) {
-                return false;
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, arrayList, w83Var)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            boolean w0 = w83Var.w0();
             try {
-                String optString = new JSONObject(param).optString("appid");
-                this.c = optString;
-                return !TextUtils.isEmpty(optString);
+                JSONArray jSONArray = new JSONArray();
+                JSONArray jSONArray2 = new JSONArray();
+                Iterator<File> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    File next = it.next();
+                    if (next != null) {
+                        if (w0) {
+                            J = gl2.Z(next.getAbsolutePath());
+                        } else {
+                            J = eg3.J(next.getAbsolutePath(), w83Var.b);
+                        }
+                        if (a) {
+                            Log.d("PublisherCompress", "isSwanGame: " + w0 + "; path: " + J);
+                        }
+                        jSONArray.put(J);
+                        JSONObject jSONObject2 = new JSONObject();
+                        jSONObject2.put("path", J);
+                        jSONObject2.put("size", next.length());
+                        jSONArray2.put(jSONObject2);
+                    }
+                }
+                jSONObject.put("tempFilePaths", jSONArray);
+                jSONObject.put("tempFiles", jSONArray2);
             } catch (JSONException e) {
-                e.printStackTrace();
-                return false;
+                if (a) {
+                    Log.e("PublisherCompress", "wrapParams failed");
+                    e.printStackTrace();
+                }
             }
+            if (a) {
+                Log.e("PublisherCompress", jSONObject.toString());
+            }
+            return jSONObject;
         }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.n63
-    public void k(j43 j43Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j43Var, unitedSchemeEntity, callbackHandler, str) == null) {
-            SwanFavorDataManager.h().j(this.c, new a(this, callbackHandler, unitedSchemeEntity, str));
-        }
+        return (JSONObject) invokeLL.objValue;
     }
 }

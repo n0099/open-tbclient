@@ -116,9 +116,9 @@ public final class k extends a implements View.OnClickListener, com.kwad.compone
         if (layoutParams2 instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams2;
             if (layoutParams.height == -1) {
-                i = this.pV.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703e6);
+                i = this.pV.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703e8);
             } else {
-                int dimensionPixelSize = this.pV.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703e5);
+                int dimensionPixelSize = this.pV.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703e7);
                 if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                     ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) layoutParams;
                     WeakReference<View> weakReference = this.pZ;
@@ -157,7 +157,7 @@ public final class k extends a implements View.OnClickListener, com.kwad.compone
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             AnimatorSet animatorSet = new AnimatorSet();
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.pV, Key.TRANSLATION_X, getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0703e8));
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.pV, Key.TRANSLATION_X, getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0703ea));
             Drawable background = this.nC.getBackground();
             if (background instanceof ColorDrawable) {
                 valueAnimator = com.kwad.sdk.widget.a.ofArgb(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060783), getContext().getResources().getColor(R.color.obfuscated_res_0x7f060784));
@@ -210,10 +210,10 @@ public final class k extends a implements View.OnClickListener, com.kwad.compone
         if (!(interceptable == null || interceptable.invokeV(65542, this) == null) || (viewGroup = this.pV) == null) {
             return;
         }
-        ImageView imageView = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0911cd);
+        ImageView imageView = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091210);
         this.nC = imageView;
         imageView.setBackgroundColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060783));
-        this.pW = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911ce);
+        this.pW = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091211);
         this.pV.setOnClickListener(this);
     }
 
@@ -281,8 +281,8 @@ public final class k extends a implements View.OnClickListener, com.kwad.compone
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.aq();
             if (this.pV == null) {
-                ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f0911d3);
-                this.pV = (ViewGroup) (viewStub != null ? viewStub.inflate() : findViewById(R.id.obfuscated_res_0x7f0911d2));
+                ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f091216);
+                this.pV = (ViewGroup) (viewStub != null ? viewStub.inflate() : findViewById(R.id.obfuscated_res_0x7f091215));
                 initView();
             }
             if (!this.nM.fy()) {
@@ -290,7 +290,7 @@ public final class k extends a implements View.OnClickListener, com.kwad.compone
             } else if (com.kwad.sdk.core.response.a.b.e(getContext(), this.nM.mAdTemplate)) {
                 a(new ViewGroup.LayoutParams(-1, -1));
             } else {
-                a(new ViewGroup.LayoutParams(-1, this.pV.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703cf)));
+                a(new ViewGroup.LayoutParams(-1, this.pV.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703d1)));
             }
             this.nM.a(this.mPlayEndPageListener);
         }

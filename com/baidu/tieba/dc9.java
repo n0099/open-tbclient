@@ -1,100 +1,98 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.net.VpnService;
-import androidx.fragment.app.Fragment;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes4.dex */
 public class dc9 {
     public static /* synthetic */ Interceptable $ic;
+    public static Set<String> a;
+    public static Set<String> b;
+    public static Set<String> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Fragment a;
-    public Activity b;
-    public cc9 c;
 
-    public dc9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947699887, "Lcom/baidu/tieba/dc9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947699887, "Lcom/baidu/tieba/dc9;");
+                return;
             }
         }
+        a = new HashSet();
+        b = new HashSet();
+        c = new HashSet();
     }
 
-    public static dc9 c(Fragment fragment) {
-        InterceptResult invokeL;
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, fragment)) == null) {
-            dc9 dc9Var = new dc9();
-            dc9Var.a = fragment;
-            return dc9Var;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            b.add(str);
         }
-        return (dc9) invokeL.objValue;
     }
 
-    public void a(int i, int i2, Intent intent) {
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIIL(1048576, this, i, i2, intent) != null) || i != 25069) {
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            c.add(str);
+        }
+    }
+
+    public static void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            a.add(str);
+        }
+    }
+
+    public static void e(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65541, null, str) != null) || b.size() == 0) {
             return;
         }
-        if (i2 == -1) {
-            cc9 cc9Var = this.c;
-            if (cc9Var != null) {
-                cc9Var.a();
-                return;
-            }
-            return;
-        }
-        cc9 cc9Var2 = this.c;
-        if (cc9Var2 != null) {
-            cc9Var2.b();
-        }
+        d(str, b);
+        b.clear();
     }
 
-    public void b(cc9 cc9Var) {
+    public static void f(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cc9Var) == null) {
-            this.c = cc9Var;
-            Fragment fragment = this.a;
-            if (fragment != null) {
-                Intent prepare = VpnService.prepare(fragment.getContext());
-                if (prepare != null) {
-                    this.a.startActivityForResult(prepare, 25069);
-                    return;
-                }
-                cc9 cc9Var2 = this.c;
-                if (cc9Var2 != null) {
-                    cc9Var2.a();
-                    return;
-                }
-                return;
-            }
-            Activity activity = this.b;
-            if (activity != null) {
-                Intent prepare2 = VpnService.prepare(activity);
-                if (prepare2 != null) {
-                    this.b.startActivityForResult(prepare2, 25069);
-                    return;
-                }
-                cc9 cc9Var3 = this.c;
-                if (cc9Var3 != null) {
-                    cc9Var3.a();
-                    return;
-                }
-                return;
-            }
-            throw new IllegalArgumentException("Can not request VPN permission because no Fragment or Activity, please use static function with()");
+        if ((interceptable != null && interceptable.invokeL(65542, null, str) != null) || c.size() == 0) {
+            return;
+        }
+        d(str, c);
+        c.clear();
+    }
+
+    public static void g(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65543, null, str) != null) || a.size() == 0) {
+            return;
+        }
+        d(str, a);
+        a.clear();
+    }
+
+    public static void d(String str, Set<String> set) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, set) == null) {
+            StatisticItem statisticItem = new StatisticItem("c14295");
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("obj_locate", str);
+            statisticItem.param("obj_type", set.size());
+            TiebaStatic.log(statisticItem);
         }
     }
 }

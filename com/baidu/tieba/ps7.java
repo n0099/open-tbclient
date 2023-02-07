@@ -1,71 +1,86 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.widget.LinearLayout;
-import com.baidu.tbadk.editortools.RawLayout;
-import com.baidu.tieba.location.editortool.PbLocationInfoContainer;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ps7 extends k75 {
+public class ps7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ps7(Context context) {
-        super(context, (String) null, 8);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public String b;
+        public String c;
+        public String d;
+        public String e;
+        public String f;
+        public String g;
+        public int h;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        this.o = false;
-        this.n = 3;
-        this.m = new PbLocationInfoContainer(context);
-        this.p = new int[]{20, 19};
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ps7(Context context, boolean z) {
-        super(context, (String) null, 8);
+    public static a a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            a aVar = new a();
+            try {
+                JSONArray jSONArray = new JSONArray(str);
+                if (jSONArray.length() > 0) {
+                    JSONObject optJSONObject = jSONArray.optJSONObject(0);
+                    optJSONObject.optString("title");
+                    aVar.b = optJSONObject.optString("content");
+                    aVar.c = optJSONObject.optString("quote_content");
+                    aVar.d = optJSONObject.optString("fname");
+                    aVar.e = optJSONObject.optString("thread_id");
+                    aVar.f = optJSONObject.optString("post_id");
+                    aVar.h = optJSONObject.optInt("type");
+                    aVar.g = optJSONObject.optString("title");
+                    optJSONObject.optInt("thread_type");
+                    JSONObject optJSONObject2 = optJSONObject.optJSONObject("quote_user");
+                    if (optJSONObject2 != null) {
+                        optJSONObject2.optString("id");
+                        optJSONObject2.optString("portrait");
+                        optJSONObject2.optInt("gender");
+                    }
+                    JSONObject optJSONObject3 = optJSONObject.optJSONObject("replyer");
+                    if (optJSONObject3 != null) {
+                        optJSONObject3.optString("id");
+                        aVar.a = optJSONObject3.optInt("gender");
+                    }
+                }
+                return aVar;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return null;
             }
         }
-        this.o = false;
-        this.n = 3;
-        this.m = new PbLocationInfoContainer(context);
-        RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(-2, zi.g(getContext(), R.dimen.obfuscated_res_0x7f0702cb));
-        ((LinearLayout.LayoutParams) layoutParams).leftMargin = zi.g(getContext(), R.dimen.obfuscated_res_0x7f070207);
-        ((LinearLayout.LayoutParams) layoutParams).rightMargin = zi.g(getContext(), R.dimen.obfuscated_res_0x7f070207);
-        ((LinearLayout.LayoutParams) layoutParams).bottomMargin = zi.g(getContext(), R.dimen.obfuscated_res_0x7f070272);
-        ((LinearLayout.LayoutParams) layoutParams).topMargin = zi.g(getContext(), R.dimen.obfuscated_res_0x7f070272);
-        ((PbLocationInfoContainer) this.m).setLayoutParams(layoutParams);
-        this.p = new int[]{20, 19};
+        return (a) invokeL.objValue;
     }
 }

@@ -1,30 +1,49 @@
 package com.baidu.tieba;
 
-import androidx.exifinterface.media.ExifInterface;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.exoplayer2.text.cea.Cea608Decoder;
+import java.util.Arrays;
 /* loaded from: classes6.dex */
-public final class s40 {
+public class s40 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static byte[] a() {
-        InterceptResult invokeV;
+    public static void a(byte[] bArr, byte[] bArr2, int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? new byte[]{ExifInterface.MARKER_SOF7, 117, 76, 90, 52, -92, 15, ExifInterface.START_CODE, 26, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, 0, -124, 76, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 108, -30, -14, -12, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, 20, -35, -89, -20, 114, -66, 34, ExifInterface.MARKER_SOF10, 104, 14, -117, 75} : (byte[]) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeLLI(65536, null, bArr, bArr2, i) == null) {
+            if (i < 0) {
+                throw new IllegalArgumentException("start should be more than zero!");
+            }
+            if (bArr == null || bArr.length == 0) {
+                throw new IllegalArgumentException("dst array should not be null or empty");
+            }
+            if (bArr2 == null || bArr2.length == 0) {
+                throw new IllegalArgumentException("src array should not be null or empty");
+            }
+            if (bArr.length < bArr2.length) {
+                throw new IllegalArgumentException("dst array length should be longer than:" + bArr2.length);
+            }
+            if (bArr.length >= bArr2.length + i) {
+                System.arraycopy(bArr2, 0, bArr, i, bArr2.length);
+                return;
+            }
+            throw new IllegalArgumentException("start should be less than:" + (bArr.length - bArr2.length));
+        }
     }
 
-    public static byte[] b() {
-        InterceptResult invokeV;
+    public static byte[] b(byte[] bArr, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new byte[]{ExifInterface.MARKER_SOF7, 117, 76, 90, 52, -92, 15, ExifInterface.START_CODE, 26, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, 0, -124, 83, 56, 126, -30, -88, -28} : (byte[]) invokeV.objValue;
-    }
-
-    public static byte[] c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new byte[]{ExifInterface.MARKER_SOF7, 117, 76, 90, 52, -92, 15, ExifInterface.START_CODE, 26, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, 0, -124, 65, 45, 110, -43, -67, -19, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 24} : (byte[]) invokeV.objValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, bArr, i)) == null) {
+            if (bArr == null || bArr.length == 0) {
+                throw new IllegalArgumentException("original array should not be null or empty");
+            }
+            if (i >= 0) {
+                return Arrays.copyOf(bArr, i);
+            }
+            throw new IllegalArgumentException("length should be more than zero!");
+        }
+        return (byte[]) invokeLI.objValue;
     }
 }

@@ -1,98 +1,86 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
+import tbclient.YulePostActivity;
 /* loaded from: classes4.dex */
-public final class h05 {
+public class h05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ItemData a;
-    public final int b;
-    public final String c;
+    public String a;
+    public String b;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof h05) {
-                h05 h05Var = (h05) obj;
-                return Intrinsics.areEqual(this.a, h05Var.a) && this.b == h05Var.b && Intrinsics.areEqual(this.c, h05Var.c);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (((this.a.hashCode() * 31) + this.b) * 31) + this.c.hashCode() : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "ItemCardViewButtonData(item=" + this.a + ", position=" + this.b + ", tid=" + this.c + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public h05(ItemData item, int i, String tid) {
+    public h05() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {item, Integer.valueOf(i), tid};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        Intrinsics.checkNotNullParameter(item, "item");
-        Intrinsics.checkNotNullParameter(tid, "tid");
-        this.a = item;
-        this.b = i;
-        this.c = tid;
     }
 
-    public final ItemData a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (ItemData) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final int b() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.b;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public final String c() {
-        InterceptResult invokeV;
+    public void c(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return (String) invokeV.objValue;
+        try {
+            jSONObject.optLong("start_time");
+            jSONObject.optLong("end_time");
+            this.a = jSONObject.optString("activity_banner");
+            jSONObject.optString("activity_url");
+            jSONObject.optString("activity_desc");
+            this.b = jSONObject.optString("activity_button");
+        } catch (Exception e) {
+            BdLog.e(e.toString());
+        }
+    }
+
+    public void d(YulePostActivity yulePostActivity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, yulePostActivity) != null) || yulePostActivity == null) {
+            return;
+        }
+        Long l = yulePostActivity.start_time;
+        if (l != null) {
+            l.longValue();
+        }
+        Long l2 = yulePostActivity.end_time;
+        if (l2 != null) {
+            l2.longValue();
+        }
+        this.a = yulePostActivity.activity_banner;
+        String str = yulePostActivity.activity_url;
+        String str2 = yulePostActivity.activity_desc;
+        this.b = yulePostActivity.activity_button;
     }
 }

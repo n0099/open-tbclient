@@ -12,10 +12,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.ef;
-import com.baidu.tieba.ig8;
-import com.baidu.tieba.s9;
-import com.baidu.tieba.vv4;
+import com.baidu.tieba.dk8;
+import com.baidu.tieba.i05;
+import com.baidu.tieba.jf;
+import com.baidu.tieba.x9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ public class PersonBarModel extends BdBaseModel {
     public static final String e;
     public static TbHttpMessageTask f;
     public transient /* synthetic */ FieldHolder $fh;
-    public ig8 a;
+    public dk8 a;
     public boolean b;
     public String c;
     public int d;
@@ -93,23 +93,23 @@ public class PersonBarModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((s9) newInitContext.callArgs[0]);
+                super((x9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new ig8();
+        this.a = new dk8();
         this.b = z;
     }
 
-    public ig8 G() {
+    public dk8 G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (ig8) invokeV.objValue;
+        return (dk8) invokeV.objValue;
     }
 
     public boolean H() {
@@ -166,8 +166,8 @@ public class PersonBarModel extends BdBaseModel {
         }
         if (str != null) {
             try {
-                vv4.d();
-                ef<String> e2 = vv4.e("tb.my_pages");
+                i05.d();
+                jf<String> e2 = i05.e("tb.my_pages");
                 if (e2 != null) {
                     e2.e(str2, str, 604800000L);
                 }

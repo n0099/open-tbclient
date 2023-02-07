@@ -139,19 +139,6 @@ public class DialogRecordDBManager extends DBBase {
         return (DialogRecordDBManager) invokeL.objValue;
     }
 
-    public long add(DialogRecord dialogRecord) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dialogRecord)) == null) {
-            String str = TAG;
-            LogUtils.i(str, "add DialogRecord : " + dialogRecord);
-            LinkedList linkedList = new LinkedList();
-            linkedList.add(dialogRecord);
-            return addBatch(linkedList);
-        }
-        return invokeL.longValue;
-    }
-
     public List<DialogRecord> getDialogRecord(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -166,16 +153,29 @@ public class DialogRecordDBManager extends DBBase {
         return (List) invokeI.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:51:0x011a, code lost:
+    public long add(DialogRecord dialogRecord) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dialogRecord)) == null) {
+            String str = TAG;
+            LogUtils.i(str, "add DialogRecord : " + dialogRecord);
+            LinkedList linkedList = new LinkedList();
+            linkedList.add(dialogRecord);
+            return addBatch(linkedList);
+        }
+        return invokeL.longValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:51:0x0119, code lost:
         if (r14 != null) goto L45;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:52:0x011c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:52:0x011b, code lost:
         r14.endTransaction();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:66:0x0139, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:66:0x0138, code lost:
         if (r14 != null) goto L45;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:68:0x013c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:68:0x013b, code lost:
         return r1;
      */
     /*

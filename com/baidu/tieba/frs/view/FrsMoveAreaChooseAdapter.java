@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b05;
-import com.baidu.tieba.fn6;
+import com.baidu.tieba.o45;
+import com.baidu.tieba.qr6;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -55,7 +55,7 @@ public class FrsMoveAreaChooseAdapter extends RecyclerView.Adapter<a> implements
                     return;
                 }
             }
-            this.a = (TBSpecificationBtn) view2.findViewById(R.id.obfuscated_res_0x7f0905ca);
+            this.a = (TBSpecificationBtn) view2.findViewById(R.id.obfuscated_res_0x7f0905d8);
         }
     }
 
@@ -77,13 +77,13 @@ public class FrsMoveAreaChooseAdapter extends RecyclerView.Adapter<a> implements
         this.c = -1;
         this.d = -1;
         this.a = frsMoveAreaChooseView;
-        this.b = fn6.h().g();
+        this.b = qr6.h().g();
         this.e = new SparseArray<>();
         if (!ListUtils.isEmpty(this.b)) {
             for (int i3 = 0; i3 < this.b.size(); i3++) {
                 FrsTabInfo frsTabInfo = this.b.get(i3);
-                if (frsTabInfo != null && (frsTabInfo.is_general_tab.intValue() == 0 || frsTabInfo.tab_id.intValue() == fn6.h().e() || frsTabInfo.tab_type.intValue() == 3 || frsTabInfo.tab_type.intValue() == 102 || frsTabInfo.tab_type.intValue() == 100 || TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06f6).equals(frsTabInfo.tab_name) || TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06f4).equals(frsTabInfo.tab_name))) {
-                    if (frsTabInfo.tab_id.intValue() == fn6.h().e()) {
+                if (frsTabInfo != null && (frsTabInfo.is_general_tab.intValue() == 0 || frsTabInfo.tab_id.intValue() == qr6.h().e() || frsTabInfo.tab_type.intValue() == 3 || frsTabInfo.tab_type.intValue() == 102 || frsTabInfo.tab_type.intValue() == 100 || TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0718).equals(frsTabInfo.tab_name) || TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0716).equals(frsTabInfo.tab_name))) {
+                    if (frsTabInfo.tab_id.intValue() == qr6.h().e()) {
                         this.c = i3;
                     }
                     this.e.append(i3, frsTabInfo);
@@ -139,21 +139,21 @@ public class FrsMoveAreaChooseAdapter extends RecyclerView.Adapter<a> implements
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tBSpecificationBtn, i) == null) {
             if (i == this.d) {
-                b05 b05Var = new b05();
-                b05Var.q(R.color.CAM_X0304);
-                tBSpecificationBtn.setConfig(b05Var);
+                o45 o45Var = new o45();
+                o45Var.q(R.color.CAM_X0304);
+                tBSpecificationBtn.setConfig(o45Var);
                 tBSpecificationBtn.k();
                 tBSpecificationBtn.setUseDisableState(false);
             } else if (this.e.get(i) != null) {
-                b05 b05Var2 = new b05();
-                b05Var2.s(R.color.CAM_X0105);
-                tBSpecificationBtn.setConfig(b05Var2);
+                o45 o45Var2 = new o45();
+                o45Var2.s(R.color.CAM_X0105);
+                tBSpecificationBtn.setConfig(o45Var2);
                 tBSpecificationBtn.k();
                 tBSpecificationBtn.setUseDisableState(true);
             } else {
-                b05 b05Var3 = new b05();
-                b05Var3.s(R.color.CAM_X0105);
-                tBSpecificationBtn.setConfig(b05Var3);
+                o45 o45Var3 = new o45();
+                o45Var3.s(R.color.CAM_X0105);
+                tBSpecificationBtn.setConfig(o45Var3);
                 tBSpecificationBtn.k();
                 tBSpecificationBtn.setUseDisableState(false);
             }
@@ -168,7 +168,7 @@ public class FrsMoveAreaChooseAdapter extends RecyclerView.Adapter<a> implements
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i)) == null) {
-            return new a(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d01ca, viewGroup, false));
+            return new a(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d01c9, viewGroup, false));
         }
         return (a) invokeLI.objValue;
     }
@@ -186,13 +186,13 @@ public class FrsMoveAreaChooseAdapter extends RecyclerView.Adapter<a> implements
                 if (intValue == this.c) {
                     BdTopToast bdTopToast = new BdTopToast(this.a.getContext());
                     bdTopToast.h(false);
-                    bdTopToast.g(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f075a));
+                    bdTopToast.g(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f077c));
                     bdTopToast.i((ViewGroup) this.a.getParent());
                     return;
                 }
                 BdTopToast bdTopToast2 = new BdTopToast(this.a.getContext());
                 bdTopToast2.h(false);
-                bdTopToast2.g(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f075b));
+                bdTopToast2.g(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f077d));
                 bdTopToast2.i((ViewGroup) this.a.getParent());
                 return;
             }

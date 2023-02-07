@@ -1,206 +1,164 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.res.Resources;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.wv4;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.URLEncoder;
-import tbclient.PopInfo;
+import java.util.ArrayList;
+import tbclient.ApkDetail;
+import tbclient.ItemInfo;
 /* loaded from: classes5.dex */
-public class l07 {
+public class l07 extends sw4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final FrsFragment a;
-    public b b;
+    public ArrayList<q07> a;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    @Override // com.baidu.tieba.sw4
+    public py4 getNegFeedBackData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (py4) invokeV.objValue;
     }
 
-    /* loaded from: classes5.dex */
-    public class b extends BdAsyncTask<Void, Void, Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ l07 a;
-
-        /* loaded from: classes5.dex */
-        public class a implements wv4.e {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            @Override // com.baidu.tieba.wv4.e
-            public void onClick(wv4 wv4Var) {
-                Interceptable interceptable = $ic;
-                if ((interceptable != null && interceptable.invokeL(1048576, this, wv4Var) != null) || wv4Var == null) {
-                    return;
-                }
-                wv4Var.dismiss();
-            }
+    @Override // com.baidu.tieba.sw4
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
         }
+        return (ThreadData) invokeV.objValue;
+    }
 
-        /* renamed from: com.baidu.tieba.l07$b$b  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class C0334b implements wv4.e {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ PopInfo a;
-            public final /* synthetic */ b b;
-
-            public C0334b(b bVar, PopInfo popInfo) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, popInfo};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = bVar;
-                this.a = popInfo;
-            }
-
-            @Override // com.baidu.tieba.wv4.e
-            public void onClick(wv4 wv4Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, wv4Var) == null) {
-                    UrlManager.getInstance().dealOneLink(this.b.a.a.getPageContext(), new String[]{this.a.ahead_url});
-                    if (wv4Var == null) {
-                        return;
-                    }
-                    wv4Var.dismiss();
-                }
-            }
-        }
-
-        public b(l07 l07Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947889142, "Lcom/baidu/tieba/l07;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l07Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = l07Var;
-        }
-
-        public /* synthetic */ b(l07 l07Var, a aVar) {
-            this(l07Var);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Boolean doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                vv4.d();
-                ef<String> e = vv4.e("tb.enter_frs_dialog_list");
-                String encode = URLEncoder.encode(this.a.a.X0().getForum().getName());
-                if (e.get(encode) == null) {
-                    e.g(encode, "1");
-                    return Boolean.TRUE;
-                }
-                return Boolean.FALSE;
-            }
-            return (Boolean) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(Boolean bool) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) != null) || !bool.booleanValue() || !this.a.c() || !this.a.a.isAdded()) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947889142, "Lcom/baidu/tieba/l07;");
                 return;
             }
-            PopInfo popInfo = this.a.a.X0().enterFrsDialogInfo;
-            wv4 wv4Var = new wv4(this.a.a.getActivity());
-            wv4Var.setTitle(popInfo.title);
-            wv4Var.setMessage(popInfo.v_title);
-            wv4Var.isShowTitleAndMessage();
-            wv4Var.setNegativeButton(popInfo.ok_info, new a(this));
-            wv4Var.setPositiveButton(popInfo.ahead_info, new C0334b(this, popInfo));
-            wv4Var.create(this.a.a.getPageContext()).show();
         }
+        b = BdUniqueId.gen();
     }
 
-    public l07(FrsFragment frsFragment) {
+    public l07() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frsFragment};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = frsFragment;
+        setSupportType(BaseCardInfo.SupportType.FULL);
     }
 
-    public final boolean c() {
+    public ArrayList<q07> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            PopInfo popInfo = this.a.X0().enterFrsDialogInfo;
-            if (popInfo != null && !StringUtils.isNull(popInfo.ahead_info) && !StringUtils.isNull(popInfo.ahead_url) && !StringUtils.isNull(popInfo.ok_info) && !StringUtils.isNull(popInfo.title) && !StringUtils.isNull(popInfo.v_title) && this.a.X0().enterFrsDialogInfo.if_pop.intValue() != 0) {
-                return true;
-            }
-            return false;
+            return this.a;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return !ListUtils.isEmpty(this.a);
         }
         return invokeV.booleanValue;
     }
 
-    public void d() {
-        FrsFragment frsFragment;
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !TbadkCoreApplication.isLogin() || (frsFragment = this.a) == null || frsFragment.X0() == null || this.a.X0().getForum() == null || StringUtils.isNull(this.a.X0().getForum().getName()) || this.a.X0().enterFrsDialogInfo == null || !c() || this.b != null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return b;
         }
-        b bVar = new b(this, null);
-        this.b = bVar;
-        bVar.execute(new Void[0]);
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void h(ItemInfo itemInfo) {
+        ApkDetail apkDetail;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, itemInfo) == null) {
+            if (this.a == null) {
+                this.a = new ArrayList<>();
+            }
+            this.a.clear();
+            if (itemInfo != null && (apkDetail = itemInfo.apk_detail) != null) {
+                if (!dj.isEmpty(apkDetail.developer)) {
+                    this.a.add(new q07(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0513), itemInfo.apk_detail.developer, null));
+                }
+                if (!dj.isEmpty(itemInfo.apk_detail.publisher)) {
+                    this.a.add(new q07(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0ffa), itemInfo.apk_detail.publisher, null));
+                }
+                if (!dj.isEmpty(itemInfo.apk_detail.version)) {
+                    this.a.add(new q07(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f04aa), itemInfo.apk_detail.version, null));
+                }
+                if (!dj.isEmpty(itemInfo.apk_detail.update_time)) {
+                    this.a.add(new q07(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f15da), itemInfo.apk_detail.update_time, null));
+                }
+                if (dh.g(itemInfo.apk_detail.size, 0L) > 0) {
+                    this.a.add(new q07(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0666), StringHelper.getFormatSize(dh.g(itemInfo.apk_detail.size, 0L)), null));
+                }
+                int intValue = itemInfo.apk_detail.need_network.intValue();
+                int i2 = R.string.editor_dialog_yes;
+                if (intValue > 0) {
+                    ArrayList<q07> arrayList = this.a;
+                    String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0a24);
+                    Resources resources = TbadkCoreApplication.getInst().getResources();
+                    if (itemInfo.apk_detail.need_network.intValue() == 1) {
+                        i = R.string.editor_dialog_yes;
+                    } else {
+                        i = R.string.editor_dialog_no;
+                    }
+                    arrayList.add(new q07(string, resources.getString(i), null));
+                }
+                if (itemInfo.apk_detail.need_inner_buy.intValue() > 0) {
+                    ArrayList<q07> arrayList2 = this.a;
+                    String string2 = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f08c5);
+                    Resources resources2 = TbadkCoreApplication.getInst().getResources();
+                    if (itemInfo.apk_detail.need_inner_buy.intValue() != 1) {
+                        i2 = R.string.editor_dialog_no;
+                    }
+                    arrayList2.add(new q07(string2, resources2.getString(i2), null));
+                }
+                if (!dj.isEmpty(itemInfo.apk_detail.authority_url)) {
+                    this.a.add(new q07(TbadkCoreApplication.getInst().getResources().getString(R.string.permission_info), TbadkCoreApplication.getInst().getResources().getString(R.string.item_browse), itemInfo.apk_detail.authority_url));
+                }
+                if (!dj.isEmpty(itemInfo.apk_detail.privacy_url)) {
+                    this.a.add(new q07(TbadkCoreApplication.getInst().getResources().getString(R.string.privacy_info), TbadkCoreApplication.getInst().getResources().getString(R.string.item_browse), itemInfo.apk_detail.privacy_url));
+                }
+            }
+        }
     }
 }

@@ -1,36 +1,104 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.ugc.editvideo.data.MultiMediaData;
-import com.baidu.ugc.editvideo.record.processor.adapter.MultiMediaDataSourceViewAdapter;
-import com.baidu.ugc.editvideo.record.source.multimedia.VlogEditManager;
-import java.util.List;
+import android.graphics.PointF;
+import android.graphics.RectF;
+import androidx.core.util.Pools;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.danmu.ui.DanmakuPlayer;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public interface zh6 {
-    void c();
+public final class zh6 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final zh6 a;
+    public static final Pools.SimplePool<RectF> b;
+    public static final Pools.SimplePool<PointF> c;
+    public static final Pools.SimplePool<sf6> d;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void d(ai6 ai6Var);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948360001, "Lcom/baidu/tieba/zh6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948360001, "Lcom/baidu/tieba/zh6;");
+                return;
+            }
+        }
+        a = new zh6();
+        b = new Pools.SimplePool<>(200);
+        c = new Pools.SimplePool<>(200);
+        d = new Pools.SimplePool<>(1000);
+    }
 
-    void e(VlogEditManager vlogEditManager, MultiMediaDataSourceViewAdapter multiMediaDataSourceViewAdapter);
+    public zh6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
-    void f();
+    public final PointF b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            PointF acquire = c.acquire();
+            if (acquire == null) {
+                return new PointF();
+            }
+            return acquire;
+        }
+        return (PointF) invokeV.objValue;
+    }
 
-    void i(float f);
+    public final RectF c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            RectF acquire = b.acquire();
+            if (acquire == null) {
+                return new RectF();
+            }
+            return acquire;
+        }
+        return (RectF) invokeV.objValue;
+    }
 
-    @Nullable
-    List<MultiMediaData> j();
-
-    void l();
-
-    void m(String str);
-
-    boolean o();
-
-    void onDestroy();
-
-    float p();
-
-    void q(@Nullable List<MultiMediaData> list);
-
-    void reset();
+    public final sf6 a(tf6 data, DanmakuPlayer player) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, data, player)) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            Intrinsics.checkNotNullParameter(player, "player");
+            sf6 acquire = d.acquire();
+            if (acquire == null) {
+                acquire = null;
+            } else {
+                acquire.l(data);
+                acquire.p(player.m().w());
+            }
+            if (acquire == null) {
+                return new sf6(data, player);
+            }
+            return acquire;
+        }
+        return (sf6) invokeLL.objValue;
+    }
 }

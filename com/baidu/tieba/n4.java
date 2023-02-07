@@ -1,604 +1,518 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
+import com.badlogic.gdx.graphics.Mesh;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g3d.model.data.ModelMaterial;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Quaternion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.utils.BufferUtils;
 import com.badlogic.gdx.utils.GdxRuntimeException;
-import com.badlogic.gdx.utils.JsonValue;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteKey;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.tieba.c7;
-import com.baidu.tieba.v1;
+import com.baidu.tieba.d8;
+import com.baidu.tieba.h7;
+import com.baidu.tieba.i7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 /* loaded from: classes5.dex */
-public class n4 extends v1<v1.a> {
+public class n4 implements o7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final e7 d;
-    public final Quaternion e;
+    public final h7<m4> a;
+    public final h7<x4> b;
+    public final h7<v4> c;
+    public final h7<Mesh> d;
+    public final h7<w4> e;
+    public final h7<o7> f;
+    public d8<a5, i7<String, Matrix4>> g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n4(e7 e7Var, t1 t1Var) {
-        super(t1Var);
+    public n4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {e7Var, t1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((t1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = new Quaternion();
-        this.d = e7Var;
+        this.a = new h7<>();
+        this.b = new h7<>();
+        this.c = new h7<>();
+        this.d = new h7<>();
+        this.e = new h7<>();
+        this.f = new h7<>();
+        this.g = new d8<>();
     }
 
-    public c7<a5> p(x4 x4Var, JsonValue jsonValue) {
-        InterceptResult invokeLL;
+    public n4(c5 c5Var, v5 v5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, x4Var, jsonValue)) == null) {
-            JsonValue l = jsonValue.l("nodes");
-            if (l != null) {
-                x4Var.d.e(l.j);
-                for (JsonValue jsonValue2 = l.f; jsonValue2 != null; jsonValue2 = jsonValue2.h) {
-                    x4Var.d.a(q(jsonValue2));
-                }
-            }
-            return x4Var.d;
-        }
-        return (c7) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.v1
-    public x4 h(l3 l3Var, v1.a aVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, l3Var, aVar)) == null) {
-            return o(l3Var);
-        }
-        return (x4) invokeLL.objValue;
-    }
-
-    /* JADX WARN: Type inference failed for: r10v2, types: [com.badlogic.gdx.math.Vector3, T] */
-    /* JADX WARN: Type inference failed for: r15v7, types: [com.badlogic.gdx.math.Vector3, T] */
-    /* JADX WARN: Type inference failed for: r8v8, types: [T, com.badlogic.gdx.math.Quaternion] */
-    /* JADX WARN: Type inference failed for: r9v10, types: [com.badlogic.gdx.math.Vector3, T] */
-    /* JADX WARN: Type inference failed for: r9v15, types: [com.badlogic.gdx.math.Vector3, T] */
-    /* JADX WARN: Type inference failed for: r9v17, types: [T, com.badlogic.gdx.math.Quaternion] */
-    public void j(x4 x4Var, JsonValue jsonValue) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x4Var, jsonValue) == null) {
-            x4 x4Var2 = x4Var;
-            JsonValue l = jsonValue.l("animations");
-            if (l == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {c5Var, v5Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            x4Var2.e.e(l.j);
-            JsonValue jsonValue2 = l.f;
-            while (jsonValue2 != null) {
-                JsonValue l2 = jsonValue2.l("bones");
-                if (l2 != null) {
-                    w4 w4Var = new w4();
-                    x4Var2.e.a(w4Var);
-                    w4Var.b.e(l2.j);
-                    w4Var.a = jsonValue2.q("id");
-                    for (JsonValue jsonValue3 = l2.f; jsonValue3 != null; jsonValue3 = jsonValue3.h) {
-                        b5 b5Var = new b5();
-                        w4Var.b.a(b5Var);
-                        b5Var.a = jsonValue3.q("boneId");
-                        JsonValue l3 = jsonValue3.l("keyframes");
-                        float f = 1000.0f;
-                        float f2 = 0.0f;
-                        int i = 2;
-                        int i2 = 1;
-                        int i3 = 0;
-                        int i4 = 3;
-                        if (l3 != null && l3.u()) {
-                            JsonValue jsonValue4 = l3.f;
-                            while (jsonValue4 != null) {
-                                float o = jsonValue4.o("keytime", f2) / f;
-                                JsonValue l4 = jsonValue4.l("translation");
-                                if (l4 != null && l4.j == i4) {
-                                    if (b5Var.b == null) {
-                                        b5Var.b = new c7<>();
-                                    }
-                                    c5<Vector3> c5Var = new c5<>();
-                                    c5Var.a = o;
-                                    c5Var.b = new Vector3(l4.n(i3), l4.n(i2), l4.n(i));
-                                    b5Var.b.a(c5Var);
-                                }
-                                JsonValue l5 = jsonValue4.l("rotation");
-                                if (l5 != null && l5.j == 4) {
-                                    if (b5Var.c == null) {
-                                        b5Var.c = new c7<>();
-                                    }
-                                    c5<Quaternion> c5Var2 = new c5<>();
-                                    c5Var2.a = o;
-                                    c5Var2.b = new Quaternion(l5.n(0), l5.n(i2), l5.n(i), l5.n(3));
-                                    b5Var.c.a(c5Var2);
-                                }
-                                JsonValue l6 = jsonValue4.l("scale");
-                                if (l6 != null && l6.j == 3) {
-                                    if (b5Var.d == null) {
-                                        b5Var.d = new c7<>();
-                                    }
-                                    c5<Vector3> c5Var3 = new c5<>();
-                                    c5Var3.a = o;
-                                    c5Var3.b = new Vector3(l6.n(0), l6.n(1), l6.n(2));
-                                    b5Var.d.a(c5Var3);
-                                }
-                                jsonValue4 = jsonValue4.h;
-                                f = 1000.0f;
-                                f2 = 0.0f;
-                                i = 2;
-                                i2 = 1;
-                                i3 = 0;
-                                i4 = 3;
-                            }
-                        } else {
-                            JsonValue l7 = jsonValue3.l("translation");
-                            if (l7 != null && l7.u()) {
-                                c7<c5<Vector3>> c7Var = new c7<>();
-                                b5Var.b = c7Var;
-                                c7Var.e(l7.j);
-                                for (JsonValue jsonValue5 = l7.f; jsonValue5 != null; jsonValue5 = jsonValue5.h) {
-                                    c5<Vector3> c5Var4 = new c5<>();
-                                    b5Var.b.a(c5Var4);
-                                    c5Var4.a = jsonValue5.o("keytime", 0.0f) / 1000.0f;
-                                    JsonValue l8 = jsonValue5.l("value");
-                                    if (l8 != null && l8.j >= 3) {
-                                        c5Var4.b = new Vector3(l8.n(0), l8.n(1), l8.n(2));
-                                    }
-                                }
-                            }
-                            JsonValue l9 = jsonValue3.l("rotation");
-                            if (l9 != null && l9.u()) {
-                                c7<c5<Quaternion>> c7Var2 = new c7<>();
-                                b5Var.c = c7Var2;
-                                c7Var2.e(l9.j);
-                                for (JsonValue jsonValue6 = l9.f; jsonValue6 != null; jsonValue6 = jsonValue6.h) {
-                                    c5<Quaternion> c5Var5 = new c5<>();
-                                    b5Var.c.a(c5Var5);
-                                    c5Var5.a = jsonValue6.o("keytime", 0.0f) / 1000.0f;
-                                    JsonValue l10 = jsonValue6.l("value");
-                                    if (l10 != null && l10.j >= 4) {
-                                        c5Var5.b = new Quaternion(l10.n(0), l10.n(1), l10.n(2), l10.n(3));
-                                    }
-                                }
-                            }
-                            JsonValue l11 = jsonValue3.l("scaling");
-                            if (l11 != null && l11.u()) {
-                                c7<c5<Vector3>> c7Var3 = new c7<>();
-                                b5Var.d = c7Var3;
-                                c7Var3.e(l11.j);
-                                for (JsonValue jsonValue7 = l11.f; jsonValue7 != null; jsonValue7 = jsonValue7.h) {
-                                    c5<Vector3> c5Var6 = new c5<>();
-                                    b5Var.d.a(c5Var6);
-                                    c5Var6.a = jsonValue7.o("keytime", 0.0f) / 1000.0f;
-                                    JsonValue l12 = jsonValue7.l("value");
-                                    if (l12 != null && l12.j >= 3) {
-                                        c5Var6.b = new Vector3(l12.n(0), l12.n(1), l12.n(2));
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                jsonValue2 = jsonValue2.h;
-                x4Var2 = x4Var;
+        }
+        this.a = new h7<>();
+        this.b = new h7<>();
+        this.c = new h7<>();
+        this.d = new h7<>();
+        this.e = new h7<>();
+        this.f = new h7<>();
+        this.g = new d8<>();
+        l(c5Var, v5Var);
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            int i = this.b.b;
+            for (int i2 = 0; i2 < i; i2++) {
+                this.b.get(i2).d(true);
+            }
+            for (int i3 = 0; i3 < i; i3++) {
+                this.b.get(i3).b(true);
             }
         }
     }
 
-    public u3[] k(JsonValue jsonValue) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.o7
+    public void dispose() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsonValue)) == null) {
-            c7 c7Var = new c7();
-            int i = 0;
-            int i2 = 0;
-            for (JsonValue jsonValue2 = jsonValue.f; jsonValue2 != null; jsonValue2 = jsonValue2.h) {
-                String j = jsonValue2.j();
-                if (j.equals("POSITION")) {
-                    c7Var.a(u3.f());
-                } else if (j.equals("NORMAL")) {
-                    c7Var.a(u3.e());
-                } else if (j.equals("COLOR")) {
-                    c7Var.a(u3.d());
-                } else if (j.equals("COLORPACKED")) {
-                    c7Var.a(u3.c());
-                } else if (j.equals("TANGENT")) {
-                    c7Var.a(u3.g());
-                } else if (j.equals("BINORMAL")) {
-                    c7Var.a(u3.a());
-                } else if (j.startsWith("TEXCOORD")) {
-                    c7Var.a(u3.h(i));
-                    i++;
-                } else if (j.startsWith("BLENDWEIGHT")) {
-                    c7Var.a(u3.b(i2));
-                    i2++;
-                } else {
-                    throw new GdxRuntimeException("Unknown vertex attribute '" + j + "', should be one of position, normal, uv, tangent or binormal");
-                }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            h7.b<o7> it = this.f.iterator();
+            while (it.hasNext()) {
+                it.next().dispose();
             }
-            return (u3[]) c7Var.m(u3.class);
         }
-        return (u3[]) invokeL.objValue;
     }
 
-    public m3 l(JsonValue jsonValue) {
-        InterceptResult invokeL;
+    public Iterable<o7> h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jsonValue)) == null) {
-            if (jsonValue.j >= 3) {
-                return new m3(jsonValue.n(0), jsonValue.n(1), jsonValue.n(2), 1.0f);
-            }
-            throw new GdxRuntimeException("Expected Color values <> than three.");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.f;
         }
-        return (m3) invokeL.objValue;
+        return (Iterable) invokeV.objValue;
     }
 
-    public void m(x4 x4Var, JsonValue jsonValue, String str) {
-        JsonValue l;
+    public m4 f(ModelMaterial modelMaterial, v5 v5Var) {
+        InterceptResult invokeLL;
+        Texture load;
+        float f;
+        float f2;
+        float f3;
+        float f4;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048580, this, x4Var, jsonValue, str) == null) && (l = jsonValue.l("materials")) != null) {
-            x4Var.c.e(l.j);
-            for (JsonValue jsonValue2 = l.f; jsonValue2 != null; jsonValue2 = jsonValue2.h) {
-                ModelMaterial modelMaterial = new ModelMaterial();
-                String r = jsonValue2.r("id", null);
-                if (r != null) {
-                    modelMaterial.a = r;
-                    JsonValue l2 = jsonValue2.l("diffuse");
-                    if (l2 != null) {
-                        modelMaterial.c = l(l2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, modelMaterial, v5Var)) == null) {
+            m4 m4Var = new m4();
+            m4Var.d = modelMaterial.a;
+            if (modelMaterial.b != null) {
+                m4Var.h(new p4(p4.g, modelMaterial.b));
+            }
+            if (modelMaterial.c != null) {
+                m4Var.h(new p4(p4.e, modelMaterial.c));
+            }
+            if (modelMaterial.d != null) {
+                m4Var.h(new p4(p4.f, modelMaterial.d));
+            }
+            if (modelMaterial.e != null) {
+                m4Var.h(new p4(p4.h, modelMaterial.e));
+            }
+            if (modelMaterial.f != null) {
+                m4Var.h(new p4(p4.i, modelMaterial.f));
+            }
+            if (modelMaterial.g > 0.0f) {
+                m4Var.h(new q4(q4.e, modelMaterial.g));
+            }
+            if (modelMaterial.h != 1.0f) {
+                m4Var.h(new o4(770, 771, modelMaterial.h));
+            }
+            d8 d8Var = new d8();
+            h7<j5> h7Var = modelMaterial.i;
+            if (h7Var != null) {
+                h7.b<j5> it = h7Var.iterator();
+                while (it.hasNext()) {
+                    j5 next = it.next();
+                    if (d8Var.a(next.a)) {
+                        load = (Texture) d8Var.c(next.a);
+                    } else {
+                        load = v5Var.load(next.a);
+                        d8Var.i(next.a, load);
+                        this.f.a(load);
                     }
-                    JsonValue l3 = jsonValue2.l("ambient");
-                    if (l3 != null) {
-                        modelMaterial.b = l(l3);
+                    u5 u5Var = new u5(load);
+                    u5Var.b = load.h();
+                    u5Var.c = load.f();
+                    u5Var.d = load.j();
+                    u5Var.e = load.k();
+                    Vector2 vector2 = next.b;
+                    if (vector2 == null) {
+                        f = 0.0f;
+                    } else {
+                        f = vector2.x;
                     }
-                    JsonValue l4 = jsonValue2.l("emissive");
-                    if (l4 != null) {
-                        modelMaterial.e = l(l4);
+                    Vector2 vector22 = next.b;
+                    if (vector22 == null) {
+                        f2 = 0.0f;
+                    } else {
+                        f2 = vector22.y;
                     }
-                    JsonValue l5 = jsonValue2.l("specular");
-                    if (l5 != null) {
-                        modelMaterial.d = l(l5);
+                    Vector2 vector23 = next.c;
+                    if (vector23 == null) {
+                        f3 = 1.0f;
+                    } else {
+                        f3 = vector23.x;
                     }
-                    JsonValue l6 = jsonValue2.l("reflection");
-                    if (l6 != null) {
-                        modelMaterial.f = l(l6);
+                    Vector2 vector24 = next.c;
+                    if (vector24 == null) {
+                        f4 = 1.0f;
+                    } else {
+                        f4 = vector24.y;
                     }
-                    modelMaterial.g = jsonValue2.o("shininess", 0.0f);
-                    modelMaterial.h = jsonValue2.o(NativeConstants.OPACITY, 1.0f);
-                    JsonValue l7 = jsonValue2.l("textures");
-                    if (l7 != null) {
-                        for (JsonValue jsonValue3 = l7.f; jsonValue3 != null; jsonValue3 = jsonValue3.h) {
-                            e5 e5Var = new e5();
-                            if (jsonValue3.r("id", null) != null) {
-                                String r2 = jsonValue3.r(BreakpointSQLiteKey.FILENAME, null);
-                                if (r2 != null) {
-                                    StringBuilder sb = new StringBuilder();
-                                    sb.append(str);
-                                    String str2 = "/";
-                                    sb.append((str.length() == 0 || str.endsWith("/")) ? "" : "");
-                                    sb.append(r2);
-                                    e5Var.a = sb.toString();
-                                    e5Var.b = t(jsonValue3.l("uvTranslation"), 0.0f, 0.0f);
-                                    e5Var.c = t(jsonValue3.l("uvScaling"), 1.0f, 1.0f);
-                                    String r3 = jsonValue3.r("type", null);
-                                    if (r3 != null) {
-                                        e5Var.d = r(r3);
-                                        if (modelMaterial.i == null) {
-                                            modelMaterial.i = new c7<>();
+                    int i = next.d;
+                    if (i != 2) {
+                        if (i != 3) {
+                            if (i != 4) {
+                                if (i != 5) {
+                                    if (i != 7) {
+                                        if (i != 8) {
+                                            if (i == 10) {
+                                                m4Var.h(new r4(r4.p, u5Var, f, f2, f3, f4));
+                                            }
+                                        } else {
+                                            m4Var.h(new r4(r4.l, u5Var, f, f2, f3, f4));
                                         }
-                                        modelMaterial.i.a(e5Var);
                                     } else {
-                                        throw new GdxRuntimeException("Texture needs type.");
+                                        m4Var.h(new r4(r4.m, u5Var, f, f2, f3, f4));
                                     }
                                 } else {
-                                    throw new GdxRuntimeException("Texture needs filename.");
+                                    m4Var.h(new r4(r4.k, u5Var, f, f2, f3, f4));
                                 }
                             } else {
-                                throw new GdxRuntimeException("Texture has no id.");
+                                m4Var.h(new r4(r4.n, u5Var, f, f2, f3, f4));
                             }
-                        }
-                        continue;
-                    }
-                    x4Var.c.a(modelMaterial);
-                } else {
-                    throw new GdxRuntimeException("Material needs an id.");
-                }
-            }
-        }
-    }
-
-    public void n(x4 x4Var, JsonValue jsonValue) {
-        JsonValue l;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, x4Var, jsonValue) == null) && (l = jsonValue.l("meshes")) != null) {
-            x4Var.b.e(l.j);
-            for (JsonValue jsonValue2 = l.f; jsonValue2 != null; jsonValue2 = jsonValue2.h) {
-                y4 y4Var = new y4();
-                jsonValue2.r("id", "");
-                y4Var.a = k(jsonValue2.K("attributes"));
-                y4Var.b = jsonValue2.K("vertices").e();
-                JsonValue K = jsonValue2.K("parts");
-                c7 c7Var = new c7();
-                for (JsonValue jsonValue3 = K.f; jsonValue3 != null; jsonValue3 = jsonValue3.h) {
-                    z4 z4Var = new z4();
-                    String r = jsonValue3.r("id", null);
-                    if (r != null) {
-                        c7.b it = c7Var.iterator();
-                        while (it.hasNext()) {
-                            if (((z4) it.next()).a.equals(r)) {
-                                throw new GdxRuntimeException("Mesh part with id '" + r + "' already in defined");
-                            }
-                        }
-                        z4Var.a = r;
-                        String r2 = jsonValue3.r("type", null);
-                        if (r2 != null) {
-                            z4Var.c = s(r2);
-                            z4Var.b = jsonValue3.K("indices").i();
-                            c7Var.a(z4Var);
                         } else {
-                            throw new GdxRuntimeException("No primitive type given for mesh part '" + r + "'");
+                            m4Var.h(new r4(r4.o, u5Var, f, f2, f3, f4));
                         }
                     } else {
-                        throw new GdxRuntimeException("Not id given for mesh part");
+                        m4Var.h(new r4(r4.j, u5Var, f, f2, f3, f4));
                     }
                 }
-                y4Var.c = (z4[]) c7Var.m(z4.class);
-                x4Var.b.a(y4Var);
+            }
+            return m4Var;
+        }
+        return (m4) invokeLL.objValue;
+    }
+
+    public void g(d5 d5Var) {
+        boolean z;
+        e5[] e5VarArr;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, d5Var) == null) {
+            int i2 = 0;
+            for (e5 e5Var : d5Var.c) {
+                i2 += e5Var.b.length;
+            }
+            if (i2 > 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            a4 a4Var = new a4(d5Var.a);
+            int length = d5Var.b.length / (a4Var.b / 4);
+            Mesh mesh = new Mesh(true, length, i2, a4Var);
+            this.d.a(mesh);
+            this.f.a(mesh);
+            BufferUtils.a(d5Var.b, mesh.m(), d5Var.b.length, 0);
+            mesh.j().clear();
+            int i3 = 0;
+            for (e5 e5Var2 : d5Var.c) {
+                w4 w4Var = new w4();
+                w4Var.a = e5Var2.a;
+                w4Var.b = e5Var2.c;
+                w4Var.c = i3;
+                if (z) {
+                    i = e5Var2.b.length;
+                } else {
+                    i = length;
+                }
+                w4Var.d = i;
+                w4Var.e = mesh;
+                if (z) {
+                    mesh.j().put(e5Var2.b);
+                }
+                i3 += w4Var.d;
+                this.e.a(w4Var);
+            }
+            mesh.j().position(0);
+            h7.b<w4> it = this.e.iterator();
+            while (it.hasNext()) {
+                it.next().update();
             }
         }
     }
 
-    public x4 o(l3 l3Var) {
+    public void q(Iterable<f5> iterable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, iterable) == null) {
+            this.g.clear();
+            for (f5 f5Var : iterable) {
+                this.b.a(p(f5Var));
+            }
+            d8.a<a5, i7<String, Matrix4>> b = this.g.b();
+            b.c();
+            while (b.hasNext()) {
+                d8.b next = b.next();
+                K k = next.a;
+                if (((a5) k).a == null) {
+                    ((a5) k).a = new i7<>(x4.class, Matrix4.class);
+                }
+                ((a5) next.a).a.clear();
+                i7.a a = ((i7) next.b).a();
+                a.iterator();
+                while (a.hasNext()) {
+                    d8.b next2 = a.next();
+                    ((a5) next.a).a.e(i((String) next2.a), new Matrix4((Matrix4) next2.b).inv());
+                }
+            }
+        }
+    }
+
+    public x4 i(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, l3Var)) == null) {
-            JsonValue a = this.d.a(l3Var);
-            x4 x4Var = new x4();
-            JsonValue K = a.K("version");
-            x4Var.a[0] = K.p(0);
-            x4Var.a[1] = K.p(1);
-            short[] sArr = x4Var.a;
-            if (sArr[0] == 0 && sArr[1] == 1) {
-                a.r("id", "");
-                n(x4Var, a);
-                m(x4Var, a, l3Var.i().j());
-                p(x4Var, a);
-                j(x4Var, a);
-                return x4Var;
-            }
-            throw new GdxRuntimeException("Model version not supported");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            return j(str, true);
         }
         return (x4) invokeL.objValue;
     }
 
-    public int s(String str) {
-        InterceptResult invokeL;
+    public void o(Iterable<d5> iterable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            if (str.equals("TRIANGLES")) {
-                return 4;
+        if (interceptable == null || interceptable.invokeL(1048587, this, iterable) == null) {
+            for (d5 d5Var : iterable) {
+                g(d5Var);
             }
-            if (str.equals("LINES")) {
-                return 1;
-            }
-            if (str.equals("POINTS")) {
-                return 0;
-            }
-            if (str.equals("TRIANGLE_STRIP")) {
-                return 5;
-            }
-            if (str.equals("LINE_STRIP")) {
-                return 3;
-            }
-            throw new GdxRuntimeException("Unknown primitive type '" + str + "', should be one of triangle, trianglestrip, line, linestrip, lineloop or point");
         }
-        return invokeL.intValue;
     }
 
-    public a5 q(JsonValue jsonValue) {
-        InterceptResult invokeL;
+    public x4 j(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048582, this, str, z)) == null) {
+            return k(str, z, false);
+        }
+        return (x4) invokeLZ.objValue;
+    }
+
+    public void l(c5 c5Var, v5 v5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, c5Var, v5Var) == null) {
+            o(c5Var.b);
+            n(c5Var.c, v5Var);
+            q(c5Var.d);
+            m(c5Var.e);
+            a();
+        }
+    }
+
+    public void n(Iterable<ModelMaterial> iterable, v5 v5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, iterable, v5Var) == null) {
+            for (ModelMaterial modelMaterial : iterable) {
+                this.a.a(f(modelMaterial, v5Var));
+            }
+        }
+    }
+
+    public x4 k(String str, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            return x4.f(this.b, str, z, z2);
+        }
+        return (x4) invokeCommon.objValue;
+    }
+
+    public void m(Iterable<b5> iterable) {
+        h7<z4<Quaternion>> h7Var;
+        h7<z4<Vector3>> h7Var2;
         Vector3 vector3;
         Quaternion quaternion;
         Vector3 vector32;
-        String str;
-        String str2;
-        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jsonValue)) == null) {
-            n4 n4Var = this;
-            a5 a5Var = new a5();
-            String str3 = null;
-            String r = jsonValue.r("id", null);
-            if (r != null) {
-                a5Var.a = r;
-                String str4 = "translation";
-                JsonValue l = jsonValue.l("translation");
-                if (l != null && l.j != 3) {
-                    throw new GdxRuntimeException("Node translation incomplete");
-                }
-                boolean z = true;
-                if (l == null) {
-                    vector3 = null;
-                } else {
-                    vector3 = new Vector3(l.n(0), l.n(1), l.n(2));
-                }
-                a5Var.b = vector3;
-                String str5 = "rotation";
-                JsonValue l2 = jsonValue.l("rotation");
-                if (l2 != null && l2.j != 4) {
-                    throw new GdxRuntimeException("Node rotation incomplete");
-                }
-                if (l2 == null) {
-                    quaternion = null;
-                } else {
-                    quaternion = new Quaternion(l2.n(0), l2.n(1), l2.n(2), l2.n(3));
-                }
-                a5Var.c = quaternion;
-                JsonValue l3 = jsonValue.l("scale");
-                if (l3 != null && l3.j != 3) {
-                    throw new GdxRuntimeException("Node scale incomplete");
-                }
-                if (l3 == null) {
-                    vector32 = null;
-                } else {
-                    vector32 = new Vector3(l3.n(0), l3.n(1), l3.n(2));
-                }
-                a5Var.d = vector32;
-                jsonValue.r("mesh", null);
-                JsonValue l4 = jsonValue.l("parts");
-                if (l4 != null) {
-                    a5Var.e = new d5[l4.j];
-                    JsonValue jsonValue2 = l4.f;
-                    int i2 = 0;
-                    while (jsonValue2 != null) {
-                        d5 d5Var = new d5();
-                        String r2 = jsonValue2.r("meshpartid", str3);
-                        String r3 = jsonValue2.r("materialid", str3);
-                        if (r2 != null && r3 != null) {
-                            d5Var.a = r3;
-                            d5Var.b = r2;
-                            JsonValue l5 = jsonValue2.l("bones");
-                            if (l5 != null) {
-                                d5Var.c = new d7<>(z, l5.j, String.class, Matrix4.class);
-                                JsonValue jsonValue3 = l5.f;
-                                while (jsonValue3 != null) {
-                                    String r4 = jsonValue3.r("node", null);
-                                    if (r4 != null) {
-                                        Matrix4 matrix4 = new Matrix4();
-                                        JsonValue l6 = jsonValue3.l(str4);
-                                        if (l6 != null && l6.j >= 3) {
-                                            str = str4;
-                                            matrix4.translate(l6.n(0), l6.n(1), l6.n(2));
-                                        } else {
-                                            str = str4;
-                                        }
-                                        JsonValue l7 = jsonValue3.l(str5);
-                                        if (l7 != null && l7.j >= 4) {
-                                            str2 = str5;
-                                            i = 3;
-                                            matrix4.rotate(n4Var.e.set(l7.n(0), l7.n(1), l7.n(2), l7.n(3)));
-                                        } else {
-                                            str2 = str5;
-                                            i = 3;
-                                        }
-                                        JsonValue l8 = jsonValue3.l("scale");
-                                        if (l8 != null && l8.j >= i) {
-                                            matrix4.scale(l8.n(0), l8.n(1), l8.n(2));
-                                        }
-                                        d5Var.c.e(r4, matrix4);
-                                        jsonValue3 = jsonValue3.h;
-                                        n4Var = this;
-                                        str4 = str;
-                                        str5 = str2;
-                                    } else {
-                                        throw new GdxRuntimeException("Bone node ID missing");
-                                    }
+        if (interceptable == null || interceptable.invokeL(1048585, this, iterable) == null) {
+            for (b5 b5Var : iterable) {
+                v4 v4Var = new v4();
+                String str = b5Var.a;
+                h7.b<g5> it = b5Var.b.iterator();
+                while (it.hasNext()) {
+                    g5 next = it.next();
+                    x4 i = i(next.a);
+                    if (i != null) {
+                        y4 y4Var = new y4();
+                        if (next.b != null) {
+                            h7<z4<Vector3>> h7Var3 = new h7<>();
+                            y4Var.a = h7Var3;
+                            h7Var3.e(next.b.b);
+                            h7.b<h5<Vector3>> it2 = next.b.iterator();
+                            while (it2.hasNext()) {
+                                h5<Vector3> next2 = it2.next();
+                                float f = next2.a;
+                                if (f > v4Var.a) {
+                                    v4Var.a = f;
                                 }
-                                continue;
+                                h7<z4<Vector3>> h7Var4 = y4Var.a;
+                                float f2 = next2.a;
+                                Vector3 vector33 = next2.b;
+                                if (vector33 == null) {
+                                    vector32 = i.d;
+                                } else {
+                                    vector32 = vector33;
+                                }
+                                h7Var4.a(new z4<>(f2, new Vector3(vector32)));
                             }
-                            a5Var.e[i2] = d5Var;
-                            jsonValue2 = jsonValue2.h;
-                            i2++;
-                            str3 = null;
-                            n4Var = this;
-                            str4 = str4;
-                            str5 = str5;
-                            z = true;
-                        } else {
-                            throw new GdxRuntimeException("Node " + r + " part is missing meshPartId or materialId");
+                        }
+                        if (next.c != null) {
+                            h7<z4<Quaternion>> h7Var5 = new h7<>();
+                            y4Var.b = h7Var5;
+                            h7Var5.e(next.c.b);
+                            h7.b<h5<Quaternion>> it3 = next.c.iterator();
+                            while (it3.hasNext()) {
+                                h5<Quaternion> next3 = it3.next();
+                                float f3 = next3.a;
+                                if (f3 > v4Var.a) {
+                                    v4Var.a = f3;
+                                }
+                                h7<z4<Quaternion>> h7Var6 = y4Var.b;
+                                float f4 = next3.a;
+                                Quaternion quaternion2 = next3.b;
+                                if (quaternion2 == null) {
+                                    quaternion = i.e;
+                                } else {
+                                    quaternion = quaternion2;
+                                }
+                                h7Var6.a(new z4<>(f4, new Quaternion(quaternion)));
+                            }
+                        }
+                        if (next.d != null) {
+                            h7<z4<Vector3>> h7Var7 = new h7<>();
+                            y4Var.c = h7Var7;
+                            h7Var7.e(next.d.b);
+                            h7.b<h5<Vector3>> it4 = next.d.iterator();
+                            while (it4.hasNext()) {
+                                h5<Vector3> next4 = it4.next();
+                                float f5 = next4.a;
+                                if (f5 > v4Var.a) {
+                                    v4Var.a = f5;
+                                }
+                                h7<z4<Vector3>> h7Var8 = y4Var.c;
+                                float f6 = next4.a;
+                                Vector3 vector34 = next4.b;
+                                if (vector34 == null) {
+                                    vector3 = i.f;
+                                } else {
+                                    vector3 = vector34;
+                                }
+                                h7Var8.a(new z4<>(f6, new Vector3(vector3)));
+                            }
+                        }
+                        h7<z4<Vector3>> h7Var9 = y4Var.a;
+                        if ((h7Var9 != null && h7Var9.b > 0) || (((h7Var = y4Var.b) != null && h7Var.b > 0) || ((h7Var2 = y4Var.c) != null && h7Var2.b > 0))) {
+                            v4Var.b.a(y4Var);
                         }
                     }
                 }
-                JsonValue l9 = jsonValue.l(CriusAttrConstants.CHILDREN);
-                if (l9 != null) {
-                    a5Var.f = new a5[l9.j];
-                    JsonValue jsonValue4 = l9.f;
-                    int i3 = 0;
-                    while (jsonValue4 != null) {
-                        a5Var.f[i3] = q(jsonValue4);
-                        jsonValue4 = jsonValue4.h;
-                        i3++;
+                if (v4Var.b.b > 0) {
+                    this.c.a(v4Var);
+                }
+            }
+        }
+    }
+
+    public x4 p(f5 f5Var) {
+        InterceptResult invokeL;
+        w4 w4Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, f5Var)) == null) {
+            x4 x4Var = new x4();
+            x4Var.a = f5Var.a;
+            Vector3 vector3 = f5Var.b;
+            if (vector3 != null) {
+                x4Var.d.set(vector3);
+            }
+            Quaternion quaternion = f5Var.c;
+            if (quaternion != null) {
+                x4Var.e.set(quaternion);
+            }
+            Vector3 vector32 = f5Var.d;
+            if (vector32 != null) {
+                x4Var.f.set(vector32);
+            }
+            i5[] i5VarArr = f5Var.e;
+            if (i5VarArr != null) {
+                for (i5 i5Var : i5VarArr) {
+                    m4 m4Var = null;
+                    if (i5Var.b != null) {
+                        h7.b<w4> it = this.e.iterator();
+                        while (it.hasNext()) {
+                            w4Var = it.next();
+                            if (i5Var.b.equals(w4Var.a)) {
+                                break;
+                            }
+                        }
+                    }
+                    w4Var = null;
+                    if (i5Var.a != null) {
+                        h7.b<m4> it2 = this.a.iterator();
+                        while (true) {
+                            if (!it2.hasNext()) {
+                                break;
+                            }
+                            m4 next = it2.next();
+                            if (i5Var.a.equals(next.d)) {
+                                m4Var = next;
+                                break;
+                            }
+                        }
+                    }
+                    if (w4Var != null && m4Var != null) {
+                        a5 a5Var = new a5();
+                        x4Var.i.a(a5Var);
+                        i7<String, Matrix4> i7Var = i5Var.c;
+                        if (i7Var != null) {
+                            this.g.i(a5Var, i7Var);
+                        }
+                    } else {
+                        throw new GdxRuntimeException("Invalid node: " + x4Var.a);
                     }
                 }
-                return a5Var;
             }
-            throw new GdxRuntimeException("Node id missing.");
+            f5[] f5VarArr = f5Var.f;
+            if (f5VarArr != null) {
+                for (f5 f5Var2 : f5VarArr) {
+                    x4Var.a(p(f5Var2));
+                }
+            }
+            return x4Var;
         }
-        return (a5) invokeL.objValue;
-    }
-
-    public int r(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            if (str.equalsIgnoreCase("AMBIENT")) {
-                return 4;
-            }
-            if (str.equalsIgnoreCase("BUMP")) {
-                return 8;
-            }
-            if (str.equalsIgnoreCase("DIFFUSE")) {
-                return 2;
-            }
-            if (str.equalsIgnoreCase("EMISSIVE")) {
-                return 3;
-            }
-            if (str.equalsIgnoreCase(HlsPlaylistParser.METHOD_NONE)) {
-                return 1;
-            }
-            if (str.equalsIgnoreCase("NORMAL")) {
-                return 7;
-            }
-            if (str.equalsIgnoreCase("REFLECTION")) {
-                return 10;
-            }
-            if (str.equalsIgnoreCase("SHININESS")) {
-                return 6;
-            }
-            if (str.equalsIgnoreCase("SPECULAR")) {
-                return 5;
-            }
-            if (str.equalsIgnoreCase("TRANSPARENCY")) {
-                return 9;
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public Vector2 t(JsonValue jsonValue, float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{jsonValue, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            if (jsonValue == null) {
-                return new Vector2(f, f2);
-            }
-            if (jsonValue.j == 2) {
-                return new Vector2(jsonValue.n(0), jsonValue.n(1));
-            }
-            throw new GdxRuntimeException("Expected Vector2 values <> than two.");
-        }
-        return (Vector2) invokeCommon.objValue;
+        return (x4) invokeL.objValue;
     }
 }

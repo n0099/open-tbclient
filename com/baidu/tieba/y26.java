@@ -1,51 +1,97 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.live.interfaces.DI;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class y26 {
+public class y26 extends mc6<p26> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TextView i;
+    public TextView j;
+    public TbImageView k;
+    public TbImageView l;
+    public View m;
+    public p26 n;
 
-    public y26() {
+    @Override // com.baidu.tieba.mc6
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0875 : invokeV.intValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public y26(TbPageContext tbPageContext, ViewGroup viewGroup) {
+        super(tbPageContext, viewGroup);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.m = h();
+        this.i = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090f21);
+        this.j = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090f20);
+        this.k = (TbImageView) h().findViewById(R.id.obfuscated_res_0x7f090f1f);
+        TbImageView tbImageView = (TbImageView) h().findViewById(R.id.obfuscated_res_0x7f090f1e);
+        this.l = tbImageView;
+        tbImageView.setAutoChangeStyle(true);
+        this.l.setDefaultResource(17170445);
+        this.l.setDefaultBgResource(17170445);
+        this.k.setOnClickListener(this);
+        this.j.setOnClickListener(this);
+        j(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && e() != null) {
+            e().a(view2, this.n);
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.mc6
+    /* renamed from: r */
+    public void i(p26 p26Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048580, this, p26Var) == null) {
+            this.n = p26Var;
         }
-        jSONObject.optString("user_id");
-        jSONObject.optString("user_name");
-        jSONObject.optString("sex");
-        jSONObject.optString("description");
-        jSONObject.optString("portrait");
-        jSONObject.optString("level_id");
-        jSONObject.optString("location");
-        jSONObject.optString(DI.FOLLOW_STATUS);
-        jSONObject.optString("follow_count");
-        jSONObject.optString("fans_count");
-        jSONObject.optString("live_count");
-        jSONObject.optString("record_count");
-        jSONObject.optInt("yy_level_id");
-        jSONObject.optLong("yy_levelup_exp");
-        jSONObject.optLong("yy_level_exp");
-        jSONObject.optString("yy_level_name");
-        jSONObject.optString("yy_level_next_name");
+    }
+
+    @Override // com.baidu.tieba.mc6
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            SkinManager.setBackgroundResource(this.m, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0101);
+            SkinManager.setImageResource(this.k, R.drawable.icon_tab_live_close_n);
+            SkinManager.setBackgroundResource(this.j, R.drawable.tab_sub_notification_btn_bg_selecor);
+            SkinManager.setImageResource(this.l, R.drawable.obfuscated_res_0x7f0802ec);
+        }
     }
 }

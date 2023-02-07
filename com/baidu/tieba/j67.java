@@ -1,154 +1,140 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.compatible.EditorHelper;
+import com.baidu.tieba.funAd.strategy.FunAdSidConfigData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class j67<T, V extends TypeAdapter.ViewHolder> extends ln<T, V> {
+public class j67 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile j67 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public TbPageContext<?> b;
-    public eo c;
-    public vq4 d;
+    public Map<String, FunAdSidConfigData> a;
 
-    @Override // com.baidu.tieba.ln
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, T t, V v) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t, v})) == null) ? view2 : (View) invokeCommon.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j67(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
-        BdUniqueId uniqueId;
+    public j67() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = true;
-        TbPageContext pageContext = ((TbPageContextSupport) context).getPageContext();
-        this.b = pageContext;
-        if (pageContext == null) {
-            uniqueId = null;
-        } else {
-            uniqueId = pageContext.getUniqueId();
-        }
-        m(pageContext, uniqueId);
+        HashMap hashMap = new HashMap();
+        this.a = hashMap;
+        hashMap.clear();
+        this.a.putAll(c());
     }
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public j67(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(r1, bdUniqueId);
-        Activity pageActivity;
+    public final Map<String, FunAdSidConfigData> c() {
+        InterceptResult invokeV;
+        FunAdSidConfigData d;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            HashMap hashMap = new HashMap();
+            for (String str : k67.e().c()) {
+                if (!TextUtils.isEmpty(str) && (d = d(str)) != null) {
+                    hashMap.put(str, d);
+                }
             }
+            return hashMap;
         }
-        if (tbPageContext == null) {
-            pageActivity = null;
-        } else {
-            pageActivity = tbPageContext.getPageActivity();
-        }
-        this.a = true;
-        m(tbPageContext, tbPageContext != null ? tbPageContext.getUniqueId() : null);
+        return (Map) invokeV.objValue;
     }
 
-    public void m(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, tbPageContext, bdUniqueId) == null) && tbPageContext != null) {
-            this.mContext = tbPageContext.getPageActivity();
-            this.b = tbPageContext;
-            this.mPageId = bdUniqueId;
-        }
-    }
-
-    public void s(View view2, ThreadData threadData) {
-        vq4 vq4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, threadData) == null) && (vq4Var = this.d) != null) {
-            int i = threadData.position;
-            vq4Var.c(view2, threadData, i, i);
-        }
-    }
-
-    @Override // com.baidu.tieba.ln
-    public void setPageId(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
-            this.mPageId = bdUniqueId;
-        }
-    }
-
-    public void u(vq4 vq4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, vq4Var) == null) {
-            this.d = vq4Var;
-        }
-    }
-
-    public void v(eo eoVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, eoVar) == null) {
-            this.c = eoVar;
-        }
-    }
-
-    public boolean t() {
+    public static j67 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (j67.class) {
+                    if (b == null) {
+                        b = new j67();
+                    }
+                }
+            }
+            return b;
         }
-        return invokeV.booleanValue;
+        return (j67) invokeV.objValue;
     }
 
-    public void w(View view2, ThreadData threadData, int i, long j) {
-        vq4 vq4Var;
+    public final FunAdSidConfigData a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{view2, threadData, Integer.valueOf(i), Long.valueOf(j)}) == null) && (vq4Var = this.d) != null) {
-            vq4Var.d(view2, threadData, i, j);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            FunAdSidConfigData funAdSidConfigData = new FunAdSidConfigData();
+            funAdSidConfigData.parserJson(jSONObject);
+            return funAdSidConfigData;
+        }
+        return (FunAdSidConfigData) invokeL.objValue;
+    }
+
+    public FunAdSidConfigData b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (this.a != null && !TextUtils.isEmpty(str) && this.a.containsKey(str)) {
+                return this.a.get(str);
+            }
+            return null;
+        }
+        return (FunAdSidConfigData) invokeL.objValue;
+    }
+
+    public final FunAdSidConfigData d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            JSONObject jSONObject = null;
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            String string = k67.g().getString(str, "");
+            if (TextUtils.isEmpty(string)) {
+                return null;
+            }
+            try {
+                jSONObject = new JSONObject(string);
+            } catch (JSONException e) {
+                BdLog.detailException(e);
+            }
+            return a(jSONObject);
+        }
+        return (FunAdSidConfigData) invokeL.objValue;
+    }
+
+    public final void g(String str) {
+        FunAdSidConfigData funAdSidConfigData;
+        JSONObject json;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || this.a == null || TextUtils.isEmpty(str) || !this.a.containsKey(str) || (funAdSidConfigData = this.a.get(str)) == null || (json = funAdSidConfigData.toJson()) == null) {
+            return;
+        }
+        EditorHelper.putString(k67.g(), str, json.toString());
+    }
+
+    public void f(String str, FunAdSidConfigData funAdSidConfigData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, funAdSidConfigData) == null) && this.a != null && !TextUtils.isEmpty(str)) {
+            this.a.put(str, funAdSidConfigData);
+            g(str);
         }
     }
 }

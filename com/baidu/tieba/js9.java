@@ -1,33 +1,15 @@
 package com.baidu.tieba;
-
-import android.os.Build;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public class js9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface js9 {
+    void a(int i);
 
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return b();
-        }
-        return invokeV.booleanValue;
-    }
+    void b();
 
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            String str = Build.MODEL;
-            if (ps9.a(str)) {
-                return false;
-            }
-            return str.equalsIgnoreCase("OPPO R9sk");
-        }
-        return invokeV.booleanValue;
-    }
+    void c();
+
+    void d();
+
+    void e(String str);
+
+    void f(String str);
 }

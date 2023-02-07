@@ -60,7 +60,7 @@ public class e {
     public TelephonyManager e;
     public com.baidu.location.c.a f;
     public WifiManager g;
-    public C0116e h;
+    public C0115e h;
     public String i;
     public String j;
     public LocationClientOption k;
@@ -369,7 +369,7 @@ public class e {
 
     /* renamed from: com.baidu.location.b.e$e  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0116e {
+    public static class C0115e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public List<ScanResult> a;
@@ -378,7 +378,7 @@ public class e {
         public String d;
         public int e;
 
-        public C0116e(List<ScanResult> list) {
+        public C0115e(List<ScanResult> list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -416,7 +416,7 @@ public class e {
         private void b() {
             /*
                 r7 = this;
-                com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.location.b.e.C0116e.$ic
+                com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.location.b.e.C0115e.$ic
                 if (r0 != 0) goto L63
             L4:
                 int r0 = r7.a()
@@ -476,7 +476,7 @@ public class e {
                 if (r0 == 0) goto L4
                 return
             */
-            throw new UnsupportedOperationException("Method not decompiled: com.baidu.location.b.e.C0116e.b():void");
+            throw new UnsupportedOperationException("Method not decompiled: com.baidu.location.b.e.C0115e.b():void");
         }
 
         public int a() {
@@ -972,9 +972,9 @@ public class e {
             }
             this.h = null;
             if (a(this.g) && this.k.priority != 4) {
-                C0116e c0116e = new C0116e(this.g.getScanResults());
-                this.h = c0116e;
-                str2 = c0116e.a(i, b(this.g), this.r, com.baidu.location.b.a.a().b);
+                C0115e c0115e = new C0115e(this.g.getScanResults());
+                this.h = c0115e;
+                str2 = c0115e.a(i, b(this.g), this.r, com.baidu.location.b.a.a().b);
                 try {
                     if (this.k != null && this.k.isOnceLocation()) {
                         this.g.startScan();
@@ -1021,9 +1021,9 @@ public class e {
         }
         this.h = null;
         if (a(this.g)) {
-            C0116e c0116e2 = new C0116e(this.g.getScanResults());
-            this.h = c0116e2;
-            str2 = c0116e2.a(i, b(this.g), this.r, com.baidu.location.b.a.a().b);
+            C0115e c0115e2 = new C0115e(this.g.getScanResults());
+            this.h = c0115e2;
+            str2 = c0115e2.a(i, b(this.g), this.r, com.baidu.location.b.a.a().b);
             if (this.k != null) {
                 this.g.startScan();
             }
@@ -1217,8 +1217,8 @@ public class e {
                 }
                 a2 = null;
             } else {
-                C0116e c0116e = this.h;
-                String a4 = c0116e.a(c0116e.a(), b(this.g), this.r, com.baidu.location.b.a.a().b);
+                C0115e c0115e = this.h;
+                String a4 = c0115e.a(c0115e.a(), b(this.g), this.r, com.baidu.location.b.a.a().b);
                 if (!TextUtils.isEmpty(a4)) {
                     a2 = com.baidu.location.e.k.a(a4.getBytes(), false);
                 }

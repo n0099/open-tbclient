@@ -1,445 +1,423 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.annotation.SuppressLint;
+import android.graphics.Bitmap;
+import android.graphics.BitmapShader;
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.graphics.Shader;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
-import android.text.TextUtils;
+import android.graphics.drawable.TransitionDrawable;
 import android.util.Log;
-import androidx.annotation.NonNull;
+import android.widget.ImageView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.b43;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class g73 extends g63 {
+public class g73 extends Drawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final RectF a;
+    public final RectF b;
+    public final RectF c;
+    public final BitmapShader d;
+    public final Paint e;
+    public final int f;
+    public final int g;
+    public final RectF h;
+    public final Paint i;
+    public final Matrix j;
+    public float k;
+    public int l;
+    public int m;
+    public ImageView.ScaleType n;
+
+    @Override // android.graphics.drawable.Drawable
+    public int getOpacity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return -3;
+        }
+        return invokeV.intValue;
+    }
 
     /* loaded from: classes4.dex */
-    public class a implements Runnable {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ UnitedSchemeEntity c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ int e;
-        public final /* synthetic */ boolean f;
-        public final /* synthetic */ g73 g;
 
-        public a(g73 g73Var, Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, int i, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g73Var, context, callbackHandler, unitedSchemeEntity, str, Integer.valueOf(i), Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-821094903, "Lcom/baidu/tieba/g73$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-821094903, "Lcom/baidu/tieba/g73$a;");
                     return;
                 }
             }
-            this.g = g73Var;
-            this.a = context;
-            this.b = callbackHandler;
-            this.c = unitedSchemeEntity;
-            this.d = str;
-            this.e = i;
-            this.f = z;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.g.r(this.a, this.b, this.c, this.d, this.e, this.f);
+            int[] iArr = new int[ImageView.ScaleType.values().length];
+            a = iArr;
+            try {
+                iArr[ImageView.ScaleType.CENTER.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[ImageView.ScaleType.CENTER_CROP.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[ImageView.ScaleType.CENTER_INSIDE.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[ImageView.ScaleType.FIT_CENTER.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                a[ImageView.ScaleType.FIT_END.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                a[ImageView.ScaleType.FIT_START.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
+            try {
+                a[ImageView.ScaleType.FIT_XY.ordinal()] = 7;
+            } catch (NoSuchFieldError unused7) {
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ UnitedSchemeEntity c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ int e;
-        public final /* synthetic */ Drawable f;
-        public final /* synthetic */ boolean g;
-        public final /* synthetic */ g73 h;
-
-        public b(g73 g73Var, Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, int i, Drawable drawable, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g73Var, context, callbackHandler, unitedSchemeEntity, str, Integer.valueOf(i), drawable, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.h = g73Var;
-            this.a = context;
-            this.b = callbackHandler;
-            this.c = unitedSchemeEntity;
-            this.d = str;
-            this.e = i;
-            this.f = drawable;
-            this.g = z;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            this.h.p(this.a, this.b, this.c, this.d, this.e, this.f, this.g);
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ UnitedSchemeEntity c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ int e;
-        public final /* synthetic */ boolean f;
-        public final /* synthetic */ g73 g;
-
-        public c(g73 g73Var, Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, int i, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g73Var, context, callbackHandler, unitedSchemeEntity, str, Integer.valueOf(i), Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.g = g73Var;
-            this.a = context;
-            this.b = callbackHandler;
-            this.c = unitedSchemeEntity;
-            this.d = str;
-            this.e = i;
-            this.f = z;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.g.q(this.a, this.b, this.c, this.d, this.e, this.f);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ UnitedSchemeEntity c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ int e;
-        public final /* synthetic */ String f;
-        public final /* synthetic */ String g;
-        public final /* synthetic */ g73 h;
-
-        public d(g73 g73Var, Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, int i, String str2, String str3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g73Var, context, callbackHandler, unitedSchemeEntity, str, Integer.valueOf(i), str2, str3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.h = g73Var;
-            this.a = context;
-            this.b = callbackHandler;
-            this.c = unitedSchemeEntity;
-            this.d = str;
-            this.e = i;
-            this.f = str2;
-            this.g = str3;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            this.h.o(this.a, this.b, this.c, this.d, this.e, this.f, this.g);
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class e implements b43.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ CallbackHandler b;
-
-        public e(g73 g73Var, String str, CallbackHandler callbackHandler) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g73Var, str, callbackHandler};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = callbackHandler;
-        }
-
-        @Override // com.baidu.tieba.b43.c
-        public void a() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !TextUtils.isEmpty(this.a)) {
-                this.b.handleSchemeDispatchCallback(this.a, UnitedSchemeUtility.wrapCallbackParams(0).toString());
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g73(g53 g53Var) {
-        super(g53Var, "/swanAPI/showToast");
+    public g73(Bitmap bitmap, float f, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {g53Var};
+            Object[] objArr = {bitmap, Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new RectF();
+        this.b = new RectF();
+        this.c = new RectF();
+        this.h = new RectF();
+        this.j = new Matrix();
+        this.n = ImageView.ScaleType.FIT_XY;
+        this.l = i;
+        this.m = i2;
+        this.f = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        this.g = height;
+        this.c.set(0.0f, 0.0f, this.f, height);
+        this.k = f;
+        Shader.TileMode tileMode = Shader.TileMode.CLAMP;
+        BitmapShader bitmapShader = new BitmapShader(bitmap, tileMode, tileMode);
+        this.d = bitmapShader;
+        bitmapShader.setLocalMatrix(this.j);
+        Paint paint = new Paint();
+        this.e = paint;
+        paint.setAntiAlias(true);
+        this.e.setShader(this.d);
+        Paint paint2 = new Paint();
+        this.i = paint2;
+        paint2.setAntiAlias(true);
+        this.i.setColor(this.m);
+        this.i.setStrokeWidth(i);
     }
 
-    @Override // com.baidu.tieba.g63
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j43 j43Var) {
-        InterceptResult invokeLLLL;
-        char c2;
+    public static Bitmap a(Drawable drawable) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j43Var)) == null) {
-            if (j43Var != null && j43Var.n0()) {
-                if (g63.b) {
-                    Log.d("ShowToastAction", "ShowToastAction does not supported when app is invisible.");
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, drawable)) == null) {
+            if (drawable instanceof BitmapDrawable) {
+                return ((BitmapDrawable) drawable).getBitmap();
             }
-            HashMap<String, String> params = unitedSchemeEntity.getParams();
-            if (params != null && params.size() != 0) {
-                String str = params.get("params");
-                if (TextUtils.isEmpty(str)) {
-                    j12.c("ShowToastAction", "the key params is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    String optString = jSONObject.optString("type", "1");
-                    int F = kt1.F(jSONObject);
-                    String optString2 = jSONObject.optString("message");
-                    if (TextUtils.isEmpty(optString2)) {
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                        j12.c("ShowToastAction", "message is null");
-                        return false;
-                    }
-                    boolean optBoolean = jSONObject.optBoolean("mask");
-                    String optString3 = jSONObject.optString("image", "-1");
-                    if (!TextUtils.equals(optString3, "-1") && !optString3.startsWith(di3.x(j43Var).getPath())) {
-                        optString3 = di3.w(j43Var, optString3);
-                    }
-                    Drawable L = kt1.L(context, optString3, j43Var);
-                    if (g63.b) {
-                        Log.e("ShowToastAction", "imagepath = " + optString3);
-                    }
-                    if (!TextUtils.equals(optString3, "-1") && L == null && TextUtils.equals(optString, "2")) {
-                        optString = "1";
-                    }
-                    String optString4 = jSONObject.optString("cb");
-                    String optString5 = jSONObject.optString("buttonText");
-                    switch (optString.hashCode()) {
-                        case 49:
-                            if (optString.equals("1")) {
-                                c2 = 0;
-                                break;
-                            }
-                            c2 = 65535;
-                            break;
-                        case 50:
-                            if (optString.equals("2")) {
-                                c2 = 1;
-                                break;
-                            }
-                            c2 = 65535;
-                            break;
-                        case 51:
-                            if (optString.equals("3")) {
-                                c2 = 2;
-                                break;
-                            }
-                            c2 = 65535;
-                            break;
-                        case 52:
-                            if (optString.equals("4")) {
-                                c2 = 3;
-                                break;
-                            }
-                            c2 = 65535;
-                            break;
-                        default:
-                            c2 = 65535;
-                            break;
-                    }
-                    try {
-                        if (c2 != 0) {
-                            if (c2 != 1) {
-                                if (c2 != 2) {
-                                    if (c2 != 3) {
-                                        n(unitedSchemeEntity);
-                                        return false;
-                                    }
-                                    di3.e0(new d(this, context, callbackHandler, unitedSchemeEntity, optString2, F, optString5, optString4));
-                                } else {
-                                    di3.e0(new c(this, context, callbackHandler, unitedSchemeEntity, optString2, F, optBoolean));
-                                }
-                            } else {
-                                di3.e0(new b(this, context, callbackHandler, unitedSchemeEntity, optString2, F, L, optBoolean));
-                            }
+            int intrinsicWidth = drawable.getIntrinsicWidth();
+            int intrinsicHeight = drawable.getIntrinsicHeight();
+            if (intrinsicWidth > 0 && intrinsicHeight > 0) {
+                Bitmap createBitmap = Bitmap.createBitmap(intrinsicWidth, intrinsicHeight, Bitmap.Config.ARGB_8888);
+                Canvas canvas = new Canvas(createBitmap);
+                drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+                drawable.draw(canvas);
+                return createBitmap;
+            }
+            return null;
+        }
+        return (Bitmap) invokeL.objValue;
+    }
+
+    @SuppressLint({"SwanDebugLog"})
+    public static Drawable b(Drawable drawable, ImageView.ScaleType scaleType, float f, int i, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{drawable, scaleType, Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            if (drawable != null) {
+                if (drawable instanceof TransitionDrawable) {
+                    TransitionDrawable transitionDrawable = (TransitionDrawable) drawable;
+                    int numberOfLayers = transitionDrawable.getNumberOfLayers();
+                    Drawable[] drawableArr = new Drawable[numberOfLayers];
+                    for (int i3 = 0; i3 < numberOfLayers; i3++) {
+                        Drawable drawable2 = transitionDrawable.getDrawable(i3);
+                        if (drawable2 instanceof ColorDrawable) {
+                            drawableArr[i3] = drawable2;
+                        } else if (drawable2 instanceof g73) {
+                            drawableArr[i3] = drawable2;
                         } else {
-                            di3.e0(new a(this, context, callbackHandler, unitedSchemeEntity, optString2, F, optBoolean));
+                            drawableArr[i3] = new g73(a(drawable2), f, i, i2);
+                            if (scaleType != null) {
+                                ((g73) drawableArr[i3]).h(scaleType);
+                            }
                         }
-                        return true;
-                    } catch (JSONException e2) {
-                        e = e2;
-                        if (g63.b) {
-                            e.printStackTrace();
-                        }
-                        j12.c("ShowToastAction", "json exception");
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                        return false;
                     }
-                } catch (JSONException e3) {
-                    e = e3;
+                    return new TransitionDrawable(drawableArr);
                 }
-            } else {
-                j12.c("ShowToastAction", "hasMmap for params is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
+                Bitmap a2 = a(drawable);
+                if (a2 != null) {
+                    g73 g73Var = new g73(a2, f, i, i2);
+                    if (scaleType != null) {
+                        g73Var.h(scaleType);
+                    }
+                    return g73Var;
+                }
+                Log.w("RoundedDrawable", "Failed to create bitmap from drawable!");
             }
-        } else {
-            return invokeLLLL.booleanValue;
+            return drawable;
+        }
+        return (Drawable) invokeCommon.objValue;
+    }
+
+    public ImageView.ScaleType c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.n;
+        }
+        return (ImageView.ScaleType) invokeV.objValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public int getIntrinsicHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public int getIntrinsicWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.m = i;
+            this.i.setColor(i);
         }
     }
 
-    public final void n(UnitedSchemeEntity unitedSchemeEntity) {
+    public void e(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity) == null) {
-            if (g63.b) {
-                Log.w("ShowToastAction", "the toast type is unknown");
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.l = i;
+            this.i.setStrokeWidth(i);
+        }
+    }
+
+    public void f(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
+            this.k = f;
+        }
+    }
+
+    public void h(ImageView.ScaleType scaleType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, scaleType) == null) {
+            if (scaleType == null) {
+                scaleType = ImageView.ScaleType.FIT_XY;
             }
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302);
+            if (this.n != scaleType) {
+                this.n = scaleType;
+                g();
+            }
         }
     }
 
-    public final void o(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, @NonNull String str, int i, @NonNull String str2, String str3) {
+    @Override // android.graphics.drawable.Drawable
+    public void onBoundsChange(Rect rect) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, callbackHandler, unitedSchemeEntity, str, Integer.valueOf(i), str2, str3}) == null) {
-            b43 e2 = b43.e(context);
-            e2.r(str);
-            e2.k(str2);
-            e2.l(i);
-            e2.u(new e(this, str3, callbackHandler));
-            e2.w();
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+        if (interceptable == null || interceptable.invokeL(1048586, this, rect) == null) {
+            super.onBoundsChange(rect);
+            this.a.set(rect);
+            g();
         }
     }
 
-    public final void p(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, @NonNull String str, int i, Drawable drawable, boolean z) {
+    @Override // android.graphics.drawable.Drawable
+    public void setAlpha(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, callbackHandler, unitedSchemeEntity, str, Integer.valueOf(i), drawable, Boolean.valueOf(z)}) == null) {
-            b43 g = b43.g(context, kt1.H(str, 14));
-            g.n(drawable);
-            g.l(i);
-            g.s(z);
-            g.B();
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.e.setAlpha(i);
         }
     }
 
-    public final void q(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, @NonNull String str, int i, boolean z) {
+    @Override // android.graphics.drawable.Drawable
+    public void setColorFilter(ColorFilter colorFilter) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, callbackHandler, unitedSchemeEntity, str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            b43 g = b43.g(context, kt1.H(str, 14));
-            g.l(i);
-            g.s(z);
-            g.z();
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+        if (interceptable == null || interceptable.invokeL(1048588, this, colorFilter) == null) {
+            this.e.setColorFilter(colorFilter);
         }
     }
 
-    public final void r(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, @NonNull String str, int i, boolean z) {
+    @Override // android.graphics.drawable.Drawable
+    public void draw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, callbackHandler, unitedSchemeEntity, str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            b43 g = b43.g(context, str);
-            g.l(i);
-            g.s(z);
-            g.q(2);
-            g.G();
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
+            if (this.l > 0) {
+                RectF rectF = this.h;
+                float f = this.k;
+                canvas.drawRoundRect(rectF, f, f, this.i);
+                canvas.drawRoundRect(this.b, Math.max(this.k - this.l, 0.0f), Math.max(this.k - this.l, 0.0f), this.e);
+                return;
+            }
+            RectF rectF2 = this.b;
+            float f2 = this.k;
+            canvas.drawRoundRect(rectF2, f2, f2, this.e);
+        }
+    }
+
+    public final void g() {
+        float width;
+        float height;
+        float min;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.h.set(this.a);
+            RectF rectF = this.b;
+            int i = this.l;
+            rectF.set(i + 0, i + 0, this.h.width() - this.l, this.h.height() - this.l);
+            switch (a.a[this.n.ordinal()]) {
+                case 1:
+                    this.h.set(this.a);
+                    RectF rectF2 = this.b;
+                    int i2 = this.l;
+                    rectF2.set(i2 + 0, i2 + 0, this.h.width() - this.l, this.h.height() - this.l);
+                    this.j.set(null);
+                    this.j.setTranslate((int) (((this.b.width() - this.f) * 0.5f) + 0.5f), (int) (((this.b.height() - this.g) * 0.5f) + 0.5f));
+                    break;
+                case 2:
+                    this.h.set(this.a);
+                    RectF rectF3 = this.b;
+                    int i3 = this.l;
+                    rectF3.set(i3 + 0, i3 + 0, this.h.width() - this.l, this.h.height() - this.l);
+                    this.j.set(null);
+                    float f = 0.0f;
+                    if (this.f * this.b.height() > this.b.width() * this.g) {
+                        width = this.b.height() / this.g;
+                        f = (this.b.width() - (this.f * width)) * 0.5f;
+                        height = 0.0f;
+                    } else {
+                        width = this.b.width() / this.f;
+                        height = (this.b.height() - (this.g * width)) * 0.5f;
+                    }
+                    this.j.setScale(width, width);
+                    Matrix matrix = this.j;
+                    int i4 = this.l;
+                    matrix.postTranslate(((int) (f + 0.5f)) + i4, ((int) (height + 0.5f)) + i4);
+                    break;
+                case 3:
+                    this.j.set(null);
+                    if (this.f <= this.a.width() && this.g <= this.a.height()) {
+                        min = 1.0f;
+                    } else {
+                        min = Math.min(this.a.width() / this.f, this.a.height() / this.g);
+                    }
+                    this.j.setScale(min, min);
+                    this.j.postTranslate((int) (((this.a.width() - (this.f * min)) * 0.5f) + 0.5f), (int) (((this.a.height() - (this.g * min)) * 0.5f) + 0.5f));
+                    this.h.set(this.c);
+                    this.j.mapRect(this.h);
+                    RectF rectF4 = this.b;
+                    RectF rectF5 = this.h;
+                    float f2 = rectF5.left;
+                    int i5 = this.l;
+                    rectF4.set(f2 + i5, rectF5.top + i5, rectF5.right - i5, rectF5.bottom - i5);
+                    this.j.setRectToRect(this.c, this.b, Matrix.ScaleToFit.FILL);
+                    break;
+                case 4:
+                    this.h.set(this.c);
+                    this.j.setRectToRect(this.c, this.a, Matrix.ScaleToFit.CENTER);
+                    this.j.mapRect(this.h);
+                    RectF rectF6 = this.b;
+                    RectF rectF7 = this.h;
+                    float f3 = rectF7.left;
+                    int i6 = this.l;
+                    rectF6.set(f3 + i6, rectF7.top + i6, rectF7.right - i6, rectF7.bottom - i6);
+                    this.j.setRectToRect(this.c, this.b, Matrix.ScaleToFit.FILL);
+                    break;
+                case 5:
+                    this.h.set(this.c);
+                    this.j.setRectToRect(this.c, this.a, Matrix.ScaleToFit.END);
+                    this.j.mapRect(this.h);
+                    RectF rectF8 = this.b;
+                    RectF rectF9 = this.h;
+                    float f4 = rectF9.left;
+                    int i7 = this.l;
+                    rectF8.set(f4 + i7, rectF9.top + i7, rectF9.right - i7, rectF9.bottom - i7);
+                    this.j.setRectToRect(this.c, this.b, Matrix.ScaleToFit.FILL);
+                    break;
+                case 6:
+                    this.h.set(this.c);
+                    this.j.setRectToRect(this.c, this.a, Matrix.ScaleToFit.START);
+                    this.j.mapRect(this.h);
+                    RectF rectF10 = this.b;
+                    RectF rectF11 = this.h;
+                    float f5 = rectF11.left;
+                    int i8 = this.l;
+                    rectF10.set(f5 + i8, rectF11.top + i8, rectF11.right - i8, rectF11.bottom - i8);
+                    this.j.setRectToRect(this.c, this.b, Matrix.ScaleToFit.FILL);
+                    break;
+                default:
+                    this.h.set(this.a);
+                    RectF rectF12 = this.b;
+                    int i9 = this.l;
+                    rectF12.set(i9 + 0, i9 + 0, this.h.width() - this.l, this.h.height() - this.l);
+                    this.j.set(null);
+                    this.j.setRectToRect(this.c, this.b, Matrix.ScaleToFit.FILL);
+                    break;
+            }
+            this.d.setLocalMatrix(this.j);
         }
     }
 }

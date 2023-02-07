@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.zz4;
+import com.baidu.tieba.m45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -65,7 +65,7 @@ public final class AttentionNotLoginLayout extends LinearLayout implements View.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, v) == null) {
             Intrinsics.checkNotNullParameter(v, "v");
-            if (v.getId() == R.id.obfuscated_res_0x7f0902e6) {
+            if (v.getId() == R.id.obfuscated_res_0x7f0902dc) {
                 boolean checkUpIsLogin = ViewHelper.checkUpIsLogin(getContext());
                 if (!checkUpIsLogin) {
                     TbSingleton.loginFrom = 1;
@@ -127,21 +127,21 @@ public final class AttentionNotLoginLayout extends LinearLayout implements View.
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0127, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0126, (ViewGroup) this, true);
             Intrinsics.checkNotNullExpressionValue(inflate, "from(context).inflate(R.…login_layout, this, true)");
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0902e2);
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0902d9);
             if (findViewById != null) {
                 this.b = (ImageView) findViewById;
-                View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f0902e8);
+                View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f0902de);
                 if (findViewById2 != null) {
                     this.a = (TextView) findViewById2;
-                    View findViewById3 = inflate.findViewById(R.id.obfuscated_res_0x7f0902e6);
+                    View findViewById3 = inflate.findViewById(R.id.obfuscated_res_0x7f0902dc);
                     if (findViewById3 != null) {
                         this.c = (TBSpecificationBtn) findViewById3;
-                        zz4 zz4Var = new zz4();
+                        m45 m45Var = new m45();
                         TBSpecificationBtn tBSpecificationBtn = this.c;
                         if (tBSpecificationBtn != null) {
-                            tBSpecificationBtn.setText(context.getString(R.string.obfuscated_res_0x7f0f0401));
+                            tBSpecificationBtn.setText(context.getString(R.string.obfuscated_res_0x7f0f040f));
                         }
                         TBSpecificationBtn tBSpecificationBtn2 = this.c;
                         if (tBSpecificationBtn2 != null) {
@@ -153,7 +153,7 @@ public final class AttentionNotLoginLayout extends LinearLayout implements View.
                         }
                         TBSpecificationBtn tBSpecificationBtn4 = this.c;
                         if (tBSpecificationBtn4 != null) {
-                            tBSpecificationBtn4.setConfig(zz4Var);
+                            tBSpecificationBtn4.setConfig(m45Var);
                         }
                         TBSpecificationBtn tBSpecificationBtn5 = this.c;
                         if (tBSpecificationBtn5 != null) {

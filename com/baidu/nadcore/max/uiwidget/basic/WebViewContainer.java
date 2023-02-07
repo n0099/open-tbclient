@@ -9,7 +9,7 @@ import android.widget.FrameLayout;
 import android.widget.OverScroller;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.r31;
+import com.baidu.tieba.b51;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -289,7 +289,7 @@ public class WebViewContainer extends FrameLayout {
     public void setMinFlingVelocity(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            this.m = r31.c.a(getContext(), i);
+            this.m = b51.c.a(getContext(), i);
         }
     }
 

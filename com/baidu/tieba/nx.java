@@ -1,57 +1,16 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.ForumGoodsEnterLayout;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class nx extends jx {
+public class nx extends dz {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fs4 h;
-    public ForumGoodsEnterLayout i;
-    public int j;
-    public final View.OnClickListener k;
-
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nx a;
-
-        public a(nx nxVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nxVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nxVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.h() != null) {
-                this.a.h().a(view2, this.a.h);
-            }
-        }
-    }
+    public boolean y;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public nx(Context context) {
@@ -71,73 +30,38 @@ public class nx extends jx {
                 return;
             }
         }
-        this.k = new a(this);
-        int g = zi.g(context, R.dimen.M_H_X003);
-        int g2 = zi.g(context, R.dimen.tbds0);
-        v(g);
-        u(g2);
-        ForumGoodsEnterLayout forumGoodsEnterLayout = new ForumGoodsEnterLayout(context);
-        this.i = forumGoodsEnterLayout;
-        forumGoodsEnterLayout.setOnAfterClickListener(this.k);
+        this.y = false;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ux
-    /* renamed from: y */
-    public void a(fs4 fs4Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nx(Context context, boolean z) {
+        super(context);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, fs4Var) == null) {
-            this.h = fs4Var;
-            this.i.setSourceForPb(this.a.j());
-            this.i.setFrstype(this.j);
-            this.i.setData(fs4Var);
-        }
-    }
-
-    public void z(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.j = i;
-        }
-    }
-
-    public void A(View view2, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(1048576, this, view2, i, i2) == null) && view2 != null && (view2.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
-            if (marginLayoutParams.topMargin != i || marginLayoutParams.bottomMargin != i2) {
-                marginLayoutParams.topMargin = i;
-                marginLayoutParams.bottomMargin = i2;
-                view2.setLayoutParams(marginLayoutParams);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.y = false;
+        this.y = z;
     }
 
-    @Override // com.baidu.tieba.cx
-    public View k() {
+    @Override // com.baidu.tieba.dz
+    public qo8 t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new ro8(this.b, this.i, this.y);
         }
-        return (View) invokeV.objValue;
-    }
-
-    public void x() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            int g = zi.g(this.b, R.dimen.M_H_X003);
-            v(g);
-            u(0);
-            A(this.i, g, 0);
-        }
-    }
-
-    @Override // com.baidu.tieba.vx
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
-            this.i.d(tbPageContext, i);
-        }
+        return (qo8) invokeV.objValue;
     }
 }

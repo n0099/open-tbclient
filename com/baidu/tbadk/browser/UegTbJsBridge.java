@@ -10,13 +10,13 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.novel.ReadRecordsData;
-import com.baidu.tieba.af5;
-import com.baidu.tieba.e49;
-import com.baidu.tieba.g25;
-import com.baidu.tieba.pi;
-import com.baidu.tieba.to;
-import com.baidu.tieba.vx8;
-import com.baidu.tieba.zx8;
+import com.baidu.tieba.d89;
+import com.baidu.tieba.lj5;
+import com.baidu.tieba.t19;
+import com.baidu.tieba.t65;
+import com.baidu.tieba.ui;
+import com.baidu.tieba.x19;
+import com.baidu.tieba.yo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,9 +25,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.BlockPopInfo;
-@to
+@yo
 /* loaded from: classes3.dex */
-public class UegTbJsBridge implements vx8 {
+public class UegTbJsBridge implements t19 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTERFACE_NAME = "CommonJSBridge";
     public static final String METHOD_BIND_MOBILE_NUMBER = "bindMobileNumber";
@@ -63,24 +63,24 @@ public class UegTbJsBridge implements vx8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, str) == null) {
             try {
-                pi.a(new JSONObject(str).optString("content"));
+                ui.a(new JSONObject(str).optString("content"));
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public zx8 novelPayResultToClient(boolean z) {
+    public x19 novelPayResultToClient(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            zx8 zx8Var = new zx8();
+            x19 x19Var = new x19();
             if (z) {
-                af5.d();
+                lj5.d();
             }
-            return zx8Var;
+            return x19Var;
         }
-        return (zx8) invokeZ.objValue;
+        return (x19) invokeZ.objValue;
     }
 
     public UegTbJsBridge(TbPageContext<?> tbPageContext) {
@@ -101,37 +101,37 @@ public class UegTbJsBridge implements vx8 {
         this.mTbPageContext = tbPageContext;
     }
 
-    public zx8 bindingMobileNumber() {
+    public x19 bindingMobileNumber() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            zx8 zx8Var = new zx8();
+            x19 x19Var = new x19();
             try {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, g25.b()));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, t65.b()));
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return zx8Var;
+            return x19Var;
         }
-        return (zx8) invokeV.objValue;
+        return (x19) invokeV.objValue;
     }
 
-    public zx8 callNativeSMS(String str, String str2) {
+    public x19 callNativeSMS(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            zx8 zx8Var = new zx8();
+            x19 x19Var = new x19();
             Context pageActivity = this.mTbPageContext.getPageActivity();
             if (pageActivity == null) {
                 pageActivity = this.mContext;
             }
             UtilHelper.smsTo(pageActivity, str, str2);
-            return zx8Var;
+            return x19Var;
         }
-        return (zx8) invokeLL.objValue;
+        return (x19) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.vx8
+    @Override // com.baidu.tieba.t19
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -188,24 +188,24 @@ public class UegTbJsBridge implements vx8 {
         return invokeLLLL.booleanValue;
     }
 
-    public zx8 recordNovelInfo(String str, String str2, String str3, String str4, String str5) {
+    public x19 recordNovelInfo(String str, String str2, String str3, String str4, String str5) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048580, this, str, str2, str3, str4, str5)) == null) {
-            zx8 zx8Var = new zx8();
+            x19 x19Var = new x19();
             ReadRecordsData readRecordsData = new ReadRecordsData(str, str2, str3, str4, str5);
             readRecordsData.I(true);
-            af5.e(str2, readRecordsData);
-            return zx8Var;
+            lj5.e(str2, readRecordsData);
+            return x19Var;
         }
-        return (zx8) invokeLLLLL.objValue;
+        return (x19) invokeLLLLL.objValue;
     }
 
-    public zx8 setBlockPopInfo(int i, String str, String str2, String str3, String str4, int i2) {
+    public x19 setBlockPopInfo(int i, String str, String str2, String str3, String str4, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), str, str2, str3, str4, Integer.valueOf(i2)})) == null) {
-            zx8 zx8Var = new zx8();
+            x19 x19Var = new x19();
             try {
                 BlockPopInfo.Builder builder = new BlockPopInfo.Builder();
                 builder.can_post = Integer.valueOf(i);
@@ -215,13 +215,13 @@ public class UegTbJsBridge implements vx8 {
                 builder.ok_info = str4;
                 builder.ahead_type = Integer.valueOf(i2);
                 BlockPopInfo build = builder.build(false);
-                e49.h(build);
-                e49.g(build);
+                d89.h(build);
+                d89.g(build);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return zx8Var;
+            return x19Var;
         }
-        return (zx8) invokeCommon.objValue;
+        return (x19) invokeCommon.objValue;
     }
 }

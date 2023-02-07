@@ -1,38 +1,61 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.LinearLayout;
-import androidx.annotation.NonNull;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.write.transmit.model.GetRepostForumHttpResMessage;
+import com.baidu.tieba.write.transmit.model.GetRepostForumReqMessage;
+import com.baidu.tieba.write.transmit.model.GetRepostForumSocketResMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
+import tbclient.SimpleForum;
 /* loaded from: classes5.dex */
-public class kh9 extends dh9 {
+public class kh9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BdUniqueId a;
+    public List<SimpleForum> b;
+    public String c;
+    public b d;
+    public String e;
+    public String f;
+    public int g;
+    public String h;
+    public BdUniqueId i;
+    public wb j;
 
     /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
+    public interface b {
+        void a(List<SimpleForum> list, int i);
+
+        void onError();
+    }
+
+    /* loaded from: classes5.dex */
+    public class a extends wb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ kh9 a;
 
-        public a(kh9 kh9Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(kh9 kh9Var, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {kh9Var};
+                Object[] objArr = {kh9Var, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -41,101 +64,106 @@ public class kh9 extends dh9 {
             this.a = kh9Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.tieba.wb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.a.m0()) {
-                    this.a.e.x0(9, false);
-                    this.a.n0(1);
+            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
+                return;
+            }
+            boolean z = responsedMessage instanceof GetRepostForumHttpResMessage;
+            if (!z && !(responsedMessage instanceof GetRepostForumSocketResMessage)) {
+                return;
+            }
+            if (responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof GetRepostForumReqMessage) && this.a.i != ((GetRepostForumReqMessage) responsedMessage.getOrginalMessage().getExtra()).getRequestId()) {
+                return;
+            }
+            if (responsedMessage.hasError()) {
+                if (this.a.d != null) {
+                    this.a.d.onError();
                     return;
                 }
-                kh9 kh9Var = this.a;
-                kh9Var.e.d(kh9Var.a.getString(R.string.obfuscated_res_0x7f0f0551));
-                this.a.n0(0);
+                return;
+            }
+            if (z) {
+                GetRepostForumHttpResMessage getRepostForumHttpResMessage = (GetRepostForumHttpResMessage) responsedMessage;
+                this.a.b = getRepostForumHttpResMessage.getForumList();
+                this.a.c = getRepostForumHttpResMessage.getRecommendExtension();
+                this.a.g = getRepostForumHttpResMessage.getPrivateThread();
+            }
+            if (responsedMessage instanceof GetRepostForumSocketResMessage) {
+                GetRepostForumSocketResMessage getRepostForumSocketResMessage = (GetRepostForumSocketResMessage) responsedMessage;
+                this.a.b = getRepostForumSocketResMessage.getForumList();
+                this.a.c = getRepostForumSocketResMessage.getRecommendExtension();
+                this.a.g = getRepostForumSocketResMessage.getPrivateThread();
+            }
+            if (this.a.d != null) {
+                this.a.d.a(this.a.b, this.a.g);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kh9(@NonNull TbPageContext<?> tbPageContext, @NonNull NavigationBar navigationBar, @NonNull LinearLayout linearLayout, @NonNull EditorTools editorTools, @NonNull pf9 pf9Var, boolean z) {
-        super(tbPageContext, navigationBar, linearLayout, editorTools, pf9Var, z);
+    public kh9(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, navigationBar, linearLayout, editorTools, pf9Var, Boolean.valueOf(z)};
+            Object[] objArr = {bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (NavigationBar) objArr2[1], (LinearLayout) objArr2[2], (EditorTools) objArr2[3], (pf9) objArr2[4], ((Boolean) objArr2[5]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        a aVar = new a(this, CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, 309450);
+        this.j = aVar;
+        this.a = bdUniqueId;
+        aVar.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.j);
+        this.j.getHttpMessageListener().setSelfListener(true);
+        this.j.getSocketMessageListener().setSelfListener(true);
     }
 
-    @Override // com.baidu.tieba.dh9, com.baidu.tieba.eh9
-    public void M(@NonNull List<qf9<?>> list) {
+    public void i(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            ye9 f = tg9.f(this.a);
-            list.add(f);
-            ze9 g = tg9.g(this.a);
-            f.w(g);
-            list.add(g);
-            list.add(tg9.o(this.a));
-            gf9 n = tg9.n(this.a, this, this.s, this.J);
-            this.D = n;
-            list.add(n);
-            ff9 m = tg9.m(this.a, this, this.d, this.C, this.s, this.J);
-            this.F = m;
-            f.w(m);
-            list.add(this.F);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.d = bVar;
         }
     }
 
-    @Override // com.baidu.tieba.dh9, com.baidu.tieba.eh9
-    public void O(@NonNull EditorTools editorTools) {
+    public void j(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editorTools) == null) {
-            editorTools.setBarMaxLauCount(3);
-            editorTools.setMoreButtonAtEnd(true);
-            editorTools.setMoreVipIcon(true);
-            editorTools.setBarLauncherType(1);
-            editorTools.E(true);
-            editorTools.F(false);
-            editorTools.setBackgroundColorId(R.color.CAM_X0201);
-            vg9.h(this.a, editorTools, this);
-            vg9.d(editorTools, this);
-            vg9.a(this.a, editorTools, this);
-            vg9.b(this.a, editorTools, this);
-            vg9.i(this.a, editorTools);
-            vg9.m(this.a, editorTools, this.p.getCallFrom(), this);
-            editorTools.f();
-            super.O(editorTools);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
+            this.i = bdUniqueId;
         }
     }
 
-    @Override // com.baidu.tieba.dh9, com.baidu.tieba.eh9
-    public void P(@NonNull NavigationBar navigationBar) {
+    public void k(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, navigationBar) == null) {
-            super.P(navigationBar);
-            if (this.q) {
-                navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f10ab));
-                p0(0, 0);
-                q0(R.drawable.obfuscated_res_0x7f080a01, R.dimen.tbds31, R.dimen.tbds31, R.dimen.tbds0);
-                this.j.setOnClickListener(new a(this));
-                return;
-            }
-            navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f0f67));
-            if (this.p.getProZone() == 1) {
-                navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f16ac));
-            }
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.f = str;
+        }
+    }
+
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            GetRepostForumReqMessage getRepostForumReqMessage = new GetRepostForumReqMessage();
+            getRepostForumReqMessage.setThreadTitle(this.e);
+            getRepostForumReqMessage.setThreadContent(this.f);
+            getRepostForumReqMessage.setForumId(this.h);
+            getRepostForumReqMessage.setTag(this.a);
+            getRepostForumReqMessage.setRequestId(this.i);
+            MessageManager.getInstance().sendMessage(getRepostForumReqMessage);
         }
     }
 }

@@ -14,7 +14,8 @@ import kotlin.Metadata;
 import kotlin.Pair;
 import kotlin.Unit;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000D\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0010\u000e\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u000b\n\u0002\b\b\b\u0000\u0018\u00002\u00020\u00012\u00020\u0002B\u000f\u0012\u0006\u0010\u0012\u001a\u00020\u0011¢\u0006\u0004\b%\u0010\u0017J\u001f\u0010\b\u001a\u00020\u00072\u0006\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0006\u001a\u00020\u0005H\u0016¢\u0006\u0004\b\b\u0010\tJ\u000f\u0010\n\u001a\u00020\u0007H\u0016¢\u0006\u0004\b\n\u0010\u000bR\u001c\u0010\r\u001a\u00020\f8\u0006@\u0006X\u0086D¢\u0006\f\n\u0004\b\r\u0010\u000e\u001a\u0004\b\u000f\u0010\u0010R\"\u0010\u0012\u001a\u00020\u00118\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0012\u0010\u0013\u001a\u0004\b\u0014\u0010\u0015\"\u0004\b\u0016\u0010\u0017R+\u0010\u001a\u001a\u0014\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00050\u00190\u00188\u0006@\u0006¢\u0006\f\n\u0004\b\u001a\u0010\u001b\u001a\u0004\b\u001c\u0010\u001dR\"\u0010\u001f\u001a\u00020\u001e8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001f\u0010 \u001a\u0004\b!\u0010\"\"\u0004\b#\u0010$¨\u0006&"}, d2 = {"Lcom/baidu/searchbox/bdeventbus/core/BackgroundPoster;", "Ljava/lang/Runnable;", "Lcom/baidu/searchbox/bdeventbus/core/Poster;", "", "event", "Lcom/baidu/searchbox/bdeventbus/core/SubscriptionInfo;", "subscriptionInfo", "", "enqueue", "(Ljava/lang/Object;Lcom/baidu/searchbox/bdeventbus/core/SubscriptionInfo;)V", "run", "()V", "", "TAG", "Ljava/lang/String;", "getTAG", "()Ljava/lang/String;", "Lcom/baidu/searchbox/bdeventbus/core/BdEventBusCore;", "bdEventBusCore", "Lcom/baidu/searchbox/bdeventbus/core/BdEventBusCore;", "getBdEventBusCore", "()Lcom/baidu/searchbox/bdeventbus/core/BdEventBusCore;", "setBdEventBusCore", "(Lcom/baidu/searchbox/bdeventbus/core/BdEventBusCore;)V", "Ljava/util/concurrent/BlockingQueue;", "Lkotlin/Pair;", "blockingQueue", "Ljava/util/concurrent/BlockingQueue;", "getBlockingQueue", "()Ljava/util/concurrent/BlockingQueue;", "", "executorRunning", "Z", "getExecutorRunning", "()Z", "setExecutorRunning", "(Z)V", "<init>", "lib-bd-event-bus_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+import kotlin.jvm.internal.Ref;
+@Metadata(d1 = {"\u0000B\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0002\b\u0004\b\u0000\u0018\u00002\u00020\u00012\u00020\u0002B\r\u0012\u0006\u0010\u0003\u001a\u00020\u0004¢\u0006\u0002\u0010\u0005J\u0018\u0010\u001a\u001a\u00020\u001b2\u0006\u0010\u001c\u001a\u00020\u00102\u0006\u0010\u001d\u001a\u00020\u0011H\u0016J\b\u0010\u001e\u001a\u00020\u001bH\u0016R\u0014\u0010\u0006\u001a\u00020\u0007X\u0086D¢\u0006\b\n\u0000\u001a\u0004\b\b\u0010\tR\u001a\u0010\u0003\u001a\u00020\u0004X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\n\u0010\u000b\"\u0004\b\f\u0010\u0005R#\u0010\r\u001a\u0014\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\u0010\u0012\u0004\u0012\u00020\u00110\u000f0\u000e¢\u0006\b\n\u0000\u001a\u0004\b\u0012\u0010\u0013R\u001a\u0010\u0014\u001a\u00020\u0015X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0016\u0010\u0017\"\u0004\b\u0018\u0010\u0019¨\u0006\u001f"}, d2 = {"Lcom/baidu/searchbox/bdeventbus/core/BackgroundPoster;", "Ljava/lang/Runnable;", "Lcom/baidu/searchbox/bdeventbus/core/Poster;", "bdEventBusCore", "Lcom/baidu/searchbox/bdeventbus/core/BdEventBusCore;", "(Lcom/baidu/searchbox/bdeventbus/core/BdEventBusCore;)V", "TAG", "", "getTAG", "()Ljava/lang/String;", "getBdEventBusCore", "()Lcom/baidu/searchbox/bdeventbus/core/BdEventBusCore;", "setBdEventBusCore", "blockingQueue", "Ljava/util/concurrent/BlockingQueue;", "Lkotlin/Pair;", "", "Lcom/baidu/searchbox/bdeventbus/core/SubscriptionInfo;", "getBlockingQueue", "()Ljava/util/concurrent/BlockingQueue;", "executorRunning", "", "getExecutorRunning", "()Z", "setExecutorRunning", "(Z)V", "enqueue", "", "event", "subscriptionInfo", "run", "lib-bd-event-bus_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes2.dex */
 public final class BackgroundPoster implements Runnable, Poster {
     public static /* synthetic */ Interceptable $ic;
@@ -98,6 +99,8 @@ public final class BackgroundPoster implements Runnable, Poster {
         return (String) invokeV.objValue;
     }
 
+    /* JADX WARN: Type inference failed for: r2v1, types: [T, java.lang.Object] */
+    /* JADX WARN: Type inference failed for: r2v8, types: [T, java.lang.Object] */
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
@@ -106,21 +109,26 @@ public final class BackgroundPoster implements Runnable, Poster {
         }
         while (true) {
             try {
-                Pair<Object, SubscriptionInfo> poll = this.blockingQueue.poll(1000L, TimeUnit.MILLISECONDS);
-                if (poll == null) {
+                Ref.ObjectRef objectRef = new Ref.ObjectRef();
+                ?? poll = this.blockingQueue.poll(1000L, TimeUnit.MILLISECONDS);
+                objectRef.element = poll;
+                if (poll == 0) {
                     synchronized (this) {
-                        poll = this.blockingQueue.poll();
-                        if (poll == null) {
+                        ?? poll2 = this.blockingQueue.poll();
+                        objectRef.element = poll2;
+                        if (poll2 == 0) {
                             this.executorRunning = false;
                             return;
                         }
                         Unit unit = Unit.INSTANCE;
                     }
                 }
-                Intrinsics.checkNotNull(poll);
-                Action<Object> action = poll.getSecond().getAction();
-                Intrinsics.checkNotNull(poll);
-                action.call(poll.getFirst());
+                T t = objectRef.element;
+                Intrinsics.checkNotNull(t);
+                Action<Object> action = ((SubscriptionInfo) ((Pair) t).getSecond()).getAction();
+                T t2 = objectRef.element;
+                Intrinsics.checkNotNull(t2);
+                action.call(((Pair) t2).getFirst());
             } catch (Exception unused) {
                 return;
             } finally {

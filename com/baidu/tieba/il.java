@@ -1,99 +1,80 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Path;
-import android.graphics.RectF;
-import android.widget.ImageView;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public abstract class il extends bl {
+public class il {
     public static /* synthetic */ Interceptable $ic;
+    public static il a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Path t;
-    public Paint u;
-    public a v;
-    public boolean w;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        Path a(RectF rectF);
-
-        void b(Canvas canvas);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448307434, "Lcom/baidu/tieba/il;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448307434, "Lcom/baidu/tieba/il;");
+                return;
+            }
+        }
+        a = new il();
     }
 
     public il() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.t = new Path();
-        this.u = null;
-        this.w = false;
-    }
-
-    @Override // com.baidu.tieba.zk
-    public void c(cl clVar, ImageView imageView, ImageView.ScaleType scaleType) {
-        Path a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, clVar, imageView, scaleType) == null) {
-            super.c(clVar, imageView, scaleType);
-            a aVar = this.v;
-            if (aVar == null || (a2 = aVar.a(j())) == null) {
-                return;
-            }
-            this.t.set(a2);
-            if (this.u == null) {
-                Paint paint = new Paint();
-                this.u = paint;
-                paint.setStyle(Paint.Style.STROKE);
-                this.u.setAntiAlias(true);
-                this.u.setColor(637534208);
-                this.u.setDither(true);
-                this.u.setStrokeWidth(2.0f);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.zk
-    public void g(Canvas canvas, cl clVar, ImageView imageView) {
+    public static il b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, clVar, imageView) == null) {
-            super.g(canvas, clVar, imageView);
-            if (!this.w) {
-                return;
-            }
-            canvas.drawPath(this.t, this.u);
-            a aVar = this.v;
-            if (aVar != null) {
-                aVar.b(canvas);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
         }
+        return (il) invokeV.objValue;
     }
 
-    public void t(a aVar) {
+    public el a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.v = aVar;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            switch (i) {
+                case 0:
+                    return new gl();
+                case 1:
+                    return new ol();
+                case 2:
+                    return new kl();
+                case 3:
+                    return new ql();
+                case 4:
+                    return new pl();
+                case 5:
+                    return new jl();
+                case 6:
+                    return new ml();
+                default:
+                    return new gl();
+            }
         }
-    }
-
-    public void u(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.w = z;
-        }
+        return (el) invokeI.objValue;
     }
 }

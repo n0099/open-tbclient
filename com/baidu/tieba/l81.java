@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.model.AdBaseModel;
+import androidx.annotation.NonNull;
 /* loaded from: classes5.dex */
 public interface l81 {
-    void a(AdBaseModel adBaseModel);
+    boolean a(@NonNull k81 k81Var, @NonNull String str);
 
-    void b(AdBaseModel adBaseModel);
-
-    void c(AdBaseModel adBaseModel);
+    void b(@NonNull k81 k81Var, @NonNull String str);
 }

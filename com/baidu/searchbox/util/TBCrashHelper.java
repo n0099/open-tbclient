@@ -1,7 +1,7 @@
 package com.baidu.searchbox.util;
 
 import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.tieba.cz4;
+import com.baidu.tieba.p35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,27 +32,27 @@ public class TBCrashHelper {
 
     public static boolean checkIsUploadOverMax() {
         InterceptResult invokeV;
-        int m;
-        long n;
+        int n;
+        long o;
         long currentTimeMillis;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             try {
-                m = cz4.l().m(SP_KEY_CRASH_UPLOAD_COUNT, 0);
-                n = cz4.l().n(SP_KEY_LAST_CRASH_UPLOAD_TIMESTAMP, 0L);
+                n = p35.m().n(SP_KEY_CRASH_UPLOAD_COUNT, 0);
+                o = p35.m().o(SP_KEY_LAST_CRASH_UPLOAD_TIMESTAMP, 0L);
                 currentTimeMillis = System.currentTimeMillis();
-                cz4.l().K(SP_KEY_LAST_CRASH_UPLOAD_TIMESTAMP, currentTimeMillis);
+                p35.m().N(SP_KEY_LAST_CRASH_UPLOAD_TIMESTAMP, currentTimeMillis);
             } catch (Exception unused) {
             }
-            if (TimeHelper.isSameDay(new Date(n), new Date(currentTimeMillis))) {
-                int i = m + 1;
-                cz4.l().J(SP_KEY_CRASH_UPLOAD_COUNT, i);
+            if (TimeHelper.isSameDay(new Date(o), new Date(currentTimeMillis))) {
+                int i = n + 1;
+                p35.m().M(SP_KEY_CRASH_UPLOAD_COUNT, i);
                 if (i <= 100) {
                     return false;
                 }
                 return true;
             }
-            cz4.l().J(SP_KEY_CRASH_UPLOAD_COUNT, 1);
+            p35.m().M(SP_KEY_CRASH_UPLOAD_COUNT, 1);
             return false;
         }
         return invokeV.booleanValue;

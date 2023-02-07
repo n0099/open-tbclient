@@ -195,7 +195,7 @@ public class jb extends jf {
                 a(this.e, 0, 1);
                 return this.e[0];
             }
-            byte b = ((jf) this).a.mo630a()[((jf) this).a.a()];
+            byte b = ((jf) this).a.mo632a()[((jf) this).a.a()];
             ((jf) this).a.a(1);
             return b;
         }
@@ -204,22 +204,22 @@ public class jb extends jf {
 
     @Override // com.xiaomi.push.jf
     /* renamed from: a  reason: collision with other method in class */
-    public double mo615a() {
+    public double mo617a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Double.longBitsToDouble(mo617a()) : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Double.longBitsToDouble(mo619a()) : invokeV.doubleValue;
     }
 
     @Override // com.xiaomi.push.jf
     /* renamed from: a  reason: collision with other method in class */
-    public int mo616a() {
+    public int mo618a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             byte[] bArr = this.g;
             int i = 0;
             if (((jf) this).a.b() >= 4) {
-                bArr = ((jf) this).a.mo630a();
+                bArr = ((jf) this).a.mo632a();
                 i = ((jf) this).a.a();
                 ((jf) this).a.a(4);
             } else {
@@ -232,14 +232,14 @@ public class jb extends jf {
 
     @Override // com.xiaomi.push.jf
     /* renamed from: a  reason: collision with other method in class */
-    public long mo617a() {
+    public long mo619a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             byte[] bArr = this.h;
             int i = 0;
             if (((jf) this).a.b() >= 8) {
-                bArr = ((jf) this).a.mo630a();
+                bArr = ((jf) this).a.mo632a();
                 i = ((jf) this).a.a();
                 ((jf) this).a.a(8);
             } else {
@@ -252,43 +252,43 @@ public class jb extends jf {
 
     @Override // com.xiaomi.push.jf
     /* renamed from: a  reason: collision with other method in class */
-    public jc mo618a() {
+    public jc mo620a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             byte a2 = a();
-            return new jc("", a2, a2 == 0 ? (short) 0 : mo625a());
+            return new jc("", a2, a2 == 0 ? (short) 0 : mo627a());
         }
         return (jc) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.jf
     /* renamed from: a  reason: collision with other method in class */
-    public jd mo619a() {
+    public jd mo621a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new jd(a(), mo616a()) : (jd) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new jd(a(), mo618a()) : (jd) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.jf
     /* renamed from: a  reason: collision with other method in class */
-    public je mo620a() {
+    public je mo622a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new je(a(), a(), mo616a()) : (je) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new je(a(), a(), mo618a()) : (je) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.jf
     /* renamed from: a  reason: collision with other method in class */
-    public jj mo621a() {
+    public jj mo623a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? new jj(a(), mo616a()) : (jj) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? new jj(a(), mo618a()) : (jj) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.jf
     /* renamed from: a  reason: collision with other method in class */
-    public jk mo622a() {
+    public jk mo624a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? a : (jk) invokeV.objValue;
@@ -296,21 +296,21 @@ public class jb extends jf {
 
     @Override // com.xiaomi.push.jf
     /* renamed from: a  reason: collision with other method in class */
-    public String mo623a() {
+    public String mo625a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            int mo616a = mo616a();
-            if (((jf) this).a.b() >= mo616a) {
+            int mo618a = mo618a();
+            if (((jf) this).a.b() >= mo618a) {
                 try {
-                    String str = new String(((jf) this).a.mo630a(), ((jf) this).a.a(), mo616a, "UTF-8");
-                    ((jf) this).a.a(mo616a);
+                    String str = new String(((jf) this).a.mo632a(), ((jf) this).a.a(), mo618a, "UTF-8");
+                    ((jf) this).a.a(mo618a);
                     return str;
                 } catch (UnsupportedEncodingException unused) {
                     throw new iz("JVM DOES NOT SUPPORT UTF-8");
                 }
             }
-            return a(mo616a);
+            return a(mo618a);
         }
         return (String) invokeV.objValue;
     }
@@ -334,19 +334,19 @@ public class jb extends jf {
 
     @Override // com.xiaomi.push.jf
     /* renamed from: a  reason: collision with other method in class */
-    public ByteBuffer mo624a() {
+    public ByteBuffer mo626a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            int mo616a = mo616a();
-            c(mo616a);
-            if (((jf) this).a.b() >= mo616a) {
-                ByteBuffer wrap = ByteBuffer.wrap(((jf) this).a.mo630a(), ((jf) this).a.a(), mo616a);
-                ((jf) this).a.a(mo616a);
+            int mo618a = mo618a();
+            c(mo618a);
+            if (((jf) this).a.b() >= mo618a) {
+                ByteBuffer wrap = ByteBuffer.wrap(((jf) this).a.mo632a(), ((jf) this).a.a(), mo618a);
+                ((jf) this).a.a(mo618a);
                 return wrap;
             }
-            byte[] bArr = new byte[mo616a];
-            ((jf) this).a.b(bArr, 0, mo616a);
+            byte[] bArr = new byte[mo618a];
+            ((jf) this).a.b(bArr, 0, mo618a);
             return ByteBuffer.wrap(bArr);
         }
         return (ByteBuffer) invokeV.objValue;
@@ -354,14 +354,14 @@ public class jb extends jf {
 
     @Override // com.xiaomi.push.jf
     /* renamed from: a  reason: collision with other method in class */
-    public short mo625a() {
+    public short mo627a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             byte[] bArr = this.f;
             int i = 0;
             if (((jf) this).a.b() >= 2) {
-                bArr = ((jf) this).a.mo630a();
+                bArr = ((jf) this).a.mo632a();
                 i = ((jf) this).a.a();
                 ((jf) this).a.a(2);
             } else {
@@ -374,7 +374,7 @@ public class jb extends jf {
 
     @Override // com.xiaomi.push.jf
     /* renamed from: a  reason: collision with other method in class */
-    public void mo626a() {
+    public void mo628a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
         }
@@ -386,13 +386,13 @@ public class jb extends jf {
         if (interceptable == null || interceptable.invokeB(1048590, this, b) == null) {
             byte[] bArr = this.f828a;
             bArr[0] = b;
-            ((jf) this).a.mo629a(bArr, 0, 1);
+            ((jf) this).a.mo631a(bArr, 0, 1);
         }
     }
 
     @Override // com.xiaomi.push.jf
     /* renamed from: a  reason: collision with other method in class */
-    public void mo627a(int i) {
+    public void mo629a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
             byte[] bArr = this.f830c;
@@ -400,7 +400,7 @@ public class jb extends jf {
             bArr[1] = (byte) ((i >> 16) & 255);
             bArr[2] = (byte) ((i >> 8) & 255);
             bArr[3] = (byte) (i & 255);
-            ((jf) this).a.mo629a(bArr, 0, 4);
+            ((jf) this).a.mo631a(bArr, 0, 4);
         }
     }
 
@@ -417,7 +417,7 @@ public class jb extends jf {
             bArr[5] = (byte) ((j >> 16) & 255);
             bArr[6] = (byte) ((j >> 8) & 255);
             bArr[7] = (byte) (j & 255);
-            ((jf) this).a.mo629a(bArr, 0, 8);
+            ((jf) this).a.mo631a(bArr, 0, 8);
         }
     }
 
@@ -435,7 +435,7 @@ public class jb extends jf {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, jdVar) == null) {
             a(jdVar.a);
-            mo627a(jdVar.f834a);
+            mo629a(jdVar.f834a);
         }
     }
 
@@ -445,7 +445,7 @@ public class jb extends jf {
         if (interceptable == null || interceptable.invokeL(1048595, this, jeVar) == null) {
             a(jeVar.a);
             a(jeVar.b);
-            mo627a(jeVar.f835a);
+            mo629a(jeVar.f835a);
         }
     }
 
@@ -462,8 +462,8 @@ public class jb extends jf {
         if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
             try {
                 byte[] bytes = str.getBytes("UTF-8");
-                mo627a(bytes.length);
-                ((jf) this).a.mo629a(bytes, 0, bytes.length);
+                mo629a(bytes.length);
+                ((jf) this).a.mo631a(bytes, 0, bytes.length);
             } catch (UnsupportedEncodingException unused) {
                 throw new iz("JVM DOES NOT SUPPORT UTF-8");
             }
@@ -475,8 +475,8 @@ public class jb extends jf {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, byteBuffer) == null) {
             int limit = (byteBuffer.limit() - byteBuffer.position()) - byteBuffer.arrayOffset();
-            mo627a(limit);
-            ((jf) this).a.mo629a(byteBuffer.array(), byteBuffer.position() + byteBuffer.arrayOffset(), limit);
+            mo629a(limit);
+            ((jf) this).a.mo631a(byteBuffer.array(), byteBuffer.position() + byteBuffer.arrayOffset(), limit);
         }
     }
 
@@ -487,7 +487,7 @@ public class jb extends jf {
             byte[] bArr = this.f829b;
             bArr[0] = (byte) ((s >> 8) & 255);
             bArr[1] = (byte) (s & 255);
-            ((jf) this).a.mo629a(bArr, 0, 2);
+            ((jf) this).a.mo631a(bArr, 0, 2);
         }
     }
 
@@ -501,7 +501,7 @@ public class jb extends jf {
 
     @Override // com.xiaomi.push.jf
     /* renamed from: a  reason: collision with other method in class */
-    public boolean mo628a() {
+    public boolean mo630a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? a() == 1 : invokeV.booleanValue;

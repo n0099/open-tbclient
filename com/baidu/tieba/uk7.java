@@ -1,35 +1,25 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.imMessageCenter.chatgroup.data.ChatRoomInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class uk7 extends kk7 {
+public class uk7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ChatRoomInfo a;
-    public boolean b;
+    public long a;
+    public int b;
+    public List<tk7> c;
 
-    @Override // com.baidu.tieba.kk7
-    public int getViewType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 2;
-        }
-        return invokeV.intValue;
-    }
-
-    public uk7(ChatRoomInfo chatRoomInfo, boolean z) {
+    public uk7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {chatRoomInfo, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,32 +29,57 @@ public class uk7 extends kk7 {
                 return;
             }
         }
-        this.a = chatRoomInfo;
-        this.b = z;
+        this.c = new ArrayList();
     }
 
-    public ChatRoomInfo a() {
+    public List<tk7> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return this.c;
         }
-        return (ChatRoomInfo) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public boolean b() {
+    public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+            return this.a;
+        }
+        return invokeV.longValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.b == 1) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public void c(ChatRoomInfo chatRoomInfo) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatRoomInfo) == null) {
-            this.a = chatRoomInfo;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    public void e(List<tk7> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+            this.c = list;
+        }
+    }
+
+    public void f(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.a = j;
         }
     }
 }

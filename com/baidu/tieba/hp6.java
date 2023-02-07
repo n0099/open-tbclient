@@ -1,34 +1,86 @@
 package com.baidu.tieba;
 
-import androidx.core.app.NotificationManagerCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes4.dex */
 public class hp6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public z45 a;
-    public FrsActivity b;
-    public Map<String, Date> c;
-    public boolean d;
+    public TbPageContext a;
+    public BdUniqueId b;
+    public b c;
+    public HttpMessageListener d;
 
-    public hp6(FrsActivity frsActivity) {
+    /* loaded from: classes4.dex */
+    public interface b {
+        void a(int i, String str, boolean z);
+    }
+
+    /* loaded from: classes4.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hp6 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(hp6 hp6Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hp6Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = hp6Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || httpResponsedMessage == null || httpResponsedMessage.getOrginalMessage() == null) {
+                return;
+            }
+            if (httpResponsedMessage.getOrginalMessage().getTag() == this.a.b) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (this.a.c != null) {
+                this.a.c.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), z);
+            }
+        }
+    }
+
+    public hp6(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsActivity};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,82 +90,40 @@ public class hp6 {
                 return;
             }
         }
-        this.c = new HashMap();
-        this.d = false;
-        this.b = frsActivity;
+        a aVar = new a(this, CmdConfigHttp.CMD_REMOVE_ALL_FORBIDDEN_FANS);
+        this.d = aVar;
+        this.a = tbPageContext;
+        this.b = bdUniqueId;
+        aVar.setTag(bdUniqueId);
+        this.a.registerListener(this.d);
+        c();
     }
 
-    public void a() {
-        z45 z45Var;
+    public void e(b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (z45Var = this.a) != null) {
-            z45Var.q();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.c = bVar;
         }
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            z45 z45Var = this.a;
-            if (z45Var != null && z45Var.t()) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_REMOVE_ALL_FORBIDDEN_FANS, TbConfig.SERVER_ADDRESS + TbConfig.REMOVE_MULTI_FANS);
+            tbHttpMessageTask.setIsNeedLogin(true);
+            tbHttpMessageTask.setIsNeedTbs(true);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(true);
+            tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
-        return invokeV.booleanValue;
     }
 
-    public Date c(String str) {
-        InterceptResult invokeL;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (this.c == null) {
-                this.c = new HashMap();
-            } else {
-                this.c = TbSingleton.getInstance().getHasShowTip();
-            }
-            Date date = new Date(System.currentTimeMillis());
-            Map<String, Date> map = this.c;
-            if (map != null && map.containsKey(str)) {
-                if (TimeHelper.getDayDifference(this.c.get(str), date) >= 1) {
-                    this.d = true;
-                }
-            } else {
-                this.d = true;
-            }
-            return date;
-        }
-        return (Date) invokeL.objValue;
-    }
-
-    public void d(String str) {
-        FrsActivity frsActivity;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (frsActivity = this.b) != null && frsActivity.getPageContext() != null) {
-            Date c = c(str);
-            if ((!NotificationManagerCompat.from(TbadkCoreApplication.getInst()).areNotificationsEnabled() || !z35.d().n()) && this.d) {
-                boolean z = false;
-                if (a55.g(TbadkCoreApplication.getInst(), 0)) {
-                    FrsActivity frsActivity2 = this.b;
-                    if (frsActivity2 != null && frsActivity2.S0() != null) {
-                        z = this.b.S0().A;
-                    }
-                    HashMap hashMap = new HashMap();
-                    if (z) {
-                        hashMap.put("view_params_key_style", "short");
-                    }
-                    z45 z45Var = this.a;
-                    if (z45Var != null) {
-                        z45Var.q();
-                    }
-                    this.a = a55.l(this.b.getPageContext(), "forum_follow", 2000L, hashMap);
-                    this.c.put(str, c);
-                    TbSingleton.getInstance().setHasShowTip(this.c);
-                    return;
-                }
-            }
-            zi.S(TbadkCoreApplication.getInst(), R.string.push_like_tip_msg);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_REMOVE_ALL_FORBIDDEN_FANS);
+            httpMessage.setTag(this.b);
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 }

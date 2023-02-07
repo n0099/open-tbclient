@@ -4,6 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.tieba.memberCenter.memberpay.MemberPayResult;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -815,7 +816,7 @@ public class PeerConnection {
                     return;
                 }
             }
-            NEW = new IceConnectionState("NEW", 0);
+            NEW = new IceConnectionState(MemberPayResult.VipPayPrivilegeData.NEW_TIP_TEXT, 0);
             CHECKING = new IceConnectionState("CHECKING", 1);
             CONNECTED = new IceConnectionState("CONNECTED", 2);
             COMPLETED = new IceConnectionState("COMPLETED", 3);
@@ -897,7 +898,7 @@ public class PeerConnection {
                     return;
                 }
             }
-            NEW = new IceGatheringState("NEW", 0);
+            NEW = new IceGatheringState(MemberPayResult.VipPayPrivilegeData.NEW_TIP_TEXT, 0);
             GATHERING = new IceGatheringState("GATHERING", 1);
             IceGatheringState iceGatheringState = new IceGatheringState("COMPLETE", 2);
             COMPLETE = iceGatheringState;
@@ -1161,7 +1162,7 @@ public class PeerConnection {
                     return;
                 }
             }
-            NEW = new PeerConnectionState("NEW", 0);
+            NEW = new PeerConnectionState(MemberPayResult.VipPayPrivilegeData.NEW_TIP_TEXT, 0);
             CONNECTING = new PeerConnectionState("CONNECTING", 1);
             CONNECTED = new PeerConnectionState("CONNECTED", 2);
             DISCONNECTED = new PeerConnectionState("DISCONNECTED", 3);

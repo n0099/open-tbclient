@@ -1,30 +1,38 @@
 package com.baidu.tieba;
 
-import android.graphics.Matrix;
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.hardware.camera2.CameraCharacteristics;
+import android.annotation.TargetApi;
+import android.opengl.EGL14;
+import android.opengl.EGLConfig;
+import android.opengl.EGLContext;
+import android.opengl.EGLDisplay;
+import android.opengl.EGLExt;
+import android.opengl.EGLSurface;
+import android.util.Log;
+import android.view.Surface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.internal.monitor.MonitorType;
+import org.webrtc.EglBase10;
+@TargetApi(18)
 /* loaded from: classes4.dex */
 public class ea9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Matrix a;
-    public RectF b;
+    public EGLDisplay a;
+    public EGLContext b;
+    public EGLSurface c;
+    public Surface d;
 
-    public ea9(CameraCharacteristics cameraCharacteristics, RectF rectF) {
-        int intValue;
-        boolean z;
+    public ea9(Surface surface) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cameraCharacteristics, rectF};
+            Object[] objArr = {surface};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,69 +42,107 @@ public class ea9 {
                 return;
             }
         }
-        if (a(rectF)) {
-            Rect rect = (Rect) cameraCharacteristics.get(CameraCharacteristics.SENSOR_INFO_ACTIVE_ARRAY_SIZE);
-            Integer num = (Integer) cameraCharacteristics.get(CameraCharacteristics.SENSOR_ORIENTATION);
-            if (num == null) {
-                intValue = 90;
-            } else {
-                intValue = num.intValue();
-            }
-            this.b = new RectF(rect);
-            Integer num2 = (Integer) cameraCharacteristics.get(CameraCharacteristics.LENS_FACING);
-            if (num2 != null && num2.intValue() == 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            this.a = b(z, intValue, rectF);
+        if (surface != null) {
+            this.d = surface;
+            b();
             return;
         }
-        throw new IllegalArgumentException("previewRect");
+        throw null;
     }
 
-    public final boolean a(RectF rectF) {
-        InterceptResult invokeL;
+    public final void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, rectF)) == null) {
-            if (rectF.width() != 0.0f && rectF.height() != 0.0f) {
-                return true;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            boolean z = false;
+            while (true) {
+                int eglGetError = EGL14.eglGetError();
+                if (eglGetError == 12288) {
+                    break;
+                }
+                Log.e("InputSurface", str + ": EGL error: 0x" + Integer.toHexString(eglGetError));
+                z = true;
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public RectF c(RectF rectF) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rectF)) == null) {
-            RectF rectF2 = new RectF();
-            this.a.mapRect(rectF2, rectF);
-            return rectF2;
-        }
-        return (RectF) invokeL.objValue;
-    }
-
-    public final Matrix b(boolean z, int i, RectF rectF) {
-        InterceptResult invokeCommon;
-        float f;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), rectF})) == null) {
-            Matrix matrix = new Matrix();
-            if (z) {
-                f = -1.0f;
-            } else {
-                f = 1.0f;
+            if (!z) {
+                return;
             }
-            matrix.setScale(f, 1.0f);
-            matrix.postRotate(-i);
-            matrix.mapRect(rectF);
-            Matrix matrix2 = new Matrix();
-            matrix2.setRectToRect(rectF, this.b, Matrix.ScaleToFit.FILL);
-            matrix.setConcat(matrix2, matrix);
-            return matrix;
+            throw new RuntimeException("EGL error encountered (see log)");
         }
-        return (Matrix) invokeCommon.objValue;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            EGLDisplay eglGetDisplay = EGL14.eglGetDisplay(0);
+            this.a = eglGetDisplay;
+            if (eglGetDisplay != EGL14.EGL_NO_DISPLAY) {
+                int[] iArr = new int[2];
+                if (EGL14.eglInitialize(eglGetDisplay, iArr, 0, iArr, 1)) {
+                    EGLConfig[] eGLConfigArr = new EGLConfig[1];
+                    if (EGL14.eglChooseConfig(this.a, new int[]{MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 8, MonitorType.MONITOR_TYPE_INIT_WEBKIT, 8, 12322, 8, 12352, 4, 12610, 1, 12344}, 0, eGLConfigArr, 0, 1, new int[1], 0)) {
+                        this.b = EGL14.eglCreateContext(this.a, eGLConfigArr[0], EGL14.EGL_NO_CONTEXT, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, 12344}, 0);
+                        a("eglCreateContext");
+                        if (this.b != null) {
+                            this.c = EGL14.eglCreateWindowSurface(this.a, eGLConfigArr[0], this.d, new int[]{12344}, 0);
+                            a("eglCreateWindowSurface");
+                            if (this.c != null) {
+                                return;
+                            }
+                            throw new RuntimeException("surface was null");
+                        }
+                        throw new RuntimeException("null context");
+                    }
+                    throw new RuntimeException("unable to find RGB888+recordable ES2 EGL config");
+                }
+                this.a = null;
+                throw new RuntimeException("unable to initialize EGL14");
+            }
+            throw new RuntimeException("unable to get EGL14 display");
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            EGLDisplay eGLDisplay = this.a;
+            EGLSurface eGLSurface = this.c;
+            if (EGL14.eglMakeCurrent(eGLDisplay, eGLSurface, eGLSurface, this.b)) {
+                return;
+            }
+            throw new RuntimeException("eglMakeCurrent failed");
+        }
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return EGL14.eglSwapBuffers(this.a, this.c);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (EGL14.eglGetCurrentContext().equals(this.b)) {
+                EGLDisplay eGLDisplay = this.a;
+                EGLSurface eGLSurface = EGL14.EGL_NO_SURFACE;
+                EGL14.eglMakeCurrent(eGLDisplay, eGLSurface, eGLSurface, EGL14.EGL_NO_CONTEXT);
+            }
+            EGL14.eglDestroySurface(this.a, this.c);
+            EGL14.eglDestroyContext(this.a, this.b);
+            this.d.release();
+            this.a = null;
+            this.b = null;
+            this.c = null;
+            this.d = null;
+        }
+    }
+
+    public void e(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            EGLExt.eglPresentationTimeANDROID(this.a, this.c, j);
+        }
     }
 }

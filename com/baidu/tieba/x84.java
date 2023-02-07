@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.games.screenrecord.GameRecorderController;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,11 +11,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class x84 extends v84<vq2> {
+public class x84 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
+    public static volatile x84 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public GameRecorderController a;
+    public boolean b;
 
     static {
         InterceptResult invokeClinit;
@@ -28,7 +33,8 @@ public class x84 extends v84<vq2> {
                 return;
             }
         }
-        boolean z = tk1.a;
+        c = gp1.a;
+        d = null;
     }
 
     public x84() {
@@ -45,34 +51,82 @@ public class x84 extends v84<vq2> {
         }
     }
 
-    public static x84 d() {
+    public static x84 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new x84();
+            if (d == null) {
+                synchronized (x84.class) {
+                    if (d == null) {
+                        d = new x84();
+                    }
+                }
+            }
+            return d;
         }
         return (x84) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.v84
-    public boolean b(Context context, vq2 vq2Var, sq2 sq2Var, j43 j43Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, vq2Var, sq2Var, j43Var, jSONObject)) == null) {
-            return e(context, vq2Var, sq2Var, j43Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (c) {
+                Log.i("GameRecorderManager", "isGamePause:" + this.b);
+            }
+            return this.b;
         }
-        return invokeLLLLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public final boolean e(Context context, vq2 vq2Var, sq2 sq2Var, j43 j43Var) {
-        InterceptResult invokeLLLL;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, vq2Var, sq2Var, j43Var)) == null) {
-            j12.i("map", "MapRemoveAction start");
-            boolean g = s84.b().g(vq2Var);
-            j12.i("map", "MapRemoveAction end");
-            return g;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b = true;
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b = false;
+        }
+    }
+
+    @NonNull
+    public GameRecorderController b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (c) {
+                Log.i("GameRecorderManager", "getRecorderController:" + this.a);
+            }
+            GameRecorderController gameRecorderController = this.a;
+            if (gameRecorderController == null) {
+                return GameRecorderController.j();
+            }
+            return gameRecorderController;
+        }
+        return (GameRecorderController) invokeV.objValue;
+    }
+
+    public void f(GameRecorderController gameRecorderController) {
+        GameRecorderController gameRecorderController2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, gameRecorderController) == null) && (gameRecorderController2 = this.a) != null && gameRecorderController2 == gameRecorderController) {
+            gameRecorderController2.p();
+            this.a = null;
+        }
+    }
+
+    public void g(GameRecorderController gameRecorderController) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, gameRecorderController) == null) {
+            GameRecorderController gameRecorderController2 = this.a;
+            if (gameRecorderController2 != null && gameRecorderController2 != gameRecorderController) {
+                gameRecorderController2.p();
+            }
+            this.a = gameRecorderController;
+        }
     }
 }

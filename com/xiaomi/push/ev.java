@@ -104,7 +104,7 @@ public class ev implements eu.a {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            long m737a = com.xiaomi.push.service.o.a(this.f353a).m737a();
+            long m739a = com.xiaomi.push.service.o.a(this.f353a).m739a();
             if (z || this.a != 0) {
                 if (z) {
                     a();
@@ -112,14 +112,14 @@ public class ev implements eu.a {
                 long elapsedRealtime = SystemClock.elapsedRealtime();
                 if (!z && this.a != 0) {
                     if (this.a <= elapsedRealtime) {
-                        this.a += m737a;
+                        this.a += m739a;
                     }
                     Intent intent = new Intent(com.xiaomi.push.service.bk.p);
                     intent.setPackage(this.f353a.getPackageName());
                     a(intent, this.a);
                 }
-                m737a -= elapsedRealtime % m737a;
-                this.a = elapsedRealtime + m737a;
+                m739a -= elapsedRealtime % m739a;
+                this.a = elapsedRealtime + m739a;
                 Intent intent2 = new Intent(com.xiaomi.push.service.bk.p);
                 intent2.setPackage(this.f353a.getPackageName());
                 a(intent2, this.a);
@@ -129,7 +129,7 @@ public class ev implements eu.a {
 
     @Override // com.xiaomi.push.eu.a
     /* renamed from: a */
-    public boolean mo389a() {
+    public boolean mo391a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a != 0 : invokeV.booleanValue;

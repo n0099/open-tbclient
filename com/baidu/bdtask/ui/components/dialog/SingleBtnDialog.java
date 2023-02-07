@@ -6,10 +6,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.BDPTask;
 import com.baidu.bdtask.component.dialog.TaskDialogViewData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gr;
-import com.baidu.tieba.ku;
-import com.baidu.tieba.lu;
-import com.baidu.tieba.qs;
+import com.baidu.tieba.lr;
+import com.baidu.tieba.pu;
+import com.baidu.tieba.qu;
+import com.baidu.tieba.vs;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0018\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0004\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\b\u0010\u0007J\u000f\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0003\u0010\u0004J\u000f\u0010\u0006\u001a\u00020\u0005H\u0016¢\u0006\u0004\b\u0006\u0010\u0007¨\u0006\t"}, d2 = {"Lcom/baidu/bdtask/ui/components/dialog/SingleBtnDialog;", "Lcom/baidu/bdtask/ui/components/dialog/a;", "", "getBtnLayout", "()I", "", "initExtraView", "()V", "<init>", "lib-bdtask-ui-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class SingleBtnDialog extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -95,20 +95,20 @@ public final class SingleBtnDialog extends a {
                     /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
                     /* renamed from: invoke  reason: avoid collision after fix types in other method */
                     public final void invoke2() {
-                        qs b;
-                        lu d;
-                        lu d2;
+                        vs b;
+                        qu d;
+                        qu d2;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                            ku v = BDPTask.m.v();
+                            pu v = BDPTask.m.v();
                             if (v != null && (d2 = v.d()) != null) {
-                                d2.b(this.$data.getTaskInfoSingleKey(), gr.c.a());
+                                d2.b(this.$data.getTaskInfoSingleKey(), lr.c.a());
                             }
-                            ku v2 = BDPTask.m.v();
+                            pu v2 = BDPTask.m.v();
                             if (v2 != null && (d = v2.d()) != null) {
                                 d.a(this.$data.getTaskInfoSingleKey());
                             }
-                            ku v3 = BDPTask.m.v();
+                            pu v3 = BDPTask.m.v();
                             if (v3 != null && (b = v3.b()) != null) {
                                 b.a(this.$data.getBackBtnSchema(), 1);
                             }

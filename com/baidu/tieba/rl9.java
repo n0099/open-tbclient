@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
-import android.os.IBinder;
+import androidx.annotation.NonNull;
+import com.baidu.tieba.write.data.QuestionTagListData;
 /* loaded from: classes6.dex */
 public interface rl9 {
-    IBinder a(String str);
-
-    void b();
+    void a(@NonNull QuestionTagListData.QuestionTag questionTag);
 }

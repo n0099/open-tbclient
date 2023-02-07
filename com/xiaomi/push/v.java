@@ -51,7 +51,7 @@ public class v {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static Context m761a() {
+    public static Context m763a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (Context) invokeV.objValue;
@@ -74,7 +74,7 @@ public class v {
             try {
                 return Class.forName(str);
             } catch (Throwable th) {
-                com.xiaomi.channel.commonutils.logger.b.m103a(String.format("loadClass fail hasContext= %s, errMsg = %s", Boolean.valueOf(z), th.getLocalizedMessage()));
+                com.xiaomi.channel.commonutils.logger.b.m105a(String.format("loadClass fail hasContext= %s, errMsg = %s", Boolean.valueOf(z), th.getLocalizedMessage()));
                 throw new ClassNotFoundException("loadClass fail ", th);
             }
         }
@@ -82,7 +82,7 @@ public class v {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized String m762a() {
+    public static synchronized String m764a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
@@ -119,14 +119,14 @@ public class v {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m763a() {
+    public static boolean m765a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? TextUtils.equals((String) bk.a("android.os.SystemProperties", "get", "sys.boot_completed"), "1") : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m764a(Context context) {
+    public static boolean m766a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
@@ -152,7 +152,7 @@ public class v {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m765b() {
+    public static boolean m767b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {

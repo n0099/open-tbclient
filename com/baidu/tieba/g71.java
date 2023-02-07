@@ -1,167 +1,143 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
-import android.view.MotionEvent;
-import android.view.TouchDelegate;
+import android.app.Activity;
 import android.view.View;
-import android.view.ViewConfiguration;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.webpanel.PanelScrollView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public class g71 extends TouchDelegate {
+public final class g71 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<View, a> a;
+    public m71 a;
+    public PanelScrollView b;
+    public final Activity c;
+    public final ViewGroup d;
 
-    /* loaded from: classes4.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Rect a;
-        public int b;
-        public int c;
-        public int d;
-        public int e;
-        public int f;
-        public Rect g;
-        public boolean h;
-
-        public a(g71 g71Var, Rect rect, int i, int i2, int i3, int i4) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g71Var, rect, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = i;
-            this.a = rect;
-            this.d = i2;
-            this.c = i3;
-            this.e = i4;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g71(View view2, int i, int i2, int i3, int i4) {
-        super(new Rect(), view2);
+    public g71(Activity activity, ViewGroup rootView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            Object[] objArr = {activity, rootView};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Rect) objArr2[0], (View) objArr2[1]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap();
-        a(view2, i, i2, i3, i4);
+        Intrinsics.checkNotNullParameter(activity, "activity");
+        Intrinsics.checkNotNullParameter(rootView, "rootView");
+        this.c = activity;
+        this.d = rootView;
+        this.a = h71.a().a(this.c);
+        this.b = new PanelScrollView(this.c);
     }
 
-    public void a(View view2, int i, int i2, int i3, int i4) {
+    public final void a(o71 listener) {
+        PanelScrollView panelScrollView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            this.a.put(view2, new a(this, new Rect(), i, i2, i3, i4));
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (Map.Entry<View, a> entry : this.a.entrySet()) {
-                View key = entry.getKey();
-                int[] iArr = new int[2];
-                key.getLocationOnScreen(iArr);
-                int measuredWidth = key.getMeasuredWidth();
-                int measuredHeight = key.getMeasuredHeight();
-                a value = entry.getValue();
-                Rect rect = value.a;
-                rect.left = iArr[0] - value.b;
-                rect.right = iArr[0] + measuredWidth + value.c;
-                rect.top = iArr[1] - value.d;
-                rect.bottom = iArr[1] + measuredHeight + value.e;
-                value.f = ViewConfiguration.get(key.getContext()).getScaledTouchSlop();
-                Rect rect2 = new Rect(value.a);
-                value.g = rect2;
-                int i = value.f;
-                rect2.inset(-i, -i);
+        if (interceptable == null || interceptable.invokeL(1048576, this, listener) == null) {
+            Intrinsics.checkNotNullParameter(listener, "listener");
+            m71 m71Var = this.a;
+            if (m71Var != null && (panelScrollView = this.b) != null) {
+                panelScrollView.k(m71Var, listener);
+            }
+            PanelScrollView panelScrollView2 = this.b;
+            if (panelScrollView2 != null) {
+                this.d.setClipChildren(false);
+                this.d.addView(panelScrollView2, new FrameLayout.LayoutParams(-1, -1));
             }
         }
     }
 
-    @Override // android.view.TouchDelegate
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
+    public final PanelScrollView b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-            b();
-            int rawX = (int) motionEvent.getRawX();
-            int rawY = (int) motionEvent.getRawY();
-            boolean z = false;
-            boolean z2 = false;
-            boolean z3 = true;
-            for (Map.Entry<View, a> entry : this.a.entrySet()) {
-                View key = entry.getKey();
-                if (key.getVisibility() != 0) {
-                    break;
-                }
-                a value = entry.getValue();
-                int action = motionEvent.getAction();
-                if (action != 0) {
-                    if (action != 1 && action != 2) {
-                        if (action == 3) {
-                            z2 = value.h;
-                            value.h = false;
-                        }
-                    } else {
-                        z2 = value.h;
-                        if (z2 && !value.g.contains(rawX, rawY)) {
-                            z3 = false;
-                        }
-                    }
-                } else if (value.a.contains(rawX, rawY)) {
-                    value.h = true;
-                    z2 = true;
-                } else {
-                    value.h = false;
-                    z2 = false;
-                }
-                if (z2) {
-                    if (z3) {
-                        motionEvent.setLocation(key.getWidth() / 2, key.getHeight() / 2);
-                    } else {
-                        float f = -(value.f * 2);
-                        motionEvent.setLocation(f, f);
-                    }
-                    z = key.dispatchTouchEvent(motionEvent);
-                    continue;
-                }
-                if (z) {
-                    break;
-                }
-            }
-            return z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return invokeL.booleanValue;
+        return (PanelScrollView) invokeV.objValue;
+    }
+
+    public final View.OnTouchListener c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (View.OnTouchListener) invokeV.objValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            PanelScrollView panelScrollView = this.b;
+            if (panelScrollView != null) {
+                panelScrollView.s();
+            }
+            m71 m71Var = this.a;
+            if (m71Var != null) {
+                m71Var.onDestroy();
+            }
+        }
+    }
+
+    public final boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            m71 m71Var = this.a;
+            if (m71Var != null) {
+                return m71Var.h();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final Activity getActivity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.c;
+        }
+        return (Activity) invokeV.objValue;
+    }
+
+    public final void d(String javaScript) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, javaScript) == null) {
+            Intrinsics.checkNotNullParameter(javaScript, "javaScript");
+            m71 m71Var = this.a;
+            if (m71Var != null) {
+                m71Var.r(javaScript);
+            }
+        }
+    }
+
+    public final void f(q71 nadWebPanelModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, nadWebPanelModel) == null) {
+            Intrinsics.checkNotNullParameter(nadWebPanelModel, "nadWebPanelModel");
+            m71 m71Var = this.a;
+            if (m71Var != null) {
+                m71Var.l(nadWebPanelModel);
+            }
+            PanelScrollView panelScrollView = this.b;
+            if (panelScrollView != null) {
+                panelScrollView.setPanelData(nadWebPanelModel);
+            }
+        }
     }
 }

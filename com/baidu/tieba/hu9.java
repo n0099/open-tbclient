@@ -1,85 +1,95 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.retrieve.util.FileMetaUtil;
-import com.baidu.searchbox.config.AppConfig;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.xt9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class hu9 {
+public class hu9 extends du9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static JSONObject a(JSONObject jSONObject, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, jSONObject, str)) == null) {
-            try {
-                jSONObject.put("bosMessage", str);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeLL.objValue;
-    }
-
-    public static JSONObject b(File file, String str, String str2, String str3, boolean z) {
-        InterceptResult invokeCommon;
-        String str4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{file, str, str2, str3, Boolean.valueOf(z)})) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("errno", str2);
-                jSONObject.put("errmsg", str3);
-                if (z) {
-                    str4 = "1";
-                } else {
-                    str4 = "0";
-                }
-                jSONObject.put(FileMetaUtil.IS_FILE, str4);
-                if (file != null && file.exists() && file.isFile()) {
-                    jSONObject.put(FileMetaUtil.ZIP_PATH, str);
-                    jSONObject.put("size", String.valueOf(file.length()));
-                    jSONObject.put(FileMetaUtil.CREATE_TIME, file.lastModified());
-                    jSONObject.put(FileMetaUtil.MODIFY_TIME, file.lastModified());
-                }
-            } catch (Exception e) {
-                if (AppConfig.isDebug()) {
-                    e.printStackTrace();
-                }
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeCommon.objValue;
-    }
-
-    public static JSONObject c(List<String> list) {
+    @Override // com.baidu.tieba.du9
+    public Map<String, String> f(iu9 iu9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (list != null) {
-                try {
-                    if (list.size() > 0) {
-                        StringBuilder sb = new StringBuilder();
-                        for (String str : list) {
-                            sb.append(str);
-                            sb.append("&");
-                        }
-                        jSONObject.put("space", sb.toString());
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            return jSONObject;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iu9Var)) == null) {
+            return null;
         }
-        return (JSONObject) invokeL.objValue;
+        return (Map) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.du9
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 200;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.du9
+    public void j(iu9 iu9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, iu9Var) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.du9
+    public void n(iu9 iu9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, iu9Var) == null) {
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public hu9(au9 au9Var, iu9 iu9Var, xt9.a aVar) {
+        super(au9Var, iu9Var, aVar);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {au9Var, iu9Var, aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((au9) objArr2[0], (iu9) objArr2[1], (xt9.a) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.du9
+    public RandomAccessFile e(File file, String str, long j) throws IOException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{file, str, Long.valueOf(j)})) == null) {
+            RandomAccessFile randomAccessFile = new RandomAccessFile(new File(file, str), "rwd");
+            randomAccessFile.seek(0L);
+            return randomAccessFile;
+        }
+        return (RandomAccessFile) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.du9
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return hu9.class.getSimpleName();
+        }
+        return (String) invokeV.objValue;
     }
 }

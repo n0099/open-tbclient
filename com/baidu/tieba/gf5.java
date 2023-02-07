@@ -1,198 +1,228 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.text.TextUtils;
+import android.graphics.Rect;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import androidx.core.widget.NestedScrollView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes4.dex */
-public class gf5 {
+public class gf5 extends ef5 {
     public static /* synthetic */ Interceptable $ic;
-    public static gf5 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> a;
-    public List<String> b;
+    public NestedScrollView a;
+    public LinearLayout b;
+    public TbImageView c;
+    public TextView d;
+    public TextView e;
+    public TBSpecificationBtn f;
+    public LinearLayout g;
+    public int h;
+    public Rect i;
 
-    public gf5() {
+    /* loaded from: classes4.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gf5 a;
+
+        public a(gf5 gf5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gf5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gf5Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.a(-1);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gf5(Context context, View.OnClickListener onClickListener) {
+        super(LayoutInflater.from(context).inflate(R.layout.frs_net_refresh_view_layout, (ViewGroup) null));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, onClickListener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i(cz4.l().r("key_need_add_source_stat_list", ""));
-        this.b = i("c12897,c12896,c12895,c12894,c12893,c12892,c12891,c12890,c13274,c12905,c12003,c13271,c12899,c11244,c11032,c12904,c13273,c13433,c10295,c12320,c12835,c10297,c13136,c12910,c10734,c10735,common_click,c10730,c10731,c11439,c10705,c13147,c13388,c13389,c10756,c10296,c10755,c13407,c13406,c12590,c10751,c12888,c12889,consume_33,c11824,c11823,consume_34,c12902,c12898,consume_24,c12887,c12909,c12908,c12942,c12901,c12900,c12903,c13008,c13146,common_exp,c12907,c12906,c10750,consume_3,c11887,c11438,c10704,c10484,c10709,c10708,c12386,c12384");
+        this.h = 0;
+        this.i = new Rect();
+        this.a = (NestedScrollView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091eca);
+        this.b = (LinearLayout) this.attachedView.findViewById(R.id.obfuscated_res_0x7f09070d);
+        this.c = (TbImageView) this.attachedView.findViewById(R.id.net_refresh_image);
+        this.d = (TextView) this.attachedView.findViewById(R.id.net_refresh_desc);
+        this.e = (TextView) this.attachedView.findViewById(R.id.net_refresh_title);
+        this.g = (LinearLayout) this.attachedView.findViewById(R.id.net_refresh_info_layout);
+        this.f = (TBSpecificationBtn) this.attachedView.findViewById(R.id.net_refresh_button);
+        m45 m45Var = new m45();
+        this.f.setText(context.getResources().getString(R.string.refresh_view_button_text));
+        this.f.setTextSize(R.dimen.tbds42);
+        this.f.setConfig(m45Var);
+        this.f.setOnClickListener(onClickListener);
+        this.attachedView.setOnClickListener(null);
     }
 
-    public static void b(Context context, StatisticItem statisticItem, nf5 nf5Var) {
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65537, null, context, statisticItem, nf5Var) == null) && nf5Var != null && statisticItem != null && !TextUtils.isEmpty(statisticItem.getKey())) {
-            ef5 k = nf5Var.k();
-            if (k == null || k.f()) {
-                k = TbPageExtraHelper.getCurrentVisiblePageExtra(context);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            if (this.h <= 0) {
+                this.h = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds156);
             }
-            if (k != null && !k.f()) {
-                c(statisticItem, k);
+            NestedScrollView nestedScrollView = this.a;
+            if (nestedScrollView == null) {
+                return;
             }
-            TbPageExtraHelper.printLog(statisticItem.toString());
+            if (i == 0) {
+                nestedScrollView.post(new a(this));
+            }
+            if (!this.a.getLocalVisibleRect(this.i)) {
+                return;
+            }
+            int i2 = this.i.bottom;
+            int abs = Math.abs(this.b.getTop());
+            int abs2 = i2 - Math.abs(this.b.getBottom());
+            ViewGroup.LayoutParams layoutParams = this.b.getLayoutParams();
+            if (!(layoutParams instanceof ViewGroup.MarginLayoutParams)) {
+                return;
+            }
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
+            int i3 = this.h;
+            if (abs < i3) {
+                marginLayoutParams.topMargin = i3;
+                this.b.setLayoutParams(marginLayoutParams);
+            } else if (abs == i3) {
+                if (abs2 > i3) {
+                    marginLayoutParams.topMargin = i3 + ((abs2 - i3) / 2);
+                    this.b.setLayoutParams(marginLayoutParams);
+                }
+            } else if (abs > i3) {
+                if (abs2 < i3) {
+                    marginLayoutParams.topMargin = i3;
+                } else if (abs2 == i3) {
+                    marginLayoutParams.topMargin = i3;
+                } else if (abs2 > i3) {
+                    marginLayoutParams.topMargin = (abs + abs2) / 2;
+                }
+                this.b.setLayoutParams(marginLayoutParams);
+            }
         }
     }
 
-    public static void c(StatisticItem statisticItem, ef5 ef5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, statisticItem, ef5Var) == null) && statisticItem != null && ef5Var != null && !TextUtils.isEmpty(statisticItem.getKey())) {
-            String a = ef5Var.a();
-            if (!TextUtils.isEmpty(a) && !statisticItem.hasParam("page_key")) {
-                statisticItem.param("page_key", a);
-            }
-            String a2 = ff5.a(ef5Var.d(), a, 6);
-            if (!TextUtils.isEmpty(a2) && !statisticItem.hasParam("page_source")) {
-                statisticItem.param("page_source", a2);
-            }
-        }
-    }
-
-    public static gf5 f() {
+    public View b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (c == null) {
-                synchronized (gf5.class) {
-                    if (c == null) {
-                        c = new gf5();
-                    }
-                }
-            }
-            return c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.attachedView;
         }
-        return (gf5) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    public final void a(StatisticItem statisticItem) {
-        Activity currentActivity;
-        ef5 currentVisiblePageExtra;
+    public void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, statisticItem) != null) || statisticItem == null || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || (currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(currentActivity)) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.f.setVisibility(0);
+            this.e.setVisibility(0);
+            SkinManager.setViewTextColor(this.d, R.color.CAM_X0109, 1);
+        }
+    }
+
+    @Override // com.baidu.tieba.ef5
+    public void onViewAttached() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.onViewAttached();
+            onChangeSkinType();
+        }
+    }
+
+    @Override // com.baidu.tieba.ef5
+    public void onViewDettached() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            super.onViewDettached();
+            this.c.setImageResource(0);
+        }
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || str == null) {
             return;
         }
-        String a = currentVisiblePageExtra.a();
-        if (!TextUtils.isEmpty(a) && !statisticItem.hasParam("page_key")) {
-            statisticItem.param("page_key", a);
-        }
-        String b = currentVisiblePageExtra.b();
-        if (!TextUtils.isEmpty(b) && !statisticItem.hasParam("page_tag")) {
-            statisticItem.param("page_tag", b);
-        }
-        ArrayList<String> d = currentVisiblePageExtra.d();
-        String a2 = ff5.a(d, a, 6);
-        if (statisticItem.getKey().equals("common_exp") && statisticItem.hasParam("common_exp_source_pb_comment") && d.size() == 0 && (currentActivity instanceof kf5)) {
-            List<String> currentPageSourceKeyList = ((kf5) currentActivity).getCurrentPageSourceKeyList();
-            if (currentPageSourceKeyList instanceof ArrayList) {
-                a2 = ff5.a((ArrayList) currentPageSourceKeyList, a, 6);
-                statisticItem.delete("common_exp_source_pb_comment");
-            }
-        }
-        if (!TextUtils.isEmpty(a2) && !statisticItem.hasParam("page_source")) {
-            statisticItem.param("page_source", a2);
-        }
-        TbPageExtraHelper.printLog(statisticItem.toString());
+        this.f.setText(str);
     }
 
-    public final <T> List<T> d(T[] tArr) {
-        InterceptResult invokeL;
+    public void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tArr)) == null) {
-            if (tArr != null && tArr.length != 0) {
-                ArrayList arrayList = new ArrayList(tArr.length);
-                for (T t : tArr) {
-                    if (t != null && !TextUtils.isEmpty(t.toString())) {
-                        arrayList.add(t);
-                    }
-                }
-                return arrayList;
-            }
-            return null;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public boolean g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (!ListUtils.isEmpty(this.b) && !yi.isEmpty(str)) {
-                for (String str2 : this.b) {
-                    if (str.equals(str2)) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (!ListUtils.isEmpty(this.a) && !yi.isEmpty(str)) {
-                for (String str2 : this.a) {
-                    if (str.equals(str2)) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void e(StatisticItem statisticItem) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, statisticItem) == null) && statisticItem != null && !statisticItem.hasParam("page_source")) {
-            if (h(statisticItem.getKey()) || g(statisticItem.getKey())) {
-                a(statisticItem);
-            }
-        }
-    }
-
-    public final List<String> i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (yi.isEmpty(str)) {
-                return null;
-            }
-            return d(str.split(","));
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.a = i(str);
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             if (str == null) {
-                str = "";
+                this.d.setVisibility(8);
+                return;
             }
-            cz4.l().z("key_need_add_source_stat_list", str);
+            this.d.setVisibility(0);
+            this.d.setText(str);
+        }
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || str == null) {
+            return;
+        }
+        this.e.setText(str);
+    }
+
+    public void onChangeSkinType() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            SkinManager.setImageResource(this.c, R.drawable.new_pic_emotion_08);
+            SkinManager.setViewTextColor(this.d, R.color.CAM_X0109, 1, skinType);
+            SkinManager.setViewTextColor(this.e, R.color.CAM_X0107, 1, skinType);
+            SkinManager.setBackgroundColor(this.attachedView, R.color.CAM_X0201);
+            TBSpecificationBtn tBSpecificationBtn = this.f;
+            if (tBSpecificationBtn != null) {
+                tBSpecificationBtn.k();
+            }
         }
     }
 }

@@ -1,94 +1,69 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Build;
+import com.baidu.adp.gif.NSGif;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidParameterException;
 /* loaded from: classes5.dex */
-public class lc extends BdAsyncTask<DiskFileOperate, Integer, DiskFileOperate> {
+public class lc {
     public static /* synthetic */ Interceptable $ic;
+    public static final String[] a;
     public transient /* synthetic */ FieldHolder $fh;
-    public kc a;
-    public volatile nc b;
-    public DiskFileOperate c;
 
-    public lc(kc kcVar, DiskFileOperate diskFileOperate) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {kcVar, diskFileOperate};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448310038, "Lcom/baidu/tieba/lc;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448310038, "Lcom/baidu/tieba/lc;");
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        if (kcVar != null && diskFileOperate != null) {
-            this.a = kcVar;
-            this.c = diskFileOperate;
-            return;
-        }
-        throw new InvalidParameterException("DiskFileTask parameter null");
+        a = new String[]{"ZTE-T U880", "U880"};
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
-    public DiskFileOperate doInBackground(DiskFileOperate... diskFileOperateArr) {
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (Build.VERSION.SDK_INT > 7) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b(gj.g()) && a() && NSGif.f) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, diskFileOperateArr)) == null) {
-            this.b = new nc(this.a, this.c);
-            this.b.call();
-            return this.c;
-        }
-        return (DiskFileOperate) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: c */
-    public void onPostExecute(DiskFileOperate diskFileOperate) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, diskFileOperate) == null) {
-            super.onPostExecute(diskFileOperate);
-            if (diskFileOperate != null) {
-                this.c.callback(diskFileOperate.isSuccess());
-            } else {
-                this.c.callback(false);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            for (String str2 : a) {
+                if (str2.equals(str)) {
+                    return false;
+                }
             }
+            return true;
         }
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.cancel();
-            if (this.b != null) {
-                this.b.b();
-            }
-        }
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPreCancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.onPreCancel();
-            this.c.callback(false);
-        }
+        return invokeL.booleanValue;
     }
 }

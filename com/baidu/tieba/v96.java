@@ -1,70 +1,96 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tieba.sa6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
+import java.util.Objects;
 /* loaded from: classes6.dex */
-public class v96 extends ln<w96, CardViewHolder<x96>> {
+public abstract class v96<T extends sa6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
+    public int a;
+    public final T[] b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v96(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), w96.c);
+    public v96(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        this.a = 0;
+        if (i > 0) {
+            this.b = (T[]) new sa6[i];
+        } else {
+            this.b = (T[]) new sa6[5];
+        }
+        Arrays.fill(this.b, (Object) null);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: s */
-    public CardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public synchronized boolean c(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new CardViewHolder(new x96(this.a));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
+            synchronized (this) {
+                if (b(t)) {
+                    return true;
+                }
+                if (this.a < this.b.length) {
+                    T[] tArr = this.b;
+                    int i = this.a;
+                    this.a = i + 1;
+                    tArr[i] = t;
+                    return true;
+                }
+                return false;
+            }
         }
-        return (CardViewHolder) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, w96 w96Var, CardViewHolder cardViewHolder) {
-        InterceptResult invokeCommon;
+    public synchronized T a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, w96Var, cardViewHolder})) == null) {
-            if (cardViewHolder != null && cardViewHolder.a() != null) {
-                cardViewHolder.a().i(w96Var);
-                return cardViewHolder.getView();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                if (this.a <= 0) {
+                    return null;
+                }
+                T[] tArr = this.b;
+                int i = this.a - 1;
+                this.a = i;
+                T t = tArr[i];
+                this.b[i] = null;
+                return t;
             }
-            return null;
         }
-        return (View) invokeCommon.objValue;
+        return (T) invokeV.objValue;
+    }
+
+    public boolean b(T t) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) {
+            for (int i = 0; i < this.a; i++) {
+                if (Objects.equals(this.b[i], t)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

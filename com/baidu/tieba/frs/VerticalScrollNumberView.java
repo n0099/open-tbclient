@@ -8,7 +8,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.ScrollTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -50,10 +50,10 @@ public class VerticalScrollNumberView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             this.a = context;
-            this.b = zi.g(context, R.dimen.obfuscated_res_0x7f070201);
-            this.c = zi.g(this.a, R.dimen.obfuscated_res_0x7f070225);
-            this.d = zi.g(this.a, R.dimen.obfuscated_res_0x7f0701d4);
-            this.e = zi.g(this.a, R.dimen.obfuscated_res_0x7f070302);
+            this.b = ej.g(context, R.dimen.obfuscated_res_0x7f070201);
+            this.c = ej.g(this.a, R.dimen.obfuscated_res_0x7f070225);
+            this.d = ej.g(this.a, R.dimen.obfuscated_res_0x7f0701d4);
+            this.e = ej.g(this.a, R.dimen.obfuscated_res_0x7f070303);
         }
     }
 

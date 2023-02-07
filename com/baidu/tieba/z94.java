@@ -1,189 +1,167 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.map.location.model.SelectedLocationInfo;
-import com.baidu.tieba.k94;
-import com.baidu.tieba.u94;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.searchbox.v8engine.JsSerializeValue;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class z94 extends v84<tq2> implements u94.b {
+public class z94 extends ca4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sq2 a;
-    public tq2 b;
 
-    /* loaded from: classes7.dex */
-    public class a implements k94.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sq2 a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ z94 c;
-
-        public a(z94 z94Var, sq2 sq2Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {z94Var, sq2Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = z94Var;
-            this.a = sq2Var;
-            this.b = str;
-        }
-
-        @Override // com.baidu.tieba.k94.c
-        public void onFail() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                j12.o("map", "location permission fail");
-                this.a.b(this.b, 1003, "location permission fail");
-            }
-        }
-
-        @Override // com.baidu.tieba.k94.c
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                j12.o("map", "location permission success");
-                this.c.g();
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948314772, "Lcom/baidu/tieba/z94;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948314772, "Lcom/baidu/tieba/z94;");
-                return;
-            }
-        }
-        boolean z = tk1.a;
-    }
-
-    public z94() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public z94(gg2 gg2Var) {
+        super(gg2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {gg2Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((gg2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static z94 h() {
-        InterceptResult invokeV;
+    public final void g(JsObject jsObject, String str, String str2, ga4 ga4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return new z94();
-        }
-        return (z94) invokeV.objValue;
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            u94 b3 = u94.b3(null);
-            b3.g3(this);
-            b3.i3();
-        }
-    }
-
-    @Override // com.baidu.tieba.u94.b
-    public void onCancel() {
-        tq2 tq2Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            j12.i("map", "choose location cancel");
-            sq2 sq2Var = this.a;
-            if (sq2Var != null && (tq2Var = this.b) != null) {
-                sq2Var.b(tq2Var.z, 1002, "choose location canceled");
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, jsObject, str, str2, ga4Var) == null) {
+            d12 n = n(jsObject);
+            f34 f34Var = new f34();
+            boolean g = ga4Var.g();
+            f34Var.errMsg = ga4Var.c(str, str2);
+            ib4.call(n, g, f34Var);
+            if (!g) {
+                q94.i(str2, f34Var.errMsg);
             }
         }
     }
 
-    @Override // com.baidu.tieba.u94.b
-    public void onError() {
-        tq2 tq2Var;
+    public void h(JsObject jsObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            j12.i("map", "choose location fail");
-            sq2 sq2Var = this.a;
-            if (sq2Var != null && (tq2Var = this.b) != null) {
-                sq2Var.b(tq2Var.z, 1007, "choose location failed");
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsObject) == null) {
+            g(jsObject, "clearStorage", "", a());
         }
     }
 
-    @Override // com.baidu.tieba.u94.b
-    public void a(SelectedLocationInfo selectedLocationInfo) {
-        sq2 sq2Var;
-        tq2 tq2Var;
+    public final JsSerializeValue i(JsObject jsObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, selectedLocationInfo) == null) && (sq2Var = this.a) != null && (tq2Var = this.b) != null) {
-            sq2Var.c(tq2Var.z, selectedLocationInfo.toJson());
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsObject)) == null) {
+            for (int i = 0; i < jsObject.length(); i++) {
+                if ("data".equals(jsObject.getPropertyName(i))) {
+                    return jsObject.toSerializeValue(i);
+                }
+            }
+            return null;
+        }
+        return (JsSerializeValue) invokeL.objValue;
+    }
+
+    public void l(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, jsObject) == null) {
+            d12 n = n(jsObject);
+            fa4 b = b();
+            b.errMsg = da4.b("getStorageInfo");
+            ib4.call(n, true, b);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.v84
-    /* renamed from: f */
-    public boolean b(Context context, tq2 tq2Var, sq2 sq2Var, j43 j43Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
+    @NonNull
+    public final d12 n(JsObject jsObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, context, tq2Var, sq2Var, j43Var, jSONObject)) == null) {
-            return e(context, tq2Var, sq2Var, j43Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, jsObject)) == null) {
+            d12 F = d12.F(jsObject);
+            if (F == null) {
+                return new d12();
+            }
+            return F;
         }
-        return invokeLLLLL.booleanValue;
+        return (d12) invokeL.objValue;
     }
 
-    public final boolean e(Context context, tq2 tq2Var, sq2 sq2Var, j43 j43Var) {
-        InterceptResult invokeLLLL;
+    public void o(JsObject jsObject) {
+        String m;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, tq2Var, sq2Var, j43Var)) == null) {
-            j12.i("map", "ChooseLocationAction start");
-            if (!tq2Var.isValid()) {
-                j12.c("map", "model is invalid");
-                return false;
-            }
-            String str = tq2Var.z;
-            if (TextUtils.isEmpty(str)) {
-                j12.c("map", "cb is empty");
-                return false;
-            }
-            this.a = sq2Var;
-            this.b = tq2Var;
-            k94.b(context, new a(this, sq2Var, str));
-            j12.i("map", "ChooseLocationAction end");
-            return true;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jsObject) != null) || (m = m(jsObject, "removeStorage")) == null) {
+            return;
         }
-        return invokeLLLL.booleanValue;
+        g(jsObject, "removeStorage", m, e(m));
+    }
+
+    public void p(JsObject jsObject) {
+        String m;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048585, this, jsObject) != null) || (m = m(jsObject, "setStorage")) == null) {
+            return;
+        }
+        g(jsObject, "setStorage", m, f(m, i(jsObject)));
+    }
+
+    public final ga4 j(JsObject jsObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jsObject)) == null) {
+            for (int i = 0; i < jsObject.length(); i++) {
+                if ("key".equals(jsObject.getPropertyName(i))) {
+                    int propertyType = jsObject.getPropertyType(i);
+                    if (propertyType == 7) {
+                        return ga4.i(jsObject.toString(i));
+                    }
+                    return ga4.b(String.format("parameter error: the key must be string instead of %s.", ga4.f(propertyType)));
+                }
+            }
+            return ga4.b("parameter error: the parameter key is necessary.");
+        }
+        return (ga4) invokeL.objValue;
+    }
+
+    public void k(JsObject jsObject) {
+        String m;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, jsObject) != null) || (m = m(jsObject, "getStorage")) == null) {
+            return;
+        }
+        ga4 c = c(m);
+        if (c.g()) {
+            ea4 ea4Var = new ea4();
+            ea4Var.errMsg = da4.b("getStorage");
+            Object d = c.d();
+            ea4Var.data = d;
+            if (d instanceof JsSerializeValue) {
+                ((JsSerializeValue) d).setAutoRelease(false);
+            }
+            ib4.call(n(jsObject), true, ea4Var);
+            return;
+        }
+        g(jsObject, "getStorage", m, c);
+    }
+
+    public final String m(JsObject jsObject, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, jsObject, str)) == null) {
+            ga4 j = j(jsObject);
+            if (!j.g()) {
+                g(jsObject, str, "", j);
+                return null;
+            }
+            return (String) j.d();
+        }
+        return (String) invokeLL.objValue;
     }
 }

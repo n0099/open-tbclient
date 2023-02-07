@@ -1,26 +1,37 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import androidx.annotation.UiThread;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.browser.core.webview.base.BaseWebView;
-import com.baidu.tieba.g66;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class l56<T extends g66> {
+public class l56 extends rn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final m56 a;
+    public Context b;
+    public View c;
+    public ImageView d;
+    public TextView e;
+    public View f;
+    public View g;
+    public View.OnClickListener h;
 
-    public l56() {
+    public l56(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,32 +41,66 @@ public class l56<T extends g66> {
                 return;
             }
         }
-        this.a = new m56();
+        this.b = context;
     }
 
-    @UiThread
-    public T a(@Nullable String str) {
-        InterceptResult invokeL;
+    public void f(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                return this.a.d(str);
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
+            this.h = onClickListener;
         }
-        return (T) invokeL.objValue;
     }
 
-    @UiThread
-    public boolean b(BaseWebView baseWebView) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.rn
+    public View a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseWebView)) == null) {
-            if (this.a.e(baseWebView.getOriginUrl(), baseWebView) == null) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d00f5, (ViewGroup) null);
+            this.c = inflate;
+            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0901dc);
+            this.d = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0901db);
+            this.f = this.c.findViewById(R.id.obfuscated_res_0x7f0901dd);
+            this.g = this.c.findViewById(R.id.obfuscated_res_0x7f0901da);
+            e(TbadkCoreApplication.getInst().getSkinType());
+            return this.c;
         }
-        return invokeL.booleanValue;
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.rn
+    public void d() {
+        View.OnClickListener onClickListener;
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (onClickListener = this.h) != null && (view2 = this.c) != null) {
+            onClickListener.onClick(view2);
+        }
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            View view2 = this.c;
+            if (view2 != null) {
+                SkinManager.setBackgroundResource(view2, R.drawable.addresslist_item_bg);
+            }
+            TextView textView = this.e;
+            if (textView != null) {
+                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0304);
+            }
+            ImageView imageView = this.d;
+            if (imageView != null) {
+                SkinManager.setImageResource(imageView, R.drawable.icon_inf_arrowblue_n);
+            }
+            View view3 = this.f;
+            if (view3 != null) {
+                SkinManager.setBackgroundResource(view3, R.color.CAM_X0204);
+            }
+            View view4 = this.g;
+            if (view4 != null) {
+                SkinManager.setBackgroundResource(view4, R.color.CAM_X0204);
+            }
+        }
     }
 }

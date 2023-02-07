@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.flow.data.ApkDownloadInfoData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hx4;
-import com.baidu.tieba.ix4;
-import com.baidu.tieba.lx4;
-import com.baidu.tieba.sq4;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.fv4;
+import com.baidu.tieba.u15;
+import com.baidu.tieba.v15;
+import com.baidu.tieba.y15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,10 +29,10 @@ public class AutoDownloadBannerView extends RelativeLayout {
     public Context a;
     public DownloadFlowView<ApkDownloadInfoData> b;
     public List<ApkDownloadInfoData> c;
-    public sq4 d;
+    public fv4 d;
 
     /* loaded from: classes5.dex */
-    public class a extends hx4 {
+    public class a extends u15 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AutoDownloadBannerView a;
@@ -55,35 +55,35 @@ public class AutoDownloadBannerView extends RelativeLayout {
             this.a = autoDownloadBannerView;
         }
 
-        @Override // com.baidu.tieba.hx4, com.baidu.tieba.fx4
-        public ix4 a() {
+        @Override // com.baidu.tieba.u15, com.baidu.tieba.s15
+        public v15 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                ix4 ix4Var = new ix4();
-                ix4Var.c(R.drawable.icon_banner_download_unselect);
-                ix4Var.g(R.drawable.icon_banner_download_select);
-                ix4Var.d(81);
-                ix4Var.e(R.dimen.M_H_X005);
-                ix4Var.h(R.dimen.tbds10);
-                return ix4Var;
+                v15 v15Var = new v15();
+                v15Var.c(R.drawable.icon_banner_download_unselect);
+                v15Var.g(R.drawable.icon_banner_download_select);
+                v15Var.d(81);
+                v15Var.e(R.dimen.M_H_X005);
+                v15Var.h(R.dimen.tbds10);
+                return v15Var;
             }
-            return (ix4) invokeV.objValue;
+            return (v15) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.hx4, com.baidu.tieba.fx4
-        public lx4 c() {
+        @Override // com.baidu.tieba.u15, com.baidu.tieba.s15
+        public y15 c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                lx4 lx4Var = new lx4();
-                lx4Var.a(zi.g(this.a.getContext(), R.dimen.tbds187));
-                return lx4Var;
+                y15 y15Var = new y15();
+                y15Var.a(ej.g(this.a.getContext(), R.dimen.tbds187));
+                return y15Var;
             }
-            return (lx4) invokeV.objValue;
+            return (y15) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.hx4, com.baidu.tieba.fx4
+        @Override // com.baidu.tieba.u15, com.baidu.tieba.s15
         public TbImageView d(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -94,7 +94,7 @@ public class AutoDownloadBannerView extends RelativeLayout {
                 tbImageView.setGifIconSupport(true);
                 tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 tbImageView.setDrawerType(1);
-                tbImageView.setRadius(zi.g(this.a.getContext(), R.dimen.obfuscated_res_0x7f070287));
+                tbImageView.setRadius(ej.g(this.a.getContext(), R.dimen.obfuscated_res_0x7f070288));
                 return tbImageView;
             }
             return (TbImageView) invokeL.objValue;
@@ -205,10 +205,10 @@ public class AutoDownloadBannerView extends RelativeLayout {
         }
     }
 
-    public void setIWindowChangedListener(sq4 sq4Var) {
+    public void setIWindowChangedListener(fv4 fv4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, sq4Var) == null) {
-            this.d = sq4Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, fv4Var) == null) {
+            this.d = fv4Var;
         }
     }
 
@@ -250,13 +250,13 @@ public class AutoDownloadBannerView extends RelativeLayout {
             if (list == null) {
                 return;
             }
-            lx4 lx4Var = new lx4();
+            y15 y15Var = new y15();
             if (list.size() == 1) {
-                lx4Var.a(zi.g(getContext(), R.dimen.tbds187));
+                y15Var.a(ej.g(getContext(), R.dimen.tbds187));
             } else {
-                lx4Var.a(zi.g(getContext(), R.dimen.tbds230));
+                y15Var.a(ej.g(getContext(), R.dimen.tbds230));
             }
-            this.b.z(lx4Var);
+            this.b.z(y15Var);
         }
     }
 

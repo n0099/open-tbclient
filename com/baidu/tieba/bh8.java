@@ -1,79 +1,111 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class bh8 extends ln<li8, CardViewHolder<nj8>> {
+public class bh8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public th8 b;
+    public LinearLayout a;
+    public EMTextView b;
+    public BdTypeRecyclerView c;
+    public View d;
+    public jb8 e;
+    public me8 f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bh8(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), li8.b, bdUniqueId);
+    public bh8(pg8 pg8Var, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {pg8Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        b(pg8Var.N());
+        jb8 jb8Var = new jb8(pg8Var, bdUniqueId, this.c);
+        this.e = jb8Var;
+        this.f = new me8(this.c, jb8Var);
+        c();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: s */
-    public CardViewHolder<nj8> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public View a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new CardViewHolder<>(new nj8(this.a));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (CardViewHolder) invokeL.objValue;
+        return (View) invokeV.objValue;
     }
 
-    public void u(th8 th8Var) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, th8Var) == null) {
-            this.b = th8Var;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            SkinManager.setBackgroundColor(this.a, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
+            this.e.e();
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, li8 li8Var, CardViewHolder<nj8> cardViewHolder) {
-        InterceptResult invokeCommon;
+    public final void b(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, li8Var, cardViewHolder})) == null) {
-            nj8 a = cardViewHolder.a();
-            a.i(li8Var);
-            a.j(this.a, TbadkCoreApplication.getInst().getSkinType());
-            a.t(this.b);
-            return cardViewHolder.getView();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d078b, (ViewGroup) null);
+            this.a = linearLayout;
+            this.b = (EMTextView) linearLayout.findViewById(R.id.tv_title);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f09195d);
+            this.c = bdTypeRecyclerView;
+            bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(context));
+            this.c.setFadingEdgeLength(0);
+            this.c.setOverScrollMode(2);
+            int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
+            this.c.setPadding(dimenPixelSize, 0, dimenPixelSize, 0);
+            this.c.setNestedScrollingEnabled(false);
+            this.d = new View(context);
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.c.y(this.d);
+            this.d.setLayoutParams(new ViewGroup.LayoutParams(1, i));
+            this.c.r(this.d);
+        }
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.c.setNestedScrollingEnabled(z);
+        }
+    }
+
+    public void f(u98 u98Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, u98Var) == null) {
+            this.f.k(u98Var);
+        }
     }
 }

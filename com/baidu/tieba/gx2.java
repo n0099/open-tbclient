@@ -1,12 +1,16 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.BitmapRegionDecoder;
+import android.graphics.Point;
+import android.graphics.Rect;
+import android.net.Uri;
 import android.text.TextUtils;
-import android.util.Log;
-import android.util.Pair;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.pay.panel.PaymentPanelManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,19 +18,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import com.sina.weibo.sdk.utils.ResourceManager;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class gx2 extends uw2 {
+public class gx2 implements ex2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.ms1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "PaymentPanelApi" : (String) invokeV.objValue;
-    }
+    public BitmapRegionDecoder a;
+    public final Object b;
 
     static {
         InterceptResult invokeClinit;
@@ -41,151 +44,161 @@ public class gx2 extends uw2 {
                 return;
             }
         }
-        f = tk1.a;
+        c = gp1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gx2(@NonNull ks1 ks1Var) {
-        super(ks1Var);
+    public gx2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ks1Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ks1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.b = new Object();
     }
 
-    public jw1 x(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ex2
+    public boolean isReady() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#chooseCoupon", false);
-            j43 b0 = j43.b0();
-            if (b0 == null) {
-                if (f) {
-                    Log.e("PaymentPanelApi", "failed: swan app is null");
-                }
-                return new jw1(1001, "swan app is null");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            BitmapRegionDecoder bitmapRegionDecoder = this.a;
+            if (bitmapRegionDecoder != null && !bitmapRegionDecoder.isRecycled()) {
+                return true;
             }
-            SwanAppActivity w = b0.w();
-            if (w == null) {
-                if (f) {
-                    Log.e("PaymentPanelApi", "failed: swan activity is null");
-                }
-                return new jw1(1001, "swan activity is null");
-            }
-            Pair<jw1, JSONObject> s = s(str);
-            jw1 jw1Var = (jw1) s.first;
-            if (!jw1Var.isSuccess()) {
-                return jw1Var;
-            }
-            JSONObject jSONObject = (JSONObject) s.second;
-            String optString = jSONObject.optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                return new jw1(202, "cb is empty");
-            }
-            String optString2 = jSONObject.optString("componentId");
-            if (TextUtils.isEmpty(optString2)) {
-                return new jw1(202, "empty componentId");
-            }
-            String optString3 = jSONObject.optString("appKey");
-            if (TextUtils.isEmpty(optString3)) {
-                return new jw1(202, "empty appKey");
-            }
-            String optString4 = jSONObject.optString("totalAmount");
-            if (TextUtils.isEmpty(optString4)) {
-                return new jw1(202, "empty totalAmount");
-            }
-            PaymentPanelManager.z().s(this, w, optString2, optString3, optString4, optString);
-            return jw1.f();
+            return false;
         }
-        return (jw1) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public jw1 y(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ex2
+    public void recycle() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            q("#getPaymentInfo", false);
-            if (j43.b0() == null) {
-                if (f) {
-                    Log.e("PaymentPanelApi", "failed: null swan runtime");
-                }
-                return new jw1(1001, "swan app is null");
-            }
-            Pair<jw1, JSONObject> s = s(str);
-            jw1 jw1Var = (jw1) s.first;
-            if (!jw1Var.isSuccess()) {
-                return jw1Var;
-            }
-            JSONObject jSONObject = (JSONObject) s.second;
-            String optString = jSONObject.optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                return new jw1(202, "cb is empty");
-            }
-            String optString2 = jSONObject.optString("componentId");
-            if (TextUtils.isEmpty(optString2)) {
-                return new jw1(202, "empty componentId");
-            }
-            String optString3 = jSONObject.optString("dealId");
-            if (TextUtils.isEmpty(optString3)) {
-                return new jw1(202, "empty dealId");
-            }
-            String optString4 = jSONObject.optString("appKey");
-            if (TextUtils.isEmpty(optString4)) {
-                return new jw1(202, "empty appKey");
-            }
-            String optString5 = jSONObject.optString("totalAmount");
-            if (TextUtils.isEmpty(optString5)) {
-                return new jw1(202, "empty totalAmount");
-            }
-            PaymentPanelManager.z().C(this, optString2, optString3, optString4, optString5, optString);
-            return jw1.f();
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.a.recycle();
         }
-        return (jw1) invokeL.objValue;
     }
 
-    public jw1 z(String str) {
+    @Override // com.baidu.tieba.ex2
+    public Point a(Context context, Bitmap bitmap) throws Exception {
+        InputStream inputStream;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, bitmap)) == null) {
+            try {
+                inputStream = b(bitmap);
+                try {
+                    this.a = BitmapRegionDecoder.newInstance(inputStream, false);
+                    ap4.d(inputStream);
+                    return new Point(this.a.getWidth(), this.a.getHeight());
+                } catch (Throwable th) {
+                    th = th;
+                    ap4.d(inputStream);
+                    throw th;
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                inputStream = null;
+            }
+        } else {
+            return (Point) invokeLL.objValue;
+        }
+    }
+
+    @Override // com.baidu.tieba.ex2
+    @SuppressLint({"BDThrowableCheck"})
+    public Bitmap decodeRegion(Rect rect, int i) {
+        InterceptResult invokeLI;
+        Bitmap decodeRegion;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, rect, i)) == null) {
+            synchronized (this.b) {
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                options.inSampleSize = i;
+                options.inPreferredConfig = Bitmap.Config.RGB_565;
+                decodeRegion = this.a.decodeRegion(rect, options);
+                if (decodeRegion == null) {
+                    if (!c) {
+                        w52.k("SkiaImageRegionDecoder", "bitmap is null");
+                    } else {
+                        throw new RuntimeException("Skia image decoder returned null bitmap - image format may not be supported");
+                    }
+                }
+            }
+            return decodeRegion;
+        }
+        return (Bitmap) invokeLI.objValue;
+    }
+
+    public InputStream b(Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            q("#setPaymentInfo", false);
-            if (j43.b0() == null) {
-                if (f) {
-                    Log.e("PaymentPanelApi", "failed: swan app is null");
-                }
-                return new jw1(1001, "swan app is null");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap)) == null) {
+            if (bitmap == null) {
+                return null;
             }
-            Pair<jw1, JSONObject> s = s(str);
-            jw1 jw1Var = (jw1) s.first;
-            if (!jw1Var.isSuccess()) {
-                return jw1Var;
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            Bitmap.CompressFormat compressFormat = Bitmap.CompressFormat.JPEG;
+            if (bitmap.hasAlpha()) {
+                compressFormat = Bitmap.CompressFormat.PNG;
             }
-            JSONObject jSONObject = (JSONObject) s.second;
-            String optString = jSONObject.optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                return new jw1(202, "cb is empty");
-            }
-            String optString2 = jSONObject.optString("componentId");
-            if (TextUtils.isEmpty(optString2)) {
-                return new jw1(202, "empty componentId");
-            }
-            String optString3 = jSONObject.optString("chosenChannel");
-            if (TextUtils.isEmpty(optString3)) {
-                return new jw1(202, "empty chosenChannel");
-            }
-            PaymentPanelManager.z().J(this, optString2, optString3, optString);
-            return jw1.f();
+            bitmap.compress(compressFormat, 100, byteArrayOutputStream);
+            return new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
         }
-        return (jw1) invokeL.objValue;
+        return (InputStream) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ex2
+    public Point init(Context context, Uri uri) throws Exception {
+        InterceptResult invokeLL;
+        Resources resourcesForApplication;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, uri)) == null) {
+            String uri2 = uri.toString();
+            if (uri2.startsWith("android.resource://")) {
+                String authority = uri.getAuthority();
+                if (context.getPackageName().equals(authority)) {
+                    resourcesForApplication = context.getResources();
+                } else {
+                    resourcesForApplication = context.getPackageManager().getResourcesForApplication(authority);
+                }
+                List<String> pathSegments = uri.getPathSegments();
+                int size = pathSegments.size();
+                if (size == 2 && pathSegments.get(0).equals(ResourceManager.DRAWABLE)) {
+                    i = resourcesForApplication.getIdentifier(pathSegments.get(1), ResourceManager.DRAWABLE, authority);
+                } else {
+                    if (size == 1 && TextUtils.isDigitsOnly(pathSegments.get(0))) {
+                        try {
+                            i = Integer.parseInt(pathSegments.get(0));
+                        } catch (NumberFormatException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    i = 0;
+                }
+                this.a = BitmapRegionDecoder.newInstance(context.getResources().openRawResource(i), false);
+            } else if (uri2.startsWith("file:///android_asset/")) {
+                this.a = BitmapRegionDecoder.newInstance(context.getAssets().open(uri2.substring(22), 1), false);
+            } else if (uri2.startsWith("file://")) {
+                this.a = BitmapRegionDecoder.newInstance(uri2.substring(7), false);
+            } else {
+                InputStream inputStream = null;
+                try {
+                    inputStream = context.getContentResolver().openInputStream(uri);
+                    this.a = BitmapRegionDecoder.newInstance(inputStream, false);
+                } finally {
+                    ap4.d(inputStream);
+                }
+            }
+            return new Point(this.a.getWidth(), this.a.getHeight());
+        }
+        return (Point) invokeLL.objValue;
     }
 }

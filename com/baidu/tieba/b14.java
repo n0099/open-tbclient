@@ -1,22 +1,20 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class b14 implements ct3 {
+public class b14 extends c14 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b14() {
+        super("echoSync");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -24,143 +22,27 @@ public class b14 implements ct3 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.ct3
-    public long a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.c14
+    public w02 a(@NonNull JSONObject jSONObject, @NonNull am2 am2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return w64.A().n();
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // com.baidu.tieba.ct3
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return w64.A().C();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ct3
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return w64.A().B();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ct3
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return w64.A().v();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ct3
-    public long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return w64.A().o();
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // com.baidu.tieba.ct3
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return w64.A().z();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ct3
-    public long h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return w64.A().p();
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // com.baidu.tieba.ct3
-    public Long i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return w64.A().w();
-        }
-        return (Long) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ct3
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return w64.A().q();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ct3
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return w64.A().u();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ct3
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return w64.A().x();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ct3
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return w64.A().y();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ct3
-    public void b(boolean z) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            if (z) {
-                str = "gdtvideo";
-            } else {
-                str = "video";
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, am2Var)) == null) {
+            int optInt = jSONObject.optInt("status", 0);
+            String optString = jSONObject.optString("message");
+            JSONObject optJSONObject = jSONObject.optJSONObject("data");
+            if (optInt == 0) {
+                return new w02(optInt, optJSONObject);
             }
-            hx3.b(str, null);
+            return new w02(optInt, optString);
         }
+        return (w02) invokeLL.objValue;
     }
 }

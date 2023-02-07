@@ -1,150 +1,114 @@
 package com.baidu.tieba;
 
+import android.net.Uri;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.RequiresApi;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Collections;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebResourceRequest;
+import com.baidu.webkit.sdk.WebResourceResponse;
 import java.util.Map;
-import java.util.Set;
+import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes7.dex */
-public class yc2 {
+public class yc2 implements fd2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final Map<String, Integer> b;
-    public static final Object c;
-    public static boolean d;
     public transient /* synthetic */ FieldHolder $fh;
+    public CopyOnWriteArrayList<kd2> b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948325281, "Lcom/baidu/tieba/yc2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final yc2 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-265165021, "Lcom/baidu/tieba/yc2$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-265165021, "Lcom/baidu/tieba/yc2$b;");
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948325281, "Lcom/baidu/tieba/yc2;");
+            a = new yc2(null);
+        }
+    }
+
+    public yc2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = tk1.a;
-        b = new HashMap();
-        c = new Object();
-        d = zc2.a();
+        this.b = new CopyOnWriteArrayList<>();
     }
 
-    @NonNull
-    public static Set<String> b() {
+    public static yc2 b() {
         InterceptResult invokeV;
-        String[] strArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (!d) {
-                return Collections.emptySet();
-            }
-            synchronized (c) {
-                strArr = (String[]) b.keySet().toArray(new String[0]);
-            }
-            return ni3.a(strArr);
+            return b.a;
         }
-        return (Set) invokeV.objValue;
+        return (yc2) invokeV.objValue;
     }
 
-    public static void a() {
+    public /* synthetic */ yc2(a aVar) {
+        this();
+    }
+
+    public void a(kd2 kd2Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65537, null) != null) || !d) {
-            return;
-        }
-        if (a) {
-            Log.d("ExcludeRecorder", "remove all exclude appIds");
-        }
-        synchronized (c) {
-            b.clear();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, kd2Var) == null) && kd2Var != null && !this.b.contains(kd2Var)) {
+            this.b.add(kd2Var);
         }
     }
 
-    public static boolean c(String str) {
-        InterceptResult invokeL;
-        boolean containsKey;
+    @RequiresApi(api = 21)
+    public WebResourceResponse c(WebResourceRequest webResourceRequest, boolean z) {
+        InterceptResult invokeLZ;
+        Uri url;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (!d || TextUtils.isEmpty(str)) {
-                return false;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webResourceRequest, z)) == null) {
+            if (webResourceRequest == null || (url = webResourceRequest.getUrl()) == null) {
+                return null;
             }
-            synchronized (c) {
-                containsKey = b.containsKey(str);
-            }
-            if (a) {
-                Log.d("ExcludeRecorder", "appId - " + str + " needExclude - " + containsKey);
-            }
-            return containsKey;
+            return d(url.toString(), webResourceRequest.getRequestHeaders(), z);
         }
-        return invokeL.booleanValue;
+        return (WebResourceResponse) invokeLZ.objValue;
     }
 
-    public static void d(String str) {
+    public final WebResourceResponse d(String str, Map<String, String> map, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) != null) || !d) {
-            return;
-        }
-        if (a) {
-            Log.d("ExcludeRecorder", "record one appId for exclude - " + str);
-        }
-        if (TextUtils.isEmpty(str)) {
-            return;
-        }
-        synchronized (c) {
-            Integer num = b.get(str);
-            if (num == null) {
-                b.put(str, 1);
-            } else {
-                b.put(str, Integer.valueOf(num.intValue() + 1));
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, str, map, z)) == null) {
+            if (this.b.isEmpty() || TextUtils.isEmpty(str) || str.startsWith("file://")) {
+                return null;
             }
+            return new nd2(this.b, str, map, 0, z).b(str, map, z);
         }
-    }
-
-    public static void f(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65542, null, str) != null) || !d) {
-            return;
-        }
-        if (a) {
-            Log.d("ExcludeRecorder", "remove one appId for exclude - " + str);
-        }
-        if (TextUtils.isEmpty(str)) {
-            return;
-        }
-        synchronized (c) {
-            Integer num = b.get(str);
-            if (num != null) {
-                int intValue = num.intValue() - 1;
-                if (intValue <= 0) {
-                    b.remove(str);
-                } else {
-                    b.put(str, Integer.valueOf(intValue));
-                }
-            }
-        }
-    }
-
-    public static void e(rh4 rh4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, rh4Var) == null) && d && rh4Var != null) {
-            for (hd4 hd4Var : rh4Var.j()) {
-                if (hd4Var instanceof id4) {
-                    d(hd4Var.g);
-                } else if (hd4Var instanceof jd4) {
-                    d(((jd4) hd4Var).o);
-                }
-            }
-        }
+        return (WebResourceResponse) invokeLLZ.objValue;
     }
 }

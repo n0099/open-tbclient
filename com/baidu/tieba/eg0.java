@@ -1,55 +1,204 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.BufferedReader;
+import java.io.Closeable;
 import java.io.File;
-import java.io.FileOutputStream;
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.Enumeration;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipException;
-import java.util.zip.ZipFile;
+import java.io.InputStreamReader;
 /* loaded from: classes4.dex */
-public final class eg0 {
+public class eg0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(File file, File file2) throws ZipException, IOException {
+    public static void a(Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, file, file2) == null) {
-            if (!file2.exists()) {
-                file2.mkdirs();
+        if ((interceptable == null || interceptable.invokeL(65536, null, closeable) == null) && closeable != null) {
+            try {
+                closeable.close();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            String absolutePath = file2.getAbsolutePath();
-            ZipFile zipFile = new ZipFile(file);
-            Enumeration<? extends ZipEntry> entries = zipFile.entries();
-            while (entries.hasMoreElements()) {
-                ZipEntry nextElement = entries.nextElement();
-                String name = nextElement.getName();
-                if (!"./".equals(name) && !".".equals(name) && !name.endsWith("/")) {
-                    InputStream inputStream = zipFile.getInputStream(nextElement);
-                    File file3 = new File(absolutePath + File.separator + name);
-                    if (!file3.exists()) {
-                        File parentFile = file3.getParentFile();
-                        if (!parentFile.exists()) {
-                            parentFile.mkdirs();
-                        }
-                        file3.createNewFile();
+        }
+    }
+
+    public static void b(File file) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, file) == null) {
+            c(file, true);
+        }
+    }
+
+    public static boolean d(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, file)) == null) {
+            if (file == null || !file.exists()) {
+                return false;
+            }
+            return file.delete();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void e(File file) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file) == null) {
+            if (file.isDirectory()) {
+                b(file);
+            } else {
+                d(file);
+            }
+        }
+    }
+
+    public static boolean f(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, file)) == null) {
+            if (file != null && file.exists() && file.isFile()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void c(File file, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(65538, null, file, z) == null) && file != null && file.isDirectory()) {
+            File[] listFiles = file.listFiles();
+            if (listFiles != null && listFiles.length > 0) {
+                for (File file2 : listFiles) {
+                    if (file2.isDirectory()) {
+                        c(file2, z);
+                    } else {
+                        file2.delete();
                     }
-                    FileOutputStream fileOutputStream = new FileOutputStream(file3);
-                    byte[] bArr = new byte[10240];
-                    while (true) {
-                        int read = inputStream.read(bArr);
-                        if (read <= 0) {
-                            break;
-                        }
-                        fileOutputStream.write(bArr, 0, read);
-                    }
-                    inputStream.close();
-                    fileOutputStream.close();
                 }
             }
+            if (z) {
+                file.delete();
+            }
+        }
+    }
+
+    public static String g(Context context, String str) {
+        InterceptResult invokeLL;
+        InputStreamReader inputStreamReader;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
+            StringBuilder sb = new StringBuilder();
+            BufferedReader bufferedReader = null;
+            try {
+                inputStreamReader = new InputStreamReader(context.getAssets().open(str));
+                try {
+                    try {
+                        BufferedReader bufferedReader2 = new BufferedReader(inputStreamReader);
+                        while (true) {
+                            try {
+                                String readLine = bufferedReader2.readLine();
+                                if (readLine == null) {
+                                    break;
+                                }
+                                sb.append(readLine);
+                            } catch (Exception e) {
+                                e = e;
+                                bufferedReader = bufferedReader2;
+                                e.printStackTrace();
+                                a(bufferedReader);
+                                a(inputStreamReader);
+                                return sb.toString();
+                            } catch (Throwable th) {
+                                th = th;
+                                bufferedReader = bufferedReader2;
+                                a(bufferedReader);
+                                a(inputStreamReader);
+                                throw th;
+                            }
+                        }
+                        a(bufferedReader2);
+                    } catch (Exception e2) {
+                        e = e2;
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                }
+            } catch (Exception e3) {
+                e = e3;
+                inputStreamReader = null;
+            } catch (Throwable th3) {
+                th = th3;
+                inputStreamReader = null;
+            }
+            a(inputStreamReader);
+            return sb.toString();
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    /* JADX WARN: Type inference failed for: r0v2, types: [boolean] */
+    public static String h(File file) {
+        InterceptResult invokeL;
+        FileInputStream fileInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, file)) == null) {
+            ?? f = f(file);
+            FileInputStream fileInputStream2 = null;
+            try {
+                if (f != 0) {
+                    try {
+                        fileInputStream = new FileInputStream(file);
+                        try {
+                            String b = gg0.b(fileInputStream);
+                            gg0.a(fileInputStream);
+                            try {
+                                fileInputStream.close();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            return b;
+                        } catch (IOException e2) {
+                            e = e2;
+                            e.printStackTrace();
+                            gg0.a(fileInputStream);
+                            if (fileInputStream != null) {
+                                try {
+                                    fileInputStream.close();
+                                } catch (IOException e3) {
+                                    e3.printStackTrace();
+                                }
+                            }
+                            return null;
+                        }
+                    } catch (IOException e4) {
+                        e = e4;
+                        fileInputStream = null;
+                    } catch (Throwable th) {
+                        th = th;
+                        gg0.a(fileInputStream2);
+                        if (fileInputStream2 != null) {
+                            try {
+                                fileInputStream2.close();
+                            } catch (IOException e5) {
+                                e5.printStackTrace();
+                            }
+                        }
+                        throw th;
+                    }
+                }
+                return null;
+            } catch (Throwable th2) {
+                th = th2;
+                fileInputStream2 = f;
+            }
+        } else {
+            return (String) invokeL.objValue;
         }
     }
 }

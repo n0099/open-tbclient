@@ -1,93 +1,183 @@
 package com.baidu.tieba;
 
-import android.os.MessageQueue;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mvc.message.MvcHttpMessage;
-import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
-import com.baidu.tbadk.mvc.message.MvcNetMessage;
-import com.baidu.tieba.frs.mc.FrsModelController;
-import com.baidu.tieba.tbadkCore.FrsRequestData;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.abtest.helper.FrsTabTestHelper;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.view.FrsTabSortSwitchButton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import java.util.List;
+import tbclient.FrsTabInfo;
 /* loaded from: classes7.dex */
-public class yw6 implements MessageQueue.IdleHandler {
+public class yw6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<FrsModelController> a;
-    public MvcHttpResponsedMessage<xv8> b;
-    public MvcHttpMessage<FrsRequestData, xv8> c;
-    public MvcNetMessage<FrsRequestData, xv8> d;
-    public ew8 e;
+    public View a;
+    public FrsFragment b;
+    public TextView c;
+    public FrsTabSortSwitchButton d;
+    public String e;
+    public int f;
+    public FrsTabSortSwitchButton.e g;
 
-    public yw6() {
+    /* loaded from: classes7.dex */
+    public class a implements FrsTabSortSwitchButton.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yw6 a;
+
+        public a(yw6 yw6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yw6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = yw6Var;
+        }
+
+        @Override // com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.view.FrsTabSortSwitchButton.e
+        public boolean a(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+                boolean z = false;
+                if (!rr6.f().i() && !qr6.h().j()) {
+                    if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
+                        this.a.b.showToast(R.string.obfuscated_res_0x7f0f0cfe);
+                        return false;
+                    } else if (this.a.b.Q0() != null && this.a.b.u1() != null) {
+                        z = true;
+                        if (this.a.f == i) {
+                            return true;
+                        }
+                        this.a.b.Q0().Z0(this.a.d.w(this.a.f));
+                        this.a.f = i;
+                        if (this.a.f != 7) {
+                            gp5.c();
+                            i29.a();
+                        } else {
+                            i29.b();
+                        }
+                        this.a.b.Q0().V0(this.a.d.w(this.a.f));
+                        if (UbsABTestHelper.isFrsNewAreaTabSortTestA()) {
+                            FrsTabTestHelper.storeFrsNewAreaTabSort(this.a.d.w(this.a.f));
+                        }
+                        this.a.b.Q0().Y0(true);
+                        this.a.b.u1().b2();
+                        this.a.b.Q0().X0(true);
+                        this.a.f();
+                    }
+                }
+                return z;
+            }
+            return invokeI.booleanValue;
+        }
+    }
+
+    public yw6(FrsFragment frsFragment, RelativeLayout relativeLayout) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsFragment, relativeLayout};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.f = -1;
+        this.g = new a(this);
+        if (frsFragment != null && relativeLayout != null) {
+            this.b = frsFragment;
+            View inflate = LayoutInflater.from(frsFragment.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0352, relativeLayout);
+            this.a = inflate;
+            inflate.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092015);
+            FrsTabSortSwitchButton frsTabSortSwitchButton = (FrsTabSortSwitchButton) this.a.findViewById(R.id.obfuscated_res_0x7f092016);
+            this.d = frsTabSortSwitchButton;
+            frsTabSortSwitchButton.setOnSwitchChangeListener(this.g);
+            this.f = this.d.getState();
+            i();
         }
     }
 
-    @Override // android.os.MessageQueue.IdleHandler
-    public boolean queueIdle() {
+    public void g(int i) {
+        FrsTabSortSwitchButton frsTabSortSwitchButton;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (frsTabSortSwitchButton = this.d) != null) {
+            frsTabSortSwitchButton.t(i);
+            this.f = this.d.getState();
+        }
+    }
+
+    public void j(List<FrsTabInfo> list) {
+        FrsTabSortSwitchButton frsTabSortSwitchButton;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, list) == null) && (frsTabSortSwitchButton = this.d) != null) {
+            frsTabSortSwitchButton.setData(list);
+        }
+    }
+
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            StatisticItem statisticItem = new StatisticItem("c11437");
+            statisticItem.param("obj_type", this.d.w(this.f));
+            statisticItem.param("fid", this.e);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public FrsTabSortSwitchButton h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            FrsModelController frsModelController = this.a.get();
-            if (frsModelController == null) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return (FrsTabSortSwitchButton) invokeV.objValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            FrsTabSortSwitchButton frsTabSortSwitchButton = this.d;
+            if (frsTabSortSwitchButton != null) {
+                frsTabSortSwitchButton.D();
             }
-            frsModelController.K0(this.b, this.c, this.d);
-            ew8 ew8Var = this.e;
-            if (ew8Var != null) {
-                ew8Var.b();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void a(FrsModelController frsModelController) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, frsModelController) == null) {
-            this.a = new WeakReference<>(frsModelController);
-        }
-    }
-
-    public void b(ew8 ew8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ew8Var) == null) {
-            this.e = ew8Var;
-        }
-    }
-
-    public void c(MvcHttpMessage<FrsRequestData, xv8> mvcHttpMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mvcHttpMessage) == null) {
-            this.c = mvcHttpMessage;
-        }
-    }
-
-    public void d(MvcNetMessage<FrsRequestData, xv8> mvcNetMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, mvcNetMessage) == null) {
-            this.d = mvcNetMessage;
-        }
-    }
-
-    public void e(MvcHttpResponsedMessage<xv8> mvcHttpResponsedMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, mvcHttpResponsedMessage) == null) {
-            this.b = mvcHttpResponsedMessage;
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0108);
         }
     }
 }

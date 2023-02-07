@@ -1,103 +1,60 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import android.webkit.JavascriptInterface;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.log.bean.FetchLog;
-import com.baidu.searchbox.v8engine.JSRuntime;
-import com.baidu.searchbox.v8engine.JsArrayBuffer;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
-import com.baidu.searchbox.v8engine.event.EventTargetImpl;
-import com.baidu.swan.games.audio.AudioPlayer;
-import com.baidu.tieba.ly3;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoAd;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.swan.game.ad.utils.NetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.util.HashMap;
+import java.util.Map;
+import okhttp3.HttpUrl;
+import okhttp3.Request;
+import okhttp3.Response;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class gy3 extends EventTargetImpl implements ay3, by3 {
+public class gy3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AudioPlayer a;
-    @V8JavascriptField
-    public boolean autoplay;
-    public String b;
-    @V8JavascriptField
-    public int buffered;
-    public tb2 c;
-    @V8JavascriptField
-    public double currentTime;
-    @V8JavascriptField
-    public long duration;
-    @V8JavascriptField
-    public boolean loop;
-    @V8JavascriptField
-    public boolean obeyMuteSwitch;
-    @V8JavascriptField
-    public boolean paused;
-    @V8JavascriptField
-    public String src;
-    @V8JavascriptField
-    public float startTime;
-    @V8JavascriptField
-    public float volume;
+    public Context a;
+    public JSONObject b;
 
     /* loaded from: classes4.dex */
-    public class g implements ly3.b {
+    public class a extends ResponseCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gy3 a;
 
-        @Override // com.baidu.tieba.ly3.b
-        public void b() {
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
             }
         }
 
-        /* loaded from: classes4.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ String a;
-            public final /* synthetic */ g b;
-
-            public a(g gVar, String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {gVar, str};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = gVar;
-                this.a = str;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.b.a.src = wp2.U().G().g(this.a);
-                    if (tk1.a) {
-                        Log.d("Aigame AudioContext", "prepare path: " + this.b.a.src + " autoPlay: " + this.b.a.autoplay + " class: " + toString());
-                    }
-                    this.b.a.E(true);
-                }
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(Object obj, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
             }
         }
 
-        public g(gy3 gy3Var) {
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public Object parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) ? response : invokeLI.objValue;
+        }
+
+        public a(gy3 gy3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -109,554 +66,112 @@ public class gy3 extends EventTargetImpl implements ay3, by3 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gy3Var;
-        }
-
-        @Override // com.baidu.tieba.ly3.b
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.a.c.runOnJSThread(new a(this, str));
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ gy3 b;
-
-        public a(gy3 gy3Var, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gy3Var, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = gy3Var;
-            this.a = z;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a && !this.b.a.I()) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                if (z) {
-                    this.b.a.N(fy3.c(this.b));
-                    gy3 gy3Var = this.b;
-                    if (gy3Var.autoplay) {
-                        gy3Var.a.Q();
-                    }
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gy3 a;
-
-        public b(gy3 gy3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gy3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gy3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a.Q();
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gy3 a;
-
-        public c(gy3 gy3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gy3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gy3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a.O();
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ float a;
-        public final /* synthetic */ gy3 b;
-
-        public d(gy3 gy3Var, float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gy3Var, Float.valueOf(f)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = gy3Var;
-            this.a = f;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.a.U(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class e implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gy3 a;
-
-        public e(gy3 gy3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gy3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gy3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a.Y();
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class f implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gy3 a;
-
-        public f(gy3 gy3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gy3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gy3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a.T();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gy3(tb2 tb2Var) {
-        super(tb2Var);
+    public gy3(Context context, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tb2Var};
+            Object[] objArr = {context, jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((JSRuntime) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.src = "";
-        this.volume = 1.0f;
-        this.obeyMuteSwitch = true;
-        this.paused = true;
-        this.c = tb2Var;
-        A();
+        this.a = context;
+        this.b = jSONObject;
     }
 
-    public static AudioPlayer C(String str) {
-        InterceptResult invokeL;
+    public final void a(@NonNull Request request) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return new AudioPlayer(str);
-        }
-        return (AudioPlayer) invokeL.objValue;
-    }
-
-    public final void E(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048579, this, z) != null) || this.a == null) {
-            return;
-        }
-        my3.h().e().post(new a(this, z));
-    }
-
-    public final void F(dy3 dy3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, dy3Var) == null) {
-            this.a.update(dy3Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, request) == null) {
+            zf4 zf4Var = new zf4(request.url().toString(), new a(this));
+            zf4Var.f = true;
+            zf4Var.g = false;
+            zf4Var.h = false;
+            ag4.g().d(zf4Var);
         }
     }
 
-    @Override // com.baidu.tieba.ay3
-    @JavascriptInterface
-    public void seek(float f2) {
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeF(1048587, this, f2) == null) && this.a != null) {
-            my3.h().e().post(new d(this, f2));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            d(str, new HashMap<>());
         }
     }
 
-    @JavascriptInterface
-    public void setDataBuffer(JsArrayBuffer jsArrayBuffer) {
+    public final String b(String str, HashMap<String, String> hashMap) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, jsArrayBuffer) == null) {
-            my3.h().m(jsArrayBuffer, new g(this));
-        }
-    }
-
-    public final void A() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            String valueOf = String.valueOf(cy3.a());
-            this.b = valueOf;
-            this.a = C(valueOf);
-            D();
-        }
-    }
-
-    public int B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            AudioPlayer audioPlayer = this.a;
-            if (audioPlayer != null) {
-                return audioPlayer.y();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, hashMap)) == null) {
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("origin_time", String.valueOf(System.currentTimeMillis()));
+            hashMap.putAll(hashMap2);
+            try {
+                str = URLDecoder.decode(str, "UTF-8");
+            } catch (UnsupportedEncodingException | IllegalArgumentException unused) {
             }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public final void D() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a != null) {
-            ey3 ey3Var = new ey3(this, fy3.i());
-            ey3Var.e(this);
-            this.a.V(ey3Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.ay3
-    @JavascriptInterface
-    public void destroy() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.a != null) {
-            my3.h().e().post(new f(this));
-        }
-    }
-
-    @Override // com.baidu.tieba.ay3
-    public int getDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            AudioPlayer audioPlayer = this.a;
-            if (audioPlayer != null) {
-                return (int) audioPlayer.A();
+            for (Map.Entry<String, String> entry : hashMap.entrySet()) {
+                str = str.replaceAll("%%" + entry.getKey() + "%%", entry.getValue());
             }
-            return 0;
+            return str;
         }
-        return invokeV.intValue;
+        return (String) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.ay3
-    @JavascriptInterface
-    public void pause() {
+    public void d(String str, HashMap<String, String> hashMap) {
+        int i;
+        JSONArray jSONArray;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.a != null) {
-            my3.h().e().post(new c(this));
-        }
-    }
-
-    @Override // com.baidu.tieba.ay3
-    @JavascriptInterface
-    public void play() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.a != null) {
-            my3.h().e().post(new b(this));
-        }
-    }
-
-    @Override // com.baidu.tieba.ay3
-    @JavascriptInterface
-    public void stop() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && this.a != null) {
-            my3.h().e().post(new e(this));
-        }
-    }
-
-    @Override // com.baidu.tieba.ay3
-    public int v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            AudioPlayer audioPlayer = this.a;
-            if (audioPlayer != null) {
-                return audioPlayer.z();
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, hashMap) == null) {
+            if (TextUtils.equals(str, "da_area")) {
+                hashMap.put(BdVideoAd.AD_VIDEO_DAPAGE, "VIDEODETAIL_TAIL");
+            } else if (!TextUtils.equals(str, "lpin") && !TextUtils.equals(str, "lpout")) {
+                hashMap.put(BdVideoAd.AD_VIDEO_DAPAGE, "VIDEOADDETAI");
+            } else {
+                hashMap.put(BdVideoAd.AD_VIDEO_DAPAGE, "MINIAPP");
             }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @JavascriptInterface
-    public void onFieldChangedCallback(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            if (tk1.a) {
-                Log.d("Aigame AudioContext", str);
+            if (NetworkUtils.g(this.a) && TextUtils.equals(str, "vstart")) {
+                i = 0;
+            } else {
+                i = 1;
             }
-            char c2 = 65535;
-            switch (str.hashCode()) {
-                case -2129294769:
-                    if (str.equals(FetchLog.START_TIME)) {
-                        c2 = 1;
-                        break;
-                    }
-                    break;
-                case -810883302:
-                    if (str.equals("volume")) {
-                        c2 = 2;
-                        break;
-                    }
-                    break;
-                case 114148:
-                    if (str.equals("src")) {
-                        c2 = 3;
-                        break;
-                    }
-                    break;
-                case 3327652:
-                    if (str.equals("loop")) {
-                        c2 = 0;
-                        break;
-                    }
-                    break;
-                case 1439562083:
-                    if (str.equals("autoplay")) {
-                        c2 = 4;
-                        break;
-                    }
-                    break;
+            hashMap.put("play_mode", String.valueOf(i));
+            JSONObject jSONObject = this.b;
+            if (jSONObject != null) {
+                jSONArray = jSONObject.optJSONArray(str);
+            } else {
+                jSONArray = null;
             }
-            if (c2 != 0 && c2 != 1) {
-                if (c2 != 2) {
-                    if (c2 != 3) {
-                        if (c2 == 4 && this.autoplay) {
-                            play();
+            if (jSONArray != null) {
+                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                    String optString = jSONArray.optString(i2);
+                    if (NetworkUtils.f(this.a) && !TextUtils.isEmpty(optString)) {
+                        HttpUrl parse = HttpUrl.parse(b(optString, hashMap));
+                        if (parse == null) {
                             return;
                         }
-                        return;
+                        a(new Request.Builder().url(parse.newBuilder().build()).build());
                     }
-                    E(false);
-                    return;
-                } else if (fy3.b(this.volume)) {
-                    F(fy3.c(this));
-                    return;
-                } else {
-                    this.volume = this.a.D();
-                    return;
                 }
             }
-            F(fy3.c(this));
         }
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @Override // com.baidu.tieba.by3
-    public void p(String str, JSONObject jSONObject) {
-        char c2;
+    public void e(String str) {
+        HttpUrl parse;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, jSONObject) == null) {
-            switch (str.hashCode()) {
-                case -1522036513:
-                    if (str.equals("buffered")) {
-                        c2 = 0;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 3443508:
-                    if (str.equals("play")) {
-                        c2 = 2;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 3540994:
-                    if (str.equals("stop")) {
-                        c2 = 6;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 96651962:
-                    if (str.equals("ended")) {
-                        c2 = 3;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 96784904:
-                    if (str.equals("error")) {
-                        c2 = 4;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 106440182:
-                    if (str.equals("pause")) {
-                        c2 = 5;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 550609668:
-                    if (str.equals("canplay")) {
-                        c2 = 7;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 1762557398:
-                    if (str.equals("timeupdate")) {
-                        c2 = 1;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                default:
-                    c2 = 65535;
-                    break;
-            }
-            switch (c2) {
-                case 0:
-                    this.buffered = B();
-                    return;
-                case 1:
-                    if (jSONObject != null) {
-                        this.duration = getDuration() / 1000;
-                        this.currentTime = v() / 1000.0d;
-                        return;
-                    }
-                    return;
-                case 2:
-                    this.paused = false;
-                    return;
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                    this.paused = true;
-                    return;
-                case 7:
-                    this.duration = getDuration() / 1000;
-                    return;
-                default:
-                    return;
-            }
+        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || !NetworkUtils.f(this.a) || TextUtils.isEmpty(str) || (parse = HttpUrl.parse(str)) == null) {
+            return;
         }
+        a(new Request.Builder().url(parse.newBuilder().build()).build());
     }
 }

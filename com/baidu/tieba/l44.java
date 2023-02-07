@@ -1,93 +1,43 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Comparator;
+import java.io.File;
 /* loaded from: classes5.dex */
 public class l44 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
 
-    /* loaded from: classes5.dex */
-    public static class a implements Comparator<l44> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(l44 l44Var, l44 l44Var2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, l44Var, l44Var2)) == null) {
-                return (int) (l44Var.a - l44Var2.a);
-            }
-            return invokeLL.intValue;
-        }
-    }
-
-    public l44() {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            File b = b();
+            if (b.exists()) {
+                ap4.j(b);
             }
         }
     }
 
-    public static long[] a(l44 l44Var) {
-        InterceptResult invokeL;
+    public static File b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, l44Var)) == null) {
-            if (l44Var == null) {
-                return null;
-            }
-            return new long[]{l44Var.a, l44Var.b};
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return m54.e("aigames_debug_extension_core");
         }
-        return (long[]) invokeL.objValue;
+        return (File) invokeV.objValue;
     }
 
-    public boolean b(l44 l44Var) {
-        InterceptResult invokeL;
+    public static File c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, l44Var)) == null) {
-            long j = this.a;
-            if (j <= l44Var.b) {
-                long j2 = this.b;
-                long j3 = l44Var.a;
-                if (j2 >= j3) {
-                    this.a = Math.min(j, j3);
-                    this.b = Math.max(this.b, l44Var.b);
-                    return true;
-                }
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            File b = b();
+            if (!b.exists()) {
+                b.mkdirs();
             }
-            return false;
+            return new File(b, "debugExtensionCore.zip");
         }
-        return invokeL.booleanValue;
+        return (File) invokeV.objValue;
     }
 }

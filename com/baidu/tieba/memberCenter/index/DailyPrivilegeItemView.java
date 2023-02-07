@@ -96,13 +96,13 @@ public class DailyPrivilegeItemView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03ed, this);
             this.b = inflate;
-            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091b59);
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091b68);
+            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091b73);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091b82);
             this.d = tbImageView;
             tbImageView.setDefaultResource(R.drawable.transparent_bg);
             this.d.setDefaultBgResource(R.drawable.transparent_bg);
-            this.e = (PrivilegeTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091b69);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091b58);
+            this.e = (PrivilegeTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091b83);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091b72);
         }
     }
 }

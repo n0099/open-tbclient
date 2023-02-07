@@ -16,12 +16,11 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.iu4;
-import com.baidu.tieba.y9;
-import com.baidu.tieba.yg;
+import com.baidu.tieba.da;
+import com.baidu.tieba.dh;
+import com.baidu.tieba.vy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
@@ -71,7 +70,7 @@ public class PbGiftListView extends FrameLayout {
         public void onClick(View view2) {
             TbPageContext tbPageContext;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || (tbPageContext = (TbPageContext) y9.a(this.a.a)) == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || (tbPageContext = (TbPageContext) da.a(this.a.a)) == null) {
                 return;
             }
             if (!TbadkCoreApplication.isLogin()) {
@@ -151,79 +150,65 @@ public class PbGiftListView extends FrameLayout {
         h();
     }
 
-    public void setPostId(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.m = j;
-        }
-    }
-
-    public void setThreadId(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.l = j;
-        }
-    }
-
-    public void g(iu4 iu4Var, String str, String str2, long j, long j2, long j3) {
+    public void g(vy4 vy4Var, String str, String str2, long j, long j2, long j3) {
         int size;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{iu4Var, str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{vy4Var, str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
             this.k = j;
             this.i = str;
             this.j = str2;
             this.m = j3;
             this.l = j2;
-            if (iu4Var != null && iu4Var.a() != null && iu4Var.a().size() > 0) {
-                if (iu4Var.a().size() > 4) {
+            if (vy4Var != null && vy4Var.a() != null && vy4Var.a().size() > 0) {
+                if (vy4Var.a().size() > 4) {
                     size = 4;
                 } else {
-                    size = iu4Var.a().size();
+                    size = vy4Var.a().size();
                 }
                 if (size != 1) {
                     if (size != 2) {
                         if (size != 3) {
                             if (size == 4) {
-                                this.c.K(iu4Var.a().get(0).a, 10, false);
-                                this.d.K(iu4Var.a().get(1).a, 10, false);
-                                this.e.K(iu4Var.a().get(2).a, 10, false);
-                                this.f.K(iu4Var.a().get(3).a, 10, false);
+                                this.c.K(vy4Var.a().get(0).a, 10, false);
+                                this.d.K(vy4Var.a().get(1).a, 10, false);
+                                this.e.K(vy4Var.a().get(2).a, 10, false);
+                                this.f.K(vy4Var.a().get(3).a, 10, false);
                                 this.c.setVisibility(0);
                                 this.d.setVisibility(0);
                                 this.e.setVisibility(0);
                                 this.f.setVisibility(0);
                             }
                         } else {
-                            this.c.K(iu4Var.a().get(0).a, 10, false);
-                            this.d.K(iu4Var.a().get(1).a, 10, false);
-                            this.e.K(iu4Var.a().get(2).a, 10, false);
+                            this.c.K(vy4Var.a().get(0).a, 10, false);
+                            this.d.K(vy4Var.a().get(1).a, 10, false);
+                            this.e.K(vy4Var.a().get(2).a, 10, false);
                             this.c.setVisibility(0);
                             this.d.setVisibility(0);
                             this.e.setVisibility(0);
                             this.f.setVisibility(8);
                         }
                     } else {
-                        this.c.K(iu4Var.a().get(0).a, 10, false);
-                        this.d.K(iu4Var.a().get(1).a, 10, false);
+                        this.c.K(vy4Var.a().get(0).a, 10, false);
+                        this.d.K(vy4Var.a().get(1).a, 10, false);
                         this.c.setVisibility(0);
                         this.d.setVisibility(0);
                         this.e.setVisibility(8);
                         this.f.setVisibility(8);
                     }
                 } else {
-                    this.c.K(iu4Var.a().get(0).a, 10, false);
+                    this.c.K(vy4Var.a().get(0).a, 10, false);
                     this.c.setVisibility(0);
                     this.d.setVisibility(8);
                     this.e.setVisibility(8);
                     this.f.setVisibility(8);
                 }
-                if (iu4Var.b() > 0) {
-                    this.g.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f07f4), Integer.valueOf(iu4Var.b())));
+                if (vy4Var.b() > 0) {
+                    this.g.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0816), Integer.valueOf(vy4Var.b())));
                     this.g.setVisibility(0);
                 } else {
                     this.g.setVisibility(8);
                 }
-                if (j == yg.g(TbadkCoreApplication.getCurrentAccount(), 0L)) {
+                if (j == dh.g(TbadkCoreApplication.getCurrentAccount(), 0L)) {
                     this.h.setVisibility(8);
                     return;
                 } else {
@@ -235,43 +220,15 @@ public class PbGiftListView extends FrameLayout {
         }
     }
 
-    public long getPostId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.m;
-        }
-        return invokeV.longValue;
-    }
-
-    public long getThreadId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.l;
-        }
-        return invokeV.longValue;
-    }
-
-    public void i() {
-        int skinType;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.n != (skinType = TbadkCoreApplication.getInst().getSkinType())) {
-            this.n = skinType;
-            SkinManager.setViewTextColor(this.g, R.color.CAM_X0109, 1);
-            SkinManager.setViewTextColor(this.h, R.color.CAM_X0304, 1);
-        }
-    }
-
     public final void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            View inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d06e9, this);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            View inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d06ed, this);
             this.b = inflate;
-            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0918cc);
-            this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0918cd);
-            this.e = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0918ce);
-            this.f = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0918cf);
+            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091903);
+            this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091904);
+            this.e = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091905);
+            this.f = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091906);
             this.c.setDefaultBgResource(R.drawable.transparent_bg);
             this.d.setDefaultBgResource(R.drawable.transparent_bg);
             this.e.setDefaultBgResource(R.drawable.transparent_bg);
@@ -280,10 +237,20 @@ public class PbGiftListView extends FrameLayout {
             this.d.setDefaultResource(R.drawable.icon_gift_moren);
             this.e.setDefaultResource(R.drawable.icon_gift_moren);
             this.f.setDefaultResource(R.drawable.icon_gift_moren);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0918ca);
-            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0918cb);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091901);
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091902);
             this.h = textView;
             textView.setOnClickListener(new a(this));
+        }
+    }
+
+    public void i() {
+        int skinType;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.n != (skinType = TbadkCoreApplication.getInst().getSkinType())) {
+            this.n = skinType;
+            SkinManager.setViewTextColor(this.g, R.color.CAM_X0109, 1);
+            SkinManager.setViewTextColor(this.h, R.color.CAM_X0304, 1);
         }
     }
 }

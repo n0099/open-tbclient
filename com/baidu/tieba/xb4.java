@@ -1,70 +1,59 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
-import java.nio.channels.ReadableByteChannel;
-import java.util.HashMap;
-import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class xb4<T> implements ac4<T> {
+public class xb4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.ac4
-    public void a(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
-        }
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(JSONObject jSONObject);
     }
 
-    @Override // com.baidu.tieba.ac4
-    public void c(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-        }
-    }
+    /* loaded from: classes6.dex */
+    public class a implements pn3<ie3> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b a;
 
-    @Override // com.baidu.tieba.ac4
-    public void e(T t, dd4 dd4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, t, dd4Var) == null) {
+        public a(xb4 xb4Var, b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xb4Var, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bVar;
         }
-    }
 
-    @Override // com.baidu.tieba.ac4
-    public void f(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-        }
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return 100;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.ac4
-    public void i(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ac4
-    public void j(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.pn3
+        /* renamed from: b */
+        public void a(ie3 ie3Var) {
+            JSONObject jSONObject;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ie3Var) == null) {
+                if (ie3Var != null && (jSONObject = ie3Var.g) != null) {
+                    w52.b("OpenData", "onOpenDataCallback success: ", jSONObject);
+                    this.a.a(ie3Var.g);
+                    return;
+                }
+                this.a.a(null);
+            }
         }
     }
 
@@ -82,25 +71,11 @@ public abstract class xb4<T> implements ac4<T> {
         }
     }
 
-    @Override // com.baidu.tieba.ac4
-    public Map<String, Object> k() {
-        InterceptResult invokeV;
+    public void a(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("queue_priority", Integer.valueOf(g()));
-            return hashMap;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, bVar) != null) || bVar == null || ju2.U().getActivity() == null) {
+            return;
         }
-        return (Map) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ac4
-    public dd4 h(T t, File file, long j, ReadableByteChannel readableByteChannel) throws IOException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{t, file, Long.valueOf(j), readableByteChannel})) == null) {
-            return new dd4(2302, "业务层默认不处理下载流");
-        }
-        return (dd4) invokeCommon.objValue;
+        ie3.B(ju2.U().getActivity(), "snsapi_userinfo", null, true, "GameUserInfoRequest", new a(this, bVar));
     }
 }

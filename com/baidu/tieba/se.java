@@ -1,50 +1,56 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.BundleDataSource;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.CursorDataSource;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.IntentDataSource;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.JsonDataSource;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.MapDataSource;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.ProtobufDataSource;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Callable;
-import java.util.concurrent.FutureTask;
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 /* loaded from: classes6.dex */
-public abstract class se<V> extends FutureTask<V> {
+public class se {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdAsyncTask<?, ?, ?> a;
 
-    public abstract void a();
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public se(Callable<V> callable, BdAsyncTask<?, ?, ?> bdAsyncTask) {
-        super(callable);
+    public static final boolean a(ad adVar, td tdVar) {
+        InterceptResult invokeLL;
+        id a;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {callable, bdAsyncTask};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Callable) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, adVar, tdVar)) == null) {
+            if (adVar != null && tdVar != null) {
+                for (Field field : yc.b(adVar.getClass())) {
+                    if (field != null && !Modifier.isTransient(field.getModifiers()) && !Modifier.isStatic(field.getModifiers())) {
+                        String name = field.getName();
+                        if (!TextUtils.isEmpty(name) && (a = ue.a(yc.d(adVar, name))) != null) {
+                            Object obj = null;
+                            if (tdVar instanceof JsonDataSource) {
+                                obj = a.f(new re(field.getGenericType()));
+                            } else if (tdVar instanceof BundleDataSource) {
+                                obj = a.d(new re(field.getGenericType()));
+                            } else if (tdVar instanceof IntentDataSource) {
+                                obj = a.e(new re(field.getGenericType()));
+                            } else if (tdVar instanceof MapDataSource) {
+                                obj = a.b(new re(field.getGenericType()));
+                            } else if (tdVar instanceof CursorDataSource) {
+                                obj = a.a(new re(field.getGenericType()));
+                            } else if (tdVar instanceof ProtobufDataSource) {
+                                obj = a.c(new re(field.getGenericType()));
+                            }
+                            if (obj != null) {
+                                tdVar.set(name, obj);
+                            }
+                        }
+                    }
+                }
+                return true;
             }
+            return false;
         }
-        this.a = null;
-        this.a = bdAsyncTask;
-    }
-
-    public BdAsyncTask<?, ?, ?> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (BdAsyncTask) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 }

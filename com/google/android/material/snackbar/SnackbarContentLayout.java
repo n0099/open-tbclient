@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.R;
 import com.google.android.material.color.MaterialColors;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SnackbarContentLayout extends LinearLayout implements ContentViewCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -159,8 +159,8 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onFinishInflate();
-            this.messageView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091ffc);
-            this.actionView = (Button) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091ffb);
+            this.messageView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09200f);
+            this.actionView = (Button) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09200e);
         }
     }
 

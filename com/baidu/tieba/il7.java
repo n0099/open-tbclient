@@ -1,172 +1,245 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.BIMManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.AtUserInfo;
-import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseMsg;
-import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.ReMsgInfo;
-import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.itemdata.TextGenImageMsg;
-import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.itemdata.TextMsg;
-import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.repo.entity.BotsDTO;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
+import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.List;
+import java.util.Iterator;
+import java.util.LinkedList;
 /* loaded from: classes4.dex */
 public class il7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(@Nullable String str, @NonNull String str2) {
-        InterceptResult invokeLL;
+    public static void a(LinkedList<ImMessageCenterPojo> linkedList, ImMessageCenterPojo imMessageCenterPojo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str2;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, linkedList, imMessageCenterPojo) == null) && linkedList != null && imMessageCenterPojo != null) {
+            int i = 0;
+            int size = linkedList.size();
+            while (i < size) {
+                ImMessageCenterPojo imMessageCenterPojo2 = linkedList.get(i);
+                if (imMessageCenterPojo2 != null && imMessageCenterPojo.getLast_content_time() > imMessageCenterPojo2.getLast_content_time()) {
+                    break;
+                }
+                i++;
             }
-            return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0839, new Object[]{str, str2});
+            linkedList.add(i, imMessageCenterPojo);
         }
-        return (String) invokeLL.objValue;
     }
 
-    @Nullable
-    public static AtUserInfo b(@NonNull BotsDTO.BotListDTO.UserDTO userDTO, @NonNull BotsDTO.BotListDTO.SkillDTO skillDTO) {
-        InterceptResult invokeLL;
+    public static void b() {
+        LinkedList<ImMessageCenterPojo> e;
+        ImMessageCenterPojo imMessageCenterPojo;
+        ImMessageCenterPojo fromCommonMsg;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, userDTO, skillDTO)) == null) {
-            String bdUidFromBdUK = BIMManager.getBdUidFromBdUK(userDTO.getUk());
-            if (TextUtils.isEmpty(bdUidFromBdUK)) {
-                return null;
-            }
-            try {
-                return AtUserInfo.create(AtUserInfo.AtType.USER, Long.parseLong(bdUidFromBdUK), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f083b, new Object[]{userDTO.getNameShow(), skillDTO.getName()}), userDTO.getPortrait(), 0);
-            } catch (Exception e) {
-                if (!TbadkCoreApplication.getInst().isDebugMode()) {
-                    e.printStackTrace();
-                    return null;
+        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && (e = hl7.f().e()) != null && e.size() != 0) {
+            BdLog.i("upgradeData");
+            LinkedList linkedList = new LinkedList();
+            LinkedList linkedList2 = new LinkedList();
+            long j = 0;
+            int i = 0;
+            for (String str : kl7.w().i()) {
+                if (!TextUtils.isEmpty(str)) {
+                    long j2 = kl7.w().j(str);
+                    if (j < j2) {
+                        j = j2;
+                    }
+                    CommonMsgPojo k = kl7.w().k(str);
+                    if (k != null && (fromCommonMsg = ImMessageCenterPojo.fromCommonMsg(k)) != null) {
+                        if (fromCommonMsg.getIsFriend() == 0 && fromCommonMsg.getUnread_count() > 0) {
+                            i = 1;
+                        }
+                        fromCommonMsg.setUnread_count(kl7.w().m(str));
+                        a(linkedList, fromCommonMsg);
+                    }
                 }
-                throw e;
             }
-        }
-        return (AtUserInfo) invokeLL.objValue;
-    }
-
-    public static TextMsg c(@NonNull String str, @NonNull xk7 xk7Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, xk7Var)) == null) {
-            BotsDTO.BotListDTO.UserDTO userDTO = xk7Var.a;
-            BotsDTO.BotListDTO.SkillDTO skillDTO = xk7Var.b;
-            List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> list = xk7Var.c;
-            if (userDTO != null && skillDTO != null) {
-                TextMsg create = TextMsg.create(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f083a, new Object[]{userDTO.getNameShow(), skillDTO.getName(), a(skillDTO.getAlias(), str)}));
-                AtUserInfo b = b(userDTO, skillDTO);
-                if (b == null) {
-                    return TextMsg.create(str);
-                }
-                create.addAtUserInfo(b);
-                HashMap hashMap = new HashMap();
-                hashMap.put("type", Integer.valueOf(skillDTO.getType()));
-                hashMap.put("promot", str);
-                hashMap.put("scene", "tieba_group_chat");
-                HashMap hashMap2 = new HashMap();
-                if (!ListUtils.isEmpty(list)) {
-                    for (BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO : list) {
-                        if (itemsDTO != null && !ListUtils.isEmpty(itemsDTO.getOpts())) {
-                            hashMap2.put(itemsDTO.getValue(), itemsDTO.getOpts().get(0).getName());
+            int i2 = 0;
+            for (String str2 : jl7.w().i()) {
+                if (!TextUtils.isEmpty(str2)) {
+                    long j3 = jl7.w().j(str2);
+                    if (j < j3) {
+                        j = j3;
+                    }
+                    CommonMsgPojo k2 = jl7.w().k(str2);
+                    if (k2 != null) {
+                        k2.checkRidAndSelf();
+                        ImMessageCenterPojo fromCommonMsg2 = ImMessageCenterPojo.fromCommonMsg(k2);
+                        if (fromCommonMsg2 != null) {
+                            int m = jl7.w().m(str2);
+                            fromCommonMsg2.setUnread_count(m);
+                            if (m > 0) {
+                                i2 = 1;
+                            }
+                            a(linkedList2, fromCommonMsg2);
                         }
                     }
                 }
-                hashMap.put("opts", hashMap2);
-                create.setRobotParams(hashMap);
-                return create;
             }
-            return TextMsg.create(str);
-        }
-        return (TextMsg) invokeLL.objValue;
-    }
-
-    public static TextMsg d(@NonNull String str, @NonNull BaseMsg baseMsg, @NonNull xk7 xk7Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, baseMsg, xk7Var)) == null) {
-            BotsDTO.BotListDTO.UserDTO userDTO = xk7Var.a;
-            BotsDTO.BotListDTO.SkillDTO skillDTO = xk7Var.b;
-            List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> list = xk7Var.c;
-            if (userDTO != null && skillDTO != null) {
-                StringBuilder sb = new StringBuilder();
-                if (!ListUtils.isEmpty(list)) {
-                    for (BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO : list) {
-                        if (itemsDTO != null && !ListUtils.isEmpty(itemsDTO.getOpts())) {
-                            sb.append(a(itemsDTO.getName(), itemsDTO.getOpts().get(0).getName()));
-                            sb.append("\n");
+            Iterator<ImMessageCenterPojo> it = e.iterator();
+            ImMessageCenterPojo imMessageCenterPojo2 = null;
+            ImMessageCenterPojo imMessageCenterPojo3 = null;
+            ImMessageCenterPojo imMessageCenterPojo4 = null;
+            ImMessageCenterPojo imMessageCenterPojo5 = null;
+            ImMessageCenterPojo imMessageCenterPojo6 = null;
+            ImMessageCenterPojo imMessageCenterPojo7 = null;
+            while (it.hasNext()) {
+                ImMessageCenterPojo next = it.next();
+                if (next != null && next.getGid() != null) {
+                    if (next.getGid().equals(TbEnum.CustomGroupId.OFFICIAL_MERGE)) {
+                        imMessageCenterPojo2 = next;
+                    } else if (next.getGid().equals(TbEnum.CustomGroupId.STRANGE_MERGE)) {
+                        imMessageCenterPojo3 = next;
+                    } else if (next.getCustomGroupType() == 0 && next.getGroup_name() != null && next.getGroup_name().equals("系统消息群")) {
+                        imMessageCenterPojo4 = next;
+                    } else if (next.getGid().equals("9") && next.getCustomGroupType() == 5) {
+                        imMessageCenterPojo5 = next;
+                    } else if (next.getGid().equals("10") && next.getCustomGroupType() == 6) {
+                        imMessageCenterPojo6 = next;
+                    } else if (next.getGroup_name() != null && next.getGroup_name().equals("我的私聊") && next.getCustomGroupType() == 2) {
+                        imMessageCenterPojo7 = next;
+                    }
+                }
+            }
+            if (imMessageCenterPojo2 == null) {
+                imMessageCenterPojo2 = new ImMessageCenterPojo();
+                imMessageCenterPojo2.setGid(TbEnum.CustomGroupId.OFFICIAL_MERGE);
+                imMessageCenterPojo2.setCustomGroupType(-8);
+                imMessageCenterPojo2.setIs_hidden(1);
+                imMessageCenterPojo2.setUnread_count(0);
+            } else {
+                imMessageCenterPojo2.setGid(TbEnum.CustomGroupId.OFFICIAL_MERGE);
+                imMessageCenterPojo2.setCustomGroupType(-8);
+                imMessageCenterPojo2.setUnread_count(i2);
+                e.remove(imMessageCenterPojo2);
+            }
+            if (linkedList2.size() > 0) {
+                imMessageCenterPojo2.setLast_content(((ImMessageCenterPojo) linkedList2.get(0)).getLast_content());
+                imMessageCenterPojo2.setLast_content_time(((ImMessageCenterPojo) linkedList2.get(0)).getLast_content_time());
+                imMessageCenterPojo2.setLast_rid(((ImMessageCenterPojo) linkedList2.get(0)).getLast_rid());
+                imMessageCenterPojo2.setLast_user_name(((ImMessageCenterPojo) linkedList2.get(0)).getLast_user_name());
+            }
+            hl7.f().n(imMessageCenterPojo2, 2);
+            if (linkedList2.size() > 0) {
+                Iterator it2 = linkedList2.iterator();
+                while (it2.hasNext()) {
+                    ImMessageCenterPojo imMessageCenterPojo8 = (ImMessageCenterPojo) it2.next();
+                    imMessageCenterPojo8.setCustomGroupType(4);
+                    Iterator<ImMessageCenterPojo> it3 = e.iterator();
+                    while (true) {
+                        if (it3.hasNext()) {
+                            ImMessageCenterPojo next2 = it3.next();
+                            if (next2.getGid() != null && next2.getGid().equals(imMessageCenterPojo8.getGid())) {
+                                imMessageCenterPojo8.setIs_hidden(next2.getIs_hidden());
+                                break;
+                            }
                         }
                     }
+                    hl7.f().n(imMessageCenterPojo8, 2);
                 }
-                if (!TextUtils.isEmpty(skillDTO.getAlias()) && !TextUtils.isEmpty(str)) {
-                    sb.append(a(skillDTO.getAlias(), str));
-                }
-                String sb2 = sb.toString();
-                if (sb2.endsWith("\n")) {
-                    sb2 = sb2.substring(0, sb2.length() - 1);
-                }
-                TextMsg create = TextMsg.create(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f083a, new Object[]{userDTO.getNameShow(), skillDTO.getName(), sb2}));
-                AtUserInfo b = b(userDTO, skillDTO);
-                if (b == null) {
-                    return TextMsg.create(str);
-                }
-                create.addAtUserInfo(b);
-                create.setReMsgInfo(ReMsgInfo.create(baseMsg.getMsgType(), baseMsg.getSdkMsg().getMsgType(), baseMsg.getCommonMsgField().getUserId(), baseMsg.getCommonMsgField().getUserName(), baseMsg.getCommonMsgField().getMsgId(), baseMsg.getCommonMsgField().getMsgKey(), baseMsg.getThumbnailText().toString()));
-                HashMap hashMap = new HashMap();
-                hashMap.put("type", Integer.valueOf(skillDTO.getType()));
-                hashMap.put("promot", str);
-                hashMap.put("scene", "tieba_group_chat");
-                if (baseMsg.getReMsgInfo() != null) {
-                    if (baseMsg instanceof TextGenImageMsg) {
-                        hashMap.put("last_promot", ((TextGenImageMsg) baseMsg).getLastPrompt());
-                    }
-                    hashMap.put("user_msg_id", Long.valueOf(baseMsg.getReMsgInfo().getMsgId()));
-                    hashMap.put("user_msg_key", baseMsg.getReMsgInfo().getMsgKey());
-                }
-                if (baseMsg.getTaskInfo() != null) {
-                    hashMap.put("robot_msg_id", Long.valueOf(baseMsg.getTaskInfo().getOriginMsgId()));
-                    hashMap.put("robot_msg_key", baseMsg.getTaskInfo().getOriginMsgKey());
-                }
-                HashMap hashMap2 = new HashMap();
-                if (!ListUtils.isEmpty(list)) {
-                    for (BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO2 : list) {
-                        if (itemsDTO2 != null && !ListUtils.isEmpty(itemsDTO2.getOpts())) {
-                            hashMap2.put(itemsDTO2.getValue(), itemsDTO2.getOpts().get(0).getName());
+            }
+            if (linkedList.size() > 0) {
+                Iterator it4 = linkedList.iterator();
+                while (it4.hasNext()) {
+                    ImMessageCenterPojo imMessageCenterPojo9 = (ImMessageCenterPojo) it4.next();
+                    imMessageCenterPojo9.setCustomGroupType(2);
+                    Iterator<ImMessageCenterPojo> it5 = e.iterator();
+                    while (true) {
+                        if (it5.hasNext()) {
+                            ImMessageCenterPojo next3 = it5.next();
+                            if (next3.getGid() != null && next3.getGid().equals(imMessageCenterPojo9.getGid())) {
+                                imMessageCenterPojo9.setIs_hidden(next3.getIs_hidden());
+                                break;
+                            }
                         }
                     }
+                    hl7.f().n(imMessageCenterPojo9, 2);
                 }
-                hashMap.put("opts", hashMap2);
-                create.setRobotParams(hashMap);
-                return create;
             }
-            return TextMsg.create(str);
+            if (imMessageCenterPojo3 == null) {
+                imMessageCenterPojo3 = new ImMessageCenterPojo();
+                imMessageCenterPojo3.setGid(TbEnum.CustomGroupId.STRANGE_MERGE);
+                imMessageCenterPojo3.setCustomGroupType(-7);
+                imMessageCenterPojo3.setIs_hidden(1);
+                imMessageCenterPojo3.setUnread_count(0);
+            } else {
+                imMessageCenterPojo3.setGid(TbEnum.CustomGroupId.STRANGE_MERGE);
+                imMessageCenterPojo3.setCustomGroupType(-7);
+                imMessageCenterPojo3.setUnread_count(i);
+                e.remove(imMessageCenterPojo3);
+            }
+            if (linkedList.size() > 0) {
+                Iterator it6 = linkedList.iterator();
+                while (true) {
+                    if (it6.hasNext()) {
+                        imMessageCenterPojo = (ImMessageCenterPojo) it6.next();
+                        if (imMessageCenterPojo.getIsFriend() == 0) {
+                            break;
+                        }
+                    } else {
+                        imMessageCenterPojo = null;
+                        break;
+                    }
+                }
+                if (imMessageCenterPojo != null) {
+                    imMessageCenterPojo3.setLast_content(imMessageCenterPojo.getLast_content());
+                    imMessageCenterPojo3.setLast_content_time(imMessageCenterPojo.getLast_content_time());
+                    imMessageCenterPojo3.setLast_rid(imMessageCenterPojo.getLast_rid());
+                    imMessageCenterPojo3.setLast_user_name(imMessageCenterPojo.getLast_user_name());
+                }
+            }
+            hl7.f().n(imMessageCenterPojo3, 2);
+            if (imMessageCenterPojo4 == null) {
+                imMessageCenterPojo4 = new ImMessageCenterPojo();
+            } else {
+                hl7.f().c(imMessageCenterPojo4.getGid(), 0);
+            }
+            imMessageCenterPojo4.setCustomGroupType(-2);
+            imMessageCenterPojo4.setIs_hidden(1);
+            imMessageCenterPojo4.setPulled_msgId(0L);
+            hl7.f().n(imMessageCenterPojo4, 2);
+            if (imMessageCenterPojo5 == null) {
+                imMessageCenterPojo5 = new ImMessageCenterPojo();
+            }
+            ImMessageCenterPojo imMessageCenterPojo10 = imMessageCenterPojo5;
+            imMessageCenterPojo10.setCustomGroupType(5);
+            imMessageCenterPojo10.setIs_hidden(1);
+            imMessageCenterPojo10.setPulled_msgId(0L);
+            hl7.f().n(imMessageCenterPojo10, 2);
+            if (imMessageCenterPojo6 == null) {
+                imMessageCenterPojo6 = new ImMessageCenterPojo();
+            }
+            ImMessageCenterPojo imMessageCenterPojo11 = imMessageCenterPojo6;
+            imMessageCenterPojo11.setCustomGroupType(6);
+            imMessageCenterPojo11.setIs_hidden(1);
+            imMessageCenterPojo11.setPulled_msgId(0L);
+            hl7.f().n(imMessageCenterPojo11, 2);
+            if (imMessageCenterPojo7 == null) {
+                imMessageCenterPojo7 = new ImMessageCenterPojo();
+            } else {
+                hl7.f().c(imMessageCenterPojo7.getGid(), 2);
+            }
+            ImMessageCenterPojo imMessageCenterPojo12 = imMessageCenterPojo7;
+            imMessageCenterPojo12.setCustomGroupType(-1);
+            imMessageCenterPojo12.setIs_hidden(1);
+            imMessageCenterPojo12.setPulled_msgId(j);
+            hl7.f().n(imMessageCenterPojo12, 2);
+            ImMessageCenterPojo imMessageCenterPojo13 = new ImMessageCenterPojo();
+            imMessageCenterPojo13.setGid(TbEnum.CustomGroupId.GROUP_VALIDATION);
+            imMessageCenterPojo13.setCustomGroupType(-4);
+            imMessageCenterPojo13.setIs_hidden(!p35.m().i("is_show_validate", true));
+            imMessageCenterPojo13.setUnread_count(bl7.c().d("apply_join_group", 1));
+            LinkedList<GroupNewsPojo> b = bl7.c().b(0L, 1, 0, "apply_join_group");
+            if (b != null && b.size() > 0) {
+                imMessageCenterPojo13.setLast_content(b.get(0).getContent());
+                imMessageCenterPojo13.setLast_content_time(b.get(0).getTime());
+            }
+            hl7.f().n(imMessageCenterPojo13, 2);
+            fl7.d().c("delete from tb_message_center where custom_group_type is null or custom_group_type=0 or gid in (0,2,3,6,11,12)");
         }
-        return (TextMsg) invokeLLL.objValue;
-    }
-
-    public static TextMsg e(@NonNull String str, @Nullable BaseMsg baseMsg, @Nullable xk7 xk7Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, baseMsg, xk7Var)) == null) {
-            if (xk7Var == null) {
-                return TextMsg.create(str);
-            }
-            if (baseMsg == null) {
-                return c(str, xk7Var);
-            }
-            return d(str, baseMsg, xk7Var);
-        }
-        return (TextMsg) invokeLLL.objValue;
     }
 }

@@ -1,69 +1,79 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import com.baidu.adp.gif.NSGif;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class gc {
+public class gc extends hc {
     public static /* synthetic */ Interceptable $ic;
-    public static final String[] a;
+    public static gc c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448305233, "Lcom/baidu/tieba/gc;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448305233, "Lcom/baidu/tieba/gc;");
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448305233, "Lcom/baidu/tieba/gc;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448305233, "Lcom/baidu/tieba/gc;");
+        }
+    }
+
+    public gc() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        a = new String[]{"ZTE-T U880", "U880"};
+        this.a = new ic(20000, 10000, 5000);
+        this.b = 3;
     }
 
-    public static boolean a() {
+    public static gc c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (Build.VERSION.SDK_INT > 7) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b(bj.g()) && a() && NSGif.f) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            for (String str2 : a) {
-                if (str2.equals(str)) {
-                    return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (gc.class) {
+                    if (c == null) {
+                        c = new gc();
+                    }
                 }
             }
-            return true;
+            return c;
         }
-        return invokeL.booleanValue;
+        return (gc) invokeV.objValue;
+    }
+
+    public void d(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) {
+            if (i < 3000) {
+                i = 3000;
+            }
+            if (i2 < 3000) {
+                i2 = 3000;
+            }
+            if (i3 < 3000) {
+                i3 = 3000;
+            }
+            this.a = new ic(i, i2, i3);
+        }
     }
 }

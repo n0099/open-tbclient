@@ -1,86 +1,92 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.ubcprocessor.UBCCloudConfigObserver;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.lang.reflect.Field;
+import org.json.JSONException;
 import org.json.JSONObject;
+@Service
 /* loaded from: classes6.dex */
-public class vy9 extends BaseAdRipper {
+public class vy9 implements UBCCloudConfigObserver {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vy9(Ssp.Pid pid) {
-        super(pid);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948257267, "Lcom/baidu/tieba/vy9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948257267, "Lcom/baidu/tieba/vy9;");
+                return;
+            }
+        }
+        a = AppConfig.isDebug();
+    }
+
+    public vy9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
-    public RippedAd getRippedAdInternal(Object obj) {
-        InterceptResult invokeL;
-        Object obj2;
+    @Override // com.baidu.searchbox.ubcprocessor.UBCCloudConfigObserver
+    public void onReceiveUbcCloudConfig(String str, JSONObject jSONObject) {
+        String optString;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
+            if (a) {
+                Log.d("YaLogConfigObserver", "receive YaLog ID config data: " + str);
             }
-            try {
-                Field declaredField = obj.getClass().getSuperclass().getSuperclass().getDeclaredField("a");
-                declaredField.setAccessible(true);
-                obj2 = declaredField.get(obj);
-            } catch (Exception e) {
-                LogPrinter.e(e);
+            if (TextUtils.isEmpty(str)) {
+                if (a) {
+                    Log.d("YaLogConfigObserver", "YaLog ID config data is null");
+                    return;
+                }
+                return;
             }
-            if (obj2 == null) {
-                return null;
+            if (jSONObject == null) {
+                optString = "0";
+            } else {
+                try {
+                    optString = jSONObject.optString("version_asc");
+                } catch (JSONException e) {
+                    if (a) {
+                        e.printStackTrace();
+                        return;
+                    }
+                    return;
+                }
             }
-            Field declaredField2 = obj2.getClass().getDeclaredField("b");
-            declaredField2.setAccessible(true);
-            Object obj3 = declaredField2.get(obj2);
-            if (obj3 == null) {
-                return null;
+            if (!"0".equals(optString)) {
+                z = true;
+            } else {
+                z = false;
             }
-            Field declaredField3 = obj3.getClass().getDeclaredField("b");
-            declaredField3.setAccessible(true);
-            Object obj4 = declaredField3.get(obj3);
-            if (obj4 == null) {
-                return null;
-            }
-            Field declaredField4 = obj4.getClass().getDeclaredField("x");
-            declaredField4.setAccessible(true);
-            Object obj5 = declaredField4.get(obj4);
-            if (obj5 == null) {
-                return null;
-            }
-            Field declaredField5 = obj5.getClass().getSuperclass().getDeclaredField("L");
-            declaredField5.setAccessible(true);
-            JSONObject jSONObject = (JSONObject) declaredField5.get(obj5);
-            if (jSONObject != null) {
-                return ty9.a(jSONObject);
-            }
-            return null;
+            ((ty9) ServiceManager.getService(ty9.a)).b(new JSONObject(str), z);
         }
-        return (RippedAd) invokeL.objValue;
     }
 }

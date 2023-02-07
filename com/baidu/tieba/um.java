@@ -1,38 +1,60 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.cloudcontrol.utils.CloudControlUrlConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
+import java.io.File;
 /* loaded from: classes6.dex */
 public class um {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "http://mbd.baidu.com";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448318997, "Lcom/baidu/tieba/um;")) == null) {
-            return;
+    public static String a(String str) {
+        InterceptResult invokeL;
+        String str2;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return "";
+            }
+            if (str.contains(".so")) {
+                String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                StringBuilder sb = new StringBuilder();
+                if (ti.a()) {
+                    str3 = "so_64_cache";
+                } else {
+                    str3 = "so_cache";
+                }
+                sb.append(str3);
+                sb.append(File.separator);
+                sb.append(split[0]);
+                str2 = sb.toString();
+            } else if (str.contains(".mp3")) {
+                str2 = "mp3_cache";
+            } else if (str.contains(DefaultHlsExtractorFactory.MP4_FILE_EXTENSION)) {
+                str2 = "mp4_cache";
+            } else {
+                str2 = "res_cache";
+            }
+            return BdBaseApplication.getInst().getFilesDir() + File.separator + str2;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448318997, "Lcom/baidu/tieba/um;");
-        }
+        return (String) invokeL.objValue;
     }
 
-    public static String a() {
-        InterceptResult invokeV;
+    public static String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return String.format(CloudControlUrlConfig.mUrl, a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return "";
+            }
+            return a(str) + File.separator + str;
         }
-        return (String) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 }

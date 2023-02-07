@@ -1,72 +1,60 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.frs.HorseRace.LiveHorseRaceData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.BawuRoleInfoPub;
-import tbclient.ForumRuleDetail.DataRes;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetHorseRaceLampList.DataRes;
+import tbclient.GetHorseRaceLampList.LiveList;
 /* loaded from: classes4.dex */
-public class dt6 implements yn {
+public class dt6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947716131, "Lcom/baidu/tieba/dt6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947716131, "Lcom/baidu/tieba/dt6;");
-                return;
-            }
-        }
-        a = BdUniqueId.gen();
-    }
+    public List<LiveHorseRaceData> a;
 
     public dt6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList();
     }
 
-    @Override // com.baidu.tieba.yn
-    public BdUniqueId getType() {
+    public List<LiveHorseRaceData> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public void a(DataRes dataRes) {
+    public void b(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) {
-            BawuRoleInfoPub bawuRoleInfoPub = dataRes.bazhu;
-            String str = bawuRoleInfoPub.name_show;
-            String str2 = bawuRoleInfoPub.portrait;
-            dataRes.is_manager.intValue();
-            dataRes.bazhu.user_level.intValue();
-            String str3 = dataRes.publish_time;
-            dataRes.audit_status.intValue();
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) != null) || dataRes == null) {
+            return;
+        }
+        new LiveHorseRaceData();
+        List<LiveList> list = dataRes.live_list;
+        if (list != null) {
+            for (int i = 0; i < list.size(); i++) {
+                LiveHorseRaceData liveHorseRaceData = new LiveHorseRaceData();
+                liveHorseRaceData.parserProtobuf(list.get(i));
+                this.a.add(liveHorseRaceData);
+            }
         }
     }
 }

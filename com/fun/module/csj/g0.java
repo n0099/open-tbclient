@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fx9;
+import com.baidu.tieba.o1a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -110,18 +110,18 @@ public class g0 extends LinearLayout {
             if (interactionType == 2 || interactionType == 3) {
                 this.e.setVisibility(0);
                 button = this.e;
-                i = R.string.obfuscated_res_0x7f0f07aa;
+                i = R.string.obfuscated_res_0x7f0f07cc;
             } else if (interactionType == 4) {
                 this.e.setVisibility(0);
                 button = this.e;
-                i = R.string.obfuscated_res_0x7f0f07ac;
+                i = R.string.obfuscated_res_0x7f0f07ce;
             } else if (interactionType != 5) {
                 this.e.setVisibility(8);
                 return;
             } else {
                 this.e.setVisibility(0);
                 button = this.e;
-                i = R.string.obfuscated_res_0x7f0f07ab;
+                i = R.string.obfuscated_res_0x7f0f07cd;
             }
             button.setText(i);
         }
@@ -149,10 +149,10 @@ public class g0 extends LinearLayout {
         return (List) invokeV.objValue;
     }
 
-    public fx9 getDownloadListener() {
+    public o1a getDownloadListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new fx9(this.e) : (fx9) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new o1a(this.e) : (o1a) invokeV.objValue;
     }
 
     @Override // android.view.View

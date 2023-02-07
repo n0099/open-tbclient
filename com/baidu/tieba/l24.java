@@ -1,18 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class l24 extends JSEvent {
+public class l24 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l24() {
-        super("appMount");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -20,11 +21,30 @@ public class l24 extends JSEvent {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
+    }
+
+    public static l24 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            l24 l24Var = new l24();
+            l24Var.a = jSONObject.optInt("state");
+            l24Var.b = jSONObject.optString("msg");
+            return l24Var;
+        }
+        return (l24) invokeL.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "CheckPayAuthModel{state=" + this.a + ", msg='" + this.b + "'}";
+        }
+        return (String) invokeV.objValue;
     }
 }

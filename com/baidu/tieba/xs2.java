@@ -1,82 +1,35 @@
 package com.baidu.tieba;
 
-import android.telephony.PhoneStateListener;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class xs2 extends PhoneStateListener {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public transient /* synthetic */ FieldHolder $fh;
+import android.content.Context;
+/* loaded from: classes7.dex */
+public interface xs2 {
+    boolean a(Context context, mv2 mv2Var, fv2 fv2Var, w83 w83Var);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948310866, "Lcom/baidu/tieba/xs2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948310866, "Lcom/baidu/tieba/xs2;");
-                return;
-            }
-        }
-        a = tk1.a;
-    }
+    boolean b(Context context, hv2 hv2Var, fv2 fv2Var, w83 w83Var);
 
-    public xs2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
+    boolean c(Context context, iv2 iv2Var, fv2 fv2Var, w83 w83Var);
 
-    @Override // android.telephony.PhoneStateListener
-    public void onCallStateChanged(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-            super.onCallStateChanged(i, str);
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (a) {
-                            Log.e("PhoneStateListener", "invalid state");
-                            return;
-                        }
-                        return;
-                    }
-                    zs2.k().n();
-                    if (a) {
-                        Log.i("PhoneStateListener", "接听");
-                        return;
-                    }
-                    return;
-                }
-                zs2.k().n();
-                if (a) {
-                    Log.i("PhoneStateListener", "响铃:" + str);
-                    return;
-                }
-                return;
-            }
-            zs2.k().o();
-            if (a) {
-                Log.i("PhoneStateListener", "挂断");
-            }
-        }
-    }
+    void d(cv1 cv1Var);
+
+    boolean e(Context context, gv2 gv2Var, fv2 fv2Var, w83 w83Var);
+
+    void f(cv1 cv1Var);
+
+    boolean g(Context context, iv2 iv2Var, fv2 fv2Var, w83 w83Var);
+
+    boolean h(Context context, kv2 kv2Var, fv2 fv2Var, w83 w83Var);
+
+    void i(cv1 cv1Var);
+
+    boolean j(Context context, lv2 lv2Var, fv2 fv2Var, w83 w83Var);
+
+    boolean k(Context context, iv2 iv2Var, fv2 fv2Var, w83 w83Var);
+
+    boolean l(Context context, iv2 iv2Var, fv2 fv2Var, w83 w83Var);
+
+    boolean m(Context context, iv2 iv2Var, fv2 fv2Var, w83 w83Var);
+
+    boolean n(Context context, iv2 iv2Var, fv2 fv2Var, w83 w83Var);
+
+    boolean update(Context context, iv2 iv2Var, fv2 fv2Var, w83 w83Var);
 }

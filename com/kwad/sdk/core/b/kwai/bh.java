@@ -1,5 +1,6 @@
 package com.kwad.sdk.core.b.kwai;
 
+import androidx.core.content.FileProvider;
 import com.kwad.sdk.core.response.model.CouponInfo;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
@@ -9,8 +10,8 @@ public final class bh implements com.kwad.sdk.core.d<CouponInfo> {
         if (jSONObject == null) {
             return;
         }
-        couponInfo.displayName = jSONObject.optString("displayName");
-        if (jSONObject.opt("displayName") == JSONObject.NULL) {
+        couponInfo.displayName = jSONObject.optString(FileProvider.DISPLAYNAME_FIELD);
+        if (jSONObject.opt(FileProvider.DISPLAYNAME_FIELD) == JSONObject.NULL) {
             couponInfo.displayName = "";
         }
         couponInfo.displayTitle = jSONObject.optString("displayTitle");
@@ -46,7 +47,7 @@ public final class bh implements com.kwad.sdk.core.d<CouponInfo> {
         }
         String str = couponInfo.displayName;
         if (str != null && !str.equals("")) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, "displayName", couponInfo.displayName);
+            com.kwad.sdk.utils.r.putValue(jSONObject, FileProvider.DISPLAYNAME_FIELD, couponInfo.displayName);
         }
         String str2 = couponInfo.displayTitle;
         if (str2 != null && !str2.equals("")) {

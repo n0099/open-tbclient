@@ -1,171 +1,137 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.util.Base64;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.KeyFactory;
-import java.security.interfaces.RSAPublicKey;
-import java.security.spec.X509EncodedKeySpec;
-import javax.crypto.Cipher;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class vj1 {
+public class vj1 extends sj1 {
     public static /* synthetic */ Interceptable $ic;
+    public static HashMap<String, String> a;
+    public static HashMap<String, sj1> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
-            if (context != null && str != null) {
-                try {
-                    return new String(rj1.b(tj1.h(context).getBytes(), Base64.decode(str, 0), true));
-                } catch (Throwable th) {
-                    tj1.d(th);
-                }
-            }
-            return null;
-        }
-        return (String) invokeLL.objValue;
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public static String b(Context context, byte[] bArr) {
-        InterceptResult invokeLL;
-        byte[] a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, bArr)) == null) {
-            if (bArr != null) {
-                try {
-                    if (bArr.length != 0 && (a = rj1.a(tj1.h(context).getBytes(), bArr)) != null && a.length > 0) {
-                        return Base64.encodeToString(a, 0);
-                    }
-                    return null;
-                } catch (Throwable th) {
-                    tj1.d(th);
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final vj1 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-344617618, "Lcom/baidu/tieba/vj1$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-344617618, "Lcom/baidu/tieba/vj1$b;");
+                    return;
                 }
             }
-            return null;
+            a = new vj1(null);
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static String c(byte[] bArr, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, str)) == null) {
-            try {
-                RSAPublicKey d = d(str);
-                if (d == null) {
-                    return "";
-                }
-                Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-                cipher.init(1, d);
-                return Base64.encodeToString(cipher.doFinal(bArr), 0);
-            } catch (Throwable th) {
-                tj1.d(th);
-                return "";
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948242604, "Lcom/baidu/tieba/vj1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948242604, "Lcom/baidu/tieba/vj1;");
+                return;
             }
         }
-        return (String) invokeLL.objValue;
+        a = new HashMap<>();
+        b = new HashMap<>();
     }
 
-    public static RSAPublicKey d(String str) {
-        InterceptResult invokeL;
+    public vj1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            try {
-                return (RSAPublicKey) KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str, 0)));
-            } catch (Throwable th) {
-                tj1.d(th);
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        return (RSAPublicKey) invokeL.objValue;
     }
 
-    public static byte[] e(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
+    public static vj1 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, bArr2)) == null) {
-            byte[] bArr3 = null;
-            if (bArr2 != null) {
-                try {
-                    if (bArr2.length > 0 && bArr != null && bArr.length > 0 && (bArr3 = rj1.b(bArr2, bArr, true)) != null) {
-                        if (bArr3.length > 0) {
-                            return bArr3;
-                        }
-                    }
-                } catch (Throwable th) {
-                    tj1.d(th);
-                }
-            }
-            return bArr3;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
         }
-        return (byte[]) invokeLL.objValue;
+        return (vj1) invokeV.objValue;
     }
 
-    public static byte[] f(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, bArr, bArr2)) == null) {
-            byte[] bArr3 = null;
-            if (bArr2 != null) {
-                try {
-                    if (bArr2.length > 0 && bArr != null && bArr.length > 0 && (bArr3 = rj1.a(bArr2, bArr)) != null) {
-                        if (bArr3.length > 0) {
-                            return bArr3;
-                        }
-                    }
-                } catch (Throwable th) {
-                    tj1.d(th);
-                }
-            }
-            return bArr3;
-        }
-        return (byte[]) invokeLL.objValue;
+    public /* synthetic */ vj1(a aVar) {
+        this();
     }
 
-    public static byte[] g(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
+    public void g(sj1 sj1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, bArr, bArr2)) == null) {
-            byte[] bArr3 = null;
-            if (bArr2 != null) {
-                try {
-                    if (bArr2.length > 0 && bArr != null && bArr.length > 0 && (bArr3 = zj1.b(bArr, bArr2)) != null) {
-                        if (bArr3.length > 0) {
-                            return bArr3;
-                        }
-                    }
-                } catch (Throwable th) {
-                    tj1.d(th);
-                }
-            }
-            return bArr3;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, sj1Var) == null) && sj1Var != null) {
+            sj1Var.a(a);
         }
-        return (byte[]) invokeLL.objValue;
     }
 
-    public static byte[] h(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.sj1
+    public boolean b(Context context, uj1 uj1Var, oj1 oj1Var) {
+        InterceptResult invokeLLL;
+        sj1 sj1Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, bArr, bArr2)) == null) {
-            byte[] bArr3 = null;
-            if (bArr2 != null) {
-                try {
-                    if (bArr2.length > 0 && bArr != null && bArr.length > 0 && (bArr3 = zj1.c(bArr, bArr2)) != null) {
-                        if (bArr3.length > 0) {
-                            return bArr3;
-                        }
-                    }
-                } catch (Throwable th) {
-                    tj1.d(th);
-                }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, uj1Var, oj1Var)) == null) {
+            String b2 = uj1Var.b();
+            if (a.get(b2) != null) {
+                uj1Var.f(b2, a.get(b2));
             }
-            return bArr3;
+            String d = uj1Var.d(true);
+            if (TextUtils.isEmpty(d) || (sj1Var = b.get(d)) == null) {
+                return false;
+            }
+            return sj1Var.b(context, uj1Var, oj1Var);
         }
-        return (byte[]) invokeLL.objValue;
+        return invokeLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.sj1
+    public boolean c(Context context, uj1 uj1Var, oj1 oj1Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, uj1Var, oj1Var)) == null) {
+            uj1Var.i = xj1.h(302);
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public void f(String str, sj1 sj1Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, sj1Var) == null) && !TextUtils.isEmpty(str) && sj1Var != null) {
+            b.put(str, sj1Var);
+        }
     }
 }

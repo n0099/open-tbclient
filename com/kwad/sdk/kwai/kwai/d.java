@@ -54,8 +54,8 @@ public final class d implements View.OnClickListener {
     }
 
     private void b(FrameLayout frameLayout) {
-        int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07036e);
-        int dimensionPixelSize2 = this.mContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07036f);
+        int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070370);
+        int dimensionPixelSize2 = this.mContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070371);
         this.RA = dimensionPixelSize + dimensionPixelSize2;
         ViewGroup.LayoutParams layoutParams = this.mRootView.getLayoutParams();
         FrameLayout.LayoutParams layoutParams2 = layoutParams instanceof FrameLayout.LayoutParams ? (FrameLayout.LayoutParams) layoutParams : new FrameLayout.LayoutParams(-1, dimensionPixelSize);
@@ -70,9 +70,9 @@ public final class d implements View.OnClickListener {
 
     private void c(FrameLayout frameLayout) {
         int screenWidth = az.getScreenWidth(this.mContext);
-        int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07036c);
-        int dimensionPixelSize2 = this.mContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07036b);
-        int dimensionPixelOffset = this.mContext.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07036a);
+        int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07036e);
+        int dimensionPixelSize2 = this.mContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07036d);
+        int dimensionPixelOffset = this.mContext.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07036c);
         this.RB = screenWidth - dimensionPixelSize;
         ViewGroup.LayoutParams layoutParams = this.mRootView.getLayoutParams();
         FrameLayout.LayoutParams layoutParams2 = layoutParams instanceof FrameLayout.LayoutParams ? (FrameLayout.LayoutParams) layoutParams : new FrameLayout.LayoutParams(-1, dimensionPixelOffset);
@@ -94,7 +94,7 @@ public final class d implements View.OnClickListener {
         if (ae.length() >= 8) {
             ae = ae.substring(0, 7) + StringHelper.STRING_MORE;
         }
-        this.Ry.setText(this.mContext.getString(this.Ru ? R.string.obfuscated_res_0x7f0f0a2c : R.string.obfuscated_res_0x7f0f0a2d, ae));
+        this.Ry.setText(this.mContext.getString(this.Ru ? R.string.obfuscated_res_0x7f0f0a51 : R.string.obfuscated_res_0x7f0f0a52, ae));
     }
 
     @SuppressLint({"InflateParams"})
@@ -109,11 +109,11 @@ public final class d implements View.OnClickListener {
             i = R.layout.obfuscated_res_0x7f0d0447;
         }
         this.mRootView = from.inflate(i, (ViewGroup) null);
-        ViewCompat.setElevation(this.mRootView, this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f07036d));
-        this.Rw = this.mRootView.findViewById(R.id.obfuscated_res_0x7f091162);
-        this.Rx = (ImageView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091164);
-        this.Ry = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091163);
-        this.Rz = (Button) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091165);
+        ViewCompat.setElevation(this.mRootView, this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f07036f));
+        this.Rw = this.mRootView.findViewById(R.id.obfuscated_res_0x7f0911a5);
+        this.Rx = (ImageView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0911a7);
+        this.Ry = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0911a6);
+        this.Rz = (Button) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0911a8);
         return this.mRootView;
     }
 
@@ -167,8 +167,8 @@ public final class d implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public final void onClick(View view2) {
         dismiss();
-        if (view2.getId() != R.id.obfuscated_res_0x7f091165) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f091162) {
+        if (view2.getId() != R.id.obfuscated_res_0x7f0911a8) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f0911a5) {
                 if (!this.Ru) {
                     com.kwad.sdk.core.report.a.p(this.mAdTemplate, 48);
                 } else if (!this.RC) {

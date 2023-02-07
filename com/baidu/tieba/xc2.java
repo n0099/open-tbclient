@@ -1,71 +1,78 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Pair;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class xc2 implements iq2 {
+public class xc2 extends zw1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948295490, "Lcom/baidu/tieba/xc2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948295490, "Lcom/baidu/tieba/xc2;");
-                return;
-            }
-        }
-        a = tk1.a;
+    @Override // com.baidu.tieba.zw1
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Prefetch" : (String) invokeV.objValue;
     }
 
-    public xc2() {
+    @Override // com.baidu.tieba.zw1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "SwanPrefetchResourcesApi" : (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xc2(@NonNull xw1 xw1Var) {
+        super(xw1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {xw1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((xw1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.iq2
-    public void a(boolean z, Activity activity) {
-        long j;
+    public w02 x(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZL(1048576, this, z, activity) == null) && zc2.a() && !z) {
-            if (a) {
-                j = System.currentTimeMillis();
-            } else {
-                j = 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#prefetchResources params=" + str, false);
+            Pair<w02, JSONObject> s = s(str);
+            JSONObject jSONObject = (JSONObject) s.second;
+            if (jSONObject == null) {
+                return (w02) s.first;
             }
-            boolean B = ai3.B();
-            if (a) {
-                long currentTimeMillis = System.currentTimeMillis();
-                Log.d("DiskCleanerLifecycleObserver", "detect all process is on baground cost - " + (currentTimeMillis - j) + "ms");
+            if (!SwanAppNetworkUtils.i(ds2.c())) {
+                return new w02(1001, "network disconnected");
             }
-            if (B) {
-                boolean n = bd2.n();
-                j12.k("DiskCleanerLifecycleObserver", "all app process in background，run clean task");
-                vc2.c().d().u(null, n, 16);
-                bd2.p(false);
+            JSONArray c = wl3.c(jSONObject, "video");
+            if (c != null && c.length() > 0) {
+                ds2.U().a(c);
             }
+            JSONArray c2 = wl3.c(jSONObject, "image");
+            if (c2 != null && c2.length() > 0) {
+                ds2.U().c(c2);
+            }
+            return w02.f();
         }
+        return (w02) invokeL.objValue;
     }
 }

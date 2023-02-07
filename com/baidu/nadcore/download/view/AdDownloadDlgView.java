@@ -16,10 +16,10 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.iq0;
-import com.baidu.tieba.ni0;
-import com.baidu.tieba.tj0;
-import com.baidu.tieba.xk0;
+import com.baidu.tieba.ek0;
+import com.baidu.tieba.er0;
+import com.baidu.tieba.jl0;
+import com.baidu.tieba.wi0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -68,30 +68,30 @@ public class AdDownloadDlgView extends RelativeLayout {
         public void onClick(View view2) {
             String str;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !(this.a.getTag() instanceof iq0)) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !(this.a.getTag() instanceof er0)) {
                 return;
             }
-            iq0 iq0Var = (iq0) this.a.getTag();
+            er0 er0Var = (er0) this.a.getTag();
             int id = view2.getId();
             if (id == R.id.nad_download_lp_dlg_privacy) {
-                iq0.b bVar = iq0Var.g;
+                er0.b bVar = er0Var.g;
                 if (bVar != null) {
                     str = bVar.b;
                 }
                 str = "";
             } else {
                 if (id == R.id.nad_download_lp_dlg_permission) {
-                    iq0.a aVar = iq0Var.h;
+                    er0.a aVar = er0Var.h;
                     if (aVar != null) {
                         str = aVar.b;
                     }
-                } else if (id == R.id.nad_download_lp_dlg_dev_name && !TextUtils.isEmpty(iq0Var.d)) {
-                    this.a.d(iq0Var.d);
+                } else if (id == R.id.nad_download_lp_dlg_dev_name && !TextUtils.isEmpty(er0Var.d)) {
+                    this.a.d(er0Var.d);
                     return;
                 }
                 str = "";
             }
-            ni0.c(tj0.a().a(str), this.a.getContext());
+            wi0.c(ek0.a().a(str), this.a.getContext());
         }
     }
 
@@ -139,31 +139,31 @@ public class AdDownloadDlgView extends RelativeLayout {
         c(context);
     }
 
-    public void b(xk0 xk0Var) {
+    public void b(jl0 jl0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, xk0Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, jl0Var) == null) {
             int i = 8;
-            if (xk0Var != null && xk0Var.b != null) {
-                this.i.setText(xk0Var.c);
+            if (jl0Var != null && jl0Var.b != null) {
+                this.i.setText(jl0Var.c);
                 TextView textView = this.i;
-                if (xk0Var.a != 2) {
+                if (jl0Var.a != 2) {
                     i = 0;
                 }
                 textView.setVisibility(i);
-                iq0 iq0Var = xk0Var.b;
-                setTag(iq0Var);
-                this.b.g(iq0Var.b);
-                this.c.setText(iq0Var.c);
-                this.d.setText(iq0Var.i);
-                this.e.setText(iq0Var.d);
+                er0 er0Var = jl0Var.b;
+                setTag(er0Var);
+                this.b.g(er0Var.b);
+                this.c.setText(er0Var.c);
+                this.d.setText(er0Var.i);
+                this.e.setText(er0Var.d);
                 this.e.setOnClickListener(this.k);
-                this.f.setText(iq0Var.f);
-                iq0.b bVar = iq0Var.g;
+                this.f.setText(er0Var.f);
+                er0.b bVar = er0Var.g;
                 if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(bVar.a)) {
                     this.g.setText(bVar.a);
                     this.g.setOnClickListener(this.k);
                 }
-                iq0.a aVar = iq0Var.h;
+                er0.a aVar = er0Var.h;
                 if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(aVar.a)) {
                     this.h.setText(aVar.a);
                     this.h.setOnClickListener(this.k);

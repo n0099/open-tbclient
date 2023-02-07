@@ -1,86 +1,67 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import android.text.TextPaint;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class r95 implements s95 {
-    public static /* synthetic */ Interceptable $ic;
+public class r95 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "表情包";
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public ImageView b;
-    public ImageView c;
-    public TextView d;
-    public LinearLayout e;
 
-    @Override // com.baidu.tieba.s95
-    public void onClick() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948076475, "Lcom/baidu/tieba/r95;")) == null) {
+            return;
         }
-    }
-
-    public r95(Context context) {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.floating_view_from_rule_copy, (ViewGroup) null);
-        this.a = inflate;
-        this.b = (ImageView) inflate.findViewById(R.id.floating_view_icon);
-        this.d = (TextView) this.a.findViewById(R.id.floating_view_title);
-        this.c = (ImageView) this.a.findViewById(R.id.floating_view_arrow);
-        this.e = (LinearLayout) this.a.findViewById(R.id.floating_view_main);
-        this.d.setText(R.string.frs_forum_rule_return_info);
-        b();
-    }
-
-    @Override // com.baidu.tieba.s95
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a != null) {
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
-            this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_arrow12_right_n, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
-            TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0302).setShape(0).setAlpha(211).tlRadius(zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds52)).blRadius(zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds52)).into(this.e);
-            this.b.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.icon_mask_manage_postdelete_cancel32, WebPManager.ResourceStateType.NORMAL));
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948076475, "Lcom/baidu/tieba/r95;");
         }
     }
 
-    @Override // com.baidu.tieba.s95
-    public View getView() {
-        InterceptResult invokeV;
+    public static String a(String str, String str2, float f, TextPaint textPaint) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            View view2 = this.a;
-            if (view2 != null) {
-                return view2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, Float.valueOf(f), textPaint})) == null) {
+            if (textPaint == null) {
+                textPaint = new TextPaint();
             }
-            return LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.floating_view_from_bcast_copy_link, (ViewGroup) null);
+            return b(textPaint, str, f - textPaint.measureText(str2), str2);
         }
-        return (View) invokeV.objValue;
+        return (String) invokeCommon.objValue;
+    }
+
+    public static String b(TextPaint textPaint, String str, float f, String str2) {
+        InterceptResult invokeCommon;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{textPaint, str, Float.valueOf(f), str2})) == null) {
+            float measureText = textPaint.measureText(str);
+            if (measureText > f) {
+                if (str.endsWith(a)) {
+                    str = str.substring(0, str.length() - 3);
+                }
+                str3 = StringHelper.STRING_MORE + a;
+            } else if (!str.endsWith(a)) {
+                str3 = a;
+            } else {
+                str3 = "";
+            }
+            while (str.length() > 0 && measureText > f) {
+                str = rp5.m(str, rp5.e(str) - 1);
+                measureText = textPaint.measureText(str);
+            }
+            return str + str3;
+        }
+        return (String) invokeCommon.objValue;
     }
 }

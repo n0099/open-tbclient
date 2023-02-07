@@ -1,162 +1,65 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.lm3;
+import android.view.MotionEvent;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class mm3 extends g63 {
+public class mm3 implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
 
-    /* loaded from: classes5.dex */
-    public class a implements lm3.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ JSONObject b;
-        public final /* synthetic */ CallbackHandler c;
-        public final /* synthetic */ String d;
-
-        public a(mm3 mm3Var, Context context, JSONObject jSONObject, CallbackHandler callbackHandler, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mm3Var, context, jSONObject, callbackHandler, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-            this.b = jSONObject;
-            this.c = callbackHandler;
-            this.d = str;
-        }
-
-        @Override // com.baidu.tieba.lm3.b
-        public void onResult(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                if (z) {
-                    lm3.d(this.a);
-                }
-                try {
-                    this.b.put("canceled", z);
-                } catch (JSONException e) {
-                    if (g63.b) {
-                        e.printStackTrace();
-                    }
-                }
-                this.c.handleSchemeDispatchCallback(this.d, UnitedSchemeUtility.wrapCallbackParams(this.b, 0).toString());
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mm3(g53 g53Var) {
-        super(g53Var, "/swanAPI/guidePushSetting");
+    public mm3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {g53Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.g63
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j43 j43Var) {
-        InterceptResult invokeLLLL;
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view2, MotionEvent motionEvent) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j43Var)) == null) {
-            if (j43Var == null) {
-                j12.c("GuidePushSettingAction", "illegal swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
-                return false;
-            }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                j12.c("GuidePushSettingAction", "illegal params");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            } else if (TextUtils.isEmpty(optParamsAsJo.optString("source"))) {
-                j12.c("GuidePushSettingAction", "openPushGuide source empty");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            } else if (!(context instanceof Activity)) {
-                j12.c("GuidePushSettingAction", "illegal context");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal context");
-                return false;
-            } else {
-                String optString = optParamsAsJo.optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+            int action = motionEvent.getAction();
+            if (action != 0) {
+                if (action != 2) {
+                    View view3 = this.a;
+                    if (view3 == null) {
+                        view2.setAlpha(1.0f);
+                        return false;
+                    }
+                    view3.setAlpha(1.0f);
                     return false;
                 }
-                boolean b = lm3.b(context);
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("authorized", b);
-                } catch (JSONException e) {
-                    if (g63.b) {
-                        e.printStackTrace();
-                    }
-                }
-                if (b) {
-                    callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
-                } else {
-                    lm3.e(context, k(context, jSONObject, optString, callbackHandler));
-                }
-                JSONObject jSONObject2 = new JSONObject();
-                try {
-                    jSONObject2.put("authorized", b);
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0));
-                    return true;
-                } catch (JSONException e2) {
-                    if (g63.b) {
-                        e2.printStackTrace();
-                    }
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                }
+                return false;
             }
+            View view4 = this.a;
+            float f = 0.5f;
+            if (view4 == null) {
+                if (!ds2.M().a()) {
+                    f = 0.2f;
+                }
+                view2.setAlpha(f);
+                return false;
+            }
+            if (!ds2.M().a()) {
+                f = 0.2f;
+            }
+            view4.setAlpha(f);
+            return false;
         }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final lm3.b k(Context context, JSONObject jSONObject, String str, CallbackHandler callbackHandler) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, str, callbackHandler)) == null) {
-            return new a(this, context, jSONObject, callbackHandler, str);
-        }
-        return (lm3.b) invokeLLLL.objValue;
+        return invokeLL.booleanValue;
     }
 }

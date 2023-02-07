@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b39;
+import com.baidu.tieba.a79;
+import com.baidu.tieba.ej;
 import com.baidu.tieba.themeCenter.SkinProgressView;
-import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -36,7 +36,7 @@ public class BackgroundItemView extends LinearLayout {
     public DressItemData i;
     public int j;
     public int k;
-    public b39 l;
+    public a79 l;
     public View.OnClickListener m;
 
     /* loaded from: classes6.dex */
@@ -149,10 +149,10 @@ public class BackgroundItemView extends LinearLayout {
         g();
     }
 
-    public void setController(b39 b39Var) {
+    public void setController(a79 a79Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, b39Var) == null) {
-            this.l = b39Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, a79Var) == null) {
+            this.l = a79Var;
         }
     }
 
@@ -196,23 +196,23 @@ public class BackgroundItemView extends LinearLayout {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int l = (zi.l(this.a) - zi.g(this.a, R.dimen.obfuscated_res_0x7f070306)) / 3;
+            int l = (ej.l(this.a) - ej.g(this.a, R.dimen.obfuscated_res_0x7f070307)) / 3;
             this.j = l;
             this.k = (int) (l / 0.66d);
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d012f, this);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d012e, this);
             this.b = inflate;
-            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09038d);
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091989);
+            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090382);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0919a6);
             this.d = tbImageView;
             tbImageView.setDefaultResource(R.drawable.transparent_bg);
             this.d.setDefaultBgResource(R.drawable.transparent_bg);
-            TbImageView tbImageView2 = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092070);
+            TbImageView tbImageView2 = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092083);
             this.e = tbImageView2;
             tbImageView2.setDefaultResource(R.drawable.transparent_bg);
             this.e.setDefaultBgResource(R.drawable.transparent_bg);
-            this.f = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090646);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09220e);
-            SkinProgressView skinProgressView = (SkinProgressView) this.b.findViewById(R.id.obfuscated_res_0x7f092699);
+            this.f = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090654);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092224);
+            SkinProgressView skinProgressView = (SkinProgressView) this.b.findViewById(R.id.obfuscated_res_0x7f0926a1);
             this.h = skinProgressView;
             skinProgressView.setOnClickListener(this.m);
             this.c.setOnClickListener(this.m);

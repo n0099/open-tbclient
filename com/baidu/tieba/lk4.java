@@ -1,30 +1,54 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import androidx.annotation.NonNull;
-import java.io.File;
-import java.util.Map;
-import java.util.Set;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public interface lk4 extends SharedPreferences, SharedPreferences.Editor {
-    Set<String> a();
+public class lk4 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public JSONArray a;
+    public JSONObject b;
 
-    boolean b();
+    public lk4(JSONArray jSONArray, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONArray, jSONObject};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = jSONArray;
+        this.b = jSONObject;
+    }
 
-    long c();
+    public JSONArray a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (JSONArray) invokeV.objValue;
+    }
 
-    @Override // android.content.SharedPreferences
-    @Deprecated
-    Map<String, ?> getAll();
-
-    @NonNull
-    File getFile();
-
-    @Override // android.content.SharedPreferences
-    @Deprecated
-    void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener);
-
-    @Override // android.content.SharedPreferences
-    @Deprecated
-    void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener);
+    public JSONObject b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
 }

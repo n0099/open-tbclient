@@ -1,131 +1,66 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.ala.personcenter.privilege.entereffect.adapter.AlaEnterEffectAdapter;
-import com.baidu.tieba.ala.personcenter.privilege.entereffect.adapter.AlaEnterEffectCategoryAdapter;
-import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
+import com.baidu.ala.data.SdkLiveInfoData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ForumUserLiveActiivtyConfig;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
 public class o36 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public BdTypeListView b;
-    public List<ln> c;
-    public AlaEnterEffectAdapter d;
-    public AlaEnterEffectCategoryAdapter e;
-    public List<yn> f;
 
-    public o36(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
+    public static void a(p16 p16Var, String str, String str2) {
+        SdkLiveInfoData sdkLiveInfoData;
+        String str3;
+        String str4;
+        String str5;
+        String str6;
+        int i;
+        SdkLiveInfoData.YYExt yYExt;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeListView};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeLLL(65536, null, p16Var, str, str2) == null) && p16Var != null && (sdkLiveInfoData = p16Var.a) != null) {
+            SdkLiveInfoData.AlaLiveInfo alaLiveInfo = sdkLiveInfoData.liveInfo;
+            String str7 = "";
+            if (alaLiveInfo == null || (yYExt = alaLiveInfo.yyExt) == null) {
+                str3 = "";
+                str4 = str3;
+                str5 = str4;
+                str6 = str5;
+            } else {
+                str4 = yYExt.sid;
+                str5 = yYExt.ssid;
+                str6 = yYExt.yyUid;
+                str3 = yYExt.templateId;
             }
-        }
-        this.a = tbPageContext;
-        this.b = bdTypeListView;
-        a();
-    }
-
-    public void d(String str, int i) {
-        List<yn> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) && !StringUtils.isNull(str) && (list = this.f) != null) {
-            for (yn ynVar : list) {
-                if (ynVar instanceof AlaEnterEffectData) {
-                    AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) ynVar;
-                    if (alaEnterEffectData.type == 1 && str.equals(alaEnterEffectData.gift.giftId)) {
-                        alaEnterEffectData.downLoadStatus = i;
-                        b();
-                    }
-                }
+            StatisticItem param = new StatisticItem(str).param("fid", p16Var.c).param("liveid", p16Var.a.liveId).param("hdid", TbadkCoreApplication.getInst().getHdid()).param(TiebaStatic.YYParams.YYSID, str4).param(TiebaStatic.YYParams.YYSSID, str5).param(TiebaStatic.YYParams.YYUID, str6).param("template_id", str3);
+            if (!TextUtils.isEmpty(str4)) {
+                str7 = "1";
             }
-        }
-    }
-
-    public void e(String str, boolean z) {
-        List<yn> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) && !TextUtils.isEmpty(str) && (list = this.f) != null) {
-            for (yn ynVar : list) {
-                if (ynVar instanceof AlaEnterEffectData) {
-                    AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) ynVar;
-                    if (str.equals(alaEnterEffectData.id)) {
-                        alaEnterEffectData.isOwn = z;
-                        b();
-                        return;
-                    }
-                }
+            StatisticItem param2 = param.param(TiebaStatic.YYParams.YYLIVEID, str7).param(TiebaStatic.Params.VID, p16Var.a.nid);
+            if (TextUtils.equals(ForumUserLiveActiivtyConfig.KEY_FROM_FRS_CARD, str2)) {
+                i = 1;
+            } else {
+                i = 2;
             }
+            TiebaStatic.log(param2.param("obj_source", i));
         }
     }
 
-    public void f(String str, boolean z) {
-        List<yn> list;
+    public static void b(p16 p16Var, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048581, this, str, z) == null) && !TextUtils.isEmpty(str) && (list = this.f) != null) {
-            for (yn ynVar : list) {
-                if (ynVar instanceof AlaEnterEffectData) {
-                    AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) ynVar;
-                    if (str.equals(alaEnterEffectData.id)) {
-                        alaEnterEffectData.use_status = z ? 1 : 0;
-                    } else {
-                        alaEnterEffectData.use_status = 0;
-                    }
-                    b();
-                }
-            }
+        if (interceptable == null || interceptable.invokeLL(65537, null, p16Var, str) == null) {
+            a(p16Var, "c14705", str);
         }
     }
 
-    public final void a() {
+    public static void c(p16 p16Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c = new ArrayList();
-            AlaEnterEffectAdapter alaEnterEffectAdapter = new AlaEnterEffectAdapter(this.a.getPageActivity());
-            this.d = alaEnterEffectAdapter;
-            this.c.add(alaEnterEffectAdapter);
-            AlaEnterEffectCategoryAdapter alaEnterEffectCategoryAdapter = new AlaEnterEffectCategoryAdapter(this.a.getPageActivity());
-            this.e = alaEnterEffectCategoryAdapter;
-            this.c.add(alaEnterEffectCategoryAdapter);
-            this.b.a(this.c);
+        if (interceptable == null || interceptable.invokeLL(65538, null, p16Var, str) == null) {
+            a(p16Var, "c14704", str);
         }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (ln lnVar : this.c) {
-                lnVar.notifyDataSetChanged();
-            }
-        }
-    }
-
-    public void c(List<yn> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) != null) || ListUtils.isEmpty(list)) {
-            return;
-        }
-        this.b.setData(list);
-        this.f = this.b.getData();
     }
 }

@@ -1,21 +1,20 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.data.VideoEasterEggData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.GetThemeList.ThemeList;
 /* loaded from: classes6.dex */
-public class u79 implements t79 {
+public class u79 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public VideoEasterEggData a;
+    public String a;
+    public String b;
+    public long c;
+    public String d;
 
     public u79() {
         Interceptable interceptable = $ic;
@@ -31,135 +30,50 @@ public class u79 implements t79 {
         }
     }
 
-    @Override // com.baidu.tieba.t79
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            VideoEasterEggData videoEasterEggData = this.a;
-            if (videoEasterEggData == null) {
-                return null;
-            }
-            return videoEasterEggData.getPopText();
+            return this.b;
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.t79
-    public String c() {
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            VideoEasterEggData videoEasterEggData = this.a;
-            if (videoEasterEggData == null) {
-                return null;
-            }
-            return videoEasterEggData.getActivityID();
+            return this.c;
         }
-        return (String) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    @Override // com.baidu.tieba.t79
-    public String d() {
+    public String getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            VideoEasterEggData videoEasterEggData = this.a;
-            if (videoEasterEggData == null) {
-                return null;
-            }
-            return videoEasterEggData.getShareTitle();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.t79
-    public String f() {
-        InterceptResult invokeV;
+    public void d(ThemeList themeList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            VideoEasterEggData videoEasterEggData = this.a;
-            if (videoEasterEggData == null) {
-                return null;
-            }
-            return videoEasterEggData.getShareUrl();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.t79
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            VideoEasterEggData videoEasterEggData = this.a;
-            if (videoEasterEggData == null) {
-                return null;
-            }
-            return videoEasterEggData.getPopImageUrl();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.t79
-    public String getVideoUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            VideoEasterEggData videoEasterEggData = this.a;
-            if (videoEasterEggData == null) {
-                return null;
-            }
-            return videoEasterEggData.getVideoUrl();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.t79
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            VideoEasterEggData videoEasterEggData = this.a;
-            if (videoEasterEggData == null) {
-                return null;
-            }
-            return videoEasterEggData.getShareImageUrl();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.t79
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            VideoEasterEggData videoEasterEggData = this.a;
-            if (videoEasterEggData == null) {
-                return null;
-            }
-            return videoEasterEggData.getShareContent();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.t79
-    public void b(Intent intent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) != null) || intent == null) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, themeList) != null) || themeList == null) {
             return;
         }
-        intent.getStringExtra("from");
-        if (intent.hasExtra(IntentConfig.VIDEO_EASTER_EGG_DATA)) {
-            this.a = (VideoEasterEggData) intent.getSerializableExtra(IntentConfig.VIDEO_EASTER_EGG_DATA);
-        }
-    }
-
-    @Override // com.baidu.tieba.t79
-    public void e(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) && !yi.isEmpty(g())) {
-            ug.h().m(g(), 10, null, bdUniqueId);
-        }
+        this.a = themeList.name;
+        this.b = themeList.icon;
+        this.c = themeList.last_update_time.longValue();
+        this.d = themeList.type;
     }
 }

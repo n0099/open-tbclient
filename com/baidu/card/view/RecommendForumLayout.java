@@ -23,21 +23,21 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout;
 import com.baidu.tbadk.widget.horizontalpullview.RefreshView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ce5;
-import com.baidu.tieba.cx4;
-import com.baidu.tieba.tu4;
-import com.baidu.tieba.us4;
-import com.baidu.tieba.uu4;
-import com.baidu.tieba.vq4;
-import com.baidu.tieba.vx;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.ay;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.gz4;
+import com.baidu.tieba.hx4;
+import com.baidu.tieba.hz4;
+import com.baidu.tieba.iv4;
+import com.baidu.tieba.ni5;
+import com.baidu.tieba.p15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
-public class RecommendForumLayout extends LinearLayout implements vx {
+public class RecommendForumLayout extends LinearLayout implements ay {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
@@ -111,38 +111,38 @@ public class RecommendForumLayout extends LinearLayout implements vx {
         b();
     }
 
-    public void a(uu4 uu4Var) {
+    public void a(hz4 hz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, uu4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, hz4Var) == null) {
             this.g.setOnClickListener(this.o);
-            if (!TextUtils.isEmpty(uu4Var.d) && uu4Var.e != 0) {
-                this.f.setText(uu4Var.d);
+            if (!TextUtils.isEmpty(hz4Var.d) && hz4Var.e != 0) {
+                this.f.setText(hz4Var.d);
             } else {
                 this.f.setText(R.string.recommend_forum_title_horizontal);
                 if (this.e.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                    ((ViewGroup.MarginLayoutParams) this.e.getLayoutParams()).topMargin = zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds38);
+                    ((ViewGroup.MarginLayoutParams) this.e.getLayoutParams()).topMargin = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds38);
                     this.e.requestLayout();
                 }
             }
             if (!this.j) {
                 this.g.setVisibility(8);
             }
-            if (uu4Var != null && uu4Var.g() != null && uu4Var.g().size() > 0) {
-                ArrayList<? extends ce5> arrayList = new ArrayList<>();
-                ArrayList<tu4> g = uu4Var.g();
+            if (hz4Var != null && hz4Var.h() != null && hz4Var.h().size() > 0) {
+                ArrayList<? extends ni5> arrayList = new ArrayList<>();
+                ArrayList<gz4> h = hz4Var.h();
                 if (this.h) {
                     if (this.i) {
-                        arrayList.add(new us4());
+                        arrayList.add(new hx4());
                     }
-                    if (g != null) {
-                        arrayList.addAll(g);
+                    if (h != null) {
+                        arrayList.addAll(h);
                     }
                 } else {
-                    if (g != null) {
-                        arrayList.addAll(g);
+                    if (h != null) {
+                        arrayList.addAll(h);
                     }
                     if (this.i) {
-                        arrayList.add(new us4());
+                        arrayList.add(new hx4());
                     }
                 }
                 this.d.e(arrayList);
@@ -160,7 +160,7 @@ public class RecommendForumLayout extends LinearLayout implements vx {
             this.e = (FrameLayout) findViewById(R.id.title_view);
             TextView textView = (TextView) findViewById(R.id.tv_title);
             this.f = textView;
-            cx4.d(textView).z(R.dimen.T_X07);
+            p15.d(textView).z(R.dimen.T_X07);
             this.g = (ImageView) findViewById(R.id.img_arrow);
             this.b = (PullLeftRefreshLayout) findViewById(R.id.refresh_layout);
             this.c = (RecyclerView) findViewById(R.id.recycler_view);
@@ -187,17 +187,17 @@ public class RecommendForumLayout extends LinearLayout implements vx {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            cx4 d = cx4.d(this);
+            p15 d = p15.d(this);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0205);
-            cx4.d(this.f).v(R.color.CAM_X0105);
+            p15.d(this.f).v(R.color.CAM_X0105);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
             this.k.d();
             this.d.notifyDataSetChanged();
         }
     }
 
-    @Override // com.baidu.tieba.vx
+    @Override // com.baidu.tieba.ay
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
@@ -205,10 +205,10 @@ public class RecommendForumLayout extends LinearLayout implements vx {
         }
     }
 
-    public void setData(uu4 uu4Var) {
+    public void setData(hz4 hz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, uu4Var) == null) {
-            a(uu4Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, hz4Var) == null) {
+            a(hz4Var);
         }
     }
 
@@ -240,10 +240,10 @@ public class RecommendForumLayout extends LinearLayout implements vx {
         }
     }
 
-    public void setOnItemCoverListener(vq4<tu4> vq4Var) {
+    public void setOnItemCoverListener(iv4<gz4> iv4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, vq4Var) == null) {
-            this.d.g(vq4Var);
+        if (interceptable == null || interceptable.invokeL(1048585, this, iv4Var) == null) {
+            this.d.g(iv4Var);
         }
     }
 

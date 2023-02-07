@@ -1,19 +1,25 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.thread.task.ElasticTask;
-import com.baidu.searchbox.elasticthread.queue.QueueManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class q21 {
+public class q21 implements t21 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final p21[] a;
+    public final StringBuilder a;
+
+    @Override // com.baidu.tieba.t21
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
 
     public q21() {
         Interceptable interceptable = $ic;
@@ -28,78 +34,62 @@ public class q21 {
                 return;
             }
         }
-        this.a = new p21[4];
-        if (e21.s.length != 4) {
-            Log.e(QueueManager.TAG, "Elastic Queue size incompatible!");
-        }
-        for (int i3 = 0; i3 < 4; i3++) {
-            this.a[i3] = new p21();
-        }
+        this.a = new StringBuilder();
     }
 
-    public double a() {
+    @Override // com.baidu.tieba.t21
+    @NonNull
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!c(0).d()) {
-                return 9999999.0d;
-            }
-            double d = 0.0d;
-            for (int i = 0; i < 4; i++) {
-                d += this.a[i].a() * e21.s[i];
-            }
-            return d / 1000.0d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a.toString();
         }
-        return invokeV.doubleValue;
+        return (String) invokeV.objValue;
     }
 
-    public ElasticTask b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.t21
+    public <T extends t21> T b(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            for (int i = 0; i < 4; i++) {
-                if (!this.a[i].d()) {
-                    return this.a[i].b();
-                }
-            }
-            return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            return (T) d(str, str2);
         }
-        return (ElasticTask) invokeV.objValue;
+        return (T) invokeLL.objValue;
     }
 
-    public p21 c(int i) {
-        InterceptResult invokeI;
+    public <T extends t21> T c(String str, Object obj) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            int i2 = 0;
-            while (true) {
-                int[] iArr = e21.a;
-                if (i2 < iArr.length) {
-                    if (iArr[i2] == i) {
-                        return this.a[i2];
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, obj)) == null) {
+            return (T) d(str, obj);
+        }
+        return (T) invokeLL.objValue;
+    }
+
+    public <T extends t21> T d(String str, Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, obj)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return this;
+            }
+            if (obj != null) {
+                try {
+                    if (!TextUtils.isEmpty(String.valueOf(obj))) {
+                        if (this.a.length() > 0) {
+                            this.a.append('&');
+                        }
+                        StringBuilder sb = this.a;
+                        sb.append(str);
+                        sb.append(com.alipay.sdk.encrypt.a.h);
+                        sb.append(obj);
                     }
-                    i2++;
-                } else {
-                    p21[] p21VarArr = this.a;
-                    return p21VarArr[p21VarArr.length - 1];
+                } catch (Exception unused) {
                 }
             }
-        } else {
-            return (p21) invokeI.objValue;
+            return this;
         }
-    }
-
-    public void e(ElasticTask elasticTask) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, elasticTask) == null) {
-            c(elasticTask.b()).e(elasticTask);
-        }
-    }
-
-    public void d(Runnable runnable, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048579, this, runnable, str, i) == null) {
-            c(i).c(runnable, str, i);
-        }
+        return (T) invokeLL.objValue;
     }
 }

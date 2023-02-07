@@ -5,7 +5,7 @@ import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.dh5;
+import com.baidu.tieba.ol5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -56,12 +56,12 @@ public class HomePageStatic {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_MY_POST, TbConfig.SERVER_ADDRESS + TbConfig.GET_MY_POST + "?cmd=303111");
             tbHttpMessageTask.setResponsedClass(GetMyPostHttpResponseMessage.class);
             messageManager.registerTask(tbHttpMessageTask);
-            dh5 dh5Var = new dh5(303111);
-            dh5Var.setResponsedClass(GetMyPostSocketResponseMessage.class);
-            dh5Var.g(true);
-            dh5Var.h(false);
-            dh5Var.f(SocketMessageTask.DupLicateMode.NONE);
-            messageManager.registerTask(dh5Var);
+            ol5 ol5Var = new ol5(303111);
+            ol5Var.setResponsedClass(GetMyPostSocketResponseMessage.class);
+            ol5Var.g(true);
+            ol5Var.h(false);
+            ol5Var.f(SocketMessageTask.DupLicateMode.NONE);
+            messageManager.registerTask(ol5Var);
         }
     }
 }

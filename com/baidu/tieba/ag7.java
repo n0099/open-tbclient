@@ -1,59 +1,57 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.util.ChatStatusManager;
-import com.baidu.tieba.im.data.GroupMsgData;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.yf7;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.ActivityPage.HotTopic;
+import tbclient.RecomTopicList;
 /* loaded from: classes3.dex */
-public class ag7 {
+public class ag7 extends ib7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String b;
 
-    /* loaded from: classes3.dex */
-    public static class a implements yf7.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public ag7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-
-        @Override // com.baidu.tieba.yf7.c
-        public boolean a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                boolean isOpen = ChatStatusManager.getInst().getIsOpen(1);
-                String curId = ChatStatusManager.getInst().getCurId(1);
-                if (!TextUtils.isEmpty(str) && isOpen && str.equals(curId)) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
+        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1071);
     }
 
-    public static void a(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, yf7.b bVar) {
+    public void h(HotTopic hotTopic) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, groupMsgData, imMessageCenterPojo, bVar) == null) {
-            yf7.d(groupMsgData, imMessageCenterPojo, bVar, new a(), ChatStatusManager.getInst().getIsOpen(4));
+        if ((interceptable != null && interceptable.invokeL(1048576, this, hotTopic) != null) || hotTopic == null) {
+            return;
         }
+        this.floorPosition = hotTopic.floor_position.intValue();
+        parserProtobuf(hotTopic.topic_list);
+    }
+
+    public void parserProtobuf(List<RecomTopicList> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        int min = Math.min(list.size(), 6);
+        ArrayList arrayList = new ArrayList(list.size());
+        for (int i = 0; i < min; i++) {
+            arrayList.add(new hb7(list.get(i), i));
+        }
+        f(arrayList);
     }
 }

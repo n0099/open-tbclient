@@ -1,28 +1,86 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tbadk.album.MediaFileInfo;
+import com.baidu.tbadk.album.VideoFileInfo;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class pg9 {
+public class pg9 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final EditorTools a;
-    public final Map<Integer, rg9> b;
+    public List<pt4> a;
+    public String b;
+    public BaseFragmentActivity c;
+    public int d;
+    public LayoutInflater e;
 
-    public pg9(@NonNull EditorTools editorTools) {
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TbImageView a;
+        public TextView b;
+        public ImageView c;
+
+        public b(pg9 pg9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pg9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(pg9 pg9Var, a aVar) {
+            this(pg9Var);
+        }
+    }
+
+    public pg9(BaseFragmentActivity baseFragmentActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {editorTools};
+            Object[] objArr = {baseFragmentActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,35 +90,88 @@ public class pg9 {
                 return;
             }
         }
-        this.b = new HashMap();
-        this.a = editorTools;
+        this.c = baseFragmentActivity;
+        this.e = LayoutInflater.from(baseFragmentActivity.getPageContext().getPageActivity());
+        this.d = ej.l(this.c.getPageContext().getPageActivity()) / 2;
     }
 
-    public void b(int[] iArr) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public pt4 getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr) == null) {
-            for (int i : iArr) {
-                if (this.b.containsKey(Integer.valueOf(i))) {
-                    this.a.setToolEnabled(this.b.get(Integer.valueOf(i)).a(i), i);
-                }
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return (pt4) ListUtils.getItem(this.a, i);
+        }
+        return (pt4) invokeI.objValue;
+    }
+
+    public void b(List<pt4> list, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, str) == null) {
+            this.a = list;
+            this.b = str;
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return ListUtils.getCount(this.a);
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
+            if (view2 != null && (view2.getTag() instanceof b)) {
+                bVar = (b) view2.getTag();
+            } else {
+                view2 = this.e.inflate(R.layout.obfuscated_res_0x7f0d0119, viewGroup, false);
+                bVar = new b(this, null);
+                bVar.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091085);
+                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091096);
+                bVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091072);
+                bVar.a.setGifIconSupport(false);
+                bVar.a.setLongIconSupport(false);
+                view2.setTag(bVar);
             }
-        }
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            for (Map.Entry<Integer, rg9> entry : this.b.entrySet()) {
-                this.a.setToolEnabled(entry.getValue().a(entry.getKey().intValue()), entry.getKey().intValue());
+            pt4 item = getItem(i);
+            if (item == null) {
+                view2.setVisibility(4);
+                return view2;
             }
+            view2.setVisibility(0);
+            if (!TextUtils.isEmpty(item.g())) {
+                String v = ej.v(bVar.b.getPaint(), item.g(), this.d);
+                bVar.b.setText(v + "(" + item.c() + SmallTailInfo.EMOTION_SUFFIX);
+            } else {
+                bVar.b.setText("");
+            }
+            String b2 = item.b();
+            if (!TextUtils.isEmpty(b2) && b2.equals(this.b)) {
+                bVar.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_strok324_select, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
+                bVar.c.setVisibility(0);
+            } else {
+                bVar.c.setVisibility(8);
+            }
+            MediaFileInfo f = item.f();
+            if (f instanceof VideoFileInfo) {
+                bVar.a.K(((VideoFileInfo) f).videoPath, 37, false);
+            } else if (f instanceof ImageFileInfo) {
+                bVar.a.K(((ImageFileInfo) f).getFilePath(), 35, false);
+            }
+            SkinManager.setViewTextColor(bVar.b, (int) R.color.CAM_X0105);
+            SkinManager.setBackgroundResource(view2, R.drawable.addresslist_item_bg);
+            return view2;
         }
-    }
-
-    public void c(int i, @NonNull rg9 rg9Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, rg9Var) != null) || this.b.containsKey(Integer.valueOf(i))) {
-            return;
-        }
-        this.b.put(Integer.valueOf(i), rg9Var);
+        return (View) invokeILL.objValue;
     }
 }

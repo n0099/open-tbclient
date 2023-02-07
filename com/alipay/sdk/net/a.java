@@ -38,14 +38,14 @@ public final class a {
 
     /* renamed from: com.alipay.sdk.net.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0012a {
+    public static final class C0011a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
         public final byte[] b;
         public final Map<String, String> c;
 
-        public C0012a(String str, Map<String, String> map, byte[] bArr) {
+        public C0011a(String str, Map<String, String> map, byte[] bArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -156,7 +156,7 @@ public final class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static b a(Context context, C0012a c0012a) {
+    public static b a(Context context, C0011a c0011a) {
         InterceptResult invokeLL;
         Throwable th;
         HttpURLConnection httpURLConnection;
@@ -166,13 +166,13 @@ public final class a {
         URL url;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, c0012a)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, c0011a)) == null) {
             if (context == null) {
                 return null;
             }
             try {
-                c.d(com.alipay.sdk.cons.a.x, "conn config: " + c0012a);
-                url = new URL(c0012a.a);
+                c.d(com.alipay.sdk.cons.a.x, "conn config: " + c0011a);
+                url = new URL(c0011a.a);
                 Proxy c2 = c(context);
                 c.d(com.alipay.sdk.cons.a.x, "conn proxy: " + c2);
                 if (c2 != null) {
@@ -196,7 +196,7 @@ public final class a {
                 httpURLConnection.setReadTimeout(30000);
                 httpURLConnection.setInstanceFollowRedirects(true);
                 httpURLConnection.setRequestProperty("User-Agent", a);
-                if (c0012a.b != null && c0012a.b.length > 0) {
+                if (c0011a.b != null && c0011a.b.length > 0) {
                     httpURLConnection.setRequestMethod("POST");
                     httpURLConnection.setRequestProperty("Content-Type", b);
                     httpURLConnection.setRequestProperty("Accept-Charset", "UTF-8");
@@ -205,8 +205,8 @@ public final class a {
                 } else {
                     httpURLConnection.setRequestMethod("GET");
                 }
-                if (c0012a.c != null) {
-                    for (Map.Entry<String, String> entry : c0012a.c.entrySet()) {
+                if (c0011a.c != null) {
+                    for (Map.Entry<String, String> entry : c0011a.c.entrySet()) {
                         if (entry.getKey() != null) {
                             httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
                         }
@@ -219,7 +219,7 @@ public final class a {
                 if ("POST".equals(httpURLConnection.getRequestMethod())) {
                     bufferedOutputStream = new BufferedOutputStream(httpURLConnection.getOutputStream());
                     try {
-                        bufferedOutputStream.write(c0012a.b);
+                        bufferedOutputStream.write(c0011a.b);
                         bufferedOutputStream.flush();
                     } catch (Throwable th4) {
                         th2 = th4;

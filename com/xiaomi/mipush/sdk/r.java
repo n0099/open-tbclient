@@ -38,7 +38,7 @@ public class r implements dm {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.m145a(this.a).d() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.m147a(this.a).d() : (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.dm

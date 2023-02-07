@@ -1,261 +1,87 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.tieba.ms1;
+import com.baidu.swan.apps.res.ui.wheelview3d.WheelView3d;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
-import java.util.Map;
-import org.json.JSONObject;
+import java.util.TimerTask;
 /* loaded from: classes5.dex */
-public class p73 extends iv1 {
+public final class p73 extends TimerTask {
     public static /* synthetic */ Interceptable $ic;
-    public static pb2 f;
     public transient /* synthetic */ FieldHolder $fh;
+    public float a;
+    public final float b;
+    public final WheelView3d c;
 
-    @Override // com.baidu.tieba.ms1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "PreloadPackageApi" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements ms1.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ p73 a;
-
-        /* renamed from: com.baidu.tieba.p73$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class RunnableC0392a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ JSONObject a;
-            public final /* synthetic */ String b;
-            public final /* synthetic */ String c;
-            public final /* synthetic */ a d;
-
-            /* renamed from: com.baidu.tieba.p73$a$a$a  reason: collision with other inner class name */
-            /* loaded from: classes5.dex */
-            public class C0393a implements yb4 {
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ String a;
-                public final /* synthetic */ RunnableC0392a b;
-
-                public C0393a(RunnableC0392a runnableC0392a, String str) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {runnableC0392a, str};
-                        interceptable.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.b = runnableC0392a;
-                    this.a = str;
-                }
-
-                @Override // com.baidu.tieba.yb4
-                public void a(@Nullable Map<String, String> map) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-                        if (map == null) {
-                            j12.c("PreloadPackageApi", "preloadPackage keyMap null");
-                            return;
-                        }
-                        RunnableC0392a runnableC0392a = this.b;
-                        runnableC0392a.d.a.z(map.get(this.b.b), this.a, runnableC0392a.c);
-                    }
-                }
-
-                @Override // com.baidu.tieba.yb4
-                public void onFail(Exception exc) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                        j12.c("PreloadPackageApi", "preloadPackage transform openBundleId fail");
-                    }
-                }
-            }
-
-            public RunnableC0392a(a aVar, JSONObject jSONObject, String str, String str2) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, jSONObject, str, str2};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.d = aVar;
-                this.a = jSONObject;
-                this.b = str;
-                this.c = str2;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    boolean g = yg4.e().g(!di3.G());
-                    String optString = this.a.optString(PrefetchEvent.EVENT_KEY_PAGE_URL);
-                    if (g) {
-                        tb4.e(Collections.singletonList(this.b), p73.f.c(), new C0393a(this, optString));
-                    } else {
-                        this.d.a.z(this.b, optString, this.c);
-                    }
-                }
-            }
-        }
-
-        public a(p73 p73Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p73Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = p73Var;
-        }
-
-        @Override // com.baidu.tieba.ms1.a
-        public jw1 a(j43 j43Var, JSONObject jSONObject, @Nullable String str) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, j43Var, jSONObject, str)) == null) {
-                String optString = jSONObject.optString("appKey");
-                if (TextUtils.isEmpty(optString)) {
-                    return new jw1(202, "appKey must not empty");
-                }
-                if (!p73.f.a(1)) {
-                    return new jw1(402, "over single max limit");
-                }
-                dh3.h().execute(new RunnableC0392a(this, jSONObject, optString, str), "PreloadPackageApi");
-                return jw1.f();
-            }
-            return (jw1) invokeLLL.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b extends ProviderDelegation {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-        public Bundle execCall(Bundle bundle) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-                String string = bundle.getString("appKey");
-                String e1 = hp2.e1(string, bundle.getString(PrefetchEvent.EVENT_KEY_PAGE_URL), 0, null);
-                PrefetchEvent.b bVar = new PrefetchEvent.b();
-                bVar.e("show");
-                bVar.d(e1);
-                bVar.c("10");
-                bVar.a(string);
-                i82.g().f(bVar.b());
-                return null;
-            }
-            return (Bundle) invokeL.objValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p73(@NonNull ks1 ks1Var) {
-        super(ks1Var);
+    public p73(WheelView3d wheelView3d, float f) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ks1Var};
+            Object[] objArr = {wheelView3d, Float.valueOf(f)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ks1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.c = wheelView3d;
+        this.b = f;
+        this.a = 2.1474836E9f;
     }
 
-    public jw1 A(String str) {
-        InterceptResult invokeL;
+    @Override // java.util.TimerTask, java.lang.Runnable
+    public final void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            q("#preloadPackage", false);
-            String a2 = lw1.a(i43.K().getAppId());
-            if (TextUtils.isEmpty(a2)) {
-                return new jw1(101, "runtime parameter error");
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.a == 2.1474836E9f) {
+                float f = 2000.0f;
+                if (Math.abs(this.b) > 2000.0f) {
+                    if (this.b <= 0.0f) {
+                        f = -2000.0f;
+                    }
+                    this.a = f;
+                } else {
+                    this.a = this.b;
+                }
             }
-            pb2 pb2Var = f;
-            if (pb2Var == null || !pb2Var.d(a2)) {
-                f = new pb2(a2, vg4.b(a2));
+            if (Math.abs(this.a) >= 0.0f && Math.abs(this.a) <= 20.0f) {
+                this.c.b();
+                this.c.getHandler().sendEmptyMessage(2000);
+                return;
             }
-            if (f.e()) {
-                return new jw1(402, "over max limit");
+            WheelView3d wheelView3d = this.c;
+            float f2 = (int) (this.a / 100.0f);
+            wheelView3d.setTotalScrollY(wheelView3d.getTotalScrollY() - f2);
+            if (!this.c.i()) {
+                float itemHeight = this.c.getItemHeight();
+                float f3 = (-this.c.getInitPosition()) * itemHeight;
+                float itemsCount = ((this.c.getItemsCount() - 1) - this.c.getInitPosition()) * itemHeight;
+                double d = itemHeight * 0.25d;
+                if (this.c.getTotalScrollY() - d < f3) {
+                    f3 = this.c.getTotalScrollY() + f2;
+                } else if (this.c.getTotalScrollY() + d > itemsCount) {
+                    itemsCount = this.c.getTotalScrollY() + f2;
+                }
+                if (this.c.getTotalScrollY() <= f3) {
+                    this.a = 40.0f;
+                    this.c.setTotalScrollY((int) f3);
+                } else if (this.c.getTotalScrollY() >= itemsCount) {
+                    this.c.setTotalScrollY((int) itemsCount);
+                    this.a = -40.0f;
+                }
             }
-            if (!f.b()) {
-                return new jw1(402, "over time interval limit");
+            float f4 = this.a;
+            if (f4 < 0.0f) {
+                this.a = f4 + 20.0f;
+            } else {
+                this.a = f4 - 20.0f;
             }
-            return l(str, false, new a(this));
-        }
-        return (jw1) invokeL.objValue;
-    }
-
-    public final void z(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("appKey", str);
-            bundle.putString(PrefetchEvent.EVENT_KEY_PAGE_URL, str2);
-            w03.b(b.class, bundle);
+            this.c.getHandler().sendEmptyMessage(1000);
         }
     }
 }

@@ -1,260 +1,57 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes5.dex */
-public final class pq2 {
+public class pq2 extends qm2<hr2> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
-    public static final Set<String> g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final int b;
-    public final int c;
-    public final String d;
-    public final Object e;
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public int b;
-        public int c;
-        public String d;
-        public Object e;
-        public RuntimeException f;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public Exception d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.f;
-            }
-            return (Exception) invokeV.objValue;
-        }
-
-        @Nullable
-        @SuppressLint({"BDThrowableCheck"})
-        public pq2 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f != null) {
-                    if (!pq2.f) {
-                        return null;
-                    }
-                    throw this.f;
-                } else if (this.a == null) {
-                    this.f = new IllegalStateException("sid == null");
-                    if (!pq2.f) {
-                        return null;
-                    }
-                    throw this.f;
-                } else {
-                    synchronized (a.class) {
-                        if (pq2.g.contains(this.a)) {
-                            this.f = new IllegalStateException("sid has been occupied");
-                            if (!pq2.f) {
-                                return null;
-                            }
-                            throw this.f;
-                        } else if (this.e == null) {
-                            this.f = new IllegalStateException("switchValue == null");
-                            if (!pq2.f) {
-                                return null;
-                            }
-                            throw this.f;
-                        } else {
-                            pq2.g.add(this.a);
-                            return new pq2(this);
-                        }
-                    }
-                }
-            }
-            return (pq2) invokeV.objValue;
-        }
-
-        public a b(@NonNull String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.d = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a f(@NonNull Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-                this.e = obj;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a g(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-                this.b = i;
-                return this;
-            }
-            return (a) invokeI.objValue;
-        }
-
-        @SuppressLint({"BDThrowableCheck"})
-        public a c(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-                if (i >= 0 && i <= 100) {
-                    this.c = i;
-                    return this;
-                }
-                this.f = new IllegalArgumentException("flow must in [0, 100]");
-                if (!pq2.f) {
-                    this.c = 0;
-                    return this;
-                }
-                throw this.f;
-            }
-            return (a) invokeI.objValue;
-        }
-
-        @SuppressLint({"BDThrowableCheck"})
-        public a e(@NonNull String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                if (TextUtils.isEmpty(str)) {
-                    this.f = new IllegalArgumentException("sid must not be empty");
-                    if (!pq2.f) {
-                        this.a = null;
-                        return this;
-                    }
-                    throw this.f;
-                } else if (str.contains("-")) {
-                    this.f = new IllegalArgumentException("sid must not contain '-'");
-                    if (!pq2.f) {
-                        this.a = null;
-                        return this;
-                    }
-                    throw this.f;
-                } else {
-                    this.a = str;
-                    return this;
-                }
-            }
-            return (a) invokeL.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948070616, "Lcom/baidu/tieba/pq2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948070616, "Lcom/baidu/tieba/pq2;");
-                return;
-            }
-        }
-        f = tk1.a;
-        g = new HashSet();
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
+    @Override // com.baidu.tieba.qm2
     @NonNull
-    public Object e() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
-        }
-        return invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "prepareAsync" : (String) invokeV.objValue;
     }
 
-    public pq2(a aVar) {
+    public pq2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = aVar.a;
-        this.b = aVar.b;
-        this.c = aVar.c;
-        this.d = aVar.d;
-        this.e = aVar.e;
     }
 
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qm2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull hr2 hr2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (f) {
-                return "SwanLocalABTestBranch{mGroupType=" + this.b + ", mFlow=" + this.c + ", mBranchDescription='" + this.d + "', mSwitchValue=" + this.e + '}';
-            }
-            return super.toString();
+        if (interceptable == null || interceptable.invokeLL(1048579, this, command, hr2Var) == null) {
+            command.ret = hr2Var.prepareAsync() ? 1 : 0;
+            String str = command.what;
+            d(hr2Var, str, "isSupport: " + command.ret, false);
         }
-        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.qm2
+    public void c(@NonNull ZeusPlugin.Command command) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, command) == null) {
+            command.ret = 1;
+        }
     }
 }

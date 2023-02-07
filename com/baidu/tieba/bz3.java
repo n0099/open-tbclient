@@ -2,102 +2,154 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.widget.Toast;
+import android.view.View;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.swan.game.guide.dialog.GamenowRecommendPopView;
+import com.baidu.swan.game.guide.view.GameGuideViewContainer;
+import com.baidu.swan.games.view.recommend.popview.GameCloseGuidePopView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.ArrayList;
+@Singleton
+@Service
 /* loaded from: classes3.dex */
-public class bz3 extends g63 {
+public class bz3 implements g64 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public class a implements cj3<Boolean> {
+    public class a implements GamenowRecommendPopView.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ GameCloseGuidePopView.e a;
 
-        public a(bz3 bz3Var) {
+        public a(bz3 bz3Var, GameCloseGuidePopView.e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bz3Var};
+                Object[] objArr = {bz3Var, eVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = eVar;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cj3
-        /* renamed from: b */
-        public void a(Boolean bool) {
+        @Override // com.baidu.swan.game.guide.dialog.GamenowRecommendPopView.e
+        public void a() {
+            GameCloseGuidePopView.e eVar;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
-                Context appContext = AppRuntime.getAppContext();
-                if (bool.booleanValue()) {
-                    Toast.makeText(appContext, (int) R.string.obfuscated_res_0x7f0f013b, 1).show();
-                } else {
-                    Toast.makeText(appContext, (int) R.string.obfuscated_res_0x7f0f013a, 1).show();
-                }
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (eVar = this.a) == null) {
+                return;
             }
+            eVar.a();
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bz3(g53 g53Var) {
-        super(g53Var, "/swanAPI/debugGameSconsole");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {g53Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947662222, "Lcom/baidu/tieba/bz3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947662222, "Lcom/baidu/tieba/bz3;");
                 return;
             }
         }
+        boolean z = gp1.a;
     }
 
-    @Override // com.baidu.tieba.g63
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j43 j43Var) {
-        InterceptResult invokeLLLL;
+    public bz3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j43Var)) == null) {
-            if (!g63.b) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            JSONObject a2 = g63.a(unitedSchemeEntity, "params");
-            if (a2 == null) {
-                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f0135, 1).show();
-                return false;
-            }
-            String optString = a2.optString("downloadurl");
-            if (TextUtils.isEmpty(optString)) {
-                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f0136, 1).show();
-                return false;
-            }
-            az3.m().c(optString, new a(this));
-            return false;
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.g64
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            gz3.n().t();
+        }
+    }
+
+    @Override // com.baidu.tieba.g64
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            gz3.n().u();
+        }
+    }
+
+    @Override // com.baidu.tieba.g64
+    public View a(Context context, GameCloseGuidePopView.e eVar) {
+        InterceptResult invokeLL;
+        vy3 vy3Var;
+        GameGuideConfigInfo z;
+        GameGuideConfigInfo.CloseInfo closeInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, eVar)) == null) {
+            if (context == null || (vy3Var = vy3.o) == null) {
+                return null;
+            }
+            String I = vy3Var.I();
+            if ((!TextUtils.equals(I, az3.a) && qm3.F(context, I)) || (z = vy3.o.z()) == null || (closeInfo = z.closeInfo) == null) {
+                return null;
+            }
+            int i = closeInfo.type;
+            ArrayList<GameGuideConfigInfo.RecommendGameInfo> arrayList = closeInfo.gameList;
+            if ((i != 0 || arrayList == null || arrayList.size() < 3) && ((i != 1 || arrayList == null || arrayList.size() < 6) && i != 2)) {
+                return null;
+            }
+            if (i != 0 && i != 1) {
+                if (i == 2) {
+                    sz3.n().c("gbADialogShow");
+                }
+            } else {
+                sz3.n().c("gbBDialogShow");
+            }
+            GamenowRecommendPopView gamenowRecommendPopView = new GamenowRecommendPopView(context, closeInfo);
+            gamenowRecommendPopView.setOnClickListener(new a(this, eVar));
+            return gamenowRecommendPopView;
+        }
+        return (View) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.g64
+    public void b(int i) {
+        vy3 vy3Var;
+        GameGuideViewContainer B;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (vy3Var = vy3.o) != null && (B = vy3Var.B()) != null) {
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) B.getLayoutParams();
+            layoutParams.rightMargin = i;
+            B.setLayoutParams(layoutParams);
+        }
     }
 }

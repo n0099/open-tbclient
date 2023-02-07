@@ -32,45 +32,45 @@ public abstract class jf {
     public abstract byte a();
 
     /* renamed from: a */
-    public abstract double mo615a();
+    public abstract double mo617a();
 
     /* renamed from: a */
-    public abstract int mo616a();
+    public abstract int mo618a();
 
     /* renamed from: a */
-    public abstract long mo617a();
+    public abstract long mo619a();
 
     /* renamed from: a */
-    public abstract jc mo618a();
+    public abstract jc mo620a();
 
     /* renamed from: a */
-    public abstract jd mo619a();
+    public abstract jd mo621a();
 
     /* renamed from: a */
-    public abstract je mo620a();
+    public abstract je mo622a();
 
     /* renamed from: a */
-    public abstract jj mo621a();
+    public abstract jj mo623a();
 
     /* renamed from: a */
-    public abstract jk mo622a();
+    public abstract jk mo624a();
 
     /* renamed from: a */
-    public abstract String mo623a();
+    public abstract String mo625a();
 
     /* renamed from: a */
-    public abstract ByteBuffer mo624a();
+    public abstract ByteBuffer mo626a();
 
     /* renamed from: a */
-    public abstract short mo625a();
+    public abstract short mo627a();
 
     /* renamed from: a */
-    public abstract void mo626a();
+    public abstract void mo628a();
 
     public abstract void a(byte b);
 
     /* renamed from: a */
-    public abstract void mo627a(int i);
+    public abstract void mo629a(int i);
 
     public abstract void a(long j);
 
@@ -91,7 +91,7 @@ public abstract class jf {
     public abstract void a(boolean z);
 
     /* renamed from: a */
-    public abstract boolean mo628a();
+    public abstract boolean mo630a();
 
     public abstract void b();
 

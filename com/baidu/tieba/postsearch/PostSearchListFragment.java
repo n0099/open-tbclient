@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sl8;
-import com.baidu.tieba.vl8;
-import com.baidu.tieba.xg5;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.il5;
+import com.baidu.tieba.np8;
+import com.baidu.tieba.qp8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,10 +35,10 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
     public PostSearchActivity a;
     public View b;
     public BdListView c;
-    public vl8 d;
+    public qp8 d;
     public PbListView e;
     public NoDataView f;
-    public sl8 g;
+    public np8 g;
     public int h;
     public String i;
 
@@ -60,11 +60,11 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
     }
 
     public void C1() {
-        List<sl8.a> list;
+        List<np8.a> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            sl8 sl8Var = this.g;
-            if (sl8Var != null && (list = sl8Var.a) != null) {
+            np8 np8Var = this.g;
+            if (np8Var != null && (list = np8Var.a) != null) {
                 list.clear();
                 this.d.c(this.g.a);
                 this.d.notifyDataSetChanged();
@@ -94,7 +94,7 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
     public final void F1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.c = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f091cd2);
+            this.c = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f091ce7);
         }
     }
 
@@ -120,7 +120,7 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             this.c.setNextPage(this.e);
-            this.e.T();
+            this.e.S();
         }
     }
 
@@ -129,7 +129,7 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onPrimary();
-            if (this.h == this.a.Q0().a()) {
+            if (this.h == this.a.r1().a()) {
                 M1();
                 H1(false);
             }
@@ -156,25 +156,25 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
         this.h = i;
     }
 
-    public void G1(sl8 sl8Var, boolean z) {
-        sl8 sl8Var2;
-        List<sl8.a> list;
-        List<sl8.a> list2;
-        sl8 sl8Var3;
-        List<sl8.a> list3;
+    public void G1(np8 np8Var, boolean z) {
+        np8 np8Var2;
+        List<np8.a> list;
+        List<np8.a> list2;
+        np8 np8Var3;
+        List<np8.a> list3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048580, this, sl8Var, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048580, this, np8Var, z) == null) {
             E1();
             hideLoadingView(this.b);
             boolean z2 = false;
             boolean z3 = true;
-            if (sl8Var != null && (list2 = sl8Var.a) != null && list2.size() != 0) {
-                if (z && (sl8Var3 = this.g) != null && (list3 = sl8Var3.a) != null && list3.size() != 0) {
-                    sl8 sl8Var4 = this.g;
-                    sl8Var4.b = sl8Var.b;
-                    sl8Var4.a.addAll(sl8Var.a);
+            if (np8Var != null && (list2 = np8Var.a) != null && list2.size() != 0) {
+                if (z && (np8Var3 = this.g) != null && (list3 = np8Var3.a) != null && list3.size() != 0) {
+                    np8 np8Var4 = this.g;
+                    np8Var4.b = np8Var.b;
+                    np8Var4.a.addAll(np8Var.a);
                 } else {
-                    this.g = sl8Var;
+                    this.g = np8Var;
                 }
                 if (z) {
                     M1();
@@ -195,7 +195,7 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
                     this.c.setSelection(0);
                 }
                 this.c.setVisibility(0);
-            } else if (z && (sl8Var2 = this.g) != null && (list = sl8Var2.a) != null && list.size() != 0) {
+            } else if (z && (np8Var2 = this.g) != null && (list = np8Var2.a) != null && list.size() != 0) {
                 if (this.g.b.b() == 1) {
                     z2 = true;
                 }
@@ -208,7 +208,7 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
                 D1();
                 J1();
                 this.c.setVisibility(8);
-                this.g = sl8Var;
+                this.g = np8Var;
             }
         }
     }
@@ -230,13 +230,13 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
         } else {
             z2 = true;
         }
-        sl8 sl8Var = this.g;
-        if (sl8Var != null && (sl8Var == null || sl8Var.a())) {
+        np8 np8Var = this.g;
+        if (np8Var != null && (np8Var == null || np8Var.a())) {
             z3 = z2;
         }
         if (z3) {
-            showLoadingView(this.b, false, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07029e));
-            this.a.P0().l(str, this.h);
+            showLoadingView(this.b, false, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07029f));
+            this.a.q1().l(str, this.h);
             this.i = str;
         }
     }
@@ -247,9 +247,9 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
         if (interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) {
             super.onActivityCreated(bundle);
             this.a = (PostSearchActivity) getBaseFragmentActivity();
-            vl8 vl8Var = new vl8(this.a.getPageContext());
-            this.d = vl8Var;
-            vl8Var.f(this.h);
+            qp8 qp8Var = new qp8(this.a.getPageContext());
+            this.d = qp8Var;
+            qp8Var.f(this.h);
             BdListViewHelper.d(this.a.getActivity(), this.c, BdListViewHelper.HeadType.HASTAB);
             this.c.setAdapter((ListAdapter) this.d);
             PbListView pbListView = new PbListView(this.a.getPageContext().getPageActivity());
@@ -263,7 +263,7 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             if (this.f == null) {
-                NoDataView a = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), this.b, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, zi.g(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07029e)), NoDataViewFactory.e.a(R.string.text_no_search_result), null);
+                NoDataView a = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), this.b, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, ej.g(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07029f)), NoDataViewFactory.e.a(R.string.text_no_search_result), null);
                 this.f = a;
                 a.f(this.a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             }
@@ -281,9 +281,9 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
 
     @Override // com.baidu.adp.widget.ListView.BdListView.p
     public void onScrollToBottom() {
-        sl8 sl8Var;
+        np8 np8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && !StringUtils.isNull(this.i) && (sl8Var = this.g) != null && sl8Var.b() && this.a.P0().l(this.i, this.h)) {
+        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && !StringUtils.isNull(this.i) && (np8Var = this.g) != null && np8Var.b() && this.a.q1().l(this.i, this.h)) {
             L1();
         }
     }
@@ -295,15 +295,15 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
             super.onChangeSkinType(i);
             PostSearchActivity postSearchActivity = this.a;
             if (postSearchActivity != null) {
-                xg5.a(postSearchActivity.getPageContext(), this.b);
+                il5.a(postSearchActivity.getPageContext(), this.b);
             }
             PbListView pbListView = this.e;
             if (pbListView != null) {
                 pbListView.e(i);
             }
-            vl8 vl8Var = this.d;
-            if (vl8Var != null) {
-                vl8Var.notifyDataSetChanged();
+            qp8 qp8Var = this.d;
+            if (qp8Var != null) {
+                qp8Var.notifyDataSetChanged();
             }
         }
     }
@@ -313,7 +313,7 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048589, this, layoutInflater, viewGroup, bundle)) == null) {
-            this.b = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0770, (ViewGroup) null);
+            this.b = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0769, (ViewGroup) null);
             F1();
             return this.b;
         }

@@ -1,34 +1,125 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.live.interfaces.service.AccountManagerService;
-import com.baidu.searchbox.live.interfaces.service.AppInfoService;
-import com.baidu.searchbox.live.interfaces.service.RouterService;
-import com.baidu.searchbox.live.interfaces.service.ToastService;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class yy5 implements ILiveFeedPageInvoke {
+public class yy5 extends ok1<ej0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AccountManagerService a;
-    public AppInfoService b;
-    public ToastService c;
-    public RouterService d;
 
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke
-    public String getIID() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "" : (String) invokeV.objValue;
+    /* loaded from: classes7.dex */
+    public class a implements ej0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.ej0
+        public String[] c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return null;
+            }
+            return (String[]) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.ej0
+        public boolean d(Context context, String str) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, str)) == null) {
+                return true;
+            }
+            return invokeLL.booleanValue;
+        }
+
+        /* renamed from: com.baidu.tieba.yy5$a$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class C0499a implements hj0 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ boolean[] a;
+            public final /* synthetic */ fj0 b;
+
+            public C0499a(a aVar, boolean[] zArr, fj0 fj0Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, zArr, fj0Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = zArr;
+                this.b = fj0Var;
+            }
+
+            @Override // com.baidu.tieba.hj0
+            public void onResult(boolean z) {
+                fj0 fj0Var;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                    this.a[0] = z;
+                    if (z && (fj0Var = this.b) != null) {
+                        fj0Var.a(true, null);
+                    }
+                }
+            }
+        }
+
+        public a(yy5 yy5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yy5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.ej0
+        public boolean a(Context context, String str, @Nullable Map<String, Object> map, @Nullable fj0 fj0Var) {
+            InterceptResult invokeLLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, str, map, fj0Var)) == null) {
+                Log.e("CMDConfig", "host invoke command = " + str);
+                if (UrlSchemaJumpHelper.isHitBlackList(str)) {
+                    return true;
+                }
+                jj0.a(context, str, null, new C0499a(this, new boolean[1], fj0Var), false);
+                return true;
+            }
+            return invokeLLLL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.ej0
+        public void b(String str, String str2, hj0 hj0Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, hj0Var) == null) && hj0Var != null) {
+                hj0Var.onResult(true);
+            }
+        }
     }
 
     public yy5() {
@@ -41,74 +132,19 @@ public class yy5 implements ILiveFeedPageInvoke {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = (AccountManagerService) ServiceManager.getService(AccountManagerService.Companion.getSERVICE_REFERENCE());
-        this.b = (AppInfoService) ServiceManager.getService(AppInfoService.Companion.getSERVICE_REFERENCE());
-        this.c = (ToastService) ServiceManager.getService(ToastService.Companion.getSERVICE_REFERENCE());
-        this.d = (RouterService) ServiceManager.getService(RouterService.Companion.getSERVICE_REFERENCE());
     }
 
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke
-    public String getCuid() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ok1
+    /* renamed from: a */
+    public ej0 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
-        AppInfoService appInfoService;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a != null && (appInfoService = this.b) != null) {
-                return this.a.getSocialEncryption(appInfoService.getCuid(), "baiduuid_");
-            }
-            return "";
+            return new a(this);
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke
-    public String getUIMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (skinType == 1) {
-                return "night";
-            }
-            if (skinType == 4) {
-                return "dark";
-            }
-            return "day";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke
-    public String getUK() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            AccountManagerService accountManagerService = this.a;
-            if (accountManagerService != null) {
-                return accountManagerService.getAccount().getUk();
-            }
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke
-    public void invokeScheme(Context context, String str) {
-        RouterService routerService;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, context, str) == null) && context != null && !TextUtils.isEmpty(str) && (routerService = this.d) != null) {
-            routerService.invokeScheme(context, str);
-        }
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke
-    public void showToast(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, context, str) == null) && this.c != null && context != null && !TextUtils.isEmpty(str)) {
-            this.c.showNormal(context, str, 0);
-        }
+        return (ej0) invokeV.objValue;
     }
 }

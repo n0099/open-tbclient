@@ -1,254 +1,248 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.statistic.StatisticConstants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
+import com.baidu.swan.apps.res.widget.floatlayer.Container;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class d83 extends g63 {
+public class d83 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String c;
+    public final ViewGroup a;
+    public int b;
+    public final int c;
+    public boolean d;
+    public boolean e;
+    public boolean f;
 
     /* loaded from: classes4.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ UnitedSchemeEntity a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ j43 c;
-        public final /* synthetic */ d83 d;
-
-        /* renamed from: com.baidu.tieba.d83$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class RunnableC0246a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Bitmap a;
-            public final /* synthetic */ a b;
-
-            public RunnableC0246a(a aVar, Bitmap bitmap) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, bitmap};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = bitmap;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    a aVar = this.b;
-                    aVar.d.o(this.a, aVar.a, aVar.b, aVar.c);
-                }
-            }
-        }
-
-        public a(d83 d83Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j43 j43Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d83Var, unitedSchemeEntity, callbackHandler, j43Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = d83Var;
-            this.a = unitedSchemeEntity;
-            this.b = callbackHandler;
-            this.c = j43Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Bitmap y = ai3.y();
-                if (y == null) {
-                    this.d.n(this.a, this.b, "can't get screenshot");
-                } else {
-                    dh3.k(new RunnableC0246a(this, y), "savescreenshot");
-                }
-            }
-        }
+    public interface a {
+        d83 d();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d83(g53 g53Var) {
-        super(g53Var, "/swanAPI/getScreenshot");
+    public d83(@NonNull a aVar, @NonNull ViewGroup viewGroup, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {g53Var};
+            Object[] objArr = {aVar, viewGroup, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.e = false;
+        this.f = true;
+        this.a = viewGroup;
+        this.b = i;
+        this.c = i;
     }
 
-    @Override // com.baidu.tieba.g63
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j43 j43Var) {
-        InterceptResult invokeLLLL;
+    private Context getContext() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j43Var)) == null) {
-            if (j43Var == null) {
-                j12.c("Screenshot", "illegal swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            return this.a.getContext();
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Nullable
+    public View d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Container a2 = a();
+            if (a2 == null || a2.getChildCount() <= 0) {
+                return null;
+            }
+            return a2.getChildAt(0);
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            Container a2 = a();
+            if (a2 == null) {
                 return false;
             }
-            String optString = jh3.d(unitedSchemeEntity.getParam("params")).optString("name");
-            this.c = optString;
-            if (TextUtils.isEmpty(optString)) {
-                j12.c("Screenshot", "invalid params");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            }
-            m(unitedSchemeEntity, callbackHandler, j43Var);
-            return true;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final JSONObject l(boolean z, String str, String str2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, str2})) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("name", this.c);
-                if (!TextUtils.isEmpty(str2)) {
-                    jSONObject.put("message", str2);
+            int childCount = a2.getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                View childAt = a2.getChildAt(i);
+                if (childAt != null && childAt.getVisibility() == 0) {
+                    return true;
                 }
-                if (z) {
-                    jSONObject.put("path", str);
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
             }
-            return jSONObject;
+            return false;
         }
-        return (JSONObject) invokeCommon.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final void m(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, @NonNull j43 j43Var) {
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, unitedSchemeEntity, callbackHandler, j43Var) == null) {
-            di3.e0(new a(this, unitedSchemeEntity, callbackHandler, j43Var));
-        }
-    }
-
-    public final void n(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, unitedSchemeEntity, callbackHandler, str) == null) {
-            j12.c("Screenshot", str);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(l(false, null, str), 0));
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            h(false);
+            i();
         }
     }
 
-    public final void o(@NonNull Bitmap bitmap, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, @NonNull j43 j43Var) {
-        String x;
-        FileOutputStream fileOutputStream;
+    public final void i() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(1048580, this, bitmap, unitedSchemeEntity, callbackHandler, j43Var) == null) && (x = rb3.x(j43Var.b)) != null) {
-            String str = x + File.separator + StatisticConstants.SCREENSHOT;
-            File file = new File(str);
-            if (!file.exists() || !file.isDirectory()) {
-                file.delete();
-                if (!file.mkdir()) {
-                    n(unitedSchemeEntity, callbackHandler, "mkdir fail");
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.f = true;
+            this.e = false;
+            this.b = this.c;
+        }
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.f;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Nullable
+    public final Container a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this.a) {
+                for (int i = 0; i < this.a.getChildCount(); i++) {
+                    View childAt = this.a.getChildAt(i);
+                    if (childAt instanceof Container) {
+                        return (Container) childAt;
+                    }
+                }
+                return null;
+            }
+        }
+        return (Container) invokeV.objValue;
+    }
+
+    @NonNull
+    public final Container b() {
+        InterceptResult invokeV;
+        Container a2;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this.a) {
+                a2 = a();
+                if (a2 == null) {
+                    a2 = new Container(getContext());
+                    int height = this.a.getHeight() - this.b;
+                    if (this.a instanceof LinearLayout) {
+                        i = -height;
+                    } else {
+                        i = this.b;
+                    }
+                    if (height <= 0) {
+                        height = -1;
+                        i = 0;
+                    }
+                    if (!(this.a instanceof LinearLayout) && this.b == 0) {
+                        height = -1;
+                    }
+                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, height);
+                    layoutParams.setMargins(0, i, 0, 0);
+                    a2.setLayoutParams(layoutParams);
+                    this.a.addView(a2);
+                }
+            }
+            return a2;
+        }
+        return (Container) invokeV.objValue;
+    }
+
+    public final void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            synchronized (this.a) {
+                Container a2 = a();
+                if (z && a2 != null && a2.getChildCount() > 0) {
                     return;
                 }
-            }
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMddHHmmss", Locale.getDefault());
-            String str2 = str + File.separator + simpleDateFormat.format(new Date()) + this.c + EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX;
-            FileOutputStream fileOutputStream2 = null;
-            try {
-                try {
-                    try {
-                        fileOutputStream = new FileOutputStream(str2);
-                    } catch (FileNotFoundException e) {
-                        e = e;
-                    }
-                } catch (Throwable th) {
-                    th = th;
+                if (a2 != null) {
+                    this.a.removeView(a2);
                 }
-                try {
-                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream);
-                    j12.i("Screenshot", "save screenshot to " + str2);
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(l(true, rb3.J(str2, j43Var.b), "success"), 0));
-                    fileOutputStream.close();
-                } catch (FileNotFoundException e2) {
-                    e = e2;
-                    fileOutputStream2 = fileOutputStream;
-                    e.printStackTrace();
-                    n(unitedSchemeEntity, callbackHandler, "save screenshot fail");
-                    if (fileOutputStream2 != null) {
-                        fileOutputStream2.close();
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    fileOutputStream2 = fileOutputStream;
-                    if (fileOutputStream2 != null) {
-                        try {
-                            fileOutputStream2.close();
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
-                            n(unitedSchemeEntity, callbackHandler, "save screenshot fail");
-                        }
-                    }
-                    throw th;
-                }
-            } catch (IOException e4) {
-                e4.printStackTrace();
-                n(unitedSchemeEntity, callbackHandler, "save screenshot fail");
             }
+        }
+    }
+
+    public void k(boolean z) {
+        Container a2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048586, this, z) == null) && (a2 = a()) != null) {
+            a2.setClickable(z);
+        }
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.f = z;
+        }
+    }
+
+    public void m(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            this.d = z;
+            this.b = 0;
+        }
+    }
+
+    public void n(@NonNull View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048589, this, view2) == null) && view2 != d()) {
+            h(false);
+            b().addView(view2);
+        }
+    }
+
+    public void o(@NonNull View view2, ViewGroup.LayoutParams layoutParams) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048590, this, view2, layoutParams) == null) && view2 != d()) {
+            h(false);
+            b().addView(view2, layoutParams);
         }
     }
 }

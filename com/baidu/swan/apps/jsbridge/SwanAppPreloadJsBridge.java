@@ -3,9 +3,9 @@ package com.baidu.swan.apps.jsbridge;
 import android.util.Log;
 import android.webkit.JavascriptInterface;
 import androidx.annotation.Keep;
-import com.baidu.tieba.h13;
-import com.baidu.tieba.h32;
-import com.baidu.tieba.tk1;
+import com.baidu.tieba.gp1;
+import com.baidu.tieba.u53;
+import com.baidu.tieba.u72;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +21,7 @@ public class SwanAppPreloadJsBridge {
     public static final String JAVASCRIPT_INTERFACE_NAME = "swanPreload";
     public static final String TAG = "SwanAppPreloadJsBridge";
     public transient /* synthetic */ FieldHolder $fh;
-    public h32 mJSContainer;
+    public u72 mJSContainer;
 
     static {
         InterceptResult invokeClinit;
@@ -36,7 +36,7 @@ public class SwanAppPreloadJsBridge {
                 return;
             }
         }
-        DEBUG = tk1.a;
+        DEBUG = gp1.a;
     }
 
     @JavascriptInterface
@@ -48,17 +48,17 @@ public class SwanAppPreloadJsBridge {
             if (DEBUG) {
                 Log.d(TAG, "onJsLoaded");
             }
-            return h13.f();
+            return u53.f();
         }
         return (String) invokeV.objValue;
     }
 
-    public SwanAppPreloadJsBridge(h32 h32Var) {
+    public SwanAppPreloadJsBridge(u72 u72Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {h32Var};
+            Object[] objArr = {u72Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -68,6 +68,6 @@ public class SwanAppPreloadJsBridge {
                 return;
             }
         }
-        this.mJSContainer = h32Var;
+        this.mJSContainer = u72Var;
     }
 }

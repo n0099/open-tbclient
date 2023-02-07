@@ -5,229 +5,229 @@ import com.baidu.sapi2.activity.BaseActivity;
 import com.kwad.sdk.core.webview.a.a;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class cm implements com.kwad.sdk.core.d<a.C0636a> {
+public final class cm implements com.kwad.sdk.core.d<a.C0640a> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
-    public static void a2(a.C0636a c0636a, JSONObject jSONObject) {
+    public static void a2(a.C0640a c0640a, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        c0636a.LF = jSONObject.optString("SDKVersion");
+        c0640a.LF = jSONObject.optString("SDKVersion");
         if (jSONObject.opt("SDKVersion") == JSONObject.NULL) {
-            c0636a.LF = "";
+            c0640a.LF = "";
         }
-        c0636a.LG = jSONObject.optInt("SDKVersionCode");
-        c0636a.abe = jSONObject.optString("tkVersion");
+        c0640a.LG = jSONObject.optInt("SDKVersionCode");
+        c0640a.abe = jSONObject.optString("tkVersion");
         if (jSONObject.opt("tkVersion") == JSONObject.NULL) {
-            c0636a.abe = "";
+            c0640a.abe = "";
         }
-        c0636a.LH = jSONObject.optString("sdkApiVersion");
+        c0640a.LH = jSONObject.optString("sdkApiVersion");
         if (jSONObject.opt("sdkApiVersion") == JSONObject.NULL) {
-            c0636a.LH = "";
+            c0640a.LH = "";
         }
-        c0636a.LI = jSONObject.optInt("sdkApiVersionCode");
-        c0636a.LJ = jSONObject.optInt("sdkType");
-        c0636a.appVersion = jSONObject.optString("appVersion");
+        c0640a.LI = jSONObject.optInt("sdkApiVersionCode");
+        c0640a.LJ = jSONObject.optInt("sdkType");
+        c0640a.appVersion = jSONObject.optString("appVersion");
         if (jSONObject.opt("appVersion") == JSONObject.NULL) {
-            c0636a.appVersion = "";
+            c0640a.appVersion = "";
         }
-        c0636a.appName = jSONObject.optString("appName");
+        c0640a.appName = jSONObject.optString("appName");
         if (jSONObject.opt("appName") == JSONObject.NULL) {
-            c0636a.appName = "";
+            c0640a.appName = "";
         }
-        c0636a.appId = jSONObject.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
+        c0640a.appId = jSONObject.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
         if (jSONObject.opt(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID) == JSONObject.NULL) {
-            c0636a.appId = "";
+            c0640a.appId = "";
         }
-        c0636a.agm = jSONObject.optString("globalId");
+        c0640a.agm = jSONObject.optString("globalId");
         if (jSONObject.opt("globalId") == JSONObject.NULL) {
-            c0636a.agm = "";
+            c0640a.agm = "";
         }
-        c0636a.acB = jSONObject.optString("eGid");
+        c0640a.acB = jSONObject.optString("eGid");
         if (jSONObject.opt("eGid") == JSONObject.NULL) {
-            c0636a.acB = "";
+            c0640a.acB = "";
         }
-        c0636a.acA = jSONObject.optString("deviceSig");
+        c0640a.acA = jSONObject.optString("deviceSig");
         if (jSONObject.opt("deviceSig") == JSONObject.NULL) {
-            c0636a.acA = "";
+            c0640a.acA = "";
         }
-        c0636a.LK = jSONObject.optString("networkType");
+        c0640a.LK = jSONObject.optString("networkType");
         if (jSONObject.opt("networkType") == JSONObject.NULL) {
-            c0636a.LK = "";
+            c0640a.LK = "";
         }
-        c0636a.LL = jSONObject.optString(HttpConstants.HTTP_MANUFACTURER);
+        c0640a.LL = jSONObject.optString(HttpConstants.HTTP_MANUFACTURER);
         if (jSONObject.opt(HttpConstants.HTTP_MANUFACTURER) == JSONObject.NULL) {
-            c0636a.LL = "";
+            c0640a.LL = "";
         }
-        c0636a.model = jSONObject.optString("model");
+        c0640a.model = jSONObject.optString("model");
         if (jSONObject.opt("model") == JSONObject.NULL) {
-            c0636a.model = "";
+            c0640a.model = "";
         }
-        c0636a.LM = jSONObject.optString("deviceBrand");
+        c0640a.LM = jSONObject.optString("deviceBrand");
         if (jSONObject.opt("deviceBrand") == JSONObject.NULL) {
-            c0636a.LM = "";
+            c0640a.LM = "";
         }
-        c0636a.LN = jSONObject.optInt(HttpConstants.HTTP_OS_TYPE_OLD);
-        c0636a.LO = jSONObject.optString("systemVersion");
+        c0640a.LN = jSONObject.optInt(HttpConstants.HTTP_OS_TYPE_OLD);
+        c0640a.LO = jSONObject.optString("systemVersion");
         if (jSONObject.opt("systemVersion") == JSONObject.NULL) {
-            c0636a.LO = "";
+            c0640a.LO = "";
         }
-        c0636a.LP = jSONObject.optInt("osApi");
-        c0636a.LQ = jSONObject.optString("language");
+        c0640a.LP = jSONObject.optInt("osApi");
+        c0640a.LQ = jSONObject.optString("language");
         if (jSONObject.opt("language") == JSONObject.NULL) {
-            c0636a.LQ = "";
+            c0640a.LQ = "";
         }
-        c0636a.LR = jSONObject.optString("locale");
+        c0640a.LR = jSONObject.optString("locale");
         if (jSONObject.opt("locale") == JSONObject.NULL) {
-            c0636a.LR = "";
+            c0640a.LR = "";
         }
-        c0636a.agn = jSONObject.optString("uuid");
+        c0640a.agn = jSONObject.optString("uuid");
         if (jSONObject.opt("uuid") == JSONObject.NULL) {
-            c0636a.agn = "";
+            c0640a.agn = "";
         }
-        c0636a.LS = jSONObject.optInt("screenWidth");
-        c0636a.LT = jSONObject.optInt("screenHeight");
-        c0636a.VB = jSONObject.optString("imei");
+        c0640a.LS = jSONObject.optInt("screenWidth");
+        c0640a.LT = jSONObject.optInt("screenHeight");
+        c0640a.VB = jSONObject.optString("imei");
         if (jSONObject.opt("imei") == JSONObject.NULL) {
-            c0636a.VB = "";
+            c0640a.VB = "";
         }
-        c0636a.VC = jSONObject.optString("oaid");
+        c0640a.VC = jSONObject.optString("oaid");
         if (jSONObject.opt("oaid") == JSONObject.NULL) {
-            c0636a.VC = "";
+            c0640a.VC = "";
         }
-        c0636a.acv = jSONObject.optString("androidId");
+        c0640a.acv = jSONObject.optString("androidId");
         if (jSONObject.opt("androidId") == JSONObject.NULL) {
-            c0636a.acv = "";
+            c0640a.acv = "";
         }
-        c0636a.acO = jSONObject.optString("mac");
+        c0640a.acO = jSONObject.optString("mac");
         if (jSONObject.opt("mac") == JSONObject.NULL) {
-            c0636a.acO = "";
+            c0640a.acO = "";
         }
-        c0636a.LU = jSONObject.optInt("statusBarHeight");
-        c0636a.LV = jSONObject.optInt("titleBarHeight");
+        c0640a.LU = jSONObject.optInt("statusBarHeight");
+        c0640a.LV = jSONObject.optInt("titleBarHeight");
     }
 
     /* renamed from: b  reason: avoid collision after fix types in other method */
-    public static JSONObject b2(a.C0636a c0636a, JSONObject jSONObject) {
+    public static JSONObject b2(a.C0640a c0640a, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        String str = c0636a.LF;
+        String str = c0640a.LF;
         if (str != null && !str.equals("")) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, "SDKVersion", c0636a.LF);
+            com.kwad.sdk.utils.r.putValue(jSONObject, "SDKVersion", c0640a.LF);
         }
-        int i = c0636a.LG;
+        int i = c0640a.LG;
         if (i != 0) {
             com.kwad.sdk.utils.r.putValue(jSONObject, "SDKVersionCode", i);
         }
-        String str2 = c0636a.abe;
+        String str2 = c0640a.abe;
         if (str2 != null && !str2.equals("")) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, "tkVersion", c0636a.abe);
+            com.kwad.sdk.utils.r.putValue(jSONObject, "tkVersion", c0640a.abe);
         }
-        String str3 = c0636a.LH;
+        String str3 = c0640a.LH;
         if (str3 != null && !str3.equals("")) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, "sdkApiVersion", c0636a.LH);
+            com.kwad.sdk.utils.r.putValue(jSONObject, "sdkApiVersion", c0640a.LH);
         }
-        int i2 = c0636a.LI;
+        int i2 = c0640a.LI;
         if (i2 != 0) {
             com.kwad.sdk.utils.r.putValue(jSONObject, "sdkApiVersionCode", i2);
         }
-        int i3 = c0636a.LJ;
+        int i3 = c0640a.LJ;
         if (i3 != 0) {
             com.kwad.sdk.utils.r.putValue(jSONObject, "sdkType", i3);
         }
-        String str4 = c0636a.appVersion;
+        String str4 = c0640a.appVersion;
         if (str4 != null && !str4.equals("")) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, "appVersion", c0636a.appVersion);
+            com.kwad.sdk.utils.r.putValue(jSONObject, "appVersion", c0640a.appVersion);
         }
-        String str5 = c0636a.appName;
+        String str5 = c0640a.appName;
         if (str5 != null && !str5.equals("")) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, "appName", c0636a.appName);
+            com.kwad.sdk.utils.r.putValue(jSONObject, "appName", c0640a.appName);
         }
-        String str6 = c0636a.appId;
+        String str6 = c0640a.appId;
         if (str6 != null && !str6.equals("")) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, c0636a.appId);
+            com.kwad.sdk.utils.r.putValue(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, c0640a.appId);
         }
-        String str7 = c0636a.agm;
+        String str7 = c0640a.agm;
         if (str7 != null && !str7.equals("")) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, "globalId", c0636a.agm);
+            com.kwad.sdk.utils.r.putValue(jSONObject, "globalId", c0640a.agm);
         }
-        String str8 = c0636a.acB;
+        String str8 = c0640a.acB;
         if (str8 != null && !str8.equals("")) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, "eGid", c0636a.acB);
+            com.kwad.sdk.utils.r.putValue(jSONObject, "eGid", c0640a.acB);
         }
-        String str9 = c0636a.acA;
+        String str9 = c0640a.acA;
         if (str9 != null && !str9.equals("")) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, "deviceSig", c0636a.acA);
+            com.kwad.sdk.utils.r.putValue(jSONObject, "deviceSig", c0640a.acA);
         }
-        String str10 = c0636a.LK;
+        String str10 = c0640a.LK;
         if (str10 != null && !str10.equals("")) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, "networkType", c0636a.LK);
+            com.kwad.sdk.utils.r.putValue(jSONObject, "networkType", c0640a.LK);
         }
-        String str11 = c0636a.LL;
+        String str11 = c0640a.LL;
         if (str11 != null && !str11.equals("")) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, HttpConstants.HTTP_MANUFACTURER, c0636a.LL);
+            com.kwad.sdk.utils.r.putValue(jSONObject, HttpConstants.HTTP_MANUFACTURER, c0640a.LL);
         }
-        String str12 = c0636a.model;
+        String str12 = c0640a.model;
         if (str12 != null && !str12.equals("")) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, "model", c0636a.model);
+            com.kwad.sdk.utils.r.putValue(jSONObject, "model", c0640a.model);
         }
-        String str13 = c0636a.LM;
+        String str13 = c0640a.LM;
         if (str13 != null && !str13.equals("")) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, "deviceBrand", c0636a.LM);
+            com.kwad.sdk.utils.r.putValue(jSONObject, "deviceBrand", c0640a.LM);
         }
-        int i4 = c0636a.LN;
+        int i4 = c0640a.LN;
         if (i4 != 0) {
             com.kwad.sdk.utils.r.putValue(jSONObject, HttpConstants.HTTP_OS_TYPE_OLD, i4);
         }
-        String str14 = c0636a.LO;
+        String str14 = c0640a.LO;
         if (str14 != null && !str14.equals("")) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, "systemVersion", c0636a.LO);
+            com.kwad.sdk.utils.r.putValue(jSONObject, "systemVersion", c0640a.LO);
         }
-        int i5 = c0636a.LP;
+        int i5 = c0640a.LP;
         if (i5 != 0) {
             com.kwad.sdk.utils.r.putValue(jSONObject, "osApi", i5);
         }
-        String str15 = c0636a.LQ;
+        String str15 = c0640a.LQ;
         if (str15 != null && !str15.equals("")) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, "language", c0636a.LQ);
+            com.kwad.sdk.utils.r.putValue(jSONObject, "language", c0640a.LQ);
         }
-        String str16 = c0636a.LR;
+        String str16 = c0640a.LR;
         if (str16 != null && !str16.equals("")) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, "locale", c0636a.LR);
+            com.kwad.sdk.utils.r.putValue(jSONObject, "locale", c0640a.LR);
         }
-        String str17 = c0636a.agn;
+        String str17 = c0640a.agn;
         if (str17 != null && !str17.equals("")) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, "uuid", c0636a.agn);
+            com.kwad.sdk.utils.r.putValue(jSONObject, "uuid", c0640a.agn);
         }
-        int i6 = c0636a.LS;
+        int i6 = c0640a.LS;
         if (i6 != 0) {
             com.kwad.sdk.utils.r.putValue(jSONObject, "screenWidth", i6);
         }
-        int i7 = c0636a.LT;
+        int i7 = c0640a.LT;
         if (i7 != 0) {
             com.kwad.sdk.utils.r.putValue(jSONObject, "screenHeight", i7);
         }
-        String str18 = c0636a.VB;
+        String str18 = c0640a.VB;
         if (str18 != null && !str18.equals("")) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, "imei", c0636a.VB);
+            com.kwad.sdk.utils.r.putValue(jSONObject, "imei", c0640a.VB);
         }
-        String str19 = c0636a.VC;
+        String str19 = c0640a.VC;
         if (str19 != null && !str19.equals("")) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, "oaid", c0636a.VC);
+            com.kwad.sdk.utils.r.putValue(jSONObject, "oaid", c0640a.VC);
         }
-        String str20 = c0636a.acv;
+        String str20 = c0640a.acv;
         if (str20 != null && !str20.equals("")) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, "androidId", c0636a.acv);
+            com.kwad.sdk.utils.r.putValue(jSONObject, "androidId", c0640a.acv);
         }
-        String str21 = c0636a.acO;
+        String str21 = c0640a.acO;
         if (str21 != null && !str21.equals("")) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, "mac", c0636a.acO);
+            com.kwad.sdk.utils.r.putValue(jSONObject, "mac", c0640a.acO);
         }
-        int i8 = c0636a.LU;
+        int i8 = c0640a.LU;
         if (i8 != 0) {
             com.kwad.sdk.utils.r.putValue(jSONObject, "statusBarHeight", i8);
         }
-        int i9 = c0636a.LV;
+        int i9 = c0640a.LV;
         if (i9 != 0) {
             com.kwad.sdk.utils.r.putValue(jSONObject, "titleBarHeight", i9);
         }
@@ -236,13 +236,13 @@ public final class cm implements com.kwad.sdk.core.d<a.C0636a> {
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ void a(a.C0636a c0636a, JSONObject jSONObject) {
-        a2(c0636a, jSONObject);
+    public final /* bridge */ /* synthetic */ void a(a.C0640a c0640a, JSONObject jSONObject) {
+        a2(c0640a, jSONObject);
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ JSONObject b(a.C0636a c0636a, JSONObject jSONObject) {
-        return b2(c0636a, jSONObject);
+    public final /* bridge */ /* synthetic */ JSONObject b(a.C0640a c0640a, JSONObject jSONObject) {
+        return b2(c0640a, jSONObject);
     }
 }

@@ -23,18 +23,18 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
     public static a d;
     public transient /* synthetic */ FieldHolder $fh;
-    public C0179a a;
+    public C0181a a;
     public SQLiteDatabase b;
     public Context c;
 
     /* renamed from: com.baidu.sofire.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0179a extends SQLiteOpenHelper {
+    public class C0181a extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0179a(a aVar, Context context) {
+        public C0181a(a aVar, Context context) {
             super(context, "d.db", (SQLiteDatabase.CursorFactory) null, 3);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -93,7 +93,7 @@ public class a {
             }
         }
         this.c = context;
-        this.a = new C0179a(this, context);
+        this.a = new C0181a(this, context);
         a();
     }
 
@@ -219,16 +219,16 @@ public class a {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, SGET, INVOKE, SGET] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x018c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x018f, code lost:
         if (r3 != null) goto L30;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x0193, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x0196, code lost:
         if (r3 == null) goto L28;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x0195, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x0198, code lost:
         r3.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x0199, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x019c, code lost:
         r0 = com.baidu.sofire.a.b.a;
      */
     /*
@@ -282,18 +282,18 @@ public class a {
                             arrayList.add(aVar);
                         }
                     }
-                } catch (Exception unused2) {
-                    int i4 = b.a;
-                }
-            } catch (Throwable th) {
-                if (cursor != null) {
-                    try {
-                        cursor.close();
-                    } catch (Exception unused3) {
-                        int i5 = b.a;
+                } catch (Throwable th) {
+                    if (cursor != null) {
+                        try {
+                            cursor.close();
+                        } catch (Exception unused2) {
+                            int i4 = b.a;
+                        }
                     }
+                    throw th;
                 }
-                throw th;
+            } catch (Exception unused3) {
+                int i5 = b.a;
             }
         } else {
             return (List) invokeI.objValue;
@@ -302,16 +302,16 @@ public class a {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, SGET, INVOKE, SGET] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x0137, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x0139, code lost:
         if (r14 != null) goto L27;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:28:0x013e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:28:0x0140, code lost:
         if (r14 == null) goto L25;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x0140, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x0142, code lost:
         r14.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x0144, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x0146, code lost:
         r14 = com.baidu.sofire.a.b.a;
      */
     /*

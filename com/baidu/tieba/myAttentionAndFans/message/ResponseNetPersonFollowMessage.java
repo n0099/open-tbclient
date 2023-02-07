@@ -5,11 +5,11 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.ef;
+import com.baidu.tieba.az4;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
+import com.baidu.tieba.i05;
+import com.baidu.tieba.jf;
 import com.baidu.tieba.myAttentionAndFans.PersonListModel;
-import com.baidu.tieba.nu4;
-import com.baidu.tieba.vv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ import org.json.JSONObject;
 public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nu4 data;
+    public az4 data;
     public int mErrCode;
     public String mErrMsg;
     public PersonListModel mModel;
@@ -63,8 +63,8 @@ public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
                 BdUniqueId tag = ((HttpMessage) getOrginalMessage()).getTag();
                 z = (tag == null || !tag.equals(PersonListModel.FOLLOWME)) ? false : false;
                 String str2 = new String(bArr);
-                vv4.d();
-                ef<String> e = vv4.e("tb.my_pages");
+                i05.d();
+                jf<String> e = i05.e("tb.my_pages");
                 if (e != null) {
                     if (z) {
                         str = "personal_followme";
@@ -86,20 +86,20 @@ public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
             if (statusCode == 200 && error == 0) {
                 this.mErrCode = jSONObject.optInt("error_code");
                 this.mErrMsg = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
-                nu4 nu4Var = new nu4();
-                this.data = nu4Var;
-                nu4Var.c(jSONObject);
+                az4 az4Var = new az4();
+                this.data = az4Var;
+                az4Var.c(jSONObject);
             }
         }
     }
 
-    public nu4 getData() {
+    public az4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.data;
         }
-        return (nu4) invokeV.objValue;
+        return (az4) invokeV.objValue;
     }
 
     public String getErrMsg() {

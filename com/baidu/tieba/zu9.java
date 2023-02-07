@@ -1,72 +1,43 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Method;
 /* loaded from: classes7.dex */
 public class zu9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int a;
-    public static final Method b;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948372587, "Lcom/baidu/tieba/zu9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948372587, "Lcom/baidu/tieba/zu9;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948372587, "Lcom/baidu/tieba/zu9;")) == null) {
+            return;
         }
-        try {
-            a = ((Integer) Canvas.class.getField("MATRIX_SAVE_FLAG").get(null)).intValue();
-            b = Canvas.class.getMethod("save", Integer.TYPE);
-        } catch (Throwable th) {
-            b(th);
-            throw null;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948372587, "Lcom/baidu/tieba/zu9;");
         }
     }
 
-    public static void a(Canvas canvas, int i) {
+    public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65537, null, canvas, i) == null) {
-            try {
-                b.invoke(canvas, Integer.valueOf(i));
-            } catch (Throwable th) {
-                b(th);
-                throw null;
-            }
+        if ((interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) && a) {
+            Log.d(str, "-----------------" + str2);
         }
     }
 
-    public static RuntimeException b(Throwable th) {
-        InterceptResult invokeL;
+    public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, th)) == null) {
-            if (th == null) {
-                throw new NullPointerException("t");
-            }
-            c(th);
-            throw null;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && a) {
+            Log.d("muxer_publish_progress", str + "---" + str2);
         }
-        return (RuntimeException) invokeL.objValue;
-    }
-
-    public static <T extends Throwable> T c(Throwable th) throws Throwable {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, th)) == null) {
-            throw th;
-        }
-        return (T) invokeL.objValue;
     }
 }

@@ -17,7 +17,6 @@ import com.baidu.ar.recorder.b.d;
 import com.baidu.ar.recorder.b.e;
 import com.baidu.platform.comapi.map.NodeType;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.itemdata.RecallSysMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -99,7 +98,7 @@ public class MovieRecorder implements b {
                         }
                         this.ux.uj = false;
                         break;
-                    case RecallSysMsg.MSG_TYPE /* 7002 */:
+                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_RECALL_MSG /* 7002 */:
                         if (this.ux.tX != null) {
                             this.ux.tX.onRecorderProcess(((Integer) message.obj).intValue());
                             break;
@@ -617,7 +616,7 @@ public class MovieRecorder implements b {
             if (u <= 0 || (aVar = this.ul) == null) {
                 return;
             }
-            aVar.sendMessage(aVar.obtainMessage(RecallSysMsg.MSG_TYPE, Integer.valueOf(u)));
+            aVar.sendMessage(aVar.obtainMessage(TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_RECALL_MSG, Integer.valueOf(u)));
         }
     }
 

@@ -1,168 +1,181 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.FileHelper;
+import android.app.Activity;
+import android.content.Context;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.pay.IPayCallback;
+import com.baidu.searchbox.live.interfaces.pay.IPayChannel;
+import com.baidu.searchbox.live.interfaces.pay.PayChannelType;
+import com.baidu.searchbox.live.interfaces.pay.YYPayResultService;
+import com.baidu.searchbox.live.interfaces.service.PayChannelService;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tieba.wallet.ITiebaPay;
+import com.baidu.tieba.wallet.ITiebaPayCallback;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import org.json.JSONArray;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes3.dex */
-public class az7 {
+public class az7 implements PayChannelService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ITiebaPay a;
 
-    public static void a(String str) {
+    @Override // com.baidu.searchbox.live.interfaces.service.PayChannelService
+    public YYPayResultService buildYYPayResChannel() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65536, null, str) != null) || StringUtils.isNull(str)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
         }
-        File file = new File(str);
-        if (!file.exists()) {
-            file.mkdirs();
-        }
+        return (YYPayResultService) invokeV.objValue;
     }
 
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, str) != null) || StringUtils.isNull(str)) {
-            return;
-        }
-        FileHelper.deleteFileOrDir(new File(cz7.e + cz7.a + str));
-    }
+    /* loaded from: classes3.dex */
+    public class a implements IPayChannel {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ az7 a;
 
-    public static void c(String str, JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, str, jSONArray) == null) && !StringUtils.isNull(str) && jSONArray != null) {
-            try {
-                JSONArray jSONArray2 = new JSONArray(str);
-                for (int i = 0; i < jSONArray2.length(); i++) {
-                    jSONArray.put(jSONArray2.optJSONObject(i));
+        @Override // com.baidu.searchbox.live.interfaces.pay.IPayChannel
+        public void onPayResult(String str, String str2, String str3, Context context, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, str3, context, Boolean.valueOf(z)}) == null) {
+            }
+        }
+
+        @Override // com.baidu.searchbox.live.interfaces.pay.IPayChannel
+        public void release() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            }
+        }
+
+        /* renamed from: com.baidu.tieba.az7$a$a  reason: collision with other inner class name */
+        /* loaded from: classes3.dex */
+        public class C0228a implements ITiebaPayCallback {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ IPayCallback a;
+
+            public C0228a(a aVar, IPayCallback iPayCallback) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, iPayCallback};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
+                this.a = iPayCallback;
+            }
+
+            @Override // com.baidu.tieba.wallet.ITiebaPayCallback
+            public void onPayResult(int i, String str) {
+                IPayCallback iPayCallback;
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) && (iPayCallback = this.a) != null) {
+                    iPayCallback.onPayResult(i, str);
+                }
+            }
+        }
+
+        public a(az7 az7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {az7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = az7Var;
+        }
+
+        @Override // com.baidu.searchbox.live.interfaces.pay.IPayChannel
+        public PayChannelType getType() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return PayChannelType.WALLET;
+            }
+            return (PayChannelType) invokeV.objValue;
+        }
+
+        @Override // com.baidu.searchbox.live.interfaces.pay.IPayChannel
+        public String getUaForFrontPay() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return cq5.b() + " (Baidu; P1 " + gj.k() + SmallTailInfo.EMOTION_SUFFIX;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.searchbox.live.interfaces.pay.IPayChannel
+        public void pay(Activity activity, HashMap<String, String> hashMap, IPayCallback iPayCallback) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLLL(1048579, this, activity, hashMap, iPayCallback) == null) && hashMap != null && !hashMap.isEmpty()) {
+                this.a.c();
+                if (this.a.a != null) {
+                    this.a.a.pay(hashMap.remove("channel"), hashMap, new C0228a(this, iPayCallback));
+                } else if (iPayCallback != null) {
+                    iPayCallback.onPayResult(2, null);
+                }
             }
         }
     }
 
-    public static JSONArray d(String str) {
+    public az7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+    }
+
+    public final void c() {
+        CustomResponsedMessage runTask;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a == null && (runTask = MessageManager.getInstance().runTask(2921432, ITiebaPay.class)) != null) {
+            this.a = (ITiebaPay) runTask.getData();
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.PayChannelService
+    public IPayChannel buildPayChannel(PayChannelType payChannelType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            if (StringUtils.isNull(str)) {
-                return jSONArray;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, payChannelType)) == null) {
+            if (payChannelType == PayChannelType.WALLET) {
+                return new a(this);
             }
-            File file = new File(str);
-            if (!file.exists()) {
-                return jSONArray;
-            }
-            String e = e(file);
-            String[] split = e.split("\n");
-            if (split.length > 0) {
-                for (String str2 : split) {
-                    c(str2, jSONArray);
-                }
-            } else {
-                c(e, jSONArray);
-            }
-            FileHelper.deleteFile(file);
-            return jSONArray;
+            return null;
         }
-        return (JSONArray) invokeL.objValue;
-    }
-
-    public static String e(File file) {
-        InterceptResult invokeL;
-        FileInputStream fileInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) {
-            StringBuilder sb = new StringBuilder();
-            FileInputStream fileInputStream2 = null;
-            try {
-                try {
-                    fileInputStream = new FileInputStream(file);
-                } catch (Exception e) {
-                    e = e;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                byte[] bArr = new byte[1024];
-                while (true) {
-                    int read = fileInputStream.read(bArr);
-                    if (read == -1) {
-                        break;
-                    }
-                    sb.append(new String(bArr, 0, read));
-                }
-                xg.c(fileInputStream);
-            } catch (Exception e2) {
-                e = e2;
-                fileInputStream2 = fileInputStream;
-                e.printStackTrace();
-                xg.c(fileInputStream2);
-                return sb.toString();
-            } catch (Throwable th2) {
-                th = th2;
-                fileInputStream2 = fileInputStream;
-                xg.c(fileInputStream2);
-                throw th;
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean f(File file, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, file, str)) == null) {
-            return g(file, str, true);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean g(File file, String str, boolean z) {
-        InterceptResult invokeLLZ;
-        FileOutputStream fileOutputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65542, null, file, str, z)) == null) {
-            FileOutputStream fileOutputStream2 = null;
-            try {
-                try {
-                    if (!file.exists()) {
-                        file.createNewFile();
-                    }
-                    fileOutputStream = new FileOutputStream(file, z);
-                } catch (Exception e) {
-                    e = e;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                fileOutputStream.write(str.getBytes());
-                fileOutputStream.flush();
-                xg.d(fileOutputStream);
-                return true;
-            } catch (Exception e2) {
-                e = e2;
-                fileOutputStream2 = fileOutputStream;
-                e.printStackTrace();
-                xg.d(fileOutputStream2);
-                return false;
-            } catch (Throwable th2) {
-                th = th2;
-                fileOutputStream2 = fileOutputStream;
-                xg.d(fileOutputStream2);
-                throw th;
-            }
-        }
-        return invokeLLZ.booleanValue;
+        return (IPayChannel) invokeL.objValue;
     }
 }

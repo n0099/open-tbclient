@@ -3,7 +3,7 @@ package com.badlogic.gdx.math;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tieba.v7;
+import com.baidu.tieba.a8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -410,7 +410,7 @@ public class Quaternion implements Serializable {
                 return false;
             }
             Quaternion quaternion = (Quaternion) obj;
-            if (v7.b(this.w) == v7.b(quaternion.w) && v7.b(this.x) == v7.b(quaternion.x) && v7.b(this.y) == v7.b(quaternion.y) && v7.b(this.z) == v7.b(quaternion.z)) {
+            if (a8.b(this.w) == a8.b(quaternion.w) && a8.b(this.x) == a8.b(quaternion.x) && a8.b(this.y) == a8.b(quaternion.y) && a8.b(this.z) == a8.b(quaternion.z)) {
                 return true;
             }
             return false;
@@ -655,7 +655,7 @@ public class Quaternion implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            return ((((((v7.b(this.w) + 31) * 31) + v7.b(this.x)) * 31) + v7.b(this.y)) * 31) + v7.b(this.z);
+            return ((((((a8.b(this.w) + 31) * 31) + a8.b(this.x)) * 31) + a8.b(this.y)) * 31) + a8.b(this.z);
         }
         return invokeV.intValue;
     }

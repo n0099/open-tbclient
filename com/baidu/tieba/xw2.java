@@ -1,77 +1,245 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.database.Cursor;
+import android.media.MediaMetadataRetriever;
+import android.os.Handler;
+import android.os.Message;
+import android.provider.MediaStore;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.media.chooser.model.ImageModel;
+import com.baidu.swan.apps.media.chooser.model.MediaModel;
+import com.baidu.swan.apps.media.chooser.model.VideoModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class xw2 {
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+/* loaded from: classes7.dex */
+public class xw2 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile xw2 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
+    public ArrayList<ww2> a;
+    public ArrayList<MediaModel> b;
     public String c;
-    public eb1 d;
+    public Handler d;
 
-    public static int a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            if (i != -2) {
-                return i != 0 ? 6 : 0;
-            }
-            return 2;
-        }
-        return invokeI.intValue;
-    }
-
-    public xw2() {
+    public xw2(String str, Handler handler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, handler};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList<>();
+        this.b = new ArrayList<>();
+        this.c = str;
+        this.d = handler;
     }
 
-    public static xw2 b() {
-        InterceptResult invokeV;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (e == null) {
-                synchronized (xw2.class) {
-                    if (e == null) {
-                        e = new xw2();
-                    }
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || TextUtils.equals(this.c, "video")) {
+            return;
+        }
+        Cursor cursor = null;
+        try {
+            try {
+                cursor = AppRuntime.getAppContext().getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, null, null, null, "date_added DESC");
+            } catch (Exception e) {
+                if (lw2.a) {
+                    e.printStackTrace();
                 }
             }
-            return e;
+            if (cursor == null) {
+                return;
+            }
+            while (cursor.moveToNext()) {
+                String string = cursor.getString(cursor.getColumnIndex("_data"));
+                long j = cursor.getLong(cursor.getColumnIndexOrThrow("date_added"));
+                long j2 = cursor.getLong(cursor.getColumnIndexOrThrow("_size"));
+                File file = new File(string);
+                if (file.exists() && (lw2.d || !mw2.d(string))) {
+                    ImageModel imageModel = new ImageModel(string);
+                    imageModel.setAddDate(j);
+                    imageModel.setSize(j2);
+                    d(file, imageModel);
+                }
+            }
+        } finally {
+            ap4.d(null);
         }
-        return (xw2) invokeV.objValue;
     }
 
-    @NonNull
-    public static JSONObject c(String str) {
-        InterceptResult invokeL;
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x00a0, code lost:
+        if (r11 != null) goto L30;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void b() {
+        Cursor cursor;
+        Throwable th;
+        Exception e;
+        MediaMetadataRetriever mediaMetadataRetriever;
+        Throwable th2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("finalUrl", str);
-            } catch (JSONException unused) {
-            }
-            return jSONObject;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || TextUtils.equals(this.c, "Image")) {
+            return;
         }
-        return (JSONObject) invokeL.objValue;
+        try {
+            cursor = AppRuntime.getAppContext().getContentResolver().query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, null, null, null, "date_added DESC");
+        } catch (Exception e2) {
+            cursor = null;
+            e = e2;
+        } catch (Throwable th3) {
+            cursor = null;
+            th = th3;
+            ap4.d(cursor);
+            throw th;
+        }
+        if (cursor == null) {
+            ap4.d(cursor);
+            return;
+        }
+        while (cursor.moveToNext()) {
+            try {
+                try {
+                    String string = cursor.getString(cursor.getColumnIndexOrThrow("_data"));
+                    long j = cursor.getLong(cursor.getColumnIndexOrThrow("date_added"));
+                    long j2 = cursor.getInt(cursor.getColumnIndexOrThrow("duration"));
+                    long j3 = cursor.getLong(cursor.getColumnIndexOrThrow("_size"));
+                    int i = cursor.getInt(cursor.getColumnIndexOrThrow("width"));
+                    int i2 = cursor.getInt(cursor.getColumnIndexOrThrow("height"));
+                    if (i <= 0 || i2 <= 0) {
+                        try {
+                            mediaMetadataRetriever = new MediaMetadataRetriever();
+                            try {
+                                try {
+                                    mediaMetadataRetriever.setDataSource(string);
+                                    String extractMetadata = mediaMetadataRetriever.extractMetadata(18);
+                                    String extractMetadata2 = mediaMetadataRetriever.extractMetadata(19);
+                                    i = Integer.parseInt(extractMetadata);
+                                    i2 = Integer.parseInt(extractMetadata2);
+                                } catch (Throwable th4) {
+                                    th2 = th4;
+                                    if (mediaMetadataRetriever != null) {
+                                        mediaMetadataRetriever.release();
+                                    }
+                                    throw th2;
+                                }
+                            } catch (Exception e3) {
+                                e = e3;
+                                if (lw2.a) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        } catch (Exception e4) {
+                            e = e4;
+                            mediaMetadataRetriever = null;
+                        } catch (Throwable th5) {
+                            mediaMetadataRetriever = null;
+                            th2 = th5;
+                        }
+                        mediaMetadataRetriever.release();
+                    }
+                    File file = new File(string);
+                    if (file.exists()) {
+                        VideoModel videoModel = new VideoModel(string);
+                        videoModel.setAddDate(j);
+                        videoModel.setDuration(j2);
+                        videoModel.setSize(j3);
+                        videoModel.setWidth(i);
+                        videoModel.setHeight(i2);
+                        d(file, videoModel);
+                    }
+                } catch (Exception e5) {
+                    e = e5;
+                    if (lw2.a) {
+                        e.printStackTrace();
+                    }
+                    ap4.d(cursor);
+                }
+            } catch (Throwable th6) {
+                th = th6;
+                ap4.d(cursor);
+                throw th;
+            }
+        }
+        ap4.d(cursor);
+    }
+
+    public final void c(ArrayList<ww2> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
+            Iterator<ww2> it = arrayList.iterator();
+            while (it.hasNext()) {
+                ww2 next = it.next();
+                next.i(new File(next.b()).lastModified());
+            }
+            Collections.sort(arrayList);
+        }
+    }
+
+    public final void d(File file, MediaModel mediaModel) {
+        String name;
+        String path;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, file, mediaModel) == null) {
+            if (file.getParentFile() != null) {
+                name = file.getParentFile().getName();
+                path = file.getParent();
+            } else {
+                name = file.getName();
+                path = file.getPath();
+            }
+            ww2 ww2Var = new ww2();
+            ww2Var.h(name);
+            ww2Var.g(path);
+            int indexOf = this.a.indexOf(ww2Var);
+            if (indexOf >= 0) {
+                this.a.get(indexOf).a(mediaModel);
+            } else {
+                ww2Var.a(mediaModel);
+                this.a.add(ww2Var);
+            }
+            this.b.add(mediaModel);
+        }
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            a();
+            b();
+            c(this.a);
+            ww2 ww2Var = new ww2();
+            ww2Var.h(mw2.b(AppRuntime.getAppContext(), this.c));
+            ww2Var.d = this.b;
+            this.a.add(0, ww2Var);
+            Iterator<ww2> it = this.a.iterator();
+            while (it.hasNext()) {
+                Collections.sort(it.next().f());
+            }
+            Handler handler = this.d;
+            if (handler != null) {
+                Message obtainMessage = handler.obtainMessage(0);
+                obtainMessage.obj = this.a;
+                this.d.sendMessage(obtainMessage);
+            }
+        }
     }
 }

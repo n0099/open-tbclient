@@ -1,53 +1,167 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.graphics.drawable.Drawable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListAdapter;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.imMessageCenter.chatgroup.data.AtInfo;
-import com.baidu.tieba.imMessageCenter.chatgroup.data.ChatNewMessage;
-import com.baidu.tieba.imMessageCenter.chatgroup.data.ChatRoomInfo;
-import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.AtUserInfo;
-import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseMsg;
-import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseSysMsg;
-import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.itemdata.TextMsg;
+import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.NoDataView;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tieba.im.chat.officialBar.OfficialBarTipActivity;
+import com.baidu.tieba.im.chat.officialBar.OfficialBarTipListAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.TreeSet;
 /* loaded from: classes4.dex */
-public class fk7 {
+public class fk7 extends v9<OfficialBarTipActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<Long, ChatRoomInfo> a;
-    public Map<Long, ChatRoomInfo> b;
-    public long c;
-    public Context d;
-    public Runnable e;
-    public CustomMessageListener f;
+    public BdListView a;
+    public OfficialBarTipListAdapter b;
+    public NavigationBar c;
+    public NoDataView d;
+    public NoNetworkView e;
+    public OfficialBarTipActivity f;
+    public ViewGroup g;
+    public boolean h;
+    public RelativeLayout i;
+    public TextView j;
+    public boolean k;
+    public TextView l;
+    public View m;
+    public TextView n;
+    public TextView o;
 
     /* loaded from: classes4.dex */
-    public class a implements Runnable {
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ OfficialBarTipActivity a;
+
+        public a(fk7 fk7Var, OfficialBarTipActivity officialBarTipActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fk7Var, officialBarTipActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = officialBarTipActivity;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.finish();
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ OfficialBarTipActivity a;
+        public final /* synthetic */ fk7 b;
+
+        public b(fk7 fk7Var, OfficialBarTipActivity officialBarTipActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fk7Var, officialBarTipActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = fk7Var;
+            this.a = officialBarTipActivity;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (!this.b.h) {
+                    if (this.b.f.O1()) {
+                        this.b.n.setVisibility(0);
+                    }
+                    this.b.v(this.a, true);
+                    return;
+                }
+                this.b.v(this.a, false);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ OfficialBarTipActivity a;
+        public final /* synthetic */ fk7 b;
+
+        public c(fk7 fk7Var, OfficialBarTipActivity officialBarTipActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fk7Var, officialBarTipActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = fk7Var;
+            this.a = officialBarTipActivity;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.M1();
+                this.b.v(this.a, false);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ fk7 a;
 
-        public a(fk7 fk7Var) {
+        public d(fk7 fk7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -65,343 +179,250 @@ public class fk7 {
             this.a = fk7Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.m();
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (!this.a.k) {
+                    this.a.x(true);
+                } else {
+                    this.a.x(false);
+                }
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b extends CustomMessageListener {
+    public class e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fk7 a;
+        public final /* synthetic */ OfficialBarTipActivity a;
+        public final /* synthetic */ fk7 b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(fk7 fk7Var, int i) {
-            super(i);
+        public e(fk7 fk7Var, OfficialBarTipActivity officialBarTipActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fk7Var, Integer.valueOf(i)};
+                Object[] objArr = {fk7Var, officialBarTipActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = fk7Var;
+            this.b = fk7Var;
+            this.a = officialBarTipActivity;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            cm7 cm7Var;
-            BaseMsg baseMsg;
-            ChatRoomInfo q;
-            String showContent;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921773 || !(customResponsedMessage.getData() instanceof cm7) || (cm7Var = (cm7) customResponsedMessage.getData()) == null || (baseMsg = cm7Var.a) == null || (q = this.a.q(baseMsg, cm7Var.b, 0)) == null) {
-                return;
-            }
-            this.a.o(q);
-            ChatRoomInfo chatRoomInfo = (ChatRoomInfo) this.a.b.get(Long.valueOf(q.getRoomId()));
-            if (chatRoomInfo != null && chatRoomInfo.getNewMessage() != null) {
-                chatRoomInfo.setAtInfo(null);
-                BaseMsg baseMsg2 = cm7Var.a;
-                if (baseMsg2 instanceof BaseSysMsg) {
-                    BaseSysMsg baseSysMsg = (BaseSysMsg) baseMsg2;
-                    chatRoomInfo.getNewMessage().setFromName(null);
-                    ChatNewMessage newMessage = chatRoomInfo.getNewMessage();
-                    if (baseSysMsg.getMsgConf() == null) {
-                        showContent = "";
-                    } else {
-                        showContent = baseSysMsg.getMsgConf().getShowContent();
-                    }
-                    newMessage.setContent(showContent);
-                }
-                HashMap hashMap = new HashMap();
-                hashMap.put(Long.valueOf(chatRoomInfo.getRoomId()), chatRoomInfo);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921766, hashMap));
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.b.f.Z1();
+                this.b.v(this.a, false);
             }
         }
     }
 
-    public fk7(Context context) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fk7(OfficialBarTipActivity officialBarTipActivity) {
+        super(officialBarTipActivity.getPageContext());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {officialBarTipActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((x9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap();
-        this.b = new HashMap();
-        this.e = new a(this);
-        this.f = new b(this, 2921773);
-        this.d = context;
+        this.h = false;
+        this.i = null;
+        this.k = false;
+        officialBarTipActivity.setContentView(R.layout.officialbar_msg_activity);
+        this.f = officialBarTipActivity;
+        s(officialBarTipActivity);
+        t(officialBarTipActivity);
+        r(officialBarTipActivity);
     }
 
-    public void g(List<ChatRoomInfo> list) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.b.clear();
-            for (ChatRoomInfo chatRoomInfo : list) {
-                this.b.put(Long.valueOf(chatRoomInfo.getRoomId()), chatRoomInfo);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            qv4 layoutMode = this.f.getLayoutMode();
+            boolean z = true;
+            if (i != 1) {
+                z = false;
             }
-            if (MessageManager.getInstance().hasListener(2921766)) {
-                MessageManager.getInstance().unRegisterListener(this.f);
+            layoutMode.l(z);
+            this.f.getLayoutMode().k(this.g);
+            this.c.onChangeSkinType(this.f.getPageContext(), i);
+            SkinManager.setNavbarTitleColor(this.o, R.color.navi_op_text, R.color.navi_op_text_skin);
+            SkinManager.setNavbarTitleColor(this.n, R.color.navi_op_text, R.color.navi_op_text_skin);
+            NoDataView noDataView = this.d;
+            if (noDataView != null) {
+                noDataView.f(this.f.getPageContext(), i);
             }
-            MessageManager.getInstance().registerListener(this.f);
+            NoNetworkView noNetworkView = this.e;
+            if (noNetworkView != null) {
+                noNetworkView.d(this.f.getPageContext(), i);
+            }
+            this.b.notifyDataSetChanged();
         }
     }
 
-    public final List<ChatMsg> e(@NonNull TreeSet<ChatMsg> treeSet) {
-        InterceptResult invokeL;
+    public void u(List<ImMessageCenterShowItemData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, treeSet)) == null) {
-            ArrayList arrayList = new ArrayList();
-            while (true) {
-                ChatMsg pollLast = treeSet.pollLast();
-                if (pollLast != null) {
-                    if (pollLast.getMsgType() == 10000) {
-                        if (fm7.b(pollLast)) {
-                            arrayList.add(pollLast);
-                        }
-                    } else {
-                        arrayList.add(pollLast);
-                    }
-                } else {
-                    return arrayList;
-                }
+        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
+            this.b.t(list);
+            if (list != null && list.size() <= 0) {
+                this.o.setVisibility(8);
             }
-        } else {
-            return (List) invokeL.objValue;
         }
     }
 
-    @NonNull
-    public List<Long> f() {
+    public void w(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            if (z) {
+                this.l.setAlpha(1.0f);
+                this.l.setEnabled(true);
+                return;
+            }
+            this.l.setAlpha(0.3f);
+            this.l.setEnabled(false);
+        }
+    }
+
+    public OfficialBarTipListAdapter p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return new ArrayList(this.b.keySet());
+            return this.b;
         }
-        return (List) invokeV.objValue;
+        return (OfficialBarTipListAdapter) invokeV.objValue;
     }
 
-    public void k() {
+    public BdListView q() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (BdListView) invokeV.objValue;
+    }
+
+    public final void r(OfficialBarTipActivity officialBarTipActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, officialBarTipActivity) == null) {
+            RelativeLayout relativeLayout = (RelativeLayout) officialBarTipActivity.findViewById(R.id.tip_footer);
+            this.i = relativeLayout;
+            TextView textView = (TextView) relativeLayout.findViewById(R.id.delete_txt);
+            this.l = textView;
+            textView.setOnClickListener(new c(this, officialBarTipActivity));
+            this.j = (TextView) this.i.findViewById(R.id.select_all_txt);
+            int g = ej.g(this.f.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070225);
+            Drawable drawable = SkinManager.getDrawable(R.drawable.btn_bgb_choice_n);
+            drawable.setBounds(0, 0, g, g);
+            this.j.setText(this.f.getPageContext().getString(R.string.select_all));
+            this.j.setCompoundDrawables(drawable, null, null, null);
+            this.j.setOnClickListener(new d(this));
         }
     }
 
-    public void h(long j, @NonNull TreeSet<ChatMsg> treeSet) {
-        ChatRoomInfo chatRoomInfo;
-        ChatMsg next;
+    public void x(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJL(1048579, this, j, treeSet) == null) && !treeSet.isEmpty() && (chatRoomInfo = this.b.get(Long.valueOf(j))) != null) {
-            List<ChatMsg> e = e(treeSet);
-            if (ListUtils.isEmpty(e)) {
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            int g = ej.g(this.f.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070225);
+            if (z) {
+                Drawable drawable = SkinManager.getDrawable(R.drawable.btn_bgb_choice_s);
+                drawable.setBounds(0, 0, g, g);
+                this.j.setText(this.f.getPageContext().getString(R.string.cancel_select_all));
+                this.j.setCompoundDrawables(drawable, null, null, null);
+                w(true);
+                this.k = true;
+                this.f.b2(true);
                 return;
             }
-            int i = 0;
-            ChatMsg chatMsg = e.get(0);
-            if (chatMsg == null) {
-                return;
-            }
-            chatMsg.setMsgTime(fm7.e(chatMsg));
-            if (chatMsg.getMsgTime() <= chatRoomInfo.getTimestamp()) {
-                return;
-            }
-            Iterator<ChatMsg> it = treeSet.iterator();
-            while (it.hasNext() && ((next = it.next()) == null || next.getMsgTime() <= chatRoomInfo.getTimestamp())) {
-                i++;
-            }
-            ChatRoomInfo p = p(chatMsg, j, e.size() - i);
-            if (p == null) {
-                return;
-            }
-            i(p);
-            j();
+            Drawable drawable2 = SkinManager.getDrawable(R.drawable.btn_bgb_choice_n);
+            drawable2.setBounds(0, 0, g, g);
+            this.j.setText(this.f.getPageContext().getString(R.string.select_all));
+            this.j.setCompoundDrawables(drawable2, null, null, null);
+            w(false);
+            this.k = false;
+            this.f.b2(false);
         }
     }
 
-    public final void i(@NonNull ChatRoomInfo chatRoomInfo) {
+    public final void s(OfficialBarTipActivity officialBarTipActivity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, chatRoomInfo) == null) {
-            if (this.a.get(Long.valueOf(chatRoomInfo.getRoomId())) != null) {
-                o(chatRoomInfo);
-                this.a.put(Long.valueOf(chatRoomInfo.getRoomId()), this.b.get(Long.valueOf(chatRoomInfo.getRoomId())));
-            } else if (this.b.containsKey(Long.valueOf(chatRoomInfo.getRoomId()))) {
-                o(chatRoomInfo);
-                this.a.put(Long.valueOf(chatRoomInfo.getRoomId()), this.b.get(Long.valueOf(chatRoomInfo.getRoomId())));
-            }
+        if (interceptable == null || interceptable.invokeL(1048580, this, officialBarTipActivity) == null) {
+            NavigationBar navigationBar = (NavigationBar) officialBarTipActivity.findViewById(R.id.view_navigation_bar);
+            this.c = navigationBar;
+            navigationBar.setCenterTextTitle(officialBarTipActivity.getPageContext().getString(R.string.subscribe_forum_list));
+            this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this, officialBarTipActivity));
+            this.c.showBottomLine();
+            ViewGroup viewGroup = (ViewGroup) officialBarTipActivity.findViewById(R.id.obfuscated_res_0x7f091d75);
+            this.g = viewGroup;
+            this.e = (NoNetworkView) viewGroup.findViewById(R.id.no_network_view);
+            View inflate = LayoutInflater.from(this.f.getBaseContext()).inflate(R.layout.obfuscated_res_0x7f0d03cd, (ViewGroup) null);
+            this.m = inflate;
+            inflate.setVisibility(8);
+            TextView textView = (TextView) this.m.findViewById(R.id.obfuscated_res_0x7f09026d);
+            this.n = textView;
+            textView.setVisibility(8);
+            TextView textView2 = (TextView) this.m.findViewById(R.id.obfuscated_res_0x7f0908b4);
+            this.o = textView2;
+            textView2.setVisibility(0);
+            this.m = this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.m, (View.OnClickListener) null);
+            this.o.setOnClickListener(new b(this, officialBarTipActivity));
         }
     }
 
-    @Nullable
-    public AtInfo l(@NonNull BaseMsg baseMsg) {
-        InterceptResult invokeL;
+    public final void t(OfficialBarTipActivity officialBarTipActivity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, baseMsg)) == null) {
-            List<AtUserInfo> atUserInfoList = baseMsg.getAtUserInfoList();
-            if (atUserInfoList == null) {
-                return null;
-            }
-            AtInfo atInfo = new AtInfo();
-            for (AtUserInfo atUserInfo : atUserInfoList) {
-                if (atUserInfo.getAtType() == AtUserInfo.AtType.ALL) {
-                    atInfo.setAtAllMsgCount(atInfo.getAllMsgCount() + 1);
-                    atInfo.setAtCountAll(atInfo.getCountAll() + 1);
-                } else if (atUserInfo.getAtType() == AtUserInfo.AtType.USER && TbadkCoreApplication.getCurrentAccountId() == atUserInfo.getUid()) {
-                    atInfo.setAtSingleMsgCount(atInfo.getSingleMsgCount() + 1);
-                    atInfo.setAtCountAll(atInfo.getCountAll() + 1);
-                }
-            }
-            return atInfo;
-        }
-        return (AtInfo) invokeL.objValue;
-    }
-
-    public final void o(@NonNull ChatRoomInfo chatRoomInfo) {
-        ChatRoomInfo chatRoomInfo2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, chatRoomInfo) == null) && (chatRoomInfo2 = this.b.get(Long.valueOf(chatRoomInfo.getRoomId()))) != null) {
-            chatRoomInfo2.setUnreadNum(chatRoomInfo2.getUnreadNum() + chatRoomInfo.getUnreadNum());
-            chatRoomInfo2.setNewMessage(chatRoomInfo.getNewMessage());
-            if (chatRoomInfo2.getAtInfo() != null) {
-                if (chatRoomInfo.getAtInfo() != null) {
-                    AtInfo atInfo = chatRoomInfo2.getAtInfo();
-                    AtInfo atInfo2 = chatRoomInfo.getAtInfo();
-                    if (atInfo2 != null) {
-                        atInfo.setAtAllMsgCount(atInfo.getAllMsgCount() + atInfo2.getAllMsgCount());
-                        atInfo.setAtCountAll(atInfo.getCountAll() + atInfo2.getCountAll());
-                        atInfo.setAtSingleMsgCount(atInfo.getSingleMsgCount() + atInfo2.getSingleMsgCount());
-                        return;
-                    }
-                    return;
-                }
-                return;
-            }
-            chatRoomInfo2.setAtInfo(chatRoomInfo.getAtInfo());
+        if (interceptable == null || interceptable.invokeL(1048581, this, officialBarTipActivity) == null) {
+            this.a = (BdListView) officialBarTipActivity.findViewById(R.id.msg_list);
+            OfficialBarTipListAdapter officialBarTipListAdapter = new OfficialBarTipListAdapter(officialBarTipActivity);
+            this.b = officialBarTipListAdapter;
+            this.a.setAdapter((ListAdapter) officialBarTipListAdapter);
+            this.d = NoDataViewFactory.a(officialBarTipActivity.getPageContext().getPageActivity(), this.g, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0d93), null);
         }
     }
 
-    public void j() {
+    public final void v(OfficialBarTipActivity officialBarTipActivity, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            long chatGroupThreadHold = TbSingleton.getInstance().getChatGroupThreadHold();
-            long j = this.c;
-            if (j == 0) {
-                this.c = currentTimeMillis;
-            } else if (currentTimeMillis - j >= chatGroupThreadHold) {
-                this.c = currentTimeMillis;
-                chatGroupThreadHold = 0;
-            } else {
-                chatGroupThreadHold = currentTimeMillis - j;
-            }
-            bh.a().removeCallbacks(this.e);
-            bh.a().postDelayed(this.e, chatGroupThreadHold);
-        }
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (!this.a.isEmpty()) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921766, new HashMap(this.a)));
-            }
-            this.a.clear();
-        }
-    }
-
-    public void n(long j, int i) {
-        ChatRoomInfo chatRoomInfo;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) && (chatRoomInfo = this.b.get(Long.valueOf(j))) != null) {
-            chatRoomInfo.setUnreadNum(i);
-        }
-    }
-
-    @Nullable
-    public final ChatRoomInfo p(@NonNull ChatMsg chatMsg, long j, int i) {
-        InterceptResult invokeCommon;
-        BaseMsg c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{chatMsg, Long.valueOf(j), Integer.valueOf(i)})) == null) {
-            if (chatMsg.getMsgType() == 10000) {
-                c = fm7.d(chatMsg);
-            } else {
-                c = fm7.c(j, chatMsg);
-            }
-            return q(c, j, i);
-        }
-        return (ChatRoomInfo) invokeCommon.objValue;
-    }
-
-    public final ChatRoomInfo q(BaseMsg baseMsg, long j, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{baseMsg, Long.valueOf(j), Integer.valueOf(i)})) == null) {
-            if (baseMsg == null) {
-                return null;
-            }
-            long msgId = baseMsg.getSdkMsg().getMsgId();
-            long msgTime = baseMsg.getSdkMsg().getMsgTime();
-            ChatRoomInfo chatRoomInfo = new ChatRoomInfo();
-            chatRoomInfo.setRoomId(j);
-            ChatNewMessage chatNewMessage = new ChatNewMessage();
-            chatNewMessage.setMsgId(String.valueOf(msgId));
-            chatNewMessage.setMsgTime(String.valueOf(msgTime));
-            if (baseMsg instanceof TextMsg) {
-                chatNewMessage.setContent(((TextMsg) baseMsg).getText());
-                chatNewMessage.setFromName(baseMsg.getSdkMsg().getNickName());
-            } else if (baseMsg instanceof BaseSysMsg) {
-                BaseSysMsg baseSysMsg = (BaseSysMsg) baseMsg;
-                if (baseSysMsg.getMsgConf() != null) {
-                    if (baseSysMsg.getMsgConf().isVisible() && baseSysMsg.getMsgConf().getShowContent() != null) {
-                        chatNewMessage.setContent(baseSysMsg.getMsgConf().getShowContent());
-                    }
-                    if (!baseSysMsg.getMsgConf().isCountable() && i > 0) {
-                        i--;
-                    }
+        if (interceptable == null || interceptable.invokeLZ(1048583, this, officialBarTipActivity, z) == null) {
+            if (z) {
+                this.i.setVisibility(0);
+                this.b.v(true);
+                this.b.notifyDataSetChanged();
+                if (officialBarTipActivity.P1()) {
+                    w(true);
                 } else {
-                    chatNewMessage.setFromName(baseMsg.getSdkMsg().getNickName());
-                    if (baseMsg.getThumbnailText() != null) {
-                        chatNewMessage.setContent(baseMsg.getThumbnailText().toString());
-                    }
+                    w(false);
                 }
-            } else {
-                if (baseMsg.getThumbnailText() != null) {
-                    chatNewMessage.setContent(baseMsg.getThumbnailText().toString());
-                }
-                if (baseMsg.getSdkMsg() != null) {
-                    chatNewMessage.setFromName(baseMsg.getSdkMsg().getNickName());
-                }
+                this.o.setText(officialBarTipActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f038b));
+                this.n.setOnClickListener(new e(this, officialBarTipActivity));
+                this.h = true;
+                return;
             }
-            chatRoomInfo.setUnreadNum(i);
-            chatRoomInfo.setNewMessage(chatNewMessage);
-            chatRoomInfo.setAtInfo(l(baseMsg));
-            return chatRoomInfo;
+            this.i.setVisibility(8);
+            this.n.setVisibility(8);
+            this.b.v(false);
+            this.b.notifyDataSetChanged();
+            this.o.setText(officialBarTipActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f055b));
+            this.h = false;
         }
-        return (ChatRoomInfo) invokeCommon.objValue;
     }
 }

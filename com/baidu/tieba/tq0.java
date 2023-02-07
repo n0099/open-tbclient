@@ -1,223 +1,139 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.nadcore.model.ParseError;
+import com.baidu.platform.comapi.map.MapBundleKey;
+import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class tq0 {
+public final class tq0 {
     public static /* synthetic */ Interceptable $ic;
-    public static cr0 a;
-    public static cr0 b;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public final AdBaseModel.STYLE a;
+    @NonNull
+    public final String b;
+    @NonNull
+    public String c;
+    @NonNull
+    public final String d;
+    @NonNull
+    public final String e;
+    @NonNull
+    public final String f;
+    @NonNull
+    public final String g;
+    @NonNull
+    public final String h;
+    @NonNull
+    public final String i;
+    @NonNull
+    public final List<String> j;
+    @NonNull
+    public final List<mq0> k;
+    @NonNull
+    public final String l;
+    @NonNull
+    public final String m;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948189718, "Lcom/baidu/tieba/tq0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948189718, "Lcom/baidu/tieba/tq0;");
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public ar0 a;
-        public ar0 b;
-
-        /* loaded from: classes6.dex */
-        public class a implements cr0 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ar0 b;
-
-            public a(b bVar, ar0 ar0Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, ar0Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = ar0Var;
-            }
-
-            @Override // com.baidu.tieba.cr0
-            public ar0 a() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    return this.b;
-                }
-                return (ar0) invokeV.objValue;
-            }
-        }
-
-        /* renamed from: com.baidu.tieba.tq0$b$b  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public static class C0446b {
-            public static /* synthetic */ Interceptable $ic;
-            public static final b a;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            static {
-                InterceptResult invokeClinit;
-                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2061759462, "Lcom/baidu/tieba/tq0$b$b;")) != null) {
-                    Interceptable interceptable = invokeClinit.interceptor;
-                    if (interceptable != null) {
-                        $ic = interceptable;
-                    }
-                    if ((invokeClinit.flags & 1) != 0) {
-                        classClinitInterceptable.invokePostClinit(-2061759462, "Lcom/baidu/tieba/tq0$b$b;");
-                        return;
-                    }
-                }
-                a = new b(null);
-            }
-        }
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = null;
-            this.b = null;
-        }
-
-        public static b b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-                return C0446b.a;
-            }
-            return (b) invokeV.objValue;
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        public cr0 a(String str) {
-            InterceptResult invokeL;
-            char c;
-            ar0 ar0Var;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                int hashCode = str.hashCode();
-                if (hashCode != -1015101340) {
-                    if (hashCode == 1544803905 && str.equals("default")) {
-                        c = 0;
-                    }
-                    c = 65535;
-                } else {
-                    if (str.equals("okhttp")) {
-                        c = 1;
-                    }
-                    c = 65535;
-                }
-                if (c != 0) {
-                    if (c == 1) {
-                        if (this.b == null) {
-                            synchronized (tq0.class) {
-                                if (this.b == null) {
-                                    this.b = rq0.a.b(str);
-                                }
-                            }
-                        }
-                        ar0Var = this.b;
-                    } else {
-                        throw new IllegalStateException("Unexpected type:" + str);
-                    }
-                } else {
-                    if (this.a == null) {
-                        synchronized (tq0.class) {
-                            if (this.a == null) {
-                                this.a = rq0.a.b(str);
-                            }
-                        }
-                    }
-                    ar0Var = this.a;
-                }
-                return new a(this, ar0Var);
-            }
-            return (cr0) invokeL.objValue;
-        }
-    }
-
-    public tq0() {
+    public tq0(@NonNull AdBaseModel.STYLE style, @NonNull String str, int i, @NonNull JSONObject jSONObject, @NonNull JSONObject jSONObject2, @NonNull String str2) {
+        int length;
+        int length2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {style, str, Integer.valueOf(i), jSONObject, jSONObject2, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = style;
+        this.b = jSONObject2.optString("id");
+        this.c = jSONObject2.optString("scheme");
+        if (!TextUtils.isEmpty(str2)) {
+            this.d = str2;
+        } else {
+            this.d = jSONObject2.optString("ext_info");
+        }
+        this.e = jSONObject2.optString("user_name");
+        this.f = jSONObject2.optString(RecommendDetailActivityConfig.USER_PORTRAIT);
+        this.g = jSONObject2.optString("title");
+        if (jSONObject2.optInt("title_lines", 0) > 0) {
+        }
+        this.h = jSONObject2.optString("tag", "广告");
+        this.i = jSONObject2.optString("recommend_reason");
+        this.j = new ArrayList();
+        JSONArray optJSONArray = jSONObject2.optJSONArray("recommend_reason");
+        if (optJSONArray == null) {
+            length = 0;
+        } else {
+            length = optJSONArray.length();
+        }
+        for (int i4 = 0; i4 < length; i4++) {
+            String optString = optJSONArray.optString(i4);
+            if (!TextUtils.isEmpty(optString)) {
+                x11.b(this.j, optString);
+            }
+        }
+        this.k = new ArrayList();
+        JSONArray optJSONArray2 = jSONObject2.optJSONArray("pic_list");
+        if (optJSONArray2 == null) {
+            length2 = 0;
+        } else {
+            length2 = optJSONArray2.length();
+        }
+        for (int i5 = 0; i5 < length2; i5++) {
+            JSONObject optJSONObject = optJSONArray2.optJSONObject(i5);
+            if (optJSONObject != null) {
+                x11.b(this.k, mq0.a(optJSONObject));
+            }
+        }
+        kr0.a(jSONObject2.optJSONArray("lottie_list"));
+        this.l = jSONObject2.optString("refer_url");
+        this.m = jSONObject2.optString("prerender_scheme");
     }
 
-    public static cr0 a() {
-        InterceptResult invokeV;
+    public static tq0 a(String str, int i, JSONObject jSONObject, JSONObject jSONObject2, String str2) throws ParseError {
+        InterceptResult invokeCommon;
+        AdBaseModel.STYLE style;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (tq0.class) {
-                    if (b == null) {
-                        if (a == null) {
-                            a = (cr0) ServiceManager.getService(cr0.a);
-                        }
-                        b = a;
-                    }
-                    if (b != null) {
-                        return b;
-                    }
-                    if (TextUtils.equals("okhttp", "mixed")) {
-                        b = b.b().a("okhttp");
-                    } else {
-                        b = rq0.a;
-                    }
-                }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i), jSONObject, jSONObject2, str2})) == null) {
+            try {
+                style = AdBaseModel.STYLE.from(jSONObject2.optString(MapBundleKey.MapObjKey.OBJ_AD_STYLE, "hidden"));
+            } catch (Throwable unused) {
+                style = null;
             }
-            return b;
+            AdBaseModel.STYLE style2 = style;
+            if (style2 != null) {
+                return new tq0(style2, str, i, jSONObject, jSONObject2, str2);
+            }
+            throw ParseError.contentError(24, jSONObject2.optString(MapBundleKey.MapObjKey.OBJ_AD_STYLE));
         }
-        return (cr0) invokeV.objValue;
+        return (tq0) invokeCommon.objValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            for (mq0 mq0Var : this.k) {
+                mq0Var.b();
+            }
+        }
     }
 }

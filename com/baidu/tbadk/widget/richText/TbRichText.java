@@ -12,10 +12,10 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.module.hottopic.HotTopicStat;
 import com.baidu.tbadk.util.TiePlusHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ec5;
-import com.baidu.tieba.mo5;
+import com.baidu.tieba.ft5;
+import com.baidu.tieba.pg5;
 import com.baidu.tieba.tbadkCore.data.PostData;
-import com.baidu.tieba.uo5;
+import com.baidu.tieba.xs5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -281,7 +281,7 @@ public class TbRichText extends OrmObject {
         TbRichTextData tbRichTextData;
         CharSequence charSequence;
         TbRichTextCommInfo M;
-        Pair<CharSequence, uo5> q;
+        Pair<CharSequence, ft5> q;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), str, postData, threadData, Integer.valueOf(i)}) != null) || this.b == null) {
             return;
@@ -387,23 +387,23 @@ public class TbRichText extends OrmObject {
                         if (type == 18 || type == 2 || type == 39 || type == 1282) {
                             tbRichTextData.g0(true);
                         }
-                        if (type == 35 && TiePlusHelper.l(next.b0()) && (q = mo5.q(type, threadData, next.c0())) != null) {
+                        if (type == 35 && TiePlusHelper.l(next.b0()) && (q = xs5.q(type, threadData, next.c0())) != null) {
                             charSequence = q.first;
-                            uo5 uo5Var = q.second;
-                            uo5Var.a(postData);
-                            uo5Var.b(i);
+                            ft5 ft5Var = q.second;
+                            ft5Var.a(postData);
+                            ft5Var.b(i);
                             tbRichTextData.g0(true);
-                            tbRichTextData.G(uo5Var);
+                            tbRichTextData.G(ft5Var);
                         } else {
                             charSequence = null;
                         }
                         if (charSequence == null && type == 18 && (M = next.M()) != null) {
                             PbContent J = M.J();
                             if (threadData != null && J != null) {
-                                ec5 f = ec5.f(threadData, J);
+                                pg5 f = pg5.f(threadData, J);
                                 f.c(postData);
                                 f.b(HotTopicStat.Locate.VIDEO_MIDDLE_COMMENT);
-                                charSequence = mo5.p(f);
+                                charSequence = xs5.p(f);
                             }
                         }
                         if (charSequence == null && tbRichTextData != null) {

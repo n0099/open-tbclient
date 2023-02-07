@@ -10,13 +10,17 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.common.others.url.UrlUtils;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.dimen.TbDimenManager;
+import com.baidu.tbadk.imageManager.TbImageMemoryCache;
+import com.baidu.tbadk.switchs.BigImageCacheOptimizeSwitch;
+import com.baidu.tbadk.switchs.ImageCacheOptimizeSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ba5;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.dh;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,6 +48,7 @@ public class TbConfig {
     public static final String API_CLICK_TO_CHAT = "/peiwan/api/team/click";
     public static final String API_GOD_IDENTITY = "/peiwan/api/god/identity";
     public static final long APP_ENTER_BACKGROUND_INTERVAL = 1000;
+    public static final long APP_ID = 10773430;
     public static final long APP_OVERDUR_DRAFT_BOX = 604800000;
     public static final String APP_UPDATE_ACTION = "com.baidu.tieba.NewsVersion";
     public static final int AUTO_PLAY_ALWAYS = 2;
@@ -93,6 +98,8 @@ public class TbConfig {
     public static final String DEBUG_UPLOAD = "c/s/debugupload";
     public static final String DECRYPT_CODE_URL = "c/s/decryptCode";
     public static long DEFALT_USE_TIME_INTERVAL = 0;
+    public static final float DEFAULT_PIC_USED_MEMORY_PERCENTAGE_MIAN = 0.35f;
+    public static final float DEFAULT_PIC_USED_MEMORY_PERCENTAGE_REMOTE = 0.28f;
     public static final int DEFAULT_SDRAM_PHOTO_NUM = 60;
     public static final String DELETE_EMOTION_PACKAGE = "c/e/meme/delPackage";
     public static final String DEL_POST_ADDRESS = "c/c/bawu/delpost";
@@ -241,6 +248,7 @@ public class TbConfig {
     public static final int MAX_PERSON_INFO_ICON_NUM = 9;
     public static int MAX_PHOTO_MEMORY_CACHE = 0;
     public static int MAX_PHOTO_MEMORY_CACHE_REMOTE_PROCESS = 0;
+    public static final float MAX_PIC_USED_MEMORY_PERCENTAGE = 1.0f;
     public static final int MAX_PRELOAD_PHOTO_NUM = 30;
     public static final int MAX_PRELOAD_PIC_NUM = 13;
     public static final int MAX_QUESTION_PB_USER_NAME_BYTE_LENGTH = 20;
@@ -584,10 +592,10 @@ public class TbConfig {
     public static final String WEIXIN_PARTNER_ID = "1219850201";
     public static final String WEIXIN_SHARE_APP_ID = "wx289a8c58bca4c71e";
     public static final String api_key = "GXGROE8KmWiRmcWFpiWTmUbE";
-    public static final String app_id = "1095821";
     @Nullable
     public static String cachedFeedBackUrl = null;
     public static final String gamePlayIndexBanner = "/peiwan/api/index/service";
+    public static final String push_app_id = "1095821";
     public static boolean sThreadImageMaxInited;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -876,7 +884,7 @@ public class TbConfig {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return (int) (UtilHelper.getBitmapMaxMemory(TbadkCoreApplication.getInst().getContext()) * 0.28d);
+            return (int) (UtilHelper.getBitmapMaxMemory(TbadkCoreApplication.getInst().getContext()) * getVaildUsedMemoryPer(BigImageCacheOptimizeSwitch.cacheSize(), 0.28f, 0.28f, 1.0f));
         }
         return invokeV.intValue;
     }
@@ -1010,7 +1018,7 @@ public class TbConfig {
     public static String getVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65573, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65574, null)) == null) {
             return VERSION;
         }
         return (String) invokeV.objValue;
@@ -1019,7 +1027,7 @@ public class TbConfig {
     public static int getVersionType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65574, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65575, null)) == null) {
             return VERSION_TYPE;
         }
         return invokeV.intValue;
@@ -1058,11 +1066,11 @@ public class TbConfig {
 
     public static void initBigImageWidth(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65576, null, context) != null) || sThreadImageMaxInited) {
+        if ((interceptable != null && interceptable.invokeL(65577, null, context) != null) || sThreadImageMaxInited) {
             return;
         }
         sThreadImageMaxInited = true;
-        int sqrt = (int) Math.sqrt(zi.l(context) * zi.j(context));
+        int sqrt = (int) Math.sqrt(ej.l(context) * ej.j(context));
         if (sqrt > THREAD_IMAGE_MAX_WIDTH) {
             THREAD_IMAGE_MAX_WIDTH = sqrt;
         }
@@ -1307,7 +1315,7 @@ public class TbConfig {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65556, null, i)) == null) {
-            return zi.g(TbadkCoreApplication.getInst().getContext(), i);
+            return ej.g(TbadkCoreApplication.getInst().getContext(), i);
         }
         return invokeI.intValue;
     }
@@ -1315,8 +1323,8 @@ public class TbConfig {
     public static int initPbImageSize(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65578, null, context)) == null) {
-            int d = zi.d(context, 427.0f);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65579, null, context)) == null) {
+            int d = ej.d(context, 427.0f);
             if (d > 640) {
                 d = 640;
             }
@@ -1329,7 +1337,7 @@ public class TbConfig {
 
     public static void setBigPhotoAdress(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65579, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65580, null, str) == null) {
             if (URLUtil.isHttpUrl(str) || URLUtil.isHttpsUrl(str)) {
                 PHOTO_BIG_ADDRESS = str;
             }
@@ -1338,33 +1346,33 @@ public class TbConfig {
 
     public static void setCurrentFrom(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65580, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65581, null, str) == null) {
             CURRENT_FROM = str;
         }
     }
 
     public static void setFrom(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65581, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65582, null, str) == null) {
             FROM = str;
         }
     }
 
     public static void setLegoLibVersion(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65582, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65583, null, str) == null) {
             LEGO_LIB_VERSION = str;
         }
     }
 
     public static void setMaxPhotoMemoryCache(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65583, null, i) == null) {
+        if (interceptable == null || interceptable.invokeI(65584, null, i) == null) {
             if (i < 60) {
                 i = 60;
             }
             if (MAX_PHOTO_MEMORY_CACHE != i) {
-                ba5.k().t(i);
+                TbImageMemoryCache.n().B(i);
             }
             MAX_PHOTO_MEMORY_CACHE = i;
         }
@@ -1372,7 +1380,7 @@ public class TbConfig {
 
     public static void setSmallPhotoAdress(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65584, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65585, null, str) == null) {
             if (URLUtil.isHttpUrl(str) || URLUtil.isHttpsUrl(str)) {
                 PHOTO_SMALL_ADDRESS = str;
             }
@@ -1381,39 +1389,55 @@ public class TbConfig {
 
     public static void setSubVersion(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65585, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65586, null, str) == null) {
             SUB_VERSION = str;
         }
     }
 
     public static void setVersion(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65586, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65587, null, str) == null) {
             VERSION = str;
         }
     }
 
     public static void setVersionType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65587, null, i) == null) {
+        if (interceptable == null || interceptable.invokeI(65588, null, i) == null) {
             VERSION_TYPE = i;
         }
     }
 
+    public static float getVaildUsedMemoryPer(float f, float f2, float f3, float f4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65573, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+            if (!UbsABTestHelper.isImageCacheOptimize()) {
+                return f2;
+            }
+            float d = dh.d(UtilHelper.formalDecimalForTwo(f / 100.0f), 0.0f);
+            if (d >= f3 && d <= f4) {
+                return d;
+            }
+            return f2;
+        }
+        return invokeCommon.floatValue;
+    }
+
     public static void initBigImageMaxUsedMemory(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65575, null, context) == null) {
-            int initPbImageSize = initPbImageSize(context) * 13;
-            BIG_IMAGE_MAX_USED_MEMORY = initPbImageSize;
-            if (initPbImageSize < UtilHelper.getBitmapMaxMemory(context) * 0.35d) {
-                BIG_IMAGE_MAX_USED_MEMORY = (int) (UtilHelper.getBitmapMaxMemory(context) * 0.35d);
+        if (interceptable == null || interceptable.invokeL(65576, null, context) == null) {
+            BIG_IMAGE_MAX_USED_MEMORY = initPbImageSize(context) * 13;
+            float vaildUsedMemoryPer = getVaildUsedMemoryPer(ImageCacheOptimizeSwitch.cacheSize(), 0.35f, 0.35f, 1.0f);
+            if (BIG_IMAGE_MAX_USED_MEMORY < UtilHelper.getBitmapMaxMemory(context) * vaildUsedMemoryPer) {
+                BIG_IMAGE_MAX_USED_MEMORY = (int) (UtilHelper.getBitmapMaxMemory(context) * vaildUsedMemoryPer);
             }
         }
     }
 
     public static void initFriendPhotoConfig(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65577, null, context) == null) && context != null && context.getResources() != null) {
+        if ((interceptable == null || interceptable.invokeL(65578, null, context) == null) && context != null && context.getResources() != null) {
             if (context.getResources().getDisplayMetrics().density < 1.0f) {
                 FRIEND_PHOTO_ADDRESS = PHOTO_SMALL_ADDRESS;
             } else {

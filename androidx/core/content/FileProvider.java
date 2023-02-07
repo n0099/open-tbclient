@@ -1,5 +1,6 @@
 package androidx.core.content;
 
+import android.annotation.SuppressLint;
 import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.content.Context;
@@ -40,6 +41,7 @@ public class FileProvider extends ContentProvider {
     public static final String ATTR_PATH = "path";
     public static final String[] COLUMNS;
     public static final File DEVICE_ROOT;
+    public static final String DISPLAYNAME_FIELD = "displayName";
     public static final String META_DATA_FILE_PROVIDER_PATHS = "android.support.FILE_PROVIDER_PATHS";
     public static final String TAG_CACHE_PATH = "cache-path";
     public static final String TAG_EXTERNAL = "external-path";
@@ -229,22 +231,6 @@ public class FileProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public void attachInfo(@NonNull Context context, @NonNull ProviderInfo providerInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, providerInfo) == null) {
-            super.attachInfo(context, providerInfo);
-            if (!providerInfo.exported) {
-                if (providerInfo.grantUriPermissions) {
-                    this.mStrategy = getPathStrategy(context, providerInfo.authority);
-                    return;
-                }
-                throw new SecurityException("Provider must grant uri permissions");
-            }
-            throw new SecurityException("Provider must not be exported");
-        }
-    }
-
-    @Override // android.content.ContentProvider
     public Uri insert(@NonNull Uri uri, ContentValues contentValues) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -255,6 +241,7 @@ public class FileProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
+    @SuppressLint({"UnknownNullness"})
     public ParcelFileDescriptor openFile(@NonNull Uri uri, @NonNull String str) throws FileNotFoundException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -298,6 +285,22 @@ public class FileProvider extends ContentProvider {
         return (PathStrategy) invokeLL.objValue;
     }
 
+    @Override // android.content.ContentProvider
+    public void attachInfo(@NonNull Context context, @NonNull ProviderInfo providerInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, providerInfo) == null) {
+            super.attachInfo(context, providerInfo);
+            if (!providerInfo.exported) {
+                if (providerInfo.grantUriPermissions) {
+                    this.mStrategy = getPathStrategy(context, providerInfo.authority.split(";")[0]);
+                    return;
+                }
+                throw new SecurityException("Provider must grant uri permissions");
+            }
+            throw new SecurityException("Provider must not be exported");
+        }
+    }
+
     public static Uri getUriForFile(@NonNull Context context, @NonNull String str, @NonNull File file) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -317,10 +320,31 @@ public class FileProvider extends ContentProvider {
         return invokeLLL.intValue;
     }
 
+    @NonNull
+    @SuppressLint({"StreamFiles"})
+    public static Uri getUriForFile(@NonNull Context context, @NonNull String str, @NonNull File file, @NonNull String str2) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65543, null, context, str, file, str2)) == null) {
+            return getUriForFile(context, str, file).buildUpon().appendQueryParameter(DISPLAYNAME_FIELD, str2).build();
+        }
+        return (Uri) invokeLLLL.objValue;
+    }
+
+    @Override // android.content.ContentProvider
+    public int update(@NonNull Uri uri, ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, uri, contentValues, str, strArr)) == null) {
+            throw new UnsupportedOperationException("No external updates");
+        }
+        return invokeLLLL.intValue;
+    }
+
     public static int modeToMode(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
             if ("r".equals(str)) {
                 return LaunchTaskConstants.OTHER_PROCESS;
             }
@@ -344,7 +368,7 @@ public class FileProvider extends ContentProvider {
     public static PathStrategy parsePathStrategy(Context context, String str) throws IOException, XmlPullParserException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, context, str)) == null) {
             SimplePathStrategy simplePathStrategy = new SimplePathStrategy(str);
             ProviderInfo resolveContentProvider = context.getPackageManager().resolveContentProvider(str, 128);
             if (resolveContentProvider != null) {
@@ -423,21 +447,28 @@ public class FileProvider extends ContentProvider {
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
         InterceptResult invokeLLLLL;
         int i;
+        String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, uri, strArr, str, strArr2, str2)) == null) {
             File fileForUri = this.mStrategy.getFileForUri(uri);
+            String queryParameter = uri.getQueryParameter(DISPLAYNAME_FIELD);
             if (strArr == null) {
                 strArr = COLUMNS;
             }
             String[] strArr3 = new String[strArr.length];
             Object[] objArr = new Object[strArr.length];
             int i2 = 0;
-            for (String str3 : strArr) {
-                if ("_display_name".equals(str3)) {
+            for (String str4 : strArr) {
+                if ("_display_name".equals(str4)) {
                     strArr3[i2] = "_display_name";
                     i = i2 + 1;
-                    objArr[i2] = fileForUri.getName();
-                } else if ("_size".equals(str3)) {
+                    if (queryParameter == null) {
+                        str3 = fileForUri.getName();
+                    } else {
+                        str3 = queryParameter;
+                    }
+                    objArr[i2] = str3;
+                } else if ("_size".equals(str4)) {
                     strArr3[i2] = "_size";
                     i = i2 + 1;
                     objArr[i2] = Long.valueOf(fileForUri.length());
@@ -451,15 +482,5 @@ public class FileProvider extends ContentProvider {
             return matrixCursor;
         }
         return (Cursor) invokeLLLLL.objValue;
-    }
-
-    @Override // android.content.ContentProvider
-    public int update(@NonNull Uri uri, ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, uri, contentValues, str, strArr)) == null) {
-            throw new UnsupportedOperationException("No external updates");
-        }
-        return invokeLLLL.intValue;
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.gif.NSGif;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,9 +7,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class hc implements ec {
+public class hc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ic a;
+    public int b;
 
     public hc() {
         Interceptable interceptable = $ic;
@@ -22,35 +23,28 @@ public class hc implements ec {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = null;
+        this.b = 1;
     }
 
-    @Override // com.baidu.tieba.ec
-    public jn a(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
-            NSGif f = NSGif.f(bArr, i, i2);
-            if (f == null) {
-                return null;
-            }
-            return new jn(f);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (jn) invokeLII.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ec
-    public jn get(String str) {
-        InterceptResult invokeL;
+    public ic b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            NSGif e = NSGif.e(str);
-            if (e == null) {
-                return null;
-            }
-            return new jn(e);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return (jn) invokeL.objValue;
+        return (ic) invokeV.objValue;
     }
 }

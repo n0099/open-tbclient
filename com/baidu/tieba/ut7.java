@@ -1,26 +1,41 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.app.Application;
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Build;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.impl.IMasterSwitchCallback;
-import com.baidu.searchbox.live.impl.LiveNpsGetSwitchManager;
-import com.baidu.searchbox.live.interfaces.callback.ILiveFileSizeCallback;
-import com.baidu.searchbox.live.nps.LiveNPSPluginManager;
-import com.baidu.searchbox.live.nps.LiveNpsLoadingCallback;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.nadcore.business.inserting.NadInsertingBaseView;
+import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.nadcore.requester.NadRequester;
+import com.baidu.tbadk.BdToken.BdTokenController;
 import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TbadkSettings;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.view.NpsPluginLoadingDialogActivity;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.uh0;
+import com.baidu.tieba.view.RoundRelativeLayout;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,21 +43,215 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.Map;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class ut7 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean m = true;
+    public static volatile ut7 n;
+    public static boolean o;
+    public static boolean p;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<NpsPluginLoadingDialogActivity> a;
-    public int b;
-    public boolean c;
+    public AlertDialog a;
+    public Activity b;
+    public View c;
+    public NadInsertingBaseView d;
+    public RoundRelativeLayout e;
+    public RoundRelativeLayout f;
+    public ImageView g;
+    public boolean h;
+    public e i;
+    public boolean j;
+    public f k;
+    public th0 l;
 
     /* loaded from: classes6.dex */
-    public class a implements LiveNpsLoadingCallback {
+    public interface e {
+        void a();
+
+        void b();
+    }
+
+    /* loaded from: classes6.dex */
+    public interface f {
+        void dismiss();
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948222609, "Lcom/baidu/tieba/ut7;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948222609, "Lcom/baidu/tieba/ut7;");
+        }
+    }
+
+    public int o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return 1280;
+        }
+        return invokeV.intValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public class d extends BdAsyncTask<Void, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ut7 a;
+
+        /* loaded from: classes6.dex */
+        public class a implements NadRequester.b {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ d a;
+
+            /* renamed from: com.baidu.tieba.ut7$d$a$a  reason: collision with other inner class name */
+            /* loaded from: classes6.dex */
+            public class C0446a implements uh0.d {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ a a;
+
+                public C0446a(a aVar) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {aVar};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.a = aVar;
+                }
+
+                @Override // com.baidu.tieba.uh0.d
+                public void a(@NonNull NadInsertingBaseView nadInsertingBaseView) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null && interceptable.invokeL(1048576, this, nadInsertingBaseView) != null) {
+                        return;
+                    }
+                    this.a.a.a.d = nadInsertingBaseView;
+                    if (this.a.a.a.i != null) {
+                        this.a.a.a.i.b();
+                    }
+                }
+
+                @Override // com.baidu.tieba.uh0.d
+                public void onFail() {
+                    Interceptable interceptable = $ic;
+                    if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a.a.a.i != null) {
+                        this.a.a.a.i.a();
+                    }
+                }
+            }
+
+            public a(d dVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {dVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = dVar;
+            }
+
+            @Override // com.baidu.nadcore.requester.NadRequester.b
+            public void a(@NonNull NadRequester.Error error) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, error) == null) {
+                    if (this.a.a.i != null) {
+                        this.a.a.i.a();
+                    }
+                    StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST);
+                    statisticItem.param("obj_type", "a002").param("obj_locate", 1).param("obj_source", 1);
+                    TiebaStatic.log(statisticItem);
+                }
+            }
+
+            @Override // com.baidu.nadcore.requester.NadRequester.b
+            public void b(@NonNull List<AdBaseModel> list) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+                    uh0.b(this.a.a.b, this.a.a.e, list, this.a.a.l, new C0446a(this));
+                    StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST);
+                    statisticItem.param("obj_type", "a002").param("obj_locate", 0).param("obj_source", 1);
+                    TiebaStatic.log(statisticItem);
+                }
+            }
+        }
+
+        public d(ut7 ut7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ut7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ut7Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Void doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
+                uh0.a("1638177515997", new a(this));
+                return null;
+            }
+            return (Void) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements th0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ut7 a;
+
+        @Override // com.baidu.tieba.th0
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.th0
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
 
         public a(ut7 ut7Var) {
             Interceptable interceptable = $ic;
@@ -62,55 +271,59 @@ public class ut7 {
             this.a = ut7Var;
         }
 
-        @Override // com.baidu.searchbox.live.nps.LiveNpsLoadingCallback
-        public void onLoadingEnd(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeI(1048576, this, i) != null) {
-                return;
-            }
-            this.a.c = false;
-            this.a.f();
-        }
-
-        @Override // com.baidu.searchbox.live.nps.LiveNpsLoadingCallback
-        public void onLoadingProgress(long j, long j2) {
-            float f;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-                BdLog.d("[onDownloadUpdate] package:, current:" + j + ",total:" + j2);
-                if (j2 <= 0) {
-                    f = 0.0f;
-                } else {
-                    f = (((float) j) * 100.0f) / ((float) j2);
-                }
-                this.a.b = (int) f;
-                ut7 ut7Var = this.a;
-                ut7Var.J(ut7Var.i());
-            }
-        }
-
-        @Override // com.baidu.searchbox.live.nps.LiveNpsLoadingCallback
-        public void onLoadingStart() {
+        @Override // com.baidu.tieba.th0
+        public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.a.c = true;
-                this.a.p(TbadkCoreApplication.getInst());
+                StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_CLICK);
+                statisticItem.param("obj_type", "a002").param("obj_source", 1);
+                TiebaStatic.log(statisticItem);
+            }
+        }
+
+        @Override // com.baidu.tieba.th0
+        public void onShow() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_SHOW);
+                statisticItem.param("obj_type", "a002");
+                TiebaStatic.log(statisticItem);
+            }
+        }
+
+        @Override // com.baidu.tieba.th0
+        public void d() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                if (this.a.g != null) {
+                    this.a.g.setVisibility(8);
+                }
+                this.a.m();
+                this.a.d = null;
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921667, Boolean.TRUE));
+                if (this.a.h) {
+                    this.a.h = false;
+                    return;
+                }
+                StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.CLOSE_AD_TIME);
+                statisticItem.param("obj_type", "a002").param("obj_param1", 1).param("obj_source", 1);
+                TiebaStatic.log(statisticItem);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements IMasterSwitchCallback {
+    public class b implements DialogInterface.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bp4 a;
+        public final /* synthetic */ ut7 a;
 
-        public b(ut7 ut7Var, bp4 bp4Var) {
+        public b(ut7 ut7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ut7Var, bp4Var};
+                Object[] objArr = {ut7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -120,41 +333,30 @@ public class ut7 {
                     return;
                 }
             }
-            this.a = bp4Var;
+            this.a = ut7Var;
         }
 
-        @Override // com.baidu.searchbox.live.impl.IMasterSwitchCallback
-        public void switchCallback(String str) {
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                if (!yi.isEmpty(str)) {
-                    TbSingleton.getInstance().setYyCloudSwitch(str);
-                }
-                if (this.a != null) {
-                    if ("yy".equals(str)) {
-                        this.a.a(true);
-                    } else if ("baidu".equals(str)) {
-                        this.a.a(false);
-                    } else {
-                        this.a.onFail();
-                    }
-                }
+            if ((interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) && this.a.k != null) {
+                this.a.k.dismiss();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class c implements ILiveFileSizeCallback {
+    public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long[] a;
+        public final /* synthetic */ ut7 a;
 
-        public c(ut7 ut7Var, long[] jArr) {
+        public c(ut7 ut7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ut7Var, jArr};
+                Object[] objArr = {ut7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -164,240 +366,457 @@ public class ut7 {
                     return;
                 }
             }
-            this.a = jArr;
+            this.a = ut7Var;
         }
 
-        @Override // com.baidu.searchbox.live.interfaces.callback.ILiveFileSizeCallback
-        public void getFileSize(long j) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-                this.a[0] = j;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a != null && this.a.a.isShowing()) {
+                this.a.a.dismiss();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static final class d {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ut7 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-363832751, "Lcom/baidu/tieba/ut7$d;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-363832751, "Lcom/baidu/tieba/ut7$d;");
-                    return;
-                }
-            }
-            a = new ut7(null);
-        }
-    }
-
-    public ut7() {
+    public ut7(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = 0;
-        this.c = false;
-        LiveNPSPluginManager.getInstance().setLoadingCallback(new a(this));
-        cs7.e(TbadkCoreApplication.getInst());
+        this.h = false;
+        this.j = false;
+        this.l = new a(this);
+        this.b = activity;
+        p();
     }
 
-    public /* synthetic */ ut7(a aVar) {
-        this();
-    }
-
-    public void J(NpsPluginLoadingDialogActivity npsPluginLoadingDialogActivity) {
+    public static void H(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, npsPluginLoadingDialogActivity) == null) && npsPluginLoadingDialogActivity != null) {
-            npsPluginLoadingDialogActivity.x1(this.b);
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            if (str.contains(UrlSchemaHelper.SCHEMA_GAME_RECOMMENT_PAGE) || str.contains("com.baidu.tieba://unidispatch/homepage") || str.contains("com.baidu.tieba://unidispatch/activitypage") || UrlSchemaHelper.SCHEMA_TYPE_HOMEPAGE_ANYTAB.equals(str) || str.contains("homepage/activitypage") || str.contains("homepage/homeTab")) {
+                p = true;
+            }
         }
     }
 
-    public void e(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, context) == null) {
-            LiveNPSPluginManager.getInstance().clearResourceFile(context);
-        }
-    }
-
-    public long k(Context context) {
+    public final boolean D(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, context)) == null) {
-            long[] jArr = {0};
-            LiveNPSPluginManager.getInstance().getLiveResourceFileSize(context, new c(this, jArr));
-            return jArr[0];
-        }
-        return invokeL.longValue;
-    }
-
-    public void l(@Nullable bp4 bp4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048592, this, bp4Var) != null) || !PermissionUtil.isAgreePrivacyPolicy()) {
-            return;
-        }
-        LiveNpsGetSwitchManager.INSTANCE.getMasterSwitch("", new b(this, bp4Var));
-    }
-
-    public void o(NpsPluginLoadingDialogActivity npsPluginLoadingDialogActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, npsPluginLoadingDialogActivity) == null) {
-            this.a = new WeakReference<>(npsPluginLoadingDialogActivity);
-            J(npsPluginLoadingDialogActivity);
-        }
-    }
-
-    public void q(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, context) == null) {
-            if (I()) {
-                zi.Q(context, "安卓系统版本不支持");
-            } else {
-                LiveNPSPluginManager.getInstance().startAdminListActivity(context);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            Activity activity = this.b;
+            if (activity == null || activity.isFinishing()) {
+                return false;
             }
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.REQUEST_AD_TIME);
+            statisticItem.param("obj_type", "a002").param("obj_param1", str);
+            TiebaStatic.log(statisticItem);
+            new d(this).execute(new Void[0]);
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    public void t(Context context) {
+    public static void A(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, context) == null) {
-            if (I()) {
-                zi.Q(context, "安卓系统版本不支持");
-            } else {
-                LiveNPSPluginManager.getInstance().startForbiddenListActivity(context);
-            }
+        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST_SUCCESS_NOT_SHOW);
+            statisticItem.param("obj_type", "a002").param("obj_param1", i);
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    public void z(@NonNull Context context) {
+    public static ut7 n(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, context) == null) {
-            if (I()) {
-                zi.Q(context, "安卓系统版本不支持");
-            } else {
-                LiveNPSPluginManager.getInstance().startPatronageActivity(context);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, activity)) == null) {
+            if (n == null) {
+                synchronized (ut7.class) {
+                    if (n == null) {
+                        n = new ut7(activity);
+                    }
+                }
             }
+            return n;
         }
+        return (ut7) invokeL.objValue;
     }
 
-    public void A(@NonNull Context context, String str) {
+    public void F(f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) {
-            if (I()) {
-                zi.Q(context, "安卓系统版本不支持");
-            } else {
-                LiveNPSPluginManager.getInstance().startPatronsActivity(context, str);
-            }
+        if (interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) {
+            this.k = fVar;
         }
     }
 
-    public void B(@NonNull Context context, @NonNull String str) {
+    public /* synthetic */ void y(View view2) {
+        l();
+    }
+
+    public boolean k(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str) == null) {
-            if (I()) {
-                zi.Q(context, "安卓系统版本不支持");
-            } else {
-                LiveNPSPluginManager.getInstance().startPayActivity(context, str);
+        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2)) == null) {
+            if (this.d == null) {
+                return false;
             }
+            AlertDialog alertDialog = this.a;
+            if (alertDialog != null && alertDialog.isShowing()) {
+                return false;
+            }
+            if (!u(i, i2)) {
+                this.d = null;
+                return false;
+            }
+            return true;
         }
+        return invokeII.booleanValue;
     }
 
-    public void D(Context context, String str) {
+    public final boolean q(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, context, str) == null) {
-            if (I()) {
-                zi.Q(context, "安卓系统版本不支持");
-            } else {
-                LiveNPSPluginManager.getInstance().dispatchYYLiveRouter(context, "yylive?url=yymobile%3a%2f%2fMobileLive%2fPreViewPage%3fneedLogin%3d1");
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048589, this, i, i2)) == null) {
+            int homeBarShowType = TbadkCoreApplication.getInst().getHomeBarShowType();
+            if (r() && i == i2 && homeBarShowType == 1) {
+                return true;
             }
+            return false;
         }
+        return invokeII.booleanValue;
     }
 
-    public void E(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, context, str) == null) {
-            if (I()) {
-                zi.Q(context, "安卓系统版本不支持");
-            } else {
-                LiveNPSPluginManager.getInstance().startYYCustomerServiceActivity(context, str);
-            }
-        }
-    }
-
-    public void F(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, context, str) == null) {
-            if (I()) {
-                zi.Q(context, "安卓系统版本不支持");
-            } else {
-                LiveNPSPluginManager.getInstance().startYYFeedbackActivity(context, str);
-            }
-        }
-    }
-
-    public void H(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, context, str) == null) {
-            if (I()) {
-                zi.Q(context, "安卓系统版本不支持");
-            } else {
-                LiveNPSPluginManager.getInstance().startYuYinCreateLiveRoomActivity(context, str);
-            }
-        }
-    }
-
-    public void h(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048589, this, context, str) == null) {
-            if (I()) {
-                zi.Q(context, "安卓系统版本不支持");
-            } else {
-                LiveNPSPluginManager.getInstance().dispatchYYLiveRouter(context, str);
-            }
-        }
-    }
-
-    public void x(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048604, this, context, str) == null) {
-            if (I()) {
-                zi.Q(context, "安卓系统版本不支持");
-            } else {
-                LiveNPSPluginManager.getInstance().startLiveShowActivity(context, str);
-            }
-        }
-    }
-
-    public static ut7 j() {
+    public static boolean w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return d.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
+            String clipBoardContent = UtilHelper.getClipBoardContent();
+            if (StringUtils.isNull(clipBoardContent) || !BdTokenController.l.matcher(clipBoardContent).find()) {
+                return false;
+            }
+            return true;
         }
-        return (ut7) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public boolean I() {
+    public void B() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            n = null;
+            m();
+        }
+    }
+
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            gh.a().post(new c(this));
+        }
+    }
+
+    public final boolean x() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            if (TbadkCoreApplication.getCurrentAccountInfo() != null && TbadkCoreApplication.getCurrentAccountInfo().getMemberCloseAdVipClose() == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public /* synthetic */ void z() {
+        int width = this.e.getWidth();
+        int height = this.e.getHeight();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f.getLayoutParams();
+        layoutParams.width = width;
+        layoutParams.height = height;
+        this.f.setLayoutParams(layoutParams);
+        this.f.setVisibility(0);
+        p15.d(this.f).f(R.color.CAM_X0503);
+    }
+
+    public boolean C(String str, int i, int i2, long j, e eVar, boolean z) {
+        InterceptResult invokeCommon;
+        boolean t;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), eVar, Boolean.valueOf(z)})) == null) {
+            this.i = eVar;
+            if ("1".equals(str)) {
+                t = s();
+            } else {
+                t = t(i, i2, j);
+            }
+            if (t) {
+                return D(str);
+            }
+            return false;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public final void E() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.e != null && this.f != null) {
+            if (TbadkSettings.getInst().loadInt("skin_", 0) == 1) {
+                this.e.post(new Runnable() { // from class: com.baidu.tieba.st7
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            ut7.this.z();
+                        }
+                    }
+                });
+            } else {
+                this.f.setVisibility(8);
+            }
+        }
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.d != null) {
+            this.h = true;
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.CLOSE_AD_TIME);
+            statisticItem.param("obj_type", "a002").param("obj_param1", 2).param("obj_source", 1);
+            TiebaStatic.log(statisticItem);
+            this.d.a();
+        }
+    }
+
+    public final boolean v() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            if (StringHelper.isTaday(p35.m().o("key_home_insert_ad_show_time", 0L))) {
+                int n2 = p35.m().n("key_home_insert_ad_show_num", 0);
+                g75 homeInsertAdData = TbSingleton.getInstance().getHomeInsertAdData();
+                if (homeInsertAdData != null) {
+                    i = homeInsertAdData.a();
+                } else {
+                    i = 1;
+                }
+                if (n2 >= i) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void G() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            long o2 = p35.m().o("key_home_insert_ad_show_time", 0L);
+            int n2 = p35.m().n("key_home_insert_ad_show_num", 0);
+            if (StringHelper.isTaday(o2)) {
+                p35.m().z("key_home_insert_ad_show_num", n2 + 1);
+                return;
+            }
+            p35.m().A("key_home_insert_ad_show_time", System.currentTimeMillis());
+            p35.m().z("key_home_insert_ad_show_num", 1);
+        }
+    }
+
+    public final boolean s() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            if ((o && !p) || !UbsABTestHelper.isRequestInsertAd() || !PermissionUtil.isAgreePrivacyPolicy()) {
+                return false;
+            }
+            if (!this.j && w()) {
+                return false;
+            }
+            g75 homeInsertAdData = TbSingleton.getInstance().getHomeInsertAdData();
+            if (homeInsertAdData != null && homeInsertAdData.b() == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (x() || z || v()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean I(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048582, this, i, i2)) == null) {
+            if (this.d == null) {
+                return false;
+            }
+            RoundRelativeLayout roundRelativeLayout = this.e;
+            if (roundRelativeLayout != null) {
+                roundRelativeLayout.setVisibility(0);
+            }
+            ImageView imageView = this.g;
+            if (imageView != null) {
+                imageView.setVisibility(0);
+            }
+            this.d.g();
+            J();
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921667, Boolean.FALSE));
+            G();
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.SHOW_AD_TIME);
+            statisticItem.param("obj_type", "a002").param("obj_source", 1);
+            TiebaStatic.log(statisticItem);
+            return true;
+        }
+        return invokeII.booleanValue;
+    }
+
+    public boolean u(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048593, this, i, i2)) == null) {
+            if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
+                A(3);
+                return false;
+            }
+            TbSingleton.getInstance();
+            if (TbSingleton.getExceptInsertAdDiaShow()) {
+                A(1);
+                return false;
+            } else if (!this.j && w()) {
+                A(1);
+                return false;
+            } else {
+                if (o) {
+                    if (!p) {
+                        A(3);
+                        return false;
+                    }
+                } else if (!q(i, i2)) {
+                    A(2);
+                    return false;
+                }
+                if (!v()) {
+                    return true;
+                }
+                A(3);
+                return false;
+            }
+        }
+        return invokeII.booleanValue;
+    }
+
+    public boolean J() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (Build.VERSION.SDK_INT < 21) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            Activity activity = this.b;
+            if (activity == null || activity.isFinishing()) {
+                return false;
+            }
+            AlertDialog alertDialog = this.a;
+            if (alertDialog != null && alertDialog.isShowing()) {
+                this.a.dismiss();
+            }
+            if (this.a == null) {
+                AlertDialog create = new AlertDialog.Builder(this.b).create();
+                this.a = create;
+                GreyUtil.grey(create);
+            }
+            this.a.setCancelable(true);
+            this.a.show();
+            this.a.setOnDismissListener(new b(this));
+            Window window = this.a.getWindow();
+            window.getDecorView().setSystemUiVisibility(o());
+            window.addFlags(Integer.MIN_VALUE);
+            window.setStatusBarColor(0);
+            WindowManager.LayoutParams attributes = window.getAttributes();
+            attributes.width = -1;
+            attributes.height = -1;
+            window.setNavigationBarColor(0);
+            window.setAttributes(attributes);
+            E();
+            View view2 = this.c;
+            if (view2 != null) {
+                this.a.setContentView(view2);
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            View inflate = LayoutInflater.from(this.b).inflate(R.layout.activity_inserting_view, (ViewGroup) null);
+            this.c = inflate;
+            this.e = (RoundRelativeLayout) inflate.findViewById(R.id.home_insert_container);
+            this.f = (RoundRelativeLayout) this.c.findViewById(R.id.home_insert_container_cover);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.e.getLayoutParams();
+            layoutParams.width = (ej.l(this.b) * 837) / 1076;
+            layoutParams.height = -2;
+            this.e.setLayoutParams(layoutParams);
+            this.e.setRoundLayoutRadius(n15.z(R.string.J_X06));
+            this.f.setRoundLayoutRadius(n15.z(R.string.J_X06));
+            ImageView imageView = (ImageView) this.c.findViewById(R.id.home_insert_close_icon);
+            this.g = imageView;
+            imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tt7
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // android.view.View.OnClickListener
+                public final void onClick(View view2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                        ut7.this.y(view2);
+                    }
+                }
+            });
+        }
+    }
+
+    public final boolean r() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            int g = t9.f().g();
+            Activity e2 = t9.f().e(g - 1);
+            String str2 = "";
+            if (e2 == null) {
+                str = "";
+            } else {
+                str = e2.getLocalClassName();
+            }
+            if (!StringUtils.isNull(str) && str.contains("MainTabActivity")) {
+                return true;
+            }
+            Activity e3 = t9.f().e(g - 2);
+            if (e3 != null) {
+                str2 = e3.getLocalClassName();
+            }
+            if (!StringUtils.isNull(str) && !StringUtils.isNull(str2) && str.contains("LogoActivity") && str2.contains("MainTabActivity")) {
                 return true;
             }
             return false;
@@ -405,155 +824,37 @@ public class ut7 {
         return invokeV.booleanValue;
     }
 
-    public final void f() {
-        NpsPluginLoadingDialogActivity i;
+    public final boolean t(int i, int i2, long j) {
+        InterceptResult invokeCommon;
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (i = i()) != null) {
-            i.finish();
-            this.a = null;
-        }
-    }
-
-    public final NpsPluginLoadingDialogActivity i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            WeakReference<NpsPluginLoadingDialogActivity> weakReference = this.a;
-            if (weakReference != null) {
-                return weakReference.get();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)})) == null) {
+            AlertDialog alertDialog = this.a;
+            if ((alertDialog != null && alertDialog.isShowing()) || !s()) {
+                return false;
             }
-            return null;
-        }
-        return (NpsPluginLoadingDialogActivity) invokeV.objValue;
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.a = null;
-            LiveNPSPluginManager.getInstance().cancelLoading();
-        }
-    }
-
-    public void C(Context context, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, str2) == null) {
-            if (I()) {
-                zi.Q(context, "安卓系统版本不支持");
+            if (o) {
+                if (!p) {
+                    return false;
+                }
+            } else if (!q(i, i2)) {
+                return false;
+            }
+            g75 homeInsertAdData = TbSingleton.getInstance().getHomeInsertAdData();
+            int i3 = 30;
+            if (homeInsertAdData != null) {
+                i3 = homeInsertAdData.c();
+            }
+            if ((System.currentTimeMillis() - j) / 1000 > i3) {
+                z = true;
             } else {
-                LiveNPSPluginManager.getInstance().startRealAuthActivity(context, str, str2);
+                z = false;
             }
-        }
-    }
-
-    public void g(Context context, String str, Map<String, Object> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048588, this, context, str, map) == null) {
-            if (I()) {
-                zi.Q(context, "安卓系统版本不支持");
-            } else {
-                LiveNPSPluginManager.getInstance().dispatchHostEvent(context, str, map);
+            if (!z) {
+                return false;
             }
+            return true;
         }
-    }
-
-    public void r(Application application, String str, Uri uri) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048598, this, application, str, uri) == null) {
-            if (I()) {
-                zi.Q(application, "安卓系统版本不支持");
-            } else {
-                LiveNPSPluginManager.getInstance().startAudioMasterActivity(application, str);
-            }
-        }
-    }
-
-    public void s(Context context, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048599, this, context, str, i) == null) {
-            if (I()) {
-                zi.Q(context, "安卓系统版本不支持");
-            } else {
-                LiveNPSPluginManager.getInstance().startFansListActivity(context, str, i);
-            }
-        }
-    }
-
-    public void u(Context context, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048601, this, context, str, str2) == null) {
-            if (I()) {
-                zi.Q(context, "安卓系统版本不支持");
-            } else {
-                LiveNPSPluginManager.getInstance().startGuardianListActivity(context, str, str2);
-            }
-        }
-    }
-
-    public void G(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, context, str) == null) {
-            if (I()) {
-                zi.Q(context, "安卓系统版本不支持");
-                return;
-            }
-            if (BdLog.isDebugMode()) {
-                BdLog.e("YYStartLiveRoom|" + str);
-            }
-            LiveNPSPluginManager.getInstance().startYYLiveActivity(context, str);
-        }
-    }
-
-    public void p(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048596, this, context) != null) || i() != null) {
-            return;
-        }
-        long currentTimeMillis = System.currentTimeMillis();
-        Intent intent = new Intent(context, NpsPluginLoadingDialogActivity.class);
-        intent.putExtra("dialogId", currentTimeMillis);
-        if (!(context instanceof Activity)) {
-            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-        }
-        context.startActivity(intent);
-    }
-
-    public void v(Context context, long j, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{context, Long.valueOf(j), Integer.valueOf(i)}) == null) {
-            if (I()) {
-                zi.Q(context, "安卓系统版本不支持");
-            } else {
-                LiveNPSPluginManager.getInstance().startLiveExpActivity(context, j, i);
-            }
-        }
-    }
-
-    public void w(Context context, String str, String str2, String str3, Uri uri) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLLL(1048603, this, context, str, str2, str3, uri) != null) || I()) {
-            return;
-        }
-        LiveNPSPluginManager.getInstance().startLiveMediaActivity(context, str, str2, str3, uri);
-    }
-
-    public void y(Context context, String str, String str2, Map<String, Object> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048605, this, context, str, str2, map) == null) {
-            if (I()) {
-                zi.Q(context, "安卓系统版本不支持");
-            } else {
-                LiveNPSPluginManager.getInstance().startYuYinActivity(context, str, str2, map);
-            }
-        }
+        return invokeCommon.booleanValue;
     }
 }

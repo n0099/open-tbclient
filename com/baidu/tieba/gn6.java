@@ -1,62 +1,20 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class gn6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<ThreadData> a;
-    public boolean b;
-    public ep6 c;
-    public AntiData d;
-    public String e;
-    public String f;
-    public boolean g;
-    public boolean h;
-
-    /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static gn6 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-770211844, "Lcom/baidu/tieba/gn6$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-770211844, "Lcom/baidu/tieba/gn6$b;");
-                    return;
-                }
-            }
-            a = new gn6(null);
-        }
-    }
+    public int a;
+    public int b;
+    public List<EmotionImageData> c;
 
     public gn6() {
         Interceptable interceptable = $ic;
@@ -68,226 +26,55 @@ public class gn6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = false;
-        this.a = new ArrayList<>();
     }
 
-    public static gn6 f() {
+    public List<EmotionImageData> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (gn6) invokeV.objValue;
-    }
-
-    public AntiData c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (AntiData) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public List<ThreadData> g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
         return (List) invokeV.objValue;
     }
 
-    public boolean h() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.h;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.b;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    public boolean j() {
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    public void m() {
+    public void d(List<EmotionImageData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            p(false, false);
-            b();
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            this.c = list;
         }
     }
 
-    public /* synthetic */ gn6(a aVar) {
-        this();
-    }
-
-    public void l(ThreadData threadData) {
+    public void e(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, threadData) == null) {
-            this.a.remove(threadData);
-            ep6 ep6Var = this.c;
-            if (ep6Var != null) {
-                ep6Var.c(this.a.size(), 1);
-            }
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.b = i;
         }
     }
 
-    public void n(AntiData antiData) {
+    public void f(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, antiData) == null) {
-            this.d = antiData;
-        }
-    }
-
-    public void o(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.h = z;
-        }
-    }
-
-    public void q(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.e = str;
-        }
-    }
-
-    public void r(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            this.f = str;
-        }
-    }
-
-    public void s(ep6 ep6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, ep6Var) == null) {
-            this.c = ep6Var;
-        }
-    }
-
-    public void t(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-            this.g = z;
-        }
-    }
-
-    public boolean a(ThreadData threadData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, threadData)) == null) {
-            if (threadData == null) {
-                return false;
-            }
-            if (this.a.size() > 29) {
-                ep6 ep6Var = this.c;
-                if (ep6Var != null) {
-                    ep6Var.b(1);
-                }
-                return false;
-            }
-            this.a.add(threadData);
-            ep6 ep6Var2 = this.c;
-            if (ep6Var2 != null) {
-                ep6Var2.c(this.a.size(), 1);
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Iterator<ThreadData> it = this.a.iterator();
-            while (it.hasNext()) {
-                ThreadData next = it.next();
-                if (next != null) {
-                    next.setMarkToDel(false);
-                }
-            }
-            this.a.clear();
-            ep6 ep6Var = this.c;
-            if (ep6Var != null) {
-                ep6Var.c(0, 1);
-            }
-        }
-    }
-
-    public void k(List<String> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, list) != null) || ListUtils.isEmpty(list) || ListUtils.isEmpty(this.a)) {
-            return;
-        }
-        Iterator<ThreadData> it = this.a.iterator();
-        while (it.hasNext()) {
-            ThreadData next = it.next();
-            int i = 0;
-            while (true) {
-                if (i >= list.size()) {
-                    break;
-                } else if (StringHelper.equals(list.get(i), next.getId())) {
-                    it.remove();
-                    break;
-                } else {
-                    i++;
-                }
-            }
-        }
-        ep6 ep6Var = this.c;
-        if (ep6Var != null) {
-            ep6Var.c(this.a.size(), 1);
-        }
-    }
-
-    public void p(boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            this.b = z;
-            ep6 ep6Var = this.c;
-            if (ep6Var != null) {
-                ep6Var.a(z, z2, 1);
-            }
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.a = i;
         }
     }
 }

@@ -1,84 +1,51 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.graphics.Matrix;
+import android.view.WindowManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.exceptions.OnErrorNotImplementedException;
+import org.webrtc.TextureBufferImpl;
+import org.webrtc.VideoFrame;
+/* compiled from: CameraSession.java */
 /* loaded from: classes5.dex */
-public final class jca {
+public final /* synthetic */ class jca {
     public static /* synthetic */ Interceptable $ic;
-    public static final l8a<Object> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a implements l8a<Object> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.l8a
-        public final void onCompleted() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.l8a
-        public final void onNext(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.l8a
-        public final void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                throw new OnErrorNotImplementedException(th);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947879873, "Lcom/baidu/tieba/jca;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947879873, "Lcom/baidu/tieba/jca;");
-                return;
-            }
-        }
-        a = new a();
-    }
-
-    public static <T> l8a<T> a() {
-        InterceptResult invokeV;
+    public static VideoFrame.TextureBuffer a(TextureBufferImpl textureBufferImpl, boolean z, int i) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return (l8a<T>) a;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{textureBufferImpl, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            Matrix matrix = new Matrix();
+            matrix.preTranslate(0.5f, 0.5f);
+            if (z) {
+                matrix.preScale(-1.0f, 1.0f);
+            }
+            matrix.preRotate(i);
+            matrix.preTranslate(-0.5f, -0.5f);
+            return textureBufferImpl.applyTransformMatrix(matrix, textureBufferImpl.getWidth(), textureBufferImpl.getHeight());
         }
-        return (l8a) invokeV.objValue;
+        return (VideoFrame.TextureBuffer) invokeCommon.objValue;
+    }
+
+    public static int b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            int rotation = ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getRotation();
+            if (rotation != 1) {
+                if (rotation != 2) {
+                    if (rotation != 3) {
+                        return 0;
+                    }
+                    return 270;
+                }
+                return 180;
+            }
+            return 90;
+        }
+        return invokeL.intValue;
     }
 }

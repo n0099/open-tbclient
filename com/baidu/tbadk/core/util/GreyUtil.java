@@ -9,7 +9,7 @@ import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.FragmentActivity;
 import com.baidu.tbadk.switchs.WindowGreySwitch;
-import com.baidu.tieba.v9;
+import com.baidu.tieba.aa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -47,9 +47,9 @@ public class GreyUtil {
             return;
         }
         if (WindowGreySwitch.getIsOn()) {
-            v9.b(view2);
+            aa.b(view2);
         } else {
-            v9.a(view2);
+            aa.a(view2);
         }
     }
 
@@ -64,7 +64,7 @@ public class GreyUtil {
     public static void grey(View view2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65539, null, view2) == null) && view2 != null && WindowGreySwitch.getIsOn()) {
-            v9.b(view2);
+            aa.b(view2);
         }
     }
 

@@ -1,21 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import android.annotation.SuppressLint;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class zg2 {
+public class zg2 implements hg2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    @V8JavascriptField
-    public String data;
-    @V8JavascriptField
-    public String errMsg;
 
     public zg2() {
         Interceptable interceptable = $ic;
@@ -27,20 +21,31 @@ public class zg2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 0;
-        this.a = 0 + 1;
-        this.b = 0;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.hg2
+    @SuppressLint({"BDThrowableCheck"})
+    public mg2 a(lg2 lg2Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "ReadFileStringCallBack" + this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, lg2Var)) == null) {
+            int type = lg2Var.getType();
+            if (type != 1) {
+                if (type != 2) {
+                    if (type != 3) {
+                        if (!gp1.a) {
+                            return new ch2();
+                        }
+                        throw new IllegalArgumentException("invalid model object:" + lg2Var);
+                    }
+                    return new qa2();
+                }
+                return es2.b();
+            }
+            return new ch2();
         }
-        return (String) invokeV.objValue;
+        return (mg2) invokeL.objValue;
     }
 }

@@ -1,154 +1,169 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.ViewGroup;
-import com.baidu.adp.lib.util.StringUtils;
+import android.media.MediaCodec;
+import android.media.MediaFormat;
+import android.media.MediaMuxer;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mcn.McnVideoAdView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.nio.ByteBuffer;
 /* loaded from: classes5.dex */
 public class me0 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String d = "me0";
     public transient /* synthetic */ FieldHolder $fh;
-    public McnVideoAdView a;
-    public McnVideoAdView.c b;
+    public MediaMuxer a;
+    public volatile boolean b;
+    public ne0 c;
 
-    /* loaded from: classes5.dex */
-    public class a implements McnVideoAdView.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(me0 me0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {me0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947969649, "Lcom/baidu/tieba/me0;")) == null) {
+            return;
         }
-
-        @Override // com.baidu.mcn.McnVideoAdView.c
-        public void a(ke0 ke0Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, ke0Var) == null) && ke0Var != null && !StringUtils.isNull(ke0Var.d)) {
-                le0.b().c(ke0Var.d);
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-
-        @Override // com.baidu.mcn.McnVideoAdView.c
-        public void b(ke0 ke0Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ke0Var) != null) || ke0Var == null) {
-                return;
-            }
-            StatisticItem statisticItem = new StatisticItem("c13405");
-            statisticItem.param("tid", ke0Var.e);
-            statisticItem.param("fid", ke0Var.f);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("obj_locate", ke0Var.g);
-            TiebaStatic.log(statisticItem);
-        }
-
-        @Override // com.baidu.mcn.McnVideoAdView.c
-        public void c(ke0 ke0Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ke0Var) != null) || ke0Var == null) {
-                return;
-            }
-            StatisticItem statisticItem = new StatisticItem("c13404");
-            statisticItem.param("tid", ke0Var.e);
-            statisticItem.param("fid", ke0Var.f);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("obj_locate", ke0Var.g);
-            TiebaStatic.log(statisticItem);
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947969649, "Lcom/baidu/tieba/me0;");
         }
     }
 
-    public me0(Context context) {
+    public me0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = new a(this);
-        McnVideoAdView mcnVideoAdView = new McnVideoAdView(context);
-        this.a = mcnVideoAdView;
-        mcnVideoAdView.setIMcnStatListener(this.b);
-    }
-
-    public void a() {
-        McnVideoAdView mcnVideoAdView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (mcnVideoAdView = this.a) != null) {
-            mcnVideoAdView.f();
-        }
-    }
-
-    public void b() {
-        McnVideoAdView mcnVideoAdView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (mcnVideoAdView = this.a) != null) {
-            mcnVideoAdView.g();
-        }
+        this.b = false;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            McnVideoAdView mcnVideoAdView = this.a;
-            if (mcnVideoAdView != null) {
-                return mcnVideoAdView.i();
-            }
-            return false;
+            return this.b;
         }
         return invokeV.booleanValue;
     }
 
     public void d() {
-        McnVideoAdView mcnVideoAdView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (mcnVideoAdView = this.a) != null) {
-            mcnVideoAdView.k();
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && !this.b) {
+            this.a.release();
+            this.a = null;
         }
     }
 
-    public void e(ke0 ke0Var, ViewGroup viewGroup) {
-        McnVideoAdView mcnVideoAdView;
+    public synchronized void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, ke0Var, viewGroup) == null) && (mcnVideoAdView = this.a) != null) {
-            mcnVideoAdView.l(ke0Var, viewGroup);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                boolean z = true;
+                try {
+                    this.a.start();
+                    this.b = true;
+                } catch (Exception unused) {
+                    Log.e(d, "startMuxer error!!!");
+                    z = false;
+                }
+                if (this.c != null) {
+                    this.c.a(z);
+                }
+            }
         }
     }
 
-    public void f(ke0 ke0Var, ViewGroup viewGroup) {
-        McnVideoAdView mcnVideoAdView;
+    public synchronized void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, ke0Var, viewGroup) == null) && (mcnVideoAdView = this.a) != null) {
-            mcnVideoAdView.m(ke0Var, viewGroup);
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            synchronized (this) {
+                boolean z = false;
+                try {
+                    this.a.stop();
+                    this.b = false;
+                    z = true;
+                } catch (Exception unused) {
+                    Log.e(d, "stopMuxer error!!!");
+                }
+                if (this.c != null) {
+                    this.c.b(z);
+                }
+            }
         }
+    }
+
+    public synchronized int a(MediaFormat mediaFormat) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mediaFormat)) == null) {
+            synchronized (this) {
+                try {
+                    int addTrack = this.a.addTrack(mediaFormat);
+                    if (addTrack >= 0) {
+                        return addTrack;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                Log.e(d, "addMuxerTrack error!!!");
+                return -1;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public boolean b(String str, int i, ne0 ne0Var) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, ne0Var)) == null) {
+            if (!pe0.a(str)) {
+                pe0.b(str);
+            }
+            try {
+                this.a = new MediaMuxer(str, i);
+                this.c = ne0Var;
+                this.b = false;
+                return true;
+            } catch (Exception e) {
+                Log.e(d, "initMovieMuxer init error!!!");
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return invokeLIL.booleanValue;
+    }
+
+    public boolean g(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, byteBuffer, bufferInfo)) == null) {
+            if (i != -1) {
+                try {
+                    this.a.writeSampleData(i, byteBuffer, bufferInfo);
+                    return true;
+                } catch (Exception unused) {
+                    Log.e(d, "startMuxer error!!!");
+                    return false;
+                }
+            }
+            return false;
+        }
+        return invokeILL.booleanValue;
     }
 }

@@ -1,86 +1,52 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes6.dex */
-public final class xj5 {
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes7.dex */
+public class xj5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ViewGroup a;
-    public final int b;
 
-    public boolean equals(Object obj) {
+    public static String a(List<String> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+            if (ListUtils.getCount(list) <= 0) {
+                return null;
             }
-            if (obj instanceof xj5) {
-                xj5 xj5Var = (xj5) obj;
-                return Intrinsics.areEqual(this.a, xj5Var.a) && this.b == xj5Var.b;
+            StringBuilder sb = new StringBuilder();
+            boolean z = false;
+            for (String str : list) {
+                if (!StringUtils.isNull(str)) {
+                    if (!z && !StringUtils.isNull(sb.toString())) {
+                        z = true;
+                    }
+                    if (z) {
+                        sb.append("_");
+                    }
+                    sb.append(str);
+                }
             }
-            return false;
+            return sb.toString();
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
+    public static List<String> b(List<String> list, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a.hashCode() * 31) + this.b : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "DetailViewInfo(parent=" + this.a + ", childIndex=" + this.b + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public xj5(ViewGroup parent, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parent, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, list, i)) == null) {
+            int count = ListUtils.getCount(list);
+            if (count > 0 && i >= 0 && count > i) {
+                return new ArrayList(ListUtils.subList(list, count - i, count));
             }
+            return list;
         }
-        Intrinsics.checkNotNullParameter(parent, "parent");
-        this.a = parent;
-        this.b = i;
-    }
-
-    public final int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public final ViewGroup b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (ViewGroup) invokeV.objValue;
+        return (List) invokeLI.objValue;
     }
 }

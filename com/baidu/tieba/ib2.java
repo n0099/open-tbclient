@@ -1,18 +1,10 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.ContentUris;
-import android.content.ContentValues;
-import android.content.UriMatcher;
-import android.database.ContentObserver;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.net.Uri;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.database.SwanAppDbControl;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,22 +13,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ib2 {
+public class ib2 extends ya2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String b;
-    public static final Uri c;
+    public static final boolean l;
     public transient /* synthetic */ FieldHolder $fh;
-    public UriMatcher a;
-
-    @Nullable
-    public String getType(@NonNull Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uri)) == null) {
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -51,192 +31,74 @@ public class ib2 {
                 return;
             }
         }
-        b = AppRuntime.getApplication().getPackageName() + ".swan.favorite";
-        c = Uri.parse("content://" + b);
+        l = gp1.a;
     }
 
-    public ib2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ib2(boolean z, boolean z2) {
+        super(z, z2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Boolean) objArr2[0]).booleanValue(), ((Boolean) objArr2[1]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        UriMatcher uriMatcher = new UriMatcher(-1);
-        this.a = uriMatcher;
-        uriMatcher.addURI(b, "favorite", 0);
-        this.a.addURI(b, "favorite_and_aps", 1);
-        this.a.addURI(b, "history", 2);
-        this.a.addURI(b, "history_with_app", 3);
-        this.a.addURI(b, "favorite_with_aps_pms", 4);
-        this.a.addURI(b, "history_with_aps_pms", 5);
-        this.a.addURI(b, "user_behavior", 6);
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            AppRuntime.getAppContext().getContentResolver().notifyChange(lb2.b(), (ContentObserver) null, false);
-            AppRuntime.getAppContext().getContentResolver().notifyChange(lb2.c(), (ContentObserver) null, false);
-            AppRuntime.getAppContext().getContentResolver().notifyChange(lb2.a(), (ContentObserver) null, false);
+        if (l) {
+            Log.d("PreloadMasterManager", "PreloadMasterManagerSingle created");
         }
     }
 
-    @NonNull
-    @SuppressLint({"BDThrowableCheck"})
-    public final String a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i != 6) {
-                if (!tk1.a) {
-                    return "";
-                }
-                throw new NullPointerException("tableName must not Null");
-            }
-            return "user_behavior";
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
-        InterceptResult invokeLLL;
-        SQLiteDatabase e;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, str, strArr)) == null) {
-            int match = this.a.match(uri);
-            if (match != 0) {
-                if (match != 2) {
-                    if (match != 6 || (e = SwanAppDbControl.f(AppRuntime.getAppContext()).e()) == null) {
-                        return 0;
-                    }
-                    return e.delete(a(match), str, strArr);
-                }
-                int c2 = SwanAppDbControl.f(AppRuntime.getAppContext()).c(str, strArr);
-                if (c2 > 0) {
-                    b();
-                }
-                return c2;
-            }
-            return SwanAppDbControl.f(AppRuntime.getAppContext()).b(str, strArr);
-        }
-        return invokeLLL.intValue;
-    }
-
-    @Nullable
-    public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
+    @Override // com.baidu.tieba.ya2
+    public boolean k(PrefetchEvent.c cVar, PMSAppInfo pMSAppInfo) {
         InterceptResult invokeLL;
-        SQLiteDatabase e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, uri, contentValues)) == null) {
-            int match = this.a.match(uri);
-            if (match != 0) {
-                if (match != 2) {
-                    if (match != 6 || (e = SwanAppDbControl.f(AppRuntime.getAppContext()).e()) == null) {
-                        return null;
-                    }
-                    e.insertWithOnConflict(a(match), null, contentValues, 5);
-                    return uri;
-                }
-                long j = SwanAppDbControl.f(AppRuntime.getAppContext()).j(contentValues);
-                if (j < 0) {
-                    return null;
-                }
-                b();
-                return ContentUris.withAppendedId(c.buildUpon().build(), j);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, cVar, pMSAppInfo)) == null) {
+            PMSAppInfo g = g();
+            if (g == null) {
+                return false;
             }
-            long i = SwanAppDbControl.f(AppRuntime.getAppContext()).i(contentValues);
-            if (i < 0) {
-                return null;
+            if (!TextUtils.equals(pMSAppInfo.appId, g.appId)) {
+                if (l) {
+                    Log.e("PreloadMasterManager", "one master can only prefetch one appId");
+                }
+                return true;
+            } else if (!w(pMSAppInfo, cVar)) {
+                return false;
+            } else {
+                if (l) {
+                    Log.w("PreloadMasterManager", "prefetch app is not the same !!!!");
+                    Log.w("PreloadMasterManager", "bind app info - " + g());
+                    Log.w("PreloadMasterManager", "prefetch app info - " + pMSAppInfo);
+                }
+                return true;
             }
-            return ContentUris.withAppendedId(c.buildUpon().build(), i);
         }
-        return (Uri) invokeLL.objValue;
+        return invokeLL.booleanValue;
     }
 
-    @Nullable
-    public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        InterceptResult invokeLLLLL;
+    public boolean w(PMSAppInfo pMSAppInfo, PrefetchEvent.c cVar) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048580, this, uri, strArr, str, strArr2, str2)) == null) {
-            int match = this.a.match(uri);
-            switch (match) {
-                case 0:
-                    Cursor l = SwanAppDbControl.f(AppRuntime.getAppContext()).l(strArr, str, strArr2, str2);
-                    l.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
-                    return l;
-                case 1:
-                    Cursor k = SwanAppDbControl.f(AppRuntime.getAppContext()).k(strArr, str, strArr2, str2);
-                    k.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
-                    return k;
-                case 2:
-                    Cursor n = SwanAppDbControl.f(AppRuntime.getAppContext()).n(strArr, str, strArr2, str2);
-                    n.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
-                    return n;
-                case 3:
-                    Cursor m = SwanAppDbControl.f(AppRuntime.getAppContext()).m(strArr, str, strArr2, str2);
-                    m.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
-                    return m;
-                case 4:
-                    Cursor s = hb2.s();
-                    s.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
-                    return s;
-                case 5:
-                    int i = -1;
-                    try {
-                        i = Integer.valueOf(uri.getQueryParameter("query_limit")).intValue();
-                    } catch (Exception e) {
-                        if (tk1.a) {
-                            e.printStackTrace();
-                        }
-                    }
-                    String queryParameter = uri.getQueryParameter("query_word");
-                    if (queryParameter == null) {
-                        queryParameter = "";
-                    }
-                    Cursor o = mb2.o(queryParameter, i);
-                    o.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
-                    return o;
-                case 6:
-                    SQLiteDatabase e2 = SwanAppDbControl.f(AppRuntime.getAppContext()).e();
-                    if (e2 == null) {
-                        return null;
-                    }
-                    return e2.query(a(match), strArr, str, strArr2, null, null, str2);
-                default:
-                    return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSAppInfo, cVar)) == null) {
+            PMSAppInfo g = g();
+            if (this.c == null) {
+                return false;
             }
-        }
-        return (Cursor) invokeLLLLL.objValue;
-    }
-
-    public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        InterceptResult invokeLLLL;
-        SQLiteDatabase e;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, uri, contentValues, str, strArr)) == null) {
-            int match = this.a.match(uri);
-            if (match != 0) {
-                if (match != 2) {
-                    if (match != 6 || (e = SwanAppDbControl.f(AppRuntime.getAppContext()).e()) == null) {
-                        return 0;
-                    }
-                    return e.update(a(match), contentValues, str, strArr);
-                }
-                int r = SwanAppDbControl.f(AppRuntime.getAppContext()).r(contentValues, str, strArr);
-                if (r > 0) {
-                    b();
-                }
-                return r;
+            if (pMSAppInfo.versionCode == g.versionCode && TextUtils.equals(pMSAppInfo.appId, g.appId) && !m(cVar, this.d)) {
+                return false;
             }
-            return SwanAppDbControl.f(AppRuntime.getAppContext()).q(contentValues, str, strArr);
+            return true;
         }
-        return invokeLLLL.intValue;
+        return invokeLL.booleanValue;
     }
 }

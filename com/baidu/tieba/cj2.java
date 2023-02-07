@@ -1,49 +1,75 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.net.Uri;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class cj2 extends di2<tk2> {
+public class cj2<T> extends wi2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
+    public T c;
+    public boolean d;
 
-    @Override // com.baidu.tieba.di2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getVideoHeight" : (String) invokeV.objValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947676606, "Lcom/baidu/tieba/cj2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947676606, "Lcom/baidu/tieba/cj2;");
+                return;
+            }
+        }
+        e = gp1.a;
     }
 
     public cj2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.d = true;
+        this.a = "message";
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.di2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull tk2 tk2Var) {
+    @Override // com.baidu.tieba.wi2
+    public void m(Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, tk2Var) == null) {
-            command.ret = tk2Var.getVideoHeight();
-            String str = command.what;
-            d(tk2Var, str, "Height: " + command.ret, true);
+        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+            Object obj = this.c;
+            if (obj instanceof String) {
+                String str = (String) obj;
+                if (this.d) {
+                    str = Uri.encode(str);
+                }
+                if (e) {
+                    Log.d("SwanAppWebMessage", "mData: " + this.c);
+                    Log.d("SwanAppWebMessage", "encode mData: " + str);
+                }
+                map.put("message", str);
+            } else if (obj instanceof JSONObject) {
+                map.put("message", obj);
+            }
         }
     }
 }

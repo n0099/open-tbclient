@@ -1,22 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.model.LatLng;
-import com.baidu.mapapi.search.route.DrivingRoutePlanOption;
-import com.baidu.mapapi.search.route.OnGetRoutePlanResultListener;
-import com.baidu.mapapi.search.route.PlanNode;
-import com.baidu.mapapi.search.route.RoutePlanSearch;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ha4 {
+public class ha4 extends yf3 {
     public static /* synthetic */ Interceptable $ic;
-    public static ha4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public RoutePlanSearch a;
+    public int k;
+    public String l;
+    public int m;
+    public int n;
+    public long o;
 
     public ha4() {
         Interceptable interceptable = $ic;
@@ -32,38 +32,27 @@ public class ha4 {
         }
     }
 
-    public static ha4 b() {
+    @Override // com.baidu.tieba.yf3
+    public JSONObject f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (ha4.class) {
-                    if (b == null) {
-                        b = new ha4();
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.h == null) {
+                this.h = new JSONObject();
+            }
+            try {
+                this.h.put("stage", this.k);
+                this.h.put(StatConstants.KEY_EXT_ERR_MSG, this.l);
+                this.h.put("netStatus", this.m);
+                this.h.put("touch", this.n);
+                this.h.put("stuck_interval", this.o);
+            } catch (JSONException e) {
+                if (yf3.j) {
+                    e.printStackTrace();
                 }
             }
-            return b;
+            return super.f();
         }
-        return (ha4) invokeV.objValue;
-    }
-
-    public void a() {
-        RoutePlanSearch routePlanSearch;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (routePlanSearch = this.a) != null) {
-            routePlanSearch.destroy();
-        }
-    }
-
-    public void c(LatLng latLng, LatLng latLng2, OnGetRoutePlanResultListener onGetRoutePlanResultListener) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, latLng, latLng2, onGetRoutePlanResultListener) == null) && latLng != null && latLng2 != null && onGetRoutePlanResultListener != null) {
-            RoutePlanSearch newInstance = RoutePlanSearch.newInstance();
-            this.a = newInstance;
-            newInstance.setOnGetRoutePlanResultListener(onGetRoutePlanResultListener);
-            PlanNode withLocation = PlanNode.withLocation(latLng);
-            this.a.drivingSearch(new DrivingRoutePlanOption().from(withLocation).to(PlanNode.withLocation(latLng2)));
-        }
+        return (JSONObject) invokeV.objValue;
     }
 }

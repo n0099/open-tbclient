@@ -183,8 +183,8 @@ public class RelevanceItemListFragment extends BaseFragment {
                 }
             }
             this.b = new RelevanceItemListController(this, this.a, this.c, getUniqueId());
-            if (((RelevanceItemSearchActivity) getActivity()).g1() != null && ((RelevanceItemSearchActivity) getActivity()).g1().h() != null) {
-                str = ((RelevanceItemSearchActivity) getActivity()).g1().h().getText().toString();
+            if (((RelevanceItemSearchActivity) getActivity()).C1() != null && ((RelevanceItemSearchActivity) getActivity()).C1().h() != null) {
+                str = ((RelevanceItemSearchActivity) getActivity()).C1().h().getText().toString();
             } else {
                 str = "";
             }
@@ -203,7 +203,7 @@ public class RelevanceItemListFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, layoutInflater, viewGroup, bundle)) == null) {
             if (this.a == null) {
-                this.a = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02e9, (ViewGroup) null);
+                this.a = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02e8, (ViewGroup) null);
             }
             initData();
             E1();

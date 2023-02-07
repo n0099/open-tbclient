@@ -627,13 +627,13 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         this.D = getResources().getDisplayMetrics().widthPixels;
         ViewCompat.setChildrenDrawingOrderEnabled(this, true);
         if ("baidu".equals(LiveFeedPageSdk.getInstance().getHost())) {
-            this.z = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07060a);
+            this.z = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070617);
         } else if (LiveFeedPageSdk.HOST_HAOKAN.equals(LiveFeedPageSdk.getInstance().getHost())) {
-            this.z = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07060b);
+            this.z = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070618);
         } else if (LiveFeedPageSdk.HOST_QUANMIN.equals(LiveFeedPageSdk.getInstance().getHost())) {
-            this.z = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07060c);
+            this.z = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070619);
         } else if ("tieba".equals(LiveFeedPageSdk.getInstance().getHost())) {
-            this.z = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07060a);
+            this.z = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070617);
         }
         this.f = this.z;
         this.h = new NestedScrollingParentHelper(this);
@@ -816,7 +816,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048619, this, str) == null) {
             if ("recommend".equals(str)) {
-                this.z = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07060a);
+                this.z = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070617);
             }
             this.f = this.z;
         }

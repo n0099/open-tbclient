@@ -17,7 +17,7 @@ public class CustomRecyclerView extends BdTypeRecyclerView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public float A;
-    public float z;
+    public float B;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CustomRecyclerView(Context context) {
@@ -95,19 +95,19 @@ public class CustomRecyclerView extends BdTypeRecyclerView {
         return invokeI.booleanValue;
     }
 
-    @Override // android.view.ViewGroup, android.view.View
+    @Override // com.baidu.adp.widget.ListView.BdTypeRecyclerView, android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
             if (motionEvent.getAction() == 0) {
-                this.z = motionEvent.getX();
-                this.A = motionEvent.getY();
+                this.A = motionEvent.getX();
+                this.B = motionEvent.getY();
             } else {
                 boolean z = false;
                 if (motionEvent.getAction() == 2) {
                     ViewParent parent = getParent();
-                    if (Math.abs(motionEvent.getX() - this.z) > Math.abs(motionEvent.getY() - this.A)) {
+                    if (Math.abs(motionEvent.getX() - this.A) > Math.abs(motionEvent.getY() - this.B)) {
                         z = true;
                     }
                     parent.requestDisallowInterceptTouchEvent(z);

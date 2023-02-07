@@ -36,29 +36,29 @@ import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.coreExtra.model.ShareSuccessReplyToServerModel;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tbadk.util.BdListViewHelper;
+import com.baidu.tieba.Cdo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bh;
+import com.baidu.tieba.ap8;
+import com.baidu.tieba.bp8;
+import com.baidu.tieba.bu4;
 import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
-import com.baidu.tieba.cz4;
-import com.baidu.tieba.d68;
-import com.baidu.tieba.el8;
-import com.baidu.tieba.fl8;
-import com.baidu.tieba.gl8;
-import com.baidu.tieba.kl8;
-import com.baidu.tieba.li8;
-import com.baidu.tieba.lz4;
-import com.baidu.tieba.mn;
+import com.baidu.tieba.cu4;
+import com.baidu.tieba.dj;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.fp8;
+import com.baidu.tieba.gh;
+import com.baidu.tieba.gm8;
+import com.baidu.tieba.lp8;
 import com.baidu.tieba.model.SetPrivacyModel;
-import com.baidu.tieba.mz4;
-import com.baidu.tieba.op4;
+import com.baidu.tieba.p35;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
-import com.baidu.tieba.pp4;
-import com.baidu.tieba.ql8;
+import com.baidu.tieba.rn;
 import com.baidu.tieba.tbadkCore.model.ForumManageModel;
-import com.baidu.tieba.yi;
-import com.baidu.tieba.yn;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.xa8;
+import com.baidu.tieba.y35;
+import com.baidu.tieba.z35;
+import com.baidu.tieba.zo8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -66,22 +66,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class PersonThreadFragment extends BaseFragment implements PersonPostModel.d, pp4.a, PersonPostModel.c, BdListView.p, fl8 {
+public class PersonThreadFragment extends BaseFragment implements PersonPostModel.d, cu4.a, PersonPostModel.c, BdListView.p, ap8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public kl8 b;
+    public fp8 b;
     public FrameLayout c;
     public View d;
-    public ql8 e;
+    public lp8 e;
     public PersonPostModel f;
     public boolean g;
     public String h;
-    public mz4 i;
+    public z35 i;
     public i j;
     public boolean k;
-    public gl8 l;
-    public el8 m;
+    public bp8 l;
+    public zo8 m;
     public boolean n;
     public boolean o;
     public boolean p;
@@ -135,7 +135,7 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
             public void run() {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a.getPageContext().getPageActivity() != null) {
-                    d68.a(this.b.a.getPageContext(), this.a).show();
+                    xa8.a(this.b.a.getPageContext(), this.a).show();
                 }
             }
         }
@@ -162,7 +162,7 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
         public void b(CustomDialogData customDialogData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customDialogData) == null) {
-                bh.a().postDelayed(new a(this, customDialogData), 1000L);
+                gh.a().postDelayed(new a(this, customDialogData), 1000L);
             }
         }
     }
@@ -276,7 +276,7 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null) {
-                zi.P(this.a.getActivity(), R.string.thread_has_hide);
+                ej.P(this.a.getActivity(), R.string.thread_has_hide);
             }
         }
     }
@@ -350,7 +350,7 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
     }
 
     /* loaded from: classes5.dex */
-    public class f implements lz4.g {
+    public class f implements y35.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonThreadFragment a;
@@ -373,7 +373,7 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
             this.a = personThreadFragment;
         }
 
-        @Override // com.baidu.tieba.lz4.g
+        @Override // com.baidu.tieba.y35.g
         public void f(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -385,7 +385,7 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
                 if (BdNetTypeUtil.isNetworkAvailableForImmediately()) {
                     this.a.K1();
                 } else if (this.a.b != null) {
-                    this.a.b.i(this.a.getString(R.string.obfuscated_res_0x7f0f0cd1), true);
+                    this.a.b.i(this.a.getString(R.string.obfuscated_res_0x7f0f0cfe), true);
                 }
             }
         }
@@ -438,7 +438,7 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
     }
 
     /* loaded from: classes5.dex */
-    public static class i extends mn {
+    public static class i extends rn {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int b;
@@ -475,7 +475,7 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
             this.c = baseFragmentActivity;
         }
 
-        @Override // com.baidu.tieba.mn
+        @Override // com.baidu.tieba.rn
         public View a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -487,16 +487,16 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
                 SkinManager.setBackgroundColor(this.g, this.b);
                 SkinManager.setBackgroundColor(this.h, this.b);
                 this.h.setVisibility(8);
-                this.e = (ProgressBar) this.g.findViewById(R.id.obfuscated_res_0x7f091b80);
+                this.e = (ProgressBar) this.g.findViewById(R.id.obfuscated_res_0x7f091b9a);
                 i(TbadkCoreApplication.getInst().getSkinType());
                 SkinManager.setViewTextColor(this.d, (int) R.color.common_color_10039);
-                this.h.setLayoutParams(new LinearLayout.LayoutParams(-1, zi.g(this.c.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07023c)));
+                this.h.setLayoutParams(new LinearLayout.LayoutParams(-1, ej.g(this.c.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07023d)));
                 return this.g;
             }
             return (View) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.mn
+        @Override // com.baidu.tieba.rn
         public void d() {
             View.OnClickListener onClickListener;
             Interceptable interceptable = $ic;
@@ -516,7 +516,7 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 this.e.setVisibility(0);
-                this.d.setText(this.c.getPageContext().getPageActivity().getText(R.string.obfuscated_res_0x7f0f0ac1));
+                this.d.setText(this.c.getPageContext().getPageActivity().getText(R.string.obfuscated_res_0x7f0f0ae6));
                 this.h.setVisibility(0);
             }
         }
@@ -583,17 +583,17 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
         this.v = new h(this, 2000994);
     }
 
-    public void R1(el8 el8Var) {
+    public void R1(zo8 zo8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, el8Var) == null) {
-            this.m = el8Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, zo8Var) == null) {
+            this.m = zo8Var;
         }
     }
 
-    public void S1(gl8 gl8Var) {
+    public void S1(bp8 bp8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, gl8Var) == null) {
-            this.l = gl8Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, bp8Var) == null) {
+            this.l = bp8Var;
         }
     }
 
@@ -610,12 +610,12 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
     public final void J1(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            kl8 kl8Var = this.b;
-            kl8Var.c.removeHeaderView(kl8Var.d);
+            fp8 fp8Var = this.b;
+            fp8Var.c.removeHeaderView(fp8Var.d);
             if (z) {
                 this.b.d.setVisibility(0);
-                kl8 kl8Var2 = this.b;
-                kl8Var2.c.addHeaderView(kl8Var2.d);
+                fp8 fp8Var2 = this.b;
+                fp8Var2.c.addHeaderView(fp8Var2.d);
                 this.j.c().setVisibility(8);
                 return;
             }
@@ -636,13 +636,13 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
             if (noDataView != null) {
                 noDataView.d(getPageContext());
             }
-            mz4 mz4Var = this.i;
-            if (mz4Var != null) {
-                mz4Var.H(i2);
+            z35 z35Var = this.i;
+            if (z35Var != null) {
+                z35Var.H(i2);
             }
-            ql8 ql8Var = this.e;
-            if (ql8Var != null) {
-                ql8Var.b();
+            lp8 lp8Var = this.e;
+            if (lp8Var != null) {
+                lp8Var.b();
             }
             i iVar = this.j;
             if (iVar != null) {
@@ -666,22 +666,22 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
         }
     }
 
-    @Override // com.baidu.tieba.fl8
-    public void K0() {
-        kl8 kl8Var;
-        BdTypeListView bdTypeListView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (kl8Var = this.b) != null && (bdTypeListView = kl8Var.c) != null) {
-            bdTypeListView.F();
-        }
-    }
-
     public void K1() {
         PersonPostModel personPostModel;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (personPostModel = this.f) != null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (personPostModel = this.f) != null) {
             personPostModel.fetchPost(getPageContext(), this, true, this.h, true, this.q, false, true, null);
             this.o = true;
+        }
+    }
+
+    @Override // com.baidu.tieba.ap8
+    public void L0() {
+        fp8 fp8Var;
+        BdTypeListView bdTypeListView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (fp8Var = this.b) != null && (bdTypeListView = fp8Var.c) != null) {
+            bdTypeListView.F();
         }
     }
 
@@ -693,19 +693,19 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
         }
     }
 
-    public kl8 M1() {
+    public fp8 M1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.b;
         }
-        return (kl8) invokeV.objValue;
+        return (fp8) invokeV.objValue;
     }
 
     public final void N1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            op4.a(getBaseFragmentActivity()).e(true, true, true, this);
+            bu4.a(getBaseFragmentActivity()).e(true, true, true, this);
         }
     }
 
@@ -722,7 +722,7 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             TiebaStatic.log(TbadkCoreStatisticKey.MYLIVE_TO_BE_ANCHOR);
             N1();
-            op4.a(getBaseFragmentActivity()).g(1, this);
+            bu4.a(getBaseFragmentActivity()).g(1, this);
         }
     }
 
@@ -730,7 +730,7 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             N1();
-            op4.a(getBaseFragmentActivity()).f(this);
+            bu4.a(getBaseFragmentActivity()).f(this);
         }
     }
 
@@ -743,7 +743,7 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
                 personPostModel.cancelLoadData();
             }
             try {
-                op4.h();
+                bu4.h();
             } catch (Throwable th) {
                 th.printStackTrace();
             }
@@ -759,9 +759,9 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             super.onResume();
             O1();
-            ql8 ql8Var = this.e;
-            if (ql8Var != null) {
-                ql8Var.b();
+            lp8 lp8Var = this.e;
+            if (lp8Var != null) {
+                lp8Var.b();
             }
         }
     }
@@ -813,27 +813,27 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
                 if (z) {
                     personPostModel2.threadList.clear();
                 }
-                ArrayList<yn> arrayList = personPostModel.threadList;
+                ArrayList<Cdo> arrayList = personPostModel.threadList;
                 if (personPostModel.view_card_num > 0 && this.o) {
-                    ListUtils.add(arrayList, personPostModel.view_card_num - 1, new li8());
+                    ListUtils.add(arrayList, personPostModel.view_card_num - 1, new gm8());
                     this.o = false;
                 }
                 if (this.f.threadList.isEmpty()) {
-                    yn ynVar = (yn) ListUtils.getItem(arrayList, 0);
-                    if (ynVar instanceof CardPersonDynamicThreadData) {
-                        ((CardPersonDynamicThreadData) ynVar).E = true;
-                    } else if (ynVar instanceof li8) {
-                        ((li8) ynVar).a = true;
+                    Cdo cdo = (Cdo) ListUtils.getItem(arrayList, 0);
+                    if (cdo instanceof CardPersonDynamicThreadData) {
+                        ((CardPersonDynamicThreadData) cdo).E = true;
+                    } else if (cdo instanceof gm8) {
+                        ((gm8) cdo).a = true;
                     }
                 }
                 this.f.threadList.addAll(arrayList);
                 PersonPostModel.mergeDynamicThreadByTime(this.f.threadList);
             }
-            el8 el8Var = this.m;
-            if (el8Var != null) {
-                el8Var.b0(personPostModel.isShowRecycleBinRedTip);
+            zo8 zo8Var = this.m;
+            if (zo8Var != null) {
+                zo8Var.m0(personPostModel.isShowRecycleBinRedTip);
             }
-            x0(personPostModel, z);
+            w0(personPostModel, z);
             this.e.d(this.f.threadList);
             this.e.b();
         }
@@ -859,8 +859,8 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
                         if (i4 >= count) {
                             break;
                         }
-                        yn ynVar = (yn) ListUtils.getItem(this.f.threadList, i4);
-                        if ((ynVar instanceof CardPersonDynamicThreadData) && (cardPersonDynamicThreadData = (CardPersonDynamicThreadData) ynVar) != null && stringExtra.equals(String.valueOf(cardPersonDynamicThreadData.b))) {
+                        Cdo cdo = (Cdo) ListUtils.getItem(this.f.threadList, i4);
+                        if ((cdo instanceof CardPersonDynamicThreadData) && (cardPersonDynamicThreadData = (CardPersonDynamicThreadData) cdo) != null && stringExtra.equals(String.valueOf(cardPersonDynamicThreadData.b))) {
                             z = true;
                             break;
                         }
@@ -892,11 +892,11 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
         String string2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048592, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0755, viewGroup, false);
-            this.c = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091d60);
-            kl8 kl8Var = new kl8(getActivity(), inflate);
-            this.b = kl8Var;
-            if (kl8Var.g() == null) {
+            View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d074f, viewGroup, false);
+            this.c = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091d75);
+            fp8 fp8Var = new fp8(getActivity(), inflate);
+            this.b = fp8Var;
+            if (fp8Var.g() == null) {
                 this.b.h(this.l);
             }
             BdTypeListView bdTypeListView = this.b.c;
@@ -904,16 +904,16 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
                 SkinManager.setBackgroundColor(bdTypeListView, R.color.CAM_X0201);
             }
             String string3 = getArguments().getString("thread_type_key");
-            if (!yi.isEmpty(string3)) {
+            if (!dj.isEmpty(string3)) {
                 this.a = string3;
             }
             NoDataViewFactory.b bVar = new NoDataViewFactory.b(getString(R.string.to_be_an_liver), new d(this));
-            int dimension = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070231);
+            int dimension = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070232);
             String str2 = "";
             NoDataViewFactory.d b2 = NoDataViewFactory.d.b(NoDataViewFactory.ImgType.SINGALL, dimension);
             if (this.a.equals("photolive")) {
-                int m = cz4.l().m(TbadkCoreApplication.getCurrentAccount() + "photolive_hostLevel", -1);
-                if (m == 0) {
+                int n = p35.m().n(TbadkCoreApplication.getCurrentAccount() + "photolive_hostLevel", -1);
+                if (n == 0) {
                     string2 = getPageContext().getResources().getString(R.string.to_live_to_god);
                     str = getPageContext().getResources().getString(R.string.user_not_liver);
                     dVar = NoDataViewFactory.d.c(NoDataViewFactory.ImgType.LOCAL, R.drawable.new_pic_emotion_06, dimension, -1, -1);
@@ -921,10 +921,10 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
                 } else {
                     dVar = b2;
                     str = "";
-                    string2 = getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0ef9);
+                    string2 = getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0f1c);
                     cVar = null;
                 }
-                if (m < 0) {
+                if (n < 0) {
                     Q1();
                 }
                 String str3 = str;
@@ -949,11 +949,11 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
             if (this.a.equals("photolive")) {
                 this.q = 33;
             }
-            this.e = new ql8(getPageContext(), this.b.c);
+            this.e = new lp8(getPageContext(), this.b.c);
             this.b.f().setOnItemClickListener(new e(this));
-            mz4 mz4Var = new mz4(getPageContext());
-            this.i = mz4Var;
-            mz4Var.f(new f(this));
+            z35 z35Var = new z35(getPageContext());
+            this.i = z35Var;
+            z35Var.f(new f(this));
             this.b.c.setPullRefresh(this.i);
             if (TbadkCoreApplication.isMyLive) {
                 View d2 = BdListViewHelper.d(getActivity(), this.b.c, BdListViewHelper.HeadType.DEFAULT);
@@ -972,7 +972,7 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
     }
 
     @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.d
-    public void x0(PersonPostModel personPostModel, boolean z) {
+    public void w0(PersonPostModel personPostModel, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048599, this, personPostModel, z) == null) {
             this.p = false;
@@ -991,7 +991,7 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
                     J1(false);
                 }
                 if (personPostModel.getErrorCode() != 0) {
-                    zi.Q(getActivity(), personPostModel.getErrorString());
+                    ej.Q(getActivity(), personPostModel.getErrorString());
                 }
                 this.k = !ListUtils.isEmpty(personPostModel.threadList);
                 if (z) {

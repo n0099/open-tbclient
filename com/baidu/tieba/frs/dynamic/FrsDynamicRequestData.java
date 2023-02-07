@@ -2,9 +2,9 @@ package com.baidu.tieba.frs.dynamic;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fe5;
-import com.baidu.tieba.ie5;
-import com.baidu.tieba.nk5;
+import com.baidu.tieba.qi5;
+import com.baidu.tieba.ti5;
+import com.baidu.tieba.yo5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import tbclient.CommonReq;
 import tbclient.StarTrends.DataReq;
 import tbclient.StarTrends.StarTrendsReqIdl;
 /* loaded from: classes4.dex */
-public class FrsDynamicRequestData extends OrmObject implements ie5, fe5 {
+public class FrsDynamicRequestData extends OrmObject implements ti5, qi5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,7 +28,7 @@ public class FrsDynamicRequestData extends OrmObject implements ie5, fe5 {
     public int scrH;
     public int scrW;
 
-    @Override // com.baidu.tieba.he5
+    @Override // com.baidu.tieba.si5
     public HashMap<String, Object> B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class FrsDynamicRequestData extends OrmObject implements ie5, fe5 {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.he5
+    @Override // com.baidu.tieba.si5
     public HashMap<String, String> E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public class FrsDynamicRequestData extends OrmObject implements ie5, fe5 {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.fe5
+    @Override // com.baidu.tieba.qi5
     public String F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -58,17 +58,17 @@ public class FrsDynamicRequestData extends OrmObject implements ie5, fe5 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ee5
+    @Override // com.baidu.tieba.pi5
     public String getCacheKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return null;
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.fe5
+    @Override // com.baidu.tieba.qi5
     public boolean isNeedUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -78,7 +78,7 @@ public class FrsDynamicRequestData extends OrmObject implements ie5, fe5 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.fe5
+    @Override // com.baidu.tieba.qi5
     public boolean t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -102,11 +102,11 @@ public class FrsDynamicRequestData extends OrmObject implements ie5, fe5 {
         }
     }
 
-    @Override // com.baidu.tieba.ke5
-    public Object h(boolean z) {
+    @Override // com.baidu.tieba.vi5
+    public Object g(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             builder.forum_id = Long.valueOf(this.forumId);
             builder.scr_w = Integer.valueOf(this.scrW);
@@ -115,7 +115,7 @@ public class FrsDynamicRequestData extends OrmObject implements ie5, fe5 {
             builder.q_type = Integer.valueOf(this.qType);
             builder.last_thread_id = Long.valueOf(this.lastThreadId);
             builder.rn = 30;
-            nk5.c(builder, true, false, true);
+            yo5.c(builder, true, false, true);
             StarTrendsReqIdl.Builder builder2 = new StarTrendsReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

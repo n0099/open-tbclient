@@ -242,11 +242,11 @@ public class KsPriceView extends TextView implements e {
         if (interceptable == null || interceptable.invokeL(65541, this, context) == null) {
             setMaxLines(1);
             this.Cv.CE = context.getResources().getColor(R.color.obfuscated_res_0x7f060784);
-            this.Cv.CF = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703e0);
+            this.Cv.CF = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703e2);
             this.Cv.CG = context.getResources().getColor(R.color.obfuscated_res_0x7f060785);
-            this.Cv.CH = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703df);
+            this.Cv.CH = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703e1);
             this.Cv.CC = context.getResources().getColor(R.color.obfuscated_res_0x7f060784);
-            this.Cv.CD = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703e0);
+            this.Cv.CD = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703e2);
         }
     }
 

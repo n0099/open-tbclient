@@ -1,24 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.newfaceshop.facemake.FaceGroupDraft;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetVipInfo.VipThemeItem;
+import tbclient.GetVipInfo.VipThemeList;
 /* loaded from: classes5.dex */
-public class n18 {
+public class n18 implements Cdo {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String b;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
+    public i18 a;
+    public List<o18> b;
+    public List<o18> c;
 
     static {
         InterceptResult invokeClinit;
@@ -33,139 +34,54 @@ public class n18 {
                 return;
             }
         }
-        a = f18.c + "draft/";
-        b = a + "upload_draft";
+        d = BdUniqueId.gen();
     }
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            File file = new File(b);
-            if (file.exists()) {
-                file.delete();
-            }
-        }
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x0010 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r2v1 */
-    /* JADX WARN: Type inference failed for: r2v2, types: [java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r2v6, types: [com.baidu.tieba.newfaceshop.facemake.FaceGroupDraft] */
-    public static FaceGroupDraft b() {
+    @Override // com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
         InterceptResult invokeV;
-        FaceGroupDraft faceGroupDraft;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            File file = new File(b);
-            ?? r2 = 0;
-            r2 = null;
-            r2 = null;
-            r2 = null;
-            r2 = null;
-            FaceGroupDraft faceGroupDraft2 = null;
-            r2 = null;
-            r2 = null;
-            ObjectInputStream objectInputStream = null;
-            try {
-                if (!file.exists()) {
-                    return null;
-                }
-                try {
-                    ObjectInputStream objectInputStream2 = new ObjectInputStream(new FileInputStream(file));
-                    try {
-                        Object readObject = objectInputStream2.readObject();
-                        if (readObject != null && (readObject instanceof FaceGroupDraft)) {
-                            faceGroupDraft2 = (FaceGroupDraft) readObject;
-                        }
-                        objectInputStream2.close();
-                        xg.c(objectInputStream2);
-                        return faceGroupDraft2;
-                    } catch (IOException e) {
-                        e = e;
-                        FaceGroupDraft faceGroupDraft3 = faceGroupDraft2;
-                        objectInputStream = objectInputStream2;
-                        faceGroupDraft = faceGroupDraft3;
-                        e.printStackTrace();
-                        xg.c(objectInputStream);
-                        r2 = faceGroupDraft;
-                        return r2;
-                    } catch (ClassNotFoundException e2) {
-                        e = e2;
-                        FaceGroupDraft faceGroupDraft4 = faceGroupDraft2;
-                        objectInputStream = objectInputStream2;
-                        faceGroupDraft = faceGroupDraft4;
-                        e.printStackTrace();
-                        xg.c(objectInputStream);
-                        r2 = faceGroupDraft;
-                        return r2;
-                    } catch (Throwable th) {
-                        th = th;
-                        FaceGroupDraft faceGroupDraft5 = faceGroupDraft2;
-                        objectInputStream = objectInputStream2;
-                        faceGroupDraft = faceGroupDraft5;
-                        th.printStackTrace();
-                        xg.c(objectInputStream);
-                        r2 = faceGroupDraft;
-                        return r2;
-                    }
-                } catch (IOException e3) {
-                    e = e3;
-                    faceGroupDraft = null;
-                } catch (ClassNotFoundException e4) {
-                    e = e4;
-                    faceGroupDraft = null;
-                } catch (Throwable th2) {
-                    th = th2;
-                    faceGroupDraft = null;
-                }
-            } catch (Throwable th3) {
-                xg.c(r2);
-                throw th3;
-            }
-        } else {
-            return (FaceGroupDraft) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return d;
         }
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public static void c(FaceGroupDraft faceGroupDraft) {
-        ObjectOutputStream objectOutputStream;
+    public n18(VipThemeList vipThemeList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, faceGroupDraft) == null) {
-            ObjectOutputStream objectOutputStream2 = null;
-            try {
-                try {
-                    File file = new File(a);
-                    if (!file.exists()) {
-                        file.mkdirs();
-                    }
-                    a();
-                    objectOutputStream = new ObjectOutputStream(new FileOutputStream(b));
-                } finally {
-                    xg.d(objectOutputStream2);
-                }
-            } catch (FileNotFoundException e) {
-                e = e;
-            } catch (IOException e2) {
-                e = e2;
-            } catch (Throwable th) {
-                th = th;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vipThemeList};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            try {
-                objectOutputStream.writeObject(faceGroupDraft);
-                xg.d(objectOutputStream);
-            } catch (FileNotFoundException e3) {
-                e = e3;
-                objectOutputStream2 = objectOutputStream;
-                e.printStackTrace();
-            } catch (IOException e4) {
-                e = e4;
-                objectOutputStream2 = objectOutputStream;
-                e.printStackTrace();
-            } catch (Throwable th2) {
-                th = th2;
-                objectOutputStream2 = objectOutputStream;
-                th.printStackTrace();
+        }
+        if (vipThemeList == null) {
+            return;
+        }
+        String str = vipThemeList.card_id;
+        i18 i18Var = new i18();
+        this.a = i18Var;
+        i18Var.e(2);
+        this.a.d(vipThemeList.class_name);
+        this.a.f(vipThemeList.class_url_name);
+        this.a.g(vipThemeList.class_url);
+        if (vipThemeList.item != null) {
+            this.b = new ArrayList();
+            for (VipThemeItem vipThemeItem : vipThemeList.item) {
+                this.b.add(new o18(vipThemeItem));
+            }
+        }
+        if (vipThemeList.item_card != null) {
+            this.c = new ArrayList();
+            for (VipThemeItem vipThemeItem2 : vipThemeList.item_card) {
+                this.c.add(new o18(vipThemeItem2));
             }
         }
     }

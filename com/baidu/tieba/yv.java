@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.ctrl.model.TaskStatus;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
 public final class yv {
     public static /* synthetic */ Interceptable $ic;
@@ -46,29 +44,15 @@ public final class yv {
         }
     }
 
-    public final long a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return System.currentTimeMillis();
-        }
-        return invokeV.longValue;
-    }
-
-    public final String b(String str) {
+    public final TaskStatus a(TaskStatus taskStatus) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            if (str.length() <= 128) {
-                return str;
-            }
-            String substring = str.substring(0, 128);
-            Intrinsics.checkExpressionValueIsNotNull(substring, "(this as java.lang.Strin…ing(startIndex, endIndex)");
-            return substring;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, taskStatus)) == null) {
+            TaskStatus deepCopy = taskStatus.deepCopy();
+            deepCopy.setCurStatus(22);
+            deepCopy.getTaskStatusRuntime().setDuplicated(true);
+            return deepCopy;
         }
-        return (String) invokeL.objValue;
+        return (TaskStatus) invokeL.objValue;
     }
 }

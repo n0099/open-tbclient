@@ -79,7 +79,7 @@ public class RtcAudioDumper implements RTCAudioSamples.RTCSamplesReadyCallback, 
                     openRawAudioOutputFile(rTCAudioSamples.getSampleRate(), rTCAudioSamples.getChannelCount());
                     this.fileSizeInBytes = 0L;
                 }
-                this.executor.execute(new Runnable() { // from class: com.baidu.tieba.ig1
+                this.executor.execute(new Runnable() { // from class: com.baidu.tieba.tk1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

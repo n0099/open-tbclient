@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.bdtask.framework.ui.mvvm.IViewData;
+import android.view.View;
 /* loaded from: classes3.dex */
-public interface bt<ViewData extends IViewData> {
+public interface bt {
+    View getContentView();
 }

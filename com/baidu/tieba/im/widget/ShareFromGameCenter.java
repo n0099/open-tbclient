@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hy8;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.f29;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -118,8 +118,8 @@ public class ShareFromGameCenter extends LinearLayout {
                 this.b.setTextColor(this.k.getResources().getColor(R.color.CAM_X0106));
                 this.f.setBackgroundDrawable(this.k.getResources().getDrawable(R.drawable.selector_msg_text_bubble_other));
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-                layoutParams.setMargins(zi.g(getContext(), R.dimen.obfuscated_res_0x7f0701b2), 0, 0, 0);
-                layoutParams.height = zi.g(getContext(), R.dimen.obfuscated_res_0x7f0702cb);
+                layoutParams.setMargins(ej.g(getContext(), R.dimen.obfuscated_res_0x7f0701b2), 0, 0, 0);
+                layoutParams.height = ej.g(getContext(), R.dimen.obfuscated_res_0x7f0702cc);
                 this.g.setLayoutParams(layoutParams);
             }
             this.a.setText(this.j.getTitle());
@@ -130,16 +130,16 @@ public class ShareFromGameCenter extends LinearLayout {
             this.d.setTextColor(this.k.getResources().getColor(R.color.CAM_X0105));
             this.d.setBackgroundResource(R.drawable.btn_appdownload);
             if (!TextUtils.isEmpty(this.j.getButton())) {
-                LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, zi.g(getContext(), R.dimen.obfuscated_res_0x7f070253));
-                int g = zi.g(getContext(), R.dimen.obfuscated_res_0x7f070201);
-                layoutParams2.setMargins(g, zi.g(getContext(), R.dimen.obfuscated_res_0x7f07025f), g, g);
+                LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, ej.g(getContext(), R.dimen.obfuscated_res_0x7f070253));
+                int g = ej.g(getContext(), R.dimen.obfuscated_res_0x7f070201);
+                layoutParams2.setMargins(g, ej.g(getContext(), R.dimen.obfuscated_res_0x7f070260), g, g);
                 this.d.setLayoutParams(layoutParams2);
                 this.d.setVisibility(0);
                 this.d.setText(this.j.getButton());
             } else {
                 LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-2, -2);
-                int g2 = zi.g(getContext(), R.dimen.obfuscated_res_0x7f070201);
-                layoutParams3.setMargins(g2, zi.g(getContext(), R.dimen.obfuscated_res_0x7f0701d5), g2, g2);
+                int g2 = ej.g(getContext(), R.dimen.obfuscated_res_0x7f070201);
+                layoutParams3.setMargins(g2, ej.g(getContext(), R.dimen.obfuscated_res_0x7f0701d5), g2, g2);
                 this.d.setVisibility(8);
                 this.h.setLayoutParams(layoutParams3);
             }
@@ -150,7 +150,7 @@ public class ShareFromGameCenter extends LinearLayout {
             this.e.setDefaultResource(R.drawable.tb_launcher_icon);
             this.e.setAutoChangeStyle(false);
             this.e.K(this.j.getShareSourceIcon(), 10, false);
-            TiebaStatic.eventStat(this.k, "game_show", "show", 1, "dev_id", hy8.a(this.j.getShareSourceUrl()), "ref_id", GameCenterCoreUtils.REF_TYPE_IM);
+            TiebaStatic.eventStat(this.k, "game_show", "show", 1, "dev_id", f29.a(this.j.getShareSourceUrl()), "ref_id", GameCenterCoreUtils.REF_TYPE_IM);
         }
     }
 

@@ -16,6 +16,7 @@ import java.util.Objects;
 public class AtSelectData implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AT_ALL_FAKE_NAME = "全体成员";
+    public static final String AT_ALL_FAKE_PORTRAIT = "-666tb.fake.atAll";
     public static final String AT_ALL_FAKE_UID = "-666";
     public static final Parcelable.Creator<AtSelectData> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;

@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.net.request.BodyStyle;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,21 +9,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
+import kotlin.jvm.JvmField;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class or0 {
+public final class or0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final byte[] g;
-    public static final or0 h;
+    public static final a e;
     public transient /* synthetic */ FieldHolder $fh;
-    public BodyStyle a;
+    @JvmField
+    public String a;
+    @JvmField
     public String b;
     public String c;
-    public byte[] d;
-    public File e;
-    public Map<String, String> f;
+    public String d;
 
     static {
         InterceptResult invokeClinit;
@@ -39,144 +38,134 @@ public class or0 {
                 return;
             }
         }
-        byte[] bArr = new byte[0];
-        g = bArr;
-        h = d(null, bArr);
-        b(null, "");
-        c(null, new HashMap());
+        e = new a(null);
     }
 
-    public or0() {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this != obj) {
+                if (obj instanceof or0) {
+                    or0 or0Var = (or0) obj;
+                    return Intrinsics.areEqual(this.a, or0Var.a) && Intrinsics.areEqual(this.b, or0Var.b) && Intrinsics.areEqual(this.c, or0Var.c) && Intrinsics.areEqual(this.d, or0Var.d);
+                }
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            String str = this.a;
+            int hashCode = (str != null ? str.hashCode() : 0) * 31;
+            String str2 = this.b;
+            int hashCode2 = (hashCode + (str2 != null ? str2.hashCode() : 0)) * 31;
+            String str3 = this.c;
+            int hashCode3 = (hashCode2 + (str3 != null ? str3.hashCode() : 0)) * 31;
+            String str4 = this.d;
+            return hashCode3 + (str4 != null ? str4.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "RewardFestivalData(guideLottieUrl=" + this.a + ", guideBubbleLottieUrl=" + this.b + ", lottieCmd=" + this.c + ", requestUrl=" + this.d + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public final or0 a(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+                if (jSONObject != null) {
+                    String optString = jSONObject.optString("guide_lottie_url");
+                    Intrinsics.checkNotNullExpressionValue(optString, "optString(\"guide_lottie_url\")");
+                    String optString2 = jSONObject.optString("guide_bubble_lottie_url");
+                    Intrinsics.checkNotNullExpressionValue(optString2, "optString(\"guide_bubble_lottie_url\")");
+                    String optString3 = jSONObject.optString("lottie_cmd");
+                    Intrinsics.checkNotNullExpressionValue(optString3, "optString(\"lottie_cmd\")");
+                    String optString4 = jSONObject.optString("request_url");
+                    Intrinsics.checkNotNullExpressionValue(optString4, "optString(\"request_url\")");
+                    return new or0(optString, optString2, optString3, optString4);
+                }
+                return null;
+            }
+            return (or0) invokeL.objValue;
+        }
+    }
+
+    public or0(String guideLottieUrl, String guideBubbleLottieUrl, String lottieCmd, String requestUrl) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {guideLottieUrl, guideBubbleLottieUrl, lottieCmd, requestUrl};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(guideLottieUrl, "guideLottieUrl");
+        Intrinsics.checkNotNullParameter(guideBubbleLottieUrl, "guideBubbleLottieUrl");
+        Intrinsics.checkNotNullParameter(lottieCmd, "lottieCmd");
+        Intrinsics.checkNotNullParameter(requestUrl, "requestUrl");
+        this.a = guideLottieUrl;
+        this.b = guideBubbleLottieUrl;
+        this.c = lottieCmd;
+        this.d = requestUrl;
     }
 
-    public static or0 b(String str, String str2) {
-        InterceptResult invokeLL;
+    public final String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            or0 or0Var = new or0();
-            or0Var.k(BodyStyle.STRING);
-            or0Var.i(str);
-            or0Var.h(str2);
-            return or0Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return (or0) invokeLL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static or0 c(String str, Map<String, String> map) {
-        InterceptResult invokeLL;
+    public final String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, map)) == null) {
-            or0 or0Var = new or0();
-            or0Var.k(BodyStyle.FORM);
-            or0Var.i(str);
-            or0Var.j(map);
-            return or0Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
         }
-        return (or0) invokeLL.objValue;
-    }
-
-    public static or0 d(String str, byte[] bArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, bArr)) == null) {
-            or0 or0Var = new or0();
-            or0Var.k(BodyStyle.BYTE);
-            or0Var.i(str);
-            or0Var.g(bArr);
-            return or0Var;
-        }
-        return (or0) invokeLL.objValue;
-    }
-
-    public or0 a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (this.f == null) {
-                this.f = new HashMap();
-            }
-            this.f.put(str, str2);
-            return this;
-        }
-        return (or0) invokeLL.objValue;
-    }
-
-    public static or0 e(Map<String, String> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, map)) == null) {
-            return c("application/x-www-form-urlencoded", map);
-        }
-        return (or0) invokeL.objValue;
-    }
-
-    public static or0 f(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bArr)) == null) {
-            return d("application/octet-stream", bArr);
-        }
-        return (or0) invokeL.objValue;
-    }
-
-    public or0 g(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
-            this.d = bArr;
-            return this;
-        }
-        return (or0) invokeL.objValue;
-    }
-
-    public or0 h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            this.c = str;
-            return this;
-        }
-        return (or0) invokeL.objValue;
-    }
-
-    public or0 i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            this.b = str;
-            return this;
-        }
-        return (or0) invokeL.objValue;
-    }
-
-    public or0 j(Map<String, String> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, map)) == null) {
-            this.f = map;
-            return this;
-        }
-        return (or0) invokeL.objValue;
-    }
-
-    public or0 k(BodyStyle bodyStyle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bodyStyle)) == null) {
-            this.a = bodyStyle;
-            return this;
-        }
-        return (or0) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 }

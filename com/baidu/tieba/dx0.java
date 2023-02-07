@@ -1,130 +1,125 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public abstract class dx0 extends mx0 implements tv0 {
+public abstract class dx0 implements nw0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrameLayout e;
-    public jv0 f;
+    public my0 a;
 
-    @Override // com.baidu.tieba.tv0
-    public sv0 getInterceptorLayer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this : (sv0) invokeV.objValue;
+    public abstract void f(vv0 vv0Var);
+
+    public abstract void g(vv0 vv0Var);
+
+    public abstract void h(vv0 vv0Var);
+
+    public abstract void i(vv0 vv0Var);
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947719789, "Lcom/baidu/tieba/dx0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947719789, "Lcom/baidu/tieba/dx0;");
+                return;
+            }
+        }
+        at0.f();
     }
 
-    public dx0() {
+    public dx0(Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {map};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.e = new FrameLayout(this.c);
-        P(8);
+        j(map);
     }
 
-    @Override // com.baidu.tieba.ex0
-    public void B() {
+    @Override // com.baidu.tieba.nw0
+    public final <T extends iy0> void d(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            H(this);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+            this.a = (my0) t;
         }
     }
 
-    public boolean M() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ow0
+    public final void c(vv0 vv0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.e.getVisibility() == 0) {
-                return true;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, vv0Var) == null) && vv0Var != null && this.a != null) {
+            int type = vv0Var.getType();
+            if (type != 1) {
+                if (type != 2) {
+                    if (type != 3) {
+                        if (type == 4) {
+                            h(vv0Var);
+                            return;
+                        }
+                        return;
+                    }
+                    g(vv0Var);
+                    return;
+                }
+                f(vv0Var);
+                return;
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void N() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.e.removeAllViews();
+            i(vv0Var);
         }
     }
 
-    @Override // com.baidu.tieba.rx0
-    @NonNull
-    public View getContentView() {
-        InterceptResult invokeV;
+    public void j(Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.e;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.mx0, com.baidu.tieba.ex0, com.baidu.tieba.rx0
-    public void onLayerRelease() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            super.onLayerRelease();
-            H(null);
-            jv0 jv0Var = this.f;
-            if (jv0Var != null) {
-                jv0Var.onLayerRelease();
-                this.f = null;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, map) == null) && map != null && map.size() > 0) {
+            if (map.containsKey(WriteActivityConfig.VIDEO_INFO)) {
+                String str = (String) z11.b(map, WriteActivityConfig.VIDEO_INFO);
+            }
+            if (map.containsKey("channel_id")) {
+                String str2 = (String) z11.b(map, "channel_id");
+            }
+            if (map.containsKey("channel_title")) {
+                String str3 = (String) z11.b(map, "channel_title");
+            }
+            if (map.containsKey("type")) {
+                String str4 = (String) z11.b(map, "type");
+            }
+            if (map.containsKey("source")) {
+                String str5 = (String) z11.b(map, "source");
+            }
+            if (map.containsKey("from")) {
+                String str6 = (String) z11.b(map, "from");
+            }
+            if (map.containsKey("pd")) {
+                String str7 = (String) z11.b(map, "pd");
+            }
+            if (map.containsKey("tpl")) {
+                String str8 = (String) z11.b(map, "tpl");
+            }
+            if (map.containsKey("ext_request")) {
+                String str9 = (String) z11.b(map, "ext_request");
             }
         }
-    }
-
-    public void L(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            this.e.addView(view2);
-        }
-    }
-
-    public void O(jv0 jv0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jv0Var) == null) {
-            this.f = jv0Var;
-        }
-    }
-
-    public void P(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.e.setVisibility(i);
-        }
-    }
-
-    @Override // com.baidu.tieba.tv0
-    public boolean e(@NonNull ru0 ru0Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, ru0Var)) == null) {
-            jv0 jv0Var = this.f;
-            if (jv0Var == null) {
-                return false;
-            }
-            return jv0Var.b(ru0Var.c());
-        }
-        return invokeL.booleanValue;
     }
 }

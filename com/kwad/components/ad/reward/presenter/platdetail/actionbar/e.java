@@ -54,7 +54,7 @@ public final class e extends com.kwad.components.ad.reward.presenter.a implement
             this.nM.ml.a(this);
             AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(this.nM.mAdTemplate);
             this.rO = this.pM.getVisibility();
-            this.rP = d.a(getContext(), bQ, this.pM, R.dimen.obfuscated_res_0x7f0703de, true);
+            this.rP = d.a(getContext(), bQ, this.pM, R.dimen.obfuscated_res_0x7f0703e0, true);
             m mVar = new m(this.es, new com.kwad.components.ad.reward.k.a(this, getContext(), this.nM) { // from class: com.kwad.components.ad.reward.presenter.platdetail.actionbar.e.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -119,7 +119,7 @@ public final class e extends com.kwad.components.ad.reward.presenter.a implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onCreate();
-            this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0910f3);
+            this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091136);
         }
     }
 

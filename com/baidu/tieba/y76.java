@@ -1,121 +1,159 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.graphics.drawable.Drawable;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.ala.AlaCmdConfigHttp;
+import com.baidu.ala.downloader.ResourceDownloader;
+import com.baidu.ala.gift.AlaDynamicGift;
+import com.baidu.ala.gift.AlaDynamicGiftLocalInfoConfig;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.TBAlertBuilder;
-import com.baidu.tbadk.core.dialog.TBAlertConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.callfans.CallFansResMsg;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaGetEnterEffectResponsedMessage;
+import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class y76 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public String b;
+    public b b;
+    public BdAsyncTask c;
+    public HttpMessageListener d;
 
     /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
+    public interface b {
+        void a(AlaGetEnterEffectResponsedMessage alaGetEnterEffectResponsedMessage);
+    }
+
+    /* loaded from: classes7.dex */
+    public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ImageView a;
+        public final /* synthetic */ y76 a;
 
-        public a(y76 y76Var, ImageView imageView) {
+        /* renamed from: com.baidu.tieba.y76$a$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class C0494a extends BdAsyncTask {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ List a;
+            public final /* synthetic */ HttpResponsedMessage b;
+            public final /* synthetic */ a c;
+
+            public C0494a(a aVar, List list, HttpResponsedMessage httpResponsedMessage) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, list, httpResponsedMessage};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.c = aVar;
+                this.a = list;
+                this.b = httpResponsedMessage;
+            }
+
+            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+            public Object doInBackground(Object[] objArr) {
+                InterceptResult invokeL;
+                AlaDynamicGift alaDynamicGift;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
+                    for (Cdo cdo : this.a) {
+                        if (cdo instanceof AlaEnterEffectData) {
+                            AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) cdo;
+                            if (alaEnterEffectData.type == 1 && (alaDynamicGift = alaEnterEffectData.gift) != null && alaDynamicGift.giftZip != null) {
+                                if (ResourceDownloader.checkDirNeedToDownload(AlaDynamicGiftLocalInfoConfig.DIR_PATH + alaEnterEffectData.gift.giftZip.zipName, AlaDynamicGiftLocalInfoConfig.PIC_MD5_PREFIX + alaEnterEffectData.gift.giftName)) {
+                                    alaEnterEffectData.downLoadStatus = 100;
+                                } else {
+                                    alaEnterEffectData.downLoadStatus = 101;
+                                }
+                            }
+                        }
+                    }
+                    return null;
+                }
+                return invokeL.objValue;
+            }
+
+            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+            public void onCancelled() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                    super.onCancelled();
+                    this.c.a.b.a((AlaGetEnterEffectResponsedMessage) this.b);
+                }
+            }
+
+            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+            public void onPostExecute(Object obj) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+                    super.onPostExecute(obj);
+                    this.c.a.b.a((AlaGetEnterEffectResponsedMessage) this.b);
+                }
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(y76 y76Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {y76Var, imageView};
+                Object[] objArr = {y76Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = imageView;
+            this.a = y76Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Drawable maskDrawable;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                view2.setTag(Boolean.valueOf(!((Boolean) view2.getTag()).booleanValue()));
-                ImageView imageView = this.a;
-                if (((Boolean) view2.getTag()).booleanValue()) {
-                    maskDrawable = SvgManager.getInstance().getMaskDrawable(R.drawable.ic_icon_mask_use_complete16_svg, null);
-                } else {
-                    maskDrawable = SvgManager.getInstance().getMaskDrawable(R.drawable.ic_icon_mask_use_check16_svg, null);
-                }
-                imageView.setImageDrawable(maskDrawable);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ImageView a;
-        public final /* synthetic */ y76 b;
-
-        public b(y76 y76Var, ImageView imageView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y76Var, imageView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof AlaGetEnterEffectResponsedMessage)) {
+                AlaGetEnterEffectResponsedMessage alaGetEnterEffectResponsedMessage = (AlaGetEnterEffectResponsedMessage) httpResponsedMessage;
+                List<Cdo> effectList = alaGetEnterEffectResponsedMessage.getEffectList();
+                if (ListUtils.isEmpty(effectList)) {
+                    this.a.b.a(alaGetEnterEffectResponsedMessage);
                     return;
                 }
-            }
-            this.b = y76Var;
-            this.a = imageView;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                cz4.l().v("key_call_fans_no_tip_again", !((Boolean) this.a.getTag()).booleanValue());
-                this.b.c();
+                this.a.c = new C0494a(this, effectList, httpResponsedMessage).execute(new Object[0]);
             }
         }
     }
 
-    public y76(TbPageContext tbPageContext) {
+    public y76(TbPageContext tbPageContext, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -125,86 +163,27 @@ public class y76 {
                 return;
             }
         }
+        a aVar = new a(this, AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT);
+        this.d = aVar;
         this.a = tbPageContext;
-        e();
+        this.b = bVar;
+        tbPageContext.registerListener(aVar);
     }
 
-    public void f(String str) {
+    public void c() {
+        BdAsyncTask bdAsyncTask;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.b = str;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bdAsyncTask = this.c) != null) {
+            bdAsyncTask.cancel();
         }
     }
 
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (!TbSingleton.getInstance().mCanCallFans) {
-                this.a.showToast(R.string.have_used_call_fans_this_week);
-            } else if (cz4.l().i("key_call_fans_no_tip_again", false)) {
-                c();
-            } else {
-                TbPageContext tbPageContext = this.a;
-                if (tbPageContext != null && tbPageContext.getPageActivity() != null) {
-                    Activity pageActivity = this.a.getPageActivity();
-                    LinearLayout linearLayout = new LinearLayout(pageActivity);
-                    linearLayout.setOrientation(0);
-                    linearLayout.setGravity(16);
-                    linearLayout.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X012), UtilHelper.getDimenPixelSize(R.dimen.M_H_X008), UtilHelper.getDimenPixelSize(R.dimen.M_W_X012), 0);
-                    ImageView imageView = new ImageView(pageActivity);
-                    imageView.setImageDrawable(SvgManager.getInstance().getMaskDrawable(R.drawable.ic_icon_mask_use_check16_svg, null));
-                    linearLayout.addView(imageView, new LinearLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.tbds39), UtilHelper.getDimenPixelSize(R.dimen.tbds39)));
-                    TextView textView = new TextView(pageActivity);
-                    textView.setText(R.string.no_tip_again);
-                    textView.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0, 0, 0);
-                    cx4 d = cx4.d(textView);
-                    d.z(R.dimen.T_X07);
-                    d.v(R.color.CAM_X0108);
-                    d.A(R.string.F_X01);
-                    linearLayout.addView(textView);
-                    imageView.setTag(Boolean.FALSE);
-                    imageView.setOnClickListener(new a(this, imageView));
-                    TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(pageActivity);
-                    tBAlertBuilder.w(R.string.confirm_to_call_fans);
-                    tBAlertBuilder.m(R.string.call_fans_intro);
-                    tBAlertBuilder.n(3);
-                    tBAlertBuilder.o(true);
-                    tBAlertBuilder.k(linearLayout);
-                    tBAlertBuilder.u(new TBAlertConfig.a((int) R.string.next_time, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.call_fans, TBAlertConfig.OperateBtnStyle.MAIN, new b(this, imageView)));
-                    tBAlertBuilder.i();
-                    tBAlertBuilder.z();
-                }
-            }
-        }
-    }
-
-    public final void c() {
+    public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CALL_FANS);
-            httpMessage.addParam("thread_id", this.b);
-            MessageManager.getInstance().sendMessage(httpMessage);
-            this.a.showToast(R.string.your_thread_is_recommended_to_fans);
-            TbSingleton.getInstance().mCallFansTid = this.b;
-            TbSingleton.getInstance().mCanCallFans = false;
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager messageManager = MessageManager.getInstance();
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CALL_FANS, TbConfig.SERVER_ADDRESS + TbConfig.URL_CALL_FANS);
-            tbHttpMessageTask.setResponsedClass(CallFansResMsg.class);
-            tbHttpMessageTask.setIsNeedTbs(true);
-            messageManager.registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public void d(int i, int i2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, str) == null) {
-            TiebaStatic.log(new StatisticItem("c13847").param("obj_source", i).param("obj_type", i2).param("tid", str).param("uid", TbadkCoreApplication.getCurrentAccount()));
+            HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT);
+            httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
+            this.a.sendMessage(httpMessage);
         }
     }
 }

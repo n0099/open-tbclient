@@ -1,39 +1,37 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.pms.model.PMSPkgStatus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.DecimalFormat;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Objects;
+import java.util.Set;
 /* loaded from: classes4.dex */
 public class em4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public LinearLayout b;
-    public TextView c;
-    public DecimalFormat d;
-    public String e;
+    public Set<a> a;
 
     /* loaded from: classes4.dex */
-    public class a implements Runnable {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ em4 a;
+        public uh4 a;
+        public PMSPkgStatus b;
 
-        public a(em4 em4Var) {
+        public a(uh4 uh4Var, PMSPkgStatus pMSPkgStatus) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {em4Var};
+                Object[] objArr = {uh4Var, pMSPkgStatus};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -43,24 +41,39 @@ public class em4 {
                     return;
                 }
             }
-            this.a = em4Var;
+            this.a = uh4Var;
+            this.b = pMSPkgStatus;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public boolean equals(Object obj) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.c();
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                if (super.equals(obj)) {
+                    return true;
+                }
+                if (obj == null || !(obj instanceof a)) {
+                    return false;
+                }
+                return this.a.equals(((a) obj).a);
             }
+            return invokeL.booleanValue;
+        }
+
+        public int hashCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return Objects.hash(this.a);
+            }
+            return invokeV.intValue;
         }
     }
 
-    public em4(Context context) {
+    public em4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -70,60 +83,219 @@ public class em4 {
                 return;
             }
         }
-        this.a = context;
-        d();
+        this.a = Collections.synchronizedSet(new HashSet());
     }
 
-    public LinearLayout a() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            for (a aVar : this.a) {
+                if (aVar != null && (aVar.a instanceof xh4)) {
+                    return true;
+                }
+            }
+            return false;
         }
-        return (LinearLayout) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public void b() {
+    public boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            f();
-            i43.M().postDelayed(new a(this), 3000L);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            for (a aVar : this.a) {
+                if (aVar != null && (aVar.a instanceof rh4)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            for (a aVar : this.a) {
+                if (aVar != null && (aVar.a instanceof th4)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            for (a aVar : this.a) {
+                if (aVar != null && (aVar.a instanceof vh4)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            for (a aVar : this.a) {
+                if (aVar != null && (aVar.a instanceof yh4)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            for (a aVar : this.a) {
+                if (aVar != null && (aVar.a instanceof wh4)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.a.isEmpty();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.a.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public void a(uh4 uh4Var, PMSPkgStatus pMSPkgStatus) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, uh4Var, pMSPkgStatus) == null) {
+            this.a.add(new a(uh4Var, pMSPkgStatus));
         }
     }
 
-    public void c() {
+    public synchronized boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b.setVisibility(8);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                for (a aVar : this.a) {
+                    if (aVar != null && (aVar.a instanceof xh4) && aVar.b == PMSPkgStatus.WAIT) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public synchronized boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            synchronized (this) {
+                for (a aVar : this.a) {
+                    if (aVar != null && (aVar.a instanceof wh4) && aVar.b == PMSPkgStatus.WAIT) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public synchronized Set<uh4> j() {
+        InterceptResult invokeV;
+        HashSet hashSet;
+        a[] aVarArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            synchronized (this) {
+                hashSet = new HashSet();
+                for (a aVar : (a[]) this.a.toArray(new a[0])) {
+                    if (aVar != null && aVar.a != null) {
+                        hashSet.add(aVar.a);
+                    }
+                }
+            }
+            return hashSet;
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x0025, code lost:
+        r1.b = com.baidu.swan.pms.model.PMSPkgStatus.ERROR;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public synchronized void l(uh4 uh4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, uh4Var) == null) {
+            synchronized (this) {
+                if (uh4Var == null) {
+                    return;
+                }
+                Iterator<a> it = this.a.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    a next = it.next();
+                    if (next != null && next.a.equals(uh4Var)) {
+                        break;
+                    }
+                }
+            }
         }
     }
 
-    public void f() {
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x0025, code lost:
+        r1.b = com.baidu.swan.pms.model.PMSPkgStatus.FINISH;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public synchronized void m(uh4 uh4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.b.setVisibility(0);
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0864, (ViewGroup) null);
-            this.b = linearLayout;
-            linearLayout.setVisibility(8);
-            this.c = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0920e2);
-            this.d = new DecimalFormat("0.0#");
-            this.e = this.a.getString(R.string.obfuscated_res_0x7f0f13c8);
-        }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            try {
-                this.c.setText(this.d.format(Float.parseFloat(str)) + this.e);
-                b();
-            } catch (Exception unused) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, uh4Var) == null) {
+            synchronized (this) {
+                if (uh4Var == null) {
+                    return;
+                }
+                Iterator<a> it = this.a.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    a next = it.next();
+                    if (next != null && next.a.equals(uh4Var)) {
+                        break;
+                    }
+                }
             }
         }
     }

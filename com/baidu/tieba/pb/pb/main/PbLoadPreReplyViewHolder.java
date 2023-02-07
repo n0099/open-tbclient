@@ -1,6 +1,5 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -8,7 +7,7 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cx4;
+import com.baidu.tieba.p15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -22,13 +21,13 @@ public class PbLoadPreReplyViewHolder extends TypeAdapter.ViewHolder {
     public ImageView c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbLoadPreReplyViewHolder(Context context, View view2) {
+    public PbLoadPreReplyViewHolder(View view2) {
         super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, view2};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -43,15 +42,15 @@ public class PbLoadPreReplyViewHolder extends TypeAdapter.ViewHolder {
             return;
         }
         this.a = view2;
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924ae);
-        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f84);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924c1);
+        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fc8);
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            cx4.d(this.b).v(R.color.CAM_X0304);
-            WebPManager.setPureDrawable(this.c, R.drawable.obfuscated_res_0x7f080aa9, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL);
+            p15.d(this.b).v(R.color.CAM_X0304);
+            WebPManager.setPureDrawable(this.c, R.drawable.obfuscated_res_0x7f080a9d, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL);
         }
     }
 
@@ -61,17 +60,17 @@ public class PbLoadPreReplyViewHolder extends TypeAdapter.ViewHolder {
             if (i != 0) {
                 if (i != 1) {
                     if (i == 2) {
-                        this.b.setText(R.string.obfuscated_res_0x7f0f0ac4);
+                        this.b.setText(R.string.obfuscated_res_0x7f0f0ae9);
                         this.c.setVisibility(8);
                         return;
                     }
                     return;
                 }
-                this.b.setText(R.string.obfuscated_res_0x7f0f0ac6);
+                this.b.setText(R.string.obfuscated_res_0x7f0f0aeb);
                 this.c.setVisibility(8);
                 return;
             }
-            this.b.setText(R.string.obfuscated_res_0x7f0f101c);
+            this.b.setText(R.string.obfuscated_res_0x7f0f103f);
             this.c.setVisibility(0);
         }
     }

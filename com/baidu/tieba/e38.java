@@ -1,161 +1,59 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.view.NavigationBar;
+import android.content.Context;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.memberCenter.tail.tool.TailToolController;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public abstract class e38 {
+public class e38 extends wb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public View b;
-    public NavigationBar c;
-    public View d;
-    public TextView e;
-    public ImageView f;
-    public TextView g;
-    public ImageView h;
-    public ImageView i;
-    public ImageView j;
-    public ImageView k;
-    public ImageView l;
-    public TextView m;
-    public TextView n;
 
-    public abstract void c(f38 f38Var);
-
-    public e38(TbPageContext tbPageContext, View view2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e38(Context context, int i) {
+        super(context, TbadkCoreApplication.getInst().getString(R.string.tail_web_view_title), 16, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, view2};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.b = view2;
-        NavigationBar navigationBar = (NavigationBar) view2.findViewById(R.id.navigation_bar);
-        this.c = navigationBar;
-        View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.d = addSystemImageButton;
-        addSystemImageButton.setId(R.id.btn_close);
-        TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, tbPageContext.getString(R.string.obfuscated_res_0x7f0f1245));
-        this.e = addTextButton;
-        addTextButton.setId(R.id.btn_skip);
-        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09239c);
-        this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09239b);
-        ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f85);
-        this.f = imageView;
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) imageView.getLayoutParams();
-        layoutParams.topMargin = zi.j(tbPageContext.getPageActivity()) / 4;
-        this.f.setLayoutParams(layoutParams);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0914e3);
-        this.g = textView;
-        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) textView.getLayoutParams();
-        layoutParams2.topMargin = (zi.j(tbPageContext.getPageActivity()) / 2) + zi.g(tbPageContext.getPageActivity(), R.dimen.tbds239);
-        this.g.setLayoutParams(layoutParams2);
-        this.h = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091be7);
-        this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092761);
-        this.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092764);
-        this.k = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0927e4);
-        this.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09160f);
+        this.d = R.drawable.icon_mask_post_keyboard24_selection;
+        this.e = R.drawable.icon_mask_post_keyboard24_selection;
+        this.h = R.drawable.icon_pure_post_more_tail64;
+        this.r = R.drawable.icon_pure_pic_vip64;
+        this.i = false;
+        this.j = true;
+        this.m = new TailToolController(context);
+        this.o = true;
+        this.n = 6;
+        this.p = new int[]{1};
     }
 
-    public void a(int i) {
+    @Override // com.baidu.tieba.wb5
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.c.onChangeSkinType(this.a, i);
-            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0201, i);
-            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201, i);
-            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0107);
-            cx4 d = cx4.d(this.m);
-            d.v(R.color.CAM_X0105);
-            d.z(R.dimen.T_X03);
-            d.A(R.string.F_X02);
-            cx4 d2 = cx4.d(this.n);
-            d2.v(R.color.CAM_X0107);
-            d2.z(R.dimen.T_X08);
-            d2.A(R.string.F_X01);
-            if (i == 0) {
-                WebPManager.setMaskDrawable(this.f, R.drawable.obfuscated_res_0x7f080874, null);
-            } else {
-                WebPManager.setMaskDrawable(this.f, R.drawable.obfuscated_res_0x7f080875, null);
-            }
-            cx4 d3 = cx4.d(this.g);
-            d3.v(R.color.CAM_X0101);
-            d3.z(R.dimen.T_X05);
-            d3.A(R.string.F_X01);
-            d3.n(R.string.J_X01);
-            d3.f(R.color.CAM_X0302);
-            WebPManager.setMaskDrawable(this.h, R.drawable.icon_share_qq, null);
-            WebPManager.setMaskDrawable(this.i, R.drawable.icon_share_wechat, null);
-            WebPManager.setMaskDrawable(this.j, R.drawable.icon_share_weibo, null);
-            WebPManager.setMaskDrawable(this.k, R.drawable.icon_share_yy, null);
-            WebPManager.setMaskDrawable(this.l, R.drawable.icon_share_more, null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            TiebaStatic.log(new StatisticItem("c15166").param("uid", TbadkCoreApplication.getCurrentAccount()));
+            return super.a();
         }
-    }
-
-    public void b(boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            View view2 = this.d;
-            if (z) {
-                i = 0;
-            } else {
-                i = 4;
-            }
-            view2.setVisibility(i);
-        }
-    }
-
-    public void e(boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            TextView textView = this.m;
-            int i2 = 0;
-            if (z) {
-                i = 0;
-            } else {
-                i = 4;
-            }
-            textView.setVisibility(i);
-            TextView textView2 = this.n;
-            if (!z) {
-                i2 = 4;
-            }
-            textView2.setVisibility(i2);
-        }
-    }
-
-    public void d(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.e.setOnClickListener(onClickListener);
-            this.g.setOnClickListener(onClickListener);
-            this.h.setOnClickListener(onClickListener);
-            this.i.setOnClickListener(onClickListener);
-            this.j.setOnClickListener(onClickListener);
-            this.k.setOnClickListener(onClickListener);
-            this.l.setOnClickListener(onClickListener);
-        }
+        return invokeV.booleanValue;
     }
 }

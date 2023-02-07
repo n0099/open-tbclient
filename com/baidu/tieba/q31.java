@@ -1,100 +1,87 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.thread.executor.BaseExecutorCell;
+import com.baidu.nadcore.thread.task.ElasticTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Calendar;
-import java.util.HashSet;
-import java.util.Locale;
-import java.util.Set;
-import java.util.TimeZone;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
-public final class q31 {
+public abstract class q31 extends BaseExecutorCell {
     public static /* synthetic */ Interceptable $ic;
-    public static final Set<Integer> a;
-    public static final Set<Integer> b;
-    public static final Set<Integer> c;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948040794, "Lcom/baidu/tieba/q31;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948040794, "Lcom/baidu/tieba/q31;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public q31(int i) {
+        super(i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new HashSet();
-        b = new HashSet();
-        c = new HashSet();
-        a.add(2);
-        a.add(3);
-        a.add(4);
-        a.add(5);
-        a.add(6);
-        b.add(7);
-        b.add(1);
-        c.addAll(a);
-        c.addAll(b);
+        this.d = false;
     }
 
-    public static int a(long j, long j2) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            return (int) ((j2 - (j - ((TimeZone.getDefault().getRawOffset() + j) % 86400000))) / 86400000);
-        }
-        return invokeCommon.intValue;
-    }
-
-    public static String b(int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            if (i < 0) {
-                return "";
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!this.d || e() >= this.b) {
+                return false;
             }
-            int i2 = i / 3600;
-            int i3 = (i % 3600) / 60;
-            int i4 = i % 60;
-            if (i2 == 0 && !z) {
-                return String.format(Locale.US, "%02d:%02d", Integer.valueOf(i3), Integer.valueOf(i4));
-            }
-            return String.format(Locale.US, "%02d:%02d:%02d", Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4));
+            return true;
         }
-        return (String) invokeCommon.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static long c(long j, long j2) {
-        InterceptResult invokeCommon;
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            return Math.abs((j2 - j) / 86400000);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (this.d) {
+                Log.w(d(), "This executor cell is already opened.");
+                return;
+            }
+            this.d = true;
+            this.c.setKeepAliveTime(5000L, TimeUnit.MILLISECONDS);
         }
-        return invokeCommon.longValue;
     }
 
-    public static boolean d(long j, long j2) {
-        InterceptResult invokeCommon;
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTimeInMillis(j);
-            Calendar calendar2 = Calendar.getInstance();
-            calendar2.setTimeInMillis(j2);
-            if (calendar.get(1) == calendar2.get(1) && calendar.get(6) == calendar2.get(6)) {
-                return true;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (!this.d) {
+                Log.w(d(), "This executor cell is already shutdown.");
+                return;
             }
-            return false;
+            this.d = false;
+            this.c.setKeepAliveTime(100L, TimeUnit.MILLISECONDS);
         }
-        return invokeCommon.booleanValue;
+    }
+
+    @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
+    public void g(ElasticTask elasticTask) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, elasticTask) == null) {
+            super.g(elasticTask);
+            if (this.d) {
+                c41.f().k();
+            }
+        }
     }
 }

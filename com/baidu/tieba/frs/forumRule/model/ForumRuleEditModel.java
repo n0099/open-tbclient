@@ -13,9 +13,9 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.frs.forumRule.message.ResponseHttpRorumRuleCommitMessage;
 import com.baidu.tieba.frs.forumRule.message.ResponseHttpRorumRuleDraftMessage;
-import com.baidu.tieba.qw8;
-import com.baidu.tieba.s9;
-import com.baidu.tieba.zs6;
+import com.baidu.tieba.kx6;
+import com.baidu.tieba.o09;
+import com.baidu.tieba.x9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ import org.json.JSONArray;
 public class ForumRuleEditModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final zs6 a;
+    public final kx6 a;
     public int b;
     public HttpMessageListener c;
     public HttpMessageListener d;
@@ -130,32 +130,32 @@ public class ForumRuleEditModel extends BdBaseModel {
             ResponseHttpRorumRuleCommitMessage responseHttpRorumRuleCommitMessage;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && (httpResponsedMessage instanceof ResponseHttpRorumRuleCommitMessage) && (responseHttpRorumRuleCommitMessage = (ResponseHttpRorumRuleCommitMessage) httpResponsedMessage) != null && this.a.b != -1) {
-                zs6 zs6Var = this.a.a;
+                kx6 kx6Var = this.a.a;
                 int error = responseHttpRorumRuleCommitMessage.getError();
                 String errorString = responseHttpRorumRuleCommitMessage.getErrorString();
                 boolean z = true;
                 if (this.a.b != 1) {
                     z = false;
                 }
-                zs6Var.s1(error, errorString, z);
+                kx6Var.s1(error, errorString, z);
                 this.a.b = -1;
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ForumRuleEditModel(TbPageContext tbPageContext, zs6 zs6Var, String str) {
+    public ForumRuleEditModel(TbPageContext tbPageContext, kx6 kx6Var, String str) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, zs6Var, str};
+            Object[] objArr = {tbPageContext, kx6Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((s9) newInitContext.callArgs[0]);
+                super((x9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -164,7 +164,7 @@ public class ForumRuleEditModel extends BdBaseModel {
         this.b = -1;
         this.c = new a(this, CmdConfigHttp.CMD_FORUM_RULES_DRAFT);
         this.d = new b(this, CmdConfigHttp.CMD_FORUM_RULES_COMMIT);
-        this.a = zs6Var;
+        this.a = kx6Var;
         L();
     }
 
@@ -194,8 +194,8 @@ public class ForumRuleEditModel extends BdBaseModel {
     public final void L() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            qw8.e(CmdConfigHttp.CMD_FORUM_RULES_DRAFT, TbConfig.URL_FORUM_RULES_DRAFT, ResponseHttpRorumRuleDraftMessage.class, true, true, true, true);
-            qw8.e(CmdConfigHttp.CMD_FORUM_RULES_COMMIT, TbConfig.URL_FORUM_RULES_COMMIT, ResponseHttpRorumRuleCommitMessage.class, true, true, true, true);
+            o09.e(CmdConfigHttp.CMD_FORUM_RULES_DRAFT, TbConfig.URL_FORUM_RULES_DRAFT, ResponseHttpRorumRuleDraftMessage.class, true, true, true, true);
+            o09.e(CmdConfigHttp.CMD_FORUM_RULES_COMMIT, TbConfig.URL_FORUM_RULES_COMMIT, ResponseHttpRorumRuleCommitMessage.class, true, true, true, true);
             registerListener(this.c);
             registerListener(this.d);
         }

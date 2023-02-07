@@ -6,9 +6,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.games.view.button.base.ApiButton;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b43;
-import com.baidu.tieba.s32;
-import com.baidu.tieba.wp2;
+import com.baidu.tieba.f82;
+import com.baidu.tieba.ju2;
+import com.baidu.tieba.o83;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -49,13 +49,13 @@ public class OpenSettingButton extends ApiButton {
     public void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            s32 V = wp2.U().V();
+            f82 V = ju2.U().V();
             if (V == null) {
-                b43.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f01a8).G();
+                o83.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f01a8).G();
                 return;
             }
-            s32.b i = V.i("navigateTo");
-            i.n(s32.g, s32.i);
+            f82.b i = V.i("navigateTo");
+            i.n(f82.g, f82.i);
             i.k("authority", null).a();
         }
     }

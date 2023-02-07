@@ -38,7 +38,6 @@ public final class GestureDetectorCompat {
     public static class GestureDetectorCompatImplBase implements GestureDetectorCompatImpl {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DOUBLE_TAP_TIMEOUT;
-        public static final int LONGPRESS_TIMEOUT;
         public static final int LONG_PRESS = 2;
         public static final int SHOW_PRESS = 1;
         public static final int TAP = 3;
@@ -156,7 +155,6 @@ public final class GestureDetectorCompat {
                     return;
                 }
             }
-            LONGPRESS_TIMEOUT = ViewConfiguration.getLongPressTimeout();
             TAP_TIMEOUT = ViewConfiguration.getTapTimeout();
             DOUBLE_TAP_TIMEOUT = ViewConfiguration.getDoubleTapTimeout();
         }
@@ -467,7 +465,7 @@ public final class GestureDetectorCompat {
                         this.mDeferConfirmSingleTap = false;
                         if (this.mIsLongpressEnabled) {
                             this.mHandler.removeMessages(2);
-                            this.mHandler.sendEmptyMessageAtTime(2, this.mCurrentDownEvent.getDownTime() + TAP_TIMEOUT + LONGPRESS_TIMEOUT);
+                            this.mHandler.sendEmptyMessageAtTime(2, this.mCurrentDownEvent.getDownTime() + TAP_TIMEOUT + ViewConfiguration.getLongPressTimeout());
                         }
                         this.mHandler.sendEmptyMessageAtTime(1, this.mCurrentDownEvent.getDownTime() + TAP_TIMEOUT);
                         return z2 | this.mListener.onDown(motionEvent);

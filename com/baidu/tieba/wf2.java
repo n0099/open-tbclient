@@ -1,64 +1,28 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.database.sqlite.SQLiteDatabase;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 /* loaded from: classes6.dex */
-public class wf2 extends vf2<qf2> {
+public final class wf2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wf2() {
-        super(new qf2());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((sf2) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.vf2
-    public boolean k() {
+    public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (r(h().extensionCorePath) && !super.k()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? "CREATE TABLE IF NOT EXISTS ai_apps_favorites (_id INTEGER PRIMARY KEY AUTOINCREMENT,sort_index INTEGER,app_id TEXT NOT NULL UNIQUE,app_icon TEXT,app_name TEXT,app_type INTEGER,frame_type INTEGER,pay_protected INTEGER,favorite_time INTEGER DEFAULT 0,is_new_favor INTEGER DEFAULT 0);" : (String) invokeV.objValue;
     }
 
-    public static boolean r(String str) {
-        InterceptResult invokeL;
+    public static void a(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            j12.k("ExtCore-SwanAppPresetControl", "isExtensionFileAvailable extensionPath:" + str);
-            boolean z = false;
-            if (TextUtils.isEmpty(str)) {
-                return false;
+        if (interceptable == null || interceptable.invokeL(65536, null, sQLiteDatabase) == null) {
+            try {
+                sQLiteDatabase.execSQL(b());
+            } catch (Exception e) {
+                e.getStackTrace();
             }
-            File file = new File(str, "extension.js");
-            if (file.exists() && file.length() > 0) {
-                z = true;
-            }
-            j12.k("ExtCore-SwanAppPresetControl", "isExtensionFileAvailable: " + z);
-            return z;
         }
-        return invokeL.booleanValue;
     }
 }

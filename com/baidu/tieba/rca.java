@@ -2,9 +2,7 @@ package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.i8a;
-import com.baidu.tieba.k8a;
-import com.baidu.tieba.o8a;
+import com.baidu.tieba.wca;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,33 +10,270 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.PrintStream;
-import java.util.concurrent.ScheduledExecutorService;
+import rx.internal.operators.CompletableOnSubscribeConcatIterable;
 /* loaded from: classes6.dex */
-public final class rca {
+public class rca {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile y8a<Throwable> a;
-    public static volatile c9a<k8a.a, k8a.a> b;
-    public static volatile c9a<o8a.c, o8a.c> c;
-    public static volatile c9a<i8a.f, i8a.f> d;
-    public static volatile d9a<k8a, k8a.a, k8a.a> e;
-    public static volatile d9a<o8a, o8a.c, o8a.c> f;
-    public static volatile d9a<i8a, i8a.f, i8a.f> g;
-    public static volatile c9a<n8a, n8a> h;
-    public static volatile c9a<n8a, n8a> i;
-    public static volatile c9a<n8a, n8a> j;
-    public static volatile c9a<x8a, x8a> k;
-    public static volatile c9a<r8a, r8a> l;
-    public static volatile c9a<r8a, r8a> m;
-    public static volatile b9a<? extends ScheduledExecutorService> n;
-    public static volatile c9a<Throwable, Throwable> o;
-    public static volatile c9a<Throwable, Throwable> p;
-    public static volatile c9a<Throwable, Throwable> q;
-    public static volatile c9a<k8a.b, k8a.b> r;
     public transient /* synthetic */ FieldHolder $fh;
+    public final f a;
 
     /* loaded from: classes6.dex */
-    public static class a implements c9a<Throwable, Throwable> {
+    public interface f extends hda<sca> {
+        @Override // com.baidu.tieba.hda
+        /* synthetic */ void call(T t);
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wca a;
+        public final /* synthetic */ rca b;
+
+        /* loaded from: classes6.dex */
+        public class a implements sca {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ wca.a a;
+            public final /* synthetic */ sca b;
+            public final /* synthetic */ efa c;
+
+            /* renamed from: com.baidu.tieba.rca$b$a$a  reason: collision with other inner class name */
+            /* loaded from: classes6.dex */
+            public class C0412a implements gda {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ a a;
+
+                public C0412a(a aVar) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {aVar};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.a = aVar;
+                }
+
+                @Override // com.baidu.tieba.gda
+                public void call() {
+                    Interceptable interceptable = $ic;
+                    if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                        try {
+                            this.a.b.onCompleted();
+                        } finally {
+                            this.a.c.unsubscribe();
+                        }
+                    }
+                }
+            }
+
+            /* renamed from: com.baidu.tieba.rca$b$a$b  reason: collision with other inner class name */
+            /* loaded from: classes6.dex */
+            public class C0413b implements gda {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ Throwable a;
+                public final /* synthetic */ a b;
+
+                public C0413b(a aVar, Throwable th) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {aVar, th};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.b = aVar;
+                    this.a = th;
+                }
+
+                @Override // com.baidu.tieba.gda
+                public void call() {
+                    Interceptable interceptable = $ic;
+                    if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                        try {
+                            this.b.b.onError(this.a);
+                        } finally {
+                            this.b.c.unsubscribe();
+                        }
+                    }
+                }
+            }
+
+            public a(b bVar, wca.a aVar, sca scaVar, efa efaVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, aVar, scaVar, efaVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+                this.b = scaVar;
+                this.c = efaVar;
+            }
+
+            @Override // com.baidu.tieba.sca
+            public void onCompleted() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.a.b(new C0412a(this));
+                }
+            }
+
+            @Override // com.baidu.tieba.sca
+            public void onError(Throwable th) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+                    this.a.b(new C0413b(this, th));
+                }
+            }
+
+            @Override // com.baidu.tieba.sca
+            public void onSubscribe(ada adaVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adaVar) == null) {
+                    this.c.a(adaVar);
+                }
+            }
+        }
+
+        public b(rca rcaVar, wca wcaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rcaVar, wcaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = rcaVar;
+            this.a = wcaVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.rca.f, com.baidu.tieba.hda
+        public void call(sca scaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, scaVar) == null) {
+                efa efaVar = new efa();
+                wca.a createWorker = this.a.createWorker();
+                efaVar.a(createWorker);
+                scaVar.onSubscribe(efaVar);
+                this.b.j(new a(this, createWorker, scaVar, efaVar));
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class e implements f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wca a;
+        public final /* synthetic */ rca b;
+
+        /* loaded from: classes6.dex */
+        public class a implements gda {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ sca a;
+            public final /* synthetic */ wca.a b;
+            public final /* synthetic */ e c;
+
+            public a(e eVar, sca scaVar, wca.a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {eVar, scaVar, aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.c = eVar;
+                this.a = scaVar;
+                this.b = aVar;
+            }
+
+            @Override // com.baidu.tieba.gda
+            public void call() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    try {
+                        this.c.b.j(this.a);
+                    } finally {
+                        this.b.unsubscribe();
+                    }
+                }
+            }
+        }
+
+        public e(rca rcaVar, wca wcaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rcaVar, wcaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = rcaVar;
+            this.a = wcaVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.rca.f, com.baidu.tieba.hda
+        public void call(sca scaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, scaVar) == null) {
+                wca.a createWorker = this.a.createWorker();
+                createWorker.b(new a(this, scaVar, createWorker));
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class a implements f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -57,84 +292,69 @@ public final class rca {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.c9a
-        public Throwable call(Throwable th) {
-            InterceptResult invokeL;
+        @Override // com.baidu.tieba.rca.f, com.baidu.tieba.hda
+        public void call(sca scaVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th)) == null) {
-                uca.c().g().b(th);
-                return th;
+            if (interceptable == null || interceptable.invokeL(1048576, this, scaVar) == null) {
+                scaVar.onSubscribe(qha.c());
+                scaVar.onCompleted();
             }
-            return (Throwable) invokeL.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class b implements c9a<Throwable, Throwable> {
+    public class c implements sca {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ oha a;
 
-        public b() {
+        public c(rca rcaVar, oha ohaVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rcaVar, ohaVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.a = ohaVar;
+        }
+
+        @Override // com.baidu.tieba.sca
+        public void onCompleted() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.unsubscribe();
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.c9a
-        public Throwable call(Throwable th) {
-            InterceptResult invokeL;
+        @Override // com.baidu.tieba.sca
+        public void onError(Throwable th) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th)) == null) {
-                uca.c().a().b(th);
-                return th;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+                aha.j(th);
+                this.a.unsubscribe();
+                rca.c(th);
             }
-            return (Throwable) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.sca
+        public void onSubscribe(ada adaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adaVar) == null) {
+                this.a.a(adaVar);
+            }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class c implements c9a<k8a.a, k8a.a> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.c9a
-        public k8a.a call(k8a.a aVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-                uca.c().d().a(aVar);
-                return aVar;
-            }
-            return (k8a.a) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class d implements c9a<o8a.c, o8a.c> {
+    public static class d implements f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -153,337 +373,12 @@ public final class rca {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.c9a
-        public o8a.c call(o8a.c cVar) {
-            InterceptResult invokeL;
+        @Override // com.baidu.tieba.rca.f, com.baidu.tieba.hda
+        public void call(sca scaVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
-                uca.c().g().a(cVar);
-                return cVar;
+            if (interceptable == null || interceptable.invokeL(1048576, this, scaVar) == null) {
+                scaVar.onSubscribe(qha.c());
             }
-            return (o8a.c) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class e implements c9a<i8a.f, i8a.f> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public e() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.c9a
-        public i8a.f call(i8a.f fVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fVar)) == null) {
-                uca.c().a().a(fVar);
-                return fVar;
-            }
-            return (i8a.f) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class f implements y8a<Throwable> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public f() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.y8a
-        public void call(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                uca.c().b().a(th);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class g implements d9a<k8a, k8a.a, k8a.a> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public g() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.d9a
-        public k8a.a call(k8a k8aVar, k8a.a aVar) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, k8aVar, aVar)) == null) {
-                uca.c().d().e(k8aVar, aVar);
-                return aVar;
-            }
-            return (k8a.a) invokeLL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class h implements c9a<r8a, r8a> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public h() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.c9a
-        public r8a call(r8a r8aVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, r8aVar)) == null) {
-                uca.c().d().d(r8aVar);
-                return r8aVar;
-            }
-            return (r8a) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class i implements d9a<o8a, o8a.c, o8a.c> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public i() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.d9a
-        public o8a.c call(o8a o8aVar, o8a.c cVar) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, o8aVar, cVar)) == null) {
-                wca g = uca.c().g();
-                if (g == xca.e()) {
-                    return cVar;
-                }
-                caa caaVar = new caa(cVar);
-                g.d(o8aVar, caaVar);
-                return new z9a(caaVar);
-            }
-            return (o8a.c) invokeLL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class j implements c9a<r8a, r8a> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public j() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.c9a
-        public r8a call(r8a r8aVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, r8aVar)) == null) {
-                uca.c().g().c(r8aVar);
-                return r8aVar;
-            }
-            return (r8a) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class k implements d9a<i8a, i8a.f, i8a.f> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public k() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.d9a
-        public i8a.f call(i8a i8aVar, i8a.f fVar) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, i8aVar, fVar)) == null) {
-                uca.c().a().c(i8aVar, fVar);
-                return fVar;
-            }
-            return (i8a.f) invokeLL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class l implements c9a<x8a, x8a> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public l() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.c9a
-        public x8a call(x8a x8aVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, x8aVar)) == null) {
-                uca.c().f().k(x8aVar);
-                return x8aVar;
-            }
-            return (x8a) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class m implements c9a<Throwable, Throwable> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public m() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.c9a
-        public Throwable call(Throwable th) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th)) == null) {
-                uca.c().d().c(th);
-                return th;
-            }
-            return (Throwable) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class n implements c9a<k8a.b, k8a.b> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public n() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.c9a
-        public k8a.b call(k8a.b bVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) {
-                uca.c().d().b(bVar);
-                return bVar;
-            }
-            return (k8a.b) invokeL.objValue;
         }
     }
 
@@ -500,277 +395,159 @@ public final class rca {
                 return;
             }
         }
-        b();
+        new rca(new a(), false);
+        new rca(new d(), false);
     }
 
-    public static b9a<? extends ScheduledExecutorService> a() {
-        InterceptResult invokeV;
+    public rca(f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return n;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {fVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return (b9a) invokeV.objValue;
+        this.a = aha.g(fVar);
     }
 
-    public static void c() {
+    public rca(f fVar, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            b = new c();
-            c = new d();
-            d = new e();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {fVar, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
         }
+        this.a = z ? aha.g(fVar) : fVar;
     }
 
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            a = new f();
-            e = new g();
-            l = new h();
-            f = new i();
-            m = new j();
-            g = new k();
-            k = new l();
-            o = new m();
-            r = new n();
-            p = new a();
-            q = new b();
-            c();
-        }
-    }
-
-    public static Throwable d(Throwable th) {
+    public static rca a(Iterable<? extends rca> iterable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th)) == null) {
-            c9a<Throwable, Throwable> c9aVar = q;
-            if (c9aVar != null) {
-                return c9aVar.call(th);
-            }
-            return th;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iterable)) == null) {
+            e(iterable);
+            return b(new CompletableOnSubscribeConcatIterable(iterable));
         }
-        return (Throwable) invokeL.objValue;
+        return (rca) invokeL.objValue;
     }
 
-    public static n8a f(n8a n8aVar) {
+    public static rca b(f fVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, n8aVar)) == null) {
-            c9a<n8a, n8a> c9aVar = h;
-            if (c9aVar != null) {
-                return c9aVar.call(n8aVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, fVar)) == null) {
+            e(fVar);
+            try {
+                return new rca(fVar);
+            } catch (NullPointerException e2) {
+                throw e2;
+            } catch (Throwable th) {
+                aha.j(th);
+                throw i(th);
             }
-            return n8aVar;
         }
-        return (n8a) invokeL.objValue;
+        return (rca) invokeL.objValue;
     }
 
-    public static i8a.f g(i8a.f fVar) {
-        InterceptResult invokeL;
+    public static void c(Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, fVar)) == null) {
-            c9a<i8a.f, i8a.f> c9aVar = d;
-            if (c9aVar != null) {
-                return c9aVar.call(fVar);
-            }
-            return fVar;
-        }
-        return (i8a.f) invokeL.objValue;
-    }
-
-    public static <T> k8a.a<T> h(k8a.a<T> aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, aVar)) == null) {
-            c9a<k8a.a, k8a.a> c9aVar = b;
-            if (c9aVar != null) {
-                return c9aVar.call(aVar);
-            }
-            return aVar;
-        }
-        return (k8a.a) invokeL.objValue;
-    }
-
-    public static <T> o8a.c<T> i(o8a.c<T> cVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, cVar)) == null) {
-            c9a<o8a.c, o8a.c> c9aVar = c;
-            if (c9aVar != null) {
-                return c9aVar.call(cVar);
-            }
-            return cVar;
-        }
-        return (o8a.c) invokeL.objValue;
-    }
-
-    public static n8a k(n8a n8aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, n8aVar)) == null) {
-            c9a<n8a, n8a> c9aVar = i;
-            if (c9aVar != null) {
-                return c9aVar.call(n8aVar);
-            }
-            return n8aVar;
-        }
-        return (n8a) invokeL.objValue;
-    }
-
-    public static n8a l(n8a n8aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, n8aVar)) == null) {
-            c9a<n8a, n8a> c9aVar = j;
-            if (c9aVar != null) {
-                return c9aVar.call(n8aVar);
-            }
-            return n8aVar;
-        }
-        return (n8a) invokeL.objValue;
-    }
-
-    public static Throwable m(Throwable th) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, th)) == null) {
-            c9a<Throwable, Throwable> c9aVar = o;
-            if (c9aVar != null) {
-                return c9aVar.call(th);
-            }
-            return th;
-        }
-        return (Throwable) invokeL.objValue;
-    }
-
-    public static <T, R> k8a.b<R, T> n(k8a.b<R, T> bVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, bVar)) == null) {
-            c9a<k8a.b, k8a.b> c9aVar = r;
-            if (c9aVar != null) {
-                return c9aVar.call(bVar);
-            }
-            return bVar;
-        }
-        return (k8a.b) invokeL.objValue;
-    }
-
-    public static r8a o(r8a r8aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, r8aVar)) == null) {
-            c9a<r8a, r8a> c9aVar = l;
-            if (c9aVar != null) {
-                return c9aVar.call(r8aVar);
-            }
-            return r8aVar;
-        }
-        return (r8a) invokeL.objValue;
-    }
-
-    public static x8a q(x8a x8aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, x8aVar)) == null) {
-            c9a<x8a, x8a> c9aVar = k;
-            if (c9aVar != null) {
-                return c9aVar.call(x8aVar);
-            }
-            return x8aVar;
-        }
-        return (x8a) invokeL.objValue;
-    }
-
-    public static Throwable r(Throwable th) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, th)) == null) {
-            c9a<Throwable, Throwable> c9aVar = p;
-            if (c9aVar != null) {
-                return c9aVar.call(th);
-            }
-            return th;
-        }
-        return (Throwable) invokeL.objValue;
-    }
-
-    public static r8a s(r8a r8aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, r8aVar)) == null) {
-            c9a<r8a, r8a> c9aVar = m;
-            if (c9aVar != null) {
-                return c9aVar.call(r8aVar);
-            }
-            return r8aVar;
-        }
-        return (r8a) invokeL.objValue;
-    }
-
-    public static void u(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65557, null, th) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, null, th) == null) {
             Thread currentThread = Thread.currentThread();
             currentThread.getUncaughtExceptionHandler().uncaughtException(currentThread, th);
         }
     }
 
-    public static <T> i8a.f e(i8a i8aVar, i8a.f fVar) {
-        InterceptResult invokeLL;
+    public static <T> T e(T t) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, i8aVar, fVar)) == null) {
-            d9a<i8a, i8a.f, i8a.f> d9aVar = g;
-            if (d9aVar != null) {
-                return d9aVar.call(i8aVar, fVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, t)) == null) {
+            if (t != null) {
+                return t;
             }
-            return fVar;
+            throw null;
         }
-        return (i8a.f) invokeLL.objValue;
+        return (T) invokeL.objValue;
     }
 
-    public static <T> k8a.a<T> p(k8a<T> k8aVar, k8a.a<T> aVar) {
-        InterceptResult invokeLL;
+    public static NullPointerException i(Throwable th) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, k8aVar, aVar)) == null) {
-            d9a<k8a, k8a.a, k8a.a> d9aVar = e;
-            if (d9aVar != null) {
-                return d9aVar.call(k8aVar, aVar);
-            }
-            return aVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, th)) == null) {
+            NullPointerException nullPointerException = new NullPointerException("Actually not, but can't pass out an exception otherwise...");
+            nullPointerException.initCause(th);
+            return nullPointerException;
         }
-        return (k8a.a) invokeLL.objValue;
+        return (NullPointerException) invokeL.objValue;
     }
 
-    public static <T> o8a.c<T> t(o8a<T> o8aVar, o8a.c<T> cVar) {
-        InterceptResult invokeLL;
+    public final rca d(wca wcaVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, null, o8aVar, cVar)) == null) {
-            d9a<o8a, o8a.c, o8a.c> d9aVar = f;
-            if (d9aVar != null) {
-                return d9aVar.call(o8aVar, cVar);
-            }
-            return cVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, wcaVar)) == null) {
+            e(wcaVar);
+            return b(new b(this, wcaVar));
         }
-        return (o8a.c) invokeLL.objValue;
+        return (rca) invokeL.objValue;
     }
 
-    public static void j(Throwable th) {
+    public final void g(sca scaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, th) == null) {
-            y8a<Throwable> y8aVar = a;
-            if (y8aVar != null) {
-                try {
-                    y8aVar.call(th);
-                    return;
-                } catch (Throwable th2) {
-                    PrintStream printStream = System.err;
-                    printStream.println("The onError handler threw an Exception. It shouldn't. => " + th2.getMessage());
-                    th2.printStackTrace();
-                    u(th2);
-                }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, scaVar) == null) {
+            if (!(scaVar instanceof tga)) {
+                scaVar = new tga(scaVar);
             }
-            u(th);
+            j(scaVar);
         }
+    }
+
+    public final rca h(wca wcaVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, wcaVar)) == null) {
+            e(wcaVar);
+            return b(new e(this, wcaVar));
+        }
+        return (rca) invokeL.objValue;
+    }
+
+    public final void j(sca scaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, scaVar) == null) {
+            e(scaVar);
+            try {
+                aha.e(this, this.a).call(scaVar);
+            } catch (NullPointerException e2) {
+                throw e2;
+            } catch (Throwable th) {
+                fda.e(th);
+                Throwable d2 = aha.d(th);
+                aha.j(d2);
+                throw i(d2);
+            }
+        }
+    }
+
+    public final ada f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            oha ohaVar = new oha();
+            j(new c(this, ohaVar));
+            return ohaVar;
+        }
+        return (ada) invokeV.objValue;
     }
 }

@@ -1,8 +1,10 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,16 +12,48 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class br2 implements iu2 {
+public class br2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final fr2 a;
+    public static volatile fr2 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public boolean c;
-    public gr2 d;
+
+    /* loaded from: classes3.dex */
+    public static class a implements pn3<HybridUbcFlow> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.pn3
+        /* renamed from: b */
+        public void a(HybridUbcFlow hybridUbcFlow) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
+                if (!TextUtils.equals(hybridUbcFlow.m().optString("type"), "3") && !hybridUbcFlow.p("na_first_meaningful_paint")) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                br2.b().b(z, hybridUbcFlow);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -34,54 +68,57 @@ public class br2 implements iu2 {
                 return;
             }
         }
-        boolean z = tk1.a;
+        gr2 gr2Var = new gr2();
+        a = gr2Var;
+        b = gr2Var;
     }
 
-    public br2() {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            b().c();
         }
-        this.b = "";
-        this.c = false;
     }
 
-    @Override // com.baidu.tieba.iu2
-    public boolean isValid() {
+    @NonNull
+    public static fr2 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            gr2 gr2Var = this.d;
-            if (gr2Var != null && gr2Var.isValid() && !TextUtils.isEmpty(this.b)) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
         }
-        return invokeV.booleanValue;
+        return (fr2) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.iu2
-    public void a(JSONObject jSONObject) throws JSONException {
+    public static void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has(CriusAttrConstants.POSITION) && jSONObject.has("iconPath")) {
-            String optString = jSONObject.optString("controlId");
-            this.a = optString;
-            if (TextUtils.isEmpty(optString)) {
-                this.a = jSONObject.optString("id");
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            f(a);
+        }
+    }
+
+    public static void c(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(65539, null, i) == null) && i != 3) {
+            b().c();
+        }
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
+            if (TextUtils.equals(str, "3")) {
+                f(new er2(str));
+            } else {
+                f(new dr2(str));
             }
-            gr2 gr2Var = new gr2();
-            this.d = gr2Var;
-            gr2Var.a(jSONObject.optJSONObject(CriusAttrConstants.POSITION));
-            this.b = jSONObject.optString("iconPath");
-            this.c = jSONObject.optBoolean("clickable");
+        }
+    }
+
+    public static void f(@NonNull fr2 fr2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, fr2Var) == null) {
+            b = fr2Var;
         }
     }
 }

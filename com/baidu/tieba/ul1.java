@@ -1,20 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import androidx.annotation.Nullable;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public interface ul1 {
-    JSONObject a();
+    @Nullable
+    kj1 a();
 
-    void b(String str);
-
-    void c(CallbackHandler callbackHandler, String str);
-
-    void d(CallbackHandler callbackHandler, String str);
-
-    void e(String str);
-
-    void f(CallbackHandler callbackHandler, String str);
-
-    void g(CallbackHandler callbackHandler, String str);
+    JSONObject b();
 }

@@ -1,12 +1,21 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
+import android.app.Activity;
+import android.content.DialogInterface;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public interface fq1 {
-    boolean b(Context context, Intent intent, String str, String str2, String str3);
+    void a(@NonNull Activity activity, @Nullable DialogInterface.OnClickListener onClickListener);
 
-    boolean c();
+    String b();
 
-    boolean d();
+    void c(JSONObject jSONObject);
+
+    rg4 d();
+
+    void e(int i, String str);
+
+    void f(@NonNull pn3<Boolean> pn3Var);
 }

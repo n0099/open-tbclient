@@ -2,14 +2,14 @@ package com.baidu.tbadk.core.dialog.yun.strategy;
 
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.data.DialogStrategiesData;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.fr4;
-import com.baidu.tieba.vw4;
-import com.baidu.tieba.ww4;
+import com.baidu.tieba.i15;
+import com.baidu.tieba.j15;
+import com.baidu.tieba.log.TbLogManager;
+import com.baidu.tieba.sv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes3.dex */
-public class FrequenceDialogStrategy implements vw4 {
+public class FrequenceDialogStrategy implements i15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -64,7 +64,7 @@ public class FrequenceDialogStrategy implements vw4 {
         }
     }
 
-    @Override // com.baidu.tieba.vw4
+    @Override // com.baidu.tieba.i15
     @NonNull
     public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
         InterceptResult invokeLLL;
@@ -77,7 +77,7 @@ public class FrequenceDialogStrategy implements vw4 {
         return (Map) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.vw4
+    @Override // com.baidu.tieba.i15
     public boolean b(@NonNull Map<String, Object> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -90,20 +90,20 @@ public class FrequenceDialogStrategy implements vw4 {
                     if (data.frequence == 0) {
                         return true;
                     }
-                    int m = ww4.b.m(ww4.a.a(data.dialogName), 0);
-                    if (m < data.frequence) {
+                    int n = j15.b.n(j15.a.a(data.dialogName), 0);
+                    if (n < data.frequence) {
                         z = true;
                     }
                     if (!z) {
-                        BdLog.printExceptionLog("YunDialogManager", "FrequenceDialogStrategy:noFrequence:" + m + " " + data.frequence);
+                        TbLogManager.logI("5001", "YunDialogManager", "FrequenceDialogStrategy:noFrequence:" + n + " " + data.frequence);
                     }
                     return z;
                 }
-                BdLog.printExceptionLog("YunDialogManager", "FrequenceDialogStrategy:noTimestamp:" + currentTimeMillis + " " + data.startTimestamp + "" + data.endTimestamp);
+                TbLogManager.logI("5001", "YunDialogManager", "FrequenceDialogStrategy:noTimestamp:" + currentTimeMillis + " " + data.startTimestamp + "" + data.endTimestamp);
                 return false;
             } catch (Exception e) {
-                if (!fr4.e() && !fr4.h() && !TbadkApplication.getInst().isDebugMode()) {
-                    BdLog.printExceptionLog("YunDialogManager", "FrequenceDialogStrategy:noTimestamp:error");
+                if (!sv4.e() && !sv4.h() && !TbadkApplication.getInst().isDebugMode()) {
+                    TbLogManager.logI("5001", "YunDialogManager", "FrequenceDialogStrategy:noTimestamp:error");
                     return false;
                 }
                 throw e;

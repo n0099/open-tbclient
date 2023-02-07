@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.is7;
+import com.baidu.tieba.ax7;
 import com.baidu.tieba.livesdk.share.model.AlaShareInBarModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -88,12 +88,12 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
         }
 
         @Override // com.baidu.tieba.livesdk.share.model.AlaShareInBarModel.b
-        public void a(int i, String str, is7 is7Var) {
+        public void a(int i, String str, ax7 ax7Var) {
             int i2;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, is7Var) == null) {
+            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, ax7Var) == null) {
                 this.a.closeLoadingDialog();
-                if (i == 0 && is7Var != null) {
+                if (i == 0 && ax7Var != null) {
                     BdToast b = BdToast.b(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getPageActivity().getString(R.string.share_alert_success));
                     b.g(BdToast.ToastIcon.SUCCESS);
                     b.d(3000);
@@ -182,7 +182,7 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                showToast(R.string.obfuscated_res_0x7f0f0cd1);
+                showToast(R.string.obfuscated_res_0x7f0f0cfe);
                 finish();
             } else if ((StringUtils.isNull(this.a) && TextUtils.isEmpty(this.b)) || ListUtils.isEmpty(this.c)) {
                 finish();

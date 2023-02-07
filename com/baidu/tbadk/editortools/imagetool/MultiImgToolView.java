@@ -23,18 +23,18 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aa5;
-import com.baidu.tieba.ea5;
-import com.baidu.tieba.jn;
-import com.baidu.tieba.l75;
-import com.baidu.tieba.mc;
-import com.baidu.tieba.na5;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.gc5;
+import com.baidu.tieba.lb5;
+import com.baidu.tieba.me5;
+import com.baidu.tieba.on;
+import com.baidu.tieba.pe5;
+import com.baidu.tieba.rc;
 import com.baidu.tieba.tbadkCore.imgView.DragContainer;
 import com.baidu.tieba.tbadkCore.imgView.DragHorizonScrollView;
 import com.baidu.tieba.tbadkCore.imgView.DragLayer;
-import com.baidu.tieba.u75;
-import com.baidu.tieba.z65;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.xb5;
+import com.baidu.tieba.ye5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,7 +44,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 /* loaded from: classes3.dex */
-public class MultiImgToolView extends DragContainer implements l75, DragHorizonScrollView.c {
+public class MultiImgToolView extends DragContainer implements xb5, DragHorizonScrollView.c {
     public static /* synthetic */ Interceptable $ic;
     public static boolean s;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +52,7 @@ public class MultiImgToolView extends DragContainer implements l75, DragHorizonS
     public TextView f;
     public DragLayer g;
     public WriteImagesInfo h;
-    public ea5 i;
+    public pe5 i;
     public c j;
     public EditorTools k;
     public int l;
@@ -83,7 +83,7 @@ public class MultiImgToolView extends DragContainer implements l75, DragHorizonS
         }
     }
 
-    @Override // com.baidu.tieba.l75
+    @Override // com.baidu.tieba.xb5
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -96,8 +96,8 @@ public class MultiImgToolView extends DragContainer implements l75, DragHorizonS
         public transient /* synthetic */ FieldHolder $fh;
         public WriteImagesInfo a;
         public Context b;
-        public ea5 c;
-        public l75 d;
+        public pe5 c;
+        public xb5 d;
         public b e;
         public boolean f;
 
@@ -109,7 +109,7 @@ public class MultiImgToolView extends DragContainer implements l75, DragHorizonS
         }
 
         /* loaded from: classes3.dex */
-        public class a implements aa5 {
+        public class a implements me5 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ViewGroup a;
@@ -132,11 +132,11 @@ public class MultiImgToolView extends DragContainer implements l75, DragHorizonS
                 this.a = viewGroup;
             }
 
-            @Override // com.baidu.tieba.aa5
-            public void a(jn jnVar, String str, boolean z) {
+            @Override // com.baidu.tieba.me5
+            public void a(on onVar, String str, boolean z) {
                 TbImageView tbImageView;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeLLZ(1048576, this, jnVar, str, z) == null) && (tbImageView = (TbImageView) this.a.findViewWithTag(str)) != null && jnVar != null) {
+                if ((interceptable == null || interceptable.invokeLLZ(1048576, this, onVar, str, z) == null) && (tbImageView = (TbImageView) this.a.findViewWithTag(str)) != null && onVar != null) {
                     tbImageView.invalidate();
                 }
             }
@@ -179,9 +179,9 @@ public class MultiImgToolView extends DragContainer implements l75, DragHorizonS
                         z = false;
                     }
                     if (!z) {
-                        zi.M(this.b.b, R.string.editor_mutiiamge_image_error);
+                        ej.M(this.b.b, R.string.editor_mutiiamge_image_error);
                     } else if (this.b.d != null) {
-                        this.b.d.J(new z65(15, 0, Integer.valueOf(indexOfChild)));
+                        this.b.d.J(new lb5(15, 0, Integer.valueOf(indexOfChild)));
                     }
                 }
             }
@@ -189,13 +189,13 @@ public class MultiImgToolView extends DragContainer implements l75, DragHorizonS
 
         /* renamed from: com.baidu.tbadk.editortools.imagetool.MultiImgToolView$c$c  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class View$OnClickListenerC0210c implements View.OnClickListener {
+        public class View$OnClickListenerC0212c implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ FrameLayout a;
             public final /* synthetic */ c b;
 
-            public View$OnClickListenerC0210c(c cVar, FrameLayout frameLayout) {
+            public View$OnClickListenerC0212c(c cVar, FrameLayout frameLayout) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -223,12 +223,12 @@ public class MultiImgToolView extends DragContainer implements l75, DragHorizonS
             }
         }
 
-        public c(Context context, ea5 ea5Var, l75 l75Var, b bVar, boolean z) {
+        public c(Context context, pe5 pe5Var, xb5 xb5Var, b bVar, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, ea5Var, l75Var, bVar, Boolean.valueOf(z)};
+                Object[] objArr = {context, pe5Var, xb5Var, bVar, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -241,8 +241,8 @@ public class MultiImgToolView extends DragContainer implements l75, DragHorizonS
             this.a = null;
             this.f = true;
             this.b = context;
-            this.c = ea5Var;
-            this.d = l75Var;
+            this.c = pe5Var;
+            this.d = xb5Var;
             this.e = bVar;
             this.f = z;
         }
@@ -290,11 +290,11 @@ public class MultiImgToolView extends DragContainer implements l75, DragHorizonS
                 if (imageFileInfo == null) {
                     return null;
                 }
-                int measuredWidth = (viewGroup.getMeasuredWidth() - (this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702ee) * 2)) + this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207);
+                int measuredWidth = (viewGroup.getMeasuredWidth() - (this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702ef) * 2)) + this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207);
                 FrameLayout frameLayout = (FrameLayout) view2;
                 LinearLayout linearLayout = (LinearLayout) frameLayout.findViewById(R.id.iv_container);
                 FrameLayout frameLayout2 = (FrameLayout) frameLayout.findViewById(R.id.shadow_container);
-                TbImageView tbImageView = (TbImageView) frameLayout.findViewById(R.id.obfuscated_res_0x7f091083);
+                TbImageView tbImageView = (TbImageView) frameLayout.findViewById(R.id.obfuscated_res_0x7f0910c7);
                 tbImageView.setGifIconSupport(true);
                 tbImageView.setLongIconSupport(true);
                 tbImageView.setIsLongPic(imageFileInfo.isLong());
@@ -304,7 +304,7 @@ public class MultiImgToolView extends DragContainer implements l75, DragHorizonS
                     SkinManager.setBackgroundResource(frameLayout2, R.drawable.bg_add_photo);
                     frameLayout2.setForeground(SkinManager.getDrawable(R.drawable.bg_add_photo_foregroundselector));
                     imageFileInfo.clearPageActions();
-                    imageFileInfo.addPageAction(na5.g(paddingRight, measuredHeight));
+                    imageFileInfo.addPageAction(ye5.g(paddingRight, measuredHeight));
                     tbImageView.setTag(imageFileInfo.toCachedKey(true));
                     if (this.c.d(imageFileInfo, new a(this, viewGroup), true) != null) {
                         tbImageView.invalidate();
@@ -314,9 +314,9 @@ public class MultiImgToolView extends DragContainer implements l75, DragHorizonS
                 if (this.f) {
                     frameLayout.setOnClickListener(new b(this, viewGroup));
                 }
-                ImageView imageView = (ImageView) frameLayout.findViewById(R.id.obfuscated_res_0x7f0907bd);
+                ImageView imageView = (ImageView) frameLayout.findViewById(R.id.obfuscated_res_0x7f0907ce);
                 SkinManager.setImageResource(imageView, R.drawable.btn_add_photo_close);
-                imageView.setOnClickListener(new View$OnClickListenerC0210c(this, frameLayout));
+                imageView.setOnClickListener(new View$OnClickListenerC0212c(this, frameLayout));
                 frameLayout.setContentDescription(frameLayout.getResources().getString(R.string.editor_image) + (i + 1) + " " + imageFileInfo.getModifyTime());
                 return frameLayout;
             }
@@ -359,22 +359,22 @@ public class MultiImgToolView extends DragContainer implements l75, DragHorizonS
             if (delete >= 0 && delete < this.a.h.getChosedFiles().size()) {
                 ImageFileInfo remove = this.a.h.getChosedFiles().remove(delete);
                 if (remove.isTempFile()) {
-                    mc.f().a(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
+                    rc.f().a(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
                 }
                 int maxItemNum = this.a.e.getMaxItemNum();
                 int size = this.a.h.size();
                 this.a.f.setText(this.a.getResources().getString(R.string.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size)));
                 int size2 = this.a.h.getChosedFiles().size();
                 if (this.a.k != null) {
-                    this.a.k.C(new z65(this.a.n, -1, null));
+                    this.a.k.C(new lb5(this.a.n, -1, null));
                     if (size2 > 0) {
-                        this.a.k.C(new z65(2, this.a.o, String.valueOf(size2)));
+                        this.a.k.C(new lb5(2, this.a.o, String.valueOf(size2)));
                     } else {
-                        this.a.k.C(new z65(2, this.a.o, null));
+                        this.a.k.C(new lb5(2, this.a.o, null));
                     }
                     if (maxItemNum == 1 && size2 == 0) {
                         if (this.a.p) {
-                            this.a.k.C(new z65(1, 2, null));
+                            this.a.k.C(new lb5(1, 2, null));
                             return;
                         }
                         MultiImgToolView multiImgToolView = this.a;
@@ -412,17 +412,17 @@ public class MultiImgToolView extends DragContainer implements l75, DragHorizonS
         this.r = new a(this);
     }
 
-    @Override // com.baidu.tieba.a75
-    public void A(z65 z65Var) {
+    @Override // com.baidu.tieba.mb5
+    public void A(lb5 lb5Var) {
         Object obj;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, z65Var) != null) || z65Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, lb5Var) != null) || lb5Var == null) {
             return;
         }
-        int i = z65Var.a;
+        int i = lb5Var.a;
         if (i != 9) {
-            if (i == 12 && (obj = z65Var.c) != null && (obj instanceof u75)) {
-                k(((u75) obj).a, ((u75) obj).b);
+            if (i == 12 && (obj = lb5Var.c) != null && (obj instanceof gc5)) {
+                k(((gc5) obj).a, ((gc5) obj).b);
                 return;
             }
             return;
@@ -431,7 +431,7 @@ public class MultiImgToolView extends DragContainer implements l75, DragHorizonS
         if (cVar != null) {
             cVar.notifyDataSetChanged();
         }
-        J(new z65(2, this.o, null));
+        J(new lb5(2, this.o, null));
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -460,16 +460,16 @@ public class MultiImgToolView extends DragContainer implements l75, DragHorizonS
         this.r = new a(this);
     }
 
-    @Override // com.baidu.tieba.l75
-    public void J(z65 z65Var) {
+    @Override // com.baidu.tieba.xb5
+    public void J(lb5 lb5Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z65Var) == null) && (editorTools = this.k) != null) {
-            editorTools.C(z65Var);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lb5Var) == null) && (editorTools = this.k) != null) {
+            editorTools.C(lb5Var);
         }
     }
 
-    @Override // com.baidu.tieba.l75
+    @Override // com.baidu.tieba.xb5
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
@@ -477,10 +477,10 @@ public class MultiImgToolView extends DragContainer implements l75, DragHorizonS
         }
     }
 
-    public void setAsyncLocalImageLoader(ea5 ea5Var) {
+    public void setAsyncLocalImageLoader(pe5 pe5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, ea5Var) == null) {
-            this.i = ea5Var;
+        if (interceptable == null || interceptable.invokeL(1048588, this, pe5Var) == null) {
+            this.i = pe5Var;
         }
     }
 
@@ -498,7 +498,7 @@ public class MultiImgToolView extends DragContainer implements l75, DragHorizonS
         }
     }
 
-    @Override // com.baidu.tieba.l75
+    @Override // com.baidu.tieba.xb5
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, editorTools) == null) {
@@ -531,7 +531,7 @@ public class MultiImgToolView extends DragContainer implements l75, DragHorizonS
         }
     }
 
-    @Override // com.baidu.tieba.l75
+    @Override // com.baidu.tieba.xb5
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
@@ -539,7 +539,7 @@ public class MultiImgToolView extends DragContainer implements l75, DragHorizonS
         }
     }
 
-    @Override // com.baidu.tieba.l75
+    @Override // com.baidu.tieba.xb5
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -583,7 +583,7 @@ public class MultiImgToolView extends DragContainer implements l75, DragHorizonS
         return (TextView) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.l75
+    @Override // com.baidu.tieba.xb5
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -593,7 +593,7 @@ public class MultiImgToolView extends DragContainer implements l75, DragHorizonS
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.l75
+    @Override // com.baidu.tieba.xb5
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -607,14 +607,14 @@ public class MultiImgToolView extends DragContainer implements l75, DragHorizonS
         if (interceptable == null || interceptable.invokeLZ(1048586, this, writeImagesInfo, z) == null) {
             this.h = writeImagesInfo;
             Context context = getContext();
-            ea5 ea5Var = this.i;
+            pe5 pe5Var = this.i;
             b bVar = this.r;
             if (this.o == 10) {
                 z2 = true;
             } else {
                 z2 = false;
             }
-            c cVar = new c(context, ea5Var, this, bVar, z2);
+            c cVar = new c(context, pe5Var, this, bVar, z2);
             this.j = cVar;
             cVar.d(this.h);
             this.e.setAdapter(this.j, z);

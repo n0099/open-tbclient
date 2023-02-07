@@ -5,83 +5,62 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.internal.api.PidLoader;
+import com.fun.ad.sdk.internal.api.PidLoaderCreator;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.kwad.components.core.response.model.AdResultData;
-import com.kwad.sdk.core.response.model.AdInfo;
-import com.kwad.sdk.core.response.model.AdTemplate;
-import java.lang.reflect.Field;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class g0a extends BaseAdRipper {
+public class g0a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Map<String, PidLoaderCreator> a;
+    public final Map<Ssp.Pid, PidLoader> b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g0a(Ssp.Pid pid) {
-        super(pid);
+    public g0a(Map<String, PidLoaderCreator> map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
+            Object[] objArr = {map};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = new HashMap();
+        this.a = map;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
-    public RippedAd getRippedAdInternal(Object obj) {
+    public PidLoader a(Ssp.Pid pid) {
         InterceptResult invokeL;
-        AdResultData adResultData;
-        List<AdTemplate> adTemplateList;
-        List<AdInfo> list;
-        AdInfo adInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            try {
-                Field declaredField = obj.getClass().getDeclaredField("a");
-                boolean z = true;
-                declaredField.setAccessible(true);
-                Object obj2 = declaredField.get(obj);
-                if (obj2 == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
+            synchronized (this.b) {
+                PidLoader pidLoader = this.b.get(pid);
+                if (pidLoader != null) {
+                    return pidLoader;
+                }
+                PidLoaderCreator pidLoaderCreator = this.a.get(pid.ssp.type);
+                if (pidLoaderCreator == null) {
+                    LogPrinter.d("Cannot create PidLoader, because the ssp of pid.type:%s hasn't initialized.", pid.type);
                     return null;
                 }
-                if (obj2 instanceof AdResultData) {
-                    adResultData = (AdResultData) obj2;
-                } else {
-                    adResultData = null;
+                PidLoader create = pidLoaderCreator.create(pid);
+                if (create == null) {
+                    LogPrinter.d("The creator of ssp:%s should't create null for pid:%s", pid.ssp.type, pid.type);
+                    return null;
                 }
-                if (adResultData == null) {
-                    z = false;
-                }
-                if (z && (adTemplateList = adResultData.getAdTemplateList()) != null && !adTemplateList.isEmpty()) {
-                    AdTemplate adTemplate = adTemplateList.get(0);
-                    if (adTemplate == null) {
-                        list = null;
-                    } else {
-                        list = adTemplate.adInfoList;
-                    }
-                    if (list == null || list.isEmpty() || (adInfo = list.get(0)) == null) {
-                        return null;
-                    }
-                    return j0a.a(adInfo);
-                }
-                return null;
-            } catch (Exception e) {
-                LogPrinter.e(e);
-                return null;
+                a6a a6aVar = new a6a(create);
+                this.b.put(pid, a6aVar);
+                return a6aVar;
             }
         }
-        return (RippedAd) invokeL.objValue;
+        return (PidLoader) invokeL.objValue;
     }
 }

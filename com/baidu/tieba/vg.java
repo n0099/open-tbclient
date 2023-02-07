@@ -1,19 +1,11 @@
 package com.baidu.tieba;
-
-import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 /* loaded from: classes6.dex */
 public interface vg<T> {
-    BdAsyncTaskParallel getAsyncTaskParallel();
+    T a(T t);
 
-    int getAsyncTaskPriority();
+    void b(T t);
 
-    T getFromLocal(String str, String str2, int i, int i2, sg sgVar, Object... objArr);
+    T c(T t);
 
-    T getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr);
-
-    T getFromRemote(String str, String str2, int i, int i2, sg sgVar, Object... objArr);
-
-    boolean isNeedLoad();
-
-    void updateMemory(String str, Object obj, int i, int i2, Object... objArr);
+    T d();
 }

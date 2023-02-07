@@ -11,7 +11,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bh;
+import com.baidu.tieba.gh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -271,7 +271,7 @@ public class TbCameraView extends TextureView {
         this.s = new b(this);
         this.t = new c(this);
         setSurfaceTextureListener(this.r);
-        this.j = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702d1);
+        this.j = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702d2);
         this.k = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5);
     }
 
@@ -437,7 +437,7 @@ public class TbCameraView extends TextureView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDetachedFromWindow();
-            bh.a().removeCallbacks(this.t);
+            gh.a().removeCallbacks(this.t);
         }
     }
 

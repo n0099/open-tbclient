@@ -1,101 +1,31 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.network.outback.core.Call;
-import com.baidu.searchbox.network.outback.core.Callback;
 import com.baidu.searchbox.network.outback.core.Request;
 import com.baidu.searchbox.network.outback.core.Response;
-import com.baidu.searchbox.network.support.cookie.CookieJarImpl;
+import com.baidu.searchbox.network.outback.statistics.NetworkStatRecord;
+import com.baidu.tieba.f70;
+import com.baidu.tieba.s70;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public final class d70 implements Call {
+public class d70 implements f70 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final e70 a;
-    public final Request b;
-    public final boolean c;
-    public boolean d;
-    public x60 e;
+    public final p70 a;
+    public m70 b;
+    public boolean c;
 
-    /* loaded from: classes4.dex */
-    public final class a extends a70 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Callback b;
-        public final /* synthetic */ d70 c;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(d70 d70Var, Callback callback) {
-            super("BaiduNetwork %s", d70Var.d());
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d70Var, callback};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (Object[]) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = d70Var;
-            this.b = callback;
-        }
-
-        @Override // com.baidu.tieba.a70
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    try {
-                        this.b.onResponse(this.c, this.c.b());
-                    } catch (IOException e) {
-                        this.b.onFailure(this.c, e);
-                    }
-                } finally {
-                    this.c.a.p().d(this);
-                }
-            }
-        }
-
-        public d70 b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.c;
-            }
-            return (d70) invokeV.objValue;
-        }
-
-        public String c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.c.b.url().host();
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    public d70(Request request, e70 e70Var, boolean z) {
+    public d70(k70 k70Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {request, e70Var, Boolean.valueOf(z)};
+            Object[] objArr = {k70Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -105,147 +35,62 @@ public final class d70 implements Call {
                 return;
             }
         }
-        this.b = request;
-        this.c = z;
-        this.a = e70Var;
-        k70 k70Var = e70Var.m;
-        this.e = new x60(e70Var);
+        s70.b b = s70.b();
+        b.c(k70Var);
+        this.a = b.b();
     }
 
-    public static d70 c(Request request, e70 e70Var, boolean z) {
-        InterceptResult invokeLLZ;
+    @Override // com.baidu.tieba.f70
+    public Response a(f70.a aVar) throws IOException {
+        InterceptResult invokeL;
+        long contentLength;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, request, e70Var, z)) == null) {
-            return new d70(request, e70Var, z);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
+            if (!this.c) {
+                v70 v70Var = (v70) aVar;
+                Request request = aVar.request();
+                NetworkStatRecord networkStatRecord = request.getNetworkStatRecord();
+                if (request.body() == null) {
+                    contentLength = 0;
+                } else {
+                    contentLength = request.body().contentLength();
+                }
+                networkStatRecord.requestBodyLength = contentLength;
+                m70 c = c(request);
+                this.b = c;
+                return v70Var.b(request, c);
+            }
+            throw new IOException("The request has been cancelled.");
         }
-        return (d70) invokeLLZ.objValue;
+        return (Response) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.network.outback.core.Call
-    /* renamed from: a */
-    public d70 m54clone() {
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c = true;
+            m70 m70Var = this.b;
+            if (m70Var != null) {
+                m70Var.disconnect();
+            }
+        }
+    }
+
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return c(this.b, this.a, this.c);
-        }
-        return (d70) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.network.outback.core.Call
-    public void cancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.e.b();
-        }
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b.url().redact();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.network.outback.core.Call
-    public boolean isCanceled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.e.d();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.searchbox.network.outback.core.Call
-    public synchronized boolean isExecuted() {
-        InterceptResult invokeV;
-        boolean z;
+    public final m70 c(Request request) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            synchronized (this) {
-                z = this.d;
-            }
-            return z;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, request)) == null) {
+            return this.a.a(request);
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.network.outback.core.Call
-    public Request request() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.b;
-        }
-        return (Request) invokeV.objValue;
-    }
-
-    public Response b() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.addAll(this.a.t());
-            arrayList.add(new n70(new CookieJarImpl(this.b.getCookieManager()), this.a));
-            arrayList.add(this.e);
-            arrayList.addAll(this.a.w());
-            arrayList.add(new o70());
-            return new p70(arrayList, null, 0, this.b, this).a(this.b);
-        }
-        return (Response) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.network.outback.core.Call
-    public void enqueue(Callback callback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, callback) == null) {
-            synchronized (this) {
-                if (!this.d) {
-                    this.d = true;
-                } else {
-                    throw new IllegalStateException("Already Executed");
-                }
-            }
-            this.a.p().a(new a(this, callback));
-        }
-    }
-
-    @Override // com.baidu.searchbox.network.outback.core.Call
-    public Response execute() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            synchronized (this) {
-                if (!this.d) {
-                    this.d = true;
-                } else {
-                    throw new IllegalStateException("Already Executed");
-                }
-            }
-            try {
-                try {
-                    this.a.p().b(this);
-                    Response b = b();
-                    if (b != null) {
-                        return b;
-                    }
-                    throw new IOException("Canceled");
-                } catch (IOException e) {
-                    throw e;
-                } catch (Exception e2) {
-                    if (TextUtils.isEmpty(e2.getMessage())) {
-                        throw new IOException("unknown exception", e2);
-                    }
-                    throw new IOException(e2);
-                }
-            } finally {
-                this.a.p().e(this);
-            }
-        }
-        return (Response) invokeV.objValue;
+        return (m70) invokeL.objValue;
     }
 }

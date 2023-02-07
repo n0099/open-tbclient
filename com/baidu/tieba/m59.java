@@ -1,75 +1,46 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class m59 {
+public class m59 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public float b;
-    public float c;
-    public float d;
-    public float e;
-    public float f;
+    public final MainTabActivity a;
 
-    public m59() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m59(MainTabActivity mainTabActivity, v39 v39Var) {
+        super(2921414);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, v39Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = mainTabActivity;
     }
 
-    public static m59 a(int i, float f, float f2, float f3, float f4, float f5) {
-        InterceptResult invokeCommon;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ig9 ig9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) {
-            m59 m59Var = new m59();
-            m59Var.a = i;
-            m59Var.b = f;
-            m59Var.c = f2;
-            m59Var.d = f3;
-            m59Var.e = f4;
-            m59Var.f = f5;
-            return m59Var;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (ig9Var = this.a.q) != null) {
+            ig9Var.g();
         }
-        return (m59) invokeCommon.objValue;
-    }
-
-    public static m59 b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
-                            if (i != 4) {
-                                if (i != 5) {
-                                    return null;
-                                }
-                                return a(i, 0.47f, 3.0f, 2.14f, 1.41f, 1.03f);
-                            }
-                            return a(i, 0.53f, 3.0f, 1.64f, 1.08f, 0.62f);
-                        }
-                        return a(i, 0.59f, 3.0f, 1.11f, 0.71f, 0.67f);
-                    }
-                    return a(i, 0.1f, 2.0f, 0.39f, 0.31f, 0.66f);
-                }
-                return a(i, 0.1f, 1.0f, 0.0f, 0.0f, 0.09f);
-            }
-            return a(i, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
-        }
-        return (m59) invokeI.objValue;
     }
 }

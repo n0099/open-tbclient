@@ -75,11 +75,11 @@ public abstract class BaseContentUploader {
             } else {
                 str3 = "https://mbd.baidu.com" + str2;
             }
-            String processUrl = CommonUrlParamManager.getInstance().processUrl(str3);
-            if (DEBUG && !TextUtils.isEmpty(processUrl)) {
-                return UrlUtil.addParam(processUrl, "debug", "1");
+            String appendParam = CommonUrlParamManager.getInstance().appendParam(str3, 1);
+            if (DEBUG && !TextUtils.isEmpty(appendParam)) {
+                return UrlUtil.addParam(appendParam, "debug", "1");
             }
-            return processUrl;
+            return appendParam;
         }
         return (String) invokeL.objValue;
     }

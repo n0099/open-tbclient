@@ -1,7 +1,11 @@
 package com.baidu.tieba;
+
+import android.os.Bundle;
 /* loaded from: classes7.dex */
 public interface y52 {
-    void a(sq1 sq1Var);
+    void a(Bundle bundle);
 
-    void b(sq1 sq1Var);
+    void b(Bundle bundle);
+
+    String c();
 }

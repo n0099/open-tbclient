@@ -7,7 +7,6 @@ import com.baidu.platform.comapi.map.NodeType;
 import com.baidu.rtc.CommonDefine;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.itemdata.RecallSysMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -122,7 +121,7 @@ public class ErrorInfoReport {
             ENTER_FAILED = new ErrorCode(CommonDefine.SLILoginEvent.ENTER_FAILED, 18, NodeType.E_PARTICLE, CommonDefine.SLILoginEvent.ENTER_FAILED);
             ENTER_TIMEOUT = new ErrorCode(CommonDefine.SLILoginEvent.ENTER_TIMEOUT, 19, NodeType.E_PARTICLE, CommonDefine.SLILoginEvent.ENTER_TIMEOUT);
             AUDIO_STUCK = new ErrorCode("AUDIO_STUCK", 20, 7001, "AUDIO_STUCK");
-            VIDEO_STUCK = new ErrorCode("VIDEO_STUCK", 21, RecallSysMsg.MSG_TYPE, "VIDEO_STUCK");
+            VIDEO_STUCK = new ErrorCode("VIDEO_STUCK", 21, TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_RECALL_MSG, "VIDEO_STUCK");
             BAD_END_TO_END_DELAY = new ErrorCode("BAD_END_TO_END_DELAY", 22, TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_MUZZLE, "BAD_END_TO_END_DELAY");
             ErrorCode errorCode = new ErrorCode("BAD_FIRST_FRAME_TIME", 23, TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_UN_MUZZLE, "BAD_FIRST_FRAME_TIME");
             BAD_FIRST_FRAME_TIME = errorCode;

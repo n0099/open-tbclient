@@ -1,17 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.model.AdBaseModel;
+import android.app.Activity;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import com.baidu.nadcore.webview.view.AbsNadBrowserView;
+import com.baidu.tieba.t81;
 /* loaded from: classes5.dex */
 public interface k81 {
-    void a(AdBaseModel adBaseModel);
+    boolean a(String str);
 
-    void b(AdBaseModel adBaseModel);
+    Activity c();
 
-    void c(AdBaseModel adBaseModel);
+    boolean d();
 
-    void d(AdBaseModel adBaseModel);
+    LinearLayout e();
 
-    void e(AdBaseModel adBaseModel);
+    boolean f();
 
-    void f(AdBaseModel adBaseModel, float f);
+    FrameLayout h();
+
+    t81.d l();
+
+    AbsNadBrowserView m();
 }

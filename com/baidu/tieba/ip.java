@@ -1,24 +1,23 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.bdhttpdns.BDHttpDns;
-import com.baidu.bdhttpdns.HttpDnsClient;
-import com.baidu.tieba.hp;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.audiorecorder.lib.voice.VoiceRecordButton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes5.dex */
-public class ip implements HttpDnsClient.b {
+public class ip extends wb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final hp a;
-    public final BDHttpDns b;
-    public final BDHttpDns.CachePolicy c;
-    public final HttpDnsClient d;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ip(Context context) {
+        super(context, TbadkCoreApplication.getInst().getResources().getString(R.string.msglist_voice), 6);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -28,50 +27,37 @@ public class ip implements HttpDnsClient.b {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        BDHttpDns h = BDHttpDns.h(context);
-        this.b = h;
-        this.a = h.e();
-        this.c = this.b.c();
-        this.d = this.b.f();
+        this.d = R.drawable.icon_pure_post_voice_n_svg;
+        this.e = R.drawable.icon_mask_post_voice24_selection_svg;
+        this.i = true;
+        this.n = 6;
+        this.o = true;
+        this.m = VoiceRecordButton.x(context);
+        this.p = new int[]{1, 9};
     }
 
-    @Override // com.baidu.bdhttpdns.HttpDnsClient.b
-    public void a(int i, HttpDnsClient.RequestParamType requestParamType, Map<String, HttpDnsClient.e> map, String str) {
+    @Override // com.baidu.tieba.wb5
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), requestParamType, map, str}) == null) {
-            if (i != -1) {
-                if (i != 0) {
-                    jp.a("Internal error: async httpdns resolve completion get error ret(%d)", Integer.valueOf(i));
-                } else {
-                    for (Map.Entry<String, HttpDnsClient.e> entry : map.entrySet()) {
-                        String key = entry.getKey();
-                        HttpDnsClient.e value = entry.getValue();
-                        if (value != null) {
-                            hp.a aVar = new hp.a();
-                            aVar.i(value.c());
-                            aVar.h(System.currentTimeMillis() / 1000);
-                            aVar.f(value.a());
-                            aVar.g(value.b());
-                            this.a.e(key, aVar);
-                        } else if (this.c == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
-                            this.a.d(key);
-                        }
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TbadkCoreApplication.getInst().isAudioRecorderOpen()) {
+                String uegVoiceWarning = TbadkCoreApplication.getInst().getUegVoiceWarning();
+                if (StringUtils.isNull(uegVoiceWarning)) {
+                    uegVoiceWarning = TbadkCoreApplication.getInst().getString(R.string.ueg_voice_warning);
                 }
-            } else if (requestParamType.equals(HttpDnsClient.RequestParamType.DNLIST_HOSTS) && this.c == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
-                for (String str2 : str.split(",")) {
-                    this.a.d(str2);
-                }
+                UtilHelper.showToast(TbadkCoreApplication.getInst(), uegVoiceWarning);
+                return false;
             }
-            if (this.b.g() > 0 && !this.d.C()) {
-                this.d.M(true);
-                jp.a("preResolve has finished", new Object[0]);
-            }
+            return super.a();
         }
+        return invokeV.booleanValue;
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.tieba.pb.pb.adapter;
 
-import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -18,13 +17,13 @@ public class PbNoDataItemViewHolder extends TypeAdapter.ViewHolder {
     public ImageView b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbNoDataItemViewHolder(View view2, Context context) {
+    public PbNoDataItemViewHolder(View view2) {
         super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, context};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {

@@ -17,7 +17,6 @@ import com.alipay.sdk.util.l;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.sapi2.openbduss.PASSMethodCallTransfer;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -248,7 +247,7 @@ public final class OpenAuthTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{Long.valueOf(j), str, bizType, str2})) == null) {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put(FetchLog.START_TIME, String.valueOf(j));
+            jSONObject.put("startTime", String.valueOf(j));
             jSONObject.put("session", str);
             jSONObject.put("package", this.b.getPackageName());
             if (bizType != null) {
@@ -341,7 +340,7 @@ public final class OpenAuthTask {
                     intent.setPackage(a3.a.packageName);
                     try {
                         com.alipay.sdk.app.statistic.a.a(aVar, "biz", com.alipay.sdk.app.statistic.b.c0, "" + elapsedRealtime);
-                        a.C0013a.a(aVar, a2);
+                        a.C0012a.a(aVar, a2);
                         this.b.startActivity(intent);
                     } catch (Throwable th) {
                         com.alipay.sdk.app.statistic.a.a(aVar, "biz", "StartWalletEx", th);
@@ -355,7 +354,7 @@ public final class OpenAuthTask {
                 String a6 = a(bizType, hashMap);
                 Intent intent2 = new Intent(this.b, H5OpenAuthActivity.class);
                 intent2.putExtra("url", String.format("https://render.alipay.com/p/s/i?scheme=%s", Uri.encode(a6)));
-                a.C0013a.a(aVar, intent2);
+                a.C0012a.a(aVar, intent2);
                 this.b.startActivity(intent2);
                 return false;
             } else {

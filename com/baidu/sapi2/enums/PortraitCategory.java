@@ -1,5 +1,6 @@
 package com.baidu.sapi2.enums;
 
+import com.baidu.tieba.memberCenter.memberpay.MemberPayResult;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,7 +32,7 @@ public final class PortraitCategory {
             }
         }
         NORMAL = new PortraitCategory("NORMAL", 0, "");
-        PortraitCategory portraitCategory = new PortraitCategory("NEW", 1, "new");
+        PortraitCategory portraitCategory = new PortraitCategory(MemberPayResult.VipPayPrivilegeData.NEW_TIP_TEXT, 1, "new");
         NEW = portraitCategory;
         b = new PortraitCategory[]{NORMAL, portraitCategory};
     }

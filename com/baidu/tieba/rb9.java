@@ -1,9 +1,13 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
 public interface rb9 {
-    void c(int i, int i2);
+    void B0(String str);
 
-    void f();
+    void I0(String str);
 
-    void setDragMode(int i, int i2);
+    void Y();
+
+    void q0(String str, String str2);
+
+    void showErrorView();
 }

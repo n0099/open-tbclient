@@ -1,48 +1,30 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes6.dex */
-public class xl2 extends di2<um2> {
+/* loaded from: classes7.dex */
+public class xl2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.di2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
+    public static vl2 a(SwanAppActivity swanAppActivity, w83 w83Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "goBackground" : (String) invokeV.objValue;
-    }
-
-    public xl2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, swanAppActivity, w83Var)) == null) {
+            if (w83Var == null || !w83Var.I()) {
+                return null;
             }
+            int k = w83Var.k();
+            if (k != 0) {
+                if (k != 1) {
+                    return null;
+                }
+                return es2.i().n(swanAppActivity, w83Var.b);
+            }
+            return new yl2(swanAppActivity, w83Var.b);
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.di2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull um2 um2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, um2Var) == null) {
-            um2Var.V();
-            d(um2Var, command.what, null, false);
-        }
+        return (vl2) invokeLL.objValue;
     }
 }

@@ -9,12 +9,12 @@ import android.widget.GridView;
 import android.widget.ListAdapter;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.a23;
-import com.baidu.tieba.dp1;
-import com.baidu.tieba.es2;
-import com.baidu.tieba.g23;
-import com.baidu.tieba.k23;
-import com.baidu.tieba.qn2;
+import com.baidu.tieba.ds2;
+import com.baidu.tieba.n63;
+import com.baidu.tieba.qt1;
+import com.baidu.tieba.rw2;
+import com.baidu.tieba.t63;
+import com.baidu.tieba.x63;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,8 +29,8 @@ public class PhotoChooseView extends GridView implements AdapterView.OnItemClick
     public int b;
     public int c;
     public int d;
-    public es2 e;
-    public a23 f;
+    public rw2 e;
+    public n63 f;
     public Activity g;
 
     /* loaded from: classes3.dex */
@@ -138,9 +138,9 @@ public class PhotoChooseView extends GridView implements AdapterView.OnItemClick
     }
 
     public final void c(int i) {
-        dp1 C;
+        qt1 C;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (C = qn2.C()) != null) {
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (C = ds2.C()) != null) {
             C.d(getContext(), (String[]) this.f.c().toArray(new String[0]), i);
         }
     }
@@ -149,16 +149,16 @@ public class PhotoChooseView extends GridView implements AdapterView.OnItemClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
             this.g = activity;
-            this.f = new a23(activity.getApplicationContext(), this.b, this.d);
+            this.f = new n63(activity.getApplicationContext(), this.b, this.d);
             setOnItemClickListener(this);
             postDelayed(new a(this), 10L);
         }
     }
 
-    public void setCallback(es2 es2Var) {
+    public void setCallback(rw2 rw2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, es2Var) == null) {
-            this.e = es2Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, rw2Var) == null) {
+            this.e = rw2Var;
         }
     }
 
@@ -215,7 +215,7 @@ public class PhotoChooseView extends GridView implements AdapterView.OnItemClick
     public final void b() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && getLeftCount() > 0) {
-            k23.i(getLeftCount(), this.e);
+            x63.i(getLeftCount(), this.e);
         }
     }
 
@@ -247,7 +247,7 @@ public class PhotoChooseView extends GridView implements AdapterView.OnItemClick
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Return type fixed from 'com.baidu.tieba.a23' to match base method */
+    /* JADX DEBUG: Return type fixed from 'com.baidu.tieba.n63' to match base method */
     @Override // android.widget.GridView, android.widget.AdapterView
     /* renamed from: getAdapter */
     public ListAdapter getAdapter2() {
@@ -256,7 +256,7 @@ public class PhotoChooseView extends GridView implements AdapterView.OnItemClick
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.f;
         }
-        return (a23) invokeV.objValue;
+        return (n63) invokeV.objValue;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -265,7 +265,7 @@ public class PhotoChooseView extends GridView implements AdapterView.OnItemClick
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
             if (this.f.e(i)) {
                 if (i == this.f.getCount() - 1) {
-                    g23.onEvent("pic_clk_content");
+                    t63.onEvent("pic_clk_content");
                     b();
                     return;
                 }

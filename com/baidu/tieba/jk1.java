@@ -1,60 +1,48 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
-import android.content.ServiceConnection;
-import android.os.IBinder;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sso.p.a;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.pangle.provider.ContentProviderManager;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class jk1 implements ServiceConnection {
+public class jk1 {
     public static /* synthetic */ Interceptable $ic;
+    public static gk1 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public hk1 a;
 
-    public jk1(hk1 hk1Var) {
+    public static JSONObject a(Exception exc) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {hk1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, exc)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(ContentProviderManager.PLUGIN_PROCESS_NAME, dk1.b());
+                jSONObject.put("stack_trace", Log.getStackTraceString(exc));
+                jSONObject.put("process_info", dk1.a());
+                jSONObject.put("report_time", System.currentTimeMillis());
+            } catch (JSONException unused) {
             }
+            return jSONObject;
         }
-        this.a = hk1Var;
+        return (JSONObject) invokeL.objValue;
     }
 
-    @Override // android.content.ServiceConnection
-    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+    public static void b(Exception exc) {
+        gk1 gk1Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-            this.a.a = a.AbstractBinderC0189a.a(iBinder);
-            ek1 ek1Var = this.a.e;
-            if (ek1Var != null) {
-                ek1Var.a();
-            }
+        if ((interceptable == null || interceptable.invokeL(65537, null, exc) == null) && (gk1Var = a) != null) {
+            gk1Var.a(a(exc).toString());
         }
     }
 
-    @Override // android.content.ServiceConnection
-    public void onServiceDisconnected(ComponentName componentName) {
+    public static void c(String str) {
+        gk1 gk1Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            hk1 hk1Var = this.a;
-            hk1Var.a = null;
-            ek1 ek1Var = hk1Var.e;
-            if (ek1Var != null) {
-                ek1Var.a();
-            }
+        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && (gk1Var = a) != null) {
+            gk1Var.a(str);
         }
     }
 }

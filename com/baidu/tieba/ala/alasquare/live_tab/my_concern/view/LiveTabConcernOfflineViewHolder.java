@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.alasquare.live_tab.my_concern.view;
 
 import android.view.View;
 import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.tieba.ny5;
+import com.baidu.tieba.z26;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -11,16 +11,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class LiveTabConcernOfflineViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ny5 a;
+    public z26 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LiveTabConcernOfflineViewHolder(ny5 ny5Var) {
-        super(ny5Var.h());
+    public LiveTabConcernOfflineViewHolder(z26 z26Var) {
+        super(z26Var.h());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ny5Var};
+            Object[] objArr = {z26Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,6 +31,6 @@ public class LiveTabConcernOfflineViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.a = ny5Var;
+        this.a = z26Var;
     }
 }

@@ -1,67 +1,174 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.media.ExifInterface;
+import android.media.MediaMetadataRetriever;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.data.MultiMediaData;
+import java.io.IOException;
 /* loaded from: classes6.dex */
-public class qm6 extends ln<ym6, CardViewHolder<cn6>> {
+public class qm6 extends pm6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qm6(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext.getPageActivity(), bdUniqueId, bdUniqueId2);
+    public qm6(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
+            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        this.d = z;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: s */
-    public CardViewHolder<cn6> onCreateViewHolder(ViewGroup viewGroup) {
+    public final int j(String str) {
+        ExifInterface exifInterface;
+        int attributeInt;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new CardViewHolder<>(new cn6(this.a));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            try {
+                exifInterface = new ExifInterface(str);
+            } catch (IOException unused) {
+                exifInterface = null;
+            }
+            if (exifInterface != null && (attributeInt = exifInterface.getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, -1)) != -1) {
+                if (attributeInt != 3) {
+                    if (attributeInt != 6) {
+                        if (attributeInt == 8) {
+                            return 270;
+                        }
+                    } else {
+                        return 90;
+                    }
+                } else {
+                    return 180;
+                }
+            }
+            return 0;
         }
-        return (CardViewHolder) invokeL.objValue;
+        return invokeL.intValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ym6 ym6Var, CardViewHolder<cn6> cardViewHolder) {
-        InterceptResult invokeCommon;
+    public Bitmap k(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ym6Var, cardViewHolder})) == null) {
-            cardViewHolder.a().i(ym6Var);
-            return cardViewHolder.getView();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            vm6 vm6Var = this.a;
+            Bitmap i = i(str, vm6Var.a, vm6Var.b);
+            if (i == null) {
+                return null;
+            }
+            int j = j(str);
+            Matrix matrix = new Matrix();
+            matrix.setRotate(j);
+            return Bitmap.createBitmap(i, 0, 0, i.getWidth(), i.getHeight(), matrix, true);
         }
-        return (View) invokeCommon.objValue;
+        return (Bitmap) invokeL.objValue;
+    }
+
+    public static int h(BitmapFactory.Options options, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, options, i, i2)) == null) {
+            int i3 = options.outHeight;
+            int i4 = options.outWidth;
+            if (i3 <= i2 && i4 <= i) {
+                return 1;
+            }
+            int round = Math.round(i3 / i2);
+            int round2 = Math.round(i4 / i);
+            if (round >= round2) {
+                round = round2;
+            }
+            if (round >= 3) {
+                if (round < 6.5d) {
+                    return 4;
+                }
+                if (round < 8) {
+                    return 8;
+                }
+            }
+            return round;
+        }
+        return invokeLII.intValue;
+    }
+
+    public static Bitmap i(String str, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, str, i, i2)) == null) {
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = true;
+            options.inPreferredConfig = Bitmap.Config.RGB_565;
+            BitmapFactory.decodeFile(str, options);
+            options.inSampleSize = h(options, i, i2);
+            options.inJustDecodeBounds = false;
+            return BitmapFactory.decodeFile(str, options);
+        }
+        return (Bitmap) invokeLII.objValue;
+    }
+
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:25:0x0064 -> B:39:0x005f). Please submit an issue!!! */
+    @Override // com.baidu.tieba.pm6
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            vm6 vm6Var = this.a;
+            if (vm6Var.e) {
+                this.b.onError(vm6Var.f, "is cartoon style !!");
+                return;
+            }
+            MultiMediaData multiMediaData = vm6Var.c;
+            if (multiMediaData != null && !TextUtils.isEmpty(multiMediaData.path)) {
+                String str = multiMediaData.path;
+                if (multiMediaData.type == 1) {
+                    MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
+                    try {
+                        try {
+                            mediaMetadataRetriever.setDataSource(str);
+                            Bitmap frameAtTime = mediaMetadataRetriever.getFrameAtTime(multiMediaData.start * 1000);
+                            if (this.a.d != 0.0f) {
+                                g(new um6(), c(frameAtTime, this.a.d, multiMediaData));
+                            } else {
+                                g(new um6(), frameAtTime);
+                            }
+                        } catch (IllegalArgumentException e) {
+                            e.printStackTrace();
+                        } catch (Exception unused) {
+                        }
+                        return;
+                    } finally {
+                        mediaMetadataRetriever.release();
+                    }
+                }
+                Bitmap k = k(str);
+                if (k != null) {
+                    g(new um6(), k);
+                    return;
+                }
+                return;
+            }
+            this.b.onError(this.a.f, "multiMediaData is null !!");
+        }
     }
 }

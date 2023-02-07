@@ -1,18 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.external.sticker.data.QmStickerItem;
-import com.baidu.tieba.si6;
+import java.util.List;
 /* loaded from: classes6.dex */
 public interface ri6 {
-    String a(String str);
+    void a(List<mi6> list, List<mi6> list2, int i);
 
-    boolean b(QmStickerItem qmStickerItem);
-
-    void c(si6.b bVar);
-
-    void d(QmStickerItem qmStickerItem);
-
-    void e();
-
-    void reset();
+    void b(int i, String str);
 }

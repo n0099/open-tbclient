@@ -14,10 +14,10 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cx4;
-import com.baidu.tieba.cz4;
-import com.baidu.tieba.v95;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.he5;
+import com.baidu.tieba.p15;
+import com.baidu.tieba.p35;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -58,11 +58,11 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
                 return;
             }
         }
-        j = zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds5);
-        k = zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds250);
-        l = zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds190);
-        m = zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds405);
-        n = zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds220);
+        j = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds5);
+        k = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds250);
+        l = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds190);
+        m = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds405);
+        n = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds220);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -163,10 +163,10 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
             if (z) {
                 str = str + "_" + TbadkCoreApplication.getCurrentAccount();
             }
-            if (cz4.l().i(str, false)) {
+            if (p35.m().i(str, false)) {
                 return true;
             }
-            cz4.l().v(str, true);
+            p35.m().w(str, true);
             return false;
         }
         return invokeLZ.booleanValue;
@@ -191,18 +191,18 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
             this.h = findViewById(R.id.header_bg);
             this.i = findViewById(R.id.private_pop_content);
             SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0108);
-            cx4 d = cx4.d(this.f);
+            p15 d = p15.d(this.f);
             d.l(R.dimen.tbds1);
             d.n(R.string.J_X07);
             d.k(R.color.CAM_X0304);
             d.v(R.color.CAM_X0304);
-            cx4 d2 = cx4.d(this.d);
+            p15 d2 = p15.d(this.d);
             d2.A(R.string.F_X02);
             d2.v(R.color.CAM_X0105);
-            cx4 d3 = cx4.d(this.h);
+            p15 d3 = p15.d(this.h);
             d3.n(R.string.J_X14);
             d3.f(R.color.CAM_X0201);
-            cx4 d4 = cx4.d(this.i);
+            p15 d4 = p15.d(this.i);
             d4.n(R.string.J_X17);
             d4.f(R.color.CAM_X0201);
         }
@@ -213,7 +213,7 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.b.setVisibility(0);
             this.c.setVisibility(0);
-            String avater = v95.d().e().getAvater();
+            String avater = he5.d().e().getAvater();
             if (avater.startsWith("http")) {
                 this.b.K(avater, 10, false);
             } else {

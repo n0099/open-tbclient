@@ -162,7 +162,7 @@ public class en {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static ht m373a(String str) {
+    public static ht m375a(String str) {
         InterceptResult invokeL;
         ht[] values;
         Interceptable interceptable = $ic;
@@ -184,14 +184,14 @@ public class en {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m374a(int i) {
+    public static String m376a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) ? i == 1000 ? "E100000" : i == 3000 ? "E100002" : i == 2000 ? "E100001" : i == 6000 ? "E100003" : "" : (String) invokeI.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m375a(Context context) {
+    public static void m377a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, null, context) == null) {
             ClientReportClient.updateConfig(context, a(context));
@@ -208,7 +208,7 @@ public class en {
     public static void a(Context context, hn hnVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65549, null, context, hnVar) == null) {
-            if (m376a(context.getApplicationContext())) {
+            if (m378a(context.getApplicationContext())) {
                 com.xiaomi.push.service.ca.a(context.getApplicationContext(), hnVar);
                 return;
             }
@@ -244,7 +244,7 @@ public class en {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m376a(Context context) {
+    public static boolean m378a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) ? (context == null || TextUtils.isEmpty(context.getPackageName()) || !"com.xiaomi.xmsf".equals(context.getPackageName())) ? false : true : invokeL.booleanValue;

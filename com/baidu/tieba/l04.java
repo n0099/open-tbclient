@@ -1,392 +1,31 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.ResolveInfo;
+import android.net.Uri;
+import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
+import androidx.core.content.FileProvider;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.v8engine.JsCodeCacheCallback;
-import com.baidu.searchbox.v8engine.JsCodeCacheResult;
-import com.baidu.searchbox.v8engine.V8Engine;
-import com.baidu.searchbox.v8engine.V8EngineConfiguration;
-import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.swan.games.glsurface.DuMixGameSurfaceView;
-import com.baidu.swan.games.inspector.SwanInspectorEndpoint;
-import com.baidu.tieba.x04;
-import com.baidu.tieba.yb2;
-import com.baidu.tieba.z04;
+import com.baidu.swan.gamecenter.appmanager.install.InstallPluginDelegateActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.io.IOException;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class l04 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean h;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public rb2 a;
-    public DuMixGameSurfaceView b;
-    public pw1 c;
-    public e d;
-    public String e;
-    public boolean f;
-    public boolean g;
-
-    /* loaded from: classes5.dex */
-    public interface e {
-        void a(rb2 rb2Var);
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements V8ThreadDelegatePolicy {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public DuMixGameSurfaceView c;
-
-        /* loaded from: classes5.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ V8Engine a;
-
-            public a(c cVar, V8Engine v8Engine) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar, v8Engine};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = v8Engine;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (l04.h) {
-                        Log.d("SwanGameV8Master", "startEngineInternal");
-                    }
-                    this.a.startEngineInternal();
-                }
-            }
-        }
-
-        public c(l04 l04Var, DuMixGameSurfaceView duMixGameSurfaceView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l04Var, duMixGameSurfaceView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = duMixGameSurfaceView;
-        }
-
-        @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
-        public void doDelegateRunnable(Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-                this.c.u(runnable);
-            }
-        }
-
-        @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
-        public void doDelegateRunnableDirectly(Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
-                this.c.x(runnable);
-            }
-        }
-
-        @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
-        public void startV8Engine(V8Engine v8Engine) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, v8Engine) == null) {
-                if (l04.h) {
-                    Log.d("SwanGameV8Master", "startV8Engine");
-                }
-                this.c.x(new a(this, v8Engine));
-            }
-        }
-
-        @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
-        public void doDelegateRunnable(Runnable runnable, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, j) == null) {
-                this.c.v(runnable, j);
-            }
-        }
-
-        @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
-        public Thread getThread() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.c.getThread();
-            }
-            return (Thread) invokeV.objValue;
-        }
-
-        @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
-        public void shutdown() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.c.m();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d extends nc2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public final /* synthetic */ l04 c;
-
-        /* loaded from: classes5.dex */
-        public class a implements JsCodeCacheCallback {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ d a;
-
-            public a(d dVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = dVar;
-            }
-
-            @Override // com.baidu.searchbox.v8engine.JsCodeCacheCallback
-            public void onJsCodeCacheFinished(JsCodeCacheResult jsCodeCacheResult) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null && interceptable.invokeL(1048576, this, jsCodeCacheResult) != null) {
-                    return;
-                }
-                this.a.f(jsCodeCacheResult);
-            }
-        }
-
-        public d(@NonNull l04 l04Var, @NonNull String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l04Var, str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = l04Var;
-            this.a = str;
-            this.b = str2;
-        }
-
-        @Override // com.baidu.tieba.oc2
-        public String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.b;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.nc2, com.baidu.tieba.oc2
-        public V8EngineConfiguration.CodeCacheSetting b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return wy3.a("gameframe", getInitBasePath());
-            }
-            return (V8EngineConfiguration.CodeCacheSetting) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.oc2
-        public String getInitBasePath() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                return this.a;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.nc2, com.baidu.tieba.oc2
-        public void c(rb2 rb2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rb2Var) == null) {
-                ox2.p("preload").F(new UbcFlowEvent("na_load_swan_game_js_end"));
-                if (this.c.d != null) {
-                    this.c.d.a(rb2Var);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.nc2, com.baidu.tieba.oc2
-        public void d(rb2 rb2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, rb2Var) == null) {
-                this.c.c.b(rb2Var, qn2.c());
-                new py3().a(rb2Var, qn2.c());
-                rb2Var.F0(new a(this));
-                ox2.p("preload").F(new UbcFlowEvent("na_load_swan_game_js_start"));
-            }
-        }
-
-        public final void f(JsCodeCacheResult jsCodeCacheResult) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048580, this, jsCodeCacheResult) != null) || jsCodeCacheResult == null) {
-                return;
-            }
-            if (l04.h) {
-                Log.d("SwanGameV8Master", "jsCodeCacheResult isCacheUsed:" + jsCodeCacheResult.isCacheUsed + " ,jsPath: " + jsCodeCacheResult.jsPath);
-            }
-            if (jsCodeCacheResult.isCacheUsed && !TextUtils.isEmpty(jsCodeCacheResult.jsPath)) {
-                File file = new File(jsCodeCacheResult.jsPath);
-                try {
-                    if (!TextUtils.isEmpty(getInitBasePath()) && file.getCanonicalPath().startsWith(new File(getInitBasePath()).getCanonicalPath())) {
-                        this.c.f = true;
-                    } else if (!TextUtils.isEmpty(this.c.e) && file.getCanonicalPath().startsWith(new File(this.c.e).getCanonicalPath())) {
-                        this.c.g = true;
-                    }
-                } catch (IOException e) {
-                    if (l04.h) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ l04 a;
-
-        public a(l04 l04Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l04Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = l04Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            this.a.r();
-            this.a.s();
-            this.a.u();
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ z04.c a;
-        public final /* synthetic */ Runnable b;
-        public final /* synthetic */ l04 c;
-
-        public b(l04 l04Var, z04.c cVar, Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l04Var, cVar, runnable};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = l04Var;
-            this.a = cVar;
-            this.b = runnable;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            x04 x04Var;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (l04.h) {
-                    Log.d("SwanGameV8Master", "SwanGameCoreRuntime JSThread run event start");
-                }
-                d44 d44Var = this.a.c;
-                if (d44Var == null) {
-                    x04Var = null;
-                } else {
-                    x04Var = d44Var.f;
-                }
-                x04.a f = x04.f(x04Var);
-                if (f.b()) {
-                    SwanInspectorEndpoint.v().r(x04Var, this.c.a, f, this.b);
-                    return;
-                }
-                SwanInspectorEndpoint.v().w(f);
-                this.b.run();
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -401,158 +40,318 @@ public class l04 {
                 return;
             }
         }
-        h = tk1.a;
+        a = gp1.a;
     }
 
-    public final yb2 l() {
+    public static long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            yb2.b bVar = new yb2.b();
-            bVar.c(2);
-            bVar.b("master");
-            return bVar.a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return kh3.a().getLong("install_authorize_guide_time_key", 0L);
         }
-        return (yb2) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    public int n() {
+    public static long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return wy3.b(this.f, this.g);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return kh3.a().getLong("install_continue_guide_time_key", 0L);
+        }
+        return invokeV.longValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 26 && !AppRuntime.getAppContext().getPackageManager().canRequestPackageInstalls()) {
+                return "authorize";
+            }
+            return "continue";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return kh3.a().getInt("install_guide_count_key", 0);
         }
         return invokeV.intValue;
     }
 
-    public rb2 o() {
+    public static int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return kh3.a().getInt("install_guide_max_count_key", 3);
         }
-        return (rb2) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public DuMixGameSurfaceView p() {
+    public static boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return kh3.a().getBoolean("install_guide_switch_key", false);
         }
-        return (DuMixGameSurfaceView) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public l04(@NonNull String str, @NonNull String str2) {
+    public static boolean g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return kh3.a().getBoolean("install_result_key", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65551, null) == null) {
+            kh3.a().edit().putLong("install_authorize_guide_time_key", System.currentTimeMillis()).apply();
+        }
+    }
+
+    public static void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65552, null) == null) {
+            kh3.a().edit().putLong("install_continue_guide_time_key", System.currentTimeMillis()).apply();
+        }
+    }
+
+    public static void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65556, null) == null) {
+            kh3.a().edit().putInt("install_guide_count_key", kh3.a().getInt("install_guide_count_key", 0) + 1).apply();
+        }
+    }
+
+    public static boolean h(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, str)) == null) {
+            if (context == null) {
+                return false;
             }
-        }
-        this.c = new pw1();
-        q(str, str2);
-    }
-
-    public final void q(@NonNull String str, @NonNull String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
-            DuMixGameSurfaceView a2 = r04.b().a(AppRuntime.getAppContext());
-            this.b = a2;
-            a2.setRenderMode(1);
-            rb2 b2 = xb2.b(l(), new d(this, str, str2), new c(this, this.b));
-            this.a = b2;
-            b2.C0(qn2.c());
-            this.b.setV8Engine(this.a);
-        }
-    }
-
-    public void k(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            this.c.a(activity);
-        }
-    }
-
-    public void v(e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, eVar) == null) {
-            this.d = eVar;
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (h) {
-                Log.d("SwanGameV8Master", "SwanGameCoreRuntime finish engine");
-            }
-            this.a.k0();
-            if (!this.b.isAttachedToWindow()) {
-                if (h) {
-                    Log.d("SwanGameV8Master", "SwanGameCoreRuntime finish surfaceView");
+            try {
+                if (context.getPackageManager() == null) {
+                    return false;
                 }
-                this.b.q();
+                if (context.getPackageManager().getPackageInfo(str, 0) == null) {
+                    return false;
+                }
+                return true;
+            } catch (Exception unused) {
+                return false;
             }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean i(Context context, File file, boolean z) {
+        InterceptResult invokeLLZ;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65545, null, context, file, z)) == null) {
+            if (context != null && file != null && file.isFile() && file.exists()) {
+                Intent intent = new Intent("android.intent.action.VIEW");
+                if (a) {
+                    Log.e("GameCenterApkUtil", "install apk start");
+                }
+                try {
+                    intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
+                    intent.setFlags(1342177280);
+                    intent.putExtra("android.intent.extra.INSTALLER_PACKAGE_NAME", context.getPackageName());
+                    if (z) {
+                        intent.putExtra("android.intent.extra.RETURN_RESULT", true);
+                    }
+                    if (Build.VERSION.SDK_INT < 24) {
+                        intent.setComponent(new ComponentName("com.android.packageinstaller", "com.android.packageinstaller.PackageInstallerActivity"));
+                    }
+                    n(context, file, intent);
+                    if ((context instanceof Activity) && g()) {
+                        intent.setAction("android.intent.action.INSTALL_PACKAGE");
+                        intent.setFlags(0);
+                        intent.putExtra("android.intent.extra.RETURN_RESULT", true);
+                        if (Build.VERSION.SDK_INT >= 24) {
+                            intent.addFlags(1);
+                        }
+                        if (context instanceof InstallPluginDelegateActivity) {
+                            i = 1245421;
+                        } else {
+                            i = 0;
+                        }
+                        ((Activity) context).startActivityForResult(intent, i);
+                    } else {
+                        context.startActivity(intent);
+                    }
+                    if (a) {
+                        Log.e("GameCenterApkUtil", "install apk done");
+                    }
+                } catch (Exception e) {
+                    if (a) {
+                        e.printStackTrace();
+                    }
+                    intent.setComponent(null);
+                    n(context, file, intent);
+                    try {
+                        context.startActivity(intent);
+                        if (a) {
+                            Log.e("GameCenterApkUtil", "retry install apk done");
+                        }
+                    } catch (Exception e2) {
+                        if (a) {
+                            e2.printStackTrace();
+                        }
+                    }
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeLLZ.booleanValue;
+    }
+
+    public static boolean j(Context context, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65546, null, context, str, z)) == null) {
+            if (a) {
+                Log.e("GameCenterApkUtil", "call installApk filePath = " + str);
+            }
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                return i(context, new File(str), z);
+            } catch (Exception e) {
+                if (!a) {
+                    return false;
+                }
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return invokeLLZ.booleanValue;
+    }
+
+    public static boolean k(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+            if (f() && m(str) && d() < e()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void q(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(65553, null, i) == null) && i > 0) {
+            kh3.a().edit().putInt("install_guide_max_count_key", i).apply();
         }
     }
 
-    public final void r() {
+    public static void r(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.b.y();
-            this.a.E0(new kc2());
-            this.a.H0();
-            this.a.D0();
-            this.a.B0(wy3.a("gamejs", this.e));
+        if (interceptable == null || interceptable.invokeZ(65554, null, z) == null) {
+            kh3.a().edit().putBoolean("install_guide_switch_key", z).apply();
         }
     }
 
-    public final void s() {
+    public static void s(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && h && i03.f() && new File(lz3.b(), lz3.d()).exists()) {
-            this.a.Z(lz3.b().getAbsolutePath(), lz3.d());
+        if (interceptable == null || interceptable.invokeZ(65555, null, z) == null) {
+            kh3.a().putBoolean("install_result_key", z);
         }
     }
 
-    public void t(z04.c cVar) {
+    public static boolean l(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, cVar) == null) && cVar != null && !TextUtils.isEmpty(cVar.a)) {
-            this.e = cVar.a;
-            a aVar = new a(this);
-            if (h) {
-                Log.d("SwanGameV8Master", "SwanGameCoreRuntime loadAppJs run event");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, context, str)) == null) {
+            if (context != null && !TextUtils.isEmpty(str)) {
+                Intent intent = new Intent("android.intent.action.MAIN", (Uri) null);
+                intent.addCategory("android.intent.category.LAUNCHER");
+                intent.setPackage(str);
+                List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
+                if (queryIntentActivities != null && queryIntentActivities.size() > 0 && queryIntentActivities.iterator().next() != null) {
+                    String str2 = queryIntentActivities.iterator().next().activityInfo.name;
+                    Intent intent2 = new Intent("android.intent.action.MAIN");
+                    intent2.addCategory("android.intent.category.LAUNCHER");
+                    intent2.setComponent(new ComponentName(str, str2));
+                    intent2.setFlags(270532608);
+                    try {
+                        context.startActivity(intent2);
+                        if (a) {
+                            Log.d("GameCenterApkUtil", "openApp:packageName = " + str);
+                            return true;
+                        }
+                        return true;
+                    } catch (Exception unused) {
+                    }
+                }
             }
-            this.a.runOnJSThread(new b(this, cVar, aVar));
+            return false;
         }
+        return invokeLL.booleanValue;
     }
 
-    public final void u() {
+    public static boolean m(String str) {
+        InterceptResult invokeL;
+        long b;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            if (h) {
-                Log.d("SwanGameV8Master", "SwanGameCoreRuntime load index.js start.");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
+            if (TextUtils.equals(str, "authorize")) {
+                b = a();
+            } else {
+                b = b();
             }
-            HybridUbcFlow p = ox2.p("startup");
-            p.I(HybridUbcFlow.SubmitStrategy.NA_ONLY);
-            p.F(new UbcFlowEvent("na_load_index_js_start"));
-            this.a.dispatchEvent(new k24());
-            this.a.Z(this.e, "index.js");
-            this.a.dispatchEvent(new l24());
-            ox2.p("startup").F(new UbcFlowEvent("na_load_index_js_end"));
-            if (h) {
-                Log.d("SwanGameV8Master", "SwanGameCoreRuntime load index.js end.");
+            if ((System.currentTimeMillis() / 86400000) - (b / 86400000) > 0) {
+                return true;
             }
-            this.a.y0();
-            this.b.p();
+            return false;
         }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean n(Context context, File file, Intent intent) {
+        InterceptResult invokeLLL;
+        ActivityInfo activityInfo;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65550, null, context, file, intent)) == null) {
+            if (Build.VERSION.SDK_INT >= 24) {
+                try {
+                    Uri uriForFile = FileProvider.getUriForFile(context, context.getPackageName() + ".fileprovider", file);
+                    if (uriForFile == null) {
+                        return false;
+                    }
+                    intent.setDataAndType(uriForFile, intent.getType());
+                    List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
+                    if (queryIntentActivities == null) {
+                        return true;
+                    }
+                    for (ResolveInfo resolveInfo : queryIntentActivities) {
+                        if (resolveInfo != null && (activityInfo = resolveInfo.activityInfo) != null && (str = activityInfo.packageName) != null) {
+                            context.grantUriPermission(str, uriForFile, 1);
+                        }
+                    }
+                } catch (IllegalArgumentException e) {
+                    if (!a) {
+                        return false;
+                    }
+                    throw e;
+                }
+            }
+            return true;
+        }
+        return invokeLLL.booleanValue;
     }
 }

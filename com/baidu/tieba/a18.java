@@ -1,113 +1,141 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.GridView;
+import android.widget.ListAdapter;
+import android.widget.ProgressBar;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.memberCenter.bubble.BubbleChooseActivity;
+import com.baidu.tieba.memberCenter.bubble.BubbleListData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import tbclient.ThreadInfo;
-import tbclient.VideoInfo;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class a18 implements yn {
+public class a18 extends v9<BubbleChooseActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public String d;
-    public int e;
-    public int f;
-    public boolean g;
-    public ThreadData h;
+    public NavigationBar a;
+    public ViewGroup b;
+    public GridView c;
+    public View d;
+    public z08 e;
+    public BubbleChooseActivity f;
+    public ProgressBar g;
 
-    public a18(ThreadInfo threadInfo, boolean z) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a18(TbPageContext<BubbleChooseActivity> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {threadInfo, Boolean.valueOf(z)};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((x9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b(threadInfo);
-        this.g = z;
+        BubbleChooseActivity orignalPage = tbPageContext.getOrignalPage();
+        this.f = orignalPage;
+        orignalPage.setContentView(R.layout.obfuscated_res_0x7f0d0164);
+        NavigationBar navigationBar = (NavigationBar) this.f.findViewById(R.id.lay_title_bar);
+        this.a = navigationBar;
+        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.a.setTitleText(R.string.editor_privilege);
+        this.d = this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0165, this.f);
+        this.b = (ViewGroup) this.f.findViewById(R.id.obfuscated_res_0x7f09070d);
+        this.c = (GridView) this.f.findViewById(R.id.obfuscated_res_0x7f090ddd);
+        z08 z08Var = new z08(tbPageContext);
+        this.e = z08Var;
+        this.c.setAdapter((ListAdapter) z08Var);
+        this.g = (ProgressBar) this.f.findViewById(R.id.obfuscated_res_0x7f09048e);
     }
 
-    public int a() {
+    public z08 k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
+            return this.e;
         }
-        return invokeV.intValue;
+        return (z08) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yn
-    public BdUniqueId getType() {
+    public View l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return z08.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    public final void b(ThreadInfo threadInfo) {
+    public GridView m() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadInfo) != null) || threadInfo == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
-        ThreadData threadData = new ThreadData();
-        this.h = threadData;
-        threadData.parserProtobuf(threadInfo);
-        this.a = threadInfo.title;
-        this.b = threadInfo.reply_num.intValue();
-        this.c = threadInfo.agree_num.intValue();
-        if (!ListUtils.isEmpty(this.h.getMedias())) {
-            Iterator<MediaData> it = this.h.getMedias().iterator();
-            while (it.hasNext()) {
-                MediaData next = it.next();
-                if (next != null && next.getType() == 3) {
-                    String picUrl = next.getPicUrl();
-                    this.d = picUrl;
-                    if (StringUtils.isNull(picUrl)) {
-                        this.d = next.getSmallUrl();
-                    }
-                    if (StringUtils.isNull(this.d)) {
-                        this.d = next.getThumbnails_url();
-                    }
-                    if (StringUtils.isNull(this.d)) {
-                        this.d = next.getSrc_pic();
-                    }
-                    if (!StringUtils.isNull(this.d)) {
-                        break;
-                    }
-                }
+        return (GridView) invokeV.objValue;
+    }
+
+    public void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.g.setVisibility(8);
+        }
+    }
+
+    public void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.g.setVisibility(0);
+        }
+    }
+
+    public BubbleListData.BubbleData n(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            z08 z08Var = this.e;
+            if (z08Var == null) {
+                return null;
             }
+            return z08Var.getItem(i);
         }
-        VideoInfo videoInfo = threadInfo.video_info;
-        if (videoInfo != null) {
-            this.e = videoInfo.video_duration.intValue();
+        return (BubbleListData.BubbleData) invokeI.objValue;
+    }
+
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.a.onChangeSkinType((TbPageContext) getPageContext(), i);
+            qv4 layoutMode = this.f.getLayoutMode();
+            boolean z = true;
+            if (i != 1) {
+                z = false;
+            }
+            layoutMode.l(z);
+            this.f.getLayoutMode().k(this.b);
         }
     }
 
-    public void c(int i) {
+    public void p(List<BubbleListData.BubbleData> list, boolean z) {
+        z08 z08Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.f = i;
+        if ((interceptable == null || interceptable.invokeLZ(1048582, this, list, z) == null) && (z08Var = this.e) != null) {
+            z08Var.d(z);
+            this.e.c(list);
         }
     }
 }

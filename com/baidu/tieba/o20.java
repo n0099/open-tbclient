@@ -1,298 +1,269 @@
 package com.baidu.tieba;
 
+import android.app.Application;
+import android.content.Context;
+import android.os.Build;
+import android.os.SystemClock;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.java.Supplier;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.config.ABTestConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.util.devices.DeviceUtil;
+import com.baidu.searchbox.aperf.param.CommonUtils;
+import com.baidu.searchbox.aperf.runtime.AperfRuntime;
+import com.baidu.searchbox.logsystem.basic.LogSystemServiceUtil;
+import com.baidu.searchbox.logsystem.basic.LokiService;
+import com.baidu.searchbox.logsystem.basic.eventhandler.DefaultProcessEventSceneHandler;
+import com.baidu.searchbox.logsystem.basic.util.SnapshotUtil;
+import com.baidu.searchbox.logsystem.logsys.CrashUtil;
+import com.baidu.searchbox.logsystem.logsys.LogDiskStoreConfig;
+import com.baidu.searchbox.logsystem.logsys.LogExtra;
+import com.baidu.searchbox.logsystem.logsys.LogFile;
+import com.baidu.searchbox.logsystem.logsys.LogPipelineSingleton;
+import com.baidu.searchbox.logsystem.logsys.LogType;
+import com.baidu.searchbox.logsystem.logsys.SnapshotConstant;
+import com.baidu.searchbox.logsystem.logsys.eventscene.EventObject;
+import com.baidu.searchbox.logsystem.logsys.eventscene.handler.ForwardingProcessEventSceneHandler;
+import com.baidu.searchbox.logsystem.logsys.eventscene.handler.ProcessEventSceneHandler;
+import com.baidu.searchbox.logsystem.logsys.eventscene.snapshot.ProcessSnapshotType;
+import com.baidu.searchbox.logsystem.util.LLog;
+import com.baidu.searchbox.logsystem.util.Utility;
+import com.baidu.searchbox.track.Track;
+import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class o20 extends n20 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+public class o20 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String TAG = "loki-native-NativeCrashHandler";
     public transient /* synthetic */ FieldHolder $fh;
+    public Context mContext;
+    public Supplier<List<ProcessEventSceneHandler>> mForwardingHandlerSupplier;
+    public long mProcessLaunchTime;
+    public String mProcessName;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947980220, "Lcom/baidu/tieba/o20;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947980220, "Lcom/baidu/tieba/o20;");
-                return;
-            }
+    public void onAttachExtra(@NonNull Context context, @NonNull JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, jSONObject) == null) {
         }
-        a = ABTestConfig.isDebug();
     }
 
-    public o20() {
+    public void onCrashStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    public void onDisasterRecovery(@NonNull Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+        }
+    }
+
+    public void onEvent(@NonNull String str, @NonNull String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+        }
+    }
+
+    public o20(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        if (context instanceof Application) {
+            this.mContext = context;
+        } else {
+            this.mContext = context.getApplicationContext();
+        }
+        this.mProcessName = dk1.b();
+        this.mProcessLaunchTime = System.currentTimeMillis();
+        if (Build.VERSION.SDK_INT <= 19) {
+            initKITKAT();
+        }
+    }
+
+    public o20(@NonNull Context context, @NonNull Supplier<List<ProcessEventSceneHandler>> supplier) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, supplier};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x003a */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:51:0x0077 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:71:? */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x0082 A[Catch: IOException -> 0x007e, TryCatch #10 {IOException -> 0x007e, blocks: (B:53:0x007a, B:57:0x0082, B:59:0x0087), top: B:76:0x007a }] */
-    /* JADX WARN: Removed duplicated region for block: B:59:0x0087 A[Catch: IOException -> 0x007e, TRY_LEAVE, TryCatch #10 {IOException -> 0x007e, blocks: (B:53:0x007a, B:57:0x0082, B:59:0x0087), top: B:76:0x007a }] */
-    /* JADX WARN: Removed duplicated region for block: B:76:0x007a A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r2v0 */
-    /* JADX WARN: Type inference failed for: r2v1 */
-    /* JADX WARN: Type inference failed for: r2v10 */
-    /* JADX WARN: Type inference failed for: r2v11, types: [java.io.BufferedReader] */
-    /* JADX WARN: Type inference failed for: r2v2 */
-    /* JADX WARN: Type inference failed for: r2v3, types: [java.io.BufferedReader] */
-    /* JADX WARN: Type inference failed for: r2v4 */
-    /* JADX WARN: Type inference failed for: r2v5, types: [java.io.BufferedReader] */
-    /* JADX WARN: Type inference failed for: r2v6 */
-    /* JADX WARN: Type inference failed for: r2v7 */
-    /* JADX WARN: Type inference failed for: r2v9 */
-    @Override // com.baidu.tieba.n20
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public String a(String str) {
-        InterceptResult invokeL;
-        FileInputStream fileInputStream;
-        ?? r2;
-        InputStreamReader inputStreamReader;
-        Throwable th;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            try {
-                fileInputStream = new FileInputStream(str);
-                try {
-                    inputStreamReader = new InputStreamReader(fileInputStream);
-                } catch (IOException e) {
-                    e = e;
-                    inputStreamReader = null;
-                    r2 = 0;
-                } catch (Throwable th2) {
-                    th = th2;
-                    r2 = 0;
-                    th = th;
-                    inputStreamReader = r2;
-                    if (r2 != 0) {
-                    }
-                    if (inputStreamReader != null) {
-                    }
-                    if (fileInputStream != null) {
-                    }
-                    throw th;
-                }
-                try {
-                    r2 = new BufferedReader(inputStreamReader);
-                    try {
-                        try {
-                            StringBuilder sb = new StringBuilder();
-                            while (true) {
-                                String readLine = r2.readLine();
-                                if (readLine == null) {
-                                    break;
-                                }
-                                sb.append(readLine);
-                            }
-                            String sb2 = sb.toString();
-                            try {
-                                r2.close();
-                                inputStreamReader.close();
-                                fileInputStream.close();
-                            } catch (IOException e2) {
-                                if (a) {
-                                    e2.printStackTrace();
-                                }
-                            }
-                            return sb2;
-                        } catch (IOException e3) {
-                            e = e3;
-                            if (a) {
-                                e.printStackTrace();
-                            }
-                            if (r2 != 0) {
-                                try {
-                                    r2.close();
-                                } catch (IOException e4) {
-                                    if (a) {
-                                        e4.printStackTrace();
-                                    }
-                                    return null;
-                                }
-                            }
-                            if (inputStreamReader != null) {
-                                inputStreamReader.close();
-                            }
-                            if (fileInputStream != null) {
-                                fileInputStream.close();
-                            }
-                            return null;
-                        }
-                    } catch (Throwable th3) {
-                        th = th3;
-                        if (r2 != 0) {
-                            try {
-                                r2.close();
-                            } catch (IOException e5) {
-                                if (a) {
-                                    e5.printStackTrace();
-                                }
-                                throw th;
-                            }
-                        }
-                        if (inputStreamReader != null) {
-                            inputStreamReader.close();
-                        }
-                        if (fileInputStream != null) {
-                            fileInputStream.close();
-                        }
-                        throw th;
-                    }
-                } catch (IOException e6) {
-                    e = e6;
-                    r2 = 0;
-                } catch (Throwable th4) {
-                    r2 = 0;
-                    th = th4;
-                    if (r2 != 0) {
-                    }
-                    if (inputStreamReader != null) {
-                    }
-                    if (fileInputStream != null) {
-                    }
-                    throw th;
-                }
-            } catch (IOException e7) {
-                e = e7;
-                inputStreamReader = null;
-                fileInputStream = null;
-                r2 = 0;
-            } catch (Throwable th5) {
-                th = th5;
-                fileInputStream = null;
-                r2 = 0;
-            }
+        if (context instanceof Application) {
+            this.mContext = context;
         } else {
-            return (String) invokeL.objValue;
+            this.mContext = context.getApplicationContext();
+        }
+        this.mProcessName = dk1.b();
+        this.mProcessLaunchTime = System.currentTimeMillis();
+        this.mForwardingHandlerSupplier = supplier;
+    }
+
+    private LogExtra createLogExtra() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            LogExtra logExtra = new LogExtra();
+            TrackUI lastTrackUI = Track.getInstance().getLastTrackUI();
+            if (lastTrackUI != null) {
+                if (!TextUtils.isEmpty(lastTrackUI.getFragmentPage())) {
+                    logExtra.mPage = lastTrackUI.getFragmentPage();
+                } else {
+                    logExtra.mPage = lastTrackUI.getActivityPage();
+                }
+            }
+            logExtra.mCrashTime = String.valueOf(System.currentTimeMillis());
+            logExtra.mLaunchTime = String.valueOf(this.mProcessLaunchTime);
+            if (DeviceUtil.OSInfo.hasNougat()) {
+                logExtra.mProcessLifeTime = String.valueOf(SystemClock.elapsedRealtime() - Utility.getProcessStartElapsedRealTime());
+            }
+            logExtra.mForeground = String.valueOf(Track.getInstance().isForeground());
+            logExtra.mTraceID = AperfRuntime.Runtime.getProcessUUID();
+            logExtra.mHeapMem = CommonUtils.getHeapInfo();
+            logExtra.mVSSRSS = CommonUtils.getVSSRSS();
+            logExtra.mPSS = CommonUtils.getPSS();
+            logExtra.mSysMem = CommonUtils.getSysMem();
+            logExtra.mSysLowMem = !CommonUtils.isLowMemory() ? 1 : 0;
+            return logExtra;
+        }
+        return (LogExtra) invokeV.objValue;
+    }
+
+    @NonNull
+    private ForwardingProcessEventSceneHandler getForwardingProcessEventSceneHandler() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            ForwardingProcessEventSceneHandler forwardingProcessEventSceneHandler = new ForwardingProcessEventSceneHandler();
+            if (Build.VERSION.SDK_INT > 19) {
+                forwardingProcessEventSceneHandler.addEventHandleCallback(new DefaultProcessEventSceneHandler());
+            }
+            Supplier<List<ProcessEventSceneHandler>> supplier = this.mForwardingHandlerSupplier;
+            if (supplier != null && Build.VERSION.SDK_INT > 19) {
+                forwardingProcessEventSceneHandler.addEventHandleCallback(supplier.get());
+            }
+            return forwardingProcessEventSceneHandler;
+        }
+        return (ForwardingProcessEventSceneHandler) invokeV.objValue;
+    }
+
+    private void initKITKAT() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            DefaultProcessEventSceneHandler.init();
+            LogType.init();
+            SnapshotUtil.init();
+            LogFile.init();
+            ProcessSnapshotType.init();
+            Utility.init();
+            LogPipelineSingleton.init();
+            LokiService.init();
+            LogExtra.init();
+            LogDiskStoreConfig.init();
+            CrashUtil.init();
+            LogSystemServiceUtil.init();
         }
     }
 
-    @Override // com.baidu.tieba.n20
-    public void b(String str, String str2) {
-        FileOutputStream fileOutputStream;
-        OutputStreamWriter outputStreamWriter;
-        BufferedWriter bufferedWriter;
+    private void processNativeCrash(@NonNull String str, @NonNull LogExtra logExtra) {
+        HashSet hashSet;
+        Set<LogFile> obtainProcessSnapShots;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            BufferedWriter bufferedWriter2 = null;
-            try {
-                fileOutputStream = new FileOutputStream(new File(str));
-                try {
-                    outputStreamWriter = new OutputStreamWriter(fileOutputStream);
-                    try {
-                        try {
-                            bufferedWriter = new BufferedWriter(outputStreamWriter);
-                        } catch (IOException e) {
-                            e = e;
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                    }
-                    try {
-                        bufferedWriter.write(str2);
-                        bufferedWriter.close();
-                        try {
-                            bufferedWriter.close();
-                            outputStreamWriter.close();
-                            fileOutputStream.close();
-                        } catch (IOException e2) {
-                            e = e2;
-                            if (!a) {
-                                return;
-                            }
-                            e.printStackTrace();
-                        }
-                    } catch (IOException e3) {
-                        e = e3;
-                        bufferedWriter2 = bufferedWriter;
-                        if (a) {
-                            e.printStackTrace();
-                        }
-                        if (bufferedWriter2 != null) {
-                            try {
-                                bufferedWriter2.close();
-                            } catch (IOException e4) {
-                                e = e4;
-                                if (!a) {
-                                    return;
-                                }
-                                e.printStackTrace();
-                            }
-                        }
-                        if (outputStreamWriter != null) {
-                            outputStreamWriter.close();
-                        }
-                        if (fileOutputStream != null) {
-                            fileOutputStream.close();
-                        }
-                    } catch (Throwable th2) {
-                        th = th2;
-                        bufferedWriter2 = bufferedWriter;
-                        if (bufferedWriter2 != null) {
-                            try {
-                                bufferedWriter2.close();
-                            } catch (IOException e5) {
-                                if (a) {
-                                    e5.printStackTrace();
-                                }
-                                throw th;
-                            }
-                        }
-                        if (outputStreamWriter != null) {
-                            outputStreamWriter.close();
-                        }
-                        if (fileOutputStream != null) {
-                            fileOutputStream.close();
-                        }
-                        throw th;
-                    }
-                } catch (IOException e6) {
-                    e = e6;
-                    outputStreamWriter = null;
-                } catch (Throwable th3) {
-                    th = th3;
-                    outputStreamWriter = null;
+        if (interceptable == null || interceptable.invokeLL(65541, this, str, logExtra) == null) {
+            File obtainFileDirWithProcessName = LogPipelineSingleton.obtainFileDirWithProcessName(this.mProcessName);
+            if (!obtainFileDirWithProcessName.exists()) {
+                obtainFileDirWithProcessName.mkdirs();
+            }
+            JSONObject jSONObject = new JSONObject();
+            onAttachExtra(this.mContext, jSONObject);
+            logExtra.mJSONAttach = jSONObject.toString();
+            ForwardingProcessEventSceneHandler forwardingProcessEventSceneHandler = getForwardingProcessEventSceneHandler();
+            File file = null;
+            if (forwardingProcessEventSceneHandler != null) {
+                hashSet = new HashSet(5);
+                EventObject eventObject = new EventObject(LogType.NATIVE_CRASH, str);
+                Set<ProcessSnapshotType> requireGeneralSnapshots = forwardingProcessEventSceneHandler.requireGeneralSnapshots(this.mContext, eventObject);
+                if (requireGeneralSnapshots != null && requireGeneralSnapshots.size() > 0 && (obtainProcessSnapShots = SnapshotUtil.obtainProcessSnapShots(this.mContext, requireGeneralSnapshots, obtainFileDirWithProcessName, this.mProcessName, logExtra)) != null && obtainProcessSnapShots.size() > 0) {
+                    hashSet.addAll(obtainProcessSnapShots);
                 }
-            } catch (IOException e7) {
-                e = e7;
-                fileOutputStream = null;
-                outputStreamWriter = null;
-            } catch (Throwable th4) {
-                th = th4;
-                fileOutputStream = null;
-                outputStreamWriter = null;
+                Set<LogFile> customizedSnapshots = forwardingProcessEventSceneHandler.getCustomizedSnapshots(this.mContext, obtainFileDirWithProcessName, eventObject);
+                if (customizedSnapshots != null && customizedSnapshots.size() > 0) {
+                    hashSet.addAll(customizedSnapshots);
+                }
+                LogFile obtainFragmentSnapShot = SnapshotUtil.obtainFragmentSnapShot(this.mContext, forwardingProcessEventSceneHandler, eventObject, obtainFileDirWithProcessName, SnapshotConstant.ProcessConstants.PROCESS_SHARED_FRAGMENT_FILE);
+                if (obtainFragmentSnapShot != null && obtainFragmentSnapShot.mFile.exists()) {
+                    hashSet.add(obtainFragmentSnapShot);
+                }
+                if (LLog.sDebug) {
+                    if (hashSet.size() > 0) {
+                        Log.d(TAG, "uploadLogFiles.size() = " + hashSet.size());
+                        for (int i = 0; i < hashSet.size(); i++) {
+                        }
+                    } else {
+                        Log.d(TAG, "uploadLogFiles is null or uploadLogFiles.size() = 0");
+                    }
+                }
+            } else {
+                hashSet = null;
+            }
+            onDisasterRecovery(this.mContext);
+            if (hashSet != null) {
+                file = SnapshotUtil.createPathNameKeeper(obtainFileDirWithProcessName, hashSet);
+                if (LLog.sDebug && file != null) {
+                    Log.d(TAG, "pathNameKeeper = " + file.getAbsolutePath());
+                }
+            }
+            onReport(this.mContext, str, file, logExtra);
+        }
+    }
+
+    public void onReport(@NonNull Context context, @NonNull String str, @Nullable File file, @Nullable LogExtra logExtra) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048580, this, context, str, file, logExtra) == null) {
+            LogSystemServiceUtil.startLogHandlerService(context, LogType.NATIVE_CRASH, str, file, logExtra);
+        }
+    }
+
+    public void uncaughtNativeCrash(@NonNull String str, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048581, this, str, i, i2) == null) {
+            Log.d(TAG, str);
+            try {
+                processNativeCrash(str, createLogExtra());
+            } catch (Throwable th) {
+                if (LLog.sDebug) {
+                    th.printStackTrace();
+                }
             }
         }
     }

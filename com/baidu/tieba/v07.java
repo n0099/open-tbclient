@@ -1,13 +1,14 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.view.NavigationBarCoverTip;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.frs.live.FrsLiveTipResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -16,17 +17,57 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class v07 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsFragment a;
-    public NavigationBarCoverTip b;
-    public TextView c;
-    public int d;
+    public b a;
+    public HttpMessageListener b;
 
-    public v07(FrsFragment frsFragment, NavigationBarCoverTip navigationBarCoverTip) {
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(FrsLiveTipResponseMessage frsLiveTipResponseMessage);
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ v07 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(v07 v07Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v07Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = v07Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && (httpResponsedMessage instanceof FrsLiveTipResponseMessage) && httpResponsedMessage.getError() == 0 && this.a.a != null) {
+                this.a.a.a((FrsLiveTipResponseMessage) httpResponsedMessage);
+            }
+        }
+    }
+
+    public v07(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsFragment, navigationBarCoverTip};
+            Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,56 +77,38 @@ public class v07 {
                 return;
             }
         }
-        this.a = frsFragment;
-        this.b = navigationBarCoverTip;
-        b();
+        this.b = new a(this, CmdConfigHttp.FRS_LIVE_TIP_CMD);
+        this.a = bVar;
+        d();
+        MessageManager.getInstance().registerListener(this.b);
     }
 
-    public void a(String str) {
-        int i;
-        String str2;
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !yi.isEmpty(str) && this.b != null && this.a.isPrimary() && (i = this.d) <= 0) {
-            this.d = i + 1;
-            if (str.length() < 20) {
-                str2 = this.a.getResources().getString(R.string.forum_ueg_tip) + "\n" + str;
-            } else if (str.length() < 34) {
-                str2 = this.a.getResources().getString(R.string.forum_ueg_tip) + str;
-            } else {
-                str2 = this.a.getResources().getString(R.string.forum_ueg_tip) + str.substring(0, 34);
-            }
-            this.c.setText(str2);
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0101);
-            SkinManager.setBackgroundColor(this.b, R.color.cp_link_tip_a_alpha95);
-            this.b.n(this.a.getActivity(), this.c, 5000);
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.d = 0;
-            this.c = new TextView(this.a.getActivity());
-            this.c.setLayoutParams(new LinearLayout.LayoutParams(-1, this.a.getResources().getDimensionPixelSize(R.dimen.tbds112)));
-            if (UtilHelper.canUseStyleImmersiveSticky()) {
-                this.c.setPadding(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070198), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f), 0);
-                this.c.setGravity(3);
-            } else {
-                this.c.setPadding(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f), 0, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f), 0);
-                this.c.setGravity(19);
-            }
-            this.c.setTextSize(0, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f9));
-            this.c.setLineSpacing(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d4), 1.0f);
-            this.c.setMaxLines(2);
-            this.c.setEllipsize(TextUtils.TruncateAt.END);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.FRS_LIVE_TIP_CMD);
+            httpMessage.addParam("forum_id", i);
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
     public void c() {
-        NavigationBarCoverTip navigationBarCoverTip;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (navigationBarCoverTip = this.b) != null) {
-            navigationBarCoverTip.i();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            MessageManager.getInstance().unRegisterTask(CmdConfigHttp.FRS_LIVE_TIP_CMD);
+            MessageManager.getInstance().unRegisterListener(this.b);
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.FRS_LIVE_TIP_CMD, TbConfig.FRS_LIVE_TIP_ADDRESS);
+            tbHttpMessageTask.setIsNeedLogin(true);
+            tbHttpMessageTask.setIsNeedTbs(true);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(true);
+            tbHttpMessageTask.setResponsedClass(FrsLiveTipResponseMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
     }
 }

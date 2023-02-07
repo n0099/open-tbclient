@@ -344,7 +344,7 @@ public final class RealCall implements Call {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // okhttp3.Call
     /* renamed from: clone */
-    public RealCall mo2193clone() {
+    public RealCall mo2233clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {

@@ -4,27 +4,38 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.java_websocket.framing.Framedata;
+import java.io.ObjectOutput;
 /* loaded from: classes6.dex */
-public class x5a extends b6a {
+public abstract class x5a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int mVer;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x5a() {
-        super(Framedata.Opcode.BINARY);
+    public x5a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Framedata.Opcode) newInitContext.callArgs[0]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.mVer = i;
     }
+
+    public final void srzable(ObjectOutput objectOutput) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, objectOutput) == null) {
+            objectOutput.writeInt(this.mVer);
+            srzableInternal(objectOutput);
+        }
+    }
+
+    public abstract void srzableInternal(ObjectOutput objectOutput);
 }

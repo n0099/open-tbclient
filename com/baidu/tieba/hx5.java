@@ -1,12 +1,13 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes4.dex */
-public interface hx5 {
-    void a(dx5 dx5Var);
+public interface hx5 extends vl0<View> {
 
-    View getView();
+    /* loaded from: classes4.dex */
+    public interface a {
+        boolean a(View view2);
+    }
 
-    void onChangeSkinType(TbPageContext<?> tbPageContext, int i);
+    boolean a(View view2);
 }

@@ -138,12 +138,12 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
 
         /* renamed from: com.baidu.sofire.face.a.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0180a implements Runnable {
+        public class RunnableC0182a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0180a(a aVar) {
+            public RunnableC0182a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -173,13 +173,13 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
 
         /* renamed from: com.baidu.sofire.face.a.b$a$b  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0181b implements Runnable {
+        public class RunnableC0183b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ a b;
 
-            public RunnableC0181b(a aVar, int i) {
+            public RunnableC0183b(a aVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -303,7 +303,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
                     com.baidu.sofire.face.b.b.a(bVar7.a, bVar7.o, 0, 0, null);
                     b bVar8 = this.a;
                     if (bVar8.d != null && (activity3 = bVar8.b) != null) {
-                        activity3.runOnUiThread(new RunnableC0180a(this));
+                        activity3.runOnUiThread(new RunnableC0182a(this));
                     }
                     if (!FH.isInitSuc(1) && this.a.k.a()) {
                         this.a.a(-15);
@@ -332,7 +332,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
                             i2 = 1;
                             bVar3 = this.a;
                             if (bVar3.d != null && (activity2 = bVar3.b) != null) {
-                                activity2.runOnUiThread(new RunnableC0181b(this, i2));
+                                activity2.runOnUiThread(new RunnableC0183b(this, i2));
                             }
                             if (c2 != 65534) {
                                 this.a.a(-3);
@@ -371,7 +371,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
                         i2 = -1;
                         bVar3 = this.a;
                         if (bVar3.d != null) {
-                            activity2.runOnUiThread(new RunnableC0181b(this, i2));
+                            activity2.runOnUiThread(new RunnableC0183b(this, i2));
                         }
                         if (c2 != 65534) {
                         }
@@ -517,12 +517,12 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
 
     /* renamed from: com.baidu.sofire.face.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC0182b implements Runnable {
+    public class RunnableC0184b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
 
-        public RunnableC0182b(b bVar) {
+        public RunnableC0184b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1982,7 +1982,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
                 if (com.baidu.sofire.face.b.e.a().a(new a(this)) != 1) {
                     a(-7);
                 }
-                com.baidu.sofire.face.b.e.a().a(new RunnableC0182b(this));
+                com.baidu.sofire.face.b.e.a().a(new RunnableC0184b(this));
             } catch (Throwable unused) {
             }
         }

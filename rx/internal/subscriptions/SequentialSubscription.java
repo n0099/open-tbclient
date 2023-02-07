@@ -1,8 +1,8 @@
 package rx.internal.subscriptions;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hda;
-import com.baidu.tieba.r8a;
+import com.baidu.tieba.ada;
+import com.baidu.tieba.qha;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes9.dex */
-public final class SequentialSubscription extends AtomicReference<r8a> implements r8a {
+public final class SequentialSubscription extends AtomicReference<ada> implements ada {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 995205034283130269L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,20 +29,20 @@ public final class SequentialSubscription extends AtomicReference<r8a> implement
         }
     }
 
-    public r8a current() {
+    public ada current() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            r8a r8aVar = (r8a) super.get();
-            if (r8aVar == Unsubscribed.INSTANCE) {
-                return hda.c();
+            ada adaVar = (ada) super.get();
+            if (adaVar == Unsubscribed.INSTANCE) {
+                return qha.c();
             }
-            return r8aVar;
+            return adaVar;
         }
-        return (r8a) invokeV.objValue;
+        return (ada) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.r8a
+    @Override // com.baidu.tieba.ada
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -55,25 +55,25 @@ public final class SequentialSubscription extends AtomicReference<r8a> implement
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.r8a
+    @Override // com.baidu.tieba.ada
     public void unsubscribe() {
-        r8a andSet;
+        ada andSet;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            r8a r8aVar = get();
+            ada adaVar = get();
             Unsubscribed unsubscribed = Unsubscribed.INSTANCE;
-            if (r8aVar != unsubscribed && (andSet = getAndSet(unsubscribed)) != null && andSet != Unsubscribed.INSTANCE) {
+            if (adaVar != unsubscribed && (andSet = getAndSet(unsubscribed)) != null && andSet != Unsubscribed.INSTANCE) {
                 andSet.unsubscribe();
             }
         }
     }
 
-    public SequentialSubscription(r8a r8aVar) {
+    public SequentialSubscription(ada adaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {r8aVar};
+            Object[] objArr = {adaVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -83,46 +83,46 @@ public final class SequentialSubscription extends AtomicReference<r8a> implement
                 return;
             }
         }
-        lazySet(r8aVar);
+        lazySet(adaVar);
     }
 
-    public boolean replace(r8a r8aVar) {
-        r8a r8aVar2;
+    public boolean replace(ada adaVar) {
+        ada adaVar2;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, r8aVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adaVar)) == null) {
             do {
-                r8aVar2 = get();
-                if (r8aVar2 == Unsubscribed.INSTANCE) {
-                    if (r8aVar != null) {
-                        r8aVar.unsubscribe();
+                adaVar2 = get();
+                if (adaVar2 == Unsubscribed.INSTANCE) {
+                    if (adaVar != null) {
+                        adaVar.unsubscribe();
                         return false;
                     }
                     return false;
                 }
-            } while (!compareAndSet(r8aVar2, r8aVar));
+            } while (!compareAndSet(adaVar2, adaVar));
             return true;
         }
         return invokeL.booleanValue;
     }
 
-    public boolean update(r8a r8aVar) {
-        r8a r8aVar2;
+    public boolean update(ada adaVar) {
+        ada adaVar2;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, r8aVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, adaVar)) == null) {
             do {
-                r8aVar2 = get();
-                if (r8aVar2 == Unsubscribed.INSTANCE) {
-                    if (r8aVar != null) {
-                        r8aVar.unsubscribe();
+                adaVar2 = get();
+                if (adaVar2 == Unsubscribed.INSTANCE) {
+                    if (adaVar != null) {
+                        adaVar.unsubscribe();
                         return false;
                     }
                     return false;
                 }
-            } while (!compareAndSet(r8aVar2, r8aVar));
-            if (r8aVar2 != null) {
-                r8aVar2.unsubscribe();
+            } while (!compareAndSet(adaVar2, adaVar));
+            if (adaVar2 != null) {
+                adaVar2.unsubscribe();
                 return true;
             }
             return true;
@@ -130,21 +130,21 @@ public final class SequentialSubscription extends AtomicReference<r8a> implement
         return invokeL.booleanValue;
     }
 
-    public boolean replaceWeak(r8a r8aVar) {
+    public boolean replaceWeak(ada adaVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, r8aVar)) == null) {
-            r8a r8aVar2 = get();
-            if (r8aVar2 == Unsubscribed.INSTANCE) {
-                if (r8aVar != null) {
-                    r8aVar.unsubscribe();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, adaVar)) == null) {
+            ada adaVar2 = get();
+            if (adaVar2 == Unsubscribed.INSTANCE) {
+                if (adaVar != null) {
+                    adaVar.unsubscribe();
                 }
                 return false;
-            } else if (compareAndSet(r8aVar2, r8aVar) || get() != Unsubscribed.INSTANCE) {
+            } else if (compareAndSet(adaVar2, adaVar) || get() != Unsubscribed.INSTANCE) {
                 return true;
             } else {
-                if (r8aVar != null) {
-                    r8aVar.unsubscribe();
+                if (adaVar != null) {
+                    adaVar.unsubscribe();
                 }
                 return false;
             }
@@ -152,24 +152,24 @@ public final class SequentialSubscription extends AtomicReference<r8a> implement
         return invokeL.booleanValue;
     }
 
-    public boolean updateWeak(r8a r8aVar) {
+    public boolean updateWeak(ada adaVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, r8aVar)) == null) {
-            r8a r8aVar2 = get();
-            if (r8aVar2 == Unsubscribed.INSTANCE) {
-                if (r8aVar != null) {
-                    r8aVar.unsubscribe();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, adaVar)) == null) {
+            ada adaVar2 = get();
+            if (adaVar2 == Unsubscribed.INSTANCE) {
+                if (adaVar != null) {
+                    adaVar.unsubscribe();
                 }
                 return false;
-            } else if (compareAndSet(r8aVar2, r8aVar)) {
+            } else if (compareAndSet(adaVar2, adaVar)) {
                 return true;
             } else {
-                r8a r8aVar3 = get();
-                if (r8aVar != null) {
-                    r8aVar.unsubscribe();
+                ada adaVar3 = get();
+                if (adaVar != null) {
+                    adaVar.unsubscribe();
                 }
-                if (r8aVar3 != Unsubscribed.INSTANCE) {
+                if (adaVar3 != Unsubscribed.INSTANCE) {
                     return false;
                 }
                 return true;

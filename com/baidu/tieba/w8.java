@@ -1,26 +1,26 @@
 package com.baidu.tieba;
 
-import com.badlogic.gdx.utils.reflect.ReflectionException;
+import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 /* loaded from: classes6.dex */
-public final class w8 {
+public class w8<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Constructor a;
+    public final Future<T> a;
 
-    public w8(Constructor constructor) {
+    public w8(Future<T> future) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {constructor};
+            Object[] objArr = {future};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,41 +30,30 @@ public final class w8 {
                 return;
             }
         }
-        this.a = constructor;
+        this.a = future;
     }
 
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.a.setAccessible(z);
-        }
-    }
-
-    public Class a() {
+    public T a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.getDeclaringClass();
-        }
-        return (Class) invokeV.objValue;
-    }
-
-    public Object b(Object... objArr) throws ReflectionException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr)) == null) {
             try {
-                return this.a.newInstance(objArr);
-            } catch (IllegalAccessException e) {
-                throw new ReflectionException("Could not instantiate instance of class: " + a().getName(), e);
-            } catch (IllegalArgumentException e2) {
-                throw new ReflectionException("Illegal argument(s) supplied to constructor for class: " + a().getName(), e2);
-            } catch (InstantiationException e3) {
-                throw new ReflectionException("Could not instantiate instance of class: " + a().getName(), e3);
-            } catch (InvocationTargetException e4) {
-                throw new ReflectionException("Exception occurred in constructor for class: " + a().getName(), e4);
+                return this.a.get();
+            } catch (InterruptedException unused) {
+                return null;
+            } catch (ExecutionException e) {
+                throw new GdxRuntimeException(e.getCause());
             }
         }
-        return invokeL.objValue;
+        return (T) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.isDone();
+        }
+        return invokeV.booleanValue;
     }
 }

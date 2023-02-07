@@ -130,11 +130,11 @@ public class DaysOfWeekAdapter extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
             TextView textView = (TextView) view2;
             if (view2 == null) {
-                textView = (TextView) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d05d0, viewGroup, false);
+                textView = (TextView) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d05cd, viewGroup, false);
             }
             this.calendar.set(7, positionToDayOfWeek(i));
             textView.setText(this.calendar.getDisplayName(7, CALENDAR_DAY_STYLE, Locale.getDefault()));
-            textView.setContentDescription(String.format(viewGroup.getContext().getString(R.string.obfuscated_res_0x7f0f0b93), this.calendar.getDisplayName(7, 2, Locale.getDefault())));
+            textView.setContentDescription(String.format(viewGroup.getContext().getString(R.string.obfuscated_res_0x7f0f0bb8), this.calendar.getDisplayName(7, 2, Locale.getDefault())));
             return textView;
         }
         return (View) invokeILL.objValue;

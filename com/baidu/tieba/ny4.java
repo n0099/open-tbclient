@@ -1,34 +1,35 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.data.ChatRoomEntranceData;
-import com.baidu.tbadk.data.IconPopData;
-import com.baidu.tbadk.data.LevePopData;
-import com.baidu.tbadk.data.LiveRemindData;
-import com.baidu.tbadk.data.MemberBroadcastData;
-import com.baidu.tbadk.data.SubscribeGroupUnreadMsgData;
-import java.util.List;
-import tbclient.AlaLiveInfo;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.LotteryTheme;
 /* loaded from: classes5.dex */
-public interface ny4 {
-    ChatRoomEntranceData getChatRoomEntranceData();
+public class ny4 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    x55 getFestivalConfigData();
+    public ny4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    IconPopData getIconPopData();
-
-    LevePopData getLevePopData();
-
-    List<AlaLiveInfo> getLiveFollowSecondFloor();
-
-    List<AlaLiveInfo> getLiveIndexSecondFloor();
-
-    List<AlaLiveInfo> getLivePicSecondFloor();
-
-    LiveRemindData getLiveRemindData();
-
-    MemberBroadcastData getMemberBroadcastData();
-
-    SubscribeGroupUnreadMsgData getSubscribeChatHaveUnReadMsg();
-
-    String getUniqueId();
+    public void a(LotteryTheme lotteryTheme) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, lotteryTheme) != null) || lotteryTheme == null) {
+            return;
+        }
+        String str = lotteryTheme.bgcolor;
+        String str2 = lotteryTheme.bgimage;
+    }
 }

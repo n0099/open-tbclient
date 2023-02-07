@@ -1,107 +1,89 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
-import com.baidu.nadcore.net.request.Headers;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Calendar;
 /* loaded from: classes4.dex */
 public class f11 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public static class a extends ir0<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g11 a;
-
-        public String f(Headers headers, String str, int i) throws Exception {
-            InterceptResult invokeLLI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, headers, str, i)) == null) ? str : (String) invokeLLI.objValue;
-        }
-
-        public a(g11 g11Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g11Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static boolean a(@Nullable String str, @Nullable String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                String[] split = str.split(":");
+                String[] split2 = str2.split(":");
+                if (split.length != 0 && split2.length != 0) {
+                    try {
+                        Calendar calendar = Calendar.getInstance();
+                        long timeInMillis = calendar.getTimeInMillis();
+                        calendar.set(11, a11.c(split[0]));
+                        calendar.set(12, a11.c(split[1]));
+                        long timeInMillis2 = calendar.getTimeInMillis();
+                        calendar.set(11, a11.c(split2[0]));
+                        calendar.set(12, a11.c(split2[1]));
+                        long timeInMillis3 = calendar.getTimeInMillis();
+                        if (timeInMillis < timeInMillis2 || timeInMillis > timeInMillis3) {
+                            return false;
+                        }
+                        return true;
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
             }
-            this.a = g11Var;
+            return false;
         }
+        return invokeLL.booleanValue;
+    }
 
-        @Override // com.baidu.tieba.gr0
-        public void a(Exception exc, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) {
-                e11.b(this.a.a(i, exc.getMessage()));
+    @SuppressLint({"SourceLockedOrientationActivity"})
+    public static void b(Activity activity, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(65537, null, activity, z) == null) && activity != null) {
+            e11.b("BdVideoSys", "SCREEN_ORIENTATION_LANDSCAPE");
+            if (z) {
+                activity.setRequestedOrientation(8);
+            } else {
+                activity.setRequestedOrientation(0);
             }
+            activity.getWindow().setFlags(1024, 1024);
         }
+    }
 
-        @Override // com.baidu.tieba.hr0
-        public /* bridge */ /* synthetic */ Object d(Headers headers, String str, int i) throws Exception {
-            f(headers, str, i);
-            return str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.hr0
-        /* renamed from: e */
-        public void b(Headers headers, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048579, this, headers, str, i) == null) {
-                e11.b(this.a.a(i, "success"));
+    public static void c(Activity activity, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(65538, null, activity, z) == null) && activity != null) {
+            if (z) {
+                activity.getWindow().addFlags(128);
+            } else {
+                activity.getWindow().clearFlags(128);
             }
         }
     }
 
-    public static void a(@Nullable g11 g11Var) {
-        f31 f31Var;
+    public static void startActivity(Context context, ComponentName componentName) throws Exception {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, g11Var) == null) && g11Var != null && !TextUtils.isEmpty(g11Var.d())) {
-            if (!g11Var.c()) {
-                b(g11Var.d());
-                return;
-            }
-            pr0 pr0Var = new pr0();
-            pr0Var.l(g11Var.d());
-            pr0Var.g(3000);
-            pr0Var.d("User-Agent", ej0.e());
-            pr0Var.c();
-            wq0.b().a().a(pr0Var, new a(g11Var));
-            if (z21.a && (f31Var = (f31) y21.a().a(f31.class)) != null) {
-                f31Var.b(new a31("计费", "", "并行计费"));
-            }
+        if (interceptable == null || interceptable.invokeLL(65539, null, context, componentName) == null) {
+            new Intent().setComponent(componentName);
         }
     }
 
-    public static void b(@Nullable String str) {
-        f31 f31Var;
+    public static void startActivity(Context context, String str, String str2, String str3) throws Exception {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        pr0 pr0Var = new pr0();
-        pr0Var.l(str);
-        pr0Var.g(3000);
-        pr0Var.d("User-Agent", ej0.e());
-        pr0Var.c();
-        wq0.b().a().a(pr0Var, null);
-        if (z21.a && (f31Var = (f31) y21.a().a(f31.class)) != null) {
-            f31Var.b(new a31("计费", "", "并行计费"));
+        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, str2, str3) == null) {
+            new Intent().setComponent(new ComponentName(str, str2 + str3));
         }
     }
 }

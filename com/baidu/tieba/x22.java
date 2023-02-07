@@ -1,17 +1,21 @@
 package com.baidu.tieba;
 
+import android.graphics.Canvas;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public abstract class x22 {
+public class x22 extends c22 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public void a(String str) {
+    @Override // com.baidu.tieba.c22
+    public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
         }
     }
 
@@ -25,6 +29,21 @@ public abstract class x22 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.c22
+    public void a(d22 d22Var, Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, d22Var, canvas) == null) {
+            try {
+                d22Var.f();
+                canvas.save();
+            } catch (CloneNotSupportedException e) {
+                if (gp1.a) {
+                    e.printStackTrace();
+                }
             }
         }
     }

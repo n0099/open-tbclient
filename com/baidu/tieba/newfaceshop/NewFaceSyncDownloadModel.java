@@ -9,7 +9,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.h18;
+import com.baidu.tieba.e68;
 import com.baidu.tieba.newfaceshop.message.GetCloudFaceGroupMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -62,15 +62,15 @@ public class NewFaceSyncDownloadModel extends FaceBaseModel {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003351 && (httpResponsedMessage instanceof GetCloudFaceGroupMessage)) {
-                h18 h18Var = null;
+                e68 e68Var = null;
                 if (httpResponsedMessage.getOrginalMessage() != null) {
                     Object extra = httpResponsedMessage.getOrginalMessage().getExtra();
-                    if (extra instanceof h18) {
-                        h18Var = (h18) extra;
+                    if (extra instanceof e68) {
+                        e68Var = (e68) extra;
                     }
                 }
-                if (h18Var != null) {
-                    h18Var.a((GetCloudFaceGroupMessage) httpResponsedMessage);
+                if (e68Var != null) {
+                    e68Var.a((GetCloudFaceGroupMessage) httpResponsedMessage);
                 }
             }
         }
@@ -97,11 +97,11 @@ public class NewFaceSyncDownloadModel extends FaceBaseModel {
         registerListener(this.a);
     }
 
-    public void G(h18 h18Var) {
+    public void G(e68 e68Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, h18Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, e68Var) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SYNC_DOWNLOAD_CLOUD_FACE_GROUP);
-            httpMessage.setExtra(h18Var);
+            httpMessage.setExtra(e68Var);
             sendMessage(httpMessage);
         }
     }

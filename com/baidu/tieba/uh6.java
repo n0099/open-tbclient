@@ -1,35 +1,30 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.Comparable;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.properties.ReadWriteProperty;
+import kotlin.reflect.KProperty;
 /* loaded from: classes6.dex */
-public class uh6 {
+public final class uh6<T extends Comparable<? super T>> implements ReadWriteProperty<Object, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public View b;
-    public ViewGroup c;
-    public ImageView d;
-    public TextView e;
-    public TextView f;
+    public final Function1<T, Unit> a;
+    public T b;
 
-    public uh6(TbPageContext<?> tbPageContext) {
+    public uh6(T initial, Function1<? super T, Unit> onChange) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {initial, onChange};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,33 +34,49 @@ public class uh6 {
                 return;
             }
         }
-        this.a = tbPageContext;
-        View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0686, (ViewGroup) null);
-        this.b = inflate;
-        this.c = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f09103f);
-        this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090f20);
-        this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090e03);
-        this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090e04);
-        this.e.setText(R.string.no_like_forum_hint_1);
-        this.f.setText(R.string.no_like_forum_hint_2);
+        Intrinsics.checkNotNullParameter(initial, "initial");
+        Intrinsics.checkNotNullParameter(onChange, "onChange");
+        this.a = onChange;
+        this.b = initial;
     }
 
-    public void a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // kotlin.properties.ReadWriteProperty, kotlin.properties.ReadOnlyProperty
+    /* renamed from: a */
+    public T getValue(Object thisRef, KProperty<?> property) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SkinManager.setImageResource(this.d, R.drawable.cp_mask_attention_a);
-            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0109);
-            TBSelector.makeDrawableSelector().setShape(0).defaultColor(R.color.CAM_X0206).tlRadius(zi.g(this.a.getPageActivity(), R.dimen.tbds21)).trRadius(zi.g(this.a.getPageActivity(), R.dimen.tbds21)).blRadius(zi.g(this.a.getPageActivity(), R.dimen.tbds21)).brRadius(zi.g(this.a.getPageActivity(), R.dimen.tbds21)).into(this.c);
-        }
-    }
-
-    public View b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, thisRef, property)) == null) {
+            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
+            Intrinsics.checkNotNullParameter(property, "property");
             return this.b;
         }
-        return (View) invokeV.objValue;
+        return (T) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // kotlin.properties.ReadWriteProperty
+    /* renamed from: b */
+    public void setValue(Object thisRef, KProperty<?> property, T value) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, thisRef, property, value) == null) {
+            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
+            Intrinsics.checkNotNullParameter(property, "property");
+            Intrinsics.checkNotNullParameter(value, "value");
+            T t = this.b;
+            this.b = value;
+            if (!Intrinsics.areEqual(t, value)) {
+                this.a.invoke(value);
+            }
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -10,7 +10,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.media.chooser.model.MediaModel;
 import com.baidu.swan.apps.media.chooser.model.VideoModel;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qn2;
+import com.baidu.tieba.ds2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,9 +59,9 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
                     return;
                 }
             }
-            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090888);
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f09026c);
-            this.c = view2.findViewById(R.id.obfuscated_res_0x7f09026b);
+            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09089c);
+            this.b = view2.findViewById(R.id.obfuscated_res_0x7f090264);
+            this.c = view2.findViewById(R.id.obfuscated_res_0x7f090263);
         }
     }
 
@@ -80,7 +80,7 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
                 return;
             }
         }
-        this.c = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0706da);
+        this.c = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0706ea);
     }
 
     public MediaModel d(int i) {
@@ -163,7 +163,7 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
         aVar.a.setController(build);
         DraweeHierarchy hierarchy = build.getHierarchy();
         if (hierarchy instanceof GenericDraweeHierarchy) {
-            qn2.C().c((GenericDraweeHierarchy) hierarchy, false);
+            ds2.C().c((GenericDraweeHierarchy) hierarchy, false);
         }
     }
 
@@ -174,7 +174,7 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewGroup, i)) == null) {
-            return new a(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d085f, viewGroup, false));
+            return new a(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0858, viewGroup, false));
         }
         return (a) invokeLI.objValue;
     }

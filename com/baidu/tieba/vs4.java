@@ -1,17 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public abstract class vs4 {
+public class vs4 extends os4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void parserJson(JSONObject jSONObject);
+    @Override // com.baidu.tieba.ns4
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "u" : (String) invokeV.objValue;
+    }
 
     public vs4() {
         Interceptable interceptable = $ic;
@@ -27,14 +33,21 @@ public abstract class vs4 {
         }
     }
 
-    public void parserJson(String str) {
+    @Override // com.baidu.tieba.ns4
+    public String a(String[] strArr, Map<String, String> map) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            try {
-                parserJson(new JSONObject(str));
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, strArr, map)) == null) {
+            if (strArr != null && strArr.length != 0) {
+                String substring = strArr[0].substring(1);
+                StringBuilder sb = new StringBuilder("com.baidu.tieba://unidispatch/usercenter");
+                sb.append("?portrait=");
+                sb.append(substring);
+                c(strArr, sb, map, 1);
+                return sb.toString();
             }
+            return null;
         }
+        return (String) invokeLL.objValue;
     }
 }

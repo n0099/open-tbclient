@@ -1,31 +1,41 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dn9;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.pms.bean.ErrorInfo;
+import com.baidu.searchbox.pms.bean.PackageInfo;
+import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
+import com.baidu.searchbox.pms.init.PmsManager;
+import com.baidu.searchbox.pms.init.RequestParams;
+import com.baidu.storage.swankv.SwanKV;
+import com.baidu.tbadk.core.util.SoLoadUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
 /* loaded from: classes5.dex */
-public final class ln9 {
+public class ln9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LinkedHashMap<String, Long> a;
 
     /* loaded from: classes5.dex */
-    public class a extends pn9 {
+    public interface d {
+        void onSuccess();
+    }
+
+    /* loaded from: classes5.dex */
+    public static class a extends DefaultDownloadCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ com.baidu.ubs.analytics.a.l a;
+        public final /* synthetic */ d a;
 
-        public a(ln9 ln9Var, com.baidu.ubs.analytics.a.l lVar) {
+        public a(d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ln9Var, lVar};
+                Object[] objArr = {dVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -35,67 +45,114 @@ public final class ln9 {
                     return;
                 }
             }
-            this.a = lVar;
+            this.a = dVar;
         }
 
-        @Override // com.baidu.tieba.pn9
-        public final void a() {
+        @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
+        public void onDownloadSuccess(PackageInfo packageInfo, ErrorInfo errorInfo) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                new vm9().c(this.a);
+            if (interceptable == null || interceptable.invokeLL(1048576, this, packageInfo, errorInfo) == null) {
+                ln9.b(this.a);
             }
         }
     }
 
-    public ln9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new LinkedHashMap<>();
-    }
+    /* loaded from: classes5.dex */
+    public static class b implements vm {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d a;
 
-    public final void a(String str) {
-        dn9 dn9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !TextUtils.isEmpty(str)) {
-            com.baidu.ubs.analytics.a.l lVar = new com.baidu.ubs.analytics.a.l();
-            synchronized (this.a) {
-                Long remove = this.a.remove(str);
-                if (remove == null) {
+        public b(d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                try {
-                    lVar.setStartTime(String.valueOf(remove));
-                    lVar.t(str);
-                    lVar.z(String.valueOf(System.currentTimeMillis()));
-                    dn9Var = dn9.a.a;
-                    lVar.setPath(dn9Var.b());
-                    lVar.x(mn9.e().I());
-                } catch (Exception e) {
-                    vn9.a(e.toString());
-                    nn9.b(e.toString());
-                }
-                on9.c(new a(this, lVar));
+            }
+            this.a = dVar;
+        }
+
+        @Override // com.baidu.tieba.vm
+        public void onSoFileLoaded(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                ln9.b(this.a);
             }
         }
     }
 
-    public final void b(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && !TextUtils.isEmpty(str)) {
-            synchronized (this.a) {
-                this.a.put(str, Long.valueOf(System.currentTimeMillis()));
-                String.valueOf(System.currentTimeMillis());
+    /* loaded from: classes5.dex */
+    public static class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d a;
+
+        public c(d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
+            this.a = dVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    System.loadLibrary(SwanKV.LIB_CPP_SHARED);
+                    if (this.a != null) {
+                        this.a.onSuccess();
+                    }
+                } catch (Throwable unused) {
+                    BdLog.e("FetchLog libc++_shared.so 加载失败,重新加载");
+                    BdBaseApplication.getInst().getResHashMap().remove("libc++_shared.so");
+                    SoLoadUtils.checkDownloadSo("libc++_shared.so", "com.baidu.tieba.soloader.libcshared", SwanKV.LIB_CPP_SHARED);
+                }
+            }
+        }
+    }
+
+    public static void b(d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, dVar) == null) {
+            gh.a().post(new c(dVar));
+        }
+    }
+
+    public static void c(d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, dVar) == null) {
+            if (StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get("libc++_shared.so"))) {
+                a aVar = new a(dVar);
+                b bVar = new b(dVar);
+                RequestParams requestParams = new RequestParams();
+                requestParams.setRunType(qm.a);
+                requestParams.setRunNode("aps");
+                requestParams.addChannel(new pm("com.baidu.tieba.soloader.libcshared", aVar, bVar));
+                PmsManager.getInstance().execute(requestParams);
+                return;
+            }
+            b(dVar);
         }
     }
 }

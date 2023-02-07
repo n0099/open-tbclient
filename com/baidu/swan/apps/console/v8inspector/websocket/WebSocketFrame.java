@@ -6,7 +6,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.map.Text;
 import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.tk1;
+import com.baidu.tieba.gp1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -356,7 +356,7 @@ public class WebSocketFrame {
                 return;
             }
         }
-        g = tk1.a;
+        g = gp1.a;
         h = Charset.forName("UTF-8");
     }
 

@@ -12,24 +12,26 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g75;
-import com.baidu.tieba.k75;
-import com.baidu.tieba.z65;
+import com.baidu.tieba.lb5;
+import com.baidu.tieba.p15;
+import com.baidu.tieba.sb5;
+import com.baidu.tieba.wb5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class BLauncher extends ImageView implements g75 {
+public class BLauncher extends ImageView implements sb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
     public int b;
     public int c;
-    public k75 d;
+    public wb5 d;
     public Drawable e;
     public boolean f;
 
@@ -40,13 +42,13 @@ public class BLauncher extends ImageView implements g75 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BLauncher(Context context, k75 k75Var) {
+    public BLauncher(Context context, wb5 wb5Var) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, k75Var};
+            Object[] objArr = {context, wb5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -59,19 +61,19 @@ public class BLauncher extends ImageView implements g75 {
         }
         this.c = 0;
         this.f = false;
-        if (k75Var == null) {
+        if (wb5Var == null) {
             return;
         }
-        this.d = k75Var;
+        this.d = wb5Var;
         setIcon();
-        setToolId(k75Var.c);
+        setToolId(wb5Var.c);
     }
 
-    @Override // com.baidu.tieba.a75
-    public void A(z65 z65Var) {
+    @Override // com.baidu.tieba.mb5
+    public void A(lb5 lb5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, z65Var) == null) && z65Var != null && z65Var.a == 2) {
-            Object obj = z65Var.c;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, lb5Var) == null) && lb5Var != null && lb5Var.a == 2) {
+            Object obj = lb5Var.c;
             if (obj == null) {
                 b();
             } else if (obj instanceof String) {
@@ -114,12 +116,16 @@ public class BLauncher extends ImageView implements g75 {
                 ((ViewGroup) parent2).addView(this.a);
             }
         }
-        SkinManager.setViewTextColor(this.a, R.color.CAM_X0111, 1, this.c);
         this.a.setGravity(17);
+        int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X002);
+        this.a.setPadding(dimenPixelSize, 0, dimenPixelSize, 0);
         if (!str.equals(" ")) {
-            this.a.setTextSize(10.0f);
+            p15 d = p15.d(this.a);
+            d.v(R.color.CAM_X0101);
+            d.z(R.dimen.T_X10);
+            d.A(R.string.F_X02);
             this.a.setText(str);
-            SkinManager.setBackgroundResource(this.a, R.drawable.icon_news_red_dot, this.c);
+            SkinManager.setBackgroundResource(this.a, R.drawable.icon_news_red_dot_one_number, this.c);
             this.a.setVisibility(0);
             return;
         }
@@ -133,11 +139,11 @@ public class BLauncher extends ImageView implements g75 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (textView = this.a) != null) {
             textView.setVisibility(8);
-            h0();
+            e0();
         }
     }
 
-    @Override // com.baidu.tieba.g75
+    @Override // com.baidu.tieba.sb5
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -145,10 +151,19 @@ public class BLauncher extends ImageView implements g75 {
         }
     }
 
+    @Override // com.baidu.tieba.sb5
+    public void e0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.d.q = false;
+            invalidate();
+        }
+    }
+
     public boolean getIsOutSetVisibility() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.f;
         }
         return invokeV.booleanValue;
@@ -157,32 +172,23 @@ public class BLauncher extends ImageView implements g75 {
     public TextView getNotice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.a;
         }
         return (TextView) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.g75
+    @Override // com.baidu.tieba.sb5
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.b;
         }
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.g75
-    public void h0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.d.q = false;
-            invalidate();
-        }
-    }
-
-    @Override // com.baidu.tieba.g75
+    @Override // com.baidu.tieba.sb5
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -206,7 +212,7 @@ public class BLauncher extends ImageView implements g75 {
         }
     }
 
-    @Override // com.baidu.tieba.g75
+    @Override // com.baidu.tieba.sb5
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
@@ -240,19 +246,19 @@ public class BLauncher extends ImageView implements g75 {
     }
 
     public void setIcon() {
-        k75 k75Var;
+        wb5 wb5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || (k75Var = this.d) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || (wb5Var = this.d) == null) {
             return;
         }
-        if (k75Var.i) {
+        if (wb5Var.i) {
             SvgManager svgManager = SvgManager.getInstance();
-            k75 k75Var2 = this.d;
-            setImageDrawable(svgManager.getSeletableDrawableForEditorTools(k75Var2.d, k75Var2.e, this.c));
-        } else if (k75Var.j) {
-            setImageDrawable(WebPManager.getSeletableDrawableForEditorToolsEM(k75Var.d, k75Var.e, k75Var.f, k75Var.g, this.c));
+            wb5 wb5Var2 = this.d;
+            setImageDrawable(svgManager.getSeletableDrawableForEditorTools(wb5Var2.d, wb5Var2.e, this.c));
+        } else if (wb5Var.j) {
+            setImageDrawable(WebPManager.getSeletableDrawableForEditorToolsEM(wb5Var.d, wb5Var.e, wb5Var.f, wb5Var.g, this.c));
         } else {
-            SkinManager.setImageResource(this, k75Var.d, this.c);
+            SkinManager.setImageResource(this, wb5Var.d, this.c);
         }
         if (!this.d.c()) {
             setEnabled(false);

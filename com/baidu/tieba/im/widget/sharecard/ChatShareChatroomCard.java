@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.widget.sharecard;
 
 import android.content.Context;
+import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,11 +17,11 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cx4;
+import com.baidu.tieba.ej;
 import com.baidu.tieba.im.data.ShareChatroomMsgData;
 import com.baidu.tieba.im.widget.sharecard.ChatShareChatroomCard;
-import com.baidu.tieba.jc5;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.p15;
+import com.baidu.tieba.ug5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -85,14 +86,14 @@ public final class ChatShareChatroomCard extends ConstraintLayout {
                 return;
             }
         }
-        d = zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds16);
-        e = zi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X006);
-        f = zi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
-        g = zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds395);
-        String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f068b);
+        d = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds16);
+        e = ej.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X006);
+        f = ej.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
+        g = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds395);
+        String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06ad);
         Intrinsics.checkNotNullExpressionValue(string, "getInst().getString(R.string.forum)");
         h = string;
-        String string2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0569);
+        String string2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0575);
         Intrinsics.checkNotNullExpressionValue(string2, "getInst().getString(R.string.ellipsis)");
         i = string2;
     }
@@ -133,14 +134,14 @@ public final class ChatShareChatroomCard extends ConstraintLayout {
                 String string = getContext().getString(R.string.im_group_chat_share_card_desc_reveal);
                 Intrinsics.checkNotNullExpressionValue(string, "context.getString(R.stri…t_share_card_desc_reveal)");
                 String format = String.format(string, Arrays.copyOf(new Object[]{str}, 1));
-                Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(format, *args)");
+                Intrinsics.checkNotNullExpressionValue(format, "format(format, *args)");
                 return format;
             }
             StringCompanionObject stringCompanionObject2 = StringCompanionObject.INSTANCE;
             String string2 = getContext().getString(R.string.im_group_chat_share_card_desc);
             Intrinsics.checkNotNullExpressionValue(string2, "context.getString(R.stri…oup_chat_share_card_desc)");
             String format2 = String.format(string2, Arrays.copyOf(new Object[]{str, StringHelper.numFormatOverWan(j)}, 2));
-            Intrinsics.checkNotNullExpressionValue(format2, "java.lang.String.format(format, *args)");
+            Intrinsics.checkNotNullExpressionValue(format2, "format(format, *args)");
             return format2;
         }
         return (String) invokeLJ.objValue;
@@ -155,7 +156,7 @@ public final class ChatShareChatroomCard extends ConstraintLayout {
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, this$0, it, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             Intrinsics.checkNotNullParameter(it, "$it");
-            jc5.a().b(this$0.getContext(), it.getId());
+            ug5.a().b(this$0.getContext(), it.getId());
         }
     }
 
@@ -171,7 +172,7 @@ public final class ChatShareChatroomCard extends ConstraintLayout {
                 textView.setText(shareChatroomMsgData.getName());
             }
             d(shareChatroomMsgData);
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ak7
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lo7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -188,19 +189,16 @@ public final class ChatShareChatroomCard extends ConstraintLayout {
 
     public final void d(ShareChatroomMsgData shareChatroomMsgData) {
         TextView textView;
+        TextPaint paint;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, shareChatroomMsgData) == null) && (textView = this.c) != null) {
             String forumName = shareChatroomMsgData.getForumName();
             if (textView.getPaint().measureText(a(Intrinsics.stringPlus(forumName, h), shareChatroomMsgData.getChatCount())) > g) {
                 do {
-                    int length = forumName.length() - 1;
-                    if (forumName != null) {
-                        forumName = forumName.substring(0, length);
-                        Intrinsics.checkNotNullExpressionValue(forumName, "(this as java.lang.Strin…ing(startIndex, endIndex)");
-                    } else {
-                        throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
-                    }
-                } while (textView.getPaint().measureText(a(forumName + i + h, shareChatroomMsgData.getChatCount())) > g);
+                    forumName = forumName.substring(0, forumName.length() - 1);
+                    Intrinsics.checkNotNullExpressionValue(forumName, "this as java.lang.String…ing(startIndex, endIndex)");
+                    paint = textView.getPaint();
+                } while (paint.measureText(a(forumName + i + h, shareChatroomMsgData.getChatCount())) > g);
                 textView.setText(a(forumName + i + h, shareChatroomMsgData.getChatCount()));
                 return;
             }
@@ -226,8 +224,8 @@ public final class ChatShareChatroomCard extends ConstraintLayout {
                 tbImageView.setConrers(15);
                 tbImageView.setRadiusById(R.string.J_X04);
             }
-            cx4.d(this.b).v(R.color.CAM_X0105);
-            cx4.d(this.c).v(R.color.CAM_X0109);
+            p15.d(this.b).v(R.color.CAM_X0105);
+            p15.d(this.c).v(R.color.CAM_X0109);
         }
     }
 }

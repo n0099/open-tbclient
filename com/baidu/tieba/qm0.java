@@ -1,260 +1,161 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
-import com.baidu.nadcore.exp.ADConfigError;
-import com.baidu.nadcore.net.request.Headers;
-import com.baidu.tbadk.util.AdExtParam;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
-public class qm0 implements Runnable {
+public class qm0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public boolean c;
-    public int d;
-    public ADConfigError e;
-    public xm0 f;
+    public final ConcurrentHashMap<Class<?>, ArrayList<ym0>> a;
+    public final ConcurrentHashMap<Object, ArrayList<ym0>> b;
 
-    /* loaded from: classes6.dex */
-    public class a extends ir0<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qm0 a;
-
-        public a(qm0 qm0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qm0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qm0Var;
-        }
-
-        @Override // com.baidu.tieba.gr0
-        public void a(Exception exc, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) {
-                try {
-                    e(exc);
-                } finally {
-                    this.a.k();
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.hr0
-        /* renamed from: g */
-        public void b(Headers headers, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048581, this, headers, str, i) == null) {
-                try {
-                    f(str);
-                } finally {
-                    this.a.k();
-                }
-            }
-        }
-
-        public final void e(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, exc) == null) {
-                this.a.e = ADConfigError.error("1", exc.toString());
-                if (this.a.f != null) {
-                    this.a.f.a(this.a.e);
-                }
-            }
-        }
-
-        public final void f(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                if (!TextUtils.isEmpty(str)) {
-                    try {
-                        this.a.a = true;
-                        pm0.d().c();
-                        pm0.d().e(str);
-                        return;
-                    } catch (ADConfigError e) {
-                        this.a.e = e;
-                        this.a.l();
-                        return;
-                    }
-                }
-                this.a.e = ADConfigError.error("1", ADConfigError.REASON_NULL_RESPONSE);
-                this.a.l();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.hr0
-        /* renamed from: h */
-        public String d(Headers headers, String str, int i) {
-            InterceptResult invokeLLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048582, this, headers, str, i)) == null) {
-                if (i != 200) {
-                    String str2 = i + "";
-                    if (str != null) {
-                        str2 = u01.c(str).optString("error_message");
-                    }
-                    this.a.e = ADConfigError.error("8", str2);
-                    this.a.l();
-                    this.a.k();
-                    return null;
-                }
-                return str;
-            }
-            return (String) invokeLLI.objValue;
-        }
-    }
-
-    public qm0(int i, boolean z, int i2) {
+    public qm0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = i;
-        this.c = z;
-        this.d = i2;
+        this.a = new ConcurrentHashMap<>();
+        this.b = new ConcurrentHashMap<>();
     }
 
-    public void m(xm0 xm0Var) {
+    public final void a(@NonNull ym0 ym0Var) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, xm0Var) == null) {
-            this.f = xm0Var;
-        }
-    }
-
-    @NonNull
-    public final JSONObject g() {
-        InterceptResult invokeV;
-        String o;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            mj0 a2 = ej0.a();
-            u01.f(jSONObject, "cuid", a2.g());
-            u01.f(jSONObject, "baiduid", a2.n());
-            u01.f(jSONObject, "product", a2.y());
-            u01.f(jSONObject, "bundle_id", a2.packageName());
-            u01.f(jSONObject, AdExtParam.KEY_NAD_CORE_VERSION, "5.10.0.26");
-            u01.f(jSONObject, "ot", "2");
-            String h = uj0.c().h(false);
-            if (!TextUtils.isEmpty(h)) {
-                u01.f(jSONObject, "ov", h);
+        if (interceptable == null || interceptable.invokeL(1048576, this, ym0Var) == null) {
+            synchronized (this) {
+                ArrayList<ym0> arrayList = this.a.get(ym0Var.b);
+                boolean z2 = true;
+                if (arrayList == null) {
+                    arrayList = new ArrayList<>();
+                    this.a.put(ym0Var.b, arrayList);
+                } else {
+                    Iterator<ym0> it = arrayList.iterator();
+                    while (it.hasNext()) {
+                        if (it.next().a == ym0Var.a) {
+                            z = true;
+                            break;
+                        }
+                    }
+                }
+                z = false;
+                if (!z) {
+                    arrayList.add(ym0Var);
+                }
+                ArrayList<ym0> arrayList2 = this.b.get(ym0Var.a);
+                if (arrayList2 == null) {
+                    arrayList2 = new ArrayList<>();
+                    this.b.put(ym0Var.a, arrayList2);
+                } else {
+                    Iterator<ym0> it2 = arrayList2.iterator();
+                    while (it2.hasNext()) {
+                        if (it2.next().d == ym0Var.d) {
+                            break;
+                        }
+                    }
+                }
+                z2 = false;
+                if (!z2) {
+                    arrayList2.add(ym0Var);
+                }
             }
-            u01.f(jSONObject, "ua", ej0.e());
-            if (TextUtils.isEmpty(a2.o())) {
-                o = a2.v();
-            } else {
-                o = a2.o();
+        }
+    }
+
+    public <T extends tm0> void b(@Nullable T t) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) != null) || t == null) {
+            return;
+        }
+        synchronized (this) {
+            ArrayList<ym0> arrayList = this.a.get(t.getClass());
+            if (arrayList != null) {
+                Iterator<ym0> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    ym0 next = it.next();
+                    f(next, next.d, t);
+                }
             }
-            u01.f(jSONObject, "ver", o);
-            u01.f(jSONObject, "sid", a2.i());
-            u01.f(jSONObject, HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, String.valueOf(System.currentTimeMillis()));
-            u01.f(jSONObject, "ext", "");
-            return jSONObject;
         }
-        return (JSONObject) invokeV.objValue;
     }
 
-    @Nullable
-    public final pr0 h() {
-        InterceptResult invokeV;
+    public <T extends tm0> void c(@NonNull Object obj, int i, @NonNull wm0<T> wm0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            or0 f = or0.f(m41.a(g().toString().getBytes()));
-            pr0 pr0Var = new pr0();
-            pr0Var.a("Content-Encoding", "gzip");
-            pr0Var.a("Content-Type", "application/json");
-            pr0Var.l(i() + "?" + ej0.a().l());
-            pr0Var.g(this.b * 1000);
-            pr0Var.j(this.b * 1000);
-            pr0Var.k(this.b * 1000);
-            pr0Var.f(f);
-            return pr0Var;
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, obj, i, wm0Var) == null) {
+            a(new ym0(i, obj, wm0Var.a(), wm0Var));
         }
-        return (pr0) invokeV.objValue;
     }
 
-    public final String i() {
-        InterceptResult invokeV;
+    public <T extends tm0> void d(@NonNull Object obj, @NonNull wm0<T> wm0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (sg0.a && !TextUtils.isEmpty(ej0.d().k())) {
-                return ej0.d().k();
+        if (interceptable == null || interceptable.invokeLL(1048579, this, obj, wm0Var) == null) {
+            c(obj, 0, wm0Var);
+        }
+    }
+
+    public final void e(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+            synchronized (this) {
+                ArrayList<ym0> arrayList = this.b.get(obj);
+                if (arrayList != null) {
+                    Iterator<ym0> it = arrayList.iterator();
+                    while (it.hasNext()) {
+                        ym0 next = it.next();
+                        ArrayList<ym0> arrayList2 = this.a.get(next.b);
+                        if (arrayList2 != null) {
+                            arrayList2.remove(next);
+                        }
+                    }
+                    arrayList.clear();
+                    this.b.remove(obj);
+                }
             }
-            return "https://afdconf.baidu.com/afd/platform";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            sm0.c().d();
         }
     }
 
-    public final void l() {
-        ADConfigError aDConfigError;
+    public final <T extends tm0> void f(ym0 ym0Var, wm0<T> wm0Var, T t) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (aDConfigError = this.e) != null && !TextUtils.equals(aDConfigError.reason, ADConfigError.REASON_REQUEST_SUCCESS)) {
-            rm0.c(this.e, this.d, this.c);
-        }
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            pr0 h = h();
-            if (h == null) {
-                this.e = ADConfigError.error("10", ADConfigError.REASON_BUILD_REQUEST_FAILED);
-                l();
-                k();
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, ym0Var, wm0Var, t) == null) {
+            int i = ym0Var.c;
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i == 3) {
+                            om0.b().a(ym0Var, wm0Var, t);
+                            return;
+                        }
+                        return;
+                    }
+                    pm0.b().a(ym0Var, wm0Var, t);
+                    return;
+                }
+                xm0.b().a(ym0Var, wm0Var, t);
                 return;
             }
-            wq0.b().a().a(h, new a(this));
+            wm0Var.onEvent(t);
+        }
+    }
+
+    public void g(@NonNull Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
+            e(obj);
         }
     }
 }

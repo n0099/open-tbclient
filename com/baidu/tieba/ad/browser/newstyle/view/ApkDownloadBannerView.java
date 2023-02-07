@@ -14,9 +14,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qk0;
-import com.baidu.tieba.vs5;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.cl0;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.hx5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ApkDownloadBannerView extends LinearLayout implements vs5 {
+public class ApkDownloadBannerView extends LinearLayout implements hx5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -36,7 +36,7 @@ public class ApkDownloadBannerView extends LinearLayout implements vs5 {
     public int f;
     public boolean g;
 
-    @Override // com.baidu.tieba.vs5
+    @Override // com.baidu.tieba.hx5
     public boolean a(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -46,14 +46,14 @@ public class ApkDownloadBannerView extends LinearLayout implements vs5 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.jl0
+    @Override // com.baidu.tieba.vl0
     public void b(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.jl0
+    @Override // com.baidu.tieba.vl0
     @NonNull
     public View getRealView() {
         InterceptResult invokeV;
@@ -197,14 +197,14 @@ public class ApkDownloadBannerView extends LinearLayout implements vs5 {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             this.a = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0062, (ViewGroup) this, true);
             setOrientation(1);
-            int d = zi.d(getContext(), 22.0f);
-            int d2 = zi.d(getContext(), 11.0f);
+            int d = ej.d(getContext(), 22.0f);
+            int d2 = ej.d(getContext(), 11.0f);
             setPadding(d, d2, d, d2);
-            this.b = (BannerDownloadProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f090294);
-            this.c = (BannerDownloadStateBar) this.a.findViewById(R.id.obfuscated_res_0x7f090296);
-            this.d = (BannerDownloadStateBar) this.a.findViewById(R.id.obfuscated_res_0x7f090297);
+            this.b = (BannerDownloadProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f09028b);
+            this.c = (BannerDownloadStateBar) this.a.findViewById(R.id.obfuscated_res_0x7f09028d);
+            this.d = (BannerDownloadStateBar) this.a.findViewById(R.id.obfuscated_res_0x7f09028e);
             this.b.setTextColor(Color.parseColor("#999999"));
-            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09087b);
+            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09088f);
             this.e = textView;
             if (this.g) {
                 i = 0;
@@ -265,12 +265,12 @@ public class ApkDownloadBannerView extends LinearLayout implements vs5 {
         return (BannerDownloadStateBar) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.jl0
-    public void update(String str, @NonNull qk0 qk0Var) {
+    @Override // com.baidu.tieba.vl0
+    public void update(String str, @NonNull cl0 cl0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, str, qk0Var) == null) {
-            getActionBar().setState(d(qk0Var.c));
-            this.b.setProgress((int) (Math.max(qk0Var.i, qk0Var.j) * 100.0f));
+        if (interceptable == null || interceptable.invokeLL(1048585, this, str, cl0Var) == null) {
+            getActionBar().setState(d(cl0Var.c));
+            this.b.setProgress((int) (Math.max(cl0Var.i, cl0Var.j) * 100.0f));
         }
     }
 }

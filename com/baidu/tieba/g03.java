@@ -1,126 +1,346 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Context;
 import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Pair;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
+import com.baidu.searchbox.http.callback.StatResponseCallback;
+import com.baidu.searchbox.http.request.HttpRequest;
+import com.baidu.searchbox.http.statistics.NetworkStatRecord;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.tencent.open.SocialOperation;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.UUID;
-import org.json.JSONArray;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.HttpUrl;
+import okhttp3.Response;
 import org.json.JSONException;
 import org.json.JSONObject;
+@Deprecated
 /* loaded from: classes4.dex */
-public class g03 {
+public class g03 extends yz2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947740063, "Lcom/baidu/tieba/g03;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public void y(@NonNull JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class a implements StatResponseCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ HttpUrl b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ int d;
+        public final /* synthetic */ long e;
+        public final /* synthetic */ c f;
+
+        @Override // com.baidu.searchbox.http.callback.StatResponseCallback
+        public void onSuccess(Object obj, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947740063, "Lcom/baidu/tieba/g03;");
+        }
+
+        public a(g03 g03Var, String str, HttpUrl httpUrl, String str2, int i, long j, c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g03Var, str, httpUrl, str2, Integer.valueOf(i), Long.valueOf(j), cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = httpUrl;
+            this.c = str2;
+            this.d = i;
+            this.e = j;
+            this.f = cVar;
+        }
+
+        @Override // com.baidu.searchbox.http.callback.StatResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                pf3.C(this.c, this.d, null, this.e, System.currentTimeMillis(), this.a);
+                if (exc instanceof IOException) {
+                    this.f.onFailure(null, (IOException) exc);
+                } else {
+                    this.f.onFailure(null, new IOException(exc));
+                }
+            }
+        }
+
+        @Override // com.baidu.searchbox.http.callback.StatResponseCallback
+        public Object parseResponse(Response response, int i, NetworkStatRecord networkStatRecord) throws Exception {
+            InterceptResult invokeLIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, response, i, networkStatRecord)) == null) {
+                ge2.k().C(this.a, this.b, networkStatRecord);
+                pf3.C(this.c, this.d, networkStatRecord, this.e, System.currentTimeMillis(), this.a);
+                this.f.onResponse(null, response);
+                return response;
+            }
+            return invokeLIL.objValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements pn3<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ String b;
+
+        public b(g03 g03Var, CallbackHandler callbackHandler, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g03Var, callbackHandler, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = callbackHandler;
+            this.b = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.pn3
+        /* renamed from: b */
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1001, str).toString());
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c implements Callback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public w83 a;
+        public JSONObject b;
+        public String c;
+        public String d;
+        public CallbackHandler e;
+        public String f;
+        public long g;
+        public final /* synthetic */ g03 h;
+
+        public c(@NonNull g03 g03Var, @NonNull w83 w83Var, @NonNull JSONObject jSONObject, @NonNull String str, String str2, @NonNull CallbackHandler callbackHandler, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g03Var, w83Var, jSONObject, str, str2, callbackHandler, str3};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.h = g03Var;
+            this.a = w83Var;
+            this.b = jSONObject;
+            this.c = str;
+            this.d = str2;
+            this.e = callbackHandler;
+            this.f = str3;
+            this.g = System.currentTimeMillis();
+        }
+
+        @Override // okhttp3.Callback
+        public void onFailure(Call call, IOException iOException) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
+                if (ta3.b) {
+                    Log.d("RequestAction", "onFailure: " + iOException.getMessage());
+                }
+                int G = this.a.Y().G();
+                String l = pf3.l();
+                String e = qm3.n().e();
+                SwanAppNetworkUtils.a(ag4.g().getOkHttpClient(), this.d);
+                this.e.handleSchemeDispatchCallback(this.f, UnitedSchemeUtility.wrapCallbackParams(1001, iOException.getMessage()).toString());
+                pf3.Q(0, this.c, G, iOException.getMessage(), l, e, this.g, System.currentTimeMillis(), this.d);
+            }
+        }
+
+        @Override // okhttp3.Callback
+        public void onResponse(Call call, Response response) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
+                if (!pf3.o(this.c)) {
+                    sh3.l().x(this.c, response.headers("Set-cookie"));
+                }
+                String J = ky1.J(this.b);
+                String L = ky1.L(this.b);
+                int G = this.a.Y().G();
+                long currentTimeMillis = System.currentTimeMillis();
+                String l = pf3.l();
+                String e = qm3.n().e();
+                String optString = this.b.optString("cb");
+                try {
+                    long K = ky1.K(response);
+                    if (K <= Config.FULL_TRACE_LOG_LIMIT) {
+                        JSONObject jSONObject = new JSONObject();
+                        jSONObject.put("statusCode", response.code());
+                        jSONObject.put("header", yz2.s(response.headers()));
+                        ky1.R(jSONObject, response.body(), J, L);
+                        this.h.y(jSONObject);
+                        this.e.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
+                    } else {
+                        ky1.S(this.a, this.c, K, currentTimeMillis);
+                        this.e.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(201, "response json length over limits").toString());
+                    }
+                } catch (IOException | JSONException e2) {
+                    if (ta3.b) {
+                        Log.d("RequestAction", Log.getStackTraceString(e2));
+                    }
+                    this.e.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(201, e2.getMessage()).toString());
+                }
+                int code = response.code();
+                String message = response.message();
+                if (ta3.b) {
+                    Log.d("RequestAction", "onResponse: respCode: " + code + ", url=" + this.c + ", msg=" + message);
+                }
+                pf3.Q(code, this.c, G, message, l, e, this.g, System.currentTimeMillis(), this.d);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g03(t93 t93Var) {
+        super(t93Var, "/swanAPI/request");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {t93Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((t93) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = tk1.a;
     }
 
-    public static String a(String str, long j, String str2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g03(t93 t93Var, String str) {
+        super(t93Var, str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {t93Var, str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((t93) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public boolean A(@NonNull w83 w83Var, @NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull CallbackHandler callbackHandler, @NonNull String str) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, w83Var, unitedSchemeEntity, callbackHandler, str)) == null) {
+            JSONObject a2 = ta3.a(unitedSchemeEntity, "params");
+            if (a2 == null) {
+                return false;
+            }
+            Pair<HttpRequest, Integer> C = ky1.C(a2, str);
+            HttpRequest httpRequest = (HttpRequest) C.first;
+            if (httpRequest == null) {
+                unitedSchemeEntity.result = t(((Integer) C.second).intValue());
+                return false;
+            }
+            z(w83Var, a2, httpRequest, str, callbackHandler);
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ta3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, w83 w83Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, w83Var)) == null) {
+            if (ta3.b) {
+                Log.d("RequestApi", "request with scheme : " + unitedSchemeEntity.getParam("params"));
+            }
+            if (!k(w83Var, unitedSchemeEntity)) {
+                return false;
+            }
+            String a2 = ly1.a(w83Var.b);
+            if (!A(w83Var, unitedSchemeEntity, callbackHandler, a2)) {
+                return false;
+            }
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(n(a2), 0));
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public final boolean x(@NonNull w83 w83Var, @NonNull JSONObject jSONObject, @NonNull String str, @NonNull String str2, CallbackHandler callbackHandler, @NonNull String str3) {
         InterceptResult invokeCommon;
-        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Long.valueOf(j), str2})) == null) {
-            j43 M = j43.M();
-            if (M == null) {
-                str3 = "";
-            } else {
-                str3 = lw1.a(M.O());
-            }
-            String[] strArr = {str3, str, String.valueOf(j), str2};
-            Arrays.sort(strArr);
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < 4; i++) {
-                sb.append(strArr[i]);
-            }
-            try {
-                return bh3.c("SHA-1", sb.toString().getBytes(), false);
-            } catch (NoSuchAlgorithmException e) {
-                if (!a) {
-                    return "";
-                }
-                Log.e("SwanPluginHostSign", "getSignature occurs exception:", e);
-                return "";
-            }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{w83Var, jSONObject, str, str2, callbackHandler, str3})) == null) {
+            return ds2.e().i(w83Var, jSONObject, str, str2, new c(this, w83Var, jSONObject, str, str2, callbackHandler, str3), new b(this, callbackHandler, str3));
         }
-        return (String) invokeCommon.objValue;
+        return invokeCommon.booleanValue;
     }
 
-    public static boolean c(String str, String str2, kd4 kd4Var) {
-        InterceptResult invokeLLL;
-        int length;
+    public final void z(@NonNull w83 w83Var, @NonNull JSONObject jSONObject, @NonNull HttpRequest httpRequest, @NonNull String str, @NonNull CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, kd4Var)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && kd4Var != null) {
-                String str3 = kd4Var.q;
-                if (TextUtils.isEmpty(str3)) {
-                    return false;
-                }
-                try {
-                    JSONArray optJSONArray = new JSONObject(str3).optJSONArray(str);
-                    if (optJSONArray == null || (length = optJSONArray.length()) == 0) {
-                        return false;
-                    }
-                    ArrayList arrayList = new ArrayList();
-                    for (int i = 0; i < length; i++) {
-                        String optString = optJSONArray.optString(i);
-                        if (!TextUtils.isEmpty(optString)) {
-                            arrayList.add(optString);
-                        }
-                    }
-                    return a53.b(new URI(str2).getHost(), arrayList);
-                } catch (URISyntaxException | JSONException e) {
-                    b03.b(Log.getStackTraceString(e));
-                }
+        if (interceptable == null || interceptable.invokeLLLLL(1048580, this, w83Var, jSONObject, httpRequest, str, callbackHandler) == null) {
+            HttpUrl url = httpRequest.getOkRequest().url();
+            String httpUrl = url.toString();
+            String optString = jSONObject.optString("cb");
+            if (x(w83Var, jSONObject, httpUrl, str, callbackHandler, optString)) {
+                return;
             }
-            return false;
+            httpRequest.executeStat(new a(this, str, url, httpUrl, w83Var.Y().G(), System.currentTimeMillis(), new c(this, w83Var, jSONObject, httpUrl, str, callbackHandler, optString)));
         }
-        return invokeLLL.booleanValue;
-    }
-
-    public static String b(kd4 kd4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, kd4Var)) == null) {
-            if (kd4Var == null) {
-                return "";
-            }
-            String str = kd4Var.p;
-            JSONObject jSONObject = new JSONObject();
-            String uuid = UUID.randomUUID().toString();
-            long currentTimeMillis = System.currentTimeMillis() / 1000;
-            try {
-                jSONObject.put("noncestr", uuid);
-                jSONObject.put("timestamp", currentTimeMillis);
-                jSONObject.put(SocialOperation.GAME_SIGNATURE, a(uuid, currentTimeMillis, str));
-            } catch (JSONException e) {
-                b03.b(Log.getStackTraceString(e));
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeL.objValue;
     }
 }

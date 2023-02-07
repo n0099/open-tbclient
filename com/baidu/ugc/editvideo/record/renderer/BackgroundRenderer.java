@@ -4,8 +4,8 @@ import android.opengl.GLES20;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
-import com.baidu.tieba.jg0;
-import com.baidu.tieba.rg0;
+import com.baidu.tieba.pg0;
+import com.baidu.tieba.xg0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -32,15 +32,15 @@ public class BackgroundRenderer extends MediaBaseRenderer {
     }
 
     @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
-    public void onDrawFrame(jg0 jg0Var, int i, float[] fArr) {
+    public void onDrawFrame(pg0 pg0Var, int i, float[] fArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(1048576, this, jg0Var, i, fArr) == null) || jg0Var == null || jg0Var.l() == null) {
+        if (!(interceptable == null || interceptable.invokeLIL(1048576, this, pg0Var, i, fArr) == null) || pg0Var == null || pg0Var.l() == null) {
             return;
         }
-        for (int i2 = 1; i2 < jg0Var.l().size(); i2++) {
-            MediaTrack mediaTrack = jg0Var.l().get(i2);
-            if (mediaTrack != null && rg0.m(mediaTrack, "only_background")) {
-                long a = jg0Var.a();
+        for (int i2 = 1; i2 < pg0Var.l().size(); i2++) {
+            MediaTrack mediaTrack = pg0Var.l().get(i2);
+            if (mediaTrack != null && xg0.m(mediaTrack, "only_background")) {
+                long a = pg0Var.a();
                 for (MediaSegment mediaSegment : mediaTrack.mediaSegments) {
                     if (mediaSegment.start != 0 || mediaSegment.end != 0) {
                         long j = mediaSegment.start;

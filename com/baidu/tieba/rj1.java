@@ -1,64 +1,70 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.net.Uri;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes6.dex */
-public final class rj1 {
+public class rj1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static byte[] a(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, bArr, bArr2)) == null) {
-            try {
-                SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
-                Cipher cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
-                byte[] bArr3 = new byte[16];
-                for (int i = 0; i < 16; i++) {
-                    bArr3[i] = 0;
-                }
-                cipher.init(1, secretKeySpec, new IvParameterSpec(bArr3));
-                byte[] doFinal = cipher.doFinal(bArr2);
-                byte[] e = xj1.e(bArr2);
-                byte[] bArr4 = new byte[doFinal.length + e.length];
-                System.arraycopy(doFinal, 0, bArr4, 0, doFinal.length);
-                System.arraycopy(e, 0, bArr4, doFinal.length, e.length);
-                return bArr4;
-            } catch (Throwable th) {
-                tj1.d(th);
-                return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948123440, "Lcom/baidu/tieba/rj1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948123440, "Lcom/baidu/tieba/rj1;");
+                return;
             }
         }
-        return (byte[]) invokeLL.objValue;
+        vj1 e = vj1.e();
+        wj1 wj1Var = new wj1();
+        e.f("splash_ad", wj1Var);
+        e.g(wj1Var);
     }
 
-    public static byte[] b(byte[] bArr, byte[] bArr2, boolean z) {
-        InterceptResult invokeLLZ;
+    public static boolean a(Context context, String str, oj1 oj1Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, bArr, bArr2, z)) == null) {
-            try {
-                SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
-                Cipher cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
-                byte[] bArr3 = new byte[16];
-                for (int i = 0; i < 16; i++) {
-                    bArr3[i] = 0;
-                }
-                cipher.init(2, secretKeySpec, new IvParameterSpec(bArr3));
-                if (z) {
-                    byte[] bArr4 = new byte[bArr2.length - 16];
-                    System.arraycopy(bArr2, 0, bArr4, 0, bArr2.length - 16);
-                    bArr2 = bArr4;
-                }
-                return cipher.doFinal(bArr2);
-            } catch (Throwable unused) {
-                return null;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, str, oj1Var)) == null) {
+            if (xj1.g(str)) {
+                return c(context, Uri.parse(str), oj1Var);
             }
+            return false;
         }
-        return (byte[]) invokeLLZ.objValue;
+        return invokeLLL.booleanValue;
+    }
+
+    public static boolean c(Context context, Uri uri, oj1 oj1Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, context, uri, oj1Var)) == null) {
+            return b(context, uri, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE, oj1Var);
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public static boolean b(Context context, Uri uri, String str, oj1 oj1Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, context, uri, str, oj1Var)) == null) {
+            if (context == null) {
+                context = qj1.a();
+            }
+            vj1 e = vj1.e();
+            uj1 uj1Var = new uj1(uri, str);
+            uj1Var.g(false);
+            return e.b(context, uj1Var, oj1Var);
+        }
+        return invokeLLLL.booleanValue;
     }
 }

@@ -1,80 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.mapapi.search.core.PoiInfo;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class w94 {
+public class w94 extends x94 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PoiInfo a;
-    public boolean b;
-    public boolean c;
+    public String b;
+    public int c;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public w94(PoiInfo poiInfo) {
-        this(poiInfo, false, false);
+    public w94() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {poiInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((PoiInfo) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public static List<w94> a(List<PoiInfo> list) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.x94
+    public JSONObject a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
-            if (list != null && list.size() > 0) {
-                ArrayList arrayList = new ArrayList(list.size());
-                for (PoiInfo poiInfo : list) {
-                    if (poiInfo.location != null) {
-                        arrayList.add(new w94(poiInfo));
-                    }
-                }
-                return arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("packageName", this.b);
+                jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, this.c);
+                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, this.a);
+            } catch (JSONException unused) {
             }
-            return new ArrayList();
+            return jSONObject;
         }
-        return (List) invokeL.objValue;
-    }
-
-    public w94(PoiInfo poiInfo, boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {poiInfo, Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        if (poiInfo == null) {
-            this.a = new PoiInfo();
-        }
-        this.a = poiInfo;
-        this.b = z;
-        this.c = z2;
+        return (JSONObject) invokeV.objValue;
     }
 }

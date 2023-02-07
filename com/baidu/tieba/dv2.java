@@ -1,9 +1,12 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Rect;
-import android.util.Log;
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,68 +14,142 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
 import java.util.Set;
-import java.util.TreeSet;
 /* loaded from: classes4.dex */
-public abstract class dv2 {
+public final class dv2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static final boolean d;
+    public static final Set<String> e;
     public transient /* synthetic */ FieldHolder $fh;
-    public double a;
-    public Set<Integer> b;
-
-    public abstract boolean a(Bitmap bitmap, Rect rect);
+    public final String a;
+    public final Object b;
+    public final int c;
 
     /* loaded from: classes4.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public Object b;
+        public int c;
+        public RuntimeException d;
 
-        public static dv2 a(String str) {
-            InterceptResult invokeL;
+        public a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-                return b(str, 0.5d);
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            return (dv2) invokeL.objValue;
         }
 
-        public static dv2 b(String str, double d) {
-            InterceptResult invokeCommon;
-            char c;
+        public Exception c() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Double.valueOf(d)})) == null) {
-                int hashCode = str.hashCode();
-                if (hashCode != -2129978548) {
-                    if (hashCode != -585839565) {
-                        if (hashCode == 544848403 && str.equals("hsv_parser")) {
-                            c = 1;
-                        }
-                        c = 65535;
-                    } else {
-                        if (str.equals("solid_parser")) {
-                            c = 2;
-                        }
-                        c = 65535;
-                    }
-                } else {
-                    if (str.equals("simple_parser")) {
-                        c = 0;
-                    }
-                    c = 65535;
-                }
-                if (c != 0) {
-                    if (c != 1) {
-                        if (c != 2) {
-                            return new fv2();
-                        }
-                        return new gv2();
-                    }
-                    return new ev2(d);
-                }
-                return new fv2();
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.d;
             }
-            return (dv2) invokeCommon.objValue;
+            return (Exception) invokeV.objValue;
+        }
+
+        @Nullable
+        @SuppressLint({"BDThrowableCheck"})
+        public dv2 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.d != null) {
+                    if (!dv2.d) {
+                        return null;
+                    }
+                    throw this.d;
+                } else if (this.a == null) {
+                    this.d = new IllegalStateException("key == null");
+                    if (!dv2.d) {
+                        return null;
+                    }
+                    throw this.d;
+                } else {
+                    synchronized (a.class) {
+                        if (dv2.e.contains(this.a)) {
+                            this.d = new IllegalStateException("the key of switch has been occupied");
+                            if (!dv2.d) {
+                                return null;
+                            }
+                            throw this.d;
+                        } else if (this.b == null) {
+                            this.d = new IllegalStateException("defaultValue == null");
+                            if (!dv2.d) {
+                                return null;
+                            }
+                            throw this.d;
+                        } else if (!dv2.c(this.c, this.b)) {
+                            this.d = new IllegalStateException("valueType error");
+                            if (!dv2.d) {
+                                return null;
+                            }
+                            throw this.d;
+                        } else {
+                            dv2.e.add(this.a);
+                            return new dv2(this);
+                        }
+                    }
+                }
+            }
+            return (dv2) invokeV.objValue;
+        }
+
+        public a b(@NonNull Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+                this.b = obj;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a e(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+                this.c = i;
+                return this;
+            }
+            return (a) invokeI.objValue;
+        }
+
+        @SuppressLint({"BDThrowableCheck"})
+        public a d(@NonNull String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+                if (TextUtils.isEmpty(str)) {
+                    this.d = new IllegalArgumentException("the key of switch must not be empty");
+                    if (!dv2.d) {
+                        this.a = null;
+                        return this;
+                    }
+                    throw this.d;
+                } else if (TextUtils.equals(Config.SID, str)) {
+                    this.d = new IllegalArgumentException("sid must not equal \"sids\"");
+                    if (!dv2.d) {
+                        this.a = null;
+                        return this;
+                    }
+                    throw this.d;
+                } else {
+                    this.a = str;
+                    return this;
+                }
+            }
+            return (a) invokeL.objValue;
         }
     }
 
@@ -89,13 +166,43 @@ public abstract class dv2 {
                 return;
             }
         }
-        c = tk1.a;
+        d = gp1.a;
+        e = new HashSet();
     }
 
-    public dv2() {
+    public Object d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public dv2(@NonNull a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -105,46 +212,45 @@ public abstract class dv2 {
                 return;
             }
         }
-        this.a = 1.0d;
+        this.a = aVar.a;
+        this.b = aVar.b;
+        this.c = aVar.c;
     }
 
-    public boolean b(Bitmap bitmap, Rect rect) {
-        InterceptResult invokeLL;
+    public static boolean c(int i, Object obj) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, rect)) == null) {
-            if (bitmap == null || rect == null || rect.top < 0 || rect.bottom < 0 || rect.left < 0 || rect.right < 0) {
-                return false;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, obj)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
+                            if (i != 4) {
+                                return false;
+                            }
+                            return obj instanceof String;
+                        }
+                        return obj instanceof Long;
+                    }
+                    return obj instanceof Integer;
+                }
+                return obj instanceof Double;
             }
-            int width = bitmap.getWidth();
-            int height = bitmap.getHeight();
-            int i = rect.top;
-            int i2 = rect.bottom;
-            if (i >= i2 || i2 > height) {
-                return false;
-            }
-            int i3 = rect.left;
-            int i4 = rect.right;
-            if (i3 >= i4 || i4 > width) {
-                return false;
-            }
-            return true;
+            return obj instanceof Boolean;
         }
-        return invokeLL.booleanValue;
+        return invokeIL.booleanValue;
     }
 
-    public void c(int i) {
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            Set<Integer> set = this.b;
-            if (set == null) {
-                this.b = new TreeSet();
-            } else {
-                set.clear();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (d) {
+                return "SwanLocalABTestSwitch{key='" + this.a + "', defaultValue=" + this.b + ", valueType=" + this.c + '}';
             }
-            if (c) {
-                Log.d("ErrorPageParser", "set color " + String.format("#%06X", Integer.valueOf(16777215 & i)));
-            }
-            this.b.add(Integer.valueOf(i));
+            return super.toString();
         }
+        return (String) invokeV.objValue;
     }
 }

@@ -149,6 +149,16 @@ public final class TextViewCompat {
             return (Intent) invokeV.objValue;
         }
 
+        @NonNull
+        public ActionMode.Callback getWrappedCallback() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.mCallback;
+            }
+            return (ActionMode.Callback) invokeV.objValue;
+        }
+
         private Intent createProcessTextIntentForResolveInfo(ResolveInfo resolveInfo, TextView textView) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -164,7 +174,7 @@ public final class TextViewCompat {
         public boolean onActionItemClicked(ActionMode actionMode, MenuItem menuItem) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, actionMode, menuItem)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, actionMode, menuItem)) == null) {
                 return this.mCallback.onActionItemClicked(actionMode, menuItem);
             }
             return invokeLL.booleanValue;
@@ -174,7 +184,7 @@ public final class TextViewCompat {
         public boolean onCreateActionMode(ActionMode actionMode, Menu menu) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, actionMode, menu)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, actionMode, menu)) == null) {
                 return this.mCallback.onCreateActionMode(actionMode, menu);
             }
             return invokeLL.booleanValue;
@@ -184,7 +194,7 @@ public final class TextViewCompat {
         public boolean onPrepareActionMode(ActionMode actionMode, Menu menu) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, actionMode, menu)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, actionMode, menu)) == null) {
                 recomputeProcessTextMenuItems(menu);
                 return this.mCallback.onPrepareActionMode(actionMode, menu);
             }
@@ -206,7 +216,7 @@ public final class TextViewCompat {
         @Override // android.view.ActionMode.Callback
         public void onDestroyActionMode(ActionMode actionMode) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, actionMode) == null) {
+            if (interceptable == null || interceptable.invokeL(1048579, this, actionMode) == null) {
                 this.mCallback.onDestroyActionMode(actionMode);
             }
         }
@@ -393,6 +403,20 @@ public final class TextViewCompat {
             return textView.getPaddingBottom() + textView.getPaint().getFontMetricsInt().bottom;
         }
         return invokeL.intValue;
+    }
+
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public static ActionMode.Callback unwrapCustomSelectionActionModeCallback(@Nullable ActionMode.Callback callback) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, callback)) == null) {
+            if ((callback instanceof OreoCallback) && Build.VERSION.SDK_INT >= 26) {
+                return ((OreoCallback) callback).getWrappedCallback();
+            }
+            return callback;
+        }
+        return (ActionMode.Callback) invokeL.objValue;
     }
 
     @NonNull
@@ -747,14 +771,14 @@ public final class TextViewCompat {
         }
     }
 
-    @NonNull
+    @Nullable
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public static ActionMode.Callback wrapCustomSelectionActionModeCallback(@NonNull TextView textView, @NonNull ActionMode.Callback callback) {
+    public static ActionMode.Callback wrapCustomSelectionActionModeCallback(@NonNull TextView textView, @Nullable ActionMode.Callback callback) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65569, null, textView, callback)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65570, null, textView, callback)) == null) {
             int i = Build.VERSION.SDK_INT;
-            if (i >= 26 && i <= 27 && !(callback instanceof OreoCallback)) {
+            if (i >= 26 && i <= 27 && !(callback instanceof OreoCallback) && callback != null) {
                 return new OreoCallback(callback, textView);
             }
             return callback;

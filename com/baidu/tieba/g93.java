@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.setting.oauth.OAuthException;
-import com.baidu.swan.apps.setting.oauth.TaskState;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,166 +11,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Set;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.File;
+import java.util.Map;
+import java.util.TreeMap;
 /* loaded from: classes4.dex */
-public abstract class g93<ResultDataT> {
+public final class g93 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final m93<ResultDataT> a;
-    public final Set<cj3<m93<ResultDataT>>> b;
-    public final LinkedList<i93> c;
-    public boolean d;
-    public boolean e;
-
-    public abstract void i();
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public abstract ResultDataT m(JSONObject jSONObject) throws JSONException;
-
-    public g93<ResultDataT> q(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) ? this : (g93) invokeL.objValue;
-    }
-
-    /* loaded from: classes4.dex */
-    public class a extends i93 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g93 c;
-
-        public a(g93 g93Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g93Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = g93Var;
-        }
-
-        @Override // com.baidu.tieba.i93
-        public boolean f() throws Exception {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.c.k()) {
-                    return true;
-                }
-                h93.k("initialPrepare failed", Boolean.TRUE);
-                throw new OAuthException(10001);
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b extends i93 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g93 c;
-
-        public b(g93 g93Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g93Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = g93Var;
-        }
-
-        @Override // com.baidu.tieba.i93
-        public boolean f() throws Exception {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (!this.c.j()) {
-                    h93.k("finalPrepare failed", Boolean.TRUE);
-                    if (g93.f) {
-                        throw new OAuthException(10001);
-                    }
-                    return true;
-                }
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cj3 a;
-        public final /* synthetic */ g93 b;
-
-        public c(g93 g93Var, cj3 cj3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g93Var, cj3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = g93Var;
-            this.a = cj3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            cj3 cj3Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (cj3Var = this.a) != null) {
-                cj3Var.a(this.b.a);
-            }
-        }
-    }
+    public Map<String, l93> a;
 
     static {
         InterceptResult invokeClinit;
@@ -187,84 +34,7 @@ public abstract class g93<ResultDataT> {
                 return;
             }
         }
-        f = tk1.a;
-    }
-
-    public final synchronized void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                i();
-            }
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            b bVar = new b(this);
-            bVar.h(this);
-            bVar.g();
-            this.e = true;
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            d(null);
-        }
-    }
-
-    @NonNull
-    public g93 call() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TaskState.INIT == e()) {
-                s(TaskState.CALLING);
-                n();
-            }
-            return this;
-        }
-        return (g93) invokeV.objValue;
-    }
-
-    public TaskState e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a.b;
-        }
-        return (TaskState) invokeV.objValue;
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            a aVar = new a(this);
-            aVar.h(this);
-            aVar.g();
-            this.d = true;
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            for (cj3<m93<ResultDataT>> cj3Var : this.b) {
-                h93.l(new c(this, cj3Var));
-            }
-        }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.a.b = TaskState.INIT;
-            this.d = false;
-            this.e = false;
-        }
+        b = gp1.a;
     }
 
     public g93() {
@@ -280,96 +50,77 @@ public abstract class g93<ResultDataT> {
                 return;
             }
         }
-        this.a = new m93<>();
-        this.b = new HashSet();
-        this.c = new LinkedList<>();
-        this.d = false;
-        this.e = false;
+        this.a = null;
     }
 
-    public void d(@Nullable Exception exc) {
+    public static String c(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, exc) == null) {
-            if (exc instanceof OAuthException) {
-                this.a.c = (OAuthException) exc;
-            } else if (exc != null) {
-                h93.t("OAuthTask#finish", exc.getMessage());
-                this.a.c = new OAuthException(exc, 10001);
-            }
-            if (!this.a.c() && f && exc != null) {
-                exc.printStackTrace();
-            }
-            s(TaskState.FINISHED);
-            h93.k(toString(), Boolean.FALSE);
-            g();
-            this.b.clear();
-        }
-    }
-
-    public g93 h(@NonNull i93 i93Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i93Var)) == null) {
-            i93Var.h(this);
-            this.c.offer(i93Var);
-            return this;
-        }
-        return (g93) invokeL.objValue;
-    }
-
-    public void l(i93 i93Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, i93Var) == null) {
-            if (i93Var.c()) {
-                n();
-            } else {
-                d(i93Var.b());
-            }
-        }
-    }
-
-    public g93<ResultDataT> o(cj3<m93<ResultDataT>> cj3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, cj3Var)) == null) {
-            if (this.a.b.isCallbackAvailable()) {
-                this.b.add(cj3Var);
-            }
-            return this;
-        }
-        return (g93) invokeL.objValue;
-    }
-
-    public void r(ResultDataT resultdatat) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, resultdatat) == null) {
-            this.a.a = resultdatat;
-        }
-    }
-
-    public final void s(TaskState taskState) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, taskState) == null) {
-            this.a.b = taskState;
-        }
-    }
-
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            if (!TaskState.CALLING.equals(e())) {
-                if (f) {
-                    h93.k("IllegalState on prepare", Boolean.FALSE);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            File d = d43.d(str2);
+            if (d == null || !d.exists()) {
+                if (str.endsWith(File.separator)) {
+                    d = new File(str + str2 + ".json");
+                } else {
+                    d = new File(str + File.separator + str2 + ".json");
                 }
-            } else if (!this.d) {
-                f();
-            } else if (!this.c.isEmpty()) {
-                this.c.poll().g();
-            } else if (!this.e) {
-                b();
-            } else {
-                a();
             }
+            if (b) {
+                Log.d("PageConfigData", "parseConfigFile baseUrl : " + str + " ,page: " + str2 + " file exist:" + d.exists());
+            }
+            if (!d.exists()) {
+                return null;
+            }
+            return sr2.m(d);
         }
+        return (String) invokeLL.objValue;
+    }
+
+    public l93 a(String str, @NonNull String str2, @NonNull l93 l93Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, l93Var)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                l93 d = d(str, str2, l93Var);
+                this.a.put(str2, d);
+                return d;
+            }
+            return l93Var;
+        }
+        return (l93) invokeLLL.objValue;
+    }
+
+    public final l93 d(String str, String str2, @NonNull l93 l93Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, l93Var)) == null) {
+            String c = c(str, str2);
+            if (TextUtils.isEmpty(c)) {
+                return l93Var;
+            }
+            return l93.b(c, l93Var);
+        }
+        return (l93) invokeLLL.objValue;
+    }
+
+    public l93 b(String str, String str2, @NonNull l93 l93Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, l93Var)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                if (this.a == null) {
+                    this.a = new TreeMap();
+                }
+                l93 l93Var2 = this.a.get(str2);
+                if (l93Var2 != null) {
+                    return l93Var2;
+                }
+                l93 d = d(str, str2, l93Var);
+                this.a.put(str2, d);
+                return d;
+            }
+            return l93Var;
+        }
+        return (l93) invokeLLL.objValue;
     }
 }

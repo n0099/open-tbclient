@@ -1,167 +1,203 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Application;
-import android.content.Context;
-import android.os.Build;
-import android.telephony.TelephonyManager;
+import android.app.Activity;
+import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.content.ContextCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.browser.sailor.util.BdZeusUtil;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.setting.oauth.OAuthException;
+import com.baidu.tieba.ae3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
-@SuppressLint({"MissingPermission", "HardwareIds"})
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class kp3 implements mp3 {
+public class kp3 extends ae3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public String q;
 
-    @Override // com.baidu.tieba.mp3
-    public String b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? "" : (String) invokeL.objValue;
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947920731, "Lcom/baidu/tieba/kp3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes5.dex */
+    public class b extends vd3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kp3 c;
+
+        /* loaded from: classes5.dex */
+        public class a implements pn3<Bundle> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947920731, "Lcom/baidu/tieba/kp3;");
-                return;
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.pn3
+            /* renamed from: b */
+            public void a(Bundle bundle) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+                    if (bundle == null) {
+                        this.a.e(new OAuthException("null stoken", 10001));
+                        return;
+                    }
+                    String string = bundle.getString(BdZeusUtil.URL_KEY_MACHINE, "");
+                    if (TextUtils.isEmpty(string)) {
+                        this.a.e(new OAuthException("empty stoken", 10001));
+                        return;
+                    }
+                    this.a.c.q = string;
+                    this.a.d();
+                }
             }
         }
-        a = tk1.a;
+
+        public b(kp3 kp3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kp3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = kp3Var;
+        }
+
+        public /* synthetic */ b(kp3 kp3Var, a aVar) {
+            this(kp3Var);
+        }
+
+        @Override // com.baidu.tieba.vd3
+        public boolean f() throws Exception {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                xo3.t(this.c.n, new a(this), BdZeusUtil.URL_KEY_MACHINE);
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
     }
 
-    public kp3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kp3(Activity activity, boolean z, String str, String str2) {
+        super(activity, z, str, str2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, Boolean.valueOf(z), str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Activity) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), (String) objArr2[2], (String) objArr2[3]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.mp3
-    public String a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            return ApiReplaceUtil.Overload.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
+        if (z) {
+            y();
         }
-        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.mp3
-    public String c(Context context) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ae3, com.baidu.tieba.td3
+    /* renamed from: P */
+    public ae3.b m(JSONObject jSONObject) throws JSONException {
         InterceptResult invokeL;
-        String meid;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 26) {
-                try {
-                    TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-                    if (telephonyManager == null) {
-                        meid = "";
-                    } else {
-                        meid = telephonyManager.getMeid();
-                    }
-                    if (TextUtils.isEmpty(meid)) {
-                        return "";
-                    }
-                    return meid;
-                } catch (Exception e) {
-                    j12.o("DeviceInfoImpl", "getMeid: catch " + e + "\n" + Log.getStackTraceString(e));
-                }
-            }
-            return "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+            xo3.D(this.n, jSONObject);
+            return super.m(jSONObject);
         }
-        return (String) invokeL.objValue;
+        return (ae3.b) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.mp3
-    public String d(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ae3, com.baidu.tieba.he3
+    public void I() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.I();
+            u03.f();
+        }
+    }
+
+    @Override // com.baidu.tieba.td3
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            h(new b(this, null));
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ae3, com.baidu.tieba.td3
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
             try {
-                TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-                if (telephonyManager != null) {
-                    String deviceId = ApiReplaceUtil.getDeviceId(telephonyManager);
-                    if (!TextUtils.isEmpty(deviceId)) {
-                        return deviceId;
-                    }
-                    if (Build.VERSION.SDK_INT >= 26) {
-                        deviceId = ApiReplaceUtil.getImei(telephonyManager);
-                    }
-                    if (TextUtils.isEmpty(deviceId)) {
-                        return "";
-                    }
-                    return deviceId;
+                jSONObject.put("ma_id", M().O());
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("app_key", M().O());
+                jSONObject2.put("host_pkgname", AppRuntime.getApplication().getPackageName());
+                jSONObject2.put("host_key_hash", ud3.g());
+                jSONObject2.put("stoken", this.q);
+                String l = ds2.o().l();
+                if (!TextUtils.isEmpty(l)) {
+                    jSONObject2.put("host_api_key", l);
                 }
-            } catch (Exception e) {
-                j12.o("DeviceInfoImpl", "getImei: catch " + e + "\n" + Log.getStackTraceString(e));
+                jSONObject.put("open", jSONObject2);
+                JSONObject jSONObject3 = new JSONObject();
+                jSONObject3.put("permit", Boolean.toString(this.o));
+                JSONObject jSONObject4 = new JSONObject();
+                jSONObject4.put(this.m, jSONObject3);
+                jSONObject.put("accredits", jSONObject4);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            return "";
+            v("data", jSONObject.toString());
+            return true;
         }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.mp3
-    public String getDeviceId(Context context) {
-        InterceptResult invokeL;
-        String deviceId;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 29) {
-                if (a) {
-                    Log.d("DeviceInfoImpl", "android 29 can not get imei");
-                }
-                return "";
-            }
-            Application c = qn2.c();
-            if (ContextCompat.checkSelfPermission(c, com.kuaishou.weapon.p0.h.c) != 0) {
-                return "";
-            }
-            try {
-                TelephonyManager telephonyManager = (TelephonyManager) c.getSystemService("phone");
-                if (telephonyManager == null) {
-                    deviceId = "";
-                } else {
-                    deviceId = ApiReplaceUtil.getDeviceId(telephonyManager);
-                }
-                if (TextUtils.isEmpty(deviceId)) {
-                    return "";
-                }
-                return deviceId;
-            } catch (Exception unused) {
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 }

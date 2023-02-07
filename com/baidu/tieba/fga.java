@@ -1,44 +1,31 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.mha;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.SplitOrderConfigResult;
 /* loaded from: classes4.dex */
-public class fga {
+public abstract class fga<E> extends dga<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SplitOrderConfigResult a;
-    public mha.b b;
 
-    public fga(SplitOrderConfigResult splitOrderConfigResult, mha.b bVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fga(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {splitOrderConfigResult, bVar};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = splitOrderConfigResult;
-        this.b = bVar;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "PaySplitOrderInfo{splitOrderConfigResult=" + this.a + ", splitsplitOrderViewParamsId=" + this.b + '}';
-        }
-        return (String) invokeV.objValue;
     }
 }

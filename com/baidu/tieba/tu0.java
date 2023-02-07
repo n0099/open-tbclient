@@ -1,252 +1,255 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.media.AudioManager;
+import android.view.View;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.player.helper.NetUtils;
+import com.baidu.nadcore.player.ui.BdLayerSeekBar;
+import com.baidu.nadcore.video.videoplayer.ui.full.BdThumbSeekBar;
+import com.baidu.searchbox.player.event.ControlEvent;
+import com.baidu.searchbox.player.event.LayerEvent;
+import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class tu0 extends BroadcastReceiver {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String ACTION_VOLUME_CHANGED = "android.media.VOLUME_CHANGED_ACTION";
-    public static final String TAG = "BdVideoReceiver";
+public abstract class tu0 extends uu0 implements View.OnClickListener, yw0 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean mHeadsetConnected;
-    public NetUtils.NetStatus mLastStatus;
-    public int mLastVolume;
-    public final a mListener;
+    public ViewGroup e;
+    public BdLayerSeekBar f;
+    public int g;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(NetUtils.NetStatus netStatus, NetUtils.NetStatus netStatus2);
-
-        void onBatteryChanged(int i);
-
-        void onBluetoothHeadsetChanged(boolean z);
-
-        void onConfigurationChanged();
-
-        void onHeadsetPlug(boolean z);
-
-        void onScreenStatusChanged(boolean z);
-
-        void onVolumeChanged(int i);
+    public boolean A() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
-    public tu0(@NonNull a aVar) {
+    @Override // com.baidu.tieba.yw0
+    public void a(BdThumbSeekBar bdThumbSeekBar, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{bdThumbSeekBar, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.wu0
+    public void s(boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        }
+    }
+
+    public tu0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.mLastStatus = NetUtils.NetStatus.NET_DOWN;
-        this.mLastVolume = -1;
-        this.mListener = aVar;
     }
 
-    private void onVolumeChanged(@NonNull Context context) {
-        AudioManager audioManager;
+    @Override // com.baidu.tieba.xu0
+    @NonNull
+    public View getContentView() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, this, context) != null) || (audioManager = (AudioManager) context.getApplicationContext().getSystemService("audio")) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.e;
         }
-        int i = this.mLastVolume;
-        try {
-            i = audioManager.getStreamVolume(3);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        if (i != this.mLastVolume) {
-            this.mLastVolume = i;
-            this.mListener.onVolumeChanged(i);
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.qu0
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            super.l();
         }
     }
 
-    private void onConnectChanged() {
+    @Override // com.baidu.tieba.wu0
+    public void t() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            a01.a("connectivity action");
-            if (isInitialStickyBroadcast()) {
-                a01.a("NetChanged: StickBroadcast");
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            super.t();
+            this.f.setVisibility(0);
+        }
+    }
+
+    public void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.f.setDuration(q().r());
+        }
+    }
+
+    public void B(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            if (z) {
+                this.f.e();
+            } else {
+                this.f.f();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.yw0
+    public void c(BdThumbSeekBar bdThumbSeekBar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bdThumbSeekBar) == null) {
+            this.g = q().C();
+            r().T();
+        }
+    }
+
+    public void C(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3) == null) {
+            this.f.g(i, i2, i3);
+        }
+    }
+
+    @Override // com.baidu.tieba.yw0
+    public void b(BdThumbSeekBar bdThumbSeekBar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bdThumbSeekBar) == null) {
+            if (A()) {
+                e11.a("seek action has been intercepted");
                 return;
             }
-            NetUtils.NetStatus a2 = NetUtils.a();
-            a01.a("onConnectChanged(), Net status " + a2);
-            this.mListener.a(this.mLastStatus, a2);
-            this.mLastStatus = a2;
+            vv0 w = lv0.w(LayerEvent.ACTION_SEEK);
+            w.n(1, Integer.valueOf(bdThumbSeekBar.getProgress()));
+            o(w);
+            q().y().F(this.g, bdThumbSeekBar.getProgress());
+            r().U(3000);
+            this.g = 0;
         }
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        String action;
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    @Override // com.baidu.tieba.uu0, com.baidu.tieba.qu0
+    public void k(@NonNull vv0 vv0Var) {
+        char c;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, context, intent) != null) || intent == null || this.mListener == null || (action = intent.getAction()) == null) {
-            return;
-        }
-        char c = 65535;
-        switch (action.hashCode()) {
-            case -2128145023:
-                if (action.equals("android.intent.action.SCREEN_OFF")) {
-                    c = 1;
-                    break;
-                }
-                break;
-            case -1940635523:
-                if (action.equals("android.media.VOLUME_CHANGED_ACTION")) {
-                    c = '\b';
-                    break;
-                }
-                break;
-            case -1676458352:
-                if (action.equals("android.intent.action.HEADSET_PLUG")) {
-                    c = 4;
-                    break;
-                }
-                break;
-            case -1538406691:
-                if (action.equals("android.intent.action.BATTERY_CHANGED")) {
-                    c = 7;
-                    break;
-                }
-                break;
-            case -1454123155:
-                if (action.equals("android.intent.action.SCREEN_ON")) {
-                    c = 2;
-                    break;
-                }
-                break;
-            case -1172645946:
-                if (action.equals("android.net.conn.CONNECTIVITY_CHANGE")) {
-                    c = 0;
-                    break;
-                }
-                break;
-            case -549244379:
-                if (action.equals("android.media.AUDIO_BECOMING_NOISY")) {
-                    c = 5;
-                    break;
-                }
-                break;
-            case -403228793:
-                if (action.equals("android.intent.action.CLOSE_SYSTEM_DIALOGS")) {
-                    c = 3;
-                    break;
-                }
-                break;
-            case 158859398:
-                if (action.equals("android.intent.action.CONFIGURATION_CHANGED")) {
-                    c = '\t';
-                    break;
-                }
-                break;
-            case 545516589:
-                if (action.equals("android.bluetooth.headset.profile.action.CONNECTION_STATE_CHANGED")) {
-                    c = 6;
-                    break;
-                }
-                break;
-        }
-        switch (c) {
-            case 0:
-                onConnectChanged();
-                return;
-            case 1:
-                a01.a("screen off");
-                this.mListener.onScreenStatusChanged(true);
-                return;
-            case 2:
-                a01.a("screen on");
-                this.mListener.onScreenStatusChanged(false);
-                return;
-            case 3:
-                a01.a("ACTION_CLOSE_SYSTEM_DIALOGS");
-                return;
-            case 4:
-                if (intent.hasExtra("state")) {
-                    a01.a("headset " + intent.getIntExtra("state", 0));
-                    if (this.mHeadsetConnected && intent.getIntExtra("state", 0) == 0) {
-                        a01.a("headset plugout");
-                        this.mHeadsetConnected = false;
-                    } else if (!this.mHeadsetConnected && intent.getIntExtra("state", 0) == 1) {
-                        this.mHeadsetConnected = true;
+        if (interceptable == null || interceptable.invokeL(1048583, this, vv0Var) == null) {
+            super.k(vv0Var);
+            String c2 = vv0Var.c();
+            switch (c2.hashCode()) {
+                case -1530009462:
+                    if (c2.equals(ControlEvent.ACTION_SYNC_PROGRESS)) {
+                        c = 7;
+                        break;
                     }
-                    this.mListener.onHeadsetPlug(this.mHeadsetConnected);
+                    c = 65535;
+                    break;
+                case -882902390:
+                    if (c2.equals(PlayerEvent.ACTION_SET_DATA_SOURCE)) {
+                        c = 6;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -552621273:
+                    if (c2.equals(LayerEvent.ACTION_SWITCH_FULL)) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -552580917:
+                    if (c2.equals(LayerEvent.ACTION_SWITCH_HALF)) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -525235558:
+                    if (c2.equals(PlayerEvent.ACTION_ON_PREPARED)) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -461848373:
+                    if (c2.equals(PlayerEvent.ACTION_ON_ERROR)) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 154871702:
+                    if (c2.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
+                        c = 5;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1610373035:
+                    if (c2.equals(LayerEvent.ACTION_WAKE_UP_END)) {
+                        c = '\b';
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 2064424334:
+                    if (c2.equals(LayerEvent.ACTION_POSITION_SLIDE)) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
+            }
+            switch (c) {
+                case 0:
+                    s(false, false);
+                    this.f.setPosition(vv0Var.g(2) + vv0Var.g(3));
                     return;
-                }
-                return;
-            case 5:
-                a01.a("headset quick ACTION_AUDIO_BECOMING_NOISY");
-                this.mListener.onHeadsetPlug(false);
-                return;
-            case 6:
-                int intExtra = intent.getIntExtra("android.bluetooth.profile.extra.STATE", 0);
-                if (intExtra == 2) {
-                    this.mListener.onBluetoothHeadsetChanged(true);
+                case 1:
+                    B(false);
                     return;
-                } else if (intExtra == 0) {
-                    this.mListener.onBluetoothHeadsetChanged(false);
+                case 2:
+                    B(true);
                     return;
-                } else {
+                case 3:
+                    z();
                     return;
-                }
-            case 7:
-                int intExtra2 = (intent.getIntExtra("level", 0) * 100) / intent.getIntExtra("scale", 1);
-                tz0.a = intExtra2;
-                this.mListener.onBatteryChanged(intExtra2);
-                return;
-            case '\b':
-                onVolumeChanged(context);
-                return;
-            case '\t':
-                this.mListener.onConfigurationChanged();
-                return;
-            default:
-                return;
-        }
-    }
-
-    public void registerReceiver() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-            intentFilter.addAction("android.intent.action.DATE_CHANGED");
-            intentFilter.addAction("android.intent.action.SCREEN_OFF");
-            intentFilter.addAction("android.intent.action.USER_PRESENT");
-            intentFilter.addAction("android.intent.action.DEVICE_STORAGE_LOW");
-            intentFilter.addAction("android.intent.action.SCREEN_ON");
-            intentFilter.addAction("android.intent.action.BATTERY_CHANGED");
-            intentFilter.addAction("android.intent.action.HEADSET_PLUG");
-            intentFilter.addAction("android.media.AUDIO_BECOMING_NOISY");
-            intentFilter.addAction("android.bluetooth.headset.profile.action.CONNECTION_STATE_CHANGED");
-            intentFilter.addAction("android.media.VOLUME_CHANGED_ACTION");
-            intentFilter.addAction("android.intent.action.CONFIGURATION_CHANGED");
-            wr0.b().registerReceiver(this, intentFilter);
-            this.mLastStatus = NetUtils.a();
-        }
-    }
-
-    public void unregisterReceiver() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            wr0.b().unregisterReceiver(this);
+                case 4:
+                case 5:
+                    s(false, false);
+                    return;
+                case 6:
+                default:
+                    return;
+                case 7:
+                    C(vv0Var.g(1), vv0Var.g(2), vv0Var.g(3));
+                    return;
+                case '\b':
+                    this.f.setVisibility(0);
+                    return;
+            }
         }
     }
 }

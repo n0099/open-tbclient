@@ -8,10 +8,10 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.ef;
-import com.baidu.tieba.s9;
+import com.baidu.tieba.i05;
+import com.baidu.tieba.jf;
 import com.baidu.tieba.square.data.ForumInfoData;
-import com.baidu.tieba.vv4;
+import com.baidu.tieba.x9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -177,7 +177,7 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((s9) newInitContext.callArgs[0]);
+                super((x9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -215,8 +215,8 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
             isOk = netWork.isNetSuccess();
             ForumListModel forumListModel = (ForumListModel) OrmObject.objectWithJsonStr(postNetData, ForumListModel.class);
             if (requestParams.rn == 200 && requestParams.recommend_type == 0 && ((i == 9 || i == 136 || requestParams.menu_type == 2) && forumListModel != null && forumListModel.recommend_list_left != null && forumListModel.recommend_list_right != null && forumListModel.editor_recommend != null && forumListModel.forum_class != null)) {
-                vv4.d();
-                ef<String> e = vv4.e("tb.my_posts");
+                i05.d();
+                jf<String> e = i05.e("tb.my_posts");
                 if (e != null) {
                     e.e(TbadkCoreApplication.getCurrentAccount() + "_" + menu_name + KEY, postNetData, 86400000L);
                 }

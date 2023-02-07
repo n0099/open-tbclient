@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,11 +9,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class jo6 {
+public class jo6 implements Cdo {
     public static /* synthetic */ Interceptable $ic;
-    public static jo6 b;
+    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<ko6> a;
 
     static {
         InterceptResult invokeClinit;
@@ -28,7 +27,7 @@ public class jo6 {
                 return;
             }
         }
-        b = new jo6();
+        a = BdUniqueId.gen();
     }
 
     public jo6() {
@@ -41,27 +40,17 @@ public class jo6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = new SparseArray<>();
     }
 
-    public static jo6 a() {
+    @Override // com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return a;
         }
-        return (jo6) invokeV.objValue;
-    }
-
-    public ko6 b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return this.a.get(i);
-        }
-        return (ko6) invokeI.objValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 }

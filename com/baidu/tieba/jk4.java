@@ -1,39 +1,76 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.Nullable;
+import com.baidu.swan.pms.node.Node;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class jk4 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947886166, "Lcom/baidu/tieba/jk4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947886166, "Lcom/baidu/tieba/jk4;");
-                return;
-            }
+    public static JSONObject a(@Nullable gk4<JSONArray> gk4Var, @Nullable gk4<JSONObject> gk4Var2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, gk4Var, gk4Var2)) == null) {
+            return b(Node.values(), gk4Var, gk4Var2);
         }
-        a = hk4.f().getString("openstat_switch", "1");
+        return (JSONObject) invokeLL.objValue;
     }
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    public static JSONObject b(Node[] nodeArr, @Nullable gk4<JSONArray> gk4Var, @Nullable gk4<JSONObject> gk4Var2) {
+        InterceptResult invokeLLL;
+        ik4 provider;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return TextUtils.equals(a, "1");
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, nodeArr, gk4Var, gk4Var2)) == null) {
+            if (nodeArr == null) {
+                return null;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                for (Node node : nodeArr) {
+                    if (node != null && (provider = Node.getProvider(node)) != null) {
+                        if (node.isDataArray()) {
+                            jSONObject.put(node.getName(), provider.b(gk4Var));
+                        } else {
+                            jSONObject.put(node.getName(), provider.a(gk4Var2));
+                        }
+                    }
+                }
+                return jSONObject;
+            } catch (JSONException unused) {
+                return null;
+            }
         }
-        return invokeV.booleanValue;
+        return (JSONObject) invokeLLL.objValue;
+    }
+
+    public static void c(JSONObject jSONObject, rg4 rg4Var, @Nullable rg4 rg4Var2, @Nullable rg4 rg4Var3) {
+        fg4 b;
+        hk4 a;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLLL(65538, null, jSONObject, rg4Var, rg4Var2, rg4Var3) != null) || jSONObject == null) {
+            return;
+        }
+        Iterator<String> keys = jSONObject.keys();
+        while (keys.hasNext()) {
+            String next = keys.next();
+            Node nodeByConfigName = Node.getNodeByConfigName(next);
+            if (nodeByConfigName != null && (a = kk4.a(nodeByConfigName)) != null) {
+                if (nodeByConfigName.isDataArray()) {
+                    a.a(jSONObject.optJSONArray(next), rg4Var, rg4Var2, rg4Var3);
+                } else {
+                    a.b(jSONObject.optJSONObject(next), rg4Var, rg4Var2, rg4Var3);
+                }
+            }
+        }
+        if (cl4.a && (b = hg4.b()) != null) {
+            b.C();
+        }
     }
 }

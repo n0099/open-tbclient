@@ -1,96 +1,70 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.k8a;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes3.dex */
-public class bda<T, R> extends cda<T, R> {
+public final class bda {
     public static /* synthetic */ Interceptable $ic;
+    public static final bda b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final mca<T> b;
+    public final AtomicReference<cda> a;
 
-    /* loaded from: classes3.dex */
-    public class a implements k8a.a<R> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cda a;
-
-        public a(cda cdaVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947642506, "Lcom/baidu/tieba/bda;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cdaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = cdaVar;
-        }
-
-        public void call(q8a<? super R> q8aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, q8aVar) == null) {
-                this.a.B(q8aVar);
-            }
-        }
-
-        @Override // com.baidu.tieba.k8a.a, com.baidu.tieba.y8a
-        public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((q8a) ((q8a) obj));
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bda(cda<T, R> cdaVar) {
-        super(new a(cdaVar));
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cdaVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((k8a.a) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947642506, "Lcom/baidu/tieba/bda;");
                 return;
             }
         }
-        this.b = new mca<>(cdaVar);
+        b = new bda();
     }
 
-    @Override // com.baidu.tieba.l8a
-    public void onCompleted() {
+    public bda() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.onCompleted();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
+        this.a = new AtomicReference<>();
     }
 
-    @Override // com.baidu.tieba.l8a
-    public void onError(Throwable th) {
+    public static bda a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            this.b.onError(th);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
         }
+        return (bda) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.l8a
-    public void onNext(T t) {
+    public cda b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            this.b.onNext(t);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a.get() == null) {
+                this.a.compareAndSet(null, cda.a());
+            }
+            return this.a.get();
         }
+        return (cda) invokeV.objValue;
     }
 }

@@ -1,169 +1,124 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Point;
-import android.os.Build;
+import android.graphics.Color;
 import android.text.TextUtils;
-import android.util.DisplayMetrics;
-import android.view.Display;
 import android.view.View;
-import androidx.annotation.NonNull;
+import android.view.ViewGroup;
+import androidx.annotation.FloatRange;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.clickinfo.NadTouchInfoModel;
-import com.baidu.tieba.r31;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.nadcore.model.MonitorUrl;
+import com.baidu.tieba.er0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import java.util.List;
 /* loaded from: classes5.dex */
-public final class ki0 implements hi0 {
+public class ki0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final NadTouchInfoModel a;
-    public WeakReference<ji0> b;
-    public WeakReference<View> c;
-    public final Context d;
-    public final int e;
-    public final int f;
-    public final int g;
 
-    public ki0(@NonNull ii0 ii0Var, @NonNull View view2) {
+    public static boolean a(er0 er0Var) {
+        InterceptResult invokeL;
+        er0.b bVar;
+        er0.a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ii0Var, view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, er0Var)) == null) {
+            if (er0Var == null) {
+                return false;
             }
+            if (TextUtils.isEmpty(er0Var.f) && TextUtils.isEmpty(er0Var.d) && (((bVar = er0Var.g) == null || TextUtils.isEmpty(bVar.a)) && ((aVar = er0Var.h) == null || TextUtils.isEmpty(aVar.a)))) {
+                return false;
+            }
+            return true;
         }
-        this.d = ej0.b();
-        this.c = new WeakReference<>(view2);
-        this.b = new WeakReference<>(ii0Var.J());
-        DisplayMetrics displayMetrics = this.d.getResources().getDisplayMetrics();
-        this.e = displayMetrics.widthPixels;
-        this.f = displayMetrics.heightPixels;
-        this.g = displayMetrics.densityDpi;
-        this.a = new NadTouchInfoModel(-1);
-        e();
+        return invokeL.booleanValue;
     }
 
-    @NonNull
-    public static hi0 b(@Nullable hi0 hi0Var, @NonNull ii0 ii0Var, @NonNull View view2) {
-        InterceptResult invokeLLL;
+    public static void b(@Nullable List<MonitorUrl> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, hi0Var, ii0Var, view2)) == null) {
-            if (hi0Var == null) {
-                return new ki0(ii0Var, view2);
-            }
-            ki0 ki0Var = (ki0) hi0Var;
-            if (ki0Var.c.get() == null) {
-                ki0Var.c = new WeakReference<>(view2);
-            }
-            if (ki0Var.b.get() == null) {
-                ki0Var.b = new WeakReference<>(ii0Var.J());
-            }
-            return ki0Var;
+        if ((interceptable != null && interceptable.invokeL(65537, null, list) != null) || list == null) {
+            return;
         }
-        return (hi0) invokeLLL.objValue;
+        for (MonitorUrl monitorUrl : list) {
+            if (monitorUrl != null && !TextUtils.isEmpty(monitorUrl.clickUrl)) {
+                o21.b(monitorUrl.clickUrl);
+            }
+        }
     }
 
-    @Override // com.baidu.tieba.hi0
-    public String a() {
-        InterceptResult invokeV;
-        int i;
-        String str;
+    public static void c(@Nullable List<MonitorUrl> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ji0 ji0Var = this.b.get();
-            if (ji0Var == null) {
+        if ((interceptable != null && interceptable.invokeL(65538, null, list) != null) || list == null) {
+            return;
+        }
+        for (MonitorUrl monitorUrl : list) {
+            if (monitorUrl != null && !TextUtils.isEmpty(monitorUrl.showUrl)) {
+                o21.b(monitorUrl.showUrl);
+            }
+        }
+    }
+
+    public static int d(float f, int i, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            if (i == i2) {
+                return i;
+            }
+            if (f <= 0.0f) {
+                return i;
+            }
+            if (f >= 1.0f) {
+                return i2;
+            }
+            int red = Color.red(i);
+            int blue = Color.blue(i);
+            int green = Color.green(i);
+            int alpha = Color.alpha(i);
+            return Color.argb((int) (alpha + (f * (Color.alpha(i2) - alpha))), (int) (red + ((Color.red(i2) - red) * f)), (int) (green + ((Color.green(i2) - green) * f)), (int) (blue + ((Color.blue(i2) - blue) * f)));
+        }
+        return invokeCommon.intValue;
+    }
+
+    public static String e(@FloatRange(from = 0.0d, to = 1.0d) float f, String str) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Float.valueOf(f), str})) == null) {
+            String hexString = Integer.toHexString(Math.round(f * 255.0f));
+            if (hexString.length() < 2) {
+                hexString = "0" + hexString;
+            }
+            if (hexString.length() != 2) {
                 return "";
             }
-            int[] b = ji0Var.b();
-            int[] iArr = new int[2];
-            View view2 = this.c.get();
-            if (view2 != null) {
-                view2.getLocationOnScreen(iArr);
-            }
-            int i2 = iArr[1];
-            if (view2 != null) {
-                i = view2.getHeight() + i2;
-            } else {
-                i = 0;
-            }
-            Point d = d();
-            int i3 = this.e;
-            int i4 = this.f;
-            if (d != null) {
-                i3 = d.x;
-                i4 = d.y;
-            }
-            String[] strArr = new String[9];
-            strArr[0] = "v2";
-            if (r31.c.j()) {
-                str = "1";
-            } else {
-                str = "0";
-            }
-            strArr[1] = str;
-            strArr[2] = String.valueOf(b[0]);
-            strArr[3] = String.valueOf(b[1]);
-            strArr[4] = String.valueOf(i2);
-            strArr[5] = String.valueOf(i);
-            strArr[6] = String.valueOf(i3);
-            strArr[7] = String.valueOf(i4);
-            strArr[8] = String.valueOf(this.g);
-            String join = TextUtils.join(",", strArr);
-            c();
-            return join;
+            return "#" + hexString + str;
         }
-        return (String) invokeV.objValue;
+        return (String) invokeCommon.objValue;
     }
 
-    public final void c() {
-        View view2;
-        ji0 ji0Var;
-        e31 e31Var;
+    public static int f(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && z21.a && (view2 = this.c.get()) != null && (ji0Var = this.b.get()) != null && (e31Var = (e31) y21.a().a(e31.class)) != null) {
-            int[] iArr = ji0Var.b;
-            e31Var.a(view2, iArr[0], iArr[1]);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return ContextCompat.getColor(nj0.b(), i);
+            }
+            try {
+                return Color.parseColor(str);
+            } catch (IllegalArgumentException unused) {
+                return ContextCompat.getColor(nj0.b(), i);
+            }
         }
+        return invokeLI.intValue;
     }
 
-    public final Point d() {
-        InterceptResult invokeV;
-        Display display;
+    public static void g(View view2) {
+        ViewGroup viewGroup;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            View view2 = this.c.get();
-            if (view2 == null || Build.VERSION.SDK_INT < 17 || (display = view2.getDisplay()) == null) {
-                return null;
-            }
-            Point point = new Point();
-            display.getRealSize(point);
-            return point;
-        }
-        return (Point) invokeV.objValue;
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            NadTouchInfoModel nadTouchInfoModel = this.a;
-            if (nadTouchInfoModel.b) {
-                return;
-            }
-            nadTouchInfoModel.a = this.g;
-            nadTouchInfoModel.b = true;
+        if ((interceptable == null || interceptable.invokeL(65542, null, view2) == null) && view2 != null && (viewGroup = (ViewGroup) view2.getParent()) != null) {
+            viewGroup.removeView(view2);
         }
     }
 }

@@ -1,96 +1,20 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.View;
-import androidx.appcompat.app.AlertDialog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.browser.BrowserHelper;
-import com.baidu.tbadk.core.dialog.TBAlertBuilder;
-import com.baidu.tbadk.core.dialog.TBAlertConfig;
+import android.os.Build;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class lk5 {
+public class lk5 extends qk5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlertDialog a;
-
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lk5 a;
-
-        public a(lk5 lk5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lk5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lk5Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.a != null) {
-                this.a.a.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-        public final /* synthetic */ lk5 b;
-
-        public b(lk5 lk5Var, Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lk5Var, activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = lk5Var;
-            this.a = activity;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.b.a != null) {
-                    this.b.a.dismiss();
-                }
-                if (!StringUtils.isNull(TbConfig.MEMBER_AUTO_RENEWAL_URL)) {
-                    BrowserHelper.p(this.a, TbConfig.MEMBER_AUTO_RENEWAL_URL);
-                }
-            }
-        }
-    }
+    public kk5 b;
+    public boolean c;
+    public boolean d;
 
     public lk5() {
         Interceptable interceptable = $ic;
@@ -106,38 +30,47 @@ public class lk5 {
         }
     }
 
-    public static boolean b() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return cz4.l().i("key_member_auto_ban_renewal_show", false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            kk5 kk5Var = this.b;
+            if (kk5Var != null) {
+                return kk5Var.b();
+            }
+            return -1;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    public void c(Activity activity) {
+    public void c() {
+        kk5 kk5Var;
+        vk5 vk5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            AlertDialog alertDialog = this.a;
-            if (alertDialog != null && alertDialog.isShowing()) {
-                this.a.dismiss();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.d && (kk5Var = this.b) != null && kk5Var.b() >= 0 && (vk5Var = (vk5) PerformanceLoggerHelper.getInstance().getLoggerWithType(this.a)) != null) {
+            vk5Var.e(this);
+            this.d = true;
+        }
+    }
+
+    public void e() {
+        kk5 kk5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && Build.VERSION.SDK_INT >= 16 && (kk5Var = this.b) != null) {
+            kk5Var.d();
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !this.c && PerformanceLoggerHelper.getInstance().isSmallFlow()) {
+            this.c = true;
+            if (Build.VERSION.SDK_INT >= 16) {
+                if (this.b == null) {
+                    this.b = new kk5();
+                }
+                this.b.c();
             }
-            if (activity == null) {
-                return;
-            }
-            TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.protocol_confirm, TBAlertConfig.OperateBtnStyle.MAIN);
-            TBAlertConfig.a aVar2 = new TBAlertConfig.a((int) R.string.goto_see_more, TBAlertConfig.OperateBtnStyle.SECONDARY);
-            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(activity);
-            tBAlertBuilder.w(R.string.member_reminder);
-            tBAlertBuilder.m(R.string.cancel_member_auto_renewal);
-            tBAlertBuilder.u(aVar2, aVar);
-            tBAlertBuilder.o(true);
-            tBAlertBuilder.j(false);
-            tBAlertBuilder.n(3);
-            this.a = tBAlertBuilder.z();
-            cz4.l().v("key_member_auto_ban_renewal_show", true);
-            aVar.a(new a(this));
-            aVar2.a(new b(this, activity));
         }
     }
 }

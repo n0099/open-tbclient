@@ -1,112 +1,71 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.nio.channels.Channels;
-import java.nio.channels.ReadableByteChannel;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class pk4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
 
-    public static String a(byte[] bArr, String str, boolean z) {
-        InterceptResult invokeLLZ;
+    public pk4(int i, int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (byte b : bArr) {
-                String hexString = Integer.toHexString(b & 255);
-                if (z) {
-                    hexString = hexString.toUpperCase();
-                }
-                if (hexString.length() == 1) {
-                    sb.append("0");
-                }
-                sb.append(hexString);
-                sb.append(str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i6 = newInitContext.flag;
+            if ((i6 & 1) != 0) {
+                int i7 = i6 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return sb.toString();
         }
-        return (String) invokeLLZ.objValue;
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
+        this.d = i5;
+        this.e = i4;
     }
 
-    public static String b(File file, boolean z) {
-        InterceptResult invokeLZ;
-        ReadableByteChannel readableByteChannel;
+    @NonNull
+    public static pk4 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, file, z)) == null) {
-            ReadableByteChannel readableByteChannel2 = null;
-            try {
-                readableByteChannel = Channels.newChannel(new FileInputStream(file));
-            } catch (IOException unused) {
-                readableByteChannel = null;
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                String c = c(z, readableByteChannel);
-                if (readableByteChannel != null && readableByteChannel.isOpen()) {
-                    nk4.d(readableByteChannel);
-                }
-                return c;
-            } catch (IOException unused2) {
-                if (readableByteChannel != null && readableByteChannel.isOpen()) {
-                    nk4.d(readableByteChannel);
-                }
-                return null;
-            } catch (Throwable th2) {
-                th = th2;
-                readableByteChannel2 = readableByteChannel;
-                if (readableByteChannel2 != null && readableByteChannel2.isOpen()) {
-                    nk4.d(readableByteChannel2);
-                }
-                throw th;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new pk4(24, 70, 1440, 720, 30);
         }
-        return (String) invokeLZ.objValue;
+        return (pk4) invokeV.objValue;
     }
 
-    public static String c(boolean z, ReadableByteChannel readableByteChannel) throws IOException {
-        InterceptResult invokeZL;
+    @NonNull
+    public static pk4 b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZL = interceptable.invokeZL(65538, null, z, readableByteChannel)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return a();
+            }
             try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.reset();
-                ByteBuffer allocate = ByteBuffer.allocate(8192);
-                while (readableByteChannel.read(allocate) != -1) {
-                    allocate.flip();
-                    messageDigest.update(allocate);
-                    allocate.clear();
-                }
-                return a(messageDigest.digest(), "", z);
-            } catch (NoSuchAlgorithmException unused) {
-                return null;
+                JSONObject jSONObject = new JSONObject(str);
+                return new pk4(jSONObject.optInt("clean_check_hour", 24), jSONObject.optInt("hold_history_max_count", 70), jSONObject.optInt("history_force_clean_hour", 1440), jSONObject.optInt("force_clean_hour", 720), jSONObject.optInt("hold_max_count", 30));
+            } catch (JSONException unused) {
+                return a();
             }
         }
-        return (String) invokeZL.objValue;
-    }
-
-    public static String d(byte[] bArr, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, bArr, z)) == null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.reset();
-                messageDigest.update(bArr);
-                return a(messageDigest.digest(), "", z);
-            } catch (NoSuchAlgorithmException unused) {
-                return null;
-            }
-        }
-        return (String) invokeLZ.objValue;
+        return (pk4) invokeL.objValue;
     }
 }

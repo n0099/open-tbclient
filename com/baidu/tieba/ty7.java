@@ -1,332 +1,208 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.app.Application;
+import android.content.Context;
+import android.webkit.WebView;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.DI;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.live.interfaces.service.AppInfoService;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.relogin.ReloginManager;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tbadk.switchs.CheckShowNameDialogSwitch;
-import com.baidu.tieba.rr4;
-import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
-import com.baidu.tieba.sr4;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ty7 {
+public class ty7 implements AppInfoService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class b extends BdAsyncTask<String, Integer, AccountData> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public volatile NetWork a;
-        public final String b;
-        public final String c;
-        public final String d;
-        public String e;
-        public final sr4.a f;
-        public final boolean g;
-
-        /* loaded from: classes6.dex */
-        public class a implements sr4.a {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            @Override // com.baidu.tieba.sr4.a
-            public void a(String str, int i, String str2) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
-                }
-            }
-
-            @Override // com.baidu.tieba.sr4.a
-            public void b(String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                }
-            }
-
-            @Override // com.baidu.tieba.sr4.a
-            public void c(AccountData accountData) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
-                }
-            }
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-        }
-
-        public b(String str, String str2, String str3, sr4.a aVar, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, str3, aVar, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = null;
-            this.b = str;
-            this.c = str2;
-            this.d = str3;
-            this.g = z;
-            this.f = aVar == null ? new a(this) : aVar;
-            setPriority(3);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Removed duplicated region for block: B:51:0x01ca  */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public AccountData doInBackground(String... strArr) {
-            InterceptResult invokeL;
-            AccountData accountData;
-            int i;
-            int i2;
-            sr4.b d;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                this.a = new NetWork(TbConfig.LOGIN_FULL_ADDRESS);
-                boolean z = false;
-                this.a.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
-                this.a.addPostData("bdusstoken", this.c + "|" + this.d);
-                if (!StringUtils.isNull(this.e)) {
-                    this.a.addPostData("stoken", this.e);
-                }
-                this.a.addPostData("channel_id", TbadkCoreApplication.getInst().getPushChannelId());
-                this.a.addPostData("channel_uid", TbadkCoreApplication.getInst().getPushChannelUserId());
-                this.a.addPostData("first_login", TbadkCoreApplication.getInst().getDeviceIsFirstLogin());
-                this.a.getNetContext().getRequest().mNeedBackgroundLogin = false;
-                String postNetData = this.a.postNetData();
-                if (this.a.getNetContext().getResponse().isRequestSuccess() && postNetData != null) {
-                    yt4 yt4Var = new yt4();
-                    yt4Var.d(postNetData);
-                    accountData = new AccountData();
-                    accountData.setAccount(yt4Var.c().getUserName());
-                    accountData.setPassword("");
-                    accountData.setID(yt4Var.c().getUserId());
-                    String str = this.c;
-                    if (this.g && (d = wy7.d(sr4.b().c(str))) != null) {
-                        str = d.a + "|" + d.b;
-                    }
-                    accountData.setBDUSS(str);
-                    accountData.setPortrait(yt4Var.c().getPortrait());
-                    accountData.setStoken(this.e);
-                    accountData.setIsActive(1);
-                    if (yt4Var.a() != null) {
-                        accountData.setTbs(yt4Var.a().getTbs());
-                    }
-                    accountData.setGrowthSwitch(yt4Var.b());
-                } else {
-                    accountData = null;
-                }
-                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_CHECK_SHOW_INIT_NAME_DIALOG);
-                netWork.getNetContext().getRequest().mNeedBackgroundLogin = false;
-                netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
-                if (accountData != null) {
-                    netWork.addPostData(HttpRequest.BDUSS, accountData.getBDUSS());
-                    netWork.addPostData("stoken", rr4.a(accountData));
-                }
-                String postNetData2 = netWork.postNetData();
-                if (netWork.getNetContext().getResponse().isRequestSuccess() && postNetData2 != null) {
-                    try {
-                        JSONObject jSONObject = new JSONObject(postNetData2);
-                        JSONArray optJSONArray = jSONObject.optJSONArray(SetImageWatermarkTypeReqMsg.SWITCH);
-                        if (optJSONArray != null) {
-                            int length = optJSONArray.length();
-                            for (int i3 = 0; i3 < length; i3++) {
-                                JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
-                                if (optJSONObject != null && CheckShowNameDialogSwitch.KEY.equals(optJSONObject.optString("name"))) {
-                                    i = optJSONObject.optInt("type", 0);
-                                    break;
-                                }
-                            }
-                        }
-                        i = 0;
-                        try {
-                            JSONObject jSONObject2 = jSONObject.getJSONObject("user_info");
-                            if (accountData != null && jSONObject2 != null) {
-                                accountData.setNameShow(jSONObject2.optString("name_show"));
-                            }
-                        } catch (JSONException e) {
-                            i2 = i;
-                            e = e;
-                            e.printStackTrace();
-                            i = i2;
-                            TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-                            if (i == 1) {
-                            }
-                            inst.setNeedCheckUserNameDialog(z);
-                            return accountData;
-                        }
-                    } catch (JSONException e2) {
-                        e = e2;
-                        i2 = 0;
-                    }
-                } else {
-                    i = 0;
-                }
-                TbadkCoreApplication inst2 = TbadkCoreApplication.getInst();
-                if (i == 1) {
-                    z = true;
-                }
-                inst2.setNeedCheckUserNameDialog(z);
-                return accountData;
-            }
-            return (AccountData) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(AccountData accountData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, accountData) == null) {
-                super.onPostExecute(accountData);
-                int i = 0;
-                ReloginManager.g().o(false);
-                ry4.a(DI.ACCOUNT, -1L, 0, "cslogin_result", this.a.getServerErrorCode(), this.a.getErrorString(), new Object[0]);
-                if (accountData != null && accountData.getBDUSS() != null) {
-                    this.f.c(accountData);
-                    return;
-                }
-                String str = null;
-                if (this.a != null) {
-                    str = this.a.getErrorString();
-                    i = this.a.getServerErrorCode();
-                }
-                if (str == null) {
-                    str = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.data_load_error);
-                }
-                this.f.a(this.b, i, str);
-            }
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void cancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                super.cancel(true);
-                if (this.a != null) {
-                    this.a.cancelNetConnect();
-                }
-            }
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPreExecute() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                this.f.b(this.b);
-            }
-        }
-
-        public void d(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                this.e = str;
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class a implements rr4.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
-        public final /* synthetic */ sr4.a b;
-        public final /* synthetic */ String c;
-
-        public a(b bVar, sr4.a aVar, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bVar, aVar, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bVar;
-            this.b = aVar;
-            this.c = str;
-        }
-
-        @Override // com.baidu.tieba.rr4.b
-        public void onFailed() {
-            sr4.a aVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (aVar = this.b) != null) {
-                aVar.a(this.c, 1, null);
-            }
-        }
-
-        @Override // com.baidu.tieba.rr4.b
-        public void onSuccess(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.a.d(str);
-                this.a.execute(new String[0]);
-            }
-        }
-    }
-
-    public static BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, sr4.a aVar) {
-        InterceptResult invokeLLLLL;
+    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
+    public void addHostJavascriptInterface(@NonNull WebView webView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65536, null, str, str2, str3, str4, aVar)) == null) {
-            rr4 rr4Var = new rr4();
-            b bVar = new b(str, str2, str3, aVar, false);
-            if (rr4.b() && StringUtils.isNull(str4)) {
-                rr4Var.c(str2, new a(bVar, aVar, str));
-            } else {
-                if (rr4.b()) {
-                    bVar.d(str4);
-                }
-                bVar.execute(new String[0]);
-            }
-            return bVar;
+        if (interceptable == null || interceptable.invokeL(1048576, this, webView) == null) {
         }
-        return (BdAsyncTask) invokeLLLLL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
+    @NonNull
+    public String getCloudControlUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
+    public String getLiveAppId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "tieba" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
+    public String getPackageName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "com.baidu.tieba" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
+    @NonNull
+    public String getProtocol() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? "tieba" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
+    public String getSid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? "" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
+    public float getStaticDeviceScore(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, context)) == null) {
+            return -1.0f;
+        }
+        return invokeL.floatValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
+    public boolean isNightMode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public ty7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
+    public Application getApplication() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return TbadkCoreApplication.getInst();
+        }
+        return (Application) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
+    public String getCuid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return TbadkCoreApplication.getInst().getCuidGalaxy2();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
+    public String getImAppId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return String.valueOf(10773430L);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
+    public String getVersionCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return TbadkCoreApplication.getInst().getVersionCode() + "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
+    public String getVersionName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return TbConfig.getVersion();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
+    public String getZid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return TbadkCoreApplication.getInst().getZid();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
+    public boolean isDebug() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return AppConfig.isDebug();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
+    public String getFFmpegPath() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (!StringUtils.isNull(TbadkCoreApplication.getInst().getLibcyberffmpeg()) && !StringUtils.isNull(TbadkCoreApplication.getInst().getLibssl()) && !StringUtils.isNull(TbadkCoreApplication.getInst().getLibcrypto())) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("libcyber-ffmpeg", TbadkCoreApplication.getInst().getLibcyberffmpeg());
+                    jSONObject.put("libcyber-ffmpeg_version", TbadkCoreApplication.getInst().getmLibcyberVersion());
+                    jSONObject.put("libssl", TbadkCoreApplication.getInst().getLibssl());
+                    jSONObject.put("libssl_version", TbadkCoreApplication.getInst().getmLibcyberVersion());
+                    jSONObject.put("libcrypto", TbadkCoreApplication.getInst().getLibcrypto());
+                    jSONObject.put("libcrypto_version", TbadkCoreApplication.getInst().getmLibcyberVersion());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                return jSONObject.toString();
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
+    public String getUA() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return cq5.b() + " (Baidu; P1 " + gj.k() + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
     }
 }

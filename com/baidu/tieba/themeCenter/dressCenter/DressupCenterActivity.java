@@ -3,12 +3,12 @@ package com.baidu.tieba.themeCenter.dressCenter;
 import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.nf5;
-import com.baidu.tieba.s39;
+import com.baidu.tieba.r79;
+import com.baidu.tieba.t79;
 import com.baidu.tieba.themeCenter.dressCenter.DressupCenterModel;
-import com.baidu.tieba.u39;
-import com.baidu.tieba.v39;
-import com.baidu.tieba.w39;
+import com.baidu.tieba.u79;
+import com.baidu.tieba.v79;
+import com.baidu.tieba.yj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,11 +19,11 @@ import java.util.List;
 public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public u39 a;
+    public t79 a;
     public DressupCenterModel b;
     public DressupCenterModel.b c;
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.kf5
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.vj5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -55,17 +55,17 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
         }
 
         @Override // com.baidu.tieba.themeCenter.dressCenter.DressupCenterModel.b
-        public void a(int i, String str, List<s39> list, w39 w39Var, List<v39> list2) {
+        public void a(int i, String str, List<r79> list, v79 v79Var, List<u79> list2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, list, w39Var, list2}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, list, v79Var, list2}) == null) {
                 DressupCenterActivity dressupCenterActivity = this.a;
                 dressupCenterActivity.hideLoadingView(dressupCenterActivity.a.e());
                 if (i != 0) {
                     this.a.showToast(str);
-                    this.a.a.l();
+                    this.a.a.n();
                     return;
                 }
-                this.a.a.m(list, w39Var, list2, this.a.b.N());
+                this.a.a.o(list, v79Var, list2, this.a.b.N());
             }
         }
     }
@@ -87,17 +87,17 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public nf5 getPageStayDurationItem() {
+    public yj5 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            nf5 pageStayDurationItem = super.getPageStayDurationItem();
+            yj5 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 pageStayDurationItem.a = true;
             }
             return pageStayDurationItem;
         }
-        return (nf5) invokeV.objValue;
+        return (yj5) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -114,12 +114,36 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        u39 u39Var;
+        t79 t79Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.b != null && (u39Var = this.a) != null) {
-            hideNetRefreshView(u39Var.e());
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.b != null && (t79Var = this.a) != null) {
+            hideNetRefreshView(t79Var.e());
             showLoadingView(this.a.e());
             this.b.loadData();
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.onPause();
+            t79 t79Var = this.a;
+            if (t79Var != null) {
+                t79Var.g();
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.onResume();
+            t79 t79Var = this.a;
+            if (t79Var != null) {
+                t79Var.h();
+            }
         }
     }
 
@@ -128,9 +152,9 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            u39 u39Var = this.a;
-            if (u39Var != null) {
-                u39Var.f();
+            t79 t79Var = this.a;
+            if (t79Var != null) {
+                t79Var.f();
             }
         }
     }
@@ -143,9 +167,9 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
             DressupCenterModel dressupCenterModel = new DressupCenterModel(this);
             this.b = dressupCenterModel;
             dressupCenterModel.O(this.c);
-            u39 u39Var = new u39(this);
-            this.a = u39Var;
-            showLoadingView(u39Var.e());
+            t79 t79Var = new t79(this);
+            this.a = t79Var;
+            showLoadingView(t79Var.e());
             this.b.loadData();
         }
     }

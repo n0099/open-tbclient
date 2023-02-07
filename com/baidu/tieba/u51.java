@@ -1,50 +1,39 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.Intent;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.webview.AdWebActivity;
-import com.baidu.nadcore.webview.AdWebActivityStandard;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.tieba.h61;
+import android.graphics.Rect;
+import android.text.TextPaint;
+import android.text.TextUtils;
+import android.view.TouchDelegate;
+import android.view.View;
+import android.view.ViewParent;
+import com.baidu.tieba.b51;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-@Service
+import com.bumptech.glide.load.engine.GlideException;
 /* loaded from: classes6.dex */
-public class u51 extends oi0 {
+public class u51 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.oi0
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "easybrowse" : (String) invokeV.objValue;
-    }
-
     /* loaded from: classes6.dex */
-    public class a implements h61.b {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
-        public final /* synthetic */ HashMap b;
-        public final /* synthetic */ wi0 c;
-        public final /* synthetic */ si0 d;
-        public final /* synthetic */ u51 e;
+        public final /* synthetic */ float b;
+        public final /* synthetic */ View c;
+        public final /* synthetic */ View d;
 
-        public a(u51 u51Var, Context context, HashMap hashMap, wi0 wi0Var, si0 si0Var) {
+        public a(Context context, float f, View view2, View view3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {u51Var, context, hashMap, wi0Var, si0Var};
+                Object[] objArr = {context, Float.valueOf(f), view2, view3};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -54,94 +43,81 @@ public class u51 extends oi0 {
                     return;
                 }
             }
-            this.e = u51Var;
             this.a = context;
-            this.b = hashMap;
-            this.c = wi0Var;
-            this.d = si0Var;
+            this.b = f;
+            this.c = view2;
+            this.d = view3;
         }
 
-        @Override // com.baidu.tieba.h61.b
-        public void a() {
-            int i;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean g = u51.g(this.a, this.b);
-                u51 u51Var = this.e;
-                wi0 wi0Var = this.c;
-                si0 si0Var = this.d;
-                if (g) {
-                    i = 0;
-                } else {
-                    i = 1001;
-                }
-                u51Var.c(wi0Var, si0Var, i, g);
+                Rect rect = new Rect();
+                int a = b51.c.a(this.a, this.b);
+                this.c.getHitRect(rect);
+                rect.left -= a;
+                rect.right += a;
+                rect.top -= a;
+                rect.bottom += a;
+                this.d.setTouchDelegate(new TouchDelegate(rect, this.c));
             }
         }
     }
 
-    public u51() {
+    public static void a(Context context, View view2, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if ((interceptable != null && interceptable.invokeCommon(65536, null, new Object[]{context, view2, Float.valueOf(f)}) != null) || view2 == null) {
+            return;
         }
+        ViewParent parent = view2.getParent();
+        if (!View.class.isInstance(parent)) {
+            return;
+        }
+        View view3 = (View) parent;
+        view3.post(new a(context, f, view2, view3));
     }
 
-    public static boolean g(Context context, @NonNull HashMap<String, String> hashMap) {
-        InterceptResult invokeLL;
-        Class cls;
+    public static String b(String str, String str2, float f, TextPaint textPaint) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, hashMap)) == null) {
-            if (sg0.a) {
-                x21.a().showToast(context, "启动SDK Webview");
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, Float.valueOf(f), textPaint})) == null) {
+            if (TextUtils.isEmpty(str2)) {
+                str2 = "";
             }
-            if (!q51.a.b(hashMap, 0)) {
+            if (TextUtils.isEmpty(str)) {
+                str = "";
+            }
+            if (textPaint == null) {
+                textPaint = new TextPaint();
+            }
+            CharSequence ellipsize = TextUtils.ellipsize(str, textPaint, f - textPaint.measureText(GlideException.IndentedAppendable.INDENT + str2), TextUtils.TruncateAt.END);
+            if (!TextUtils.isEmpty(ellipsize)) {
+                return ellipsize.toString() + GlideException.IndentedAppendable.INDENT + str2;
+            }
+            return str2;
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public static boolean c(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            if (view2 == null || !view2.isShown()) {
                 return false;
             }
-            if ("1".equals(hashMap.remove("newbrowser"))) {
-                cls = AdWebActivityStandard.class;
-            } else {
-                cls = AdWebActivity.class;
+            Rect rect = new Rect();
+            if (!view2.getGlobalVisibleRect(rect)) {
+                return false;
             }
-            Intent intent = new Intent(context, cls);
-            intent.putExtra("map", hashMap);
-            return l31.d(context, intent);
+            long height = rect.height() * rect.width();
+            long height2 = view2.getHeight() * view2.getWidth();
+            if (height2 <= 0 || height * 100 < height2 * 50) {
+                return false;
+            }
+            return true;
         }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.oi0
-    public boolean b(@NonNull Context context, @NonNull si0 si0Var, @Nullable Map<String, Object> map, @Nullable wi0 wi0Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, si0Var, map, wi0Var)) == null) {
-            super.b(context, si0Var, map, wi0Var);
-            HashMap<String, String> d = si0Var.d();
-            int b = v51.b(context.getApplicationContext(), new a(this, context, d, wi0Var, si0Var));
-            int i = 0;
-            if (4 != b && b != 0) {
-                if (2 != b && 1 != b) {
-                    boolean g = g(context, d);
-                    if (!g) {
-                        i = 1001;
-                    }
-                    c(wi0Var, si0Var, i, g);
-                }
-                return true;
-            }
-            c(wi0Var, si0Var, 1001, false);
-            if (!sg0.a) {
-                return true;
-            }
-            throw new IllegalStateException("web app init failed, state=" + b);
-        }
-        return invokeLLLL.booleanValue;
+        return invokeL.booleanValue;
     }
 }

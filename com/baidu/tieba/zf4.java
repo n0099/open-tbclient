@@ -1,43 +1,39 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.Map;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 /* loaded from: classes7.dex */
 public class zf4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile zf4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
+    public String a;
+    public String b;
+    public Map<String, String> c;
+    public RequestBody d;
+    public ResponseCallback e;
+    public boolean f;
+    public boolean g;
+    public boolean h;
+    public Object i;
+    public int j;
+    public int k;
+    public a l;
 
     /* loaded from: classes7.dex */
-    public static class a extends tk4 {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a() {
-            super("updatecore_node_ceres");
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((String) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
+        public int a;
+        public int b;
+        public int c;
     }
 
     public zf4() {
@@ -53,68 +49,83 @@ public class zf4 {
                 return;
             }
         }
-        this.a = new a();
+        this.b = "GET";
+        this.f = false;
+        this.g = false;
+        this.h = false;
+        this.j = 6;
+        this.k = 0;
     }
 
-    public static zf4 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (zf4.class) {
-                    if (b == null) {
-                        b = new zf4();
-                    }
-                }
-            }
-            return b;
-        }
-        return (zf4) invokeV.objValue;
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.getString("ceres_info", "0");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
+    public a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.getString("global_info", "0");
+            return this.l;
         }
-        return (String) invokeV.objValue;
+        return (a) invokeV.objValue;
     }
 
-    public yf4 d(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public zf4(String str, ResponseCallback responseCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, responseCallback};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            JSONObject optJSONObject = jSONObject.optJSONObject("ceres_info");
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("global_info");
-            if (optJSONObject == null || optJSONObject2 == null) {
-                return null;
-            }
-            String optString = optJSONObject.optString("version");
-            JSONArray optJSONArray = optJSONObject.optJSONArray("data");
-            if (TextUtils.isEmpty(optString) || optJSONArray == null) {
-                return null;
-            }
-            String optString2 = optJSONObject2.optString("version");
-            JSONObject optJSONObject3 = optJSONObject2.optJSONObject("data");
-            if (TextUtils.isEmpty(optString) || optJSONObject3 == null) {
-                return null;
-            }
-            this.a.edit().putString("ceres_info", optString).putString("global_info", optString2).apply();
-            return new yf4(optJSONArray, optJSONObject3);
         }
-        return (yf4) invokeL.objValue;
+        this.b = "GET";
+        this.f = false;
+        this.g = false;
+        this.h = false;
+        this.j = 6;
+        this.k = 0;
+        this.a = str;
+        this.e = responseCallback;
+    }
+
+    public zf4(String str, RequestBody requestBody, ResponseCallback responseCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, requestBody, responseCallback};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.b = "GET";
+        this.f = false;
+        this.g = false;
+        this.h = false;
+        this.j = 6;
+        this.k = 0;
+        this.a = str;
+        this.d = requestBody;
+        this.e = responseCallback;
+    }
+
+    public zf4 a(MediaType mediaType, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, mediaType, str)) == null) {
+            if (mediaType != null && str != null) {
+                this.d = RequestBody.create(mediaType, str);
+            }
+            return this;
+        }
+        return (zf4) invokeLL.objValue;
     }
 }

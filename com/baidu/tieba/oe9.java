@@ -1,66 +1,90 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.coreExtra.data.WriteData;
+import android.util.SparseArray;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class oe9 {
     public static /* synthetic */ Interceptable $ic;
+    public static oe9 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public SparseArray<CloudMusicData.MusicTagList.MusicList> a;
 
-    public static void a(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(65536, null, i) != null) || i == -1) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948029510, "Lcom/baidu/tieba/oe9;")) == null) {
             return;
         }
-        new StatisticItem("c14823").addParam("obj_source", i).addParam("uid", TbadkCoreApplication.getCurrentAccount()).eventStat();
-    }
-
-    public static void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65537, null, i) == null) {
-            new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_locate", 14).addParam("obj_type", i).eventStat();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948029510, "Lcom/baidu/tieba/oe9;");
         }
     }
 
-    public static void c(WriteData writeData) {
-        int i;
+    public oe9() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, writeData) == null) && writeData != null && writeData.isFromGameRank()) {
-            int i2 = 1;
-            if (writeData.getXiuxiuOriginalContent() != null && !writeData.getXiuxiuOriginalContent().equals(writeData.getContent())) {
-                i = 1;
-            } else {
-                i = 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            new StatisticItem("c15065").addParam("obj_id", writeData.getGameId()).addParam("obj_name", writeData.getGameName()).addParam("obj_param1", i).addParam(TiebaStatic.Params.OBJ_PARAM2, (writeData.getXiuxiuOriginalFname() == null || writeData.getXiuxiuOriginalFname().equals(writeData.getForumName())) ? 0 : 0).eventStat();
         }
+        this.a = new SparseArray<>();
     }
 
-    public static void d(WriteData writeData) {
+    public static synchronized oe9 b() {
+        InterceptResult invokeV;
+        oe9 oe9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, writeData) == null) && writeData != null && writeData.isFromGameRank()) {
-            int i = 6;
-            String rewardsType = writeData.getRewardsType();
-            if (!TextUtils.isEmpty(rewardsType)) {
-                if (rewardsType.equals("gift")) {
-                    i = 1;
-                } else if (rewardsType.equals("coupon")) {
-                    i = 2;
-                } else if (rewardsType.equals("imprint")) {
-                    i = 3;
-                } else if (rewardsType.equals("memberCard")) {
-                    i = 4;
-                } else if (rewardsType.equals("experience")) {
-                    i = 5;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (oe9.class) {
+                if (b == null) {
+                    b = new oe9();
                 }
+                oe9Var = b;
             }
-            new StatisticItem("c15064").addParam("obj_id", writeData.getGameId()).addParam("obj_name", writeData.getGameName()).addParam("obj_param1", i).eventStat();
+            return oe9Var;
+        }
+        return (oe9) invokeV.objValue;
+    }
+
+    public CloudMusicData.MusicTagList.MusicList a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.get(4096);
+        }
+        return (CloudMusicData.MusicTagList.MusicList) invokeV.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a = null;
+            b = null;
+        }
+    }
+
+    public void d(CloudMusicData.MusicTagList.MusicList musicList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, musicList) == null) {
+            this.a.put(4096, musicList);
         }
     }
 }

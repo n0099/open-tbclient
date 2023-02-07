@@ -1,43 +1,29 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
-import java.lang.reflect.InvocationTargetException;
-import java.security.KeyManagementException;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.cert.CertificateException;
-import java.util.concurrent.TimeoutException;
-import javax.net.ssl.SSLHandshakeException;
 /* loaded from: classes7.dex */
-public abstract class y80 {
+public class y80 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public z80 b;
+    public String a;
+    public long b;
 
-    public abstract InputStream b() throws Exception;
+    public static String a(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(65537, null, z)) == null) ? z ? "CLCPReqBegin" : "CLCPSendEnd" : (String) invokeZ.objValue;
+    }
 
-    public abstract void c(z80 z80Var);
-
-    public abstract boolean d() throws IOException;
-
-    public abstract z80 e(String str, int i) throws KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IOException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, SSLHandshakeException, AssertionError;
-
-    public abstract void f(x80 x80Var) throws IOException;
-
-    public y80(Context context) {
+    public y80(String str, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {str, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -47,16 +33,7 @@ public abstract class y80 {
                 return;
             }
         }
-        this.b = null;
-        this.a = context;
-    }
-
-    public z80 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (z80) invokeV.objValue;
+        this.a = str;
+        this.b = j;
     }
 }

@@ -1,197 +1,28 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.AdapterView;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.ListAdapter;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.yy6;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.data.FeatureCardGod;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardCompetition;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardGame;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardHot;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardTopic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class zy6 implements uy6 {
+public class zy6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdListView a;
-    public yy6.e b;
-    public Context c;
-    public List<np6> d;
-    public yy6 e;
-    public final BaseAdapter f;
-    public AdapterView.OnItemClickListener g;
-
-    @Override // com.baidu.tieba.uy6
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    /* loaded from: classes7.dex */
-    public class a extends BaseAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zy6 a;
-
-        @Override // android.widget.Adapter
-        public long getItemId(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? i : invokeI.longValue;
-        }
-
-        public a(zy6 zy6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zy6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zy6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.widget.Adapter
-        /* renamed from: a */
-        public np6 getItem(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-                if (this.a.d == null) {
-                    return null;
-                }
-                return (np6) this.a.d.get(i);
-            }
-            return (np6) invokeI.objValue;
-        }
-
-        @Override // android.widget.Adapter
-        public int getCount() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.a.d == null) {
-                    return 0;
-                }
-                return this.a.d.size();
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // android.widget.Adapter
-        public View getView(int i, View view2, ViewGroup viewGroup) {
-            InterceptResult invokeILL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
-                if (view2 == null) {
-                    view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d086f, (ViewGroup) null);
-                    view2.setLayoutParams(new AbsListView.LayoutParams(-1, viewGroup.getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070275)));
-                    yy6.f fVar = new yy6.f();
-                    fVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09210f);
-                    fVar.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09210c);
-                    fVar.c = view2.findViewById(R.id.obfuscated_res_0x7f09210e);
-                    fVar.d = view2.findViewById(R.id.obfuscated_res_0x7f09210d);
-                    view2.setTag(fVar);
-                }
-                SkinManager.setBackgroundResource(view2, R.color.CAM_X0201);
-                yy6.f fVar2 = (yy6.f) view2.getTag();
-                np6 item = getItem(i);
-                if (item == null) {
-                    return view2;
-                }
-                fVar2.a.setText(item.a);
-                if (item.c) {
-                    SkinManager.setViewTextColor(fVar2.a, R.color.CAM_X0302, 1);
-                    SkinManager.setImageResource(fVar2.b, R.drawable.chx_tips_list_ok);
-                    fVar2.b.setVisibility(0);
-                } else {
-                    SkinManager.setViewTextColor(fVar2.a, R.color.CAM_X0108, 1);
-                    fVar2.b.setVisibility(8);
-                }
-                if (i >= 0 && i == getCount() - 1) {
-                    fVar2.d.setVisibility(0);
-                    fVar2.c.setVisibility(8);
-                    SkinManager.setBackgroundColor(fVar2.d, R.color.CAM_X0204);
-                } else {
-                    fVar2.c.setVisibility(0);
-                    fVar2.d.setVisibility(8);
-                    SkinManager.setBackgroundColor(fVar2.c, R.color.CAM_X0204);
-                }
-                return view2;
-            }
-            return (View) invokeILL.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements AdapterView.OnItemClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zy6 a;
-
-        public b(zy6 zy6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zy6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zy6Var;
-        }
-
-        @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                if (this.a.e != null) {
-                    this.a.e.c();
-                }
-                if (this.a.f != null && this.a.b != null) {
-                    for (np6 np6Var : this.a.d) {
-                        if (np6Var != null) {
-                            np6Var.c = false;
-                        }
-                    }
-                    np6 np6Var2 = (np6) this.a.f.getItem(i);
-                    if (np6Var2 != null) {
-                        np6Var2.c = true;
-                        this.a.b.a(np6Var2.b);
-                    }
-                }
-            }
-        }
-    }
+    public List<Cdo> a;
+    public List<ThreadData> b;
+    public Object[] c;
 
     public zy6() {
         Interceptable interceptable = $ic;
@@ -206,52 +37,187 @@ public class zy6 implements uy6 {
                 return;
             }
         }
-        this.f = new a(this);
-        this.g = new b(this);
+        this.a = new ArrayList();
+        this.b = new ArrayList();
     }
 
-    @Override // com.baidu.tieba.uy6
-    public View getView() {
+    public List<Cdo> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (View) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.uy6
-    public void setData(List<np6> list) {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.d = list;
-            this.f.notifyDataSetChanged();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            for (int i = 0; i < this.b.size(); i++) {
+                ThreadData threadData = this.b.get(i);
+                if (threadData != null) {
+                    if (i % 4 == 0) {
+                        bi6 bi6Var = new bi6();
+                        bi6Var.c(threadData);
+                        this.a.add(bi6Var);
+                    } else {
+                        ci6 ci6Var = new ci6();
+                        ci6Var.c(threadData);
+                        this.a.add(ci6Var);
+                    }
+                }
+            }
         }
     }
 
-    @Override // com.baidu.tieba.uy6
-    public void a(Context context, yy6 yy6Var) {
+    public void c(int i, xy6 xy6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, context, yy6Var) == null) && context != null && yy6Var != null) {
-            this.c = context;
-            this.e = yy6Var;
-            this.b = yy6Var.d();
-            g();
+        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, xy6Var) != null) || xy6Var == null) {
+            return;
+        }
+        if (1 == i) {
+            this.a.clear();
+            this.b.clear();
+            this.c = new Object[xy6Var.b + 10];
+        }
+        if (!ListUtils.isEmpty(xy6Var.c)) {
+            ArrayList arrayList = new ArrayList(xy6Var.c.size());
+            for (ThreadData threadData : xy6Var.c) {
+                if (threadData != null) {
+                    arrayList.add(threadData);
+                }
+            }
+            this.b.addAll(arrayList);
+        }
+        if (1 == i) {
+            e(xy6Var);
+        }
+        this.a.clear();
+        b();
+        g();
+        f(xy6Var);
+    }
+
+    public final void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            Object[] objArr = this.c;
+            if (i >= objArr.length) {
+                this.c = Arrays.copyOf(objArr, i + 1);
+            }
+        }
+    }
+
+    public final void f(xy6 xy6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, xy6Var) == null) {
+            hi6 hi6Var = new hi6();
+            hi6Var.f(xy6Var.d);
+            this.a.add(0, hi6Var);
+        }
+    }
+
+    public final void e(xy6 xy6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, xy6Var) == null) {
+            if (!ListUtils.isEmpty(xy6Var.e)) {
+                for (FeatureCardHot featureCardHot : xy6Var.e) {
+                    if (featureCardHot != null && featureCardHot.isValid()) {
+                        d(featureCardHot.floor.intValue());
+                        this.c[featureCardHot.floor.intValue()] = featureCardHot;
+                    }
+                }
+            }
+            if (!ListUtils.isEmpty(xy6Var.f)) {
+                for (FeatureCardTopic featureCardTopic : xy6Var.f) {
+                    if (featureCardTopic != null && featureCardTopic.isValid()) {
+                        d(featureCardTopic.floor.intValue());
+                        this.c[featureCardTopic.floor.intValue()] = featureCardTopic;
+                    }
+                }
+            }
+            if (!ListUtils.isEmpty(xy6Var.g)) {
+                for (yy6 yy6Var : xy6Var.g) {
+                    if (yy6Var != null && yy6Var.a()) {
+                        d(yy6Var.c.intValue());
+                        this.c[yy6Var.c.intValue()] = yy6Var;
+                    }
+                }
+            }
+            if (!ListUtils.isEmpty(xy6Var.h)) {
+                for (FeatureCardCompetition featureCardCompetition : xy6Var.h) {
+                    if (featureCardCompetition != null && featureCardCompetition.isValid()) {
+                        d(featureCardCompetition.floor.intValue());
+                        this.c[featureCardCompetition.floor.intValue()] = featureCardCompetition;
+                    }
+                }
+            }
+            if (!ListUtils.isEmpty(xy6Var.i)) {
+                for (FeatureCardGod featureCardGod : xy6Var.i) {
+                    if (featureCardGod != null && featureCardGod.isValid()) {
+                        d(featureCardGod.floor.intValue());
+                        this.c[featureCardGod.floor.intValue()] = featureCardGod;
+                    }
+                }
+            }
+            if (!ListUtils.isEmpty(xy6Var.j)) {
+                for (FeatureCardGame featureCardGame : xy6Var.j) {
+                    if (featureCardGame != null && featureCardGame.isValid()) {
+                        d(featureCardGame.floor.intValue());
+                        this.c[featureCardGame.floor.intValue()] = featureCardGame;
+                    }
+                }
+            }
         }
     }
 
     public final void g() {
+        Object[] objArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            BdListView bdListView = new BdListView(this.c);
-            this.a = bdListView;
-            bdListView.setAlwaysDrawnWithCacheEnabled(false);
-            this.a.setDivider(null);
-            this.a.setDividerHeight(0);
-            this.a.setSelector(17170445);
-            this.a.setCacheColorHint(this.c.getResources().getColor(17170445));
-            this.a.setOnItemClickListener(this.g);
-            this.a.setAdapter((ListAdapter) this.f);
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (objArr = this.c) != null && objArr.length > 0) {
+            int i = 0;
+            while (true) {
+                Object[] objArr2 = this.c;
+                if (i < objArr2.length) {
+                    Object obj = objArr2[i];
+                    if (obj != null) {
+                        int i2 = i - 1;
+                        if (i2 < 0) {
+                            i2 = 0;
+                        } else if (i2 >= this.a.size()) {
+                            i2 = this.a.size();
+                        }
+                        if (obj instanceof FeatureCardHot) {
+                            fi6 fi6Var = new fi6();
+                            fi6Var.f((FeatureCardHot) obj);
+                            this.a.add(i2, fi6Var);
+                        } else if (obj instanceof FeatureCardTopic) {
+                            ii6 ii6Var = new ii6();
+                            ii6Var.b((FeatureCardTopic) obj);
+                            this.a.add(i2, ii6Var);
+                        } else if (obj instanceof yy6) {
+                            ei6 ei6Var = new ei6();
+                            ei6Var.f((yy6) obj);
+                            this.a.add(i2, ei6Var);
+                        } else if (obj instanceof FeatureCardCompetition) {
+                            di6 di6Var = new di6();
+                            di6Var.b((FeatureCardCompetition) obj);
+                            this.a.add(i2, di6Var);
+                        } else if (obj instanceof FeatureCardGod) {
+                            ns6 ns6Var = new ns6();
+                            ns6Var.g((FeatureCardGod) obj);
+                            this.a.add(i2, ns6Var);
+                        } else if (obj instanceof FeatureCardGame) {
+                            gi6 gi6Var = new gi6();
+                            gi6Var.b((FeatureCardGame) obj);
+                            this.a.add(i2, gi6Var);
+                        }
+                    }
+                    i++;
+                } else {
+                    return;
+                }
+            }
         }
     }
 }

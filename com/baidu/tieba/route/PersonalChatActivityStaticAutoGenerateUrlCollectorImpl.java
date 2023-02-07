@@ -37,16 +37,16 @@ public final class PersonalChatActivityStaticAutoGenerateUrlCollectorImpl implem
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             HashMap hashMap = new HashMap();
             new ArrayList();
-            hashMap.put("2002001", "com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic");
-            hashMap.put("2002005", "com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic");
-            hashMap.put("2001275", "com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic");
-            hashMap.put("2005016", "com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic");
-            hashMap.put("2008001", "com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic");
-            hashMap.put("2005016", "com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic");
-            hashMap.put("2001143", "com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic");
-            hashMap.put("2001146", "com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic");
-            hashMap.put("2001149", "com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic");
-            hashMap.put("3001000", "com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic");
+            hashMap.put("2002001", "com.baidu.tieba.immessagecenter.im.chat.PersonalChatActivityStatic");
+            hashMap.put("2002005", "com.baidu.tieba.immessagecenter.im.chat.PersonalChatActivityStatic");
+            hashMap.put("2001275", "com.baidu.tieba.immessagecenter.im.chat.PersonalChatActivityStatic");
+            hashMap.put("2005016", "com.baidu.tieba.immessagecenter.im.chat.PersonalChatActivityStatic");
+            hashMap.put("2008001", "com.baidu.tieba.immessagecenter.im.chat.PersonalChatActivityStatic");
+            hashMap.put("2005016", "com.baidu.tieba.immessagecenter.im.chat.PersonalChatActivityStatic");
+            hashMap.put("2001143", "com.baidu.tieba.immessagecenter.im.chat.PersonalChatActivityStatic");
+            hashMap.put("2001146", "com.baidu.tieba.immessagecenter.im.chat.PersonalChatActivityStatic");
+            hashMap.put("2001149", "com.baidu.tieba.immessagecenter.im.chat.PersonalChatActivityStatic");
+            hashMap.put("3001000", "com.baidu.tieba.immessagecenter.im.chat.PersonalChatActivityStatic");
             return hashMap;
         }
         return (Map) invokeV.objValue;
@@ -70,7 +70,7 @@ public final class PersonalChatActivityStaticAutoGenerateUrlCollectorImpl implem
             arrayList.add("OfficialNotificationActivityConfig");
             arrayList.add(UrlSchemaHelper.GOTO_PERSONAL_CHAT);
             arrayList.add(UrlSchemaHelper.JUMP_TO_CHAT);
-            hashMap.put("com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic", arrayList);
+            hashMap.put("com.baidu.tieba.immessagecenter.im.chat.PersonalChatActivityStatic", arrayList);
             return hashMap;
         }
         return (Map) invokeV.objValue;

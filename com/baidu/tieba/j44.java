@@ -1,10 +1,14 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
 import android.util.Log;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JSRuntime;
-import com.baidu.searchbox.v8engine.event.EventTargetImpl;
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.extcore.model.ExtensionCore;
+import com.baidu.tieba.ej2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,13 +17,41 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class j44 extends EventTargetImpl implements xd0 {
+public class j44 extends ij2<r44, s44> {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean d;
+    public static volatile j44 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public g44 b;
-    public String c;
+
+    /* loaded from: classes5.dex */
+    public static class a extends ej2.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.ej2.a
+        public int e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 1;
+            }
+            return invokeV.intValue;
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -34,119 +66,75 @@ public class j44 extends EventTargetImpl implements xd0 {
                 return;
             }
         }
-        d = tk1.a;
+        d = gp1.a;
     }
 
-    @Override // com.baidu.tieba.xd0
-    public void onPause() {
+    public static j44 i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            x("pause", this.b);
-            lb3 lb3Var = new lb3();
-            lb3Var.b = "pause";
-            cb3.h(lb3Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.xd0
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            x("resume", this.b);
-            lb3 lb3Var = new lb3();
-            lb3Var.b = "resume";
-            cb3.h(lb3Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.xd0
-    public void onStart() {
-        Object h44Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            int i = this.a;
-            if (i == -1) {
-                h44Var = this.b;
-            } else {
-                h44Var = new h44(i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (e == null) {
+                synchronized (j44.class) {
+                    if (e == null) {
+                        e = new j44();
+                    }
+                }
             }
-            x("start", h44Var);
-            lb3 lb3Var = new lb3();
-            lb3Var.b = "start";
-            cb3.h(lb3Var);
+            return e;
         }
+        return (j44) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j44(JSRuntime jSRuntime) {
-        super(jSRuntime);
+    public j44() {
+        super(new r44(), new s44());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSRuntime};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((JSRuntime) newInitContext.callArgs[0]);
+                Object[] objArr = newInitContext.callArgs;
+                super((ik2) objArr[0], (lk2) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = -1;
-        this.b = new g44();
-        k44.a().b().s(this);
     }
 
-    @Override // com.baidu.tieba.xd0
-    public void onError(int i) {
+    @Override // com.baidu.tieba.ij2
+    public String b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if (d) {
-                Log.d("GameRecorderApi", "onError:" + i);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i == 1) {
+                return l44.b().getPath();
             }
-            x("error", new f44("internal error"));
+            return null;
         }
+        return (String) invokeI.objValue;
     }
 
-    @Override // com.baidu.tieba.xd0
-    public void w(int i, String str) {
+    @Override // com.baidu.tieba.ij2
+    @Nullable
+    public ExtensionCore c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) {
-            if (d) {
-                Log.d("GameRecorderApi", "schemeVideoPath:" + this.c);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (ProcessUtils.isMainProcess()) {
+                return d();
             }
-            x("stop", new i44(this.c));
-            lb3 lb3Var = new lb3();
-            lb3Var.b = "stop";
-            lb3Var.a("dura", String.valueOf(i / 1000.0f));
-            cb3.h(lb3Var);
-        }
-    }
-
-    public final void x(String str, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, str, obj) == null) {
+            Bundle bundle = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), a.class, null).mResult;
+            bundle.setClassLoader(ExtensionCore.class.getClassLoader());
+            ExtensionCore extensionCore = (ExtensionCore) bundle.getParcelable("aiapps_extension_core");
             if (d) {
-                Log.i("GameRecorderApi", "dispatchEvent:" + str);
+                Log.d("ExtCore-GamesManager", "getExtensionCore:" + ProcessUtils.getCurProcessName() + " extension core: " + extensionCore);
+                return extensionCore;
             }
-            dispatchEvent(new JSEvent(str, obj));
+            return extensionCore;
         }
-    }
-
-    public void y(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    public void z(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.c = str;
-        }
+        return (ExtensionCore) invokeV.objValue;
     }
 }

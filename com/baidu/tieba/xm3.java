@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,10 +8,42 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class xm3 extends vm3 {
+import com.baidu.webkit.sdk.CookieManager;
+import com.baidu.webkit.sdk.CookieSyncManager;
+/* loaded from: classes7.dex */
+public class xm3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes7.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                CookieManager.getInstance().setCookie(".baidu.com", om3.k(".baidu.com", "SP_FW_VER", bi3.h(0), 2937600L));
+                CookieManager.getInstance().setCookie(".baidu.com", om3.k(".baidu.com", "SG_FW_VER", bi3.h(1), 2937600L));
+                xm3.b();
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -26,38 +58,25 @@ public class xm3 extends vm3 {
                 return;
             }
         }
-        boolean z = tk1.a;
+        ds2.g0().getSwitch("swan_env_init_thread_pool_optimize", true);
     }
 
-    @Override // com.baidu.tieba.vm3
-    @NonNull
-    public String r() {
-        InterceptResult invokeV;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return jk3.b();
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            v83.M().post(new a());
         }
-        return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xm3(g53 g53Var) {
-        super(g53Var, "/swanAPI/recommendSimilarProducts");
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {g53Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((g53) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            if (dl3.f()) {
+                CookieManager.getInstance().flush();
                 return;
             }
+            CookieSyncManager.createInstance(AppRuntime.getAppContext());
+            CookieSyncManager.getInstance().sync();
         }
     }
 }

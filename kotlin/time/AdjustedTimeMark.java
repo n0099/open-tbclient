@@ -2,30 +2,30 @@ package kotlin.time;
 
 import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
-@Metadata(d1 = {"\u0000\u0014\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\r\b\u0003\u0018\u00002\u00020\u0001B\u0018\u0012\u0006\u0010\u0002\u001a\u00020\u0001\u0012\u0006\u0010\u0003\u001a\u00020\u0004ø\u0001\u0000¢\u0006\u0002\u0010\u0005J\u0015\u0010\u000b\u001a\u00020\u0004H\u0016ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b\f\u0010\u0007J\u001b\u0010\r\u001a\u00020\u00012\u0006\u0010\u000e\u001a\u00020\u0004H\u0096\u0002ø\u0001\u0000¢\u0006\u0004\b\u000f\u0010\u0010R\u0019\u0010\u0003\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\n\n\u0002\u0010\b\u001a\u0004\b\u0006\u0010\u0007R\u0011\u0010\u0002\u001a\u00020\u0001¢\u0006\b\n\u0000\u001a\u0004\b\t\u0010\n\u0082\u0002\b\n\u0002\b\u0019\n\u0002\b!¨\u0006\u0011"}, d2 = {"Lkotlin/time/AdjustedTimeMark;", "Lkotlin/time/TimeMark;", "mark", "adjustment", "Lkotlin/time/Duration;", "(Lkotlin/time/TimeMark;JLkotlin/jvm/internal/DefaultConstructorMarker;)V", "getAdjustment-UwyO8pc", "()J", "J", "getMark", "()Lkotlin/time/TimeMark;", "elapsedNow", "elapsedNow-UwyO8pc", "plus", "duration", "plus-LRDsOJo", "(J)Lkotlin/time/TimeMark;", "kotlin-stdlib"}, k = 1, mv = {1, 5, 1})
+@Metadata(d1 = {"\u0000\u0014\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\r\b\u0003\u0018\u00002\u00020\u0001B\u0018\u0012\u0006\u0010\u0002\u001a\u00020\u0001\u0012\u0006\u0010\u0003\u001a\u00020\u0004ø\u0001\u0000¢\u0006\u0002\u0010\u0005J\u0015\u0010\u000b\u001a\u00020\u0004H\u0016ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b\f\u0010\u0007J\u001b\u0010\r\u001a\u00020\u00012\u0006\u0010\u000e\u001a\u00020\u0004H\u0096\u0002ø\u0001\u0000¢\u0006\u0004\b\u000f\u0010\u0010R\u0019\u0010\u0003\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\n\n\u0002\u0010\b\u001a\u0004\b\u0006\u0010\u0007R\u0011\u0010\u0002\u001a\u00020\u0001¢\u0006\b\n\u0000\u001a\u0004\b\t\u0010\n\u0082\u0002\b\n\u0002\b\u0019\n\u0002\b!¨\u0006\u0011"}, d2 = {"Lkotlin/time/AdjustedTimeMark;", "Lkotlin/time/TimeMark;", "mark", "adjustment", "Lkotlin/time/Duration;", "(Lkotlin/time/TimeMark;JLkotlin/jvm/internal/DefaultConstructorMarker;)V", "getAdjustment-UwyO8pc", "()J", "J", "getMark", "()Lkotlin/time/TimeMark;", "elapsedNow", "elapsedNow-UwyO8pc", "plus", "duration", "plus-LRDsOJo", "(J)Lkotlin/time/TimeMark;", "kotlin-stdlib"}, k = 1, mv = {1, 6, 0}, xi = 48)
 @ExperimentalTime
 /* loaded from: classes9.dex */
 public final class AdjustedTimeMark extends TimeMark {
     public final long adjustment;
     public final TimeMark mark;
 
+    public /* synthetic */ AdjustedTimeMark(TimeMark timeMark, long j, DefaultConstructorMarker defaultConstructorMarker) {
+        this(timeMark, j);
+    }
+
     public AdjustedTimeMark(TimeMark timeMark, long j) {
         this.mark = timeMark;
         this.adjustment = j;
     }
 
-    public /* synthetic */ AdjustedTimeMark(TimeMark timeMark, long j, DefaultConstructorMarker defaultConstructorMarker) {
-        this(timeMark, j);
-    }
-
     @Override // kotlin.time.TimeMark
     /* renamed from: elapsedNow-UwyO8pc */
-    public long mo2047elapsedNowUwyO8pc() {
-        return Duration.m2092minusLRDsOJo(this.mark.mo2047elapsedNowUwyO8pc(), this.adjustment);
+    public long mo2048elapsedNowUwyO8pc() {
+        return Duration.m2090minusLRDsOJo(this.mark.mo2048elapsedNowUwyO8pc(), m2050getAdjustmentUwyO8pc());
     }
 
     /* renamed from: getAdjustment-UwyO8pc  reason: not valid java name */
-    public final long m2049getAdjustmentUwyO8pc() {
+    public final long m2050getAdjustmentUwyO8pc() {
         return this.adjustment;
     }
 
@@ -35,7 +35,7 @@ public final class AdjustedTimeMark extends TimeMark {
 
     @Override // kotlin.time.TimeMark
     /* renamed from: plus-LRDsOJo */
-    public TimeMark mo2048plusLRDsOJo(long j) {
-        return new AdjustedTimeMark(this.mark, Duration.m2093plusLRDsOJo(this.adjustment, j));
+    public TimeMark mo2049plusLRDsOJo(long j) {
+        return new AdjustedTimeMark(this.mark, Duration.m2091plusLRDsOJo(m2050getAdjustmentUwyO8pc(), j), null);
     }
 }

@@ -1,17 +1,18 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.view.narootview.SwanAppInlineFullScreenContainer;
-import com.baidu.tieba.s32;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.widget.AdImageView;
+import com.baidu.sdk.container.filedownloader.MaterialLoadErrorCode;
+import com.baidu.sdk.container.filedownloader.MaterialLoader;
+import com.baidu.sdk.container.widget.AdView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,158 +20,334 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class jl1 implements zs3 {
+public class jl1 extends hl1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ViewGroup.LayoutParams c;
     public transient /* synthetic */ FieldHolder $fh;
-    public r32 a;
-    public FrameLayout b;
+    public ImageView h0;
+    public Bitmap i0;
 
-    @Override // com.baidu.tieba.zs3
-    public boolean b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.sdk.container.widget.AdView.a
+    public void b(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+        }
+    }
+
+    @Override // com.baidu.sdk.container.widget.AdView.a
+    public void onAttachedToWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.sdk.container.widget.AdView.a
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048587, this, i, keyEvent)) == null) {
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeIL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.zs3
-    public boolean c(View view2) {
-        InterceptResult invokeL;
+    @Override // com.baidu.sdk.container.widget.AdView.a
+    public void onWindowFocusChanged(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.zs3
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.zs3
-    public boolean f(View view2, tr3 tr3Var) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.sdk.container.widget.AdView.a
+    public void onWindowVisibilityChanged(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, view2, tr3Var)) == null) {
-            return false;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
         }
-        return invokeLL.booleanValue;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947887034, "Lcom/baidu/tieba/jl1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a implements ll1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jl1 a;
+
+        @Override // com.baidu.tieba.ll1
+        public void onLoadingStarted(String str, View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, view2) == null) {
+            }
+        }
+
+        public a(jl1 jl1Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jl1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947887034, "Lcom/baidu/tieba/jl1;");
-                return;
+            this.a = jl1Var;
+        }
+
+        @Override // com.baidu.tieba.ll1
+        public void a(String str, View view2, MaterialLoadErrorCode materialLoadErrorCode) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, view2, materialLoadErrorCode) == null) {
+                jl1 jl1Var = this.a;
+                jl1Var.O("StaticImage Load Failed: " + materialLoadErrorCode.toString());
             }
         }
-        c = new FrameLayout.LayoutParams(-1, -1);
+
+        @Override // com.baidu.tieba.ll1
+        public void onLoadingComplete(String str, View view2, Bitmap bitmap) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, view2, bitmap) == null) {
+                this.a.i0 = bitmap;
+                this.a.Y();
+                this.a.P();
+            }
+        }
     }
 
-    public jl1() {
+    /* loaded from: classes5.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jl1 a;
+
+        public b(jl1 jl1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jl1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jl1Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.N();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements ll1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jl1 a;
+
+        @Override // com.baidu.tieba.ll1
+        public void onLoadingStarted(String str, View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, view2) == null) {
+            }
+        }
+
+        public c(jl1 jl1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jl1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jl1Var;
+        }
+
+        @Override // com.baidu.tieba.ll1
+        public void a(String str, View view2, MaterialLoadErrorCode materialLoadErrorCode) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, view2, materialLoadErrorCode) == null) {
+                jl1 jl1Var = this.a;
+                jl1Var.O("Get Static Image error: " + materialLoadErrorCode.getMessage());
+            }
+        }
+
+        @Override // com.baidu.tieba.ll1
+        public void onLoadingComplete(String str, View view2, Bitmap bitmap) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, view2, bitmap) == null) {
+                this.a.i0 = bitmap;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jl1(Context context, JSONObject jSONObject) {
+        super(context, jSONObject);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, jSONObject};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (JSONObject) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.zs3
-    public void a(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
-            s32 V = wp2.U().V();
-            Context appContext = AppRuntime.getAppContext();
-            if (V == null) {
-                if (appContext != null) {
-                    b43.f(appContext, R.string.obfuscated_res_0x7f0f01a8).G();
-                    return;
-                }
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            ju2 d = ju2.d(str, str);
-            d.h(jSONObject.toString());
-            s32.b i = V.i("adLanding");
-            i.n(s32.g, s32.i);
-            i.k("adLanding", d).b();
+        }
+        this.r = "image";
+    }
+
+    @Override // com.baidu.tieba.hl1
+    public void B() {
+        ImageView imageView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (imageView = this.h0) != null) {
+            imageView.setOnClickListener(null);
         }
     }
 
-    @Override // com.baidu.tieba.zs3
-    public boolean d(View view2, tr3 tr3Var) {
-        InterceptResult invokeLL;
-        s32 V;
+    @Override // com.baidu.tieba.hl1, com.baidu.tieba.sl1
+    public View getAdView() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view2, tr3Var)) == null) {
-            wp2 U = wp2.U();
-            SwanAppActivity activity = U.getActivity();
-            if (activity == null || activity.isFinishing() || (V = U.V()) == null) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return super.getAdView();
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.hl1, com.baidu.sdk.container.widget.AdView.a
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            super.onDetachedFromWindow();
+            Z();
+        }
+    }
+
+    @Override // com.baidu.tieba.hl1
+    public void E() {
+        RelativeLayout.LayoutParams layoutParams;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b != 2) {
+            try {
+                layoutParams = new RelativeLayout.LayoutParams(-1, -1);
+                AdImageView adImageView = new AdImageView(this.a);
+                this.h0 = adImageView;
+                adImageView.setVisibility(0);
+                this.h0.setOnClickListener(new b(this));
+                this.h0.setLayoutParams(layoutParams);
+                c0();
+            } catch (Exception e) {
+                O(hl1.g0 + " exception=" + Log.getStackTraceString(e));
             }
-            r32 o = V.o();
-            this.a = o;
-            if (o.G3()) {
-                int t = ai3.t();
-                if (view2 instanceof ViewGroup) {
-                    ViewGroup viewGroup = (ViewGroup) view2;
-                    for (int i = 0; i < viewGroup.getChildCount(); i++) {
-                        View childAt = viewGroup.getChildAt(i);
-                        if (childAt.getTop() < t) {
-                            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) childAt.getLayoutParams();
-                            layoutParams.topMargin = childAt.getTop() + t;
-                            childAt.setLayoutParams(layoutParams);
-                        }
-                    }
+            if (this.i0 == null) {
+                O("bitmap is null!!!");
+                return;
+            }
+            this.h0.setDrawingCacheEnabled(true);
+            this.h0.setImageBitmap(this.i0);
+            l(this.h0, layoutParams);
+            this.h0.requestLayout();
+            super.E();
+            this.h0.requestFocus();
+            R();
+        }
+    }
+
+    @Override // com.baidu.tieba.hl1
+    public void F() {
+        AdView adView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ImageView imageView = this.h0;
+            if (imageView != null && (adView = this.k) != null && adView.indexOfChild(imageView) >= 0) {
+                if (this.h0.getDrawingCache() != null) {
+                    this.h0.getDrawingCache().recycle();
                 }
+                this.k.removeAllViews();
             }
-            SwanAppInlineFullScreenContainer swanAppInlineFullScreenContainer = new SwanAppInlineFullScreenContainer(activity);
-            this.b = swanAppInlineFullScreenContainer;
-            swanAppInlineFullScreenContainer.addView(view2, c);
-            q33 d = o.d();
-            if (d == null) {
-                return false;
+            Bitmap bitmap = this.i0;
+            if (bitmap != null && !bitmap.isRecycled()) {
+                this.i0.recycle();
+                this.i0 = null;
             }
-            d.m(true);
-            ai3.b(activity);
-            d.n(this.b);
-            return true;
         }
-        return invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.zs3
-    public boolean removeView(View view2) {
-        InterceptResult invokeL;
-        q33 d;
+    public final void c0() {
+        ImageView.ScaleType scaleType;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, view2)) == null) {
-            this.b.removeAllViews();
-            r32 r32Var = this.a;
-            if (r32Var == null || (d = r32Var.d()) == null) {
-                return false;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            ImageView imageView = this.h0;
+            if (imageView != null) {
+                if (this.F == 17) {
+                    scaleType = ImageView.ScaleType.CENTER_CROP;
+                } else {
+                    scaleType = ImageView.ScaleType.FIT_XY;
+                }
+                imageView.setScaleType(scaleType);
             }
-            d.m(false);
-            d.g();
-            return true;
+            if (this.i0 != null) {
+                return;
+            }
+            this.i0 = this.h.a(this.t, new c(this));
         }
-        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.hl1, com.baidu.tieba.sl1
+    public void a(tl1 tl1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, tl1Var) == null) {
+            super.a(tl1Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.hl1, com.baidu.tieba.sl1
+    public void c(rl1 rl1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, rl1Var) == null) {
+            super.c(rl1Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.hl1, com.baidu.tieba.sl1
+    public void load() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            super.load();
+            if (this.h.c(this.t, MaterialLoader.MaterialCacheType.PICTURE)) {
+                Y();
+                P();
+                return;
+            }
+            try {
+                MaterialLoader.k(this.a).f(this.t, new a(this));
+            } catch (Exception e) {
+                O("StaticImage,Exception: " + e.toString());
+            }
+        }
     }
 }

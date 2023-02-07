@@ -1,207 +1,73 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.res.ui.BdMultiPicker;
-import com.baidu.tieba.o33;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class k33 extends o33 {
+public class k33 implements o33 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdMultiPicker c;
-    public JSONArray d;
-    public JSONArray e;
-    public BdMultiPicker.b f;
-    public boolean g;
+    public long a;
+    public long b;
 
-    /* loaded from: classes5.dex */
-    public static class a extends o33.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public JSONArray e;
-        public JSONArray f;
-        public boolean g;
-        public BdMultiPicker.b h;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(Context context) {
-            super(context);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Context) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.o33.a
-        public o33 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                k33 k33Var = (k33) super.a();
-                k33Var.g(this.e);
-                k33Var.h(this.f);
-                k33Var.j(this.g);
-                k33Var.i(this.h);
-                return k33Var;
-            }
-            return (o33) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.o33.a
-        public o33 b(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-                return new k33(context);
-            }
-            return (o33) invokeL.objValue;
-        }
-
-        public a l(JSONArray jSONArray) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray)) == null) {
-                this.e = jSONArray;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a m(JSONArray jSONArray) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONArray)) == null) {
-                this.f = jSONArray;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a n(BdMultiPicker.b bVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bVar)) == null) {
-                this.h = bVar;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a o(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-                this.g = z;
-                return this;
-            }
-            return (a) invokeZ.objValue;
-        }
+    @Override // com.baidu.tieba.o33
+    public String getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "PageInitRender" : (String) invokeV.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k33(Context context) {
-        super(context, R.style.obfuscated_res_0x7f1001a9);
+    public k33() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = -1L;
+        this.b = -1L;
     }
 
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c = new BdMultiPicker(getContext());
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-            layoutParams.gravity = 1;
-            this.c.setLayoutParams(layoutParams);
-            this.c.setMultiWheelData(this.d, this.e);
-            if (!this.g) {
-                this.c.setMultiSelectedListener(this.f);
-            }
-        }
-    }
-
-    public JSONArray f() {
+    @Override // com.baidu.tieba.o33
+    public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c.getCurrentIndex();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            long j = this.a;
+            if (j >= 0) {
+                long j2 = this.b;
+                if (j2 >= 0) {
+                    return j2 - j;
+                }
+                return -1L;
+            }
+            return -1L;
         }
-        return (JSONArray) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    public void g(JSONArray jSONArray) {
+    @Override // com.baidu.tieba.o33
+    public void b(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray) == null) {
-            this.d = jSONArray;
-        }
-    }
-
-    public void h(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jSONArray) == null) {
-            this.e = jSONArray;
-        }
-    }
-
-    public void i(BdMultiPicker.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f = bVar;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            this.b = j;
         }
     }
 
-    public void j(boolean z) {
+    @Override // com.baidu.tieba.o33
+    public void c(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.g = z;
-        }
-    }
-
-    @Override // android.app.Dialog
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
-            e();
-            b().j(this.c);
-        }
-    }
-
-    public void k(int i, JSONArray jSONArray, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), jSONArray, Integer.valueOf(i2)}) == null) {
-            this.c.j(i, jSONArray, i2);
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.a = j;
         }
     }
 }

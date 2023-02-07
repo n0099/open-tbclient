@@ -1,98 +1,141 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class kl9 {
+public class kl9 extends dl9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947917073, "Lcom/baidu/tieba/kl9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kl9 a;
+
+        public a(kl9 kl9Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kl9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947917073, "Lcom/baidu/tieba/kl9;");
+            this.a = kl9Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.a.m0()) {
+                    this.a.e.R0(9, false);
+                    this.a.n0(1);
+                    return;
+                }
+                kl9 kl9Var = this.a;
+                kl9Var.e.f(kl9Var.a.getString(R.string.obfuscated_res_0x7f0f055d));
+                this.a.n0(0);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kl9(@NonNull TbPageContext<?> tbPageContext, @NonNull NavigationBar navigationBar, @NonNull LinearLayout linearLayout, @NonNull EditorTools editorTools, @NonNull pj9 pj9Var, boolean z) {
+        super(tbPageContext, navigationBar, linearLayout, editorTools, pj9Var, z);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, navigationBar, linearLayout, editorTools, pj9Var, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (NavigationBar) objArr2[1], (LinearLayout) objArr2[2], (EditorTools) objArr2[3], (pj9) objArr2[4], ((Boolean) objArr2[5]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = cl9.m();
     }
 
-    @SuppressLint({"MissingPermission"})
-    public static boolean a(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.dl9, com.baidu.tieba.el9
+    public void M(@NonNull List<qj9<?>> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            ConnectivityManager connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity");
-            if (connectivityManager == null) {
-                return false;
-            }
-            NetworkInfo networkInfo = null;
-            try {
-                networkInfo = connectivityManager.getActiveNetworkInfo();
-            } catch (Exception e) {
-                if (a) {
-                    Log.d("UBCUtil", "get network info error! " + Log.getStackTraceString(e));
-                }
-            }
-            if (networkInfo == null || !networkInfo.isConnectedOrConnecting()) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            yi9 f = tk9.f(this.a);
+            list.add(f);
+            zi9 g = tk9.g(this.a);
+            f.w(g);
+            list.add(g);
+            list.add(tk9.o(this.a));
+            gj9 n = tk9.n(this.a, this, this.s, this.J);
+            this.D = n;
+            list.add(n);
+            fj9 m = tk9.m(this.a, this, this.d, this.C, this.s, this.J);
+            this.F = m;
+            f.w(m);
+            list.add(this.F);
         }
-        return invokeL.booleanValue;
     }
 
-    public static String b(byte[] bArr, String str, boolean z) {
-        InterceptResult invokeLLZ;
+    @Override // com.baidu.tieba.dl9, com.baidu.tieba.el9
+    public void O(@NonNull EditorTools editorTools) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, bArr, str, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (byte b : bArr) {
-                String hexString = Integer.toHexString(b & 255);
-                if (z) {
-                    hexString = hexString.toUpperCase();
-                }
-                if (hexString.length() == 1) {
-                    sb.append("0");
-                }
-                sb.append(hexString);
-                sb.append(str);
-            }
-            return sb.toString();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editorTools) == null) {
+            editorTools.setBarMaxLauCount(3);
+            editorTools.setMoreButtonAtEnd(true);
+            editorTools.setMoreVipIcon(true);
+            editorTools.setBarLauncherType(1);
+            editorTools.E(true);
+            editorTools.F(false);
+            editorTools.setBackgroundColorId(R.color.CAM_X0201);
+            vk9.h(this.a, editorTools, this);
+            vk9.d(editorTools, this);
+            vk9.a(this.a, editorTools, this);
+            vk9.b(this.a, editorTools, this);
+            vk9.i(this.a, editorTools);
+            vk9.m(this.a, editorTools, this.p.getCallFrom(), this);
+            editorTools.f();
+            super.O(editorTools);
         }
-        return (String) invokeLLZ.objValue;
     }
 
-    public static String c(byte[] bArr, boolean z) {
-        InterceptResult invokeLZ;
+    @Override // com.baidu.tieba.dl9, com.baidu.tieba.el9
+    public void P(@NonNull NavigationBar navigationBar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, bArr, z)) == null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.reset();
-                messageDigest.update(bArr);
-                return b(messageDigest.digest(), "", z);
-            } catch (NoSuchAlgorithmException e) {
-                throw new RuntimeException(e);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, navigationBar) == null) {
+            super.P(navigationBar);
+            if (this.q) {
+                navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f10ce));
+                p0(0, 0);
+                q0(R.drawable.obfuscated_res_0x7f0809f5, R.dimen.tbds31, R.dimen.tbds31, R.dimen.tbds0);
+                this.j.setOnClickListener(new a(this));
+                return;
+            }
+            navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f0f8a));
+            if (this.p.getProZone() == 1) {
+                navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f170a));
             }
         }
-        return (String) invokeLZ.objValue;
     }
 }

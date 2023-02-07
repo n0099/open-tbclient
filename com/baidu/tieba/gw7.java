@@ -1,219 +1,129 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.memberCenter.bubble.BubbleListData;
-import com.baidu.tieba.wv4;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class gw7 {
+public class gw7 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<ew7> a;
+    public Context b;
+    public int c;
+    public int d;
+    public final int e;
 
-    /* loaded from: classes4.dex */
-    public interface e {
-        void a(int i);
-
-        void b();
-    }
-
-    /* loaded from: classes4.dex */
-    public static class a implements wv4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e a;
-        public final /* synthetic */ BubbleListData.BubbleData b;
-
-        public a(e eVar, BubbleListData.BubbleData bubbleData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar, bubbleData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = eVar;
-            this.b = bubbleData;
-        }
-
-        @Override // com.baidu.tieba.wv4.e
-        public void onClick(wv4 wv4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, wv4Var) == null) {
-                wv4Var.dismiss();
-                e eVar = this.a;
-                if (eVar != null) {
-                    eVar.a(this.b.getBcode());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b implements wv4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e a;
-
-        public b(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = eVar;
-        }
-
-        @Override // com.baidu.tieba.wv4.e
-        public void onClick(wv4 wv4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, wv4Var) == null) {
-                wv4Var.dismiss();
-                e eVar = this.a;
-                if (eVar != null) {
-                    eVar.b();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class c implements wv4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e a;
-        public final /* synthetic */ BubbleListData.BubbleData b;
-
-        public c(e eVar, BubbleListData.BubbleData bubbleData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar, bubbleData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = eVar;
-            this.b = bubbleData;
-        }
-
-        @Override // com.baidu.tieba.wv4.e
-        public void onClick(wv4 wv4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, wv4Var) == null) {
-                wv4Var.dismiss();
-                e eVar = this.a;
-                if (eVar != null) {
-                    eVar.a(this.b.getBcode());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class d implements wv4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e a;
-
-        public d(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = eVar;
-        }
-
-        @Override // com.baidu.tieba.wv4.e
-        public void onClick(wv4 wv4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, wv4Var) == null) {
-                wv4Var.dismiss();
-                e eVar = this.a;
-                if (eVar != null) {
-                    eVar.b();
-                }
-            }
-        }
-    }
-
-    public static void a(TbPageContext<?> tbPageContext, BubbleListData.BubbleData bubbleData, e eVar) {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65536, null, tbPageContext, bubbleData, eVar) != null) || bubbleData == null) {
-            return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return 0L;
         }
-        wv4 wv4Var = new wv4(tbPageContext.getPageActivity());
-        wv4Var.setCanceledOnTouchOutside(false);
-        Date date = new Date();
-        Date date2 = new Date(date.getTime() + (bubbleData.getTime_interval() * 1000));
-        String dateStringDay = yi.getDateStringDay(date);
-        String dateStringDay2 = yi.getDateStringDay(date2);
-        String format = String.format(tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f035e), bubbleData.getBname(), Integer.valueOf(bubbleData.getTime_interval() / 86400));
-        View inflate = LayoutInflater.from(tbPageContext.getContext()).inflate(R.layout.bubble_free_dialog_content, (ViewGroup) null);
-        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0922d5);
-        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0922d6);
-        SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
-        SkinManager.setViewTextColor(textView2, R.color.CAM_X0108, 1);
-        textView.setText(format);
-        textView2.setText(dateStringDay + tbPageContext.getString(R.string.obfuscated_res_0x7f0f14d7) + dateStringDay2);
-        wv4Var.setContentView(inflate);
-        wv4Var.setPositiveButton(R.string.use_immediately, new a(eVar, bubbleData));
-        wv4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f037e, new b(eVar));
-        wv4Var.create(tbPageContext);
-        wv4Var.show();
+        return invokeI.longValue;
     }
 
-    public static void b(TbPageContext<?> tbPageContext, BubbleListData.BubbleData bubbleData, e eVar) {
+    public gw7(Context context, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65537, null, tbPageContext, bubbleData, eVar) != null) || bubbleData == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        wv4 wv4Var = new wv4(tbPageContext.getPageActivity());
-        wv4Var.setCanceledOnTouchOutside(false);
-        wv4Var.setMessage(String.format(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0360), bubbleData.getLevel_name()));
-        wv4Var.setPositiveButton(R.string.open_now, new c(eVar, bubbleData));
-        wv4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f037e, new d(eVar));
-        wv4Var.create(tbPageContext);
-        wv4Var.show();
+        this.a = new ArrayList();
+        this.c = 0;
+        this.d = 0;
+        this.b = context;
+        this.c = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b5);
+        this.d = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701be);
+        this.e = i;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public ew7 getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i >= 0 && i < this.a.size()) {
+                return this.a.get(i);
+            }
+            return null;
+        }
+        return (ew7) invokeI.objValue;
+    }
+
+    public void b(List<ew7> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.a.clear();
+            if (list != null && list.size() > 0) {
+                this.a.addAll(list);
+            }
+            notifyDataSetChanged();
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a.size();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
+            if (view2 instanceof TextView) {
+                textView = (TextView) view2;
+            } else {
+                textView = new TextView(this.b);
+                textView.setGravity(17);
+                textView.setTextSize(0, this.c);
+                int i2 = this.d;
+                textView.setPadding(0, i2, 0, i2);
+            }
+            ew7 ew7Var = (ew7) ListUtils.getItem(this.a, i);
+            if (ew7Var == null) {
+                return null;
+            }
+            textView.setText(StringHelper.cutChineseAndEnglishWithSuffix(ew7Var.c, 8, (String) null));
+            SkinManager.setViewTextColor(textView, R.color.CAM_X0106, 1);
+            if (i == this.e) {
+                SkinManager.setBackgroundResource(textView, R.drawable.btn_label_white_s);
+            } else {
+                SkinManager.setBackgroundResource(textView, R.drawable.lego_btn_more_item);
+            }
+            return textView;
+        }
+        return (View) invokeILL.objValue;
     }
 }

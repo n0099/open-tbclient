@@ -5,10 +5,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
+import com.baidu.tieba.Cdo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qc7;
-import com.baidu.tieba.sc7;
-import com.baidu.tieba.yn;
+import com.baidu.tieba.bh7;
+import com.baidu.tieba.dh7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +24,7 @@ import tbclient.NewTopicList.NewTopicListResIdl;
 public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<yn> mTopicDataList;
+    public List<Cdo> mTopicDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseHttpGetTopicListMessage() {
@@ -44,7 +44,7 @@ public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public List<yn> getTopicDataList() {
+    public List<Cdo> getTopicDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -69,19 +69,19 @@ public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
             int i2 = 1;
             for (NewTopicList newTopicList : newTopicListResIdl.data.topic_list) {
                 if (newTopicList != null && !StringUtils.isNull(newTopicList.topic_name) && !StringUtils.isNull(newTopicList.topic_desc)) {
-                    qc7 qc7Var = new qc7();
-                    qc7Var.R = i2;
-                    qc7Var.O(newTopicList);
-                    this.mTopicDataList.add(qc7Var);
-                    sc7 sc7Var = new sc7();
-                    sc7Var.a = R.dimen.tbds1;
-                    sc7Var.b = R.color.CAM_X0203;
-                    this.mTopicDataList.add(sc7Var);
+                    bh7 bh7Var = new bh7();
+                    bh7Var.R = i2;
+                    bh7Var.O(newTopicList);
+                    this.mTopicDataList.add(bh7Var);
+                    dh7 dh7Var = new dh7();
+                    dh7Var.a = R.dimen.tbds1;
+                    dh7Var.b = R.color.CAM_X0203;
+                    this.mTopicDataList.add(dh7Var);
                     i2++;
                 }
             }
-            List<yn> list = this.mTopicDataList;
-            ((sc7) ListUtils.getItem(list, list.size() - 1)).a = 0;
+            List<Cdo> list = this.mTopicDataList;
+            ((dh7) ListUtils.getItem(list, list.size() - 1)).a = 0;
         }
     }
 }

@@ -1,23 +1,21 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-import tbclient.SendCardInfo;
 /* loaded from: classes6.dex */
 public class u48 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
+    public int a;
     public String b;
-    public String c;
-    public String d;
-    public int e;
-    public String f;
 
     public u48() {
         Interceptable interceptable = $ic;
@@ -29,54 +27,52 @@ public class u48 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 0;
+        this.b = null;
     }
 
-    public boolean a() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.e == 3) {
-                return true;
-            }
-            return false;
+            return this.a;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    public boolean b() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.e == 1) {
-                return true;
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            d(new JSONObject(str).optJSONObject("error"));
+        } catch (Exception e) {
+            BdLog.detailException(e);
+        }
+    }
+
+    public void d(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
+            try {
+                this.a = jSONObject.optInt("errno");
+                this.b = jSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
+            } catch (Exception e) {
+                BdLog.detailException(e);
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) && jSONObject != null) {
-            this.b = jSONObject.optString("card_logo");
-            this.c = jSONObject.optString("card_name");
-            this.d = jSONObject.optString("card_pro");
-            this.e = jSONObject.optInt("card_get_status");
-            this.a = jSONObject.optLong("packet_id");
-            this.f = jSONObject.optString("card_num");
-        }
-    }
-
-    public void d(SendCardInfo sendCardInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, sendCardInfo) == null) && sendCardInfo != null) {
-            this.b = sendCardInfo.card_logo;
-            this.c = sendCardInfo.card_name;
-            this.d = sendCardInfo.card_pro;
-            this.e = sendCardInfo.card_get_status.intValue();
-            this.a = sendCardInfo.packet_id.longValue();
         }
     }
 }

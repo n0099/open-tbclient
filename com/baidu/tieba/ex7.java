@@ -1,50 +1,94 @@
 package com.baidu.tieba;
 
-import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
+import android.content.Context;
+import android.location.Address;
+import android.os.Bundle;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterActivity;
+import com.baidu.location.BDLocation;
+import com.baidu.location.BDLocationListener;
+import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
+import com.baidu.permissionhelper.ApiUtil;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tieba.zf;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Locale;
 /* loaded from: classes4.dex */
-public class ex7 extends BaseAdapter {
+public class ex7 implements ag {
     public static /* synthetic */ Interceptable $ic;
+    public static ex7 k;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<bx7> a;
-    public MemberTaskCenterActivity b;
-    public View.OnClickListener c;
+    public Context a;
+    public boolean b;
+    public String c;
+    public zf.d d;
+    public b e;
+    public LocationClient f;
+    public LocationClientOption g;
+    public Address h;
+    public long i;
+    public boolean j;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            return 0L;
+    /* loaded from: classes4.dex */
+    public static class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
         }
-        return invokeI.longValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001330) {
+                if ((ApiUtil.shouldCheckPermission() && !PermissionUtil.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) || !(customResponsedMessage.getData() instanceof Boolean)) {
+                    return;
+                }
+                if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                    zf.n().r(ex7.j());
+                } else {
+                    zf.n().v(ex7.j());
+                }
+            }
+        }
     }
 
     /* loaded from: classes4.dex */
-    public class a {
+    public class b implements BDLocationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public TextView b;
-        public TextView c;
-        public View d;
+        public final /* synthetic */ ex7 a;
 
-        public a(ex7 ex7Var) {
+        public b(ex7 ex7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -56,128 +100,182 @@ public class ex7 extends BaseAdapter {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ex7Var;
+        }
+
+        public /* synthetic */ b(ex7 ex7Var, a aVar) {
+            this(ex7Var);
+        }
+
+        @Override // com.baidu.location.BDLocationListener
+        public void onReceiveLocation(BDLocation bDLocation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, bDLocation) == null) {
+                if ((!ApiUtil.shouldCheckPermission() || PermissionUtil.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) && bDLocation != null && bDLocation.getLocType() != 62 && bDLocation.getLocType() != 63 && bDLocation.getLocType() != 67 && bDLocation.getLocType() != 68 && bDLocation.getLocType() <= 161) {
+                    this.a.c();
+                    this.a.h = new Address(Locale.getDefault());
+                    this.a.h.setLatitude(bDLocation.getLatitude());
+                    this.a.h.setLongitude(bDLocation.getLongitude());
+                    p35 m = p35.m();
+                    m.B("key_last_receive_location_latitude_and_longitude", bDLocation.getLatitude() + "," + bDLocation.getLongitude());
+                    this.a.h.setLocality(bDLocation.getCity());
+                    Bundle bundle = new Bundle();
+                    bundle.putFloat("radius", bDLocation.getRadius());
+                    bundle.putDouble("altitude", bDLocation.getAltitude());
+                    bundle.putFloat("speed", bDLocation.getSpeed());
+                    bundle.putString("cityCode", bDLocation.getCityCode());
+                    bundle.putString("street", bDLocation.getStreet());
+                    bundle.putString("streetNumber", bDLocation.getStreetNumber());
+                    bundle.putString("province", bDLocation.getProvince());
+                    this.a.h.setExtras(bundle);
+                    this.a.i = System.currentTimeMillis();
+                    StringBuffer stringBuffer = new StringBuffer();
+                    if (bDLocation.getDistrict() == null || bDLocation.getStreet() == null) {
+                        stringBuffer.append(bDLocation.getCity());
+                    }
+                    stringBuffer.append(bDLocation.getDistrict());
+                    stringBuffer.append(bDLocation.getStreet());
+                    if (bDLocation.getAddrStr() != null) {
+                        this.a.h.setAddressLine(0, stringBuffer.toString());
+                    }
+                    if (this.a.d != null) {
+                        this.a.d.a(0, "", this.a.h, this.a.i, this.a.j);
+                        vs8.e().i(String.valueOf(this.a.h.getLatitude()));
+                        vs8.e().j(String.valueOf(this.a.h.getLongitude()));
+                        vs8.e().k(System.currentTimeMillis());
+                    }
                 }
             }
         }
     }
 
-    public ex7(MemberTaskCenterActivity memberTaskCenterActivity) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947749797, "Lcom/baidu/tieba/ex7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947749797, "Lcom/baidu/tieba/ex7;");
+                return;
+            }
+        }
+        MessageManager.getInstance().registerListener(new a(2001330));
+    }
+
+    public static ex7 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            if (k == null) {
+                synchronized (ex7.class) {
+                    if (k == null) {
+                        k = new ex7();
+                    }
+                }
+            }
+            return k;
+        }
+        return (ex7) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ag
+    public void c() {
+        LocationClient locationClient;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (locationClient = this.f) != null && locationClient.isStarted()) {
+            try {
+                this.f.stop();
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ag
+    public void destroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            c();
+        }
+    }
+
+    public ex7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {memberTaskCenterActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = memberTaskCenterActivity;
+        this.b = true;
+        this.c = "";
+        this.d = null;
+        this.i = 0L;
+        this.j = false;
     }
 
-    public final SpannableString a(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.ag
+    public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            SpannableString spannableString = new SpannableString(str + str2);
-            spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301)), 0, str.length(), 33);
-            spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0109)), str.length(), spannableString.length(), 33);
-            return spannableString;
-        }
-        return (SpannableString) invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: b */
-    public bx7 getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            List<bx7> list = this.a;
-            if (list != null && list.size() > i) {
-                return this.a.get(i);
-            }
-            return null;
-        }
-        return (bx7) invokeI.objValue;
-    }
-
-    public void c(List<bx7> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.a.clear();
-            if (list != null) {
-                this.a.addAll(list);
-            }
-        }
-    }
-
-    public void d(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.c = onClickListener;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<bx7> list = this.a;
-            if (list != null) {
-                return list.size();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
-            if (view2 != null && (view2.getTag() instanceof a)) {
-                aVar = (a) view2.getTag();
-            } else {
-                view2 = LayoutInflater.from(this.b.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d05a4, (ViewGroup) null);
-                aVar = new a(this);
-                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921cd);
-                aVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921ce);
-                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921cf);
-                aVar.d = view2.findViewById(R.id.obfuscated_res_0x7f090841);
-            }
-            bx7 item = getItem(i);
-            if (item != null) {
-                aVar.a.setText(item.f());
-                aVar.b.setText(a(String.valueOf(item.a()), item.b()));
-                if (item.d()) {
-                    aVar.c.setText(this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f0966), TextView.BufferType.EDITABLE);
-                    aVar.c.setTextColor(SkinManager.getColor(R.color.CAM_X0110));
-                    aVar.c.setBackgroundDrawable(null);
-                    aVar.c.setOnClickListener(null);
-                } else {
-                    aVar.c.setText(this.b.getPageContext().getString(R.string.default_get_gift), TextView.BufferType.EDITABLE);
-                    SkinManager.setViewTextColor(aVar.c, (int) R.color.member_center_task_btn_textcolor);
-                    aVar.c.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.item_blue_btn_selector));
-                    aVar.c.setTag(item);
-                    aVar.c.setOnClickListener(this.c);
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            if ((!ApiUtil.shouldCheckPermission() || PermissionUtil.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) && this.b && this.f != null) {
+                try {
+                    this.j = z;
+                    if (z) {
+                        this.g.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);
+                    }
+                    this.f.setLocOption(this.g);
+                    if (!this.f.isStarted()) {
+                        this.f.start();
+                    }
+                    this.f.requestLocation();
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                    c();
+                    zf.d dVar = this.d;
+                    if (dVar != null) {
+                        dVar.a(5, "", this.h, this.i, this.j);
+                    }
                 }
-                SkinManager.setViewTextColor(aVar.b, (int) R.color.CAM_X0109);
-                SkinManager.setViewTextColor(aVar.a, (int) R.color.CAM_X0105);
-                SkinManager.setBackgroundColor(aVar.d, R.color.CAM_X0204);
             }
-            view2.setTag(aVar);
-            return view2;
         }
-        return (View) invokeILL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ag
+    public void b(zf.d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
+            this.a = TbadkCoreApplication.getInst().getContext();
+            this.d = dVar;
+            this.c = "baidu";
+            if (this.b) {
+                try {
+                    this.f = new LocationClient(this.a);
+                    LocationClientOption locationClientOption = new LocationClientOption();
+                    this.g = locationClientOption;
+                    locationClientOption.setOpenGps(true);
+                    this.g.setIgnoreKillProcess(true);
+                    this.g.setProdName(this.c);
+                    this.g.setAddrType("all");
+                    this.g.setCoorType("bd09ll");
+                    b bVar = new b(this, null);
+                    this.e = bVar;
+                    this.f.registerLocationListener(bVar);
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                }
+            }
+        }
     }
 }

@@ -1,87 +1,62 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.animation.ObjectAnimator;
+import android.view.View;
+import android.view.animation.LinearInterpolator;
+import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class tw1 extends g63 {
+public class tw1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tw1(g53 g53Var, String str) {
-        super(g53Var, str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {g53Var, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public void j(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, HashMap<String, String> hashMap, String str) {
-        HashMap<String, String> params;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, unitedSchemeEntity, callbackHandler, hashMap, str) == null) && (params = unitedSchemeEntity.getParams()) != null && !params.isEmpty() && hashMap != null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-                    jSONObject.putOpt(entry.getKey(), entry.getValue());
-                }
-            } catch (JSONException e) {
-                if (g63.b) {
-                    e.printStackTrace();
-                }
-            }
-            if (TextUtils.isEmpty(str)) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-            } else {
-                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
-            }
-        }
-    }
-
-    public void k(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity, callbackHandler, z) == null) {
-            if (z) {
-                i = 0;
-            } else {
-                i = -1;
-            }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, i);
-        }
-    }
-
-    public String l(UnitedSchemeEntity unitedSchemeEntity) {
+    public static ObjectAnimator a(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, unitedSchemeEntity)) == null) {
-            return unitedSchemeEntity.getParams().get("params");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_Y, 0.0f);
+            ofFloat.setDuration(320L);
+            ofFloat.setInterpolator(new af4(0.32f, 0.6f, 0.1f, 1.0f));
+            return ofFloat;
         }
-        return (String) invokeL.objValue;
+        return (ObjectAnimator) invokeL.objValue;
+    }
+
+    public static ObjectAnimator b(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.ALPHA, 0.0f);
+            ofFloat.setDuration(240L);
+            ofFloat.setInterpolator(new LinearInterpolator());
+            return ofFloat;
+        }
+        return (ObjectAnimator) invokeL.objValue;
+    }
+
+    public static ObjectAnimator c(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.ALPHA, 1.0f);
+            ofFloat.setDuration(320L);
+            ofFloat.setInterpolator(new LinearInterpolator());
+            return ofFloat;
+        }
+        return (ObjectAnimator) invokeL.objValue;
+    }
+
+    public static ObjectAnimator d(View view2, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, view2, i)) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_Y, i);
+            ofFloat.setDuration(240L);
+            ofFloat.setInterpolator(new af4(0.32f, 0.6f, 0.1f, 1.0f));
+            return ofFloat;
+        }
+        return (ObjectAnimator) invokeLI.objValue;
     }
 }

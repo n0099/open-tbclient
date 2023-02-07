@@ -1,85 +1,50 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import com.baidu.nadcore.net.exception.RequestError;
+import com.baidu.nadcore.net.request.Headers;
+import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URL;
-import java.util.List;
-import java.util.regex.Pattern;
-import kotlin.jvm.JvmName;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
-@JvmName(name = "AuthStrategyHelper")
+import okhttp3.Request;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes6.dex */
-public final class us0 {
+public class us0 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile rs0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                JSONArray jSONArray = new JSONArray();
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("host", "vdept3.bdstatic.com");
-                jSONObject2.put("auth", "1_1_1_3");
-                jSONArray.put(jSONObject2);
-                jSONObject.put("hosts", jSONArray);
-            } catch (Exception e) {
-                bk0.c("AuthStrategyHelper", e.toString());
-            }
-            String jSONObject3 = jSONObject.toString();
-            Intrinsics.checkNotNullExpressionValue(jSONObject3, "defaultHostAuthConfig.toString()");
-            return jSONObject3;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final List<qs0> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                a = ts0.a(l01.l().getString("host_auth_config", a()));
-            }
-            rs0 rs0Var = a;
-            if (rs0Var != null) {
-                return rs0Var.a();
-            }
-            return null;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public static final synchronized qs0 c(String str) {
+    public static Request.Builder a(@NonNull ts0 ts0Var) throws RequestError {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            synchronized (us0.class) {
-                if (str == null) {
-                    return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, ts0Var)) == null) {
+            Request.Builder builder = new Request.Builder();
+            try {
+                builder.url(ts0Var.a);
+                Object obj = ts0Var.e;
+                if (obj != null) {
+                    builder.tag(obj);
                 }
-                List<qs0> b = b();
-                if (b == null) {
-                    return null;
+                if (ts0Var.h) {
+                    builder.header("Content-Type", "application/x-www-form-urlencoded");
+                    builder.header(BOSTokenRequest.CHARSET, "UTF-8");
+                    builder.header(HTTP.CONN_DIRECTIVE, "close");
+                    builder.header(BOSTokenRequest.ACCEPT, "*/*");
                 }
-                try {
-                    String host = new URL(str).getHost();
-                    for (qs0 qs0Var : b) {
-                        if (Pattern.matches(qs0Var.b(), host)) {
-                            return qs0Var;
-                        }
+                Headers.a aVar = ts0Var.c;
+                if (aVar != null) {
+                    Headers c = aVar.c();
+                    for (int i = 0; i < c.g(); i++) {
+                        builder.header(c.f(i), c.h(i));
                     }
-                } catch (Exception e) {
-                    bk0.a("AuthStrategyHelper", e.getMessage());
                 }
-                return null;
+                String str = ts0Var.b;
+                builder.method(str, qs0.g(str, ts0Var.d));
+                return builder;
+            } catch (Throwable th) {
+                throw new RequestError("Invalid request url: " + ts0Var.a, th);
             }
         }
-        return (qs0) invokeL.objValue;
+        return (Request.Builder) invokeL.objValue;
     }
 }

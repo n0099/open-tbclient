@@ -1,6 +1,10 @@
 package com.baidu.searchbox.ubcprocessor;
 
+import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.KVStorageFactory;
@@ -10,8 +14,12 @@ import com.baidu.searchbox.cloudcontrol.ICloudControlUBCCallBack;
 import com.baidu.searchbox.cloudcontrol.data.CloudControlRequestInfo;
 import com.baidu.searchbox.cloudcontrol.data.CloudControlResponseInfo;
 import com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor;
-import com.baidu.tieba.tk9;
-import com.baidu.tieba.xk9;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.tieba.ap9;
+import com.baidu.tieba.ep9;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,27 +33,51 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class UBCCloudControlProcessor implements ICloudControlProcessor {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final boolean DEBUG;
     public static final String KEY_STATISTIC_DATA_COUNT = "count";
+    public static final String KEY_UBC_APP_VERSION = "ubc_app_version";
     public static final String SP_UBC_FILE_NAME = "com.baidu.searchbox_ubc";
+    public static final String TAG = "UBCCloudProcessor";
+    public static final String UBC_APP_VERSION_DEFAULT = "0";
     public static final String UBC_CLOUDCONFIG_VERSION = "ubc_cloudconfig_version";
     public static final String UBC_KEY = "ubc";
     public static final String UBC_VERSION_ASC = "version_asc";
     public static final String UBC_VERSION_ASC_DEFAULT = "0";
     public static final String UBC_VERSION_DEFAULT = "0";
+    public static boolean sCheckedAppVersion;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(110254446, "Lcom/baidu/searchbox/ubcprocessor/UBCCloudControlProcessor;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(110254446, "Lcom/baidu/searchbox/ubcprocessor/UBCCloudControlProcessor;");
+                return;
+            }
+        }
+        DEBUG = AppConfig.isDebug();
+        sCheckedAppVersion = false;
+    }
 
     public UBCCloudControlProcessor() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        checkAppVersion();
     }
 
     public static /* synthetic */ SharedPrefsWrapper access$100() {
@@ -55,7 +87,7 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
     private JSONObject generateFailStatisticData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("items", new JSONArray());
@@ -70,10 +102,48 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
     public static SharedPrefsWrapper sharedPrefsWrapper() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             return new SharedPrefsWrapper(KVStorageFactory.getSharedPreferences(SP_UBC_FILE_NAME));
         }
         return (SharedPrefsWrapper) invokeV.objValue;
+    }
+
+    private void checkAppVersion() {
+        PackageInfo packageInfo;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) != null) || sCheckedAppVersion) {
+            return;
+        }
+        String str = "";
+        Context appContext = AppRuntime.getAppContext();
+        if (appContext == null) {
+            return;
+        }
+        boolean z = false;
+        try {
+            packageInfo = appContext.getPackageManager().getPackageInfo(appContext.getPackageName(), 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            if (DEBUG) {
+                e.printStackTrace();
+            }
+        }
+        if (packageInfo == null) {
+            return;
+        }
+        str = packageInfo.versionName;
+        String string = sharedPrefsWrapper().getString(KEY_UBC_APP_VERSION, "0");
+        if (DEBUG) {
+            Log.d(TAG, "current version: " + str + ", oldVersion: " + string);
+        }
+        z = !TextUtils.equals(str, string);
+        if (z) {
+            sharedPrefsWrapper().putString(UBC_CLOUDCONFIG_VERSION, "0");
+            sharedPrefsWrapper().putString(KEY_UBC_APP_VERSION, str);
+            if (DEBUG) {
+                Log.d(TAG, "reset step: 0, save app version: " + str);
+            }
+        }
+        sCheckedAppVersion = true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -81,7 +151,7 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
         InterceptResult invokeL;
         String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, jSONObject)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, jSONObject)) == null) {
             if (jSONObject != null && jSONObject.length() != 0) {
                 String optString = jSONObject.optString("count");
                 if (!TextUtils.isEmpty(optString) && (split = optString.split(",")) != null && split.length == 3) {
@@ -127,9 +197,9 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
                 str = option.optString("version_asc");
             }
             boolean z = !"0".equals(str);
-            xk9 xk9Var = new xk9("", serviceData);
-            if (xk9Var.l()) {
-                ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).registerConfig(xk9Var, z, new tk9(this, iCloudControlUBCCallBack, xk9Var.g()) { // from class: com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor.1
+            ep9 ep9Var = new ep9("", serviceData);
+            if (ep9Var.l()) {
+                ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).registerConfig(ep9Var, z, new ap9(this, iCloudControlUBCCallBack, ep9Var.g()) { // from class: com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ UBCCloudControlProcessor this$0;
@@ -156,7 +226,7 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
                         this.val$step = r8;
                     }
 
-                    @Override // com.baidu.tieba.tk9
+                    @Override // com.baidu.tieba.ap9
                     public void setUBCConfigStatisticData(JSONObject jSONObject) {
                         ICloudControlUBCCallBack iCloudControlUBCCallBack2;
                         Interceptable interceptable2 = $ic;

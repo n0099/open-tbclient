@@ -1,18 +1,20 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.util.AttributeSet;
+import android.view.LayoutInflater;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.VideoChannelInfo;
 /* loaded from: classes5.dex */
-public class ov4 {
+public class ov4 implements LayoutInflater.Factory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public int b;
+    public qv4 a;
 
     public ov4() {
         Interceptable interceptable = $ic;
@@ -28,25 +30,24 @@ public class ov4 {
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    public void a(qv4 qv4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        try {
-            this.a = jSONObject.optLong("channel_id", 0L);
-            jSONObject.optString("channel_name");
-            jSONObject.optString("channel_avatar");
-        } catch (Exception unused) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, qv4Var) == null) {
+            this.a = qv4Var;
         }
     }
 
-    public void b(VideoChannelInfo videoChannelInfo) {
+    @Override // android.view.LayoutInflater.Factory
+    public View onCreateView(String str, Context context, AttributeSet attributeSet) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, videoChannelInfo) == null) && videoChannelInfo != null && videoChannelInfo.channel_id.longValue() > 0) {
-            this.a = videoChannelInfo.channel_id.longValue();
-            String str = videoChannelInfo.channel_name;
-            String str2 = videoChannelInfo.channel_avatar;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, context, attributeSet)) == null) {
+            if (this.a == null) {
+                this.a = new qv4();
+            }
+            this.a.j(str, context, attributeSet);
+            return null;
         }
+        return (View) invokeLLL.objValue;
     }
 }

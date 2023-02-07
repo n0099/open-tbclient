@@ -95,7 +95,7 @@ public final class GoogleServices {
             }
         }
         Resources resources = context.getResources();
-        int identifier = resources.getIdentifier("google_app_measurement_enable", "integer", resources.getResourcePackageName(R.string.obfuscated_res_0x7f0f0431));
+        int identifier = resources.getIdentifier("google_app_measurement_enable", "integer", resources.getResourcePackageName(R.string.obfuscated_res_0x7f0f043e));
         if (identifier != 0) {
             int integer = resources.getInteger(identifier);
             if (integer != 0) {

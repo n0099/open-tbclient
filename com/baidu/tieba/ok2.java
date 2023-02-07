@@ -1,55 +1,64 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import com.baidu.searchbox.config.QuickPersistConfigConst;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ok2 extends di2<uk2> {
+public class ok2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.di2
-    @NonNull
-    public String b() {
+    public static String a() {
         InterceptResult invokeV;
+        String optString;
+        int indexOf;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "unsubscribeRemoteStream" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            w83 b0 = w83.b0();
+            JSONObject jSONObject = new JSONObject();
+            if (b0 != null) {
+                jSONObject = b0.W().M();
+            }
+            if (jSONObject != null && (optString = jSONObject.optString("keyfeed")) != null && (indexOf = optString.indexOf("_")) >= 0 && TextUtils.equals("miniapp", optString.substring(0, indexOf))) {
+                return optString.substring(indexOf + 1);
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
     }
 
-    public ok2() {
+    public static Map<String, Object> b(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("app_key", str);
+            hashMap.put("op_type", str2);
+            String a = a();
+            if (!TextUtils.isEmpty(a)) {
+                hashMap.put("nid", a);
             }
+            return hashMap;
         }
+        return (Map) invokeLL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.di2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull uk2 uk2Var) {
+    public static Map<String, Object> c(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, uk2Var) == null) {
-            String str = command.what;
-            d(uk2Var, str, "" + command.obj, true);
-            Object obj = command.obj;
-            if (obj instanceof Long) {
-                long longValue = ((Long) obj).longValue();
-                if (sk2.a(longValue)) {
-                    uk2Var.j(longValue);
-                }
-            }
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("app_key", str);
+            hashMap.put(QuickPersistConfigConst.KEY_SPLASH_SORT, Integer.valueOf(i));
+            hashMap.put("op_type", StickerDataChangeType.ADD);
+            return hashMap;
         }
+        return (Map) invokeLI.objValue;
     }
 }

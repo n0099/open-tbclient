@@ -1,43 +1,37 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.ala.personcenter.privilege.entereffect.adapter.AlaEnterEffectAdapter;
+import com.baidu.tieba.ala.personcenter.privilege.entereffect.adapter.AlaEnterEffectCategoryAdapter;
+import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes3.dex */
-public abstract class a86<T extends BaseCardInfo> implements View.OnClickListener {
+public class a86 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public TbPageContext<?> b;
-    public Context c;
-    public View d;
-    public z86<T> e;
-    public BdUniqueId f;
-    public String g;
-    public int h;
+    public TbPageContext a;
+    public BdTypeListView b;
+    public List<qn> c;
+    public AlaEnterEffectAdapter d;
+    public AlaEnterEffectCategoryAdapter e;
+    public List<Cdo> f;
 
-    public abstract int d();
-
-    public abstract void i(T t);
-
-    public abstract void j(TbPageContext<?> tbPageContext, int i);
-
-    public a86(TbPageContext<?> tbPageContext) {
+    public a86(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -47,115 +41,91 @@ public abstract class a86<T extends BaseCardInfo> implements View.OnClickListene
                 return;
             }
         }
-        this.a = 3;
-        this.f = null;
-        this.b = tbPageContext;
-        this.c = tbPageContext.getPageActivity();
-        this.d = LayoutInflater.from(getContext()).inflate(d(), (ViewGroup) null, false);
+        this.a = tbPageContext;
+        this.b = bdTypeListView;
+        a();
     }
 
-    public a86(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
+    public void d(String str, int i) {
+        List<Cdo> list;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, viewGroup};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) && !StringUtils.isNull(str) && (list = this.f) != null) {
+            for (Cdo cdo : list) {
+                if (cdo instanceof AlaEnterEffectData) {
+                    AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) cdo;
+                    if (alaEnterEffectData.type == 1 && str.equals(alaEnterEffectData.gift.giftId)) {
+                        alaEnterEffectData.downLoadStatus = i;
+                        b();
+                    }
+                }
             }
         }
-        this.a = 3;
-        this.f = null;
-        this.b = tbPageContext;
-        this.c = tbPageContext.getPageActivity();
-        this.d = LayoutInflater.from(getContext()).inflate(d(), viewGroup, false);
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public void e(String str, boolean z) {
+        List<Cdo> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public z86<T> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
-        }
-        return (z86) invokeV.objValue;
-    }
-
-    public BdUniqueId f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public TbPageContext<?> g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return (TbPageContext) invokeV.objValue;
-    }
-
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.c;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public View h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.d;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public void n(z86<T> z86Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, z86Var) == null) {
-            this.e = z86Var;
+        if ((interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) && !TextUtils.isEmpty(str) && (list = this.f) != null) {
+            for (Cdo cdo : list) {
+                if (cdo instanceof AlaEnterEffectData) {
+                    AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) cdo;
+                    if (str.equals(alaEnterEffectData.id)) {
+                        alaEnterEffectData.isOwn = z;
+                        b();
+                        return;
+                    }
+                }
+            }
         }
     }
 
-    public void o(BdUniqueId bdUniqueId) {
+    public void f(String str, boolean z) {
+        List<Cdo> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, bdUniqueId) == null) {
-            this.f = bdUniqueId;
+        if ((interceptable == null || interceptable.invokeLZ(1048581, this, str, z) == null) && !TextUtils.isEmpty(str) && (list = this.f) != null) {
+            for (Cdo cdo : list) {
+                if (cdo instanceof AlaEnterEffectData) {
+                    AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) cdo;
+                    if (str.equals(alaEnterEffectData.id)) {
+                        alaEnterEffectData.use_status = z ? 1 : 0;
+                    } else {
+                        alaEnterEffectData.use_status = 0;
+                    }
+                    b();
+                }
+            }
         }
     }
 
-    public void q(int i) {
-        View view2;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048587, this, i) == null) && (view2 = this.d) != null) {
-            view2.setVisibility(i);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c = new ArrayList();
+            AlaEnterEffectAdapter alaEnterEffectAdapter = new AlaEnterEffectAdapter(this.a.getPageActivity());
+            this.d = alaEnterEffectAdapter;
+            this.c.add(alaEnterEffectAdapter);
+            AlaEnterEffectCategoryAdapter alaEnterEffectCategoryAdapter = new AlaEnterEffectCategoryAdapter(this.a.getPageActivity());
+            this.e = alaEnterEffectCategoryAdapter;
+            this.c.add(alaEnterEffectCategoryAdapter);
+            this.b.a(this.c);
         }
     }
 
-    public void setFrom(String str) {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.g = str;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            for (qn qnVar : this.c) {
+                qnVar.notifyDataSetChanged();
+            }
         }
+    }
+
+    public void c(List<Cdo> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        this.b.setData(list);
+        this.f = this.b.getData();
     }
 }

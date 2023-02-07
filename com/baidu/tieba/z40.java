@@ -6,50 +6,59 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.math.BigInteger;
+import java.security.InvalidKeyException;
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 /* loaded from: classes7.dex */
-public class z40 implements w40 {
+public class z40 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BigInteger a;
-    public BigInteger b;
+    public e50 a;
 
-    public z40(byte[] bArr, byte[] bArr2) {
+    public z40() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bArr, bArr2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new BigInteger(bArr);
-        this.b = new BigInteger(bArr2);
     }
 
-    @Override // com.baidu.tieba.w40
-    public BigInteger a() {
+    public static z40 b() throws NoSuchPaddingException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            z40 z40Var = new z40();
+            e50 e50Var = new e50();
+            z40Var.a = e50Var;
+            e50Var.d(2);
+            return z40Var;
         }
-        return (BigInteger) invokeV.objValue;
+        return (z40) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.w40
-    public BigInteger b() {
-        InterceptResult invokeV;
+    public final byte[] a(byte[] bArr) throws IllegalBlockSizeException, BadPaddingException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
+            if (bArr != null) {
+                return this.a.b(bArr, 0, bArr.length);
+            }
+            throw new IllegalArgumentException("Null input buffer");
         }
-        return (BigInteger) invokeV.objValue;
+        return (byte[]) invokeL.objValue;
+    }
+
+    public void c(int i, c50 c50Var) throws InvalidKeyException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, c50Var) == null) {
+            this.a.c(i, c50Var);
+        }
     }
 }

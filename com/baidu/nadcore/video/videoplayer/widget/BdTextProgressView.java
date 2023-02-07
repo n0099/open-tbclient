@@ -9,8 +9,8 @@ import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.widget.BdPlayerProgressView;
-import com.baidu.tieba.a51;
-import com.baidu.tieba.n71;
+import com.baidu.tieba.k61;
+import com.baidu.tieba.yb1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,9 +45,9 @@ public class BdTextProgressView extends View {
                 return;
             }
         }
-        h = a51.a(120.0f);
-        i = a51.a(15.0f);
-        a51.a(2.0f);
+        h = k61.a(120.0f);
+        i = k61.a(15.0f);
+        k61.a(2.0f);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -158,7 +158,7 @@ public class BdTextProgressView extends View {
         this.c = BdPlayerProgressView.DEFAULT_PROGRESS_TIME_TEXT;
         TypedArray typedArray = null;
         try {
-            typedArray = context.obtainStyledAttributes(attributeSet, n71.NadTextProgressView);
+            typedArray = context.obtainStyledAttributes(attributeSet, yb1.NadTextProgressView);
             this.a = typedArray.getDimension(3, 15.0f);
             this.b = typedArray.getColor(1, -1);
             this.f = typedArray.getInt(0, 1);

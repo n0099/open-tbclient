@@ -1,106 +1,79 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class ya3 {
+public class ya3 extends ta3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kb3 a;
-
-        public a(kb3 kb3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kb3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = kb3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                qa3.k("671", this.a.f());
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948323390, "Lcom/baidu/tieba/ya3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948323390, "Lcom/baidu/tieba/ya3;");
-                return;
-            }
-        }
-        a = tk1.a;
-    }
-
-    public static void a(bc4 bc4Var, int i, boolean z) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ya3(t93 t93Var) {
+        super(t93Var, "/swanAPI/setBackgroundTextStyle");
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{bc4Var, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            if (bc4Var == null) {
-                if (a) {
-                    Log.d("SwanStabilityUbc", "pms callback is null");
-                    return;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {t93Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
-            }
-            cg3 cg3Var = new cg3();
-            cg3Var.k(11L);
-            cg3Var.i(2331L);
-            cg3Var.f("Retry=" + z + ", Scene=" + bc4Var.getClass().getName());
-            kb3 kb3Var = new kb3();
-            kb3Var.q(cb3.n(i));
-            kb3Var.p(cg3Var);
-            if (bc4Var instanceof k72) {
-                kb3Var.r(((k72) bc4Var).I0());
-            }
-            b(kb3Var);
-            if (a) {
-                Log.d("SwanStabilityUbc", "Statis: Retry=" + z + ", Scene=" + bc4Var.getClass().getSimpleName());
             }
         }
     }
 
-    public static void b(kb3 kb3Var) {
+    @Override // com.baidu.tieba.ta3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, w83 w83Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, kb3Var) == null) {
-            if (kb3Var == null) {
-                if (a) {
-                    Log.d("SwanStabilityUbc", "event is null");
-                    return;
-                }
-                return;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, w83Var)) == null) {
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                w52.c("setBackgroundTextStyle", "paramsJson is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
             }
-            dh3.k(new a(kb3Var), "SwanStabilityUBC");
+            if (ta3.b) {
+                Log.d("setBackgroundTextStyle", optParamsAsJo.toString());
+            }
+            f82 V = ju2.U().V();
+            if (V == null) {
+                w52.c("setBackgroundTextStyle", "manager is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            }
+            String optString = optParamsAsJo.optString("textStyle");
+            if (TextUtils.isEmpty(optString)) {
+                w52.c("setBackgroundTextStyle", "text style is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
+            } else if (!V.o().o3().s(SwanAppConfigData.t(optString))) {
+                w52.c("setBackgroundTextStyle", "set window background fail");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                return true;
+            }
         }
+        return invokeLLLL.booleanValue;
     }
 }

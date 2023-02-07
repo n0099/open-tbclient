@@ -1,262 +1,51 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ValueAnimator;
-import android.annotation.SuppressLint;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
-import com.baidu.tieba.w36;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tieba.forumMember.tbtitle.model.cache.GetLevelInfoReadCacheResponsedMessage;
+import com.baidu.tieba.forumMember.tbtitle.model.req.GetLevelInfoReadCacheRequestMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class oq6 {
+public class oq6 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public y36 b;
-    public y36 c;
-    public y36 d;
-    public ValueAnimator e;
 
-    /* loaded from: classes5.dex */
-    public class a implements w36.i {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TBLottieAnimationView a;
-
-        public a(oq6 oq6Var, TBLottieAnimationView tBLottieAnimationView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {oq6Var, tBLottieAnimationView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tBLottieAnimationView;
-        }
-
-        @Override // com.baidu.tieba.w36.i
-        public void a(w36 w36Var, boolean z, float f, float f2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{w36Var, Boolean.valueOf(z), Float.valueOf(f), Float.valueOf(f2)}) == null) {
-                this.a.playAnimation();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ oq6 a;
-
-        public b(oq6 oq6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {oq6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = oq6Var;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.a.e.start();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements ValueAnimator.AnimatorUpdateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ oq6 a;
-
-        public c(oq6 oq6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {oq6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = oq6Var;
-        }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) && this.a.a != null) {
-                this.a.a.setRotation(((Float) valueAnimator.getAnimatedValue()).floatValue());
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ oq6 a;
-
-        public d(oq6 oq6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {oq6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = oq6Var;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.a.d.h();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class e implements w36.i {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TBLottieAnimationView a;
-
-        public e(oq6 oq6Var, TBLottieAnimationView tBLottieAnimationView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {oq6Var, tBLottieAnimationView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tBLottieAnimationView;
-        }
-
-        @Override // com.baidu.tieba.w36.i
-        @SuppressLint({"WrongConstant"})
-        public void a(w36 w36Var, boolean z, float f, float f2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{w36Var, Boolean.valueOf(z), Float.valueOf(f), Float.valueOf(f2)}) == null) {
-                this.a.setRepeatCount(-1);
-                this.a.setRepeatMode(2);
-                this.a.playAnimation();
-            }
-        }
-    }
-
-    public oq6(View view2, TBLottieAnimationView tBLottieAnimationView) {
+    public oq6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, tBLottieAnimationView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = view2;
-        this.b = d(view2, w36.m, 170.0f, 0.5f, 1.0f);
-        this.c = d(view2, w36.n, 170.0f, 0.5f, 1.0f);
-        this.e = e(view2, 0.0f, 6.0f, 100L);
-        this.d = d(view2, w36.o, 200.0f, 0.4f, 0.0f);
-        f(tBLottieAnimationView);
     }
 
-    public final y36 d(View view2, x36<View> x36Var, float f, float f2, float f3) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{view2, x36Var, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            z36 z36Var = new z36(f3);
-            z36Var.f(f);
-            z36Var.d(f2);
-            y36 y36Var = new y36(view2, x36Var);
-            y36Var.m(z36Var);
-            return y36Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage != null && (customMessage instanceof GetLevelInfoReadCacheRequestMessage)) {
+                byte[] a = new nq6().a(((GetLevelInfoReadCacheRequestMessage) customMessage).getCacheKey());
+                GetLevelInfoReadCacheResponsedMessage getLevelInfoReadCacheResponsedMessage = new GetLevelInfoReadCacheResponsedMessage();
+                try {
+                    getLevelInfoReadCacheResponsedMessage.decodeInBackGround(2003007, a);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return getLevelInfoReadCacheResponsedMessage;
+            }
+            return null;
         }
-        return (y36) invokeCommon.objValue;
-    }
-
-    public final ValueAnimator e(View view2, float f, float f2, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2), Long.valueOf(j)})) == null) {
-            ValueAnimator ofFloat = ValueAnimator.ofFloat(f, f2);
-            ofFloat.setTarget(view2);
-            ofFloat.setDuration(j);
-            return ofFloat;
-        }
-        return (ValueAnimator) invokeCommon.objValue;
-    }
-
-    public final void f(TBLottieAnimationView tBLottieAnimationView) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tBLottieAnimationView) != null) || tBLottieAnimationView == null) {
-            return;
-        }
-        this.b.b(new a(this, tBLottieAnimationView));
-        tBLottieAnimationView.addAnimatorListener(new b(this));
-        this.e.addUpdateListener(new c(this));
-        this.e.addListener(new d(this));
-        this.d.b(new e(this, tBLottieAnimationView));
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b.h();
-            this.c.h();
-        }
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

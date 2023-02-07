@@ -1,127 +1,121 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ObjectAnimator;
 import android.content.Context;
-import android.os.Bundle;
+import android.view.View;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.tieba.go1;
+import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
 /* loaded from: classes4.dex */
-public class gl3 implements go1 {
+public class gl3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public gl3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes4.dex */
+    public static class a extends AnimatorListenerAdapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
+
+        public a(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = view2;
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+                this.a.setTranslationX(0.0f);
             }
         }
     }
 
-    @Override // com.baidu.tieba.go1
-    public void a(go1.a aVar) {
+    public static void a(f82 f82Var, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            aVar.onFinish();
+        if (interceptable == null || interceptable.invokeLL(65536, null, f82Var, context) == null) {
+            b(f82Var, context, 2);
         }
     }
 
-    @Override // com.baidu.tieba.go1
-    public void c(xk1 xk1Var) {
+    public static void b(f82 f82Var, Context context, int i) {
+        View V;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xk1Var) == null) {
-            kk3.c(xk1Var);
+        if ((interceptable == null || interceptable.invokeLLI(65537, null, f82Var, context, i) == null) && f82Var != null && f82Var.k() >= i) {
+            c82 j = f82Var.j(f82Var.k() - i);
+            c82 m = f82Var.m();
+            if (m != null && m.E0) {
+                return;
+            }
+            float o = nm3.o(context) >> 2;
+            if (j != null && (V = j.V()) != null) {
+                ObjectAnimator.ofFloat(V, Key.TRANSLATION_X, -o, 0.0f).setDuration(300L).start();
+            }
         }
     }
 
-    @Override // com.baidu.tieba.go1
-    public String d(@NonNull Context context) {
-        InterceptResult invokeL;
+    public static void c(f82 f82Var, Context context) {
+        View V;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            return kk3.i(context);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.go1
-    public boolean e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            return kk3.F(context);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.go1
-    public String f(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
-            return kk3.l(context);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.go1
-    public void g(go1.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
-            cVar.a(true);
+        if ((interceptable == null || interceptable.invokeLL(65538, null, f82Var, context) == null) && f82Var != null && f82Var.k() >= 2) {
+            c82 j = f82Var.j(f82Var.k() - 2);
+            float o = nm3.o(context) >> 2;
+            if (j != null && (V = j.V()) != null) {
+                ObjectAnimator ofFloat = ObjectAnimator.ofFloat(V, Key.TRANSLATION_X, 0.0f, -o);
+                ofFloat.setDuration(300L).start();
+                ofFloat.addListener(new a(V));
+            }
         }
     }
 
-    @Override // com.baidu.tieba.go1
-    public String h(Context context) {
-        InterceptResult invokeL;
+    public static void d(@NonNull um4 um4Var, String str, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
-            return kk3.y(context);
+        if ((interceptable != null && interceptable.invokeLLII(65539, null, um4Var, str, i, i2) != null) || um4Var == null) {
+            return;
         }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.go1
-    public String i(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) {
-            return kk3.l(context);
+        char c = 65535;
+        int hashCode = str.hashCode();
+        if (hashCode != -1876181062) {
+            if (hashCode != -983638536) {
+                if (hashCode == 1528366175 && str.equals("showModalPage")) {
+                    c = 1;
+                }
+            } else if (str.equals("navigateBack")) {
+                c = 0;
+            }
+        } else if (str.equals("hideModalPage")) {
+            c = 2;
         }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.go1
-    public void j(vk1 vk1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, vk1Var) == null) {
-            new fm3().h(vk1Var);
+        if (c != 0) {
+            if (c != 1 && c != 2) {
+                um4Var.i(i, i2);
+                return;
+            }
+            return;
         }
-    }
-
-    @Override // com.baidu.tieba.go1
-    public void b(Activity activity, Bundle bundle, vk1 vk1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, bundle, vk1Var) == null) {
-            kk3.M(activity, false, bundle, vk1Var);
+        f82 V = ju2.U().V();
+        c82 j = V.j(V.k() - 1);
+        if (j != null && j.E0) {
+            return;
         }
+        um4Var.i(i, i2);
     }
 }

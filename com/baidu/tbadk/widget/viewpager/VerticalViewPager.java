@@ -39,7 +39,7 @@ import androidx.core.widget.EdgeEffectCompat;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.vp5;
+import com.baidu.tieba.gu5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -57,7 +57,7 @@ public class VerticalViewPager extends ViewGroup {
     public static final int[] h0;
     public static final Comparator<d> i0;
     public static final Interpolator j0;
-    public static final h q0;
+    public static final h r0;
     public transient /* synthetic */ FieldHolder $fh;
     public int A;
     public int B;
@@ -95,7 +95,7 @@ public class VerticalViewPager extends ViewGroup {
     public PagerAdapter f;
     public int f0;
     public int g;
-    public vp5 g0;
+    public gu5 g0;
     public int h;
     public Parcelable i;
     public ClassLoader j;
@@ -641,7 +641,7 @@ public class VerticalViewPager extends ViewGroup {
         h0 = new int[]{16842931};
         i0 = new a();
         j0 = new b();
-        q0 = new h();
+        r0 = new h();
     }
 
     public final void M() {
@@ -657,7 +657,7 @@ public class VerticalViewPager extends ViewGroup {
             for (int i = 0; i < childCount; i++) {
                 this.b0.add(getChildAt(i));
             }
-            Collections.sort(this.b0, q0);
+            Collections.sort(this.b0, r0);
         }
     }
 
@@ -960,11 +960,11 @@ public class VerticalViewPager extends ViewGroup {
         }
     }
 
-    public void setEventListener(vp5.b bVar) {
-        vp5 vp5Var;
+    public void setEventListener(gu5.b bVar) {
+        gu5 gu5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048638, this, bVar) == null) && (vp5Var = this.g0) != null) {
-            vp5Var.f(bVar);
+        if ((interceptable == null || interceptable.invokeL(1048638, this, bVar) == null) && (gu5Var = this.g0) != null) {
+            gu5Var.f(bVar);
         }
     }
 
@@ -3056,7 +3056,7 @@ public class VerticalViewPager extends ViewGroup {
             if (ViewCompat.getImportantForAccessibility(this) == 0) {
                 ViewCompat.setImportantForAccessibility(this, 1);
             }
-            this.g0 = new vp5(this);
+            this.g0 = new gu5(this);
         }
     }
 

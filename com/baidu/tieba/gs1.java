@@ -1,62 +1,73 @@
 package com.baidu.tieba;
 
-import android.animation.ObjectAnimator;
-import android.view.View;
-import android.view.animation.LinearInterpolator;
-import androidx.constraintlayout.motion.widget.Key;
+import android.content.res.Resources;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class gs1 {
+public abstract class gs1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static ObjectAnimator a(View view2) {
-        InterceptResult invokeL;
+    public Resources b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_Y, 0.0f);
-            ofFloat.setDuration(320L);
-            ofFloat.setInterpolator(new na4(0.32f, 0.6f, 0.1f, 1.0f));
-            return ofFloat;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
         }
-        return (ObjectAnimator) invokeL.objValue;
+        return (Resources) invokeV.objValue;
     }
 
-    public static ObjectAnimator b(View view2) {
-        InterceptResult invokeL;
+    public abstract void c(boolean z);
+
+    public void d(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.ALPHA, 0.0f);
-            ofFloat.setDuration(240L);
-            ofFloat.setInterpolator(new LinearInterpolator());
-            return ofFloat;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
         }
-        return (ObjectAnimator) invokeL.objValue;
     }
 
-    public static ObjectAnimator c(View view2) {
-        InterceptResult invokeL;
+    public void f(Object obj, ke3 ke3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.ALPHA, 1.0f);
-            ofFloat.setDuration(320L);
-            ofFloat.setInterpolator(new LinearInterpolator());
-            return ofFloat;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, obj, ke3Var) == null) {
         }
-        return (ObjectAnimator) invokeL.objValue;
     }
 
-    public static ObjectAnimator d(View view2, int i) {
-        InterceptResult invokeLI;
+    public void g(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, view2, i)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_Y, i);
-            ofFloat.setDuration(240L);
-            ofFloat.setInterpolator(new na4(0.32f, 0.6f, 0.1f, 1.0f));
-            return ofFloat;
+        if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
         }
-        return (ObjectAnimator) invokeLI.objValue;
+    }
+
+    public gs1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return kh3.a().getBoolean("PREFS_NIGHT_MODE", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            kh3.a().putBoolean("PREFS_NIGHT_MODE", z);
+        }
     }
 }

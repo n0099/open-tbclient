@@ -1,6 +1,7 @@
 package com.xiaomi.push;
 
 import android.text.TextUtils;
+import androidx.core.net.MailTo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.xiaomi.push.dx;
@@ -37,14 +38,14 @@ public class fk {
             flVar.b(bVar.f957a);
             flVar.a("BIND", (String) null);
             flVar.a(flVar.e());
-            com.xiaomi.channel.commonutils.logger.b.m103a("[Slim]: bind id=" + flVar.e());
+            com.xiaomi.channel.commonutils.logger.b.m105a("[Slim]: bind id=" + flVar.e());
             HashMap hashMap = new HashMap();
             hashMap.put("challenge", str);
             hashMap.put("token", bVar.c);
             hashMap.put("chid", bVar.g);
             hashMap.put("from", bVar.f960b);
             hashMap.put("id", flVar.e());
-            hashMap.put("to", "xiaomi.com");
+            hashMap.put(MailTo.TO, "xiaomi.com");
             if (bVar.f959a) {
                 hashMap.put("kick", "1");
             } else {
@@ -67,7 +68,7 @@ public class fk {
                 a = null;
             }
             cVar.f(a);
-            flVar.a(cVar.m368a(), (String) null);
+            flVar.a(cVar.m370a(), (String) null);
             fwVar.b(flVar);
         }
     }

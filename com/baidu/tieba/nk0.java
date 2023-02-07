@@ -1,114 +1,79 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface nk0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "uad");
-    public static final nk0 b = new a();
+public final class nk0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean a(Activity activity);
-
-    ViewGroup b(Activity activity);
-
-    rl0 c();
-
-    void d(boolean z);
-
-    void e(Activity activity, long j);
-
-    int f();
-
-    boolean isMainActivity(Activity activity);
-
-    /* loaded from: classes5.dex */
-    public static class a implements nk0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.nk0
-        public boolean a(Activity activity) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) {
-                return false;
-            }
-            return invokeL.booleanValue;
+    public static void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, str, str2) == null) {
+            f(3, str, str2);
         }
+    }
 
-        @Override // com.baidu.tieba.nk0
-        public ViewGroup b(Activity activity) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity)) == null) {
-                return null;
-            }
-            return (ViewGroup) invokeL.objValue;
+    public static void c(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            f(6, str, str2);
         }
+    }
 
-        @Override // com.baidu.tieba.nk0
-        public rl0 c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return null;
-            }
-            return (rl0) invokeV.objValue;
+    public static void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
+            f(4, str, str2);
         }
+    }
 
-        @Override // com.baidu.tieba.nk0
-        public void d(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            }
+    public static void b(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65537, null, str, str2, th) == null) {
+            f(3, str, str2 + '\n' + Log.getStackTraceString(th));
         }
+    }
 
-        @Override // com.baidu.tieba.nk0
-        public void e(Activity activity, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(1048580, this, activity, j) == null) {
-            }
+    public static void d(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, th) == null) {
+            f(6, str, str2 + '\n' + Log.getStackTraceString(th));
         }
+    }
 
-        @Override // com.baidu.tieba.nk0
-        public int f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                return 0;
+    public static void g(int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(65542, null, i, str, str2) == null) {
+            if (str2.length() > 1000) {
+                Log.println(i, str, str2.substring(0, 1000));
+                g(i, str, str2.substring(1000));
+                return;
             }
-            return invokeV.intValue;
+            Log.println(i, str, str2);
         }
+    }
 
-        @Override // com.baidu.tieba.nk0
-        public boolean isMainActivity(Activity activity) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, activity)) == null) {
-                return false;
-            }
-            return invokeL.booleanValue;
+    public static void h(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65543, null, str, str2, th) == null) {
+            f(5, str, str2 + '\n' + Log.getStackTraceString(th));
         }
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public static void f(int i, String str, String str2) {
+        String str3;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeILL(65541, null, i, str, str2) == null) && str != null) {
+            if (str2 != null) {
+                str3 = PreferencesUtil.LEFT_MOUNT + Thread.currentThread().getName() + PreferencesUtil.RIGHT_MOUNT + str2;
+            } else {
+                str3 = "LogEx method param(msg) is null";
             }
+            g(i, str, str3);
         }
     }
 }

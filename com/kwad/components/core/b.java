@@ -67,11 +67,11 @@ public final class b {
 
     /* renamed from: com.kwad.components.core.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0592b implements com.kwad.sdk.service.kwai.b {
+    public static class C0596b implements com.kwad.sdk.service.kwai.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0592b() {
+        public C0596b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -512,7 +512,7 @@ public final class b {
     public static void lj() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            ServiceProvider.put(com.kwad.sdk.service.kwai.b.class, new C0592b());
+            ServiceProvider.put(com.kwad.sdk.service.kwai.b.class, new C0596b());
         }
     }
 

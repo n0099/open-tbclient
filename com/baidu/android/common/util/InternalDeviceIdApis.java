@@ -1,7 +1,7 @@
 package com.baidu.android.common.util;
 
 import android.content.Context;
-import com.baidu.tieba.oz;
+import com.baidu.tieba.h10;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,23 +48,23 @@ public class InternalDeviceIdApis {
         }
     }
 
-    public static oz a(Context context) {
+    public static h10 a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             DeviceId.getCUID(context);
-            return DeviceId.a(context).c();
+            return DeviceId.a(context).a();
         }
-        return (oz) invokeL.objValue;
+        return (h10) invokeL.objValue;
     }
 
     public static String getSelfC270Ids(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            oz.a k = a(context).k();
-            if (k != null) {
-                return k.r();
+            h10.a a = a(context).a();
+            if (a != null) {
+                return a.A();
             }
             return null;
         }
@@ -75,15 +75,15 @@ public class InternalDeviceIdApis {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
-            oz a = a(context);
+            h10 a = a(context);
             TargetPackageCuidV270Info targetPackageCuidV270Info = new TargetPackageCuidV270Info();
-            oz.a b = a.b(str, "upc");
-            if (b != null) {
-                targetPackageCuidV270Info.upcChannelCuid = b.r();
+            h10.a d = a.d(str, "upc");
+            if (d != null) {
+                targetPackageCuidV270Info.upcChannelCuid = d.A();
             }
-            oz.a b2 = a.b(str, "isc");
-            if (b2 != null) {
-                targetPackageCuidV270Info.iscChannelCuid = b2.r();
+            h10.a d2 = a.d(str, "isc");
+            if (d2 != null) {
+                targetPackageCuidV270Info.iscChannelCuid = d2.A();
             }
             return targetPackageCuidV270Info;
         }

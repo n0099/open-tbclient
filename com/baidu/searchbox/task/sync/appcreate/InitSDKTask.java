@@ -7,7 +7,7 @@ import com.baidu.searchbox.common.security.DeviceInfoManager;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.GrowthStatsUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.lo4;
+import com.baidu.tieba.ys4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,7 +59,7 @@ public class InitSDKTask extends LaunchTask {
 
     private void initDeviceSdk() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && TbadkCoreApplication.getInst().isMainProcess(false)) {
             DeviceInfoManager.INSTANCE.init(511);
         }
     }
@@ -74,7 +74,7 @@ public class InitSDKTask extends LaunchTask {
     private void initTBTaskSDK() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && TbadkCoreApplication.getInst().isMainProcess(false)) {
-            lo4.f().g(TbadkCoreApplication.getInst());
+            ys4.f().g(TbadkCoreApplication.getInst());
         }
     }
 

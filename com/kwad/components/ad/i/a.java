@@ -35,7 +35,7 @@ public final class a {
     public boolean BR;
     public boolean BS;
     public View BT;
-    public InterfaceC0554a BU;
+    public InterfaceC0558a BU;
     public boolean BV;
     public boolean BW;
     public boolean BX;
@@ -53,7 +53,7 @@ public final class a {
 
     /* renamed from: com.kwad.components.ad.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC0554a {
+    public interface InterfaceC0558a {
         void V(boolean z);
     }
 
@@ -116,7 +116,7 @@ public final class a {
             this.bS.removeAllViews();
             this.bS.setVisibility(4);
             this.BT = com.kwad.sdk.b.kwai.a.a((ViewGroup) this.bS, getLayoutId(), true);
-            KsAdWebView ksAdWebView = (KsAdWebView) this.bS.findViewById(R.id.obfuscated_res_0x7f0912db);
+            KsAdWebView ksAdWebView = (KsAdWebView) this.bS.findViewById(R.id.obfuscated_res_0x7f09131e);
             this.BQ = ksAdWebView;
             ksAdWebView.setBackgroundColor(-1);
             u.b bVar = new u.b();
@@ -158,7 +158,7 @@ public final class a {
                     }
                 }
             });
-            ImageView imageView = (ImageView) this.BT.findViewById(R.id.obfuscated_res_0x7f09114a);
+            ImageView imageView = (ImageView) this.BT.findViewById(R.id.obfuscated_res_0x7f09118d);
             this.mBackIcon = imageView;
             imageView.setVisibility(8);
             this.mBackIcon.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.ad.i.a.2
@@ -345,10 +345,10 @@ public final class a {
         }
     }
 
-    public final void a(InterfaceC0554a interfaceC0554a) {
+    public final void a(InterfaceC0558a interfaceC0558a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0554a) == null) {
-            this.BU = interfaceC0554a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0558a) == null) {
+            this.BU = interfaceC0558a;
         }
     }
 

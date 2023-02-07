@@ -1,10 +1,10 @@
 package rx.internal.operators;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.a9a;
-import com.baidu.tieba.j8a;
-import com.baidu.tieba.r8a;
-import com.baidu.tieba.rca;
+import com.baidu.tieba.ada;
+import com.baidu.tieba.aha;
+import com.baidu.tieba.jda;
+import com.baidu.tieba.sca;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,19 +14,19 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import rx.internal.subscriptions.CancellableSubscription;
 import rx.internal.subscriptions.SequentialSubscription;
 /* loaded from: classes9.dex */
-public final class CompletableFromEmitter$FromEmitter extends AtomicBoolean implements r8a {
+public final class CompletableFromEmitter$FromEmitter extends AtomicBoolean implements ada {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 5539301318568668881L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final j8a actual;
+    public final sca actual;
     public final SequentialSubscription resource;
 
-    public CompletableFromEmitter$FromEmitter(j8a j8aVar) {
+    public CompletableFromEmitter$FromEmitter(sca scaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {j8aVar};
+            Object[] objArr = {scaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,11 +36,11 @@ public final class CompletableFromEmitter$FromEmitter extends AtomicBoolean impl
                 return;
             }
         }
-        this.actual = j8aVar;
+        this.actual = scaVar;
         this.resource = new SequentialSubscription();
     }
 
-    @Override // com.baidu.tieba.r8a
+    @Override // com.baidu.tieba.ada
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -61,7 +61,7 @@ public final class CompletableFromEmitter$FromEmitter extends AtomicBoolean impl
         }
     }
 
-    @Override // com.baidu.tieba.r8a
+    @Override // com.baidu.tieba.ada
     public void unsubscribe() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && compareAndSet(false, true)) {
@@ -80,21 +80,21 @@ public final class CompletableFromEmitter$FromEmitter extends AtomicBoolean impl
                     this.resource.unsubscribe();
                 }
             }
-            rca.j(th);
+            aha.j(th);
         }
     }
 
-    public void setCancellation(a9a a9aVar) {
+    public void setCancellation(jda jdaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, a9aVar) == null) {
-            setSubscription(new CancellableSubscription(a9aVar));
+        if (interceptable == null || interceptable.invokeL(1048579, this, jdaVar) == null) {
+            setSubscription(new CancellableSubscription(jdaVar));
         }
     }
 
-    public void setSubscription(r8a r8aVar) {
+    public void setSubscription(ada adaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, r8aVar) == null) {
-            this.resource.update(r8aVar);
+        if (interceptable == null || interceptable.invokeL(1048580, this, adaVar) == null) {
+            this.resource.update(adaVar);
         }
     }
 }

@@ -1,25 +1,23 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class cr2 implements iu2 {
+public class cr2 extends gr2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public double a;
-    public double b;
+    public final ar2 a;
 
-    public cr2() {
+    public cr2(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,42 +27,37 @@ public class cr2 implements iu2 {
                 return;
             }
         }
-        this.a = -200.0d;
-        this.b = -200.0d;
+        this.a = new ar2();
     }
 
-    @Override // com.baidu.tieba.iu2
-    public void a(JSONObject jSONObject) throws JSONException {
+    @Override // com.baidu.tieba.gr2, com.baidu.tieba.fr2
+    public void b(boolean z, HybridUbcFlow hybridUbcFlow) {
+        String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has("longitude") && jSONObject.has("latitude")) {
-            this.a = jSONObject.optDouble("latitude", this.a);
-            this.b = jSONObject.optDouble("longitude", this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.iu2
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            double d = this.a;
-            if (d >= -90.0d && d <= 90.0d) {
-                double d2 = this.b;
-                if (d2 >= -180.0d && d2 <= 180.0d) {
-                    return true;
-                }
+        if (interceptable == null || interceptable.invokeZL(1048576, this, z, hybridUbcFlow) == null) {
+            if (this.a.f()) {
+                this.a.k();
+                br2.e();
+                return;
             }
-            return false;
+            ar2 ar2Var = this.a;
+            if (z) {
+                str = "1";
+            } else {
+                str = "0";
+            }
+            ar2Var.g("fmpArrived", str);
         }
-        return invokeV.booleanValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "[latitude：" + this.a + "longitude：" + this.b + PreferencesUtil.RIGHT_MOUNT;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.c();
+            if (this.a.e("fmpArrived")) {
+                this.a.k();
+                br2.e();
+            }
         }
-        return (String) invokeV.objValue;
     }
 }

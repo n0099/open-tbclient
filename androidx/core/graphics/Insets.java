@@ -82,10 +82,50 @@ public final class Insets {
     }
 
     @NonNull
+    public static Insets add(@NonNull Insets insets, @NonNull Insets insets2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, insets, insets2)) == null) {
+            return of(insets.left + insets2.left, insets.top + insets2.top, insets.right + insets2.right, insets.bottom + insets2.bottom);
+        }
+        return (Insets) invokeLL.objValue;
+    }
+
+    @NonNull
+    public static Insets subtract(@NonNull Insets insets, @NonNull Insets insets2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, insets, insets2)) == null) {
+            return of(insets.left - insets2.left, insets.top - insets2.top, insets.right - insets2.right, insets.bottom - insets2.bottom);
+        }
+        return (Insets) invokeLL.objValue;
+    }
+
+    @NonNull
+    public static Insets max(@NonNull Insets insets, @NonNull Insets insets2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, insets, insets2)) == null) {
+            return of(Math.max(insets.left, insets2.left), Math.max(insets.top, insets2.top), Math.max(insets.right, insets2.right), Math.max(insets.bottom, insets2.bottom));
+        }
+        return (Insets) invokeLL.objValue;
+    }
+
+    @NonNull
+    public static Insets min(@NonNull Insets insets, @NonNull Insets insets2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, insets, insets2)) == null) {
+            return of(Math.min(insets.left, insets2.left), Math.min(insets.top, insets2.top), Math.min(insets.right, insets2.right), Math.min(insets.bottom, insets2.bottom));
+        }
+        return (Insets) invokeLL.objValue;
+    }
+
+    @NonNull
     public static Insets of(int i, int i2, int i3, int i4) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65538, null, i, i2, i3, i4)) == null) {
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65541, null, i, i2, i3, i4)) == null) {
             if (i == 0 && i2 == 0 && i3 == 0 && i4 == 0) {
                 return NONE;
             }
@@ -98,7 +138,7 @@ public final class Insets {
     public static Insets of(@NonNull Rect rect) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, rect)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, rect)) == null) {
             return of(rect.left, rect.top, rect.right, rect.bottom);
         }
         return (Insets) invokeL.objValue;
@@ -109,7 +149,7 @@ public final class Insets {
     public static Insets toCompatInsets(@NonNull android.graphics.Insets insets) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, insets)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, insets)) == null) {
             return of(insets.left, insets.top, insets.right, insets.bottom);
         }
         return (Insets) invokeL.objValue;
@@ -122,7 +162,7 @@ public final class Insets {
     public static Insets wrap(@NonNull android.graphics.Insets insets) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, insets)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, insets)) == null) {
             return toCompatInsets(insets);
         }
         return (Insets) invokeL.objValue;

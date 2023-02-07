@@ -1,33 +1,70 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.IStringUtil;
-import com.baidu.mobstat.Config;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.setting.oauth.OAuthException;
+import com.baidu.tieba.be3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.net.WebAddress;
-import com.facebook.common.internal.Sets;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Set;
-import org.apache.http.cookie.ClientCookie;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class gd3 {
+public class gd3 extends ta3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final int b;
-    public static final int c;
-    public static final Set<String> d;
-    public static final String[] e;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes4.dex */
+    public class a implements pn3<zd3<be3.e>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ gd3 d;
+
+        public a(gd3 gd3Var, CallbackHandler callbackHandler, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gd3Var, callbackHandler, str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = gd3Var;
+            this.a = callbackHandler;
+            this.b = str;
+            this.c = str2;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.pn3
+        /* renamed from: b */
+        public void a(zd3<be3.e> zd3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zd3Var) != null) {
+                return;
+            }
+            this.d.k(this.a, this.b, this.c, zd3Var);
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -42,415 +79,123 @@ public class gd3 {
                 return;
             }
         }
-        a = tk1.a;
-        b = 6;
-        c = 8;
-        d = Sets.newHashSet("https", "http", "wss");
-        String[] strArr = {"ac", "co", "com", Config.EVENT_PATH_MAPPING, "edu", "go", "gouv", "gov", "info", "lg", "ne", "net", "or", "org"};
-        e = strArr;
-        Arrays.sort(strArr);
+        boolean z = gp1.a;
     }
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gd3(t93 t93Var) {
+        super(t93Var, "/swanAPI/authorize");
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {t93Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ta3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, w83 w83Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, w83Var)) == null) {
+            if (w83Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
+                es2.j().d(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null").toString());
                 return false;
             }
-            for (String str2 : d) {
-                if (str.startsWith(str2)) {
-                    return true;
-                }
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty joParams");
+                es2.j().d(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(1001, "empty joParams").toString());
+                return false;
             }
-            return false;
+            String optString = optParamsAsJo.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty cb");
+                es2.j().d(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(1001, "empty cb").toString());
+                return false;
+            }
+            String c = wd3.c(optParamsAsJo.optString("scope"));
+            if (TextUtils.isEmpty(c)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty scope");
+                es2.j().d(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(1001, "empty scope").toString());
+                return false;
+            }
+            w83Var.e0().c(context, c, false, new a(this, callbackHandler, c, optString));
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            return true;
         }
-        return invokeL.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (str == null) {
-                return null;
-            }
-            int i = 0;
-            int indexOf = str.indexOf(46);
-            int lastIndexOf = str.lastIndexOf(46);
-            while (indexOf < lastIndexOf) {
-                i = indexOf + 1;
-                indexOf = str.indexOf(46, i);
-            }
-            if (i > 0) {
-                return str.substring(i);
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String b(Collection<ed3> collection, String str) {
-        InterceptResult invokeLL;
-        String trim;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, collection, str)) == null) {
-            if (collection != null && !collection.isEmpty()) {
-                if (str == null) {
-                    trim = "";
-                } else {
-                    trim = str.trim();
-                }
-                int length = trim.length();
-                if (!TextUtils.isEmpty(trim)) {
-                    int i = length - 1;
-                    if (trim.charAt(i) == ';') {
-                        trim = trim.substring(0, i);
-                    }
-                }
-                StringBuilder sb = new StringBuilder(trim);
-                for (ed3 ed3Var : collection) {
-                    if (ed3Var != null) {
-                        if (sb.length() > 0) {
-                            sb.append(WebvttCueParser.CHAR_SEMI_COLON);
-                            sb.append(WebvttCueParser.CHAR_SPACE);
-                        }
-                        sb.append(ed3Var.c);
-                        if (ed3Var.d != null) {
-                            sb.append(com.alipay.sdk.encrypt.a.h);
-                            sb.append(ed3Var.d);
-                        }
-                    }
-                }
-                if (!TextUtils.isEmpty(sb)) {
-                    return sb.toString();
-                }
-                return str;
-            }
-            return str;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static int c(@NonNull String str, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, str, i, i2)) == null) {
-            int indexOf = str.indexOf(59, i);
-            int indexOf2 = str.indexOf(44, i);
-            if (indexOf != -1 || indexOf2 != -1) {
-                if (indexOf == -1) {
-                    return indexOf2;
-                }
-                if (indexOf2 == -1) {
-                    return indexOf;
-                }
-                return Math.min(indexOf, indexOf2);
-            }
-            return i2;
-        }
-        return invokeLII.intValue;
-    }
-
-    public static String[] e(WebAddress webAddress) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, webAddress)) == null) {
-            if (webAddress == null || TextUtils.isEmpty(webAddress.getHost()) || TextUtils.isEmpty(webAddress.getPath()) || md3.b(webAddress.getHost())) {
-                return null;
-            }
-            String[] strArr = {webAddress.getHost().toLowerCase(), webAddress.getPath()};
-            int indexOf = strArr[0].indexOf(46);
-            if (indexOf == -1) {
-                return null;
-            }
-            if (indexOf == strArr[0].lastIndexOf(46)) {
-                strArr[0] = IStringUtil.EXTENSION_SEPARATOR + strArr[0];
-            }
-            if (strArr[1].charAt(0) != '/') {
-                return null;
-            }
-            int indexOf2 = strArr[1].indexOf(63);
-            if (indexOf2 != -1) {
-                strArr[1] = strArr[1].substring(0, indexOf2);
-            }
-            return strArr;
-        }
-        return (String[]) invokeL.objValue;
-    }
-
-    public static int f(ed3 ed3Var, String str, int i, int i2, String str2) {
-        InterceptResult invokeCommon;
-        int indexOf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{ed3Var, str, Integer.valueOf(i), Integer.valueOf(i2), str2})) == null) {
-            if (ed3Var != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                while (i >= 0 && i < i2) {
-                    if (str.charAt(i) != ' ' && str.charAt(i) != ';') {
-                        if (str.charAt(i) == ',') {
-                            return i + 1;
-                        }
-                        int i3 = i2 - i;
-                        int i4 = b;
-                        if (i3 >= i4 && str.substring(i, i4 + i).equalsIgnoreCase(ClientCookie.SECURE_ATTR)) {
-                            int i5 = b + i;
-                            if (i5 == i2) {
-                                ed3Var.f = true;
-                                return i5;
-                            } else if (str.charAt(i5) == ';' || str.charAt(i5) == '=' || str.charAt(i5) == ',') {
-                                ed3Var.f = true;
-                                i = c(str, i5, i2);
-                            }
-                        }
-                        int i6 = c;
-                        if (i3 >= i6 && str.substring(i, i6 + i).equalsIgnoreCase("httponly")) {
-                            int i7 = c + i;
-                            if (i7 == i2) {
-                                return i7;
-                            }
-                            if (str.charAt(i7) == ';' || str.charAt(i7) == '=' || str.charAt(i7) == ',') {
-                                i = c(str, i7, i2);
-                            }
-                        }
-                        int indexOf2 = str.indexOf(61, i);
-                        if (indexOf2 <= 0) {
-                            return i2;
-                        }
-                        String lowerCase = str.substring(i, indexOf2).toLowerCase();
-                        i = c(str, n(str, lowerCase, i, indexOf2), i2);
-                        if (i >= indexOf2) {
-                            String substring = str.substring(indexOf2 + 1, i);
-                            if (substring.length() > 2 && substring.charAt(0) == '\"' && (indexOf = substring.indexOf(34, 1)) > 0) {
-                                substring = substring.substring(1, indexOf);
-                            }
-                            i(ed3Var, lowerCase, substring, str2);
-                        }
-                    } else {
-                        i++;
-                    }
-                }
-                return i;
-            }
-            return i2;
-        }
-        return invokeCommon.intValue;
-    }
-
-    public static ArrayList<ed3> g(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, str, str2, str3)) == null) {
-            if (a) {
-                Log.d("SwanCookieParser", "parseCookie: host=" + str + "; path=" + str2 + "; cookieString=" + str3);
-            }
-            ArrayList<ed3> arrayList = new ArrayList<>();
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str3)) {
-                int i = 0;
-                int length = str3.length();
-                while (i >= 0 && i < length) {
-                    if (str3.charAt(i) == ' ') {
-                        i++;
-                    } else {
-                        ed3 ed3Var = new ed3(str, str2);
-                        i = f(ed3Var, str3, h(ed3Var, str3, i, length), length, str);
-                        if (!TextUtils.isEmpty(ed3Var.a) && !TextUtils.isEmpty(ed3Var.c) && ed3Var.d != null) {
-                            arrayList.add(ed3Var);
-                            if (a) {
-                                Log.d("SwanCookieParser", "parseCookies result: " + ed3Var.toString());
-                            }
-                        }
-                    }
-                }
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeLLL.objValue;
-    }
-
-    public static void j(@NonNull ed3 ed3Var, @NonNull String str, @NonNull String str2) {
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x00a9, code lost:
+        r8 = 10001;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void k(CallbackHandler callbackHandler, String str, String str2, zd3<be3.e> zd3Var) {
         String str3;
+        int i;
+        String message;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65546, null, ed3Var, str, str2) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        int lastIndexOf = str.lastIndexOf(46);
-        if (lastIndexOf <= 0) {
-            ed3Var.a = null;
-            return;
-        }
-        if (str.startsWith(".")) {
-            str3 = str.substring(1);
-        } else {
-            str3 = str;
-        }
-        if (md3.b(str3)) {
-            ed3Var.a = null;
-            return;
-        }
-        String lowerCase = str.toLowerCase();
-        if (lowerCase.charAt(0) != '.') {
-            lowerCase = IStringUtil.EXTENSION_SEPARATOR + lowerCase;
-            lastIndexOf++;
-        }
-        if (!str2.endsWith(lowerCase.substring(1))) {
-            ed3Var.a = null;
-            return;
-        }
-        int length = lowerCase.length();
-        int length2 = str2.length();
-        if (length2 > length - 1 && str2.charAt(length2 - length) != '.') {
-            ed3Var.a = null;
-            return;
-        }
-        if (length == lastIndexOf + 3 && length >= 6 && length <= 8) {
-            if (Arrays.binarySearch(e, lowerCase.substring(1, lastIndexOf)) >= 0) {
-                ed3Var.a = null;
-                return;
-            }
-        }
-        ed3Var.a = lowerCase;
-    }
-
-    public static int h(ed3 ed3Var, String str, int i, int i2) {
-        InterceptResult invokeLLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65544, null, ed3Var, str, i, i2)) == null) {
-            if (ed3Var != null && !TextUtils.isEmpty(str)) {
-                int indexOf = str.indexOf(59, i);
-                int indexOf2 = str.indexOf(61, i);
-                if (indexOf > indexOf2 && indexOf2 != -1) {
-                    ed3Var.c = str.substring(i, indexOf2);
-                    int i3 = indexOf2 + 1;
-                    if (str.charAt(i3) == '\"' && (i = str.indexOf(34, indexOf2 + 2)) == -1) {
-                        ed3Var.a = null;
-                        return i2;
-                    }
-                    int indexOf3 = str.indexOf(59, i);
-                    if (indexOf3 != -1) {
-                        i2 = indexOf3;
-                    }
-                    if (i3 != i2 && i2 >= indexOf2) {
-                        ed3Var.d = str.substring(i3, i2);
-                    } else {
-                        ed3Var.d = "";
-                    }
-                    return i2;
-                }
-                if (indexOf != -1) {
-                    i2 = indexOf;
-                }
-                ed3Var.c = str.substring(i, i2);
-                ed3Var.d = null;
-            }
-            return i2;
-        }
-        return invokeLLII.intValue;
-    }
-
-    public static void i(ed3 ed3Var, String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(65545, null, ed3Var, str, str2, str3) == null) && ed3Var != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str3)) {
-            char c2 = 65535;
-            switch (str.hashCode()) {
-                case -1326197564:
-                    if (str.equals("domain")) {
-                        c2 = 3;
-                        break;
-                    }
-                    break;
-                case -1309235404:
-                    if (str.equals("expires")) {
-                        c2 = 0;
-                        break;
-                    }
-                    break;
-                case 3433509:
-                    if (str.equals("path")) {
-                        c2 = 2;
-                        break;
-                    }
-                    break;
-                case 842940694:
-                    if (str.equals(ClientCookie.MAX_AGE_ATTR)) {
-                        c2 = 1;
-                        break;
-                    }
-                    break;
-            }
-            if (c2 != 0) {
-                if (c2 != 1) {
-                    if (c2 != 2) {
-                        if (c2 == 3) {
-                            j(ed3Var, str2, str3);
-                            return;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, callbackHandler, str, str2, zd3Var) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("scope", wd3.d(str));
+                if (zd3Var != null && zd3Var.a != null) {
+                    if (!zd3Var.c()) {
+                        OAuthException a2 = zd3Var.a();
+                        if (a2 == null) {
+                            message = "";
+                        } else {
+                            message = a2.getMessage();
                         }
+                        jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, message);
+                        callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(zd3Var.b()).toString());
+                        es2.j().d(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(jSONObject, zd3Var.b()).toString());
                         return;
                     }
-                    m(ed3Var, str2);
+                    jSONObject.put("code", zd3Var.a.a);
+                    if (zd3Var.a.b) {
+                        str3 = "authorize:ok";
+                    } else {
+                        str3 = "user deny";
+                    }
+                    jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, str3);
+                    if (zd3Var.a.b) {
+                        i = 0;
+                    } else {
+                        i = 10003;
+                    }
+                    callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, i).toString());
+                    if (!zd3Var.a.b) {
+                        es2.j().d(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(jSONObject, zd3Var.b()).toString());
+                        return;
+                    }
                     return;
                 }
-                l(ed3Var, str2);
-                return;
-            }
-            k(ed3Var, str2);
-        }
-    }
-
-    public static void k(@NonNull ed3 ed3Var, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, null, ed3Var, str) == null) {
-            if (a) {
-                Log.d("SwanCookieParser", "setExpires value: " + str);
-            }
-            if (ed3Var.e != -1) {
-                return;
-            }
-            long e2 = ld3.e(str);
-            if (a) {
-                Log.d("SwanCookieParser", "setExpires result: " + e2);
-            }
-            if (e2 != -1) {
-                ed3Var.e = e2;
+                int b = zd3Var.b();
+                ud3.k("empty auth result", Boolean.TRUE);
+                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, ud3.f(b));
+                callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, b).toString());
+                ud3.t("AuthorizeAction", "null == result || null == result.mData");
+                es2.j().d(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(jSONObject, b).toString());
+            } catch (JSONException unused) {
+                ud3.k("json exception", Boolean.TRUE);
+                callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(10001, "internal error").toString());
+                es2.j().d(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 10001, "internal error").toString());
             }
         }
-    }
-
-    public static void l(@NonNull ed3 ed3Var, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65548, null, ed3Var, str) == null) {
-            try {
-                long currentTimeMillis = System.currentTimeMillis();
-                long parseLong = Long.parseLong(str);
-                Long.signum(parseLong);
-                ed3Var.e = currentTimeMillis + (parseLong * 1000);
-            } catch (NumberFormatException unused) {
-                if (a) {
-                    Log.e("SwanCookieParser", "illegal max-age: " + str);
-                }
-            }
-        }
-    }
-
-    public static void m(@NonNull ed3 ed3Var, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65549, null, ed3Var, str) == null) && !TextUtils.isEmpty(str) && str.charAt(0) == '/') {
-            ed3Var.b = str;
-        }
-    }
-
-    public static int n(@NonNull String str, String str2, int i, int i2) {
-        InterceptResult invokeLLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65550, null, str, str2, i, i2)) == null) {
-            if (!TextUtils.equals("expires", str2)) {
-                return i;
-            }
-            int indexOf = str.indexOf(44, i2);
-            if (indexOf != -1 && indexOf - i2 <= 10) {
-                return indexOf + 1;
-            }
-            return i;
-        }
-        return invokeLLII.intValue;
     }
 }

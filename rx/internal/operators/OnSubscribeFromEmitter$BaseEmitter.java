@@ -2,12 +2,12 @@ package rx.internal.operators;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.a9a;
-import com.baidu.tieba.f9a;
-import com.baidu.tieba.gda;
-import com.baidu.tieba.m8a;
-import com.baidu.tieba.q8a;
-import com.baidu.tieba.r8a;
+import com.baidu.tieba.ada;
+import com.baidu.tieba.jda;
+import com.baidu.tieba.oda;
+import com.baidu.tieba.pha;
+import com.baidu.tieba.vca;
+import com.baidu.tieba.zca;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,12 +16,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.internal.subscriptions.CancellableSubscription;
 /* loaded from: classes9.dex */
-public abstract class OnSubscribeFromEmitter$BaseEmitter<T> extends AtomicLong implements Object<T>, m8a, r8a {
+public abstract class OnSubscribeFromEmitter$BaseEmitter<T> extends AtomicLong implements Object<T>, vca, ada {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 7326289992464377023L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final q8a<? super T> actual;
-    public final gda serial;
+    public final zca<? super T> actual;
+    public final pha serial;
 
     public abstract /* synthetic */ void onNext(T t);
 
@@ -37,12 +37,12 @@ public abstract class OnSubscribeFromEmitter$BaseEmitter<T> extends AtomicLong i
         }
     }
 
-    public OnSubscribeFromEmitter$BaseEmitter(q8a<? super T> q8aVar) {
+    public OnSubscribeFromEmitter$BaseEmitter(zca<? super T> zcaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {q8aVar};
+            Object[] objArr = {zcaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -52,11 +52,11 @@ public abstract class OnSubscribeFromEmitter$BaseEmitter<T> extends AtomicLong i
                 return;
             }
         }
-        this.actual = q8aVar;
-        this.serial = new gda();
+        this.actual = zcaVar;
+        this.serial = new pha();
     }
 
-    @Override // com.baidu.tieba.r8a
+    @Override // com.baidu.tieba.ada
     public final boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -87,7 +87,7 @@ public abstract class OnSubscribeFromEmitter$BaseEmitter<T> extends AtomicLong i
         return invokeV.longValue;
     }
 
-    @Override // com.baidu.tieba.r8a
+    @Override // com.baidu.tieba.ada
     public final void unsubscribe() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
@@ -108,26 +108,26 @@ public abstract class OnSubscribeFromEmitter$BaseEmitter<T> extends AtomicLong i
         }
     }
 
-    @Override // com.baidu.tieba.m8a
+    @Override // com.baidu.tieba.vca
     public final void request(long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048582, this, j) == null) && f9a.h(j)) {
-            f9a.b(this, j);
+        if ((interceptable == null || interceptable.invokeJ(1048582, this, j) == null) && oda.h(j)) {
+            oda.b(this, j);
             onRequested();
         }
     }
 
-    public final void setCancellation(a9a a9aVar) {
+    public final void setCancellation(jda jdaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, a9aVar) == null) {
-            setSubscription(new CancellableSubscription(a9aVar));
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jdaVar) == null) {
+            setSubscription(new CancellableSubscription(jdaVar));
         }
     }
 
-    public final void setSubscription(r8a r8aVar) {
+    public final void setSubscription(ada adaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, r8aVar) == null) {
-            this.serial.a(r8aVar);
+        if (interceptable == null || interceptable.invokeL(1048585, this, adaVar) == null) {
+            this.serial.a(adaVar);
         }
     }
 }

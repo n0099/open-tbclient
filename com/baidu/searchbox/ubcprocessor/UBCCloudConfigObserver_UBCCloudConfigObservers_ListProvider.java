@@ -1,6 +1,7 @@
 package com.baidu.searchbox.ubcprocessor;
 
-import com.baidu.tieba.nf1;
+import com.baidu.tieba.vy9;
+import com.baidu.tieba.yj1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public class UBCCloudConfigObserver_UBCCloudConfigObservers_ListProvider implements nf1 {
+public class UBCCloudConfigObserver_UBCCloudConfigObservers_ListProvider implements yj1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,10 +27,15 @@ public class UBCCloudConfigObserver_UBCCloudConfigObservers_ListProvider impleme
         }
     }
 
-    @Override // com.baidu.tieba.nf1
+    @Override // com.baidu.tieba.yj1
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ArrayList() : invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new vy9());
+            return arrayList;
+        }
+        return invokeV.objValue;
     }
 }

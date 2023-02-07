@@ -27,7 +27,7 @@ public class be implements au {
 
     @Override // com.xiaomi.push.au
     /* renamed from: a */
-    public String mo186a() {
+    public String mo188a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -38,7 +38,7 @@ public class be implements au {
 
     @Override // com.xiaomi.push.au
     /* renamed from: a */
-    public boolean mo187a() {
+    public boolean mo189a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

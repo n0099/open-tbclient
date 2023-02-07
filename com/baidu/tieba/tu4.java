@@ -1,25 +1,34 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import android.content.Context;
+import android.text.TextUtils;
+import android.webkit.JsPromptResult;
+import android.webkit.WebView;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.browser.CommonTbJsBridge;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tbadk.xiuba.JSResultData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.RecommendForumInfo;
+import java.util.HashMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class tu4 extends dt4 implements ce5 {
+public class tu4 implements vb6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long d;
-    public String e;
-    public String f;
-    public boolean g;
-    public int h;
-    public int i;
-    public String j;
+
+    @Override // com.baidu.tieba.vb6
+    public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
+        ub6.a(this, webView, str, jSONObject);
+    }
 
     public tu4() {
         Interceptable interceptable = $ic;
@@ -31,144 +40,144 @@ public class tu4 extends dt4 implements ce5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        f(8);
     }
 
-    public String g() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.vb6
+    public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.fs4
-    public String getRecomReason() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.j;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return invokeV.longValue;
-    }
-
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.h;
-        }
-        return invokeV.intValue;
-    }
-
-    public int o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.i;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void C(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f = str;
-        }
-    }
-
-    public void r(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.g = z;
-        }
-    }
-
-    public void s(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.h = i;
-        }
-    }
-
-    public void v(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.j = str;
-        }
-    }
-
-    public void x(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.i = i;
-        }
-    }
-
-    public void y(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.e = str;
-        }
-    }
-
-    public void z(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
-            this.d = j;
-        }
-    }
-
-    public void q(RecommendForumInfo recommendForumInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, recommendForumInfo) != null) || recommendForumInfo == null) {
-            return;
-        }
-        try {
-            this.d = recommendForumInfo.forum_id.longValue();
-            this.e = recommendForumInfo.avatar;
-            this.f = recommendForumInfo.forum_name;
-            boolean z = true;
-            if (recommendForumInfo.is_like.intValue() != 1) {
-                z = false;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            if (!TextUtils.equals("CommonJSBridge", str)) {
+                return false;
             }
-            this.g = z;
-            this.h = recommendForumInfo.member_count.intValue();
-            this.i = recommendForumInfo.thread_count.intValue();
-            this.j = recommendForumInfo.recom_reason;
-        } catch (Exception e) {
-            BdLog.detailException(e);
+            if (TextUtils.equals("startLoginModule", str2)) {
+                try {
+                    jsPromptResult.confirm(f(webView, new JSONObject(str3).optString("cssUrl")).a());
+                    return true;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else if (CommonTbJsBridge.LOAD_THIRD_PARTY_LOGIN.equals(str2)) {
+                jsPromptResult.confirm(d(webView, str3));
+            }
+            return false;
         }
+        return invokeLLLLL.booleanValue;
+    }
+
+    public x19 c(WebView webView, int i, String str) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, webView, i, str)) == null) {
+            x19 x19Var = new x19();
+            JSONObject jSONObject = new JSONObject();
+            Activity a = pb6.a(webView.getContext());
+            if (a == null) {
+                try {
+                    jSONObject.put("resultCode", 0);
+                } catch (JSONException e) {
+                    BdLog.e(e);
+                }
+                x19Var.o(jSONObject.toString());
+                return x19Var;
+            }
+            LoginActivityConfig loginActivityConfig = new LoginActivityConfig((Context) a, true);
+            loginActivityConfig.setThirdPartyLoginForResult(i, str);
+            if (webView != null) {
+                loginActivityConfig.setUrl(webView.getOriginalUrl());
+            }
+            ViewHelper.checkUpIsLoginFromH5(loginActivityConfig);
+            try {
+                jSONObject.put("resultCode", 1);
+            } catch (JSONException e2) {
+                BdLog.e(e2);
+            }
+            x19Var.o(jSONObject.toString());
+            return x19Var;
+        }
+        return (x19) invokeLIL.objValue;
+    }
+
+    public final String d(WebView webView, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, str)) == null) {
+            if (!dj.isEmpty(str)) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    return c(webView, jSONObject.optInt("socialType", 0), jSONObject.optString("activityId")).a();
+                } catch (JSONException e) {
+                    BdLog.e(e);
+                    return null;
+                }
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public x19 f(WebView webView, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, str)) == null) {
+            x19 x19Var = new x19();
+            Activity a = pb6.a(webView.getContext());
+            if (a != null) {
+                ViewHelper.checkUpIsLoginFromH5(a, webView.getOriginalUrl(), str);
+            }
+            JSResultData jSResultData = new JSResultData();
+            jSResultData.setStatus(1);
+            jSResultData.setErrorCode("0");
+            jSResultData.setErrorMsg("");
+            x19Var.o(OrmObject.jsonStrWithObject(jSResultData));
+            return x19Var;
+        }
+        return (x19) invokeLL.objValue;
+    }
+
+    public x19 e(WebView webView, HashMap hashMap) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, hashMap)) == null) {
+            if (hashMap == null || hashMap.get("isLogin") == null || !((Boolean) hashMap.get("isLogin")).booleanValue()) {
+                return null;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("resultCode", 1);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            a(webView, CommonTbJsBridge.LOGIN_RESULT_TO_H5, jSONObject);
+            x19 x19Var = new x19();
+            x19Var.o(jSONObject.toString());
+            return x19Var;
+        }
+        return (x19) invokeLL.objValue;
+    }
+
+    public x19 g(WebView webView, HashMap hashMap) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, webView, hashMap)) == null) {
+            if (hashMap == null) {
+                return null;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("resultCode", 1);
+                jSONObject.put("socialType", hashMap.get("social_type"));
+                jSONObject.put("activityId", hashMap.get("activityId"));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            a(webView, CommonTbJsBridge.RESULT_THIRD_PARTY_LOGIN, jSONObject);
+            x19 x19Var = new x19();
+            x19Var.o(jSONObject.toString());
+            return x19Var;
+        }
+        return (x19) invokeLL.objValue;
     }
 }

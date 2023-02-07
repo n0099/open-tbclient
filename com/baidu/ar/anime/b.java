@@ -38,7 +38,7 @@ public class b {
     /* renamed from: cn  reason: collision with root package name */
     public FramePixels f1054cn;
     public byte[] co;
-    public InterfaceC0062b cp;
+    public InterfaceC0061b cp;
     public HandlerThread cq;
     public a cr;
     public boolean cs;
@@ -102,16 +102,16 @@ public class b {
 
     /* renamed from: com.baidu.ar.anime.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0062b {
+    public interface InterfaceC0061b {
         void a(int i, String str, long j);
     }
 
-    public b(InterfaceC0062b interfaceC0062b) {
+    public b(InterfaceC0061b interfaceC0061b) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {interfaceC0062b};
+            Object[] objArr = {interfaceC0061b};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -128,7 +128,7 @@ public class b {
         this.cb = null;
         this.cu = new ArrayList<>();
         this.cv = true;
-        this.cp = interfaceC0062b;
+        this.cp = interfaceC0061b;
         if (this.cq == null) {
             HandlerThread handlerThread = new HandlerThread("AnimeHandlerThread");
             this.cq = handlerThread;
@@ -512,9 +512,9 @@ public class b {
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             if (this.co == null || this.f1054cn == null) {
                 com.baidu.ar.h.b.aS("retryChangeStyle input data error!");
-                InterfaceC0062b interfaceC0062b = this.cp;
-                if (interfaceC0062b != null) {
-                    interfaceC0062b.a(203, "retryChangeStyle input data error", 0L);
+                InterfaceC0061b interfaceC0061b = this.cp;
+                if (interfaceC0061b != null) {
+                    interfaceC0061b.a(203, "retryChangeStyle input data error", 0L);
                     return;
                 }
                 return;

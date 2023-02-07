@@ -1,199 +1,114 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.http.request.PostBodyRequest;
+import com.baidu.swan.gamecenter.appmanager.notification.InstallNotifyReceiver;
+import com.baidu.tieba.tt2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.http.cookie.ClientCookie;
+import com.baidubce.AbstractBceClient;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class x04 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public boolean c;
-    public boolean d;
-    public boolean e;
-    public boolean f;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public String b;
-
-        public a(boolean z, String str) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948246541, "Lcom/baidu/tieba/x04;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Boolean.valueOf(z), str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = false;
-            this.a = z;
-            this.b = str;
-        }
-
-        public static a c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                return new a(false, "未启用真机调试");
-            }
-            return (a) invokeV.objValue;
-        }
-
-        public String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.b;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public boolean b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a;
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    public x04(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948246541, "Lcom/baidu/tieba/x04;");
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = false;
-        this.d = false;
-        this.e = false;
-        this.f = false;
-        if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("inspector")) != null) {
-            this.a = optJSONObject.optString("hostname", null);
-            this.b = optJSONObject.optString(ClientCookie.PORT_ATTR, null);
-            this.c = optJSONObject.optBoolean("breakOnStart", false);
-        }
-        SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext());
-        boolean z = defaultSharedPreferences.getBoolean("KEY_DEBUG_SWAN_INSPECTOR_ENABLED", false);
-        this.f = z;
-        if (z) {
-            this.a = defaultSharedPreferences.getString("KEY_DEBUG_SWAN_INSPECTOR_FRONTEND_HOSTNAME", this.a);
-            this.b = defaultSharedPreferences.getString("KEY_DEBUG_SWAN_INSPECTOR_FRONTEND_PORT", this.b);
-            this.c = defaultSharedPreferences.getBoolean("KEY_DEBUG_SWAN_INSPECTOR_BREAK_FIRST_ENABLED", this.c);
-            this.d = defaultSharedPreferences.getBoolean("KEY_DEBUG_SWAN_INSPECTOR_DEBUGGER_DISABLED", this.d);
-        }
-        String str = this.a;
-        if (str != null && !str.trim().equals("")) {
-            this.e = true;
-        }
+        a = gp1.a;
     }
 
-    public static a f(x04 x04Var) {
-        InterceptResult invokeL;
+    public static void a(String str, String str2, String str3, String str4, v04 v04Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, x04Var)) == null) {
-            if (x04Var == null) {
-                return a.c();
+        if (interceptable == null || interceptable.invokeLLLLL(65537, null, str, str2, str3, str4, v04Var) == null) {
+            String l = w04.l(str2);
+            if (TextUtils.isEmpty(l)) {
+                return;
             }
-            return x04Var.e();
-        }
-        return (a) invokeL.objValue;
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(this.a);
-            if (this.b != null) {
-                str = ":" + this.b;
-            } else {
-                str = "";
+            if (a) {
+                Log.d("GameCenterStatistic", "packageName:" + str + ";operation:" + str2 + ";value:" + str3 + ";errorCode:" + str4);
             }
-            sb.append(str);
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public a e() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (!this.f && c()) {
-                return new a(false, "线上包禁用真机调试");
+            if (TextUtils.isEmpty(str)) {
+                return;
             }
-            boolean z = this.e;
-            if (!z) {
-                str = "未启用真机调试";
-            } else if (this.f) {
-                str = "使用了 debug 面板配置";
-            } else {
-                str = "启用了真机调试";
+            w04 w04Var = new w04();
+            w04Var.m(v04Var);
+            w04Var.b = l;
+            w04Var.e = str3;
+            w04Var.v = str;
+            w04Var.l = qm3.D();
+            if (w83.b0() != null) {
+                tt2.a W = w83.b0().W();
+                w04Var.a = pf3.n(W.G());
+                w04Var.f = W.H();
+                w04Var.c = W.T();
             }
-            return new a(z, str);
+            w04Var.t = str4;
+            pf3.x("1245", w04Var);
         }
-        return (a) invokeV.objValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            c(str, str2, "");
         }
-        return invokeV.booleanValue;
     }
 
-    public final boolean c() {
-        InterceptResult invokeV;
+    public static void c(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return lw1.f(j43.g0());
+        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, str3) == null) {
+            String l = w04.l(str);
+            if (TextUtils.isEmpty(l)) {
+                return;
+            }
+            w04 w04Var = new w04();
+            w04Var.b = l;
+            w04Var.a(InstallNotifyReceiver.OPPORTUNITY, str2);
+            if (str3 == null) {
+                str3 = "";
+            }
+            w04Var.a("packageName", str3);
+            pf3.x("1245", w04Var);
         }
-        return invokeV.booleanValue;
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
+    public static void d(int i, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), str, str2, str3}) == null) {
+            String d = n54.b().d();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("cuid", ds2.h0().i(ds2.c()));
+                jSONObject.put("type", i);
+                jSONObject.put("time", System.currentTimeMillis() / 1000);
+                jSONObject.put("host", ds2.n().a());
+                jSONObject.put("version", qm3.D());
+                jSONObject.put("package", str);
+                jSONObject.put("appid", str2);
+                jSONObject.put("url", str3);
+                ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) ag4.h(ds2.c()).postRequest().cookieManager(ds2.q().a())).url(d)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(null);
+            } catch (Exception unused) {
+            }
         }
-        return invokeV.booleanValue;
     }
 }

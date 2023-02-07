@@ -1,48 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class mg6 {
+public final class mg6 extends jg6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean b;
 
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-        }
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-        }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-        }
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-        }
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public mg6() {
+        super(4096);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,27 +22,35 @@ public class mg6 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static mg6 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.jg6
+    public boolean b(sf6 item, vh6 timer, mf6 config) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(timer, "timer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            tf6 e = item.e();
+            if (e.i() == 0) {
+                return false;
             }
-            mg6 mg6Var = new mg6();
-            mg6Var.b(jSONObject.optString("common_color"));
-            mg6Var.c(jSONObject.optString("dark_color"));
-            mg6Var.d(jSONObject.optString("font_color"));
-            mg6Var.e(jSONObject.optString("light_color"));
-            mg6Var.f(jSONObject.optString("pattern_image"));
-            return mg6Var;
+            if (this.b) {
+                if (e.i() != 1) {
+                    return false;
+                }
+            } else if (e.i() != 2) {
+                return false;
+            }
+            return true;
         }
-        return (mg6) invokeL.objValue;
+        return invokeLLL.booleanValue;
     }
 }

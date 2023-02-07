@@ -2,9 +2,9 @@ package com.baidu.ugc.editvideo.record.processor;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
-import com.baidu.tieba.as9;
-import com.baidu.tieba.jg0;
-import com.baidu.tieba.rg0;
+import com.baidu.tieba.hw9;
+import com.baidu.tieba.pg0;
+import com.baidu.tieba.xg0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,23 +40,23 @@ public class MiniVideoEffectProcessor extends BaseEffectProcessor {
     }
 
     @Override // com.baidu.ugc.editvideo.record.processor.IEffectProcessor
-    public int onProcessFrame(jg0 jg0Var, int i, float[] fArr) {
+    public int onProcessFrame(pg0 pg0Var, int i, float[] fArr) {
         InterceptResult invokeLIL;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jg0Var, i, fArr)) == null) {
-            if (jg0Var == null || !this.mIsDraw) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pg0Var, i, fArr)) == null) {
+            if (pg0Var == null || !this.mIsDraw) {
                 return i;
             }
             int i3 = 1;
             while (true) {
-                if (i3 >= as9.b(jg0Var.l())) {
+                if (i3 >= hw9.b(pg0Var.l())) {
                     i2 = i;
                     break;
                 }
-                MediaTrack mediaTrack = (MediaTrack) as9.c(jg0Var.l(), i3);
-                if (mediaTrack != null && rg0.m(mediaTrack, "effect")) {
-                    i2 = jg0Var.i(mediaTrack, i, null);
+                MediaTrack mediaTrack = (MediaTrack) hw9.c(pg0Var.l(), i3);
+                if (mediaTrack != null && xg0.m(mediaTrack, "effect")) {
+                    i2 = pg0Var.i(mediaTrack, i, null);
                     break;
                 }
                 i3++;

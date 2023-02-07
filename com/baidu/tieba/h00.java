@@ -1,53 +1,84 @@
 package com.baidu.tieba;
 
-import androidx.exifinterface.media.ExifInterface;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.cea.Cea608Decoder;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import javax.crypto.BadPaddingException;
-import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.ShortBufferException;
 /* loaded from: classes4.dex */
-public class h00 {
+public final class h00 implements i00 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile byte[] a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    public h00() {
+    public h00(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = i;
+    }
+
+    @Override // com.baidu.tieba.i00
+    public int a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            int i2 = this.a;
+            return i2 - (i % i2);
+        }
+        return invokeI.intValue;
+    }
+
+    @Override // com.baidu.tieba.i00
+    public void a(byte[] bArr, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i, i2) == null) || bArr == null) {
+            return;
+        }
+        if (i + i2 > bArr.length) {
+            throw new ShortBufferException("Buffer too small to hold padding");
+        }
+        byte b = (byte) (i2 & 255);
+        for (int i3 = 0; i3 < i2; i3++) {
+            bArr[i3 + i] = b;
         }
     }
 
-    public static byte[] a() throws InvalidAlgorithmParameterException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.i00
+    public int b(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (h00.class) {
-                    if (a == null) {
-                        byte[] bArr = new byte[16];
-                        System.arraycopy(o00.a(), 0, bArr, 0, 16);
-                        d00 d00Var = new d00();
-                        d00Var.a(2, bArr, bArr);
-                        a = d00Var.b(new byte[]{-71, -100, -115, 26, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, -124, 14, 14, ExifInterface.MARKER_APP1, -46, -56, 1, 25, -127, -99, -107, ExifInterface.MARKER_SOF10, 51, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, 14, 68, -68, -19, 28, 66, 19, -113, 5, 25, -11, -123, 50});
-                    }
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2)) == null) {
+            if (bArr == null || i2 == 0) {
+                return 0;
+            }
+            int i4 = i2 + i;
+            int i5 = bArr[i4 - 1];
+            int i6 = i5 & 255;
+            if (i6 < 1 || i6 > this.a || (i3 = i4 - i6) < i) {
+                return -1;
+            }
+            for (int i7 = 0; i7 < i6; i7++) {
+                if (bArr[i3 + i7] != i5) {
+                    return -1;
                 }
             }
-            return a;
+            return i3;
         }
-        return (byte[]) invokeV.objValue;
+        return invokeLII.intValue;
     }
 }

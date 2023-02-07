@@ -58,7 +58,7 @@ public class bd implements Runnable {
                 aVar.c = bb.c.a(this.a, packageName, b, "DUID");
                 aVar.d = bb.c.a(this.a, packageName, b, "AUID");
                 this.f160a.a.f157a = aVar;
-                this.f160a.a.m207b();
+                this.f160a.a.m209b();
                 this.f160a.a.f154a = 2;
                 obj5 = this.f160a.a.f158a;
                 synchronized (obj5) {
@@ -69,7 +69,7 @@ public class bd implements Runnable {
                     }
                 }
             } catch (Exception unused2) {
-                this.f160a.a.m207b();
+                this.f160a.a.m209b();
                 this.f160a.a.f154a = 2;
                 obj3 = this.f160a.a.f158a;
                 synchronized (obj3) {
@@ -80,7 +80,7 @@ public class bd implements Runnable {
                     }
                 }
             } catch (Throwable th) {
-                this.f160a.a.m207b();
+                this.f160a.a.m209b();
                 this.f160a.a.f154a = 2;
                 obj = this.f160a.a.f158a;
                 synchronized (obj) {

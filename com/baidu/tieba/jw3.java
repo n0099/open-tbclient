@@ -1,238 +1,412 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.res.Resources;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.favordata.SwanFavorItemData;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.swan.game.ad.component.AdImageVIew;
+import com.baidu.swan.game.ad.entity.AdElementInfo;
+import com.baidu.swan.game.ad.jsbridge.CommandType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class jw3 extends mb3 {
+public class jw3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String v;
+    public Context a;
+    public AdElementInfo b;
+    public View c;
+    public LinearLayout d;
+    public int e;
+    public int f;
+    public AdImageVIew g;
+    public AdImageVIew h;
+    public RelativeLayout i;
+    public RelativeLayout j;
+    public RelativeLayout k;
+    public TextView l;
+    public TextView m;
+    public Button n;
+    public ImageView o;
+    public boolean p;
+    public gx3 q;
+    public kx3 r;
+    public e s;
+    public boolean t;
+    public Runnable u;
+    public View.OnClickListener v;
+    public View.OnClickListener w;
 
-    public jw3() {
+    /* loaded from: classes5.dex */
+    public interface e {
+        void b();
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jw3 a;
+
+        public a(jw3 jw3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jw3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jw3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.g();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jw3 a;
+
+        public b(jw3 jw3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jw3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jw3Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                ly3.b(this.a.u);
+                if (this.a.s != null) {
+                    this.a.s.b();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jw3 a;
+
+        public c(jw3 jw3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jw3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jw3Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.q != null) {
+                this.a.q.b(CommandType.BANNER_VIEW, null);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class d implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jw3 a;
+
+        public d(jw3 jw3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jw3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jw3Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.r != null) {
+                this.a.r.f(view2);
+            }
+        }
+    }
+
+    public jw3(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.u = new a(this);
+        this.v = new c(this);
+        this.w = new d(this);
+        this.a = context;
+        h();
     }
 
-    public static String l(String str) {
-        InterceptResult invokeL;
+    public jw3(Context context, AdElementInfo adElementInfo, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            char c = 65535;
-            switch (str.hashCode()) {
-                case -2136141294:
-                    if (str.equals("notifyInstall")) {
-                        c = '\r';
-                        break;
-                    }
-                    break;
-                case -1996849701:
-                    if (str.equals("installHijack")) {
-                        c = 17;
-                        break;
-                    }
-                    break;
-                case -1903789791:
-                    if (str.equals("continueClick")) {
-                        c = '\n';
-                        break;
-                    }
-                    break;
-                case -1768725569:
-                    if (str.equals("notifyClick")) {
-                        c = '\f';
-                        break;
-                    }
-                    break;
-                case -1263222921:
-                    if (str.equals("openApp")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case -1165168761:
-                    if (str.equals("notifyList")) {
-                        c = 14;
-                        break;
-                    }
-                    break;
-                case -1164961306:
-                    if (str.equals("notifyShow")) {
-                        c = 11;
-                        break;
-                    }
-                    break;
-                case -625158317:
-                    if (str.equals("deleteDownload")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case -606050596:
-                    if (str.equals("resumeAllDownload")) {
-                        c = 6;
-                        break;
-                    }
-                    break;
-                case -567202649:
-                    if (str.equals("continue")) {
-                        c = '\b';
-                        break;
-                    }
-                    break;
-                case -451216226:
-                    if (str.equals("pauseDownload")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case -263045656:
-                    if (str.equals("installSuccess")) {
-                        c = 15;
-                        break;
-                    }
-                    break;
-                case 66344735:
-                    if (str.equals("authorizeClick")) {
-                        c = '\t';
-                        break;
-                    }
-                    break;
-                case 184711125:
-                    if (str.equals("resumeDownload")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 388113743:
-                    if (str.equals("overTwoDays")) {
-                        c = 16;
-                        break;
-                    }
-                    break;
-                case 900412038:
-                    if (str.equals("installApp")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-                case 1475610601:
-                    if (str.equals("authorize")) {
-                        c = 7;
-                        break;
-                    }
-                    break;
-                case 1554935562:
-                    if (str.equals("startDownload")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    return "start";
-                case 1:
-                    return "pause";
-                case 2:
-                    return "resume";
-                case 3:
-                    return "cancel";
-                case 4:
-                    return "install";
-                case 5:
-                    return "open";
-                case 6:
-                    return "continue";
-                case 7:
-                    return "authorize";
-                case '\b':
-                    return "guide";
-                case '\t':
-                    return "authorizeclick";
-                case '\n':
-                    return "guideclick";
-                case 11:
-                    return "notifyshow";
-                case '\f':
-                    return "notifyclick";
-                case '\r':
-                    return "notifyinstall";
-                case 14:
-                    return "notifylist";
-                case 15:
-                    return "installsuccess";
-                case 16:
-                    return "overtwodays";
-                case 17:
-                    return "installhijack";
-                default:
-                    return str;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, adElementInfo, str, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return (String) invokeL.objValue;
+        this.u = new a(this);
+        this.v = new c(this);
+        this.w = new d(this);
+        this.a = context;
+        this.b = adElementInfo;
+        this.p = ox3.a().j();
+        this.t = z;
+        h();
     }
 
-    @Override // com.baidu.tieba.mb3, com.baidu.tieba.lb3
-    public JSONObject f() {
+    public void i(e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, eVar) == null) {
+            this.s = eVar;
+        }
+    }
+
+    public void j(gx3 gx3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, gx3Var) == null) {
+            this.q = gx3Var;
+        }
+    }
+
+    public void k(kx3 kx3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, kx3Var) == null) {
+            this.r = kx3Var;
+        }
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            int a2 = py3.a(i);
+            this.e = a2;
+            this.f = (int) (a2 / kw3.a);
+            this.c.setLayoutParams(new RelativeLayout.LayoutParams(this.e, this.f));
+            this.d.setLayoutParams(new RelativeLayout.LayoutParams(this.e, this.f));
+            int i2 = (int) (this.f * kw3.b);
+            this.j.setLayoutParams(new LinearLayout.LayoutParams(i2, this.f));
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams((int) (i2 * kw3.m), (int) (this.f * kw3.n));
+            layoutParams.addRule(12);
+            layoutParams.addRule(9);
+            layoutParams.setMarginStart(0);
+            this.h.setLayoutParams(layoutParams);
+            int i3 = this.e - i2;
+            this.i.setLayoutParams(new LinearLayout.LayoutParams(i3, this.f));
+            int i4 = this.f;
+            float f = i3;
+            int i5 = (int) (kw3.h * f);
+            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, -2);
+            layoutParams2.addRule(9);
+            layoutParams2.topMargin = (int) (i4 * kw3.c);
+            layoutParams2.leftMargin = i5;
+            layoutParams2.rightMargin = i5;
+            this.l.setLayoutParams(layoutParams2);
+            this.l.setTextSize(0, (int) (i4 * kw3.e));
+            this.l.setLineSpacing((int) (i4 * kw3.d), 1.0f);
+            int i6 = this.f;
+            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-1, (int) (i6 * kw3.g));
+            layoutParams3.addRule(12);
+            layoutParams3.bottomMargin = (int) (i6 * kw3.f);
+            layoutParams3.leftMargin = i5;
+            layoutParams3.rightMargin = i5;
+            this.k.setLayoutParams(layoutParams3);
+            int i7 = (int) (this.f * kw3.k);
+            RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams((int) (f * kw3.i), -1);
+            layoutParams4.addRule(9);
+            float f2 = (int) (kw3.l * i7);
+            this.m.setTextSize(0, f2);
+            layoutParams4.addRule(15);
+            this.m.setLayoutParams(layoutParams4);
+            RelativeLayout.LayoutParams layoutParams5 = new RelativeLayout.LayoutParams((int) (kw3.j * f), i7);
+            layoutParams5.addRule(12);
+            layoutParams5.addRule(11);
+            this.n.setTextSize(0, f2);
+            this.n.setLayoutParams(layoutParams5);
+            if (this.o != null) {
+                int i8 = (int) (this.f * kw3.o);
+                RelativeLayout.LayoutParams layoutParams6 = new RelativeLayout.LayoutParams(i8, i8);
+                layoutParams6.addRule(10);
+                layoutParams6.addRule(11);
+                this.o.setLayoutParams(layoutParams6);
+            }
+        }
+    }
+
+    public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            this.k = od3.e(TextUtils.equals(this.a, SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME) ? 1 : 0);
-            this.n = SwanAppNetworkUtils.f().type;
-            if (this.h == null) {
-                this.h = new JSONObject();
-            }
-            try {
-                this.h.put("host", qn2.n().a());
-                this.h.put("package", this.v);
-            } catch (JSONException e) {
-                if (lb3.j) {
-                    e.printStackTrace();
-                }
-            }
-            return super.f();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-        return (JSONObject) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    public void m(iw3 iw3Var) {
+    public void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iw3Var) != null) || iw3Var == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            View view2 = this.c;
+            if (view2 != null && view2.getVisibility() == 0) {
+                this.c.setVisibility(4);
+            }
+            ly3.b(this.u);
         }
-        if (lb3.j) {
-            Log.d("SwanAppUBCEvent", "setCommonData: " + iw3Var.a());
+    }
+
+    @SuppressLint({"InflateParams"})
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            Resources resources = this.a.getResources();
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0684, (ViewGroup) null);
+            this.c = inflate;
+            this.d = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09032a);
+            this.j = (RelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f09031c);
+            AdImageVIew adImageVIew = (AdImageVIew) this.c.findViewById(R.id.obfuscated_res_0x7f09032c);
+            this.g = adImageVIew;
+            AdElementInfo adElementInfo = this.b;
+            if (adElementInfo != null) {
+                adImageVIew.setImageUrl(adElementInfo.getPictureUrl());
+            }
+            AdImageVIew adImageVIew2 = (AdImageVIew) this.c.findViewById(R.id.obfuscated_res_0x7f090101);
+            this.h = adImageVIew2;
+            adImageVIew2.setImageUrl("https://cpro.baidustatic.com/cpro/ui/noexpire/css/2.1.4/img/mob-adIcon_2x.png");
+            this.i = (RelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f09031d);
+            this.k = (RelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090327);
+            this.l = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f090328);
+            this.m = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09031f);
+            AdElementInfo adElementInfo2 = this.b;
+            if (adElementInfo2 != null) {
+                this.l.setText(adElementInfo2.getTitle());
+                this.m.setText(this.b.getAppName());
+            }
+            Button button = (Button) this.c.findViewById(R.id.obfuscated_res_0x7f09031b);
+            this.n = button;
+            button.setVisibility(8);
+            AdElementInfo adElementInfo3 = this.b;
+            if (adElementInfo3 != null && adElementInfo3.getActionType() == 1) {
+                this.n.setVisibility(0);
+                this.n.setText(resources.getString(R.string.obfuscated_res_0x7f0f119e));
+            }
+            AdElementInfo adElementInfo4 = this.b;
+            if (adElementInfo4 != null && adElementInfo4.getActionType() == 2) {
+                this.n.setVisibility(0);
+                this.n.setText(resources.getString(R.string.obfuscated_res_0x7f0f1342));
+            }
+            if (this.b == null) {
+                this.j.setVisibility(8);
+                this.i.setVisibility(8);
+                this.c.findViewById(R.id.obfuscated_res_0x7f0917b9).setVisibility(0);
+                return;
+            }
+            this.j.setVisibility(0);
+            this.i.setVisibility(0);
+            this.c.findViewById(R.id.obfuscated_res_0x7f0917b9).setVisibility(8);
+            if (this.t) {
+                this.n.setOnClickListener(this.w);
+                this.d.setOnClickListener(this.w);
+            } else {
+                this.n.setOnClickListener(this.v);
+                this.d.setOnClickListener(this.v);
+            }
+            this.c.setVisibility(4);
+            if (this.p) {
+                ImageView imageView = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f09068c);
+                this.o = imageView;
+                imageView.setVisibility(0);
+                this.o.setOnClickListener(new b(this));
+            }
         }
-        this.a = iw3Var.a;
-        this.f = iw3Var.c;
-        this.c = iw3Var.b;
-        this.o = iw3Var.f;
-        this.p = iw3Var.g;
-        this.s = iw3Var.h;
-        this.u = iw3Var.i;
-        this.l = iw3Var.d;
-        this.m = iw3Var.e;
+    }
+
+    public void l() {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (view2 = this.c) != null && view2.getVisibility() == 4) {
+            this.c.setAnimation(AnimationUtils.loadAnimation(this.a, R.anim.obfuscated_res_0x7f0100b9));
+            this.c.setVisibility(0);
+            ly3.a(this.u, ox3.a().a());
+        }
     }
 }

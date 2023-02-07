@@ -1,108 +1,99 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
-import com.baidu.nadcore.exp.ADConfigError;
-import com.baidu.nadcore.net.request.Headers;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 /* loaded from: classes6.dex */
-public class rm0 {
+public class rm0 extends ok1<um0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a extends ir0<String> {
+    public class a implements um0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final qm0 b;
 
-        @Override // com.baidu.tieba.gr0
-        public void a(Exception exc, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) {
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.hr0
-        /* renamed from: e */
-        public void b(Headers headers, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048579, this, headers, str, i) == null) {
-            }
-        }
-
-        public String f(Headers headers, String str, int i) {
-            InterceptResult invokeLLI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, headers, str, i)) == null) ? str : (String) invokeLLI.objValue;
-        }
-
-        public a() {
+        public a(rm0 rm0Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rm0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.b = new qm0();
         }
 
-        @Override // com.baidu.tieba.hr0
-        public /* bridge */ /* synthetic */ Object d(Headers headers, String str, int i) throws Exception {
-            f(headers, str, i);
-            return str;
-        }
-    }
-
-    public static l11 a(ADConfigError aDConfigError, int i, boolean z) {
-        InterceptResult invokeCommon;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{aDConfigError, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            l11 l11Var = new l11();
-            k11 b = l11Var.g("1042").b("f1", b(aDConfigError.code)).b("f2", b(String.valueOf(i)));
-            if (z) {
-                str = "0";
-            } else {
-                str = "1";
+        @Override // com.baidu.tieba.um0
+        public <T extends tm0> void a(@Nullable T t) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, t) == null) && t != null) {
+                this.b.b(t);
             }
-            b.b("f3", b(str));
-            return l11Var;
         }
-        return (l11) invokeCommon.objValue;
-    }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                try {
-                    return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
-                } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
-                }
+        @Override // com.baidu.tieba.um0
+        public void unregister(@NonNull Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+                this.b.g(obj);
             }
-            return "";
         }
-        return (String) invokeL.objValue;
+
+        @Override // com.baidu.tieba.um0
+        public <T extends tm0> void b(@NonNull Object obj, @NonNull wm0<T> wm0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, wm0Var) == null) {
+                this.b.d(obj, wm0Var);
+            }
+        }
+
+        @Override // com.baidu.tieba.um0
+        public <T extends tm0> void c(@NonNull Object obj, int i, @NonNull wm0<T> wm0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, obj, i, wm0Var) == null) {
+                this.b.c(obj, i, wm0Var);
+            }
+        }
     }
 
-    public static void c(ADConfigError aDConfigError, int i, boolean z) {
+    public rm0() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{aDConfigError, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || aDConfigError == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        e11.c(a(aDConfigError, i, z), new a());
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ok1
+    /* renamed from: a */
+    public um0 createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
+        }
+        return (um0) invokeV.objValue;
     }
 }

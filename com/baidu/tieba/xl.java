@@ -1,21 +1,22 @@
 package com.baidu.tieba;
 
+import android.app.Application;
+import android.util.Log;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.nps.interfa.IHostAppRuntime;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class xl extends bm {
+@Singleton
+@Service
+/* loaded from: classes7.dex */
+public class xl implements IHostAppRuntime {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.bm
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "medialive" : (String) invokeV.objValue;
-    }
 
     public xl() {
         Interceptable interceptable = $ic;
@@ -29,5 +30,16 @@ public class xl extends bm {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.nps.interfa.IHostAppRuntime
+    public Application getApplication() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Log.e("TAG", "" + BdBaseApplication.getInst());
+            return BdBaseApplication.getInst();
+        }
+        return (Application) invokeV.objValue;
     }
 }

@@ -1,16 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.data.GodUserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class jp6 implements od7 {
+public class jp6 implements rp6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MetaData a;
+
+    @Override // com.baidu.tieba.rp6
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
+    }
 
     public jp6() {
         Interceptable interceptable = $ic;
@@ -22,13 +30,7 @@ public class jp6 implements od7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        MetaData metaData = new MetaData();
-        this.a = metaData;
-        if (metaData.getGodUserData() == null) {
-            this.a.setGodUserData(new GodUserData());
         }
     }
 }

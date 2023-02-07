@@ -1,77 +1,133 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.text.TextUtils;
+import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.sapi2.ecommerce.activity.AddressEditActivity;
+import com.baidu.swan.apps.statistic.interfacestability.SwanInterfaceType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import okhttp3.Response;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class bg3 extends g63 {
+public class bg3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bg3(g53 g53Var) {
-        super(g53Var, "/swanAPI/updateTextarea");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {g53Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes3.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ SwanInterfaceType e;
+
+        public a(int i, String str, String str2, String str3, SwanInterfaceType swanInterfaceType) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), str, str2, str3, swanInterfaceType};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i;
+            this.b = str;
+            this.c = str2;
+            this.d = str3;
+            this.e = swanInterfaceType;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int i = this.a;
+                if (i != 2000 && i != 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                String n = pf3.n(v83.K().k());
+                JSONObject jSONObject = new JSONObject();
+                wl3.f(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, v83.K().getAppId());
+                wl3.f(jSONObject, "hostName", ds2.n().a());
+                wl3.f(jSONObject, "network", xo4.e());
+                wl3.f(jSONObject, "launchid", v83.K().q().W().V());
+                if (z) {
+                    wl3.f(jSONObject, "response", this.b);
+                    wl3.f(jSONObject, "statusCode", this.c);
+                    wl3.f(jSONObject, "request_url", this.d);
+                }
+                bg3.d(n, this.e.getClassify(), this.e.getInterfaceName(), this.a, jSONObject, z);
             }
         }
     }
 
-    @Override // com.baidu.tieba.g63
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j43 j43Var) {
-        InterceptResult invokeLLLL;
+    public static void a(SwanInterfaceType swanInterfaceType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j43Var)) == null) {
-            if (g63.b) {
-                Log.d("UpdateTextAreaAction", "handle entity: " + unitedSchemeEntity.toString());
-            }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
-            j12.i("UpdateTextAreaAction", "UpdateTextAreaAction updateParams: " + optParamsAsJo);
-            String optString = optParamsAsJo.optString("slaveId");
-            String optString2 = optParamsAsJo.optString("componentId");
-            u02 u02Var = (u02) w02.b(optString, optString2);
-            if (u02Var == null) {
-                String str = "can't find textarea component:#" + optString2;
-                j12.c("UpdateTextAreaAction", str);
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str);
-                return false;
-            }
-            v02 v02Var = (v02) u02Var.l();
-            v02Var.g(optParamsAsJo);
-            a02 update = u02Var.update((u02) v02Var);
-            if (!update.a()) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, update.b);
-                return false;
-            }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-            u02Var.U0(optString2);
-            return true;
+        if (interceptable == null || interceptable.invokeL(65536, null, swanInterfaceType) == null) {
+            c(swanInterfaceType, 2000, null, null);
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    public static void b(SwanInterfaceType swanInterfaceType, int i, String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{swanInterfaceType, Integer.valueOf(i), str, str2, str3}) == null) {
+            ql3.j(new a(i, str3, str2, str, swanInterfaceType), "onInterfaceStabilityStatistic");
+        }
+    }
+
+    public static void c(SwanInterfaceType swanInterfaceType, int i, String str, Response response) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(65538, null, swanInterfaceType, i, str, response) == null) {
+            String str3 = null;
+            if (response != null) {
+                String valueOf = String.valueOf(response.code());
+                str3 = response.request().url().toString();
+                str2 = valueOf;
+            } else {
+                str2 = null;
+            }
+            b(swanInterfaceType, i, str3, str2, str);
+        }
+    }
+
+    public static void d(String str, String str2, String str3, int i, JSONObject jSONObject, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{str, str2, str3, Integer.valueOf(i), jSONObject, Boolean.valueOf(z)}) == null) {
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("from", str);
+                jSONObject2.put("type", str2);
+                if (!TextUtils.isEmpty(str3)) {
+                    jSONObject2.put("page", str3);
+                }
+                jSONObject2.put("value", String.valueOf(i));
+                if (jSONObject != null) {
+                    jSONObject2.put("ext", jSONObject);
+                }
+                df3.k("874", jSONObject2);
+                if (z) {
+                    df3.i("2486", AddressEditActivity.CHINA_REGION_CODE, jSONObject2);
+                }
+            } catch (JSONException e) {
+                if (w83.v) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }

@@ -13,11 +13,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.DeviceUtils;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
+import com.baidu.searchbox.common.security.DeviceInfoManager;
 import com.baidu.searchbox.common.security.IDeviceInfoAppHost;
 import com.baidu.searchbox.common.security.IDeviceInfoService;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tieba.ds8;
-import com.baidu.tieba.sf1;
+import com.baidu.tieba.dk1;
+import com.baidu.tieba.yv8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,7 +37,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.zip.GZIPOutputStream;
 import kotlin.Metadata;
@@ -51,7 +51,7 @@ import kotlin.jvm.internal.Ref;
 import kotlin.text.Charsets;
 import org.json.JSONObject;
 @Autowired
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0099\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\u0012\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0010\t\n\u0002\b\u000b\n\u0002\u0010\u0002\n\u0002\b\u0015\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\b\u0013\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0010\u0005\n\u0002\b\u0012\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\b*\u0001Q\bÇ\u0002\u0018\u0000:\u0002\u0092\u0001B\n\b\u0002¢\u0006\u0005\b\u0091\u0001\u0010NJ\u0019\u0010\u0004\u001a\u00020\u00032\b\u0010\u0002\u001a\u0004\u0018\u00010\u0001H\u0002¢\u0006\u0004\b\u0004\u0010\u0005J\u0019\u0010\b\u001a\u0004\u0018\u00010\u00062\u0006\u0010\u0007\u001a\u00020\u0006H\u0002¢\u0006\u0004\b\b\u0010\tJ%\u0010\u0010\u001a\u00020\u000f2\u0006\u0010\u000b\u001a\u00020\n2\u0006\u0010\r\u001a\u00020\f2\u0006\u0010\u000e\u001a\u00020\f¢\u0006\u0004\b\u0010\u0010\u0011J\u000f\u0010\u0013\u001a\u00020\u0012H\u0003¢\u0006\u0004\b\u0013\u0010\u0014J\u000f\u0010\u0017\u001a\u00020\nH\u0000¢\u0006\u0004\b\u0015\u0010\u0016J-\u0010\u001b\u001a\u00020\u001a2\u0006\u0010\u000b\u001a\u00020\n2\u0006\u0010\r\u001a\u00020\f2\u0006\u0010\u000e\u001a\u00020\f2\u0006\u0010\u0019\u001a\u00020\u0018¢\u0006\u0004\b\u001b\u0010\u001cJ7\u0010\u001b\u001a\u00020\u001a2\u0006\u0010\u000b\u001a\u00020\n2\u0006\u0010\r\u001a\u00020\f2\u0006\u0010\u000e\u001a\u00020\f2\u0006\u0010\u0019\u001a\u00020\u00182\b\b\u0002\u0010\u001d\u001a\u00020\u0003¢\u0006\u0004\b\u001b\u0010\u001eJ\u0017\u0010 \u001a\u00020\f2\u0006\u0010\u001f\u001a\u00020\fH\u0002¢\u0006\u0004\b \u0010!J%\u0010\"\u001a\u00020\u000f2\u0006\u0010\u000b\u001a\u00020\n2\u0006\u0010\r\u001a\u00020\f2\u0006\u0010\u000e\u001a\u00020\f¢\u0006\u0004\b\"\u0010\u0011J%\u0010#\u001a\u00020\u000f2\u0006\u0010\u000b\u001a\u00020\n2\u0006\u0010\r\u001a\u00020\f2\u0006\u0010\u000e\u001a\u00020\f¢\u0006\u0004\b#\u0010\u0011J/\u0010#\u001a\u00020\u000f2\u0006\u0010\u000b\u001a\u00020\n2\u0006\u0010\r\u001a\u00020\f2\u0006\u0010\u000e\u001a\u00020\f2\b\b\u0002\u0010\u001d\u001a\u00020\u0003¢\u0006\u0004\b#\u0010$J\u0017\u0010&\u001a\u00020%2\u0006\u0010\u000b\u001a\u00020\nH\u0002¢\u0006\u0004\b&\u0010'J%\u0010(\u001a\u00020\u000f2\u0006\u0010\u000b\u001a\u00020\n2\u0006\u0010\r\u001a\u00020\f2\u0006\u0010\u000e\u001a\u00020\f¢\u0006\u0004\b(\u0010\u0011J\u001d\u0010)\u001a\u00020\u000f2\u0006\u0010\r\u001a\u00020\f2\u0006\u0010\u000e\u001a\u00020\f¢\u0006\u0004\b)\u0010*J\u001d\u0010+\u001a\u00020\u000f2\u0006\u0010\r\u001a\u00020\f2\u0006\u0010\u000e\u001a\u00020\f¢\u0006\u0004\b+\u0010*J\u001d\u0010,\u001a\u00020\u000f2\u0006\u0010\r\u001a\u00020\f2\u0006\u0010\u000e\u001a\u00020\f¢\u0006\u0004\b,\u0010*J%\u0010-\u001a\u00020\u000f2\u0006\u0010\u000b\u001a\u00020\n2\u0006\u0010\r\u001a\u00020\f2\u0006\u0010\u000e\u001a\u00020\f¢\u0006\u0004\b-\u0010\u0011J/\u0010-\u001a\u00020\u000f2\u0006\u0010\u000b\u001a\u00020\n2\u0006\u0010\r\u001a\u00020\f2\u0006\u0010\u000e\u001a\u00020\f2\b\b\u0002\u0010\u001d\u001a\u00020\u0003¢\u0006\u0004\b-\u0010$J\u001d\u0010.\u001a\u00020\u000f2\u0006\u0010\r\u001a\u00020\f2\u0006\u0010\u000e\u001a\u00020\f¢\u0006\u0004\b.\u0010*J\u0015\u0010/\u001a\u00020\u00032\u0006\u0010\u000b\u001a\u00020\n¢\u0006\u0004\b/\u00100J\u0017\u00102\u001a\u0002012\b\b\u0002\u0010\u0019\u001a\u00020\u0018¢\u0006\u0004\b2\u00103J\u0017\u00104\u001a\u0002012\u0006\u0010\u0019\u001a\u00020\u0018H\u0002¢\u0006\u0004\b4\u00103J\u001d\u00107\u001a\u0002012\u0006\u00105\u001a\u00020\n2\u0006\u00106\u001a\u00020\u0003¢\u0006\u0004\b7\u00108J'\u00109\u001a\u00020\u000f2\u0006\u0010\u000b\u001a\u00020\n2\u0006\u0010\r\u001a\u00020\f2\u0006\u0010\u000e\u001a\u00020\fH\u0002¢\u0006\u0004\b9\u0010\u0011J'\u0010:\u001a\u00020\u000f2\u0006\u0010\u000b\u001a\u00020\n2\u0006\u0010\r\u001a\u00020\f2\u0006\u0010\u000e\u001a\u00020\fH\u0002¢\u0006\u0004\b:\u0010\u0011J'\u0010;\u001a\u00020\u000f2\u0006\u0010\u000b\u001a\u00020\n2\u0006\u0010\r\u001a\u00020\f2\u0006\u0010\u000e\u001a\u00020\fH\u0002¢\u0006\u0004\b;\u0010\u0011J'\u0010<\u001a\u00020\u000f2\u0006\u0010\u000b\u001a\u00020\n2\u0006\u0010\r\u001a\u00020\f2\u0006\u0010\u000e\u001a\u00020\fH\u0002¢\u0006\u0004\b<\u0010\u0011J\u001f\u0010=\u001a\u00020\u000f2\u0006\u0010\r\u001a\u00020\f2\u0006\u0010\u000e\u001a\u00020\fH\u0002¢\u0006\u0004\b=\u0010*J\u0015\u0010>\u001a\u0002012\u0006\u0010\u000b\u001a\u00020\n¢\u0006\u0004\b>\u0010?J\u001f\u0010@\u001a\u00020\u000f2\u0006\u0010\r\u001a\u00020\f2\u0006\u0010\u000e\u001a\u00020\fH\u0002¢\u0006\u0004\b@\u0010*J\u001f\u0010A\u001a\u00020\u000f2\u0006\u0010\r\u001a\u00020\f2\u0006\u0010\u000e\u001a\u00020\fH\u0002¢\u0006\u0004\bA\u0010*J'\u0010B\u001a\u00020\u000f2\u0006\u0010\u000b\u001a\u00020\n2\u0006\u0010\r\u001a\u00020\f2\u0006\u0010\u000e\u001a\u00020\fH\u0002¢\u0006\u0004\bB\u0010\u0011J\u001f\u0010C\u001a\u00020\u000f2\u0006\u0010\r\u001a\u00020\f2\u0006\u0010\u000e\u001a\u00020\fH\u0002¢\u0006\u0004\bC\u0010*J\u0017\u0010D\u001a\u0002012\u0006\u0010\u000b\u001a\u00020\nH\u0002¢\u0006\u0004\bD\u0010?J\u0017\u0010E\u001a\u0002012\u0006\u0010\u000b\u001a\u00020\nH\u0002¢\u0006\u0004\bE\u0010?J\u001d\u0010F\u001a\u0002012\u0006\u00105\u001a\u00020\n2\u0006\u00106\u001a\u00020\u0003¢\u0006\u0004\bF\u00108J\u0017\u0010I\u001a\u00020\u00032\u0006\u0010H\u001a\u00020GH\u0002¢\u0006\u0004\bI\u0010JJ\u0017\u0010K\u001a\u00020\u00032\u0006\u0010\u0019\u001a\u00020\u0018H\u0002¢\u0006\u0004\bK\u0010LJ\u000f\u0010M\u001a\u000201H\u0002¢\u0006\u0004\bM\u0010NR\u0016\u0010O\u001a\u00020\u00038\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\bO\u0010PR\u001c\u0010R\u001a\u00020Q8\u0002@\u0003X\u0083\u0004¢\u0006\f\n\u0004\bR\u0010S\u0012\u0004\bT\u0010NR\u0016\u0010U\u001a\u00020\u00188\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\bU\u0010VR\u0016\u0010W\u001a\u00020\u00188\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\bW\u0010VR\u0016\u0010X\u001a\u00020\u00188\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\bX\u0010VR\u0016\u0010Y\u001a\u00020\u00188\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\bY\u0010VR\u0016\u0010Z\u001a\u00020\u00188\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\bZ\u0010VR\u0016\u0010[\u001a\u00020\u00188\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b[\u0010VR\u0016\u0010\\\u001a\u00020\u00188\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\\\u0010VR\u0016\u0010]\u001a\u00020\u00188\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b]\u0010VR\u0016\u0010^\u001a\u00020\u00188\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b^\u0010VR\u0016\u0010_\u001a\u00020\u00188\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b_\u0010VR\u0016\u0010`\u001a\u00020\u00188\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b`\u0010VR\u0016\u0010a\u001a\u00020\u00188\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\ba\u0010VR\u0016\u0010b\u001a\u00020\u00188\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\bb\u0010VR\u0016\u0010c\u001a\u00020\u00188\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\bc\u0010VR:\u0010f\u001a \u0012\u001c\u0012\u001a\u0012\u0004\u0012\u00020\n\u0012\u0004\u0012\u00020\f\u0012\u0004\u0012\u00020\f\u0012\u0004\u0012\u00020\u000f0e0d8\u0002@\u0003X\u0083\u0004¢\u0006\f\n\u0004\bf\u0010g\u0012\u0004\bh\u0010NR\u0016\u0010i\u001a\u00020\u00188\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\bi\u0010VR\u0016\u0010j\u001a\u00020\f8\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\bj\u0010kR\u0016\u0010l\u001a\u00020\f8\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\bl\u0010kR\u0016\u0010n\u001a\u00020m8\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\bn\u0010oR\u0016\u0010p\u001a\u00020m8\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\bp\u0010oR\u0016\u0010q\u001a\u00020\u00188\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\bq\u0010VR\u0016\u0010r\u001a\u00020\f8\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\br\u0010kR\u0016\u0010s\u001a\u00020\f8\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\bs\u0010kR\u0016\u0010t\u001a\u00020\f8\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\bt\u0010kR\u0016\u0010u\u001a\u00020\f8\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\bu\u0010kR\u0016\u0010v\u001a\u00020\f8\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\bv\u0010kR\u0016\u0010w\u001a\u00020\f8\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\bw\u0010kR\u0016\u0010x\u001a\u00020\f8\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\bx\u0010kR\u0016\u0010y\u001a\u00020\f8\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\by\u0010kR\u0016\u0010z\u001a\u00020\f8\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\bz\u0010kR\u0016\u0010{\u001a\u00020\f8\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b{\u0010kR\u0016\u0010|\u001a\u00020\n8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b|\u0010}R\u0016\u0010~\u001a\u00020\u001a8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b~\u0010\u007fR\u001c\u0010\u0081\u0001\u001a\u0005\u0018\u00010\u0080\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0081\u0001\u0010\u0082\u0001R\u001a\u0010\u0084\u0001\u001a\u00030\u0083\u00018\u0002@\u0002X\u0082\u0004¢\u0006\b\n\u0006\b\u0084\u0001\u0010\u0085\u0001R\u0018\u0010\u0086\u0001\u001a\u00020\u00038\u0002@\u0002X\u0082\u000e¢\u0006\u0007\n\u0005\b\u0086\u0001\u0010PR\u0018\u0010\u0087\u0001\u001a\u00020\u00038\u0002@\u0002X\u0082\u000e¢\u0006\u0007\n\u0005\b\u0087\u0001\u0010PR\u001c\u0010\u0089\u0001\u001a\u0005\u0018\u00010\u0088\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0089\u0001\u0010\u008a\u0001R\u001a\u0010\u008c\u0001\u001a\u00030\u008b\u00018\u0002@\u0002X\u0082.¢\u0006\b\n\u0006\b\u008c\u0001\u0010\u008d\u0001R\u0018\u0010\u008e\u0001\u001a\u00020\u00188\u0002@\u0002X\u0082\u000e¢\u0006\u0007\n\u0005\b\u008e\u0001\u0010VR\u0018\u0010\u008f\u0001\u001a\u00020\u00188\u0002@\u0002X\u0082\u000e¢\u0006\u0007\n\u0005\b\u008f\u0001\u0010VR\u0018\u0010\u0090\u0001\u001a\u00020\u00188\u0002@\u0002X\u0082\u000e¢\u0006\u0007\n\u0005\b\u0090\u0001\u0010V¨\u0006\u0093\u0001"}, d2 = {"Lcom/baidu/searchbox/common/security/DeviceInfoManager;", "Lcom/baidu/searchbox/common/security/IDeviceInfoService;", "ipcService", "", "checkIPCService", "(Lcom/baidu/searchbox/common/security/IDeviceInfoService;)Z", "", "data", "gZip", "([B)[B", "Landroid/content/Context;", "context", "", "scene", "purpose", "Lcom/baidu/searchbox/common/security/DeviceIdBag;", "getAndroidId", "(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Lcom/baidu/searchbox/common/security/DeviceIdBag;", "Lcom/baidu/searchbox/common/security/IDeviceInfoAppHost;", "getAppHost", "()Lcom/baidu/searchbox/common/security/IDeviceInfoAppHost;", "getContext$lib_security_framework_release", "()Landroid/content/Context;", "getContext", "", "deviceFlag", "Lcom/baidu/searchbox/common/security/DeviceIdBagMap;", CommonTbJsBridge.GET_DEVICE_INFO, "(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;I)Lcom/baidu/searchbox/common/security/DeviceIdBagMap;", "forceApi", "(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;IZ)Lcom/baidu/searchbox/common/security/DeviceIdBagMap;", "value", "getEncodeValue", "(Ljava/lang/String;)Ljava/lang/String;", "getHarmonyVersion", "getIMEI", "(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Z)Lcom/baidu/searchbox/common/security/DeviceIdBag;", "", "getLastForceSyncCacheTime", "(Landroid/content/Context;)J", "getMacAddress", "getManufacturer", "(Ljava/lang/String;Ljava/lang/String;)Lcom/baidu/searchbox/common/security/DeviceIdBag;", "getModel", "getOAID", "getOperator", "getOsVersion", "hasLaunchMappingDone", "(Landroid/content/Context;)Z", "", "init", "(I)V", "postSyncTask", "appContext", "needSupportMultiProcess", "preInit", "(Landroid/content/Context;Z)V", "readAndroidId", "readHarmonyVersion", "readIMEI", "readMac", "readManufacturer", "readMappingCache", "(Landroid/content/Context;)V", "readModel", "readOAID", "readOperator", "readOsVersion", "saveForceSyncCacheTime", "saveLaunchMappingDone", "setContextAndIPC", "Lorg/json/JSONObject;", "infoJson", "syncMapping", "(Lorg/json/JSONObject;)Z", "syncMappingOfFixedDeviceFlag", "(I)Z", "writeMappingCache", "()V", "DEBUG", "Z", "com/baidu/searchbox/common/security/DeviceInfoManager$DEFAULT_APP_HOST$1", "DEFAULT_APP_HOST", "Lcom/baidu/searchbox/common/security/DeviceInfoManager$DEFAULT_APP_HOST$1;", "getDEFAULT_APP_HOST$annotations", "DEFAULT_PHONE_TYPE", "I", "DEVICE_ALL", "DEVICE_ANDROID_ID", "DEVICE_FLAG_BIT_NUM", "DEVICE_HARMONY_VERSION", "DEVICE_IMEI", "DEVICE_MAC", "DEVICE_MANUFACTURER", "DEVICE_MODEL", "DEVICE_NONE", "DEVICE_NON_SENSITIVE", "DEVICE_OAID", "DEVICE_OPERATOR", "DEVICE_OS_VERSION", "Landroid/util/SparseArray;", "Lkotlin/Function3;", "DEVICE_READ_FUNC_MAP", "Landroid/util/SparseArray;", "getDEVICE_READ_FUNC_MAP$annotations", "DEVICE_VALUABLE", "ERRNO", "Ljava/lang/String;", "ERRNO_SUCCESS", "", "GZIP_HEAD_1", "B", "GZIP_HEAD_2", "HTTP_STATUS_OK", "MAPPING_CACHE_FILE", "MAPPING_URL", "PURPOSE_LAUNCH_SYNC", "SCENE_LAUNCH", "SDK_DIR", "SP_FILE", "SP_KEY_FORCE_SYNC_CACHE_TIME", "SP_KEY_LAUNCH_SYNC_DONE", "SYNC_JSON_KEY_TIME", "TAG", "mContext", "Landroid/content/Context;", "mDeviceInfoMap", "Lcom/baidu/searchbox/common/security/DeviceIdBagMap;", "Landroid/os/Handler;", "mHandler", "Landroid/os/Handler;", "Landroid/os/HandlerThread;", "mHandlerThread", "Landroid/os/HandlerThread;", "mInit", "mLaunchSyncStarted", "Lcom/baidu/searchbox/common/security/CacheDeviceInfo;", "mMappingCache", "Lcom/baidu/searchbox/common/security/CacheDeviceInfo;", "Ljava/io/File;", "mMappingCacheFile", "Ljava/io/File;", "mPhoneTypeWhenReadIMEI", "mPhoneTypeWhenReadOperator", "mSyncingDeviceFlag", "<init>", "SyncTask", "lib-security-framework_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(d1 = {"\u0000\u0091\u0001\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u000e\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0005\n\u0002\b\u000e\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0012\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0010\t\n\u0002\b\b\n\u0002\u0010\u0002\n\u0002\b\u0015\n\u0002\u0018\u0002\n\u0002\b\u0004*\u0001\u0006\bÇ\u0002\u0018\u00002\u00020\u0001:\u0001xB\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u0012\u0010@\u001a\u00020\u00042\b\u0010A\u001a\u0004\u0018\u00010BH\u0002J\u0012\u0010C\u001a\u0004\u0018\u00010D2\u0006\u0010E\u001a\u00020DH\u0002J\u001e\u0010F\u001a\u00020\u001d2\u0006\u0010G\u001a\u00020\u001b2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001cJ\b\u0010J\u001a\u00020KH\u0003J\r\u0010L\u001a\u00020\u001bH\u0000¢\u0006\u0002\bMJ&\u0010N\u001a\u0002022\u0006\u0010G\u001a\u00020\u001b2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001c2\u0006\u0010O\u001a\u00020\nJ0\u0010N\u001a\u0002022\u0006\u0010G\u001a\u00020\u001b2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001c2\u0006\u0010O\u001a\u00020\n2\b\b\u0002\u0010P\u001a\u00020\u0004J\u0010\u0010Q\u001a\u00020\u001c2\u0006\u0010R\u001a\u00020\u001cH\u0002J\u001e\u0010S\u001a\u00020\u001d2\u0006\u0010G\u001a\u00020\u001b2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001cJ\u001e\u0010T\u001a\u00020\u001d2\u0006\u0010G\u001a\u00020\u001b2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001cJ(\u0010T\u001a\u00020\u001d2\u0006\u0010G\u001a\u00020\u001b2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001c2\b\b\u0002\u0010P\u001a\u00020\u0004J\u0010\u0010U\u001a\u00020V2\u0006\u0010G\u001a\u00020\u001bH\u0002J\u001e\u0010W\u001a\u00020\u001d2\u0006\u0010G\u001a\u00020\u001b2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001cJ\u0016\u0010X\u001a\u00020\u001d2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001cJ\u0016\u0010Y\u001a\u00020\u001d2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001cJ\u0016\u0010Z\u001a\u00020\u001d2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001cJ\u001e\u0010[\u001a\u00020\u001d2\u0006\u0010G\u001a\u00020\u001b2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001cJ(\u0010[\u001a\u00020\u001d2\u0006\u0010G\u001a\u00020\u001b2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001c2\b\b\u0002\u0010P\u001a\u00020\u0004J\u0016\u0010\\\u001a\u00020\u001d2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001cJ\u000e\u0010]\u001a\u00020\u00042\u0006\u0010G\u001a\u00020\u001bJ\u0010\u0010^\u001a\u00020_2\b\b\u0002\u0010O\u001a\u00020\nJ\u0012\u0010`\u001a\u00020\u00042\b\u0010a\u001a\u0004\u0018\u00010:H\u0002J\u0010\u0010b\u001a\u00020_2\u0006\u0010O\u001a\u00020\nH\u0002J\u0016\u0010c\u001a\u00020_2\u0006\u0010d\u001a\u00020\u001b2\u0006\u0010e\u001a\u00020\u0004J \u0010f\u001a\u00020\u001d2\u0006\u0010G\u001a\u00020\u001b2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001cH\u0002J \u0010g\u001a\u00020\u001d2\u0006\u0010G\u001a\u00020\u001b2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001cH\u0002J \u0010h\u001a\u00020\u001d2\u0006\u0010G\u001a\u00020\u001b2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001cH\u0002J \u0010i\u001a\u00020\u001d2\u0006\u0010G\u001a\u00020\u001b2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001cH\u0002J\u0018\u0010j\u001a\u00020\u001d2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001cH\u0002J\u000e\u0010k\u001a\u00020_2\u0006\u0010G\u001a\u00020\u001bJ\u0018\u0010l\u001a\u00020\u001d2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001cH\u0002J\u0018\u0010m\u001a\u00020\u001d2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001cH\u0002J \u0010n\u001a\u00020\u001d2\u0006\u0010G\u001a\u00020\u001b2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001cH\u0002J\u0018\u0010o\u001a\u00020\u001d2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001cH\u0002J\u0010\u0010p\u001a\u00020_2\u0006\u0010G\u001a\u00020\u001bH\u0002J\u0010\u0010q\u001a\u00020_2\u0006\u0010G\u001a\u00020\u001bH\u0002J\u0016\u0010r\u001a\u00020_2\u0006\u0010d\u001a\u00020\u001b2\u0006\u0010e\u001a\u00020\u0004J\u0010\u0010s\u001a\u00020\u00042\u0006\u0010t\u001a\u00020uH\u0002J\u0010\u0010v\u001a\u00020\u00042\u0006\u0010O\u001a\u00020\nH\u0002J\b\u0010w\u001a\u00020_H\u0002R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u0018\u0010\u0005\u001a\u00020\u00068\u0002X\u0083\u0004¢\u0006\n\n\u0002\u0010\b\u0012\u0004\b\u0007\u0010\u0002R\u000e\u0010\t\u001a\u00020\nX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0014\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0017\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000R4\u0010\u0018\u001a \u0012\u001c\u0012\u001a\u0012\u0004\u0012\u00020\u001b\u0012\u0004\u0012\u00020\u001c\u0012\u0004\u0012\u00020\u001c\u0012\u0004\u0012\u00020\u001d0\u001a0\u00198\u0002X\u0083\u0004¢\u0006\b\n\u0000\u0012\u0004\b\u001e\u0010\u0002R\u000e\u0010\u001f\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010 \u001a\u00020\u001cX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010!\u001a\u00020\u001cX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\"\u001a\u00020#X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010$\u001a\u00020#X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010%\u001a\u00020\nX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010&\u001a\u00020\u001cX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010'\u001a\u00020\u001cX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010(\u001a\u00020\u001cX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010)\u001a\u00020\u001cX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010*\u001a\u00020\u001cX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010+\u001a\u00020\u001cX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010,\u001a\u00020\u001cX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010-\u001a\u00020\u001cX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010.\u001a\u00020\u001cX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010/\u001a\u00020\u001cX\u0082T¢\u0006\u0002\n\u0000R\u000e\u00100\u001a\u00020\u001bX\u0082.¢\u0006\u0002\n\u0000R\u000e\u00101\u001a\u000202X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u00103\u001a\u0004\u0018\u000104X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00105\u001a\u000206X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u00107\u001a\u00020\u0004X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00108\u001a\u00020\u0004X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u00109\u001a\u0004\u0018\u00010:X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010;\u001a\u00020<X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010=\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010>\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010?\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006y"}, d2 = {"Lcom/baidu/searchbox/common/security/DeviceInfoManager;", "", "()V", "DEBUG", "", "DEFAULT_APP_HOST", "com/baidu/searchbox/common/security/DeviceInfoManager$DEFAULT_APP_HOST$1", "getDEFAULT_APP_HOST$annotations", "Lcom/baidu/searchbox/common/security/DeviceInfoManager$DEFAULT_APP_HOST$1;", "DEFAULT_PHONE_TYPE", "", "DEVICE_ALL", "DEVICE_ANDROID_ID", "DEVICE_FLAG_BIT_NUM", "DEVICE_HARMONY_VERSION", "DEVICE_IMEI", "DEVICE_MAC", "DEVICE_MANUFACTURER", "DEVICE_MODEL", "DEVICE_NONE", "DEVICE_NON_SENSITIVE", "DEVICE_OAID", "DEVICE_OPERATOR", "DEVICE_OS_VERSION", "DEVICE_READ_FUNC_MAP", "Landroid/util/SparseArray;", "Lkotlin/Function3;", "Landroid/content/Context;", "", "Lcom/baidu/searchbox/common/security/DeviceIdBag;", "getDEVICE_READ_FUNC_MAP$annotations", "DEVICE_VALUABLE", "ERRNO", "ERRNO_SUCCESS", "GZIP_HEAD_1", "", "GZIP_HEAD_2", "HTTP_STATUS_OK", "MAPPING_CACHE_FILE", "MAPPING_URL", "PURPOSE_LAUNCH_SYNC", "SCENE_LAUNCH", "SDK_DIR", "SP_FILE", "SP_KEY_FORCE_SYNC_CACHE_TIME", "SP_KEY_LAUNCH_SYNC_DONE", "SYNC_JSON_KEY_TIME", "TAG", "mContext", "mDeviceInfoMap", "Lcom/baidu/searchbox/common/security/DeviceIdBagMap;", "mHandler", "Landroid/os/Handler;", "mHandlerThread", "Landroid/os/HandlerThread;", "mInit", "mLaunchSyncStarted", "mMappingCache", "Lcom/baidu/searchbox/common/security/CacheDeviceInfo;", "mMappingCacheFile", "Ljava/io/File;", "mPhoneTypeWhenReadIMEI", "mPhoneTypeWhenReadOperator", "mSyncingDeviceFlag", "checkIPCService", "ipcService", "Lcom/baidu/searchbox/common/security/IDeviceInfoService;", "gZip", "", "data", "getAndroidId", "context", "scene", "purpose", "getAppHost", "Lcom/baidu/searchbox/common/security/IDeviceInfoAppHost;", "getContext", "getContext$lib_security_framework_release", CommonTbJsBridge.GET_DEVICE_INFO, "deviceFlag", "forceApi", "getEncodeValue", "value", "getHarmonyVersion", "getIMEI", "getLastForceSyncCacheTime", "", "getMacAddress", "getManufacturer", "getModel", "getOAID", "getOperator", "getOsVersion", "hasLaunchMappingDone", "init", "", "isCuidChanged", "cacheDeviceInfo", "postSyncTask", "preInit", "appContext", "needSupportMultiProcess", "readAndroidId", "readHarmonyVersion", "readIMEI", "readMac", "readManufacturer", "readMappingCache", "readModel", "readOAID", "readOperator", "readOsVersion", "saveForceSyncCacheTime", "saveLaunchMappingDone", "setContextAndIPC", "syncMapping", "infoJson", "Lorg/json/JSONObject;", "syncMappingOfFixedDeviceFlag", "writeMappingCache", "SyncTask", "lib-security-framework_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes2.dex */
 public final class DeviceInfoManager {
     public static /* synthetic */ Interceptable $ic = null;
@@ -110,7 +110,7 @@ public final class DeviceInfoManager {
     public static /* synthetic */ void getDEVICE_READ_FUNC_MAP$annotations() {
     }
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0018\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0007\b\u0002\u0018\u00002\u00020\u0001B\u000f\u0012\u0006\u0010\u0006\u001a\u00020\u0005¢\u0006\u0004\b\n\u0010\u000bJ\u000f\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0003\u0010\u0004R\u0019\u0010\u0006\u001a\u00020\u00058\u0006@\u0006¢\u0006\f\n\u0004\b\u0006\u0010\u0007\u001a\u0004\b\b\u0010\t¨\u0006\f"}, d2 = {"Lcom/baidu/searchbox/common/security/DeviceInfoManager$SyncTask;", "Ljava/lang/Runnable;", "", "run", "()V", "", "deviceFlag", "I", "getDeviceFlag", "()I", "<init>", "(I)V", "lib-security-framework_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @Metadata(d1 = {"\u0000\u0018\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0000\b\u0002\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\b\u0010\u0007\u001a\u00020\bH\u0016R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006¨\u0006\t"}, d2 = {"Lcom/baidu/searchbox/common/security/DeviceInfoManager$SyncTask;", "Ljava/lang/Runnable;", "deviceFlag", "", "(I)V", "getDeviceFlag", "()I", "run", "", "lib-security-framework_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes2.dex */
     public static final class SyncTask implements Runnable {
         public static /* synthetic */ Interceptable $ic;
@@ -147,7 +147,7 @@ public final class DeviceInfoManager {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !DeviceInfoManager.access$getMLaunchSyncStarted$p(DeviceInfoManager.INSTANCE)) {
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !DeviceInfoManager.mLaunchSyncStarted) {
                 return;
             }
             DeviceInfoManager deviceInfoManager = DeviceInfoManager.INSTANCE;
@@ -287,13 +287,12 @@ public final class DeviceInfoManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     @Inject(force = false)
-    public final IDeviceInfoAppHost getAppHost() {
+    private final IDeviceInfoAppHost getAppHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65565, this)) == null) {
-            return ds8.a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65556, this)) == null) {
+            return yv8.a();
         }
         return (IDeviceInfoAppHost) invokeV.objValue;
     }
@@ -305,104 +304,11 @@ public final class DeviceInfoManager {
             Context context = mContext;
             if (context == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mContext");
+                return null;
             }
             return context;
         }
         return (Context) invokeV.objValue;
-    }
-
-    public static final /* synthetic */ Context access$getMContext$p(DeviceInfoManager deviceInfoManager) {
-        Context context = mContext;
-        if (context == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("mContext");
-        }
-        return context;
-    }
-
-    public static final /* synthetic */ boolean access$getMLaunchSyncStarted$p(DeviceInfoManager deviceInfoManager) {
-        return mLaunchSyncStarted;
-    }
-
-    private final boolean checkIPCService(IDeviceInfoService iDeviceInfoService) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65563, this, iDeviceInfoService)) == null) {
-            if (iDeviceInfoService != null && !(iDeviceInfoService instanceof IDeviceInfoService.Stub)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    private final String getEncodeValue(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65569, this, str)) == null) {
-            try {
-                String encode = URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
-                Intrinsics.checkNotNullExpressionValue(encode, "URLEncoder.encode(value, \"utf-8\")");
-                return encode;
-            } catch (UnsupportedEncodingException unused) {
-                return str;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public final long getLastForceSyncCacheTime(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65571, this, context)) == null) {
-            return context.getSharedPreferences("device_info_sdk", 0).getLong(SP_KEY_FORCE_SYNC_CACHE_TIME, Long.MIN_VALUE);
-        }
-        return invokeL.longValue;
-    }
-
-    private final void postSyncTask(int i) {
-        Handler handler;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(65574, this, i) == null) && ((~mSyncingDeviceFlag) & i) != 0 && (handler = mHandler) != null) {
-            handler.post(new SyncTask(i));
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public final void saveForceSyncCacheTime(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65584, this, context) == null) {
-            context.getSharedPreferences("device_info_sdk", 0).edit().putLong(SP_KEY_FORCE_SYNC_CACHE_TIME, System.currentTimeMillis()).apply();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public final void saveLaunchMappingDone(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65585, this, context) == null) {
-            context.getSharedPreferences("device_info_sdk", 0).edit().putBoolean(SP_KEY_LAUNCH_SYNC_DONE, true).apply();
-        }
-    }
-
-    public final boolean hasLaunchMappingDone(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, context)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            return context.getSharedPreferences("device_info_sdk", 0).getBoolean(SP_KEY_LAUNCH_SYNC_DONE, false);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void setContextAndIPC(Context appContext, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048594, this, appContext, z) == null) {
-            Intrinsics.checkNotNullParameter(appContext, "appContext");
-            mContext = appContext;
-            if (sf1.g() && z) {
-                DeviceInfoIPCServiceManager.Companion.addIPCService();
-            }
-        }
     }
 
     public static /* synthetic */ void init$default(DeviceInfoManager deviceInfoManager, int i, int i2, Object obj) {
@@ -448,10 +354,102 @@ public final class DeviceInfoManager {
         return (DeviceIdBag) invokeLLL.objValue;
     }
 
+    private final boolean checkIPCService(IDeviceInfoService iDeviceInfoService) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65554, this, iDeviceInfoService)) == null) {
+            if (iDeviceInfoService != null && !(iDeviceInfoService instanceof IDeviceInfoService.Stub)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    private final String getEncodeValue(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65560, this, str)) == null) {
+            try {
+                String encode = URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
+                Intrinsics.checkNotNullExpressionValue(encode, "encode(value, \"utf-8\")");
+                return encode;
+            } catch (UnsupportedEncodingException unused) {
+                return str;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    private final long getLastForceSyncCacheTime(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65562, this, context)) == null) {
+            return context.getSharedPreferences("device_info_sdk", 0).getLong(SP_KEY_FORCE_SYNC_CACHE_TIME, Long.MIN_VALUE);
+        }
+        return invokeL.longValue;
+    }
+
+    private final boolean isCuidChanged(CacheDeviceInfo cacheDeviceInfo) {
+        InterceptResult invokeL;
+        IDeviceInfoAppHost appHost;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65566, this, cacheDeviceInfo)) == null) {
+            if (cacheDeviceInfo == null || (appHost = getAppHost()) == DEFAULT_APP_HOST) {
+                return false;
+            }
+            return !Intrinsics.areEqual(cacheDeviceInfo.getEnUid(), appHost.getEnUid());
+        }
+        return invokeL.booleanValue;
+    }
+
+    private final void postSyncTask(int i) {
+        Handler handler;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(65567, this, i) == null) && ((~mSyncingDeviceFlag) & i) != 0 && (handler = mHandler) != null) {
+            handler.post(new SyncTask(i));
+        }
+    }
+
+    private final void saveForceSyncCacheTime(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65577, this, context) == null) {
+            context.getSharedPreferences("device_info_sdk", 0).edit().putLong(SP_KEY_FORCE_SYNC_CACHE_TIME, System.currentTimeMillis()).apply();
+        }
+    }
+
+    private final void saveLaunchMappingDone(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65578, this, context) == null) {
+            context.getSharedPreferences("device_info_sdk", 0).edit().putBoolean(SP_KEY_LAUNCH_SYNC_DONE, true).apply();
+        }
+    }
+
+    public final boolean hasLaunchMappingDone(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, context)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            return context.getSharedPreferences("device_info_sdk", 0).getBoolean(SP_KEY_LAUNCH_SYNC_DONE, false);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void setContextAndIPC(Context appContext, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048594, this, appContext, z) == null) {
+            Intrinsics.checkNotNullParameter(appContext, "appContext");
+            mContext = appContext;
+            if (dk1.g() && z) {
+                DeviceInfoIPCServiceManager.Companion.addIPCService();
+            }
+        }
+    }
+
     private final byte[] gZip(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65564, this, bArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65555, this, bArr)) == null) {
             byte[] bArr2 = null;
             try {
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -478,244 +476,15 @@ public final class DeviceInfoManager {
             Handler handler = new Handler(mHandlerThread.getLooper());
             mHandler = handler;
             Intrinsics.checkNotNull(handler);
-            handler.post(new Runnable(i) { // from class: com.baidu.searchbox.common.security.DeviceInfoManager$init$1
+            handler.post(new Runnable() { // from class: com.baidu.tieba.jm1
                 public static /* synthetic */ Interceptable $ic;
-                public final /* synthetic */ int $deviceFlag;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {Integer.valueOf(i)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.$deviceFlag = i;
-                }
-
-                /* JADX WARN: Removed duplicated region for block: B:12:0x005b  */
-                /* JADX WARN: Removed duplicated region for block: B:17:0x0084  */
                 @Override // java.lang.Runnable
-                /*
-                    Code decompiled incorrectly, please refer to instructions dump.
-                */
                 public final void run() {
-                    CacheDeviceInfo cacheDeviceInfo;
-                    boolean z;
-                    CacheDeviceInfo cacheDeviceInfo2;
-                    long lastForceSyncCacheTime;
-                    IDeviceInfoAppHost appHost;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        Ref.IntRef intRef = new Ref.IntRef();
-                        intRef.element = this.$deviceFlag;
-                        DeviceInfoManager deviceInfoManager = DeviceInfoManager.INSTANCE;
-                        cacheDeviceInfo = DeviceInfoManager.mMappingCache;
-                        if (cacheDeviceInfo != null) {
-                            long currentTimeMillis = System.currentTimeMillis();
-                            DeviceInfoManager deviceInfoManager2 = DeviceInfoManager.INSTANCE;
-                            lastForceSyncCacheTime = deviceInfoManager2.getLastForceSyncCacheTime(DeviceInfoManager.access$getMContext$p(deviceInfoManager2));
-                            long abs = Math.abs(currentTimeMillis - lastForceSyncCacheTime);
-                            appHost = DeviceInfoManager.INSTANCE.getAppHost();
-                            if (abs > appHost.getForceMappingCacheInterval()) {
-                                intRef.element = 511;
-                                z = true;
-                                Ref.IntRef intRef2 = new Ref.IntRef();
-                                intRef2.element = 0;
-                                DeviceInfoUtilKt.forEachDevice(new Function1<Integer, Unit>(intRef, intRef2) { // from class: com.baidu.searchbox.common.security.DeviceInfoManager$init$1.1
-                                    public static /* synthetic */ Interceptable $ic;
-                                    public final /* synthetic */ Ref.IntRef $diffFlag;
-                                    public transient /* synthetic */ FieldHolder $fh;
-                                    public final /* synthetic */ Ref.IntRef $finalDeviceFlag;
-
-                                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                                    {
-                                        super(1);
-                                        Interceptable interceptable3 = $ic;
-                                        if (interceptable3 != null) {
-                                            InitContext newInitContext = TitanRuntime.newInitContext();
-                                            newInitContext.initArgs = r2;
-                                            Object[] objArr = {intRef, intRef2};
-                                            interceptable3.invokeUnInit(65536, newInitContext);
-                                            int i2 = newInitContext.flag;
-                                            if ((i2 & 1) != 0) {
-                                                int i3 = i2 & 2;
-                                                super(((Integer) newInitContext.callArgs[0]).intValue());
-                                                newInitContext.thisArg = this;
-                                                interceptable3.invokeInitBody(65536, newInitContext);
-                                                return;
-                                            }
-                                        }
-                                        this.$finalDeviceFlag = intRef;
-                                        this.$diffFlag = intRef2;
-                                    }
-
-                                    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-                                    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-                                    @Override // kotlin.jvm.functions.Function1
-                                    public /* bridge */ /* synthetic */ Unit invoke(Integer num) {
-                                        invoke(num.intValue());
-                                        return Unit.INSTANCE;
-                                    }
-
-                                    public final void invoke(int i2) {
-                                        DeviceIdBagMap deviceIdBagMap;
-                                        CacheDeviceInfo cacheDeviceInfo3;
-                                        SparseArray sparseArray;
-                                        DeviceIdBagMap deviceIdBagMap2;
-                                        Interceptable interceptable3 = $ic;
-                                        if ((interceptable3 == null || interceptable3.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) && (this.$finalDeviceFlag.element & i2) != 0) {
-                                            DeviceInfoManager deviceInfoManager3 = DeviceInfoManager.INSTANCE;
-                                            deviceIdBagMap = DeviceInfoManager.mDeviceInfoMap;
-                                            DeviceIdBag deviceIdBag = (DeviceIdBag) deviceIdBagMap.get((Object) Integer.valueOf(i2));
-                                            if (deviceIdBag == null) {
-                                                sparseArray = DeviceInfoManager.DEVICE_READ_FUNC_MAP;
-                                                ((Function3) sparseArray.get(i2)).invoke(DeviceInfoManager.access$getMContext$p(DeviceInfoManager.INSTANCE), "launch", DeviceInfoManager.PURPOSE_LAUNCH_SYNC);
-                                                DeviceInfoManager deviceInfoManager4 = DeviceInfoManager.INSTANCE;
-                                                deviceIdBagMap2 = DeviceInfoManager.mDeviceInfoMap;
-                                                deviceIdBag = (DeviceIdBag) deviceIdBagMap2.get((Object) Integer.valueOf(i2));
-                                            } else {
-                                                DeviceInfoManager deviceInfoManager5 = DeviceInfoManager.INSTANCE;
-                                                cacheDeviceInfo3 = DeviceInfoManager.mMappingCache;
-                                                if (DeviceInfoUtilKt.isDeviceInfoSyncMapping(cacheDeviceInfo3, i2, deviceIdBag.deviceId)) {
-                                                    deviceIdBag.errorCode = 3;
-                                                }
-                                            }
-                                            if (deviceIdBag != null && deviceIdBag.errorCode != 3 && !TextUtils.isEmpty(deviceIdBag.deviceId)) {
-                                                Ref.IntRef intRef3 = this.$diffFlag;
-                                                intRef3.element = i2 | intRef3.element;
-                                            }
-                                        }
-                                    }
-                                });
-                                DeviceInfoManager deviceInfoManager3 = DeviceInfoManager.INSTANCE;
-                                DeviceInfoManager.mLaunchSyncStarted = true;
-                                DeviceInfoManager deviceInfoManager4 = DeviceInfoManager.INSTANCE;
-                                cacheDeviceInfo2 = DeviceInfoManager.mMappingCache;
-                                if (cacheDeviceInfo2 != null) {
-                                    if (DeviceInfoManager.INSTANCE.syncMappingOfFixedDeviceFlag(intRef2.element)) {
-                                        DeviceInfoManager deviceInfoManager5 = DeviceInfoManager.INSTANCE;
-                                        deviceInfoManager5.saveForceSyncCacheTime(DeviceInfoManager.access$getMContext$p(deviceInfoManager5));
-                                        DeviceInfoManager deviceInfoManager6 = DeviceInfoManager.INSTANCE;
-                                        if (!deviceInfoManager6.hasLaunchMappingDone(DeviceInfoManager.access$getMContext$p(deviceInfoManager6))) {
-                                            DeviceInfoManager deviceInfoManager7 = DeviceInfoManager.INSTANCE;
-                                            deviceInfoManager7.saveLaunchMappingDone(DeviceInfoManager.access$getMContext$p(deviceInfoManager7));
-                                            return;
-                                        }
-                                        return;
-                                    }
-                                    return;
-                                } else if (z) {
-                                    if (DeviceInfoManager.INSTANCE.syncMappingOfFixedDeviceFlag(511)) {
-                                        DeviceInfoManager deviceInfoManager8 = DeviceInfoManager.INSTANCE;
-                                        deviceInfoManager8.saveForceSyncCacheTime(DeviceInfoManager.access$getMContext$p(deviceInfoManager8));
-                                        DeviceInfoManager deviceInfoManager9 = DeviceInfoManager.INSTANCE;
-                                        if (!deviceInfoManager9.hasLaunchMappingDone(DeviceInfoManager.access$getMContext$p(deviceInfoManager9))) {
-                                            DeviceInfoManager deviceInfoManager10 = DeviceInfoManager.INSTANCE;
-                                            deviceInfoManager10.saveLaunchMappingDone(DeviceInfoManager.access$getMContext$p(deviceInfoManager10));
-                                            return;
-                                        }
-                                        return;
-                                    }
-                                    return;
-                                } else {
-                                    int i2 = intRef2.element;
-                                    if (i2 != 0 && DeviceInfoManager.INSTANCE.syncMappingOfFixedDeviceFlag(i2)) {
-                                        DeviceInfoManager deviceInfoManager11 = DeviceInfoManager.INSTANCE;
-                                        if (!deviceInfoManager11.hasLaunchMappingDone(DeviceInfoManager.access$getMContext$p(deviceInfoManager11))) {
-                                            DeviceInfoManager deviceInfoManager12 = DeviceInfoManager.INSTANCE;
-                                            deviceInfoManager12.saveLaunchMappingDone(DeviceInfoManager.access$getMContext$p(deviceInfoManager12));
-                                            return;
-                                        }
-                                        return;
-                                    }
-                                    return;
-                                }
-                            }
-                        }
-                        z = false;
-                        Ref.IntRef intRef22 = new Ref.IntRef();
-                        intRef22.element = 0;
-                        DeviceInfoUtilKt.forEachDevice(new Function1<Integer, Unit>(intRef, intRef22) { // from class: com.baidu.searchbox.common.security.DeviceInfoManager$init$1.1
-                            public static /* synthetic */ Interceptable $ic;
-                            public final /* synthetic */ Ref.IntRef $diffFlag;
-                            public transient /* synthetic */ FieldHolder $fh;
-                            public final /* synthetic */ Ref.IntRef $finalDeviceFlag;
-
-                            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                            {
-                                super(1);
-                                Interceptable interceptable3 = $ic;
-                                if (interceptable3 != null) {
-                                    InitContext newInitContext = TitanRuntime.newInitContext();
-                                    newInitContext.initArgs = objArr;
-                                    Object[] objArr = {intRef, intRef22};
-                                    interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i22 = newInitContext.flag;
-                                    if ((i22 & 1) != 0) {
-                                        int i3 = i22 & 2;
-                                        super(((Integer) newInitContext.callArgs[0]).intValue());
-                                        newInitContext.thisArg = this;
-                                        interceptable3.invokeInitBody(65536, newInitContext);
-                                        return;
-                                    }
-                                }
-                                this.$finalDeviceFlag = intRef;
-                                this.$diffFlag = intRef22;
-                            }
-
-                            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-                            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-                            @Override // kotlin.jvm.functions.Function1
-                            public /* bridge */ /* synthetic */ Unit invoke(Integer num) {
-                                invoke(num.intValue());
-                                return Unit.INSTANCE;
-                            }
-
-                            public final void invoke(int i22) {
-                                DeviceIdBagMap deviceIdBagMap;
-                                CacheDeviceInfo cacheDeviceInfo3;
-                                SparseArray sparseArray;
-                                DeviceIdBagMap deviceIdBagMap2;
-                                Interceptable interceptable3 = $ic;
-                                if ((interceptable3 == null || interceptable3.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i22) == null) && (this.$finalDeviceFlag.element & i22) != 0) {
-                                    DeviceInfoManager deviceInfoManager32 = DeviceInfoManager.INSTANCE;
-                                    deviceIdBagMap = DeviceInfoManager.mDeviceInfoMap;
-                                    DeviceIdBag deviceIdBag = (DeviceIdBag) deviceIdBagMap.get((Object) Integer.valueOf(i22));
-                                    if (deviceIdBag == null) {
-                                        sparseArray = DeviceInfoManager.DEVICE_READ_FUNC_MAP;
-                                        ((Function3) sparseArray.get(i22)).invoke(DeviceInfoManager.access$getMContext$p(DeviceInfoManager.INSTANCE), "launch", DeviceInfoManager.PURPOSE_LAUNCH_SYNC);
-                                        DeviceInfoManager deviceInfoManager42 = DeviceInfoManager.INSTANCE;
-                                        deviceIdBagMap2 = DeviceInfoManager.mDeviceInfoMap;
-                                        deviceIdBag = (DeviceIdBag) deviceIdBagMap2.get((Object) Integer.valueOf(i22));
-                                    } else {
-                                        DeviceInfoManager deviceInfoManager52 = DeviceInfoManager.INSTANCE;
-                                        cacheDeviceInfo3 = DeviceInfoManager.mMappingCache;
-                                        if (DeviceInfoUtilKt.isDeviceInfoSyncMapping(cacheDeviceInfo3, i22, deviceIdBag.deviceId)) {
-                                            deviceIdBag.errorCode = 3;
-                                        }
-                                    }
-                                    if (deviceIdBag != null && deviceIdBag.errorCode != 3 && !TextUtils.isEmpty(deviceIdBag.deviceId)) {
-                                        Ref.IntRef intRef3 = this.$diffFlag;
-                                        intRef3.element = i22 | intRef3.element;
-                                    }
-                                }
-                            }
-                        });
-                        DeviceInfoManager deviceInfoManager32 = DeviceInfoManager.INSTANCE;
-                        DeviceInfoManager.mLaunchSyncStarted = true;
-                        DeviceInfoManager deviceInfoManager42 = DeviceInfoManager.INSTANCE;
-                        cacheDeviceInfo2 = DeviceInfoManager.mMappingCache;
-                        if (cacheDeviceInfo2 != null) {
-                        }
+                        DeviceInfoManager.m41init$lambda1(i);
                     }
                 }
             });
@@ -746,11 +515,355 @@ public final class DeviceInfoManager {
         return deviceInfoManager.getOperator(context, str, str2, z);
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:19:0x0063  */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x0097  */
+    /* renamed from: init$lambda-1  reason: not valid java name */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static final void m41init$lambda1(int i) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65565, null, i) == null) {
+            final Ref.IntRef intRef = new Ref.IntRef();
+            intRef.element = i;
+            Context context = null;
+            if (mMappingCache != null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                DeviceInfoManager deviceInfoManager = INSTANCE;
+                Context context2 = mContext;
+                if (context2 == null) {
+                    Intrinsics.throwUninitializedPropertyAccessException("mContext");
+                    context2 = null;
+                }
+                if (Math.abs(currentTimeMillis - deviceInfoManager.getLastForceSyncCacheTime(context2)) > INSTANCE.getAppHost().getForceMappingCacheInterval()) {
+                    intRef.element = 511;
+                } else if (INSTANCE.isCuidChanged(mMappingCache)) {
+                    mMappingCache = null;
+                    intRef.element = 511;
+                }
+                z = true;
+                final Ref.IntRef intRef2 = new Ref.IntRef();
+                DeviceInfoUtilKt.forEachDevice(new Function1<Integer, Unit>(intRef, intRef2) { // from class: com.baidu.searchbox.common.security.DeviceInfoManager$init$1$1
+                    public static /* synthetic */ Interceptable $ic;
+                    public final /* synthetic */ Ref.IntRef $diffFlag;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ Ref.IntRef $finalDeviceFlag;
+
+                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                    {
+                        super(1);
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {intRef, intRef2};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                super(((Integer) newInitContext.callArgs[0]).intValue());
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.$finalDeviceFlag = intRef;
+                        this.$diffFlag = intRef2;
+                    }
+
+                    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+                    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+                    @Override // kotlin.jvm.functions.Function1
+                    public /* bridge */ /* synthetic */ Unit invoke(Integer num) {
+                        invoke(num.intValue());
+                        return Unit.INSTANCE;
+                    }
+
+                    public final void invoke(int i2) {
+                        DeviceIdBagMap deviceIdBagMap;
+                        CacheDeviceInfo cacheDeviceInfo;
+                        SparseArray sparseArray;
+                        Context context3;
+                        DeviceIdBagMap deviceIdBagMap2;
+                        Interceptable interceptable2 = $ic;
+                        if ((interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) && (this.$finalDeviceFlag.element & i2) != 0) {
+                            deviceIdBagMap = DeviceInfoManager.mDeviceInfoMap;
+                            DeviceIdBag deviceIdBag = (DeviceIdBag) deviceIdBagMap.get((Object) Integer.valueOf(i2));
+                            if (deviceIdBag == null) {
+                                sparseArray = DeviceInfoManager.DEVICE_READ_FUNC_MAP;
+                                Function3 function3 = (Function3) sparseArray.get(i2);
+                                context3 = DeviceInfoManager.mContext;
+                                if (context3 == null) {
+                                    Intrinsics.throwUninitializedPropertyAccessException("mContext");
+                                    context3 = null;
+                                }
+                                function3.invoke(context3, "launch", DeviceInfoManager.PURPOSE_LAUNCH_SYNC);
+                                deviceIdBagMap2 = DeviceInfoManager.mDeviceInfoMap;
+                                deviceIdBag = (DeviceIdBag) deviceIdBagMap2.get((Object) Integer.valueOf(i2));
+                            } else {
+                                cacheDeviceInfo = DeviceInfoManager.mMappingCache;
+                                if (DeviceInfoUtilKt.isDeviceInfoSyncMapping(cacheDeviceInfo, i2, deviceIdBag.deviceId)) {
+                                    deviceIdBag.errorCode = 3;
+                                }
+                            }
+                            if (deviceIdBag != null && deviceIdBag.errorCode != 3 && !TextUtils.isEmpty(deviceIdBag.deviceId)) {
+                                Ref.IntRef intRef3 = this.$diffFlag;
+                                intRef3.element = i2 | intRef3.element;
+                            }
+                        }
+                    }
+                });
+                DeviceInfoManager deviceInfoManager2 = INSTANCE;
+                mLaunchSyncStarted = true;
+                if (mMappingCache != null) {
+                    if (deviceInfoManager2.syncMappingOfFixedDeviceFlag(intRef2.element)) {
+                        DeviceInfoManager deviceInfoManager3 = INSTANCE;
+                        Context context3 = mContext;
+                        if (context3 == null) {
+                            Intrinsics.throwUninitializedPropertyAccessException("mContext");
+                            context3 = null;
+                        }
+                        deviceInfoManager3.saveForceSyncCacheTime(context3);
+                        DeviceInfoManager deviceInfoManager4 = INSTANCE;
+                        Context context4 = mContext;
+                        if (context4 == null) {
+                            Intrinsics.throwUninitializedPropertyAccessException("mContext");
+                            context4 = null;
+                        }
+                        if (!deviceInfoManager4.hasLaunchMappingDone(context4)) {
+                            DeviceInfoManager deviceInfoManager5 = INSTANCE;
+                            Context context5 = mContext;
+                            if (context5 == null) {
+                                Intrinsics.throwUninitializedPropertyAccessException("mContext");
+                            } else {
+                                context = context5;
+                            }
+                            deviceInfoManager5.saveLaunchMappingDone(context);
+                            return;
+                        }
+                        return;
+                    }
+                    return;
+                } else if (z) {
+                    if (deviceInfoManager2.syncMappingOfFixedDeviceFlag(511)) {
+                        DeviceInfoManager deviceInfoManager6 = INSTANCE;
+                        Context context6 = mContext;
+                        if (context6 == null) {
+                            Intrinsics.throwUninitializedPropertyAccessException("mContext");
+                            context6 = null;
+                        }
+                        deviceInfoManager6.saveForceSyncCacheTime(context6);
+                        DeviceInfoManager deviceInfoManager7 = INSTANCE;
+                        Context context7 = mContext;
+                        if (context7 == null) {
+                            Intrinsics.throwUninitializedPropertyAccessException("mContext");
+                            context7 = null;
+                        }
+                        if (!deviceInfoManager7.hasLaunchMappingDone(context7)) {
+                            DeviceInfoManager deviceInfoManager8 = INSTANCE;
+                            Context context8 = mContext;
+                            if (context8 == null) {
+                                Intrinsics.throwUninitializedPropertyAccessException("mContext");
+                            } else {
+                                context = context8;
+                            }
+                            deviceInfoManager8.saveLaunchMappingDone(context);
+                            return;
+                        }
+                        return;
+                    }
+                    return;
+                } else {
+                    int i2 = intRef2.element;
+                    if (i2 != 0 && deviceInfoManager2.syncMappingOfFixedDeviceFlag(i2)) {
+                        DeviceInfoManager deviceInfoManager9 = INSTANCE;
+                        Context context9 = mContext;
+                        if (context9 == null) {
+                            Intrinsics.throwUninitializedPropertyAccessException("mContext");
+                            context9 = null;
+                        }
+                        if (!deviceInfoManager9.hasLaunchMappingDone(context9)) {
+                            DeviceInfoManager deviceInfoManager10 = INSTANCE;
+                            Context context10 = mContext;
+                            if (context10 == null) {
+                                Intrinsics.throwUninitializedPropertyAccessException("mContext");
+                            } else {
+                                context = context10;
+                            }
+                            deviceInfoManager10.saveLaunchMappingDone(context);
+                            return;
+                        }
+                        return;
+                    }
+                    return;
+                }
+            }
+            z = false;
+            final Ref.IntRef intRef22 = new Ref.IntRef();
+            DeviceInfoUtilKt.forEachDevice(new Function1<Integer, Unit>(intRef, intRef22) { // from class: com.baidu.searchbox.common.security.DeviceInfoManager$init$1$1
+                public static /* synthetic */ Interceptable $ic;
+                public final /* synthetic */ Ref.IntRef $diffFlag;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ Ref.IntRef $finalDeviceFlag;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(1);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = objArr;
+                        Object[] objArr = {intRef, intRef22};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i22 = newInitContext.flag;
+                        if ((i22 & 1) != 0) {
+                            int i3 = i22 & 2;
+                            super(((Integer) newInitContext.callArgs[0]).intValue());
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.$finalDeviceFlag = intRef;
+                    this.$diffFlag = intRef22;
+                }
+
+                /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+                /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+                @Override // kotlin.jvm.functions.Function1
+                public /* bridge */ /* synthetic */ Unit invoke(Integer num) {
+                    invoke(num.intValue());
+                    return Unit.INSTANCE;
+                }
+
+                public final void invoke(int i22) {
+                    DeviceIdBagMap deviceIdBagMap;
+                    CacheDeviceInfo cacheDeviceInfo;
+                    SparseArray sparseArray;
+                    Context context32;
+                    DeviceIdBagMap deviceIdBagMap2;
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i22) == null) && (this.$finalDeviceFlag.element & i22) != 0) {
+                        deviceIdBagMap = DeviceInfoManager.mDeviceInfoMap;
+                        DeviceIdBag deviceIdBag = (DeviceIdBag) deviceIdBagMap.get((Object) Integer.valueOf(i22));
+                        if (deviceIdBag == null) {
+                            sparseArray = DeviceInfoManager.DEVICE_READ_FUNC_MAP;
+                            Function3 function3 = (Function3) sparseArray.get(i22);
+                            context32 = DeviceInfoManager.mContext;
+                            if (context32 == null) {
+                                Intrinsics.throwUninitializedPropertyAccessException("mContext");
+                                context32 = null;
+                            }
+                            function3.invoke(context32, "launch", DeviceInfoManager.PURPOSE_LAUNCH_SYNC);
+                            deviceIdBagMap2 = DeviceInfoManager.mDeviceInfoMap;
+                            deviceIdBag = (DeviceIdBag) deviceIdBagMap2.get((Object) Integer.valueOf(i22));
+                        } else {
+                            cacheDeviceInfo = DeviceInfoManager.mMappingCache;
+                            if (DeviceInfoUtilKt.isDeviceInfoSyncMapping(cacheDeviceInfo, i22, deviceIdBag.deviceId)) {
+                                deviceIdBag.errorCode = 3;
+                            }
+                        }
+                        if (deviceIdBag != null && deviceIdBag.errorCode != 3 && !TextUtils.isEmpty(deviceIdBag.deviceId)) {
+                            Ref.IntRef intRef3 = this.$diffFlag;
+                            intRef3.element = i22 | intRef3.element;
+                        }
+                    }
+                }
+            });
+            DeviceInfoManager deviceInfoManager22 = INSTANCE;
+            mLaunchSyncStarted = true;
+            if (mMappingCache != null) {
+            }
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x00f7, code lost:
+        if (r2 != null) goto L35;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x00f9, code lost:
+        r2.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:40:0x010c, code lost:
+        if (0 != 0) goto L35;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private final boolean syncMapping(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        IDeviceInfoAppHost appHost;
+        BufferedInputStream bufferedInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65579, this, jSONObject)) == null) {
+            if (jSONObject.length() == 0 || (appHost = getAppHost()) == DEFAULT_APP_HOST) {
+                return false;
+            }
+            String str = "https://mbd.baidu.com/mapping/update?appname=" + getEncodeValue(appHost.getAppName()) + "&ua=" + getEncodeValue(appHost.getUA()) + "&uid=" + getEncodeValue(appHost.getEnUid());
+            jSONObject.put("j", String.valueOf(System.currentTimeMillis()));
+            String jSONObject2 = jSONObject.toString();
+            Intrinsics.checkNotNullExpressionValue(jSONObject2, "infoJson.toString()");
+            byte[] bytes = jSONObject2.getBytes(Charsets.UTF_8);
+            Intrinsics.checkNotNullExpressionValue(bytes, "this as java.lang.String).getBytes(charset)");
+            byte[] gZip = gZip(bytes);
+            if (gZip != null && gZip.length >= 2) {
+                gZip[0] = 117;
+                gZip[1] = 123;
+                OutputStream outputStream = null;
+                try {
+                    URLConnection openConnection = new URL(str).openConnection();
+                    if (openConnection != null) {
+                        HttpURLConnection httpURLConnection = (HttpURLConnection) openConnection;
+                        httpURLConnection.setRequestMethod("POST");
+                        httpURLConnection.setDoOutput(true);
+                        httpURLConnection.setDoInput(true);
+                        httpURLConnection.setUseCaches(false);
+                        outputStream = httpURLConnection.getOutputStream();
+                        outputStream.write(gZip);
+                        outputStream.flush();
+                        if (httpURLConnection.getResponseCode() == 200) {
+                            InputStream inputStream = httpURLConnection.getInputStream();
+                            Intrinsics.checkNotNullExpressionValue(inputStream, "connection.inputStream");
+                            if (inputStream instanceof BufferedInputStream) {
+                                bufferedInputStream = (BufferedInputStream) inputStream;
+                            } else {
+                                bufferedInputStream = new BufferedInputStream(inputStream, 8192);
+                            }
+                            String readText = TextStreamsKt.readText(new InputStreamReader(bufferedInputStream, Charsets.UTF_8));
+                            if (!TextUtils.isEmpty(readText) && Intrinsics.areEqual(new JSONObject(readText).optString("errno", ""), "0")) {
+                                if (outputStream != null) {
+                                    try {
+                                        outputStream.close();
+                                    } catch (Exception unused) {
+                                    }
+                                }
+                                return true;
+                            }
+                        }
+                    } else {
+                        throw new NullPointerException("null cannot be cast to non-null type java.net.HttpURLConnection");
+                    }
+                } catch (Exception unused2) {
+                } catch (Throwable th) {
+                    if (0 != 0) {
+                        try {
+                            outputStream.close();
+                        } catch (Exception unused3) {
+                        }
+                    }
+                    throw th;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public final DeviceIdBag readAndroidId(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65575, this, context, str, str2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65568, this, context, str, str2)) == null) {
             DeviceIdBag androidId = AndroidIDProxy.getAndroidId(context);
             int i = androidId.errorCode;
             if (i != -3 && i != -1) {
@@ -761,7 +874,7 @@ public final class DeviceInfoManager {
                     androidId.errorCode = 3;
                 }
             }
-            Intrinsics.checkNotNullExpressionValue(androidId, "AndroidIDProxy.getAndroi…}\n            }\n        }");
+            Intrinsics.checkNotNullExpressionValue(androidId, "getAndroidId(context).ap…}\n            }\n        }");
             return androidId;
         }
         return (DeviceIdBag) invokeLLL.objValue;
@@ -771,7 +884,7 @@ public final class DeviceInfoManager {
     public final DeviceIdBag readHarmonyVersion(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65576, this, context, str, str2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65569, this, context, str, str2)) == null) {
             DeviceIdBag deviceIdBag = new DeviceIdBag();
             mDeviceInfoMap.put((DeviceIdBagMap) 128, (int) deviceIdBag);
             int i = 2;
@@ -798,7 +911,7 @@ public final class DeviceInfoManager {
     public final DeviceIdBag readMac(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65578, this, context, str, str2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65571, this, context, str, str2)) == null) {
             DeviceIdBag hardwareAddress = HardwareProxy.getHardwareAddress(context);
             int i = hardwareAddress.errorCode;
             if (i != -3 && i != -1) {
@@ -809,7 +922,7 @@ public final class DeviceInfoManager {
                     hardwareAddress.errorCode = 3;
                 }
             }
-            Intrinsics.checkNotNullExpressionValue(hardwareAddress, "HardwareProxy.getHardwar…}\n            }\n        }");
+            Intrinsics.checkNotNullExpressionValue(hardwareAddress, "getHardwareAddress(conte…}\n            }\n        }");
             return hardwareAddress;
         }
         return (DeviceIdBag) invokeLLL.objValue;
@@ -819,7 +932,7 @@ public final class DeviceInfoManager {
     public final DeviceIdBag readIMEI(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65577, this, context, str, str2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65570, this, context, str, str2)) == null) {
             DeviceIdBag imei = DeviceInfoProxy.getImei(context, false, true);
             int i = imei.errorCode;
             if (i != -3 && i != -2 && i != -1) {
@@ -839,7 +952,7 @@ public final class DeviceInfoManager {
                 } catch (Exception unused) {
                 }
             }
-            Intrinsics.checkNotNullExpressionValue(imei, "DeviceInfoProxy.getImei(…}\n            }\n        }");
+            Intrinsics.checkNotNullExpressionValue(imei, "getImei(context, false, …}\n            }\n        }");
             return imei;
         }
         return (DeviceIdBag) invokeLLL.objValue;
@@ -851,7 +964,7 @@ public final class DeviceInfoManager {
         int i;
         Object systemService;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65582, this, context, str, str2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65575, this, context, str, str2)) == null) {
             DeviceIdBag deviceIdBag = new DeviceIdBag();
             try {
                 systemService = context.getSystemService("phone");
@@ -884,7 +997,7 @@ public final class DeviceInfoManager {
             Intrinsics.checkNotNullParameter(context, "context");
             Intrinsics.checkNotNullParameter(scene, "scene");
             Intrinsics.checkNotNullParameter(purpose, "purpose");
-            if (!sf1.g()) {
+            if (!dk1.g()) {
                 IDeviceInfoService iPCService = DeviceInfoIPCServiceManager.Companion.getIPCService();
                 if (checkIPCService(iPCService)) {
                     try {
@@ -921,7 +1034,7 @@ public final class DeviceInfoManager {
             Intrinsics.checkNotNullParameter(context, "context");
             Intrinsics.checkNotNullParameter(scene, "scene");
             Intrinsics.checkNotNullParameter(purpose, "purpose");
-            if (!sf1.g()) {
+            if (!dk1.g()) {
                 IDeviceInfoService iPCService = DeviceInfoIPCServiceManager.Companion.getIPCService();
                 if (checkIPCService(iPCService)) {
                     try {
@@ -958,7 +1071,7 @@ public final class DeviceInfoManager {
             Intrinsics.checkNotNullParameter(context, "context");
             Intrinsics.checkNotNullParameter(scene, "scene");
             Intrinsics.checkNotNullParameter(purpose, "purpose");
-            if (!sf1.g()) {
+            if (!dk1.g()) {
                 IDeviceInfoService iPCService = DeviceInfoIPCServiceManager.Companion.getIPCService();
                 if (checkIPCService(iPCService)) {
                     try {
@@ -993,7 +1106,7 @@ public final class DeviceInfoManager {
         InterceptResult invokeLL;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65579, this, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65572, this, str, str2)) == null) {
             DeviceIdBag deviceIdBag = new DeviceIdBag();
             mDeviceInfoMap.put((DeviceIdBagMap) 256, (int) deviceIdBag);
             String str3 = Build.MANUFACTURER;
@@ -1016,7 +1129,7 @@ public final class DeviceInfoManager {
         InterceptResult invokeLL;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65580, this, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65573, this, str, str2)) == null) {
             DeviceIdBag deviceIdBag = new DeviceIdBag();
             mDeviceInfoMap.put((DeviceIdBagMap) 16, (int) deviceIdBag);
             String str3 = Build.MODEL;
@@ -1039,7 +1152,7 @@ public final class DeviceInfoManager {
         InterceptResult invokeLL;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65583, this, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65576, this, str, str2)) == null) {
             DeviceIdBag deviceIdBag = new DeviceIdBag();
             mDeviceInfoMap.put((DeviceIdBagMap) 32, (int) deviceIdBag);
             String str3 = Build.VERSION.RELEASE;
@@ -1061,7 +1174,7 @@ public final class DeviceInfoManager {
     public final DeviceIdBag readOAID(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65581, this, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65574, this, str, str2)) == null) {
             DeviceIdBag deviceIdBag = new DeviceIdBag();
             IDeviceInfoAppHost.OAIDResult oaid = INSTANCE.getAppHost().getOAID();
             int i = 2;
@@ -1091,7 +1204,7 @@ public final class DeviceInfoManager {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, scene, purpose)) == null) {
             Intrinsics.checkNotNullParameter(scene, "scene");
             Intrinsics.checkNotNullParameter(purpose, "purpose");
-            if (!sf1.g()) {
+            if (!dk1.g()) {
                 IDeviceInfoService iPCService = DeviceInfoIPCServiceManager.Companion.getIPCService();
                 if (checkIPCService(iPCService)) {
                     try {
@@ -1127,7 +1240,7 @@ public final class DeviceInfoManager {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, scene, purpose)) == null) {
             Intrinsics.checkNotNullParameter(scene, "scene");
             Intrinsics.checkNotNullParameter(purpose, "purpose");
-            if (!sf1.g()) {
+            if (!dk1.g()) {
                 IDeviceInfoService iPCService = DeviceInfoIPCServiceManager.Companion.getIPCService();
                 if (checkIPCService(iPCService)) {
                     try {
@@ -1163,7 +1276,7 @@ public final class DeviceInfoManager {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, scene, purpose)) == null) {
             Intrinsics.checkNotNullParameter(scene, "scene");
             Intrinsics.checkNotNullParameter(purpose, "purpose");
-            if (!sf1.g()) {
+            if (!dk1.g()) {
                 IDeviceInfoService iPCService = DeviceInfoIPCServiceManager.Companion.getIPCService();
                 if (checkIPCService(iPCService)) {
                     try {
@@ -1199,7 +1312,7 @@ public final class DeviceInfoManager {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, scene, purpose)) == null) {
             Intrinsics.checkNotNullParameter(scene, "scene");
             Intrinsics.checkNotNullParameter(purpose, "purpose");
-            if (!sf1.g()) {
+            if (!dk1.g()) {
                 IDeviceInfoService iPCService = DeviceInfoIPCServiceManager.Companion.getIPCService();
                 if (checkIPCService(iPCService)) {
                     try {
@@ -1234,7 +1347,7 @@ public final class DeviceInfoManager {
         if (interceptable == null || interceptable.invokeLZ(1048592, this, appContext, z) == null) {
             Intrinsics.checkNotNullParameter(appContext, "appContext");
             mContext = appContext;
-            if (!sf1.g()) {
+            if (!dk1.g()) {
                 return;
             }
             if (z) {
@@ -1244,28 +1357,33 @@ public final class DeviceInfoManager {
                 Context context = mContext;
                 if (context == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("mContext");
+                    context = null;
                 }
                 File file = new File(context.getFilesDir(), MAPPING_CACHE_FILE);
                 mMappingCacheFile = file;
                 if (file == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("mMappingCacheFile");
+                    file = null;
                 }
                 if (!file.getParentFile().exists()) {
                     File file2 = mMappingCacheFile;
                     if (file2 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("mMappingCacheFile");
+                        file2 = null;
                     }
                     file2.getParentFile().mkdirs();
                 }
                 File file3 = mMappingCacheFile;
                 if (file3 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("mMappingCacheFile");
+                    file3 = null;
                 }
                 if (file3.exists()) {
                     try {
                         File file4 = mMappingCacheFile;
                         if (file4 == null) {
                             Intrinsics.throwUninitializedPropertyAccessException("mMappingCacheFile");
+                            file4 = null;
                         }
                         mMappingCache = new CacheDeviceInfo(FilesKt__FileReadWriteKt.readText$default(file4, null, 1, null));
                     } catch (Exception unused) {
@@ -1275,102 +1393,20 @@ public final class DeviceInfoManager {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x00f8, code lost:
-        if (r2 != null) goto L37;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x00fa, code lost:
-        r2.close();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:42:0x010d, code lost:
-        if (0 != 0) goto L37;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private final boolean syncMapping(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        IDeviceInfoAppHost appHost;
-        BufferedInputStream bufferedInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65586, this, jSONObject)) == null) {
-            if (jSONObject.length() == 0 || (appHost = getAppHost()) == DEFAULT_APP_HOST) {
-                return false;
-            }
-            String str = "https://mbd.baidu.com/mapping/update?appname=" + getEncodeValue(appHost.getAppName()) + "&ua=" + getEncodeValue(appHost.getUA()) + "&uid=" + getEncodeValue(appHost.getEnUid());
-            jSONObject.put("j", String.valueOf(System.currentTimeMillis()));
-            String jSONObject2 = jSONObject.toString();
-            Intrinsics.checkNotNullExpressionValue(jSONObject2, "infoJson.toString()");
-            Charset charset = Charsets.UTF_8;
-            if (jSONObject2 != null) {
-                byte[] bytes = jSONObject2.getBytes(charset);
-                Intrinsics.checkNotNullExpressionValue(bytes, "(this as java.lang.String).getBytes(charset)");
-                byte[] gZip = gZip(bytes);
-                if (gZip != null && gZip.length >= 2) {
-                    gZip[0] = 117;
-                    gZip[1] = 123;
-                    OutputStream outputStream = null;
-                    try {
-                        URLConnection openConnection = new URL(str).openConnection();
-                        if (openConnection != null) {
-                            HttpURLConnection httpURLConnection = (HttpURLConnection) openConnection;
-                            httpURLConnection.setRequestMethod("POST");
-                            httpURLConnection.setDoOutput(true);
-                            httpURLConnection.setDoInput(true);
-                            httpURLConnection.setUseCaches(false);
-                            outputStream = httpURLConnection.getOutputStream();
-                            outputStream.write(gZip);
-                            outputStream.flush();
-                            if (httpURLConnection.getResponseCode() == 200) {
-                                InputStream inputStream = httpURLConnection.getInputStream();
-                                Intrinsics.checkNotNullExpressionValue(inputStream, "connection.inputStream");
-                                if (inputStream instanceof BufferedInputStream) {
-                                    bufferedInputStream = (BufferedInputStream) inputStream;
-                                } else {
-                                    bufferedInputStream = new BufferedInputStream(inputStream, 8192);
-                                }
-                                String readText = TextStreamsKt.readText(new InputStreamReader(bufferedInputStream, Charsets.UTF_8));
-                                if (!TextUtils.isEmpty(readText) && Intrinsics.areEqual(new JSONObject(readText).optString("errno", ""), "0")) {
-                                    if (outputStream != null) {
-                                        try {
-                                            outputStream.close();
-                                        } catch (Exception unused) {
-                                        }
-                                    }
-                                    return true;
-                                }
-                            }
-                        } else {
-                            throw new NullPointerException("null cannot be cast to non-null type java.net.HttpURLConnection");
-                        }
-                    } catch (Exception unused2) {
-                    } catch (Throwable th) {
-                        if (0 != 0) {
-                            try {
-                                outputStream.close();
-                            } catch (Exception unused3) {
-                            }
-                        }
-                        throw th;
-                    }
-                }
-                return false;
-            }
-            throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
-        }
-        return invokeL.booleanValue;
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
     public final boolean syncMappingOfFixedDeviceFlag(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65587, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65580, this, i)) == null) {
             if (mSyncingDeviceFlag == 0 && mLaunchSyncStarted && i != 0) {
                 try {
                     ArrayList<Number> arrayList = new ArrayList();
                     if (syncMapping(DeviceInfoUtilKt.toJson(mDeviceInfoMap, i, arrayList))) {
                         if (mMappingCache == null) {
-                            mMappingCache = new CacheDeviceInfo();
+                            CacheDeviceInfo cacheDeviceInfo = new CacheDeviceInfo();
+                            mMappingCache = cacheDeviceInfo;
+                            Intrinsics.checkNotNull(cacheDeviceInfo);
+                            cacheDeviceInfo.setEnUid(getAppHost().getEnUid());
                         }
                         int i2 = 0;
                         for (Number number : arrayList) {
@@ -1382,9 +1418,9 @@ public final class DeviceInfoManager {
                             }
                         }
                         DeviceIdBagMap deviceIdBagMap = mDeviceInfoMap;
-                        CacheDeviceInfo cacheDeviceInfo = mMappingCache;
-                        Intrinsics.checkNotNull(cacheDeviceInfo);
-                        DeviceInfoUtilKt.copyFixedInfo(deviceIdBagMap, cacheDeviceInfo, i2);
+                        CacheDeviceInfo cacheDeviceInfo2 = mMappingCache;
+                        Intrinsics.checkNotNull(cacheDeviceInfo2);
+                        DeviceInfoUtilKt.copyFixedInfo(deviceIdBagMap, cacheDeviceInfo2, i2);
                         writeMappingCache();
                         return true;
                     }
@@ -1401,34 +1437,40 @@ public final class DeviceInfoManager {
         if (interceptable == null || interceptable.invokeL(1048593, this, context) == null) {
             Intrinsics.checkNotNullParameter(context, "context");
             mContext = context;
-            if (sf1.g() && getAppHost().useMapping()) {
+            if (dk1.g() && getAppHost().useMapping()) {
                 Context context2 = mContext;
                 if (context2 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("mContext");
+                    context2 = null;
                 }
                 File file = new File(context2.getFilesDir(), MAPPING_CACHE_FILE);
                 mMappingCacheFile = file;
                 if (file == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("mMappingCacheFile");
+                    file = null;
                 }
                 if (!file.getParentFile().exists()) {
                     File file2 = mMappingCacheFile;
                     if (file2 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("mMappingCacheFile");
+                        file2 = null;
                     }
                     file2.getParentFile().mkdirs();
                 }
                 File file3 = mMappingCacheFile;
                 if (file3 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("mMappingCacheFile");
+                    file3 = null;
                 }
                 if (file3.exists()) {
                     try {
                         File file4 = mMappingCacheFile;
                         if (file4 == null) {
                             Intrinsics.throwUninitializedPropertyAccessException("mMappingCacheFile");
+                            file4 = null;
                         }
                         mMappingCache = new CacheDeviceInfo(FilesKt__FileReadWriteKt.readText$default(file4, null, 1, null));
+                        DeviceInfoUtilKt.forEachDevice(DeviceInfoManager$readMappingCache$1.INSTANCE);
                     } catch (Exception unused) {
                     }
                 }
@@ -1438,26 +1480,30 @@ public final class DeviceInfoManager {
 
     private final void writeMappingCache() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65588, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65581, this) == null) {
             File file = mMappingCacheFile;
             if (file == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mMappingCacheFile");
+                file = null;
             }
             if (file.exists()) {
                 File file2 = mMappingCacheFile;
                 if (file2 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("mMappingCacheFile");
+                    file2 = null;
                 }
                 file2.delete();
             }
             File file3 = mMappingCacheFile;
             if (file3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mMappingCacheFile");
+                file3 = null;
             }
             file3.createNewFile();
             File file4 = mMappingCacheFile;
             if (file4 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mMappingCacheFile");
+                file4 = null;
             }
             FilesKt__FileReadWriteKt.writeText$default(file4, String.valueOf(mMappingCache), null, 2, null);
         }
@@ -1470,7 +1516,7 @@ public final class DeviceInfoManager {
             Intrinsics.checkNotNullParameter(context, "context");
             Intrinsics.checkNotNullParameter(scene, "scene");
             Intrinsics.checkNotNullParameter(purpose, "purpose");
-            if (!sf1.g()) {
+            if (!dk1.g()) {
                 IDeviceInfoService iPCService = DeviceInfoIPCServiceManager.Companion.getIPCService();
                 if (checkIPCService(iPCService)) {
                     try {
@@ -1485,14 +1531,14 @@ public final class DeviceInfoManager {
                     }
                 }
                 final DeviceIdBagMap deviceIdBagMap = new DeviceIdBagMap();
-                DeviceInfoUtilKt.forEachDevice(new Function1<Integer, Unit>(deviceIdBagMap, i, z, context, scene, purpose) { // from class: com.baidu.searchbox.common.security.DeviceInfoManager$getDeviceInfo$$inlined$apply$lambda$1
+                DeviceInfoUtilKt.forEachDevice(new Function1<Integer, Unit>(i, z, deviceIdBagMap, context, scene, purpose) { // from class: com.baidu.searchbox.common.security.DeviceInfoManager$getDeviceInfo$1$1
                     public static /* synthetic */ Interceptable $ic;
-                    public final /* synthetic */ Context $context$inlined;
-                    public final /* synthetic */ int $deviceFlag$inlined;
+                    public final /* synthetic */ Context $context;
+                    public final /* synthetic */ int $deviceFlag;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ boolean $forceApi$inlined;
-                    public final /* synthetic */ String $purpose$inlined;
-                    public final /* synthetic */ String $scene$inlined;
+                    public final /* synthetic */ boolean $forceApi;
+                    public final /* synthetic */ String $purpose;
+                    public final /* synthetic */ String $scene;
                     public final /* synthetic */ DeviceIdBagMap $this_apply;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -1502,7 +1548,7 @@ public final class DeviceInfoManager {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {deviceIdBagMap, Integer.valueOf(i), Boolean.valueOf(z), context, scene, purpose};
+                            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z), deviceIdBagMap, context, scene, purpose};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i2 = newInitContext.flag;
                             if ((i2 & 1) != 0) {
@@ -1513,12 +1559,12 @@ public final class DeviceInfoManager {
                                 return;
                             }
                         }
+                        this.$deviceFlag = i;
+                        this.$forceApi = z;
                         this.$this_apply = deviceIdBagMap;
-                        this.$deviceFlag$inlined = i;
-                        this.$forceApi$inlined = z;
-                        this.$context$inlined = context;
-                        this.$scene$inlined = scene;
-                        this.$purpose$inlined = purpose;
+                        this.$context = context;
+                        this.$scene = scene;
+                        this.$purpose = purpose;
                     }
 
                     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -1539,7 +1585,7 @@ public final class DeviceInfoManager {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
                             boolean z3 = true;
-                            if ((this.$deviceFlag$inlined & i2) != 0) {
+                            if ((this.$deviceFlag & i2) != 0) {
                                 z2 = true;
                             } else {
                                 z2 = false;
@@ -1548,30 +1594,28 @@ public final class DeviceInfoManager {
                                 z3 = false;
                             }
                             if (z2 && z3) {
-                                if (this.$forceApi$inlined) {
+                                if (this.$forceApi) {
                                     DeviceIdBagMap deviceIdBagMap4 = this.$this_apply;
                                     sparseArray3 = DeviceInfoManager.DEVICE_READ_FUNC_MAP;
-                                    deviceIdBagMap4.put(i2, (DeviceIdBag) ((Function3) sparseArray3.get(i2)).invoke(this.$context$inlined, this.$scene$inlined, this.$purpose$inlined));
+                                    deviceIdBagMap4.put(i2, (DeviceIdBag) ((Function3) sparseArray3.get(i2)).invoke(this.$context, this.$scene, this.$purpose));
                                     return;
                                 }
                                 DeviceIdBagMap deviceIdBagMap5 = this.$this_apply;
-                                DeviceInfoManager deviceInfoManager = DeviceInfoManager.INSTANCE;
                                 deviceIdBagMap3 = DeviceInfoManager.mDeviceInfoMap;
                                 DeviceIdBag deviceIdBag = (DeviceIdBag) deviceIdBagMap3.get((Object) Integer.valueOf(i2));
                                 if (deviceIdBag == null) {
                                     sparseArray2 = DeviceInfoManager.DEVICE_READ_FUNC_MAP;
-                                    deviceIdBag = (DeviceIdBag) ((Function3) sparseArray2.get(i2)).invoke(this.$context$inlined, this.$scene$inlined, this.$purpose$inlined);
+                                    deviceIdBag = (DeviceIdBag) ((Function3) sparseArray2.get(i2)).invoke(this.$context, this.$scene, this.$purpose);
                                 }
                                 Intrinsics.checkNotNullExpressionValue(deviceIdBag, "mDeviceInfoMap[iterateDe…(context, scene, purpose)");
                                 deviceIdBagMap5.put(i2, deviceIdBag);
                             } else if (z2) {
                                 DeviceIdBagMap deviceIdBagMap6 = this.$this_apply;
-                                DeviceInfoManager deviceInfoManager2 = DeviceInfoManager.INSTANCE;
                                 deviceIdBagMap2 = DeviceInfoManager.mDeviceInfoMap;
                                 DeviceIdBag deviceIdBag2 = (DeviceIdBag) deviceIdBagMap2.get((Object) Integer.valueOf(i2));
                                 if (deviceIdBag2 == null) {
                                     sparseArray = DeviceInfoManager.DEVICE_READ_FUNC_MAP;
-                                    deviceIdBag2 = (DeviceIdBag) ((Function3) sparseArray.get(i2)).invoke(this.$context$inlined, this.$scene$inlined, this.$purpose$inlined);
+                                    deviceIdBag2 = (DeviceIdBag) ((Function3) sparseArray.get(i2)).invoke(this.$context, this.$scene, this.$purpose);
                                 }
                                 Intrinsics.checkNotNullExpressionValue(deviceIdBag2, "mDeviceInfoMap[iterateDe…(context, scene, purpose)");
                                 deviceIdBagMap6.put(i2, deviceIdBag2);
@@ -1584,20 +1628,19 @@ public final class DeviceInfoManager {
             final boolean useMapping = getAppHost().useMapping();
             final DeviceIdBagMap deviceIdBagMap2 = new DeviceIdBagMap();
             final Ref.IntRef intRef = new Ref.IntRef();
-            intRef.element = 0;
             final Ref.ObjectRef objectRef = new Ref.ObjectRef();
-            DeviceInfoUtilKt.forEachDevice(new Function1<Integer, Unit>(deviceIdBagMap2, objectRef, intRef, i, z, context, scene, purpose, useMapping) { // from class: com.baidu.searchbox.common.security.DeviceInfoManager$getDeviceInfo$$inlined$apply$lambda$2
+            DeviceInfoUtilKt.forEachDevice(new Function1<Integer, Unit>(i, objectRef, z, context, scene, purpose, useMapping, intRef, deviceIdBagMap2) { // from class: com.baidu.searchbox.common.security.DeviceInfoManager$getDeviceInfo$result$1$1
                 public static /* synthetic */ Interceptable $ic;
-                public final /* synthetic */ Context $context$inlined;
-                public final /* synthetic */ int $deviceFlag$inlined;
-                public final /* synthetic */ Ref.ObjectRef $deviceInfo;
+                public final /* synthetic */ Context $context;
+                public final /* synthetic */ int $deviceFlag;
+                public final /* synthetic */ Ref.ObjectRef<DeviceIdBag> $deviceInfo;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ boolean $forceApi$inlined;
+                public final /* synthetic */ boolean $forceApi;
                 public final /* synthetic */ Ref.IntRef $needSyncDeviceFlag;
-                public final /* synthetic */ String $purpose$inlined;
-                public final /* synthetic */ String $scene$inlined;
+                public final /* synthetic */ String $purpose;
+                public final /* synthetic */ String $scene;
                 public final /* synthetic */ DeviceIdBagMap $this_apply;
-                public final /* synthetic */ boolean $useMapping$inlined;
+                public final /* synthetic */ boolean $useMapping;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -1606,7 +1649,7 @@ public final class DeviceInfoManager {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {deviceIdBagMap2, objectRef, intRef, Integer.valueOf(i), Boolean.valueOf(z), context, scene, purpose, Boolean.valueOf(useMapping)};
+                        Object[] objArr = {Integer.valueOf(i), objectRef, Boolean.valueOf(z), context, scene, purpose, Boolean.valueOf(useMapping), intRef, deviceIdBagMap2};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -1617,15 +1660,15 @@ public final class DeviceInfoManager {
                             return;
                         }
                     }
-                    this.$this_apply = deviceIdBagMap2;
+                    this.$deviceFlag = i;
                     this.$deviceInfo = objectRef;
+                    this.$forceApi = z;
+                    this.$context = context;
+                    this.$scene = scene;
+                    this.$purpose = purpose;
+                    this.$useMapping = useMapping;
                     this.$needSyncDeviceFlag = intRef;
-                    this.$deviceFlag$inlined = i;
-                    this.$forceApi$inlined = z;
-                    this.$context$inlined = context;
-                    this.$scene$inlined = scene;
-                    this.$purpose$inlined = purpose;
-                    this.$useMapping$inlined = useMapping;
+                    this.$this_apply = deviceIdBagMap2;
                 }
 
                 /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -1636,12 +1679,12 @@ public final class DeviceInfoManager {
                     return Unit.INSTANCE;
                 }
 
-                /* JADX DEBUG: Multi-variable search result rejected for r1v31, resolved type: T */
-                /* JADX DEBUG: Multi-variable search result rejected for r1v46, resolved type: T */
-                /* JADX DEBUG: Multi-variable search result rejected for r1v47, resolved type: T */
-                /* JADX DEBUG: Multi-variable search result rejected for r1v50, resolved type: T */
-                /* JADX DEBUG: Multi-variable search result rejected for r1v51, resolved type: T */
-                /* JADX DEBUG: Multi-variable search result rejected for r1v6, resolved type: T */
+                /* JADX DEBUG: Multi-variable search result rejected for r1v29, resolved type: T */
+                /* JADX DEBUG: Multi-variable search result rejected for r1v44, resolved type: T */
+                /* JADX DEBUG: Multi-variable search result rejected for r1v45, resolved type: T */
+                /* JADX DEBUG: Multi-variable search result rejected for r1v48, resolved type: T */
+                /* JADX DEBUG: Multi-variable search result rejected for r1v49, resolved type: T */
+                /* JADX DEBUG: Multi-variable search result rejected for r1v5, resolved type: T */
                 /* JADX WARN: Multi-variable type inference failed */
                 public final void invoke(int i2) {
                     boolean z2;
@@ -1654,7 +1697,7 @@ public final class DeviceInfoManager {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
                         boolean z3 = true;
-                        if ((this.$deviceFlag$inlined & i2) != 0) {
+                        if ((this.$deviceFlag & i2) != 0) {
                             z2 = true;
                         } else {
                             z2 = false;
@@ -1663,48 +1706,46 @@ public final class DeviceInfoManager {
                             z3 = false;
                         }
                         if (z2 && z3) {
-                            Ref.ObjectRef objectRef2 = this.$deviceInfo;
-                            if (this.$forceApi$inlined) {
+                            Ref.ObjectRef<DeviceIdBag> objectRef2 = this.$deviceInfo;
+                            if (this.$forceApi) {
                                 sparseArray3 = DeviceInfoManager.DEVICE_READ_FUNC_MAP;
-                                t = (DeviceIdBag) ((Function3) sparseArray3.get(i2)).invoke(this.$context$inlined, this.$scene$inlined, this.$purpose$inlined);
+                                t = (DeviceIdBag) ((Function3) sparseArray3.get(i2)).invoke(this.$context, this.$scene, this.$purpose);
                             } else {
-                                DeviceInfoManager deviceInfoManager = DeviceInfoManager.INSTANCE;
                                 deviceIdBagMap4 = DeviceInfoManager.mDeviceInfoMap;
                                 DeviceIdBag deviceIdBag = (DeviceIdBag) deviceIdBagMap4.get((Object) Integer.valueOf(i2));
                                 DeviceIdBag deviceIdBag2 = deviceIdBag;
                                 if (deviceIdBag == null) {
                                     sparseArray2 = DeviceInfoManager.DEVICE_READ_FUNC_MAP;
-                                    deviceIdBag2 = (DeviceIdBag) ((Function3) sparseArray2.get(i2)).invoke(this.$context$inlined, this.$scene$inlined, this.$purpose$inlined);
+                                    deviceIdBag2 = (DeviceIdBag) ((Function3) sparseArray2.get(i2)).invoke(this.$context, this.$scene, this.$purpose);
                                 }
-                                Intrinsics.checkNotNullExpressionValue(deviceIdBag2, "mDeviceInfoMap[iterateDe…(context, scene, purpose)");
+                                Intrinsics.checkNotNullExpressionValue(deviceIdBag2, "{\n                      …se)\n                    }");
                                 t = deviceIdBag2;
                             }
                             objectRef2.element = t;
-                            if (this.$useMapping$inlined) {
-                                T t2 = this.$deviceInfo.element;
-                                if (((DeviceIdBag) t2).errorCode != 3 && !TextUtils.isEmpty(((DeviceIdBag) t2).deviceId)) {
+                            if (this.$useMapping) {
+                                DeviceIdBag deviceIdBag3 = this.$deviceInfo.element;
+                                if (deviceIdBag3.errorCode != 3 && !TextUtils.isEmpty(deviceIdBag3.deviceId)) {
                                     this.$needSyncDeviceFlag.element |= i2;
                                 }
                             }
-                            this.$this_apply.put(i2, (DeviceIdBag) this.$deviceInfo.element);
+                            this.$this_apply.put(i2, this.$deviceInfo.element);
                         } else if (z2) {
-                            Ref.ObjectRef objectRef3 = this.$deviceInfo;
-                            DeviceInfoManager deviceInfoManager2 = DeviceInfoManager.INSTANCE;
+                            Ref.ObjectRef<DeviceIdBag> objectRef3 = this.$deviceInfo;
                             deviceIdBagMap3 = DeviceInfoManager.mDeviceInfoMap;
-                            DeviceIdBag deviceIdBag3 = (DeviceIdBag) deviceIdBagMap3.get((Object) Integer.valueOf(i2));
-                            T t3 = deviceIdBag3;
-                            if (deviceIdBag3 == null) {
+                            DeviceIdBag deviceIdBag4 = (DeviceIdBag) deviceIdBagMap3.get((Object) Integer.valueOf(i2));
+                            T t2 = deviceIdBag4;
+                            if (deviceIdBag4 == null) {
                                 sparseArray = DeviceInfoManager.DEVICE_READ_FUNC_MAP;
-                                t3 = (DeviceIdBag) ((Function3) sparseArray.get(i2)).invoke(this.$context$inlined, this.$scene$inlined, this.$purpose$inlined);
+                                t2 = (DeviceIdBag) ((Function3) sparseArray.get(i2)).invoke(this.$context, this.$scene, this.$purpose);
                             }
-                            objectRef3.element = t3;
-                            if (this.$useMapping$inlined) {
-                                T t4 = this.$deviceInfo.element;
-                                if (((DeviceIdBag) t4).errorCode != 3 && !TextUtils.isEmpty(((DeviceIdBag) t4).deviceId)) {
+                            objectRef3.element = t2;
+                            if (this.$useMapping) {
+                                DeviceIdBag deviceIdBag5 = this.$deviceInfo.element;
+                                if (deviceIdBag5.errorCode != 3 && !TextUtils.isEmpty(deviceIdBag5.deviceId)) {
                                     this.$needSyncDeviceFlag.element |= i2;
                                 }
                             }
-                            this.$this_apply.put(i2, (DeviceIdBag) this.$deviceInfo.element);
+                            this.$this_apply.put(i2, this.$deviceInfo.element);
                         }
                     }
                 }
@@ -1726,7 +1767,7 @@ public final class DeviceInfoManager {
             Intrinsics.checkNotNullParameter(context, "context");
             Intrinsics.checkNotNullParameter(scene, "scene");
             Intrinsics.checkNotNullParameter(purpose, "purpose");
-            if (!sf1.g()) {
+            if (!dk1.g()) {
                 IDeviceInfoService iPCService = DeviceInfoIPCServiceManager.Companion.getIPCService();
                 if (checkIPCService(iPCService)) {
                     try {
@@ -1772,7 +1813,7 @@ public final class DeviceInfoManager {
             Intrinsics.checkNotNullParameter(context, "context");
             Intrinsics.checkNotNullParameter(scene, "scene");
             Intrinsics.checkNotNullParameter(purpose, "purpose");
-            if (!sf1.g()) {
+            if (!dk1.g()) {
                 IDeviceInfoService iPCService = DeviceInfoIPCServiceManager.Companion.getIPCService();
                 if (checkIPCService(iPCService)) {
                     try {

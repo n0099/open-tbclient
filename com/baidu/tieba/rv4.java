@@ -1,18 +1,19 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.NewErrorData;
+import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.VoteSchema;
 /* loaded from: classes6.dex */
 public class rv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
+    public NetWork a;
+    public NewErrorData b;
 
     public rv4() {
         Interceptable interceptable = $ic;
@@ -24,23 +25,72 @@ public class rv4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = null;
+        this.b = null;
+        this.a = new NetWork();
+    }
+
+    public void b() {
+        NetWork netWork;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (netWork = this.a) != null) {
+            netWork.cancelNetConnect();
         }
     }
 
-    public static rv4 a(VoteSchema voteSchema) {
-        InterceptResult invokeL;
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, voteSchema)) == null) {
-            if (voteSchema == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            NetWork netWork = this.a;
+            if (netWork != null) {
+                return netWork.getErrorString();
             }
-            rv4 rv4Var = new rv4();
-            rv4Var.a = voteSchema.text_before_vote;
-            rv4Var.b = voteSchema.text_after_vote;
-            rv4Var.c = voteSchema.jump_url;
-            return rv4Var;
+            return null;
         }
-        return (rv4) invokeL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            String postNetData = this.a.postNetData();
+            NewErrorData newErrorData = new NewErrorData();
+            this.b = newErrorData;
+            newErrorData.parserJson(postNetData);
+            return postNetData;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            NetWork netWork = this.a;
+            if (netWork != null) {
+                return netWork.getNetContext().getResponse().isRequestSuccess();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            this.a.addPostData(str, str2);
+        }
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.a.setUrl(str);
+        }
     }
 }

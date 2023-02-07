@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nx8;
-import com.baidu.tieba.yg;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.dh;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.l19;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -24,9 +24,9 @@ import tbclient.SkinInfo;
 public class ThreadSkinView extends TbImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext v0;
-    public SkinInfo w0;
-    public nx8.b x0;
+    public TbPageContext w0;
+    public SkinInfo x0;
+    public l19.b y0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ThreadSkinView(Context context) {
@@ -53,14 +53,14 @@ public class ThreadSkinView extends TbImageView {
     public void onClick(View view2) {
         SkinInfo skinInfo;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (skinInfo = this.w0) != null && !StringUtils.isNull(skinInfo.url)) {
-            nx8.b bVar = this.x0;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (skinInfo = this.x0) != null && !StringUtils.isNull(skinInfo.url)) {
+            l19.b bVar = this.y0;
             if (bVar != null) {
                 bVar.delete("action_type");
-                this.x0.d("action_type", "CLICK");
-                this.x0.e();
+                this.y0.d("action_type", "CLICK");
+                this.y0.e();
             }
-            UrlManager.getInstance().dealOneLink(this.v0, new String[]{this.w0.url});
+            UrlManager.getInstance().dealOneLink(this.w0, new String[]{this.x0.url});
         }
     }
 
@@ -108,29 +108,29 @@ public class ThreadSkinView extends TbImageView {
         v();
     }
 
-    public void setData(TbPageContext tbPageContext, SkinInfo skinInfo, nx8.b bVar) {
+    public void setData(TbPageContext tbPageContext, SkinInfo skinInfo, l19.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, skinInfo, bVar) == null) {
             if (tbPageContext != null && skinInfo != null && !StringUtils.isNull(skinInfo.skin)) {
-                this.v0 = tbPageContext;
-                if (this.w0 != skinInfo && bVar != null) {
-                    this.x0 = bVar;
+                this.w0 = tbPageContext;
+                if (this.x0 != skinInfo && bVar != null) {
+                    this.y0 = bVar;
                     bVar.delete("action_type");
-                    this.x0.d("obj_id", skinInfo.obj_id);
-                    this.x0.d(TiebaStatic.Params.OBJ_URL, skinInfo.url);
-                    this.x0.d("obj_name", skinInfo.monitor_id);
-                    this.x0.d("action_type", "VIEW_TRUE");
-                    this.x0.e();
+                    this.y0.d("obj_id", skinInfo.obj_id);
+                    this.y0.d(TiebaStatic.Params.OBJ_URL, skinInfo.url);
+                    this.y0.d("obj_name", skinInfo.monitor_id);
+                    this.y0.d("action_type", "VIEW_TRUE");
+                    this.y0.e();
                 }
-                this.w0 = skinInfo;
-                int l = zi.l(tbPageContext.getPageActivity());
+                this.x0 = skinInfo;
+                int l = ej.l(tbPageContext.getPageActivity());
                 ViewGroup.LayoutParams layoutParams = getLayoutParams();
                 layoutParams.width = l;
                 if (!StringUtils.isNull(skinInfo.skin_size)) {
                     String[] split = skinInfo.skin_size.split(",");
                     if (split.length > 1) {
-                        int e = yg.e(split[0].trim(), -1);
-                        int e2 = yg.e(split[1].trim(), -1);
+                        int e = dh.e(split[0].trim(), -1);
+                        int e2 = dh.e(split[1].trim(), -1);
                         if (e > 0 && e2 > 0) {
                             layoutParams.height = (int) (layoutParams.width * (e2 / e));
                         } else {

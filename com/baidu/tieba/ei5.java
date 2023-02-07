@@ -1,44 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.mutiprocess.share.InitWeiboSdkEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes4.dex */
-public abstract class ei5<T> extends fi5<T> {
+public class ei5 implements fh5<InitWeiboSdkEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract List<fs4> e();
-
-    public abstract List<ThreadData> f();
-
-    public void g(di5 di5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, di5Var) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.hi5
-    public bi5 getPageInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
-        }
-        return (bi5) invokeV.objValue;
-    }
-
-    public void h(List<ThreadData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-        }
-    }
-
-    public abstract List<yn> i(List<? extends yn> list);
 
     public ei5() {
         Interceptable interceptable = $ic;
@@ -54,12 +28,19 @@ public abstract class ei5<T> extends fi5<T> {
         }
     }
 
-    public final List<yn> d(List<? extends yn> list) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.fh5
+    /* renamed from: a */
+    public boolean onEvent(InitWeiboSdkEvent initWeiboSdkEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-            return i(list);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, initWeiboSdkEvent)) == null) {
+            if (!jh5.l()) {
+                return false;
+            }
+            MessageManager.getInstance().sendMessage(new CustomMessage(2921438, TbadkCoreApplication.getInst().getApp()));
+            return true;
         }
-        return (List) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

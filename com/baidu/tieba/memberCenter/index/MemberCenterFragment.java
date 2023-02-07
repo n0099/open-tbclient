@@ -26,6 +26,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ox7;
 import com.baidu.tieba.quickWebView.QuickWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -318,6 +319,7 @@ public class MemberCenterFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
             super.onCreate(bundle);
+            new ox7("my_tab_vip_banner_bubble").i();
         }
     }
 
@@ -363,7 +365,7 @@ public class MemberCenterFragment extends BaseFragment {
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (quickWebView = this.e) != null && this.b != null) {
             quickWebView.setVisibility(8);
             this.b.setVisibility(0);
-            showNetRefreshView(this.d, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0cd1), true);
+            showNetRefreshView(this.d, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0cfe), true);
         }
     }
 
@@ -410,8 +412,8 @@ public class MemberCenterFragment extends BaseFragment {
             this.a = (NoNetworkView) inflate.findViewById(R.id.view_no_network);
             this.b = (NavigationBar) this.c.findViewById(R.id.view_navigation_bar);
             F1();
-            this.d = this.c.findViewById(R.id.obfuscated_res_0x7f091592);
-            this.e = (QuickWebView) this.c.findViewById(R.id.obfuscated_res_0x7f09274c);
+            this.d = this.c.findViewById(R.id.obfuscated_res_0x7f0915d2);
+            this.e = (QuickWebView) this.c.findViewById(R.id.obfuscated_res_0x7f092751);
             G1();
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             TiebaStatic.log("c10387");

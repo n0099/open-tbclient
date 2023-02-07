@@ -1,25 +1,11 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import java.util.List;
 /* loaded from: classes3.dex */
 public interface bq1 {
-    void b();
+    List<ta3> a(t93 t93Var);
 
-    void c();
+    List<ta3> b(t93 t93Var);
 
-    bq1 create();
-
-    void d(tt2 tt2Var, boolean z);
-
-    void e(tt2 tt2Var, Context context);
-
-    boolean isPlaying();
-
-    boolean onBackPressed();
-
-    void pause();
-
-    void resume();
-
-    void stop();
+    List<ta3> c(t93 t93Var);
 }

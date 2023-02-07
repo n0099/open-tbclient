@@ -7,8 +7,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.ShareDialogConfig;
 import com.baidu.tbadk.core.hybrid.NamedBridgeHandler;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tieba.gy4;
-import com.baidu.tieba.iy4;
+import com.baidu.tieba.t25;
+import com.baidu.tieba.v25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ import org.json.JSONObject;
 public class ShareDialogBridgeHandler extends NamedBridgeHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gy4 mBridge;
+    public t25 mBridge;
 
     @Override // com.baidu.tbadk.core.hybrid.NamedBridgeHandler
     public String scope() {
@@ -30,27 +30,27 @@ public class ShareDialogBridgeHandler extends NamedBridgeHandler {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ShareDialogBridgeHandler(gy4 gy4Var) {
-        super(gy4Var);
+    public ShareDialogBridgeHandler(t25 t25Var) {
+        super(t25Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {gy4Var};
+            Object[] objArr = {t25Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((gy4) newInitContext.callArgs[0]);
+                super((t25) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mBridge = gy4Var;
+        this.mBridge = t25Var;
     }
 
-    @iy4(isAsync = false, value = "showShareDialog")
+    @v25(isAsync = false, value = "showShareDialog")
     public void showShareDialog(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {

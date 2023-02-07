@@ -78,7 +78,7 @@ public class bm {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m217a(String str) {
+    public static byte[] m219a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? a(str.toCharArray()) : (byte[]) invokeL.objValue;

@@ -11,9 +11,9 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ia0;
-import com.baidu.tieba.qa0;
-import com.baidu.tieba.zc0;
+import com.baidu.tieba.fd0;
+import com.baidu.tieba.oa0;
+import com.baidu.tieba.wa0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,7 +26,7 @@ public class ErrorView extends LinearLayout {
     public TextView a;
     public SimpleDraweeView b;
     public TextView c;
-    public qa0 d;
+    public wa0 d;
 
     /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
@@ -56,8 +56,8 @@ public class ErrorView extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (!ia0.f(this.a.getContext())) {
-                    Toast.makeText(this.a.getContext(), (int) R.string.obfuscated_res_0x7f0f0a76, 1).show();
+                if (!oa0.f(this.a.getContext())) {
+                    Toast.makeText(this.a.getContext(), (int) R.string.obfuscated_res_0x7f0f0a9b, 1).show();
                 } else if (this.a.d != null) {
                     this.a.d.a(view2);
                 }
@@ -126,7 +126,7 @@ public class ErrorView extends LinearLayout {
                 return;
             }
         }
-        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0557, this);
+        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0553, this);
         setOrientation(1);
         setGravity(17);
         this.b = (SimpleDraweeView) findViewById(R.id.errorview_img);
@@ -142,10 +142,10 @@ public class ErrorView extends LinearLayout {
         }
     }
 
-    public void setActionCallback(qa0 qa0Var) {
+    public void setActionCallback(wa0 wa0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, qa0Var) == null) {
-            this.d = qa0Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, wa0Var) == null) {
+            this.d = wa0Var;
         }
     }
 
@@ -166,24 +166,24 @@ public class ErrorView extends LinearLayout {
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            if (ia0.f(getContext())) {
+            if (oa0.f(getContext())) {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.b.getLayoutParams();
-                layoutParams.width = ia0.b(getContext(), EmotionStrategy.getInstance().errorWidth);
-                layoutParams.height = ia0.b(getContext(), EmotionStrategy.getInstance().errorHeight);
+                layoutParams.width = oa0.b(getContext(), EmotionStrategy.getInstance().errorWidth);
+                layoutParams.height = oa0.b(getContext(), EmotionStrategy.getInstance().errorHeight);
                 this.b.setLayoutParams(layoutParams);
-                setImageResource(zc0.f().c(str));
-                this.c.setText(R.string.obfuscated_res_0x7f0f0a75);
+                setImageResource(fd0.f().c(str));
+                this.c.setText(R.string.obfuscated_res_0x7f0f0a9a);
             } else {
                 LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.b.getLayoutParams();
-                layoutParams2.width = ia0.b(getContext(), EmotionStrategy.getInstance().networkWidth);
-                layoutParams2.height = ia0.b(getContext(), EmotionStrategy.getInstance().networkHeight);
+                layoutParams2.width = oa0.b(getContext(), EmotionStrategy.getInstance().networkWidth);
+                layoutParams2.height = oa0.b(getContext(), EmotionStrategy.getInstance().networkHeight);
                 this.b.setLayoutParams(layoutParams2);
-                setImageResource(zc0.f().d(str));
-                this.c.setText(R.string.obfuscated_res_0x7f0f0a76);
+                setImageResource(fd0.f().d(str));
+                this.c.setText(R.string.obfuscated_res_0x7f0f0a9b);
             }
-            this.c.setTextColor(zc0.f().a(getContext(), str, "color_8585852"));
-            this.a.setTextColor(zc0.f().a(getContext(), str, "color_5252522"));
-            this.a.setBackground(zc0.f().o(getContext(), str));
+            this.c.setTextColor(fd0.f().a(getContext(), str, "color_8585852"));
+            this.a.setTextColor(fd0.f().a(getContext(), str, "color_5252522"));
+            this.a.setBackground(fd0.f().o(getContext(), str));
         }
     }
 

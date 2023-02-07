@@ -13,11 +13,11 @@ import org.json.JSONObject;
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public C0514a a;
+    public C0518a a;
 
     /* renamed from: com.baidu.webkit.internal.monitor.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C0514a {
+    public class C0518a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
@@ -29,7 +29,7 @@ public final class a {
         public Map<String, Long> g;
         public final /* synthetic */ a h;
 
-        public C0514a(a aVar) {
+        public C0518a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -51,7 +51,7 @@ public final class a {
             this.g = new HashMap();
         }
 
-        public /* synthetic */ C0514a(a aVar, byte b) {
+        public /* synthetic */ C0518a(a aVar, byte b) {
             this(aVar);
         }
 

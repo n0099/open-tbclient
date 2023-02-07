@@ -1,553 +1,454 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapShader;
-import android.graphics.Canvas;
-import android.graphics.DashPathEffect;
-import android.graphics.Matrix;
-import android.graphics.Paint;
-import android.graphics.Path;
-import android.graphics.Rect;
-import android.graphics.Shader;
-import android.media.SoundPool;
-import android.text.StaticLayout;
-import android.text.TextPaint;
-import android.widget.ImageView;
+import android.app.Activity;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.OvershootInterpolator;
+import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.s3a;
+import com.baidu.tieba.x3a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.opensource.svgaplayer.SVGAVideoEntity;
-import com.opensource.svgaplayer.entities.SVGAVideoShapeEntity;
-import java.util.HashMap;
-import kotlin.TypeCastException;
-import kotlin.jvm.functions.Function2;
-import kotlin.jvm.functions.Function4;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.FunSplashAd;
+import com.fun.ad.sdk.FunSplashAdInteractionListener;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.AdRipper;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.utils.ViewUtils;
+import com.qq.e.ads.splash.SplashAD;
+import com.qq.e.ads.splash.SplashADZoomOutListener;
+import com.qq.e.comm.util.AdError;
+import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
-public final class t3a extends s3a {
+public class t3a extends h3a<SplashAD> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final b c;
-    public final HashMap<String, Bitmap> d;
-    public final a e;
-    public final float[] f;
-    public final p3a g;
-
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public final HashMap<SVGAVideoShapeEntity, Path> c;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = new HashMap<>();
-        }
-
-        public final Path a(SVGAVideoShapeEntity sVGAVideoShapeEntity) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sVGAVideoShapeEntity)) == null) {
-                if (!this.c.containsKey(sVGAVideoShapeEntity)) {
-                    Path path = new Path();
-                    path.set(sVGAVideoShapeEntity.b());
-                    this.c.put(sVGAVideoShapeEntity, path);
-                }
-                Path path2 = this.c.get(sVGAVideoShapeEntity);
-                if (path2 == null) {
-                    Intrinsics.throwNpe();
-                }
-                return path2;
-            }
-            return (Path) invokeL.objValue;
-        }
-
-        public final void b(Canvas canvas) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-                if (this.a != canvas.getWidth() || this.b != canvas.getHeight()) {
-                    this.c.clear();
-                }
-                this.a = canvas.getWidth();
-                this.b = canvas.getHeight();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Paint a;
-        public final Path b;
-        public final Path c;
-        public final Matrix d;
-        public final Matrix e;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new Paint();
-            this.b = new Path();
-            this.c = new Path();
-            this.d = new Matrix();
-            this.e = new Matrix();
-        }
-
-        public final Matrix a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.d.reset();
-                return this.d;
-            }
-            return (Matrix) invokeV.objValue;
-        }
-
-        public final Matrix b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                this.e.reset();
-                return this.e;
-            }
-            return (Matrix) invokeV.objValue;
-        }
-
-        public final Paint c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                this.a.reset();
-                return this.a;
-            }
-            return (Paint) invokeV.objValue;
-        }
-
-        public final Path d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                this.b.reset();
-                return this.b;
-            }
-            return (Path) invokeV.objValue;
-        }
-
-        public final Path e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                this.c.reset();
-                return this.c;
-            }
-            return (Path) invokeV.objValue;
-        }
-    }
+    public boolean e;
+    public WeakReference<b> f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t3a(SVGAVideoEntity sVGAVideoEntity, p3a p3aVar) {
-        super(sVGAVideoEntity);
+    public t3a(Ssp.Pid pid) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.SPLASH), pid, true, false, true);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sVGAVideoEntity, p3aVar};
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((SVGAVideoEntity) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue(), ((Boolean) objArr2[4]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = p3aVar;
-        this.c = new b();
-        this.d = new HashMap<>();
-        this.e = new a();
-        this.f = new float[16];
+        this.f = new WeakReference<>(null);
     }
 
-    @Override // com.baidu.tieba.s3a
-    public void a(Canvas canvas, int i, ImageView.ScaleType scaleType) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public AdRipper createAdRipper(Ssp.Pid pid) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, canvas, i, scaleType) == null) {
-            super.a(canvas, i, scaleType);
-            this.e.b(canvas);
-            for (s3a.a aVar : d(i)) {
-                h(aVar, canvas, i);
-            }
-            k(i);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new e3a(pid) : (AdRipper) invokeL.objValue;
     }
 
-    public final void h(s3a.a aVar, Canvas canvas, int i) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048580, this, aVar, canvas, i) == null) {
-            f(aVar, canvas);
-            g(aVar, canvas);
-            e(aVar, canvas, i);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            SplashAD splashAD = (SplashAD) obj;
         }
     }
 
-    public final void e(s3a.a aVar, Canvas canvas, int i) {
-        String b2;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, canvas, i) == null) && (b2 = aVar.b()) != null) {
-            Function2<Canvas, Integer, Boolean> function2 = this.g.a().get(b2);
-            if (function2 != null) {
-                Matrix l = l(aVar.a().e());
-                canvas.save();
-                canvas.concat(l);
-                function2.invoke(canvas, Integer.valueOf(i));
-                canvas.restore();
-            }
-            Function4<Canvas, Integer, Integer, Integer, Boolean> function4 = this.g.b().get(b2);
-            if (function4 != null) {
-                Matrix l2 = l(aVar.a().e());
-                canvas.save();
-                canvas.concat(l2);
-                function4.invoke(canvas, Integer.valueOf(i), Integer.valueOf((int) aVar.a().b().b()), Integer.valueOf((int) aVar.a().b().a()));
-                canvas.restore();
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
+            this.e = false;
+            a aVar = new a(this, r0, funAdSlot);
+            onLoadStart(funAdSlot);
+            SplashAD splashAD = new SplashAD(context.getApplicationContext(), this.mPid.pid, aVar, 0);
+            SplashAD[] splashADArr = {splashAD};
+            splashAD.fetchAdOnly();
         }
     }
 
-    public final void f(s3a.a aVar, Canvas canvas) {
-        String b2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, aVar, canvas) != null) || (b2 = aVar.b()) == null || Intrinsics.areEqual(this.g.c().get(b2), Boolean.TRUE)) {
-            return;
-        }
-        Bitmap bitmap = this.g.d().get(b2);
-        if (bitmap == null) {
-            bitmap = c().e().get(b2);
-        }
-        if (bitmap != null) {
-            Matrix l = l(aVar.a().e());
-            Paint c = this.c.c();
-            c.setAntiAlias(c().a());
-            c.setFilterBitmap(c().a());
-            c.setAlpha((int) (aVar.a().a() * 255));
-            if (aVar.a().c() != null) {
-                v3a c2 = aVar.a().c();
-                if (c2 != null) {
-                    canvas.save();
-                    c.reset();
-                    Path d = this.c.d();
-                    c2.a(d);
-                    d.transform(l);
-                    canvas.clipPath(d);
-                    l.preScale((float) (aVar.a().b().b() / bitmap.getWidth()), (float) (aVar.a().b().b() / bitmap.getWidth()));
-                    canvas.drawBitmap(bitmap, l, c);
-                    canvas.restore();
-                } else {
+    /* loaded from: classes6.dex */
+    public class a implements SplashADZoomOutListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public boolean b;
+        public final /* synthetic */ SplashAD[] c;
+        public final /* synthetic */ FunAdSlot d;
+        public final /* synthetic */ t3a e;
+
+        public a(t3a t3aVar, SplashAD[] splashADArr, FunAdSlot funAdSlot) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t3aVar, splashADArr, funAdSlot};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-            } else {
-                l.preScale((float) (aVar.a().b().b() / bitmap.getWidth()), (float) (aVar.a().b().b() / bitmap.getWidth()));
-                canvas.drawBitmap(bitmap, l, c);
             }
-            i(canvas, bitmap, aVar, l);
+            this.e = t3aVar;
+            this.c = splashADArr;
+            this.d = funAdSlot;
         }
-    }
 
-    public final void g(s3a.a aVar, Canvas canvas) {
-        SVGAVideoShapeEntity.a c;
-        float[] c2;
-        String d;
-        String b2;
-        int a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, aVar, canvas) == null) {
-            Matrix l = l(aVar.a().e());
-            for (SVGAVideoShapeEntity sVGAVideoShapeEntity : aVar.a().d()) {
-                sVGAVideoShapeEntity.a();
-                if (sVGAVideoShapeEntity.b() != null) {
-                    Paint c3 = this.c.c();
-                    c3.reset();
-                    c3.setAntiAlias(c().a());
-                    double d2 = 255;
-                    c3.setAlpha((int) (aVar.a().a() * d2));
-                    Path d3 = this.c.d();
-                    d3.reset();
-                    d3.addPath(this.e.a(sVGAVideoShapeEntity));
-                    Matrix b3 = this.c.b();
-                    b3.reset();
-                    Matrix d4 = sVGAVideoShapeEntity.d();
-                    if (d4 != null) {
-                        b3.postConcat(d4);
+        @Override // com.qq.e.ads.splash.SplashADZoomOutListener
+        public boolean isSupportZoomOut() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                LogPrinter.d("isSupportZoomOut", new Object[0]);
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.qq.e.ads.splash.SplashADListener
+        public void onADExposure() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                LogPrinter.d();
+                this.e.onAdShow(this.c[0], this.a, new String[0]);
+                this.a = true;
+            }
+        }
+
+        @Override // com.qq.e.ads.splash.SplashADListener
+        public void onADLoaded(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+                LogPrinter.d();
+                this.e.onAdLoaded((t3a) this.c[0]);
+            }
+        }
+
+        @Override // com.qq.e.ads.splash.SplashADListener
+        public void onADPresent() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                LogPrinter.d();
+            }
+        }
+
+        @Override // com.qq.e.ads.splash.SplashADListener
+        public void onADTick(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+                LogPrinter.d();
+            }
+        }
+
+        @Override // com.qq.e.ads.splash.SplashADListener
+        public void onNoAD(AdError adError) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, adError) == null) {
+                int errorCode = adError.getErrorCode();
+                LogPrinter.e("onNoAD code: " + errorCode + ", message: " + adError.getErrorMsg(), new Object[0]);
+                if (errorCode != 4005) {
+                    this.e.onError(errorCode, adError.getErrorMsg());
+                    return;
+                }
+                this.e.onAdError(this.c[0], adError.getErrorMsg());
+            }
+        }
+
+        @Override // com.qq.e.ads.splash.SplashADZoomOutListener
+        public void onZoomOutPlayFinish() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+                LogPrinter.d("onZoomOutPlayFinish", new Object[0]);
+            }
+        }
+
+        @Override // com.qq.e.ads.splash.SplashADListener
+        public void onADClicked() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                LogPrinter.d();
+                this.e.onAdClicked(this.c[0], this.b, new String[0]);
+                this.b = true;
+                b bVar = this.e.f.get();
+                if (bVar != null) {
+                    String sid = this.d.getSid();
+                    FunSplashAdInteractionListener funSplashAdInteractionListener = bVar.e;
+                    if (funSplashAdInteractionListener != null) {
+                        funSplashAdInteractionListener.onAdClicked(sid);
                     }
-                    b3.postConcat(l);
-                    d3.transform(b3);
-                    SVGAVideoShapeEntity.a c4 = sVGAVideoShapeEntity.c();
-                    if (c4 != null && (a2 = c4.a()) != 0) {
-                        c3.setStyle(Paint.Style.FILL);
-                        c3.setColor(a2);
-                        c3.setAlpha(Math.min(255, Math.max(0, (int) (aVar.a().a() * d2))));
-                        if (aVar.a().c() != null) {
-                            canvas.save();
-                        }
-                        v3a c5 = aVar.a().c();
-                        if (c5 != null) {
-                            Path e = this.c.e();
-                            c5.a(e);
-                            e.transform(l);
-                            canvas.clipPath(e);
-                        }
-                        canvas.drawPath(d3, c3);
-                        if (aVar.a().c() != null) {
-                            canvas.restore();
-                        }
-                    }
-                    SVGAVideoShapeEntity.a c6 = sVGAVideoShapeEntity.c();
-                    if (c6 != null) {
-                        float f = 0;
-                        if (c6.g() > f) {
-                            c3.setStyle(Paint.Style.STROKE);
-                            SVGAVideoShapeEntity.a c7 = sVGAVideoShapeEntity.c();
-                            if (c7 != null) {
-                                c3.setColor(c7.f());
-                                c3.setAlpha(Math.min(255, Math.max(0, (int) (aVar.a().a() * d2))));
-                            }
-                            float j = j(l);
-                            SVGAVideoShapeEntity.a c8 = sVGAVideoShapeEntity.c();
-                            if (c8 != null) {
-                                c3.setStrokeWidth(c8.g() * j);
-                            }
-                            SVGAVideoShapeEntity.a c9 = sVGAVideoShapeEntity.c();
-                            if (c9 != null && (b2 = c9.b()) != null) {
-                                if (StringsKt__StringsJVMKt.equals(b2, "butt", true)) {
-                                    c3.setStrokeCap(Paint.Cap.BUTT);
-                                } else if (StringsKt__StringsJVMKt.equals(b2, "round", true)) {
-                                    c3.setStrokeCap(Paint.Cap.ROUND);
-                                } else if (StringsKt__StringsJVMKt.equals(b2, "square", true)) {
-                                    c3.setStrokeCap(Paint.Cap.SQUARE);
-                                }
-                            }
-                            SVGAVideoShapeEntity.a c10 = sVGAVideoShapeEntity.c();
-                            if (c10 != null && (d = c10.d()) != null) {
-                                if (StringsKt__StringsJVMKt.equals(d, "miter", true)) {
-                                    c3.setStrokeJoin(Paint.Join.MITER);
-                                } else if (StringsKt__StringsJVMKt.equals(d, "round", true)) {
-                                    c3.setStrokeJoin(Paint.Join.ROUND);
-                                } else if (StringsKt__StringsJVMKt.equals(d, "bevel", true)) {
-                                    c3.setStrokeJoin(Paint.Join.BEVEL);
-                                }
-                            }
-                            if (sVGAVideoShapeEntity.c() != null) {
-                                c3.setStrokeMiter(c.e() * j);
-                            }
-                            SVGAVideoShapeEntity.a c11 = sVGAVideoShapeEntity.c();
-                            if (c11 != null && (c2 = c11.c()) != null && c2.length == 3 && (c2[0] > f || c2[1] > f)) {
-                                float[] fArr = new float[2];
-                                float f2 = 1.0f;
-                                if (c2[0] >= 1.0f) {
-                                    f2 = c2[0];
-                                }
-                                fArr[0] = f2 * j;
-                                float f3 = 0.1f;
-                                if (c2[1] >= 0.1f) {
-                                    f3 = c2[1];
-                                }
-                                fArr[1] = f3 * j;
-                                c3.setPathEffect(new DashPathEffect(fArr, c2[2] * j));
-                            }
-                            if (aVar.a().c() != null) {
-                                canvas.save();
-                            }
-                            v3a c12 = aVar.a().c();
-                            if (c12 != null) {
-                                Path e2 = this.c.e();
-                                c12.a(e2);
-                                e2.transform(l);
-                                canvas.clipPath(e2);
-                            }
-                            canvas.drawPath(d3, c3);
-                            if (aVar.a().c() != null) {
-                                canvas.restore();
-                            }
-                        }
-                    }
+                }
+            }
+        }
+
+        @Override // com.qq.e.ads.splash.SplashADZoomOutListener
+        public void onZoomOut() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+                this.e.e = true;
+                b bVar = this.e.f.get();
+                if (bVar != null) {
+                    bVar.c = true;
+                }
+                LogPrinter.d("onZoomOut", new Object[0]);
+                this.e.onAdClose(this.c[0]);
+            }
+        }
+
+        @Override // com.qq.e.ads.splash.SplashADListener
+        public void onADDismissed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                LogPrinter.d();
+                t3a t3aVar = this.e;
+                if (!t3aVar.e) {
+                    t3aVar.onAdClose(this.c[0]);
+                    return;
+                }
+                b bVar = t3aVar.f.get();
+                if (bVar != null) {
+                    bVar.a();
                 }
             }
         }
     }
 
-    public final void i(Canvas canvas, Bitmap bitmap, s3a.a aVar, Matrix matrix) {
-        TextPaint drawingTextPaint;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048581, this, canvas, bitmap, aVar, matrix) == null) {
-            if (this.g.h()) {
-                this.d.clear();
-                this.g.i(false);
-            }
-            String b2 = aVar.b();
-            if (b2 != null) {
-                Bitmap bitmap2 = null;
-                String str = this.g.f().get(b2);
-                if (str != null && (drawingTextPaint = this.g.g().get(b2)) != null && (bitmap2 = this.d.get(b2)) == null) {
-                    bitmap2 = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
-                    Canvas canvas2 = new Canvas(bitmap2);
-                    Intrinsics.checkExpressionValueIsNotNull(drawingTextPaint, "drawingTextPaint");
-                    drawingTextPaint.setAntiAlias(true);
-                    Rect rect = new Rect();
-                    drawingTextPaint.getTextBounds(str, 0, str.length(), rect);
-                    canvas2.drawText(str, (float) ((bitmap.getWidth() - rect.width()) / 2.0d), (((bitmap.getHeight() + 0) - drawingTextPaint.getFontMetrics().bottom) - drawingTextPaint.getFontMetrics().top) / 2, drawingTextPaint);
-                    HashMap<String, Bitmap> hashMap = this.d;
-                    if (bitmap2 != null) {
-                        hashMap.put(b2, bitmap2);
-                    } else {
-                        throw new TypeCastException("null cannot be cast to non-null type android.graphics.Bitmap");
-                    }
-                }
-                StaticLayout it = this.g.e().get(b2);
-                if (it != null && (bitmap2 = this.d.get(b2)) == null) {
-                    Intrinsics.checkExpressionValueIsNotNull(it, "it");
-                    TextPaint paint = it.getPaint();
-                    Intrinsics.checkExpressionValueIsNotNull(paint, "it.paint");
-                    paint.setAntiAlias(true);
-                    StaticLayout staticLayout = new StaticLayout(it.getText(), 0, it.getText().length(), it.getPaint(), bitmap.getWidth(), it.getAlignment(), it.getSpacingMultiplier(), it.getSpacingAdd(), false);
-                    Bitmap createBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
-                    Canvas canvas3 = new Canvas(createBitmap);
-                    canvas3.translate(0.0f, (bitmap.getHeight() - staticLayout.getHeight()) / 2);
-                    staticLayout.draw(canvas3);
-                    HashMap<String, Bitmap> hashMap2 = this.d;
-                    if (createBitmap != null) {
-                        hashMap2.put(b2, createBitmap);
-                        bitmap2 = createBitmap;
-                    } else {
-                        throw new TypeCastException("null cannot be cast to non-null type android.graphics.Bitmap");
-                    }
-                }
-                if (bitmap2 != null) {
-                    Paint c = this.c.c();
-                    c.setAntiAlias(c().a());
-                    if (aVar.a().c() != null) {
-                        v3a c2 = aVar.a().c();
-                        if (c2 != null) {
-                            canvas.save();
-                            canvas.concat(matrix);
-                            canvas.clipRect(0, 0, bitmap.getWidth(), bitmap.getHeight());
-                            Shader.TileMode tileMode = Shader.TileMode.REPEAT;
-                            c.setShader(new BitmapShader(bitmap2, tileMode, tileMode));
-                            Path d = this.c.d();
-                            c2.a(d);
-                            canvas.drawPath(d, c);
-                            canvas.restore();
-                            return;
-                        }
+    /* loaded from: classes6.dex */
+    public static class b implements FunSplashAd {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public x3a a;
+        public SplashAD b;
+        public boolean c;
+        public ViewGroup d;
+        public FunSplashAdInteractionListener e;
+
+        /* loaded from: classes6.dex */
+        public class a implements x3a.a {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
                         return;
                     }
-                    c.setFilterBitmap(c().a());
-                    canvas.drawBitmap(bitmap2, matrix, c);
                 }
+                this.a = bVar;
             }
         }
-    }
 
-    public final float j(Matrix matrix) {
-        InterceptResult invokeL;
-        float f;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, matrix)) == null) {
-            matrix.getValues(this.f);
-            float[] fArr = this.f;
-            if (fArr[0] == 0.0f) {
-                return 0.0f;
-            }
-            double d = fArr[0];
-            double d2 = fArr[3];
-            double d3 = fArr[1];
-            double d4 = fArr[4];
-            if (d * d4 == d2 * d3) {
-                return 0.0f;
-            }
-            double sqrt = Math.sqrt((d * d) + (d2 * d2));
-            double d5 = d / sqrt;
-            double d6 = d2 / sqrt;
-            double d7 = (d5 * d3) + (d6 * d4);
-            double d8 = d3 - (d5 * d7);
-            double d9 = d4 - (d7 * d6);
-            double sqrt2 = Math.sqrt((d8 * d8) + (d9 * d9));
-            if (d5 * (d9 / sqrt2) < d6 * (d8 / sqrt2)) {
-                sqrt = -sqrt;
-            }
-            if (b().a()) {
-                f = (float) sqrt;
-            } else {
-                f = (float) sqrt2;
-            }
-            return Math.abs(f);
-        }
-        return invokeL.floatValue;
-    }
-
-    public final void k(int i) {
-        SoundPool f;
-        Integer c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            for (u3a u3aVar : c().b()) {
-                if (u3aVar.d() == i && (f = c().f()) != null && (c = u3aVar.c()) != null) {
-                    u3aVar.e(Integer.valueOf(f.play(c.intValue(), 1.0f, 1.0f, 1, 0, 1.0f)));
+        public b(SplashAD splashAD) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {splashAD};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                if (u3aVar.a() <= i) {
-                    Integer b2 = u3aVar.b();
-                    if (b2 != null) {
-                        int intValue = b2.intValue();
-                        SoundPool f2 = c().f();
-                        if (f2 != null) {
-                            f2.stop(intValue);
-                        }
+            }
+            this.b = splashAD;
+        }
+
+        @Override // com.fun.ad.sdk.FunSplashAd
+        public void removeMiniWindow() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                LogPrinter.d();
+                a();
+            }
+        }
+
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                x3a x3aVar = this.a;
+                if (x3aVar != null) {
+                    x3aVar.g = null;
+                    x3aVar.h = null;
+                }
+                ViewUtils.removeFromParent(this.d);
+                this.d = null;
+                this.a = null;
+                this.b = null;
+                this.e = null;
+            }
+        }
+
+        @Override // com.fun.ad.sdk.FunSplashAd
+        public boolean showMiniWindow(Activity activity, boolean z, FunSplashAdInteractionListener funSplashAdInteractionListener) {
+            InterceptResult invokeCommon;
+            b bVar;
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, Boolean.valueOf(z), funSplashAdInteractionListener})) == null) {
+                if (activity != null) {
+                    if (!this.c) {
+                        LogPrinter.d("isZoomOutPulled == false, will not show mini window", new Object[0]);
+                        return false;
                     }
-                    u3aVar.e(null);
+                    x3a x3aVar = this.a;
+                    if (x3aVar == null) {
+                        return false;
+                    }
+                    this.e = funSplashAdInteractionListener;
+                    ViewGroup viewGroup = (ViewGroup) activity.getWindow().getDecorView();
+                    ViewGroup viewGroup2 = (ViewGroup) activity.findViewById(16908290);
+                    a aVar = new a(this);
+                    x3aVar.getClass();
+                    LogPrinter.d("zoomOut startZoomOut activity", new Object[0]);
+                    com.fun.module.gdt.q qVar = null;
+                    if (viewGroup != null && viewGroup2 != null) {
+                        if (x3aVar.g != null && x3aVar.h != null) {
+                            int[] iArr = new int[2];
+                            viewGroup.getLocationOnScreen(iArr);
+                            int[] iArr2 = x3aVar.k;
+                            int i2 = iArr2[0] - iArr[0];
+                            int i3 = iArr2[1] - iArr[1];
+                            ViewUtils.removeFromParent(x3aVar.h);
+                            viewGroup.addView(x3aVar.h, new FrameLayout.LayoutParams(x3aVar.i, x3aVar.j));
+                            x3aVar.h.setX(i2);
+                            x3aVar.h.setY(i3);
+                            View view2 = x3aVar.h;
+                            x3aVar.g = null;
+                            x3aVar.h = null;
+                            if (view2 != null) {
+                                Context context = viewGroup2.getContext();
+                                int[] iArr3 = new int[2];
+                                view2.getLocationOnScreen(iArr3);
+                                int width = view2.getWidth();
+                                int height = view2.getHeight();
+                                int width2 = viewGroup.getWidth();
+                                int height2 = viewGroup.getHeight();
+                                if (width2 == 0) {
+                                    width2 = x3aVar.l;
+                                }
+                                if (height2 == 0) {
+                                    height2 = x3aVar.m;
+                                }
+                                int i4 = x3aVar.a;
+                                float f = i4 / width;
+                                int i5 = x3aVar.b;
+                                float f2 = i5 / height;
+                                if (x3aVar.e == 0) {
+                                    i = x3aVar.c;
+                                } else {
+                                    i = (width2 - x3aVar.c) - i4;
+                                }
+                                float f3 = i;
+                                float f4 = (height2 - x3aVar.d) - i5;
+                                LogPrinter.d("zoomOut animationContainerWidth:" + width2 + " animationContainerHeight:" + height2, new Object[0]);
+                                StringBuilder sb = new StringBuilder();
+                                sb.append("zoomOut splashScreenX:");
+                                sb.append(iArr3[0]);
+                                sb.append(" splashScreenY:");
+                                sb.append(iArr3[1]);
+                                LogPrinter.d(sb.toString(), new Object[0]);
+                                LogPrinter.d("zoomOut splashWidth:" + width + " splashHeight:" + height, new Object[0]);
+                                LogPrinter.d("zoomOut width:" + x3aVar.a + " height:" + x3aVar.b, new Object[0]);
+                                LogPrinter.d("zoomOut animationDistX:" + f3 + " animationDistY:" + f4, new Object[0]);
+                                ViewUtils.removeFromParent(view2);
+                                viewGroup.addView(view2, new FrameLayout.LayoutParams(width, height));
+                                com.fun.module.gdt.q qVar2 = new com.fun.module.gdt.q(context, x3aVar.c);
+                                view2.setPivotX(0.0f);
+                                view2.setPivotY(0.0f);
+                                if (z) {
+                                    view2.animate().scaleX(f).scaleY(f2).x(f3).y(f4).setInterpolator(new OvershootInterpolator(0.0f)).setDuration(x3aVar.f).setListener(new w3a(x3aVar, aVar, view2, viewGroup2, f3, f4, iArr3, qVar2));
+                                } else {
+                                    x3aVar.a(view2, viewGroup2, f3, f4, iArr3, qVar2, aVar);
+                                }
+                                bVar = this;
+                                qVar = qVar2;
+                                bVar.d = qVar;
+                                return true;
+                            }
+                        } else {
+                            LogPrinter.d("zoomOut splashAD or splashView is null", new Object[0]);
+                        }
+                    } else {
+                        LogPrinter.d("zoomOut animationContainer or zoomOutContainer is null", new Object[0]);
+                    }
+                    bVar = this;
+                    bVar.d = qVar;
+                    return true;
                 }
+                throw new IllegalArgumentException();
             }
+            return invokeCommon.booleanValue;
         }
     }
 
-    public final Matrix l(Matrix matrix) {
-        InterceptResult invokeL;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, matrix)) == null) {
-            Matrix a2 = this.c.a();
-            a2.postScale(b().b(), b().c());
-            a2.postTranslate(b().d(), b().e());
-            a2.preConcat(matrix);
-            return a2;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
+            SplashAD splashAD = (SplashAD) obj;
+            onShowStart(splashAD);
+            splashAD.showAd(viewGroup);
+            return true;
         }
-        return (Matrix) invokeL.objValue;
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public FunSplashAd showSplashInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, activity, viewGroup, str, obj)) == null) {
+            SplashAD splashAD = (SplashAD) obj;
+            onShowStart(splashAD);
+            splashAD.showAd(viewGroup);
+            b bVar = new b(splashAD);
+            this.f = new WeakReference<>(bVar);
+            View decorView = activity.getWindow().getDecorView();
+            if (bVar.a == null) {
+                bVar.a = new x3a(decorView.getContext());
+            }
+            x3a x3aVar = bVar.a;
+            x3aVar.g = bVar.b;
+            x3aVar.h = viewGroup;
+            viewGroup.getLocationOnScreen(x3aVar.k);
+            x3aVar.i = viewGroup.getWidth();
+            x3aVar.j = viewGroup.getHeight();
+            x3aVar.l = decorView.getWidth();
+            x3aVar.m = decorView.getHeight();
+            return bVar;
+        }
+        return (FunSplashAd) invokeLLLL.objValue;
     }
 }

@@ -13,7 +13,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bh;
+import com.baidu.tieba.gh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -140,7 +140,7 @@ public class CommonTipView extends TextView {
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
                 this.a.i();
                 this.a.setVisibility(8);
-                bh.a().postDelayed(this.a.e, 600L);
+                gh.a().postDelayed(this.a.e, 600L);
             }
         }
     }
@@ -213,7 +213,7 @@ public class CommonTipView extends TextView {
         }
         this.a = 4000;
         this.b = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.obfuscated_res_0x7f010064);
-        this.c = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.obfuscated_res_0x7f0702dd), 0.0f);
+        this.c = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.obfuscated_res_0x7f0702de), 0.0f);
         this.d = new a(this);
         this.e = new b(this);
         g();
@@ -240,7 +240,7 @@ public class CommonTipView extends TextView {
         }
         this.a = 4000;
         this.b = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.obfuscated_res_0x7f010064);
-        this.c = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.obfuscated_res_0x7f0702dd), 0.0f);
+        this.c = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.obfuscated_res_0x7f0702de), 0.0f);
         this.d = new a(this);
         this.e = new b(this);
         g();
@@ -267,7 +267,7 @@ public class CommonTipView extends TextView {
         }
         this.a = 4000;
         this.b = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.obfuscated_res_0x7f010064);
-        this.c = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.obfuscated_res_0x7f0702dd), 0.0f);
+        this.c = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.obfuscated_res_0x7f0702de), 0.0f);
         this.d = new a(this);
         this.e = new b(this);
         g();
@@ -310,7 +310,7 @@ public class CommonTipView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             removeCallbacks(this.d);
-            bh.a().removeCallbacks(this.e);
+            gh.a().removeCallbacks(this.e);
             e();
         }
     }
@@ -331,7 +331,7 @@ public class CommonTipView extends TextView {
         if ((interceptable != null && interceptable.invokeLI(1048581, this, frameLayout, i) != null) || frameLayout == null) {
             return;
         }
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702dd));
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702de));
         layoutParams.setMargins(0, 0, 0, 0);
         frameLayout.addView(this, layoutParams);
         h(i);
@@ -343,7 +343,7 @@ public class CommonTipView extends TextView {
         if ((interceptable != null && interceptable.invokeLI(1048582, this, linearLayout, i) != null) || linearLayout == null) {
             return;
         }
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702dd));
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702de));
         layoutParams.gravity = 48;
         linearLayout.addView(this, layoutParams);
         h(i);

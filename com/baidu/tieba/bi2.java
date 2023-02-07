@@ -1,68 +1,91 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes3.dex */
 public class bi2 {
     public static /* synthetic */ Interceptable $ic;
-    public static File a;
-    public static String b;
-    public static String c;
-    public static String d;
-    public static String e;
-    public static String f;
-    public static String g;
-    public static String h;
-    public static String i;
-    public static String j;
-    public static String k;
-    public static String l;
-    public static String m;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Map<Integer, Integer> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947645854, "Lcom/baidu/tieba/bi2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes3.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final bi2 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-918094399, "Lcom/baidu/tieba/bi2$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-918094399, "Lcom/baidu/tieba/bi2$a;");
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947645854, "Lcom/baidu/tieba/bi2;");
+            a = new bi2();
+        }
+    }
+
+    public bi2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = fn2.g();
-        b = "swan_core";
-        c = "extension_core";
-        d = AppRuntime.getAppContext().getCacheDir() + File.separator + "cloneSwanApp";
-        e = "cloneFolder_";
-        f = d + File.separator + e;
-        g = "clone_pkg_folder";
-        h = "clone_core_folder";
-        i = "clone_dynamic_lib_folder";
-        j = "clone_sp_folder";
-        k = "clone_db_folder";
-        l = "cloneZip.zip";
-        m = "clone_zipFiles";
+        this.a = new ConcurrentHashMap();
     }
 
-    public static File a() {
+    public static bi2 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            File file = new File(rb3.w());
-            if (!nk4.l(file)) {
-                return null;
-            }
-            return file;
+            return a.a;
         }
-        return (File) invokeV.objValue;
+        return (bi2) invokeV.objValue;
+    }
+
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.a.put(Integer.valueOf(i), Integer.valueOf(c(i) + 1));
+            w52.k("SwanRecoveryCounter", "addRecoveryCount level=" + i);
+        }
+    }
+
+    public int c(int i) {
+        InterceptResult invokeI;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            Integer num = this.a.get(Integer.valueOf(i));
+            if (num != null) {
+                i2 = num.intValue();
+            } else {
+                i2 = 0;
+            }
+            w52.k("SwanRecoveryCounter", "getRecoveryCount level=" + i + ";count=" + i2);
+            return i2;
+        }
+        return invokeI.intValue;
     }
 }

@@ -1,76 +1,156 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import tbclient.ZoneRight.DataReq;
-import tbclient.ZoneRight.ZoneRightReqIdl;
+import tbclient.BawuRoleInfoPub;
+import tbclient.ForumInfo;
+import tbclient.ForumRuleDetail.DataRes;
 /* loaded from: classes5.dex */
-public class lx6 implements ie5 {
+public class lx6 implements Cdo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId f;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public long b;
+    public String a;
+    public String b;
     public String c;
-    public int d;
-    public int e;
+    public String d;
+    public String e;
 
-    @Override // com.baidu.tieba.he5
-    public HashMap<String, Object> B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947958303, "Lcom/baidu/tieba/lx6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947958303, "Lcom/baidu/tieba/lx6;");
+                return;
+            }
         }
-        return (HashMap) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.he5
-    public HashMap<String, String> E() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (HashMap) invokeV.objValue;
+        f = BdUniqueId.gen();
     }
 
     public lx6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.ke5
-    public Object h(boolean z) {
-        InterceptResult invokeZ;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            DataReq.Builder builder = new DataReq.Builder();
-            int i = 1;
-            nk5.c(builder, true, false, true);
-            builder.forum_id = Long.valueOf(yg.g(this.c, 0L));
-            builder.thread_id = Long.valueOf(this.b);
-            if (this.d == 1) {
-                i = 2;
-            }
-            builder.req_type = Integer.valueOf(i);
-            ZoneRightReqIdl.Builder builder2 = new ZoneRightReqIdl.Builder();
-            builder2.data = builder.build(false);
-            return builder2.build(false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return invokeZ.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return f;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void h(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, dataRes) == null) {
+            this.c = dataRes.publish_time;
+            BawuRoleInfoPub bawuRoleInfoPub = dataRes.bazhu;
+            if (bawuRoleInfoPub != null) {
+                this.a = bawuRoleInfoPub.portrait;
+                this.e = bawuRoleInfoPub.name_show;
+            }
+            ForumInfo forumInfo = dataRes.forum;
+            if (forumInfo != null) {
+                this.b = forumInfo.avatar;
+                this.d = forumInfo.forum_name;
+            }
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.d = str;
+        }
+    }
+
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    public void m(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.a = str;
+        }
     }
 }

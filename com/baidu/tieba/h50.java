@@ -1,81 +1,23 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.Closeable;
-import java.util.zip.ZipFile;
+import java.nio.ByteBuffer;
 /* loaded from: classes4.dex */
-public class h50 {
+public final class h50 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Cursor cursor) {
-        InterceptResult invokeL;
+    public static void a(ByteBuffer byteBuffer, ByteBuffer byteBuffer2, ByteBuffer byteBuffer3, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, cursor)) == null) {
-            if (cursor != null) {
-                try {
-                    cursor.close();
-                    return true;
-                } catch (Throwable unused) {
-                    return false;
+        if (interceptable == null || interceptable.invokeLLLI(65536, null, byteBuffer, byteBuffer2, byteBuffer3, i) == null) {
+            if (i >= 0 && byteBuffer2.remaining() >= i && byteBuffer3.remaining() >= i && byteBuffer.remaining() >= i) {
+                for (int i2 = 0; i2 < i; i2++) {
+                    byteBuffer.put((byte) (byteBuffer2.get() ^ byteBuffer3.get()));
                 }
+                return;
             }
-            return false;
+            throw new IllegalArgumentException("That combination of buffers, offsets and length to xor result in out-of-bond accesses.");
         }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean b(Closeable closeable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, closeable)) == null) {
-            if (closeable != null) {
-                try {
-                    closeable.close();
-                    return true;
-                } catch (Throwable unused) {
-                    return false;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean c(Closeable closeable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, closeable)) == null) {
-            if (closeable != null) {
-                try {
-                    closeable.close();
-                    return true;
-                } catch (Throwable unused) {
-                    return false;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean d(ZipFile zipFile) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, zipFile)) == null) {
-            if (zipFile != null) {
-                try {
-                    zipFile.close();
-                    return true;
-                } catch (Throwable unused) {
-                    return false;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 }

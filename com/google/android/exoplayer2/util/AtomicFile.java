@@ -60,7 +60,7 @@ public final class AtomicFile {
             try {
                 this.fileOutputStream.getFD().sync();
             } catch (IOException e) {
-                Log.w(AtomicFile.TAG, "Failed to sync file descriptor:", e);
+                Log.w("AtomicFile", "Failed to sync file descriptor:", e);
             }
             this.fileOutputStream.close();
         }
@@ -158,7 +158,7 @@ public final class AtomicFile {
             if (this.baseName.exists()) {
                 if (!this.backupName.exists()) {
                     if (!this.baseName.renameTo(this.backupName)) {
-                        Log.w(TAG, "Couldn't rename file " + this.baseName + " to backup file " + this.backupName);
+                        Log.w("AtomicFile", "Couldn't rename file " + this.baseName + " to backup file " + this.backupName);
                     }
                 } else {
                     this.baseName.delete();

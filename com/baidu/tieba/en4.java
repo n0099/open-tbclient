@@ -1,58 +1,90 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.webkit.CookieManager;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.tbadk.BdToken.NewUserGetMoneyResMsg;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes4.dex */
 public class en4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int[] a;
+    public static final Object[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public en4() {
+    public static int c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            for (int i2 = 4; i2 < 32; i2++) {
+                int i3 = (1 << i2) - 12;
+                if (i <= i3) {
+                    return i3;
+                }
+            }
+            return i;
+        }
+        return invokeI.intValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947740094, "Lcom/baidu/tieba/en4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947740094, "Lcom/baidu/tieba/en4;");
                 return;
             }
         }
-        MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_NEW_USER_GET_MONEY, TbConfig.NEW_USER_GET_MONEY_URL);
-        tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
-        tbHttpMessageTask.setResponsedClass(NewUserGetMoneyResMsg.class);
-        tbHttpMessageTask.setIsNeedTbs(true);
-        messageManager.registerTask(tbHttpMessageTask);
+        a = new int[0];
+        b = new Object[0];
     }
 
-    public void a() {
+    public static int a(int[] iArr, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_NEW_USER_GET_MONEY);
-            httpMessage.addParam(Constants.PHONE_BRAND, Build.BRAND);
-            httpMessage.addParam("cuid", TbadkCoreApplication.getInst().getCuid());
-            httpMessage.addParam("client_version", TbConfig.getVersion());
-            httpMessage.addParam("client_type", "Android");
-            httpMessage.addParam("shoubai_cuid", TbadkCoreApplication.getInst().getCuidGalaxy2());
-            httpMessage.addParam("ua", rl5.e());
-            httpMessage.addHeader("Cookie", CookieManager.getInstance().getCookie("tieba.baidu.com"));
-            MessageManager.getInstance().sendMessage(httpMessage);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, iArr, i, i2)) == null) {
+            int i3 = i - 1;
+            int i4 = 0;
+            while (i4 <= i3) {
+                int i5 = (i4 + i3) >>> 1;
+                int i6 = iArr[i5];
+                if (i6 < i2) {
+                    i4 = i5 + 1;
+                } else if (i6 > i2) {
+                    i3 = i5 - 1;
+                } else {
+                    return i5;
+                }
+            }
+            return ~i4;
         }
+        return invokeLII.intValue;
+    }
+
+    public static boolean b(Object obj, Object obj2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, obj, obj2)) == null) {
+            if (obj != obj2 && (obj == null || !obj.equals(obj2))) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static int d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            return c(i * 4) / 4;
+        }
+        return invokeI.intValue;
     }
 }

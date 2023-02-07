@@ -43,10 +43,10 @@ public abstract class jp {
     }
 
     /* renamed from: a */
-    public abstract void mo629a(byte[] bArr, int i, int i2);
+    public abstract void mo631a(byte[] bArr, int i, int i2);
 
     /* renamed from: a */
-    public byte[] mo630a() {
+    public byte[] mo632a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {

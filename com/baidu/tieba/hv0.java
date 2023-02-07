@@ -1,37 +1,20 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.searchbox.player.helper.ViewOpUtils;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public class hv0 {
+public class hv0 extends vv0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(View view2) {
+    public static vv0 w(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) {
-            if (view2 != null && view2.getParent() != null && (view2.getParent() instanceof ViewGroup)) {
-                ViewGroup viewGroup = (ViewGroup) view2.getParent();
-                if (viewGroup.indexOfChild(view2) != -1) {
-                    try {
-                        a01.b(ViewOpUtils.TAG, "removeView " + view2.hashCode());
-                        viewGroup.removeView(view2);
-                        return true;
-                    } catch (Exception e) {
-                        a01.f("removeView(" + System.identityHashCode(view2) + SmallTailInfo.EMOTION_SUFFIX, e);
-                        return true;
-                    }
-                }
-                return false;
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            return vv0.m(str, 2);
         }
-        return invokeL.booleanValue;
+        return (vv0) invokeL.objValue;
     }
 }

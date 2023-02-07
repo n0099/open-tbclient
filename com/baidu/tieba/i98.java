@@ -1,127 +1,79 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.message.GameLaunchMessage;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.pb.chosen.PbChosenActivity;
+import com.baidu.tieba.pb.chosen.net.ChosenPbHttpResponse;
+import com.baidu.tieba.pb.chosen.net.ChosenPbNetMessage;
+import com.baidu.tieba.pb.chosen.net.ChosenPbSocketResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes4.dex */
 public class i98 {
     public static /* synthetic */ Interceptable $ic;
-    public static i98 a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947808449, "Lcom/baidu/tieba/i98;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947808449, "Lcom/baidu/tieba/i98;");
-        }
-    }
 
     public i98() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        b();
+        a();
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ol5 ol5Var = new ol5(309093);
+            ol5Var.setResponsedClass(ChosenPbSocketResponse.class);
+            ol5Var.g(true);
+            ol5Var.h(false);
+            MessageManager.getInstance().registerTask(ol5Var);
         }
     }
 
-    public static i98 a() {
-        InterceptResult invokeV;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (i98.class) {
-                    if (a == null) {
-                        a = new i98();
-                    }
-                }
-            }
-            return a;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_FINE_PB, o09.a(TbConfig.FINE_PB_PAGE, 309093));
+            tbHttpMessageTask.setIsNeedLogin(false);
+            tbHttpMessageTask.setIsNeedTbs(false);
+            tbHttpMessageTask.setIsNeedAddCommenParam(false);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(false);
+            tbHttpMessageTask.setResponsedClass(ChosenPbHttpResponse.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
-        return (i98) invokeV.objValue;
     }
 
-    public static boolean c(String str) {
-        InterceptResult invokeL;
+    public void c(PbChosenActivity pbChosenActivity, long j, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (str != null && str.contains("bookcover:")) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || !str.contains("xiaoying.tv")) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean b(String str) {
-        InterceptResult invokeL;
-        Map<String, String> paramPair;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || (paramPair = UrlManager.getParamPair(UrlManager.getParamStr(str))) == null) {
-                return false;
-            }
-            String str2 = paramPair.get("url");
-            if (!TextUtils.isEmpty(str2)) {
-                return b(yi.getUrlDecode(str2));
-            }
-            String str3 = paramPair.get("tbgametype");
-            if (TextUtils.isEmpty(str3) || !str3.equals("1")) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void e(TbPageContext tbPageContext, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, str) != null) || tbPageContext == null || TextUtils.isEmpty(str)) {
-            return;
-        }
-        str.contains("is_native_app=1");
-        if (b(str)) {
-            MessageManager.getInstance().dispatchResponsedMessage(new GameLaunchMessage(tbPageContext.getPageActivity(), null, str, null));
-        } else if (d(str)) {
-            UrlManager.getInstance().dealOneLink((TbPageContext<?>) tbPageContext, new String[]{str}, true);
-        } else {
-            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{pbChosenActivity, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            ChosenPbNetMessage chosenPbNetMessage = new ChosenPbNetMessage();
+            int l = ej.l(pbChosenActivity.getPageContext().getPageActivity());
+            int j4 = ej.j(pbChosenActivity.getPageContext().getPageActivity());
+            float i = ej.i(pbChosenActivity.getPageContext().getPageActivity());
+            chosenPbNetMessage.setQ_type(45L);
+            chosenPbNetMessage.setScrH(j4);
+            chosenPbNetMessage.setScrW(l);
+            chosenPbNetMessage.setScr_dip(i);
+            chosenPbNetMessage.setExcId(j);
+            chosenPbNetMessage.setTagCode(j2);
+            chosenPbNetMessage.setThreadId(j3);
+            pbChosenActivity.sendMessage(chosenPbNetMessage);
         }
     }
 }

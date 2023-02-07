@@ -1,150 +1,72 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gz9;
+import android.graphics.Canvas;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.ChannelNativeAds;
-import com.fun.ad.sdk.CustomInflater;
-import com.fun.ad.sdk.ExpressInflater;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.FunNativeView;
-import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
-import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.qq.e.ads.nativ.NativeADEventListener;
-import com.qq.e.ads.nativ.NativeUnifiedADData;
-import com.qq.e.ads.nativ.widget.NativeAdContainer;
-import java.lang.ref.WeakReference;
-import java.util.Iterator;
+import java.lang.reflect.Method;
 /* loaded from: classes5.dex */
-public class iz9 extends FunNativeAd2Bridger<NativeUnifiedADData, com.fun.module.gdt.u> {
+public class iz9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int a;
+    public static final Method b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final gz9.c b;
-    public final /* synthetic */ pz9 c;
-    public final /* synthetic */ gz9 d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public iz9(gz9 gz9Var, ReporterPidLoader reporterPidLoader, NativeUnifiedADData nativeUnifiedADData, String str, pz9 pz9Var) {
-        super(reporterPidLoader);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {gz9Var, reporterPidLoader, nativeUnifiedADData, str, pz9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((ReporterPidLoader) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947870945, "Lcom/baidu/tieba/iz9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947870945, "Lcom/baidu/tieba/iz9;");
                 return;
             }
         }
-        this.d = gz9Var;
-        this.c = pz9Var;
-        this.b = new gz9.c(gz9Var, nativeUnifiedADData, str);
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public /* bridge */ /* synthetic */ void showExpress(Activity activity, ExpressInflater expressInflater, String str, NativeUnifiedADData nativeUnifiedADData, BaseNativeAd2<NativeUnifiedADData, com.fun.module.gdt.u> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
-        a(expressInflater, str, nativeUnifiedADData, funAdInteractionListener);
-    }
-
-    public static void b(com.fun.module.gdt.u uVar, NativeUnifiedADData nativeUnifiedADData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, uVar, nativeUnifiedADData) == null) {
-            uVar.b(nativeUnifiedADData);
+        try {
+            a = ((Integer) Canvas.class.getField("MATRIX_SAVE_FLAG").get(null)).intValue();
+            b = Canvas.class.getMethod("save", Integer.TYPE);
+        } catch (Throwable th) {
+            b(th);
+            throw null;
         }
     }
 
-    /* JADX DEBUG: Incorrect args count in method signature: (Landroid/app/Activity;Lcom/fun/ad/sdk/ExpressInflater;Ljava/lang/String;Lcom/qq/e/ads/nativ/NativeUnifiedADData;Lcom/fun/ad/sdk/internal/api/BaseNativeAd2<Lcom/qq/e/ads/nativ/NativeUnifiedADData;Lcom/fun/module/gdt/u;>;Lcom/fun/ad/sdk/FunAdInteractionListener;)V */
-    public void a(ExpressInflater expressInflater, String str, final NativeUnifiedADData nativeUnifiedADData, FunAdInteractionListener funAdInteractionListener) {
-        Ssp.Pid pid;
+    public static void a(Canvas canvas, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, expressInflater, str, nativeUnifiedADData, funAdInteractionListener) == null) {
-            final com.fun.module.gdt.u uVar = (com.fun.module.gdt.u) expressInflater.getExpressView();
-            gz9 gz9Var = this.d;
-            FunNativeAdListenerHelper<NativeUnifiedADData, NativeADEventListener> funNativeAdListenerHelper = gz9Var.e;
-            pid = gz9Var.mPid;
-            funNativeAdListenerHelper.startShow(nativeUnifiedADData, str, pid, this.b, funAdInteractionListener);
-            this.b.d = new gz9.e() { // from class: com.baidu.tieba.qy9
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // com.baidu.tieba.gz9.e
-                public final void onADStatusChanged() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        iz9.b(com.fun.module.gdt.u.this, nativeUnifiedADData);
-                    }
-                }
-            };
-            this.d.m(uVar, nativeUnifiedADData, this.b);
-            expressInflater.inflate();
+        if (interceptable == null || interceptable.invokeLI(65537, null, canvas, i) == null) {
+            try {
+                b.invoke(canvas, Integer.valueOf(i));
+            } catch (Throwable th) {
+                b(th);
+                throw null;
+            }
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX DEBUG: Return type fixed from 'android.view.View' to match base method */
-    /* JADX WARN: Type inference failed for: r1v1, types: [com.fun.module.gdt.u, android.view.View] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public com.fun.module.gdt.u createExpressView(NativeUnifiedADData nativeUnifiedADData) {
+    public static RuntimeException b(Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nativeUnifiedADData)) == null) {
-            return this.d.f(FunAdSdk.getAppContext(), nativeUnifiedADData);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, th)) == null) {
+            if (th == null) {
+                throw new NullPointerException("t");
+            }
+            c(th);
+            throw null;
         }
-        return (View) invokeL.objValue;
+        return (RuntimeException) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showCustom(Activity activity, CustomInflater customInflater, String str, NativeUnifiedADData nativeUnifiedADData, BaseNativeAd2<NativeUnifiedADData, com.fun.module.gdt.u> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
-        NativeAdContainer nativeAdContainer;
+    public static <T extends Throwable> T c(Throwable th) throws Throwable {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, customInflater, str, nativeUnifiedADData, baseNativeAd2, funAdInteractionListener}) == null) {
-            NativeUnifiedADData nativeUnifiedADData2 = nativeUnifiedADData;
-            ChannelNativeAds.GdtADStatusChangeListener gdtADStatusChangeListener = this.c.c.getGdtADStatusChangeListener();
-            if (gdtADStatusChangeListener != null) {
-                this.b.d = new hz9(this, gdtADStatusChangeListener);
-            } else {
-                this.b.d = null;
-            }
-            ViewGroup inflate = customInflater.inflate();
-            if (inflate instanceof FunNativeView) {
-                FunNativeView funNativeView = (FunNativeView) inflate;
-                Iterator<WeakReference<NativeAdContainer>> it = uy9.b.a.iterator();
-                while (it.hasNext()) {
-                    NativeAdContainer nativeAdContainer2 = it.next().get();
-                    if (nativeAdContainer2 == null) {
-                        it.remove();
-                    } else if (nativeAdContainer2 == funNativeView.getRoot()) {
-                        it.remove();
-                        nativeAdContainer = nativeAdContainer2;
-                        break;
-                    }
-                }
-                nativeAdContainer = null;
-            } else {
-                if (inflate instanceof NativeAdContainer) {
-                    nativeAdContainer = (NativeAdContainer) inflate;
-                }
-                nativeAdContainer = null;
-            }
-            this.d.p(nativeUnifiedADData2, str, nativeAdContainer, this.c.d, customInflater.getClickViews(), this.b, funAdInteractionListener);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, th)) == null) {
+            throw th;
         }
+        return (T) invokeL.objValue;
     }
 }

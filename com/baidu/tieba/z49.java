@@ -1,128 +1,52 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class z49 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "databases";
-    public static final String b = "shared_prefs";
+public class z49 extends CustomMessageListener {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final MainTabActivity a;
+    public final v39 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948310122, "Lcom/baidu/tieba/z49;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public z49(MainTabActivity mainTabActivity, v39 v39Var) {
+        super(2010045);
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948310122, "Lcom/baidu/tieba/z49;");
-        }
-    }
-
-    public static final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            c(h59.f());
-            e();
-            d();
-            h59.a();
-        }
-    }
-
-    public static final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            a();
-            f();
-            h();
-            g();
-        }
-    }
-
-    public static final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (Intrinsics.areEqual("mounted", Environment.getExternalStorageState()) && h59.c(h59.d().getExternalCacheDir())) {
-                return true;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, v39Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeV.booleanValue;
+        this.a = mainTabActivity;
+        this.b = v39Var;
+        setTag(mainTabActivity.getUniqueId());
     }
 
-    public static final boolean e() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return h59.c(h59.d().getCacheDir());
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && this.b != null && TbadkCoreApplication.getInst().getCurrentActivity() == this.a) {
+            boolean z = false;
+            this.b.t = dh.b(customResponsedMessage.getData().toString(), false);
+            v39 v39Var = this.b;
+            this.b.D((v39Var.t || v39Var.u) ? true : true);
         }
-        return invokeV.booleanValue;
-    }
-
-    public static final boolean f() {
-        InterceptResult invokeV;
-        String parent;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            File filesDir = h59.d().getFilesDir();
-            if (filesDir == null) {
-                parent = null;
-            } else {
-                parent = filesDir.getParent();
-            }
-            return h59.c(new File(parent, a));
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static final boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return h59.c(h59.d().getFilesDir());
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static final boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            return h59.c(h59.g(str));
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static final boolean h() {
-        InterceptResult invokeV;
-        String parent;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            File filesDir = h59.d().getFilesDir();
-            if (filesDir == null) {
-                parent = null;
-            } else {
-                parent = filesDir.getParent();
-            }
-            boolean c = h59.c(new File(parent, b));
-            if (c) {
-                h59.b();
-            }
-            return c;
-        }
-        return invokeV.booleanValue;
     }
 }

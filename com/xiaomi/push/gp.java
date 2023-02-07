@@ -252,7 +252,7 @@ public class gp extends gn {
 
     @Override // com.xiaomi.push.gn
     /* renamed from: a */
-    public String mo442a() {
+    public String mo444a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -306,9 +306,9 @@ public class gp extends gn {
                 sb.append("</show>");
             }
             sb.append(o());
-            gr m443a = m443a();
-            if (m443a != null) {
-                sb.append(m443a.m446a());
+            gr m445a = m445a();
+            if (m445a != null) {
+                sb.append(m445a.m448a());
             }
             sb.append("</presence>");
             return sb.toString();

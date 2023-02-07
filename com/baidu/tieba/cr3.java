@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.swan.bdprivate.extensions.quicklogin.QuickLoginInfo;
 /* loaded from: classes4.dex */
-public /* synthetic */ class cr3 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface cr3 {
+    void a(QuickLoginInfo quickLoginInfo);
 }

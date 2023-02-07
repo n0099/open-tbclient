@@ -5,10 +5,11 @@ import android.graphics.Rect;
 import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewParent;
 import androidx.annotation.DimenRes;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,7 +48,7 @@ public class ViewCommonUtil {
                     iArr[1] = iArr[1] - findViewById.getHeight();
                 }
             }
-            int[] s = zi.s(activity);
+            int[] s = ej.s(activity);
             if (iArr[0] == 0 || iArr[1] == 0) {
                 iArr[0] = s[0];
                 iArr[1] = s[1];
@@ -70,9 +71,9 @@ public class ViewCommonUtil {
             if (windowVisibility != 8) {
                 rect.top = 0;
             }
-            int u = zi.u(activity);
+            int u = ej.u(activity);
             if (MenuKeyUtils.hasSmartBar()) {
-                i = zi.d(activity, 48.0f);
+                i = ej.d(activity, 48.0f);
             } else {
                 i = 0;
             }
@@ -86,9 +87,20 @@ public class ViewCommonUtil {
         return (Rect) invokeL.objValue;
     }
 
+    public static void removeFromParentLayout(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65539, null, view2) != null) || view2 == null) {
+            return;
+        }
+        ViewParent parent = view2.getParent();
+        if (parent instanceof ViewGroup) {
+            ((ViewGroup) parent).removeView(view2);
+        }
+    }
+
     public static void setViewMargin(@NonNull View view2, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
@@ -110,7 +122,7 @@ public class ViewCommonUtil {
 
     public static void setViewMarginByDimen(@NonNull View view2, @DimenRes int i, @DimenRes int i2, @DimenRes int i3, @DimenRes int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             if (i != -1) {
                 i = UtilHelper.getDimenPixelSize(i);
             }
@@ -129,7 +141,7 @@ public class ViewCommonUtil {
 
     public static void setViewPadding(@NonNull View view2, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             if (i == -1) {
                 i = view2.getPaddingLeft();
             }
@@ -148,7 +160,7 @@ public class ViewCommonUtil {
 
     public static void setViewWidthHeight(@NonNull View view2, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65542, null, view2, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeLII(65543, null, view2, i, i2) == null) {
             ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
             if (i != -3) {
                 layoutParams.width = i;
@@ -156,6 +168,13 @@ public class ViewCommonUtil {
             if (i2 != -3) {
                 layoutParams.height = i2;
             }
+        }
+    }
+
+    public static void setVisibility(@NonNull View view2, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65544, null, view2, i) == null) && view2 != null && view2.getVisibility() != i) {
+            view2.setVisibility(i);
         }
     }
 }

@@ -20,8 +20,8 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aj;
-import com.baidu.tieba.jn;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.on;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -77,16 +77,16 @@ public class BitmapHelper {
         return (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, bitmap, i, i2)) == null) ? bitmap : (Bitmap) invokeLII.objValue;
     }
 
-    public static jn checkIsValidPhotoMemoryCache(String str, jn jnVar, int i, int i2) {
+    public static on checkIsValidPhotoMemoryCache(String str, on onVar, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(65543, null, str, jnVar, i, i2)) == null) ? jnVar : (jn) invokeLLII.objValue;
+        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(65543, null, str, onVar, i, i2)) == null) ? onVar : (on) invokeLLII.objValue;
     }
 
-    public static jn checkIsValidPicMemoryCache(String str, jn jnVar, int i, int i2) {
+    public static on checkIsValidPicMemoryCache(String str, on onVar, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(65544, null, str, jnVar, i, i2)) == null) ? jnVar : (jn) invokeLLII.objValue;
+        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(65544, null, str, onVar, i, i2)) == null) ? onVar : (on) invokeLLII.objValue;
     }
 
     public static int getGradeResourceIdInEnterForum(int i) {
@@ -370,7 +370,7 @@ public class BitmapHelper {
                                     FileInputStream fileInputStream2 = new FileInputStream(file);
                                     try {
                                         Bitmap decodeStream = BitmapFactory.decodeStream(fileInputStream2, null, options);
-                                        aj.e(fileInputStream2);
+                                        fj.e(fileInputStream2);
                                         return decodeStream;
                                     } catch (Throwable th) {
                                         fileInputStream = fileInputStream2;
@@ -380,7 +380,7 @@ public class BitmapHelper {
                                                 try {
                                                     break;
                                                 } catch (Throwable unused) {
-                                                    aj.e(fileInputStream);
+                                                    fj.e(fileInputStream);
                                                     return null;
                                                 }
                                             } catch (Throwable th2) {
@@ -390,7 +390,7 @@ public class BitmapHelper {
                                         throw th;
                                     }
                                 }
-                                aj.e(null);
+                                fj.e(null);
                                 return null;
                             }
                         } catch (Throwable th3) {
@@ -398,7 +398,7 @@ public class BitmapHelper {
                             fileInputStream = null;
                         }
                     }
-                    aj.e(null);
+                    fj.e(null);
                     return null;
                 }
             } catch (Throwable unused2) {
@@ -423,7 +423,7 @@ public class BitmapHelper {
                         InputStream GetStreamFromFile = FileHelper.GetStreamFromFile(new File(str));
                         BitmapFactory.decodeStream(GetStreamFromFile, null, options);
                         options.inPreferredConfig = TbConfig.BitmapConfig;
-                        aj.e(GetStreamFromFile);
+                        fj.e(GetStreamFromFile);
                         while (true) {
                             int i3 = i2 * 2;
                             if (options.outWidth / i3 <= i && options.outHeight / i3 <= i) {
@@ -431,7 +431,7 @@ public class BitmapHelper {
                                 options.inSampleSize = i2;
                                 InputStream GetStreamFromFile2 = FileHelper.GetStreamFromFile(new File(str));
                                 decodeStream = BitmapFactory.decodeStream(GetStreamFromFile2, null, options);
-                                aj.e(GetStreamFromFile2);
+                                fj.e(GetStreamFromFile2);
                             }
                             i2 = i3;
                         }
@@ -1141,7 +1141,7 @@ public class BitmapHelper {
                                 if (str.length() > 0 && i > 0 && i2 > 0) {
                                     File file = new File(str);
                                     if (!file.exists()) {
-                                        aj.e(null);
+                                        fj.e(null);
                                         return null;
                                     }
                                     BitmapFactory.Options options = new BitmapFactory.Options();
@@ -1150,7 +1150,7 @@ public class BitmapHelper {
                                     FileInputStream fileInputStream = new FileInputStream(file);
                                     BitmapFactory.decodeStream(fileInputStream, null, options);
                                     options.inPreferredConfig = TbConfig.BitmapConfig;
-                                    aj.e(fileInputStream);
+                                    fj.e(fileInputStream);
                                     while (true) {
                                         int i4 = i3 * 2;
                                         if (options.outWidth / i4 <= i && options.outHeight / i4 <= i2) {
@@ -1159,7 +1159,7 @@ public class BitmapHelper {
                                             FileInputStream fileInputStream2 = new FileInputStream(file);
                                             try {
                                                 Bitmap decodeStream = BitmapFactory.decodeStream(fileInputStream2, null, options);
-                                                aj.e(fileInputStream2);
+                                                fj.e(fileInputStream2);
                                                 return decodeStream;
                                             } catch (Throwable th) {
                                                 th = th;
@@ -1167,7 +1167,7 @@ public class BitmapHelper {
                                                 try {
                                                     throw th;
                                                 } catch (Throwable unused) {
-                                                    aj.e(interceptable);
+                                                    fj.e(interceptable);
                                                     return null;
                                                 }
                                             }
@@ -1180,7 +1180,7 @@ public class BitmapHelper {
                                 interceptable = 0;
                             }
                         }
-                        aj.e(null);
+                        fj.e(null);
                         return null;
                     } catch (Throwable th3) {
                         th = th3;
@@ -1314,7 +1314,7 @@ public class BitmapHelper {
                             options.inJustDecodeBounds = false;
                             FileInputStream fileInputStream = new FileInputStream(file);
                             Bitmap decodeStream = BitmapFactory.decodeStream(fileInputStream, null, options);
-                            aj.e(fileInputStream);
+                            fj.e(fileInputStream);
                             return decodeStream;
                         } catch (Throwable th) {
                             th = th;
@@ -1322,7 +1322,7 @@ public class BitmapHelper {
                             try {
                                 throw th;
                             } catch (Throwable unused) {
-                                aj.e(inputStream);
+                                fj.e(inputStream);
                                 return null;
                             }
                         }
@@ -1451,7 +1451,7 @@ public class BitmapHelper {
                         InputStream GetStreamFromFile = FileHelper.GetStreamFromFile(str);
                         BitmapFactory.decodeStream(GetStreamFromFile, null, options);
                         options.inPreferredConfig = TbConfig.BitmapConfig;
-                        aj.e(GetStreamFromFile);
+                        fj.e(GetStreamFromFile);
                         while (true) {
                             int i3 = i2 * 2;
                             if (options.outWidth / i3 <= i && options.outHeight / i3 <= i) {
@@ -1459,7 +1459,7 @@ public class BitmapHelper {
                                 options.inSampleSize = i2;
                                 InputStream GetStreamFromFile2 = FileHelper.GetStreamFromFile(str);
                                 decodeStream = BitmapFactory.decodeStream(GetStreamFromFile2, null, options);
-                                aj.e(GetStreamFromFile2);
+                                fj.e(GetStreamFromFile2);
                             }
                             i2 = i3;
                         }

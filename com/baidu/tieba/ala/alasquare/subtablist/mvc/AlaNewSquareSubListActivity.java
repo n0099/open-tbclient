@@ -7,7 +7,7 @@ import com.baidu.ala.atomdata.AlaNewSquareSubListActivityConfig;
 import com.baidu.ala.data.AlaSquareTabInfo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.xz5;
+import com.baidu.tieba.j46;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,7 +17,7 @@ import java.util.List;
 public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubListActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xz5 a;
+    public j46 a;
     public AlaSquareTabInfo b;
     public String c;
     public String d;
@@ -43,9 +43,9 @@ public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
-            xz5 xz5Var = this.a;
-            if (xz5Var != null) {
-                xz5Var.i();
+            j46 j46Var = this.a;
+            if (j46Var != null) {
+                j46Var.i();
             }
         }
     }
@@ -64,9 +64,9 @@ public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.onChangeSkinType(i);
-            xz5 xz5Var = this.a;
-            if (xz5Var != null) {
-                xz5Var.h(getPageContext(), i);
+            j46 j46Var = this.a;
+            if (j46Var != null) {
+                j46Var.h(getPageContext(), i);
             }
         }
     }
@@ -76,7 +76,7 @@ public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new xz5(getPageContext(), true);
+            this.a = new j46(getPageContext(), true);
             if (getIntent() != null) {
                 w1(getIntent());
             } else {

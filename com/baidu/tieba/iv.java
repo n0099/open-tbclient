@@ -1,115 +1,82 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.BDPTask;
-import com.baidu.bdtask.component.dialog.TaskDialogViewData;
-import com.baidu.bdtask.ui.components.dialog.DoubleBtnDialog;
-import com.baidu.bdtask.ui.components.dialog.SingleBtnDialog;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class iv extends zs<cq> {
+public final class iv {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final String b;
 
-    /* loaded from: classes5.dex */
-    public static final class a<T> implements et<TaskDialogViewData> {
-        public static /* synthetic */ Interceptable $ic;
-        public static final a a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(254319043, "Lcom/baidu/tieba/iv$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(254319043, "Lcom/baidu/tieba/iv$a;");
-                    return;
-                }
-            }
-            a = new a();
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            String str = this.a;
+            int hashCode = (str != null ? str.hashCode() : 0) * 31;
+            String str2 = this.b;
+            return hashCode + (str2 != null ? str2.hashCode() : 0);
         }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.et
-        /* renamed from: a */
-        public final void onChanged(TaskDialogViewData taskDialogViewData) {
-            Context context;
-            Class cls;
-            ks h;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, taskDialogViewData) == null) && taskDialogViewData != null) {
-                ku v = BDPTask.m.v();
-                if (v != null && (h = v.h()) != null) {
-                    context = h.getAppContext();
-                } else {
-                    context = null;
-                }
-                if (taskDialogViewData.getShowType() == 1) {
-                    cls = SingleBtnDialog.class;
-                } else {
-                    cls = DoubleBtnDialog.class;
-                }
-                Intent intent = new Intent(context, cls);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("data", taskDialogViewData);
-                intent.putExtras(bundle);
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                if (context != null) {
-                    context.startActivity(intent);
-                }
-            }
-        }
+        return invokeV.intValue;
     }
 
-    public iv() {
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "TaskUBCStatus(taskSingleKey=" + this.a + ", taskUBCStatus=" + this.b + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public iv(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = str;
+        this.b = str2;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.at
-    /* renamed from: b */
-    public void a(cq cqVar) {
+    public final String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cqVar) == null) {
-            cqVar.a().l(a.a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (!(obj instanceof iv)) {
+                return false;
+            }
+            iv ivVar = (iv) obj;
+            if ((!Intrinsics.areEqual(ivVar.a, this.a)) || (!Intrinsics.areEqual(ivVar.b, this.b))) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

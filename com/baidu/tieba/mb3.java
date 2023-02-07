@@ -1,186 +1,200 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.favordata.SwanFavorItemData;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
-import com.baidu.tieba.gp2;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.res.ui.FloatButton;
+import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class mb3 extends lb3 {
+public class mb3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean f;
+    @SuppressLint({"StaticFieldLeak"})
+    public static volatile mb3 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public SwanCoreVersion k;
-    public String l;
-    public String m;
-    public String n;
-    public String o;
-    public String p;
-    public String q;
-    public String r;
-    public String s;
-    public String t;
-    public String u;
+    public Activity a;
+    public FloatButton b;
+    public String c;
+    public JSONObject d;
+    public String e;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947966859, "Lcom/baidu/tieba/mb3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947966859, "Lcom/baidu/tieba/mb3;");
+                return;
+            }
+        }
+        f = gp1.a;
+    }
 
     public mb3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.l = "";
-        this.m = "";
-        this.n = "";
-        this.o = "";
-        this.p = "";
-        this.q = "";
-        this.r = "";
-        this.s = "";
-        this.t = "";
-        bb3.i(this);
-        bb3.h(this);
-        bb3.f(this);
-        bb3.g(this);
+        this.e = "";
     }
 
-    @Override // com.baidu.tieba.lb3
-    public JSONObject f() {
-        int i;
+    public static mb3 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                j43 D = wp2.U().D();
-                if (TextUtils.equals(this.a, SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME)) {
-                    i = 1;
-                } else {
-                    i = 0;
-                }
-                String i2 = od3.i(this.k, i);
-                if (D != null && D.Y() != null) {
-                    gp2.a Y = D.Y();
-                    if (TextUtils.isEmpty(this.l)) {
-                        this.l = D.k0();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (g == null) {
+                synchronized (mb3.class) {
+                    if (g == null) {
+                        g = new mb3();
                     }
-                    if (TextUtils.isEmpty(this.m)) {
-                        this.m = Y.w1();
-                    }
-                    Bundle P = Y.P();
-                    if (P != null) {
-                        this.o = P.getString("aiapp_extra_need_download", "");
-                    }
-                    if (TextUtils.isEmpty(this.p)) {
-                        this.p = Y.W();
-                    }
-                    this.p = bb3.b(this.p);
-                    if (TextUtils.isEmpty(this.g) && !TextUtils.isEmpty(Y.e0())) {
-                        this.s = Y.e0();
-                    }
-                    String b = bb3.b(this.s);
-                    this.s = b;
-                    if (b == null) {
-                        this.s = "";
-                    }
-                    if (TextUtils.isEmpty(this.u)) {
-                        this.u = Y.V();
-                    }
-                }
-                this.n = SwanAppNetworkUtils.f().type;
-                if (this.h == null) {
-                    this.h = new JSONObject();
-                }
-                this.h.put("swan", i2);
-                this.h.put("appversion", this.l);
-                this.h.put("thirdversion", this.m);
-                this.h.put("net", this.n);
-                this.h.put("needdown", this.o);
-                this.h.put("scheme", this.p);
-                this.h.put("page", this.s);
-                this.h.put("launchid", this.u);
-                if (!TextUtils.isEmpty(this.t)) {
-                    this.h.put("error_code", this.t);
-                }
-                if (!TextUtils.isEmpty(this.q)) {
-                    this.h.put("canceltime", this.q);
-                }
-                if (!TextUtils.isEmpty(this.r)) {
-                    this.h.put("successtime", this.r);
-                }
-                if (lb3.j) {
-                    Log.d("SwanAppUBCEvent", "SwanAppUBCEvent: mExt=" + this.h + "\t " + Thread.currentThread().getId());
-                }
-            } catch (JSONException e) {
-                if (lb3.j) {
-                    e.printStackTrace();
                 }
             }
-            return super.f();
+            return g;
         }
-        return (JSONObject) invokeV.objValue;
+        return (mb3) invokeV.objValue;
     }
 
-    public String g() {
+    public static void h() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65539, null) != null) || g == null) {
+            return;
+        }
+        g = null;
+    }
+
+    public FloatButton c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.u;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
         }
-        return (String) invokeV.objValue;
+        return (FloatButton) invokeV.objValue;
     }
 
-    public void h(jp2 jp2Var) {
+    public final FloatButton a(Context context, ViewGroup viewGroup) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jp2Var) == null) {
-            if (jp2Var == null) {
-                if (lb3.j) {
-                    Log.w("SwanAppUBCEvent", "launchinfo is null");
-                    return;
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, viewGroup)) == null) {
+            if (context != null && viewGroup != null) {
+                FloatButton e = e(context);
+                viewGroup.addView(e);
+                return e;
+            }
+            return null;
+        }
+        return (FloatButton) invokeLL.objValue;
+    }
+
+    public void b(Intent intent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) == null) && intent != null && this.b != null) {
+            String dataString = intent.getDataString();
+            if (TextUtils.isEmpty(dataString)) {
                 return;
             }
-            this.f = jp2Var.H();
-            this.c = jp2Var.T();
-            this.o = jp2Var.s0().getString("aiapp_extra_need_download", "");
-            this.p = jp2Var.W();
-            this.s = jp2Var.e0();
-            this.u = jp2Var.V();
+            String substring = dataString.substring(8);
+            if (!TextUtils.isEmpty(substring) && substring.equals(this.e)) {
+                if (TextUtils.equals(PackageChangedReceiver.ACTION_INSTALL, intent.getAction())) {
+                    this.c = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f01e5);
+                } else if (TextUtils.equals(PackageChangedReceiver.ACTION_UNINSTALL, intent.getAction())) {
+                    this.c = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1308);
+                }
+                this.b.setFloatButtonText(this.c);
+            }
         }
     }
 
-    public void i(jp2 jp2Var) {
+    public final FloatButton e(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jp2Var) == null) {
-            h(jp2Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            if (context == null) {
+                return null;
+            }
+            return (FloatButton) LayoutInflater.from(context.getApplicationContext()).inflate(R.layout.obfuscated_res_0x7f0d0834, (ViewGroup) null);
+        }
+        return (FloatButton) invokeL.objValue;
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.e = str;
         }
     }
 
-    public void j(jp2 jp2Var) {
+    public void j(FloatButton floatButton) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jp2Var) == null) {
-            h(jp2Var);
+        if (interceptable == null || interceptable.invokeL(1048583, this, floatButton) == null) {
+            this.b = floatButton;
         }
     }
 
-    public void k(String str) {
+    public FloatButton f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.u = str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            Activity activity = this.a;
+            if (!(activity instanceof SwanAppActivity)) {
+                return null;
+            }
+            if (this.b == null) {
+                this.b = a(activity, (ViewGroup) activity.findViewById(16908290));
+            }
+            this.b.setFloatButtonText(this.c);
+            this.b.setFloatButtonDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811c1));
+            this.b.setFloatButtonDefaultPosition();
+            this.b.setFloatButtonStyle(this.d);
+            this.b.setVisibility(0);
+            return this.b;
+        }
+        return (FloatButton) invokeV.objValue;
+    }
+
+    public void g(Activity activity, JSONObject jSONObject) {
+        String string;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048581, this, activity, jSONObject) == null) && jSONObject != null) {
+            if (f) {
+                Log.i("FloatButtonGuideManager", jSONObject.toString());
+            }
+            this.a = activity;
+            String optString = jSONObject.optString("name");
+            this.e = optString;
+            if (qm3.F(activity, optString)) {
+                string = activity.getString(R.string.obfuscated_res_0x7f0f01e5);
+            } else {
+                string = activity.getString(R.string.obfuscated_res_0x7f0f1308);
+            }
+            this.c = string;
+            this.d = jSONObject.optJSONObject("style");
         }
     }
 }

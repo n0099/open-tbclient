@@ -1,77 +1,81 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.tq9;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.ubs.analytics.SampleResult;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public class rq9 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public boolean b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public boolean g;
-    public String h;
 
-    public rq9() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948130415, "Lcom/baidu/tieba/rq9;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948130415, "Lcom/baidu/tieba/rq9;");
         }
     }
 
-    public JSONObject a() {
-        InterceptResult invokeV;
-        JSONObject jSONObject;
-        JSONException e;
+    public static SampleResult a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("type", this.a);
-                    jSONObject.put("doReport", this.b);
-                    jSONObject.put("name", this.c);
-                    jSONObject.put("code", this.d);
-                    jSONObject.put("msg", this.e);
-                    jSONObject.put("data", this.f);
-                    jSONObject.put("isShowSpecialToast", this.g);
-                    jSONObject.put("specialToast", this.h);
-                } catch (JSONException e2) {
-                    e = e2;
-                    e.printStackTrace();
-                    return jSONObject;
-                }
-            } catch (JSONException e3) {
-                jSONObject = null;
-                e = e3;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (a) {
+                return tq9.a.a.f(str);
             }
-            return jSONObject;
+            return SampleResult.OTHERE;
         }
-        return (JSONObject) invokeV.objValue;
+        return (SampleResult) invokeL.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public static void b(sq9 sq9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "type:" + this.a + "name:" + this.c + "code:" + this.d + "msg:" + this.e + "data" + this.f + "doReport : " + this.b;
+        if ((interceptable != null && interceptable.invokeL(65538, null, sq9Var) != null) || sq9Var == null) {
+            return;
         }
-        return (String) invokeV.objValue;
+        nr9.b(sq9Var);
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && a) {
+            lr9.a().b(str);
+        }
+    }
+
+    public static void e(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65541, null, str) == null) && a) {
+            lr9.a().c(str);
+        }
+    }
+
+    public static void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65542, null, z) == null) {
+            a = z;
+        }
+    }
+
+    public static void c(String str, String str2, String str3, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLLL(65539, null, str, str2, str3, map) != null) || !a || str == null) {
+            return;
+        }
+        qr9.a(str, str2, str3, map);
     }
 }

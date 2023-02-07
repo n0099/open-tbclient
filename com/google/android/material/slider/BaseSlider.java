@@ -68,7 +68,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOnChangeListener<S>, T extends BaseOnSliderTouchListener<S>> extends View {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEF_STYLE_RES;
@@ -145,12 +145,12 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
     public ArrayList<Float> values;
     public int widgetHeight;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface TooltipDrawableFactory {
         TooltipDrawable createTooltipDrawable();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class AccessibilityEventSender implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -192,7 +192,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class AccessibilityHelper extends ExploreByTouchHelper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -227,10 +227,10 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) {
                 if (i == this.slider.getValues().size() - 1) {
-                    return this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0b29);
+                    return this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0b4e);
                 }
                 if (i == 0) {
-                    return this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0b2a);
+                    return this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0b4f);
                 }
                 return "";
             }
@@ -335,7 +335,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class SliderState extends View.BaseSavedState {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SliderState> CREATOR;
@@ -992,10 +992,10 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
     private void loadResources(@NonNull Resources resources) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65571, this, resources) == null) {
-            this.widgetHeight = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704ce);
-            this.trackSidePadding = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0704cb);
-            this.trackTop = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0704cc);
-            this.labelPadding = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704c5);
+            this.widgetHeight = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704d3);
+            this.trackSidePadding = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0704d1);
+            this.trackTop = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0704d2);
+            this.labelPadding = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704ca);
         }
     }
 
@@ -1067,7 +1067,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public BaseSlider(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040633);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040637);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

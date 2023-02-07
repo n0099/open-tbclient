@@ -161,7 +161,7 @@ public final class SlideDistanceProvider implements VisibilityAnimatorProvider {
             if (i != -1) {
                 return i;
             }
-            return context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e6);
+            return context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704eb);
         }
         return invokeL.intValue;
     }

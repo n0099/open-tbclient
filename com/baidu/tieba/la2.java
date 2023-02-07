@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
 public interface la2 {
-    void onFail();
+    void a(fv1 fv1Var);
 
-    void onSuccess();
+    void b(fv1 fv1Var);
 }

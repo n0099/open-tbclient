@@ -1,128 +1,84 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes6.dex */
 public class si0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final String c;
-    public final String d;
-    @NonNull
-    public final HashMap<String, String> e;
+    public final int[] a;
+    public final int[] b;
+    public int c;
+    public long d;
+    public long e;
+    public long f;
+    public long g;
+    public long h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948152239, "Lcom/baidu/tieba/si0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948152239, "Lcom/baidu/tieba/si0;");
-                return;
-            }
-        }
-        String str = ej0.c().a().q() + "://";
-    }
-
-    public si0(String str) {
+    public si0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Uri parse = Uri.parse(str);
-        this.a = str;
-        this.b = bj0.m(parse);
-        this.c = bj0.k(parse);
-        this.d = bj0.i(parse);
-        this.e = bj0.l(parse);
+        this.a = new int[]{0, 0};
+        this.b = new int[]{0, 0};
+        this.c = 0;
+        this.h = 0L;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public void a(MotionEvent motionEvent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+        if (interceptable == null || interceptable.invokeL(1048576, this, motionEvent) == null) {
+            int action = motionEvent.getAction();
+            if (action != 0) {
+                if (action != 1) {
+                    if (action == 2) {
+                        this.c++;
+                        return;
+                    }
+                    return;
+                }
+                this.c = 0;
+                this.e = System.currentTimeMillis();
+                this.b[0] = (int) motionEvent.getRawX();
+                this.b[1] = (int) motionEvent.getRawY();
+                if (Math.max(Math.abs(this.b[0] - this.a[0]), Math.abs(this.b[1] - this.a[1])) > 10) {
+                    this.g++;
+                    this.f += Math.max(0L, this.e - this.d);
+                    return;
+                }
+                return;
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            this.d = currentTimeMillis;
+            if (this.h == 0) {
+                this.h = currentTimeMillis;
+            }
+            this.a[0] = (int) motionEvent.getRawX();
+            this.a[1] = (int) motionEvent.getRawY();
         }
-        return (String) invokeV.objValue;
     }
 
-    public String b() {
+    public int[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            int[] iArr = this.b;
+            return new int[]{iArr[0], iArr[1]};
         }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public HashMap<String, String> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (TextUtils.isEmpty(this.c) || TextUtils.isEmpty(this.d)) {
-                bj0.q(this.a, this.e.get("ext_info"));
-            }
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "SchemeModel{command='" + this.a + "', scheme='" + this.b + "', module='" + this.c + "', action='" + this.d + "', params=" + this.e + '}';
-        }
-        return (String) invokeV.objValue;
+        return (int[]) invokeV.objValue;
     }
 }

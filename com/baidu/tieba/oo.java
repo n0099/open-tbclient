@@ -1,5 +1,9 @@
 package com.baidu.tieba;
+
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes5.dex */
-public interface oo extends po {
-    void d(boolean z, int i, int i2, int i3, int i4);
+public interface oo {
+    boolean a(View view2, Cdo cdo, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j);
 }

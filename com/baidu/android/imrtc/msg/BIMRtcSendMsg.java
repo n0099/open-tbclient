@@ -19,7 +19,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.request.Message;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
 import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -111,7 +110,7 @@ public class BIMRtcSendMsg extends Message {
                 jSONObject.put("other_uks", "");
                 jSONObject.put("cseq_id", RtcConstants.IM_RTC_SDK_SEQ_ID.get());
                 jSONObject.put("sseq_id", RtcConstants.IM_RTC_SERVER_SEQ_ID);
-                jSONObject.put(ShaderParams.VALUE_TYPE_STEP, "c_send_response");
+                jSONObject.put("step", "c_send_response");
                 jSONObject.put("ext", "-1");
                 return jSONObject.toString();
             } catch (Exception unused) {

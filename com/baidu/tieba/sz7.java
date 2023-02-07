@@ -1,15 +1,16 @@
 package com.baidu.tieba;
 
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.live.interfaces.service.NetworkAgentService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class sz7 {
+public class sz7 extends ok1<NetworkAgentService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract void a(Object... objArr);
 
     public sz7() {
         Interceptable interceptable = $ic;
@@ -23,5 +24,17 @@ public abstract class sz7 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ok1
+    /* renamed from: a */
+    public NetworkAgentService createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new tz7();
+        }
+        return (NetworkAgentService) invokeV.objValue;
     }
 }

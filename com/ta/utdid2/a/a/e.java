@@ -57,24 +57,24 @@ public class e {
                 }
                 if (telephonyManager != null) {
                     str = ApiReplaceUtil.getDeviceId(telephonyManager);
-                    if (g.m93a(str)) {
+                    if (g.m95a(str)) {
                         str = b();
                     }
-                    if (g.m93a(str)) {
+                    if (g.m95a(str)) {
                         str = b(context);
                     }
-                    if (!g.m93a(str)) {
+                    if (!g.m95a(str)) {
                         return a();
                     }
                     return str;
                 }
             }
             str = null;
-            if (g.m93a(str)) {
+            if (g.m95a(str)) {
             }
-            if (g.m93a(str)) {
+            if (g.m95a(str)) {
             }
-            if (!g.m93a(str)) {
+            if (!g.m95a(str)) {
             }
         } else {
             return (String) invokeL.objValue;
@@ -153,14 +153,14 @@ public class e {
                 }
                 if (telephonyManager != null) {
                     subscriberId = ApiReplaceUtil.getSubscriberId(telephonyManager);
-                    if (!g.m93a(subscriberId)) {
+                    if (!g.m95a(subscriberId)) {
                         return a();
                     }
                     return subscriberId;
                 }
             }
             subscriberId = null;
-            if (!g.m93a(subscriberId)) {
+            if (!g.m95a(subscriberId)) {
             }
         } else {
             return (String) invokeL.objValue;

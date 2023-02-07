@@ -6,7 +6,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.cz4;
+import com.baidu.tieba.p35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +40,7 @@ public class ChannelInitHelper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return cz4.l().r("from_id", null);
+            return p35.m().s("from_id", null);
         }
         return (String) invokeV.objValue;
     }
@@ -180,6 +180,6 @@ public class ChannelInitHelper {
         if ((interceptable != null && interceptable.invokeL(65542, null, str) != null) || str == null || str.length() <= 0 || !TbadkCoreApplication.getInst().isMainProcess(true)) {
             return;
         }
-        cz4.l().z("from_id", str);
+        p35.m().B("from_id", str);
     }
 }

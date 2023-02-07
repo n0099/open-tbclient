@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.di3;
+import com.baidu.tieba.qm3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -76,7 +76,7 @@ public final class SwanLoadingTipsView extends RelativeLayout {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                di3.b0(this.a.e, 2000L);
+                qm3.b0(this.a.e, 2000L);
             }
         }
 
@@ -233,8 +233,8 @@ public final class SwanLoadingTipsView extends RelativeLayout {
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            View.inflate(context, R.layout.obfuscated_res_0x7f0d00ae, this);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090197);
+            View.inflate(context, R.layout.obfuscated_res_0x7f0d00ad, this);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090191);
         }
     }
 
@@ -251,7 +251,7 @@ public final class SwanLoadingTipsView extends RelativeLayout {
             this.a = null;
             Runnable runnable = this.e;
             if (runnable != null) {
-                di3.d0(runnable);
+                qm3.d0(runnable);
             }
             ObjectAnimator objectAnimator = this.c;
             if (objectAnimator != null) {

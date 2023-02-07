@@ -1,122 +1,41 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import com.baidu.swan.apps.view.SwanAppSimpleH5Widget;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class lw1 {
+public class lw1 extends SwanAppSimpleH5Widget {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.ev1
+    public String b0() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            int indexOf = str.indexOf("_dev");
-            if (indexOf > 0) {
-                return str.substring(0, indexOf);
-            }
-            int indexOf2 = str.indexOf("_trial");
-            if (indexOf2 > 0) {
-                return str.substring(0, indexOf2);
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "swan_app_alliance_login_widget" : (String) invokeV.objValue;
     }
 
-    public static int b(String str) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lw1(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (str.contains("_dev")) {
-                return 1;
-            }
-            if (str.endsWith("_trial")) {
-                return 3;
-            }
-            if (!str.contains("_trial")) {
-                return 0;
-            }
-            return 2;
         }
-        return invokeL.intValue;
-    }
-
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            int lastIndexOf = str.lastIndexOf("_dev");
-            if (lastIndexOf >= 0 && lastIndexOf < str.length()) {
-                return str.substring(lastIndexOf);
-            }
-            int lastIndexOf2 = str.lastIndexOf("_trial");
-            if (lastIndexOf2 < 0 || lastIndexOf2 >= str.length()) {
-                return "";
-            }
-            return str.substring(lastIndexOf2);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean d(gp2 gp2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, gp2Var)) == null) {
-            if (gp2Var != null && gp2Var.getType() == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean e(gp2 gp2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, gp2Var)) == null) {
-            if (gp2Var == null || gp2Var.getType() != 0) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Deprecated
-    public static boolean f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && !str.contains("_")) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean g(gp2 gp2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, gp2Var)) == null) {
-            if (gp2Var != null && gp2Var.getType() == 2) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 }

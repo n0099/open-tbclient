@@ -1,59 +1,53 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
 import android.graphics.Rect;
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import androidx.annotation.UiThread;
+import android.view.View;
+import android.view.ViewTreeObserver;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.canvas.view.CanvasView;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.executors.UiThreadImmediateExecutorService;
-import com.facebook.common.references.CloseableReference;
-import com.facebook.datasource.DataSource;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber;
-import com.facebook.imagepipeline.image.CloseableImage;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
-import java.io.File;
-import java.net.URI;
 import java.util.HashMap;
-import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class zx1 extends px1 {
+public class zx1 extends zw1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public Rect d;
-    public Rect e;
-    public Bitmap f;
+    public View f;
     public int g;
-    public Uri h;
-    public String i;
+    public ViewTreeObserver.OnGlobalLayoutListener h;
+
+    @Override // com.baidu.tieba.zw1
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "Keyboard" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.zw1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "SoftKeyboardApi" : (String) invokeV.objValue;
+    }
 
     /* loaded from: classes7.dex */
-    public class a extends BaseBitmapDataSubscriber {
+    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ DataSource a;
-        public final /* synthetic */ qx1 b;
-        public final /* synthetic */ zx1 c;
+        public final /* synthetic */ zx1 a;
 
-        public a(zx1 zx1Var, DataSource dataSource, qx1 qx1Var) {
+        public a(zx1 zx1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zx1Var, dataSource, qx1Var};
+                Object[] objArr = {zx1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -63,227 +57,121 @@ public class zx1 extends px1 {
                     return;
                 }
             }
-            this.c = zx1Var;
-            this.a = dataSource;
-            this.b = qx1Var;
+            this.a = zx1Var;
         }
 
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.facebook.datasource.DataSource] */
-        @Override // com.facebook.datasource.BaseDataSubscriber
-        public void onFailureImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
+        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        public void onGlobalLayout() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dataSource) == null) {
-                if (dataSource != null) {
-                    dataSource.close();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Rect rect = new Rect();
+                this.a.f.getWindowVisibleDisplayFrame(rect);
+                int height = rect.height();
+                if (this.a.g == height) {
+                    return;
                 }
-                this.c.g = 3;
-            }
-        }
-
-        @Override // com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber
-        public void onNewResultImpl(@Nullable Bitmap bitmap) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
-                if (this.a.isFinished() && bitmap != null) {
-                    this.c.f = Bitmap.createBitmap(bitmap);
-                    this.a.close();
-                    CanvasView canvasView = this.b.h;
-                    if (canvasView != null) {
-                        canvasView.postInvalidate();
+                if (this.a.g - height > 180) {
+                    HashMap hashMap = new HashMap();
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put("height", nm3.O(this.a.g - height));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
+                    hashMap.put("data", jSONObject.toString());
+                    ju2.U().u(new xi2("keyboardHeightChange", hashMap));
+                    this.a.g = height;
+                } else if (height - this.a.g > 180) {
+                    HashMap hashMap2 = new HashMap();
+                    JSONObject jSONObject2 = new JSONObject();
+                    try {
+                        jSONObject2.put("height", 0);
+                    } catch (JSONException e2) {
+                        e2.printStackTrace();
+                    }
+                    hashMap2.put("data", jSONObject2.toString());
+                    ju2.U().u(new xi2("keyboardHeightChange", hashMap2));
+                    this.a.g = height;
                 }
-                this.c.g = 2;
             }
         }
     }
 
-    public zx1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zx1(@NonNull xw1 xw1Var) {
+        super(xw1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {xw1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((xw1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = 0;
     }
 
-    public final int i(JSONArray jSONArray, int i) {
-        InterceptResult invokeLI;
+    public final void A() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, jSONArray, i)) == null) {
-            return ai3.g((float) jSONArray.optDouble(i));
-        }
-        return invokeLI.intValue;
-    }
-
-    @Override // com.baidu.tieba.px1
-    public void a(qx1 qx1Var, Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, qx1Var, canvas) == null) {
-            if (h(qx1Var)) {
-                int alpha = qx1Var.d.getAlpha();
-                qx1Var.c(qx1Var.d);
-                Rect rect = this.e;
-                if (rect != null) {
-                    canvas.drawBitmap(this.f, this.d, rect, qx1Var.d);
-                } else {
-                    canvas.drawBitmap(this.f, this.b, this.c, qx1Var.d);
-                }
-                qx1Var.d.setAlpha(alpha);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            SwanAppActivity activity = ju2.U().getActivity();
+            if (activity == null) {
+                w52.c("SoftKeyboardApi", "activity is null");
                 return;
             }
-            try {
-                j(qx1Var);
-            } catch (Exception e) {
-                if (tk1.a) {
-                    e.printStackTrace();
-                }
+            this.f = activity.getWindow().getDecorView();
+            Rect rect = new Rect();
+            this.f.getWindowVisibleDisplayFrame(rect);
+            this.g = rect.height();
+            if (this.h == null) {
+                this.h = new a(this);
+                this.f.getViewTreeObserver().addOnGlobalLayoutListener(this.h);
             }
         }
     }
 
-    public final String g(String str, j43 j43Var) {
-        InterceptResult invokeLL;
+    public void B() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, j43Var)) == null) {
-            if (!TextUtils.isEmpty(str) && j43Var != null) {
-                try {
-                    if ("bdfile".equalsIgnoreCase(URI.create(str).getScheme())) {
-                        str = rb3.M(str, j43Var.b);
-                    }
-                    if (TextUtils.isEmpty(str)) {
-                        return null;
-                    }
-                    File file = new File(str);
-                    if (file.exists() && file.isFile()) {
-                        return file.getAbsolutePath();
-                    }
-                } catch (Exception unused) {
-                }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.h != null) {
+                this.f.getViewTreeObserver().removeOnGlobalLayoutListener(this.h);
             }
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.px1
-    public void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            j43 b0 = j43.b0();
-            try {
-                int length = jSONArray.length();
-                if (length > 0) {
-                    this.i = this.a;
-                    String optString = jSONArray.optString(0);
-                    this.a = optString;
-                    this.a = f(b0, optString);
-                }
-                if (length > 2) {
-                    this.b = i(jSONArray, 1);
-                    this.c = i(jSONArray, 2);
-                }
-                if (length > 4) {
-                    int i = this.b;
-                    int i2 = this.c;
-                    int i3 = i(jSONArray, 3);
-                    int i4 = i(jSONArray, 4);
-                    if (i3 > 0 && i4 > 0) {
-                        this.e = new Rect(i, i2, i3 + i, i4 + i2);
-                    }
-                }
-                if (length > 8) {
-                    int optInt = jSONArray.optInt(5);
-                    int optInt2 = jSONArray.optInt(6);
-                    int optInt3 = jSONArray.optInt(7);
-                    int optInt4 = jSONArray.optInt(8);
-                    if (optInt3 > 0 && optInt4 > 0) {
-                        this.d = new Rect(optInt, optInt2, optInt3 + optInt, optInt4 + optInt2);
-                    }
-                }
-                if (b0 != null) {
-                    String g = g(this.a, b0);
-                    if (!TextUtils.isEmpty(g)) {
-                        this.f = BitmapFactory.decodeFile(g);
-                    } else if (!TextUtils.isEmpty(this.a)) {
-                        if (this.h == null || !TextUtils.equals(this.a, this.i)) {
-                            this.h = Uri.parse(this.a);
-                        }
-                    }
-                }
-            } catch (Exception e) {
-                if (tk1.a) {
-                    e.printStackTrace();
-                }
-            }
+            this.h = null;
+            this.g = 0;
         }
     }
 
-    public void e(HashMap<String, Bitmap> hashMap) {
+    public w02 C() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) && hashMap != null && !TextUtils.isEmpty(this.a) && this.f != null && !hashMap.containsKey(this.a)) {
-            hashMap.put(this.a, this.f);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            q("#startKeyboardHeightChange", false);
+            if (w83.b0() == null) {
+                return new w02(1001, "swan app is null");
+            }
+            A();
+            return w02.f();
         }
+        return (w02) invokeV.objValue;
     }
 
-    public final String f(j43 j43Var, String str) {
-        InterceptResult invokeLL;
+    public w02 D() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, j43Var, str)) == null) {
-            if (!TextUtils.isEmpty(str) && j43Var != null) {
-                try {
-                    if (!"bdfile".equalsIgnoreCase(URI.create(str).getScheme()) && !str.startsWith(di3.x(j43Var).getPath())) {
-                        return di3.w(j43Var, str);
-                    }
-                    return str;
-                } catch (Exception unused) {
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            q("#stopKeyboardHeightChange", false);
+            if (w83.b0() == null) {
+                return new w02(1001, "swan app is null");
             }
-            return "";
+            B();
+            return w02.f();
         }
-        return (String) invokeLL.objValue;
-    }
-
-    public final boolean h(qx1 qx1Var) {
-        InterceptResult invokeL;
-        CanvasView canvasView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, qx1Var)) == null) {
-            if (this.f != null) {
-                return true;
-            }
-            if (this.h == null || qx1Var == null || (canvasView = qx1Var.h) == null) {
-                return false;
-            }
-            Bitmap e = canvasView.e(this.a);
-            this.f = e;
-            if (e != null) {
-                return true;
-            }
-            Bitmap c = gh3.c(this.h, qx1Var.h.getContext());
-            this.f = c;
-            if (c != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @UiThread
-    public final void j(qx1 qx1Var) {
-        CanvasView canvasView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, qx1Var) == null) && this.g == 0 && (canvasView = qx1Var.h) != null && canvasView.getContext() != null && !TextUtils.isEmpty(this.a)) {
-            this.g = 1;
-            DataSource<CloseableReference<CloseableImage>> fetchDecodedImage = Fresco.getImagePipeline().fetchDecodedImage(ImageRequestBuilder.newBuilderWithSource(Uri.parse(this.a)).build(), qx1Var.h.getContext());
-            fetchDecodedImage.subscribe(new a(this, fetchDecodedImage, qx1Var), UiThreadImmediateExecutorService.getInstance());
-        }
+        return (w02) invokeV.objValue;
     }
 }

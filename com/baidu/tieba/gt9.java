@@ -1,80 +1,42 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.media.AudioTrack;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class gt9 extends dt9 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String h = "XMUnionID";
-    public static boolean i;
+public class gt9 extends AudioTrack implements ft9 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947805597, "Lcom/baidu/tieba/gt9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947805597, "Lcom/baidu/tieba/gt9;");
-                return;
-            }
-        }
-        i = vs9.e();
-    }
-
-    @Override // com.baidu.tieba.ct9
-    public ct9 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                this.c = m3a.b();
-                this.d = m3a.a(this.a);
-                this.g = 0;
-            } catch (Exception e) {
-                if (i) {
-                    Log.e(h, "xiaomi init4UnionId error", e);
-                }
-            }
-            return this;
-        }
-        return (ct9) invokeV.objValue;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gt9(Context context) {
-        super(context);
+    public gt9(int i, int i2, int i3, int i4, int i5, int i6) throws IllegalArgumentException {
+        super(i, i2, i3, i4, i5, i6);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((Context) newInitContext.callArgs[0]);
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i7 = newInitContext.flag;
+            if ((i7 & 1) != 0) {
+                int i8 = i7 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue(), ((Integer) objArr2[5]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (i) {
-            Log.e(h, "xiaomi XMUnionID !!");
+    }
+
+    @Override // com.baidu.tieba.ft9
+    public void close() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && getState() == 1) {
+            flush();
+            release();
         }
-        this.d = "";
-        this.b = false;
-        this.c = false;
-        this.g = -200;
     }
 }

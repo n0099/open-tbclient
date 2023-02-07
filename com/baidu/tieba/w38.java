@@ -1,34 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import java.io.File;
 /* loaded from: classes6.dex */
-public abstract class w38<T> extends pg<T> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface w38 {
+    public static final String a = File.separator;
+    public static final String b = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath();
+    public static final String c = b + a + ".tieba_video_monitor";
+    public static final String d = c + a + "v1";
+    public static final String e;
+    public static final String f;
+    public static final String g;
 
-    public abstract T h(Object obj);
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w38(qg qgVar, int i, int i2) {
-        super(qgVar, i, i2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {qgVar, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((qg) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
+    static {
+        StringBuilder sb = new StringBuilder();
+        sb.append(d);
+        sb.append(a);
+        e = sb.toString();
+        f = b + a + ".tieba_video_monitor_log";
+        g = f + a + "v1";
+        StringBuilder sb2 = new StringBuilder();
+        sb2.append(g);
+        sb2.append(a);
+        sb2.toString();
     }
 }

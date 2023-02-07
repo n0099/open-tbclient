@@ -1,21 +1,28 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.pms.utils.AbiType;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.text.DecimalFormat;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public class ul4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static Map<String, ul4> d;
+    public static Map<String, Map<String, ul4>> e;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final String b;
+    public final AbiType c;
 
     static {
         InterceptResult invokeClinit;
@@ -30,73 +37,126 @@ public class ul4 {
                 return;
             }
         }
-        a = tk1.a;
+        d = new HashMap();
+        e = new HashMap();
     }
 
-    public static void a(String str, String str2, String str3, JSONObject jSONObject) {
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65537, null, str, str2, str3, jSONObject) == null) {
-            if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
-                JSONObject jSONObject2 = new JSONObject();
-                try {
-                    jSONObject2.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, str2);
-                    jSONObject2.put("vtype", str3);
-                    jSONObject.putOpt("videoId", str);
-                    jSONObject2.put("data", jSONObject.toString());
-                } catch (JSONException e) {
-                    if (a) {
-                        e.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public ul4(@NonNull String str, @NonNull AbiType abiType) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, abiType};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        if (TextUtils.isEmpty(str)) {
+            str2 = "";
+        } else {
+            str2 = str;
+        }
+        this.a = str2;
+        this.c = abiType;
+        this.b = a(str, abiType);
+    }
+
+    @Nullable
+    public static synchronized ul4 e(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
+            synchronized (ul4.class) {
+                ul4 ul4Var = null;
+                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                    c(str);
+                    ul4 ul4Var2 = d.get(str2);
+                    if (ul4Var2 != null) {
+                        if (TextUtils.equals(str, ul4Var2.a)) {
+                            ul4Var = ul4Var2;
+                        }
+                    }
+                    return ul4Var;
+                }
+                return null;
+            }
+        }
+        return (ul4) invokeLL.objValue;
+    }
+
+    public static String a(String str, AbiType abiType) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, abiType)) == null) {
+            return "so_" + str + "_" + abiType.id;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    @Nullable
+    public static synchronized ul4 d(String str, AbiType abiType) {
+        InterceptResult invokeLL;
+        ul4 e2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, abiType)) == null) {
+            synchronized (ul4.class) {
+                e2 = e(str, a(str, abiType));
+            }
+            return e2;
+        }
+        return (ul4) invokeLL.objValue;
+    }
+
+    public static synchronized Map<String, ul4> b(@NonNull String str) {
+        InterceptResult invokeL;
+        HashMap hashMap;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            synchronized (ul4.class) {
+                hashMap = new HashMap(c(str));
+            }
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public static synchronized Map<String, ul4> c(@NonNull String str) {
+        InterceptResult invokeL;
+        Map<String, ul4> map;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            synchronized (ul4.class) {
+                map = e.get(str);
+                if (map == null) {
+                    map = new HashMap<>();
+                    if (!TextUtils.isEmpty(str)) {
+                        for (AbiType abiType : AbiType.values()) {
+                            ul4 ul4Var = new ul4(str, abiType);
+                            map.put(ul4Var.b, ul4Var);
+                        }
+                        d.putAll(map);
+                        e.put(str, map);
                     }
                 }
-                j12.b("VideoStatusEventHelper", "Video dispatch Params : " + jSONObject2.toString());
-                qj3.d(str2, str, "video", str3, jSONObject2);
-            } else if (a) {
-                Log.e("VideoStatusEventHelper", "dispatchNetStatusEvent failed slaveId: " + str2 + " ,videoId: " + str);
             }
+            return map;
         }
-    }
-
-    public static void b(String str, String str2, String str3, int i, int i2) {
-        String format;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
-            if (TextUtils.isEmpty(str3)) {
-                format = "0";
-            } else {
-                format = new DecimalFormat("#.###").format(Double.parseDouble(str3) / 1000.0d);
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.putOpt("duration", Float.valueOf(Float.parseFloat(format)));
-                jSONObject.putOpt("width", Integer.valueOf(ai3.O(i)));
-                jSONObject.putOpt("height", Integer.valueOf(ai3.O(i2)));
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-            a(str, str2, "loadedmetadata", jSONObject);
-        }
-    }
-
-    public static void c(String str, String str2, boolean z) {
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65539, null, str, str2, z) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (z) {
-                str3 = "1";
-            } else {
-                str3 = "0";
-            }
-            try {
-                jSONObject.putOpt("fullscreen", str3);
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-            a(str, str2, "fullscreenchange", jSONObject);
-        }
+        return (Map) invokeL.objValue;
     }
 }

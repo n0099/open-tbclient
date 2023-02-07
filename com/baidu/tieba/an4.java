@@ -1,7 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.BdToken.completeTask.CompleteTaskToastData;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes3.dex */
-public interface an4 {
-    boolean onMissionCompleted(CompleteTaskToastData completeTaskToastData);
+public class an4 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static Drawable a(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, context, i)) == null) {
+            return context.getDrawable(i);
+        }
+        return (Drawable) invokeLI.objValue;
+    }
 }

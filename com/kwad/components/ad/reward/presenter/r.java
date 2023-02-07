@@ -94,10 +94,10 @@ public final class r extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            this.mj = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f0912c9);
-            this.rd = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0911be);
-            this.rf = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911bf);
-            this.re = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0911c0);
+            this.mj = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f09130c);
+            this.rd = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091201);
+            this.rf = (ImageView) findViewById(R.id.obfuscated_res_0x7f091202);
+            this.re = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091203);
         }
     }
 

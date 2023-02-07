@@ -18,15 +18,15 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.SelectImageHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.Cdo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bu6;
-import com.baidu.tieba.st6;
-import com.baidu.tieba.tt6;
-import com.baidu.tieba.ut6;
-import com.baidu.tieba.xt6;
-import com.baidu.tieba.yg;
-import com.baidu.tieba.yn;
-import com.baidu.tieba.yo6;
+import com.baidu.tieba.dh;
+import com.baidu.tieba.dy6;
+import com.baidu.tieba.ey6;
+import com.baidu.tieba.fy6;
+import com.baidu.tieba.iy6;
+import com.baidu.tieba.jt6;
+import com.baidu.tieba.my6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,23 +34,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class FrsGameStrategyMainFragment extends BaseFragment implements ActivityCompat.OnRequestPermissionsResultCallback, yo6 {
+public class FrsGameStrategyMainFragment extends BaseFragment implements ActivityCompat.OnRequestPermissionsResultCallback, jt6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
     public String c;
-    public bu6 d;
-    public st6 e;
+    public my6 d;
+    public dy6 e;
     public boolean f;
-    public ut6 g;
-    public tt6 h;
+    public fy6 g;
+    public ey6 h;
     public CustomMessageListener i;
     public boolean j;
     public CustomMessageListener k;
 
     /* loaded from: classes4.dex */
-    public class a implements ut6 {
+    public class a implements fy6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsGameStrategyMainFragment a;
@@ -73,15 +73,15 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
             this.a = frsGameStrategyMainFragment;
         }
 
-        @Override // com.baidu.tieba.ut6
-        public void a(int i, int i2, List<yn> list, List<xt6> list2, boolean z, boolean z2, int i3) {
+        @Override // com.baidu.tieba.fy6
+        public void a(int i, int i2, List<Cdo> list, List<iy6> list2, boolean z, boolean z2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), list, list2, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i3)}) == null) {
                 if (i == 0 && i2 == 0 && ListUtils.isEmpty(list2)) {
                     FrsGameStrategyMainFragment frsGameStrategyMainFragment = this.a;
                     frsGameStrategyMainFragment.showNetRefreshView(frsGameStrategyMainFragment.d.f(), this.a.getResources().getString(R.string.no_data_text), false);
                     FrsGameStrategyMainFragment frsGameStrategyMainFragment2 = this.a;
-                    frsGameStrategyMainFragment2.setNetRefreshViewTopMargin(frsGameStrategyMainFragment2.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070283));
+                    frsGameStrategyMainFragment2.setNetRefreshViewTopMargin(frsGameStrategyMainFragment2.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070284));
                 } else if (this.a.d == null) {
                 } else {
                     this.a.f = false;
@@ -95,7 +95,7 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
             }
         }
 
-        @Override // com.baidu.tieba.ut6
+        @Override // com.baidu.tieba.fy6
         public void b(int i, int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, str) == null) {
@@ -103,7 +103,7 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
                     FrsGameStrategyMainFragment frsGameStrategyMainFragment = this.a;
                     frsGameStrategyMainFragment.showNetRefreshView(frsGameStrategyMainFragment.d.f(), str, false);
                     FrsGameStrategyMainFragment frsGameStrategyMainFragment2 = this.a;
-                    frsGameStrategyMainFragment2.setNetRefreshViewTopMargin(frsGameStrategyMainFragment2.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070283));
+                    frsGameStrategyMainFragment2.setNetRefreshViewTopMargin(frsGameStrategyMainFragment2.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070284));
                 } else if (this.a.d != null) {
                     this.a.f = false;
                     FrsGameStrategyMainFragment frsGameStrategyMainFragment3 = this.a;
@@ -115,7 +115,7 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
     }
 
     /* loaded from: classes4.dex */
-    public class b implements tt6 {
+    public class b implements ey6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsGameStrategyMainFragment a;
@@ -138,8 +138,8 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
             this.a = frsGameStrategyMainFragment;
         }
 
-        @Override // com.baidu.tieba.tt6
-        public xt6 a(int i) {
+        @Override // com.baidu.tieba.ey6
+        public iy6 a(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
@@ -148,10 +148,10 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
                 }
                 return null;
             }
-            return (xt6) invokeI.objValue;
+            return (iy6) invokeI.objValue;
         }
 
-        @Override // com.baidu.tieba.tt6
+        @Override // com.baidu.tieba.ey6
         public void b(int i, int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) && this.a.e != null) {
@@ -159,7 +159,7 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
             }
         }
 
-        @Override // com.baidu.tieba.tt6
+        @Override // com.baidu.tieba.ey6
         public void c(int i, int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) && this.a.e != null) {
@@ -167,7 +167,7 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
             }
         }
 
-        @Override // com.baidu.tieba.tt6
+        @Override // com.baidu.tieba.ey6
         public boolean d(int i, int i2) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
@@ -180,7 +180,7 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
             return invokeII.booleanValue;
         }
 
-        @Override // com.baidu.tieba.tt6
+        @Override // com.baidu.tieba.ey6
         public String l() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -303,9 +303,9 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             super.onChangeSkinType(i);
-            bu6 bu6Var = this.d;
-            if (bu6Var != null) {
-                bu6Var.h(i);
+            my6 my6Var = this.d;
+            if (my6Var != null) {
+                my6Var.h(i);
             }
         }
     }
@@ -329,40 +329,40 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
     }
 
     public final void I1() {
-        st6 st6Var;
+        dy6 dy6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.j && (st6Var = this.e) != null) {
-            st6Var.b(0, 0);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.j && (dy6Var = this.e) != null) {
+            dy6Var.b(0, 0);
             this.j = false;
-            bu6 bu6Var = this.d;
-            if (bu6Var != null) {
+            my6 my6Var = this.d;
+            if (my6Var != null) {
                 this.f = true;
-                showLoadingView(bu6Var.f());
+                showLoadingView(my6Var.f());
             }
         }
     }
 
-    @Override // com.baidu.tieba.yo6
-    public NavigationBar S0() {
+    public String O() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            bu6 bu6Var = this.d;
-            if (bu6Var != null) {
-                return bu6Var.e();
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.jt6
+    public NavigationBar T0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            my6 my6Var = this.d;
+            if (my6Var != null) {
+                return my6Var.e();
             }
             return null;
         }
         return (NavigationBar) invokeV.objValue;
-    }
-
-    public String X() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -370,13 +370,13 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onDestroy();
-            st6 st6Var = this.e;
-            if (st6Var != null) {
-                st6Var.r();
+            dy6 dy6Var = this.e;
+            if (dy6Var != null) {
+                dy6Var.r();
             }
-            bu6 bu6Var = this.d;
-            if (bu6Var != null) {
-                bu6Var.i();
+            my6 my6Var = this.d;
+            if (my6Var != null) {
+                my6Var.i();
             }
         }
     }
@@ -385,13 +385,13 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
     public void onNetRefreshButtonClicked() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            st6 st6Var = this.e;
-            if (st6Var != null) {
-                st6Var.b(0, 0);
+            dy6 dy6Var = this.e;
+            if (dy6Var != null) {
+                dy6Var.b(0, 0);
             }
-            bu6 bu6Var = this.d;
-            if (bu6Var != null) {
-                hideNetRefreshView(bu6Var.f());
+            my6 my6Var = this.d;
+            if (my6Var != null) {
+                hideNetRefreshView(my6Var.f());
                 this.f = true;
                 showLoadingView(this.d.f());
             }
@@ -435,9 +435,9 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
                 this.b = getArguments().getString("name");
                 this.c = getArguments().getString("key_from");
             }
-            st6 st6Var = new st6(getActivity(), getUniqueId(), yg.g(this.a, 0L), this.b);
-            this.e = st6Var;
-            st6Var.u(this.g);
+            dy6 dy6Var = new dy6(getActivity(), getUniqueId(), dh.g(this.a, 0L), this.b);
+            this.e = dy6Var;
+            dy6Var.u(this.g);
         }
     }
 
@@ -446,15 +446,15 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0313, (ViewGroup) null);
-            bu6 bu6Var = new bu6(this, inflate);
-            this.d = bu6Var;
-            bu6Var.j(this.c);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0312, (ViewGroup) null);
+            my6 my6Var = new my6(this, inflate);
+            this.d = my6Var;
+            my6Var.j(this.c);
             this.d.k(this.h);
             this.d.h(TbadkCoreApplication.getInst().getSkinType());
             if ("from_single_act".equals(this.c)) {
                 I1();
-                S0().setCenterTextTitle(this.b);
+                T0().setCenterTextTitle(this.b);
             }
             return inflate;
         }

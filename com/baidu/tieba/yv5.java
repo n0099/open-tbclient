@@ -1,36 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
+import android.text.TextPaint;
+import android.text.style.ClickableSpan;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class yv5 implements qp1 {
+public abstract class yv5 extends ClickableSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.qp1
-    public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.qp1
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
 
     public yv5() {
         Interceptable interceptable = $ic;
@@ -43,6 +24,15 @@ public class yv5 implements qp1 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
+    public void updateDrawState(TextPaint ds) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ds) == null) {
+            Intrinsics.checkNotNullParameter(ds, "ds");
+            ds.setColor(TbadkApplication.getInst().getResources().getColor(R.color.CAM_X0303));
         }
     }
 }

@@ -222,7 +222,7 @@ public class UnifyTextView extends TextView {
         }
         Intrinsics.checkNotNullParameter(context, "context");
         this.TAG = "UnifyTextView";
-        this.DEFAULT_TOP_BOTTOM_PADDING = getDimensionPixelSize(context, R.dimen.obfuscated_res_0x7f07064d);
+        this.DEFAULT_TOP_BOTTOM_PADDING = getDimensionPixelSize(context, R.dimen.obfuscated_res_0x7f07065d);
         TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, com.baidu.android.common.base.spannable.R.styleable.spannable_etextview);
         Intrinsics.checkNotNullExpressionValue(obtainStyledAttributes, "getContext().obtainStyle…able.spannable_etextview)");
         this.mTopPadding = obtainStyledAttributes.getDimensionPixelSize(1, this.DEFAULT_TOP_BOTTOM_PADDING);
@@ -236,7 +236,7 @@ public class UnifyTextView extends TextView {
             if (hasEmoji(charSequence)) {
                 Context context = getContext();
                 Intrinsics.checkNotNullExpressionValue(context, "context");
-                this.mTopBuffer = Math.round(getDimensionPixelSize(context, R.dimen.obfuscated_res_0x7f07064e) * 1.5f);
+                this.mTopBuffer = Math.round(getDimensionPixelSize(context, R.dimen.obfuscated_res_0x7f07065e) * 1.5f);
                 if (this.DEBUG) {
                     String str = this.TAG;
                     Log.d(str, "has emoji, mTopBuffer: " + this.mTopBuffer);
@@ -244,7 +244,7 @@ public class UnifyTextView extends TextView {
             } else {
                 Context context2 = getContext();
                 Intrinsics.checkNotNullExpressionValue(context2, "context");
-                this.mTopBuffer = getDimensionPixelSize(context2, R.dimen.obfuscated_res_0x7f07064e);
+                this.mTopBuffer = getDimensionPixelSize(context2, R.dimen.obfuscated_res_0x7f07065e);
                 if (this.DEBUG) {
                     String str2 = this.TAG;
                     Log.d(str2, "has no emoji, mTopBuffer: " + this.mTopBuffer);
@@ -252,7 +252,7 @@ public class UnifyTextView extends TextView {
             }
             Context context3 = getContext();
             Intrinsics.checkNotNullExpressionValue(context3, "context");
-            this.mBottomBuffer = getDimensionPixelSize(context3, R.dimen.obfuscated_res_0x7f07064c);
+            this.mBottomBuffer = getDimensionPixelSize(context3, R.dimen.obfuscated_res_0x7f07065c);
         }
     }
 

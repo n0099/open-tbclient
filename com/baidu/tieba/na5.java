@@ -1,26 +1,55 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.img.effect.ImageOperation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class na5 extends la5 {
+public class na5 implements br5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+    public String a;
+    public String b;
+    public String c;
+    public boolean d;
+    public boolean e;
 
-    @Override // com.baidu.tieba.la5
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "resize" : (String) invokeV.objValue;
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ na5 a;
+
+        public a(na5 na5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {na5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = na5Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                zg.h().m(this.a.b, 10, null, null);
+                zg.h().m(this.a.c, 10, null, null);
+            }
+        }
     }
 
     public na5() {
@@ -37,71 +66,93 @@ public class na5 extends la5 {
         }
     }
 
-    public int e() {
+    @Override // com.baidu.tieba.br5
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.br5
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.br5
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.br5
+    public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
+            if (this.d && this.e) {
+                return true;
+            }
+            return false;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    public int f() {
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && isValid()) {
+            gh.a().post(new a(this));
+        }
+    }
+
+    @Override // com.baidu.tieba.br5
+    public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public static ImageOperation g(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
-            ImageOperation imageOperation = new ImageOperation();
-            imageOperation.actionName = "resize";
-            imageOperation.actionParam = i + "," + i2;
-            return imageOperation;
-        }
-        return (ImageOperation) invokeII.objValue;
-    }
-
-    @Override // com.baidu.tieba.la5
-    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, z)) == null) {
-            if (bitmap == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (!StringUtils.isNull(this.a) && !StringUtils.isNull(this.b) && !StringUtils.isNull(this.c)) {
+                return true;
             }
-            ba5.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
-            return BitmapHelper.resizeBitmap(bitmap, this.a, this.b, z);
+            return false;
         }
-        return (Bitmap) invokeLZ.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.la5
-    public Bitmap c(String str) throws Exception {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.br5
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return b(BitmapHelper.loadResizedBitmap(str, this.a, this.b), true);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || StringUtils.isNull(str)) {
+            return;
         }
-        return (Bitmap) invokeL.objValue;
+        if (!this.d) {
+            this.d = str.equals(this.b);
+        }
+        if (!this.e) {
+            this.e = str.equals(this.c);
+        }
     }
 
-    @Override // com.baidu.tieba.la5
-    public void d(String str) {
+    public void f(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || str == null) {
+        if ((interceptable != null && interceptable.invokeL(1048581, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        String[] split = str.split(",");
-        if (split.length != 2) {
-            return;
-        }
-        this.a = yg.e(split[0], 0);
-        this.b = yg.e(split[1], 0);
+        this.a = jSONObject.optString("url");
+        this.b = jSONObject.optString("fold_lottie");
+        jSONObject.optString("fold_name");
+        this.c = jSONObject.optString("unfold_lottie");
+        jSONObject.optString("unfold_name");
+        g();
     }
 }

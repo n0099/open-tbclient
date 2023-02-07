@@ -1,87 +1,91 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.bdhttpdns.BDHttpDns;
-import com.baidu.bdhttpdns.BDHttpDnsResult;
-import com.baidu.tieba.fp;
-import com.baidu.tieba.hp;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import com.baidu.audiorecorder.lib.voice.SendVoiceView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.editortools.RawLayout;
+import com.baidu.tieba.view.BdTopToast;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class gp implements fp.a {
+public class gp extends wb5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int t;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BDHttpDns.e a;
-    public final BDHttpDns b;
-    public final hp c;
 
-    public gp(Context context, BDHttpDns.e eVar) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448305636, "Lcom/baidu/tieba/gp;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448305636, "Lcom/baidu/tieba/gp;");
+                return;
+            }
+        }
+        t = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds26);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gp(Context context) {
+        super(context, (String) null, 6);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, eVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = eVar;
-        BDHttpDns h = BDHttpDns.h(context);
-        this.b = h;
-        this.c = h.d();
+        this.b = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1408);
+        this.d = R.drawable.icon_pure_post_voice24;
+        this.f = R.color.CAM_X0105;
+        this.i = false;
+        this.j = true;
+        this.o = true;
+        this.n = 5;
+        this.m = new SendVoiceView(context);
+        RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(0, -2);
+        int i3 = t;
+        ((LinearLayout.LayoutParams) layoutParams).topMargin = i3;
+        ((LinearLayout.LayoutParams) layoutParams).bottomMargin = i3;
+        ((LinearLayout.LayoutParams) layoutParams).weight = 1.0f;
+        ((View) this.m).setLayoutParams(layoutParams);
+        this.p = new int[0];
     }
 
-    @Override // com.baidu.tieba.fp.a
-    public void a(int i, ArrayList<String> arrayList, ArrayList<String> arrayList2, long j, String str) {
-        String str2;
+    @Override // com.baidu.tieba.wb5
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), arrayList, arrayList2, Long.valueOf(j), str}) == null) {
-            if (i != -1) {
-                if (i != 0) {
-                    jp.a("Internal error: async dns resolve completion get error ret(%d)", Integer.valueOf(i));
-                    return;
-                }
-                Object[] objArr = new Object[4];
-                objArr[0] = str;
-                String str3 = null;
-                if (arrayList != null) {
-                    str2 = arrayList.toString();
-                } else {
-                    str2 = null;
-                }
-                objArr[1] = str2;
-                if (arrayList2 != null) {
-                    str3 = arrayList2.toString();
-                }
-                objArr[2] = str3;
-                objArr[3] = BDHttpDnsResult.ResolveType.RESOLVE_FROM_DNS.toString();
-                jp.a("Async resolve successful, host(%s) ipv4List(%s) ipv6List(%s) resolveType(%s)", objArr);
-                hp.a aVar = new hp.a();
-                aVar.i(60L);
-                aVar.h(System.currentTimeMillis() / 1000);
-                aVar.f(arrayList);
-                aVar.g(arrayList2);
-                this.c.e(str, aVar);
-                BDHttpDns.e eVar = this.a;
-                if (eVar != null) {
-                    eVar.a(new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_FROM_DNS, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, arrayList, arrayList2));
-                    return;
-                }
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!this.k && getContext() != null && (this.m instanceof SendVoiceView)) {
+                BdTopToast bdTopToast = new BdTopToast(getContext());
+                bdTopToast.h(false);
+                bdTopToast.g(getContext().getString(R.string.function_can_not_use));
+                bdTopToast.i((ViewGroup) ((SendVoiceView) this.m).getRootView());
             }
-            jp.a("Async resolve failed, host(%s), dns resolve failed", str);
-            BDHttpDns.e eVar2 = this.a;
-            if (eVar2 != null) {
-                eVar2.a(new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_NONE, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveErrorDnsResolve, arrayList, arrayList2));
-            }
+            return this.k;
         }
+        return invokeV.booleanValue;
     }
 }

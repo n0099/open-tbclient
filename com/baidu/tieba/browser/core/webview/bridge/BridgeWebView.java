@@ -5,9 +5,9 @@ import android.util.AttributeSet;
 import android.webkit.WebChromeClient;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.browser.core.webview.scroll.NestedScrollWebView;
-import com.baidu.tieba.i66;
-import com.baidu.tieba.t56;
-import com.baidu.tieba.u56;
+import com.baidu.tieba.fa6;
+import com.baidu.tieba.ga6;
+import com.baidu.tieba.ua6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class BridgeWebView extends NestedScrollWebView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public t56 r;
-    public final i66 s;
+    public fa6 r;
+    public final ua6 s;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BridgeWebView(Context context) {
@@ -37,7 +37,7 @@ public class BridgeWebView extends NestedScrollWebView {
                 return;
             }
         }
-        this.s = new i66();
+        this.s = new ua6();
         c();
     }
 
@@ -60,7 +60,7 @@ public class BridgeWebView extends NestedScrollWebView {
                 return;
             }
         }
-        this.s = new i66();
+        this.s = new ua6();
         c();
     }
 
@@ -83,7 +83,7 @@ public class BridgeWebView extends NestedScrollWebView {
                 return;
             }
         }
-        this.s = new i66();
+        this.s = new ua6();
         c();
     }
 
@@ -92,7 +92,7 @@ public class BridgeWebView extends NestedScrollWebView {
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             super.setWebChromeClient(this.s);
             if (this.r == null) {
-                u56 g = u56.g(this);
+                ga6 g = ga6.g(this);
                 this.r = g;
                 g.b();
             }

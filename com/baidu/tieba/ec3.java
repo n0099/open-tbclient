@@ -1,8 +1,6 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -12,21 +10,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ec3 extends g63 {
+public class ec3 extends ta3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ec3(g53 g53Var) {
-        super(g53Var, "/swanAPI/file/save");
+    public ec3(t93 t93Var) {
+        super(t93Var, "/swanAPI/stopPullDownRefresh");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {g53Var};
+            Object[] objArr = {t93Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,60 +36,32 @@ public class ec3 extends g63 {
         }
     }
 
-    @Override // com.baidu.tieba.g63
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j43 j43Var) {
+    @Override // com.baidu.tieba.ta3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, w83 w83Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j43Var)) == null) {
-            if (context != null && callbackHandler != null && j43Var != null && j43Var.f0() != null) {
-                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-                if (optParamsAsJo == null) {
-                    j12.c("saveFile", "params is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                String M = rb3.M(optParamsAsJo.optString("tempFilePath"), j43Var.getAppId());
-                if (g63.b) {
-                    Log.d("SaveFileAction", "——> handle: tempFileUrl " + optParamsAsJo.optString("tempFilePath"));
-                    Log.d("SaveFileAction", "——> handle: tempFilePath " + M);
-                }
-                if (TextUtils.isEmpty(M)) {
-                    j12.c("saveFile", "temp file path is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                int a = j43Var.f0().a(M);
-                if (g63.b) {
-                    Log.d("SaveFileAction", "——> handle: statusCode " + a);
-                }
-                if (a > 2000) {
-                    j12.c("saveFile", "file path status code : " + a);
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a, d53.a(a)));
-                    return false;
-                }
-                String o = j43Var.f0().o(M);
-                if (TextUtils.isEmpty(o)) {
-                    j12.c("saveFile", "save file path is null");
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2003, d53.a(2003)));
-                    return false;
-                }
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("savedFilePath", rb3.J(o, j43.g0()));
-                    if (g63.b) {
-                        Log.d("SaveFileAction", "——> handle: saveFilePath saveFilePath " + o + " update saveFilePath " + jSONObject.get("savedFilePath"));
-                    }
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                    return true;
-                } catch (JSONException unused) {
-                    j12.o("saveFile", "save file path to scheme fail");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, w83Var)) == null) {
+            f82 V = ju2.U().V();
+            if (V == null) {
+                w52.c("stopPullDownRefresh", "manager is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else if (!(V.m() instanceof e82)) {
+                w52.c("stopPullDownRefresh", "top fragment error");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else {
+                e82 e82Var = (e82) V.m();
+                if (e82Var.h0() == null) {
+                    w52.c("stopPullDownRefresh", "view is null");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                     return false;
                 }
+                e82Var.h0().w(false);
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                w52.i("stopPullDownRefresh", "refresh complete");
+                return true;
             }
-            j12.c("saveFile", "execute fail");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-            return false;
         }
         return invokeLLLL.booleanValue;
     }

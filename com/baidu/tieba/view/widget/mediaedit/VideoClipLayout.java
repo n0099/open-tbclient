@@ -16,11 +16,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pr5;
+import com.baidu.tieba.aw5;
+import com.baidu.tieba.ej;
 import com.baidu.tieba.view.widget.mediaedit.RangeSlider;
 import com.baidu.tieba.view.widget.mediaedit.adapter.rangerslider.VideoClipAdapter;
 import com.baidu.tieba.view.widget.mediaedit.manager.CustomLinearLayoutManager;
-import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -581,7 +581,7 @@ public class VideoClipLayout extends FrameLayout {
     public final void G(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, pr5.VideoClipLayout);
+            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, aw5.VideoClipLayout);
             this.u = obtainStyledAttributes.getInt(0, 0);
             obtainStyledAttributes.recycle();
         }
@@ -666,9 +666,9 @@ public class VideoClipLayout extends FrameLayout {
     public final void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08dd, (ViewGroup) null);
-            this.b = (RecyclerView) inflate.findViewById(R.id.obfuscated_res_0x7f092552);
-            this.c = (RangeSlider) inflate.findViewById(R.id.obfuscated_res_0x7f092551);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08d5, (ViewGroup) null);
+            this.b = (RecyclerView) inflate.findViewById(R.id.obfuscated_res_0x7f09256c);
+            this.c = (RangeSlider) inflate.findViewById(R.id.obfuscated_res_0x7f09256b);
             addView(inflate);
             CustomLinearLayoutManager customLinearLayoutManager = new CustomLinearLayoutManager(getContext(), 0, false);
             this.e = customLinearLayoutManager;
@@ -982,7 +982,7 @@ public class VideoClipLayout extends FrameLayout {
             this.g = UtilHelper.getDimenPixelSize(R.dimen.tbds31);
             this.n = UtilHelper.getDimenPixelSize(R.dimen.tbds130);
             this.m = UtilHelper.getDimenPixelSize(R.dimen.tbds89);
-            double l = ((zi.l(getContext()) - UtilHelper.getDimenPixelSize(R.dimen.tbds187)) - this.g) - (UtilHelper.getDimenPixelSize(R.dimen.tbds31) * 2);
+            double l = ((ej.l(getContext()) - UtilHelper.getDimenPixelSize(R.dimen.tbds187)) - this.g) - (UtilHelper.getDimenPixelSize(R.dimen.tbds31) * 2);
             this.h = l;
             double d3 = l / I;
             this.i = d3;

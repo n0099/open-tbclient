@@ -1,189 +1,74 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Intent;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.android.IntentUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ih3 {
+public class ih3 extends gh3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947853461, "Lcom/baidu/tieba/ih3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947853461, "Lcom/baidu/tieba/ih3;");
-                return;
+    public ih3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a = tk1.a;
     }
 
-    public static boolean a(Activity activity) {
+    @Override // com.baidu.tieba.gh3
+    @SuppressLint({"BDThrowableCheck"})
+    public Bundle c(fh3 fh3Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
-            if (activity != null && b(activity.getIntent())) {
-                try {
-                    sg3.j(activity);
-                } catch (Exception unused) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fh3Var)) == null) {
+            eh3 b = kh3.b(fh3Var.a);
+            if (b == null) {
+                if (!gh3.a) {
+                    return Bundle.EMPTY;
                 }
-                return true;
+                throw new IllegalArgumentException("illegal sp.");
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean b(Intent intent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, intent)) == null) {
-            if (intent != null) {
-                try {
-                    Bundle extras = intent.getExtras();
-                    if (extras != null) {
-                        extras.isEmpty();
-                        return false;
+            int i = fh3Var.b;
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            if (i != 5) {
+                                if (gh3.a) {
+                                    throw new IllegalArgumentException("wrong info params.");
+                                }
+                            } else {
+                                b.putFloat(fh3Var.c, Float.parseFloat(fh3Var.d));
+                            }
+                        } else {
+                            b.putString(fh3Var.c, fh3Var.d);
+                        }
+                    } else {
+                        b.putBoolean(fh3Var.c, Boolean.parseBoolean(fh3Var.d));
                     }
-                    return false;
-                } catch (Throwable unused) {
-                    return true;
+                } else {
+                    b.putLong(fh3Var.c, Long.parseLong(fh3Var.d));
                 }
+            } else {
+                b.putInt(fh3Var.c, Integer.parseInt(fh3Var.d));
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean c(Bundle bundle, String str, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, bundle, str, z)) == null) {
-            try {
-                return bundle.getBoolean(str);
-            } catch (Throwable unused) {
-                if (a) {
-                    Log.e(IntentUtils.TAG, "getBoolean failed on bundle " + bundle);
-                }
-                return z;
+            if (gh3.a) {
+                Log.d("SwanAppSpDelegation", "Put: " + fh3Var);
             }
+            return Bundle.EMPTY;
         }
-        return invokeLLZ.booleanValue;
-    }
-
-    public static int f(Bundle bundle, String str, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, null, bundle, str, i)) == null) {
-            try {
-                return bundle.getInt(str);
-            } catch (Throwable unused) {
-                if (a) {
-                    Log.e(IntentUtils.TAG, "getInt failed on bundle " + bundle);
-                }
-                return i;
-            }
-        }
-        return invokeLLI.intValue;
-    }
-
-    public static Bundle d(Bundle bundle, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle, str)) == null) {
-            try {
-                return bundle.getBundle(str);
-            } catch (Throwable unused) {
-                if (a) {
-                    Log.e(IntentUtils.TAG, "getBundle failed on bundle " + bundle);
-                    return null;
-                }
-                return null;
-            }
-        }
-        return (Bundle) invokeLL.objValue;
-    }
-
-    public static Bundle e(Intent intent, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, intent, str)) == null) {
-            try {
-                return intent.getBundleExtra(str);
-            } catch (Throwable unused) {
-                if (a) {
-                    Log.e(IntentUtils.TAG, "getBundleExtra failed on intent " + intent);
-                    return null;
-                }
-                return null;
-            }
-        }
-        return (Bundle) invokeLL.objValue;
-    }
-
-    public static String g(Bundle bundle, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, bundle, str)) == null) {
-            try {
-                return bundle.getString(str);
-            } catch (Throwable unused) {
-                if (a) {
-                    Log.e(IntentUtils.TAG, "getString failed on bundle " + bundle);
-                    return null;
-                }
-                return null;
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String h(Intent intent, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, intent, str)) == null) {
-            try {
-                return intent.getStringExtra(str);
-            } catch (Throwable unused) {
-                if (a) {
-                    Log.e(IntentUtils.TAG, "getStringExtra failed on intent " + intent);
-                    return null;
-                }
-                return null;
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String i(Bundle bundle, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, bundle, str)) == null) {
-            try {
-                return bundle.getString(str);
-            } catch (Throwable unused) {
-                if (a) {
-                    Log.e(IntentUtils.TAG, "getStringExtra failed on bundle " + bundle);
-                    return null;
-                }
-                return null;
-            }
-        }
-        return (String) invokeLL.objValue;
+        return (Bundle) invokeL.objValue;
     }
 }

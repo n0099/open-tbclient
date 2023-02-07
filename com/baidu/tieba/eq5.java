@@ -1,132 +1,257 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import androidx.lifecycle.Lifecycle;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.media.ExifInterface;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.SelectImageHelper;
+import com.baidu.tbadk.coreExtra.data.TbMultiMediaData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.data.VideoMuxerData;
+import com.baidu.ugc.editvideo.muxer.VideoMuxer;
+import com.baidu.ugc.editvideo.player.AudioPlayData;
+import com.baidu.ugc.editvideo.player.AudioPlayTrackData;
+import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class eq5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CustomMessageListener a;
-    public c b;
 
     /* loaded from: classes4.dex */
-    public interface c {
-        void a(Application application);
+    public interface b {
+        void a(int i);
 
-        void b(Application application);
+        void b();
+
+        void c();
+
+        void d(String str);
     }
 
     /* loaded from: classes4.dex */
-    public class a extends CustomMessageListener {
+    public static class a implements js9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ eq5 a;
+        public final /* synthetic */ b a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(eq5 eq5Var, int i) {
-            super(i);
+        @Override // com.baidu.tieba.js9
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            }
+        }
+
+        public a(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {eq5Var, Integer.valueOf(i)};
+                Object[] objArr = {bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = eq5Var;
+            this.a = bVar;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Lifecycle.Event event;
+        @Override // com.baidu.tieba.js9
+        public void a(int i) {
+            b bVar;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || !(customResponsedMessage.getData() instanceof iv4)) {
-                return;
+            if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (bVar = this.a) != null) {
+                bVar.a(i);
             }
-            iv4 iv4Var = (iv4) customResponsedMessage.getData();
-            if (iv4Var.a != null && (event = iv4Var.c) != null) {
-                if (event.equals(Lifecycle.Event.ON_PAUSE)) {
-                    if (this.a.b != null) {
-                        this.a.b.a(iv4Var.a);
+        }
+
+        @Override // com.baidu.tieba.js9
+        public void e(String str) {
+            b bVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (bVar = this.a) != null) {
+                bVar.d(str);
+            }
+        }
+
+        @Override // com.baidu.tieba.js9
+        public void f(String str) {
+            b bVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && (bVar = this.a) != null) {
+                bVar.c();
+            }
+        }
+
+        @Override // com.baidu.tieba.js9
+        public void b() {
+            b bVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bVar = this.a) != null) {
+                bVar.b();
+            }
+        }
+
+        @Override // com.baidu.tieba.js9
+        public void d() {
+            b bVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (bVar = this.a) != null) {
+                bVar.c();
+            }
+        }
+    }
+
+    public static Bitmap a(Context context, Uri uri, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, context, uri, i)) == null) {
+            try {
+                return BitmapHelper.subSampleBitmap(context, uri, i);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return null;
+            }
+        }
+        return (Bitmap) invokeLLI.objValue;
+    }
+
+    public static Bitmap b(Context context, String str, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, context, str, i)) == null) {
+            try {
+                return BitmapHelper.loadResizedBitmap(str, i, i);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return null;
+            }
+        }
+        return (Bitmap) invokeLLI.objValue;
+    }
+
+    public static Bitmap c(int i, Context context, Uri uri, String str, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), context, uri, str, Integer.valueOf(i2)})) == null) {
+            if (i == 12001) {
+                return e(i2);
+            }
+            if (!TextUtils.isEmpty(str)) {
+                return b(context, str, i2);
+            }
+            return a(context, uri, i2);
+        }
+        return (Bitmap) invokeCommon.objValue;
+    }
+
+    public static VideoMuxer d(dg9 dg9Var, b bVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, dg9Var, bVar)) == null) {
+            if (dg9Var == null) {
+                return null;
+            }
+            int f = dg9Var.f();
+            int e = dg9Var.e();
+            VideoMuxerData videoMuxerData = new VideoMuxerData();
+            videoMuxerData.setCompat(true);
+            videoMuxerData.setRecordConfigEncodeHevcVideo(true);
+            videoMuxerData.setCurrentEncodeHevcVideo(true);
+            ArrayList arrayList = new ArrayList();
+            if (dg9Var.c() != null) {
+                TbMultiMediaData tbMultiMediaData = (TbMultiMediaData) dg9Var.c().clone();
+                tbMultiMediaData.textureId = 0;
+                arrayList.add(tbMultiMediaData);
+                videoMuxerData.setPhotoDataList(arrayList);
+                videoMuxerData.setVideoPath(tbMultiMediaData.path);
+                videoMuxerData.setPreviewWidth(f);
+                videoMuxerData.setPreviewHeight(e);
+                videoMuxerData.setVideoRatio(dg9Var.g());
+                videoMuxerData.setOutWidth(f);
+                videoMuxerData.setOutHeight(e);
+                videoMuxerData.setOutBitRate(f * e * 6);
+            }
+            if (dg9Var.a() != null) {
+                videoMuxerData.setFilterValue(dg9Var.a());
+            }
+            if (dg9Var.b() != null) {
+                videoMuxerData.setCurrThemeEffect(dg9Var.b());
+            }
+            videoMuxerData.setUserNewAudioMixture(true);
+            if (dg9Var.d() != null) {
+                videoMuxerData.setMusicData(dg9Var.d());
+                ArrayList arrayList2 = new ArrayList();
+                AudioPlayTrackData audioPlayTrackData = new AudioPlayTrackData();
+                AudioPlayData audioPlayData = new AudioPlayData(dg9Var.d().localPath, 0, nw9.f(dg9Var.d().localPath), 1.0f);
+                ArrayList arrayList3 = new ArrayList();
+                audioPlayTrackData.mAudioPlayDataList = arrayList3;
+                arrayList3.add(audioPlayData);
+                arrayList2.add(audioPlayTrackData);
+                videoMuxerData.setAudioPlayTrackDataList(arrayList2);
+            }
+            videoMuxerData.setComposeNecessary(true);
+            VideoMuxer videoMuxer = new VideoMuxer();
+            videoMuxer.setListener(new a(bVar));
+            videoMuxer.startMuxer(videoMuxerData);
+            return videoMuxer;
+        }
+        return (VideoMuxer) invokeLL.objValue;
+    }
+
+    public static Bitmap e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            try {
+                int f = f(FileHelper.getFileDireciory(SelectImageHelper.TMP_IMAGE_NAME));
+                Bitmap subSampleBitmap = BitmapHelper.subSampleBitmap(SelectImageHelper.TMP_IMAGE_NAME, i);
+                if (f != 0 && subSampleBitmap != null) {
+                    return BitmapHelper.rotateBitmapBydegree(subSampleBitmap, f);
+                }
+                return subSampleBitmap;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return null;
+            }
+        }
+        return (Bitmap) invokeI.objValue;
+    }
+
+    public static int f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            try {
+                int attributeInt = new ExifInterface(str).getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1);
+                if (attributeInt != 3) {
+                    if (attributeInt != 6) {
+                        if (attributeInt != 8) {
+                            return 0;
+                        }
+                        return 270;
                     }
-                } else if (iv4Var.c.equals(Lifecycle.Event.ON_RESUME) && this.a.b != null) {
-                    this.a.b.b(iv4Var.a);
+                    return 90;
                 }
+                return 180;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return 0;
             }
         }
-    }
-
-    /* loaded from: classes4.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static eq5 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-824729374, "Lcom/baidu/tieba/eq5$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-824729374, "Lcom/baidu/tieba/eq5$b;");
-                    return;
-                }
-            }
-            a = new eq5();
-        }
-    }
-
-    public eq5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new a(this, 2921698);
-    }
-
-    public static eq5 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (eq5) invokeV.objValue;
-    }
-
-    public void c(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            this.b = cVar;
-            MessageManager.getInstance().registerListener(this.a);
-        }
+        return invokeL.intValue;
     }
 }

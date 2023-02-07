@@ -8,7 +8,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +23,7 @@ public class e {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Object a;
     public static String b = "PushTrackDatabase";
-    public static C0034e c;
+    public static C0033e c;
     @SuppressLint({"StaticFieldLeak"})
     public static e d;
     public transient /* synthetic */ FieldHolder $fh;
@@ -115,7 +114,7 @@ public class e {
                 }
             }
             a = new b("connectionId", 0);
-            b = new b(FetchLog.START_TIME, 1);
+            b = new b("startTime", 1);
             c = new b("stopTime", 2);
             d = new b("reason", 3);
             e = new b("retryTime", 4);
@@ -235,8 +234,8 @@ public class e {
             c = new d(PushClientConstants.TAG_CLASS_NAME, 2);
             d = new d("method", 3);
             e = new d("action", 4);
-            f = new d(FetchLog.START_TIME, 5);
-            g = new d(FetchLog.END_TIME, 6);
+            f = new d("startTime", 5);
+            g = new d("endTime", 6);
             h = new d("duration", 7);
             i = new d("ext", 8);
             d dVar = new d("aliasId", 9);
@@ -266,7 +265,7 @@ public class e {
 
     /* renamed from: com.baidu.android.pushservice.c.e$e  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0034e extends SQLiteOpenHelper {
+    public static class C0033e extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic;
         public static final String a;
         public static final String b;
@@ -329,7 +328,7 @@ public class e {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0034e(Context context, String str, int i) {
+        public C0033e(Context context, String str, int i) {
             super(context, str, (SQLiteDatabase.CursorFactory) null, i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -481,7 +480,7 @@ public class e {
             }
         }
         this.e = context;
-        c = new C0034e(context, "push_track.db", 1);
+        c = new C0033e(context, "push_track.db", 1);
     }
 
     public static e a(Context context) {
@@ -505,7 +504,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             if (c == null) {
-                c = new C0034e(context, "push_track.db", 1);
+                c = new C0033e(context, "push_track.db", 1);
             }
             try {
                 return c.getWritableDatabase();

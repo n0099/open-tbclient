@@ -1,10 +1,21 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.tieba.zh4;
+import okhttp3.Callback;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public interface js1 {
-    @NonNull
-    ks1 a();
+    void d(byte[] bArr);
 
-    void d(String str, jw1 jw1Var);
+    <T> void e(String str, String str2, ResponseCallback<T> responseCallback);
+
+    void f(String str, String str2, zh4.c cVar);
+
+    boolean g(String str);
+
+    boolean h();
+
+    boolean i(@NonNull w83 w83Var, @NonNull JSONObject jSONObject, @NonNull String str, @NonNull String str2, Callback callback, pn3<String> pn3Var);
 }

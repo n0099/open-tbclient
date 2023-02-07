@@ -33,14 +33,14 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.util.OnActivityFinishListener;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cr5;
-import com.baidu.tieba.o9;
-import com.baidu.tieba.om4;
-import com.baidu.tieba.pm4;
+import com.baidu.tieba.br4;
+import com.baidu.tieba.cr4;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.nv5;
+import com.baidu.tieba.t9;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.videoplay.danmu.DanmuProgressManager;
 import com.baidu.tieba.videoplay.fragment.VideoVerticalPageFragment;
-import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -54,19 +54,21 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
-    public boolean c;
-    public List<VideoItemData> d;
-    public VideoVerticalPageFragment e;
-    public ImageView f;
-    public cr5 g;
-    public boolean h;
-    public CustomMessageListener i;
+    public int c;
+    public boolean d;
+    public boolean e;
+    public List<VideoItemData> f;
+    public VideoVerticalPageFragment g;
+    public ImageView h;
+    public nv5 i;
+    public boolean j;
+    public CustomMessageListener k;
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public String taskActionId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? "712" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? "712" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes6.dex */
@@ -106,7 +108,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
             }
             float floatValue = ((Float) customResponsedMessage.getData()).floatValue();
             if (floatValue >= 0.0f && floatValue <= 1.0f) {
-                this.a.f.setAlpha(floatValue);
+                this.a.h.setAlpha(floatValue);
             }
         }
     }
@@ -157,222 +159,16 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
                 return;
             }
         }
-        this.c = false;
-        this.h = false;
-        this.i = new a(this, 2921594);
+        this.c = 0;
+        this.d = false;
+        this.e = false;
+        this.j = false;
+        this.k = new a(this, 2921594);
     }
 
-    public final void S0() {
+    public final void q1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.d = (List) getIntent().getSerializableExtra("video_list");
-            this.b = getIntent().getStringExtra("key_nid");
-        }
-    }
-
-    public final boolean U0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return TextUtils.equals(this.a, VideoRecommentPlayActivityConfig.FROM_AGREE_PAGE);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean X0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return TextUtils.equals(this.a, VideoRecommentPlayActivityConfig.FROM_AT_PAGE);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean a1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return TextUtils.equals(this.a, VideoRecommentPlayActivityConfig.FROM_COLLECTION);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean b1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return TextUtils.equals(this.a, VideoRecommentPlayActivityConfig.FROM_CREATE_CENTER);
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void closeAnimation() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 0);
-        }
-    }
-
-    public final boolean d1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return TextUtils.equals(this.a, VideoRecommentPlayActivityConfig.FROM_HISTORY);
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void enterExitAnimation() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
-        }
-    }
-
-    public final boolean f1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return TextUtils.equals(this.a, VideoRecommentPlayActivityConfig.FROM_LINK_PAGE);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean g1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return TextUtils.equals(this.a, VideoRecommentPlayActivityConfig.FROM_MY_THREADS);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean h1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return TextUtils.equals(this.a, VideoRecommentPlayActivityConfig.FROM_OFFICAL_VIDEO);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean i1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return TextUtils.equals(this.a, VideoRecommentPlayActivityConfig.FROM_PB_VIDEO_SCHEME);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean j1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return TextUtils.equals(this.a, VideoRecommentPlayActivityConfig.FROM_PERSONAL_PAGE);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean k1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return TextUtils.equals(this.a, VideoRecommentPlayActivityConfig.FROM_REPLY_PAGE);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean l1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return TextUtils.equals(this.a, VideoRecommentPlayActivityConfig.FROM_VIDEO_HOT_TOPIC);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean m1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return TextUtils.equals(this.a, VideoRecommentPlayActivityConfig.FROM_WORK_MANAGEMENT);
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            super.onDestroy();
-            DanmuProgressManager.b.a().b();
-            cr5 cr5Var = this.g;
-            if (cr5Var != null) {
-                cr5Var.h();
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
-            super.onPause();
-            VideoVerticalPageFragment videoVerticalPageFragment = this.e;
-            if (videoVerticalPageFragment != null) {
-                videoVerticalPageFragment.setPrimary(false);
-                this.e.setUserVisibleHint(false);
-            }
-            pm4.w().E();
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
-            super.onResume();
-            VideoVerticalPageFragment videoVerticalPageFragment = this.e;
-            if (videoVerticalPageFragment != null) {
-                videoVerticalPageFragment.setPrimary(true);
-                this.e.setUserVisibleHint(true);
-                pm4.w().P(om4.c0, this.e.J0());
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
-            WebPManager.setPureDrawable(this.f, R.drawable.icon_pure_topbar_return40, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
-            VideoVerticalPageFragment videoVerticalPageFragment = this.e;
-            if (videoVerticalPageFragment != null) {
-                videoVerticalPageFragment.onChangeSkinType(i);
-            }
-            UtilHelper.changeStatusBarIconAndTextColor(true, this);
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
-    public void onConfigurationChanged(Configuration configuration) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, configuration) == null) {
-            super.onConfigurationChanged(configuration);
-            if (configuration.orientation == 2) {
-                this.f.setVisibility(8);
-            } else {
-                this.f.setVisibility(0);
-            }
-        }
-    }
-
-    public final void P0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_ENTER_VIDEO_PAGE);
             if (TextUtils.isEmpty(this.b)) {
                 statisticItem.param("obj_type", "1");
@@ -384,116 +180,272 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
         }
     }
 
-    public final void Q0() {
-        String str;
+    public final void t1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_FROM_OUTSIDE);
-            if (!ListUtils.isEmpty(this.d)) {
-                VideoItemData videoItemData = this.d.get(0);
-                if (videoItemData == null) {
-                    str = "";
-                } else {
-                    str = videoItemData.thread_id;
-                }
-                statisticItem.param("tid", str);
-            }
-            if (X0()) {
-                statisticItem.param("obj_source", 6);
-            } else if (U0()) {
-                statisticItem.param("obj_source", 7);
-            } else if (k1()) {
-                statisticItem.param("obj_source", 8);
-            } else if (f1()) {
-                statisticItem.param("obj_source", 9);
-            } else if (b1()) {
-                statisticItem.param("obj_source", 10);
-            } else if (m1()) {
-                statisticItem.param("obj_source", 11);
-            } else if (h1()) {
-                statisticItem.param("obj_source", 12);
-            } else if (VideoRecommentPlayActivityConfig.FROM_MY_THREADS.equals(this.a)) {
-                statisticItem.param("obj_source", 13);
-            } else if (VideoRecommentPlayActivityConfig.FROM_COLLECTION.equals(this.a)) {
-                statisticItem.param("obj_source", 14);
-            } else if (VideoRecommentPlayActivityConfig.FROM_HISTORY.equals(this.a)) {
-                statisticItem.param("obj_source", 15);
-            }
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+            this.f = (List) getIntent().getSerializableExtra("video_list");
+            this.b = getIntent().getStringExtra("key_nid");
+            this.c = getIntent().getIntExtra("key_start_from", 0);
         }
     }
 
-    public final void T0() {
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (ListUtils.isEmpty(this.d) && !ListUtils.isEmpty(VideoPlayActivityConfig.bigDataList)) {
-                ArrayList arrayList = new ArrayList();
-                this.d = arrayList;
-                arrayList.addAll(VideoPlayActivityConfig.bigDataList);
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            WebPManager.setPureDrawable(this.h, R.drawable.icon_pure_topbar_return40, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
+            VideoVerticalPageFragment videoVerticalPageFragment = this.g;
+            if (videoVerticalPageFragment != null) {
+                videoVerticalPageFragment.onChangeSkinType(i);
             }
-            if (ListUtils.isEmpty(this.d)) {
-                zi.P(this, R.string.obfuscated_res_0x7f0f0cce);
-                finish();
-                return;
-            }
-            VideoVerticalPageFragment videoVerticalPageFragment = new VideoVerticalPageFragment(getUniqueId(), null, 0, R0());
-            this.e = videoVerticalPageFragment;
-            videoVerticalPageFragment.setArguments(getIntent().getExtras());
-            FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-            beginTransaction.add(R.id.obfuscated_res_0x7f092686, this.e);
-            beginTransaction.commitAllowingStateLoss();
-            getSupportFragmentManager().executePendingTransactions();
-            ImageView imageView = new ImageView(getPageContext().getPageActivity());
-            this.f = imageView;
-            imageView.setOnClickListener(new b(this));
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.tbds104), UtilHelper.getDimenPixelSize(R.dimen.tbds104));
-            layoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.tbds120);
-            layoutParams.leftMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X007);
-            addContentView(this.f, layoutParams);
+            UtilHelper.changeStatusBarIconAndTextColor(true, this);
         }
     }
 
-    public final int R0() {
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
+    public void onConfigurationChanged(Configuration configuration) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, configuration) == null) {
+            super.onConfigurationChanged(configuration);
+            if (configuration.orientation == 2) {
+                this.h.setVisibility(8);
+            } else {
+                this.h.setVisibility(0);
+            }
+        }
+    }
+
+    public final boolean A1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return TextUtils.equals(this.a, VideoRecommentPlayActivityConfig.FROM_LINK_PAGE);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean C1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return TextUtils.equals(this.a, VideoRecommentPlayActivityConfig.FROM_MY_THREADS);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean D1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (j1()) {
+            return TextUtils.equals(this.a, VideoRecommentPlayActivityConfig.FROM_OFFICAL_VIDEO);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean E1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return TextUtils.equals(this.a, VideoRecommentPlayActivityConfig.FROM_PB_VIDEO_SCHEME);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean F1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return TextUtils.equals(this.a, VideoRecommentPlayActivityConfig.FROM_PERSONAL_PAGE);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean G1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return TextUtils.equals(this.a, VideoRecommentPlayActivityConfig.FROM_REPLY_PAGE);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean H1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return TextUtils.equals(this.a, VideoRecommentPlayActivityConfig.FROM_VIDEO_HOT_TOPIC);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean I1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return TextUtils.equals(this.a, VideoRecommentPlayActivityConfig.FROM_WORK_MANAGEMENT);
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity
+    public void closeAnimation() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 0);
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity
+    public void enterExitAnimation() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            super.onDestroy();
+            DanmuProgressManager.b.a().b();
+            nv5 nv5Var = this.i;
+            if (nv5Var != null) {
+                nv5Var.h();
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            super.onPause();
+            VideoVerticalPageFragment videoVerticalPageFragment = this.g;
+            if (videoVerticalPageFragment != null) {
+                videoVerticalPageFragment.setPrimary(false);
+                this.g.setUserVisibleHint(false);
+            }
+            cr4.w().E();
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            super.onResume();
+            VideoVerticalPageFragment videoVerticalPageFragment = this.g;
+            if (videoVerticalPageFragment != null) {
+                videoVerticalPageFragment.setPrimary(true);
+                this.g.setUserVisibleHint(true);
+                cr4.w().P(br4.c0, this.g.K0());
+            }
+        }
+    }
+
+    public final boolean v1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            return TextUtils.equals(this.a, VideoRecommentPlayActivityConfig.FROM_AGREE_PAGE);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean w1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            return TextUtils.equals(this.a, VideoRecommentPlayActivityConfig.FROM_AT_PAGE);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean x1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            return TextUtils.equals(this.a, VideoRecommentPlayActivityConfig.FROM_COLLECTION);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean y1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            return TextUtils.equals(this.a, VideoRecommentPlayActivityConfig.FROM_CREATE_CENTER);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean z1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            return TextUtils.equals(this.a, VideoRecommentPlayActivityConfig.FROM_HISTORY);
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity
+    public void finish() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || this.j) {
+            return;
+        }
+        this.j = true;
+        if (F1() || H1() || E1() || w1() || v1() || G1() || A1() || y1() || I1() || D1() || C1() || x1() || z1()) {
+            OnActivityFinishListener.d(getPageContext(), null);
+        }
+        if (this.d || this.e) {
+            sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(getPageContext().getPageActivity()).createNormalCfg(2)));
+        }
+        super.finish();
+    }
+
+    public final int s1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            if (F1()) {
                 return 6;
             }
-            if (l1()) {
+            if (H1()) {
                 return 8;
             }
-            if (i1()) {
+            if (E1()) {
                 return 9;
             }
-            if (X0()) {
+            if (w1()) {
                 return 10;
             }
-            if (U0()) {
+            if (v1()) {
                 return 11;
             }
-            if (k1()) {
+            if (G1()) {
                 return 12;
             }
-            if (f1()) {
+            if (A1()) {
                 return 13;
             }
-            if (b1()) {
+            if (y1()) {
                 return 18;
             }
-            if (m1()) {
+            if (I1()) {
                 return 19;
             }
-            if (h1()) {
+            if (D1()) {
                 return 14;
             }
-            if (g1()) {
+            if (C1()) {
                 return 15;
             }
-            if (a1()) {
+            if (x1()) {
                 return 16;
             }
-            if (d1()) {
+            if (z1()) {
                 return 17;
             }
             return 5;
@@ -501,30 +453,14 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity
-    public void finish() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048589, this) != null) || this.h) {
-            return;
-        }
-        this.h = true;
-        if (j1() || l1() || i1() || X0() || U0() || k1() || f1() || b1() || m1() || h1() || g1() || a1() || d1()) {
-            OnActivityFinishListener.d(getPageContext(), null);
-        }
-        if (this.c) {
-            sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(getPageContext().getPageActivity()).createNormalCfg(2)));
-        }
-        super.finish();
-    }
-
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048597, this, i, i2, intent) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048587, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
-            VideoVerticalPageFragment videoVerticalPageFragment = this.e;
+            VideoVerticalPageFragment videoVerticalPageFragment = this.g;
             if (videoVerticalPageFragment != null) {
-                videoVerticalPageFragment.h1(i, i2, intent);
+                videoVerticalPageFragment.i1(i, i2, intent);
             }
         }
     }
@@ -532,28 +468,29 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, bundle) == null) {
-            if (getIntent() != null) {
-                if (getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !o9.f().h("MainTabActivity")) {
-                    this.c = true;
+        if (interceptable == null || interceptable.invokeL(1048590, this, bundle) == null) {
+            t1();
+            if (!t9.f().h("MainTabActivity")) {
+                if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null) {
+                    this.d = true;
+                } else if (this.c == 7) {
+                    this.e = true;
                 }
-                this.a = getIntent().getStringExtra("from");
             }
-            if (this.c) {
+            if (this.d || this.e) {
                 setIsAddSwipeBackLayout(false);
             }
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d090e);
-            this.g = new cr5(getPageContext(), "client_videomiddle");
-            S0();
-            T0();
+            setContentView(R.layout.obfuscated_res_0x7f0d0904);
+            this.i = new nv5(getPageContext(), "client_videomiddle");
+            u1();
             addNoAdjustSoftInputHeightListener();
-            if (!j1() && !l1() && !i1() && !X0() && !U0() && !k1() && !f1() && !b1() && !m1() && !h1() && !g1() && !a1() && !d1() && getWindow() != null) {
+            if (!F1() && !H1() && !E1() && !w1() && !v1() && !G1() && !A1() && !y1() && !I1() && !D1() && !C1() && !x1() && !z1() && getWindow() != null) {
                 getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.CAM_X0611)));
             }
-            P0();
-            Q0();
-            registerListener(this.i);
+            q1();
+            r1();
+            registerListener(this.k);
         }
     }
 
@@ -561,14 +498,14 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048602, this, i, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048592, this, i, keyEvent)) == null) {
             if (i == 4) {
-                VideoVerticalPageFragment videoVerticalPageFragment = this.e;
+                VideoVerticalPageFragment videoVerticalPageFragment = this.g;
                 if (videoVerticalPageFragment != null) {
                     if (videoVerticalPageFragment.s1()) {
                         return false;
                     }
-                    this.e.F0();
+                    this.g.G0();
                 }
                 finish();
                 return false;
@@ -581,12 +518,81 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onKeyboardVisibilityChanged(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
             super.onKeyboardVisibilityChanged(z);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921645, Boolean.valueOf(z)));
             if (Build.VERSION.SDK_INT >= 16 && !z && getActivity() != null && getActivity().getWindow() != null && getActivity().getWindow().getDecorView() != null && !TbSingleton.getInstance().isNotchScreen(this) && !TbSingleton.getInstance().isCutoutScreen(this)) {
                 getActivity().getWindow().getDecorView().setSystemUiVisibility(getActivity().getWindow().getDecorView().getSystemUiVisibility() | 4);
             }
+        }
+    }
+
+    public final void r1() {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_FROM_OUTSIDE);
+            if (!ListUtils.isEmpty(this.f)) {
+                VideoItemData videoItemData = this.f.get(0);
+                if (videoItemData == null) {
+                    str = "";
+                } else {
+                    str = videoItemData.thread_id;
+                }
+                statisticItem.param("tid", str);
+            }
+            if (w1()) {
+                statisticItem.param("obj_source", 6);
+            } else if (v1()) {
+                statisticItem.param("obj_source", 7);
+            } else if (G1()) {
+                statisticItem.param("obj_source", 8);
+            } else if (A1()) {
+                statisticItem.param("obj_source", 9);
+            } else if (y1()) {
+                statisticItem.param("obj_source", 10);
+            } else if (I1()) {
+                statisticItem.param("obj_source", 11);
+            } else if (D1()) {
+                statisticItem.param("obj_source", 12);
+            } else if (VideoRecommentPlayActivityConfig.FROM_MY_THREADS.equals(this.a)) {
+                statisticItem.param("obj_source", 13);
+            } else if (VideoRecommentPlayActivityConfig.FROM_COLLECTION.equals(this.a)) {
+                statisticItem.param("obj_source", 14);
+            } else if (VideoRecommentPlayActivityConfig.FROM_HISTORY.equals(this.a)) {
+                statisticItem.param("obj_source", 15);
+            }
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public final void u1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+            if (ListUtils.isEmpty(this.f) && !ListUtils.isEmpty(VideoPlayActivityConfig.bigDataList)) {
+                ArrayList arrayList = new ArrayList();
+                this.f = arrayList;
+                arrayList.addAll(VideoPlayActivityConfig.bigDataList);
+            }
+            if (ListUtils.isEmpty(this.f)) {
+                ej.P(this, R.string.obfuscated_res_0x7f0f0cfb);
+                finish();
+                return;
+            }
+            VideoVerticalPageFragment videoVerticalPageFragment = new VideoVerticalPageFragment(getUniqueId(), null, 0, s1());
+            this.g = videoVerticalPageFragment;
+            videoVerticalPageFragment.setArguments(getIntent().getExtras());
+            FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
+            beginTransaction.add(R.id.obfuscated_res_0x7f09268e, this.g);
+            beginTransaction.commitAllowingStateLoss();
+            getSupportFragmentManager().executePendingTransactions();
+            ImageView imageView = new ImageView(getPageContext().getPageActivity());
+            this.h = imageView;
+            imageView.setOnClickListener(new b(this));
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.tbds104), UtilHelper.getDimenPixelSize(R.dimen.tbds104));
+            layoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.tbds120);
+            layoutParams.leftMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X007);
+            addContentView(this.h, layoutParams);
         }
     }
 }

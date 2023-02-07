@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.editortools.view.CommonTabWidgetView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.m95;
+import com.baidu.tieba.yd5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
     public transient /* synthetic */ FieldHolder $fh;
     public DeskLinearLayout a;
     public int b;
-    public List<m95> c;
+    public List<yd5> c;
     public CommonTabWidgetView.b d;
     public LinearLayout.LayoutParams e;
     public int f;
@@ -147,7 +147,7 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
         d();
     }
 
-    public void b(m95.b bVar) {
+    public void b(yd5.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             c(bVar);
@@ -155,7 +155,7 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
         }
     }
 
-    public void setDatas(List<m95> list) {
+    public void setDatas(List<yd5> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             this.c = list;
@@ -169,7 +169,7 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
         }
     }
 
-    public final TbImageView c(m95.b bVar) {
+    public final TbImageView c(yd5.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar)) == null) {
@@ -265,10 +265,10 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
             this.a.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
             this.a.setBaselineAligned(false);
             addView(this.a);
-            this.f = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070302);
-            this.g = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070230);
-            this.a.setPadding(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070230), 0, 0);
-            this.e = new LinearLayout.LayoutParams(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070232), -1);
+            this.f = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070303);
+            this.g = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070231);
+            this.a.setPadding(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070231), 0, 0);
+            this.e = new LinearLayout.LayoutParams(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070234), -1);
             this.i = new View(getContext());
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -1);
             layoutParams.weight = 1.0f;

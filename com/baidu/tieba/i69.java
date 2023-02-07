@@ -1,69 +1,40 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TbMd5;
-import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.liveremind.LiveRemindConfig;
+import com.baidu.tbadk.data.LiveRemindRecommendData;
+import com.baidu.tieba.h85;
+import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tieba.z05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class i69 {
+public class i69 extends z05 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile i69 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, String> a;
-    public DownloadData b;
+    public final MainTabActivity c;
+    public LiveRemindRecommendData d;
+    public Map<String, Object> e;
+    public h85 f;
 
     /* loaded from: classes4.dex */
-    public interface b {
-        void a(String str);
-
-        void b();
-
-        void c(String str, String str2);
-    }
-
-    /* loaded from: classes4.dex */
-    public class a implements u65 {
+    public class a implements h85.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ i69 c;
+        public final /* synthetic */ i69 a;
 
-        @Override // com.baidu.tieba.u65
-        public boolean onFileDownloaded(DownloadData downloadData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.u65
-        public boolean onPreDownload(DownloadData downloadData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        public a(i69 i69Var, b bVar, String str) {
+        public a(i69 i69Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {i69Var, bVar, str};
+                Object[] objArr = {i69Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -73,159 +44,103 @@ public class i69 {
                     return;
                 }
             }
-            this.c = i69Var;
-            this.a = bVar;
-            this.b = str;
+            this.a = i69Var;
         }
 
-        @Override // com.baidu.tieba.u65
-        public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
+        @Override // com.baidu.tieba.h85.h
+        public void dismiss() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
-                File file = new File(downloadData.getPath());
-                if (file.exists()) {
-                    file.delete();
-                }
-                if (this.c.b != null && downloadData.getUrl().equals(this.c.b.getUrl())) {
-                    this.c.b = null;
-                }
-                b bVar = this.a;
-                if (bVar != null) {
-                    bVar.a(str);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.u65
-        public void onFileDownloadSucceed(DownloadData downloadData) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) && downloadData != null && !StringUtils.isNull(downloadData.getPath())) {
-                if (this.c.b != null && downloadData.getUrl().equals(this.c.b.getUrl())) {
-                    this.c.b = null;
-                }
-                if (this.a != null) {
-                    this.c.a.put(downloadData.getPath().substring(o59.a.length(), downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
-                    this.a.c(this.b, downloadData.getPath());
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.u65
-        public void onFileUpdateProgress(DownloadData downloadData) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) && downloadData.getStatus() == 4) {
-                File file = new File(downloadData.getPath());
-                if (file.exists()) {
-                    file.delete();
-                }
-                if (this.c.b != null && downloadData.getUrl().equals(this.c.b.getUrl())) {
-                    this.c.b = null;
-                }
-                b bVar = this.a;
-                if (bVar != null) {
-                    bVar.b();
-                }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.c();
             }
         }
     }
 
-    public i69() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public i69(MainTabActivity mainTabActivity, v39 v39Var) {
+        super(mainTabActivity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, v39Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static i69 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (c == null) {
-                synchronized (i69.class) {
-                    if (c == null) {
-                        c = new i69();
-                    }
-                }
-            }
-            return c;
-        }
-        return (i69) invokeV.objValue;
-    }
-
-    public void d() {
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            HashMap<String, String> hashMap = this.a;
-            if (hashMap == null) {
-                this.a = new HashMap<>();
-            } else {
-                hashMap.clear();
-            }
-            File file = new File(o59.a);
-            if (file.exists()) {
-                for (File file2 : file.listFiles()) {
-                    if (file2.isFile()) {
-                        this.a.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
-                    }
-                }
-            }
-        }
-    }
-
-    public void e(String str, String str2, b bVar) {
-        String nameMd5FromUrl;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, bVar) != null) || TextUtils.isEmpty(str2) || (nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str2)) == null) {
-            return;
-        }
-        DownloadData downloadData = this.b;
-        if (downloadData != null) {
-            if (str2.equals(downloadData.getUrl())) {
                 return;
             }
-            v65.k().h(this.b.getUrl(), true);
         }
-        File file = new File(o59.a);
-        if (!file.exists()) {
-            file.mkdirs();
-        }
-        DownloadData downloadData2 = new DownloadData();
-        downloadData2.setType(17);
-        downloadData2.setId(str);
-        downloadData2.setUrl(str2);
-        downloadData2.setPath(o59.a + nameMd5FromUrl + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
-        downloadData2.setCallback(new a(this, bVar, str2));
-        this.b = downloadData2;
-        v65.k().l(downloadData2);
+        this.c = mainTabActivity;
     }
 
-    public String f(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.z05
+    public void b() {
+        h85 h85Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str);
-            if (nameMd5FromUrl == null) {
-                return null;
-            }
-            HashMap<String, String> hashMap = this.a;
-            if (hashMap == null) {
-                this.a = new HashMap<>();
-                d();
-                if (this.a.size() <= 0) {
-                    return null;
-                }
-                return this.a.get(nameMd5FromUrl);
-            }
-            return hashMap.get(nameMd5FromUrl);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (h85Var = this.f) != null) {
+            h85Var.t();
         }
-        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.z05
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.f = i85.d(null, this.c.getPageContext(), this.e, 0L, 4000L, new a(this));
+            d35.b().f(LiveRemindConfig.Scene.LIVE_FLOAT);
+        }
+    }
+
+    @Override // com.baidu.tieba.z05
+    public void d(z05.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            if (g15.l()) {
+                aVar.a(false);
+                return;
+            }
+            LiveRemindRecommendData c = c35.a().c(0);
+            this.d = c;
+            if (c != null && d35.b().j(LiveRemindConfig.Scene.LIVE_FLOAT)) {
+                this.e = new HashMap();
+                int i = 3;
+                if (this.d.getRemindType() != 1) {
+                    if (this.d.getRemindType() == 2) {
+                        i = 4;
+                    } else if (this.d.getRemindType() == 3) {
+                        i = 2;
+                    } else {
+                        i = 0;
+                    }
+                }
+                this.e.put("view_top_params_key_image_url", this.d.getLiveIconSrc());
+                this.e.put("view_top_params_key_schema", this.d.getLiveIconScheme());
+                this.e.put("view_top_params_user_name", this.d.getUserName());
+                this.e.put("view_top_params_key_desc", this.d.getDesc());
+                this.e.put("view_top_params_room_id", this.d.getRoomId());
+                this.e.put("view_top_params_btn_text", this.d.getBtnText());
+                this.e.put("view_top_params_key_title", this.d.getTitle());
+                this.e.put("view_top_params_key_nid", this.d.getFeedId());
+                this.e.put("view_top_params_key_yyext", this.d.getYyExtData());
+                this.e.put("view_top_params_key_type", Integer.valueOf(i));
+                this.e.put("view_top_params_is_breathe", Boolean.FALSE);
+                if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW && !j95.d()) {
+                    if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW && !j95.d()) {
+                        aVar.a(true);
+                        return;
+                    } else {
+                        aVar.a(false);
+                        return;
+                    }
+                }
+                aVar.a(false);
+                return;
+            }
+            aVar.a(false);
+        }
     }
 }

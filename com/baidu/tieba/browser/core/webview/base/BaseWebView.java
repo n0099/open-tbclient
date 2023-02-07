@@ -13,15 +13,15 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbDomainConfig;
 import com.baidu.tbadk.browser.BrowserHelper;
-import com.baidu.tieba.c66;
-import com.baidu.tieba.d66;
-import com.baidu.tieba.d76;
-import com.baidu.tieba.e66;
-import com.baidu.tieba.f66;
-import com.baidu.tieba.g66;
-import com.baidu.tieba.h66;
-import com.baidu.tieba.w76;
-import com.baidu.tieba.x76;
+import com.baidu.tieba.ic6;
+import com.baidu.tieba.jc6;
+import com.baidu.tieba.oa6;
+import com.baidu.tieba.pa6;
+import com.baidu.tieba.pb6;
+import com.baidu.tieba.qa6;
+import com.baidu.tieba.ra6;
+import com.baidu.tieba.sa6;
+import com.baidu.tieba.ta6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,15 +30,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes3.dex */
-public class BaseWebView extends WebView implements g66 {
+public class BaseWebView extends WebView implements sa6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public boolean b;
-    public w76 c;
-    public final c66 d;
-    public final e66 e;
-    public final d66 f;
+    public ic6 c;
+    public final oa6 d;
+    public final qa6 e;
+    public final pa6 f;
 
     public String b(String str) {
         InterceptResult invokeL;
@@ -66,9 +66,9 @@ public class BaseWebView extends WebView implements g66 {
         }
         this.a = "";
         this.b = false;
-        this.d = new c66(this);
-        this.e = new e66();
-        this.f = new d66();
+        this.d = new oa6(this);
+        this.e = new qa6();
+        this.f = new pa6();
         c();
     }
 
@@ -93,9 +93,9 @@ public class BaseWebView extends WebView implements g66 {
         }
         this.a = "";
         this.b = false;
-        this.d = new c66(this);
-        this.e = new e66();
-        this.f = new d66();
+        this.d = new oa6(this);
+        this.e = new qa6();
+        this.f = new pa6();
         c();
     }
 
@@ -120,9 +120,9 @@ public class BaseWebView extends WebView implements g66 {
         }
         this.a = "";
         this.b = false;
-        this.d = new c66(this);
-        this.e = new e66();
-        this.f = new d66();
+        this.d = new oa6(this);
+        this.e = new qa6();
+        this.f = new pa6();
         c();
     }
 
@@ -176,10 +176,10 @@ public class BaseWebView extends WebView implements g66 {
         }
     }
 
-    public void setPerfData(w76 w76Var) {
+    public void setPerfData(ic6 ic6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, w76Var) == null) {
-            this.c = w76Var;
+        if (interceptable == null || interceptable.invokeL(1048587, this, ic6Var) == null) {
+            this.c = ic6Var;
         }
     }
 
@@ -211,10 +211,10 @@ public class BaseWebView extends WebView implements g66 {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            x76.c(this);
+            jc6.c(this);
             BrowserHelper.h(getContext());
-            h66.b(this);
-            f66.a(this);
+            ta6.b(this);
+            ra6.a(this);
             removeJavascriptInterface("searchBoxJavaBridge_");
             removeJavascriptInterface("accessibility");
             removeJavascriptInterface("accessibilityTraversal");
@@ -248,13 +248,13 @@ public class BaseWebView extends WebView implements g66 {
         }
     }
 
-    public c66 getController() {
+    public oa6 getController() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.d;
         }
-        return (c66) invokeV.objValue;
+        return (oa6) invokeV.objValue;
     }
 
     public String getOriginUrl() {
@@ -278,9 +278,9 @@ public class BaseWebView extends WebView implements g66 {
             setWebViewClient(null);
             clearAnimation();
             setTag(null);
-            x76.b(this);
+            jc6.b(this);
             if (getContext() instanceof MutableContextWrapper) {
-                ((MutableContextWrapper) getContext()).setBaseContext(d76.getContext());
+                ((MutableContextWrapper) getContext()).setBaseContext(pb6.getContext());
             }
             if (this.b) {
                 while (canGoBack()) {
@@ -300,9 +300,9 @@ public class BaseWebView extends WebView implements g66 {
     public void loadUrl(String str, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, str, map) == null) {
-            w76 w76Var = this.c;
-            if (w76Var != null) {
-                w76Var.k(str);
+            ic6 ic6Var = this.c;
+            if (ic6Var != null) {
+                ic6Var.k(str);
             }
             b(str);
             super.loadUrl(str, map);

@@ -10,7 +10,7 @@ import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tk1;
+import com.baidu.tieba.gp1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,7 +38,7 @@ public class SwanAppScrollView extends ScrollView {
                 return;
             }
         }
-        b = tk1.a;
+        b = gp1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

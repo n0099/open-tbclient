@@ -1,129 +1,90 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.tieba.pb.pb.main.PbLoadPreReplyViewHolder;
+import android.view.ViewStub;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.share.ShareStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.gson.Gson;
 /* loaded from: classes4.dex */
-public class g88 extends p78<g58, PbLoadPreReplyViewHolder> {
+public class g88 extends b88 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View.OnClickListener g;
-    public PbLoadPreReplyViewHolder h;
-
-    /* loaded from: classes4.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-        public final /* synthetic */ g88 b;
-
-        public a(g88 g88Var, View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g88Var, view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = g88Var;
-            this.a = view2;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.b.x(1);
-                if (this.b.g != null) {
-                    this.b.g.onClick(this.a);
-                }
-            }
-        }
-    }
+    public ViewStub o;
+    public View p;
+    public TbImageView q;
+    public TextView r;
+    public TextView s;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g88(kc8 kc8Var, BdUniqueId bdUniqueId) {
-        super(kc8Var, bdUniqueId);
+    public g88(TbPageContext tbPageContext, View view2) {
+        super(tbPageContext, view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {kc8Var, bdUniqueId};
+            Object[] objArr = {tbPageContext, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((kc8) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((TbPageContext) objArr2[0], (View) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        ViewStub viewStub = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f0926db);
+        this.o = viewStub;
+        viewStub.inflate();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.o.getLayoutParams();
+        layoutParams.topMargin = ej.j(tbPageContext.getPageActivity()) / 2;
+        this.o.setLayoutParams(layoutParams);
+        this.p = view2.findViewById(R.id.obfuscated_res_0x7f0925b3);
+        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.user_avatar);
+        this.q = tbImageView;
+        tbImageView.setIsRound(true);
+        this.q.setDefaultBgResource(R.drawable.icon_default_avatar100_bg);
+        this.r = (TextView) view2.findViewById(R.id.user_name);
+        this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925dd);
     }
 
-    public void e(View.OnClickListener onClickListener) {
+    @Override // com.baidu.tieba.b88
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
-            this.g = onClickListener;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            super.a(i);
+            p15 d = p15.d(this.p);
+            d.n(R.string.J_X05);
+            d.f(R.color.CAM_X0204);
+            p15 d2 = p15.d(this.r);
+            d2.v(R.color.CAM_X0105);
+            d2.z(R.dimen.T_X05);
+            d2.A(R.string.F_X02);
+            p15 d3 = p15.d(this.s);
+            d3.v(R.color.CAM_X0108);
+            d3.z(R.dimen.T_X08);
+            d3.A(R.string.F_X01);
         }
     }
 
-    public void x(int i) {
-        PbLoadPreReplyViewHolder pbLoadPreReplyViewHolder;
+    @Override // com.baidu.tieba.b88
+    public void c(c88 c88Var) {
+        ShareStorage.StorageModel storageModel;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048581, this, i) == null) && (pbLoadPreReplyViewHolder = this.h) != null) {
-            pbLoadPreReplyViewHolder.b(i);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c88Var) != null) || c88Var == null || (storageModel = (ShareStorage.StorageModel) new Gson().fromJson(c88Var.d, (Class<Object>) ShareStorage.StorageModel.class)) == null) {
+            return;
         }
-    }
-
-    @Override // com.baidu.tieba.p78, com.baidu.tieba.ln
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        w(i, view2, viewGroup, (g58) obj, (PbLoadPreReplyViewHolder) viewHolder);
-        return view2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: v */
-    public PbLoadPreReplyViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d06fe, viewGroup, false);
-            inflate.findViewById(R.id.obfuscated_res_0x7f0924ae).setOnClickListener(new a(this, inflate));
-            return new PbLoadPreReplyViewHolder(this.mContext, inflate);
-        }
-        return (PbLoadPreReplyViewHolder) invokeL.objValue;
-    }
-
-    public View w(int i, View view2, ViewGroup viewGroup, g58 g58Var, PbLoadPreReplyViewHolder pbLoadPreReplyViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, g58Var, pbLoadPreReplyViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) g58Var, (g58) pbLoadPreReplyViewHolder);
-            if (pbLoadPreReplyViewHolder != null && g58Var != null) {
-                this.h = pbLoadPreReplyViewHolder;
-                pbLoadPreReplyViewHolder.c(g58Var.a());
-                pbLoadPreReplyViewHolder.a();
-            }
-            return view2;
-        }
-        return (View) invokeCommon.objValue;
+        this.q.K(storageModel.url, 10, false);
+        this.r.setText(storageModel.displayname);
+        this.s.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f11fd, storageModel.app));
     }
 }

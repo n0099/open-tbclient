@@ -1,80 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class rn4 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int A = 3;
-    public static int B = 4;
-    public static int C = 5;
-    public static int D = 6;
-    public static int E = 1;
-    public static int F = 2;
-    public static int y = 1;
-    public static int z = 2;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public int i;
-    public String j;
-    public String k;
-    public String l;
-    public String m;
-    public double n;
-    public String o;
-    public String p;
-    public String q;
-    public int r;
-    public int s;
-    public long t;
-    public long u;
-    public ArrayList<String> v;
-    public ArrayList<String> w;
-    public int x;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948127377, "Lcom/baidu/tieba/rn4;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948127377, "Lcom/baidu/tieba/rn4;");
-        }
-    }
-
-    public rn4() {
+    public static boolean a(View view2, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, view2, i)) == null) {
+            return view2.canScrollVertically(i);
         }
-        this.v = new ArrayList<>();
-        this.w = new ArrayList<>();
-        this.x = 0;
+        return invokeLI.booleanValue;
     }
 }

@@ -1,20 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Arrays;
 /* loaded from: classes4.dex */
-public class h54 extends k54 {
+public class h54 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String b;
-    public int c;
-    public int d;
+    @V8JavascriptField
+    public i54[] changedTouches;
+    @V8JavascriptField
+    public long timeStamp;
+    @V8JavascriptField
+    public i54[] touches;
 
     public h54() {
         Interceptable interceptable = $ic;
@@ -30,21 +32,12 @@ public class h54 extends k54 {
         }
     }
 
-    @Override // com.baidu.tieba.k54
-    public JSONObject a() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("url", this.b);
-                jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, this.c);
-                jSONObject.put("net", this.d);
-                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, this.a);
-            } catch (JSONException unused) {
-            }
-            return jSONObject;
+            return "SwanGameTouchData{touches=" + Arrays.toString(this.touches) + ", changedTouches=" + Arrays.toString(this.changedTouches) + ", timeStamp=" + this.timeStamp + '}';
         }
-        return (JSONObject) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 }

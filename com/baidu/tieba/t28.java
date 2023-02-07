@@ -1,62 +1,37 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class t28 implements yn {
+public class t28 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public View a;
     public String b;
-    public boolean c;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948129423, "Lcom/baidu/tieba/t28;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948129423, "Lcom/baidu/tieba/t28;");
-                return;
-            }
-        }
-        d = BdUniqueId.gen();
-    }
+    public View c;
 
     public t28() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.c = true;
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
     }
 
     public String b() {
@@ -68,43 +43,60 @@ public class t28 implements yn {
         return (String) invokeV.objValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    public View a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d087f, (ViewGroup) null);
+            this.a = inflate;
+            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f0921ae);
+            this.a.setTag(this);
+            return this.a;
         }
-        return invokeV.booleanValue;
+        return (View) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.yn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return d;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             this.b = str;
+            this.a.setBackgroundColor(n38.a(str));
         }
     }
 
-    public void h(boolean z) {
+    public void e(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.c = z;
+        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
+            this.a.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void f(boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            View view2 = this.c;
+            if (z) {
+                i = 0;
+            } else {
+                i = 4;
+            }
+            view2.setVisibility(i);
+        }
+    }
+
+    public void c(TbPageContext<?> tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext) == null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            qv4 layoutMode = tbPageContext.getLayoutMode();
+            boolean z = true;
+            if (skinType != 1) {
+                z = false;
+            }
+            layoutMode.l(z);
+            tbPageContext.getLayoutMode().k(this.a);
+            this.a.setBackgroundColor(n38.a(this.b));
         }
     }
 }

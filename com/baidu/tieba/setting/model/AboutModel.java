@@ -13,17 +13,17 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.bj;
-import com.baidu.tieba.cz4;
-import com.baidu.tieba.h45;
-import com.baidu.tieba.oi;
-import com.baidu.tieba.r35;
-import com.baidu.tieba.r9;
-import com.baidu.tieba.s9;
+import com.baidu.tieba.e85;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.gj;
+import com.baidu.tieba.k65;
+import com.baidu.tieba.m85;
+import com.baidu.tieba.p35;
 import com.baidu.tieba.setting.more.AboutActivity;
-import com.baidu.tieba.x15;
-import com.baidu.tieba.z35;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.ti;
+import com.baidu.tieba.u85;
+import com.baidu.tieba.w9;
+import com.baidu.tieba.x9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,7 +55,7 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
     }
 
     /* loaded from: classes6.dex */
-    public class b extends BdAsyncTask<String, Integer, h45> {
+    public class b extends BdAsyncTask<String, Integer, u85> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -87,22 +87,22 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public h45 doInBackground(String... strArr) {
+        public u85 doInBackground(String... strArr) {
             InterceptResult invokeL;
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                h45 h45Var = null;
+                u85 u85Var = null;
                 try {
                     NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/s/sync");
                     this.a = netWork;
-                    netWork.addPostData("_os_version", bj.k());
+                    netWork.addPostData("_os_version", gj.k());
                     StringBuffer stringBuffer = new StringBuffer(15);
-                    stringBuffer.append(String.valueOf(zi.l(TbadkCoreApplication.getInst().getApp())));
+                    stringBuffer.append(String.valueOf(ej.l(TbadkCoreApplication.getInst().getApp())));
                     stringBuffer.append(",");
-                    stringBuffer.append(String.valueOf(zi.j(TbadkCoreApplication.getInst().getApp())));
+                    stringBuffer.append(String.valueOf(ej.j(TbadkCoreApplication.getInst().getApp())));
                     this.a.addPostData("_phone_screen", stringBuffer.toString());
-                    if (z35.d().f() > 0) {
+                    if (m85.d().f() > 0) {
                         this.a.addPostData("_msg_status", "0");
                     } else {
                         this.a.addPostData("_msg_status", "1");
@@ -119,14 +119,14 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
                     this.a.addPostData(PackageTable.MD5, UtilHelper.getTiebaApkMd5());
                     NetWork netWork3 = this.a;
                     String str2 = "64";
-                    if (oi.a()) {
+                    if (ti.a()) {
                         str = "64";
                     } else {
                         str = PayUVEventType.PAY_SPLIT_ORDER_CLOSE_BTN_CLICK;
                     }
                     netWork3.addPostData("running_abi", str);
                     NetWork netWork4 = this.a;
-                    if (!oi.b()) {
+                    if (!ti.b()) {
                         str2 = PayUVEventType.PAY_SPLIT_ORDER_CLOSE_BTN_CLICK;
                     }
                     netWork4.addPostData("support_abi", str2);
@@ -134,48 +134,48 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
                     if (!this.a.getNetContext().getResponse().isRequestSuccess()) {
                         return null;
                     }
-                    h45 h45Var2 = new h45();
+                    u85 u85Var2 = new u85();
                     try {
-                        h45Var2.B(postNetData);
-                        if (TbadkCoreApplication.getClientId() == null && h45Var2.i().a() != null && h45Var2.i().a().length() > 0) {
-                            TbadkCoreApplication.saveClientId(this.b.b, h45Var2.i().a());
-                            TbadkCoreApplication.setClientId(h45Var2.i().a());
+                        u85Var2.B(postNetData);
+                        if (TbadkCoreApplication.getClientId() == null && u85Var2.i().a() != null && u85Var2.i().a().length() > 0) {
+                            TbadkCoreApplication.saveClientId(this.b.b, u85Var2.i().a());
+                            TbadkCoreApplication.setClientId(u85Var2.i().a());
                         }
-                        r35 v = h45Var2.v();
+                        e85 v = u85Var2.v();
                         if (v != null) {
-                            cz4.l().v("localvideo_open", v.y());
+                            p35.m().w("localvideo_open", v.y());
                         }
-                        x15 e = h45Var2.e();
+                        k65 e = u85Var2.e();
                         if (e != null && !TextUtils.isEmpty(e.c())) {
-                            cz4.l().z("sync_ad_privacy_url", e.c());
+                            p35.m().B("sync_ad_privacy_url", e.c());
                         }
-                        return h45Var2;
+                        return u85Var2;
                     } catch (Exception e2) {
                         e = e2;
-                        h45Var = h45Var2;
+                        u85Var = u85Var2;
                         BdLog.e(e.getMessage());
-                        return h45Var;
+                        return u85Var;
                     }
                 } catch (Exception e3) {
                     e = e3;
                 }
             } else {
-                return (h45) invokeL.objValue;
+                return (u85) invokeL.objValue;
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(h45 h45Var) {
+        public void onPostExecute(u85 u85Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h45Var) == null) {
-                super.onPostExecute(h45Var);
-                if (h45Var != null && h45Var.e() != null) {
-                    TbadkCoreApplication.getInst().setAdAdSense(h45Var.e());
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u85Var) == null) {
+                super.onPostExecute(u85Var);
+                if (u85Var != null && u85Var.e() != null) {
+                    TbadkCoreApplication.getInst().setAdAdSense(u85Var.e());
                 }
                 this.b.a = null;
-                this.b.mLoadDataCallBack.c(h45Var);
+                this.b.mLoadDataCallBack.c(u85Var);
             }
         }
 
@@ -202,25 +202,25 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AboutModel(BaseActivity baseActivity, r9 r9Var) {
+    public AboutModel(BaseActivity baseActivity, w9 w9Var) {
         super(baseActivity.getPageContext());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity, r9Var};
+            Object[] objArr = {baseActivity, w9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((s9) newInitContext.callArgs[0]);
+                super((x9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.b = baseActivity.getPageContext().getPageActivity();
-        this.mLoadDataCallBack = r9Var;
+        this.mLoadDataCallBack = w9Var;
         this.c = false;
     }
 

@@ -250,7 +250,7 @@ public final class LinkifyCompat {
                 gatherLinks(arrayList, spannable, PatternsCompat.AUTOLINK_WEB_URL, new String[]{"http://", "https://", "rtsp://"}, Linkify.sUrlMatchFilter, null);
             }
             if ((i & 2) != 0) {
-                gatherLinks(arrayList, spannable, PatternsCompat.AUTOLINK_EMAIL_ADDRESS, new String[]{com.baidu.webkit.sdk.WebView.SCHEME_MAILTO}, null, null);
+                gatherLinks(arrayList, spannable, PatternsCompat.AUTOLINK_EMAIL_ADDRESS, new String[]{"mailto:"}, null, null);
             }
             if ((i & 8) != 0) {
                 gatherMapLinks(arrayList, spannable);

@@ -1,42 +1,68 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.app.Activity;
 import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
+import android.content.res.Resources;
+import android.content.res.TypedArray;
+import android.os.Build;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
+import android.view.View;
+import android.view.ViewConfiguration;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.FrameLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.nt1;
-import com.baidu.tieba.o93;
-import com.baidu.tieba.ot1;
+import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Method;
+@SuppressLint({"ObsoleteSdkInt"})
 /* loaded from: classes4.dex */
-public final class h73 extends g63 implements ot1.c {
+public class h73 {
     public static /* synthetic */ Interceptable $ic;
+    public static String f;
     public transient /* synthetic */ FieldHolder $fh;
-    public CallbackHandler c;
+    public final b a;
+    public boolean b;
+    public boolean c;
+    public View d;
+    public View e;
 
     /* loaded from: classes4.dex */
-    public class a implements cj3<m93<o93.e>> {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ nt1.c b;
-        public final /* synthetic */ j43 c;
-        public final /* synthetic */ h73 d;
+    }
 
-        public a(h73 h73Var, CallbackHandler callbackHandler, nt1.c cVar, j43 j43Var) {
+    /* loaded from: classes4.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final int a;
+        public final boolean b;
+        public final int c;
+        public final int d;
+        public final boolean e;
+        public final float f;
+
+        public b(Activity activity, boolean z, boolean z2) {
+            boolean z3;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {h73Var, callbackHandler, cVar, j43Var};
+                Object[] objArr = {activity, Boolean.valueOf(z), Boolean.valueOf(z2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,121 +72,293 @@ public final class h73 extends g63 implements ot1.c {
                     return;
                 }
             }
-            this.d = h73Var;
-            this.a = callbackHandler;
-            this.b = cVar;
-            this.c = j43Var;
+            Resources resources = activity.getResources();
+            if (resources.getConfiguration().orientation == 1) {
+                z3 = true;
+            } else {
+                z3 = false;
+            }
+            this.e = z3;
+            this.f = g(activity);
+            this.a = b(resources, SapiSystemBarTintManager.SystemBarConfig.g);
+            a(activity);
+            this.c = d(activity);
+            this.d = f(activity);
+            this.b = this.c > 0;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cj3
-        /* renamed from: b */
-        public void a(m93<o93.e> m93Var) {
+        public /* synthetic */ b(Activity activity, boolean z, boolean z2, a aVar) {
+            this(activity, z, z2);
+        }
+
+        @TargetApi(14)
+        public final int a(Context context) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m93Var) == null) {
-                this.d.k(m93Var, this.a, this.b, this.c.n0());
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+                if (Build.VERSION.SDK_INT >= 14) {
+                    TypedValue typedValue = new TypedValue();
+                    context.getTheme().resolveAttribute(16843499, typedValue, true);
+                    return TypedValue.complexToDimensionPixelSize(typedValue.data, context.getResources().getDisplayMetrics());
+                }
+                return 0;
+            }
+            return invokeL.intValue;
+        }
+
+        public final float g(Activity activity) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, activity)) == null) {
+                DisplayMetrics displayMetrics = new DisplayMetrics();
+                if (Build.VERSION.SDK_INT >= 16) {
+                    activity.getWindowManager().getDefaultDisplay().getRealMetrics(displayMetrics);
+                } else {
+                    activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+                }
+                float f = displayMetrics.density;
+                return Math.min(displayMetrics.widthPixels / f, displayMetrics.heightPixels / f);
+            }
+            return invokeL.floatValue;
+        }
+
+        public final int b(Resources resources, String str) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, resources, str)) == null) {
+                int identifier = resources.getIdentifier(str, EMABTest.TYPE_DIMEN, "android");
+                if (identifier > 0) {
+                    return resources.getDimensionPixelSize(identifier);
+                }
+                return 0;
+            }
+            return invokeLL.intValue;
+        }
+
+        public int c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.c;
+            }
+            return invokeV.intValue;
+        }
+
+        public int e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.d;
+            }
+            return invokeV.intValue;
+        }
+
+        public int h() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                return this.a;
+            }
+            return invokeV.intValue;
+        }
+
+        public boolean j() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                return this.b;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public boolean k() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+                if (this.f < 600.0f && !this.e) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @TargetApi(14)
+        public final int d(Context context) {
+            InterceptResult invokeL;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+                Resources resources = context.getResources();
+                if (Build.VERSION.SDK_INT >= 14 && i(context)) {
+                    if (this.e) {
+                        str = SapiSystemBarTintManager.SystemBarConfig.h;
+                    } else {
+                        str = SapiSystemBarTintManager.SystemBarConfig.i;
+                    }
+                    return b(resources, str);
+                }
+                return 0;
+            }
+            return invokeL.intValue;
+        }
+
+        @TargetApi(14)
+        public final int f(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
+                Resources resources = context.getResources();
+                if (Build.VERSION.SDK_INT >= 14 && i(context)) {
+                    return b(resources, SapiSystemBarTintManager.SystemBarConfig.j);
+                }
+                return 0;
+            }
+            return invokeL.intValue;
+        }
+
+        @TargetApi(14)
+        public final boolean i(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) {
+                Resources resources = context.getResources();
+                int identifier = resources.getIdentifier(SapiSystemBarTintManager.SystemBarConfig.k, "bool", "android");
+                if (identifier != 0) {
+                    boolean z = resources.getBoolean(identifier);
+                    if ("1".equals(h73.f)) {
+                        return false;
+                    }
+                    if ("0".equals(h73.f)) {
+                        return true;
+                    }
+                    return z;
+                }
+                return !ViewConfiguration.get(context).hasPermanentMenuKey();
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947776581, "Lcom/baidu/tieba/h73;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947776581, "Lcom/baidu/tieba/h73;");
+                return;
+            }
+        }
+        if (Build.VERSION.SDK_INT >= 19) {
+            try {
+                Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class);
+                declaredMethod.setAccessible(true);
+                f = (String) declaredMethod.invoke(null, "qemu.hw.mainkeys");
+            } catch (Throwable unused) {
+                f = null;
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h73(g53 g53Var) {
-        super(g53Var, "/swanAPI/getLocation");
+    @TargetApi(19)
+    public h73(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {g53Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.ot1.c
-    public void b(nt1.c cVar, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048576, this, cVar, i) != null) || this.c == null) {
-            return;
-        }
-        j12.c("GetLocationAction", "request location error code : " + i);
-        this.c.handleSchemeDispatchCallback(cVar.c, UnitedSchemeUtility.wrapCallbackParams(i).toString());
-    }
-
-    @Override // com.baidu.tieba.ot1.c
-    public void g(nt1.c cVar, i73 i73Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, cVar, i73Var) == null) {
-            if (g63.b) {
-                Log.d("GetLocationAction", "convert info : " + i73Var.a());
-            }
-            CallbackHandler callbackHandler = this.c;
-            if (callbackHandler == null) {
-                return;
-            }
-            callbackHandler.handleSchemeDispatchCallback(cVar.c, UnitedSchemeUtility.wrapCallbackParams(i73Var.a(), 0).toString());
-        }
-    }
-
-    @Override // com.baidu.tieba.g63
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j43 j43Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, j43Var)) == null) {
-            if (g63.b) {
-                Log.d("GetLocationAction", "handle entity: " + unitedSchemeEntity.toString());
-            }
-            this.c = callbackHandler;
-            if (j43Var == null) {
-                j12.c("location", "swan app is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
-            nt1.c b = nt1.c.b(unitedSchemeEntity.getParam("params"));
-            if (b != null && b.a()) {
-                if (TextUtils.isEmpty(b.c)) {
-                    j12.c("location", "empty cb");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
-                    return false;
+        Window window = activity.getWindow();
+        ViewGroup viewGroup = (ViewGroup) window.getDecorView();
+        if (Build.VERSION.SDK_INT >= 19) {
+            TypedArray obtainStyledAttributes = activity.obtainStyledAttributes(new int[]{16843759, 16843760});
+            try {
+                this.b = obtainStyledAttributes.getBoolean(0, false);
+                this.c = obtainStyledAttributes.getBoolean(1, false);
+                obtainStyledAttributes.recycle();
+                WindowManager.LayoutParams attributes = window.getAttributes();
+                if ((67108864 & attributes.flags) != 0) {
+                    this.b = true;
                 }
-                j43Var.e0().g(context, "mapp_location", new a(this, callbackHandler, b, j43Var));
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                return true;
+                if ((attributes.flags & 134217728) != 0) {
+                    this.c = true;
+                }
+            } catch (Throwable th) {
+                obtainStyledAttributes.recycle();
+                throw th;
             }
-            j12.c("location", "params is invalid");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-            return false;
         }
-        return invokeLLLL.booleanValue;
+        b bVar = new b(activity, this.b, this.c, null);
+        this.a = bVar;
+        if (!bVar.j()) {
+            this.c = false;
+        }
+        if (this.b) {
+            d(activity, viewGroup);
+        }
+        if (this.c) {
+            c(activity, viewGroup);
+        }
     }
 
-    @Override // com.baidu.tieba.ot1.c
-    public void f(nt1.c cVar, String str) {
-        CallbackHandler callbackHandler;
+    public void b(boolean z) {
+        int i;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cVar, str) != null) || (callbackHandler = this.c) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && this.b) {
+            View view2 = this.d;
+            if (z) {
+                i = 0;
+            } else {
+                i = 8;
+            }
+            view2.setVisibility(i);
         }
-        callbackHandler.handleSchemeDispatchCallback(cVar.c, UnitedSchemeUtility.wrapCallbackParams(10005, "system deny").toString());
     }
 
-    public final void k(m93<o93.e> m93Var, CallbackHandler callbackHandler, nt1.c cVar, boolean z) {
+    public final void c(Context context, ViewGroup viewGroup) {
+        FrameLayout.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{m93Var, callbackHandler, cVar, Boolean.valueOf(z)}) == null) {
-            j12.i("GetLocationAction", "authorized result is " + m93Var);
-            if (h93.h(m93Var)) {
-                ot1.d().e(cVar, this, z);
-                return;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, viewGroup) == null) {
+            this.e = new View(context);
+            if (this.a.k()) {
+                layoutParams = new FrameLayout.LayoutParams(-1, this.a.c());
+                layoutParams.gravity = 80;
+            } else {
+                layoutParams = new FrameLayout.LayoutParams(this.a.e(), -1);
+                layoutParams.gravity = 5;
             }
-            int b = m93Var.b();
-            callbackHandler.handleSchemeDispatchCallback(cVar.c, UnitedSchemeUtility.wrapCallbackParams(b, h93.f(b)).toString());
+            this.e.setLayoutParams(layoutParams);
+            this.e.setBackgroundColor(-1728053248);
+            this.e.setVisibility(8);
+            viewGroup.addView(this.e);
+        }
+    }
+
+    public final void d(Context context, ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, viewGroup) == null) {
+            this.d = new View(context);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, this.a.h());
+            layoutParams.gravity = 48;
+            if (this.c && !this.a.k()) {
+                layoutParams.rightMargin = this.a.e();
+            }
+            this.d.setLayoutParams(layoutParams);
+            this.d.setBackgroundColor(-1728053248);
+            this.d.setVisibility(8);
+            viewGroup.addView(this.d);
         }
     }
 }

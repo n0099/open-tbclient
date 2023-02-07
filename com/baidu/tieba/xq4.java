@@ -1,59 +1,41 @@
 package com.baidu.tieba;
 
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
+import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
+import java.io.File;
+/* loaded from: classes7.dex */
 public class xq4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
 
-    public xq4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948309006, "Lcom/baidu/tieba/xq4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948309006, "Lcom/baidu/tieba/xq4;");
                 return;
             }
         }
-        this.a = 1500;
-        this.b = 3000;
-        this.c = 6000;
+        a = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + ZeusWebViewPreloadClass.ZEUS_FILE_DIR + File.separator + "libs";
     }
 
-    public void a(JSONObject jSONObject) {
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new File(a + File.separator + "libzeuswebviewchromium.so").exists();
         }
-        try {
-            jSONObject.optInt("wifiSlow", -1);
-            jSONObject.optInt("threeGSlow", -1);
-            jSONObject.optInt("twoGSlow", -1);
-            int optInt = jSONObject.optInt("wifiLog", -1);
-            if (optInt > 0) {
-                this.a = optInt;
-            }
-            int optInt2 = jSONObject.optInt("threeGLog", -1);
-            if (optInt2 > 0) {
-                this.b = optInt2;
-            }
-            int optInt3 = jSONObject.optInt("twoGLog", -1);
-            if (optInt3 > 0) {
-                this.c = optInt3;
-            }
-            jSONObject.optInt("mobile_cdn_switch", 1);
-        } catch (Exception unused) {
-        }
+        return invokeV.booleanValue;
     }
 }

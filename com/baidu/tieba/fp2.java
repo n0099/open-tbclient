@@ -8,15 +8,9 @@ public class fp2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(int i) {
-        InterceptResult invokeI;
+    public static boolean a(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? (i & 1) == 1 : invokeI.booleanValue;
-    }
-
-    public static boolean b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? (i & 2) == 2 : invokeI.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65536, null, j)) == null) ? j > 0 : invokeJ.booleanValue;
     }
 }

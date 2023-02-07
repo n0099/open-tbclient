@@ -1,87 +1,78 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.os.Bundle;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class dp3 implements uo3 {
+public class dp3 extends w43 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ep3 a;
-    public boolean b;
-    public boolean c;
-    public boolean d;
 
-    public dp3(@NonNull Context context) {
+    /* loaded from: classes4.dex */
+    public class a implements pn3<Bundle> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dp3 a;
+
+        public a(dp3 dp3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dp3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dp3Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.pn3
+        /* renamed from: b */
+        public void a(Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+                this.a.d.putBundle("key_result_stokent", bundle);
+                this.a.c();
+            }
+        }
+    }
+
+    public dp3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        c(context);
-    }
-
-    public final void c(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && this.a == null) {
-            this.a = ep3.a(context);
         }
     }
 
-    @Override // com.baidu.tieba.uo3
-    public void a() {
+    @Override // com.baidu.tieba.w43
+    public void b(@NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a != null && this.b && d()) {
-            this.b = false;
-            if (this.a.c()) {
-                this.a.e(12, 0);
-                this.a.e(13, 0);
-                return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            String[] stringArray = bundle.getStringArray("key_param_tpl_list");
+            if (stringArray != null && stringArray.length >= 1) {
+                xo3.u(AppRuntime.getAppContext(), new a(this), stringArray);
+            } else {
+                c();
             }
-            this.a.d(12, 0);
-            this.a.d(13, 0);
         }
-    }
-
-    @Override // com.baidu.tieba.uo3
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && this.a != null && !this.b && d()) {
-            this.b = true;
-            if (this.a.c()) {
-                this.a.e(12, i);
-                this.a.e(13, i);
-                return;
-            }
-            this.a.d(12, i);
-            this.a.d(13, i);
-        }
-    }
-
-    public final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (!this.d) {
-                this.d = true;
-                this.c = this.a.g();
-            }
-            return this.c;
-        }
-        return invokeV.booleanValue;
     }
 }

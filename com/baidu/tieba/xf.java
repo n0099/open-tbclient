@@ -1,13 +1,7 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import android.view.View;
 /* loaded from: classes6.dex */
 public interface xf {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("tbadkcore", "INetExperiment");
-
-    boolean netABTest();
-
-    boolean qaHttpsTest();
+    void A(View view2, int i, int i2, long j);
 }

@@ -1,15 +1,52 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface rv0 {
-    void a(@NonNull yr0 yr0Var);
+public class rv0 extends vv0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    lx0 b(@NonNull yr0 yr0Var, @Nullable lx0 lx0Var);
+    public rv0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void c(@NonNull yr0 yr0Var, boolean z);
+    public static vv0 w(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            vv0 m = vv0.m(str, 6);
+            m.u(1);
+            m.s(1);
+            return m;
+        }
+        return (vv0) invokeL.objValue;
+    }
 
-    boolean d(@NonNull yr0 yr0Var, lx0 lx0Var);
+    @Override // com.baidu.tieba.vv0
+    public boolean b(@NonNull ww0 ww0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ww0Var)) == null) {
+            if (1 != ww0Var.getType()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
 }

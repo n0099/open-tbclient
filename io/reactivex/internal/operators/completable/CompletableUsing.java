@@ -20,7 +20,7 @@ import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class CompletableUsing<R> extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public final class CompletableUsing<R> extends Completable {
     public final boolean eager;
     public final Callable<R> resourceSupplier;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class UsingObserver<R> extends AtomicReference<Object> implements CompletableObserver, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -674404550052917487L;

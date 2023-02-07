@@ -1,27 +1,105 @@
 package com.baidu.tieba;
 
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Build;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.thread.task.ElasticTask;
+import com.baidu.searchbox.elasticthread.queue.QueueManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.protobuf.CodedInputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class z31 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final y31[] a;
 
-    public static PendingIntent a(Context context, int i, Intent intent, int i2) {
-        InterceptResult invokeCommon;
+    public z31() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{context, Integer.valueOf(i), intent, Integer.valueOf(i2)})) == null) {
-            if (Build.VERSION.SDK_INT >= 31) {
-                return PendingIntent.getBroadcast(context, i, intent, i2 | CodedInputStream.DEFAULT_SIZE_LIMIT);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return PendingIntent.getBroadcast(context, i, intent, i2);
         }
-        return (PendingIntent) invokeCommon.objValue;
+        this.a = new y31[4];
+        if (n31.s.length != 4) {
+            Log.e(QueueManager.TAG, "Elastic Queue size incompatible!");
+        }
+        for (int i3 = 0; i3 < 4; i3++) {
+            this.a[i3] = new y31();
+        }
+    }
+
+    public double a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!c(0).d()) {
+                return 9999999.0d;
+            }
+            double d = 0.0d;
+            for (int i = 0; i < 4; i++) {
+                d += this.a[i].a() * n31.s[i];
+            }
+            return d / 1000.0d;
+        }
+        return invokeV.doubleValue;
+    }
+
+    public ElasticTask b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            for (int i = 0; i < 4; i++) {
+                if (!this.a[i].d()) {
+                    return this.a[i].b();
+                }
+            }
+            return null;
+        }
+        return (ElasticTask) invokeV.objValue;
+    }
+
+    public y31 c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            int i2 = 0;
+            while (true) {
+                int[] iArr = n31.a;
+                if (i2 < iArr.length) {
+                    if (iArr[i2] == i) {
+                        return this.a[i2];
+                    }
+                    i2++;
+                } else {
+                    y31[] y31VarArr = this.a;
+                    return y31VarArr[y31VarArr.length - 1];
+                }
+            }
+        } else {
+            return (y31) invokeI.objValue;
+        }
+    }
+
+    public void e(ElasticTask elasticTask) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, elasticTask) == null) {
+            c(elasticTask.b()).e(elasticTask);
+        }
+    }
+
+    public void d(Runnable runnable, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048579, this, runnable, str, i) == null) {
+            c(i).c(runnable, str, i);
+        }
     }
 }

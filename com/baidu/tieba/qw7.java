@@ -1,79 +1,104 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import androidx.core.app.NotificationCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.legoBusiness.homeExtra.interviewLiveSquare.AlarmReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetVipInfo.VipDailyList;
-import tbclient.GetVipInfo.VipThemeItem;
+import com.baidubce.auth.NTLMEngineImpl;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class qw7 implements yn {
+public class qw7 extends zs4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public nw7 a;
-    public List<rw7> b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948106328, "Lcom/baidu/tieba/qw7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948106328, "Lcom/baidu/tieba/qw7;");
-                return;
-            }
-        }
-        c = BdUniqueId.gen();
-    }
-
-    @Override // com.baidu.tieba.yn
-    public BdUniqueId getType() {
+    @Override // com.baidu.tieba.zs4
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return c;
-        }
-        return (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "interview/registerInterviewNotice" : (String) invokeV.objValue;
     }
 
-    public qw7(VipDailyList vipDailyList) {
-        List<VipThemeItem> list;
+    public qw7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vipDailyList};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        if (vipDailyList != null && (list = vipDailyList.item) != null && list.size() > 0) {
-            String str = vipDailyList.card_id;
-            nw7 nw7Var = new nw7();
-            this.a = nw7Var;
-            nw7Var.e(1);
-            this.a.d(vipDailyList.class_name);
-            this.a.f(vipDailyList.class_url_name);
-            this.a.g(vipDailyList.class_url);
-            this.b = new ArrayList();
-            for (VipThemeItem vipThemeItem : vipDailyList.item) {
-                this.b.add(new rw7(vipThemeItem));
+    }
+
+    @Override // com.baidu.tieba.zs4, com.baidu.tieba.ct4
+    public et4 b(Object obj, HashMap<String, String> hashMap, String str) {
+        InterceptResult invokeLLL;
+        Map.Entry<String, String> next;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, obj, hashMap, str)) == null) {
+            Context context = TbadkCoreApplication.getInst().getContext();
+            et4 et4Var = new et4();
+            if (obj instanceof jv7) {
+                jv7 jv7Var = (jv7) obj;
+                boolean c = jv7Var.c();
+                AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
+                Intent intent = new Intent(context, AlarmReceiver.class);
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                if (currentAccount == null) {
+                    currentAccount = "";
+                }
+                intent.putExtra("uid", TbadkCoreApplication.getCurrentAccount());
+                intent.setData(Uri.parse(currentAccount));
+                long j = 0;
+                Iterator<Map.Entry<String, String>> it = hashMap.entrySet().iterator();
+                int i = 0;
+                while (it.hasNext() && (next = it.next()) != null) {
+                    intent.putExtra(next.getKey(), next.getValue());
+                    if ("task_id".equals(next.getKey())) {
+                        i = Integer.parseInt(next.getValue());
+                    } else if ("s_time".equals(next.getKey())) {
+                        j = Long.parseLong(next.getValue()) * 1000;
+                    }
+                }
+                StatisticItem statisticItem = new StatisticItem(jv7Var.i());
+                statisticItem.param("obj_id", "");
+                if (c) {
+                    statisticItem.param("obj_type", "2");
+                    BdToast.b(context, context.getString(R.string.obfuscated_res_0x7f0f09e5)).k();
+                    PendingIntent broadcast = PendingIntent.getBroadcast(context, i, intent, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH);
+                    if (broadcast != null) {
+                        alarmManager.cancel(broadcast);
+                        broadcast.cancel();
+                    }
+                    et4Var.a = false;
+                } else {
+                    statisticItem.param("obj_type", "1");
+                    BdToast.b(context, context.getString(R.string.obfuscated_res_0x7f0f09f0)).k();
+                    alarmManager.set(0, j, PendingIntent.getBroadcast(context, i, intent, 134217728));
+                    et4Var.a = true;
+                }
+                TiebaStatic.log(statisticItem);
+                jv7Var.l(et4Var.a);
             }
+            return et4Var;
         }
+        return (et4) invokeLLL.objValue;
     }
 }

@@ -371,7 +371,7 @@ public class PayTask {
                 bundle.putString("cookie", c2[1]);
             }
             intent.putExtras(bundle);
-            a.C0013a.a(aVar, intent);
+            a.C0012a.a(aVar, intent);
             this.a.startActivity(intent);
             synchronized (h) {
                 try {
@@ -390,7 +390,7 @@ public class PayTask {
         return (String) invokeLL.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x0098, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x0097, code lost:
         r0 = r6.c();
         r11 = com.alipay.sdk.app.b.a(java.lang.Integer.valueOf(r0[1]).intValue(), r0[0], com.alipay.sdk.util.l.e(r10, r0[2]));
      */
@@ -413,7 +413,7 @@ public class PayTask {
                 intent.putExtra("method", f.optString("method", "POST"));
                 com.alipay.sdk.app.b.a(false);
                 com.alipay.sdk.app.b.a((String) null);
-                a.C0013a.a(aVar, intent);
+                a.C0012a.a(aVar, intent);
                 this.a.startActivity(intent);
                 synchronized (h) {
                     try {
@@ -529,7 +529,7 @@ public class PayTask {
                 intent.putExtra(PayResultActivity.f, str);
                 intent.putExtra(PayResultActivity.g, activity.getPackageName());
                 intent.putExtra(PayResultActivity.e, valueOf);
-                a.C0013a.a(aVar, intent);
+                a.C0012a.a(aVar, intent);
                 activity.startActivity(intent);
                 synchronized (PayResultActivity.c.get(valueOf)) {
                     try {

@@ -3,6 +3,7 @@ package com.baidu.android.pushservice.frequency;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
+import androidx.core.net.MailTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.SavedStateHandle;
 import com.baidu.android.common.util.DeviceId;
@@ -232,7 +233,7 @@ public class b {
                 } else if (str.equals("do_not_disturb")) {
                     JSONObject jSONObject = new JSONObject(e);
                     int i = jSONObject.getInt("from");
-                    int i2 = jSONObject.getInt("to");
+                    int i2 = jSONObject.getInt(MailTo.TO);
                     if (i >= 0 && i <= 86400 && i2 <= 86400 && i2 >= 0) {
                         ((GetNoDisturbListener) aVar).onResult(0, i, i2);
                         return true;
@@ -286,7 +287,7 @@ public class b {
                 return jSONObject;
             }
             jSONObject.put("from", i);
-            jSONObject.put("to", i2);
+            jSONObject.put(MailTo.TO, i2);
             return jSONObject;
         }
         return (JSONObject) invokeII.objValue;
@@ -365,7 +366,7 @@ public class b {
                             JSONObject jSONObject2 = jSONObject.getJSONObject("do_not_disturb");
                             i3 = jSONObject2.getInt("from");
                             try {
-                                i2 = jSONObject2.getInt("to");
+                                i2 = jSONObject2.getInt(MailTo.TO);
                                 this.f.b(this.a, jSONObject);
                             } catch (JSONException unused2) {
                                 i2 = 0;

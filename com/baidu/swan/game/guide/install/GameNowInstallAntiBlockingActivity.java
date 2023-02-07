@@ -10,10 +10,10 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bv3;
-import com.baidu.tieba.di3;
-import com.baidu.tieba.jh3;
-import com.baidu.tieba.sh3;
+import com.baidu.tieba.fm3;
+import com.baidu.tieba.oz3;
+import com.baidu.tieba.qm3;
+import com.baidu.tieba.wl3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -78,43 +78,43 @@ public class GameNowInstallAntiBlockingActivity extends Activity {
     public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            int c0 = di3.c0(this);
+            int c0 = qm3.c0(this);
             super.onCreate(bundle);
-            di3.g(this, c0);
-            bv3.q();
-            setContentView(R.layout.obfuscated_res_0x7f0d00b1);
+            qm3.g(this, c0);
+            oz3.q();
+            setContentView(R.layout.obfuscated_res_0x7f0d00b0);
             Intent intent = getIntent();
             if (intent != null) {
                 this.a = intent.getStringExtra("type");
                 intent.getStringExtra("packageName");
-                jh3.d(intent.getStringExtra("ubc_params"));
+                wl3.d(intent.getStringExtra("ubc_params"));
             }
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fdc);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f090fde);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091021);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091023);
             if (TextUtils.equals(this.a, "authorize")) {
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07014d));
                 layoutParams.gravity = 80;
                 imageView.setLayoutParams(layoutParams);
-                findViewById(R.id.obfuscated_res_0x7f090fdd).setVisibility(0);
+                findViewById(R.id.obfuscated_res_0x7f091022).setVisibility(0);
                 imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017e);
-                findViewById(R.id.obfuscated_res_0x7f090fda).setBackgroundResource(R.color.obfuscated_res_0x7f0603ca);
-                bv3.n();
+                findViewById(R.id.obfuscated_res_0x7f09101f).setBackgroundResource(R.color.obfuscated_res_0x7f0603ca);
+                oz3.n();
             } else {
                 FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07014c));
                 layoutParams2.gravity = 80;
                 imageView.setLayoutParams(layoutParams2);
-                findViewById(R.id.obfuscated_res_0x7f090fdd).setVisibility(8);
-                if (sh3.m()) {
+                findViewById(R.id.obfuscated_res_0x7f091022).setVisibility(8);
+                if (fm3.m()) {
                     imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017c);
-                } else if (sh3.n()) {
+                } else if (fm3.n()) {
                     imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017d);
-                } else if (sh3.r()) {
+                } else if (fm3.r()) {
                     imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017f);
                 } else {
                     imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017b);
                 }
-                findViewById(R.id.obfuscated_res_0x7f090fda).setBackgroundResource(R.color.obfuscated_res_0x7f060399);
-                bv3.o();
+                findViewById(R.id.obfuscated_res_0x7f09101f).setBackgroundResource(R.color.obfuscated_res_0x7f060399);
+                oz3.o();
             }
             findViewById.setOnClickListener(new a(this));
         }

@@ -1,5 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes4.dex */
 public interface eb1 {
-    void onPayResult(int i, String str);
+    void a(String str, String str2);
+
+    void cancel();
+
+    void setHttpAuthUsernamePassword(String str, String str2, String str3, String str4);
 }

@@ -1,12 +1,13 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.Rect;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.SchemeConfig;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.favordata.SwanFavorDataManager;
-import com.baidu.swan.apps.favordata.SwanFavorItemData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,26 +15,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class q63 extends n63 {
+public class q63 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String e;
-    public static final String f;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.n63
-    public boolean j(j43 j43Var, UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, j43Var, unitedSchemeEntity)) == null) {
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
+    public int a;
+    public final View b;
+    public y63 c;
+    public Context d;
 
     static {
         InterceptResult invokeClinit;
@@ -48,76 +38,135 @@ public class q63 extends n63 {
                 return;
             }
         }
-        e = SchemeConfig.getSchemeHead() + "://v19/swan/launch?params={\"appid\":\"";
-        f = SchemeConfig.getSchemeHead() + "://swangame/%s";
+        e = gp1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q63(g53 g53Var) {
-        super(g53Var, "/swanAPI/getFavor");
+    public q63(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {g53Var};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((g53) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = -1;
+        this.b = view2;
+        this.d = view2.getContext();
     }
 
-    @Override // com.baidu.tieba.n63
-    public void k(j43 j43Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j43Var, unitedSchemeEntity, callbackHandler, str) == null) {
-            JSONArray jSONArray = new JSONArray();
-            List<SwanFavorItemData> i = SwanFavorDataManager.h().i();
-            if (i.size() > 0) {
-                for (SwanFavorItemData swanFavorItemData : i) {
-                    jSONArray.put(p(swanFavorItemData));
-                }
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("favors", jSONArray);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            }
-            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
-        }
-    }
-
-    public final JSONObject p(SwanFavorItemData swanFavorItemData) {
+    public final y63 a(View view2) {
         InterceptResult invokeL;
-        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, swanFavorItemData)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("appid", swanFavorItemData.getAppKey());
-                jSONObject.put("type", swanFavorItemData.getAppType());
-                jSONObject.put("iconUrl", swanFavorItemData.getIconUrl());
-                jSONObject.put("title", swanFavorItemData.getAppName());
-                jSONObject.put("frameType", swanFavorItemData.getAppFrameType());
-                jSONObject.put("payProtected", swanFavorItemData.getPayProtected());
-                if (swanFavorItemData.getAppFrameType() == 1) {
-                    str = String.format(f, swanFavorItemData.getAppKey());
-                } else {
-                    str = e + swanFavorItemData.getAppKey() + "\"}";
-                }
-                jSONObject.put("scheme", str);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+            y63 y63Var = this.c;
+            if (y63Var != null) {
+                return y63Var;
             }
-            return jSONObject;
+            if (view2 instanceof y63) {
+                y63 y63Var2 = (y63) view2;
+                this.c = y63Var2;
+                return y63Var2;
+            } else if (view2 instanceof ViewGroup) {
+                ViewGroup viewGroup = (ViewGroup) view2;
+                for (int i = 0; i < viewGroup.getChildCount(); i++) {
+                    y63 a = a(viewGroup.getChildAt(i));
+                    if (a != null) {
+                        this.c = a;
+                        return a;
+                    }
+                }
+                return null;
+            } else {
+                return null;
+            }
         }
-        return (JSONObject) invokeL.objValue;
+        return (y63) invokeL.objValue;
+    }
+
+    public void b(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            Context context = this.d;
+            if (context instanceof Activity) {
+                Activity activity = (Activity) context;
+                if (x63.f(activity) && this.b.getFitsSystemWindows()) {
+                    Rect rect = new Rect();
+                    this.b.getWindowVisibleDisplayFrame(rect);
+                    i2 = rect.bottom - rect.top;
+                    if (e) {
+                        Log.d("SPSwitchRootLayout", "TranslucentStatus && FitsSystemWindows = true, height: " + i2);
+                    }
+                }
+                if (x63.e(activity) && this.b.getFitsSystemWindows()) {
+                    Rect rect2 = new Rect();
+                    this.b.getWindowVisibleDisplayFrame(rect2);
+                    i2 = rect2.bottom - rect2.top;
+                    if (e) {
+                        Log.d("SPSwitchRootLayout", "systemUILayoutFullScreen && FitsSystemWindows = true, height: " + i2);
+                    }
+                }
+            }
+            if (e) {
+                Log.d("SPSwitchRootLayout", "onMeasure, width: " + i + " height: " + i2);
+            }
+            if (i2 < 0) {
+                return;
+            }
+            int i3 = this.a;
+            if (i3 < 0) {
+                if (e) {
+                    Log.d("SPSwitchRootLayout", "onMeasure, oldHeight < 0, oldHeight: " + this.a);
+                }
+                this.a = i2;
+                return;
+            }
+            int i4 = i3 - i2;
+            if (i4 == 0) {
+                if (e) {
+                    Log.d("SPSwitchRootLayout", "offset == 0, break;");
+                    return;
+                }
+                return;
+            }
+            this.a = i2;
+            y63 a = a(this.b);
+            if (a == null) {
+                if (e) {
+                    Log.d("SPSwitchRootLayout", "cannot find the valid panel layout, give up!");
+                    return;
+                }
+                return;
+            }
+            int visibility = ((LinearLayout) a).getVisibility();
+            if (e) {
+                Log.d("SPSwitchRootLayout", "panel visibility: " + visibility);
+            }
+            if (Math.abs(i4) < v63.g(this.b.getContext())) {
+                if (e) {
+                    Log.d("SPSwitchRootLayout", "layout change min, not caused by softinput/panel switch!");
+                }
+            } else if (Math.abs(i4) > v63.e(this.b.getContext())) {
+                if (e) {
+                    Log.d("SPSwitchRootLayout", "layout change max , but not caused by softinput/panel switch!");
+                }
+            } else if (i4 > 0) {
+                if (e) {
+                    Log.d("SPSwitchRootLayout", "offset > 0, offset : " + i4 + ", panel->handleHide...");
+                }
+                a.handleHide();
+            } else {
+                if (e) {
+                    Log.d("SPSwitchRootLayout", "offset < 0, offset : " + i4 + ", panel->handleShow...");
+                }
+                a.handleShow();
+            }
+        }
     }
 }

@@ -97,7 +97,7 @@ public final class d extends com.kwad.components.ad.e.kwai.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            this.jV = findViewById(R.id.obfuscated_res_0x7f0912c4);
+            this.jV = findViewById(R.id.obfuscated_res_0x7f091307);
         }
     }
 }

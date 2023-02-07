@@ -1,103 +1,50 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
-import android.os.Build;
-import android.view.View;
-import android.widget.PopupWindow;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.GreyUtil;
-import com.baidu.tbadk.core.util.ViewCommonUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class d67 extends PopupWindow {
+public class d67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public a b;
+    public final String a;
+    public final String b;
+    public final String c;
+    public final int d;
+    public final int e;
+    public final double f;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        void a();
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d67(TbPageContext tbPageContext, View view2, int i, int i2) {
-        super(view2, i, i2);
+    public d67(String str, String str2, String str3, int i, int i2, double d) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, view2, Integer.valueOf(i), Integer.valueOf(i2)};
+            Object[] objArr = {str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
                 int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((View) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        this.a = str;
+        this.b = str2;
+        this.d = i;
+        this.c = str3;
+        this.e = i2;
+        this.f = d;
     }
 
-    public void a() {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.dismiss();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "FunAdCacheInfo{adType='" + this.a + "', platform='" + this.b + "', pid='" + this.c + "', adHashCode=" + this.d + ", count=" + this.e + ", basePrice=" + this.f + '}';
         }
-    }
-
-    @Override // android.widget.PopupWindow
-    public void dismiss() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a aVar = this.b;
-            if (aVar != null) {
-                aVar.a();
-            } else {
-                super.dismiss();
-            }
-        }
-    }
-
-    public void b(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.b = aVar;
-        }
-    }
-
-    @Override // android.widget.PopupWindow
-    public void showAsDropDown(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                Rect rect = new Rect();
-                view2.getGlobalVisibleRect(rect);
-                setHeight(ViewCommonUtil.getScreenFullSize(this.a.getPageActivity())[1] - rect.bottom);
-            }
-            GreyUtil.grey(this);
-            super.showAsDropDown(view2);
-        }
-    }
-
-    @Override // android.widget.PopupWindow
-    public void showAsDropDown(View view2, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048580, this, view2, i, i2) == null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                Rect rect = new Rect();
-                view2.getGlobalVisibleRect(rect);
-                setHeight(ViewCommonUtil.getScreenFullSize(this.a.getPageActivity())[1] - rect.bottom);
-            }
-            GreyUtil.grey(this);
-            super.showAsDropDown(view2, i, i2);
-        }
+        return (String) invokeV.objValue;
     }
 }

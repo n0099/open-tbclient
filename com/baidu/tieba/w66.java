@@ -1,18 +1,17 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes6.dex */
-public class w66 {
+public abstract class w66 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, x66> a;
-    public HashMap<String, r66> b;
+    public x66 a;
 
     public w66() {
         Interceptable interceptable = $ic;
@@ -28,12 +27,19 @@ public class w66 {
         }
     }
 
-    public String toString() {
+    public x66 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "ReadRouterFinalResult{readRouterResults=" + this.a + ", totelRouter=" + this.b + '}';
+            return this.a;
         }
-        return (String) invokeV.objValue;
+        return (x66) invokeV.objValue;
+    }
+
+    public void f(x66 x66Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x66Var) == null) {
+            this.a = x66Var;
+        }
     }
 }

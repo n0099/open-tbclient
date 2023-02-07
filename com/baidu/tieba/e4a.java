@@ -1,23 +1,99 @@
 package com.baidu.tieba;
 
-import android.widget.ImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.internal.api.PidLoader;
+import com.fun.ad.sdk.internal.api.PidLoaderCreator;
+import com.fun.ad.sdk.internal.api.config.Ssp;
 /* loaded from: classes4.dex */
-public final /* synthetic */ class e4a {
-    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
+public class e4a implements PidLoaderCreator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        int[] iArr = new int[ImageView.ScaleType.values().length];
-        $EnumSwitchMapping$0 = iArr;
-        iArr[ImageView.ScaleType.CENTER.ordinal()] = 1;
-        $EnumSwitchMapping$0[ImageView.ScaleType.CENTER_CROP.ordinal()] = 2;
-        $EnumSwitchMapping$0[ImageView.ScaleType.CENTER_INSIDE.ordinal()] = 3;
-        $EnumSwitchMapping$0[ImageView.ScaleType.FIT_CENTER.ordinal()] = 4;
-        $EnumSwitchMapping$0[ImageView.ScaleType.FIT_START.ordinal()] = 5;
-        $EnumSwitchMapping$0[ImageView.ScaleType.FIT_END.ordinal()] = 6;
-        $EnumSwitchMapping$0[ImageView.ScaleType.FIT_XY.ordinal()] = 7;
+    public e4a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    @Override // com.fun.ad.sdk.internal.api.PidLoaderCreator
+    public PidLoader create(Ssp.Pid pid) {
+        InterceptResult invokeL;
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
+            String str = pid.type;
+            str.hashCode();
+            switch (str.hashCode()) {
+                case -1900686778:
+                    if (str.equals(FunAdType.JY_NATIVE)) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -1743934314:
+                    if (str.equals(FunAdType.JY_SPLASH)) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -1659486968:
+                    if (str.equals(FunAdType.JY_DRAW_VIDEO)) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -39027267:
+                    if (str.equals(FunAdType.JY_REWARD_VIDEO)) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1872382491:
+                    if (str.equals(FunAdType.JY_INTERSTITIAL)) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        if (c != 3) {
+                            if (c != 4) {
+                                return null;
+                            }
+                            return new h4a(pid);
+                        }
+                        return new k4a(pid);
+                    }
+                    return new f4a(pid);
+                }
+                return new l4a(pid);
+            }
+            return new i4a(pid);
+        }
+        return (PidLoader) invokeL.objValue;
     }
 }

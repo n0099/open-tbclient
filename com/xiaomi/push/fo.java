@@ -70,7 +70,7 @@ public class fo {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, flVar)) == null) {
             int c = flVar.c();
             if (c > 32768) {
-                com.xiaomi.channel.commonutils.logger.b.m103a("Blob size=" + c + " should be less than 32768 Drop blob chid=" + flVar.a() + " id=" + flVar.e());
+                com.xiaomi.channel.commonutils.logger.b.m105a("Blob size=" + c + " should be less than 32768 Drop blob chid=" + flVar.a() + " id=" + flVar.e());
                 return 0;
             }
             this.f409a.clear();
@@ -82,10 +82,10 @@ public class fo {
             this.f409a.putShort((short) 5);
             this.f409a.putInt(c);
             int position = this.f409a.position();
-            this.f409a = flVar.mo405a(this.f409a);
-            if (!"CONN".equals(flVar.m404a())) {
+            this.f409a = flVar.mo407a(this.f409a);
+            if (!"CONN".equals(flVar.m406a())) {
                 if (this.f411a == null) {
-                    this.f411a = this.f407a.m419a();
+                    this.f411a = this.f407a.m421a();
                 }
                 com.xiaomi.push.service.bp.a(this.f411a, this.f409a.array(), true, position, c);
             }
@@ -96,7 +96,7 @@ public class fo {
             this.f408a.write(this.f412b.array(), 0, 4);
             this.f408a.flush();
             int position2 = this.f409a.position() + 4;
-            com.xiaomi.channel.commonutils.logger.b.c("[Slim] Wrote {cmd=" + flVar.m404a() + ";chid=" + flVar.a() + ";len=" + position2 + "}");
+            com.xiaomi.channel.commonutils.logger.b.c("[Slim] Wrote {cmd=" + flVar.m406a() + ";chid=" + flVar.a() + ";len=" + position2 + "}");
             return position2;
         }
         return invokeL.intValue;
@@ -108,24 +108,24 @@ public class fo {
             dx.e eVar = new dx.e();
             eVar.a(106);
             eVar.a(Build.MODEL);
-            eVar.b(v.m762a());
-            eVar.c(com.xiaomi.push.service.bv.m722a());
+            eVar.b(v.m764a());
+            eVar.c(com.xiaomi.push.service.bv.m724a());
             eVar.b(48);
-            eVar.d(this.f407a.m428b());
-            eVar.e(this.f407a.mo426a());
+            eVar.d(this.f407a.m430b());
+            eVar.e(this.f407a.mo428a());
             eVar.f(Locale.getDefault().toString());
             eVar.c(Build.VERSION.SDK_INT);
-            byte[] mo434a = this.f407a.m425a().mo434a();
-            if (mo434a != null) {
-                eVar.a(dx.b.a(mo434a));
+            byte[] mo436a = this.f407a.m427a().mo436a();
+            if (mo436a != null) {
+                eVar.a(dx.b.a(mo436a));
             }
             fl flVar = new fl();
             flVar.a(0);
             flVar.a("CONN", (String) null);
             flVar.a(0L, "xiaomi.com", null);
-            flVar.a(eVar.m368a(), (String) null);
+            flVar.a(eVar.m370a(), (String) null);
             a(flVar);
-            com.xiaomi.channel.commonutils.logger.b.m103a("[slim] open conn: andver=" + Build.VERSION.SDK_INT + " sdk=48 tz=" + this.a + ":" + this.b + " Model=" + Build.MODEL + " os=" + Build.VERSION.INCREMENTAL);
+            com.xiaomi.channel.commonutils.logger.b.m105a("[slim] open conn: andver=" + Build.VERSION.SDK_INT + " sdk=48 tz=" + this.a + ":" + this.b + " Model=" + Build.MODEL + " os=" + Build.VERSION.INCREMENTAL);
         }
     }
 

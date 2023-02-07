@@ -1,83 +1,131 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class iv2 extends hv2<String, JSONObject> {
+public class iv2 extends m42 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947866884, "Lcom/baidu/tieba/iv2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947866884, "Lcom/baidu/tieba/iv2;");
-                return;
-            }
-        }
-        b = j43.v;
-    }
+    public pv2 j;
+    public double k;
+    public List<qv2> l;
+    public List<sv2> m;
+    public List<nv2> n;
+    public List<ov2> o;
+    public List<pv2> p;
+    public List<rv2> q;
+    public boolean r;
+    public boolean s;
+    public boolean t;
+    public boolean u;
+    public boolean v;
+    public boolean w;
+    public boolean x;
+    public String y;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public iv2() {
-        super("swanCookie");
+        super("map", "mapId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(newInitContext.callArgs[0]);
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], (String) objArr[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.k = 16.0d;
+        this.r = true;
+        this.y = "";
     }
 
-    public final boolean b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.m42, com.baidu.tieba.vy2
+    public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return fd3.l().o();
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            String str = "markers";
+            if (jSONObject == null) {
+                return;
+            }
+            super.a(jSONObject);
+            if (jSONObject.has("longitude") && jSONObject.has("latitude")) {
+                pv2 pv2Var = new pv2();
+                this.j = pv2Var;
+                pv2Var.a(jSONObject);
+            }
+            if (jSONObject.has("scale")) {
+                this.k = jSONObject.optDouble("scale", 16.0d);
+            }
+            jSONObject.optString("subkey", "");
+            jSONObject.optString("layerStyle", "");
+            this.y = jSONObject.optString("cb");
+            this.r = jSONObject.optBoolean("showLocation", true);
+            this.s = jSONObject.optBoolean("enableZoom", true);
+            this.t = jSONObject.optBoolean("enableScroll", true);
+            this.u = jSONObject.optBoolean("enableRotate", false);
+            this.v = jSONObject.optBoolean("showCompass", false);
+            this.w = jSONObject.optBoolean("enableOverlooking", false);
+            this.x = jSONObject.optBoolean("enable3D", false);
+            try {
+                if (!jSONObject.has("markers")) {
+                    str = "covers";
+                }
+                this.l = h(jSONObject, str, qv2.class);
+                this.n = h(jSONObject, "circles", nv2.class);
+                this.m = h(jSONObject, "polyline", sv2.class);
+                this.o = h(jSONObject, "controls", ov2.class);
+                this.p = h(jSONObject, "includePoints", pv2.class);
+                this.q = h(jSONObject, "polygons", rv2.class);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-        return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jv2
-    /* renamed from: c */
-    public boolean a(@NonNull String str) {
-        InterceptResult invokeL;
-        boolean z;
+    public final <T extends vy2> List<T> h(JSONObject jSONObject, String str, Class<T> cls) throws IllegalAccessException, InstantiationException, JSONException {
+        InterceptResult invokeLLL;
+        int length;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.equals(str, (CharSequence) this.a) && !b()) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, str, cls)) == null) {
+            if (jSONObject.has(str)) {
+                JSONArray optJSONArray = jSONObject.optJSONArray(str);
+                if (optJSONArray == null) {
+                    length = 0;
+                } else {
+                    length = optJSONArray.length();
+                }
+                if (length > 0) {
+                    ArrayList arrayList = new ArrayList(length);
+                    for (int i = 0; i < length; i++) {
+                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                        if (optJSONObject != null) {
+                            T newInstance = cls.newInstance();
+                            newInstance.a(optJSONObject);
+                            if (newInstance.isValid()) {
+                                arrayList.add(newInstance);
+                            }
+                        }
+                    }
+                    return arrayList;
+                }
             }
-            if (b) {
-                j12.b("SwanCookieInterceptor", ">>> NAUseMap apiName=", str, " , should intercept ", Boolean.valueOf(z));
-            }
-            return z;
+            return null;
         }
-        return invokeL.booleanValue;
+        return (List) invokeLLL.objValue;
     }
 }

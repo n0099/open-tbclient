@@ -1,25 +1,33 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class qe4 extends vd4 {
+import com.ss.android.download.api.constant.BaseConstants;
+/* loaded from: classes6.dex */
+public abstract class qe4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public le4 a;
-    public boolean b;
+    public String a;
+    public String b;
+    public boolean c;
 
-    public qe4(le4 le4Var, boolean z) {
+    public abstract void e(Context context, LatLng latLng, LatLng latLng2, String str, String str2);
+
+    public qe4(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {le4Var, Boolean.valueOf(z)};
+            Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,56 +37,51 @@ public class qe4 extends vd4 {
                 return;
             }
         }
-        this.a = le4Var;
-        this.b = z;
+        this.c = false;
+        this.a = str2;
+        this.b = str3;
     }
 
-    @Override // com.baidu.tieba.vd4
-    public le4 a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (le4) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.vd4
-    public boolean b(le4 le4Var) {
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, le4Var)) == null) {
-            le4 le4Var2 = this.a;
-            if (le4Var2 == le4Var) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            if (qm3.t(context.getApplicationContext(), this.b) != null) {
                 return true;
             }
-            return le4Var2.d(le4Var);
+            return false;
         }
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.vd4
-    public void c(boolean z) {
+    public void d(Context context, LatLng latLng, LatLng latLng2, String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) || this.b) {
-            return;
+        if (interceptable == null || interceptable.invokeLLLLL(1048579, this, context, latLng, latLng2, str, str2) == null) {
+            if (!c(context) && this.c) {
+                Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(BaseConstants.MARKET_PREFIX + this.b));
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+                context.startActivity(intent);
+                return;
+            }
+            e(context, latLng, latLng2, str, str2);
         }
-        if (z) {
-            le4 le4Var = this.a;
-            le4Var.a.b.b = 0L;
-            le4Var.b(0);
-        }
-        je4.b().f(this.a);
-    }
-
-    @Override // com.baidu.tieba.vd4
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "isAttached=" + this.b + " " + super.toString();
-        }
-        return (String) invokeV.objValue;
     }
 }

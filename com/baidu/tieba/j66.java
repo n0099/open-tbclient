@@ -1,92 +1,125 @@
 package com.baidu.tieba;
 
-import android.util.Base64;
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.ala.atomdata.AlaForbiddenListActivityConfig;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.Priority;
-import com.bumptech.glide.load.DataSource;
-import com.bumptech.glide.load.data.DataFetcher;
-import java.io.InputStream;
-import java.nio.ByteBuffer;
 /* loaded from: classes5.dex */
-public class j66 implements DataFetcher<InputStream> {
+public class j66 extends qn<z66, CardViewHolder<e86>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
+    public TbPageContext a;
 
-    @Override // com.bumptech.glide.load.data.DataFetcher
-    public void cancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ j66 a;
+
+        public a(j66 j66Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j66Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = j66Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+                return;
+            }
+            this.a.u();
         }
     }
 
-    @Override // com.bumptech.glide.load.data.DataFetcher
-    public void cleanup() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    public j66(String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j66(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), z66.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
+        this.a = tbPageContext;
     }
 
-    public final String a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: v */
+    public CardViewHolder<e86> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.substring(this.a.indexOf(44) + 1);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
+            return new CardViewHolder<>(new e86(this.a));
         }
-        return (String) invokeV.objValue;
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    @Override // com.bumptech.glide.load.data.DataFetcher
-    @NonNull
-    public Class<InputStream> getDataClass() {
-        InterceptResult invokeV;
+    public final void t(z66 z66Var, e86 e86Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return InputStream.class;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, z66Var, e86Var) == null) {
+            e86Var.w(8);
+            e86Var.x(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0242));
+            e86Var.j(this.a, TbadkCoreApplication.getInst().getSkinType());
         }
-        return (Class) invokeV.objValue;
     }
 
-    @Override // com.bumptech.glide.load.data.DataFetcher
-    @NonNull
-    public DataSource getDataSource() {
-        InterceptResult invokeV;
+    public final void u() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return DataSource.REMOTE;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaForbiddenListActivityConfig(this.a.getPageActivity())));
         }
-        return (DataSource) invokeV.objValue;
     }
 
-    @Override // com.bumptech.glide.load.data.DataFetcher
-    public void loadData(@NonNull Priority priority, DataFetcher.DataCallback<? super InputStream> dataCallback) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: w */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, z66 z66Var, CardViewHolder<e86> cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, priority, dataCallback) == null) {
-            ByteBuffer.wrap(Base64.decode(a(), 0));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, z66Var, cardViewHolder})) == null) {
+            if (cardViewHolder.a() == null) {
+                return null;
+            }
+            t(z66Var, cardViewHolder.a());
+            cardViewHolder.a().h().setOnClickListener(new a(this));
+            return cardViewHolder.a().h();
         }
+        return (View) invokeCommon.objValue;
     }
 }

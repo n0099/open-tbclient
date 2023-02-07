@@ -1,52 +1,88 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import okhttp3.FormBody;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import okio.BufferedSink;
 /* loaded from: classes3.dex */
-public class b03 {
+public final class b03 extends RequestBody {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public MediaType a;
+    public final FormBody b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947591108, "Lcom/baidu/tieba/b03;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947591108, "Lcom/baidu/tieba/b03;");
+    public b03(FormBody formBody) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {formBody};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = tk1.a;
+        this.b = formBody;
     }
 
-    public static void a(String str) {
+    public void b(MediaType mediaType) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, str) == null) && a && !TextUtils.isEmpty(str)) {
-            j12.c("Module-Plugin", str);
+        if (interceptable == null || interceptable.invokeL(1048576, this, mediaType) == null) {
+            this.a = mediaType;
         }
     }
 
-    public static void b(String str) {
+    @Override // okhttp3.RequestBody
+    public void writeTo(BufferedSink bufferedSink) throws IOException {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && a && !TextUtils.isEmpty(str)) {
-            j12.i("Module-Plugin", str);
+        if (interceptable == null || interceptable.invokeL(1048579, this, bufferedSink) == null) {
+            this.b.writeTo(bufferedSink);
         }
     }
 
-    public static void c(@Nullable String str) {
+    public static b03 a(FormBody formBody, MediaType mediaType) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            a(str);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, formBody, mediaType)) == null) {
+            b03 b03Var = new b03(formBody);
+            b03Var.b(mediaType);
+            return b03Var;
         }
+        return (b03) invokeLL.objValue;
+    }
+
+    @Override // okhttp3.RequestBody
+    public long contentLength() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b.contentLength();
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // okhttp3.RequestBody
+    public MediaType contentType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            MediaType mediaType = this.a;
+            if (mediaType == null) {
+                return this.b.contentType();
+            }
+            return mediaType;
+        }
+        return (MediaType) invokeV.objValue;
     }
 }

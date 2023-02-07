@@ -49,9 +49,9 @@ public class U {
             if (info != null) {
                 string = info.getDl_name();
             } else {
-                string = wDownLoadService.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1660);
+                string = wDownLoadService.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f16be);
             }
-            wDownLoadService.a(info, string, this.b.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1661), 0);
+            wDownLoadService.a(info, string, this.b.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f16bf), 0);
             try {
                 WDownLoadService.a(this.b);
             } catch (Exception e) {
@@ -100,9 +100,9 @@ public class U {
             if (info != null) {
                 string = info.getDl_name();
             } else {
-                string = wDownLoadService.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1664);
+                string = wDownLoadService.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f16c2);
             }
-            wDownLoadService.a(info, string, this.b.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1664), i);
+            wDownLoadService.a(info, string, this.b.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f16c2), i);
         }
     }
 
@@ -116,9 +116,9 @@ public class U {
             if (info != null) {
                 string = info.getDl_name();
             } else {
-                string = wDownLoadService.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1660);
+                string = wDownLoadService.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f16be);
             }
-            wDownLoadService.a(info, string, this.b.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1661), 0);
+            wDownLoadService.a(info, string, this.b.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f16bf), 0);
             WDownLoadService.a(this.b);
             this.b.stopSelf();
             e1.a(this.b.getApplicationContext()).b(new f1(this.a), 1).a();

@@ -2,36 +2,43 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.view.View;
-import android.widget.AbsListView;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.view.NavigationBarShadowView;
-import com.baidu.tbadk.core.view.NoDataView;
+import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tieba.gz;
+import com.baidu.tieba.vy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class kl8 {
+public class kl8 extends qn<ae6, ThreadCardViewHolder<ae6>> implements mw5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public View b;
-    public BdTypeListView c;
-    public NoDataView d;
-    public ab5 e;
-    public NavigationBarShadowView f;
-    public gl8 g;
-    public View.OnClickListener h;
-    public AbsListView.OnScrollListener i;
+    public BdUniqueId a;
+    public TbPageContext<?> b;
+    public String c;
+    public int d;
+    public int e;
+    public boolean f;
+    public ld6<ae6> g;
+
+    public void x(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+        }
+    }
 
     /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
+    public class a extends ld6<ae6> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kl8 a;
 
         public a(kl8 kl8Var) {
             Interceptable interceptable = $ic;
@@ -45,29 +52,23 @@ public class kl8 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = kl8Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ld6
+        /* renamed from: d */
+        public void a(View view2, ae6 ae6Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                if (this.a.e != null) {
-                    this.a.e.dettachView(this.a.b);
-                    this.a.e = null;
-                }
-                if (this.a.g != null) {
-                    this.a.g.p();
-                }
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, ae6Var) == null) && view2 != null && ae6Var != null && ae6Var.getThreadData() != null && view2.getId() == R.id.forum_name_text) {
+                lk8.a(view2, ae6Var, 7);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements AbsListView.OnScrollListener {
+    public class b implements no {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ kl8 a;
@@ -90,79 +91,148 @@ public class kl8 {
             this.a = kl8Var;
         }
 
-        @Override // android.widget.AbsListView.OnScrollListener
-        public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-            View childAt;
+        @Override // com.baidu.tieba.no
+        public void b(View view2, Cdo cdo, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLIII(1048576, this, absListView, i, i2, i3) == null) && i == 0 && (childAt = absListView.getChildAt(0)) != null && childAt.getTop() == 0) {
-                this.a.f.a();
-            }
-        }
-
-        @Override // android.widget.AbsListView.OnScrollListener
-        public void onScrollStateChanged(AbsListView absListView, int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i) == null) && i == 1) {
-                this.a.f.c();
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, cdo, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (cdo instanceof ae6) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
+                ae6 ae6Var = (ae6) cdo;
+                ae6Var.f = 1;
+                if (this.a.g != null) {
+                    this.a.g.a(threadCardViewHolder.getView(), ae6Var);
+                }
+                ThreadCardUtils.jumpToPB((sw4) ae6Var, view2.getContext(), 4, false);
+                threadCardViewHolder.a().p(new gz.a(1));
             }
         }
     }
 
-    public kl8(Context context, View view2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kl8(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, view2};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = null;
-        this.h = new a(this);
-        this.i = new b(this);
-        this.a = context;
-        this.b = view2;
-        this.c = (BdTypeListView) view2.findViewById(R.id.obfuscated_res_0x7f0913c6);
-        this.f = (NavigationBarShadowView) view2.findViewById(R.id.obfuscated_res_0x7f0916f3);
-        this.c.setOnScrollListener(this.i);
+        this.d = 0;
+        this.e = 0;
+        this.g = new a(this);
+        this.b = tbPageContext;
     }
 
-    public void h(gl8 gl8Var) {
+    @Override // com.baidu.tieba.mw5
+    public void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gl8Var) == null) {
-            this.g = gl8Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.c = str;
         }
     }
 
-    public void i(String str, boolean z) {
+    public void v(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048579, this, str, z) == null) {
-            il8.b(this.e, this.h, this.a, this.b, str, z);
-            this.c.setVisibility(8);
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.f = z;
         }
     }
 
-    public BdTypeListView f() {
-        InterceptResult invokeV;
+    public void w(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.e = i;
         }
-        return (BdTypeListView) invokeV.objValue;
     }
 
-    public gl8 g() {
-        InterceptResult invokeV;
+    public void y(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.d = i;
         }
-        return (gl8) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: t */
+    public ThreadCardViewHolder<ae6> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            vy.b bVar = new vy.b(this.b.getPageActivity());
+            kx kxVar = new kx(this.b.getPageActivity());
+            kxVar.x(this.a);
+            kxVar.g(1024);
+            kxVar.g(32768);
+            int i = this.d;
+            if (i > 0) {
+                kxVar.f(i);
+            }
+            kxVar.v(false);
+            kxVar.A(false);
+            bVar.o(kxVar);
+            az azVar = new az(this.b.getPageActivity());
+            bVar.n(azVar);
+            bVar.l().i(ej.g(this.mContext, R.dimen.tbds25));
+            azVar.y(2);
+            bVar.h(new zy(this.b.getPageActivity()));
+            fz fzVar = new fz(this.b.getPageActivity());
+            fzVar.B(this.b);
+            fzVar.A(4);
+            bVar.h(fzVar);
+            bVar.h(new rx(this.b.getPageActivity()));
+            xy xyVar = new xy(this.b.getPageActivity());
+            xyVar.f(32);
+            xyVar.A(false);
+            yw4 yw4Var = new yw4();
+            yw4Var.b = 3;
+            yw4Var.h = 3;
+            xyVar.z(yw4Var);
+            xyVar.B(8);
+            xyVar.G(6);
+            xyVar.C(4);
+            bVar.m(xyVar);
+            vy i2 = bVar.i();
+            i2.s(4);
+            ThreadCardViewHolder<ae6> threadCardViewHolder = new ThreadCardViewHolder<>(i2);
+            threadCardViewHolder.i(this.a);
+            threadCardViewHolder.q(this.e);
+            setOnAdapterItemClickListener(new b(this));
+            return threadCardViewHolder;
+        }
+        return (ThreadCardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ae6 ae6Var, ThreadCardViewHolder<ae6> threadCardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ae6Var, threadCardViewHolder})) == null) {
+            if (ae6Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && ae6Var.a != null) {
+                ae6Var.I(ae6Var.position + 1);
+                threadCardViewHolder.a().b(this.c);
+                if (!this.f) {
+                    threadCardViewHolder.r();
+                }
+                threadCardViewHolder.e(ae6Var);
+                threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
+                threadCardViewHolder.a().q(this.g);
+                lk8.b(ae6Var);
+                return threadCardViewHolder.getView();
+            }
+            return null;
+        }
+        return (View) invokeCommon.objValue;
     }
 }

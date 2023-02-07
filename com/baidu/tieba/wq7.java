@@ -1,28 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.data.AtSelectData;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class wq7 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 1;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface wq7 {
+    void a(@NonNull String str, @NonNull String str2, @NonNull Map<String, Object> map);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948279308, "Lcom/baidu/tieba/wq7;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948279308, "Lcom/baidu/tieba/wq7;");
-        }
-    }
+    void b(@NonNull String str, int i);
+
+    void c(@NonNull String str, @Nullable Object obj, @Nullable cq7 cq7Var, @Nullable List<AtSelectData> list, @Nullable Map<String, Integer> map, int i);
+
+    void d(@NonNull String str, @NonNull String str2);
 }

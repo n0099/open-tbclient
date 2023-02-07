@@ -143,6 +143,7 @@ public final class AsyncTaskAssistant {
             }
 
             @Override // java.util.concurrent.ThreadFactory
+            @SuppressLint({"MobilebdThread"})
             public Thread newThread(Runnable runnable) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
@@ -183,7 +184,6 @@ public final class AsyncTaskAssistant {
         }
     }
 
-    @SuppressLint({"NewApi"})
     public static void executeOnThreadPool(Runnable runnable, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable, str) == null) {

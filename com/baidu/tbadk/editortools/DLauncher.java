@@ -14,17 +14,17 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cx4;
-import com.baidu.tieba.g75;
-import com.baidu.tieba.k75;
-import com.baidu.tieba.z65;
+import com.baidu.tieba.lb5;
+import com.baidu.tieba.p15;
+import com.baidu.tieba.sb5;
+import com.baidu.tieba.wb5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class DLauncher extends RelativeLayout implements g75 {
+public class DLauncher extends RelativeLayout implements sb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -32,23 +32,23 @@ public class DLauncher extends RelativeLayout implements g75 {
     public TextView c;
     public int d;
     public String e;
-    public k75 f;
+    public wb5 f;
 
-    @Override // com.baidu.tieba.g75
-    public void h0() {
+    @Override // com.baidu.tieba.sb5
+    public void e0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DLauncher(Context context, k75 k75Var) {
+    public DLauncher(Context context, wb5 wb5Var) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, k75Var};
+            Object[] objArr = {context, wb5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -60,32 +60,32 @@ public class DLauncher extends RelativeLayout implements g75 {
             }
         }
         this.d = 0;
-        if (k75Var == null) {
+        if (wb5Var == null) {
             return;
         }
-        this.f = k75Var;
+        this.f = wb5Var;
         setLayoutParams(new AbsListView.LayoutParams(-1, -2));
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.topMargin = getResources().getDimensionPixelOffset(R.dimen.M_H_X008);
         layoutParams.leftMargin = getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
         layoutParams.rightMargin = getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
         this.b = new EMTextView(context);
-        setName(k75Var.b);
+        setName(wb5Var.b);
         setIcon();
-        setToolId(k75Var.c);
+        setToolId(wb5Var.c);
         this.b.setGravity(17);
-        cx4 d = cx4.d(this.b);
+        p15 d = p15.d(this.b);
         d.z(R.dimen.T_X09);
         d.v(R.color.CAM_X0106);
-        context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023b);
+        context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023c);
         addView(this.b, layoutParams);
     }
 
-    @Override // com.baidu.tieba.a75
-    public void A(z65 z65Var) {
+    @Override // com.baidu.tieba.mb5
+    public void A(lb5 lb5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, z65Var) == null) && z65Var != null && z65Var.a == 2) {
-            Object obj = z65Var.c;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, lb5Var) == null) && lb5Var != null && lb5Var.a == 2) {
+            Object obj = lb5Var.c;
             if (obj == null) {
                 c();
             } else if (obj instanceof String) {
@@ -152,7 +152,7 @@ public class DLauncher extends RelativeLayout implements g75 {
         }
     }
 
-    @Override // com.baidu.tieba.g75
+    @Override // com.baidu.tieba.sb5
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -163,23 +163,23 @@ public class DLauncher extends RelativeLayout implements g75 {
     public String getText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.e;
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.g75
+    @Override // com.baidu.tieba.sb5
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.a;
         }
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.g75
+    @Override // com.baidu.tieba.sb5
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -187,7 +187,7 @@ public class DLauncher extends RelativeLayout implements g75 {
         }
     }
 
-    @Override // com.baidu.tieba.g75
+    @Override // com.baidu.tieba.sb5
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
@@ -195,7 +195,7 @@ public class DLauncher extends RelativeLayout implements g75 {
             if (isEnabled()) {
                 SkinManager.setBackgroundResource(this, R.drawable.btn_editor_selector, i);
             }
-            cx4.d(this.b).v(R.color.CAM_X0106);
+            p15.d(this.b).v(R.color.CAM_X0106);
             if (this.f == null) {
                 return;
             }
@@ -255,11 +255,11 @@ public class DLauncher extends RelativeLayout implements g75 {
         Drawable drawable2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            k75 k75Var = this.f;
-            int i = k75Var.h;
-            int i2 = k75Var.r;
+            wb5 wb5Var = this.f;
+            int i = wb5Var.h;
+            int i2 = wb5Var.r;
             if (i <= 0) {
-                i = k75Var.d;
+                i = wb5Var.d;
             }
             if (this.f.i) {
                 drawable = SvgManager.getInstance().getSeletableDrawableForEditorTools(i, this.f.e, this.d);

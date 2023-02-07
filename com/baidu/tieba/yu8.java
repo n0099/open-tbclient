@@ -1,58 +1,41 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.content.DialogInterface;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
+import android.content.Context;
+import android.os.Bundle;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.data.IconPopData;
-import com.baidu.tieba.stamp.view.NewStyleStampDialogView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.resourceLoaderProc.EmotionShareLoaderProc;
+import com.baidu.tbadk.switchs.QqShareH5Switch;
+import com.baidu.tieba.sharesdk.bean.ShareEntity;
+import com.baidu.tieba.xu8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tencent.connect.share.QQShare;
+import com.tencent.tauth.IUiListener;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class yu8 {
+public class yu8 extends xu8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public DialogInterface.OnDismissListener a;
-    public c b;
+    public IUiListener p;
+    public final yg<EmotionShareLoaderProc.EmotionShare> q;
 
     /* loaded from: classes7.dex */
-    public interface c {
-        void a();
-
-        void b();
-
-        void c();
-    }
-
-    /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
+    public class a extends yg<EmotionShareLoaderProc.EmotionShare> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xv4 a;
-        public final /* synthetic */ yu8 b;
+        public final /* synthetic */ yu8 a;
 
-        public a(yu8 yu8Var, xv4 xv4Var) {
+        public a(yu8 yu8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {yu8Var, xv4Var};
+                Object[] objArr = {yu8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -62,203 +45,165 @@ public class yu8 {
                     return;
                 }
             }
-            this.b = yu8Var;
-            this.a = xv4Var;
+            this.a = yu8Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.tieba.yg
+        public void onCancelled(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.b.b != null) {
-                    this.b.b.a();
-                }
-                this.a.a();
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                super.onCancelled(str);
+                this.a.u(3, 4);
             }
         }
-    }
 
-    /* loaded from: classes7.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xv4 a;
-        public final /* synthetic */ xu8 b;
-        public final /* synthetic */ Activity c;
-        public final /* synthetic */ yu8 d;
-
-        public b(yu8 yu8Var, xv4 xv4Var, xu8 xu8Var, Activity activity) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.yg
+        /* renamed from: a */
+        public void onLoaded(EmotionShareLoaderProc.EmotionShare emotionShare, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yu8Var, xv4Var, xu8Var, activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, emotionShare, str, i) == null) {
+                super.onLoaded(emotionShare, str, i);
+                if (emotionShare == null || emotionShare.image == null || TextUtils.isEmpty(emotionShare.path)) {
+                    this.a.u(2, 4);
                 }
-            }
-            this.d = yu8Var;
-            this.a = xv4Var;
-            this.b = xu8Var;
-            this.c = activity;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.a();
-                av8 av8Var = new av8();
-                xu8 xu8Var = this.b;
-                if (xu8Var != null) {
-                    av8Var.g(xu8Var.a());
-                    av8Var.h(this.b.b());
-                }
-                new zu8(this.c, av8Var).a();
-                this.d.j();
-                if (this.d.b != null) {
-                    this.d.b.c();
+                if (emotionShare != null && !TextUtils.isEmpty(emotionShare.path)) {
+                    this.a.R(emotionShare.path);
                 }
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948342765, "Lcom/baidu/tieba/yu8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948342765, "Lcom/baidu/tieba/yu8;");
-                return;
-            }
-        }
-        BdUniqueId.gen();
-    }
-
-    public yu8() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yu8(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        new NewStyleStampDialogView(TbadkCoreApplication.getInst().getContext());
+        this.q = new a(this);
+        this.l = 4;
     }
 
-    public static void h() {
+    public final void R(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_STAMP_SHARE_DIALOG).param("obj_type", 2).param("obj_source", 1).param("obj_locate", 1));
-        }
-    }
-
-    public static void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_STAMP_SHARE_DIALOG).param("obj_type", 1).param("obj_source", 1).param("obj_locate", 1));
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_CLICK).param("obj_locate", 31));
-        }
-    }
-
-    public void e(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            this.b = cVar;
-        }
-    }
-
-    public void f(DialogInterface.OnDismissListener onDismissListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onDismissListener) == null) {
-            this.a = onDismissListener;
-        }
-    }
-
-    public /* synthetic */ void c(xv4 xv4Var, TbPageContext tbPageContext, View view2) {
-        xv4Var.a();
-        if (tbPageContext != null) {
-            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{"https://tieba.baidu.com/mo/q/icon/panelIcon?opacity=0&user_id=" + TbadkCoreApplication.getCurrentAccount()});
-            h();
-            c cVar = this.b;
-            if (cVar != null) {
-                cVar.b();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("imageLocalUrl", str);
+            bundle.putInt("req_type", 5);
+            bundle.putInt("cflag", 1);
+            IUiListener iUiListener = this.p;
+            if (iUiListener != null) {
+                this.k.shareToQQ((Activity) this.b, bundle, iUiListener);
             }
         }
     }
 
-    public xv4 d(IconPopData iconPopData) {
-        InterceptResult invokeL;
+    public final void P(ShareEntity shareEntity, IUiListener iUiListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iconPopData)) == null) {
-            if (iconPopData != null && iconPopData.getPic160() != null && iconPopData.getTitle() != null) {
-                xu8 xu8Var = new xu8();
-                String pic160 = iconPopData.getPic160();
-                xu8Var.d(iconPopData.getTitle());
-                xu8Var.c(pic160);
-                PollingModel.y0(iconPopData, true);
-                return g(xu8Var);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, shareEntity, iUiListener) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putInt("req_type", 7);
+            bundle.putString("title", fv8.a(this.b));
+            if (!StringUtils.isNull(shareEntity.getTitle())) {
+                bundle.putString("summary", shareEntity.getTitle());
+            } else if (!StringUtils.isNull(shareEntity.getContent())) {
+                bundle.putString("summary", shareEntity.getContent());
+            } else {
+                bundle.putString("summary", this.b.getString(R.string.obfuscated_res_0x7f0f120b));
             }
-            return null;
+            bundle.putString("targetUrl", shareEntity.getLinkUrl());
+            ArrayList<String> arrayList = new ArrayList<>();
+            if (!TextUtils.isEmpty(shareEntity.getImgUrl())) {
+                arrayList.add(shareEntity.getImgUrl());
+            } else {
+                arrayList.add("http://tb3.bdstatic.com/public/img/fcf10e29473417fa5e0d4a1e6.fcf10e29.png");
+            }
+            bundle.putStringArrayList("imageUrl", arrayList);
+            bundle.putString(QQShare.SHARE_TO_QQ_MINI_PROGRAM_APPID, "1111264064");
+            bundle.putString(QQShare.SHARE_TO_QQ_MINI_PROGRAM_TYPE, "3");
+            bundle.putString(QQShare.SHARE_TO_QQ_MINI_PROGRAM_PATH, "pages/pb/pb?tid=" + shareEntity.getTid());
+            if (iUiListener != null) {
+                this.k.shareToQzone((Activity) this.b, bundle, iUiListener);
+            }
         }
-        return (xv4) invokeL.objValue;
     }
 
-    public final xv4 g(xu8 xu8Var) {
-        InterceptResult invokeL;
+    public final void Q(ShareEntity shareEntity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, xu8Var)) == null) {
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            final TbPageContext tbPageContext = null;
-            if (currentActivity == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareEntity) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putInt("req_type", 1);
+            bundle.putString("title", shareEntity.getTitle());
+            bundle.putString("summary", shareEntity.getContent());
+            bundle.putString("targetUrl", shareEntity.getLinkUrl());
+            ArrayList<String> arrayList = new ArrayList<>();
+            if (!TextUtils.isEmpty(shareEntity.getImgUrl())) {
+                arrayList.add(shareEntity.getImgUrl());
             }
-            if (currentActivity instanceof TbPageContextSupport) {
-                tbPageContext = ((TbPageContextSupport) currentActivity).getPageContext();
+            bundle.putStringArrayList("imageUrl", arrayList);
+            IUiListener iUiListener = this.p;
+            if (iUiListener != null) {
+                this.k.shareToQzone((Activity) this.b, bundle, iUiListener);
             }
-            NewStyleStampDialogView newStyleStampDialogView = new NewStyleStampDialogView(currentActivity);
-            newStyleStampDialogView.setStampData(xu8Var);
-            final xv4 xv4Var = new xv4(currentActivity);
-            xv4Var.c(newStyleStampDialogView);
-            xv4Var.d(this.a);
-            xv4Var.e();
-            i();
-            newStyleStampDialogView.getImgStampDialogCancelView().setOnClickListener(new a(this, xv4Var));
-            newStyleStampDialogView.getStampDialogLookView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.wu8
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
+        }
+    }
 
-                @Override // android.view.View.OnClickListener
-                public final void onClick(View view2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        yu8.this.c(xv4Var, tbPageContext, view2);
+    public final void S(ShareEntity shareEntity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, shareEntity) == null) {
+            if (q(shareEntity.getLocalFile())) {
+                R(shareEntity.getLocalFile());
+            } else if (p(shareEntity.getImageUri())) {
+                R(shareEntity.getImageUri().getPath());
+            } else {
+                zg.h().k(shareEntity.getImgUrl(), 34, this.q, 0, 0, j(), new Object[0]);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.xu8, com.baidu.tieba.cv8
+    public void a(ShareEntity shareEntity, dv8 dv8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, shareEntity, dv8Var) == null) {
+            if (shareEntity != null && this.k != null) {
+                this.e = shareEntity;
+                Context context = this.b;
+                if (context != null && (context instanceof Activity)) {
+                    this.p = new xu8.c(this, dv8Var);
+                    if (!QqShareH5Switch.isOn() && !StringUtils.isNull(shareEntity.getTid()) && !"0".equals(shareEntity.getTid())) {
+                        P(shareEntity, this.p);
+                        return;
+                    } else if (shareEntity.getShareType() != 0) {
+                        S(shareEntity);
+                        return;
+                    } else {
+                        Q(shareEntity);
+                        return;
                     }
                 }
-            });
-            newStyleStampDialogView.getStampDialogShareView().setOnClickListener(new b(this, xv4Var, xu8Var, currentActivity));
-            return xv4Var;
+                u(2, 4);
+                if (dv8Var != null) {
+                    dv8Var.b1(0, 2);
+                    return;
+                }
+                return;
+            }
+            u(2, 4);
+            if (dv8Var != null) {
+                dv8Var.b1(0, 2);
+            }
         }
-        return (xv4) invokeL.objValue;
     }
 }

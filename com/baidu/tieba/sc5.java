@@ -1,13 +1,12 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.suspended.SuspendedActivity;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tieba.im.data.MsgLocalData;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.im.message.chat.PersonalChatMessage;
+import com.baidu.tieba.j09;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,169 +15,167 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class sc5 {
     public static /* synthetic */ Interceptable $ic;
-    public static sc5 a;
-    public static boolean b;
-    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public qc5 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948146628, "Lcom/baidu/tieba/sc5;")) == null) {
-            return;
+    /* loaded from: classes6.dex */
+    public class a extends kp5<Object> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qc5 a;
+
+        public a(sc5 sc5Var, qc5 qc5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sc5Var, qc5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qc5Var;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948146628, "Lcom/baidu/tieba/sc5;");
+
+        @Override // com.baidu.tieba.kp5
+        public Object doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return Long.valueOf(kl7.w().j(this.a.a().a));
+            }
+            return invokeV.objValue;
         }
     }
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-        }
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-        }
-    }
-
-    public sc5() {
+    public sc5(qc5 qc5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {qc5Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = qc5Var;
+    }
+
+    public void d(j09.h hVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, hVar) != null) || hVar == null) {
+            return;
+        }
+        qc5 qc5Var = this.a;
+        if (qc5Var != null && qc5Var.a() != null) {
+            j09.n(this.a.a().a, hVar);
+        } else {
+            hVar.a(null);
         }
     }
 
-    public static sc5 b() {
-        InterceptResult invokeV;
+    public void e(String str) {
+        qc5 qc5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (TbSingleton.class) {
-                    if (a == null) {
-                        a = new sc5();
-                    }
-                }
-            }
-            return a;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (qc5Var = this.a) != null && qc5Var.a() != null) {
+            j09.x(this.a.a().a, str);
         }
-        return (sc5) invokeV.objValue;
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
+    public final ChatMessage a(String str, long j) {
+        InterceptResult invokeLJ;
+        long j2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, str, j)) == null) {
+            ChatMessage b = b();
+            if (b == null) {
+                return null;
+            }
+            b.setCustomGroupType(2);
+            b.setMsgType(1);
+            b.setContent(str);
+            long b2 = do7.b(j);
+            b.setMsgId(b2);
+            b.setRecordId(b2);
+            b.setTime(System.currentTimeMillis() / 1000);
+            UserData userData = new UserData();
+            userData.setUserName(TbadkCoreApplication.getCurrentAccountName());
+            userData.setUserId(TbadkCoreApplication.getCurrentAccount());
+            userData.setName_show(TbadkCoreApplication.getCurrentAccountNameShow());
+            userData.setPortrait(TbadkCoreApplication.getCurrentPortrait());
+            b.setUserInfo(userData);
+            try {
+                j2 = dh.g(TbadkCoreApplication.getCurrentAccount(), 0L);
+            } catch (Exception unused) {
+                j2 = 0;
+            }
+            b.setUserId(j2);
+            MsgLocalData msgLocalData = new MsgLocalData();
+            msgLocalData.setStatus((short) 1);
+            msgLocalData.setErrno(0L);
+            msgLocalData.setRetry(0L);
+            msgLocalData.setUpload_offset(null);
+            b.setLocalData(msgLocalData);
             return b;
         }
-        return invokeV.booleanValue;
+        return (ChatMessage) invokeLJ.objValue;
     }
 
-    public boolean i() {
+    public ChatMessage b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return h(TbadkCoreApplication.getInst().getCurrentActivity());
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return rc5.a.contains(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            return rc5.d.contains(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            return rc5.c.contains(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean h(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, activity)) == null) {
-            if (activity == null) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            qc5 qc5Var = this.a;
+            if (qc5Var != null && qc5Var.a() != null) {
+                PersonalChatMessage personalChatMessage = new PersonalChatMessage();
+                personalChatMessage.setBornTime(System.currentTimeMillis());
+                personalChatMessage.setToUserId(Long.parseLong(this.a.a().a));
+                UserData userData = new UserData();
+                userData.setUserId(this.a.a().a);
+                userData.setPortrait(this.a.a().c);
+                userData.setName_show(this.a.a().b);
+                personalChatMessage.setToUserInfo(userData);
+                personalChatMessage.setIsFriend(this.a.a().j ? 1 : 0);
+                return personalChatMessage;
             }
-            if (activity instanceof SuspendedActivity) {
-                return true;
-            }
-            return rc5.b.contains(activity.getClass().getName());
+            return null;
         }
-        return invokeL.booleanValue;
+        return (ChatMessage) invokeV.objValue;
     }
 
-    public void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            c = z;
+    public /* synthetic */ void c(String str, Object obj) {
+        if (obj instanceof Long) {
+            pm7.k().t(a(str, ((Long) obj).longValue()));
+            e("");
         }
     }
 
-    public void n(boolean z) {
+    public void f(qc5 qc5Var, final String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            b = z;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, qc5Var, str) == null) {
+            this.a = qc5Var;
+            op5.c(new a(this, qc5Var), new oo5() { // from class: com.baidu.tieba.rc5
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // com.baidu.tieba.oo5
+                public final void onReturnDataInUI(Object obj) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
+                        sc5.this.c(str, obj);
+                    }
+                }
+            });
         }
     }
 }

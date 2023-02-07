@@ -11,13 +11,13 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.Cdo;
 import com.baidu.tieba.ala.alasquare.subtablist.message.AlaNewSquareSubListRequestMessage;
 import com.baidu.tieba.ala.alasquare.subtablist.message.AlaNewSquareSubListResponseMessage;
-import com.baidu.tieba.ex5;
-import com.baidu.tieba.s9;
-import com.baidu.tieba.uz5;
-import com.baidu.tieba.vz5;
-import com.baidu.tieba.yn;
+import com.baidu.tieba.g46;
+import com.baidu.tieba.h46;
+import com.baidu.tieba.q16;
+import com.baidu.tieba.x9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -50,7 +50,7 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
     public int k;
     public List<String> l;
     public List<ThreadData> m;
-    public List<yn> n;
+    public List<Cdo> n;
     public boolean o;
     public b p;
     public BdUniqueId q;
@@ -171,7 +171,7 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
         u = new HashMap<>();
     }
 
-    public List<yn> U() {
+    public List<Cdo> U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -233,18 +233,18 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AlaNewSquareSubListModel(s9 s9Var) {
-        super(s9Var);
+    public AlaNewSquareSubListModel(x9 x9Var) {
+        super(x9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {s9Var};
+            Object[] objArr = {x9Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((s9) newInitContext.callArgs[0]);
+                super((x9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -386,41 +386,41 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
             int size = list.size();
             for (int i = 0; i < size; i += 2) {
                 if (this.o) {
-                    uz5 uz5Var = new uz5();
-                    ex5 ex5Var = new ex5();
-                    ex5Var.e = this.i;
-                    ex5Var.b = this.e;
-                    ex5Var.c = this.d;
-                    ex5Var.d = list.get(i);
-                    uz5Var.a = ex5Var;
+                    g46 g46Var = new g46();
+                    q16 q16Var = new q16();
+                    q16Var.e = this.i;
+                    q16Var.b = this.e;
+                    q16Var.c = this.d;
+                    q16Var.d = list.get(i);
+                    g46Var.a = q16Var;
                     int i2 = i + 1;
                     if (i2 < size) {
-                        ex5 ex5Var2 = new ex5();
-                        ex5Var2.e = this.i;
-                        ex5Var2.b = this.e;
-                        ex5Var2.c = this.d;
-                        ex5Var2.d = list.get(i2);
-                        uz5Var.b = ex5Var2;
+                        q16 q16Var2 = new q16();
+                        q16Var2.e = this.i;
+                        q16Var2.b = this.e;
+                        q16Var2.c = this.d;
+                        q16Var2.d = list.get(i2);
+                        g46Var.b = q16Var2;
                     }
-                    this.n.add(uz5Var);
+                    this.n.add(g46Var);
                 } else {
-                    vz5 vz5Var = new vz5();
-                    ex5 ex5Var3 = new ex5();
-                    ex5Var3.e = this.i;
-                    ex5Var3.b = this.e;
-                    ex5Var3.c = this.d;
-                    ex5Var3.d = list.get(i);
-                    vz5Var.a = ex5Var3;
+                    h46 h46Var = new h46();
+                    q16 q16Var3 = new q16();
+                    q16Var3.e = this.i;
+                    q16Var3.b = this.e;
+                    q16Var3.c = this.d;
+                    q16Var3.d = list.get(i);
+                    h46Var.a = q16Var3;
                     int i3 = i + 1;
                     if (i3 < size) {
-                        ex5 ex5Var4 = new ex5();
-                        ex5Var4.e = this.i;
-                        ex5Var4.b = this.e;
-                        ex5Var4.c = this.d;
-                        ex5Var4.d = list.get(i3);
-                        vz5Var.b = ex5Var4;
+                        q16 q16Var4 = new q16();
+                        q16Var4.e = this.i;
+                        q16Var4.b = this.e;
+                        q16Var4.c = this.d;
+                        q16Var4.d = list.get(i3);
+                        h46Var.b = q16Var4;
                     }
-                    this.n.add(vz5Var);
+                    this.n.add(h46Var);
                 }
             }
         }

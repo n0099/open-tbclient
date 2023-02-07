@@ -18,18 +18,18 @@ import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tbadk.core.util.httpNet.WebClient;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ek5;
-import com.baidu.tieba.hk5;
-import com.baidu.tieba.jn;
-import com.baidu.tieba.mc;
-import com.baidu.tieba.ng;
-import com.baidu.tieba.qc;
-import com.baidu.tieba.ry4;
+import com.baidu.tieba.ah;
+import com.baidu.tieba.ch;
+import com.baidu.tieba.e35;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.on;
+import com.baidu.tieba.po5;
+import com.baidu.tieba.rc;
 import com.baidu.tieba.sg;
-import com.baidu.tieba.si;
-import com.baidu.tieba.vg;
+import com.baidu.tieba.so5;
+import com.baidu.tieba.vc;
 import com.baidu.tieba.xg;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +40,7 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 /* loaded from: classes3.dex */
-public class BigImageLoaderProc implements vg<jn> {
+public class BigImageLoaderProc implements ah<on> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String NCDN_PER = "width=";
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,16 +48,16 @@ public class BigImageLoaderProc implements vg<jn> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: decodeToResource */
-    public jn m45decodeToResource(byte[] bArr, Object... objArr) {
+    public on m47decodeToResource(byte[] bArr, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bArr, objArr)) == null) {
             return null;
         }
-        return (jn) invokeLL.objValue;
+        return (on) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.vg
+    @Override // com.baidu.tieba.ah
     public BdAsyncTaskParallel getAsyncTaskParallel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -67,7 +67,7 @@ public class BigImageLoaderProc implements vg<jn> {
         return (BdAsyncTaskParallel) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.vg
+    @Override // com.baidu.tieba.ah
     public int getAsyncTaskPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -79,17 +79,17 @@ public class BigImageLoaderProc implements vg<jn> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.vg
-    public jn getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
+    @Override // com.baidu.tieba.ah
+    public on getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
             return null;
         }
-        return (jn) invokeCommon.objValue;
+        return (on) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.vg
+    @Override // com.baidu.tieba.ah
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -105,7 +105,7 @@ public class BigImageLoaderProc implements vg<jn> {
         }
     }
 
-    @Override // com.baidu.tieba.vg
+    @Override // com.baidu.tieba.ah
     public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) {
@@ -137,8 +137,8 @@ public class BigImageLoaderProc implements vg<jn> {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             String nameMd5FromUrl = getNameMd5FromUrl(str);
             if (!TextUtils.isEmpty(nameMd5FromUrl)) {
-                qc newDiskPicOperate = newDiskPicOperate(nameMd5FromUrl, DiskFileOperate.Action.INFO);
-                if (mc.f().call(newDiskPicOperate) && newDiskPicOperate.isSuccess()) {
+                vc newDiskPicOperate = newDiskPicOperate(nameMd5FromUrl, DiskFileOperate.Action.INFO);
+                if (rc.f().call(newDiskPicOperate) && newDiskPicOperate.isSuccess()) {
                     return newDiskPicOperate.getFileInfo();
                 }
             }
@@ -173,20 +173,20 @@ public class BigImageLoaderProc implements vg<jn> {
         return (String) invokeL.objValue;
     }
 
-    public static byte[] getFromLocalData(String str, sg sgVar) {
+    public static byte[] getFromLocalData(String str, xg xgVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, sgVar)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, xgVar)) == null) {
             String pidFromCDNURL = getPidFromCDNURL(str);
             byte[] bArr = new byte[0];
-            qc newDiskPicOperate = newDiskPicOperate(getNameMd5FromUrl(str), DiskFileOperate.Action.READ);
+            vc newDiskPicOperate = newDiskPicOperate(getNameMd5FromUrl(str), DiskFileOperate.Action.READ);
             newDiskPicOperate.setLock(bArr);
-            if (sgVar != null) {
+            if (xgVar != null) {
                 DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                 diskCancelWorker.setOperate(newDiskPicOperate);
-                sgVar.a = diskCancelWorker;
+                xgVar.a = diskCancelWorker;
             }
-            if (!mc.f().a(newDiskPicOperate)) {
+            if (!rc.f().a(newDiskPicOperate)) {
                 return null;
             }
             int i = 2000;
@@ -216,7 +216,7 @@ public class BigImageLoaderProc implements vg<jn> {
         String[] split;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (str != null && ek5.a(str)) {
+            if (str != null && po5.a(str)) {
                 String[] split2 = str.split("/");
                 if (split2.length > 3) {
                     try {
@@ -243,7 +243,7 @@ public class BigImageLoaderProc implements vg<jn> {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (str != null && ek5.a(str)) {
+            if (str != null && po5.a(str)) {
                 int lastIndexOf = str.lastIndexOf("/");
                 int lastIndexOf2 = str.lastIndexOf(".");
                 int lastIndexOf3 = str.lastIndexOf(".jpg");
@@ -268,12 +268,12 @@ public class BigImageLoaderProc implements vg<jn> {
         return (String) invokeL.objValue;
     }
 
-    public static jn loadBdImage(String str) {
+    public static on loadBdImage(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            qc newDiskPicOperate = newDiskPicOperate(getNameMd5FromUrl(str), DiskFileOperate.Action.READ);
-            if (!mc.f().call(newDiskPicOperate) || !newDiskPicOperate.isSuccess()) {
+            vc newDiskPicOperate = newDiskPicOperate(getNameMd5FromUrl(str), DiskFileOperate.Action.READ);
+            if (!rc.f().call(newDiskPicOperate) || !newDiskPicOperate.isSuccess()) {
                 return null;
             }
             newDiskPicOperate.formatData(newDiskPicOperate.getData());
@@ -281,30 +281,30 @@ public class BigImageLoaderProc implements vg<jn> {
             if (bitmap == null) {
                 return null;
             }
-            return new jn(bitmap, newDiskPicOperate.isGif(), str);
+            return new on(bitmap, newDiskPicOperate.isGif(), str);
         }
-        return (jn) invokeL.objValue;
+        return (on) invokeL.objValue;
     }
 
-    public static qc newDiskPicOperate(String str, DiskFileOperate.Action action) {
+    public static vc newDiskPicOperate(String str, DiskFileOperate.Action action) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, action)) == null) {
-            qc qcVar = new qc("images", str, action);
-            qcVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
-            qcVar.setSubFolder(true);
-            qcVar.setSdCard(false);
-            qcVar.setSavedCache(true);
-            return qcVar;
+            vc vcVar = new vc("images", str, action);
+            vcVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
+            vcVar.setSubFolder(true);
+            vcVar.setSdCard(false);
+            vcVar.setSavedCache(true);
+            return vcVar;
         }
-        return (qc) invokeLL.objValue;
+        return (vc) invokeLL.objValue;
     }
 
-    public static void updateLocal(String str, byte[] bArr, boolean z, sg sgVar) {
+    public static void updateLocal(String str, byte[] bArr, boolean z, xg xgVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{str, bArr, Boolean.valueOf(z), sgVar}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{str, bArr, Boolean.valueOf(z), xgVar}) == null) {
             String pidFromCDNURL = getPidFromCDNURL(str);
-            qc newDiskPicOperate = newDiskPicOperate(getNameMd5FromUrl(str), DiskFileOperate.Action.WRITE_FORCE);
+            vc newDiskPicOperate = newDiskPicOperate(getNameMd5FromUrl(str), DiskFileOperate.Action.WRITE_FORCE);
             newDiskPicOperate.setGif(z);
             if (pidFromCDNURL != null) {
                 newDiskPicOperate.e(getIsHighQualityFromCDNURL(str));
@@ -312,23 +312,23 @@ public class BigImageLoaderProc implements vg<jn> {
                 newDiskPicOperate.e(true);
             }
             newDiskPicOperate.setData(bArr);
-            if (sgVar != null) {
+            if (xgVar != null) {
                 DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                 diskCancelWorker.setOperate(newDiskPicOperate);
-                sgVar.a = diskCancelWorker;
+                xgVar.a = diskCancelWorker;
             }
-            mc.f().a(newDiskPicOperate);
+            rc.f().a(newDiskPicOperate);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.vg
-    public jn getFromLocal(String str, String str2, int i, int i2, sg sgVar, Object... objArr) {
+    @Override // com.baidu.tieba.ah
+    public on getFromLocal(String str, String str2, int i, int i2, xg xgVar, Object... objArr) {
         InterceptResult invokeCommon;
         Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), sgVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), xgVar, objArr})) == null) {
             boolean booleanValue = Boolean.valueOf(String.valueOf(objArr[0])).booleanValue();
             byte[] bArr = (byte[]) objArr[1];
             if (bArr != null) {
@@ -338,12 +338,12 @@ public class BigImageLoaderProc implements vg<jn> {
             }
             if (bitmap == null) {
                 if (booleanValue && str.startsWith("/")) {
-                    bitmap = si.d().c(str);
+                    bitmap = xi.d().c(str);
                     if (bitmap != null && bArr == null) {
-                        bArr = si.d().a(bitmap, 100);
+                        bArr = xi.d().a(bitmap, 100);
                     }
                 } else {
-                    bArr = getFromLocalData(str, sgVar);
+                    bArr = getFromLocalData(str, xgVar);
                     if (bArr != null) {
                         bitmap = BitmapHelper.Bytes2Bitmap(bArr);
                     }
@@ -352,21 +352,21 @@ public class BigImageLoaderProc implements vg<jn> {
             if (bitmap == null) {
                 return null;
             }
-            return new jn(bitmap, zi.D(bArr), str2, bArr);
+            return new on(bitmap, ej.D(bArr), str2, bArr);
         }
-        return (jn) invokeCommon.objValue;
+        return (on) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.vg
-    public jn getFromRemote(String str, String str2, int i, int i2, sg sgVar, Object... objArr) {
+    @Override // com.baidu.tieba.ah
+    public on getFromRemote(String str, String str2, int i, int i2, xg xgVar, Object... objArr) {
         InterceptResult invokeCommon;
         String str3;
         String str4;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), sgVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), xgVar, objArr})) == null) {
             Bitmap bitmap = null;
             if (str != null && str.startsWith("/")) {
                 return null;
@@ -380,8 +380,8 @@ public class BigImageLoaderProc implements vg<jn> {
             } else {
                 str3 = TbConfig.IMAGE_ADDRESS + ((str + "&imgtype=0") + "&qulity=" + TbImageHelper.getInstance().getUrlQuality());
             }
-            hk5.e(booleanValue, str3, str);
-            Pair<Boolean, String> d = hk5.d(str3);
+            so5.e(booleanValue, str3, str);
+            Pair<Boolean, String> d = so5.d(str3);
             if (((Boolean) d.first).booleanValue()) {
                 str4 = (String) d.second;
                 z = true;
@@ -390,20 +390,20 @@ public class BigImageLoaderProc implements vg<jn> {
                 z = false;
             }
             WebClient webClient = new WebClient();
-            if (sgVar != null) {
-                sgVar.a = webClient;
+            if (xgVar != null) {
+                xgVar.a = webClient;
             }
             byte[] downloadImageBytes = webClient.downloadImageBytes(str4, !booleanValue);
             boolean needCache = webClient.needCache();
             if (webClient.IsRequestSuccess() && webClient.errorCode == -11) {
                 BdLog.e("BIGIMAGE imagesize too big");
-                ry4.a(ImageLoaderProc.GIF_PLAY_LOG_TYPE, -1L, -1, "BigImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str4);
+                e35.a(ImageLoaderProc.GIF_PLAY_LOG_TYPE, -1L, -1, "BigImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str4);
             }
             if (webClient.responseCode == 302 && (17 == getProcType() || 18 == getProcType() || 13 == getProcType() || 14 == getProcType())) {
                 try {
                     InputStream openRawResource = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.img_default_delete_big2, new TypedValue());
-                    downloadImageBytes = ng.d(openRawResource);
-                    xg.c(openRawResource);
+                    downloadImageBytes = sg.d(openRawResource);
+                    ch.c(openRawResource);
                 } catch (Throwable th) {
                     BdLog.e(th);
                     return null;
@@ -412,7 +412,7 @@ public class BigImageLoaderProc implements vg<jn> {
             if (webClient.IsRequestSuccess() || webClient.responseCode == 302) {
                 bitmap = BitmapHelper.Bytes2Bitmap(downloadImageBytes);
                 if (z && bitmap == null) {
-                    hk5.b(str4);
+                    so5.b(str4);
                     downloadImageBytes = webClient.downloadImageBytes(str3, !booleanValue);
                     needCache = webClient.needCache();
                     if (downloadImageBytes != null && webClient.IsRequestSuccess()) {
@@ -421,13 +421,13 @@ public class BigImageLoaderProc implements vg<jn> {
                 }
             }
             if (needCache && !webClient.isCrackPic) {
-                updateLocal(str, downloadImageBytes, false, sgVar);
+                updateLocal(str, downloadImageBytes, false, xgVar);
             }
-            jn jnVar = new jn(bitmap, zi.D(downloadImageBytes), str, downloadImageBytes);
-            jnVar.y(needCache);
-            return jnVar;
+            on onVar = new on(bitmap, ej.D(downloadImageBytes), str, downloadImageBytes);
+            onVar.y(needCache);
+            return onVar;
         }
-        return (jn) invokeCommon.objValue;
+        return (on) invokeCommon.objValue;
     }
 
     public int getProcType() {

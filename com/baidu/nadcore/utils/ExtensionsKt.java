@@ -3,6 +3,7 @@ package com.baidu.nadcore.utils;
 import android.content.Context;
 import android.graphics.Color;
 import android.net.Uri;
+import android.view.View;
 import androidx.annotation.ColorInt;
 import androidx.annotation.ColorRes;
 import androidx.annotation.Px;
@@ -10,8 +11,8 @@ import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ej0;
-import com.baidu.tieba.r31;
+import com.baidu.tieba.b51;
+import com.baidu.tieba.nj0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -134,9 +135,23 @@ public final class ExtensionsKt {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, context)) == null) {
             Intrinsics.checkNotNullParameter(context, "context");
-            return r31.c.a(context, i);
+            return b51.c.a(context, i);
         }
         return invokeIL.intValue;
+    }
+
+    public static final void e(View isVisible, boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, isVisible, z) == null) {
+            Intrinsics.checkNotNullParameter(isVisible, "$this$isVisible");
+            if (z) {
+                i = 0;
+            } else {
+                i = 8;
+            }
+            isVisible.setVisibility(i);
+        }
     }
 
     public static final String c(JSONObject optStringCheckNonNull, String key, String fallback) {
@@ -157,24 +172,24 @@ public final class ExtensionsKt {
     }
 
     @ColorInt
-    public static final int e(String toColor, @ColorRes int i) {
+    public static final int f(String toColor, @ColorRes int i) {
         InterceptResult invokeLI;
-        Integer m772constructorimpl;
+        Integer m773constructorimpl;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, toColor, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, toColor, i)) == null) {
             Intrinsics.checkNotNullParameter(toColor, "$this$toColor");
             try {
                 Result.Companion companion = Result.Companion;
-                m772constructorimpl = Result.m772constructorimpl(Integer.valueOf(Color.parseColor(toColor)));
+                m773constructorimpl = Result.m773constructorimpl(Integer.valueOf(Color.parseColor(toColor)));
             } catch (Throwable th) {
                 Result.Companion companion2 = Result.Companion;
-                m772constructorimpl = Result.m772constructorimpl(ResultKt.createFailure(th));
+                m773constructorimpl = Result.m773constructorimpl(ResultKt.createFailure(th));
             }
-            Integer valueOf = Integer.valueOf(ContextCompat.getColor(ej0.b(), i));
-            if (Result.m778isFailureimpl(m772constructorimpl)) {
-                m772constructorimpl = valueOf;
+            Integer valueOf = Integer.valueOf(ContextCompat.getColor(nj0.b(), i));
+            if (Result.m779isFailureimpl(m773constructorimpl)) {
+                m773constructorimpl = valueOf;
             }
-            return ((Number) m772constructorimpl).intValue();
+            return ((Number) m773constructorimpl).intValue();
         }
         return invokeLI.intValue;
     }

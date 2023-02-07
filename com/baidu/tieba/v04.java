@@ -1,22 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.tieba.tt2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class v04 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public double clientX;
-    @V8JavascriptField
-    public double clientY;
-    @V8JavascriptField
-    public int identifier;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
 
     public v04() {
         Interceptable interceptable = $ic;
@@ -28,40 +33,83 @@ public class v04 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = "swan";
+        this.d = "";
+        this.e = "";
+        this.f = "";
+        this.g = "";
+        this.h = "";
+        if (w83.b0() == null) {
+            return;
+        }
+        tt2.a W = w83.b0().W();
+        this.a = pf3.n(W.G());
+        this.c = W.H();
+        this.b = W.T();
+        this.f = W.s0().getString("aiapp_extra_need_download", "");
+        this.g = W.W();
+        this.h = W.e0();
+        this.i = W.V();
+        this.d = W.v1();
+        this.e = W.w1();
+    }
+
+    public v04(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = "swan";
+        this.d = "";
+        this.e = "";
+        this.f = "";
+        this.g = "";
+        this.h = "";
+        if (jSONObject != null && jSONObject.length() != 0) {
+            this.a = jSONObject.optString("from", "swan");
+            this.c = jSONObject.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
+            this.b = jSONObject.optString("source");
+            this.f = jSONObject.optString("needDown");
+            this.g = jSONObject.optString("scheme");
+            this.h = jSONObject.optString("extPage");
+            this.i = jSONObject.optString("launchId", null);
+            this.d = jSONObject.optString("appVersion");
+            this.e = jSONObject.optString("thirdVersion");
         }
     }
 
-    public int hashCode() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return Double.valueOf(this.identifier + this.clientX + this.clientY).hashCode();
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (!(obj instanceof v04)) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("from", this.a);
+                jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.c);
+                jSONObject.put("source", this.b);
+                jSONObject.put("needDown", this.f);
+                jSONObject.put("scheme", this.g);
+                jSONObject.put("extPage", this.h);
+                jSONObject.put("launchId", this.i);
+                jSONObject.put("appVersion", this.d);
+                jSONObject.put("thirdVersion", this.e);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            v04 v04Var = (v04) obj;
-            if (this.identifier != v04Var.identifier || this.clientX != v04Var.clientX || this.clientY != v04Var.clientY) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "{identifier=" + this.identifier + ", clientX=" + this.clientX + ", clientY=" + this.clientY + '}';
+            return jSONObject.toString();
         }
         return (String) invokeV.objValue;
     }

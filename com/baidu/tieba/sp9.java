@@ -1,27 +1,110 @@
 package com.baidu.tieba;
 
-import com.baidu.ugc.download.exception.DownloadException;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface sp9 extends Runnable {
+public class sp9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public interface a {
-        void b(DownloadException downloadException);
-
-        void onConnectCanceled();
-
-        void onConnectPaused();
-
-        void onConnected(long j, long j2, boolean z);
-
-        void onConnecting();
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    void cancel();
+    /* loaded from: classes6.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final sp9 a;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    boolean isCanceled();
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-424725617, "Lcom/baidu/tieba/sp9$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-424725617, "Lcom/baidu/tieba/sp9$b;");
+                    return;
+                }
+            }
+            a = new sp9(null);
+        }
+    }
 
-    boolean isPaused();
+    public sp9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void pause();
+    public static sp9 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (sp9) invokeV.objValue;
+    }
+
+    public /* synthetic */ sp9(a aVar) {
+        this();
+    }
+
+    public int b(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
+            return jp9.f(str, i);
+        }
+        return invokeLI.intValue;
+    }
+
+    public long c(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j)) == null) {
+            return jp9.g(str, j);
+        }
+        return invokeLJ.longValue;
+    }
+
+    public void d(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
+            jp9.n(str, i);
+        }
+    }
+
+    public void e(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048579, this, str, j) == null) {
+            jp9.o(str, j);
+        }
+    }
+
+    public void f(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
+            jp9.p(str, str2);
+        }
+    }
 }

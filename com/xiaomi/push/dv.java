@@ -56,8 +56,8 @@ public class dv extends al.a {
         FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, file)) == null) {
-            dm m285a = dn.a().m285a();
-            String a = m285a == null ? "" : m285a.a();
+            dm m287a = dn.a().m287a();
+            String a = m287a == null ? "" : m287a.a();
             FileLock fileLock = null;
             if (TextUtils.isEmpty(a)) {
                 return null;
@@ -67,7 +67,7 @@ public class dv extends al.a {
             synchronized (dq.a) {
                 try {
                     File file2 = new File(this.a.getExternalFilesDir(null), "push_cdata.lock");
-                    ab.m175a(file2);
+                    ab.m177a(file2);
                     randomAccessFile = new RandomAccessFile(file2, "rw");
                     try {
                         FileLock lock = randomAccessFile.getChannel().lock();
@@ -166,7 +166,7 @@ public class dv extends al.a {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private boolean m290a() {
+    private boolean m292a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
@@ -207,7 +207,7 @@ public class dv extends al.a {
 
     @Override // com.xiaomi.push.al.a
     /* renamed from: a */
-    public String mo222a() {
+    public String mo224a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "1" : (String) invokeV.objValue;
@@ -222,7 +222,7 @@ public class dv extends al.a {
                 if (file.length() > 1863680) {
                     file.delete();
                 }
-            } else if (!m290a() && file.exists()) {
+            } else if (!m292a() && file.exists()) {
                 List<hr> a = a(file);
                 if (!ag.a(a)) {
                     int size = a.size();
@@ -235,9 +235,9 @@ public class dv extends al.a {
                     ii iiVar = new ii("-1", false);
                     iiVar.c(ht.q.f529a);
                     iiVar.a(a2);
-                    dm m285a = dn.a().m285a();
-                    if (m285a != null) {
-                        m285a.a(iiVar, hj.i, null);
+                    dm m287a = dn.a().m287a();
+                    if (m287a != null) {
+                        m287a.a(iiVar, hj.i, null);
                     }
                     a();
                 }

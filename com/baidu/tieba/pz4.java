@@ -1,80 +1,95 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
-import android.text.style.ImageSpan;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import tbclient.RewardMaterial;
 /* loaded from: classes5.dex */
-public class pz4 extends ImageSpan {
+public class pz4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public WeakReference<Drawable> b;
+    public String a;
+    public String b;
+    public boolean c;
+    public boolean d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pz4(Drawable drawable) {
-        super(drawable);
+    public pz4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {drawable};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Drawable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public final Drawable a() {
+    public String a() {
         InterceptResult invokeV;
-        Drawable drawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WeakReference<Drawable> weakReference = this.b;
-            if (weakReference != null) {
-                drawable = weakReference.get();
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static pz4 e(RewardMaterial rewardMaterial) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, rewardMaterial)) == null) {
+            if (rewardMaterial == null) {
+                return null;
+            }
+            pz4 pz4Var = new pz4();
+            pz4Var.a = rewardMaterial.icon;
+            pz4Var.b = rewardMaterial.unlock_level;
+            boolean z2 = false;
+            if (rewardMaterial.is_matched.intValue() == 1) {
+                z = true;
             } else {
-                drawable = null;
+                z = false;
             }
-            if (drawable == null) {
-                Drawable drawable2 = getDrawable();
-                this.b = new WeakReference<>(drawable2);
-                return drawable2;
+            pz4Var.c = z;
+            if (rewardMaterial.is_newest_matched_level.intValue() == 1) {
+                z2 = true;
             }
-            return drawable;
+            pz4Var.d = z2;
+            return pz4Var;
         }
-        return (Drawable) invokeV.objValue;
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-            Drawable a = a();
-            canvas.save();
-            canvas.translate(f, (((i4 + paint.getFontMetricsInt().descent) - a.getBounds().height()) / 2) + this.a);
-            a.draw(canvas);
-            canvas.restore();
-        }
+        return (pz4) invokeL.objValue;
     }
 }

@@ -1,136 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import com.baidu.tieba.wv4;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.BlockPopInfo;
 /* loaded from: classes4.dex */
 public class e49 {
     public static /* synthetic */ Interceptable $ic;
-    public static BlockPopInfo d;
-    public static BlockPopInfo e;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public wv4 b;
-    public CustomMessageListener c;
+    public final MainTabActivity a;
+    public final v39 b;
+    public bf6 c;
+    public bf6 d;
+    public bf6 e;
 
-    /* loaded from: classes4.dex */
-    public class a implements wv4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(e49 e49Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e49Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.wv4.e
-        public void onClick(wv4 wv4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, wv4Var) == null) {
-                wv4Var.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements wv4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ BlockPopInfo a;
-        public final /* synthetic */ e49 b;
-
-        public b(e49 e49Var, BlockPopInfo blockPopInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e49Var, blockPopInfo};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = e49Var;
-            this.a = blockPopInfo;
-        }
-
-        @Override // com.baidu.tieba.wv4.e
-        public void onClick(wv4 wv4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, wv4Var) == null) {
-                this.b.e(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class c extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(e49 e49Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e49Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
-                return;
-            }
-            e49.h(null);
-            e49.g(null);
-        }
-    }
-
-    public e49(TbPageContext tbPageContext) {
+    public e49(MainTabActivity mainTabActivity, v39 v39Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {mainTabActivity, v39Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -140,107 +34,89 @@ public class e49 {
                 return;
             }
         }
-        c cVar = new c(this, 2005016);
-        this.c = cVar;
-        this.a = tbPageContext;
-        tbPageContext.registerListener(cVar);
+        this.a = mainTabActivity;
+        this.b = v39Var;
     }
 
-    public static void g(BlockPopInfo blockPopInfo) {
+    public void a() {
+        bf6 bf6Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, blockPopInfo) == null) {
-            e = blockPopInfo;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bf6Var = this.e) != null && bf6Var.i()) {
+            this.e.h();
         }
     }
 
-    public static void h(BlockPopInfo blockPopInfo) {
+    public void b() {
+        bf6 bf6Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, blockPopInfo) == null) {
-            d = blockPopInfo;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bf6Var = this.d) != null && bf6Var.i()) {
+            this.d.h();
+            this.d = null;
         }
     }
 
-    public final void e(BlockPopInfo blockPopInfo) {
+    public void c() {
+        bf6 bf6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, blockPopInfo) != null) || blockPopInfo == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (bf6Var = this.c) != null && bf6Var.i()) {
+            this.c.h();
+            this.c = null;
         }
-        AntiHelper.p(this.a.getPageActivity(), blockPopInfo.ahead_url);
     }
 
-    public final boolean b(BlockPopInfo blockPopInfo) {
-        InterceptResult invokeL;
-        Integer num;
+    public void d() {
+        v39 v39Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, blockPopInfo)) == null) {
-            if (blockPopInfo != null && (num = blockPopInfo.appeal_status) != null && num.intValue() == 1) {
-                BdToast b2 = BdToast.b(this.a.getPageActivity(), blockPopInfo.appeal_msg);
-                b2.g(BdToast.ToastIcon.FAILURE);
-                b2.d(3000);
-                b2.k();
-                return true;
-            } else if (blockPopInfo != null && blockPopInfo.can_post.intValue() == 0) {
-                if ((blockPopInfo.ahead_type.intValue() == 1 || blockPopInfo.ahead_type.intValue() == 2) && blockPopInfo.appeal_status.intValue() != 1) {
-                    if (blockPopInfo.ahead_type.intValue() == 1) {
-                        String str = blockPopInfo.block_info;
-                        String str2 = blockPopInfo.ok_info;
-                        if (!yi.isEmpty(str) && !yi.isEmpty(str2)) {
-                            i(blockPopInfo);
-                        } else {
-                            BdToast b3 = BdToast.b(this.a.getPageActivity(), this.a.getString(R.string.hanpen_error));
-                            b3.g(BdToast.ToastIcon.FAILURE);
-                            b3.d(3000);
-                            b3.k();
-                        }
-                    } else if (blockPopInfo.ahead_type.intValue() == 2) {
-                        e(blockPopInfo);
-                    }
-                    return true;
-                }
-                return false;
-            } else {
-                return false;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (v39Var = this.b) != null && v39Var.y() != null) {
+            FragmentTabWidget fragmentTabWidget = this.b.y().getFragmentTabWidget();
+            if (fragmentTabWidget.getChildCount() < 2) {
+                return;
             }
+            bf6 bf6Var = new bf6(this.a.getPageContext(), fragmentTabWidget.getChildAt(1));
+            this.e = bf6Var;
+            bf6Var.L(R.drawable.bg_tip_blue_down);
+            this.e.l(2);
+            this.e.o(32);
+            this.e.N(true);
+            this.e.R(-ej.g(this.a, R.dimen.tbds10));
+            this.e.C(R.color.CAM_X0101);
+            this.e.p(R.dimen.tbds54);
+            this.e.w(1);
+            this.e.n(4000);
+            this.e.F(ej.g(this.a, R.dimen.tbds44));
         }
-        return invokeL.booleanValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    public void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return b(e);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && !TextUtils.isEmpty(str)) {
+            FragmentTabWidget fragmentTabWidget = this.b.y().getFragmentTabWidget();
+            if (fragmentTabWidget.getChildCount() < 2) {
+                return;
+            }
+            bf6 bf6Var = new bf6(this.a.getPageContext(), fragmentTabWidget.getChildAt(2));
+            this.c = bf6Var;
+            bf6Var.L(R.drawable.bg_tip_blue_down);
+            this.c.l(2);
+            this.c.o(32);
+            this.c.N(true);
+            this.c.R(-ej.g(this.a, R.dimen.tbds10));
+            this.c.C(R.color.CAM_X0101);
+            this.c.p(R.dimen.tbds54);
+            this.c.w(999);
+            this.c.n(5000);
+            this.c.F(ej.g(this.a, R.dimen.tbds44));
+            this.c.V(str, "categoryUpdate", false, true);
         }
-        return invokeV.booleanValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return b(d);
-        }
-        return invokeV.booleanValue;
     }
 
     public void f() {
-        wv4 wv4Var;
+        bf6 bf6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.a != null && (wv4Var = this.b) != null && wv4Var.isShowing()) {
-            this.b.autoChangeSkinType(this.a);
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (bf6Var = this.e) != null && !bf6Var.i()) {
+            bf6 bf6Var2 = this.e;
+            String string = this.a.getString(R.string.obfuscated_res_0x7f0f05b5);
+            bf6Var2.T(string, "first_like_forum_enterforumtab_tips" + TbadkCoreApplication.getCurrentAccount());
         }
-    }
-
-    public final void i(BlockPopInfo blockPopInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, blockPopInfo) != null) || blockPopInfo == null) {
-            return;
-        }
-        wv4 wv4Var = new wv4(this.a.getPageActivity());
-        this.b = wv4Var;
-        wv4Var.setMessage(blockPopInfo.block_info);
-        this.b.setNegativeButton(blockPopInfo.ok_info, new a(this));
-        this.b.setPositiveButton(blockPopInfo.ahead_info, new b(this, blockPopInfo));
-        this.b.create(this.a).show();
     }
 }

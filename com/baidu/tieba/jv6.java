@@ -1,45 +1,31 @@
 package com.baidu.tieba;
 
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.tbadkCore.FrsRequestData;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
 import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONObject;
-import tbclient.AlbumElement;
-import tbclient.ItemGameCode;
-import tbclient.ItemGameInfo;
-import tbclient.ItemInfo;
-import tbclient.ItemPage.DataRes;
-import tbclient.RecentUpdate;
-import tbclient.ThreadInfo;
+import java.util.Iterator;
 /* loaded from: classes5.dex */
-public class jv6 implements je5 {
+public class jv6 implements uw6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ItemInfo a;
-    public List<AlbumElement> b;
-    public ArrayList<yn> c;
-    public boolean d;
 
-    @Override // com.baidu.tieba.je5
-    public void initByJson(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.uw6
+    public boolean e(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return false;
         }
-    }
-
-    @Override // com.baidu.tieba.je5
-    public void initByProtobuf(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {
-        }
+        return invokeI.booleanValue;
     }
 
     public jv6() {
@@ -52,83 +38,56 @@ public class jv6 implements je5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = new ArrayList<>();
     }
 
-    public void a(DataRes dataRes) {
-        boolean z;
+    @Override // com.baidu.tieba.uw6
+    public void a(b57 b57Var, FrsViewData frsViewData) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) || dataRes == null) {
-            return;
-        }
-        ItemInfo itemInfo = dataRes.item_info;
-        this.a = itemInfo;
-        if (itemInfo == null) {
-            return;
-        }
-        this.b = dataRes.album_list;
-        int i = 1;
-        if (dataRes.has_tornado.intValue() == 1) {
-            z = true;
-        } else {
-            z = false;
-        }
-        this.d = z;
-        ItemGameCode itemGameCode = dataRes.item_game_code;
-        if (itemGameCode != null && ListUtils.getCount(itemGameCode.game_code_list) != 0) {
-            bw6 bw6Var = new bw6();
-            bw6Var.g(dataRes.item_game_code);
-            this.c.add(bw6Var);
-        }
-        ItemGameInfo itemGameInfo = dataRes.item_game_info;
-        if (itemGameInfo != null) {
-            List<ThreadInfo> list = itemGameInfo.hot_videos;
-            if (list != null && ListUtils.getCount(list) >= 3) {
-                cw6 cw6Var = new cw6();
-                cw6Var.f(dataRes.item_game_info.hot_videos);
-                this.c.add(cw6Var);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, b57Var, frsViewData) == null) && b57Var != null && frsViewData != null) {
+            ArrayList<Cdo> threadList = frsViewData.getThreadList();
+            if (ListUtils.isEmpty(threadList)) {
+                return;
             }
-            RecentUpdate recentUpdate = dataRes.item_game_info.recent_update;
-            if (recentUpdate != null && !yi.isEmpty(recentUpdate.log)) {
-                dw6 dw6Var = new dw6();
-                dw6Var.f(dataRes.item_game_info.recent_update);
-                this.c.add(dw6Var);
-            }
-        }
-        if (!ListUtils.isEmpty(dataRes.thread_list)) {
-            zv6 zv6Var = new zv6();
-            zv6Var.setSupportType(BaseCardInfo.SupportType.TOP);
-            this.c.add(zv6Var);
-            for (ThreadInfo threadInfo : dataRes.thread_list) {
-                if (threadInfo != null) {
-                    ThreadData threadData = new ThreadData();
-                    threadData.parserProtobuf(threadInfo);
-                    threadData.parser_title();
-                    threadData.setPositionInFrsItemTab(i);
-                    i++;
-                    threadData.insertItemToTitleOrAbstractText();
-                    this.c.add(threadData);
-                    zv6 zv6Var2 = new zv6();
-                    zv6Var2.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                    this.c.add(zv6Var2);
+            ArrayList arrayList = new ArrayList();
+            Iterator<Cdo> it = threadList.iterator();
+            while (it.hasNext()) {
+                Cdo next = it.next();
+                if (next.getType() == ThreadData.TYPE_TOP) {
+                    arrayList.add(next);
                 }
             }
-            zv6 zv6Var3 = new zv6();
-            zv6Var3.f(this.a.id.intValue());
-            zv6Var3.setPositionInFrsItemTab(i);
-            zv6Var3.setSupportType(BaseCardInfo.SupportType.BOTTOM);
-            this.c.add(zv6Var3);
+            frsViewData.setTopThreadList(arrayList);
         }
-        aw6 aw6Var = new aw6();
-        aw6Var.g(dataRes.item_info);
-        if (aw6Var.f()) {
-            this.c.add(aw6Var);
+    }
+
+    @Override // com.baidu.tieba.uw6
+    public void b(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            view2.setVisibility(8);
         }
-        ew6 ew6Var = new ew6();
-        ew6Var.f(dataRes.recommend_item);
-        this.c.add(ew6Var);
+    }
+
+    @Override // com.baidu.tieba.uw6
+    public void c(b57 b57Var, gs6 gs6Var, FrsViewData frsViewData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, b57Var, gs6Var, frsViewData) == null) && b57Var != null && gs6Var != null && frsViewData != null) {
+            b57Var.x();
+            if (frsViewData != null && frsViewData.getForum() != null) {
+                gs6Var.g1(frsViewData.getForum().getFrsBannerData());
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.uw6
+    public int d(int i, FrsRequestData frsRequestData) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, frsRequestData)) == null) {
+            return p47.e(i, frsRequestData);
+        }
+        return invokeIL.intValue;
     }
 }

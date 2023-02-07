@@ -1,50 +1,76 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.util.PriorityOrganizer;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class s17 {
+public class s17 extends PriorityOrganizer.Task {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final String c;
-    public final int d;
-    public final int e;
-    public final double f;
+    public FrsFragment m;
+    public FrsActivity n;
 
-    public s17(String str, String str2, String str3, int i, int i2, double d) {
+    public s17(FrsActivity frsActivity, FrsFragment frsFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d)};
+            Object[] objArr = {frsActivity, frsFragment};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.b = str2;
-        this.d = i;
-        this.c = str3;
-        this.e = i2;
-        this.f = d;
+        this.n = frsActivity;
+        this.m = frsFragment;
     }
 
-    public String toString() {
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "FunAdCacheInfo{adType='" + this.a + "', platform='" + this.b + "', pid='" + this.c + "', adHashCode=" + this.d + ", count=" + this.e + ", basePrice=" + this.f + '}';
+            FrsFragment frsFragment = this.m;
+            if (frsFragment != null && !frsFragment.C3()) {
+                return true;
+            }
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (g15.l()) {
+                return false;
+            }
+            return !p35.m().i("has_guide_popup_window_been_shown", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921476));
+            this.m.I4(true);
+            t();
+        }
     }
 }

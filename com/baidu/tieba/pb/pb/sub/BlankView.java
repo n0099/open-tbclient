@@ -4,8 +4,6 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Scroller;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,13 +13,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class BlankView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Scroller a;
-    public a b;
-
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a();
-    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BlankView(Context context) {
@@ -90,24 +81,6 @@ public class BlankView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.computeScroll();
-            Scroller scroller = this.a;
-            if (scroller == null) {
-                return;
-            }
-            if (scroller.computeScrollOffset()) {
-                int currY = this.a.getCurrY();
-                ViewGroup.LayoutParams layoutParams = getLayoutParams();
-                if (layoutParams != null) {
-                    layoutParams.height = currY;
-                    setLayoutParams(layoutParams);
-                    return;
-                }
-                return;
-            }
-            a aVar = this.b;
-            if (aVar != null) {
-                aVar.a();
-            }
         }
     }
 
@@ -116,13 +89,6 @@ public class BlankView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
             canvas.drawColor(0);
-        }
-    }
-
-    public void setScrollCallBack(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.b = aVar;
         }
     }
 }

@@ -9,6 +9,7 @@ public class ActionData<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public T data;
+    public String traceId;
     public String version;
 
     public ActionData() {

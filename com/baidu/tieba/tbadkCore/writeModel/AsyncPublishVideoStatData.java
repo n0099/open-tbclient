@@ -2,7 +2,6 @@ package com.baidu.tieba.tbadkCore.writeModel;
 
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.pms.db.PackageTable;
-import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -51,8 +50,8 @@ public class AsyncPublishVideoStatData implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put(FetchLog.START_TIME, this.startTime);
-            jSONObject.put(FetchLog.END_TIME, this.endTime);
+            jSONObject.put("startTime", this.startTime);
+            jSONObject.put("endTime", this.endTime);
             jSONObject.put("errorCode", this.errorCode);
             jSONObject.put("errorMessage", this.errorMessage);
             jSONObject.put(PackageTable.MD5, this.md5);

@@ -3,7 +3,7 @@ package com.google.vr.dynamite.client;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
-import com.baidu.tieba.o2a;
+import com.baidu.tieba.x6a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,8 +42,8 @@ public final class a extends com.google.a.a.a implements ILoadedInstanceCreator 
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, iObjectWrapper, iObjectWrapper2)) == null) {
             Parcel a = a();
-            o2a.b(a, iObjectWrapper);
-            o2a.b(a, iObjectWrapper2);
+            x6a.b(a, iObjectWrapper);
+            x6a.b(a, iObjectWrapper2);
             Parcel a2 = a(1, a);
             IBinder readStrongBinder = a2.readStrongBinder();
             if (readStrongBinder == null) {

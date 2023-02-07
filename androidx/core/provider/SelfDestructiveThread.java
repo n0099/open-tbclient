@@ -20,6 +20,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+@Deprecated
 /* loaded from: classes.dex */
 public class SelfDestructiveThread {
     public static /* synthetic */ Interceptable $ic = null;
@@ -184,12 +185,12 @@ public class SelfDestructiveThread {
     public <T> void postAndReply(Callable<T> callable, ReplyCallback<T> replyCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, callable, replyCallback) == null) {
-            post(new Runnable(this, callable, new Handler(), replyCallback) { // from class: androidx.core.provider.SelfDestructiveThread.2
+            post(new Runnable(this, callable, CalleeHandler.create(), replyCallback) { // from class: androidx.core.provider.SelfDestructiveThread.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ SelfDestructiveThread this$0;
                 public final /* synthetic */ Callable val$callable;
-                public final /* synthetic */ Handler val$callingHandler;
+                public final /* synthetic */ Handler val$calleeHandler;
                 public final /* synthetic */ ReplyCallback val$reply;
 
                 {
@@ -209,7 +210,7 @@ public class SelfDestructiveThread {
                     }
                     this.this$0 = this;
                     this.val$callable = callable;
-                    this.val$callingHandler = r8;
+                    this.val$calleeHandler = r8;
                     this.val$reply = replyCallback;
                 }
 
@@ -223,7 +224,7 @@ public class SelfDestructiveThread {
                         } catch (Exception unused) {
                             obj = null;
                         }
-                        this.val$callingHandler.post(new Runnable(this, obj) { // from class: androidx.core.provider.SelfDestructiveThread.2.1
+                        this.val$calleeHandler.post(new Runnable(this, obj) { // from class: androidx.core.provider.SelfDestructiveThread.2.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ AnonymousClass2 this$1;

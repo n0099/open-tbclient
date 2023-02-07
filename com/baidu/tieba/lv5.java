@@ -1,81 +1,153 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
+import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
-import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import com.baidu.tbadk.core.atomData.QRCodeScanActivityConfig;
-import com.baidu.tieba.aiapps.apps.barcode.ScanCodeDelegateActivity;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.atomData.LogoActivityConfig;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.charset.Charset;
-@Singleton
-@Service
 /* loaded from: classes5.dex */
-public class lv5 implements no2 {
-    public static /* synthetic */ Interceptable $ic;
+public class lv5 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean d = true;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public mv5 b;
+    public BaseFragmentActivity c;
 
-    /* loaded from: classes5.dex */
-    public class a implements DelegateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mw1 a;
-
-        public a(lv5 lv5Var, mw1 mw1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lv5Var, mw1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mw1Var;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947956350, "Lcom/baidu/tieba/lv5;")) == null) {
+            return;
         }
-
-        @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
-        public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) && delegateResult.isOk()) {
-                this.a.a(delegateResult.mResult.getString(QRCodeScanActivityConfig.RESULT_SCAN_CODE, ""), "", Charset.defaultCharset().name());
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947956350, "Lcom/baidu/tieba/lv5;");
         }
     }
 
-    public lv5() {
+    public lv5(BaseFragmentActivity baseFragmentActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseFragmentActivity};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = -1L;
+        this.c = baseFragmentActivity;
+    }
+
+    public final void b(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            if (ox8.a(this.c.getIntent())) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016560));
+            }
+            if (bundle != null) {
+                LogoActivityConfig.isFirst = bundle.getBoolean("is_first", true);
+            } else {
+                LogoActivityConfig.isFirst = true;
             }
         }
     }
 
-    @Override // com.baidu.tieba.no2
-    public void a(Context context, mw1 mw1Var) {
+    public final void a(Intent intent) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, context, mw1Var) != null) || !(context instanceof Activity)) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, intent) == null) && intent != null) {
+            if (intent.getBooleanExtra(FrsActivityConfig.FROM_SHORT_CUT, false)) {
+                Intent intent2 = new Intent();
+                intent2.putExtra(DealIntentService.KEY_CLASS, 2);
+                intent2.putExtra("fname", intent.getStringExtra("fname"));
+                intent2.putExtra(FrsActivityConfig.FROM_SHORT_CUT, true);
+                intent2.putExtra("back_special", true);
+                intent2.putExtra("from", "short_cut");
+                intent.putExtra(LogoActivityConfig.EXTRAINTENT, intent2);
+            }
+            TbadkCoreApplication.setIntent((Intent) intent.getParcelableExtra(LogoActivityConfig.EXTRAINTENT));
         }
-        DelegateUtils.callOnMainWithActivity((Activity) context, ScanCodeDelegateActivity.class, kv5.class, new Bundle(), new a(this, mw1Var));
+    }
+
+    public void c(Configuration configuration) {
+        mv5 mv5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, configuration) == null) && (mv5Var = this.b) != null) {
+            mv5Var.d(configuration);
+        }
+    }
+
+    public void d(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+            this.a = System.currentTimeMillis();
+            if ("MuMu".equals(gj.g()) && "6.0.1".equals(gj.k())) {
+                this.c.finish();
+                return;
+            }
+            b(bundle);
+            if (!ox8.a(this.c.getIntent()) && (ox8.b(this.c.getIntent()) || this.c.isTaskRoot() || this.c.getIntent().getBooleanExtra(LogoActivityConfig.IS_DEAL_INTENT, false))) {
+                a(this.c.getIntent());
+            }
+            iz8.g().i(this.c.getUniqueId());
+            mv5 mv5Var = new mv5(this.c);
+            this.b = mv5Var;
+            mv5Var.i(d);
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            iz8.g().k(this.c.getUniqueId());
+            d = false;
+            mv5 mv5Var = this.b;
+            if (mv5Var != null) {
+                mv5Var.g();
+            }
+        }
+    }
+
+    public void f() {
+        mv5 mv5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (mv5Var = this.b) != null) {
+            mv5Var.e();
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if (LogoActivityConfig.isFirst && this.a >= 0) {
+                uk5.b().v(System.currentTimeMillis() - this.a);
+            }
+            mv5 mv5Var = this.b;
+            if (mv5Var != null) {
+                mv5Var.f();
+            }
+        }
     }
 }

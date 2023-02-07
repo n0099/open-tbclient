@@ -1,154 +1,99 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.tbadkCore.data.PaymentConfirmRequestData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.PlaceOrder.DataRes;
 /* loaded from: classes4.dex */
-public abstract class g77<T, V extends TypeAdapter.ViewHolder> extends ln<T, V> {
+public class g77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public TbPageContext<?> b;
-    public eo c;
-    public vq4 d;
+    public String a;
+    public int b;
+    public int c;
+    public long d;
+    public String e;
+    public int f;
+    public String g;
+    public String h;
+    public long i;
+    public int j;
+    public int k;
+    public long l;
+    public int m;
 
-    @Override // com.baidu.tieba.ln
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, T t, V v) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t, v})) == null) ? view2 : (View) invokeCommon.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g77(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
-        BdUniqueId uniqueId;
+    public g77() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = true;
-        TbPageContext pageContext = ((TbPageContextSupport) context).getPageContext();
-        this.b = pageContext;
-        if (pageContext == null) {
-            uniqueId = null;
-        } else {
-            uniqueId = pageContext.getUniqueId();
-        }
-        m(pageContext, uniqueId);
     }
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public g77(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(r1, bdUniqueId);
-        Activity pageActivity;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        if (tbPageContext == null) {
-            pageActivity = null;
-        } else {
-            pageActivity = tbPageContext.getPageActivity();
-        }
-        this.a = true;
-        m(tbPageContext, tbPageContext != null ? tbPageContext.getUniqueId() : null);
-    }
-
-    public void m(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, tbPageContext, bdUniqueId) == null) && tbPageContext != null) {
-            this.mContext = tbPageContext.getPageActivity();
-            this.b = tbPageContext;
-            this.mPageId = bdUniqueId;
-        }
-    }
-
-    public void s(View view2, ThreadData threadData) {
-        vq4 vq4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, threadData) == null) && (vq4Var = this.d) != null) {
-            int i = threadData.position;
-            vq4Var.c(view2, threadData, i, i);
-        }
-    }
-
-    @Override // com.baidu.tieba.ln
-    public void setPageId(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
-            this.mPageId = bdUniqueId;
-        }
-    }
-
-    public void u(vq4 vq4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, vq4Var) == null) {
-            this.d = vq4Var;
-        }
-    }
-
-    public void v(eo eoVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, eoVar) == null) {
-            this.c = eoVar;
-        }
-    }
-
-    public boolean t() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.g;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public void w(View view2, ThreadData threadData, int i, long j) {
-        vq4 vq4Var;
+    public PaymentConfirmRequestData a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{view2, threadData, Integer.valueOf(i), Long.valueOf(j)}) == null) && (vq4Var = this.d) != null) {
-            vq4Var.d(view2, threadData, i, j);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            PaymentConfirmRequestData paymentConfirmRequestData = new PaymentConfirmRequestData();
+            paymentConfirmRequestData.setTdou_num(this.i);
+            paymentConfirmRequestData.setOpen_id(this.l);
+            paymentConfirmRequestData.setOrder_id(this.g);
+            paymentConfirmRequestData.setScene_id(this.b);
+            paymentConfirmRequestData.setGoods_name(this.a);
+            paymentConfirmRequestData.setGoods_pic(this.e);
+            paymentConfirmRequestData.setTerminal("" + this.f);
+            paymentConfirmRequestData.setGoods_num((long) this.j);
+            paymentConfirmRequestData.setGoods_unit(this.h);
+            paymentConfirmRequestData.setGoods_duration(this.d);
+            paymentConfirmRequestData.setGoods_user_level(this.c);
+            paymentConfirmRequestData.setPay_type(this.k);
+            paymentConfirmRequestData.setCurrency(this.m);
+            return paymentConfirmRequestData;
         }
+        return (PaymentConfirmRequestData) invokeV.objValue;
+    }
+
+    public void c(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes) != null) || dataRes == null) {
+            return;
+        }
+        dataRes.timestamp.intValue();
+        this.a = dataRes.goods_name;
+        this.b = dataRes.scene_id.intValue();
+        this.c = dataRes.goods_user_level.intValue();
+        this.d = dataRes.goods_duration.intValue();
+        this.e = dataRes.goods_pic;
+        this.f = dataRes.terminal.intValue();
+        this.g = dataRes.order_id;
+        this.h = dataRes.goods_unit;
+        this.i = dataRes.tdou_num.intValue();
+        dataRes.goods_price.intValue();
+        this.j = dataRes.goods_num.intValue();
+        this.k = dataRes.pay_type.intValue();
+        dataRes.user_id.longValue();
+        dataRes.tb_timestamp.intValue();
+        this.l = dataRes.open_id.longValue();
+        dataRes.gift_count.intValue();
+        this.m = dataRes.currency.intValue();
     }
 }

@@ -39,10 +39,10 @@ public final class a {
 
     /* renamed from: com.baidu.android.pushservice.h.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0037a extends GeneratedMessageLite implements b {
+    public static final class C0036a extends GeneratedMessageLite implements b {
         public static /* synthetic */ Interceptable $ic;
-        public static Parser<C0037a> a;
-        public static final C0037a b;
+        public static Parser<C0036a> a;
+        public static final C0036a b;
         public transient /* synthetic */ FieldHolder $fh;
         public int c;
         public Object d;
@@ -55,7 +55,7 @@ public final class a {
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static final class C0038a extends GeneratedMessageLite.Builder<C0037a, C0038a> implements b {
+        public static final class C0037a extends GeneratedMessageLite.Builder<C0036a, C0037a> implements b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
@@ -65,7 +65,7 @@ public final class a {
             public Object e;
             public long f;
 
-            public C0038a() {
+            public C0037a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -84,7 +84,7 @@ public final class a {
                 g();
             }
 
-            public static /* synthetic */ C0038a f() {
+            public static /* synthetic */ C0037a f() {
                 return h();
             }
 
@@ -94,16 +94,16 @@ public final class a {
                 }
             }
 
-            public static C0038a h() {
+            public static C0037a h() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new C0038a() : (C0038a) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new C0037a() : (C0037a) invokeV.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /* renamed from: a */
-            public C0038a clear() {
+            public C0037a clear() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -124,10 +124,10 @@ public final class a {
                     this.a = i4 & (-17);
                     return this;
                 }
-                return (C0038a) invokeV.objValue;
+                return (C0037a) invokeV.objValue;
             }
 
-            public C0038a a(long j) {
+            public C0037a a(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
@@ -135,40 +135,40 @@ public final class a {
                     this.d = j;
                     return this;
                 }
-                return (C0038a) invokeJ.objValue;
+                return (C0037a) invokeJ.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder
             /* renamed from: a */
-            public C0038a mergeFrom(C0037a c0037a) {
+            public C0037a mergeFrom(C0036a c0036a) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c0037a)) == null) {
-                    if (c0037a == C0037a.a()) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c0036a)) == null) {
+                    if (c0036a == C0036a.a()) {
                         return this;
                     }
-                    if (c0037a.c()) {
+                    if (c0036a.c()) {
                         this.a |= 1;
-                        this.b = c0037a.d;
+                        this.b = c0036a.d;
                     }
-                    if (c0037a.e()) {
+                    if (c0036a.e()) {
                         this.a |= 2;
-                        this.c = c0037a.e;
+                        this.c = c0036a.e;
                     }
-                    if (c0037a.g()) {
-                        a(c0037a.h());
+                    if (c0036a.g()) {
+                        a(c0036a.h());
                     }
-                    if (c0037a.i()) {
+                    if (c0036a.i()) {
                         this.a |= 8;
-                        this.e = c0037a.g;
+                        this.e = c0036a.g;
                     }
-                    if (c0037a.k()) {
-                        b(c0037a.l());
+                    if (c0036a.k()) {
+                        b(c0036a.l());
                     }
                     return this;
                 }
-                return (C0038a) invokeL.objValue;
+                return (C0037a) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -178,42 +178,42 @@ public final class a {
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
-            public C0038a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            public C0037a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, codedInputStream, extensionRegistryLite)) == null) {
-                    C0037a c0037a = null;
+                    C0036a c0036a = null;
                     try {
                         try {
-                            C0037a parsePartialFrom = C0037a.a.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                            C0036a parsePartialFrom = C0036a.a.parsePartialFrom(codedInputStream, extensionRegistryLite);
                             if (parsePartialFrom != null) {
                                 mergeFrom(parsePartialFrom);
                             }
                             return this;
                         } catch (InvalidProtocolBufferException e) {
-                            C0037a c0037a2 = (C0037a) e.getUnfinishedMessage();
+                            C0036a c0036a2 = (C0036a) e.getUnfinishedMessage();
                             try {
                                 throw e;
                             } catch (Throwable th) {
                                 th = th;
-                                c0037a = c0037a2;
-                                if (c0037a != null) {
+                                c0036a = c0036a2;
+                                if (c0036a != null) {
                                 }
                                 throw th;
                             }
                         }
                     } catch (Throwable th2) {
                         th = th2;
-                        if (c0037a != null) {
-                            mergeFrom(c0037a);
+                        if (c0036a != null) {
+                            mergeFrom(c0036a);
                         }
                         throw th;
                     }
                 }
-                return (C0038a) invokeLL.objValue;
+                return (C0037a) invokeLL.objValue;
             }
 
-            public C0038a a(String str) {
+            public C0037a a(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
@@ -224,19 +224,19 @@ public final class a {
                     }
                     throw null;
                 }
-                return (C0038a) invokeL.objValue;
+                return (C0037a) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
             /* renamed from: b */
-            public C0038a mo29clone() {
+            public C0037a mo29clone() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? h().mergeFrom(buildPartial()) : (C0038a) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? h().mergeFrom(buildPartial()) : (C0037a) invokeV.objValue;
             }
 
-            public C0038a b(long j) {
+            public C0037a b(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
@@ -244,10 +244,10 @@ public final class a {
                     this.f = j;
                     return this;
                 }
-                return (C0038a) invokeJ.objValue;
+                return (C0037a) invokeJ.objValue;
             }
 
-            public C0038a b(String str) {
+            public C0037a b(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
@@ -257,10 +257,10 @@ public final class a {
                     }
                     throw null;
                 }
-                return (C0038a) invokeL.objValue;
+                return (C0037a) invokeL.objValue;
             }
 
-            public C0038a c(String str) {
+            public C0037a c(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
@@ -271,65 +271,65 @@ public final class a {
                     }
                     throw null;
                 }
-                return (C0038a) invokeL.objValue;
+                return (C0037a) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
             /* renamed from: c */
-            public C0037a getDefaultInstanceForType() {
+            public C0036a getDefaultInstanceForType() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? C0037a.a() : (C0037a) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? C0036a.a() : (C0036a) invokeV.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
             /* renamed from: d */
-            public C0037a build() {
+            public C0036a build() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-                    C0037a buildPartial = buildPartial();
+                    C0036a buildPartial = buildPartial();
                     if (buildPartial.isInitialized()) {
                         return buildPartial;
                     }
                     throw AbstractMessageLite.Builder.newUninitializedMessageException(buildPartial);
                 }
-                return (C0037a) invokeV.objValue;
+                return (C0036a) invokeV.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
             /* renamed from: e */
-            public C0037a buildPartial() {
+            public C0036a buildPartial() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-                    C0037a c0037a = new C0037a(this, (AnonymousClass1) null);
+                    C0036a c0036a = new C0036a(this, (AnonymousClass1) null);
                     int i = this.a;
                     int i2 = (i & 1) != 1 ? 0 : 1;
-                    c0037a.d = this.b;
+                    c0036a.d = this.b;
                     if ((i & 2) == 2) {
                         i2 |= 2;
                     }
-                    c0037a.e = this.c;
+                    c0036a.e = this.c;
                     if ((i & 4) == 4) {
                         i2 |= 4;
                     }
-                    c0037a.f = this.d;
+                    c0036a.f = this.d;
                     if ((i & 8) == 8) {
                         i2 |= 8;
                     }
-                    c0037a.g = this.e;
+                    c0036a.g = this.e;
                     if ((i & 16) == 16) {
                         i2 |= 16;
                     }
-                    c0037a.h = this.f;
-                    c0037a.c = i2;
-                    return c0037a;
+                    c0036a.h = this.f;
+                    c0036a.c = i2;
+                    return c0036a;
                 }
-                return (C0037a) invokeV.objValue;
+                return (C0036a) invokeV.objValue;
             }
 
             @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -356,7 +356,7 @@ public final class a {
                     return;
                 }
             }
-            a = new AbstractParser<C0037a>() { // from class: com.baidu.android.pushservice.h.a.a.a.a.1
+            a = new AbstractParser<C0036a>() { // from class: com.baidu.android.pushservice.h.a.a.a.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -377,18 +377,18 @@ public final class a {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.google.protobuf.Parser
                 /* renamed from: a */
-                public C0037a parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+                public C0036a parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, codedInputStream, extensionRegistryLite)) == null) ? new C0037a(codedInputStream, extensionRegistryLite, null) : (C0037a) invokeLL.objValue;
+                    return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, codedInputStream, extensionRegistryLite)) == null) ? new C0036a(codedInputStream, extensionRegistryLite, null) : (C0036a) invokeLL.objValue;
                 }
             };
-            C0037a c0037a = new C0037a();
-            b = c0037a;
-            c0037a.p();
+            C0036a c0036a = new C0036a();
+            b = c0036a;
+            c0036a.p();
         }
 
-        public C0037a() {
+        public C0036a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -405,7 +405,7 @@ public final class a {
             this.j = -1;
         }
 
-        public C0037a(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+        public C0036a(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -459,12 +459,12 @@ public final class a {
             }
         }
 
-        public /* synthetic */ C0037a(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, AnonymousClass1 anonymousClass1) throws InvalidProtocolBufferException {
+        public /* synthetic */ C0036a(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, AnonymousClass1 anonymousClass1) throws InvalidProtocolBufferException {
             this(codedInputStream, extensionRegistryLite);
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0037a(GeneratedMessageLite.Builder builder) {
+        public C0036a(GeneratedMessageLite.Builder builder) {
             super(builder);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -485,26 +485,26 @@ public final class a {
             this.j = -1;
         }
 
-        public /* synthetic */ C0037a(GeneratedMessageLite.Builder builder, AnonymousClass1 anonymousClass1) {
+        public /* synthetic */ C0036a(GeneratedMessageLite.Builder builder, AnonymousClass1 anonymousClass1) {
             this(builder);
         }
 
-        public static C0038a a(C0037a c0037a) {
+        public static C0037a a(C0036a c0036a) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, c0037a)) == null) ? m().mergeFrom(c0037a) : (C0038a) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, c0036a)) == null) ? m().mergeFrom(c0036a) : (C0037a) invokeL.objValue;
         }
 
-        public static C0037a a() {
+        public static C0036a a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? b : (C0037a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? b : (C0036a) invokeV.objValue;
         }
 
-        public static C0038a m() {
+        public static C0037a m() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? C0038a.f() : (C0038a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? C0037a.f() : (C0037a) invokeV.objValue;
         }
 
         private void p() {
@@ -521,10 +521,10 @@ public final class a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
         /* renamed from: b */
-        public C0037a getDefaultInstanceForType() {
+        public C0036a getDefaultInstanceForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : (C0037a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : (C0036a) invokeV.objValue;
         }
 
         public boolean c() {
@@ -576,7 +576,7 @@ public final class a {
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<C0037a> getParserForType() {
+        public Parser<C0036a> getParserForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? a : (Parser) invokeV.objValue;
@@ -667,19 +667,19 @@ public final class a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         /* renamed from: n */
-        public C0038a toBuilder() {
+        public C0037a toBuilder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? a(this) : (C0038a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? a(this) : (C0037a) invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         /* renamed from: o */
-        public C0038a newBuilderForType() {
+        public C0037a newBuilderForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? m() : (C0038a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? m() : (C0037a) invokeV.objValue;
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite
@@ -732,7 +732,7 @@ public final class a {
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$aa$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static final class C0039a extends GeneratedMessageLite.Builder<aa, C0039a> implements ab {
+        public static final class C0038a extends GeneratedMessageLite.Builder<aa, C0038a> implements ab {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
@@ -744,7 +744,7 @@ public final class a {
             public Object g;
             public long h;
 
-            public C0039a() {
+            public C0038a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -763,7 +763,7 @@ public final class a {
                 g();
             }
 
-            public static /* synthetic */ C0039a f() {
+            public static /* synthetic */ C0038a f() {
                 return h();
             }
 
@@ -773,16 +773,16 @@ public final class a {
                 }
             }
 
-            public static C0039a h() {
+            public static C0038a h() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new C0039a() : (C0039a) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new C0038a() : (C0038a) invokeV.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /* renamed from: a */
-            public C0039a clear() {
+            public C0038a clear() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -809,10 +809,10 @@ public final class a {
                     this.a = i6 & (-65);
                     return this;
                 }
-                return (C0039a) invokeV.objValue;
+                return (C0038a) invokeV.objValue;
             }
 
-            public C0039a a(long j) {
+            public C0038a a(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
@@ -820,13 +820,13 @@ public final class a {
                     this.d = j;
                     return this;
                 }
-                return (C0039a) invokeJ.objValue;
+                return (C0038a) invokeJ.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder
             /* renamed from: a */
-            public C0039a mergeFrom(aa aaVar) {
+            public C0038a mergeFrom(aa aaVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aaVar)) == null) {
@@ -859,7 +859,7 @@ public final class a {
                     }
                     return this;
                 }
-                return (C0039a) invokeL.objValue;
+                return (C0038a) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -869,7 +869,7 @@ public final class a {
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
-            public C0039a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            public C0038a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, codedInputStream, extensionRegistryLite)) == null) {
@@ -901,10 +901,10 @@ public final class a {
                         throw th;
                     }
                 }
-                return (C0039a) invokeLL.objValue;
+                return (C0038a) invokeLL.objValue;
             }
 
-            public C0039a a(String str) {
+            public C0038a a(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
@@ -915,19 +915,19 @@ public final class a {
                     }
                     throw null;
                 }
-                return (C0039a) invokeL.objValue;
+                return (C0038a) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
             /* renamed from: b */
-            public C0039a mo29clone() {
+            public C0038a mo29clone() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? h().mergeFrom(buildPartial()) : (C0039a) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? h().mergeFrom(buildPartial()) : (C0038a) invokeV.objValue;
             }
 
-            public C0039a b(long j) {
+            public C0038a b(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
@@ -935,10 +935,10 @@ public final class a {
                     this.e = j;
                     return this;
                 }
-                return (C0039a) invokeJ.objValue;
+                return (C0038a) invokeJ.objValue;
             }
 
-            public C0039a b(String str) {
+            public C0038a b(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
@@ -949,10 +949,10 @@ public final class a {
                     }
                     throw null;
                 }
-                return (C0039a) invokeL.objValue;
+                return (C0038a) invokeL.objValue;
             }
 
-            public C0039a c(long j) {
+            public C0038a c(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j)) == null) {
@@ -960,10 +960,10 @@ public final class a {
                     this.f = j;
                     return this;
                 }
-                return (C0039a) invokeJ.objValue;
+                return (C0038a) invokeJ.objValue;
             }
 
-            public C0039a c(String str) {
+            public C0038a c(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
@@ -974,7 +974,7 @@ public final class a {
                     }
                     throw null;
                 }
-                return (C0039a) invokeL.objValue;
+                return (C0038a) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -986,7 +986,7 @@ public final class a {
                 return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? aa.a() : (aa) invokeV.objValue;
             }
 
-            public C0039a d(long j) {
+            public C0038a d(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeJ = interceptable.invokeJ(1048595, this, j)) == null) {
@@ -994,7 +994,7 @@ public final class a {
                     this.h = j;
                     return this;
                 }
-                return (C0039a) invokeJ.objValue;
+                return (C0038a) invokeJ.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -1219,10 +1219,10 @@ public final class a {
             this(builder);
         }
 
-        public static C0039a a(aa aaVar) {
+        public static C0038a a(aa aaVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, aaVar)) == null) ? q().mergeFrom(aaVar) : (C0039a) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, aaVar)) == null) ? q().mergeFrom(aaVar) : (C0038a) invokeL.objValue;
         }
 
         public static aa a() {
@@ -1231,10 +1231,10 @@ public final class a {
             return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? b : (aa) invokeV.objValue;
         }
 
-        public static C0039a q() {
+        public static C0038a q() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) ? C0039a.f() : (C0039a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) ? C0038a.f() : (C0038a) invokeV.objValue;
         }
 
         private void t() {
@@ -1429,19 +1429,19 @@ public final class a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         /* renamed from: r */
-        public C0039a toBuilder() {
+        public C0038a toBuilder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? a(this) : (C0039a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? a(this) : (C0038a) invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         /* renamed from: s */
-        public C0039a newBuilderForType() {
+        public C0038a newBuilderForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? q() : (C0039a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? q() : (C0038a) invokeV.objValue;
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite
@@ -1504,7 +1504,7 @@ public final class a {
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$ac$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static final class C0040a extends GeneratedMessageLite.Builder<ac, C0040a> implements ad {
+        public static final class C0039a extends GeneratedMessageLite.Builder<ac, C0039a> implements ad {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
@@ -1516,7 +1516,7 @@ public final class a {
             public int g;
             public int h;
 
-            public C0040a() {
+            public C0039a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1536,7 +1536,7 @@ public final class a {
                 g();
             }
 
-            public static /* synthetic */ C0040a f() {
+            public static /* synthetic */ C0039a f() {
                 return h();
             }
 
@@ -1546,16 +1546,16 @@ public final class a {
                 }
             }
 
-            public static C0040a h() {
+            public static C0039a h() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new C0040a() : (C0040a) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new C0039a() : (C0039a) invokeV.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /* renamed from: a */
-            public C0040a clear() {
+            public C0039a clear() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -1582,10 +1582,10 @@ public final class a {
                     this.a = i6 & (-65);
                     return this;
                 }
-                return (C0040a) invokeV.objValue;
+                return (C0039a) invokeV.objValue;
             }
 
-            public C0040a a(int i) {
+            public C0039a a(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
@@ -1593,13 +1593,13 @@ public final class a {
                     this.f = i;
                     return this;
                 }
-                return (C0040a) invokeI.objValue;
+                return (C0039a) invokeI.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder
             /* renamed from: a */
-            public C0040a mergeFrom(ac acVar) {
+            public C0039a mergeFrom(ac acVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, acVar)) == null) {
@@ -1632,10 +1632,10 @@ public final class a {
                     }
                     return this;
                 }
-                return (C0040a) invokeL.objValue;
+                return (C0039a) invokeL.objValue;
             }
 
-            public C0040a a(x xVar) {
+            public C0039a a(x xVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, xVar)) == null) {
@@ -1646,7 +1646,7 @@ public final class a {
                     }
                     throw null;
                 }
-                return (C0040a) invokeL.objValue;
+                return (C0039a) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -1656,7 +1656,7 @@ public final class a {
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
-            public C0040a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            public C0039a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, codedInputStream, extensionRegistryLite)) == null) {
@@ -1688,19 +1688,19 @@ public final class a {
                         throw th;
                     }
                 }
-                return (C0040a) invokeLL.objValue;
+                return (C0039a) invokeLL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
             /* renamed from: b */
-            public C0040a mo29clone() {
+            public C0039a mo29clone() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? h().mergeFrom(buildPartial()) : (C0040a) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? h().mergeFrom(buildPartial()) : (C0039a) invokeV.objValue;
             }
 
-            public C0040a b(int i) {
+            public C0039a b(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
@@ -1708,10 +1708,10 @@ public final class a {
                     this.g = i;
                     return this;
                 }
-                return (C0040a) invokeI.objValue;
+                return (C0039a) invokeI.objValue;
             }
 
-            public C0040a c(int i) {
+            public C0039a c(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
@@ -1719,7 +1719,7 @@ public final class a {
                     this.h = i;
                     return this;
                 }
-                return (C0040a) invokeI.objValue;
+                return (C0039a) invokeI.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -1954,10 +1954,10 @@ public final class a {
             this(builder);
         }
 
-        public static C0040a a(ac acVar) {
+        public static C0039a a(ac acVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, acVar)) == null) ? q().mergeFrom(acVar) : (C0040a) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, acVar)) == null) ? q().mergeFrom(acVar) : (C0039a) invokeL.objValue;
         }
 
         public static ac a() {
@@ -1966,10 +1966,10 @@ public final class a {
             return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? b : (ac) invokeV.objValue;
         }
 
-        public static C0040a q() {
+        public static C0039a q() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) ? C0040a.f() : (C0040a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) ? C0039a.f() : (C0039a) invokeV.objValue;
         }
 
         private void t() {
@@ -2164,19 +2164,19 @@ public final class a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         /* renamed from: r */
-        public C0040a toBuilder() {
+        public C0039a toBuilder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? a(this) : (C0040a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? a(this) : (C0039a) invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         /* renamed from: s */
-        public C0040a newBuilderForType() {
+        public C0039a newBuilderForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? q() : (C0040a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? q() : (C0039a) invokeV.objValue;
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite
@@ -2239,7 +2239,7 @@ public final class a {
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$ae$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static final class C0041a extends GeneratedMessageLite.Builder<ae, C0041a> implements af {
+        public static final class C0040a extends GeneratedMessageLite.Builder<ae, C0040a> implements af {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
@@ -2251,7 +2251,7 @@ public final class a {
             public Object g;
             public long h;
 
-            public C0041a() {
+            public C0040a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -2270,7 +2270,7 @@ public final class a {
                 g();
             }
 
-            public static /* synthetic */ C0041a f() {
+            public static /* synthetic */ C0040a f() {
                 return h();
             }
 
@@ -2280,16 +2280,16 @@ public final class a {
                 }
             }
 
-            public static C0041a h() {
+            public static C0040a h() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new C0041a() : (C0041a) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new C0040a() : (C0040a) invokeV.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /* renamed from: a */
-            public C0041a clear() {
+            public C0040a clear() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -2316,10 +2316,10 @@ public final class a {
                     this.a = i6 & (-65);
                     return this;
                 }
-                return (C0041a) invokeV.objValue;
+                return (C0040a) invokeV.objValue;
             }
 
-            public C0041a a(long j) {
+            public C0040a a(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
@@ -2327,13 +2327,13 @@ public final class a {
                     this.d = j;
                     return this;
                 }
-                return (C0041a) invokeJ.objValue;
+                return (C0040a) invokeJ.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder
             /* renamed from: a */
-            public C0041a mergeFrom(ae aeVar) {
+            public C0040a mergeFrom(ae aeVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aeVar)) == null) {
@@ -2366,7 +2366,7 @@ public final class a {
                     }
                     return this;
                 }
-                return (C0041a) invokeL.objValue;
+                return (C0040a) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -2376,7 +2376,7 @@ public final class a {
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
-            public C0041a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            public C0040a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, codedInputStream, extensionRegistryLite)) == null) {
@@ -2408,19 +2408,19 @@ public final class a {
                         throw th;
                     }
                 }
-                return (C0041a) invokeLL.objValue;
+                return (C0040a) invokeLL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
             /* renamed from: b */
-            public C0041a mo29clone() {
+            public C0040a mo29clone() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? h().mergeFrom(buildPartial()) : (C0041a) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? h().mergeFrom(buildPartial()) : (C0040a) invokeV.objValue;
             }
 
-            public C0041a b(long j) {
+            public C0040a b(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
@@ -2428,10 +2428,10 @@ public final class a {
                     this.e = j;
                     return this;
                 }
-                return (C0041a) invokeJ.objValue;
+                return (C0040a) invokeJ.objValue;
             }
 
-            public C0041a c(long j) {
+            public C0040a c(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j)) == null) {
@@ -2439,7 +2439,7 @@ public final class a {
                     this.f = j;
                     return this;
                 }
-                return (C0041a) invokeJ.objValue;
+                return (C0040a) invokeJ.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -2451,7 +2451,7 @@ public final class a {
                 return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? ae.a() : (ae) invokeV.objValue;
             }
 
-            public C0041a d(long j) {
+            public C0040a d(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeJ = interceptable.invokeJ(1048592, this, j)) == null) {
@@ -2459,7 +2459,7 @@ public final class a {
                     this.h = j;
                     return this;
                 }
-                return (C0041a) invokeJ.objValue;
+                return (C0040a) invokeJ.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -2684,10 +2684,10 @@ public final class a {
             this(builder);
         }
 
-        public static C0041a a(ae aeVar) {
+        public static C0040a a(ae aeVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, aeVar)) == null) ? q().mergeFrom(aeVar) : (C0041a) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, aeVar)) == null) ? q().mergeFrom(aeVar) : (C0040a) invokeL.objValue;
         }
 
         public static ae a() {
@@ -2696,10 +2696,10 @@ public final class a {
             return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? b : (ae) invokeV.objValue;
         }
 
-        public static C0041a q() {
+        public static C0040a q() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) ? C0041a.f() : (C0041a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) ? C0040a.f() : (C0040a) invokeV.objValue;
         }
 
         private void t() {
@@ -2894,19 +2894,19 @@ public final class a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         /* renamed from: r */
-        public C0041a newBuilderForType() {
+        public C0040a newBuilderForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? q() : (C0041a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? q() : (C0040a) invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         /* renamed from: s */
-        public C0041a toBuilder() {
+        public C0040a toBuilder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? a(this) : (C0041a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? a(this) : (C0040a) invokeV.objValue;
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite
@@ -2967,14 +2967,14 @@ public final class a {
         public n g;
         public j h;
         public aa i;
-        public C0037a j;
+        public C0036a j;
         public t k;
         public byte l;
         public int m;
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$c$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static final class C0042a extends GeneratedMessageLite.Builder<c, C0042a> implements d {
+        public static final class C0041a extends GeneratedMessageLite.Builder<c, C0041a> implements d {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
@@ -2984,10 +2984,10 @@ public final class a {
             public n e;
             public j f;
             public aa g;
-            public C0037a h;
+            public C0036a h;
             public t i;
 
-            public C0042a() {
+            public C0041a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -3006,12 +3006,12 @@ public final class a {
                 this.e = n.a();
                 this.f = j.a();
                 this.g = aa.a();
-                this.h = C0037a.a();
+                this.h = C0036a.a();
                 this.i = t.a();
                 g();
             }
 
-            public static /* synthetic */ C0042a f() {
+            public static /* synthetic */ C0041a f() {
                 return h();
             }
 
@@ -3021,16 +3021,16 @@ public final class a {
                 }
             }
 
-            public static C0042a h() {
+            public static C0041a h() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new C0042a() : (C0042a) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new C0041a() : (C0041a) invokeV.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /* renamed from: a */
-            public C0042a clear() {
+            public C0041a clear() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -3047,30 +3047,30 @@ public final class a {
                     this.a &= -17;
                     this.g = aa.a();
                     this.a &= -33;
-                    this.h = C0037a.a();
+                    this.h = C0036a.a();
                     this.a &= -65;
                     this.i = t.a();
                     this.a &= -129;
                     return this;
                 }
-                return (C0042a) invokeV.objValue;
+                return (C0041a) invokeV.objValue;
             }
 
-            public C0042a a(C0037a c0037a) {
+            public C0041a a(C0036a c0036a) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c0037a)) == null) {
-                    if (c0037a != null) {
-                        this.h = c0037a;
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c0036a)) == null) {
+                    if (c0036a != null) {
+                        this.h = c0036a;
                         this.a |= 64;
                         return this;
                     }
                     throw null;
                 }
-                return (C0042a) invokeL.objValue;
+                return (C0041a) invokeL.objValue;
             }
 
-            public C0042a a(aa aaVar) {
+            public C0041a a(aa aaVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aaVar)) == null) {
@@ -3081,10 +3081,10 @@ public final class a {
                     }
                     throw null;
                 }
-                return (C0042a) invokeL.objValue;
+                return (C0041a) invokeL.objValue;
             }
 
-            public C0042a a(ae aeVar) {
+            public C0041a a(ae aeVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, aeVar)) == null) {
@@ -3095,13 +3095,13 @@ public final class a {
                     this.a |= 2;
                     return this;
                 }
-                return (C0042a) invokeL.objValue;
+                return (C0041a) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder
             /* renamed from: a */
-            public C0042a mergeFrom(c cVar) {
+            public C0041a mergeFrom(c cVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cVar)) == null) {
@@ -3134,10 +3134,10 @@ public final class a {
                     }
                     return this;
                 }
-                return (C0042a) invokeL.objValue;
+                return (C0041a) invokeL.objValue;
             }
 
-            public C0042a a(e eVar) {
+            public C0041a a(e eVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, eVar)) == null) {
@@ -3148,10 +3148,10 @@ public final class a {
                     }
                     throw null;
                 }
-                return (C0042a) invokeL.objValue;
+                return (C0041a) invokeL.objValue;
             }
 
-            public C0042a a(j jVar) {
+            public C0041a a(j jVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jVar)) == null) {
@@ -3162,10 +3162,10 @@ public final class a {
                     }
                     throw null;
                 }
-                return (C0042a) invokeL.objValue;
+                return (C0041a) invokeL.objValue;
             }
 
-            public C0042a a(l lVar) {
+            public C0041a a(l lVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, lVar)) == null) {
@@ -3176,10 +3176,10 @@ public final class a {
                     }
                     throw null;
                 }
-                return (C0042a) invokeL.objValue;
+                return (C0041a) invokeL.objValue;
             }
 
-            public C0042a a(n nVar) {
+            public C0041a a(n nVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, nVar)) == null) {
@@ -3190,10 +3190,10 @@ public final class a {
                     }
                     throw null;
                 }
-                return (C0042a) invokeL.objValue;
+                return (C0041a) invokeL.objValue;
             }
 
-            public C0042a a(t tVar) {
+            public C0041a a(t tVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, tVar)) == null) {
@@ -3204,7 +3204,7 @@ public final class a {
                     this.a |= 128;
                     return this;
                 }
-                return (C0042a) invokeL.objValue;
+                return (C0041a) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -3214,7 +3214,7 @@ public final class a {
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
-            public C0042a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            public C0041a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, codedInputStream, extensionRegistryLite)) == null) {
@@ -3246,33 +3246,33 @@ public final class a {
                         throw th;
                     }
                 }
-                return (C0042a) invokeLL.objValue;
+                return (C0041a) invokeLL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
             /* renamed from: b */
-            public C0042a mo29clone() {
+            public C0041a mo29clone() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? h().mergeFrom(buildPartial()) : (C0042a) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? h().mergeFrom(buildPartial()) : (C0041a) invokeV.objValue;
             }
 
-            public C0042a b(C0037a c0037a) {
+            public C0041a b(C0036a c0036a) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, c0037a)) == null) {
-                    if ((this.a & 64) == 64 && this.h != C0037a.a()) {
-                        c0037a = C0037a.a(this.h).mergeFrom(c0037a).buildPartial();
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, c0036a)) == null) {
+                    if ((this.a & 64) == 64 && this.h != C0036a.a()) {
+                        c0036a = C0036a.a(this.h).mergeFrom(c0036a).buildPartial();
                     }
-                    this.h = c0037a;
+                    this.h = c0036a;
                     this.a |= 64;
                     return this;
                 }
-                return (C0042a) invokeL.objValue;
+                return (C0041a) invokeL.objValue;
             }
 
-            public C0042a b(aa aaVar) {
+            public C0041a b(aa aaVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, aaVar)) == null) {
@@ -3283,10 +3283,10 @@ public final class a {
                     this.a |= 32;
                     return this;
                 }
-                return (C0042a) invokeL.objValue;
+                return (C0041a) invokeL.objValue;
             }
 
-            public C0042a b(j jVar) {
+            public C0041a b(j jVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, jVar)) == null) {
@@ -3297,10 +3297,10 @@ public final class a {
                     this.a |= 16;
                     return this;
                 }
-                return (C0042a) invokeL.objValue;
+                return (C0041a) invokeL.objValue;
             }
 
-            public C0042a b(l lVar) {
+            public C0041a b(l lVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, lVar)) == null) {
@@ -3311,10 +3311,10 @@ public final class a {
                     this.a |= 4;
                     return this;
                 }
-                return (C0042a) invokeL.objValue;
+                return (C0041a) invokeL.objValue;
             }
 
-            public C0042a b(n nVar) {
+            public C0041a b(n nVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, nVar)) == null) {
@@ -3325,7 +3325,7 @@ public final class a {
                     this.a |= 8;
                     return this;
                 }
-                return (C0042a) invokeL.objValue;
+                return (C0041a) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -3501,7 +3501,7 @@ public final class a {
                                 if (readTag != 8) {
                                     if (readTag == 18) {
                                         i = 2;
-                                        ae.C0041a builder = (this.c & 2) == 2 ? this.e.toBuilder() : null;
+                                        ae.C0040a builder = (this.c & 2) == 2 ? this.e.toBuilder() : null;
                                         ae aeVar = (ae) codedInputStream.readMessage(ae.a, extensionRegistryLite);
                                         this.e = aeVar;
                                         if (builder != null) {
@@ -3511,7 +3511,7 @@ public final class a {
                                         i2 = this.c;
                                     } else if (readTag == 26) {
                                         i = 4;
-                                        l.C0046a builder2 = (this.c & 4) == 4 ? this.f.toBuilder() : null;
+                                        l.C0045a builder2 = (this.c & 4) == 4 ? this.f.toBuilder() : null;
                                         l lVar = (l) codedInputStream.readMessage(l.a, extensionRegistryLite);
                                         this.f = lVar;
                                         if (builder2 != null) {
@@ -3520,7 +3520,7 @@ public final class a {
                                         }
                                         i2 = this.c;
                                     } else if (readTag == 34) {
-                                        n.C0047a builder3 = (this.c & 8) == 8 ? this.g.toBuilder() : null;
+                                        n.C0046a builder3 = (this.c & 8) == 8 ? this.g.toBuilder() : null;
                                         n nVar = (n) codedInputStream.readMessage(n.a, extensionRegistryLite);
                                         this.g = nVar;
                                         if (builder3 != null) {
@@ -3530,7 +3530,7 @@ public final class a {
                                         this.c |= 8;
                                     } else if (readTag == 42) {
                                         i = 16;
-                                        j.C0045a builder4 = (this.c & 16) == 16 ? this.h.toBuilder() : null;
+                                        j.C0044a builder4 = (this.c & 16) == 16 ? this.h.toBuilder() : null;
                                         j jVar = (j) codedInputStream.readMessage(j.a, extensionRegistryLite);
                                         this.h = jVar;
                                         if (builder4 != null) {
@@ -3540,7 +3540,7 @@ public final class a {
                                         i2 = this.c;
                                     } else if (readTag == 50) {
                                         i = 32;
-                                        aa.C0039a builder5 = (this.c & 32) == 32 ? this.i.toBuilder() : null;
+                                        aa.C0038a builder5 = (this.c & 32) == 32 ? this.i.toBuilder() : null;
                                         aa aaVar = (aa) codedInputStream.readMessage(aa.a, extensionRegistryLite);
                                         this.i = aaVar;
                                         if (builder5 != null) {
@@ -3550,17 +3550,17 @@ public final class a {
                                         i2 = this.c;
                                     } else if (readTag == 58) {
                                         i = 64;
-                                        C0037a.C0038a builder6 = (this.c & 64) == 64 ? this.j.toBuilder() : null;
-                                        C0037a c0037a = (C0037a) codedInputStream.readMessage(C0037a.a, extensionRegistryLite);
-                                        this.j = c0037a;
+                                        C0036a.C0037a builder6 = (this.c & 64) == 64 ? this.j.toBuilder() : null;
+                                        C0036a c0036a = (C0036a) codedInputStream.readMessage(C0036a.a, extensionRegistryLite);
+                                        this.j = c0036a;
                                         if (builder6 != null) {
-                                            builder6.mergeFrom(c0037a);
+                                            builder6.mergeFrom(c0036a);
                                             this.j = builder6.buildPartial();
                                         }
                                         i2 = this.c;
                                     } else if (readTag == 66) {
                                         i = 128;
-                                        t.C0050a builder7 = (this.c & 128) == 128 ? this.k.toBuilder() : null;
+                                        t.C0049a builder7 = (this.c & 128) == 128 ? this.k.toBuilder() : null;
                                         t tVar = (t) codedInputStream.readMessage(t.a, extensionRegistryLite);
                                         this.k = tVar;
                                         if (builder7 != null) {
@@ -3622,10 +3622,10 @@ public final class a {
             this(builder);
         }
 
-        public static C0042a a(c cVar) {
+        public static C0041a a(c cVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, cVar)) == null) ? s().mergeFrom(cVar) : (C0042a) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, cVar)) == null) ? s().mergeFrom(cVar) : (C0041a) invokeL.objValue;
         }
 
         public static c a() {
@@ -3634,10 +3634,10 @@ public final class a {
             return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? b : (c) invokeV.objValue;
         }
 
-        public static C0042a s() {
+        public static C0041a s() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? C0042a.f() : (C0042a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? C0041a.f() : (C0041a) invokeV.objValue;
         }
 
         private void v() {
@@ -3649,7 +3649,7 @@ public final class a {
                 this.g = n.a();
                 this.h = j.a();
                 this.i = aa.a();
-                this.j = C0037a.a();
+                this.j = C0036a.a();
                 this.k = t.a();
             }
         }
@@ -3800,10 +3800,10 @@ public final class a {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? (this.c & 64) == 64 : invokeV.booleanValue;
         }
 
-        public C0037a p() {
+        public C0036a p() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.j : (C0037a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.j : (C0036a) invokeV.objValue;
         }
 
         public boolean q() {
@@ -3821,19 +3821,19 @@ public final class a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         /* renamed from: t */
-        public C0042a newBuilderForType() {
+        public C0041a newBuilderForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? s() : (C0042a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? s() : (C0041a) invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         /* renamed from: u */
-        public C0042a toBuilder() {
+        public C0041a toBuilder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? a(this) : (C0042a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? a(this) : (C0041a) invokeV.objValue;
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite
@@ -3999,7 +3999,7 @@ public final class a {
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$f$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static final class C0043a extends GeneratedMessageLite.Builder<f, C0043a> implements g {
+        public static final class C0042a extends GeneratedMessageLite.Builder<f, C0042a> implements g {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
@@ -4007,7 +4007,7 @@ public final class a {
             public Object c;
             public Object d;
 
-            public C0043a() {
+            public C0042a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -4026,7 +4026,7 @@ public final class a {
                 g();
             }
 
-            public static /* synthetic */ C0043a f() {
+            public static /* synthetic */ C0042a f() {
                 return h();
             }
 
@@ -4036,16 +4036,16 @@ public final class a {
                 }
             }
 
-            public static C0043a h() {
+            public static C0042a h() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new C0043a() : (C0043a) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new C0042a() : (C0042a) invokeV.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /* renamed from: a */
-            public C0043a clear() {
+            public C0042a clear() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -4060,13 +4060,13 @@ public final class a {
                     this.a = i2 & (-5);
                     return this;
                 }
-                return (C0043a) invokeV.objValue;
+                return (C0042a) invokeV.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder
             /* renamed from: a */
-            public C0043a mergeFrom(f fVar) {
+            public C0042a mergeFrom(f fVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar)) == null) {
@@ -4087,7 +4087,7 @@ public final class a {
                     }
                     return this;
                 }
-                return (C0043a) invokeL.objValue;
+                return (C0042a) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -4097,7 +4097,7 @@ public final class a {
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
-            public C0043a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            public C0042a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, codedInputStream, extensionRegistryLite)) == null) {
@@ -4129,10 +4129,10 @@ public final class a {
                         throw th;
                     }
                 }
-                return (C0043a) invokeLL.objValue;
+                return (C0042a) invokeLL.objValue;
             }
 
-            public C0043a a(String str) {
+            public C0042a a(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
@@ -4143,19 +4143,19 @@ public final class a {
                     }
                     throw null;
                 }
-                return (C0043a) invokeL.objValue;
+                return (C0042a) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
             /* renamed from: b */
-            public C0043a mo29clone() {
+            public C0042a mo29clone() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? h().mergeFrom(buildPartial()) : (C0043a) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? h().mergeFrom(buildPartial()) : (C0042a) invokeV.objValue;
             }
 
-            public C0043a b(String str) {
+            public C0042a b(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
@@ -4166,10 +4166,10 @@ public final class a {
                     }
                     throw null;
                 }
-                return (C0043a) invokeL.objValue;
+                return (C0042a) invokeL.objValue;
             }
 
-            public C0043a c(String str) {
+            public C0042a c(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
@@ -4180,7 +4180,7 @@ public final class a {
                     }
                     throw null;
                 }
-                return (C0043a) invokeL.objValue;
+                return (C0042a) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -4384,10 +4384,10 @@ public final class a {
             this(builder);
         }
 
-        public static C0043a a(f fVar) {
+        public static C0042a a(f fVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, fVar)) == null) ? i().mergeFrom(fVar) : (C0043a) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, fVar)) == null) ? i().mergeFrom(fVar) : (C0042a) invokeL.objValue;
         }
 
         public static f a() {
@@ -4396,10 +4396,10 @@ public final class a {
             return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? b : (f) invokeV.objValue;
         }
 
-        public static C0043a i() {
+        public static C0042a i() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? C0043a.f() : (C0043a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? C0042a.f() : (C0042a) invokeV.objValue;
         }
 
         private void l() {
@@ -4530,19 +4530,19 @@ public final class a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         /* renamed from: j */
-        public C0043a toBuilder() {
+        public C0042a toBuilder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? a(this) : (C0043a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? a(this) : (C0042a) invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         /* renamed from: k */
-        public C0043a newBuilderForType() {
+        public C0042a newBuilderForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? i() : (C0043a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? i() : (C0042a) invokeV.objValue;
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite
@@ -4594,7 +4594,7 @@ public final class a {
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$h$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static final class C0044a extends GeneratedMessageLite.Builder<h, C0044a> implements i {
+        public static final class C0043a extends GeneratedMessageLite.Builder<h, C0043a> implements i {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
@@ -4607,7 +4607,7 @@ public final class a {
             public f h;
             public v i;
 
-            public C0044a() {
+            public C0043a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -4629,7 +4629,7 @@ public final class a {
                 j();
             }
 
-            public static /* synthetic */ C0044a i() {
+            public static /* synthetic */ C0043a i() {
                 return k();
             }
 
@@ -4639,16 +4639,16 @@ public final class a {
                 }
             }
 
-            public static C0044a k() {
+            public static C0043a k() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new C0044a() : (C0044a) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new C0043a() : (C0043a) invokeV.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /* renamed from: a */
-            public C0044a clear() {
+            public C0043a clear() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -4674,10 +4674,10 @@ public final class a {
                     this.a &= -129;
                     return this;
                 }
-                return (C0044a) invokeV.objValue;
+                return (C0043a) invokeV.objValue;
             }
 
-            public C0044a a(long j) {
+            public C0043a a(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
@@ -4685,10 +4685,10 @@ public final class a {
                     this.e = j;
                     return this;
                 }
-                return (C0044a) invokeJ.objValue;
+                return (C0043a) invokeJ.objValue;
             }
 
-            public C0044a a(ac acVar) {
+            public C0043a a(ac acVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, acVar)) == null) {
@@ -4699,10 +4699,10 @@ public final class a {
                     }
                     throw null;
                 }
-                return (C0044a) invokeL.objValue;
+                return (C0043a) invokeL.objValue;
             }
 
-            public C0044a a(f fVar) {
+            public C0043a a(f fVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, fVar)) == null) {
@@ -4713,13 +4713,13 @@ public final class a {
                     }
                     throw null;
                 }
-                return (C0044a) invokeL.objValue;
+                return (C0043a) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder
             /* renamed from: a */
-            public C0044a mergeFrom(h hVar) {
+            public C0043a mergeFrom(h hVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, hVar)) == null) {
@@ -4754,10 +4754,10 @@ public final class a {
                     }
                     return this;
                 }
-                return (C0044a) invokeL.objValue;
+                return (C0043a) invokeL.objValue;
             }
 
-            public C0044a a(p pVar) {
+            public C0043a a(p pVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, pVar)) == null) {
@@ -4768,10 +4768,10 @@ public final class a {
                     }
                     throw null;
                 }
-                return (C0044a) invokeL.objValue;
+                return (C0043a) invokeL.objValue;
             }
 
-            public C0044a a(v vVar) {
+            public C0043a a(v vVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, vVar)) == null) {
@@ -4782,7 +4782,7 @@ public final class a {
                     }
                     throw null;
                 }
-                return (C0044a) invokeL.objValue;
+                return (C0043a) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -4792,7 +4792,7 @@ public final class a {
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
-            public C0044a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            public C0043a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, codedInputStream, extensionRegistryLite)) == null) {
@@ -4824,19 +4824,19 @@ public final class a {
                         throw th;
                     }
                 }
-                return (C0044a) invokeLL.objValue;
+                return (C0043a) invokeLL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
             /* renamed from: b */
-            public C0044a mo29clone() {
+            public C0043a mo29clone() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? k().mergeFrom(buildPartial()) : (C0044a) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? k().mergeFrom(buildPartial()) : (C0043a) invokeV.objValue;
             }
 
-            public C0044a b(long j) {
+            public C0043a b(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
@@ -4844,10 +4844,10 @@ public final class a {
                     this.f = j;
                     return this;
                 }
-                return (C0044a) invokeJ.objValue;
+                return (C0043a) invokeJ.objValue;
             }
 
-            public C0044a b(ac acVar) {
+            public C0043a b(ac acVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, acVar)) == null) {
@@ -4858,10 +4858,10 @@ public final class a {
                     this.a |= 32;
                     return this;
                 }
-                return (C0044a) invokeL.objValue;
+                return (C0043a) invokeL.objValue;
             }
 
-            public C0044a b(f fVar) {
+            public C0043a b(f fVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, fVar)) == null) {
@@ -4872,10 +4872,10 @@ public final class a {
                     this.a |= 64;
                     return this;
                 }
-                return (C0044a) invokeL.objValue;
+                return (C0043a) invokeL.objValue;
             }
 
-            public C0044a b(p pVar) {
+            public C0043a b(p pVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, pVar)) == null) {
@@ -4886,10 +4886,10 @@ public final class a {
                     this.a |= 4;
                     return this;
                 }
-                return (C0044a) invokeL.objValue;
+                return (C0043a) invokeL.objValue;
             }
 
-            public C0044a b(v vVar) {
+            public C0043a b(v vVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, vVar)) == null) {
@@ -4900,7 +4900,7 @@ public final class a {
                     this.a |= 128;
                     return this;
                 }
-                return (C0044a) invokeL.objValue;
+                return (C0043a) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -5103,7 +5103,7 @@ public final class a {
                                 } else if (readTag != 18) {
                                     if (readTag == 58) {
                                         i = 4;
-                                        p.C0048a builder = (this.c & 4) == 4 ? this.f.toBuilder() : null;
+                                        p.C0047a builder = (this.c & 4) == 4 ? this.f.toBuilder() : null;
                                         p pVar = (p) codedInputStream.readMessage(p.a, extensionRegistryLite);
                                         this.f = pVar;
                                         if (builder != null) {
@@ -5119,7 +5119,7 @@ public final class a {
                                         this.h = codedInputStream.readInt64();
                                     } else if (readTag == 162) {
                                         i = 32;
-                                        ac.C0040a builder2 = (this.c & 32) == 32 ? this.i.toBuilder() : null;
+                                        ac.C0039a builder2 = (this.c & 32) == 32 ? this.i.toBuilder() : null;
                                         ac acVar = (ac) codedInputStream.readMessage(ac.a, extensionRegistryLite);
                                         this.i = acVar;
                                         if (builder2 != null) {
@@ -5129,7 +5129,7 @@ public final class a {
                                         i2 = this.c;
                                     } else if (readTag == 170) {
                                         i = 64;
-                                        f.C0043a builder3 = (this.c & 64) == 64 ? this.j.toBuilder() : null;
+                                        f.C0042a builder3 = (this.c & 64) == 64 ? this.j.toBuilder() : null;
                                         f fVar = (f) codedInputStream.readMessage(f.a, extensionRegistryLite);
                                         this.j = fVar;
                                         if (builder3 != null) {
@@ -5139,7 +5139,7 @@ public final class a {
                                         i2 = this.c;
                                     } else if (readTag == 178) {
                                         i = 128;
-                                        v.C0051a builder4 = (this.c & 128) == 128 ? this.k.toBuilder() : null;
+                                        v.C0050a builder4 = (this.c & 128) == 128 ? this.k.toBuilder() : null;
                                         v vVar = (v) codedInputStream.readMessage(v.a, extensionRegistryLite);
                                         this.k = vVar;
                                         if (builder4 != null) {
@@ -5198,10 +5198,10 @@ public final class a {
             this(builder);
         }
 
-        public static C0044a a(h hVar) {
+        public static C0043a a(h hVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, hVar)) == null) ? t().mergeFrom(hVar) : (C0044a) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, hVar)) == null) ? t().mergeFrom(hVar) : (C0043a) invokeL.objValue;
         }
 
         public static h a() {
@@ -5210,10 +5210,10 @@ public final class a {
             return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? b : (h) invokeV.objValue;
         }
 
-        public static C0044a t() {
+        public static C0043a t() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) ? C0044a.i() : (C0044a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) ? C0043a.i() : (C0043a) invokeV.objValue;
         }
 
         private void v() {
@@ -5422,19 +5422,19 @@ public final class a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         /* renamed from: s */
-        public C0044a newBuilderForType() {
+        public C0043a newBuilderForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? t() : (C0044a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? t() : (C0043a) invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         /* renamed from: u */
-        public C0044a toBuilder() {
+        public C0043a toBuilder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? a(this) : (C0044a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? a(this) : (C0043a) invokeV.objValue;
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite
@@ -5500,7 +5500,7 @@ public final class a {
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$j$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static final class C0045a extends GeneratedMessageLite.Builder<j, C0045a> implements k {
+        public static final class C0044a extends GeneratedMessageLite.Builder<j, C0044a> implements k {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
@@ -5512,7 +5512,7 @@ public final class a {
             public Object g;
             public long h;
 
-            public C0045a() {
+            public C0044a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -5530,7 +5530,7 @@ public final class a {
                 g();
             }
 
-            public static /* synthetic */ C0045a f() {
+            public static /* synthetic */ C0044a f() {
                 return h();
             }
 
@@ -5540,16 +5540,16 @@ public final class a {
                 }
             }
 
-            public static C0045a h() {
+            public static C0044a h() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new C0045a() : (C0045a) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new C0044a() : (C0044a) invokeV.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /* renamed from: a */
-            public C0045a clear() {
+            public C0044a clear() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -5576,10 +5576,10 @@ public final class a {
                     this.a = i6 & (-65);
                     return this;
                 }
-                return (C0045a) invokeV.objValue;
+                return (C0044a) invokeV.objValue;
             }
 
-            public C0045a a(long j) {
+            public C0044a a(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
@@ -5587,13 +5587,13 @@ public final class a {
                     this.b = j;
                     return this;
                 }
-                return (C0045a) invokeJ.objValue;
+                return (C0044a) invokeJ.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder
             /* renamed from: a */
-            public C0045a mergeFrom(j jVar) {
+            public C0044a mergeFrom(j jVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jVar)) == null) {
@@ -5625,7 +5625,7 @@ public final class a {
                     }
                     return this;
                 }
-                return (C0045a) invokeL.objValue;
+                return (C0044a) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -5635,7 +5635,7 @@ public final class a {
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
-            public C0045a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            public C0044a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, codedInputStream, extensionRegistryLite)) == null) {
@@ -5667,10 +5667,10 @@ public final class a {
                         throw th;
                     }
                 }
-                return (C0045a) invokeLL.objValue;
+                return (C0044a) invokeLL.objValue;
             }
 
-            public C0045a a(String str) {
+            public C0044a a(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
@@ -5681,19 +5681,19 @@ public final class a {
                     }
                     throw null;
                 }
-                return (C0045a) invokeL.objValue;
+                return (C0044a) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
             /* renamed from: b */
-            public C0045a mo29clone() {
+            public C0044a mo29clone() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? h().mergeFrom(buildPartial()) : (C0045a) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? h().mergeFrom(buildPartial()) : (C0044a) invokeV.objValue;
             }
 
-            public C0045a b(long j) {
+            public C0044a b(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
@@ -5701,10 +5701,10 @@ public final class a {
                     this.c = j;
                     return this;
                 }
-                return (C0045a) invokeJ.objValue;
+                return (C0044a) invokeJ.objValue;
             }
 
-            public C0045a b(String str) {
+            public C0044a b(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
@@ -5715,10 +5715,10 @@ public final class a {
                     }
                     throw null;
                 }
-                return (C0045a) invokeL.objValue;
+                return (C0044a) invokeL.objValue;
             }
 
-            public C0045a c(long j) {
+            public C0044a c(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j)) == null) {
@@ -5726,7 +5726,7 @@ public final class a {
                     this.e = j;
                     return this;
                 }
-                return (C0045a) invokeJ.objValue;
+                return (C0044a) invokeJ.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -5738,7 +5738,7 @@ public final class a {
                 return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? j.a() : (j) invokeV.objValue;
             }
 
-            public C0045a d(long j) {
+            public C0044a d(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeJ = interceptable.invokeJ(1048594, this, j)) == null) {
@@ -5746,7 +5746,7 @@ public final class a {
                     this.f = j;
                     return this;
                 }
-                return (C0045a) invokeJ.objValue;
+                return (C0044a) invokeJ.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -5765,7 +5765,7 @@ public final class a {
                 return (j) invokeV.objValue;
             }
 
-            public C0045a e(long j) {
+            public C0044a e(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeJ = interceptable.invokeJ(1048596, this, j)) == null) {
@@ -5773,7 +5773,7 @@ public final class a {
                     this.h = j;
                     return this;
                 }
-                return (C0045a) invokeJ.objValue;
+                return (C0044a) invokeJ.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -5980,10 +5980,10 @@ public final class a {
             this(builder);
         }
 
-        public static C0045a a(j jVar) {
+        public static C0044a a(j jVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, jVar)) == null) ? q().mergeFrom(jVar) : (C0045a) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, jVar)) == null) ? q().mergeFrom(jVar) : (C0044a) invokeL.objValue;
         }
 
         public static j a() {
@@ -5992,10 +5992,10 @@ public final class a {
             return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? b : (j) invokeV.objValue;
         }
 
-        public static C0045a q() {
+        public static C0044a q() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? C0045a.f() : (C0045a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? C0044a.f() : (C0044a) invokeV.objValue;
         }
 
         private void t() {
@@ -6181,19 +6181,19 @@ public final class a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         /* renamed from: r */
-        public C0045a toBuilder() {
+        public C0044a toBuilder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? a(this) : (C0045a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? a(this) : (C0044a) invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         /* renamed from: s */
-        public C0045a newBuilderForType() {
+        public C0044a newBuilderForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? q() : (C0045a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? q() : (C0044a) invokeV.objValue;
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite
@@ -6253,7 +6253,7 @@ public final class a {
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$l$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static final class C0046a extends GeneratedMessageLite.Builder<l, C0046a> implements m {
+        public static final class C0045a extends GeneratedMessageLite.Builder<l, C0045a> implements m {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
@@ -6262,7 +6262,7 @@ public final class a {
             public Object d;
             public long e;
 
-            public C0046a() {
+            public C0045a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -6280,7 +6280,7 @@ public final class a {
                 g();
             }
 
-            public static /* synthetic */ C0046a f() {
+            public static /* synthetic */ C0045a f() {
                 return h();
             }
 
@@ -6290,16 +6290,16 @@ public final class a {
                 }
             }
 
-            public static C0046a h() {
+            public static C0045a h() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new C0046a() : (C0046a) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new C0045a() : (C0045a) invokeV.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /* renamed from: a */
-            public C0046a clear() {
+            public C0045a clear() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -6317,10 +6317,10 @@ public final class a {
                     this.a = i3 & (-9);
                     return this;
                 }
-                return (C0046a) invokeV.objValue;
+                return (C0045a) invokeV.objValue;
             }
 
-            public C0046a a(long j) {
+            public C0045a a(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
@@ -6328,13 +6328,13 @@ public final class a {
                     this.c = j;
                     return this;
                 }
-                return (C0046a) invokeJ.objValue;
+                return (C0045a) invokeJ.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder
             /* renamed from: a */
-            public C0046a mergeFrom(l lVar) {
+            public C0045a mergeFrom(l lVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lVar)) == null) {
@@ -6357,7 +6357,7 @@ public final class a {
                     }
                     return this;
                 }
-                return (C0046a) invokeL.objValue;
+                return (C0045a) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -6367,7 +6367,7 @@ public final class a {
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
-            public C0046a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            public C0045a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, codedInputStream, extensionRegistryLite)) == null) {
@@ -6399,10 +6399,10 @@ public final class a {
                         throw th;
                     }
                 }
-                return (C0046a) invokeLL.objValue;
+                return (C0045a) invokeLL.objValue;
             }
 
-            public C0046a a(String str) {
+            public C0045a a(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
@@ -6413,19 +6413,19 @@ public final class a {
                     }
                     throw null;
                 }
-                return (C0046a) invokeL.objValue;
+                return (C0045a) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
             /* renamed from: b */
-            public C0046a mo29clone() {
+            public C0045a mo29clone() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? h().mergeFrom(buildPartial()) : (C0046a) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? h().mergeFrom(buildPartial()) : (C0045a) invokeV.objValue;
             }
 
-            public C0046a b(long j) {
+            public C0045a b(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
@@ -6433,10 +6433,10 @@ public final class a {
                     this.e = j;
                     return this;
                 }
-                return (C0046a) invokeJ.objValue;
+                return (C0045a) invokeJ.objValue;
             }
 
-            public C0046a b(String str) {
+            public C0045a b(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
@@ -6447,7 +6447,7 @@ public final class a {
                     }
                     throw null;
                 }
-                return (C0046a) invokeL.objValue;
+                return (C0045a) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -6658,10 +6658,10 @@ public final class a {
             this(builder);
         }
 
-        public static C0046a a(l lVar) {
+        public static C0045a a(l lVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, lVar)) == null) ? k().mergeFrom(lVar) : (C0046a) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, lVar)) == null) ? k().mergeFrom(lVar) : (C0045a) invokeL.objValue;
         }
 
         public static l a() {
@@ -6670,10 +6670,10 @@ public final class a {
             return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? b : (l) invokeV.objValue;
         }
 
-        public static C0046a k() {
+        public static C0045a k() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? C0046a.f() : (C0046a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? C0045a.f() : (C0045a) invokeV.objValue;
         }
 
         private void n() {
@@ -6811,19 +6811,19 @@ public final class a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         /* renamed from: l */
-        public C0046a toBuilder() {
+        public C0045a toBuilder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? a(this) : (C0046a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? a(this) : (C0045a) invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         /* renamed from: m */
-        public C0046a newBuilderForType() {
+        public C0045a newBuilderForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? k() : (C0046a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? k() : (C0045a) invokeV.objValue;
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite
@@ -6879,7 +6879,7 @@ public final class a {
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$n$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static final class C0047a extends GeneratedMessageLite.Builder<n, C0047a> implements o {
+        public static final class C0046a extends GeneratedMessageLite.Builder<n, C0046a> implements o {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
@@ -6893,7 +6893,7 @@ public final class a {
             public Object i;
             public long j;
 
-            public C0047a() {
+            public C0046a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -6914,7 +6914,7 @@ public final class a {
                 g();
             }
 
-            public static /* synthetic */ C0047a f() {
+            public static /* synthetic */ C0046a f() {
                 return h();
             }
 
@@ -6924,16 +6924,16 @@ public final class a {
                 }
             }
 
-            public static C0047a h() {
+            public static C0046a h() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new C0047a() : (C0047a) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new C0046a() : (C0046a) invokeV.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /* renamed from: a */
-            public C0047a clear() {
+            public C0046a clear() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -6966,10 +6966,10 @@ public final class a {
                     this.a = i8 & (-257);
                     return this;
                 }
-                return (C0047a) invokeV.objValue;
+                return (C0046a) invokeV.objValue;
             }
 
-            public C0047a a(long j) {
+            public C0046a a(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
@@ -6977,13 +6977,13 @@ public final class a {
                     this.f = j;
                     return this;
                 }
-                return (C0047a) invokeJ.objValue;
+                return (C0046a) invokeJ.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder
             /* renamed from: a */
-            public C0047a mergeFrom(n nVar) {
+            public C0046a mergeFrom(n nVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nVar)) == null) {
@@ -7024,7 +7024,7 @@ public final class a {
                     }
                     return this;
                 }
-                return (C0047a) invokeL.objValue;
+                return (C0046a) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -7034,7 +7034,7 @@ public final class a {
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
-            public C0047a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            public C0046a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, codedInputStream, extensionRegistryLite)) == null) {
@@ -7066,10 +7066,10 @@ public final class a {
                         throw th;
                     }
                 }
-                return (C0047a) invokeLL.objValue;
+                return (C0046a) invokeLL.objValue;
             }
 
-            public C0047a a(String str) {
+            public C0046a a(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
@@ -7080,19 +7080,19 @@ public final class a {
                     }
                     throw null;
                 }
-                return (C0047a) invokeL.objValue;
+                return (C0046a) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
             /* renamed from: b */
-            public C0047a mo29clone() {
+            public C0046a mo29clone() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? h().mergeFrom(buildPartial()) : (C0047a) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? h().mergeFrom(buildPartial()) : (C0046a) invokeV.objValue;
             }
 
-            public C0047a b(long j) {
+            public C0046a b(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
@@ -7100,10 +7100,10 @@ public final class a {
                     this.g = j;
                     return this;
                 }
-                return (C0047a) invokeJ.objValue;
+                return (C0046a) invokeJ.objValue;
             }
 
-            public C0047a b(String str) {
+            public C0046a b(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
@@ -7114,10 +7114,10 @@ public final class a {
                     }
                     throw null;
                 }
-                return (C0047a) invokeL.objValue;
+                return (C0046a) invokeL.objValue;
             }
 
-            public C0047a c(long j) {
+            public C0046a c(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j)) == null) {
@@ -7125,10 +7125,10 @@ public final class a {
                     this.h = j;
                     return this;
                 }
-                return (C0047a) invokeJ.objValue;
+                return (C0046a) invokeJ.objValue;
             }
 
-            public C0047a c(String str) {
+            public C0046a c(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
@@ -7139,7 +7139,7 @@ public final class a {
                     }
                     throw null;
                 }
-                return (C0047a) invokeL.objValue;
+                return (C0046a) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -7151,7 +7151,7 @@ public final class a {
                 return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? n.a() : (n) invokeV.objValue;
             }
 
-            public C0047a d(long j) {
+            public C0046a d(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeJ = interceptable.invokeJ(1048595, this, j)) == null) {
@@ -7159,10 +7159,10 @@ public final class a {
                     this.j = j;
                     return this;
                 }
-                return (C0047a) invokeJ.objValue;
+                return (C0046a) invokeJ.objValue;
             }
 
-            public C0047a d(String str) {
+            public C0046a d(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, str)) == null) {
@@ -7173,7 +7173,7 @@ public final class a {
                     }
                     throw null;
                 }
-                return (C0047a) invokeL.objValue;
+                return (C0046a) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -7192,7 +7192,7 @@ public final class a {
                 return (n) invokeV.objValue;
             }
 
-            public C0047a e(String str) {
+            public C0046a e(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, str)) == null) {
@@ -7203,7 +7203,7 @@ public final class a {
                     }
                     throw null;
                 }
-                return (C0047a) invokeL.objValue;
+                return (C0046a) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -7426,10 +7426,10 @@ public final class a {
             this(builder);
         }
 
-        public static C0047a a(n nVar) {
+        public static C0046a a(n nVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, nVar)) == null) ? u().mergeFrom(nVar) : (C0047a) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, nVar)) == null) ? u().mergeFrom(nVar) : (C0046a) invokeL.objValue;
         }
 
         public static n a() {
@@ -7438,10 +7438,10 @@ public final class a {
             return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? b : (n) invokeV.objValue;
         }
 
-        public static C0047a u() {
+        public static C0046a u() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) ? C0047a.f() : (C0047a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) ? C0046a.f() : (C0046a) invokeV.objValue;
         }
 
         private void x() {
@@ -7686,19 +7686,19 @@ public final class a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         /* renamed from: v */
-        public C0047a toBuilder() {
+        public C0046a toBuilder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? a(this) : (C0047a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? a(this) : (C0046a) invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         /* renamed from: w */
-        public C0047a newBuilderForType() {
+        public C0046a newBuilderForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? u() : (C0047a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? u() : (C0046a) invokeV.objValue;
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite
@@ -7761,13 +7761,13 @@ public final class a {
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$p$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static final class C0048a extends GeneratedMessageLite.Builder<p, C0048a> implements q {
+        public static final class C0047a extends GeneratedMessageLite.Builder<p, C0047a> implements q {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
             public Object b;
 
-            public C0048a() {
+            public C0047a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -7784,7 +7784,7 @@ public final class a {
                 h();
             }
 
-            public static /* synthetic */ C0048a g() {
+            public static /* synthetic */ C0047a g() {
                 return i();
             }
 
@@ -7794,16 +7794,16 @@ public final class a {
                 }
             }
 
-            public static C0048a i() {
+            public static C0047a i() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new C0048a() : (C0048a) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new C0047a() : (C0047a) invokeV.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /* renamed from: a */
-            public C0048a clear() {
+            public C0047a clear() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -7812,13 +7812,13 @@ public final class a {
                     this.a &= -2;
                     return this;
                 }
-                return (C0048a) invokeV.objValue;
+                return (C0047a) invokeV.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder
             /* renamed from: a */
-            public C0048a mergeFrom(p pVar) {
+            public C0047a mergeFrom(p pVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pVar)) == null) {
@@ -7828,7 +7828,7 @@ public final class a {
                     }
                     return this;
                 }
-                return (C0048a) invokeL.objValue;
+                return (C0047a) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -7838,7 +7838,7 @@ public final class a {
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
-            public C0048a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            public C0047a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, codedInputStream, extensionRegistryLite)) == null) {
@@ -7870,10 +7870,10 @@ public final class a {
                         throw th;
                     }
                 }
-                return (C0048a) invokeLL.objValue;
+                return (C0047a) invokeLL.objValue;
             }
 
-            public C0048a a(String str) {
+            public C0047a a(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
@@ -7884,16 +7884,16 @@ public final class a {
                     }
                     throw null;
                 }
-                return (C0048a) invokeL.objValue;
+                return (C0047a) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
             /* renamed from: b */
-            public C0048a mo29clone() {
+            public C0047a mo29clone() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? i().mergeFrom(buildPartial()) : (C0048a) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? i().mergeFrom(buildPartial()) : (C0047a) invokeV.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -8087,10 +8087,10 @@ public final class a {
             this(builder);
         }
 
-        public static C0048a a(p pVar) {
+        public static C0047a a(p pVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, pVar)) == null) ? e().mergeFrom(pVar) : (C0048a) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, pVar)) == null) ? e().mergeFrom(pVar) : (C0047a) invokeL.objValue;
         }
 
         public static p a() {
@@ -8099,10 +8099,10 @@ public final class a {
             return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? b : (p) invokeV.objValue;
         }
 
-        public static C0048a e() {
+        public static C0047a e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? C0048a.g() : (C0048a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? C0047a.g() : (C0047a) invokeV.objValue;
         }
 
         private void h() {
@@ -8145,19 +8145,19 @@ public final class a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         /* renamed from: f */
-        public C0048a newBuilderForType() {
+        public C0047a newBuilderForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? e() : (C0048a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? e() : (C0047a) invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         /* renamed from: g */
-        public C0048a toBuilder() {
+        public C0047a toBuilder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? a(this) : (C0048a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? a(this) : (C0047a) invokeV.objValue;
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
@@ -8240,7 +8240,7 @@ public final class a {
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$r$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static final class C0049a extends GeneratedMessageLite.Builder<r, C0049a> implements s {
+        public static final class C0048a extends GeneratedMessageLite.Builder<r, C0048a> implements s {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
@@ -8248,7 +8248,7 @@ public final class a {
             public Object c;
             public Object d;
 
-            public C0049a() {
+            public C0048a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -8267,7 +8267,7 @@ public final class a {
                 g();
             }
 
-            public static /* synthetic */ C0049a f() {
+            public static /* synthetic */ C0048a f() {
                 return h();
             }
 
@@ -8277,16 +8277,16 @@ public final class a {
                 }
             }
 
-            public static C0049a h() {
+            public static C0048a h() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new C0049a() : (C0049a) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new C0048a() : (C0048a) invokeV.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /* renamed from: a */
-            public C0049a clear() {
+            public C0048a clear() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -8301,10 +8301,10 @@ public final class a {
                     this.a = i2 & (-5);
                     return this;
                 }
-                return (C0049a) invokeV.objValue;
+                return (C0048a) invokeV.objValue;
             }
 
-            public C0049a a(int i) {
+            public C0048a a(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
@@ -8312,13 +8312,13 @@ public final class a {
                     this.b = i;
                     return this;
                 }
-                return (C0049a) invokeI.objValue;
+                return (C0048a) invokeI.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder
             /* renamed from: a */
-            public C0049a mergeFrom(r rVar) {
+            public C0048a mergeFrom(r rVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rVar)) == null) {
@@ -8338,7 +8338,7 @@ public final class a {
                     }
                     return this;
                 }
-                return (C0049a) invokeL.objValue;
+                return (C0048a) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -8348,7 +8348,7 @@ public final class a {
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
-            public C0049a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            public C0048a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, codedInputStream, extensionRegistryLite)) == null) {
@@ -8380,16 +8380,16 @@ public final class a {
                         throw th;
                     }
                 }
-                return (C0049a) invokeLL.objValue;
+                return (C0048a) invokeLL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
             /* renamed from: b */
-            public C0049a mo29clone() {
+            public C0048a mo29clone() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? h().mergeFrom(buildPartial()) : (C0049a) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? h().mergeFrom(buildPartial()) : (C0048a) invokeV.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -8593,10 +8593,10 @@ public final class a {
             this(builder);
         }
 
-        public static C0049a a(r rVar) {
+        public static C0048a a(r rVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, rVar)) == null) ? i().mergeFrom(rVar) : (C0049a) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, rVar)) == null) ? i().mergeFrom(rVar) : (C0048a) invokeL.objValue;
         }
 
         public static r a() {
@@ -8605,10 +8605,10 @@ public final class a {
             return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? b : (r) invokeV.objValue;
         }
 
-        public static C0049a i() {
+        public static C0048a i() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? C0049a.f() : (C0049a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? C0048a.f() : (C0048a) invokeV.objValue;
         }
 
         private void l() {
@@ -8730,19 +8730,19 @@ public final class a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         /* renamed from: j */
-        public C0049a toBuilder() {
+        public C0048a toBuilder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? a(this) : (C0049a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? a(this) : (C0048a) invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         /* renamed from: k */
-        public C0049a newBuilderForType() {
+        public C0048a newBuilderForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? i() : (C0049a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? i() : (C0048a) invokeV.objValue;
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite
@@ -8793,7 +8793,7 @@ public final class a {
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$t$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static final class C0050a extends GeneratedMessageLite.Builder<t, C0050a> implements u {
+        public static final class C0049a extends GeneratedMessageLite.Builder<t, C0049a> implements u {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
@@ -8805,7 +8805,7 @@ public final class a {
             public long g;
             public long h;
 
-            public C0050a() {
+            public C0049a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -8823,7 +8823,7 @@ public final class a {
                 g();
             }
 
-            public static /* synthetic */ C0050a f() {
+            public static /* synthetic */ C0049a f() {
                 return h();
             }
 
@@ -8833,16 +8833,16 @@ public final class a {
                 }
             }
 
-            public static C0050a h() {
+            public static C0049a h() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new C0050a() : (C0050a) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new C0049a() : (C0049a) invokeV.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /* renamed from: a */
-            public C0050a clear() {
+            public C0049a clear() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -8869,10 +8869,10 @@ public final class a {
                     this.a = i6 & (-65);
                     return this;
                 }
-                return (C0050a) invokeV.objValue;
+                return (C0049a) invokeV.objValue;
             }
 
-            public C0050a a(long j) {
+            public C0049a a(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
@@ -8880,13 +8880,13 @@ public final class a {
                     this.b = j;
                     return this;
                 }
-                return (C0050a) invokeJ.objValue;
+                return (C0049a) invokeJ.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder
             /* renamed from: a */
-            public C0050a mergeFrom(t tVar) {
+            public C0049a mergeFrom(t tVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tVar)) == null) {
@@ -8918,7 +8918,7 @@ public final class a {
                     }
                     return this;
                 }
-                return (C0050a) invokeL.objValue;
+                return (C0049a) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -8928,7 +8928,7 @@ public final class a {
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
-            public C0050a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            public C0049a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, codedInputStream, extensionRegistryLite)) == null) {
@@ -8960,19 +8960,19 @@ public final class a {
                         throw th;
                     }
                 }
-                return (C0050a) invokeLL.objValue;
+                return (C0049a) invokeLL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
             /* renamed from: b */
-            public C0050a mo29clone() {
+            public C0049a mo29clone() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? h().mergeFrom(buildPartial()) : (C0050a) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? h().mergeFrom(buildPartial()) : (C0049a) invokeV.objValue;
             }
 
-            public C0050a b(long j) {
+            public C0049a b(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
@@ -8980,10 +8980,10 @@ public final class a {
                     this.d = j;
                     return this;
                 }
-                return (C0050a) invokeJ.objValue;
+                return (C0049a) invokeJ.objValue;
             }
 
-            public C0050a c(long j) {
+            public C0049a c(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j)) == null) {
@@ -8991,7 +8991,7 @@ public final class a {
                     this.e = j;
                     return this;
                 }
-                return (C0050a) invokeJ.objValue;
+                return (C0049a) invokeJ.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -9003,7 +9003,7 @@ public final class a {
                 return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? t.a() : (t) invokeV.objValue;
             }
 
-            public C0050a d(long j) {
+            public C0049a d(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeJ = interceptable.invokeJ(1048592, this, j)) == null) {
@@ -9011,7 +9011,7 @@ public final class a {
                     this.g = j;
                     return this;
                 }
-                return (C0050a) invokeJ.objValue;
+                return (C0049a) invokeJ.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -9030,7 +9030,7 @@ public final class a {
                 return (t) invokeV.objValue;
             }
 
-            public C0050a e(long j) {
+            public C0049a e(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeJ = interceptable.invokeJ(1048594, this, j)) == null) {
@@ -9038,7 +9038,7 @@ public final class a {
                     this.h = j;
                     return this;
                 }
-                return (C0050a) invokeJ.objValue;
+                return (C0049a) invokeJ.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -9245,10 +9245,10 @@ public final class a {
             this(builder);
         }
 
-        public static C0050a a(t tVar) {
+        public static C0049a a(t tVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, tVar)) == null) ? q().mergeFrom(tVar) : (C0050a) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, tVar)) == null) ? q().mergeFrom(tVar) : (C0049a) invokeL.objValue;
         }
 
         public static t a() {
@@ -9257,10 +9257,10 @@ public final class a {
             return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? b : (t) invokeV.objValue;
         }
 
-        public static C0050a q() {
+        public static C0049a q() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? C0050a.f() : (C0050a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? C0049a.f() : (C0049a) invokeV.objValue;
         }
 
         private void t() {
@@ -9446,19 +9446,19 @@ public final class a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         /* renamed from: r */
-        public C0050a newBuilderForType() {
+        public C0049a newBuilderForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? q() : (C0050a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? q() : (C0049a) invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         /* renamed from: s */
-        public C0050a toBuilder() {
+        public C0049a toBuilder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? a(this) : (C0050a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? a(this) : (C0049a) invokeV.objValue;
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite
@@ -9516,14 +9516,14 @@ public final class a {
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$v$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static final class C0051a extends GeneratedMessageLite.Builder<v, C0051a> implements w {
+        public static final class C0050a extends GeneratedMessageLite.Builder<v, C0050a> implements w {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
             public Object b;
             public Object c;
 
-            public C0051a() {
+            public C0050a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -9541,7 +9541,7 @@ public final class a {
                 g();
             }
 
-            public static /* synthetic */ C0051a f() {
+            public static /* synthetic */ C0050a f() {
                 return h();
             }
 
@@ -9551,16 +9551,16 @@ public final class a {
                 }
             }
 
-            public static C0051a h() {
+            public static C0050a h() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new C0051a() : (C0051a) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new C0050a() : (C0050a) invokeV.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /* renamed from: a */
-            public C0051a clear() {
+            public C0050a clear() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -9572,13 +9572,13 @@ public final class a {
                     this.a = i & (-3);
                     return this;
                 }
-                return (C0051a) invokeV.objValue;
+                return (C0050a) invokeV.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder
             /* renamed from: a */
-            public C0051a mergeFrom(v vVar) {
+            public C0050a mergeFrom(v vVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vVar)) == null) {
@@ -9595,7 +9595,7 @@ public final class a {
                     }
                     return this;
                 }
-                return (C0051a) invokeL.objValue;
+                return (C0050a) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -9605,7 +9605,7 @@ public final class a {
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
-            public C0051a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            public C0050a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, codedInputStream, extensionRegistryLite)) == null) {
@@ -9637,10 +9637,10 @@ public final class a {
                         throw th;
                     }
                 }
-                return (C0051a) invokeLL.objValue;
+                return (C0050a) invokeLL.objValue;
             }
 
-            public C0051a a(String str) {
+            public C0050a a(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
@@ -9651,19 +9651,19 @@ public final class a {
                     }
                     throw null;
                 }
-                return (C0051a) invokeL.objValue;
+                return (C0050a) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
             /* renamed from: b */
-            public C0051a mo29clone() {
+            public C0050a mo29clone() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? h().mergeFrom(buildPartial()) : (C0051a) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? h().mergeFrom(buildPartial()) : (C0050a) invokeV.objValue;
             }
 
-            public C0051a b(String str) {
+            public C0050a b(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
@@ -9674,7 +9674,7 @@ public final class a {
                     }
                     throw null;
                 }
-                return (C0051a) invokeL.objValue;
+                return (C0050a) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -9873,10 +9873,10 @@ public final class a {
             this(builder);
         }
 
-        public static C0051a a(v vVar) {
+        public static C0050a a(v vVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, vVar)) == null) ? g().mergeFrom(vVar) : (C0051a) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, vVar)) == null) ? g().mergeFrom(vVar) : (C0050a) invokeL.objValue;
         }
 
         public static v a() {
@@ -9885,10 +9885,10 @@ public final class a {
             return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? b : (v) invokeV.objValue;
         }
 
-        public static C0051a g() {
+        public static C0050a g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? C0051a.f() : (C0051a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? C0050a.f() : (C0050a) invokeV.objValue;
         }
 
         private void j() {
@@ -9979,19 +9979,19 @@ public final class a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         /* renamed from: h */
-        public C0051a newBuilderForType() {
+        public C0050a newBuilderForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? g() : (C0051a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? g() : (C0050a) invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         /* renamed from: i */
-        public C0051a toBuilder() {
+        public C0050a toBuilder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? a(this) : (C0051a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? a(this) : (C0050a) invokeV.objValue;
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -10135,7 +10135,7 @@ public final class a {
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$y$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static final class C0052a extends GeneratedMessageLite.Builder<y, C0052a> implements z {
+        public static final class C0051a extends GeneratedMessageLite.Builder<y, C0051a> implements z {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
@@ -10145,7 +10145,7 @@ public final class a {
             public long e;
             public List<c> f;
 
-            public C0052a() {
+            public C0051a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -10165,7 +10165,7 @@ public final class a {
                 i();
             }
 
-            public static /* synthetic */ C0052a h() {
+            public static /* synthetic */ C0051a h() {
                 return j();
             }
 
@@ -10175,10 +10175,10 @@ public final class a {
                 }
             }
 
-            public static C0052a j() {
+            public static C0051a j() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new C0052a() : (C0052a) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new C0051a() : (C0051a) invokeV.objValue;
             }
 
             private void k() {
@@ -10193,7 +10193,7 @@ public final class a {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /* renamed from: a */
-            public C0052a clear() {
+            public C0051a clear() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -10212,10 +10212,10 @@ public final class a {
                     this.a &= -17;
                     return this;
                 }
-                return (C0052a) invokeV.objValue;
+                return (C0051a) invokeV.objValue;
             }
 
-            public C0052a a(long j) {
+            public C0051a a(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
@@ -10223,10 +10223,10 @@ public final class a {
                     this.e = j;
                     return this;
                 }
-                return (C0052a) invokeJ.objValue;
+                return (C0051a) invokeJ.objValue;
             }
 
-            public C0052a a(h hVar) {
+            public C0051a a(h hVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hVar)) == null) {
@@ -10237,10 +10237,10 @@ public final class a {
                     }
                     throw null;
                 }
-                return (C0052a) invokeL.objValue;
+                return (C0051a) invokeL.objValue;
             }
 
-            public C0052a a(r rVar) {
+            public C0051a a(r rVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, rVar)) == null) {
@@ -10251,13 +10251,13 @@ public final class a {
                     this.a |= 1;
                     return this;
                 }
-                return (C0052a) invokeL.objValue;
+                return (C0051a) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder
             /* renamed from: a */
-            public C0052a mergeFrom(y yVar) {
+            public C0051a mergeFrom(y yVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, yVar)) == null) {
@@ -10288,7 +10288,7 @@ public final class a {
                     }
                     return this;
                 }
-                return (C0052a) invokeL.objValue;
+                return (C0051a) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -10298,7 +10298,7 @@ public final class a {
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
-            public C0052a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            public C0051a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, codedInputStream, extensionRegistryLite)) == null) {
@@ -10330,10 +10330,10 @@ public final class a {
                         throw th;
                     }
                 }
-                return (C0052a) invokeLL.objValue;
+                return (C0051a) invokeLL.objValue;
             }
 
-            public C0052a a(Iterable<? extends c> iterable) {
+            public C0051a a(Iterable<? extends c> iterable) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, iterable)) == null) {
@@ -10341,10 +10341,10 @@ public final class a {
                     AbstractMessageLite.Builder.addAll(iterable, this.f);
                     return this;
                 }
-                return (C0052a) invokeL.objValue;
+                return (C0051a) invokeL.objValue;
             }
 
-            public C0052a a(String str) {
+            public C0051a a(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
@@ -10355,19 +10355,19 @@ public final class a {
                     }
                     throw null;
                 }
-                return (C0052a) invokeL.objValue;
+                return (C0051a) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
             /* renamed from: b */
-            public C0052a mo29clone() {
+            public C0051a mo29clone() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? j().mergeFrom(buildPartial()) : (C0052a) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? j().mergeFrom(buildPartial()) : (C0051a) invokeV.objValue;
             }
 
-            public C0052a b(h hVar) {
+            public C0051a b(h hVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, hVar)) == null) {
@@ -10378,7 +10378,7 @@ public final class a {
                     this.a |= 2;
                     return this;
                 }
-                return (C0052a) invokeL.objValue;
+                return (C0051a) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -10562,7 +10562,7 @@ public final class a {
                             int i4 = 1;
                             if (readTag != 0) {
                                 if (readTag == 202) {
-                                    r.C0049a builder = (this.c & 1) == 1 ? this.d.toBuilder() : null;
+                                    r.C0048a builder = (this.c & 1) == 1 ? this.d.toBuilder() : null;
                                     r rVar = (r) codedInputStream.readMessage(r.a, extensionRegistryLite);
                                     this.d = rVar;
                                     if (builder != null) {
@@ -10572,7 +10572,7 @@ public final class a {
                                     i = this.c;
                                 } else if (readTag == 330) {
                                     i4 = 2;
-                                    h.C0044a builder2 = (this.c & 2) == 2 ? this.e.toBuilder() : null;
+                                    h.C0043a builder2 = (this.c & 2) == 2 ? this.e.toBuilder() : null;
                                     h hVar = (h) codedInputStream.readMessage(h.a, extensionRegistryLite);
                                     this.e = hVar;
                                     if (builder2 != null) {
@@ -10642,10 +10642,10 @@ public final class a {
             this(builder);
         }
 
-        public static C0052a a(y yVar) {
+        public static C0051a a(y yVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, yVar)) == null) ? k().mergeFrom(yVar) : (C0052a) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, yVar)) == null) ? k().mergeFrom(yVar) : (C0051a) invokeL.objValue;
         }
 
         public static y a() {
@@ -10654,10 +10654,10 @@ public final class a {
             return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? b : (y) invokeV.objValue;
         }
 
-        public static C0052a k() {
+        public static C0051a k() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? C0052a.h() : (C0052a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? C0051a.h() : (C0051a) invokeV.objValue;
         }
 
         private void n() {
@@ -10797,19 +10797,19 @@ public final class a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         /* renamed from: l */
-        public C0052a newBuilderForType() {
+        public C0051a newBuilderForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? k() : (C0052a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? k() : (C0051a) invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         /* renamed from: m */
-        public C0052a toBuilder() {
+        public C0051a toBuilder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? a(this) : (C0052a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? a(this) : (C0051a) invokeV.objValue;
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite

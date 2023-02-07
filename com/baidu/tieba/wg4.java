@@ -1,69 +1,107 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.SQLException;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class wg4 {
+public abstract class wg4<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
 
-    public wg4(int i, int i2, int i3) {
+    public abstract ContentValues c(T t);
+
+    public abstract T d(Cursor cursor) throws SQLException;
+
+    public abstract List<T> e(Cursor cursor) throws SQLException;
+
+    public wg4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = i;
-        this.b = i2;
-        this.c = i3;
     }
 
-    public static wg4 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new wg4(2, 2, 1000);
-        }
-        return (wg4) invokeV.objValue;
-    }
-
-    @NonNull
-    public static wg4 b(@Nullable JSONObject jSONObject) {
+    public ContentValues a(uh4 uh4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject != null) {
-                return new wg4(jSONObject.optInt("max_num", 2), jSONObject.optInt("per_call_num", 2), jSONObject.optInt("call_interval", 1000));
-            }
-            return a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uh4Var)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("bundle_id", uh4Var.g);
+            contentValues.put("category", Integer.valueOf(uh4Var.h));
+            contentValues.put("version_name", uh4Var.j);
+            contentValues.put("version_code", Long.valueOf(uh4Var.i));
+            contentValues.put("size", Long.valueOf(uh4Var.k));
+            contentValues.put(PackageTable.MD5, uh4Var.l);
+            contentValues.put("sign", uh4Var.m);
+            contentValues.put(TTDownloadField.TT_DOWNLOAD_URL, uh4Var.n);
+            contentValues.put(PackageTable.FILE_PATH, uh4Var.a);
+            contentValues.put(PackageTable.CURRENT_SIZE, Long.valueOf(uh4Var.b));
+            contentValues.put("create_time", Long.valueOf(uh4Var.c));
+            contentValues.put("update_time", Long.valueOf(uh4Var.d));
+            contentValues.put("state", Integer.valueOf(uh4Var.e));
+            return contentValues;
         }
-        return (wg4) invokeL.objValue;
+        return (ContentValues) invokeL.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public boolean b(Cursor cursor, uh4 uh4Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "PkgDownloadLimitStrategy{maxNum=" + this.a + ", perCallNum=" + this.b + ", callInterval=" + this.c + '}';
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cursor, uh4Var)) == null) {
+            if (cursor != null) {
+                int columnIndex = cursor.getColumnIndex("bundle_id");
+                int columnIndex2 = cursor.getColumnIndex("category");
+                int columnIndex3 = cursor.getColumnIndex("version_name");
+                int columnIndex4 = cursor.getColumnIndex("version_code");
+                int columnIndex5 = cursor.getColumnIndex("size");
+                int columnIndex6 = cursor.getColumnIndex(PackageTable.MD5);
+                int columnIndex7 = cursor.getColumnIndex("sign");
+                int columnIndex8 = cursor.getColumnIndex(TTDownloadField.TT_DOWNLOAD_URL);
+                int columnIndex9 = cursor.getColumnIndex("_id");
+                int columnIndex10 = cursor.getColumnIndex(PackageTable.FILE_PATH);
+                int columnIndex11 = cursor.getColumnIndex(PackageTable.CURRENT_SIZE);
+                int columnIndex12 = cursor.getColumnIndex("create_time");
+                int columnIndex13 = cursor.getColumnIndex("update_time");
+                int columnIndex14 = cursor.getColumnIndex("state");
+                String string = cursor.getString(columnIndex);
+                if (TextUtils.isEmpty(string)) {
+                    return false;
+                }
+                uh4Var.g = string;
+                uh4Var.h = cursor.getInt(columnIndex2);
+                uh4Var.j = cursor.getString(columnIndex3);
+                uh4Var.i = cursor.getLong(columnIndex4);
+                uh4Var.k = cursor.getLong(columnIndex5);
+                uh4Var.l = cursor.getString(columnIndex6);
+                uh4Var.m = cursor.getString(columnIndex7);
+                uh4Var.n = cursor.getString(columnIndex8);
+                uh4Var.a = cursor.getString(columnIndex10);
+                uh4Var.b = cursor.getLong(columnIndex11);
+                uh4Var.c = cursor.getLong(columnIndex12);
+                uh4Var.d = cursor.getLong(columnIndex13);
+                uh4Var.f = cursor.getLong(columnIndex9);
+                uh4Var.e = cursor.getInt(columnIndex14);
+                return true;
+            }
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 }

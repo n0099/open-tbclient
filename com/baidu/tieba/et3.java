@@ -1,33 +1,25 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public interface et3 {
-    void a(FrameLayout frameLayout);
+public class et3 extends vs3 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void d(boolean z);
-
-    et3 e(Context context, @NonNull as3 as3Var);
-
-    void g(ys3 ys3Var);
-
-    int getCurrentPosition();
-
-    int getDuration();
-
-    void h(as3 as3Var);
-
-    boolean isEnd();
-
-    boolean isPlaying();
-
-    void mute(boolean z);
-
-    void pause();
-
-    void resume();
-
-    void stop();
+    public et3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

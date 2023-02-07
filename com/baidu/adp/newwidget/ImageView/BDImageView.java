@@ -19,12 +19,12 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.newwidget.ImageView.DrawerArgs;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
-import com.baidu.tieba.cl;
-import com.baidu.tieba.dl;
-import com.baidu.tieba.gl;
-import com.baidu.tieba.jn;
-import com.baidu.tieba.zi;
-import com.baidu.tieba.zk;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.el;
+import com.baidu.tieba.hl;
+import com.baidu.tieba.il;
+import com.baidu.tieba.ll;
+import com.baidu.tieba.on;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,14 +33,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 @SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes.dex */
-public abstract class BDImageView extends ImageView implements ViewTreeObserver.OnPreDrawListener, gl {
+public abstract class BDImageView extends ImageView implements ViewTreeObserver.OnPreDrawListener, ll {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public ImageView.ScaleType b;
     public ImageView.ScaleType c;
     public DrawerArgs d;
-    public zk e;
+    public el e;
     public boolean f;
     public boolean g;
     public boolean h;
@@ -48,7 +48,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
     public int j;
     public int k;
     public int l;
-    public cl m;
+    public hl m;
     public boolean n;
     public Drawable o;
     public Drawable p;
@@ -60,9 +60,9 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
         }
     }
 
-    public abstract jn getBdImage();
+    public abstract on getBdImage();
 
-    public abstract jn getDefaultBdImage();
+    public abstract on getDefaultBdImage();
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BDImageView(Context context) {
@@ -90,7 +90,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
         this.h = true;
         this.k = Integer.MAX_VALUE;
         this.l = Integer.MAX_VALUE;
-        this.m = new cl();
+        this.m = new hl();
         i(null);
     }
 
@@ -182,7 +182,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
         this.h = true;
         this.k = Integer.MAX_VALUE;
         this.l = Integer.MAX_VALUE;
-        this.m = new cl();
+        this.m = new hl();
         i(attributeSet);
     }
 
@@ -205,9 +205,9 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
                 this.m.c = false;
                 this.q = this.p;
             } else {
-                cl clVar = this.m;
-                clVar.a = null;
-                clVar.b = getDefaultBdImage();
+                hl hlVar = this.m;
+                hlVar.a = null;
+                hlVar.b = getDefaultBdImage();
                 this.m.c = true;
                 if (this.m.d()) {
                     scaleType = this.b;
@@ -314,7 +314,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048600, this, i) == null) && this.a != i) {
             this.a = i;
-            zk a = dl.b().a(this.a);
+            el a = il.b().a(this.a);
             this.e = a;
             a.r(this.d);
             this.h = true;
@@ -588,10 +588,10 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
         if (interceptable == null || interceptable.invokeL(1048586, this, attributeSet) == null) {
             if (attributeSet != null) {
                 TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.BDImageView);
-                this.d.a = j(obtainStyledAttributes.getDimensionPixelSize(11, zi.d(getContext(), 4.0f)));
+                this.d.a = j(obtainStyledAttributes.getDimensionPixelSize(11, ej.d(getContext(), 4.0f)));
                 this.d.b = obtainStyledAttributes.getBoolean(8, false);
                 this.d.c = obtainStyledAttributes.getBoolean(7, false);
-                this.d.d = obtainStyledAttributes.getDimensionPixelSize(3, zi.d(getContext(), 1.0f));
+                this.d.d = obtainStyledAttributes.getDimensionPixelSize(3, ej.d(getContext(), 1.0f));
                 this.d.e = obtainStyledAttributes.getColor(1, 201326592);
                 this.d.g = obtainStyledAttributes.getBoolean(2, false);
                 this.d.i = obtainStyledAttributes.getBoolean(16, true);
@@ -602,11 +602,11 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
                 this.n = obtainStyledAttributes.getBoolean(0, false);
                 obtainStyledAttributes.recycle();
             } else {
-                this.d.a = j(zi.d(getContext(), 4.0f));
-                this.d.d = zi.d(getContext(), 1.0f);
+                this.d.a = j(ej.d(getContext(), 4.0f));
+                this.d.d = ej.d(getContext(), 1.0f);
                 this.d.e = 201326592;
             }
-            zk a = dl.b().a(this.a);
+            el a = il.b().a(this.a);
             this.e = a;
             a.r(this.d);
         }

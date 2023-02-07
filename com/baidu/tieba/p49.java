@@ -1,34 +1,131 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.browser.BaseWebViewActivity;
-import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Timer;
+import java.util.TimerTask;
 /* loaded from: classes5.dex */
 public class p49 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Timer a;
+    public TimerTask b;
 
-    public static void a(TbPageContext<?> tbPageContext, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, tbPageContext, str) == null) {
-            b(tbPageContext, str, null);
+    /* loaded from: classes5.dex */
+    public class a extends TimerTask {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ p49 a;
+
+        /* renamed from: com.baidu.tieba.p49$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class RunnableC0372a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public RunnableC0372a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.a.a.b();
+                }
+            }
+        }
+
+        public a(p49 p49Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p49Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = p49Var;
+        }
+
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                gh.a().post(new RunnableC0372a(this));
+            }
         }
     }
 
-    public static void b(TbPageContext<?> tbPageContext, String str, Bundle bundle) {
+    public p49() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65537, null, tbPageContext, str, bundle) == null) && !StringUtils.isNull(str) && tbPageContext != null) {
-            if (bundle == null) {
-                bundle = new Bundle();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if (bundle.get(BaseWebViewActivity.BUNDLE_NEED_EXTRA_PARAM) == null) {
-                bundle.putBoolean(BaseWebViewActivity.BUNDLE_NEED_EXTRA_PARAM, false);
-            }
-            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str}, bundle);
         }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Timer timer = this.a;
+            if (timer != null) {
+                timer.cancel();
+                this.a = null;
+            }
+            TimerTask timerTask = this.b;
+            if (timerTask != null) {
+                timerTask.cancel();
+                this.b = null;
+            }
+        }
+    }
+
+    public void a() {
+        long j;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a != null) {
+            return;
+        }
+        this.a = new Timer();
+        a aVar = new a(this);
+        this.b = aVar;
+        Timer timer = this.a;
+        if (ju5.a()) {
+            j = 1000;
+        } else {
+            j = 2400000;
+        }
+        timer.schedule(aVar, j);
     }
 }

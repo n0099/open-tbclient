@@ -1,766 +1,217 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.JsonWriter;
-import android.util.Log;
-import android.util.SparseArray;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.logsystem.basic.upload.Constant;
-import com.baidu.searchbox.pms.db.PackageTable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.message.EvaluateRelevanceItemUpdatedMessage;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.write.write.relevance.RelevanceItemSearchData;
+import com.baidu.tieba.write.write.relevance.RelevanceItemSearchResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.UUID;
-import java.util.zip.GZIPInputStream;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class ml9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean t;
     public transient /* synthetic */ FieldHolder $fh;
-    public JSONArray a;
-    public SparseArray<Integer> b;
-    public ArrayList<String> c;
-    public Set<String> d;
-    public long e;
-    public long f;
-    public String g;
-    public boolean h;
-    public boolean i;
-    public int j;
-    public long k;
-    public int l;
-    public boolean m;
-    public int n;
-    public JsonWriter o;
-    public bm9 p;
-    public cm9 q;
-    public File r;
-    public String s;
+    public int a;
+    public BdUniqueId b;
+    public final String c;
+    public b d;
+    public List<String> e;
+    public HttpMessageListener f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947976655, "Lcom/baidu/tieba/ml9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a();
+
+        void c(RelevanceItemSearchData relevanceItemSearchData);
+
+        void d();
+
+        void onError(int i, String str);
+    }
+
+    /* loaded from: classes5.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ml9 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ml9 ml9Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947976655, "Lcom/baidu/tieba/ml9;");
-                return;
-            }
-        }
-        t = cl9.m();
-    }
-
-    public static ml9 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return new ml9();
-        }
-        return (ml9) invokeV.objValue;
-    }
-
-    public boolean A() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.i;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.h;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void C() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.i = true;
-        }
-    }
-
-    public final void D() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            j();
-            this.n = 3;
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.b.clear();
-            this.c.clear();
-            this.a = null;
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            j();
-            this.n = 0;
-        }
-    }
-
-    public Set<String> l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            return this.d;
-        }
-        return (Set) invokeV.objValue;
-    }
-
-    public long m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            return this.k;
-        }
-        return invokeV.longValue;
-    }
-
-    public JSONArray n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            return this.a;
-        }
-        return (JSONArray) invokeV.objValue;
-    }
-
-    public File o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            return this.r;
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public String p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            if (this.m && this.r.exists()) {
-                return this.r.getName();
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final ArrayList q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            return this.c;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public final SparseArray<Integer> r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            return this.b;
-        }
-        return (SparseArray) invokeV.objValue;
-    }
-
-    public long s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            return this.f;
-        }
-        return invokeV.longValue;
-    }
-
-    public long t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            return this.e;
-        }
-        return invokeV.longValue;
-    }
-
-    public int v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
-            return this.j;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
-            if (this.m && this.n == 3) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
-            return this.m;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
-            if (this.m) {
-                int i = this.n;
-                if ((i == 2 || i == 1) && this.j != 0) {
-                    return false;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ml9Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return true;
-            } else if (this.a.length() != 0) {
-                return false;
-            } else {
-                return true;
             }
+            this.a = ml9Var;
         }
-        return invokeV.booleanValue;
-    }
 
-    public boolean z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
-            if (this.j >= this.l) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public ml9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.d = new HashSet();
-        this.h = false;
-        this.i = false;
-        this.j = 0;
-        this.k = 0L;
-        this.l = 614400;
-        this.m = false;
-        this.n = 0;
-        this.o = null;
-        this.p = null;
-        this.q = null;
-        this.s = null;
-        this.a = new JSONArray();
-        this.b = new SparseArray<>();
-        this.c = new ArrayList<>();
-        this.e = 0L;
-        this.f = 0L;
-        this.g = "0";
-    }
-
-    public final void N() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            try {
-                bm9 bm9Var = new bm9(new FileOutputStream(this.r), 2);
-                this.p = bm9Var;
-                cm9 cm9Var = new cm9(bm9Var);
-                this.q = cm9Var;
-                JsonWriter jsonWriter = new JsonWriter(new OutputStreamWriter(cm9Var));
-                this.o = jsonWriter;
-                jsonWriter.beginObject();
-                this.o.name("data");
-                this.o.flush();
-                this.q.f();
-                this.o.beginArray();
-                this.n = 1;
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-                D();
-            } catch (IOException e2) {
-                e2.printStackTrace();
-                D();
-            }
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048596, this) != null) || !this.m) {
-            return;
-        }
-        JsonWriter jsonWriter = this.o;
-        if (jsonWriter != null) {
-            dm9.b(jsonWriter);
-            this.o = null;
-        }
-        cm9 cm9Var = this.q;
-        if (cm9Var != null) {
-            dm9.b(cm9Var);
-            this.q = null;
-            this.p = null;
-        }
-        File file = this.r;
-        if (file != null && file.exists()) {
-            em9.a(this.r);
-        }
-        this.b.clear();
-        this.c.clear();
-        this.r = null;
-        this.s = null;
-        this.j = 0;
-    }
-
-    public ml9(File file) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {file};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.d = new HashSet();
-        this.h = false;
-        this.i = false;
-        this.j = 0;
-        this.k = 0L;
-        this.l = 614400;
-        this.m = false;
-        this.n = 0;
-        this.o = null;
-        this.p = null;
-        this.q = null;
-        this.s = null;
-        this.a = new JSONArray();
-        this.b = new SparseArray<>();
-        this.c = new ArrayList<>();
-        this.e = 0L;
-        this.f = 0L;
-        this.g = "0";
-        if (file != null) {
-            this.r = file;
-            this.m = true;
-        }
-    }
-
-    public static ml9 h(Context context) {
-        InterceptResult invokeL;
-        File file;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            String str = context.getFilesDir() + File.separator + "ubcsenddir";
-            File file2 = new File(str);
-            if (!file2.exists() && !file2.mkdir()) {
-                return new ml9();
-            }
-            do {
-                file = new File(str, "upload_" + System.currentTimeMillis() + UUID.randomUUID().toString());
-            } while (file.exists());
-            return new ml9(file);
-        }
-        return (ml9) invokeL.objValue;
-    }
-
-    public void F(String str) {
-        GZIPInputStream gZIPInputStream;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && t) {
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            GZIPInputStream gZIPInputStream2 = null;
-            try {
-                try {
-                    gZIPInputStream = new GZIPInputStream(new am9(new FileInputStream(this.r), 0));
-                } catch (Throwable th) {
-                    th = th;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            RelevanceItemSearchData relevanceItemSearchData;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && this.a.d != null) {
+                if (httpResponsedMessage.getOrginalMessage() != null && httpResponsedMessage.getOrginalMessage().getTag() != this.a.b) {
+                    return;
                 }
-            } catch (FileNotFoundException e) {
-                e = e;
-            } catch (IOException e2) {
-                e = e2;
-            }
-            try {
-                byte[] bArr = new byte[4096];
-                while (true) {
-                    int read = gZIPInputStream.read(bArr, 0, 4096);
-                    if (read >= 0) {
-                        byteArrayOutputStream.write(bArr, 0, read);
-                    } else {
-                        String str2 = new String(byteArrayOutputStream.toByteArray());
-                        Log.d(str, "*************print upload log start***********");
-                        Log.d(str, str2);
-                        Log.d(str, "*************print upload log end***********");
-                        dm9.b(byteArrayOutputStream);
-                        dm9.b(gZIPInputStream);
-                        return;
+                if (httpResponsedMessage instanceof RelevanceItemSearchResponse) {
+                    relevanceItemSearchData = ((RelevanceItemSearchResponse) httpResponsedMessage).getResponseData();
+                } else {
+                    relevanceItemSearchData = null;
+                }
+                if (relevanceItemSearchData != null && relevanceItemSearchData.getData() != null) {
+                    if (!ListUtils.equalList(this.a.e, relevanceItemSearchData.getData().getTab_option())) {
+                        this.a.e = relevanceItemSearchData.getData().getTab_option();
+                        MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemUpdatedMessage(this.a.e));
                     }
+                    if (httpResponsedMessage.getError() == 0) {
+                        if (ListUtils.isEmpty(relevanceItemSearchData.getData().getItem_list())) {
+                            if (this.a.a == 1) {
+                                this.a.d.a();
+                                return;
+                            } else {
+                                this.a.d.d();
+                                return;
+                            }
+                        } else if (relevanceItemSearchData != null) {
+                            this.a.d.c(relevanceItemSearchData);
+                            if (this.a.a == 1 && relevanceItemSearchData.getData().getItem_list().size() < 20) {
+                                this.a.d.d();
+                            }
+                            ml9.f(this.a);
+                            return;
+                        } else {
+                            return;
+                        }
+                    }
+                    this.a.d.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                    this.a.l();
+                    return;
                 }
-            } catch (FileNotFoundException e3) {
-                e = e3;
-                gZIPInputStream2 = gZIPInputStream;
-                e.printStackTrace();
-                dm9.b(byteArrayOutputStream);
-                dm9.b(gZIPInputStream2);
-            } catch (IOException e4) {
-                e = e4;
-                gZIPInputStream2 = gZIPInputStream;
-                e.printStackTrace();
-                dm9.b(byteArrayOutputStream);
-                dm9.b(gZIPInputStream2);
-            } catch (Throwable th2) {
-                th = th2;
-                gZIPInputStream2 = gZIPInputStream;
-                dm9.b(byteArrayOutputStream);
-                dm9.b(gZIPInputStream2);
-                throw th;
+                MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemUpdatedMessage(null));
+                this.a.d.onError(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0cfe));
+                this.a.l();
             }
         }
     }
 
-    public ml9(File file, int i) {
+    public ml9(BdUniqueId bdUniqueId, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {file, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {bdUniqueId, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = new HashSet();
-        this.h = false;
-        this.i = false;
-        this.j = 0;
-        this.k = 0L;
-        this.l = 614400;
-        this.m = false;
-        this.n = 0;
-        this.o = null;
-        this.p = null;
-        this.q = null;
-        this.s = null;
-        this.r = file;
-        this.m = true;
-        this.j = i;
+        this.a = 1;
+        a aVar = new a(this, CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH);
+        this.f = aVar;
+        this.b = bdUniqueId;
+        this.c = str;
+        aVar.setTag(bdUniqueId);
+        k();
+        MessageManager.getInstance().registerListener(this.f);
     }
 
-    public final boolean c(zl9 zl9Var, int i) {
-        InterceptResult invokeLI;
-        JsonWriter jsonWriter;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048592, this, zl9Var, i)) == null) {
-            if (!this.m) {
-                try {
-                    b(zl9Var.a());
-                    G(zl9Var);
-                    E(i);
-                    return true;
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    return false;
-                }
-            }
-            if (this.n == 0) {
-                N();
-            }
-            if (this.n != 1 || (jsonWriter = this.o) == null) {
-                return false;
-            }
-            try {
-                zl9Var.b(jsonWriter);
-                G(zl9Var);
-                E(i);
-                return true;
-            } catch (IOException e2) {
-                e2.printStackTrace();
-                D();
-                return false;
-            }
-        }
-        return invokeLI.booleanValue;
+    public static /* synthetic */ int f(ml9 ml9Var) {
+        int i = ml9Var.a;
+        ml9Var.a = i + 1;
+        return i;
     }
 
-    public static ml9 g(File file, int i) {
-        InterceptResult invokeLI;
+    public void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, file, i)) == null) {
-            return new ml9(file, i);
-        }
-        return (ml9) invokeLI.objValue;
-    }
-
-    public final void I(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2) == null) {
-            this.b.put(i, Integer.valueOf(i2));
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            l();
+            i(str);
         }
     }
 
-    public final void E(int i) {
+    public void m(b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048580, this, i) != null) || i <= 0) {
-            return;
-        }
-        this.j += i;
-    }
-
-    public final void H(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && !this.c.contains(str)) {
-            this.c.add(str);
+        if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
+            this.d = bVar;
         }
     }
 
-    public void K(String str) {
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.g = str;
-        }
-    }
-
-    public void L(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.h = z;
-        }
-    }
-
-    public void M(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048588, this, i) != null) || i < 0) {
-            return;
-        }
-        this.l = i;
-    }
-
-    public void a(Set<String> set) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048590, this, set) == null) && !this.d.containsAll(set)) {
-            this.d.addAll(set);
-        }
-    }
-
-    public final void b(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, jSONObject) == null) {
-            this.a.put(jSONObject);
-        }
-    }
-
-    public boolean d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
-            if (this.j >= i) {
-                return true;
-            }
-            return false;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public final void G(zl9 zl9Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, zl9Var) != null) || zl9Var == null) {
-            return;
-        }
-        if (zl9Var instanceof ok9) {
-            H(((ok9) zl9Var).l());
-        } else if (zl9Var instanceof qk9) {
-            qk9 qk9Var = (qk9) zl9Var;
-            I(qk9Var.k(), Integer.parseInt(qk9Var.l()));
-        }
-    }
-
-    public final void J(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            long j3 = this.e;
-            if ((j < j3 || j3 == 0) && j != 0) {
-                this.e = j;
-            }
-            if (j2 > this.f) {
-                this.f = j2;
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH);
+            httpMessage.addParam("tab_name", this.c);
+            httpMessage.addParam("pn", this.a);
+            httpMessage.addParam("rn", 20);
+            httpMessage.setTag(this.b);
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
     public final void k() {
-        String str;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048597, this) != null) || !this.m) {
-            return;
-        }
-        if (this.j == 0) {
-            f();
-        }
-        if (this.n != 1) {
-            D();
-            return;
-        }
-        JsonWriter jsonWriter = this.o;
-        try {
-            if (jsonWriter != null) {
-                try {
-                    jsonWriter.endArray();
-                    this.o.flush();
-                    this.q.g();
-                    if (this.e == 0 || this.f == 0) {
-                        this.e = this.f;
-                    }
-                    String b = kl9.b(this.q.a(), "", true);
-                    if (!TextUtils.isEmpty(b)) {
-                        this.s = b;
-                    }
-                    if (t) {
-                        String c = this.q.c();
-                        if (TextUtils.isEmpty(c)) {
-                            Log.d("UBCUploadData", "**********UploadData content: " + c);
-                        }
-                    }
-                    this.o.name(TtmlNode.TAG_METADATA);
-                    this.o.beginObject();
-                    this.o.name("mintime").value(Long.toString(this.e));
-                    this.o.name("maxtime").value(Long.toString(this.f));
-                    this.o.name("createtime").value(Long.toString(System.currentTimeMillis()));
-                    this.o.name("uploadtime").value(Long.toString(System.currentTimeMillis()));
-                    this.o.name(PackageTable.MD5).value(b);
-                    this.o.endObject();
-                    this.o.name("isAbtest").value(this.g);
-                    JsonWriter name = this.o.name(Constant.IS_REAL);
-                    if (this.h) {
-                        str = "1";
-                    } else {
-                        str = "0";
-                    }
-                    name.value(str);
-                    this.o.endObject();
-                    this.o.flush();
-                    dm9.b(this.o);
-                    this.k = this.p.a();
-                    if (this.r.exists() && !TextUtils.isEmpty(this.s)) {
-                        File file = new File(this.r.getParentFile(), this.s);
-                        if (!file.exists()) {
-                            if (this.r.renameTo(file)) {
-                                this.r = file;
-                            } else if (t) {
-                                Log.e("UBCUploadData", "rename error for file: " + this.r.getAbsolutePath());
-                            }
-                        }
-                    }
-                    this.n = 2;
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    D();
-                }
-                dm9.b(this.o);
-                dm9.b(this.q);
-                this.o = null;
-                this.p = null;
-                this.q = null;
-            }
-        } catch (Throwable th) {
-            dm9.b(this.o);
-            dm9.b(this.q);
-            throw th;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH, TbConfig.SERVER_ADDRESS + TbConfig.RELEVANCE_ITEM_SEARCH_URL);
+            tbHttpMessageTask.setIsNeedAddCommenParam(true);
+            tbHttpMessageTask.setResponsedClass(RelevanceItemSearchResponse.class);
+            tbHttpMessageTask.setPriority(4);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
     }
 
-    public JSONObject u() {
-        InterceptResult invokeV;
-        String str;
+    public final void i(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject.put("data", this.a);
-                if (this.e == 0 || this.f == 0) {
-                    this.e = this.f;
-                }
-                jSONObject2.put("mintime", Long.toString(this.e));
-                jSONObject2.put("maxtime", Long.toString(this.f));
-                jSONObject2.put("createtime", Long.toString(System.currentTimeMillis()));
-                jSONObject2.put("uploadtime", Long.toString(System.currentTimeMillis()));
-                jSONObject2.put(PackageTable.MD5, kl9.c(this.a.toString().getBytes(), true));
-                jSONObject.put(TtmlNode.TAG_METADATA, jSONObject2);
-                jSONObject.put("isAbtest", this.g);
-                if (this.h) {
-                    str = "1";
-                } else {
-                    str = "0";
-                }
-                jSONObject.put(Constant.IS_REAL, str);
-            } catch (JSONException unused) {
-                if (t) {
-                    Log.d("UBCUploadData", "json exception:");
-                }
-            }
-            return jSONObject;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH);
+            httpMessage.addParam("tab_name", this.c);
+            httpMessage.addParam("keyword", str);
+            httpMessage.addParam("pn", this.a);
+            httpMessage.addParam("rn", 20);
+            httpMessage.setTag(this.b);
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
-        return (JSONObject) invokeV.objValue;
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            MessageManager.getInstance().removeMessage(this.b);
+            MessageManager.getInstance().unRegisterListener(this.b);
+        }
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.a = 1;
+        }
     }
 }

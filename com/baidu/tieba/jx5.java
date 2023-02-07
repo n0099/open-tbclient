@@ -1,81 +1,148 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.os.IBinder;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.frs.FrsNoListItemViewHolder;
+import android.view.Window;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.core.util.GreyUtil;
+import com.baidu.tieba.ad.download.rectify.DownloadRectifyView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class jx5 extends ln<xn6, FrsNoListItemViewHolder> {
+public class jx5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jx5(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), xn6.b);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes5.dex */
+    public static class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AlertDialog a;
+        public final /* synthetic */ Activity b;
+
+        public a(AlertDialog alertDialog, Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {alertDialog, activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = alertDialog;
+            this.b = activity;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                jx5.a(this.a, this.b);
             }
         }
-        this.a = (zi.j(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070308);
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.ln
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, xn6 xn6Var, FrsNoListItemViewHolder frsNoListItemViewHolder) {
-        t(i, view2, viewGroup, xn6Var, frsNoListItemViewHolder);
-        return view2;
+    public static final boolean a(Dialog dialog, Activity activity) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, dialog, activity)) == null) {
+            if (dialog == null || activity == null || activity.isFinishing() || activity.getWindow() == null || !b(activity.getWindow().getDecorView())) {
+                return false;
+            }
+            dialog.dismiss();
+            return true;
+        }
+        return invokeLL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: s */
-    public FrsNoListItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public static final boolean b(View view2) {
         InterceptResult invokeL;
+        IBinder windowToken;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.frs_no_list_item_view, viewGroup, false);
-            ViewGroup.LayoutParams generateLayoutParamsByParent = generateLayoutParamsByParent(viewGroup);
-            generateLayoutParamsByParent.width = -1;
-            generateLayoutParamsByParent.height = this.a;
-            inflate.setLayoutParams(generateLayoutParamsByParent);
-            return new FrsNoListItemViewHolder(inflate, viewGroup);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            if (view2 != null && (windowToken = view2.getWindowToken()) != null) {
+                try {
+                    if (windowToken.isBinderAlive()) {
+                        if (windowToken.pingBinder()) {
+                            return true;
+                        }
+                        return false;
+                    }
+                    return false;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return false;
+                }
+            }
+            return false;
         }
-        return (FrsNoListItemViewHolder) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public View t(int i, View view2, ViewGroup viewGroup, xn6 xn6Var, FrsNoListItemViewHolder frsNoListItemViewHolder) {
-        InterceptResult invokeCommon;
+    public static final boolean c(Dialog dialog, Activity activity) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, xn6Var, frsNoListItemViewHolder})) == null) {
-            frsNoListItemViewHolder.d.setText(R.string.no_data_common_txt);
-            SkinManager.setViewTextColor(frsNoListItemViewHolder.d, R.color.CAM_X0107, 1);
-            SkinManager.setImageResource(frsNoListItemViewHolder.e, R.drawable.new_pic_emotion_06);
-            return view2;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, dialog, activity)) == null) {
+            if (dialog == null || activity == null || activity.isFinishing()) {
+                return false;
+            }
+            if (activity.getWindow() != null && !activity.getWindow().isActive()) {
+                try {
+                    dialog.show();
+                    return true;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            if (activity.getWindow() != null && b(activity.getWindow().getDecorView())) {
+                try {
+                    dialog.show();
+                    return true;
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+            }
+            return false;
         }
-        return (View) invokeCommon.objValue;
+        return invokeLL.booleanValue;
+    }
+
+    public static Dialog d(@NonNull ix5 ix5Var, @NonNull View view2, @NonNull Activity activity, @Nullable DialogInterface.OnDismissListener onDismissListener, @Nullable DialogInterface.OnShowListener onShowListener) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65539, null, ix5Var, view2, activity, onDismissListener, onShowListener)) == null) {
+            AlertDialog create = new AlertDialog.Builder(activity, R.style.obfuscated_res_0x7f100107).create();
+            GreyUtil.grey(create);
+            create.setCanceledOnTouchOutside(true);
+            create.setOnDismissListener(onDismissListener);
+            create.setOnShowListener(onShowListener);
+            DownloadRectifyView downloadRectifyView = new DownloadRectifyView(activity);
+            downloadRectifyView.a(ix5Var);
+            downloadRectifyView.setDownloadView(view2);
+            downloadRectifyView.setOnCloseClickListener(new a(create, activity));
+            c(create, activity);
+            Window window = create.getWindow();
+            if (window != null) {
+                window.setGravity(80);
+                window.setLayout(-1, -2);
+                window.setContentView(downloadRectifyView);
+            }
+            return create;
+        }
+        return (Dialog) invokeLLLLL.objValue;
     }
 }

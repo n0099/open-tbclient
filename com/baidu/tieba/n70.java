@@ -1,102 +1,52 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.network.outback.core.MediaType;
-import com.baidu.searchbox.network.outback.core.Request;
-import com.baidu.searchbox.network.outback.core.RequestBody;
-import com.baidu.searchbox.network.outback.core.Response;
-import com.baidu.searchbox.network.support.cookie.Cookie;
-import com.baidu.searchbox.network.support.cookie.CookieHandler;
-import com.baidu.searchbox.network.support.cookie.CookieJar;
-import com.baidu.tieba.z60;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.util.List;
+import java.lang.reflect.Method;
 /* loaded from: classes5.dex */
-public final class n70 implements z60 {
+public class n70 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CookieJar a;
-    public e70 b;
 
-    public n70(CookieJar cookieJar, e70 e70Var) {
+    public n70() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cookieJar, e70Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = cookieJar;
-        this.b = e70Var;
     }
 
-    @Override // com.baidu.tieba.z60
-    public Response a(z60.a aVar) throws IOException {
-        InterceptResult invokeL;
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-            Request request = aVar.request();
-            request.getNetworkStatRecord().startTs = System.currentTimeMillis();
-            Request.Builder newBuilder = request.newBuilder();
-            newBuilder.removeHeader("bdapp-support-brotli");
-            RequestBody body = request.body();
-            if (body != null) {
-                MediaType contentType = body.contentType();
-                if (contentType != null) {
-                    newBuilder.header("Content-Type", contentType.toString());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            try {
+                Method declaredMethod = Class.forName("com.baidu.browser.sailor.util.BdZeusUtil", true, n70.class.getClassLoader()).getDeclaredMethod("isWebkitLoaded", new Class[0]);
+                declaredMethod.setAccessible(true);
+                boolean booleanValue = ((Boolean) declaredMethod.invoke(null, new Object[0])).booleanValue();
+                Method declaredMethod2 = Class.forName("com.baidu.webkit.internal.blink.WebSettingsGlobalBlink", true, n70.class.getClassLoader()).getDeclaredMethod("getChromiunNetInit", new Class[0]);
+                declaredMethod2.setAccessible(true);
+                if (!booleanValue) {
+                    return false;
                 }
-                long contentLength = body.contentLength();
-                if (contentLength != -1) {
-                    newBuilder.header("Content-Length", Long.toString(contentLength));
-                    newBuilder.removeHeader("Transfer-Encoding");
-                } else {
-                    newBuilder.header("Transfer-Encoding", "chunked");
-                    newBuilder.removeHeader("Content-Length");
+                if (!((Boolean) declaredMethod2.invoke(null, new Object[0])).booleanValue()) {
+                    return false;
                 }
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
             }
-            List<Cookie> loadForRequest = this.a.loadForRequest(request.url());
-            if (!loadForRequest.isEmpty()) {
-                newBuilder.header("Cookie", b(loadForRequest));
-            }
-            if (request.header("User-Agent") == null && this.b.C() != null) {
-                newBuilder.header("User-Agent", this.b.C());
-            }
-            Response a = aVar.a(newBuilder.build());
-            CookieHandler.receiveHeaders(this.a, request, a.headers());
-            return a.newBuilder().request(request).build();
         }
-        return (Response) invokeL.objValue;
-    }
-
-    public final String b(List<Cookie> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
-            StringBuilder sb = new StringBuilder();
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                if (i > 0) {
-                    sb.append("; ");
-                }
-                Cookie cookie = list.get(i);
-                sb.append(cookie.name());
-                sb.append(com.alipay.sdk.encrypt.a.h);
-                sb.append(cookie.value());
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 }

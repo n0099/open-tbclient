@@ -1,44 +1,81 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.base.BdBaseApplication;
+import android.text.TextUtils;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.searchbox.fluency.tracer.FpsTracer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class vh {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, int i, String str2, boolean z, boolean z2, long j, long j2, long j3, long j4, long j5, int i2) {
-        String str3;
+    public static void a(ArrayList<String> arrayList, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65536, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z), Boolean.valueOf(z2), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Integer.valueOf(i2)}) != null) || !BdBaseApplication.getInst().isSmallFlow()) {
-            return;
+        if (interceptable == null || interceptable.invokeLZ(65536, null, arrayList, z) == null) {
+            xc xcVar = new xc(BdStatisticsManager.getInstance().getWriteDir(), null, DiskFileOperate.Action.DELETE_FILES, arrayList);
+            xcVar.setSdCard(z);
+            xcVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+            rc.f().a(xcVar);
         }
-        gh statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
-        statsItem.b("action", "network_monitor_a");
-        statsItem.b("cmd", String.valueOf(i));
-        statsItem.b("url", str2);
-        String str4 = "1";
-        if (z) {
-            str3 = "1";
-        } else {
-            str3 = "0";
+    }
+
+    public static File[] b(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        File[] fileArr;
+        File[] listFiles;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            DiskFileOperate diskFileOperate = new DiskFileOperate(BdStatisticsManager.getInstance().getWriteDir(), null, DiskFileOperate.Action.INFO);
+            diskFileOperate.setSdCard(z);
+            diskFileOperate.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+            rc.f().call(diskFileOperate);
+            if (diskFileOperate.getFileInfo() != null && diskFileOperate.getFileInfo().listFiles() != null) {
+                fileArr = diskFileOperate.getFileInfo().listFiles();
+            } else {
+                fileArr = null;
+            }
+            if (z2) {
+                DiskFileOperate diskFileOperate2 = new DiskFileOperate(BdStatisticsManager.getInstance().getNotUploadWriteDir(), null, DiskFileOperate.Action.INFO);
+                diskFileOperate2.setSdCard(z);
+                diskFileOperate2.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+                rc.f().call(diskFileOperate2);
+                if (diskFileOperate2.getFileInfo() != null && (listFiles = diskFileOperate2.getFileInfo().listFiles()) != null && listFiles.length != 0) {
+                    if (fileArr != null && fileArr.length != 0) {
+                        File[] fileArr2 = new File[listFiles.length + fileArr.length];
+                        System.arraycopy(fileArr, 0, fileArr2, 0, fileArr.length);
+                        System.arraycopy(listFiles, 0, fileArr2, fileArr.length, listFiles.length);
+                        return fileArr2;
+                    }
+                    return listFiles;
+                }
+            }
+            return fileArr;
         }
-        statsItem.b("issuccess", str3);
-        if (!z2) {
-            str4 = "0";
+        return (File[]) invokeCommon.objValue;
+    }
+
+    public static ArrayList<xh> c(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
+            ArrayList<xh> arrayList = new ArrayList<>();
+            File[] b = b(z, true);
+            if (b != null) {
+                for (File file : b) {
+                    if (file.isFile()) {
+                        String name = file.getName();
+                        if (!TextUtils.isEmpty(name)) {
+                            arrayList.add(new xh(name, file.length(), file.lastModified()));
+                        }
+                    }
+                }
+            }
+            return arrayList;
         }
-        statsItem.b("ishttp", str4);
-        statsItem.b(FpsTracer.UBC_KEY_NET_TYPE, BdNetTypeUtil.getNetType());
-        statsItem.b("connt", String.valueOf(j));
-        statsItem.b("rwt", String.valueOf(j2));
-        statsItem.b("parset", String.valueOf(j3));
-        statsItem.b("fbt", String.valueOf(j4));
-        statsItem.b("abt", String.valueOf(j5));
-        statsItem.b("salno", String.valueOf(i2));
-        BdStatisticsManager.getInstance().performance(str, statsItem);
+        return (ArrayList) invokeZ.objValue;
     }
 }

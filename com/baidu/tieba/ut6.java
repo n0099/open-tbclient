@@ -1,9 +1,34 @@
 package com.baidu.tieba;
 
-import java.util.List;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.data.GodUserData;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface ut6 {
-    void a(int i, int i2, List<yn> list, List<xt6> list2, boolean z, boolean z2, int i3);
+public class ut6 implements zh7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public MetaData a;
 
-    void b(int i, int i2, String str);
+    public ut6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        MetaData metaData = new MetaData();
+        this.a = metaData;
+        if (metaData.getGodUserData() == null) {
+            this.a.setGodUserData(new GodUserData());
+        }
+    }
 }

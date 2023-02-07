@@ -1,83 +1,79 @@
 package com.baidu.tieba;
 
+import android.app.ActivityManager;
+import android.content.Context;
+import android.os.Process;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.monitor.MonitorType;
-import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
-import com.baidu.webkit.sdk.Log;
-import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
-import org.json.JSONObject;
+import com.baidu.webkit.sdk.WebViewFactory;
+import java.util.List;
 /* loaded from: classes6.dex */
 public final class ww {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
-    public xw a;
-    public JSONObject b;
-    public JSONObject c;
-    public boolean d;
 
-    public ww() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.c == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448321229, "Lcom/baidu/tieba/ww;")) == null) {
             return;
         }
-        SessionMonitorEngine.getInstance().recordImmediately(ZeusPerformanceTiming.SERVER_TYPE_T7_INIT, this.c.toString());
-        this.c = null;
-    }
-
-    public final void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            try {
-                if (this.b == null) {
-                    JSONObject jSONObject = new JSONObject();
-                    this.b = jSONObject;
-                    jSONObject.put("type", MonitorType.MONITOR_TYPE_INIT_WEBKIT);
-                }
-                if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                    return;
-                }
-                this.b.put(str, str2);
-            } catch (Exception unused) {
-                Log.e("staticWebkitInit JSON error");
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448321229, "Lcom/baidu/tieba/ww;");
         }
     }
 
-    public final void c(String str, String str2) {
+    public static ActivityManager.RunningAppProcessInfo a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            try {
-                if (this.c == null) {
-                    JSONObject jSONObject = new JSONObject();
-                    this.c = jSONObject;
-                    jSONObject.put("type", MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            int myPid = Process.myPid();
+            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
+            if (runningAppProcesses != null && !runningAppProcesses.isEmpty()) {
+                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
+                    if (runningAppProcessInfo != null && runningAppProcessInfo.pid == myPid) {
+                        return runningAppProcessInfo;
+                    }
                 }
-                if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                    return;
-                }
-                this.c.put(str, str2);
-            } catch (Exception unused) {
-                Log.e("mWebkitDownloadStatics JSON error");
+                return null;
             }
+            return null;
         }
+        return (ActivityManager.RunningAppProcessInfo) invokeL.objValue;
+    }
+
+    public static String b(Context context) {
+        InterceptResult invokeL;
+        ActivityManager.RunningAppProcessInfo a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (TextUtils.isEmpty(a) && (a2 = a(context)) != null) {
+                a = a2.processName;
+            }
+            return a;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            String b = b(context);
+            if (b != null && b.equals(WebViewFactory.CHROMIUM_HOST_APP)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

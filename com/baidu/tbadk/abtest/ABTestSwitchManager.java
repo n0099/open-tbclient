@@ -7,7 +7,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.compatible.EditorHelper;
-import com.baidu.tieba.cz4;
+import com.baidu.tieba.p35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -204,11 +204,11 @@ public class ABTestSwitchManager {
                     this.mSwitchs.putAll(hashMap);
                 }
                 EditorHelper.putString(getSharedPreferences(), PREF_KEY_SWITCHS, jSONArray.toString());
-                cz4 l = cz4.l();
+                p35 m = p35.m();
                 if (isATest(ABTestConst.KEY_PERF_START_TEST)) {
                     i = 1;
                 }
-                l.x("perf_start_open", i);
+                m.z("perf_start_open", i);
             } catch (Exception e) {
                 e.printStackTrace();
             }

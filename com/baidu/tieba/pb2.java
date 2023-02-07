@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,93 +8,62 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class pb2 {
+public class pb2 extends zw1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public int b;
-    public final wg4 c;
-    public long d;
 
-    public pb2(@NonNull String str, @NonNull wg4 wg4Var) {
+    @Override // com.baidu.tieba.zw1
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Preload" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.zw1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "PreloadStatusApi" : (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pb2(@NonNull xw1 xw1Var) {
+        super(xw1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, wg4Var};
+            Object[] objArr = {xw1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((xw1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = 0;
-        this.d = 0L;
-        this.a = str;
-        this.c = wg4Var;
     }
 
-    public boolean a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i > this.c.b) {
-                return false;
-            }
-            boolean e = e();
-            if (!e) {
-                this.b++;
-            }
-            return !e;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public boolean d(String str) {
+    public w02 x(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return TextUtils.equals(str, this.a);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.d >= this.c.c) {
-                this.d = currentTimeMillis;
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#preloadStatus", false);
+            if (w83.b0() == null) {
+                return new w02(1001, "SwanApp is null");
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.b >= this.c.a) {
-                return true;
+            Pair<w02, JSONObject> s = s(str);
+            w02 w02Var = (w02) s.first;
+            if (!w02Var.isSuccess()) {
+                return w02Var;
             }
-            return false;
+            mb2.c().j((JSONObject) s.second);
+            return w02.f();
         }
-        return invokeV.booleanValue;
+        return (w02) invokeL.objValue;
     }
 }

@@ -1,145 +1,216 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.wifi.WifiConfiguration;
-import android.net.wifi.WifiEnterpriseConfig;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
+import com.baidu.tieba.tt2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.nio.charset.StandardCharsets;
-import java.util.List;
 /* loaded from: classes5.dex */
 public class kf3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static volatile boolean b;
+    public static volatile boolean c;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static WifiConfiguration a(hf3 hf3Var) {
-        InterceptResult invokeL;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947911121, "Lcom/baidu/tieba/kf3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947911121, "Lcom/baidu/tieba/kf3;");
+                return;
+            }
+        }
+        a = gp1.a;
+        b = false;
+        c = false;
+        ds2.g0().getSwitch("swan_app_use_route_statistic", false);
+        d = false;
+    }
+
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, hf3Var)) == null) {
-            int b = lf3.b(hf3Var);
-            if (!f(hf3Var.a)) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a) {
+                Log.d("SwanAppRouteUbc", "mIsStartByApi = " + c);
+            }
+            boolean z = c;
+            k(false);
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a) {
+                Log.d("SwanAppRouteUbc", "mIsStartFirstPage = " + b);
+            }
+            boolean z = b;
+            l(false);
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void d(wy2 wy2Var, String str, nv1 nv1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, wy2Var, str, nv1Var) == null) {
+            e(wy2Var, str, nv1Var, null);
+        }
+    }
+
+    public static void e(wy2 wy2Var, String str, nv1 nv1Var, String str2) {
+        w83 b0;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLLL(65541, null, wy2Var, str, nv1Var, str2) != null) || !d || (b0 = w83.b0()) == null) {
+            return;
+        }
+        tt2.a W = b0.W();
+        zf3 zf3Var = new zf3();
+        zf3Var.a = pf3.n(W.G());
+        zf3Var.f = W.H();
+        if (n62.d()) {
+            zf3Var.c = "remote-debug";
+        } else if (v43.D()) {
+            zf3Var.c = "local-debug";
+        } else {
+            zf3Var.c = W.T();
+        }
+        zf3Var.b = "pageshow";
+        if (!TextUtils.isEmpty(str)) {
+            zf3Var.e = str;
+        }
+        if (wy2Var != null) {
+            zf3Var.a("path", wy2Var.a);
+            zf3Var.a("routeType", wy2Var.e);
+            zf3Var.a("routeid", wy2Var.f);
+        }
+        if (!TextUtils.isEmpty(str2)) {
+            zf3Var.a("errcode", str2);
+        }
+        if (nv1Var != null && nv1Var.c > 0) {
+            zf3Var.a("valuetype", nv1Var.g);
+        }
+        Bundle P = W.P();
+        if (P != null) {
+            zf3Var.d(P.getString(UBCCloudControlProcessor.UBC_KEY));
+        }
+        zf3Var.b(pf3.k(W.W()));
+        if (a) {
+            Log.d("SwanAppRouteUbc", "onRouteEvent - " + zf3Var.f());
+        }
+        pf3.onEvent(zf3Var);
+    }
+
+    public static wy2 f(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, str, i)) == null) {
+            f82 V = ju2.U().V();
+            wy2 wy2Var = null;
+            if (V == null) {
                 return null;
             }
-            WifiConfiguration wifiConfiguration = new WifiConfiguration();
-            wifiConfiguration.SSID = "\"" + hf3Var.a + "\"";
-            if (!TextUtils.isEmpty(hf3Var.b)) {
-                wifiConfiguration.BSSID = hf3Var.b;
+            c82 j = V.j((V.k() - i) - 1);
+            if (j instanceof e82) {
+                wy2Var = ((e82) j).m3();
+                wy2Var.e = "1";
+                wy2Var.f = str;
             }
-            if (b != 0) {
-                if (b != 1) {
-                    if (b != 2) {
-                        if (b == 3) {
-                            lf3.d(wifiConfiguration, 3);
-                            WifiEnterpriseConfig wifiEnterpriseConfig = new WifiEnterpriseConfig();
-                            wifiEnterpriseConfig.setEapMethod(0);
-                            wifiEnterpriseConfig.setIdentity(hf3Var.c);
-                            wifiEnterpriseConfig.setPassword(hf3Var.d);
-                            wifiConfiguration.enterpriseConfig = wifiEnterpriseConfig;
-                        }
-                    } else {
-                        lf3.d(wifiConfiguration, 2);
-                        wifiConfiguration.preSharedKey = "\"" + hf3Var.d + "\"";
-                    }
-                } else {
-                    lf3.d(wifiConfiguration, 1);
-                    String[] strArr = wifiConfiguration.wepKeys;
-                    strArr[0] = "\"" + hf3Var.d + "\"";
-                }
-            } else {
-                lf3.d(wifiConfiguration, 0);
-            }
-            return wifiConfiguration;
+            g(wy2Var);
+            return wy2Var;
         }
-        return (WifiConfiguration) invokeL.objValue;
+        return (wy2) invokeLI.objValue;
     }
 
-    public static WifiConfiguration b(Context context, WifiManager wifiManager, WifiInfo wifiInfo) {
-        InterceptResult invokeLLL;
-        List<WifiConfiguration> d;
+    public static void g(wy2 wy2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, wifiManager, wifiInfo)) == null) {
-            if (wifiInfo != null && f(wifiInfo.getSSID()) && (d = d(context, wifiManager)) != null) {
-                for (WifiConfiguration wifiConfiguration : d) {
-                    if (TextUtils.equals(e(wifiConfiguration.SSID), e(wifiInfo.getSSID()))) {
-                        return wifiConfiguration;
-                    }
-                }
+        if (interceptable == null || interceptable.invokeL(65543, null, wy2Var) == null) {
+            if (a) {
+                Log.d("SwanAppRouteUbc", "recordRouteAllByApi");
             }
-            return null;
+            if (!c()) {
+                k(true);
+                d(wy2Var, null, null);
+            }
         }
-        return (WifiConfiguration) invokeLLL.objValue;
     }
 
-    public static WifiConfiguration c(Context context, WifiManager wifiManager, hf3 hf3Var) {
-        InterceptResult invokeLLL;
-        List<WifiConfiguration> d;
+    public static void h(wy2 wy2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, wifiManager, hf3Var)) == null) {
-            if (hf3Var != null && f(hf3Var.a) && (d = d(context, wifiManager)) != null) {
-                for (WifiConfiguration wifiConfiguration : d) {
-                    if (TextUtils.equals(e(wifiConfiguration.SSID), hf3Var.a)) {
-                        return wifiConfiguration;
-                    }
-                }
+        if (interceptable == null || interceptable.invokeL(65544, null, wy2Var) == null) {
+            if (a) {
+                Log.d("SwanAppRouteUbc", "recordRouteAllByResume");
             }
-            return null;
+            d(wy2Var, null, null);
         }
-        return (WifiConfiguration) invokeLLL.objValue;
     }
 
-    public static List<WifiConfiguration> d(Context context, WifiManager wifiManager) {
-        InterceptResult invokeLL;
+    public static void i(wy2 wy2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, wifiManager)) == null) {
-            if (wifiManager == null) {
-                return null;
-            }
-            try {
-                if (ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.p0.h.g) != 0) {
-                    return null;
-                }
-                return wifiManager.getConfiguredNetworks();
-            } catch (Exception e) {
-                j12.b("SwanWifiUtils", Log.getStackTraceString(e));
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeL(65545, null, wy2Var) == null) {
+            j(wy2Var, null);
         }
-        return (List) invokeLL.objValue;
     }
 
-    public static String e(String str) {
-        InterceptResult invokeL;
-        int length;
+    public static synchronized void k(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && (length = str.length()) > 1 && str.charAt(0) == '\"') {
-                int i = length - 1;
-                if (str.charAt(i) == '\"') {
-                    return str.substring(1, i);
-                }
-                return str;
+        if (interceptable == null || interceptable.invokeZ(65547, null, z) == null) {
+            synchronized (kf3.class) {
+                c = z;
             }
-            return str;
         }
-        return (String) invokeL.objValue;
     }
 
-    public static boolean f(String str) {
-        InterceptResult invokeL;
+    public static synchronized void l(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && !str.equals("<unknown ssid>")) {
-                return StandardCharsets.UTF_8.newEncoder().canEncode(str);
+        if (interceptable == null || interceptable.invokeZ(65548, null, z) == null) {
+            synchronized (kf3.class) {
+                b = z;
             }
-            return false;
         }
-        return invokeL.booleanValue;
+    }
+
+    public static void j(wy2 wy2Var, pk3 pk3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65546, null, wy2Var, pk3Var) == null) {
+            if (a) {
+                Log.d("SwanAppRouteUbc", "recordRouteFailByApi - pageParam=" + wy2Var + " errCode=" + pk3Var);
+            }
+            if (c) {
+                if (pk3Var == null) {
+                    pk3Var = new pk3();
+                    pk3Var.k(5L);
+                    pk3Var.i(58L);
+                    pk3Var.d("route check fail");
+                }
+                e(wy2Var, com.baidu.pass.biometrics.face.liveness.b.a.g0, null, String.valueOf(pk3Var.a()));
+            }
+        }
     }
 }

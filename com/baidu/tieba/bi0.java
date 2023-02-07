@@ -1,97 +1,39 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.FloatRange;
-import androidx.core.content.ContextCompat;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.iq0;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class bi0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Inject(force = false)
+    public ck1<ao0> a;
 
-    public static boolean a(iq0 iq0Var) {
-        InterceptResult invokeL;
-        iq0.b bVar;
-        iq0.a aVar;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, iq0Var)) == null) {
-            if (iq0Var == null) {
-                return false;
-            }
-            if (TextUtils.isEmpty(iq0Var.f) && TextUtils.isEmpty(iq0Var.d) && (((bVar = iq0Var.g) == null || TextUtils.isEmpty(bVar.a)) && ((aVar = iq0Var.h) == null || TextUtils.isEmpty(aVar.a)))) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ak1 b = ak1.b();
+            this.a = b;
+            b.a(new bo0());
         }
-        return invokeL.booleanValue;
     }
 
-    public static int b(float f, int i, int i2) {
-        InterceptResult invokeCommon;
+    public bi0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            if (i == i2) {
-                return i;
-            }
-            if (f <= 0.0f) {
-                return i;
-            }
-            if (f >= 1.0f) {
-                return i2;
-            }
-            int red = Color.red(i);
-            int blue = Color.blue(i);
-            int green = Color.green(i);
-            int alpha = Color.alpha(i);
-            return Color.argb((int) (alpha + (f * (Color.alpha(i2) - alpha))), (int) (red + ((Color.red(i2) - red) * f)), (int) (green + ((Color.green(i2) - green) * f)), (int) (blue + ((Color.blue(i2) - blue) * f)));
-        }
-        return invokeCommon.intValue;
-    }
-
-    public static String c(@FloatRange(from = 0.0d, to = 1.0d) float f, String str) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f), str})) == null) {
-            String hexString = Integer.toHexString(Math.round(f * 255.0f));
-            if (hexString.length() < 2) {
-                hexString = "0" + hexString;
-            }
-            if (hexString.length() != 2) {
-                return "";
-            }
-            return "#" + hexString + str;
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static int d(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, str, i)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return ContextCompat.getColor(ej0.b(), i);
-            }
-            try {
-                return Color.parseColor(str);
-            } catch (IllegalArgumentException unused) {
-                return ContextCompat.getColor(ej0.b(), i);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeLI.intValue;
-    }
-
-    public static void e(View view2) {
-        ViewGroup viewGroup;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2) == null) && view2 != null && (viewGroup = (ViewGroup) view2.getParent()) != null) {
-            viewGroup.removeView(view2);
-        }
+        a();
     }
 }

@@ -1,15 +1,19 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.widget.ImageView;
+import android.graphics.drawable.BitmapDrawable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class hl extends bl {
+public class hl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BitmapDrawable a;
+    public on b;
+    public volatile boolean c;
 
     public hl() {
         Interceptable interceptable = $ic;
@@ -21,16 +25,85 @@ public class hl extends bl {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = true;
     }
 
-    @Override // com.baidu.tieba.bl, com.baidu.tieba.zk
-    public void h(Canvas canvas, cl clVar, ImageView imageView) {
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, canvas, clVar, imageView) == null) {
-            this.c.setColorFilter(null);
-            super.h(canvas, clVar, imageView);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (e()) {
+                return this.a.getIntrinsicHeight();
+            }
+            if (d()) {
+                return this.b.m();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (e()) {
+                return this.a.getIntrinsicWidth();
+            }
+            if (d()) {
+                return this.b.r();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!e() && !d()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            on onVar = this.b;
+            if (onVar != null && onVar.w()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            BitmapDrawable bitmapDrawable = this.a;
+            if (bitmapDrawable != null && bitmapDrawable.getBitmap() != null && !this.a.getBitmap().isRecycled()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.b = null;
+            this.a = null;
         }
     }
 }

@@ -1,48 +1,119 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.tieba.sr2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes4.dex */
-public class d62 implements zb2 {
+public class d62 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
+    public static final String b;
+    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public d62() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947656425, "Lcom/baidu/tieba/d62;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947656425, "Lcom/baidu/tieba/d62;");
+                return;
             }
         }
+        a = "__localDebug__" + File.separator + "master.js";
+        b = "__localDebug__" + File.separator + "main.js";
+        c = "__localDebug__" + File.separator + "slave.js";
     }
 
-    @Override // com.baidu.tieba.zb2
-    public String getUserAgent() {
+    public static sr2.g a(tt2 tt2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, tt2Var)) == null) {
+            File d = d();
+            f62.e().f("unzipstart");
+            sr2.M(b(), d, tt2Var);
+            f62.e().f("unzipend");
+            sr2.g gVar = new sr2.g();
+            File file = new File(d, "app.json");
+            SwanAppConfigData b2 = i93.b(d.getAbsolutePath());
+            gVar.a = d.getPath() + File.separator;
+            gVar.b = b2;
+            w52.k("LocalDebugBundleHelper", "configFile path: " + file.getPath() + " exist: " + file.exists() + " info.mAppBundlePath path: " + gVar.a);
+            return gVar;
+        }
+        return (sr2.g) invokeL.objValue;
+    }
+
+    public static File b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return ig3.a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new File(c(), "local_debug.swan");
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public static File c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            File file = new File(AppRuntime.getAppContext().getFilesDir(), "swan_local_debug_zip");
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            return file;
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public static File d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            File file = new File(AppRuntime.getAppContext().getFilesDir(), "swan_local_debug");
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            return file;
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return d() + File.separator + a;
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.zb2
-    public rb2 a(String str, oc2 oc2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
-        InterceptResult invokeLLL;
+    public static String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, oc2Var, v8ThreadDelegatePolicy)) == null) {
-            return new c62(str, oc2Var, v8ThreadDelegatePolicy);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return d() + File.separator + c;
         }
-        return (rb2) invokeLLL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return new File(AppRuntime.getAppContext().getFilesDir(), "swan_local_debug").exists();
+        }
+        return invokeV.booleanValue;
     }
 }

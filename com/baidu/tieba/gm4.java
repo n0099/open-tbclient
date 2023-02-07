@@ -1,66 +1,127 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
-import android.webkit.WebResourceResponse;
+import android.app.Activity;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import androidx.annotation.NonNull;
-import androidx.annotation.WorkerThread;
-import androidx.webkit.WebViewAssetLoader;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
 /* loaded from: classes4.dex */
-public final class gm4 implements WebViewAssetLoader.PathHandler {
+public class gm4 extends zm4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final File a;
 
-    public gm4(@NonNull Context context, @NonNull File file) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, file};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes4.dex */
+    public interface b {
+        void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr);
+    }
+
+    /* loaded from: classes4.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String[] a;
+        public final /* synthetic */ Activity b;
+        public final /* synthetic */ int c;
+
+        public a(String[] strArr, Activity activity, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {strArr, activity, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
+            this.a = strArr;
+            this.b = activity;
+            this.c = i;
         }
-        try {
-            this.a = new File(fm4.a(file));
-        } catch (IOException e) {
-            throw new IllegalArgumentException("Failed to resolve the canonical path for the given directory: " + file.getPath(), e);
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int[] iArr = new int[this.a.length];
+                PackageManager packageManager = this.b.getPackageManager();
+                String packageName = this.b.getPackageName();
+                int length = this.a.length;
+                for (int i = 0; i < length; i++) {
+                    iArr[i] = packageManager.checkPermission(this.a[i], packageName);
+                }
+                ((b) this.b).onRequestPermissionsResult(this.c, this.a, iArr);
+            }
         }
     }
 
-    @Override // androidx.webkit.WebViewAssetLoader.PathHandler
-    @NonNull
-    @WorkerThread
-    public WebResourceResponse handle(@NonNull String str) {
-        InterceptResult invokeL;
-        File b;
+    public static void e(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            try {
-                b = fm4.b(this.a, str);
-            } catch (IOException e) {
-                Log.e("ExtStoragePathHandler", "Error opening the requested path: " + str, e);
+        if (interceptable == null || interceptable.invokeL(65536, null, activity) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                hm4.a(activity);
+            } else {
+                activity.finish();
             }
-            if (b != null) {
-                return new WebResourceResponse(fm4.c(str), null, fm4.e(b));
-            }
-            Log.e("ExtStoragePathHandler", String.format("The requested file: %s is outside the mounted directory: %s", str, this.a));
-            return new WebResourceResponse(null, null, null);
         }
-        return (WebResourceResponse) invokeL.objValue;
+    }
+
+    public static boolean f(@NonNull Activity activity, @NonNull String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, activity, str)) == null) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                return im4.a(activity, str);
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void requestPermissions(@NonNull Activity activity, @NonNull String[] strArr, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65538, null, activity, strArr, i) == null) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                im4.requestPermissions(activity, strArr, i);
+            } else if (activity instanceof b) {
+                new Handler(Looper.getMainLooper()).post(new a(strArr, activity, i));
+            }
+        }
+    }
+
+    public static void startActivity(Activity activity, Intent intent, @Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, activity, intent, bundle) == null) {
+            if (Build.VERSION.SDK_INT >= 16) {
+                km4.startActivity(activity, intent, bundle);
+            } else {
+                activity.startActivity(intent);
+            }
+        }
+    }
+
+    public static void startActivityForResult(Activity activity, Intent intent, int i, @Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, intent, i, bundle) == null) {
+            if (Build.VERSION.SDK_INT >= 16) {
+                km4.startActivityForResult(activity, intent, i, bundle);
+            } else {
+                activity.startActivityForResult(intent, i);
+            }
+        }
     }
 }

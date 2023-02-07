@@ -5,6 +5,7 @@ import android.os.Build;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
+import androidx.core.net.MailTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.room.ColumnInfo;
 import androidx.sqlite.db.SupportSQLiteDatabase;
@@ -490,7 +491,7 @@ public class TableInfo {
             int columnIndex = cursor.getColumnIndex("id");
             int columnIndex2 = cursor.getColumnIndex("seq");
             int columnIndex3 = cursor.getColumnIndex("from");
-            int columnIndex4 = cursor.getColumnIndex("to");
+            int columnIndex4 = cursor.getColumnIndex(MailTo.TO);
             int count = cursor.getCount();
             ArrayList arrayList = new ArrayList();
             for (int i = 0; i < count; i++) {

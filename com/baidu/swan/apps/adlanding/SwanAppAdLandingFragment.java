@@ -31,41 +31,41 @@ import com.baidu.swan.game.ad.downloader.model.DownloadParams;
 import com.baidu.swan.game.ad.downloader.model.DownloadState;
 import com.baidu.swan.support.v4.app.FragmentActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a53;
-import com.baidu.tieba.ai3;
-import com.baidu.tieba.b43;
-import com.baidu.tieba.bt2;
+import com.baidu.tieba.a83;
 import com.baidu.tieba.ct2;
-import com.baidu.tieba.di3;
-import com.baidu.tieba.er1;
-import com.baidu.tieba.fr1;
-import com.baidu.tieba.gr1;
-import com.baidu.tieba.hh3;
-import com.baidu.tieba.hr1;
-import com.baidu.tieba.it3;
-import com.baidu.tieba.j43;
-import com.baidu.tieba.jt3;
-import com.baidu.tieba.ju2;
-import com.baidu.tieba.ks3;
-import com.baidu.tieba.m33;
-import com.baidu.tieba.n33;
-import com.baidu.tieba.po2;
-import com.baidu.tieba.ps3;
-import com.baidu.tieba.qn2;
-import com.baidu.tieba.rj3;
-import com.baidu.tieba.rs3;
-import com.baidu.tieba.sq1;
-import com.baidu.tieba.ss3;
-import com.baidu.tieba.tk1;
-import com.baidu.tieba.tt3;
-import com.baidu.tieba.u52;
-import com.baidu.tieba.us3;
-import com.baidu.tieba.w52;
-import com.baidu.tieba.x22;
-import com.baidu.tieba.x32;
-import com.baidu.tieba.x52;
-import com.baidu.tieba.xc3;
-import com.baidu.tieba.y43;
+import com.baidu.tieba.cx3;
+import com.baidu.tieba.ds2;
+import com.baidu.tieba.eo3;
+import com.baidu.tieba.ex3;
+import com.baidu.tieba.fv1;
+import com.baidu.tieba.fx3;
+import com.baidu.tieba.gp1;
+import com.baidu.tieba.gy3;
+import com.baidu.tieba.ha2;
+import com.baidu.tieba.hx3;
+import com.baidu.tieba.ja2;
+import com.baidu.tieba.k72;
+import com.baidu.tieba.k82;
+import com.baidu.tieba.ka2;
+import com.baidu.tieba.kh3;
+import com.baidu.tieba.l93;
+import com.baidu.tieba.n93;
+import com.baidu.tieba.nm3;
+import com.baidu.tieba.o83;
+import com.baidu.tieba.ox2;
+import com.baidu.tieba.px2;
+import com.baidu.tieba.qm3;
+import com.baidu.tieba.rv1;
+import com.baidu.tieba.sv1;
+import com.baidu.tieba.tv1;
+import com.baidu.tieba.ul3;
+import com.baidu.tieba.uv1;
+import com.baidu.tieba.vx3;
+import com.baidu.tieba.w83;
+import com.baidu.tieba.wx3;
+import com.baidu.tieba.wy2;
+import com.baidu.tieba.xw3;
+import com.baidu.tieba.z73;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -79,64 +79,64 @@ import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class SwanAppAdLandingFragment extends x32 implements us3 {
+public class SwanAppAdLandingFragment extends k82 implements hx3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean M1;
+    public static final boolean N1;
     public transient /* synthetic */ FieldHolder $fh;
-    public String A1;
-    public hr1 B1;
-    public String C1;
+    public int A1;
+    public String B1;
+    public uv1 C1;
     public String D1;
-    public TextView E1;
-    public String F1;
-    public n33 G1;
-    public View H1;
-    public String I1;
+    public String E1;
+    public TextView F1;
+    public String G1;
+    public a83 H1;
+    public View I1;
     public String J1;
-    public ss3 K1;
-    public View.OnClickListener L1;
-    public String M0;
-    public LandingType N0;
-    public bt2 O0;
-    public tt3 P0;
-    public FrameLayout Q0;
-    public String R0;
+    public String K1;
+    public fx3 L1;
+    public View.OnClickListener M1;
+    public String N0;
+    public LandingType O0;
+    public ox2 P0;
+    public gy3 Q0;
+    public FrameLayout R0;
     public String S0;
     public String T0;
-    public ps3 U0;
-    public ks3 V0;
-    public DownloadParams W0;
-    public DownloadState X0;
-    public RelativeLayout Y0;
-    public int Z0;
+    public String U0;
+    public cx3 V0;
+    public xw3 W0;
+    public DownloadParams X0;
+    public DownloadState Y0;
+    public RelativeLayout Z0;
     public int a1;
     public int b1;
-    public String c1;
+    public int c1;
     public String d1;
     public String e1;
     public String f1;
     public String g1;
     public String h1;
-    public JSONObject i1;
-    public int j1;
+    public String i1;
+    public JSONObject j1;
     public int k1;
-    public boolean l1;
-    public WebViewContainer m1;
-    public LinearLayout n1;
-    public ViewGroup o1;
-    public Boolean p1;
-    public int q1;
+    public int l1;
+    public boolean m1;
+    public WebViewContainer n1;
+    public LinearLayout o1;
+    public ViewGroup p1;
+    public Boolean q1;
     public int r1;
-    public String s1;
+    public int s1;
     public String t1;
-    public float u1;
+    public String u1;
     public float v1;
-    public FrameLayout w1;
-    public int x1;
+    public float w1;
+    public FrameLayout x1;
     public int y1;
     public int z1;
 
-    @Override // com.baidu.tieba.x32, com.baidu.tieba.p32
+    @Override // com.baidu.tieba.k82, com.baidu.tieba.c82
     public boolean c2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -147,20 +147,20 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
     }
 
     /* loaded from: classes3.dex */
-    public class a extends u52 {
+    public class a extends ha2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SwanAppAdLandingFragment c;
 
         /* renamed from: com.baidu.swan.apps.adlanding.SwanAppAdLandingFragment$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0191a implements Runnable {
+        public class RunnableC0193a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ a b;
 
-            public RunnableC0191a(a aVar, String str) {
+            public RunnableC0193a(a aVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -214,57 +214,57 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
             this.c = swanAppAdLandingFragment;
         }
 
-        @Override // com.baidu.tieba.u52, com.baidu.tieba.x52
+        @Override // com.baidu.tieba.ha2, com.baidu.tieba.ka2
         public void d(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
                 SwanAppAdLandingFragment swanAppAdLandingFragment = this.c;
-                swanAppAdLandingFragment.Z3(swanAppAdLandingFragment.G0.canGoBack());
-                this.c.f0.post(new RunnableC0191a(this, str));
+                swanAppAdLandingFragment.Z3(swanAppAdLandingFragment.H0.canGoBack());
+                this.c.f0.post(new RunnableC0193a(this, str));
             }
         }
 
-        @Override // com.baidu.tieba.u52, com.baidu.tieba.x52
-        public boolean b(String str) {
+        @Override // com.baidu.tieba.ha2, com.baidu.tieba.ka2
+        public boolean a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                if (a53.e(str) || a53.f(str)) {
+                if (n93.e(str) || n93.f(str)) {
                     try {
                         Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
-                        j43 b0 = j43.b0();
+                        w83 b0 = w83.b0();
                         if (b0 != null) {
                             b0.w().startActivity(intent);
                             return true;
                         }
                     } catch (Exception e) {
-                        if (SwanAppAdLandingFragment.M1) {
+                        if (SwanAppAdLandingFragment.N1) {
                             e.printStackTrace();
                         }
                     }
                 }
-                return super.b(str);
+                return super.a(str);
             }
             return invokeL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.u52, com.baidu.tieba.x52
+        @Override // com.baidu.tieba.ha2, com.baidu.tieba.ka2
         public void e(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
                 super.e(str);
-                if (!TextUtils.isEmpty(this.c.f1) && this.c.P0 != null) {
-                    this.c.P0.e(this.c.f1);
+                if (!TextUtils.isEmpty(this.c.g1) && this.c.Q0 != null) {
+                    this.c.Q0.e(this.c.g1);
                 }
             }
         }
 
-        @Override // com.baidu.tieba.u52, com.baidu.tieba.x52
+        @Override // com.baidu.tieba.ha2, com.baidu.tieba.ka2
         public void goBack() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 SwanAppAdLandingFragment swanAppAdLandingFragment = this.c;
-                swanAppAdLandingFragment.Z3(swanAppAdLandingFragment.G0.canGoBack());
+                swanAppAdLandingFragment.Z3(swanAppAdLandingFragment.H0.canGoBack());
             }
         }
     }
@@ -441,7 +441,7 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                x32.Y2();
+                k82.Y2();
             }
         }
     }
@@ -474,7 +474,7 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b43 g = b43.g(this.a.getContext(), "第三方页面应用未经百度审核");
+                o83 g = o83.g(this.a.getContext(), "第三方页面应用未经百度审核");
                 g.p(ToastLocation.BOTTOM);
                 g.G();
             }
@@ -509,8 +509,8 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                x32.d3("adLanding", ju2.d(this.a.J1, this.a.J1));
-                this.a.G1.dismiss();
+                k82.d3("adLanding", wy2.d(this.a.K1, this.a.K1));
+                this.a.H1.dismiss();
             }
         }
     }
@@ -543,8 +543,8 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                x32.d3("adLanding", ju2.d(this.a.I1, this.a.I1));
-                this.a.G1.dismiss();
+                k82.d3("adLanding", wy2.d(this.a.J1, this.a.J1));
+                this.a.H1.dismiss();
             }
         }
     }
@@ -577,7 +577,7 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.G1.dismiss();
+                this.a.H1.dismiss();
             }
         }
     }
@@ -615,23 +615,23 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
     }
 
     /* loaded from: classes3.dex */
-    public class h implements ct2 {
+    public class h implements px2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SwanAppAdLandingFragment a;
 
-        @Override // com.baidu.tieba.ct2
-        public void e(po2 po2Var) {
+        @Override // com.baidu.tieba.px2
+        public void e(ct2 ct2Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, po2Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048580, this, ct2Var) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.ct2
-        public boolean f(po2 po2Var, int i, int i2) {
+        @Override // com.baidu.tieba.px2
+        public boolean f(ct2 ct2Var, int i, int i2) {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048581, this, po2Var, i, i2)) == null) {
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048581, this, ct2Var, i, i2)) == null) {
                 return false;
             }
             return invokeLII.booleanValue;
@@ -655,43 +655,43 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
             this.a = swanAppAdLandingFragment;
         }
 
-        @Override // com.baidu.tieba.ct2
-        public void a(po2 po2Var) {
+        @Override // com.baidu.tieba.px2
+        public void a(ct2 ct2Var) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, po2Var) != null) {
+            if (interceptable != null && interceptable.invokeL(1048576, this, ct2Var) != null) {
                 return;
             }
             this.a.x4("vcontinueplay");
         }
 
-        @Override // com.baidu.tieba.ct2
-        public void c(po2 po2Var) {
+        @Override // com.baidu.tieba.px2
+        public void c(ct2 ct2Var) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, po2Var) != null) {
+            if (interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ct2Var) != null) {
                 return;
             }
             this.a.x4("vpause");
         }
 
-        @Override // com.baidu.tieba.ct2
-        public void b(po2 po2Var) {
+        @Override // com.baidu.tieba.px2
+        public void b(ct2 ct2Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, po2Var) == null) {
-                this.a.Y0.bringToFront();
-                this.a.Y0.setVisibility(0);
-                this.a.j1 = 0;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ct2Var) == null) {
+                this.a.Z0.bringToFront();
+                this.a.Z0.setVisibility(0);
+                this.a.k1 = 0;
                 SwanAppAdLandingFragment.u3(this.a);
                 this.a.x4("vplayend");
                 this.a.x4("scard");
             }
         }
 
-        @Override // com.baidu.tieba.ct2
-        public void d(po2 po2Var) {
+        @Override // com.baidu.tieba.px2
+        public void d(ct2 ct2Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, po2Var) == null) {
-                if (this.a.k1 != 0) {
-                    this.a.Y0.setVisibility(8);
+            if (interceptable == null || interceptable.invokeL(1048579, this, ct2Var) == null) {
+                if (this.a.l1 != 0) {
+                    this.a.Z0.setVisibility(8);
                     this.a.x4("vrepeatedplay");
                     return;
                 }
@@ -733,7 +733,7 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
     }
 
     /* loaded from: classes3.dex */
-    public class j implements ks3 {
+    public class j implements xw3 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SwanAppAdLandingFragment a;
@@ -756,15 +756,15 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
             this.a = swanAppAdLandingFragment;
         }
 
-        @Override // com.baidu.tieba.ks3
+        @Override // com.baidu.tieba.xw3
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                this.a.U0.d(i);
+                this.a.V0.d(i);
             }
         }
 
-        @Override // com.baidu.tieba.ks3
+        @Override // com.baidu.tieba.xw3
         public void d(String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(1048579, this, str) != null) {
@@ -773,10 +773,10 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
             this.a.u4(str);
         }
 
-        @Override // com.baidu.tieba.ks3
+        @Override // com.baidu.tieba.xw3
         public void f(boolean z) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeZ(1048581, this, z) != null) || !this.a.F1.equals("1")) {
+            if ((interceptable != null && interceptable.invokeZ(1048581, this, z) != null) || !this.a.G1.equals("1")) {
                 return;
             }
             if (z) {
@@ -786,7 +786,7 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
             }
         }
 
-        @Override // com.baidu.tieba.ks3
+        @Override // com.baidu.tieba.xw3
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
@@ -795,7 +795,7 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
             this.a.x4("appinstallbegin");
         }
 
-        @Override // com.baidu.tieba.ks3
+        @Override // com.baidu.tieba.xw3
         public String e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -804,20 +804,20 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
             }
             this.a.x4("appinstallopen");
             SwanAppAdLandingFragment swanAppAdLandingFragment = this.a;
-            return swanAppAdLandingFragment.a4(swanAppAdLandingFragment.W0.a);
+            return swanAppAdLandingFragment.a4(swanAppAdLandingFragment.X0.a);
         }
 
-        @Override // com.baidu.tieba.ks3
+        @Override // com.baidu.tieba.xw3
         public void c(DownloadState downloadState, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, downloadState, i) == null) {
-                this.a.U0.b(downloadState);
-                if (this.a.X0 == downloadState) {
+                this.a.V0.b(downloadState);
+                if (this.a.Y0 == downloadState) {
                     return;
                 }
-                if (this.a.X0 != DownloadState.NOT_START || downloadState != DownloadState.DOWNLOADING) {
+                if (this.a.Y0 != DownloadState.NOT_START || downloadState != DownloadState.DOWNLOADING) {
                     if (downloadState != DownloadState.DOWNLOAD_PAUSED) {
-                        if (this.a.X0 != DownloadState.DOWNLOAD_PAUSED || downloadState != DownloadState.DOWNLOADING) {
+                        if (this.a.Y0 != DownloadState.DOWNLOAD_PAUSED || downloadState != DownloadState.DOWNLOADING) {
                             if (downloadState != DownloadState.DOWNLOADED) {
                                 if (downloadState == DownloadState.INSTALLED) {
                                     this.a.x4("appinstallfinish");
@@ -835,7 +835,7 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
                 } else {
                     this.a.x4("appdownloadbegin");
                 }
-                this.a.X0 = downloadState;
+                this.a.Y0 = downloadState;
             }
         }
     }
@@ -870,27 +870,27 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int height = this.b.Q0.getHeight();
+                int height = this.b.R0.getHeight();
                 if (this.b.q4() || this.b.o4()) {
                     ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
                     layoutParams.height = height;
                     this.a.setLayoutParams(layoutParams);
                 }
                 if (this.b.q4()) {
-                    ViewGroup.LayoutParams layoutParams2 = this.b.m1.getLayoutParams();
-                    layoutParams2.height = height + (this.b.p1.booleanValue() ? this.b.y1 : this.b.Z0);
-                    this.b.m1.setLayoutParams(layoutParams2);
+                    ViewGroup.LayoutParams layoutParams2 = this.b.n1.getLayoutParams();
+                    layoutParams2.height = height + (this.b.q1.booleanValue() ? this.b.z1 : this.b.a1);
+                    this.b.n1.setLayoutParams(layoutParams2);
                 }
-                this.b.o1.removeView(this.b.Q0);
-                if (this.b.n1 != null) {
-                    this.b.n1.setVisibility(0);
+                this.b.p1.removeView(this.b.R0);
+                if (this.b.o1 != null) {
+                    this.b.o1.setVisibility(0);
                 }
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class l implements w52 {
+    public class l implements ja2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CustomerAdScrollView a;
@@ -915,12 +915,12 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
             this.a = customerAdScrollView;
         }
 
-        @Override // com.baidu.tieba.w52
+        @Override // com.baidu.tieba.ja2
         public void onScrollChanged(int i, int i2, int i3, int i4) {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIII(1048576, this, i, i2, i3, i4) == null) {
-                float contentHeight = ((this.b.G0.getContentHeight() * this.b.G0.getScale()) - this.b.G0.covertToView().getHeight()) - this.b.G0.getWebViewScrollY();
+                float contentHeight = ((this.b.H0.getContentHeight() * this.b.H0.getScale()) - this.b.H0.covertToView().getHeight()) - this.b.H0.getWebViewScrollY();
                 CustomerAdScrollView customerAdScrollView = this.a;
                 if (contentHeight < 10.0f) {
                     z = true;
@@ -933,7 +933,7 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
     }
 
     /* loaded from: classes3.dex */
-    public class m extends x22 {
+    public class m extends k72 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CustomerAdScrollView a;
@@ -958,12 +958,12 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
             this.a = customerAdScrollView;
         }
 
-        @Override // com.baidu.tieba.x22
+        @Override // com.baidu.tieba.k72
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 super.a(str);
-                if (Math.abs((this.b.G0.getContentHeight() * this.b.G0.getScale()) - this.b.G0.covertToView().getHeight()) < 10.0f) {
+                if (Math.abs((this.b.H0.getContentHeight() * this.b.H0.getScale()) - this.b.H0.covertToView().getHeight()) < 10.0f) {
                     this.a.setIsWebViewOnBottom(true);
                 } else {
                     this.a.setIsWebViewOnBottom(false);
@@ -973,7 +973,7 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
     }
 
     /* loaded from: classes3.dex */
-    public class n implements gr1 {
+    public class n implements tv1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CustomerAdScrollView a;
@@ -998,13 +998,13 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
             this.a = customerAdScrollView;
         }
 
-        @Override // com.baidu.tieba.gr1
+        @Override // com.baidu.tieba.tv1
         public void onScrollChanged(int i, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIII(1048576, this, i, i2, i3, i4) == null) {
                 CustomerAdScrollView customerAdScrollView = this.a;
                 SwanAppAdLandingFragment swanAppAdLandingFragment = this.b;
-                customerAdScrollView.setIsFooterLayoutShow(swanAppAdLandingFragment.r4(swanAppAdLandingFragment.n1));
+                customerAdScrollView.setIsFooterLayoutShow(swanAppAdLandingFragment.r4(swanAppAdLandingFragment.o1));
             }
         }
     }
@@ -1040,22 +1040,22 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 int id = view2.getId();
                 HashMap<String, String> hashMap = new HashMap<>();
-                if (id == R.id.obfuscated_res_0x7f0900fd) {
+                if (id == R.id.obfuscated_res_0x7f0900fe) {
                     hashMap.put("da_area", "tail_icon");
-                } else if (id == R.id.obfuscated_res_0x7f0900fa) {
-                    hashMap.put("da_area", "tail_name");
                 } else if (id == R.id.obfuscated_res_0x7f0900fb) {
-                    if (this.a.b1 == ActionType.DL.value()) {
+                    hashMap.put("da_area", "tail_name");
+                } else if (id == R.id.obfuscated_res_0x7f0900fc) {
+                    if (this.a.c1 == ActionType.DL.value()) {
                         str = "tail_downloadbtn";
                     } else {
                         str = "tail_detailbtn";
                     }
                     hashMap.put("da_area", str);
                 }
-                if (this.a.P0 != null) {
-                    this.a.P0.d("c", hashMap);
+                if (this.a.Q0 != null) {
+                    this.a.Q0.d("c", hashMap);
                 }
-                x32.d3("adLanding", ju2.d(this.a.M0, this.a.M0));
+                k82.d3("adLanding", wy2.d(this.a.N0, this.a.N0));
             }
         }
     }
@@ -1073,17 +1073,17 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
                 return;
             }
         }
-        M1 = tk1.a;
+        N1 = gp1.a;
     }
 
-    @Override // com.baidu.tieba.x32, com.baidu.tieba.p32
+    @Override // com.baidu.tieba.k82, com.baidu.tieba.c82
     public boolean J() {
         InterceptResult invokeV;
-        bt2 bt2Var;
+        ox2 ox2Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (p4() && (bt2Var = this.O0) != null) {
-                return bt2Var.onBackPressed();
+            if (p4() && (ox2Var = this.P0) != null) {
+                return ox2Var.onBackPressed();
             }
             x4("lpout");
             return super.J();
@@ -1091,30 +1091,30 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.x32
-    public x52 Z2() {
+    @Override // com.baidu.tieba.k82
+    public ka2 Z2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return new a(this);
         }
-        return (x52) invokeV.objValue;
+        return (ka2) invokeV.objValue;
     }
 
     public final void d4() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            di3.e0(new c(this));
+            qm3.e0(new c(this));
         }
     }
 
-    @Override // com.baidu.tieba.x32
-    public sq1 k() {
+    @Override // com.baidu.tieba.k82
+    public fv1 k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            fr1 fr1Var = new fr1(getContext());
-            fr1Var.r().setDownloadListener(new ISailorDownloadListener(this) { // from class: com.baidu.swan.apps.adlanding.SwanAppAdLandingFragment.9
+            sv1 sv1Var = new sv1(getContext());
+            sv1Var.r().setDownloadListener(new ISailorDownloadListener(this) { // from class: com.baidu.swan.apps.adlanding.SwanAppAdLandingFragment.9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ SwanAppAdLandingFragment this$0;
@@ -1155,29 +1155,29 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
                 public void onDownloadStart(String str, String str2, String str3, String str4, long j2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, str3, str4, Long.valueOf(j2)}) == null) {
-                        if (SwanAppAdLandingFragment.M1) {
+                        if (SwanAppAdLandingFragment.N1) {
                             Log.d("SwanAppAdLandFragment", "onDownloadStart: url=" + str + ", userAgent=" + str2 + ", mimeType=" + str4);
                         }
-                        this.this$0.C1 = str;
+                        this.this$0.D1 = str;
                         this.this$0.b4();
                     }
                 }
             });
-            return fr1Var;
+            return sv1Var;
         }
-        return (sq1) invokeV.objValue;
+        return (fv1) invokeV.objValue;
     }
 
     public final boolean o4() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            return TextUtils.equals("swan-custom-ad", this.R0);
+            return TextUtils.equals("swan-custom-ad", this.S0);
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.p32, com.baidu.swan.support.v4.app.Fragment
+    @Override // com.baidu.tieba.c82, com.baidu.swan.support.v4.app.Fragment
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
@@ -1186,13 +1186,13 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
         }
     }
 
-    @Override // com.baidu.tieba.p32, com.baidu.swan.support.v4.app.Fragment
+    @Override // com.baidu.tieba.c82, com.baidu.swan.support.v4.app.Fragment
     public void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
             super.onResume();
-            hr1 hr1Var = this.B1;
-            if (hr1Var != null && hr1Var.l() && !m0()) {
+            uv1 uv1Var = this.C1;
+            if (uv1Var != null && uv1Var.l() && !m0()) {
                 w4();
             }
         }
@@ -1214,7 +1214,7 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            if (this.N0 == LandingType.VIDEO) {
+            if (this.O0 == LandingType.VIDEO) {
                 return true;
             }
             return false;
@@ -1223,41 +1223,41 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
     }
 
     public final void t4() {
-        bt2 bt2Var;
+        ox2 ox2Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048605, this) == null) && (bt2Var = this.O0) != null && bt2Var.n()) {
-            this.O0.p();
+        if ((interceptable == null || interceptable.invokeV(1048605, this) == null) && (ox2Var = this.P0) != null && ox2Var.n()) {
+            this.P0.p();
         }
     }
 
     public final void v4() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
-            this.m1.removeView(this.U0.getRealView());
-            this.m1.removeView(this.E1);
+            this.n1.removeView(this.V0.getRealView());
+            this.n1.removeView(this.F1);
         }
     }
 
     public final void w4() {
-        bt2 bt2Var;
+        ox2 ox2Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048609, this) == null) && (bt2Var = this.O0) != null && !bt2Var.n() && !this.O0.m()) {
-            this.O0.s();
+        if ((interceptable == null || interceptable.invokeV(1048609, this) == null) && (ox2Var = this.P0) != null && !ox2Var.n() && !this.P0.m()) {
+            this.P0.s();
         }
     }
 
-    @Override // com.baidu.tieba.x32, com.baidu.swan.support.v4.app.Fragment
+    @Override // com.baidu.tieba.k82, com.baidu.swan.support.v4.app.Fragment
     public void y0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
             if (q4()) {
                 x4("vplayend");
             }
-            bt2 bt2Var = this.O0;
-            if (bt2Var != null) {
-                bt2Var.onDestroy();
+            ox2 ox2Var = this.P0;
+            if (ox2Var != null) {
+                ox2Var.onDestroy();
             }
-            if (!this.l1) {
+            if (!this.m1) {
                 H2(0);
             }
             super.y0();
@@ -1268,8 +1268,8 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
             v4();
-            this.m1.addView(this.E1);
-            this.m1.addView(this.U0.getRealView());
+            this.n1.addView(this.F1);
+            this.n1.addView(this.V0.getRealView());
         }
     }
 
@@ -1286,43 +1286,43 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
                 return;
             }
         }
-        this.N0 = LandingType.NORMAL;
-        this.R0 = "";
+        this.O0 = LandingType.NORMAL;
         this.S0 = "";
         this.T0 = "";
-        this.X0 = DownloadState.NOT_START;
-        this.i1 = new JSONObject();
-        this.j1 = 0;
+        this.U0 = "";
+        this.Y0 = DownloadState.NOT_START;
+        this.j1 = new JSONObject();
         this.k1 = 0;
-        this.l1 = true;
-        this.p1 = Boolean.FALSE;
-        this.G1 = null;
-        this.K1 = null;
-        this.L1 = new o(this);
+        this.l1 = 0;
+        this.m1 = true;
+        this.q1 = Boolean.FALSE;
+        this.H1 = null;
+        this.L1 = null;
+        this.M1 = new o(this);
     }
 
     public final void b4() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            ss3 ss3Var = this.K1;
-            if (ss3Var != null) {
-                i(ss3Var);
+            fx3 fx3Var = this.L1;
+            if (fx3Var != null) {
+                i(fx3Var);
                 return;
             }
-            it3 it3Var = new it3(getContext());
-            it3Var.d(this);
-            jt3 jt3Var = new jt3(getContext());
+            vx3 vx3Var = new vx3(getContext());
+            vx3Var.d(this);
+            wx3 wx3Var = new wx3(getContext());
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("charge_url", this.D1);
-                jSONObject.put("apk_url", this.C1);
+                jSONObject.put("charge_url", this.E1);
+                jSONObject.put("apk_url", this.D1);
                 jSONObject.put("ssl", 1);
             } catch (JSONException e2) {
-                if (M1) {
+                if (N1) {
                     e2.printStackTrace();
                 }
             }
-            it3Var.c(jt3Var, jSONObject);
+            vx3Var.c(wx3Var, jSONObject);
         }
     }
 
@@ -1336,24 +1336,24 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
             } else {
                 i2 = 0;
             }
-            if (this.p1.booleanValue()) {
-                float f2 = this.r1 / this.q1;
-                this.x1 = i2;
+            if (this.q1.booleanValue()) {
+                float f2 = this.s1 / this.r1;
+                this.y1 = i2;
                 int i3 = (int) (i2 * f2);
-                this.y1 = i3;
-                this.a1 = (int) (i2 * this.u1);
-                this.Z0 = i3;
-                this.z1 = (int) (i2 * this.v1);
+                this.z1 = i3;
+                this.b1 = (int) (i2 * this.v1);
+                this.a1 = i3;
+                this.A1 = (int) (i2 * this.w1);
                 return;
             }
-            this.Z0 = (i2 * 9) / 16;
-            this.a1 = i2;
+            this.a1 = (i2 * 9) / 16;
+            this.b1 = i2;
         }
     }
 
     public static /* synthetic */ int u3(SwanAppAdLandingFragment swanAppAdLandingFragment) {
-        int i2 = swanAppAdLandingFragment.k1;
-        swanAppAdLandingFragment.k1 = i2 + 1;
+        int i2 = swanAppAdLandingFragment.l1;
+        swanAppAdLandingFragment.l1 = i2 + 1;
         return i2;
     }
 
@@ -1370,7 +1370,7 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
         }
     }
 
-    @Override // com.baidu.tieba.x32, com.baidu.tieba.p32
+    @Override // com.baidu.tieba.k82, com.baidu.tieba.c82
     public void U1(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
@@ -1398,7 +1398,7 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            return xc3.a().getString(str, "");
+            return kh3.a().getString(str, "");
         }
         return (String) invokeL.objValue;
     }
@@ -1418,7 +1418,7 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
     public final void u4(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048607, this, str) == null) && !TextUtils.isEmpty(str)) {
-            xc3.a().putString(this.W0.a, str);
+            kh3.a().putString(this.X0.a, str);
         }
     }
 
@@ -1426,13 +1426,13 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048611, this, str) == null) {
             HashMap<String, String> hashMap = new HashMap<>();
-            bt2 bt2Var = this.O0;
-            if (bt2Var != null) {
-                hashMap.put("cur_time", String.valueOf(bt2Var.e() / 1000));
+            ox2 ox2Var = this.P0;
+            if (ox2Var != null) {
+                hashMap.put("cur_time", String.valueOf(ox2Var.e() / 1000));
             }
-            tt3 tt3Var = this.P0;
-            if (tt3Var != null) {
-                tt3Var.d(str, hashMap);
+            gy3 gy3Var = this.Q0;
+            if (gy3Var != null) {
+                gy3Var.d(str, hashMap);
             }
         }
     }
@@ -1440,48 +1440,48 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
     public final void c4() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.U0.f();
-            if (TextUtils.isEmpty(this.W0.b)) {
-                String a4 = a4(this.C1);
-                this.W0.b = a4;
-                this.U0.a(a4);
+            this.V0.f();
+            if (TextUtils.isEmpty(this.X0.b)) {
+                String a4 = a4(this.D1);
+                this.X0.b = a4;
+                this.V0.a(a4);
             }
-            if (di3.F(getContext(), this.W0.b)) {
+            if (qm3.F(getContext(), this.X0.b)) {
                 y4();
-                this.U0.b(DownloadState.INSTALLED);
+                this.V0.b(DownloadState.INSTALLED);
                 return;
             }
-            if (TextUtils.isEmpty(this.W0.a)) {
-                this.W0.a = this.C1;
+            if (TextUtils.isEmpty(this.X0.a)) {
+                this.X0.a = this.D1;
             }
-            qn2.d().d(getContext(), this.W0.a(), DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.V0);
+            ds2.d().d(getContext(), this.X0.a(), DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.W0);
         }
     }
 
     public final void i4() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d084c, (ViewGroup) null);
-            this.m1.addView(relativeLayout, new FrameLayout.LayoutParams(-1, this.y1));
+            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0845, (ViewGroup) null);
+            this.n1.addView(relativeLayout, new FrameLayout.LayoutParams(-1, this.z1));
             SimpleDraweeView simpleDraweeView = (SimpleDraweeView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f0900ca);
             SimpleDraweeView simpleDraweeView2 = (SimpleDraweeView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f0900d7);
-            this.w1 = (FrameLayout) relativeLayout.findViewById(R.id.obfuscated_res_0x7f0900d8);
-            if (!TextUtils.isEmpty(this.s1)) {
-                simpleDraweeView.setImageURI(Uri.parse(this.s1));
-                simpleDraweeView.setOnClickListener(this.L1);
+            this.x1 = (FrameLayout) relativeLayout.findViewById(R.id.obfuscated_res_0x7f0900d8);
+            if (!TextUtils.isEmpty(this.t1)) {
+                simpleDraweeView.setImageURI(Uri.parse(this.t1));
+                simpleDraweeView.setOnClickListener(this.M1);
             } else {
                 simpleDraweeView.setVisibility(4);
             }
-            if (!TextUtils.isEmpty(this.t1)) {
-                simpleDraweeView2.setImageURI(Uri.parse(this.t1));
+            if (!TextUtils.isEmpty(this.u1)) {
+                simpleDraweeView2.setImageURI(Uri.parse(this.u1));
             } else {
                 simpleDraweeView2.setVisibility(4);
             }
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.w1.getLayoutParams();
-            layoutParams.width = this.a1;
-            layoutParams.height = this.Z0;
-            layoutParams.rightMargin = this.z1;
-            this.w1.setLayoutParams(layoutParams);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.x1.getLayoutParams();
+            layoutParams.width = this.b1;
+            layoutParams.height = this.a1;
+            layoutParams.rightMargin = this.A1;
+            this.x1.setLayoutParams(layoutParams);
         }
     }
 
@@ -1490,116 +1490,116 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            if (this.p1.booleanValue()) {
+            if (this.q1.booleanValue()) {
                 i4();
             }
-            if (this.p1.booleanValue()) {
+            if (this.q1.booleanValue()) {
                 i2 = 0;
             } else {
-                i2 = this.a1;
+                i2 = this.b1;
             }
-            if (this.p1.booleanValue()) {
+            if (this.q1.booleanValue()) {
                 i3 = 0;
             } else {
-                i3 = this.Z0;
+                i3 = this.a1;
             }
-            er1 er1Var = new er1(this.g1, this.h1, this.F0.a(), i2, i3, this.j1, this.p1.booleanValue());
-            bt2 bt2Var = new bt2(getContext(), er1Var.a());
-            this.O0 = bt2Var;
-            this.B1.p(bt2Var);
-            this.O0.v(new h(this));
-            if (this.p1.booleanValue()) {
-                this.O0.x(this.w1);
+            rv1 rv1Var = new rv1(this.h1, this.i1, this.G0.a(), i2, i3, this.k1, this.q1.booleanValue());
+            ox2 ox2Var = new ox2(getContext(), rv1Var.a());
+            this.P0 = ox2Var;
+            this.C1.p(ox2Var);
+            this.P0.v(new h(this));
+            if (this.q1.booleanValue()) {
+                this.P0.x(this.x1);
             }
-            this.O0.o(er1Var.a());
-            this.O0.w(false);
+            this.P0.o(rv1Var.a());
+            this.P0.w(false);
         }
     }
 
-    public final void e4(ss3 ss3Var, boolean z) {
+    public final void e4(fx3 fx3Var, boolean z) {
         float f2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048586, this, ss3Var, z) == null) {
-            n33 n33Var = this.G1;
-            if (n33Var != null) {
-                n33Var.show();
+        if (interceptable == null || interceptable.invokeLZ(1048586, this, fx3Var, z) == null) {
+            a83 a83Var = this.H1;
+            if (a83Var != null) {
+                a83Var.show();
                 return;
             }
-            ((ViewGroup) this.H1.findViewById(R.id.obfuscated_res_0x7f0900cd)).addView(this.U0.getRealView());
-            ((AdImageVIew) this.H1.findViewById(R.id.obfuscated_res_0x7f0900cf)).setImageUrl(ss3Var.g());
-            ((TextView) this.H1.findViewById(R.id.obfuscated_res_0x7f0900cc)).setText(ss3Var.c());
-            ((TextView) this.H1.findViewById(R.id.obfuscated_res_0x7f0900d4)).setText(ss3Var.d());
-            ((TextView) this.H1.findViewById(R.id.obfuscated_res_0x7f0900cb)).setText(ss3Var.a());
-            ((TextView) this.H1.findViewById(R.id.obfuscated_res_0x7f0900d6)).setText(ss3Var.j());
-            TextView textView = (TextView) this.H1.findViewById(R.id.obfuscated_res_0x7f0900ce);
+            ((ViewGroup) this.I1.findViewById(R.id.obfuscated_res_0x7f0900cd)).addView(this.V0.getRealView());
+            ((AdImageVIew) this.I1.findViewById(R.id.obfuscated_res_0x7f0900cf)).setImageUrl(fx3Var.g());
+            ((TextView) this.I1.findViewById(R.id.obfuscated_res_0x7f0900cc)).setText(fx3Var.c());
+            ((TextView) this.I1.findViewById(R.id.obfuscated_res_0x7f0900d4)).setText(fx3Var.d());
+            ((TextView) this.I1.findViewById(R.id.obfuscated_res_0x7f0900cb)).setText(fx3Var.a());
+            ((TextView) this.I1.findViewById(R.id.obfuscated_res_0x7f0900d6)).setText(fx3Var.j());
+            TextView textView = (TextView) this.I1.findViewById(R.id.obfuscated_res_0x7f0900ce);
             if (!z) {
-                textView.setText(ss3Var.e());
+                textView.setText(fx3Var.e());
                 textView.setVisibility(0);
             }
-            this.I1 = ss3Var.h();
-            this.J1 = ss3Var.i();
-            ViewGroup.LayoutParams layoutParams = this.U0.getRealView().getLayoutParams();
+            this.J1 = fx3Var.h();
+            this.K1 = fx3Var.i();
+            ViewGroup.LayoutParams layoutParams = this.V0.getRealView().getLayoutParams();
             if (layoutParams == null) {
                 layoutParams = new ViewGroup.LayoutParams(-1, -2);
-                this.U0.getRealView().setLayoutParams(layoutParams);
+                this.V0.getRealView().setLayoutParams(layoutParams);
             }
-            int o2 = ai3.o(getContext());
-            float l2 = ai3.l(getContext());
+            int o2 = nm3.o(getContext());
+            float l2 = nm3.l(getContext());
             layoutParams.width = o2 - (((int) ((10.0f * l2) + 0.5f)) * 2);
-            if (TextUtils.isEmpty(this.W0.b)) {
-                String a4 = a4(ss3Var.b());
-                this.W0.b = a4;
-                this.U0.a(a4);
+            if (TextUtils.isEmpty(this.X0.b)) {
+                String a4 = a4(fx3Var.b());
+                this.X0.b = a4;
+                this.V0.a(a4);
             }
-            if (di3.F(getContext(), this.W0.b)) {
-                this.U0.b(DownloadState.INSTALLED);
+            if (qm3.F(getContext(), this.X0.b)) {
+                this.V0.b(DownloadState.INSTALLED);
             }
-            if (TextUtils.isEmpty(this.W0.a)) {
-                this.W0.a = ss3Var.b();
+            if (TextUtils.isEmpty(this.X0.a)) {
+                this.X0.a = fx3Var.b();
             }
-            this.U0.e(this.W0);
-            m33 m33Var = new m33(getContext());
-            m33Var.i(true);
-            m33Var.k(false);
-            m33Var.T(false);
-            m33Var.m(false);
-            m33Var.t(false);
-            m33Var.n(new rj3());
-            m33Var.p(R.drawable.obfuscated_res_0x7f080125);
-            m33Var.F(R.color.obfuscated_res_0x7f060a64);
-            m33Var.K(new g(this));
-            m33Var.W(this.H1);
-            m33Var.j();
+            this.V0.e(this.X0);
+            z73 z73Var = new z73(getContext());
+            z73Var.i(true);
+            z73Var.k(false);
+            z73Var.T(false);
+            z73Var.m(false);
+            z73Var.t(false);
+            z73Var.n(new eo3());
+            z73Var.p(R.drawable.obfuscated_res_0x7f080125);
+            z73Var.F(R.color.obfuscated_res_0x7f060a74);
+            z73Var.K(new g(this));
+            z73Var.W(this.I1);
+            z73Var.j();
             if (z) {
                 f2 = 225.0f;
             } else {
                 f2 = 250.0f;
             }
-            m33Var.q((int) (l2 * f2));
-            n33 c2 = m33Var.c();
-            this.G1 = c2;
+            z73Var.q((int) (l2 * f2));
+            a83 c2 = z73Var.c();
+            this.H1 = c2;
             Window window = c2.getWindow();
             if (window != null) {
                 window.setGravity(80);
                 window.setDimAmount(0.65f);
-                window.setLayout(ai3.s(getContext()), -2);
+                window.setLayout(nm3.s(getContext()), -2);
                 window.setWindowAnimations(R.style.obfuscated_res_0x7f10039d);
             }
-            this.G1.a(false);
-            this.G1.setCanceledOnTouchOutside(true);
-            this.G1.show();
+            this.H1.a(false);
+            this.H1.setCanceledOnTouchOutside(true);
+            this.H1.show();
         }
     }
 
     public final void f4(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, viewGroup) == null) {
-            this.V0 = new j(this);
-            this.W0 = new DownloadParams(this.S0, this.T0);
-            rs3 rs3Var = new rs3();
-            rs3Var.l(getContext(), this.W0, this.V0);
-            this.U0 = rs3Var;
-            rs3Var.e(this.W0);
+            this.W0 = new j(this);
+            this.X0 = new DownloadParams(this.T0, this.U0);
+            ex3 ex3Var = new ex3();
+            ex3Var.l(getContext(), this.X0, this.W0);
+            this.V0 = ex3Var;
+            ex3Var.e(this.X0);
             g4();
         }
     }
@@ -1607,26 +1607,26 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
     public final void g4() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            View inflate = View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0094, null);
-            this.H1 = inflate;
+            View inflate = View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0093, null);
+            this.I1 = inflate;
             ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0900d3)).setOnClickListener(new d(this));
-            ((TextView) this.H1.findViewById(R.id.obfuscated_res_0x7f0900d2)).setOnClickListener(new e(this));
-            ((ImageView) this.H1.findViewById(R.id.obfuscated_res_0x7f09067f)).setOnClickListener(new f(this));
+            ((TextView) this.I1.findViewById(R.id.obfuscated_res_0x7f0900d2)).setOnClickListener(new e(this));
+            ((ImageView) this.I1.findViewById(R.id.obfuscated_res_0x7f09068d)).setOnClickListener(new f(this));
             TextView textView = new TextView(getContext());
-            this.E1 = textView;
+            this.F1 = textView;
             textView.setText("温馨提示：您已访问至第三方页面");
-            this.E1.setTextColor(-16777216);
+            this.F1.setTextColor(-16777216);
             GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, new int[]{0, -1});
             gradientDrawable.setShape(0);
-            this.E1.setBackground(gradientDrawable);
-            this.E1.getBackground().setAlpha(180);
-            this.E1.setPadding(0, 0, 0, 10);
-            this.E1.setGravity(80);
+            this.F1.setBackground(gradientDrawable);
+            this.F1.getBackground().setAlpha(180);
+            this.F1.setPadding(0, 0, 0, 10);
+            this.F1.setGravity(80);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, 260);
             layoutParams.gravity = 81;
             layoutParams.bottomMargin = ((int) (getContext().getResources().getDisplayMetrics().heightPixels * 0.14d)) - 80;
-            this.E1.setLayoutParams(layoutParams);
-            this.E1.setGravity(81);
+            this.F1.setLayoutParams(layoutParams);
+            this.F1.setGravity(81);
         }
     }
 
@@ -1635,53 +1635,53 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d084d, (ViewGroup) null);
+            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0846, (ViewGroup) null);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-            if (this.p1.booleanValue()) {
-                i2 = this.y1;
+            if (this.q1.booleanValue()) {
+                i2 = this.z1;
             } else {
-                i2 = this.Z0;
+                i2 = this.a1;
             }
             layoutParams.height = i2;
-            this.Y0 = (RelativeLayout) relativeLayout.findViewById(R.id.obfuscated_res_0x7f0900fe);
-            SimpleDraweeView simpleDraweeView = (SimpleDraweeView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f0900ff);
-            SimpleDraweeView simpleDraweeView2 = (SimpleDraweeView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f0900fd);
-            TextView textView = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f0900fa);
-            TextView textView2 = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f0900fb);
-            if (!TextUtils.isEmpty(this.c1)) {
-                textView2.setText(this.c1);
+            this.Z0 = (RelativeLayout) relativeLayout.findViewById(R.id.obfuscated_res_0x7f0900ff);
+            SimpleDraweeView simpleDraweeView = (SimpleDraweeView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f090100);
+            SimpleDraweeView simpleDraweeView2 = (SimpleDraweeView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f0900fe);
+            TextView textView = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f0900fb);
+            TextView textView2 = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f0900fc);
+            if (!TextUtils.isEmpty(this.d1)) {
+                textView2.setText(this.d1);
                 textView2.setVisibility(0);
             } else {
                 textView2.setVisibility(8);
             }
-            if (!TextUtils.isEmpty(this.d1)) {
-                textView.setText(this.d1);
+            if (!TextUtils.isEmpty(this.e1)) {
+                textView.setText(this.e1);
                 textView.setVisibility(0);
             } else {
                 textView.setVisibility(4);
             }
-            if (!TextUtils.isEmpty(this.e1)) {
-                simpleDraweeView2.setImageURI(Uri.parse(this.e1));
+            if (!TextUtils.isEmpty(this.f1)) {
+                simpleDraweeView2.setImageURI(Uri.parse(this.f1));
                 simpleDraweeView2.setVisibility(0);
             } else {
                 simpleDraweeView2.setVisibility(8);
             }
-            simpleDraweeView.getHierarchy().setPlaceholderImage(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811f2));
-            if (this.p1.booleanValue()) {
-                str = this.A1;
+            simpleDraweeView.getHierarchy().setPlaceholderImage(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811e7));
+            if (this.q1.booleanValue()) {
+                str = this.B1;
             } else {
-                str = this.g1;
+                str = this.h1;
             }
             if (!TextUtils.isEmpty(str)) {
-                simpleDraweeView.setImageURI(hh3.m(str));
+                simpleDraweeView.setImageURI(ul3.m(str));
             }
             simpleDraweeView.setVisibility(0);
             simpleDraweeView.setOnClickListener(new i(this));
-            simpleDraweeView2.setOnClickListener(this.L1);
-            textView.setOnClickListener(this.L1);
-            textView2.setOnClickListener(this.L1);
-            this.m1.addView(this.Y0, layoutParams);
-            this.Y0.setVisibility(4);
+            simpleDraweeView2.setOnClickListener(this.M1);
+            textView.setOnClickListener(this.M1);
+            textView2.setOnClickListener(this.M1);
+            this.n1.addView(this.Z0, layoutParams);
+            this.Z0.setVisibility(4);
         }
     }
 
@@ -1692,75 +1692,75 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
         if ((interceptable != null && interceptable.invokeV(1048604, this) != null) || (p = p()) == null) {
             return;
         }
-        this.M0 = p.getString("url", "");
-        if (TextUtils.isEmpty(this.I0)) {
+        this.N0 = p.getString("url", "");
+        if (TextUtils.isEmpty(this.J0)) {
             return;
         }
         try {
-            JSONObject jSONObject = new JSONObject(this.I0);
-            this.h1 = jSONObject.optString("vurl", "");
-            this.g1 = jSONObject.optString("w_picurl", "");
-            this.e1 = jSONObject.optString("icon", "");
+            JSONObject jSONObject = new JSONObject(this.J0);
+            this.i1 = jSONObject.optString("vurl", "");
+            this.h1 = jSONObject.optString("w_picurl", "");
+            this.f1 = jSONObject.optString("icon", "");
             int optInt = jSONObject.optInt("act", ActionType.LP.value());
-            this.b1 = optInt;
+            this.c1 = optInt;
             if (optInt == ActionType.DL.value()) {
-                G = G(R.string.obfuscated_res_0x7f0f1322);
+                G = G(R.string.obfuscated_res_0x7f0f1342);
             } else {
-                G = G(R.string.obfuscated_res_0x7f0f132b);
+                G = G(R.string.obfuscated_res_0x7f0f134b);
             }
-            this.c1 = G;
-            this.d1 = jSONObject.optString("appname", "");
-            this.j1 = jSONObject.optInt("currentTime", 0);
-            this.i1 = jSONObject.optJSONObject("monitors");
-            this.S0 = jSONObject.optString("url", "");
-            this.T0 = jSONObject.optString("name", "");
-            this.R0 = jSONObject.optString("from", "");
-            this.f1 = jSONObject.optString("monitorUrl", "");
-            this.q1 = jSONObject.optInt("w", 16);
-            this.r1 = jSONObject.optInt("h", 9);
-            this.s1 = jSONObject.optString("playingbg", "");
-            this.t1 = jSONObject.optString("maskUrl", "");
-            this.u1 = (float) jSONObject.optDouble("playerWidthRatio", 0.5d);
-            this.v1 = (float) jSONObject.optDouble("rightMarginRatio", 0.0d);
-            this.A1 = jSONObject.optString("horizontalCover", "");
-            this.D1 = jSONObject.optString("costUrl", "");
+            this.d1 = G;
+            this.e1 = jSONObject.optString("appname", "");
+            this.k1 = jSONObject.optInt("currentTime", 0);
+            this.j1 = jSONObject.optJSONObject("monitors");
+            this.T0 = jSONObject.optString("url", "");
+            this.U0 = jSONObject.optString("name", "");
+            this.S0 = jSONObject.optString("from", "");
+            this.g1 = jSONObject.optString("monitorUrl", "");
+            this.r1 = jSONObject.optInt("w", 16);
+            this.s1 = jSONObject.optInt("h", 9);
+            this.t1 = jSONObject.optString("playingbg", "");
+            this.u1 = jSONObject.optString("maskUrl", "");
+            this.v1 = (float) jSONObject.optDouble("playerWidthRatio", 0.5d);
+            this.w1 = (float) jSONObject.optDouble("rightMarginRatio", 0.0d);
+            this.B1 = jSONObject.optString("horizontalCover", "");
+            this.E1 = jSONObject.optString("costUrl", "");
         } catch (JSONException e2) {
-            if (M1) {
+            if (N1) {
                 e2.printStackTrace();
             }
         }
-        if (!TextUtils.isEmpty(this.h1)) {
-            this.N0 = LandingType.VIDEO;
+        if (!TextUtils.isEmpty(this.i1)) {
+            this.O0 = LandingType.VIDEO;
         }
-        this.p1 = Boolean.valueOf(TextUtils.equals("ad-video-portrait", this.R0));
+        this.q1 = Boolean.valueOf(TextUtils.equals("ad-video-portrait", this.S0));
     }
 
     public final void h4(ViewGroup viewGroup, ViewGroup viewGroup2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048589, this, viewGroup, viewGroup2) == null) {
-            this.n1 = (LinearLayout) ((LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d084b, (ViewGroup) null)).findViewById(R.id.obfuscated_res_0x7f0900a4);
+            this.o1 = (LinearLayout) ((LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0844, (ViewGroup) null)).findViewById(R.id.obfuscated_res_0x7f0900a4);
             CustomerAdScrollView customerAdScrollView = new CustomerAdScrollView(getContext());
             LinearLayout linearLayout = new LinearLayout(getContext());
             linearLayout.setOrientation(1);
             linearLayout.addView(viewGroup2, new LinearLayout.LayoutParams(-1, -2));
-            linearLayout.addView(this.n1, new LinearLayout.LayoutParams(-1, getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070699)));
+            linearLayout.addView(this.o1, new LinearLayout.LayoutParams(-1, getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0706a9)));
             customerAdScrollView.addView(linearLayout, new LinearLayout.LayoutParams(-1, -2));
             viewGroup.addView(customerAdScrollView);
-            this.F0.t(new l(this, customerAdScrollView));
-            this.F0.b(new m(this, customerAdScrollView));
+            this.G0.t(new l(this, customerAdScrollView));
+            this.G0.b(new m(this, customerAdScrollView));
             customerAdScrollView.setScrollViewListener(new n(this, customerAdScrollView));
         }
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @Override // com.baidu.tieba.us3
-    public void i(ss3 ss3Var) {
+    @Override // com.baidu.tieba.hx3
+    public void i(fx3 fx3Var) {
         char c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, ss3Var) == null) {
-            this.K1 = ss3Var;
-            String f2 = ss3Var.f();
-            this.F1 = f2;
+        if (interceptable == null || interceptable.invokeL(1048590, this, fx3Var) == null) {
+            this.L1 = fx3Var;
+            String f2 = fx3Var.f();
+            this.G1 = f2;
             switch (f2.hashCode()) {
                 case 49:
                     if (f2.equals("1")) {
@@ -1803,53 +1803,53 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
                         }
                         return;
                     }
-                    e4(ss3Var, false);
+                    e4(fx3Var, false);
                     return;
                 }
-                e4(ss3Var, true);
+                e4(fx3Var, true);
                 return;
             }
             c4();
         }
     }
 
-    /* JADX WARN: Type inference failed for: r0v4, types: [com.baidu.tieba.qq1] */
+    /* JADX WARN: Type inference failed for: r0v4, types: [com.baidu.tieba.dv1] */
     public final void m4() {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            sq1 k2 = k();
-            this.F0 = k2;
+            fv1 k2 = k();
+            this.G0 = k2;
             k2.Y(Z2());
-            this.G0 = this.F0.r();
-            this.F0.loadUrl(this.M0);
+            this.H0 = this.G0.r();
+            this.G0.loadUrl(this.N0);
             FrameLayout frameLayout = new FrameLayout(getContext());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-            View covertToView = this.G0.covertToView();
-            y43 y43Var = new y43();
-            y43Var.e = SwanAppConfigData.t("#FFFFFF");
-            this.F0.z(frameLayout, y43Var);
-            this.F0.O(frameLayout, y43Var);
-            this.F0.j(frameLayout, covertToView);
+            View covertToView = this.H0.covertToView();
+            l93 l93Var = new l93();
+            l93Var.e = SwanAppConfigData.t("#FFFFFF");
+            this.G0.z(frameLayout, l93Var);
+            this.G0.O(frameLayout, l93Var);
+            this.G0.j(frameLayout, covertToView);
             if (o4()) {
-                h4(this.m1, frameLayout);
+                h4(this.n1, frameLayout);
             } else {
-                this.m1.addView(frameLayout);
+                this.n1.addView(frameLayout);
             }
-            WebViewContainer webViewContainer = this.m1;
+            WebViewContainer webViewContainer = this.n1;
             if (webViewContainer != null) {
-                webViewContainer.setInternalWebView(this.G0);
+                webViewContainer.setInternalWebView(this.H0);
             }
             if (q4()) {
-                if (this.p1.booleanValue()) {
-                    i2 = this.y1;
+                if (this.q1.booleanValue()) {
+                    i2 = this.z1;
                 } else {
-                    i2 = this.Z0;
+                    i2 = this.a1;
                 }
                 layoutParams.topMargin = i2;
             }
             covertToView.setLayoutParams(layoutParams);
-            this.Q0.post(new k(this, covertToView));
+            this.R0.post(new k(this, covertToView));
         }
     }
 
@@ -1857,28 +1857,28 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            hr1 hr1Var = new hr1(getContext());
-            this.B1 = hr1Var;
+            uv1 uv1Var = new uv1(getContext());
+            this.C1 = uv1Var;
             if (q4()) {
-                i2 = this.Z0;
+                i2 = this.a1;
             } else {
                 i2 = 0;
             }
-            hr1Var.o(i2);
-            WebViewContainer k2 = this.B1.k();
-            this.m1 = k2;
-            this.o1.addView(k2);
+            uv1Var.o(i2);
+            WebViewContainer k2 = this.C1.k();
+            this.n1 = k2;
+            this.p1.addView(k2);
         }
     }
 
-    @Override // com.baidu.tieba.x32, com.baidu.swan.support.v4.app.Fragment
+    @Override // com.baidu.tieba.k82, com.baidu.swan.support.v4.app.Fragment
     public void u0(Bundle bundle) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, bundle) == null) {
             super.u0(bundle);
             s4();
-            this.P0 = new tt3(getContext(), this.i1);
+            this.Q0 = new gy3(getContext(), this.j1);
             FragmentActivity activity = getActivity();
             if (activity != null) {
                 if (1 == activity.getRequestedOrientation()) {
@@ -1886,29 +1886,29 @@ public class SwanAppAdLandingFragment extends x32 implements us3 {
                 } else {
                     z = false;
                 }
-                this.l1 = z;
+                this.m1 = z;
                 if (!z) {
                     H2(1);
                 }
             }
-            if (M1) {
+            if (N1) {
                 Log.d("SwanAppAdLandFragment", "onCreate() : " + this);
             }
         }
     }
 
-    @Override // com.baidu.tieba.x32, com.baidu.swan.support.v4.app.Fragment
+    @Override // com.baidu.tieba.k82, com.baidu.swan.support.v4.app.Fragment
     public View x0(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048610, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00de, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00dd, viewGroup, false);
             U1(inflate);
-            this.o1 = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f0920bc);
-            this.Q0 = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0901ae);
+            this.p1 = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f0920cd);
+            this.R0 = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0901a8);
             l4();
             n4();
-            f4(this.m1);
+            f4(this.n1);
             m4();
             if (q4()) {
                 k4();

@@ -8,9 +8,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rb;
-import com.baidu.tieba.s9;
-import com.baidu.tieba.zq4;
+import com.baidu.tieba.mv4;
+import com.baidu.tieba.wb;
+import com.baidu.tieba.x9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,8 +21,8 @@ import tbclient.GetClientConfig.DataRes;
 public class ClientConfigModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zq4 a;
-    public final rb b;
+    public mv4 a;
+    public final wb b;
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
@@ -45,7 +45,7 @@ public class ClientConfigModel extends BdBaseModel {
     }
 
     /* loaded from: classes3.dex */
-    public class a extends rb {
+    public class a extends wb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ClientConfigModel a;
@@ -72,7 +72,7 @@ public class ClientConfigModel extends BdBaseModel {
             this.a = clientConfigModel;
         }
 
-        @Override // com.baidu.tieba.rb
+        @Override // com.baidu.tieba.wb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
@@ -90,7 +90,7 @@ public class ClientConfigModel extends BdBaseModel {
                     }
                 } else {
                     String errorString = responsedMessage.getErrorString();
-                    String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0cd1);
+                    String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0cfe);
                     if (StringUtils.isNull(errorString)) {
                         errorString = string;
                     }
@@ -103,18 +103,18 @@ public class ClientConfigModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ClientConfigModel(BdBaseFragmentActivity<?> bdBaseFragmentActivity, zq4 zq4Var) {
+    public ClientConfigModel(BdBaseFragmentActivity<?> bdBaseFragmentActivity, mv4 mv4Var) {
         super(bdBaseFragmentActivity.getPageContext());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdBaseFragmentActivity, zq4Var};
+            Object[] objArr = {bdBaseFragmentActivity, mv4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((s9) newInitContext.callArgs[0]);
+                super((x9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -122,7 +122,7 @@ public class ClientConfigModel extends BdBaseModel {
         }
         a aVar = new a(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
         this.b = aVar;
-        this.a = zq4Var;
+        this.a = mv4Var;
         registerListener(aVar);
     }
 
@@ -148,9 +148,9 @@ public class ClientConfigModel extends BdBaseModel {
                 }
                 return;
             }
-            zq4 zq4Var = this.a;
-            if (zq4Var != null) {
-                zq4Var.a(dataRes);
+            mv4 mv4Var = this.a;
+            if (mv4Var != null) {
+                mv4Var.a(dataRes);
             }
         }
     }

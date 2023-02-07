@@ -1,101 +1,99 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class u36 extends a86<k26> {
+public class u36 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView i;
-    public TextView j;
-    public String k;
+    public ThreadData a;
+    public boolean b;
+    public long c;
+    public List<a> d;
 
-    @Override // com.baidu.tieba.a86
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0107 : invokeV.intValue;
-    }
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public String b;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.a86
-    /* renamed from: s */
-    public void i(k26 k26Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, k26Var) == null) {
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public void a(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+                return;
+            }
+            this.a = jSONObject.optInt("tag_type");
+            this.b = jSONObject.optString("tag_word");
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u36(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    public u36() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        r(h());
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-            if (!TextUtils.isEmpty(this.k)) {
-                UtilHelper.copyToClipBoard(this.k);
-            }
-            BdToast.b(getContext(), getContext().getResources().getString(R.string.obfuscated_res_0x7f0f023e)).k();
-        }
-    }
-
-    public void t(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.k = str;
-            TextView textView = this.i;
-            if (textView != null) {
-                textView.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0240) + str);
             }
         }
     }
 
-    public final void r(View view2) {
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090228);
-            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090227);
-            this.j = textView;
-            textView.setOnClickListener(this);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-    }
-
-    @Override // com.baidu.tieba.a86
-    public void j(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            SkinManager.setViewTextColor(this.i, (int) R.color.common_color_10106);
-            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0302);
+        boolean z = true;
+        if (jSONObject.optInt(TiebaStatic.Params.IS_FOLLOW) != 1) {
+            z = false;
+        }
+        this.b = z;
+        this.c = jSONObject.optLong("last_watch_time");
+        JSONObject optJSONObject = jSONObject.optJSONObject("thread_info");
+        if (optJSONObject != null) {
+            ThreadData threadData = new ThreadData();
+            this.a = threadData;
+            threadData.parserJson(optJSONObject);
+        }
+        JSONArray optJSONArray = jSONObject.optJSONArray("tags");
+        if (optJSONArray == null) {
+            return;
+        }
+        int length = optJSONArray.length();
+        this.d = new ArrayList(length);
+        for (int i = 0; i < length; i++) {
+            JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
+            if (optJSONObject2 != null) {
+                a aVar = new a();
+                aVar.a(optJSONObject2);
+                this.d.add(aVar);
+            }
         }
     }
 }

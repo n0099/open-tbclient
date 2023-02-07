@@ -2,9 +2,9 @@ package com.fun.ad.sdk.internal.api.ripper;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkItem;
-import com.baidu.tieba.i1a;
-import com.baidu.tieba.lw9;
-import com.baidu.tieba.q1a;
+import com.baidu.tieba.r5a;
+import com.baidu.tieba.u0a;
+import com.baidu.tieba.z5a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,7 +44,7 @@ public abstract class BaseAdRipper implements AdRipper {
                 return;
             }
         }
-        FAKE_AD_RIPPER = new lw9();
+        FAKE_AD_RIPPER = new u0a();
         a = new Random();
     }
 
@@ -210,12 +210,12 @@ public abstract class BaseAdRipper implements AdRipper {
                 jSONObject.put("convU", b.convUrl);
                 jSONObject.put("uniqueId", b.uniqueId);
                 jSONObject.put("lid", j);
-                q1a<Reporter> q1aVar = i1a.b;
-                synchronized (q1aVar) {
-                    if (q1aVar.a == null) {
-                        q1aVar.a = q1aVar.a();
+                z5a<Reporter> z5aVar = r5a.b;
+                synchronized (z5aVar) {
+                    if (z5aVar.a == null) {
+                        z5aVar.a = z5aVar.a();
                     }
-                    reporter = q1aVar.a;
+                    reporter = z5aVar.a;
                 }
                 reporter.logEvent("adM", jSONObject);
             } catch (JSONException e) {

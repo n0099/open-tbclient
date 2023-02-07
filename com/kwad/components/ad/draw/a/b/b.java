@@ -80,7 +80,7 @@ public final class b extends com.kwad.components.ad.draw.kwai.a {
             FrameLayout frameLayout = this.bS;
             com.kwad.components.ad.draw.kwai.b bVar3 = this.aK;
             bVar2.a(frameLayout, bVar3.mRootContainer, bVar3.mAdTemplate, bVar3.mApkDownloadHelper);
-            this.bb.a((b.InterfaceC0555b) null);
+            this.bb.a((b.InterfaceC0559b) null);
         }
     }
 
@@ -89,7 +89,7 @@ public final class b extends com.kwad.components.ad.draw.kwai.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            this.bS = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0911bd);
+            this.bS = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091200);
         }
     }
 

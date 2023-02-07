@@ -11,30 +11,30 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.SapiOptions;
 import com.baidu.sapi2.stat.ShareLoginStat;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.tieba.a22;
-import com.baidu.tieba.b53;
-import com.baidu.tieba.b83;
-import com.baidu.tieba.bi3;
-import com.baidu.tieba.d03;
-import com.baidu.tieba.f03;
-import com.baidu.tieba.gp2;
-import com.baidu.tieba.h03;
-import com.baidu.tieba.i03;
-import com.baidu.tieba.j43;
-import com.baidu.tieba.kd4;
-import com.baidu.tieba.lw1;
-import com.baidu.tieba.nk4;
-import com.baidu.tieba.on2;
-import com.baidu.tieba.pn2;
-import com.baidu.tieba.qn2;
-import com.baidu.tieba.qz2;
-import com.baidu.tieba.tk1;
+import com.baidu.tieba.ap4;
+import com.baidu.tieba.bs2;
+import com.baidu.tieba.cs2;
+import com.baidu.tieba.d43;
+import com.baidu.tieba.ds2;
+import com.baidu.tieba.gp1;
+import com.baidu.tieba.h93;
+import com.baidu.tieba.j72;
+import com.baidu.tieba.j93;
+import com.baidu.tieba.ju2;
+import com.baidu.tieba.k93;
+import com.baidu.tieba.l93;
+import com.baidu.tieba.n62;
+import com.baidu.tieba.o93;
+import com.baidu.tieba.oc3;
+import com.baidu.tieba.om3;
+import com.baidu.tieba.q43;
+import com.baidu.tieba.s43;
+import com.baidu.tieba.tt2;
 import com.baidu.tieba.u43;
-import com.baidu.tieba.w22;
-import com.baidu.tieba.w43;
-import com.baidu.tieba.wp2;
-import com.baidu.tieba.x43;
-import com.baidu.tieba.y43;
+import com.baidu.tieba.v43;
+import com.baidu.tieba.w83;
+import com.baidu.tieba.xh4;
+import com.baidu.tieba.y02;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -60,22 +60,22 @@ import org.json.JSONObject;
 public class SwanAppConfigData {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean v;
-    public static final x43<SwanAppConfigData> w;
-    public static final w43<SwanAppConfigData> x;
+    public static final k93<SwanAppConfigData> w;
+    public static final j93<SwanAppConfigData> x;
     public static final HashMap<String, Integer> y;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public e b;
     public l c;
     public m d;
-    public y43 e;
+    public l93 e;
     public n f;
     public j g;
-    public u43.a h;
+    public h93.a h;
     public g i;
     public g j;
     public d k;
-    public List<kd4> l;
+    public List<xh4> l;
     public String m;
     public String n;
     public i o;
@@ -90,23 +90,23 @@ public class SwanAppConfigData {
     /* loaded from: classes3.dex */
     public static class f {
         public static /* synthetic */ Interceptable $ic;
-        public static final x43<f> b;
-        public static final w43<f> c;
+        public static final k93<f> b;
+        public static final j93<f> c;
         public transient /* synthetic */ FieldHolder $fh;
         public Map<String, Map<String, String>> a;
 
         /* loaded from: classes3.dex */
-        public static class a extends x43<f> {
+        public static class a extends k93<f> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: com.baidu.swan.apps.runtime.config.SwanAppConfigData$f$a$a  reason: collision with other inner class name */
             /* loaded from: classes3.dex */
-            public class C0200a extends x43<Map<String, String>> {
+            public class C0202a extends k93<Map<String, String>> {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                public C0200a(a aVar) {
+                public C0202a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -123,12 +123,12 @@ public class SwanAppConfigData {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.tieba.x43
+                @Override // com.baidu.tieba.k93
                 /* renamed from: b */
-                public void a(@NonNull Map<String, String> map, @NonNull pn2 pn2Var) throws Exception {
+                public void a(@NonNull Map<String, String> map, @NonNull cs2 cs2Var) throws Exception {
                     Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, pn2Var) == null) {
-                        pn2Var.h(map);
+                    if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, cs2Var) == null) {
+                        cs2Var.h(map);
                     }
                 }
             }
@@ -148,23 +148,23 @@ public class SwanAppConfigData {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.x43
+            @Override // com.baidu.tieba.k93
             /* renamed from: b */
-            public void a(@NonNull f fVar, @NonNull pn2 pn2Var) throws Exception {
+            public void a(@NonNull f fVar, @NonNull cs2 cs2Var) throws Exception {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar, pn2Var) == null) {
-                    pn2Var.e(fVar.a, new C0200a(this));
+                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar, cs2Var) == null) {
+                    cs2Var.e(fVar.a, new C0202a(this));
                 }
             }
         }
 
         /* loaded from: classes3.dex */
-        public static class b extends w43<f> {
+        public static class b extends j93<f> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* loaded from: classes3.dex */
-            public class a extends w43<Map<String, String>> {
+            public class a extends j93<Map<String, String>> {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -185,13 +185,13 @@ public class SwanAppConfigData {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.tieba.w43
+                @Override // com.baidu.tieba.j93
                 /* renamed from: b */
-                public Map<String, String> a(@NonNull on2 on2Var) throws Exception {
+                public Map<String, String> a(@NonNull bs2 bs2Var) throws Exception {
                     InterceptResult invokeL;
                     Interceptable interceptable = $ic;
-                    if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, on2Var)) == null) {
-                        return on2Var.l();
+                    if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bs2Var)) == null) {
+                        return bs2Var.l();
                     }
                     return (Map) invokeL.objValue;
                 }
@@ -212,13 +212,13 @@ public class SwanAppConfigData {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.w43
+            @Override // com.baidu.tieba.j93
             /* renamed from: b */
-            public f a(@NonNull on2 on2Var) throws Exception {
+            public f a(@NonNull bs2 bs2Var) throws Exception {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, on2Var)) == null) {
-                    Map<String, Map<String, String>> f = on2Var.f(new a(this));
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bs2Var)) == null) {
+                    Map<String, Map<String, String>> f = bs2Var.f(new a(this));
                     if (f == null) {
                         return f.b();
                     }
@@ -312,13 +312,13 @@ public class SwanAppConfigData {
     /* loaded from: classes3.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
-        public static final w43<c> b;
-        public static final x43<c> c;
+        public static final j93<c> b;
+        public static final k93<c> c;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
 
         /* loaded from: classes3.dex */
-        public static class a extends w43<c> {
+        public static class a extends j93<c> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -337,14 +337,14 @@ public class SwanAppConfigData {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.w43
+            @Override // com.baidu.tieba.j93
             /* renamed from: b */
-            public c a(@NonNull on2 on2Var) throws Exception {
+            public c a(@NonNull bs2 bs2Var) throws Exception {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, on2Var)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bs2Var)) == null) {
                     c cVar = new c();
-                    cVar.a = on2Var.readBoolean();
+                    cVar.a = bs2Var.readBoolean();
                     return cVar;
                 }
                 return (c) invokeL.objValue;
@@ -352,7 +352,7 @@ public class SwanAppConfigData {
         }
 
         /* loaded from: classes3.dex */
-        public static class b extends x43<c> {
+        public static class b extends k93<c> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -371,12 +371,12 @@ public class SwanAppConfigData {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.x43
+            @Override // com.baidu.tieba.k93
             /* renamed from: b */
-            public void a(@NonNull c cVar, @NonNull pn2 pn2Var) throws Exception {
+            public void a(@NonNull c cVar, @NonNull cs2 cs2Var) throws Exception {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, pn2Var) == null) {
-                    pn2Var.writeBoolean(cVar.a);
+                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, cs2Var) == null) {
+                    cs2Var.writeBoolean(cVar.a);
                 }
             }
         }
@@ -434,13 +434,13 @@ public class SwanAppConfigData {
     /* loaded from: classes3.dex */
     public static class d {
         public static /* synthetic */ Interceptable $ic;
-        public static final x43<d> b;
-        public static final w43<d> c;
+        public static final k93<d> b;
+        public static final j93<d> c;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<d03> a;
+        public List<q43> a;
 
         /* loaded from: classes3.dex */
-        public static class a extends x43<d> {
+        public static class a extends k93<d> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -459,18 +459,18 @@ public class SwanAppConfigData {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.x43
+            @Override // com.baidu.tieba.k93
             /* renamed from: b */
-            public void a(@NonNull d dVar, @NonNull pn2 pn2Var) throws Exception {
+            public void a(@NonNull d dVar, @NonNull cs2 cs2Var) throws Exception {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar, pn2Var) == null) {
-                    pn2Var.d(dVar.a, d03.l);
+                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar, cs2Var) == null) {
+                    cs2Var.d(dVar.a, q43.l);
                 }
             }
         }
 
         /* loaded from: classes3.dex */
-        public static class b extends w43<d> {
+        public static class b extends j93<d> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -489,13 +489,13 @@ public class SwanAppConfigData {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.w43
+            @Override // com.baidu.tieba.j93
             /* renamed from: b */
-            public d a(@NonNull on2 on2Var) throws Exception {
+            public d a(@NonNull bs2 bs2Var) throws Exception {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, on2Var)) == null) {
-                    List<d03> e = on2Var.e(d03.k);
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bs2Var)) == null) {
+                    List<q43> e = bs2Var.e(q43.k);
                     if (e == null) {
                         return null;
                     }
@@ -551,11 +551,11 @@ public class SwanAppConfigData {
                 dVar.a = new ArrayList();
                 while (keys.hasNext()) {
                     String next = keys.next();
-                    d03 d03Var = new d03(optJSONObject.optJSONObject(next), next);
-                    if (file != null && !TextUtils.isEmpty(d03Var.e)) {
-                        d03Var.e = new File(file, d03Var.e).getAbsolutePath();
+                    q43 q43Var = new q43(optJSONObject.optJSONObject(next), next);
+                    if (file != null && !TextUtils.isEmpty(q43Var.e)) {
+                        q43Var.e = new File(file, q43Var.e).getAbsolutePath();
                     }
-                    dVar.a.add(d03Var);
+                    dVar.a.add(q43Var);
                 }
                 return dVar;
             }
@@ -566,13 +566,13 @@ public class SwanAppConfigData {
     /* loaded from: classes3.dex */
     public static class e {
         public static /* synthetic */ Interceptable $ic;
-        public static final w43<e> b;
-        public static final x43<e> c;
+        public static final j93<e> b;
+        public static final k93<e> c;
         public transient /* synthetic */ FieldHolder $fh;
         public List<String> a;
 
         /* loaded from: classes3.dex */
-        public static class a extends w43<e> {
+        public static class a extends j93<e> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -591,14 +591,14 @@ public class SwanAppConfigData {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.w43
+            @Override // com.baidu.tieba.j93
             /* renamed from: b */
-            public e a(@NonNull on2 on2Var) throws Exception {
+            public e a(@NonNull bs2 bs2Var) throws Exception {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, on2Var)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bs2Var)) == null) {
                     e eVar = new e();
-                    eVar.a = on2Var.k(Collections.emptyList());
+                    eVar.a = bs2Var.k(Collections.emptyList());
                     return eVar;
                 }
                 return (e) invokeL.objValue;
@@ -606,7 +606,7 @@ public class SwanAppConfigData {
         }
 
         /* loaded from: classes3.dex */
-        public static class b extends x43<e> {
+        public static class b extends k93<e> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -625,12 +625,12 @@ public class SwanAppConfigData {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.x43
+            @Override // com.baidu.tieba.k93
             /* renamed from: b */
-            public void a(@NonNull e eVar, @NonNull pn2 pn2Var) throws Exception {
+            public void a(@NonNull e eVar, @NonNull cs2 cs2Var) throws Exception {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar, pn2Var) == null) {
-                    pn2Var.g(eVar.a);
+                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar, cs2Var) == null) {
+                    cs2Var.g(eVar.a);
                 }
             }
         }
@@ -718,13 +718,13 @@ public class SwanAppConfigData {
     /* loaded from: classes3.dex */
     public static class g {
         public static /* synthetic */ Interceptable $ic;
-        public static final x43<g> b;
-        public static final w43<g> c;
+        public static final k93<g> b;
+        public static final j93<g> c;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<f03> a;
+        public List<s43> a;
 
         /* loaded from: classes3.dex */
-        public static class a extends x43<g> {
+        public static class a extends k93<g> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -743,18 +743,18 @@ public class SwanAppConfigData {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.x43
+            @Override // com.baidu.tieba.k93
             /* renamed from: b */
-            public void a(@NonNull g gVar, @NonNull pn2 pn2Var) throws Exception {
+            public void a(@NonNull g gVar, @NonNull cs2 cs2Var) throws Exception {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gVar, pn2Var) == null) {
-                    pn2Var.d(gVar.a, f03.i);
+                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gVar, cs2Var) == null) {
+                    cs2Var.d(gVar.a, s43.i);
                 }
             }
         }
 
         /* loaded from: classes3.dex */
-        public static class b extends w43<g> {
+        public static class b extends j93<g> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -773,13 +773,13 @@ public class SwanAppConfigData {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.w43
+            @Override // com.baidu.tieba.j93
             /* renamed from: b */
-            public g a(@NonNull on2 on2Var) throws Exception {
+            public g a(@NonNull bs2 bs2Var) throws Exception {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, on2Var)) == null) {
-                    List<f03> e = on2Var.e(f03.h);
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bs2Var)) == null) {
+                    List<s43> e = bs2Var.e(s43.h);
                     if (e == null) {
                         return null;
                     }
@@ -855,12 +855,12 @@ public class SwanAppConfigData {
                     gVar.a = new ArrayList();
                     while (keys.hasNext()) {
                         String next = keys.next();
-                        f03 f03Var = new f03(optJSONObject.optJSONObject(next), i);
-                        f03Var.g = next;
-                        if (file != null && !TextUtils.isEmpty(f03Var.e)) {
-                            f03Var.e = new File(file, f03Var.e).getAbsolutePath();
+                        s43 s43Var = new s43(optJSONObject.optJSONObject(next), i);
+                        s43Var.g = next;
+                        if (file != null && !TextUtils.isEmpty(s43Var.e)) {
+                            s43Var.e = new File(file, s43Var.e).getAbsolutePath();
                         }
-                        gVar.a.add(f03Var);
+                        gVar.a.add(s43Var);
                     }
                 }
                 return gVar;
@@ -872,14 +872,14 @@ public class SwanAppConfigData {
     /* loaded from: classes3.dex */
     public static class h {
         public static /* synthetic */ Interceptable $ic;
-        public static final w43<h> c;
-        public static final x43<h> d;
+        public static final j93<h> c;
+        public static final k93<h> d;
         public transient /* synthetic */ FieldHolder $fh;
         public final boolean a;
         public final String b;
 
         /* loaded from: classes3.dex */
-        public static class a extends w43<h> {
+        public static class a extends j93<h> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -898,20 +898,20 @@ public class SwanAppConfigData {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.w43
+            @Override // com.baidu.tieba.j93
             /* renamed from: b */
-            public h a(@NonNull on2 on2Var) throws Exception {
+            public h a(@NonNull bs2 bs2Var) throws Exception {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, on2Var)) == null) {
-                    return new h(on2Var.readBoolean(), on2Var.g());
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bs2Var)) == null) {
+                    return new h(bs2Var.readBoolean(), bs2Var.g());
                 }
                 return (h) invokeL.objValue;
             }
         }
 
         /* loaded from: classes3.dex */
-        public static class b extends x43<h> {
+        public static class b extends k93<h> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -930,13 +930,13 @@ public class SwanAppConfigData {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.x43
+            @Override // com.baidu.tieba.k93
             /* renamed from: b */
-            public void a(@NonNull h hVar, @NonNull pn2 pn2Var) throws Exception {
+            public void a(@NonNull h hVar, @NonNull cs2 cs2Var) throws Exception {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hVar, pn2Var) == null) {
-                    pn2Var.writeBoolean(hVar.a);
-                    pn2Var.f(hVar.b);
+                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hVar, cs2Var) == null) {
+                    cs2Var.writeBoolean(hVar.a);
+                    cs2Var.f(hVar.b);
                 }
             }
         }
@@ -1009,13 +1009,13 @@ public class SwanAppConfigData {
     /* loaded from: classes3.dex */
     public static class i {
         public static /* synthetic */ Interceptable $ic;
-        public static final w43<i> b;
-        public static final x43<i> c;
+        public static final j93<i> b;
+        public static final k93<i> c;
         public transient /* synthetic */ FieldHolder $fh;
         public Map<String, String> a;
 
         /* loaded from: classes3.dex */
-        public static class a extends w43<i> {
+        public static class a extends j93<i> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -1034,13 +1034,13 @@ public class SwanAppConfigData {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.w43
+            @Override // com.baidu.tieba.j93
             /* renamed from: b */
-            public i a(@NonNull on2 on2Var) throws Exception {
+            public i a(@NonNull bs2 bs2Var) throws Exception {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, on2Var)) == null) {
-                    Map<String, String> l = on2Var.l();
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bs2Var)) == null) {
+                    Map<String, String> l = bs2Var.l();
                     if (l == null) {
                         return i.a();
                     }
@@ -1053,7 +1053,7 @@ public class SwanAppConfigData {
         }
 
         /* loaded from: classes3.dex */
-        public static class b extends x43<i> {
+        public static class b extends k93<i> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -1072,12 +1072,12 @@ public class SwanAppConfigData {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.x43
+            @Override // com.baidu.tieba.k93
             /* renamed from: b */
-            public void a(@NonNull i iVar, @NonNull pn2 pn2Var) throws Exception {
+            public void a(@NonNull i iVar, @NonNull cs2 cs2Var) throws Exception {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iVar, pn2Var) == null) {
-                    pn2Var.h(iVar.a);
+                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iVar, cs2Var) == null) {
+                    cs2Var.h(iVar.a);
                 }
             }
         }
@@ -1159,13 +1159,13 @@ public class SwanAppConfigData {
     /* loaded from: classes3.dex */
     public static class j {
         public static /* synthetic */ Interceptable $ic;
-        public static final x43<j> b;
-        public static final w43<j> c;
+        public static final k93<j> b;
+        public static final j93<j> c;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
 
         /* loaded from: classes3.dex */
-        public static class a extends x43<j> {
+        public static class a extends k93<j> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -1184,18 +1184,18 @@ public class SwanAppConfigData {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.x43
+            @Override // com.baidu.tieba.k93
             /* renamed from: b */
-            public void a(@NonNull j jVar, @NonNull pn2 pn2Var) throws Exception {
+            public void a(@NonNull j jVar, @NonNull cs2 cs2Var) throws Exception {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jVar, pn2Var) == null) {
-                    pn2Var.writeBoolean(jVar.a);
+                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jVar, cs2Var) == null) {
+                    cs2Var.writeBoolean(jVar.a);
                 }
             }
         }
 
         /* loaded from: classes3.dex */
-        public static class b extends w43<j> {
+        public static class b extends j93<j> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -1214,14 +1214,14 @@ public class SwanAppConfigData {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.w43
+            @Override // com.baidu.tieba.j93
             /* renamed from: b */
-            public j a(@NonNull on2 on2Var) throws Exception {
+            public j a(@NonNull bs2 bs2Var) throws Exception {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, on2Var)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bs2Var)) == null) {
                     j jVar = new j();
-                    jVar.a = on2Var.readBoolean();
+                    jVar.a = bs2Var.readBoolean();
                     return jVar;
                 }
                 return (j) invokeL.objValue;
@@ -1285,7 +1285,7 @@ public class SwanAppConfigData {
                 if (optJSONObject == null) {
                     return c();
                 }
-                j43 M = j43.M();
+                w83 M = w83.M();
                 if (M == null) {
                     str = "";
                 } else {
@@ -1295,10 +1295,10 @@ public class SwanAppConfigData {
                 jVar.a = optJSONObject.optBoolean(CfgFileUtils.KEY_URL_CHECK, true);
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject("swan_conf");
                 if (optJSONObject2 != null) {
-                    b53.u(str, "", optJSONObject2.optJSONArray("web_view_domains"));
+                    o93.u(str, "", optJSONObject2.optJSONArray("web_view_domains"));
                     JSONObject optJSONObject3 = optJSONObject2.optJSONObject("domains");
                     if (optJSONObject3 != null) {
-                        b53.s(str, optJSONObject3);
+                        o93.s(str, optJSONObject3);
                     }
                 }
                 return jVar;
@@ -1310,21 +1310,21 @@ public class SwanAppConfigData {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-                SwanAppConfigData s = wp2.U().s();
+                SwanAppConfigData s = ju2.U().s();
                 if (s == null) {
                     return true;
                 }
                 j jVar = s.g;
-                j43 M = j43.M();
-                gp2.a aVar = null;
+                w83 M = w83.M();
+                tt2.a aVar = null;
                 if (M != null) {
                     aVar = M.Y();
                 }
-                boolean d = lw1.d(aVar);
-                boolean d2 = a22.d();
-                boolean d3 = w22.d();
-                boolean H = i03.H();
-                boolean D = i03.D();
+                boolean d = y02.d(aVar);
+                boolean d2 = n62.d();
+                boolean d3 = j72.d();
+                boolean H = v43.H();
+                boolean D = v43.D();
                 if (SwanAppConfigData.v) {
                     Log.d("SwanAppConfigData", "isDevelop: " + d + " isRemoteDebug: " + d2 + " isMobileDebug: " + d3 + " urlCheck: " + jVar.a);
                 }
@@ -1341,15 +1341,15 @@ public class SwanAppConfigData {
     public static class k {
         public static /* synthetic */ Interceptable $ic;
         public static final String d;
-        public static final w43<k> e;
-        public static final x43<k> f;
+        public static final j93<k> e;
+        public static final k93<k> f;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
         public List<String> b;
         public boolean c;
 
         /* loaded from: classes3.dex */
-        public static class a extends w43<k> {
+        public static class a extends j93<k> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -1368,16 +1368,16 @@ public class SwanAppConfigData {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.w43
+            @Override // com.baidu.tieba.j93
             /* renamed from: b */
-            public k a(@NonNull on2 on2Var) throws Exception {
+            public k a(@NonNull bs2 bs2Var) throws Exception {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, on2Var)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bs2Var)) == null) {
                     k kVar = new k();
-                    kVar.a = on2Var.g();
-                    kVar.b = on2Var.k(Collections.emptyList());
-                    kVar.c = on2Var.readBoolean();
+                    kVar.a = bs2Var.g();
+                    kVar.b = bs2Var.k(Collections.emptyList());
+                    kVar.c = bs2Var.readBoolean();
                     return kVar;
                 }
                 return (k) invokeL.objValue;
@@ -1385,7 +1385,7 @@ public class SwanAppConfigData {
         }
 
         /* loaded from: classes3.dex */
-        public static class b extends x43<k> {
+        public static class b extends k93<k> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -1404,14 +1404,14 @@ public class SwanAppConfigData {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.x43
+            @Override // com.baidu.tieba.k93
             /* renamed from: b */
-            public void a(@NonNull k kVar, @NonNull pn2 pn2Var) throws Exception {
+            public void a(@NonNull k kVar, @NonNull cs2 cs2Var) throws Exception {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kVar, pn2Var) == null) {
-                    pn2Var.f(kVar.a);
-                    pn2Var.g(kVar.b);
-                    pn2Var.writeBoolean(kVar.c);
+                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kVar, cs2Var) == null) {
+                    cs2Var.f(kVar.a);
+                    cs2Var.g(kVar.b);
+                    cs2Var.writeBoolean(kVar.c);
                 }
             }
         }
@@ -1522,8 +1522,8 @@ public class SwanAppConfigData {
     /* loaded from: classes3.dex */
     public static class l {
         public static /* synthetic */ Interceptable $ic;
-        public static final w43<l> e;
-        public static final x43<l> f;
+        public static final j93<l> e;
+        public static final k93<l> f;
         public transient /* synthetic */ FieldHolder $fh;
         public List<k> a;
         public Map<String, Boolean> b;
@@ -1531,7 +1531,7 @@ public class SwanAppConfigData {
         public Map<String, String> d;
 
         /* loaded from: classes3.dex */
-        public static class a extends w43<l> {
+        public static class a extends j93<l> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -1550,29 +1550,29 @@ public class SwanAppConfigData {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.w43
+            @Override // com.baidu.tieba.j93
             /* renamed from: b */
-            public l a(@NonNull on2 on2Var) throws Exception {
+            public l a(@NonNull bs2 bs2Var) throws Exception {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, on2Var)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bs2Var)) == null) {
                     l lVar = new l();
-                    List<k> e = on2Var.e(k.e);
+                    List<k> e = bs2Var.e(k.e);
                     lVar.a = e;
                     if (e == null) {
                         lVar.a = new ArrayList();
                     }
-                    Map<String, Boolean> a = on2Var.a();
+                    Map<String, Boolean> a = bs2Var.a();
                     lVar.b = a;
                     if (a == null) {
                         lVar.b = new HashMap();
                     }
-                    Map<String, String> l = on2Var.l();
+                    Map<String, String> l = bs2Var.l();
                     lVar.c = l;
                     if (l == null) {
                         lVar.c = new HashMap();
                     }
-                    Map<String, String> l2 = on2Var.l();
+                    Map<String, String> l2 = bs2Var.l();
                     lVar.d = l2;
                     if (l2 == null) {
                         lVar.d = new HashMap();
@@ -1584,7 +1584,7 @@ public class SwanAppConfigData {
         }
 
         /* loaded from: classes3.dex */
-        public static class b extends x43<l> {
+        public static class b extends k93<l> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -1603,15 +1603,15 @@ public class SwanAppConfigData {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.x43
+            @Override // com.baidu.tieba.k93
             /* renamed from: b */
-            public void a(@NonNull l lVar, @NonNull pn2 pn2Var) throws Exception {
+            public void a(@NonNull l lVar, @NonNull cs2 cs2Var) throws Exception {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar, pn2Var) == null) {
-                    pn2Var.d(lVar.a, k.f);
-                    pn2Var.a(lVar.b);
-                    pn2Var.h(lVar.c);
-                    pn2Var.h(lVar.d);
+                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar, cs2Var) == null) {
+                    cs2Var.d(lVar.a, k.f);
+                    cs2Var.a(lVar.b);
+                    cs2Var.h(lVar.c);
+                    cs2Var.h(lVar.d);
                 }
             }
         }
@@ -1704,13 +1704,13 @@ public class SwanAppConfigData {
     /* loaded from: classes3.dex */
     public static class m {
         public static /* synthetic */ Interceptable $ic;
-        public static final x43<m> b;
-        public static final w43<m> c;
+        public static final k93<m> b;
+        public static final j93<m> c;
         public transient /* synthetic */ FieldHolder $fh;
         public Map<String, String> a;
 
         /* loaded from: classes3.dex */
-        public static class a extends x43<m> {
+        public static class a extends k93<m> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -1729,18 +1729,18 @@ public class SwanAppConfigData {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.x43
+            @Override // com.baidu.tieba.k93
             /* renamed from: b */
-            public void a(@NonNull m mVar, @NonNull pn2 pn2Var) throws Exception {
+            public void a(@NonNull m mVar, @NonNull cs2 cs2Var) throws Exception {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mVar, pn2Var) == null) {
-                    pn2Var.h(mVar.a);
+                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mVar, cs2Var) == null) {
+                    cs2Var.h(mVar.a);
                 }
             }
         }
 
         /* loaded from: classes3.dex */
-        public static class b extends w43<m> {
+        public static class b extends j93<m> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -1759,13 +1759,13 @@ public class SwanAppConfigData {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.w43
+            @Override // com.baidu.tieba.j93
             /* renamed from: b */
-            public m a(@NonNull on2 on2Var) throws Exception {
+            public m a(@NonNull bs2 bs2Var) throws Exception {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, on2Var)) == null) {
-                    Map<String, String> l = on2Var.l();
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bs2Var)) == null) {
+                    Map<String, String> l = bs2Var.l();
                     if (l == null) {
                         return m.a();
                     }
@@ -1853,8 +1853,8 @@ public class SwanAppConfigData {
     /* loaded from: classes3.dex */
     public static class n {
         public static /* synthetic */ Interceptable $ic;
-        public static final x43<n> f;
-        public static final w43<n> g;
+        public static final k93<n> f;
+        public static final j93<n> g;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
         public int b;
@@ -1863,7 +1863,7 @@ public class SwanAppConfigData {
         public List<o> e;
 
         /* loaded from: classes3.dex */
-        public static class a extends x43<n> {
+        public static class a extends k93<n> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -1882,22 +1882,22 @@ public class SwanAppConfigData {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.x43
+            @Override // com.baidu.tieba.k93
             /* renamed from: b */
-            public void a(@NonNull n nVar, @NonNull pn2 pn2Var) throws Exception {
+            public void a(@NonNull n nVar, @NonNull cs2 cs2Var) throws Exception {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nVar, pn2Var) == null) {
-                    pn2Var.writeInt(nVar.a);
-                    pn2Var.writeInt(nVar.b);
-                    pn2Var.writeInt(nVar.c);
-                    pn2Var.writeInt(nVar.d);
-                    pn2Var.d(nVar.e, o.e);
+                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nVar, cs2Var) == null) {
+                    cs2Var.writeInt(nVar.a);
+                    cs2Var.writeInt(nVar.b);
+                    cs2Var.writeInt(nVar.c);
+                    cs2Var.writeInt(nVar.d);
+                    cs2Var.d(nVar.e, o.e);
                 }
             }
         }
 
         /* loaded from: classes3.dex */
-        public static class b extends w43<n> {
+        public static class b extends j93<n> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -1916,18 +1916,18 @@ public class SwanAppConfigData {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.w43
+            @Override // com.baidu.tieba.j93
             /* renamed from: b */
-            public n a(@NonNull on2 on2Var) throws Exception {
+            public n a(@NonNull bs2 bs2Var) throws Exception {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, on2Var)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bs2Var)) == null) {
                     n nVar = new n();
-                    nVar.a = on2Var.readInt();
-                    nVar.b = on2Var.readInt();
-                    nVar.c = on2Var.readInt();
-                    nVar.d = on2Var.readInt();
-                    List<o> e = on2Var.e(o.f);
+                    nVar.a = bs2Var.readInt();
+                    nVar.b = bs2Var.readInt();
+                    nVar.c = bs2Var.readInt();
+                    nVar.d = bs2Var.readInt();
+                    List<o> e = bs2Var.e(o.f);
                     nVar.e = e;
                     if (e == null) {
                         nVar.e = new ArrayList();
@@ -2049,8 +2049,8 @@ public class SwanAppConfigData {
     /* loaded from: classes3.dex */
     public static class o {
         public static /* synthetic */ Interceptable $ic;
-        public static final x43<o> e;
-        public static final w43<o> f;
+        public static final k93<o> e;
+        public static final j93<o> f;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
         public String b;
@@ -2058,7 +2058,7 @@ public class SwanAppConfigData {
         public String d;
 
         /* loaded from: classes3.dex */
-        public static class a extends x43<o> {
+        public static class a extends k93<o> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -2077,21 +2077,21 @@ public class SwanAppConfigData {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.x43
+            @Override // com.baidu.tieba.k93
             /* renamed from: b */
-            public void a(@NonNull o oVar, @NonNull pn2 pn2Var) throws Exception {
+            public void a(@NonNull o oVar, @NonNull cs2 cs2Var) throws Exception {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oVar, pn2Var) == null) {
-                    pn2Var.f(oVar.a);
-                    pn2Var.f(oVar.b);
-                    pn2Var.f(oVar.c);
-                    pn2Var.f(oVar.d);
+                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oVar, cs2Var) == null) {
+                    cs2Var.f(oVar.a);
+                    cs2Var.f(oVar.b);
+                    cs2Var.f(oVar.c);
+                    cs2Var.f(oVar.d);
                 }
             }
         }
 
         /* loaded from: classes3.dex */
-        public static class b extends w43<o> {
+        public static class b extends j93<o> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -2110,17 +2110,17 @@ public class SwanAppConfigData {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.w43
+            @Override // com.baidu.tieba.j93
             /* renamed from: b */
-            public o a(@NonNull on2 on2Var) throws Exception {
+            public o a(@NonNull bs2 bs2Var) throws Exception {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, on2Var)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bs2Var)) == null) {
                     o oVar = new o();
-                    oVar.a = on2Var.g();
-                    oVar.b = on2Var.g();
-                    oVar.c = on2Var.g();
-                    oVar.d = on2Var.g();
+                    oVar.a = bs2Var.g();
+                    oVar.b = bs2Var.g();
+                    oVar.c = bs2Var.g();
+                    oVar.d = bs2Var.g();
                     return oVar;
                 }
                 return (o) invokeL.objValue;
@@ -2191,13 +2191,13 @@ public class SwanAppConfigData {
     /* loaded from: classes3.dex */
     public static class p {
         public static /* synthetic */ Interceptable $ic;
-        public static final w43<p> b;
-        public static final x43<p> c;
+        public static final j93<p> b;
+        public static final k93<p> c;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
 
         /* loaded from: classes3.dex */
-        public static class a extends w43<p> {
+        public static class a extends j93<p> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -2216,14 +2216,14 @@ public class SwanAppConfigData {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.w43
+            @Override // com.baidu.tieba.j93
             /* renamed from: b */
-            public p a(@NonNull on2 on2Var) throws Exception {
+            public p a(@NonNull bs2 bs2Var) throws Exception {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, on2Var)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bs2Var)) == null) {
                     p pVar = new p();
-                    pVar.a = on2Var.readBoolean();
+                    pVar.a = bs2Var.readBoolean();
                     return pVar;
                 }
                 return (p) invokeL.objValue;
@@ -2231,7 +2231,7 @@ public class SwanAppConfigData {
         }
 
         /* loaded from: classes3.dex */
-        public static class b extends x43<p> {
+        public static class b extends k93<p> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -2250,12 +2250,12 @@ public class SwanAppConfigData {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.x43
+            @Override // com.baidu.tieba.k93
             /* renamed from: b */
-            public void a(@NonNull p pVar, @NonNull pn2 pn2Var) throws Exception {
+            public void a(@NonNull p pVar, @NonNull cs2 cs2Var) throws Exception {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pVar, pn2Var) == null) {
-                    pn2Var.writeBoolean(pVar.a);
+                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pVar, cs2Var) == null) {
+                    cs2Var.writeBoolean(pVar.a);
                 }
             }
         }
@@ -2397,7 +2397,7 @@ public class SwanAppConfigData {
     }
 
     /* loaded from: classes3.dex */
-    public static class a extends x43<SwanAppConfigData> {
+    public static class a extends k93<SwanAppConfigData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -2416,35 +2416,35 @@ public class SwanAppConfigData {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.x43
+        @Override // com.baidu.tieba.k93
         /* renamed from: b */
-        public void a(@NonNull SwanAppConfigData swanAppConfigData, @NonNull pn2 pn2Var) throws Exception {
+        public void a(@NonNull SwanAppConfigData swanAppConfigData, @NonNull cs2 cs2Var) throws Exception {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, swanAppConfigData, pn2Var) == null) {
-                pn2Var.writeBoolean(swanAppConfigData.a);
-                pn2Var.c(swanAppConfigData.b, e.c);
-                pn2Var.c(swanAppConfigData.c, l.f);
-                pn2Var.c(swanAppConfigData.d, m.b);
-                pn2Var.c(swanAppConfigData.e, y43.u);
-                pn2Var.c(swanAppConfigData.f, n.f);
-                pn2Var.c(swanAppConfigData.g, j.b);
-                pn2Var.c(swanAppConfigData.h, u43.a.e);
-                pn2Var.c(swanAppConfigData.i, g.b);
-                pn2Var.c(swanAppConfigData.j, g.b);
-                pn2Var.c(swanAppConfigData.k, d.b);
-                pn2Var.f(swanAppConfigData.m);
-                pn2Var.c(swanAppConfigData.o, i.c);
-                pn2Var.c(swanAppConfigData.p, f.b);
-                pn2Var.g(swanAppConfigData.q);
-                pn2Var.c(swanAppConfigData.r, c.c);
-                pn2Var.c(swanAppConfigData.s, p.c);
-                pn2Var.c(swanAppConfigData.t, h.d);
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, swanAppConfigData, cs2Var) == null) {
+                cs2Var.writeBoolean(swanAppConfigData.a);
+                cs2Var.c(swanAppConfigData.b, e.c);
+                cs2Var.c(swanAppConfigData.c, l.f);
+                cs2Var.c(swanAppConfigData.d, m.b);
+                cs2Var.c(swanAppConfigData.e, l93.u);
+                cs2Var.c(swanAppConfigData.f, n.f);
+                cs2Var.c(swanAppConfigData.g, j.b);
+                cs2Var.c(swanAppConfigData.h, h93.a.e);
+                cs2Var.c(swanAppConfigData.i, g.b);
+                cs2Var.c(swanAppConfigData.j, g.b);
+                cs2Var.c(swanAppConfigData.k, d.b);
+                cs2Var.f(swanAppConfigData.m);
+                cs2Var.c(swanAppConfigData.o, i.c);
+                cs2Var.c(swanAppConfigData.p, f.b);
+                cs2Var.g(swanAppConfigData.q);
+                cs2Var.c(swanAppConfigData.r, c.c);
+                cs2Var.c(swanAppConfigData.s, p.c);
+                cs2Var.c(swanAppConfigData.t, h.d);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public static class b extends w43<SwanAppConfigData> {
+    public static class b extends j93<SwanAppConfigData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -2463,39 +2463,39 @@ public class SwanAppConfigData {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.w43
+        @Override // com.baidu.tieba.j93
         /* renamed from: b */
-        public SwanAppConfigData a(@NonNull on2 on2Var) throws Exception {
+        public SwanAppConfigData a(@NonNull bs2 bs2Var) throws Exception {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, on2Var)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bs2Var)) == null) {
                 SwanAppConfigData swanAppConfigData = new SwanAppConfigData(null);
-                swanAppConfigData.a = on2Var.readBoolean();
-                swanAppConfigData.b = (e) on2Var.d(e.b);
-                l lVar = (l) on2Var.d(l.e);
+                swanAppConfigData.a = bs2Var.readBoolean();
+                swanAppConfigData.b = (e) bs2Var.d(e.b);
+                l lVar = (l) bs2Var.d(l.e);
                 swanAppConfigData.c = lVar;
                 if (lVar == null) {
                     swanAppConfigData.c = l.a();
                 }
-                swanAppConfigData.d = (m) on2Var.d(m.c);
-                swanAppConfigData.e = (y43) on2Var.d(y43.v);
-                swanAppConfigData.f = (n) on2Var.d(n.g);
-                swanAppConfigData.g = (j) on2Var.d(j.c);
-                swanAppConfigData.h = (u43.a) on2Var.d(u43.a.f);
-                swanAppConfigData.i = (g) on2Var.d(g.c);
-                swanAppConfigData.j = (g) on2Var.d(g.c);
-                swanAppConfigData.k = (d) on2Var.d(d.c);
-                String g = on2Var.g();
+                swanAppConfigData.d = (m) bs2Var.d(m.c);
+                swanAppConfigData.e = (l93) bs2Var.d(l93.v);
+                swanAppConfigData.f = (n) bs2Var.d(n.g);
+                swanAppConfigData.g = (j) bs2Var.d(j.c);
+                swanAppConfigData.h = (h93.a) bs2Var.d(h93.a.f);
+                swanAppConfigData.i = (g) bs2Var.d(g.c);
+                swanAppConfigData.j = (g) bs2Var.d(g.c);
+                swanAppConfigData.k = (d) bs2Var.d(d.c);
+                String g = bs2Var.g();
                 swanAppConfigData.m = g;
                 if (!TextUtils.isEmpty(g)) {
-                    swanAppConfigData.l = h03.k(swanAppConfigData.m, false);
+                    swanAppConfigData.l = u43.k(swanAppConfigData.m, false);
                 }
-                swanAppConfigData.o = (i) on2Var.d(i.b);
-                swanAppConfigData.p = (f) on2Var.d(f.c);
-                swanAppConfigData.q = on2Var.k(Collections.emptyList());
-                swanAppConfigData.r = (c) on2Var.d(c.b);
-                swanAppConfigData.s = (p) on2Var.d(p.b);
-                swanAppConfigData.t = (h) on2Var.d(h.c);
+                swanAppConfigData.o = (i) bs2Var.d(i.b);
+                swanAppConfigData.p = (f) bs2Var.d(f.c);
+                swanAppConfigData.q = bs2Var.k(Collections.emptyList());
+                swanAppConfigData.r = (c) bs2Var.d(c.b);
+                swanAppConfigData.s = (p) bs2Var.d(p.b);
+                swanAppConfigData.t = (h) bs2Var.d(h.c);
                 return swanAppConfigData;
             }
             return (SwanAppConfigData) invokeL.objValue;
@@ -2515,7 +2515,7 @@ public class SwanAppConfigData {
                 return;
             }
         }
-        v = tk1.a;
+        v = gp1.a;
         w = new a();
         x = new b();
         HashMap<String, Integer> hashMap = new HashMap<>();
@@ -2540,7 +2540,7 @@ public class SwanAppConfigData {
         this.q = new ArrayList(1);
     }
 
-    public List<d03> e() {
+    public List<q43> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -2623,7 +2623,7 @@ public class SwanAppConfigData {
         this();
     }
 
-    public List<f03> i(int i2) {
+    public List<s43> i(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
@@ -2697,17 +2697,17 @@ public class SwanAppConfigData {
                 swanAppConfigData.m = jSONObject.optString("remote_debug_plugins");
                 JSONArray optJSONArray = jSONObject.optJSONArray("remote_debug_plugins");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
-                    swanAppConfigData.l = h03.k(optJSONArray.toString(), false);
+                    swanAppConfigData.l = u43.k(optJSONArray.toString(), false);
                 }
                 swanAppConfigData.a = jSONObject.optBoolean("debug");
                 swanAppConfigData.b = e.b(jSONObject);
                 l d2 = l.d(jSONObject, file);
                 swanAppConfigData.c = d2;
                 swanAppConfigData.d = m.c(jSONObject, d2);
-                swanAppConfigData.e = y43.a(jSONObject);
+                swanAppConfigData.e = l93.a(jSONObject);
                 swanAppConfigData.f = n.b(jSONObject);
                 swanAppConfigData.g = j.b(jSONObject);
-                swanAppConfigData.h = u43.a.a(jSONObject);
+                swanAppConfigData.h = h93.a.a(jSONObject);
                 swanAppConfigData.o = i.c(jSONObject);
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("requiredBackgroundModes");
                 if (optJSONArray2 != null) {
@@ -2779,11 +2779,11 @@ public class SwanAppConfigData {
     public static void s(@NonNull SwanAppConfigData swanAppConfigData, @NonNull JSONObject jSONObject, @NonNull File file) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65542, null, swanAppConfigData, jSONObject, file) == null) {
-            File file2 = new File(file, qn2.n().a() + "_app.json");
+            File file2 = new File(file, ds2.n().a() + "_app.json");
             if (!file2.exists()) {
                 return;
             }
-            String E = nk4.E(file2);
+            String E = ap4.E(file2);
             if (TextUtils.isEmpty(E)) {
                 return;
             }
@@ -2791,7 +2791,7 @@ public class SwanAppConfigData {
                 JSONObject jSONObject2 = new JSONObject(E);
                 JSONObject optJSONObject = jSONObject2.optJSONObject("window");
                 if (optJSONObject != null && optJSONObject.length() > 0) {
-                    swanAppConfigData.e = y43.a(jSONObject2);
+                    swanAppConfigData.e = l93.a(jSONObject2);
                     jSONObject.put("window", optJSONObject);
                 }
                 JSONObject optJSONObject2 = jSONObject2.optJSONObject("tabBar");
@@ -2808,8 +2808,8 @@ public class SwanAppConfigData {
         }
     }
 
-    public final void b(g gVar, List<f03> list) {
-        List<f03> list2;
+    public final void b(g gVar, List<s43> list) {
+        List<s43> list2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, gVar, list) == null) && gVar != null && list != null && (list2 = gVar.a) != null && list2.size() > 0) {
             list.addAll(list2);
@@ -2838,9 +2838,9 @@ public class SwanAppConfigData {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            String b2 = b83.b(bi3.f(str));
+            String b2 = oc3.b(om3.f(str));
             if (!TextUtils.isEmpty(b2)) {
-                if (qz2.k(b2)) {
+                if (d43.k(b2)) {
                     return "dynamicLib";
                 }
                 if (q(b2)) {
@@ -2861,7 +2861,7 @@ public class SwanAppConfigData {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
             i iVar = this.o;
             if (iVar != null && iVar.a != null) {
-                String f2 = bi3.f(str);
+                String f2 = om3.f(str);
                 String str2 = this.o.a.get(f2);
                 if (TextUtils.isEmpty(str2)) {
                     return str;

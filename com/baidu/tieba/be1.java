@@ -1,141 +1,103 @@
 package com.baidu.tieba;
 
+import android.content.res.Resources;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nps.interfa.IResourcesFetcher;
+import com.baidu.nps.interfa.IResourcesFetcher_ResourcesFetcherManager_Provider;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class be1 {
     public static /* synthetic */ Interceptable $ic;
+    public static be1 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public List<a> b;
+    @Inject
+    public bk1<IResourcesFetcher> a;
 
-    /* loaded from: classes3.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public String c;
-        public String d;
-        public String e;
-        public String f;
-        public Long g;
-        public int h;
-        public String i;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public a(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jSONObject};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            if (jSONObject == null) {
-                return;
-            }
-            this.c = jSONObject.optString("display_name");
-            this.d = jSONObject.optString("pay_text");
-            this.f = jSONObject.optString("icon");
-            this.e = jSONObject.optString("valid_info");
-            this.i = jSONObject.optString("host_marketing_detail");
-            this.g = Long.valueOf(jSONObject.optLong("available_par_money"));
-            this.h = jSONObject.optInt("is_selected");
-            this.b = jSONObject.optInt("style");
-            this.a = jSONObject.optInt("type");
-        }
-
-        public JSONObject a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("display_name", this.c);
-                    jSONObject.put("pay_text", this.d);
-                    jSONObject.put("icon", this.f);
-                    jSONObject.put("valid_info", this.e);
-                    jSONObject.put("host_marketing_detail", this.i);
-                    jSONObject.put("available_par_money", this.g);
-                    jSONObject.put("is_selected", this.h);
-                    jSONObject.put("style", this.b);
-                    jSONObject.put("type", this.a);
-                } catch (JSONException e) {
-                    if (id1.d) {
-                        e.printStackTrace();
-                    }
-                }
-                return jSONObject;
-            }
-            return (JSONObject) invokeV.objValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return "CouponItem{type=" + this.a + ", style=" + this.b + ", displayName='" + this.c + "', payText='" + this.d + "', validInfo='" + this.e + "', icon='" + this.f + "', cutMoney=" + this.g + ", isSelected=" + this.h + ", hostMarketingDetail='" + this.i + "'}";
-            }
-            return (String) invokeV.objValue;
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            zj1 b2 = zj1.b();
+            this.a = b2;
+            b2.a(new IResourcesFetcher_ResourcesFetcherManager_Provider());
         }
     }
 
-    public be1(JSONArray jSONArray) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947641979, "Lcom/baidu/tieba/be1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947641979, "Lcom/baidu/tieba/be1;");
+                return;
+            }
+        }
+        b = new be1();
+    }
+
+    public be1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONArray};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        if (jSONArray == null) {
-            return;
+        e();
+    }
+
+    public static be1 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
         }
-        this.b = new ArrayList();
-        int length = jSONArray.length();
-        for (int i3 = 0; i3 < length; i3++) {
-            JSONObject jSONObject = (JSONObject) jSONArray.opt(i3);
-            if (jSONObject != null) {
-                this.b.add(new a(jSONObject));
+        return (be1) invokeV.objValue;
+    }
+
+    public Resources b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.get().getGlobalResources();
+        }
+        return (Resources) invokeV.objValue;
+    }
+
+    public Resources[] d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a.get().getWrapperResources();
+        }
+        return (Resources[]) invokeV.objValue;
+    }
+
+    public Resources a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (ze1.a()) {
+                Log.i("NPS-ResourcesFetcher", "resourcesFetcherHolder class=" + this.a.getClass());
             }
+            return this.a.get().getBaseContextResources();
         }
-        this.a = this.b.size() > 1;
+        return (Resources) invokeV.objValue;
     }
 }

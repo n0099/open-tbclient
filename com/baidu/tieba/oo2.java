@@ -1,19 +1,48 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.Uri;
-import org.json.JSONObject;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes5.dex */
-public interface oo2 {
+public class oo2 extends qm2<hp2> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a();
-
-        void b();
+    @Override // com.baidu.tieba.qm2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "onRoomRelease" : (String) invokeV.objValue;
     }
 
-    void a(Context context, JSONObject jSONObject, a aVar);
+    public oo2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void b(Context context, String str, Uri uri);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qm2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull hp2 hp2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, hp2Var) == null) {
+            d(hp2Var, command.what, null, true);
+            hp2Var.onRelease();
+        }
+    }
 }

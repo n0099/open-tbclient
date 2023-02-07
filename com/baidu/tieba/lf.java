@@ -1,120 +1,100 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.tieba.mf;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.jf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class lf {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int DEF_CRASHTIME_LIMIT = 10;
-    public static final int OFF_TYPE = 0;
-    public static final int ON_TYPE = 1;
+public class lf<T> extends kf<T> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int mDefaultType;
-    public String[] mKey;
-    public int mMaxCrashTimes;
-    public String mName;
-    public int mOffType;
-    public mf.a mSwitchListener;
 
-    public abstract void changeSettingByType(int i);
-
-    public abstract String[] getCrashKeys();
-
-    public abstract int getDefaultType();
-
-    public abstract int getMaxCrashTimes();
-
-    public abstract String getName();
-
-    public abstract int getOffType();
-
-    public String[] getSwitchLibs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return null;
-        }
-        return (String[]) invokeV.objValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements mf.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lf a;
-
-        public a(lf lfVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lfVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lfVar;
-        }
-
-        @Override // com.baidu.tieba.mf.a
-        public void a(String str, int i, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-                this.a.changeSettingByType(i);
-            }
-        }
-    }
-
-    public lf() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lf(String str, Cif<T> cif) {
+        super(str, cif);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, cif};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (Cif) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mDefaultType = 0;
-        this.mOffType = 1;
-        this.mMaxCrashTimes = 10;
-        this.mSwitchListener = new a(this);
-        initData();
-        addToManager();
     }
 
-    public void addToManager() {
+    @Override // com.baidu.tieba.kf, com.baidu.tieba.jf
+    public void e(String str, T t, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            mf mfVar = new mf(this.mName, this.mDefaultType, this.mSwitchListener);
-            mfVar.i(this.mMaxCrashTimes, this.mKey, this.mOffType);
-            mfVar.j(getSwitchLibs());
-            SwitchManager.getInstance().addSwitchData(mfVar);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, t, Long.valueOf(j)}) == null) {
+            try {
+                super.e(str, t, j);
+            } catch (Throwable th) {
+                if (BdLog.isDebugMode()) {
+                    BdLog.e(th);
+                }
+            }
         }
     }
 
-    public void initData() {
+    @Override // com.baidu.tieba.kf, com.baidu.tieba.jf
+    public T get(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.mName = getName();
-            this.mKey = getCrashKeys();
-            this.mDefaultType = getDefaultType();
-            this.mOffType = getOffType();
-            this.mMaxCrashTimes = getMaxCrashTimes();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            try {
+                return (T) super.get(str);
+            } catch (Throwable th) {
+                if (BdLog.isDebugMode()) {
+                    BdLog.e(th);
+                    return null;
+                }
+                return null;
+            }
+        }
+        return (T) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.kf, com.baidu.tieba.jf
+    public jf.b<T> h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            try {
+                return super.h(str);
+            } catch (Throwable th) {
+                if (BdLog.isDebugMode()) {
+                    BdLog.e(th);
+                    return null;
+                }
+                return null;
+            }
+        }
+        return (jf.b) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.kf, com.baidu.tieba.jf
+    public void remove(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            try {
+                super.remove(str);
+            } catch (Throwable th) {
+                if (BdLog.isDebugMode()) {
+                    BdLog.e(th);
+                }
+            }
         }
     }
 }

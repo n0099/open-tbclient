@@ -1,14 +1,7 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.widget.LinearLayout;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,96 +11,119 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class zg9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public TbPageContext<?> a;
-    @NonNull
-    public NavigationBar b;
-    @NonNull
-    public LinearLayout c;
-    @NonNull
-    public LinearLayout d;
-    @NonNull
-    public pf9 e;
-    public EditorTools f;
 
-    public zg9(@NonNull TbPageContext<?> tbPageContext, @NonNull NavigationBar navigationBar, @NonNull LinearLayout linearLayout, @NonNull LinearLayout linearLayout2, @NonNull pf9 pf9Var) {
+    /* loaded from: classes7.dex */
+    public interface c {
+        void a(int i);
+    }
+
+    /* loaded from: classes7.dex */
+    public static class a extends kp5<Integer> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+
+        public a(int i, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i;
+            this.b = str;
+            this.c = str2;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.kp5
+        /* renamed from: a */
+        public Integer doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                int i = this.a;
+                i05.d();
+                jf<String> e = i05.e("tb.write_privacy_state_space" + this.b);
+                if (e != null) {
+                    i = dh.e(e.get(this.c), this.a);
+                }
+                return Integer.valueOf(i);
+            }
+            return (Integer) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b implements oo5<Integer> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c a;
+
+        public b(c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.oo5
+        /* renamed from: a */
+        public void onReturnDataInUI(Integer num) {
+            c cVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, num) == null) && (cVar = this.a) != null) {
+                cVar.a(num.intValue());
+            }
+        }
+    }
+
+    public static void a(String str, int i, c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, navigationBar, linearLayout, linearLayout2, pf9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if ((interceptable == null || interceptable.invokeLIL(65536, null, str, i, cVar) == null) && !StringUtils.isNull(str) && cVar != null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (StringUtils.isNull(currentAccount)) {
                 return;
             }
+            op5.b(new a(i, currentAccount, str), new b(cVar));
         }
-        this.a = tbPageContext;
-        this.b = navigationBar;
-        this.c = linearLayout;
-        this.d = linearLayout2;
-        this.e = pf9Var;
     }
 
-    @Nullable
-    public sf9 a(int i, boolean z) {
-        InterceptResult invokeCommon;
+    public static void b(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            return c(i, z);
+        if ((interceptable != null && interceptable.invokeLI(65537, null, str, i) != null) || StringUtils.isNull(str)) {
+            return;
         }
-        return (sf9) invokeCommon.objValue;
-    }
-
-    @Nullable
-    public sf9 b(Bundle bundle) {
-        InterceptResult invokeL;
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
-            int i = 9;
-            if (bundle != null) {
-                i = bundle.getInt("type", 9);
-            } else if (this.a.getPageActivity() != null && (intent = this.a.getPageActivity().getIntent()) != null) {
-                i = intent.getIntExtra("type", 9);
-            }
-            return c(i, true);
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        if (StringUtils.isNull(currentAccount)) {
+            return;
         }
-        return (sf9) invokeL.objValue;
-    }
-
-    public final sf9 c(int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            if (this.a.getPageActivity() == null) {
-                return null;
-            }
-            this.b.removeAllViews(NavigationBar.ControlAlign.HORIZONTAL_LEFT);
-            this.b.removeAllViews(NavigationBar.ControlAlign.HORIZONTAL_RIGHT);
-            this.c.removeAllViews();
-            this.d.removeAllViews();
-            EditorTools editorTools = new EditorTools(this.a.getPageActivity());
-            this.f = editorTools;
-            this.d.addView(editorTools);
-            switch (i) {
-                case 11:
-                    return new kh9(this.a, this.b, this.c, this.f, this.e, z);
-                case 12:
-                    return new gh9(this.a, this.b, this.c, this.f, this.e, z);
-                case 13:
-                    return new hh9(this.a, this.b, this.c, this.f, this.e, z);
-                case 14:
-                    return new jh9(this.a, this.b, this.c, this.f, this.e, z);
-                case 15:
-                    return new fh9(this.a, this.b, this.c, this.f, this.e, z);
-                default:
-                    return new ih9(this.a, this.b, this.c, this.f, this.e, z);
-            }
+        i05.d();
+        jf<String> e = i05.e("tb.write_privacy_state_space" + currentAccount);
+        if (e != null) {
+            e.a(str, String.valueOf(i));
         }
-        return (sf9) invokeCommon.objValue;
     }
 }

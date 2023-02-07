@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.media.MediaPlayer;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,26 +10,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.io.IOException;
 /* loaded from: classes4.dex */
-public class e65 implements yn {
+public class e65 extends MediaPlayer implements c65 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId l;
+    public static Object d;
+    public static e65 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public int d;
-    public int e;
-    public String f;
-    public String g;
-    public List<d65> h;
-    public String i;
-    public boolean j;
-    public int k;
+    public boolean a;
+    public boolean b;
+    public int c;
 
     static {
         InterceptResult invokeClinit;
@@ -44,7 +34,7 @@ public class e65 implements yn {
                 return;
             }
         }
-        l = BdUniqueId.gen();
+        d = new Object();
     }
 
     public e65() {
@@ -57,47 +47,160 @@ public class e65 implements yn {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = false;
+        this.b = true;
+        this.c = -1;
     }
 
-    @Override // com.baidu.tieba.yn
-    public BdUniqueId getType() {
+    public static e65 h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return l;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (e == null) {
+                synchronized (d) {
+                    if (e == null) {
+                        e = new e65();
+                    }
+                }
+            }
+            return e;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (e65) invokeV.objValue;
     }
 
-    public void a(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.c65
+    public void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.b) {
             return;
         }
-        this.a = jSONObject.optString("user_id");
-        this.b = jSONObject.optString("name_show");
-        this.c = jSONObject.optString(RecommendDetailActivityConfig.USER_PORTRAIT);
-        this.d = jSONObject.optInt("user_gender");
-        this.e = jSONObject.optInt("user_age", 0);
-        this.f = jSONObject.optString("user_constellation");
-        this.g = jSONObject.optString("distance");
-        JSONArray optJSONArray = jSONObject.optJSONArray("favorite_forum_list");
-        if (optJSONArray != null && optJSONArray.length() != 0) {
-            this.h = new ArrayList();
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                d65 d65Var = new d65();
-                d65Var.a(optJSONArray.optJSONObject(i));
-                this.h.add(d65Var);
+        stop();
+        this.b = true;
+        this.a = false;
+    }
+
+    @Override // com.baidu.tieba.c65
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.c65
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            pause();
+        }
+    }
+
+    @Override // com.baidu.tieba.c65
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            reset();
+            this.a = false;
+            this.b = true;
+            this.c = -1;
+        }
+    }
+
+    @Override // com.baidu.tieba.c65
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return getCurrentPosition();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.c65
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            start();
+            this.b = false;
+        }
+    }
+
+    @Override // com.baidu.tieba.c65
+    public boolean isPrepared() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.c65
+    public boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            this.c = -1;
+            if (!this.a) {
+                this.b = true;
+                reset();
+                try {
+                    setDataSource(str);
+                    i(wj.b);
+                    try {
+                        prepare();
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
+                        this.c = 2;
+                        return false;
+                    } catch (IllegalStateException unused) {
+                        this.c = 1;
+                        return false;
+                    }
+                } catch (IOException unused2) {
+                    this.c = 2;
+                    return false;
+                } catch (IllegalArgumentException unused3) {
+                    this.c = 0;
+                    return false;
+                } catch (IllegalStateException unused4) {
+                    this.c = 1;
+                    return false;
+                }
+            }
+            this.a = true;
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void i(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            setAudioStreamType(i);
+        }
+    }
+
+    public void j(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            try {
+                seekTo(i);
+            } catch (Exception unused) {
             }
         }
-        this.i = jSONObject.optString("user_slogan");
-        boolean z = true;
-        if (jSONObject.optInt("is_friend", 0) != 1) {
-            z = false;
+    }
+
+    @Override // com.baidu.tieba.c65
+    public void seek(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            j(i);
         }
-        this.j = z;
-        this.k = jSONObject.optInt("active_status", 0);
     }
 }

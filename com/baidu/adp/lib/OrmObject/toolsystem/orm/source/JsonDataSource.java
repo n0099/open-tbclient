@@ -1,10 +1,10 @@
 package com.baidu.adp.lib.OrmObject.toolsystem.orm.source;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.me;
-import com.baidu.tieba.od;
-import com.baidu.tieba.qe;
-import com.baidu.tieba.wd;
+import com.baidu.tieba.be;
+import com.baidu.tieba.re;
+import com.baidu.tieba.td;
+import com.baidu.tieba.ve;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import java.util.Set;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class JsonDataSource implements od {
+public class JsonDataSource implements td {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public JSONObject jo;
@@ -49,7 +49,7 @@ public class JsonDataSource implements od {
         return invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.od
+    @Override // com.baidu.tieba.td
     public Set<String> getKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -70,17 +70,17 @@ public class JsonDataSource implements od {
         return (Set) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.od
+    @Override // com.baidu.tieba.td
     public Object getObjectByType(String str, Type type) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, type)) == null) {
             Object object = getObject(str);
             if (object != null) {
-                me meVar = new me(type);
-                wd a = qe.a(object);
+                re reVar = new re(type);
+                be a = ve.a(object);
                 if (a != null) {
-                    return a.a(meVar);
+                    return a.a(reVar);
                 }
                 return object;
             }
@@ -89,7 +89,7 @@ public class JsonDataSource implements od {
         return invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.od
+    @Override // com.baidu.tieba.td
     public void set(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, obj) == null) {

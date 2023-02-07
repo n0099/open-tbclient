@@ -15,9 +15,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yg5;
-import com.baidu.tieba.zg5;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.jl5;
+import com.baidu.tieba.kl5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +30,7 @@ public class SusPendedView extends LinearLayout {
     public LinearLayout a;
     public TranView b;
     public LinearLayout c;
-    public zg5 d;
+    public kl5 d;
     public float e;
     public float f;
     public boolean g;
@@ -77,9 +77,9 @@ public class SusPendedView extends LinearLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 this.a.j = ((Integer) valueAnimator.getAnimatedValue()).intValue();
                 SusPendedView susPendedView = this.a;
-                susPendedView.l = 1.0f - (susPendedView.j / zi.j(this.a.getContext()));
+                susPendedView.l = 1.0f - (susPendedView.j / ej.j(this.a.getContext()));
                 if (this.a.j != 0) {
-                    if (this.a.j == zi.j(this.a.getContext())) {
+                    if (this.a.j == ej.j(this.a.getContext())) {
                         this.a.l = 0.0f;
                         this.a.f();
                     }
@@ -168,9 +168,9 @@ public class SusPendedView extends LinearLayout {
         }
         this.l = 0.0f;
         this.m = true;
-        this.k = (zi.j(context) / 3) - zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds153);
-        this.j = zi.j(context);
-        ValueAnimator ofInt = ValueAnimator.ofInt(zi.j(context), 0);
+        this.k = (ej.j(context) / 3) - ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds153);
+        this.j = ej.j(context);
+        ValueAnimator ofInt = ValueAnimator.ofInt(ej.j(context), 0);
         this.i = ofInt;
         ofInt.setDuration(300L);
         this.i.setInterpolator(new LinearInterpolator());
@@ -191,10 +191,10 @@ public class SusPendedView extends LinearLayout {
         }
     }
 
-    public void setContentViewTop(zg5 zg5Var) {
+    public void setContentViewTop(kl5 kl5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, zg5Var) == null) {
-            this.d = zg5Var;
+        if (interceptable == null || interceptable.invokeL(1048591, this, kl5Var) == null) {
+            this.d = kl5Var;
         }
     }
 
@@ -230,11 +230,11 @@ public class SusPendedView extends LinearLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            zg5 zg5Var = this.d;
-            if (zg5Var == null) {
+            kl5 kl5Var = this.d;
+            if (kl5Var == null) {
                 return false;
             }
-            return zg5Var.t();
+            return kl5Var.x();
         }
         return invokeV.booleanValue;
     }
@@ -295,7 +295,7 @@ public class SusPendedView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             this.h = true;
-            this.i.setIntValues(0, zi.j(getContext()));
+            this.i.setIntValues(0, ej.j(getContext()));
             this.i.start();
         }
     }
@@ -335,7 +335,7 @@ public class SusPendedView extends LinearLayout {
                             if (this.e == 0.0f && d()) {
                                 this.e = motionEvent.getRawY();
                             }
-                            this.l = 1.0f - ((this.f - this.e) / zi.j(getContext()));
+                            this.l = 1.0f - ((this.f - this.e) / ej.j(getContext()));
                         }
                     }
                     if (this.f > this.e && d()) {
@@ -350,7 +350,7 @@ public class SusPendedView extends LinearLayout {
                     }
                     this.h = z2;
                     if (z2) {
-                        this.i.setIntValues((int) (this.f - this.e), zi.j(getContext()));
+                        this.i.setIntValues((int) (this.f - this.e), ej.j(getContext()));
                         this.i.start();
                     } else {
                         this.l = 1.0f;
@@ -403,9 +403,9 @@ public class SusPendedView extends LinearLayout {
                 float f = this.f;
                 float f2 = this.e;
                 if (f > f2 && this.g) {
-                    zg5 zg5Var = this.d;
-                    if (zg5Var instanceof yg5) {
-                        ((yg5) zg5Var).L(f - f2);
+                    kl5 kl5Var = this.d;
+                    if (kl5Var instanceof jl5) {
+                        ((jl5) kl5Var).L(f - f2);
                     }
                     LinearLayout linearLayout = this.a;
                     float f3 = this.f;

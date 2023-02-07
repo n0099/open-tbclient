@@ -15,7 +15,8 @@ import java.util.ArrayList;
 public class TbNetABTest extends AbsGroupUbsABTest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final BdUniqueId ABTEST_GROUP_KEY;
-    public static final String TB_NET_SID_A = "12_31_net_a";
+    public static final String TB_NET_SID_A = "12_36_net_a";
+    public static final String TB_NET_SID_B = "12_36_net_b";
     public transient /* synthetic */ FieldHolder $fh;
     public final ArrayList<String> mABTestList;
     public UsbAbTestSwitch mCurrentUsbAbTest;
@@ -34,24 +35,6 @@ public class TbNetABTest extends AbsGroupUbsABTest {
             }
         }
         ABTEST_GROUP_KEY = BdUniqueId.gen();
-    }
-
-    public TbNetABTest() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        ArrayList<String> arrayList = new ArrayList<>();
-        this.mABTestList = arrayList;
-        arrayList.add(TB_NET_SID_A);
     }
 
     @Override // com.baidu.tbadk.abtest.group.AbsGroupUbsABTest
@@ -82,6 +65,25 @@ public class TbNetABTest extends AbsGroupUbsABTest {
             return ABTEST_GROUP_KEY;
         }
         return (BdUniqueId) invokeV.objValue;
+    }
+
+    public TbNetABTest() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        ArrayList<String> arrayList = new ArrayList<>();
+        this.mABTestList = arrayList;
+        arrayList.add(TB_NET_SID_A);
+        this.mABTestList.add(TB_NET_SID_B);
     }
 
     @Override // com.baidu.tbadk.abtest.group.AbsGroupUbsABTest

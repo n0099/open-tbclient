@@ -1,102 +1,112 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.data.HotEventData;
-import com.baidu.tieba.redtip.PersonRedTipManager;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import android.net.Uri;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebChromeClient;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class b29 extends CustomMessageListener {
+public class b29 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final h09 b;
-    public final wz8 c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b29(MainTabActivity mainTabActivity, wz8 wz8Var) {
-        super(2001371);
+    public static String a(String str) {
+        InterceptResult invokeL;
+        String[] split;
+        String[] split2;
+        String[] split3;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, wz8Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (dj.isEmpty(str) || (split = str.split("\\?")) == null || split.length == 0 || (split2 = split[0].split("\\/\\/")) == null || split2.length < 2 || (split3 = split2[1].split("\\/")) == null || split2.length < 2) {
+                return null;
             }
+            return split3[split3.length - 1];
         }
-        this.a = mainTabActivity;
-        this.b = mainTabActivity.e;
-        this.c = wz8Var;
+        return (String) invokeL.objValue;
     }
 
-    public static void a() {
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Uri parse;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && Build.VERSION.SDK_INT > 25) {
-            tl0.l().p();
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !MainTabActivity.Y) {
-            if (UbsABTestHelper.isAdRetargetNotificationRemindTest()) {
-                a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (dj.isEmpty(str) || (parse = Uri.parse(str)) == null) {
+                return null;
             }
-            ol5.a(1);
-            w45.h(HotEventData.getInstance());
+            return parse.getQueryParameter(WebChromeClient.KEY_ARG_CALLBACK);
         }
+        return (String) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        h09 h09Var;
+    public static String c(String str) {
+        InterceptResult invokeL;
+        Uri parse;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371) {
-            b();
-            TbadkCoreApplication.getInst().syncHasFinish = true;
-            if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
-                if (!TbSingleton.getInstance().mIsSplashClick && (h09Var = this.b) != null && h09Var.b() != null) {
-                    if (UbsABTestHelper.isNewInterestShowTestA()) {
-                        this.b.b().d();
-                    } else {
-                        this.b.b().a();
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (dj.isEmpty(str) || (parse = Uri.parse(str)) == null) {
+                return null;
+            }
+            return parse.getQueryParameter("upgrade");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String e(String str) {
+        InterceptResult invokeL;
+        Uri parse;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (dj.isEmpty(str) || (parse = Uri.parse(str)) == null) {
+                return null;
+            }
+            return parse.getQueryParameter("notificationName");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String d(String str) {
+        InterceptResult invokeL;
+        String[] split;
+        String[] split2;
+        String str2;
+        String[] split3;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            try {
+                if (!dj.isEmpty(str) && (split = str.split("\\?")) != null && split.length != 0 && (split2 = split[0].split("\\/\\/")) != null && split2.length >= 2 && (split3 = (str2 = split2[1]).split("\\/")) != null && split2.length >= 2 && (str3 = split3[split3.length - 1]) != null && str3.length() != 0) {
+                    return str2.substring(0, (str2.length() - str3.length()) - 1);
                 }
-                h09 h09Var2 = this.b;
-                if (h09Var2 != null && h09Var2.h() != null) {
-                    this.b.h().a();
-                }
+                return null;
+            } catch (Exception e) {
+                BdLog.e(e);
+                return null;
             }
-            if (!MainTabActivity.Y && UbsABTestHelper.isAdRetargetTipsRemindTest()) {
-                new kj5(this.a).o();
-            }
-            g29 b1 = this.a.b1();
-            if (b1 != null) {
-                b1.c();
-            }
-            if (cz4.l().i(cz4.p("key_new_god_pop_is_show"), false)) {
-                PersonRedTipManager.getInstance().updateRedTipState(11, true, true);
-            }
-            MainTabActivity.Y = true;
-            this.c.O();
         }
+        return (String) invokeL.objValue;
+    }
+
+    public static JSONObject f(String str) throws JSONException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (dj.isEmpty(str)) {
+                return new JSONObject();
+            }
+            Uri parse = Uri.parse(str);
+            if (parse == null) {
+                return new JSONObject();
+            }
+            String queryParameter = parse.getQueryParameter("params");
+            if (dj.isEmpty(queryParameter)) {
+                return new JSONObject();
+            }
+            return new JSONObject(queryParameter);
+        }
+        return (JSONObject) invokeL.objValue;
     }
 }

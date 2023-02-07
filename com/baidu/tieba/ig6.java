@@ -6,62 +6,81 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.Collection;
+import java.util.Set;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsKt;
 /* loaded from: classes4.dex */
-public class ig6 {
+public final class ig6 extends og6<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<jg6> a;
+    public final Function1<Long, Boolean> e;
 
-    public ig6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ig6(Function1<? super Long, Boolean> selfPredicate) {
+        super(2048, false, 2, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {selfPredicate};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue(), ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(selfPredicate, "selfPredicate");
+        this.e = selfPredicate;
     }
 
-    public List<jg6> a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.og6, com.baidu.tieba.jg6
+    public boolean b(sf6 item, vh6 timer, mf6 config) {
+        InterceptResult invokeLLL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(timer, "timer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            tf6 e = item.e();
+            if (!this.e.invoke(e.o()).booleanValue()) {
+                Set<String> d = d();
+                if (!(d instanceof Collection) || !d.isEmpty()) {
+                    for (String str : d) {
+                        if (StringsKt__StringsKt.contains$default((CharSequence) e.c(), (CharSequence) str, false, 2, (Object) null)) {
+                            z = true;
+                            break;
+                        }
+                    }
+                }
+                z = false;
+                if (z) {
+                    return true;
+                }
+            }
+            return false;
         }
-        return (List) invokeV.objValue;
+        return invokeLLL.booleanValue;
     }
 
-    public static ig6 b(JSONObject jSONObject) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.og6
+    /* renamed from: e */
+    public String c(tf6 data) {
         InterceptResult invokeL;
-        JSONArray optJSONArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null || (optJSONArray = jSONObject.optJSONArray("recommend_forum_info")) == null) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                arrayList.add(jg6.s(optJSONArray.optJSONObject(i)));
-            }
-            ig6 ig6Var = new ig6();
-            ig6Var.c(arrayList);
-            return ig6Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, data)) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            return data.c();
         }
-        return (ig6) invokeL.objValue;
-    }
-
-    public void c(List<jg6> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.a = list;
-        }
+        return (String) invokeL.objValue;
     }
 }

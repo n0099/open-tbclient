@@ -1,29 +1,86 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListAdapter;
+import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.card.ala.secondfloor.AlaRecommendLayout;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.homepage.gamevideo.view.GameVideoGridView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class ha7 extends cx<fs4> {
+public class ha7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlaRecommendLayout f;
-    public int g;
+    public TbPageContext a;
+    public View b;
+    public GameVideoGridView c;
+    public ca7 d;
+    public TextView e;
+    public b f;
+    public BdUniqueId g;
+    public AdapterView.OnItemClickListener h;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    /* loaded from: classes4.dex */
+    public interface b {
+        void a(ka7 ka7Var);
+    }
+
+    /* loaded from: classes4.dex */
+    public class a implements AdapterView.OnItemClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ha7 a;
+
+        public a(ha7 ha7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ha7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ha7Var;
+        }
+
+        @Override // android.widget.AdapterView.OnItemClickListener
+        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) && this.a.d != null && i < this.a.d.getCount() && this.a.d.getItem(i) != null && (this.a.d.getItem(i) instanceof ka7)) {
+                ka7 ka7Var = (ka7) this.a.d.getItem(i);
+                if (ka7Var.d == 1) {
+                    this.a.d.c(ka7Var.a);
+                    if (this.a.f != null) {
+                        this.a.f.a(ka7Var);
+                    }
+                    this.a.d();
+                    p35.m().z("key_game_video_tab_has_choosed_sub_class_id", ka7Var.a);
+                    p35.m().B("key_game_video_tab_has_choosed_sub_class_name", ka7Var.b);
+                    TiebaStatic.log(new StatisticItem("c13485").param("obj_type", ka7Var.a));
+                }
+            }
+        }
+    }
+
     public ha7(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -33,73 +90,87 @@ public class ha7 extends cx<fs4> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = 3;
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().b instanceof AlaRecommendLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().b.getParent() == null) {
-            this.f = (AlaRecommendLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().b;
-        } else {
-            this.f = new AlaRecommendLayout(tbPageContext.getPageActivity());
+        this.h = new a(this);
+        this.a = tbPageContext;
+        this.g = bdUniqueId;
+        e();
+    }
+
+    public void h(List<ka7> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        this.d.b(list);
+        this.d.notifyDataSetChanged();
+    }
+
+    public void i(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
+            this.f = bVar;
         }
     }
 
-    @Override // com.baidu.tieba.cx
-    public View k() {
-        InterceptResult invokeV;
+    public void c(ViewGroup viewGroup) {
+        View view2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.vx
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            if (this.g != i) {
-                this.f.d(i);
-                q(this.f, 3);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) && viewGroup != null && (view2 = this.b) != null) {
+            if (view2.getParent() != null) {
+                ((ViewGroup) this.b.getParent()).removeView(this.b);
             }
-            this.g = i;
+            viewGroup.addView(this.b);
+            TiebaStatic.log("c13484");
         }
     }
 
-    public d96 s(fs4 fs4Var) {
-        InterceptResult invokeL;
+    public void d() {
+        View view2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, fs4Var)) == null) {
-            if (fs4Var instanceof q97) {
-                q97 q97Var = (q97) fs4Var;
-                return new d96(q97Var.getType(), q97Var.c(), "recommend");
-            } else if (fs4Var instanceof v47) {
-                v47 v47Var = (v47) fs4Var;
-                return new d96(v47Var.getType(), v47Var.c(), ImageViewerConfig.FROM_CONCERN);
-            } else {
-                return new d96();
-            }
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (view2 = this.b) != null && view2.getParent() != null) {
+            ((ViewGroup) this.b.getParent()).removeView(this.b);
         }
-        return (d96) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ux
-    /* renamed from: t */
-    public void a(fs4 fs4Var) {
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, fs4Var) == null) {
-            d96 s = s(fs4Var);
-            if (s != null && !ListUtils.isEmpty(s.c())) {
-                this.f.setData(s);
-                this.f.d(TbadkCoreApplication.getInst().getSkinType());
-                this.f.setVisibility(0);
-                return;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            TextView textView = this.e;
+            if (textView != null) {
+                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0105);
             }
-            this.f.setVisibility(8);
+            View view2 = this.b;
+            if (view2 != null) {
+                SkinManager.setBackgroundResource(view2, R.color.CAM_X0201);
+            }
+        }
+    }
+
+    public void g() {
+        GameVideoGridView gameVideoGridView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (gameVideoGridView = this.c) != null) {
+            gameVideoGridView.d();
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d037f, (ViewGroup) null);
+            this.b = inflate;
+            this.c = (GameVideoGridView) inflate.findViewById(R.id.obfuscated_res_0x7f090eff);
+            this.d = new ca7(this.a, 101, this.g);
+            this.c.setNumColumns(4);
+            this.c.setAdapter((ListAdapter) this.d);
+            this.c.setOnItemClickListener(this.h);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090f00);
+            f();
         }
     }
 }

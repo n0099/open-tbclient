@@ -1,133 +1,138 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.bean.DegradeData;
-import com.baidu.searchbox.pms.bean.ErrorInfo;
-import com.baidu.searchbox.pms.bean.PackageInfo;
-import com.baidu.searchbox.pms.bean.ResultData;
-import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
-import com.baidu.searchbox.pms.callback.DefaultPackageCallback;
-import com.baidu.searchbox.pms.download.DownloadOptions;
-import com.baidu.searchbox.pms.init.PmsManager;
-import com.baidu.searchbox.pms.utils.DebugUtils;
+import android.os.Handler;
+import android.os.Message;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.concurrent.ConcurrentHashMap;
+import java.lang.reflect.Array;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.util.Arrays;
 /* loaded from: classes5.dex */
-public class om extends DefaultPackageCallback {
+public class om {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public DefaultDownloadCallback a;
-    public qm b;
 
-    public om(DefaultDownloadCallback defaultDownloadCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {defaultDownloadCallback};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = defaultDownloadCallback;
-    }
+    /* loaded from: classes5.dex */
+    public static class a implements Handler.Callback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Handler a;
 
-    @Override // com.baidu.searchbox.pms.callback.DefaultPackageCallback, com.baidu.searchbox.pms.callback.PackageCallback
-    public void onDegradeData(DegradeData degradeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, degradeData) == null) {
-            super.onDegradeData(degradeData);
-        }
-    }
-
-    @Override // com.baidu.searchbox.pms.callback.DefaultPackageCallback, com.baidu.searchbox.pms.callback.PackageCallback
-    public void onFetchError(ErrorInfo errorInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, errorInfo) != null) || errorInfo == null) {
-            return;
-        }
-        BdLog.e(errorInfo.errorMsg);
-    }
-
-    public om(DefaultDownloadCallback defaultDownloadCallback, qm qmVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {defaultDownloadCallback, qmVar};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = defaultDownloadCallback;
-        this.b = qmVar;
-    }
-
-    @Override // com.baidu.searchbox.pms.callback.DefaultPackageCallback, com.baidu.searchbox.pms.callback.PackageCallback
-    public void onResultData(ResultData resultData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, resultData) != null) || resultData == null) {
-            return;
-        }
-        DebugUtils.log(resultData);
-        ArrayList<PackageInfo> arrayList = new ArrayList();
-        arrayList.addAll(resultData.addList);
-        arrayList.addAll(resultData.updateList);
-        if (!arrayList.isEmpty()) {
-            for (PackageInfo packageInfo : arrayList) {
-                if (packageInfo != null && !StringUtils.isNull(packageInfo.name)) {
-                    DownloadOptions downloadOptions = new DownloadOptions();
-                    downloadOptions.fileDir = pm.a(packageInfo.name);
-                    PmsManager.getInstance().download(packageInfo, downloadOptions, new nm(this.a));
+        public a(Handler handler) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {handler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = handler;
         }
-        arrayList.clear();
-        arrayList.addAll(resultData.configChangeList);
-        arrayList.addAll(resultData.filterList);
-        if (!arrayList.isEmpty()) {
-            for (PackageInfo packageInfo2 : arrayList) {
-                if (packageInfo2 != null && !StringUtils.isNull(packageInfo2.name)) {
-                    if (!packageInfo2.name.contains(".so")) {
-                        ConcurrentHashMap<String, String> resHashMap = BdBaseApplication.getInst().getResHashMap();
-                        String str = packageInfo2.name;
-                        resHashMap.put(str, pm.a(str));
-                    } else if (rm.a(BdBaseApplication.getInst().getContext(), pm.a(packageInfo2.name))) {
-                        ConcurrentHashMap<String, String> resHashMap2 = BdBaseApplication.getInst().getResHashMap();
-                        String str2 = packageInfo2.name;
-                        resHashMap2.put(str2, pm.a(str2));
-                        qm qmVar = this.b;
-                        if (qmVar != null) {
-                            qmVar.onSoFileLoaded(packageInfo2.name);
+
+        @Override // android.os.Handler.Callback
+        public boolean handleMessage(@NonNull Message message) {
+            String stackTraceString;
+            boolean contains;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
+                try {
+                    if (this.a != null) {
+                        this.a.handleMessage(message);
+                        return true;
+                    }
+                    return true;
+                } finally {
+                    if (stackTraceString != null) {
+                        if (contains) {
                         }
                     }
                 }
+            } else {
+                return invokeL.booleanValue;
             }
         }
-        if (!resultData.invalidList.isEmpty()) {
-            BdAsyncTask<?, ?, ?> searchTask = BdAsyncTask.searchTask("key_res_del");
-            if (searchTask == null || searchTask.getStatus() != BdAsyncTask.BdAsyncTaskStatus.PENDING) {
-                mm mmVar = new mm();
-                mmVar.setKey("key_res_del");
-                mmVar.execute(resultData.invalidList);
+    }
+
+    public static void a(Object obj, String str, Object[] objArr) throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, obj, str, objArr) == null) {
+            Field b = b(obj, str);
+            Object[] objArr2 = (Object[]) b.get(obj);
+            Object[] objArr3 = (Object[]) Array.newInstance(objArr2.getClass().getComponentType(), objArr2.length + objArr.length);
+            System.arraycopy(objArr, 0, objArr3, 0, objArr.length);
+            System.arraycopy(objArr2, 0, objArr3, objArr.length, objArr2.length);
+            b.set(obj, objArr3);
+        }
+    }
+
+    public static Field b(Object obj, String str) throws NoSuchFieldException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, obj, str)) == null) {
+            for (Class<?> cls = obj.getClass(); cls != null; cls = cls.getSuperclass()) {
+                try {
+                    Field declaredField = cls.getDeclaredField(str);
+                    if (!declaredField.isAccessible()) {
+                        declaredField.setAccessible(true);
+                    }
+                    return declaredField;
+                } catch (NoSuchFieldException e) {
+                    e.printStackTrace();
+                }
+            }
+            throw new NoSuchFieldException("Field " + str + " not found in " + obj.getClass());
+        }
+        return (Field) invokeLL.objValue;
+    }
+
+    public static Method c(Object obj, String str, Class<?>... clsArr) throws NoSuchMethodException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, obj, str, clsArr)) == null) {
+            for (Class<?> cls = obj.getClass(); cls != null; cls = cls.getSuperclass()) {
+                try {
+                    Method declaredMethod = cls.getDeclaredMethod(str, clsArr);
+                    if (!declaredMethod.isAccessible()) {
+                        declaredMethod.setAccessible(true);
+                    }
+                    return declaredMethod;
+                } catch (NoSuchMethodException unused) {
+                }
+            }
+            throw new NoSuchMethodException("Method " + str + " with parameters " + Arrays.asList(clsArr) + " not found in " + obj.getClass());
+        }
+        return (Method) invokeLLL.objValue;
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            try {
+                Class<?> cls = Class.forName("android.app.ActivityThread");
+                Field declaredField = cls.getDeclaredField("sCurrentActivityThread");
+                declaredField.setAccessible(true);
+                Object obj = declaredField.get(null);
+                Field declaredField2 = cls.getDeclaredField("mH");
+                declaredField2.setAccessible(true);
+                Handler handler = (Handler) declaredField2.get(obj);
+                Field declaredField3 = Handler.class.getDeclaredField("mCallback");
+                declaredField3.setAccessible(true);
+                declaredField3.set(handler, new a(handler));
+            } catch (Throwable th) {
+                th.printStackTrace();
             }
         }
     }

@@ -1,47 +1,33 @@
 package com.baidu.tieba;
 
-import com.baidu.bdtask.framework.utils.DebugTrace;
-import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class tt {
+public class tt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final xt a;
-    public final String b;
 
-    public tt(String str) {
+    public static byte[] a(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
+            return b(bArr, 0, bArr.length);
         }
-        this.b = str;
-        this.a = new xt();
+        return (byte[]) invokeL.objValue;
     }
 
-    public final TaskInfo a() {
-        InterceptResult invokeV;
+    public static byte[] b(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String a = xv.c.a(this.b);
-            DebugTrace debugTrace = DebugTrace.a;
-            debugTrace.a("parse taskInfo str:" + a);
-            return (TaskInfo) this.a.a("info").a(a);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, bArr, i, i2)) == null) {
+            if (bArr != null && bArr.length != 0) {
+                byte[] bArr2 = new byte[i2];
+                System.arraycopy(bArr, i, bArr2, 0, i2);
+                return bArr2;
+            }
+            return new byte[0];
         }
-        return (TaskInfo) invokeV.objValue;
+        return (byte[]) invokeLII.objValue;
     }
 }

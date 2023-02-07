@@ -1,58 +1,76 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.swan.apps.view.SwanAppSimpleH5Widget;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Bitmap;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.kt1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.HashMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class fr1 extends SwanAppSimpleH5Widget {
+public class fr1 implements kt1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.rq1
-    public String b0() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.kt1
+    public void b(Context context, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ai_apps_ad_landing" : (String) invokeV.objValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947773636, "Lcom/baidu/tieba/fr1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947773636, "Lcom/baidu/tieba/fr1;");
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3) == null) {
         }
-        boolean z = tk1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fr1(Context context) {
-        super(context);
+    public fr1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.kt1
+    public void a(HashMap<String, String> hashMap, File file, kt1.a aVar, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, hashMap, file, aVar, str) == null) {
+            e(aVar);
+        }
+    }
+
+    @Override // com.baidu.tieba.kt1
+    public void d(Bitmap bitmap, HashMap<String, String> hashMap, File[] fileArr, kt1.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048579, this, bitmap, hashMap, fileArr, aVar) == null) {
+            e(aVar);
+        }
+    }
+
+    @Override // com.baidu.tieba.kt1
+    public void c(HashMap<String, String> hashMap, File file, kt1.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, hashMap, file, aVar) == null) {
+            e(aVar);
+        }
+    }
+
+    public final void e(kt1.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("result", "success");
+                aVar.onResult(jSONObject.toString());
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }

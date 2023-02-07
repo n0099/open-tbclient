@@ -1,276 +1,138 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.graphics.Rect;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.searchbox.fluency.BdTracesManager;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.atomData.FrsVideoTabPlayActivityConfig;
+import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
+import com.baidu.tbadk.core.data.BaijiahaoData;
+import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.widget.tiejia.TiePlusStat;
-import com.baidu.tieba.tbadkCore.data.PostData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.TiebaPlusInfo;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class uo5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public TiebaPlusInfo b;
-    public TiePlusStat.ThreadType c;
-    public String d;
-    public String e;
-    public TiePlusStat.StatType f;
-    public TiePlusStat.LandingType g;
-    public TiePlusStat.CardBtnType h;
-    public TiePlusStat.RichTextType i;
-    public ThreadData j;
-    public int k;
 
-    @NonNull
-    public uo5 a(@Nullable PostData postData) {
-        InterceptResult invokeL;
+    public static void a(int i, boolean z, Context context, ThreadData threadData, int i2, Rect rect, String str, String str2, String str3, String str4, String str5) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, postData)) == null) ? this : (uo5) invokeL.objValue;
+        if ((interceptable != null && interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), context, threadData, Integer.valueOf(i2), rect, str, str2, str3, str4, str5}) != null) || threadData == null) {
+            return;
+        }
+        c(true, context, threadData.getThreadData(), i2, rect, str, str2, str3, str4, str5, threadData.isJumpToFrsVideoTabPlay);
     }
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
+    public static void b(int i, Context context, ThreadData threadData, int i2, Rect rect, String str, String str2, String str3, String str4, String str5) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), context, threadData, Integer.valueOf(i2), rect, str, str2, str3, str4, str5}) != null) || threadData == null) {
+            return;
+        }
+        c(true, context, threadData.getThreadData(), i2, rect, str, str2, str3, str4, str5, threadData.isJumpToFrsVideoTabPlay);
+    }
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-368510031, "Lcom/baidu/tieba/uo5$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-368510031, "Lcom/baidu/tieba/uo5$a;");
-                    return;
-                }
+    public static void c(boolean z, Context context, ThreadData threadData, int i, Rect rect, String str, String str2, String str3, String str4, String str5, boolean z2) {
+        BaijiahaoData baijiahaoData;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), context, threadData, Integer.valueOf(i), rect, str, str2, str3, str4, str5, Boolean.valueOf(z2)}) == null) && threadData != null) {
+            ArrayList arrayList = new ArrayList();
+            VideoItemData videoItemData = new VideoItemData();
+            if (z) {
+                videoItemData.buildWithOriginThreadData(threadData.originalThreadData);
+            } else {
+                videoItemData.buildWithThreadData(threadData);
             }
-            int[] iArr = new int[TiePlusStat.Locate.values().length];
-            a = iArr;
-            try {
-                iArr[TiePlusStat.Locate.HOME.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
+            arrayList.add(videoItemData);
+            OriginalThreadInfo originalThreadInfo = threadData.originalThreadData;
+            boolean z3 = true;
+            if (originalThreadInfo != null && originalThreadInfo.r != null && threadData.getThreadData().originalThreadData.r.is_vertical.intValue() != 1) {
+                z3 = false;
             }
-            try {
-                a[TiePlusStat.Locate.FRS.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
+            String str6 = null;
+            OriginalThreadInfo originalThreadInfo2 = threadData.originalThreadData;
+            if (originalThreadInfo2 != null && (baijiahaoData = originalThreadInfo2.p) != null) {
+                str6 = baijiahaoData.oriUgcNid;
             }
-            try {
-                a[TiePlusStat.Locate.PB.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[TiePlusStat.Locate.PB_COMMENT.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
+            e(context, arrayList, str6, z3, i, rect, str, str2, str3, str4, str5, false, z2, true, threadData.getFid());
         }
     }
 
-    public uo5() {
+    public static void d(Context context, List<VideoItemData> list, String str, boolean z, int i, Rect rect, String str2, String str3, String str4, String str5, String str6, boolean z2, boolean z3, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, list, str, Boolean.valueOf(z), Integer.valueOf(i), rect, str2, str3, str4, str5, str6, Boolean.valueOf(z2), Boolean.valueOf(z3), Long.valueOf(j)}) == null) {
+            e(context, list, str, z, i, rect, str2, str3, str4, str5, str6, z2, z3, false, j);
+        }
+    }
+
+    public static void e(Context context, List<VideoItemData> list, String str, boolean z, int i, Rect rect, String str2, String str3, String str4, String str5, String str6, boolean z2, boolean z3, boolean z4, long j) {
+        String str7;
+        String str8;
+        String str9;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, list, str, Boolean.valueOf(z), Integer.valueOf(i), rect, str2, str3, str4, str5, str6, Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Long.valueOf(j)}) == null) {
+            VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(context, list, i, rect, str2, str3, str4, str5, str6);
+            if (z4) {
+                videoPlayActivityConfig.setForceUseBigDataList(list);
+            }
+            videoPlayActivityConfig.setParamIsVertail(z);
+            videoPlayActivityConfig.setFid(String.valueOf(j));
+            TbSingleton tbSingleton = TbSingleton.getInstance();
+            if (z2 && ListUtils.getCount(list) > 0 && list.get(0) != null) {
+                str7 = list.get(0).thread_id;
+            } else {
+                str7 = null;
+            }
+            tbSingleton.setIsNeedShowPbCommentThreadId(str7);
+            if (str != null) {
+                videoPlayActivityConfig.setNid(str);
+            }
+            if (UbsABTestHelper.isFeedVideoImmersionTransition()) {
+                TbSingleton.getInstance().setIsNeedReuseVideoPlayer(true);
+            }
+            if (z3) {
+                if (ListUtils.getCount(list) > 0 && list.get(0) != null && !TextUtils.isEmpty(list.get(0).thread_id)) {
+                    String str10 = list.get(0).thread_id;
+                    str8 = list.get(0).forum_id;
+                    List<VideoItemData> videoTabListByFid = FrsVideoTabPlayActivityConfig.getVideoTabListByFid(str8);
+                    int size = videoTabListByFid.size();
+                    for (int i3 = 0; i3 < size; i3++) {
+                        if (videoTabListByFid.get(i3) != null && str10.equals(videoTabListByFid.get(i3).thread_id)) {
+                            str9 = str8;
+                            i2 = i3;
+                            break;
+                        }
+                    }
+                } else {
+                    str8 = "";
+                }
+                str9 = str8;
+                i2 = 0;
+                FrsVideoTabPlayActivityConfig frsVideoTabPlayActivityConfig = new FrsVideoTabPlayActivityConfig(context, null, i2, rect, str2, str3, str4, str5, str6);
+                frsVideoTabPlayActivityConfig.setIsShowPbCommentFloat(z2);
+                frsVideoTabPlayActivityConfig.setFid(str9);
+                if ("frs".equals(str5)) {
+                    BdTracesManager.INSTANCE.getFpsTracer().beginFpsCollect(FrsVideoTabPlayActivityConfig.KEY_FPS_MIDDLE_VIDEO_FROM, FrsVideoTabPlayActivityConfig.KEY_FPS_MIDDLE_VIDEO_PAGE, "tran");
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, frsVideoTabPlayActivityConfig));
                 return;
             }
-        }
-        this.h = null;
-        this.i = TiePlusStat.RichTextType.LINK;
-        this.k = -1;
-    }
-
-    public TiePlusStat.CardBtnType d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.h;
-        }
-        return (TiePlusStat.CardBtnType) invokeV.objValue;
-    }
-
-    @NonNull
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return String.valueOf(this.j.getDispatchedForumId());
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            sk5.d(!TextUtils.isEmpty(this.e));
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public TiePlusStat.LandingType g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.g;
-        }
-        return (TiePlusStat.LandingType) invokeV.objValue;
-    }
-
-    public TiePlusStat.RichTextType h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.i;
-        }
-        return (TiePlusStat.RichTextType) invokeV.objValue;
-    }
-
-    @NonNull
-    public TiePlusStat.StatType j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            sk5.b(this.f);
-            return this.f;
-        }
-        return (TiePlusStat.StatType) invokeV.objValue;
-    }
-
-    @NonNull
-    public ThreadData k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.j;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
-
-    @NonNull
-    public TiePlusStat.ThreadType l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.c;
-        }
-        return (TiePlusStat.ThreadType) invokeV.objValue;
-    }
-
-    @NonNull
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public TiebaPlusInfo n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.b;
-        }
-        return (TiebaPlusInfo) invokeV.objValue;
-    }
-
-    public int o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    @NonNull
-    public static uo5 c(int i, @NonNull TiebaPlusInfo tiebaPlusInfo, @NonNull ThreadData threadData) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65537, null, i, tiebaPlusInfo, threadData)) == null) {
-            int intValue = tiebaPlusInfo.jump_type.intValue();
-            uo5 uo5Var = new uo5();
-            uo5Var.a = TiePlusStat.a(tiebaPlusInfo, null);
-            uo5Var.g = TiePlusStat.LandingType.create(intValue);
-            uo5Var.i = TiePlusStat.RichTextType.create(i);
-            uo5Var.h = TiePlusStat.CardBtnType.create(i, intValue);
-            uo5Var.b = tiebaPlusInfo;
-            uo5Var.c = TiePlusStat.ThreadType.create(threadData);
-            uo5Var.d = threadData.getTid();
-            uo5Var.e = String.valueOf(threadData.getFid());
-            uo5Var.j = threadData;
-            return uo5Var;
-        }
-        return (uo5) invokeILL.objValue;
-    }
-
-    public uo5 b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            this.k = i;
-            return this;
-        }
-        return (uo5) invokeI.objValue;
-    }
-
-    public int i(@NonNull TiePlusStat.Locate locate) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, locate)) == null) {
-            int i = a.a[locate.ordinal()];
-            if (i != 1 && i != 2) {
-                if (i != 3 && i != 4) {
-                    return -1;
-                }
-                return this.k;
+            if ("frs".equals(str5)) {
+                BdTracesManager.INSTANCE.getFpsTracer().beginFpsCollect(VideoPlayActivityConfig.KEY_FPS_VIDEO_FROM_FRS, "video", "tran");
+            } else if ("index".equals(str5)) {
+                BdTracesManager.INSTANCE.getFpsTracer().beginFpsCollect(VideoPlayActivityConfig.KEY_FPS_VIDEO_FROM_HOME, "video", "tran");
             }
-            return k().statFloor;
-        }
-        return invokeL.intValue;
-    }
-
-    public void p(TiePlusStat.RichTextType richTextType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, richTextType) == null) {
-            this.i = richTextType;
-        }
-    }
-
-    public void q(@NonNull TiePlusStat.StatType statType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, statType) == null) {
-            this.f = statType;
-        }
-    }
-
-    public void r(TiebaPlusInfo tiebaPlusInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, tiebaPlusInfo) == null) {
-            this.b = tiebaPlusInfo;
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoPlayActivityConfig));
         }
     }
 }

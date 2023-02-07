@@ -13,21 +13,21 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.util.ForumBroadcastHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dh7;
-import com.baidu.tieba.eh7;
-import com.baidu.tieba.gh7;
 import com.baidu.tieba.im.forum.broadcast.data.ForumBroadcastMajorResidueData;
 import com.baidu.tieba.im.forum.broadcast.model.ForumBroadCastMajorHistoryModel;
+import com.baidu.tieba.ol7;
+import com.baidu.tieba.pl7;
+import com.baidu.tieba.rl7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadCastMajorHistoryActivity> implements dh7 {
+public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadCastMajorHistoryActivity> implements ol7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ForumBroadCastMajorHistoryModel a;
-    public gh7 b;
+    public rl7 b;
     public View c;
     public String d;
     public String e;
@@ -47,7 +47,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         }
     }
 
-    @Override // com.baidu.tieba.dh7
+    @Override // com.baidu.tieba.ol7
     public void b() {
         ForumBroadCastMajorHistoryModel forumBroadCastMajorHistoryModel;
         Interceptable interceptable = $ic;
@@ -61,9 +61,9 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onDestroy();
-            gh7 gh7Var = this.b;
-            if (gh7Var != null) {
-                gh7Var.n();
+            rl7 rl7Var = this.b;
+            if (rl7Var != null) {
+                rl7Var.n();
             }
             ForumBroadCastMajorHistoryModel forumBroadCastMajorHistoryModel = this.a;
             if (forumBroadCastMajorHistoryModel != null) {
@@ -89,7 +89,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         }
     }
 
-    @Override // com.baidu.tieba.dh7
+    @Override // com.baidu.tieba.ol7
     public void refresh() {
         ForumBroadCastMajorHistoryModel forumBroadCastMajorHistoryModel;
         Interceptable interceptable = $ic;
@@ -98,7 +98,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         }
     }
 
-    @Override // com.baidu.tieba.dh7
+    @Override // com.baidu.tieba.ol7
     public void D0(ForumBroadcastMajorResidueData forumBroadcastMajorResidueData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, forumBroadcastMajorResidueData) == null) {
@@ -106,7 +106,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         }
     }
 
-    @Override // com.baidu.tieba.lz4.g
+    @Override // com.baidu.tieba.y35.g
     public void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
@@ -114,18 +114,18 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         }
     }
 
-    @Override // com.baidu.tieba.dh7
-    public void g0(eh7 eh7Var) {
+    @Override // com.baidu.tieba.ol7
+    public void f0(pl7 pl7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, eh7Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, pl7Var) == null) {
             ForumBroadCastMajorHistoryModel forumBroadCastMajorHistoryModel = this.a;
             if (forumBroadCastMajorHistoryModel != null && !forumBroadCastMajorHistoryModel.a()) {
-                this.b.r(getString(R.string.obfuscated_res_0x7f0f092d), false);
+                this.b.r(getString(R.string.obfuscated_res_0x7f0f0952), false);
                 return;
             }
-            gh7 gh7Var = this.b;
-            if (gh7Var != null) {
-                gh7Var.o(eh7Var);
+            rl7 rl7Var = this.b;
+            if (rl7Var != null) {
+                rl7Var.o(pl7Var);
             }
         }
     }
@@ -141,26 +141,26 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
 
     @Override // android.app.Activity
     public void onNewIntent(Intent intent) {
-        gh7 gh7Var;
+        rl7 rl7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, intent) == null) {
             super.onNewIntent(intent);
             refresh();
-            if (ForumBroadcastHelper.VALUE_INTENT_BCAST_FROM_EDIT_SUCCESS.equals(intent.getStringExtra("from")) && (gh7Var = this.b) != null) {
-                gh7Var.s();
+            if (ForumBroadcastHelper.VALUE_INTENT_BCAST_FROM_EDIT_SUCCESS.equals(intent.getStringExtra("from")) && (rl7Var = this.b) != null) {
+                rl7Var.s();
             }
         }
     }
 
-    @Override // com.baidu.tieba.dh7
+    @Override // com.baidu.tieba.ol7
     public void g(ErrorData errorData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, errorData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, errorData) == null) {
             if (errorData != null) {
                 if (!StringUtils.isNull(errorData.error_msg)) {
                     showToast(errorData.error_msg);
                 } else {
-                    showToast(R.string.obfuscated_res_0x7f0f092d);
+                    showToast(R.string.obfuscated_res_0x7f0f0952);
                 }
             }
             ForumBroadCastMajorHistoryModel forumBroadCastMajorHistoryModel = this.a;
@@ -182,7 +182,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
             w1(bundle);
             this.a = new ForumBroadCastMajorHistoryModel(getPageContext(), this, this.d);
             this.c = LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d02a5, (ViewGroup) null);
-            this.b = new gh7(getPageContext(), this, this.c, this.d, this.e, this.f, bundle);
+            this.b = new rl7(getPageContext(), this, this.c, this.d, this.e, this.f, bundle);
             setContentView(this.c);
             this.a.P();
             refresh();

@@ -1,36 +1,28 @@
 package com.baidu.tieba;
 
-import android.widget.BaseAdapter;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.faceshop.EmotionPackageData;
-import com.baidu.tieba.faceshop.emotioncenter.adapter.EmotionCategoryAdapter;
-import com.baidu.tieba.faceshop.emotioncenter.adapter.EmotionHorizontalAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes6.dex */
+import tbclient.ForumGuide.LikeForum;
+/* loaded from: classes7.dex */
 public class xj6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public s9 a;
-    public BdTypeListView b;
-    public final List<ln> c;
-    public EmotionCategoryAdapter d;
-    public EmotionHorizontalAdapter e;
-    public List<yn> f;
+    public ArrayList<vj6> a;
 
-    public xj6(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
+    public xj6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,74 +32,55 @@ public class xj6 {
                 return;
             }
         }
-        this.c = new ArrayList();
-        this.f = new ArrayList();
-        this.a = tbPageContext;
-        this.b = bdTypeListView;
-        b();
+        this.a = new ArrayList<>();
     }
 
-    public void a(List<yn> list) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || ListUtils.isEmpty(list)) {
-            return;
-        }
-        if (this.b != null) {
-            this.f.addAll(list);
-            this.b.setData(this.f);
-        }
-        c();
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.d = new EmotionCategoryAdapter((TbPageContext) this.a, yj6.a);
-            this.e = new EmotionHorizontalAdapter((TbPageContext) this.a, zj6.b);
-            this.c.add(this.d);
-            this.c.add(this.e);
-            this.b.a(this.c);
-        }
-    }
-
-    public void c() {
-        BdTypeListView bdTypeListView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (bdTypeListView = this.b) != null && bdTypeListView.getAdapter2() != null && (this.b.getAdapter2() instanceof BaseAdapter)) {
-            this.b.getAdapter2().notifyDataSetChanged();
-        }
-    }
-
-    public void d(List<yn> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, list) != null) || ListUtils.isEmpty(list)) {
-            return;
-        }
-        if (!ListUtils.isEmpty(this.f)) {
-            this.f.clear();
-        }
-        BdTypeListView bdTypeListView = this.b;
-        if (bdTypeListView != null) {
-            bdTypeListView.setData(list);
-            this.f.addAll(list);
-        }
-        c();
-    }
-
-    public void e(EmotionPackageData emotionPackageData) {
-        zj6 zj6Var;
-        EmotionPackageData emotionPackageData2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, emotionPackageData) != null) || emotionPackageData == null || ListUtils.isEmpty(this.f)) {
-            return;
-        }
-        for (yn ynVar : this.f) {
-            if ((ynVar instanceof zj6) && (zj6Var = (zj6) ynVar) != null && (emotionPackageData2 = zj6Var.a) != null && emotionPackageData2.id == emotionPackageData.id) {
-                emotionPackageData2.download = emotionPackageData.download;
-                emotionPackageData2.share = emotionPackageData.share;
-                c();
-                return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Iterator<vj6> it = this.a.iterator();
+            while (it.hasNext()) {
+                it.next().I(0);
             }
+        }
+    }
+
+    public ArrayList<vj6> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public void c(List<?> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) != null) || list == null) {
+            return;
+        }
+        d(list, null);
+    }
+
+    public void d(List<?> list, Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, list, context) != null) || list == null) {
+            return;
+        }
+        try {
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                if (!(list.get(i) instanceof LikeForum)) {
+                    return;
+                }
+                vj6 vj6Var = new vj6();
+                vj6Var.D((LikeForum) list.get(i));
+                if (!TextUtils.isEmpty(vj6Var.o())) {
+                    this.a.add(vj6Var);
+                }
+            }
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
     }
 }

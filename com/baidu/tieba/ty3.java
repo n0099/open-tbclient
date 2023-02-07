@@ -1,114 +1,66 @@
 package com.baidu.tieba;
 
-import android.webkit.JavascriptInterface;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JSRuntime;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
-import com.baidu.searchbox.v8engine.event.EventTargetImpl;
+import com.baidu.swan.game.ad.entity.AdElementInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class ty3 extends EventTargetImpl {
+public class ty3 extends ry3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tb2 a;
-    public r34 b;
-    @V8JavascriptField
-    public final String domain;
 
-    @JavascriptInterface
-    public ty3 getOpenData() {
+    @Override // com.baidu.tieba.ry3
+    public void C(RelativeLayout relativeLayout, AdElementInfo adElementInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, relativeLayout, adElementInfo) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ry3
+    public String q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this : (ty3) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "reward_banner_html" : (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ty3(tb2 tb2Var) {
-        super(tb2Var);
+    public ty3(Context context, AdElementInfo adElementInfo, sx3 sx3Var) {
+        super(context, adElementInfo, sx3Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tb2Var};
+            Object[] objArr = {context, adElementInfo, sx3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((JSRuntime) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AdElementInfo) objArr2[1], (sx3) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.domain = "openData";
-        this.a = tb2Var;
     }
 
-    @JavascriptInterface
-    public void getFriendCloudStorage(JsObject jsObject) {
+    @Override // com.baidu.tieba.ry3
+    @SuppressLint({"InflateParams"})
+    public View u() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jsObject) == null) {
-            if (this.b == null) {
-                this.b = new r34(this.a);
-            }
-            this.b.getFriendCloudStorage(jsObject);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return LayoutInflater.from(this.p).inflate(R.layout.obfuscated_res_0x7f0d0687, (ViewGroup) null);
         }
-    }
-
-    @JavascriptInterface
-    public void getUserCloudStorage(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsObject) == null) {
-            if (this.b == null) {
-                this.b = new r34(this.a);
-            }
-            this.b.getUserCloudStorage(jsObject);
-        }
-    }
-
-    @JavascriptInterface
-    public void getUserInfo(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jsObject) == null) {
-            if (this.b == null) {
-                this.b = new r34(this.a);
-            }
-            this.b.getUserInfo(jsObject);
-        }
-    }
-
-    @JavascriptInterface
-    public void initSharedCanvas(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, jsObject) == null) && (this.a.n() instanceof qy3)) {
-            ((qy3) this.a.n()).z(jsObject);
-        }
-    }
-
-    @JavascriptInterface
-    public void removeUserCloudStorage(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jsObject) == null) {
-            if (this.b == null) {
-                this.b = new r34(this.a);
-            }
-            this.b.removeUserCloudStorage(jsObject);
-        }
-    }
-
-    @JavascriptInterface
-    public void setUserCloudStorage(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, jsObject) == null) {
-            if (this.b == null) {
-                this.b = new r34(this.a);
-            }
-            this.b.setUserCloudStorage(jsObject);
-        }
+        return (View) invokeV.objValue;
     }
 }

@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ku9;
+import com.baidu.tieba.qy9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -56,9 +56,23 @@ public class LoggerManager {
         }
 
         @Override // com.baidu.yalog.Logger
+        public void log(String str, int i, String str2, String str3, int[] iArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Integer.valueOf(i), str2, str3, iArr}) == null) {
+            }
+        }
+
+        @Override // com.baidu.yalog.Logger
         public void logSync(String str, int i, String str2, String str3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLILL(1048579, this, str, i, str2, str3) == null) {
+            if (interceptable == null || interceptable.invokeLILL(1048580, this, str, i, str2, str3) == null) {
+            }
+        }
+
+        @Override // com.baidu.yalog.Logger
+        public void reinitialize() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             }
         }
 
@@ -85,7 +99,7 @@ public class LoggerManager {
     public static abstract class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Map<String, Logger> a;
+        public final Map<String, Logger> a;
 
         public abstract List<String> a(long j, long j2, String str, String str2, boolean z, boolean z2, String str3);
 
@@ -95,7 +109,7 @@ public class LoggerManager {
 
         public abstract List<String> e(long j, long j2, String str, String str2);
 
-        public abstract void f();
+        public abstract void g();
 
         public c() {
             Interceptable interceptable = $ic;
@@ -111,6 +125,15 @@ public class LoggerManager {
                 }
             }
             this.a = new ConcurrentHashMap();
+        }
+
+        public void f() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                for (Logger logger : this.a.values()) {
+                    logger.reinitialize();
+                }
+            }
         }
 
         public Logger c(String str) {
@@ -167,7 +190,7 @@ public class LoggerManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            c a2 = ku9.a();
+            c a2 = qy9.a();
             if (a2 != null) {
                 String b2 = a2.b();
                 if (!TextUtils.isEmpty(b2)) {
@@ -189,11 +212,19 @@ public class LoggerManager {
         return (Logger) invokeV.objValue;
     }
 
+    public static void reinitialize() {
+        c a2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65543, null) == null) && (a2 = qy9.a()) != null) {
+            a2.f();
+        }
+    }
+
     public static void requestCleanOverQuotaLog() {
         c a2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65543, null) == null) && (a2 = ku9.a()) != null) {
-            a2.f();
+        if ((interceptable == null || interceptable.invokeV(65544, null) == null) && (a2 = qy9.a()) != null) {
+            a2.g();
         }
     }
 
@@ -201,7 +232,7 @@ public class LoggerManager {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), str3})) == null) {
-            c a2 = ku9.a();
+            c a2 = qy9.a();
             if (a2 != null) {
                 return a2.a(j, j2, str, str2, z, z2, str3);
             }
@@ -215,7 +246,7 @@ public class LoggerManager {
         Logger logger;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            c a2 = ku9.a();
+            c a2 = qy9.a();
             if (a2 != null) {
                 logger = a2.c(str);
             } else {
@@ -233,7 +264,7 @@ public class LoggerManager {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2})) == null) {
-            c a2 = ku9.a();
+            c a2 = qy9.a();
             if (a2 != null) {
                 return a2.e(j, j2, str, str2);
             }

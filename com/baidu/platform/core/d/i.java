@@ -13,7 +13,6 @@ import com.baidu.mapapi.search.poi.PoiFilter;
 import com.baidu.mapapi.search.poi.PoiNearbySearchOption;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
-import com.baidu.searchbox.cloudcontrol.request.CloudControlRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -130,7 +129,7 @@ public class i extends com.baidu.platform.base.e {
         com.baidu.platform.util.a aVar5 = this.a;
         aVar5.a(SuggestAddrField.KEY_PAGE_SIZE, poiBoundSearchOption.mPageCapacity + "");
         if (poiBoundSearchOption.mScope == 2 && (poiFilter = poiBoundSearchOption.mPoiFilter) != null && !TextUtils.isEmpty(poiFilter.toString())) {
-            this.a.a(CloudControlRequest.REQUEST_KEY_FILTER, poiBoundSearchOption.mPoiFilter.toString());
+            this.a.a("filter", poiBoundSearchOption.mPoiFilter.toString());
         }
     }
 
@@ -167,7 +166,7 @@ public class i extends com.baidu.platform.base.e {
             this.a.a("city_limit", "false");
         }
         if (poiCitySearchOption.mScope == 2 && (poiFilter = poiCitySearchOption.mPoiFilter) != null && !TextUtils.isEmpty(poiFilter.toString())) {
-            this.a.a(CloudControlRequest.REQUEST_KEY_FILTER, poiCitySearchOption.mPoiFilter.toString());
+            this.a.a("filter", poiCitySearchOption.mPoiFilter.toString());
         }
     }
 
@@ -216,7 +215,7 @@ public class i extends com.baidu.platform.base.e {
             this.a.a("radius_limit", "false");
         }
         if (poiNearbySearchOption.mScope == 2 && (poiFilter = poiNearbySearchOption.mPoiFilter) != null && !TextUtils.isEmpty(poiFilter.toString())) {
-            this.a.a(CloudControlRequest.REQUEST_KEY_FILTER, poiNearbySearchOption.mPoiFilter.toString());
+            this.a.a("filter", poiNearbySearchOption.mPoiFilter.toString());
         }
     }
 }

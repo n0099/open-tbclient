@@ -1,199 +1,248 @@
 package com.baidu.tieba;
 
-import android.graphics.Path;
-import androidx.exifinterface.media.ExifInterface;
+import android.app.Activity;
+import android.content.Context;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Set;
-import java.util.StringTokenizer;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
-import kotlin.text.StringsKt__StringsKt;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.AdRipper;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.qq.e.ads.cfg.VideoOption;
+import com.qq.e.ads.interstitial2.UnifiedInterstitialAD;
+import com.qq.e.ads.interstitial2.UnifiedInterstitialADListener;
+import com.qq.e.comm.util.AdError;
 /* loaded from: classes6.dex */
-public final class v3a {
+public class v3a extends h3a<UnifiedInterstitialAD> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public Path b;
 
-    public v3a(String str) {
+    /* loaded from: classes6.dex */
+    public class a implements UnifiedInterstitialADListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public boolean b;
+        public final /* synthetic */ UnifiedInterstitialAD[] c;
+        public final /* synthetic */ v3a d;
+
+        public a(v3a v3aVar, UnifiedInterstitialAD[] unifiedInterstitialADArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v3aVar, unifiedInterstitialADArr};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = v3aVar;
+            this.c = unifiedInterstitialADArr;
+        }
+
+        @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
+        public void onADClicked() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                LogPrinter.d();
+                this.d.onAdClicked(this.c[0], this.b, new String[0]);
+                this.b = true;
+            }
+        }
+
+        @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
+        public void onADClosed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                LogPrinter.d();
+                this.d.onAdClose(this.c[0]);
+            }
+        }
+
+        @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
+        public void onADExposure() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                LogPrinter.d();
+                this.d.onAdShow(this.c[0], this.a, new String[0]);
+                this.a = true;
+            }
+        }
+
+        @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
+        public void onADLeftApplication() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                LogPrinter.d();
+            }
+        }
+
+        @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
+        public void onADOpened() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                LogPrinter.d();
+            }
+        }
+
+        @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
+        public void onADReceive() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                LogPrinter.d("onADReceive", new Object[0]);
+            }
+        }
+
+        @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
+        public void onNoAD(AdError adError) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, adError) == null) {
+                LogPrinter.e("onNoAD code: " + adError.getErrorCode() + ", message: " + adError.getErrorMsg(), new Object[0]);
+                this.d.onError(adError.getErrorCode(), adError.getErrorMsg());
+            }
+        }
+
+        @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
+        public void onRenderFail() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+                this.d.onError(0, "renderFail");
+            }
+        }
+
+        @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
+        public void onRenderSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+                this.d.onAdLoaded((v3a) this.c[0]);
+            }
+        }
+
+        @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
+        public void onVideoCached() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+                LogPrinter.d();
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public v3a(FunAdType funAdType, Ssp.Pid pid) {
+        super(funAdType, pid, false);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {funAdType, pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = StringsKt__StringsKt.contains$default((CharSequence) str, (CharSequence) ",", false, 2, (Object) null) ? StringsKt__StringsJVMKt.replace$default(str, ",", " ", false, 4, (Object) null) : str;
     }
 
-    public final void a(Path path) {
-        boolean z;
-        Set set;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public v3a(Ssp.Pid pid) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.INTERSTITIAL), pid, false);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, path) == null) {
-            Path path2 = this.b;
-            if (path2 != null) {
-                path.set(path2);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            Path path3 = new Path();
-            StringTokenizer stringTokenizer = new StringTokenizer(this.a, "MLHVCSQRAZmlhvcsqraz", true);
-            String str = "";
-            while (stringTokenizer.hasMoreTokens()) {
-                String segment = stringTokenizer.nextToken();
-                Intrinsics.checkExpressionValueIsNotNull(segment, "segment");
-                if (segment.length() == 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (!z) {
-                    set = w3a.a;
-                    if (set.contains(segment)) {
-                        if (Intrinsics.areEqual(segment, "Z") || Intrinsics.areEqual(segment, "z")) {
-                            b(path3, segment, new StringTokenizer("", ""));
-                        }
-                        str = segment;
-                    } else {
-                        b(path3, str, new StringTokenizer(segment, " "));
-                    }
-                }
-            }
-            this.b = path3;
-            path.set(path3);
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:39:0x0097  */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x009b  */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x00ae  */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00b8  */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x00d1  */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x00d5  */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x00e8  */
-    /* JADX WARN: Removed duplicated region for block: B:58:0x00f0  */
-    /* JADX WARN: Removed duplicated region for block: B:63:0x0103  */
-    /* JADX WARN: Removed duplicated region for block: B:64:0x010b  */
-    /* JADX WARN: Removed duplicated region for block: B:69:0x011e  */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x0122  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void b(Path path, String str, StringTokenizer stringTokenizer) {
-        b4a b4aVar;
-        boolean z;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public AdRipper createAdRipper(Ssp.Pid pid) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, path, str, stringTokenizer) == null) {
-            float f = 0.0f;
-            float f2 = 0.0f;
-            float f3 = 0.0f;
-            float f4 = 0.0f;
-            float f5 = 0.0f;
-            float f6 = 0.0f;
-            int i = 0;
-            while (stringTokenizer.hasMoreTokens()) {
-                try {
-                    String s = stringTokenizer.nextToken();
-                    Intrinsics.checkExpressionValueIsNotNull(s, "s");
-                    if (s.length() == 0) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    if (!z) {
-                        if (i == 0) {
-                            f = Float.parseFloat(s);
-                        }
-                        if (i == 1) {
-                            f2 = Float.parseFloat(s);
-                        }
-                        if (i == 2) {
-                            f3 = Float.parseFloat(s);
-                        }
-                        if (i == 3) {
-                            f4 = Float.parseFloat(s);
-                        }
-                        if (i == 4) {
-                            f5 = Float.parseFloat(s);
-                        }
-                        if (i == 5) {
-                            f6 = Float.parseFloat(s);
-                        }
-                        i++;
-                    }
-                } catch (Exception unused) {
-                }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new i3a(pid) : (AdRipper) invokeL.objValue;
+    }
+
+    public void e(Activity activity, UnifiedInterstitialAD unifiedInterstitialAD) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, activity, unifiedInterstitialAD) == null) {
+            unifiedInterstitialAD.show(activity);
+        }
+    }
+
+    public void i(UnifiedInterstitialAD unifiedInterstitialAD) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, unifiedInterstitialAD) == null) {
+            unifiedInterstitialAD.loadAD();
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, context, funAdSlot) == null) {
+            onLoadStart(funAdSlot);
+            if (!(context instanceof Activity)) {
+                onError(0, "NotActivity");
+                return;
             }
-            float f7 = f;
-            float f8 = f2;
-            float f9 = f3;
-            float f10 = f4;
-            b4a b4aVar2 = new b4a(0.0f, 0.0f, 0.0f);
-            if (Intrinsics.areEqual(str, "M")) {
-                path.moveTo(f7, f8);
-                b4aVar2 = new b4a(f7, f8, 0.0f);
-            } else if (Intrinsics.areEqual(str, "m")) {
-                path.rMoveTo(f7, f8);
-                b4aVar = new b4a(b4aVar2.a() + f7, b4aVar2.b() + f8, 0.0f);
-                if (!Intrinsics.areEqual(str, "L")) {
-                    path.lineTo(f7, f8);
-                } else if (Intrinsics.areEqual(str, "l")) {
-                    path.rLineTo(f7, f8);
-                }
-                if (!Intrinsics.areEqual(str, "C")) {
-                    path.cubicTo(f7, f8, f9, f10, f5, f6);
-                } else if (Intrinsics.areEqual(str, "c")) {
-                    path.rCubicTo(f7, f8, f9, f10, f5, f6);
-                }
-                if (!Intrinsics.areEqual(str, "Q")) {
-                    path.quadTo(f7, f8, f9, f10);
-                } else if (Intrinsics.areEqual(str, "q")) {
-                    path.rQuadTo(f7, f8, f9, f10);
-                }
-                if (!Intrinsics.areEqual(str, "H")) {
-                    path.lineTo(f7, b4aVar.b());
-                } else if (Intrinsics.areEqual(str, "h")) {
-                    path.rLineTo(f7, 0.0f);
-                }
-                if (!Intrinsics.areEqual(str, ExifInterface.GPS_MEASUREMENT_INTERRUPTED)) {
-                    path.lineTo(b4aVar.a(), f7);
-                } else if (Intrinsics.areEqual(str, "v")) {
-                    path.rLineTo(0.0f, f7);
-                }
-                if (!Intrinsics.areEqual(str, "Z")) {
-                    path.close();
-                    return;
-                } else if (Intrinsics.areEqual(str, "z")) {
-                    path.close();
-                    return;
-                } else {
-                    return;
-                }
-            }
-            b4aVar = b4aVar2;
-            if (!Intrinsics.areEqual(str, "L")) {
-            }
-            if (!Intrinsics.areEqual(str, "C")) {
-            }
-            if (!Intrinsics.areEqual(str, "Q")) {
-            }
-            if (!Intrinsics.areEqual(str, "H")) {
-            }
-            if (!Intrinsics.areEqual(str, ExifInterface.GPS_MEASUREMENT_INTERRUPTED)) {
-            }
-            if (!Intrinsics.areEqual(str, "Z")) {
+            UnifiedInterstitialAD unifiedInterstitialAD = new UnifiedInterstitialAD((Activity) context, this.mPid.pid, new a(this, r1));
+            UnifiedInterstitialAD[] unifiedInterstitialADArr = {unifiedInterstitialAD};
+            unifiedInterstitialAD.setVideoOption(new VideoOption.Builder().setAutoPlayPolicy(FunAdSdk.getFunAdConfig().isVideoDataFlowAutoStart ? 1 : 0).setAutoPlayMuted(false).setDetailPageMuted(false).setNeedCoverImage(true).setNeedProgressBar(true).setEnableDetailPage(false).setEnableUserControl(false).build());
+            unifiedInterstitialAD.setMinVideoDuration(0);
+            unifiedInterstitialAD.setMaxVideoDuration(0);
+            i(unifiedInterstitialAD);
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
+        UnifiedInterstitialAD unifiedInterstitialAD;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) && (unifiedInterstitialAD = (UnifiedInterstitialAD) obj) != null) {
+            try {
+                unifiedInterstitialAD.destroy();
+            } catch (Exception unused) {
             }
         }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, activity, viewGroup, str, obj)) == null) {
+            UnifiedInterstitialAD unifiedInterstitialAD = (UnifiedInterstitialAD) obj;
+            onShowStart(unifiedInterstitialAD);
+            e(activity, unifiedInterstitialAD);
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

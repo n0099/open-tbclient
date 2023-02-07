@@ -1,25 +1,33 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tieba.personPolymeric.constant.PersonStatus;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.horizonalList.widget.HTypeListView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public abstract class vh8 {
+public class vh8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public List<qn> a;
+    public TbPageContext b;
+    public HTypeListView c;
+    public th8 d;
+    public sh8 e;
+    public rh8 f;
 
-    public vh8(boolean z) {
+    public vh8(TbPageContext tbPageContext, HTypeListView hTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
+            Object[] objArr = {tbPageContext, hTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,44 +37,46 @@ public abstract class vh8 {
                 return;
             }
         }
-        this.a = z;
+        this.a = new ArrayList();
+        this.b = tbPageContext;
+        this.c = hTypeListView;
+        a();
     }
 
-    public PersonStatus g(UserData userData) {
-        InterceptResult invokeL;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, userData)) == null) {
-            if (userData == null) {
-                if (this.a) {
-                    return PersonStatus.HOST_DEFAULT;
-                }
-                return PersonStatus.GUEST_DEFAULT;
-            } else if (userData.isBaijiahaoUser()) {
-                if (this.a) {
-                    return PersonStatus.HOST_BJH;
-                }
-                return PersonStatus.GUEST_BJH;
-            } else if (this.a) {
-                return PersonStatus.HOST_DEFAULT;
-            } else {
-                return PersonStatus.GUEST_DEFAULT;
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.d = new th8(this.b, ya5.d);
+            this.e = new sh8(this.b, zh8.b);
+            this.f = new rh8(this.b.getPageActivity(), nh8.d);
+            this.a.add(this.d);
+            this.a.add(this.e);
+            this.a.add(this.f);
+            this.c.a(this.a);
         }
-        return (PersonStatus) invokeL.objValue;
     }
 
-    public PersonStatus h(ci8 ci8Var) {
-        InterceptResult invokeL;
+    public void b() {
+        HTypeListView hTypeListView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ci8Var)) == null) {
-            if (ci8Var != null && ci8Var.j() != null) {
-                return g(ci8Var.j());
-            }
-            if (this.a) {
-                return PersonStatus.HOST_DEFAULT;
-            }
-            return PersonStatus.GUEST_DEFAULT;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (hTypeListView = this.c) != null && (hTypeListView.getAdapter() instanceof TypeAdapter)) {
+            ((TypeAdapter) this.c.getAdapter()).notifyDataSetChanged();
         }
-        return (PersonStatus) invokeL.objValue;
+    }
+
+    public void c(List<Cdo> list) {
+        HTypeListView hTypeListView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && (hTypeListView = this.c) != null) {
+            hTypeListView.setData(list);
+        }
+    }
+
+    public void d(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
+            this.d.u(onClickListener);
+            this.e.u(onClickListener);
+        }
     }
 }

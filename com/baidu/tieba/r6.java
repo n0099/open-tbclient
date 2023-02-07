@@ -19,7 +19,9 @@ public class r6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        new r3(1.0f, 1.0f, 1.0f, 1.0f);
     }
 }

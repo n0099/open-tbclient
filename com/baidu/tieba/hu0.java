@@ -1,21 +1,29 @@
 package com.baidu.tieba;
-
-import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public class hu0 extends ru0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface hu0 {
+    void a(int i);
 
-    @NonNull
-    public static ru0 w(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            return ru0.m(str, 3);
-        }
-        return (ru0) invokeL.objValue;
-    }
+    void onBufferEnd();
+
+    void onBufferStart();
+
+    void onEnd(int i);
+
+    void onError(int i, int i2, String str);
+
+    void onInfo(int i, int i2);
+
+    void onPause();
+
+    void onPrepared();
+
+    void onResume();
+
+    void onSeekEnd();
+
+    void onStart();
+
+    void onUpdateProgress(int i, int i2, int i3);
+
+    void onVideoSizeChanged(int i, int i2);
 }

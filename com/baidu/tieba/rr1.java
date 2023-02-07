@@ -1,45 +1,44 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.CookieManager;
-import com.baidu.webkit.sdk.CookieSyncManager;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class rr1 {
+public class rr1 implements qu1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context, String str) {
+    @Override // com.baidu.tieba.qu1
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, context, str) != null) || context == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
         }
-        CookieManager.getInstance().setCookie(".baidu.com", bi3.k(".baidu.com", "OPENBDUSS", str, 31449600L));
-        CookieSyncManager.createInstance(AppRuntime.getAppContext());
-        CookieSyncManager.getInstance().sync();
+        return invokeV.booleanValue;
     }
 
-    public static void b(Context context, String str) {
+    @Override // com.baidu.tieba.qu1
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                a(context, str);
-            } else {
-                c(context, str);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "-1" : (String) invokeV.objValue;
+    }
+
+    public rr1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    public static void c(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("bduss", str);
-            w03.b(sr1.class, bundle);
         }
     }
 }

@@ -82,11 +82,11 @@ public class hr implements iu<hr, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hrVar)) == null) {
             if (hr.class.equals(hrVar.getClass())) {
-                int compareTo = Boolean.valueOf(m483a()).compareTo(Boolean.valueOf(hrVar.m483a()));
+                int compareTo = Boolean.valueOf(m485a()).compareTo(Boolean.valueOf(hrVar.m485a()));
                 if (compareTo != 0) {
                     return compareTo;
                 }
-                if (!m483a() || (a4 = iv.a(this.f519a, hrVar.f519a)) == 0) {
+                if (!m485a() || (a4 = iv.a(this.f519a, hrVar.f519a)) == 0) {
                     int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(hrVar.b()));
                     if (compareTo2 != 0) {
                         return compareTo2;
@@ -148,7 +148,7 @@ public class hr implements iu<hr, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m482a() {
+    public void m484a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (this.f520a == null) {
@@ -164,17 +164,17 @@ public class hr implements iu<hr, Object>, Serializable, Cloneable {
     public void a(jf jfVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, jfVar) == null) {
-            jfVar.mo622a();
+            jfVar.mo624a();
             while (true) {
-                jc mo618a = jfVar.mo618a();
-                byte b2 = mo618a.a;
+                jc mo620a = jfVar.mo620a();
+                byte b2 = mo620a.a;
                 if (b2 == 0) {
                     break;
                 }
-                short s = mo618a.f833a;
+                short s = mo620a.f833a;
                 if (s == 1) {
                     if (b2 == 10) {
-                        this.f519a = jfVar.mo617a();
+                        this.f519a = jfVar.mo619a();
                         a(true);
                         jfVar.g();
                     }
@@ -182,14 +182,14 @@ public class hr implements iu<hr, Object>, Serializable, Cloneable {
                     jfVar.g();
                 } else if (s != 2) {
                     if (s == 3 && b2 == 11) {
-                        this.f521a = jfVar.mo623a();
+                        this.f521a = jfVar.mo625a();
                         jfVar.g();
                     }
                     ji.a(jfVar, b2);
                     jfVar.g();
                 } else {
                     if (b2 == 8) {
-                        this.f520a = hl.a(jfVar.mo616a());
+                        this.f520a = hl.a(jfVar.mo618a());
                         jfVar.g();
                     }
                     ji.a(jfVar, b2);
@@ -197,8 +197,8 @@ public class hr implements iu<hr, Object>, Serializable, Cloneable {
                 }
             }
             jfVar.f();
-            if (m483a()) {
-                m482a();
+            if (m485a()) {
+                m484a();
                 return;
             }
             throw new jg("Required field 'collectedAt' was not found in serialized data! Struct: " + toString());
@@ -213,14 +213,14 @@ public class hr implements iu<hr, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m483a() {
+    public boolean m485a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f522a.get(0) : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m484a(hr hrVar) {
+    public boolean m486a(hr hrVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, hrVar)) == null) {
@@ -246,14 +246,14 @@ public class hr implements iu<hr, Object>, Serializable, Cloneable {
     public void b(jf jfVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, jfVar) == null) {
-            m482a();
+            m484a();
             jfVar.a(f518a);
             jfVar.a(a);
             jfVar.a(this.f519a);
             jfVar.b();
             if (this.f520a != null) {
                 jfVar.a(b);
-                jfVar.mo627a(this.f520a.a());
+                jfVar.mo629a(this.f520a.a());
                 jfVar.b();
             }
             if (this.f521a != null) {
@@ -262,7 +262,7 @@ public class hr implements iu<hr, Object>, Serializable, Cloneable {
                 jfVar.b();
             }
             jfVar.c();
-            jfVar.mo626a();
+            jfVar.mo628a();
         }
     }
 
@@ -283,7 +283,7 @@ public class hr implements iu<hr, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, obj)) == null) {
             if (obj != null && (obj instanceof hr)) {
-                return m484a((hr) obj);
+                return m486a((hr) obj);
             }
             return false;
         }

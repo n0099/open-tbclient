@@ -2,7 +2,6 @@ package com.baidu.tieba.memberCenter.memberpay;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.kx7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +12,7 @@ import org.json.JSONObject;
 public class ResponseMemberPayMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kx7 mData;
+    public MemberPayResult mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseMemberPayMessage(int i) {
@@ -45,21 +44,21 @@ public class ResponseMemberPayMessage extends JsonHttpResponsedMessage {
             if (statusCode != 200 || error != 0 || jSONObject == null) {
                 return;
             }
-            kx7 kx7Var = new kx7();
-            this.mData = kx7Var;
-            kx7Var.a(jSONObject);
+            MemberPayResult memberPayResult = new MemberPayResult();
+            this.mData = memberPayResult;
+            memberPayResult.a(jSONObject);
         }
     }
 
-    public kx7 getMemberPayResult() {
+    public MemberPayResult getMemberPayResult() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (this.mData == null) {
-                this.mData = new kx7();
+                this.mData = new MemberPayResult();
             }
             return this.mData;
         }
-        return (kx7) invokeV.objValue;
+        return (MemberPayResult) invokeV.objValue;
     }
 }

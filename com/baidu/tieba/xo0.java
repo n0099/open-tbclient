@@ -1,56 +1,84 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.max.event.WebEventTypeEnum;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes6.dex */
-public final class xo0 implements cj0 {
+/* loaded from: classes7.dex */
+public class xo0 {
     public static /* synthetic */ Interceptable $ic;
+    public static uo0 a;
+    public static wo0 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final WebEventTypeEnum a;
 
-    public xo0(WebEventTypeEnum type) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948306960, "Lcom/baidu/tieba/xo0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948306960, "Lcom/baidu/tieba/xo0;");
+        }
+    }
+
+    public xo0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {type};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        Intrinsics.checkNotNullParameter(type, "type");
-        this.a = type;
     }
 
-    @Override // com.baidu.tieba.cj0
-    public String a() {
+    public static uo0 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String simpleName = xo0.class.getSimpleName();
-            Intrinsics.checkNotNullExpressionValue(simpleName, "WebViewEvent::class.java.simpleName");
-            return simpleName;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (xo0.class) {
+                    if (a == null) {
+                        a = (uo0) ServiceManager.getService(uo0.a);
+                    }
+                    if (a == null) {
+                        a = uo0.b;
+                    }
+                }
+            }
+            return a;
         }
-        return (String) invokeV.objValue;
+        return (uo0) invokeV.objValue;
     }
 
-    public final WebEventTypeEnum getType() {
+    public static wo0 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b == null) {
+                synchronized (xo0.class) {
+                    if (b == null) {
+                        b = (wo0) ServiceManager.getService(wo0.a);
+                    }
+                    if (b == null) {
+                        b = wo0.b;
+                    }
+                }
+            }
+            return b;
         }
-        return (WebEventTypeEnum) invokeV.objValue;
+        return (wo0) invokeV.objValue;
     }
 }

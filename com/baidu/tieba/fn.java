@@ -1,139 +1,209 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
-import android.text.style.ImageSpan;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.adp.titan.TitanDownloadService;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.pms.bean.CheckData;
+import com.baidu.searchbox.pms.bean.ErrorInfo;
+import com.baidu.searchbox.pms.bean.PackageInfo;
+import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
+import com.baidu.searchbox.pms.callback.IDataInterceptor;
+import com.baidu.searchbox.pms.callback.PackageCallback;
+import com.baidu.searchbox.pms.download.DownloadOptions;
+import com.baidu.searchbox.pms.init.PmsManager;
+import com.baidu.searchbox.pms.init.RequestParams;
+import com.baidu.searchbox.pms.init.response.ParseUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class fn extends ImageSpan {
+public class fn extends RequestParams.Channel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public WeakReference<Drawable> c;
-    public int d;
+
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes4.dex */
+    public static class c extends DefaultDownloadCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* loaded from: classes4.dex */
+        public class a implements en {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a(c cVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            @Override // com.baidu.tieba.en
+            public void onResult(String str, int i, String str2) {
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) && ym.a) {
+                    Log.d(TitanDownloadService.TAG, "install " + str + " result: " + i);
+                }
+            }
+        }
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ c(a aVar) {
+            this();
+        }
+
+        @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
+        public void onDownloadError(PackageInfo packageInfo, ErrorInfo errorInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, packageInfo, errorInfo) == null) {
+                super.onDownloadError(packageInfo, errorInfo);
+            }
+        }
+
+        @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
+        public void onDownloadSuccess(PackageInfo packageInfo, ErrorInfo errorInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo, errorInfo) == null) {
+                super.onDownloadSuccess(packageInfo, errorInfo);
+                in.b(AppRuntime.getAppContext(), new a(this), packageInfo, false);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b implements IDataInterceptor {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        @Override // com.baidu.searchbox.pms.callback.IDataInterceptor
+        public JSONObject getUploadData() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                gn d = gn.d();
+                d.g();
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("com.baidu.titan.patch", String.valueOf(d.b()));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                Log.d(TitanDownloadService.TAG, "get upload data");
+                return jSONObject;
+            }
+            return (JSONObject) invokeV.objValue;
+        }
+
+        @Override // com.baidu.searchbox.pms.callback.IDataInterceptor
+        public CheckData onReceiveData(JSONObject jSONObject, int i, int i2, String str) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{jSONObject, Integer.valueOf(i), Integer.valueOf(i2), str})) == null) {
+                if (jSONObject == null) {
+                    return null;
+                }
+                try {
+                    JSONObject jSONObject2 = jSONObject.getJSONObject("com.baidu.titan.patch");
+                    PackageInfo parsePkgItem = ParseUtils.parsePkgItem("132", "com.baidu.titan.patch", jSONObject2);
+                    CheckData checkData = new CheckData();
+                    JSONObject jSONObject3 = new JSONObject();
+                    jSONObject3.put("product", "132/com.baidu.titan.patch");
+                    if (parsePkgItem != null && parsePkgItem.updateVersion > 0) {
+                        DownloadOptions downloadOptions = new DownloadOptions();
+                        downloadOptions.saveToDb = false;
+                        PmsManager.getInstance().download(parsePkgItem, downloadOptions, new c(null));
+                        if (!TextUtils.isEmpty(parsePkgItem.downloadUrl)) {
+                            jSONObject3.put("valid", 1);
+                        } else {
+                            jSONObject3.put("valid", 0);
+                        }
+                        jSONObject3.put("version", parsePkgItem.updateVersion);
+                    }
+                    ArrayList arrayList = new ArrayList();
+                    checkData.items = arrayList;
+                    arrayList.add(jSONObject2);
+                    checkData.totalCount = 1;
+                    checkData.successCount = 1;
+                    return checkData;
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    return null;
+                }
+            }
+            return (CheckData) invokeCommon.objValue;
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fn(Context context, int i) {
-        super(context, i);
+    public fn() {
+        super("132", "com.baidu.titan.patch", (PackageCallback) null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], (String) objArr[1], (PackageCallback) objArr[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fn(Context context, Bitmap bitmap, int i) {
-        super(context, bitmap, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bitmap, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (Bitmap) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fn(Drawable drawable, int i) {
-        super(drawable, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {drawable, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Drawable) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public final Drawable a() {
-        InterceptResult invokeV;
-        Drawable drawable;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WeakReference<Drawable> weakReference = this.c;
-            if (weakReference != null) {
-                drawable = weakReference.get();
-            } else {
-                drawable = null;
-            }
-            if (drawable == null) {
-                Drawable drawable2 = getDrawable();
-                this.c = new WeakReference<>(drawable2);
-                return drawable2;
-            }
-            return drawable;
-        }
-        return (Drawable) invokeV.objValue;
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-            Drawable a = a();
-            canvas.save();
-            canvas.translate(f + this.b, ((i5 - a.getBounds().bottom) - (((paint.getFontMetricsInt().bottom - paint.getFontMetricsInt().top) / 2) - ((a.getBounds().top + a.getBounds().bottom) / 2))) + this.d);
-            a.draw(canvas);
-            canvas.restore();
-        }
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            return super.getSize(paint, charSequence, i, i2, fontMetricsInt) + this.b + this.a;
-        }
-        return invokeCommon.intValue;
+        setDataInterceptor(new b(null));
     }
 }

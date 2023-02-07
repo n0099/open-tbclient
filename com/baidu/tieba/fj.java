@@ -1,175 +1,108 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteStatement;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tieba.ef;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.List;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.Reader;
+import java.io.Writer;
 /* loaded from: classes4.dex */
 public class fj {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b implements Comparator<ef.b<?>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(ef.b<?> bVar, ef.b<?> bVar2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bVar, bVar2)) == null) {
-                long j = bVar.c;
-                long j2 = bVar2.c;
-                if (j == j2) {
-                    return 0;
-                }
-                if (j > j2) {
-                    return -1;
-                }
-                return 1;
-            }
-            return invokeLL.intValue;
-        }
-    }
-
-    /* JADX WARN: Type inference failed for: r3v11, types: [byte[], T] */
-    @SuppressLint({"Range"})
-    public static List<ef.b<byte[]>> a(ef<byte[]> efVar) {
-        InterceptResult invokeL;
-        Cursor cursor;
+    public static void a(Cursor cursor) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, efVar)) == null) {
-            LinkedList linkedList = new LinkedList();
+        if ((interceptable == null || interceptable.invokeL(65536, null, cursor) == null) && cursor != null) {
             try {
-                cursor = c(efVar);
-            } catch (Throwable th) {
-                th = th;
-                cursor = null;
+                cursor.close();
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
-            if (cursor == null) {
-                return null;
-            }
-            while (cursor.moveToNext()) {
-                try {
-                    ef.b bVar = new ef.b();
-                    bVar.a = cursor.getString(cursor.getColumnIndex("m_key"));
-                    bVar.c = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                    cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                    bVar.b = cursor.getBlob(cursor.getColumnIndex("m_value"));
-                    linkedList.add(bVar);
-                } catch (Throwable th2) {
-                    th = th2;
-                    try {
-                        BdLog.e(th);
-                        xg.a(cursor);
-                        Collections.sort(linkedList, new b(null));
-                        return linkedList;
-                    } finally {
-                        xg.a(cursor);
-                    }
-                }
-            }
-            xg.a(cursor);
-            Collections.sort(linkedList, new b(null));
-            return linkedList;
         }
-        return (List) invokeL.objValue;
     }
 
-    /* JADX WARN: Type inference failed for: r3v11, types: [T, java.lang.String] */
-    @SuppressLint({"Range"})
-    public static List<ef.b<String>> b(ef<String> efVar) {
-        InterceptResult invokeL;
-        Cursor cursor;
+    public static void b(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, efVar)) == null) {
-            LinkedList linkedList = new LinkedList();
+        if ((interceptable == null || interceptable.invokeL(65537, null, sQLiteDatabase) == null) && sQLiteDatabase != null) {
             try {
-                cursor = c(efVar);
-            } catch (Throwable th) {
-                th = th;
-                cursor = null;
+                sQLiteDatabase.close();
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
-            if (cursor == null) {
-                return null;
-            }
-            while (cursor.moveToNext()) {
-                try {
-                    ef.b bVar = new ef.b();
-                    bVar.a = cursor.getString(cursor.getColumnIndex("m_key"));
-                    bVar.c = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                    cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                    bVar.b = cursor.getString(cursor.getColumnIndex("m_value"));
-                    linkedList.add(bVar);
-                } catch (Throwable th2) {
-                    th = th2;
-                    try {
-                        BdLog.e(th);
-                        xg.a(cursor);
-                        Collections.sort(linkedList, new b(null));
-                        return linkedList;
-                    } finally {
-                        xg.a(cursor);
-                    }
-                }
-            }
-            xg.a(cursor);
-            Collections.sort(linkedList, new b(null));
-            return linkedList;
         }
-        return (List) invokeL.objValue;
     }
 
-    public static Cursor c(ef<?> efVar) {
-        InterceptResult invokeL;
+    public static void c(SQLiteStatement sQLiteStatement) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, efVar)) == null) {
-            if (efVar == null || !(efVar instanceof ef.c)) {
-                return null;
+        if ((interceptable == null || interceptable.invokeL(65538, null, sQLiteStatement) == null) && sQLiteStatement != null) {
+            try {
+                sQLiteStatement.close();
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
-            ef.c cVar = (ef.c) efVar;
-            if (!(cVar.c() instanceof cf)) {
-                return null;
-            }
-            ve n = ((cf) cVar.c()).n();
-            return n.q(n.h().f(), cVar.j());
         }
-        return (Cursor) invokeL.objValue;
+    }
+
+    public static void d(Closeable closeable) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, closeable) == null) && closeable != null) {
+            try {
+                closeable.close();
+            } catch (Throwable th) {
+                BdLog.e(th.getMessage());
+            }
+        }
+    }
+
+    public static void e(InputStream inputStream) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, inputStream) == null) && inputStream != null) {
+            try {
+                inputStream.close();
+            } catch (IOException e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public static void f(OutputStream outputStream) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65541, null, outputStream) == null) && outputStream != null) {
+            try {
+                outputStream.close();
+            } catch (IOException e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public static void g(Reader reader) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65542, null, reader) == null) && reader != null) {
+            try {
+                reader.close();
+            } catch (IOException e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public static void h(Writer writer) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65543, null, writer) == null) && writer != null) {
+            try {
+                writer.close();
+            } catch (IOException e) {
+                BdLog.e(e.getMessage());
+            }
+        }
     }
 }

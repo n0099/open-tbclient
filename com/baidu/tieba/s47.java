@@ -1,102 +1,142 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.app.Activity;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.card.ThreadCardViewHolder;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.qy;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import androidx.annotation.StringRes;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.dialog.TBAlertBuilder;
+import com.baidu.tbadk.core.dialog.TBAlertConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class s47 extends ln<x47, ThreadCardViewHolder<x47>> implements bs5 {
+public class s47 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public BdUniqueId b;
-    public eo c;
-    public String d;
-    public byte e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s47(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, byte b) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, Byte.valueOf(b)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = tbPageContext;
-        this.e = b;
-    }
-
-    @Override // com.baidu.tieba.bs5
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.d = str;
-        }
-    }
-
-    public void u(eo eoVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, eoVar) == null) {
-            this.c = eoVar;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: s */
-    public ThreadCardViewHolder<x47> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            qy.b bVar = new qy.b(this.a.getPageActivity(), false);
-            bVar.n(new d57(this.a, this.b, this.e));
-            bVar.l().c(0);
-            bVar.l().g(0);
-            bVar.l().f(0);
-            bVar.l().i(0);
-            ThreadCardViewHolder<x47> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.c));
-            threadCardViewHolder.i(this.b);
-            return threadCardViewHolder;
-        }
-        return (ThreadCardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, x47 x47Var, ThreadCardViewHolder<x47> threadCardViewHolder) {
+    public static TBAlertBuilder a(TBAlertBuilder tBAlertBuilder, @StringRes int i, @StringRes int i2, View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, x47Var, threadCardViewHolder})) == null) {
-            threadCardViewHolder.e(x47Var);
-            if (threadCardViewHolder.a() != null) {
-                threadCardViewHolder.a().r(i);
-                threadCardViewHolder.a().b(this.d);
-                threadCardViewHolder.a().onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{tBAlertBuilder, Integer.valueOf(i), Integer.valueOf(i2), onClickListener, onClickListener2})) == null) {
+            if (tBAlertBuilder == null) {
+                return null;
             }
-            return threadCardViewHolder.getView();
+            TBAlertConfig.a aVar = new TBAlertConfig.a(i, TBAlertConfig.OperateBtnStyle.MAIN);
+            TBAlertConfig.a aVar2 = new TBAlertConfig.a(i2, TBAlertConfig.OperateBtnStyle.SECONDARY);
+            tBAlertBuilder.u(aVar2, aVar);
+            tBAlertBuilder.i();
+            aVar.a(onClickListener);
+            aVar2.a(onClickListener2);
+            return tBAlertBuilder;
         }
-        return (View) invokeCommon.objValue;
+        return (TBAlertBuilder) invokeCommon.objValue;
+    }
+
+    public static TBAlertBuilder b(Activity activity, @StringRes int i, @StringRes int i2, View view2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{activity, Integer.valueOf(i), Integer.valueOf(i2), view2})) == null) {
+            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(activity);
+            tBAlertBuilder.w(i);
+            tBAlertBuilder.m(i2);
+            tBAlertBuilder.o(true);
+            tBAlertBuilder.j(false);
+            if (view2 != null) {
+                tBAlertBuilder.k(view2);
+            }
+            return tBAlertBuilder;
+        }
+        return (TBAlertBuilder) invokeCommon.objValue;
+    }
+
+    public static View c(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
+            final LinearLayout linearLayout = new LinearLayout(activity);
+            linearLayout.setOrientation(0);
+            linearLayout.setGravity(16);
+            int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X013);
+            linearLayout.setPadding(dimenPixelSize, UtilHelper.getDimenPixelSize(R.dimen.tbds53), dimenPixelSize, 0);
+            linearLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+            final ImageView imageView = new ImageView(activity);
+            WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_check_normal24, R.color.CAM_X0108, null);
+            int g = ej.g(activity, R.dimen.tbds53);
+            linearLayout.addView(imageView, new LinearLayout.LayoutParams(g, g));
+            TextView textView = new TextView(activity);
+            textView.setText(R.string.obfuscated_res_0x7f0f033f);
+            textView.setTextSize(0, UtilHelper.getDimenPixelSize(R.dimen.T_X07));
+            textView.setTextColor(SkinManager.getColor(R.color.CAM_X0108));
+            linearLayout.addView(textView, new LinearLayout.LayoutParams(-2, -2));
+            linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.v37
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // android.view.View.OnClickListener
+                public final void onClick(View view2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                        s47.d(linearLayout, imageView, view2);
+                    }
+                }
+            });
+            return linearLayout;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    public static /* synthetic */ void d(LinearLayout linearLayout, ImageView imageView, View view2) {
+        if (dh.a(linearLayout.getTag(), false)) {
+            p35.m().w("key_vpb_booster_disconnect_alert", true);
+            WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_check_normal24, R.color.CAM_X0108, null);
+            linearLayout.setTag(Boolean.FALSE);
+            return;
+        }
+        p35.m().w("key_vpb_booster_disconnect_alert", false);
+        WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_check_select24, R.color.CAM_X0304, null);
+        linearLayout.setTag(Boolean.TRUE);
+    }
+
+    public static void e(Activity activity, View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, onClickListener) == null) {
+            a(b(activity, R.string.obfuscated_res_0x7f0f033b, R.string.obfuscated_res_0x7f0f0339, null), R.string.obfuscated_res_0x7f0f0459, R.string.obfuscated_res_0x7f0f038b, onClickListener, null).z();
+        }
+    }
+
+    public static void f(Activity activity, View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, activity, onClickListener) == null) {
+            a(b(activity, R.string.obfuscated_res_0x7f0f033b, R.string.obfuscated_res_0x7f0f033a, null), R.string.obfuscated_res_0x7f0f0459, R.string.obfuscated_res_0x7f0f038b, onClickListener, null).z();
+        }
+    }
+
+    public static void i(Activity activity, View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65544, null, activity, onClickListener) == null) {
+            a(b(activity, R.string.obfuscated_res_0x7f0f0349, R.string.obfuscated_res_0x7f0f0348, null), R.string.obfuscated_res_0x7f0f0347, R.string.obfuscated_res_0x7f0f038b, onClickListener, null).z();
+        }
+    }
+
+    public static void g(Activity activity, View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65542, null, activity, onClickListener) != null) || !p35.m().i("key_vpb_booster_disconnect_alert", true)) {
+            return;
+        }
+        a(b(activity, R.string.obfuscated_res_0x7f0f0340, R.string.obfuscated_res_0x7f0f033e, c(activity)), R.string.obfuscated_res_0x7f0f033d, R.string.obfuscated_res_0x7f0f033c, onClickListener, null).z();
+    }
+
+    public static void h(Activity activity, View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65543, null, activity, onClickListener, onClickListener2) == null) {
+            a(b(activity, R.string.obfuscated_res_0x7f0f0344, R.string.obfuscated_res_0x7f0f0341, null), R.string.obfuscated_res_0x7f0f0343, R.string.obfuscated_res_0x7f0f0342, onClickListener, onClickListener2).z();
+        }
     }
 }

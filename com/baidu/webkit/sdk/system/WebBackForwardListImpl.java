@@ -71,7 +71,7 @@ public final class WebBackForwardListImpl extends WebBackForwardList implements 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.webkit.sdk.WebBackForwardList
     /* renamed from: clone */
-    public final WebBackForwardList mo75clone() {
+    public final WebBackForwardList mo77clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

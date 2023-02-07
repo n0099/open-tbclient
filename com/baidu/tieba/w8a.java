@@ -4,137 +4,171 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashSet;
+import com.squareup.wire2.ProtoAdapter;
+import com.squareup.wire2.internal.ImmutableList;
+import com.squareup.wire2.internal.MutableOnWriteList;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedHashMap;
 import java.util.List;
-import rx.exceptions.CompositeException;
-import rx.exceptions.OnCompletedFailedException;
-import rx.exceptions.OnErrorFailedException;
-import rx.exceptions.OnErrorNotImplementedException;
-import rx.exceptions.OnErrorThrowable;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public final class w8a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Throwable th, Throwable th2) {
+    public static int e(Object obj, Object obj2, Object obj3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, th, th2) == null) {
-            HashSet hashSet = new HashSet();
-            int i = 0;
-            while (th.getCause() != null) {
-                int i2 = i + 1;
-                if (i >= 25) {
-                    return;
-                }
-                th = th.getCause();
-                if (!hashSet.contains(th.getCause())) {
-                    hashSet.add(th.getCause());
-                    i = i2;
-                }
-            }
-            try {
-                th.initCause(th2);
-            } catch (Throwable unused) {
-            }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, obj2, obj3)) == null) {
+            return (obj != null ? 1 : 0) + (obj2 != null ? 1 : 0) + (obj3 == null ? 0 : 1);
         }
+        return invokeLLL.intValue;
     }
 
-    public static Throwable b(Throwable th) {
-        InterceptResult invokeL;
+    public static void a(List<?> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, th)) == null) {
-            int i = 0;
-            while (th.getCause() != null) {
-                int i2 = i + 1;
-                if (i >= 25) {
-                    return new RuntimeException("Stack too deep to get final cause");
-                }
-                th = th.getCause();
-                i = i2;
-            }
-            return th;
-        }
-        return (Throwable) invokeL.objValue;
-    }
-
-    public static RuntimeException c(Throwable th) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, th)) == null) {
-            if (!(th instanceof RuntimeException)) {
-                if (th instanceof Error) {
-                    throw ((Error) th);
-                }
-                throw new RuntimeException(th);
-            }
-            throw ((RuntimeException) th);
-        }
-        return (RuntimeException) invokeL.objValue;
-    }
-
-    public static void d(List<? extends Throwable> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, list) == null) && list != null && !list.isEmpty()) {
-            if (list.size() == 1) {
-                Throwable th = list.get(0);
-                if (!(th instanceof RuntimeException)) {
-                    if (th instanceof Error) {
-                        throw ((Error) th);
+        if (interceptable == null || interceptable.invokeL(65536, null, list) == null) {
+            if (list != null) {
+                int size = list.size();
+                for (int i = 0; i < size; i++) {
+                    if (list.get(i) == null) {
+                        throw new NullPointerException("Element at index " + i + " is null");
                     }
-                    throw new RuntimeException(th);
                 }
-                throw ((RuntimeException) th);
+                return;
             }
-            throw new CompositeException(list);
+            throw new NullPointerException("list == null");
         }
     }
 
-    public static void e(Throwable th) {
+    public static void b(Map<?, ?> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th) == null) {
-            if (!(th instanceof OnErrorNotImplementedException)) {
-                if (!(th instanceof OnErrorFailedException)) {
-                    if (!(th instanceof OnCompletedFailedException)) {
-                        if (!(th instanceof VirtualMachineError)) {
-                            if (!(th instanceof ThreadDeath)) {
-                                if (!(th instanceof LinkageError)) {
-                                    return;
-                                }
-                                throw ((LinkageError) th);
-                            }
-                            throw ((ThreadDeath) th);
+        if (interceptable == null || interceptable.invokeL(65537, null, map) == null) {
+            if (map != null) {
+                for (Map.Entry<?, ?> entry : map.entrySet()) {
+                    if (entry.getKey() != null) {
+                        if (entry.getValue() == null) {
+                            throw new NullPointerException("Value for key " + entry.getKey() + " is null");
                         }
-                        throw ((VirtualMachineError) th);
+                    } else {
+                        throw new NullPointerException("map.containsKey(null)");
                     }
-                    throw ((OnCompletedFailedException) th);
                 }
-                throw ((OnErrorFailedException) th);
+                return;
             }
-            throw ((OnErrorNotImplementedException) th);
+            throw new NullPointerException("map == null");
         }
     }
 
-    public static void f(Throwable th, l8a<?> l8aVar) {
+    public static <T> List<T> c(String str, List<T> list) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, th, l8aVar) == null) {
-            e(th);
-            l8aVar.onError(th);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, list)) == null) {
+            if (list != null) {
+                if (list != Collections.emptyList() && !(list instanceof ImmutableList)) {
+                    return new ArrayList(list);
+                }
+                return new MutableOnWriteList(list);
+            }
+            throw new NullPointerException(str + " == null");
+        }
+        return (List) invokeLL.objValue;
+    }
+
+    public static <K, V> Map<K, V> d(String str, Map<K, V> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, map)) == null) {
+            if (map != null) {
+                return new LinkedHashMap(map);
+            }
+            throw new NullPointerException(str + " == null");
+        }
+        return (Map) invokeLL.objValue;
+    }
+
+    public static boolean f(Object obj, Object obj2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, obj, obj2)) == null) {
+            if (obj != obj2 && (obj == null || !obj.equals(obj2))) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static <T> void k(List<T> list, ProtoAdapter<T> protoAdapter) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65546, null, list, protoAdapter) == null) {
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                list.set(i, protoAdapter.redact(list.get(i)));
+            }
         }
     }
 
-    public static void g(Throwable th, l8a<?> l8aVar, Object obj) {
+    public static <T> List<T> g(String str, List<T> list) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65542, null, th, l8aVar, obj) == null) {
-            e(th);
-            l8aVar.onError(OnErrorThrowable.addValueAsLastCause(th, obj));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, list)) == null) {
+            if (list != null) {
+                if (list instanceof MutableOnWriteList) {
+                    list = ((MutableOnWriteList) list).mutableList;
+                }
+                if (list != Collections.emptyList() && !(list instanceof ImmutableList)) {
+                    ImmutableList immutableList = new ImmutableList(list);
+                    if (!immutableList.contains(null)) {
+                        return immutableList;
+                    }
+                    throw new IllegalArgumentException(str + ".contains(null)");
+                }
+                return list;
+            }
+            throw new NullPointerException(str + " == null");
         }
+        return (List) invokeLL.objValue;
     }
 
-    public static void h(Throwable th, p8a<?> p8aVar, Object obj) {
+    public static <K, V> Map<K, V> h(String str, Map<K, V> map) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65543, null, th, p8aVar, obj) == null) {
-            e(th);
-            p8aVar.b(OnErrorThrowable.addValueAsLastCause(th, obj));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, map)) == null) {
+            if (map != null) {
+                if (map.isEmpty()) {
+                    return Collections.emptyMap();
+                }
+                LinkedHashMap linkedHashMap = new LinkedHashMap(map);
+                if (!linkedHashMap.containsKey(null)) {
+                    if (!linkedHashMap.containsValue(null)) {
+                        return Collections.unmodifiableMap(linkedHashMap);
+                    }
+                    throw new IllegalArgumentException(str + ".containsValue(null)");
+                }
+                throw new IllegalArgumentException(str + ".containsKey(null)");
+            }
+            throw new NullPointerException(str + " == null");
         }
+        return (Map) invokeLL.objValue;
+    }
+
+    public static <T> List<T> i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return new MutableOnWriteList(Collections.emptyList());
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public static <K, V> Map<K, V> j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return new LinkedHashMap();
+        }
+        return (Map) invokeV.objValue;
     }
 }

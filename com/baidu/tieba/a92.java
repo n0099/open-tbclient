@@ -1,111 +1,91 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.webkit.MimeTypeMap;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.e92;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebResourceResponse;
-import java.util.Map;
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes3.dex */
-public final class a92 implements e92.a {
+public final class a92 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CopyOnWriteArrayList<x82> a;
-    public String b;
-    public Map<String, String> c;
-    public int d;
-    public boolean e;
-    public String f;
+    public final List<z82> a;
 
-    public a92(CopyOnWriteArrayList<x82> copyOnWriteArrayList, String str, Map<String, String> map, int i, boolean z) {
+    public a92() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {copyOnWriteArrayList, str, map, Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = copyOnWriteArrayList;
-        this.b = str;
-        this.c = map;
-        this.d = i;
-        this.e = z;
+        this.a = new ArrayList();
     }
 
-    @Override // com.baidu.tieba.e92.a
-    public void a(String str) {
+    public synchronized void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f = str;
-        }
-    }
-
-    @Override // com.baidu.tieba.e92.a
-    public WebResourceResponse b(String str, Map<String, String> map, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map, z)) == null) {
-            if (this.d >= this.a.size()) {
-                return null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                this.a.clear();
             }
-            return this.a.get(this.d).a(new a92(this.a, this.b, this.c, this.d + 1, z));
         }
-        return (WebResourceResponse) invokeLLZ.objValue;
     }
 
-    @Override // com.baidu.tieba.e92.a
-    public boolean c() {
+    public synchronized boolean c() {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
+            synchronized (this) {
+                z = false;
+                Iterator<z82> it = this.a.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    } else if (it.next().c()) {
+                        z = true;
+                        break;
+                    }
+                }
+            }
+            return z;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.e92.a
-    public String d() {
+    public synchronized List<z82> d() {
         InterceptResult invokeV;
+        List<z82> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.e92.a
-    public String getMimeType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (TextUtils.isEmpty(this.f)) {
-                this.f = MimeTypeMap.getSingleton().getMimeTypeFromExtension(MimeTypeMap.getFileExtensionFromUrl(this.b));
+            synchronized (this) {
+                list = this.a;
             }
-            return this.f;
+            return list;
         }
-        return (String) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.e92.a
-    public Map<String, String> getRequestHeaders() {
-        InterceptResult invokeV;
+    public synchronized boolean a(z82 z82Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, z82Var)) == null) {
+            synchronized (this) {
+                if (z82Var != null) {
+                    return this.a.add(z82Var);
+                }
+                return false;
+            }
         }
-        return (Map) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 }

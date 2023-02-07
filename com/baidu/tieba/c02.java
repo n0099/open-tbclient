@@ -1,83 +1,64 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.text.TextUtils;
-import android.util.Base64;
-import android.util.Log;
-import com.airbnb.lottie.ImageAssetDelegate;
-import com.airbnb.lottie.LottieImageAsset;
-import com.baidu.searchbox.v8engine.WebGLImageLoader;
-import com.baidu.swan.apps.storage.PathType;
+import android.util.Pair;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class c02 implements ImageAssetDelegate {
+public class c02 extends vz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
-    public c02(String str) {
+    @Override // com.baidu.tieba.zw1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "HandleExceptionApi" : (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c02(@NonNull xw1 xw1Var) {
+        super(xw1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {xw1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((xw1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        PathType s = rb3.s(str);
-        if (s == PathType.BD_FILE || s == PathType.RELATIVE) {
-            this.a = new File(wp2.U().G().a(str)).getParent();
-        }
     }
 
-    @Override // com.airbnb.lottie.ImageAssetDelegate
-    public Bitmap fetchBitmap(LottieImageAsset lottieImageAsset) {
+    public w02 x(String str) {
         InterceptResult invokeL;
-        File file;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, lottieImageAsset)) == null) {
-            if (lottieImageAsset == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            q("#handleException", false);
+            Pair<w02, JSONObject> s = s(str);
+            w02 w02Var = (w02) s.first;
+            if (!w02Var.isSuccess()) {
+                return w02Var;
             }
-            String fileName = lottieImageAsset.getFileName();
-            if (TextUtils.isEmpty(fileName)) {
-                return null;
+            JSONObject jSONObject = (JSONObject) s.second;
+            String optString = jSONObject.optString("code");
+            if (TextUtils.isEmpty(optString)) {
+                return new w02(202, "code is required");
             }
-            if (fileName.startsWith(WebGLImageLoader.DATA_URL) && fileName.indexOf("base64,") > 0) {
-                try {
-                    byte[] decode = Base64.decode(fileName.substring(fileName.indexOf(44) + 1), 0);
-                    BitmapFactory.Options options = new BitmapFactory.Options();
-                    options.inScaled = true;
-                    options.inDensity = 160;
-                    return BitmapFactory.decodeByteArray(decode, 0, decode.length, options);
-                } catch (IllegalArgumentException e) {
-                    Log.w("SwanAppAnimationViewAss", "data URL did not have correct base64 format.", e);
-                    return null;
-                }
-            } else if (TextUtils.isEmpty(this.a)) {
-                return null;
-            } else {
-                String dirName = lottieImageAsset.getDirName();
-                if (TextUtils.isEmpty(dirName)) {
-                    file = new File(this.a);
-                } else {
-                    file = new File(this.a, dirName);
-                }
-                return BitmapFactory.decodeFile(new File(file, lottieImageAsset.getFileName()).getAbsolutePath());
-            }
+            return (w02) ca2.a(optString).a(jSONObject);
         }
-        return (Bitmap) invokeL.objValue;
+        return (w02) invokeL.objValue;
     }
 }

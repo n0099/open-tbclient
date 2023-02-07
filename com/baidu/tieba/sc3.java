@@ -1,73 +1,70 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import android.content.Context;
+import android.util.Log;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class sc3 {
+public class sc3 extends vc3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final int b;
-    public final String c;
-    public final String d;
 
-    public sc3(String str, int i, String str2, String str3) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sc3(t93 t93Var) {
+        super(t93Var, "/swanAPI/removeWebView");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), str2, str3};
+            Object[] objArr = {t93Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((t93) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.b = i;
-        this.c = str2;
-        this.d = str3;
     }
 
-    public static Bundle a(String str, int i, String str2, String str3) {
-        InterceptResult invokeLILL;
+    @Override // com.baidu.tieba.ta3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, w83 w83Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(65537, null, str, i, str2, str3)) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("bundle_sp_name_key", str);
-            bundle.putString("bundle_prefs_key", str2);
-            bundle.putInt("bundle_data_type_key", i);
-            bundle.putString("bundle_data_value_key", str3);
-            return bundle;
-        }
-        return (Bundle) invokeLILL.objValue;
-    }
-
-    public static sc3 b(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bundle)) == null) {
-            if (bundle.isEmpty()) {
-                return null;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, w83Var)) == null) {
+            if (ta3.b) {
+                Log.d("RemoveWebViewAction", "handle entity: " + unitedSchemeEntity.toString());
             }
-            return new sc3(bundle.getString("bundle_sp_name_key"), bundle.getInt("bundle_data_type_key"), bundle.getString("bundle_prefs_key"), bundle.getString("bundle_data_value_key"));
+            uc3 h = uc3.h(unitedSchemeEntity);
+            if (!h.isValid()) {
+                w52.c("removeWebView", "params is invalid");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return true;
+            }
+            cv1 cv1Var = (cv1) ju2.U().A(h.c);
+            if (cv1Var == null) {
+                w52.c("removeWebView", "viewManager is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return true;
+            } else if (!cv1Var.X(h)) {
+                w52.c("removeWebView", "remove webview widget fail");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return true;
+            } else {
+                w52.i("removeWebView", "remove webview widget success");
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                return true;
+            }
         }
-        return (sc3) invokeL.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SpMethodInfo{mDataType=" + this.b + ", mPrefName='" + this.c + "', mDataValue='" + this.d + "'}";
-        }
-        return (String) invokeV.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

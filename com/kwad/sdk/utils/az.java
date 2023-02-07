@@ -296,7 +296,7 @@ public final class az {
     public static String br(boolean z) {
         Context context = ((com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class)).getContext();
         String bv = com.kwad.sdk.core.f.a.bv(context);
-        return (TextUtils.isEmpty(bv) && !z && TextUtils.isEmpty(m91do(context))) ? ((com.kwad.sdk.service.kwai.f) ServiceProvider.get(com.kwad.sdk.service.kwai.f.class)).lC() : bv;
+        return (TextUtils.isEmpty(bv) && !z && TextUtils.isEmpty(m93do(context))) ? ((com.kwad.sdk.service.kwai.f) ServiceProvider.get(com.kwad.sdk.service.kwai.f.class)).lC() : bv;
     }
 
     @SuppressLint({"HardwareIds"})
@@ -425,7 +425,7 @@ public final class az {
 
     @SuppressLint({"HardwareIds", "MissingPermission"})
     /* renamed from: do  reason: not valid java name */
-    public static synchronized String m91do(@Nullable Context context) {
+    public static synchronized String m93do(@Nullable Context context) {
         synchronized (az.class) {
             if (aq.zV() && !TextUtils.isEmpty(aq.zW())) {
                 return aq.zW();
@@ -829,8 +829,8 @@ public final class az {
 
     public static String u(@Nullable Context context, boolean z) {
         if (!aq.zV() || TextUtils.isEmpty(aq.zW())) {
-            String m91do = m91do(context);
-            return (TextUtils.isEmpty(m91do) && !z && TextUtils.isEmpty(com.kwad.sdk.core.f.a.bv(context))) ? ((com.kwad.sdk.service.kwai.f) ServiceProvider.get(com.kwad.sdk.service.kwai.f.class)).lB() : m91do;
+            String m93do = m93do(context);
+            return (TextUtils.isEmpty(m93do) && !z && TextUtils.isEmpty(com.kwad.sdk.core.f.a.bv(context))) ? ((com.kwad.sdk.service.kwai.f) ServiceProvider.get(com.kwad.sdk.service.kwai.f.class)).lB() : m93do;
         }
         return aq.zW();
     }

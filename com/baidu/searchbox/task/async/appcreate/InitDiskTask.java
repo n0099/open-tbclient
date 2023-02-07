@@ -6,8 +6,8 @@ import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.TiebaDatabase;
-import com.baidu.tieba.mc;
-import com.baidu.tieba.z9;
+import com.baidu.tieba.ea;
+import com.baidu.tieba.rc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -54,7 +54,7 @@ public class InitDiskTask extends LaunchTask {
     public void execute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().k(new z9.a(this) { // from class: com.baidu.searchbox.task.async.appcreate.InitDiskTask.1
+            TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().k(new ea.a(this) { // from class: com.baidu.searchbox.task.async.appcreate.InitDiskTask.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ InitDiskTask this$0;
@@ -77,7 +77,7 @@ public class InitDiskTask extends LaunchTask {
                     this.this$0 = this;
                 }
 
-                @Override // com.baidu.tieba.z9.a
+                @Override // com.baidu.tieba.ea.a
                 public void onDatabaseCreated(SQLiteDatabase sQLiteDatabase) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, sQLiteDatabase) == null) {
@@ -85,7 +85,7 @@ public class InitDiskTask extends LaunchTask {
                     }
                 }
             });
-            mc.f().g(TbConfig.getTempDirName());
+            rc.f().g(TbConfig.getTempDirName());
         }
     }
 }

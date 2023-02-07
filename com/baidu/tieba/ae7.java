@@ -1,18 +1,22 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
-import tbclient.Hottopic.JoinUser;
-import tbclient.Hottopic.UserInfo;
+import tbclient.UnreadTip.DataRes;
 /* loaded from: classes3.dex */
 public class ae7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<de7> a;
+    public int a;
+    public List<String> b;
+    public long c;
+    public String d;
+    public int e;
 
     public ae7() {
         Interceptable interceptable = $ic;
@@ -28,18 +32,26 @@ public class ae7 {
         }
     }
 
-    public void a(JoinUser joinUser) {
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, joinUser) == null) {
-            joinUser.join_user_num.longValue();
-            this.a = new ArrayList();
-            for (UserInfo userInfo : joinUser.join_user) {
-                if (userInfo != null) {
-                    de7 de7Var = new de7();
-                    de7Var.a(userInfo);
-                    this.a.add(de7Var);
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a > 0) {
+                return true;
             }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void b(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) && dataRes != null) {
+            this.a = dataRes.user_count.intValue();
+            this.b = dataRes.portrait_list;
+            this.c = dataRes.hide_unix.longValue() * 1000;
+            this.d = dataRes.show_tip;
+            this.e = dataRes.thread_count.intValue();
         }
     }
 }

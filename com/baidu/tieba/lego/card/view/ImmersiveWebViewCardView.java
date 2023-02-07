@@ -19,9 +19,9 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
+import com.baidu.tieba.ej;
 import com.baidu.tieba.lego.card.model.ImmersiveWebViewCard;
-import com.baidu.tieba.ux8;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.s19;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,7 +35,7 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout m;
     public BaseWebView n;
-    public ux8 o;
+    public s19 o;
     public XiubaTbJsBridge p;
 
     /* loaded from: classes5.dex */
@@ -128,9 +128,9 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
             }
         }
         this.i = tbPageContext;
-        ux8 ux8Var = new ux8();
-        this.o = ux8Var;
-        ux8Var.a(new XiubaTbJsBridge(this.i));
+        s19 s19Var = new s19();
+        this.o = s19Var;
+        s19Var.a(new XiubaTbJsBridge(this.i));
         this.o.a(new CommonTbJsBridge(this.i.getPageActivity()));
     }
 
@@ -145,7 +145,7 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
         if (immersiveWebViewCard.getHeight() > 0) {
             setWebviewHeight(immersiveWebViewCard.getHeight());
         } else {
-            setWebviewHeight(zi.j(getContext()));
+            setWebviewHeight(ej.j(getContext()));
         }
         if (!immersiveWebViewCard.mHasShown) {
             if (!TextUtils.isEmpty(immersiveWebViewCard.getPageUrl())) {
@@ -234,7 +234,7 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            this.m = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01c4, (ViewGroup) null);
+            this.m = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01c3, (ViewGroup) null);
             E();
             return this.m;
         }

@@ -6,10 +6,10 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.addresslist.relationship.RequestGetAddressListMessage;
-import com.baidu.tieba.k45;
-import com.baidu.tieba.m45;
-import com.baidu.tieba.pt5;
-import com.baidu.tieba.s9;
+import com.baidu.tieba.by5;
+import com.baidu.tieba.x85;
+import com.baidu.tieba.x9;
+import com.baidu.tieba.z85;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ import java.util.List;
 public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pt5 a;
+    public by5 a;
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
@@ -54,26 +54,26 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((s9) newInitContext.callArgs[0]);
+                super((x9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = pt5.d();
+        this.a = by5.d();
     }
 
     public int H(String str) {
         InterceptResult invokeL;
-        List<k45> c;
+        List<x85> c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (!m45.a(str) || (c = this.a.c()) == null) {
+            if (!z85.a(str) || (c = this.a.c()) == null) {
                 return -1;
             }
-            for (k45 k45Var : c) {
-                if (str.equals(k45Var.a())) {
-                    return c.indexOf(k45Var);
+            for (x85 x85Var : c) {
+                if (str.equals(x85Var.a())) {
+                    return c.indexOf(x85Var);
                 }
             }
             return -1;
@@ -81,10 +81,10 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
         return invokeL.intValue;
     }
 
-    public void G(k45 k45Var) {
+    public void G(x85 x85Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, k45Var) == null) {
-            this.a.a(k45Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, x85Var) == null) {
+            this.a.a(x85Var);
         }
     }
 
@@ -95,28 +95,28 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public void M(pt5.a aVar) {
+    public void M(by5.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
             this.a.f(aVar);
         }
     }
 
-    public void N(List<k45> list) {
+    public void N(List<x85> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
             this.a.g(list);
         }
     }
 
-    public void O(pt5.a aVar) {
+    public void O(by5.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
             this.a.h(aVar);
         }
     }
 
-    public List<k45> J() {
+    public List<x85> J() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {

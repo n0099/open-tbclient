@@ -1,21 +1,59 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
-import com.baidu.tbadk.core.atomData.PaymentConfirmActivityConfig;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.BookThread;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class xs4 {
     public static /* synthetic */ Interceptable $ic;
+    public static xs4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public long b;
+    public CustomMessageListener a;
+
+    /* loaded from: classes7.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(xs4 xs4Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xs4Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
+                return;
+            }
+            Object data = customResponsedMessage.getData();
+            if ((data instanceof f39) && ((f39) data).b) {
+                ys4.f().a("717");
+            }
+        }
+    }
 
     public xs4() {
         Interceptable interceptable = $ic;
@@ -27,31 +65,33 @@ public class xs4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new a(this, 2001437);
     }
 
-    public void a(JSONObject jSONObject) {
+    public static xs4 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (xs4.class) {
+                    if (b == null) {
+                        b = new xs4();
+                    }
+                }
+            }
+            return b;
         }
-        try {
-            this.a = jSONObject.optString("book_id", "0");
-            this.b = jSONObject.optLong(MangaBrowserActivityConfig.CHAPTER_ID, 0L);
-            jSONObject.optInt(PaymentConfirmActivityConfig.BOOK_TYPE, 0);
-        } catch (Exception e) {
-            BdLog.e(e.toString());
-        }
+        return (xs4) invokeV.objValue;
     }
 
-    public void b(BookThread bookThread) {
+    public void b(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bookThread) != null) || bookThread == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bdUniqueId) == null) {
+            this.a.setTag(bdUniqueId);
+            MessageManager.getInstance().registerListener(this.a);
         }
-        this.a = bookThread.book_id;
-        this.b = bookThread.chapter_id.longValue();
-        bookThread.book_type.intValue();
     }
 }

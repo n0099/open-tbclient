@@ -1,59 +1,86 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.os.RemoteException;
-import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.ArCoreApk;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.lang.reflect.Field;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public final class e3a implements Runnable {
+public class e3a extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ Context a;
-    public final /* synthetic */ ArCoreApk.a b;
-    public final /* synthetic */ b3a c;
 
-    public e3a(b3a b3aVar, Context context, ArCoreApk.a aVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e3a(Ssp.Pid pid) {
+        super(pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {b3aVar, context, aVar};
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = b3aVar;
-        this.a = context;
-        this.b = aVar;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        com.google.a.b.a.a.a.a aVar;
-        Bundle l;
+    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
+    public RippedAd getRippedAdInternal(Object obj) {
+        InterceptResult invokeL;
+        Object obj2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (obj == null) {
+                return null;
+            }
+            try {
+                Field declaredField = obj.getClass().getSuperclass().getSuperclass().getDeclaredField("a");
+                declaredField.setAccessible(true);
+                obj2 = declaredField.get(obj);
+            } catch (Exception e) {
+                LogPrinter.e(e);
+            }
+            if (obj2 == null) {
+                return null;
+            }
+            Field declaredField2 = obj2.getClass().getDeclaredField("b");
+            declaredField2.setAccessible(true);
+            Object obj3 = declaredField2.get(obj2);
+            if (obj3 == null) {
+                return null;
+            }
+            Field declaredField3 = obj3.getClass().getDeclaredField("b");
+            declaredField3.setAccessible(true);
+            Object obj4 = declaredField3.get(obj3);
+            if (obj4 == null) {
+                return null;
+            }
+            Field declaredField4 = obj4.getClass().getDeclaredField("x");
+            declaredField4.setAccessible(true);
+            Object obj5 = declaredField4.get(obj4);
+            if (obj5 == null) {
+                return null;
+            }
+            Field declaredField5 = obj5.getClass().getSuperclass().getDeclaredField("L");
+            declaredField5.setAccessible(true);
+            JSONObject jSONObject = (JSONObject) declaredField5.get(obj5);
+            if (jSONObject != null) {
+                return c3a.a(jSONObject);
+            }
+            return null;
         }
-        try {
-            aVar = this.c.d;
-            String str = this.a.getApplicationInfo().packageName;
-            b3a b3aVar = this.c;
-            l = b3a.l();
-            aVar.a(str, l, new com.google.ar.core.u(this));
-        } catch (RemoteException e) {
-            Log.e("ARCore-InstallService", "requestInfo threw", e);
-            this.b.a(ArCoreApk.Availability.UNKNOWN_ERROR);
-        }
+        return (RippedAd) invokeL.objValue;
     }
 }

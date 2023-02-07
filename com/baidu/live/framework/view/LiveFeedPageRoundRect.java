@@ -14,7 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ua0;
+import com.baidu.tieba.ab0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -137,7 +137,7 @@ public class LiveFeedPageRoundRect extends FrameLayout {
         if ((interceptable != null && interceptable.invokeL(1048582, this, attributeSet) != null) || attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, ua0.LiveFeedPageRoundRect);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, ab0.LiveFeedPageRoundRect);
         this.e = obtainStyledAttributes.getBoolean(0, true);
         int dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(1, 0);
         int dimensionPixelOffset2 = obtainStyledAttributes.getDimensionPixelOffset(4, dimensionPixelOffset);

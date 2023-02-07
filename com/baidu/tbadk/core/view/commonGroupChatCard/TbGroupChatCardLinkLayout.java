@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.data.CardLinkInfoData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ct4;
-import com.baidu.tieba.cx4;
+import com.baidu.tieba.p15;
+import com.baidu.tieba.px4;
 import com.baidu.tieba.tbadkcore.databinding.TbGroupChatLinkCardLayoutBinding;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -228,25 +228,18 @@ public final class TbGroupChatCardLinkLayout extends RelativeLayout implements V
                         int length = str.length() - 1;
                         while (length > 0) {
                             TextPaint paint = content1.getPaint();
-                            if (str != null) {
-                                String substring = str.substring(0, length);
-                                Intrinsics.checkNotNullExpressionValue(substring, "(this as java.lang.Strin…ing(startIndex, endIndex)");
-                                if (paint.measureText(Intrinsics.stringPlus(substring, string)) <= f) {
-                                    break;
-                                }
-                                length--;
-                            } else {
-                                throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
+                            String substring = str.substring(0, length);
+                            Intrinsics.checkNotNullExpressionValue(substring, "this as java.lang.String…ing(startIndex, endIndex)");
+                            if (paint.measureText(Intrinsics.stringPlus(substring, string)) <= f) {
+                                break;
                             }
+                            length--;
                         }
                         if (length > 0) {
-                            if (str != null) {
-                                String substring2 = str.substring(0, length);
-                                Intrinsics.checkNotNullExpressionValue(substring2, "(this as java.lang.Strin…ing(startIndex, endIndex)");
-                                content1.setText(Intrinsics.stringPlus(substring2, string));
-                                return;
-                            }
-                            throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
+                            String substring2 = str.substring(0, length);
+                            Intrinsics.checkNotNullExpressionValue(substring2, "this as java.lang.String…ing(startIndex, endIndex)");
+                            content1.setText(Intrinsics.stringPlus(substring2, string));
+                            return;
                         }
                         content1.setVisibility(8);
                         icon1.setVisibility(8);
@@ -301,7 +294,7 @@ public final class TbGroupChatCardLinkLayout extends RelativeLayout implements V
         this(context, (i2 & 2) != 0 ? null : attributeSet, (i2 & 4) != 0 ? 0 : i);
     }
 
-    public final void c(ct4 data) {
+    public final void c(px4 data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
@@ -317,19 +310,19 @@ public final class TbGroupChatCardLinkLayout extends RelativeLayout implements V
         }
     }
 
-    public final void d(ct4 ct4Var) {
+    public final void d(px4 px4Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ct4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, px4Var) == null) {
             TbGroupChatLinkCardLayoutBinding tbGroupChatLinkCardLayoutBinding = this.b;
             if (tbGroupChatLinkCardLayoutBinding == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
                 tbGroupChatLinkCardLayoutBinding = null;
             }
-            tbGroupChatLinkCardLayoutBinding.h.K(ct4Var.e, 10, false);
-            tbGroupChatLinkCardLayoutBinding.i.setText(ct4Var.c);
+            tbGroupChatLinkCardLayoutBinding.h.K(px4Var.e, 10, false);
+            tbGroupChatLinkCardLayoutBinding.i.setText(px4Var.c);
             tbGroupChatLinkCardLayoutBinding.g.setVisibility(8);
-            CardLinkInfoData cardLinkInfoData = ct4Var.p;
+            CardLinkInfoData cardLinkInfoData = px4Var.p;
             if (cardLinkInfoData != null) {
                 String str = cardLinkInfoData.content1;
                 boolean z2 = true;
@@ -415,18 +408,18 @@ public final class TbGroupChatCardLinkLayout extends RelativeLayout implements V
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
                 tbGroupChatLinkCardLayoutBinding = null;
             }
-            cx4 d2 = cx4.d(tbGroupChatLinkCardLayoutBinding.j);
+            p15 d2 = p15.d(tbGroupChatLinkCardLayoutBinding.j);
             d2.n(R.string.J_X05);
             d2.f(R.color.CAM_X0206);
-            cx4 d3 = cx4.d(tbGroupChatLinkCardLayoutBinding.i);
+            p15 d3 = p15.d(tbGroupChatLinkCardLayoutBinding.i);
             d3.A(R.string.F_X01);
             d3.z(R.dimen.T_X07);
             d3.v(R.color.CAM_X0107);
-            cx4 d4 = cx4.d(tbGroupChatLinkCardLayoutBinding.d);
+            p15 d4 = p15.d(tbGroupChatLinkCardLayoutBinding.d);
             d4.A(R.string.F_X01);
             d4.z(R.dimen.T_X09);
             d4.v(R.color.CAM_X0109);
-            cx4 d5 = cx4.d(tbGroupChatLinkCardLayoutBinding.f);
+            p15 d5 = p15.d(tbGroupChatLinkCardLayoutBinding.f);
             d5.A(R.string.F_X01);
             d5.z(R.dimen.T_X09);
             d5.v(R.color.CAM_X0109);

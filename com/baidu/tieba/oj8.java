@@ -1,76 +1,79 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
+import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.browser.BrowserHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class oj8 extends a86<mi8> {
+public class oj8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView i;
 
-    @Override // com.baidu.tieba.a86
-    public int d() {
-        InterceptResult invokeV;
+    public static void a(ej8 ej8Var, TbPageContext<?> tbPageContext) {
+        Uri parse;
+        String str;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01ad : invokeV.intValue;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public oj8(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, ej8Var, tbPageContext) == null) && ej8Var != null && tbPageContext != null) {
+            int i = ej8Var.m;
+            boolean z = false;
+            if (i == 1) {
+                if (!TextUtils.isEmpty(ej8Var.g)) {
+                    UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{ej8Var.g});
+                }
+            } else if (i == 2) {
+                if (!TextUtils.isEmpty(ej8Var.g) && (parse = Uri.parse(ej8Var.g)) != null) {
+                    String queryParameter = parse.getQueryParameter("paramfromna");
+                    if (!TextUtils.isEmpty(queryParameter)) {
+                        ej8Var.g = b(ej8Var.g, queryParameter);
+                    }
+                    if ("1".equalsIgnoreCase(parse.getQueryParameter("fixtitle"))) {
+                        str = parse.getQueryParameter("title");
+                        z = true;
+                    } else {
+                        str = "";
+                    }
+                    BrowserHelper.A(z, tbPageContext.getPageActivity(), str, ej8Var.g);
+                }
+            } else if (i == 3 && !TextUtils.isEmpty(ej8Var.g)) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921361, ej8Var.g));
             }
         }
-        this.i = (TextView) h();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.a86
-    /* renamed from: r */
-    public void i(mi8 mi8Var) {
+    public static String b(String str, String str2) {
+        InterceptResult invokeLL;
+        String[] split;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, mi8Var) != null) || mi8Var == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str2) && (split = str2.split("#")) != null) {
+                StringBuilder sb = new StringBuilder(str);
+                boolean z = false;
+                for (String str3 : split) {
+                    if ("skin".equalsIgnoreCase(str3)) {
+                        sb.append("&skin=");
+                        sb.append(SkinManager.getCurrentSkinTypeString());
+                    } else if ("user_id".equalsIgnoreCase(str3)) {
+                        sb.append("&user_id=");
+                        sb.append(TbadkCoreApplication.getCurrentAccountId());
+                    } else if ("comparams".equalsIgnoreCase(str3)) {
+                        z = true;
+                    }
+                }
+                if (z) {
+                    return lj5.g(sb.toString());
+                }
+                return sb.toString();
+            }
+            return null;
         }
-        this.i.setPadding(mi8Var.b, mi8Var.c, 0, mi8Var.d);
-        this.i.setText(this.c.getString(mi8Var.a));
-    }
-
-    @Override // com.baidu.tieba.a86
-    public void j(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) != null) || this.a == i) {
-            return;
-        }
-        this.a = i;
-        SkinManager.setViewTextColor(this.i, R.color.CAM_X0105, 1);
-        SkinManager.setBackgroundResource(this.i, R.color.CAM_X0201);
+        return (String) invokeLL.objValue;
     }
 }

@@ -1,90 +1,181 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.data.IconStampData;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tieba.view.NewUserRewardDialogView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class q95 implements s95 {
+public class q95 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public ImageView b;
-    public ImageView c;
-    public TextView d;
-    public LinearLayout e;
 
-    public q95(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes5.dex */
+    public static class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ NewUserRewardDialogView a;
+        public final /* synthetic */ j05 b;
+
+        public a(NewUserRewardDialogView newUserRewardDialogView, j05 j05Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {newUserRewardDialogView, j05Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = newUserRewardDialogView;
+            this.b = j05Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.d();
+                this.b.dismiss();
             }
         }
-        View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.floating_view_from_bcast_copy_link, (ViewGroup) null);
-        this.a = inflate;
-        this.b = (ImageView) inflate.findViewById(R.id.floating_view_icon);
-        this.d = (TextView) this.a.findViewById(R.id.floating_view_title);
-        this.c = (ImageView) this.a.findViewById(R.id.floating_view_arrow);
-        this.e = (LinearLayout) this.a.findViewById(R.id.floating_view_main);
-        this.d.setText(R.string.frs_forum_bcast_return_info);
-        b();
     }
 
-    @Override // com.baidu.tieba.s95
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a != null) {
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
-            SkinManager.setImageResource(this.b, R.drawable.pic_float_return_broadcast32);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-            TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0305).setShape(0).setAlpha(211).tlRadius(zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds52)).blRadius(zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds52)).into(this.e);
-        }
-    }
+    /* loaded from: classes5.dex */
+    public static class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TbPageContext a;
+        public final /* synthetic */ j05 b;
+        public final /* synthetic */ int c;
 
-    @Override // com.baidu.tieba.s95
-    public View getView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            View view2 = this.a;
-            if (view2 != null) {
-                return view2;
+        public b(TbPageContext tbPageContext, j05 j05Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tbPageContext, j05Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.floating_view_from_bcast_copy_link, (ViewGroup) null);
+            this.a = tbPageContext;
+            this.b = j05Var;
+            this.c = i;
         }
-        return (View) invokeV.objValue;
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                UrlManager.getInstance().dealOneLink(this.a, new String[]{"https://tieba.baidu.com/mo/q/icon/panelIcon?opacity=0&user_id=" + TbadkCoreApplication.getCurrentAccount()});
+                this.b.dismiss();
+                q95.d(this.c);
+            }
+        }
     }
 
-    @Override // com.baidu.tieba.s95
-    public void onClick() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FRS_FORUM_FLOAT_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()));
+    /* loaded from: classes5.dex */
+    public static class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ PostWriteCallBackData a;
+        public final /* synthetic */ TbPageContext b;
+
+        public c(PostWriteCallBackData postWriteCallBackData, TbPageContext tbPageContext) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {postWriteCallBackData, tbPageContext};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = postWriteCallBackData;
+            this.b = tbPageContext;
         }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                yy8 yy8Var = new yy8();
+                PostWriteCallBackData postWriteCallBackData = this.a;
+                if (postWriteCallBackData != null) {
+                    IconStampData iconStampData = postWriteCallBackData.getIconStampData();
+                    yy8Var.f(iconStampData.stampType);
+                    yy8Var.h(iconStampData.stampTitle);
+                }
+                new xy8(this.b.getPageActivity(), yy8Var).a();
+                q95.f();
+            }
+        }
+    }
+
+    public static void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_STAMP_SHARE_DIALOG).param("obj_type", 2).param("obj_source", 2).param("obj_locate", i));
+        }
+    }
+
+    public static void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) {
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_STAMP_SHARE_DIALOG).param("obj_type", 1).param("obj_source", 2).param("obj_locate", i));
+        }
+    }
+
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_CLICK).param("obj_locate", 31));
+        }
+    }
+
+    public static void c(TbPageContext tbPageContext, PostWriteCallBackData postWriteCallBackData, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLI(65538, null, tbPageContext, postWriteCallBackData, i) != null) || postWriteCallBackData == null || !o95.a(postWriteCallBackData.getIconStampData())) {
+            return;
+        }
+        NewUserRewardDialogView newUserRewardDialogView = new NewUserRewardDialogView(tbPageContext.getPageActivity());
+        newUserRewardDialogView.setData(postWriteCallBackData.getIconStampData());
+        j05 j05Var = new j05(tbPageContext.getPageActivity());
+        j05Var.setContentViewSize(5);
+        j05Var.setContentView(newUserRewardDialogView);
+        j05Var.setCanceledOnTouchOutside(false);
+        j05Var.setAnimRes(R.style.obfuscated_res_0x7f1003d7);
+        j05Var.create(tbPageContext).show();
+        newUserRewardDialogView.setCloseListener(new a(newUserRewardDialogView, j05Var));
+        newUserRewardDialogView.getNewsUserDialogLookView().setOnClickListener(new b(tbPageContext, j05Var, i));
+        newUserRewardDialogView.getNewUserDialogShareView().setOnClickListener(new c(postWriteCallBackData, tbPageContext));
+        e(i);
     }
 }

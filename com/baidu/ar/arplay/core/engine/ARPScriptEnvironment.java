@@ -3,6 +3,7 @@ package com.baidu.ar.arplay.core.engine;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.debug.provider.DebugActiveUploadResult;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -203,7 +204,7 @@ public class ARPScriptEnvironment {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             nativeGetSharedEnvironment();
             Log.e("ARPScriptEnvironment", "getSharedEnvironmentValue(KEY_AR_KEY) :" + getSharedEnvironmentValue("ar_key"));
-            getSharedEnvironmentValue("test");
+            getSharedEnvironmentValue(DebugActiveUploadResult.SOURCE);
             Log.e("ARPScriptEnvironment", "end");
         }
     }

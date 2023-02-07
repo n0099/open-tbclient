@@ -1,18 +1,26 @@
 package com.baidu.tieba;
 
-import android.util.Pair;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.LinkedList;
-/* loaded from: classes6.dex */
-public class xn9 {
+import java.nio.ByteBuffer;
+/* loaded from: classes7.dex */
+public final class xn9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, String str2, LinkedList<Pair<String, Object>> linkedList) {
+    public static void a(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65536, null, str, str2, linkedList) == null) && yn9.c().g() != null) {
-            yn9.c().g().b(54, null, null, null, null, null, str, null, str2, null, linkedList);
+        if ((interceptable != null && interceptable.invokeL(65536, null, byteBuffer) != null) || byteBuffer.isDirect()) {
+            return;
         }
+        throw new IllegalArgumentException("byteBuffer must be a direct ByteBuffer.");
+    }
+
+    public static void b(ByteBuffer byteBuffer) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65537, null, byteBuffer) != null) || byteBuffer.hasRemaining()) {
+            return;
+        }
+        throw new IllegalArgumentException("ByteBuffer is already full.");
     }
 }

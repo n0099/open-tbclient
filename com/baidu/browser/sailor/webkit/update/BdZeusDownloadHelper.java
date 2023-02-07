@@ -8,7 +8,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.BdSailor;
 import com.baidu.browser.sailor.BdSailorClient;
 import com.baidu.browser.sailor.platform.BdSailorPlatform;
-import com.baidu.tieba.zw;
+import com.baidu.tieba.ex;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -145,7 +145,7 @@ public final class BdZeusDownloadHelper {
                     bdZeusDownloadHelper2.e(bdZeusDownloadHelper2.b, this.this$0.d);
                 } else {
                     Log.i(EngineManager.LOG_TAG, " begine check md5");
-                    String a = zw.a(BdZeusDownloadHelper.i);
+                    String a = ex.a(BdZeusDownloadHelper.i);
                     if (a == null || !a.equalsIgnoreCase(this.this$0.d)) {
                         WebKitFactory.getLoadErrorCode().addDownloadInfo(1011);
                         Log.i(EngineManager.LOG_TAG, " check md5 failed ");

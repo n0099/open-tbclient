@@ -46,7 +46,7 @@ public class dn {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public dm m285a() {
+    public dm m287a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f252a : (dm) invokeV.objValue;

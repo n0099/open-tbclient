@@ -10,8 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fv3;
-import com.baidu.tieba.tu3;
+import com.baidu.tieba.gz3;
+import com.baidu.tieba.sz3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,7 +52,7 @@ public class GamenowRecommendPopViewAdapter extends RecyclerView.Adapter<a> impl
                     return;
                 }
             }
-            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09089a);
+            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f0908ae);
             this.b = (TextView) view2.findViewById(R.id.tv_name);
         }
     }
@@ -97,7 +97,7 @@ public class GamenowRecommendPopViewAdapter extends RecyclerView.Adapter<a> impl
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) {
-            a aVar = new a(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d00ac, viewGroup, false));
+            a aVar = new a(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d00ab, viewGroup, false));
             aVar.itemView.setOnClickListener(this);
             return aVar;
         }
@@ -125,7 +125,7 @@ public class GamenowRecommendPopViewAdapter extends RecyclerView.Adapter<a> impl
         if (TextUtils.isEmpty(recommendGameInfo.appKey)) {
             return;
         }
-        fv3.n().b("gbBDialogClick", "3", recommendGameInfo.appKey, String.valueOf(intValue));
-        tu3.n().A(recommendGameInfo.appKey, recommendGameInfo.appName, recommendGameInfo.iconUrl, intValue);
+        sz3.n().b("gbBDialogClick", "3", recommendGameInfo.appKey, String.valueOf(intValue));
+        gz3.n().A(recommendGameInfo.appKey, recommendGameInfo.appName, recommendGameInfo.iconUrl, intValue);
     }
 }

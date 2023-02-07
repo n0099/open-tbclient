@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.util.svg.SvgPureType;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -55,10 +55,10 @@ public class ShareDialogItemView extends LinearLayout {
                 return;
             }
         }
-        g = zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds104);
-        h = zi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
-        i = zi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
-        j = zi.g(TbadkCoreApplication.getInst(), R.dimen.T_X09);
+        g = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds104);
+        h = ej.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
+        i = ej.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
+        j = ej.g(TbadkCoreApplication.getInst(), R.dimen.T_X09);
         k = 1;
     }
 

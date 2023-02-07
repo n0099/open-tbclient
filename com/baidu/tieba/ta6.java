@@ -1,53 +1,47 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.coreExtra.data.TbMultiMediaData;
-import com.baidu.tbadk.data.QmFilterItem;
-import com.baidu.tieba.core.edit.TbMediaTrackConfig;
+import android.annotation.SuppressLint;
+import android.os.Build;
+import android.webkit.ValueCallback;
+import android.webkit.WebView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.lang.reflect.Method;
+import java.util.List;
 /* loaded from: classes6.dex */
-public interface ta6 {
+public final class ta6 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a();
-
-        void b();
-
-        void c();
+    public static void a(WebView webView, List<String> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, webView, list) == null) {
+            try {
+                Method declaredMethod = WebView.class.getDeclaredMethod("setSafeBrowsingWhitelist", List.class, ValueCallback.class);
+                declaredMethod.setAccessible(true);
+                declaredMethod.invoke(webView, list, null);
+            } catch (Throwable th) {
+                th.printStackTrace();
+            }
+        }
     }
 
-    boolean a(QmFilterItem qmFilterItem);
-
-    void b(a aVar);
-
-    void c(TbMultiMediaData tbMultiMediaData);
-
-    long d();
-
-    void e();
-
-    void f(float f);
-
-    boolean g();
-
-    long getCurrentPlayTime();
-
-    long getFrom();
-
-    TbMediaTrackConfig getMediaTrackConfig();
-
-    float getRatio();
-
-    void h(boolean z);
-
-    boolean isPlaying();
-
-    void onDestroy();
-
-    void onPause();
-
-    void onResume();
-
-    void pause();
-
-    void start();
+    @SuppressLint({"WebViewApiAvailability"})
+    public static void b(WebView webView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, webView) == null) {
+            int i = Build.VERSION.SDK_INT;
+            if (i == 26) {
+                webView.setImportantForAutofill(2);
+                webView.getSettings().setSafeBrowsingEnabled(false);
+            } else if (i >= 27) {
+                List<String> a = s96.a();
+                try {
+                    WebView.setSafeBrowsingWhitelist(a, null);
+                } catch (Throwable unused) {
+                    a(webView, a);
+                }
+            }
+        }
+    }
 }

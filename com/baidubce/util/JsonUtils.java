@@ -1,5 +1,6 @@
 package com.baidubce.util;
 
+import androidx.core.content.FileProvider;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.sapi2.stat.ShareLoginStat;
 import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
@@ -59,7 +60,7 @@ public class JsonUtils {
             if (abstractBceResponse.getClass() == ListBucketsResponse.class) {
                 JSONObject jSONObject2 = new JSONObject(jSONObject.getString("owner"));
                 User user = new User();
-                user.setDisplayName(jSONObject2.getString("displayName"));
+                user.setDisplayName(jSONObject2.getString(FileProvider.DISPLAYNAME_FIELD));
                 user.setId(jSONObject2.getString("id"));
                 JSONArray jSONArray = jSONObject.getJSONArray("buckets");
                 ArrayList arrayList = new ArrayList();
@@ -110,7 +111,7 @@ public class JsonUtils {
                         JSONObject jSONObject3 = optJSONObject2.getJSONObject("owner");
                         User user2 = new User();
                         user2.setId(jSONObject3.getString("id"));
-                        user2.setDisplayName(jSONObject3.getString("displayName"));
+                        user2.setDisplayName(jSONObject3.getString(FileProvider.DISPLAYNAME_FIELD));
                         bosObjectSummary.setOwner(user2);
                         arrayList3.add(bosObjectSummary);
                     }
@@ -198,7 +199,7 @@ public class JsonUtils {
                     JSONObject jSONObject6 = optJSONObject4.getJSONObject("owner");
                     User user3 = new User();
                     user3.setId(jSONObject6.getString("id"));
-                    user3.setDisplayName(jSONObject6.getString("displayName"));
+                    user3.setDisplayName(jSONObject6.getString(FileProvider.DISPLAYNAME_FIELD));
                     multipartUploadSummary.setOwner(user3);
                     arrayList8.add(multipartUploadSummary);
                 }
@@ -215,7 +216,7 @@ public class JsonUtils {
                 abstractBceResponse.getClass().getMethod("setTruncated", Boolean.TYPE).invoke(abstractBceResponse, jSONObject.get("isTruncated"));
                 JSONObject jSONObject7 = new JSONObject(jSONObject.getString("owner"));
                 User user4 = new User();
-                user4.setDisplayName(jSONObject7.getString("displayName"));
+                user4.setDisplayName(jSONObject7.getString(FileProvider.DISPLAYNAME_FIELD));
                 user4.setId(jSONObject7.getString("id"));
                 abstractBceResponse.getClass().getMethod("setOwner", User.class).invoke(abstractBceResponse, user4);
                 ArrayList arrayList9 = new ArrayList();

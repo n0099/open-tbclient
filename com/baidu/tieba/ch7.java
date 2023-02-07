@@ -1,22 +1,53 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.NewHottopic.PkItem;
+import tbclient.NewHottopic.PkModule;
 /* loaded from: classes4.dex */
 public class ch7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public int d;
-    public int e;
-    public long f;
+    public long a;
+    public long b;
+    public long c;
+    public a d;
+    public a e;
+    public int f;
+
+    /* loaded from: classes4.dex */
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+        public String b;
+        public String c;
+        public String d;
+        public boolean e;
+        public long f;
+        public String g;
+
+        public a(ch7 ch7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ch7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
 
     public ch7() {
         Interceptable interceptable = $ic;
@@ -32,99 +63,165 @@ public class ch7 {
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public void a(PkModule pkModule) {
+        String str;
+        boolean z;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.f;
-        }
-        return invokeV.longValue;
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.c = str;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, pkModule) == null) && pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
+            this.b = pkModule.pk_id.longValue();
+            this.c = pkModule.user_pk_id.longValue();
+            a aVar = new a(this);
+            this.d = aVar;
+            aVar.a = pkModule.agree.pk_num.longValue();
+            a aVar2 = this.d;
+            if (StringUtils.isNull(pkModule.agree.pk_desc)) {
+                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f150e);
+            } else {
+                str = pkModule.agree.pk_desc;
+            }
+            aVar2.b = str;
+            a aVar3 = this.d;
+            PkItem pkItem = pkModule.agree;
+            aVar3.c = pkItem.last_username;
+            aVar3.d = pkItem.pk_icon;
+            boolean z2 = true;
+            if (pkItem.has_clicked.longValue() == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            aVar3.e = z;
+            this.d.f = pkModule.agree.pk_index.longValue();
+            this.d.g = pkModule.agree.pk_icon_after;
+            a aVar4 = new a(this);
+            this.e = aVar4;
+            aVar4.a = pkModule.disagree.pk_num.longValue();
+            a aVar5 = this.e;
+            if (StringUtils.isNull(pkModule.disagree.pk_desc)) {
+                str2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f150d);
+            } else {
+                str2 = pkModule.disagree.pk_desc;
+            }
+            aVar5.b = str2;
+            a aVar6 = this.e;
+            PkItem pkItem2 = pkModule.disagree;
+            aVar6.c = pkItem2.last_username;
+            aVar6.d = pkItem2.pk_icon;
+            if (pkItem2.has_clicked.longValue() != 1) {
+                z2 = false;
+            }
+            aVar6.e = z2;
+            this.e.f = pkModule.disagree.pk_index.longValue();
+            this.e.g = pkModule.disagree.pk_icon_after;
         }
     }
 
-    public void h(String str) {
+    public void b(tbclient.NewTopicList.PkModule pkModule) {
+        String str;
+        boolean z;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.a = str;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pkModule) == null) && pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
+            this.b = pkModule.pk_id.longValue();
+            this.c = pkModule.user_pk_id.longValue();
+            a aVar = new a(this);
+            this.d = aVar;
+            aVar.a = pkModule.agree.pk_num.longValue();
+            a aVar2 = this.d;
+            if (StringUtils.isNull(pkModule.agree.pk_desc)) {
+                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f150e);
+            } else {
+                str = pkModule.agree.pk_desc;
+            }
+            aVar2.b = str;
+            a aVar3 = this.d;
+            tbclient.NewTopicList.PkItem pkItem = pkModule.agree;
+            aVar3.c = pkItem.last_username;
+            aVar3.d = pkItem.pk_icon;
+            boolean z2 = true;
+            if (pkItem.has_clicked.longValue() == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            aVar3.e = z;
+            this.d.f = pkModule.agree.pk_index.longValue();
+            this.d.g = pkModule.agree.pk_icon_after;
+            a aVar4 = new a(this);
+            this.e = aVar4;
+            aVar4.a = pkModule.disagree.pk_num.longValue();
+            a aVar5 = this.e;
+            if (StringUtils.isNull(pkModule.disagree.pk_desc)) {
+                str2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f150d);
+            } else {
+                str2 = pkModule.disagree.pk_desc;
+            }
+            aVar5.b = str2;
+            a aVar6 = this.e;
+            tbclient.NewTopicList.PkItem pkItem2 = pkModule.disagree;
+            aVar6.c = pkItem2.last_username;
+            aVar6.d = pkItem2.pk_icon;
+            if (pkItem2.has_clicked.longValue() != 1) {
+                z2 = false;
+            }
+            aVar6.e = z2;
+            this.e.f = pkModule.disagree.pk_index.longValue();
+            this.e.g = pkModule.disagree.pk_icon_after;
         }
     }
 
-    public void i(String str) {
+    public void c(tbclient.PkModule pkModule) {
+        String str;
+        boolean z;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void l(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-            this.f = j;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pkModule) == null) && pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
+            this.b = pkModule.pk_id.longValue();
+            this.c = pkModule.user_pk_id.longValue();
+            a aVar = new a(this);
+            this.d = aVar;
+            aVar.a = pkModule.agree.pk_num.longValue();
+            a aVar2 = this.d;
+            if (StringUtils.isNull(pkModule.agree.pk_desc)) {
+                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f150e);
+            } else {
+                str = pkModule.agree.pk_desc;
+            }
+            aVar2.b = str;
+            a aVar3 = this.d;
+            tbclient.PkItem pkItem = pkModule.agree;
+            aVar3.c = pkItem.last_username;
+            aVar3.d = pkItem.pk_icon;
+            boolean z2 = true;
+            if (pkItem.has_clicked.longValue() == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            aVar3.e = z;
+            this.d.f = pkModule.agree.pk_index.longValue();
+            this.d.g = pkModule.agree.pk_icon_after;
+            a aVar4 = new a(this);
+            this.e = aVar4;
+            aVar4.a = pkModule.disagree.pk_num.longValue();
+            a aVar5 = this.e;
+            if (StringUtils.isNull(pkModule.disagree.pk_desc)) {
+                str2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f150d);
+            } else {
+                str2 = pkModule.disagree.pk_desc;
+            }
+            aVar5.b = str2;
+            a aVar6 = this.e;
+            tbclient.PkItem pkItem2 = pkModule.disagree;
+            aVar6.c = pkItem2.last_username;
+            aVar6.d = pkItem2.pk_icon;
+            if (pkItem2.has_clicked.longValue() != 1) {
+                z2 = false;
+            }
+            aVar6.e = z2;
+            this.e.f = pkModule.disagree.pk_index.longValue();
+            this.e.g = pkModule.disagree.pk_icon_after;
         }
     }
 }

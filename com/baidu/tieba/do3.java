@@ -1,77 +1,76 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import com.baidu.searchbox.config.QuickPersistConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"SyntheticAccessor", "StaticFieldLeak"})
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class do3 extends tk4 {
+public class do3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes4.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final do3 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-855265149, "Lcom/baidu/tieba/do3$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-855265149, "Lcom/baidu/tieba/do3$b;");
-                    return;
+    public static JSONObject a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("slaveId", str);
+                jSONObject.put("type", str2);
+            } catch (JSONException e) {
+                if (gp1.a) {
+                    e.printStackTrace();
                 }
             }
-            a = new do3(null);
+            return jSONObject;
         }
+        return (JSONObject) invokeLL.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public do3() {
-        super(QuickPersistConfig.SP_FILE_STARTUP);
+    public static JSONObject b(String str, String str2, String str3, String str4, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65537, null, str, str2, str3, str4, jSONObject)) == null) {
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                JSONObject jSONObject3 = new JSONObject();
+                jSONObject3.put("id", str2);
+                jSONObject3.put("action", str4);
+                jSONObject3.put("e", jSONObject);
+                JSONObject jSONObject4 = new JSONObject();
+                jSONObject4.put("type", str3);
+                jSONObject4.put("params", jSONObject3);
+                jSONObject2.put("slaveId", str);
+                jSONObject2.put("type", "abilityMessage");
+                jSONObject2.put("value", jSONObject4);
+            } catch (JSONException e) {
+                if (gp1.a) {
+                    e.printStackTrace();
+                }
             }
+            return jSONObject2;
         }
+        return (JSONObject) invokeLLLLL.objValue;
     }
 
-    public static do3 f() {
-        InterceptResult invokeV;
+    /* JADX WARN: Type inference failed for: r4v1, types: [org.json.JSONObject, T] */
+    public static void c(String str, String str2, String str3, String str4, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || interceptable.invokeLLLLL(65538, null, str, str2, str3, str4, jSONObject) == null) {
+            cj2 cj2Var = new cj2();
+            cj2Var.c = b(str, str2, str3, str4, jSONObject);
+            ju2.U().u(cj2Var);
         }
-        return (do3) invokeV.objValue;
     }
 
-    public /* synthetic */ do3(a aVar) {
-        this();
+    /* JADX WARN: Type inference failed for: r5v1, types: [org.json.JSONObject, T] */
+    public static void d(String str, String str2, String str3, String str4, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(65539, null, str, str2, str3, str4, jSONObject) == null) {
+            cj2 cj2Var = new cj2();
+            cj2Var.c = b(str, str2, str3, str4, jSONObject);
+            ju2.U().m(str, cj2Var);
+        }
     }
 }

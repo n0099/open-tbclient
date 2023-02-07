@@ -1,95 +1,60 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.provider.Settings;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class cl4 implements xk4<String> {
-    public static /* synthetic */ Interceptable $ic;
+public class cl4 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = true;
+    public static String b = "0";
+    public static long c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
 
-    public cl4(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947678590, "Lcom/baidu/tieba/cl4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947678590, "Lcom/baidu/tieba/cl4;");
                 return;
             }
         }
-        this.a = context.getApplicationContext();
-    }
-
-    @Override // com.baidu.tieba.xk4
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return TextUtils.isEmpty(get());
+        fg4 b2 = hg4.b();
+        if (b2 != null) {
+            b = b2.i().getString("key_h2_heart_beat_version", "0");
         }
-        return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xk4
-    /* renamed from: b */
-    public String get() {
-        InterceptResult invokeV;
+    public static long a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return c();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!fl4.a(this.a, "android.permission.WRITE_SETTINGS")) {
-                return null;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            fg4 b2 = hg4.b();
+            if (b2 != null) {
+                return b2.i().getInt("key_h2_heart_beat_timespan", i);
             }
-            try {
-                return ApiReplaceUtil.getString(this.a.getContentResolver(), "com.baidu.uuid");
-            } catch (Exception unused) {
-                return null;
+            return i;
+        }
+        return invokeI.longValue;
+    }
+
+    public static long b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            fg4 b2 = hg4.b();
+            if (b2 != null) {
+                return b2.i().getInt("key_h2_heart_beat_timeout", i);
             }
+            return i;
         }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xk4
-    /* renamed from: d */
-    public void put(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            e(str);
-        }
-    }
-
-    public final void e(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || !fl4.a(this.a, "android.permission.WRITE_SETTINGS")) {
-            return;
-        }
-        try {
-            Settings.System.putString(this.a.getContentResolver(), "com.baidu.uuid", str);
-        } catch (Exception unused) {
-        }
+        return invokeI.longValue;
     }
 }

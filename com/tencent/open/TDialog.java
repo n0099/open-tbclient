@@ -24,6 +24,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.utils.Constant;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.searchbox.retrieve.debug.provider.DebugActiveUploadResult;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -514,7 +515,7 @@ public class TDialog extends b {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            new TextView(this.e.get()).setText("test");
+            new TextView(this.e.get()).setText(DebugActiveUploadResult.SOURCE);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
             com.tencent.open.b.b bVar = new com.tencent.open.b.b(this.e.get());
             this.k = bVar;

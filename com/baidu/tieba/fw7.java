@@ -1,141 +1,185 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.GridView;
-import android.widget.ListAdapter;
-import android.widget.ProgressBar;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.TextView;
+import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.memberCenter.bubble.BubbleChooseActivity;
-import com.baidu.tieba.memberCenter.bubble.BubbleListData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.lego.indicator.SlidingTabLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes4.dex */
-public class fw7 extends q9<BubbleChooseActivity> {
+public class fw7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public NavigationBar a;
-    public ViewGroup b;
-    public GridView c;
-    public View d;
-    public ew7 e;
-    public BubbleChooseActivity f;
-    public ProgressBar g;
+    public ImageView a;
+    public View b;
+    public TextView c;
+    public SlidingTabLayout d;
+    public Context e;
+    public Animation f;
+    public Animation g;
+    public boolean h;
+    public fh i;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fw7(TbPageContext<BubbleChooseActivity> tbPageContext) {
-        super(tbPageContext);
+    /* loaded from: classes4.dex */
+    public class a extends fh {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fw7 a;
+
+        public a(fw7 fw7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fw7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fw7Var;
+        }
+
+        @Override // com.baidu.tieba.fh
+        public void a(Animation animation) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, animation) != null) || this.a.c == null) {
+                return;
+            }
+            if (animation == this.a.f) {
+                this.a.c.setVisibility(0);
+                this.a.c.setClickable(true);
+            } else if (animation == this.a.g) {
+                this.a.c.setVisibility(8);
+                this.a.c.setClickable(false);
+            }
+        }
+    }
+
+    public fw7(Context context, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {context, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((s9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        BubbleChooseActivity orignalPage = tbPageContext.getOrignalPage();
-        this.f = orignalPage;
-        orignalPage.setContentView(R.layout.obfuscated_res_0x7f0d0165);
-        NavigationBar navigationBar = (NavigationBar) this.f.findViewById(R.id.lay_title_bar);
-        this.a = navigationBar;
-        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.a.setTitleText(R.string.editor_privilege);
-        this.d = this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0166, this.f);
-        this.b = (ViewGroup) this.f.findViewById(R.id.obfuscated_res_0x7f0906fb);
-        this.c = (GridView) this.f.findViewById(R.id.obfuscated_res_0x7f090d99);
-        ew7 ew7Var = new ew7(tbPageContext);
-        this.e = ew7Var;
-        this.c.setAdapter((ListAdapter) ew7Var);
-        this.g = (ProgressBar) this.f.findViewById(R.id.obfuscated_res_0x7f09048d);
+        this.h = true;
+        this.i = new a(this);
+        this.b = view2;
+        this.e = context;
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09212a);
+        this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092128);
+        this.d = (SlidingTabLayout) view2.findViewById(R.id.obfuscated_res_0x7f092129);
     }
 
-    public ew7 i() {
-        InterceptResult invokeV;
+    public void h(View.OnClickListener onClickListener) {
+        ImageView imageView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) && (imageView = this.a) != null) {
+            imageView.setOnClickListener(onClickListener);
         }
-        return (ew7) invokeV.objValue;
     }
 
-    public View k() {
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.h = true;
+            TextView textView = this.c;
+            if (textView != null) {
+                textView.clearAnimation();
+                this.c.startAnimation(f());
+            }
+            SkinManager.setImageResource(this.a, R.drawable.lego_icon_triangle_down_normal);
+        }
+    }
+
+    public final Animation e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+            if (this.f == null) {
+                Animation loadAnimation = AnimationUtils.loadAnimation(this.e, R.anim.fade_in);
+                this.f = loadAnimation;
+                loadAnimation.setAnimationListener(this.i);
+            }
+            return this.f;
         }
-        return (View) invokeV.objValue;
+        return (Animation) invokeV.objValue;
     }
 
-    public GridView l() {
+    public final Animation f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return (GridView) invokeV.objValue;
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.g.setVisibility(8);
-        }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.g.setVisibility(0);
-        }
-    }
-
-    public BubbleListData.BubbleData m(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            ew7 ew7Var = this.e;
-            if (ew7Var == null) {
-                return null;
+            if (this.g == null) {
+                Animation loadAnimation = AnimationUtils.loadAnimation(this.e, R.anim.obfuscated_res_0x7f010064);
+                this.g = loadAnimation;
+                loadAnimation.setAnimationListener(this.i);
             }
-            return ew7Var.getItem(i);
+            return this.g;
         }
-        return (BubbleListData.BubbleData) invokeI.objValue;
+        return (Animation) invokeV.objValue;
     }
 
-    public void o(List<BubbleListData.BubbleData> list, boolean z) {
-        ew7 ew7Var;
+    public void j() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048581, this, list, z) == null) && (ew7Var = this.e) != null) {
-            ew7Var.d(z);
-            this.e.c(list);
-        }
-    }
-
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.a.onChangeSkinType((TbPageContext) getPageContext(), i);
-            dr4 layoutMode = this.f.getLayoutMode();
-            boolean z = true;
-            if (i != 1) {
-                z = false;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.h = false;
+            TextView textView = this.c;
+            if (textView != null) {
+                textView.clearAnimation();
+                this.c.setVisibility(0);
+                this.c.startAnimation(e());
             }
-            layoutMode.l(z);
-            this.f.getLayoutMode().k(this.b);
+            SkinManager.setImageResource(this.a, R.drawable.lego_icon_triangle_up_normal);
+        }
+    }
+
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0205);
+            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0205);
+            SkinManager.setViewTextColor(this.c, R.color.CAM_X0106, 1);
+            if (this.h) {
+                SkinManager.setImageResource(this.a, R.drawable.lego_icon_triangle_down_normal);
+            } else {
+                SkinManager.setImageResource(this.a, R.drawable.lego_icon_triangle_up_normal);
+            }
+            SkinManager.setBackgroundResource(this.a, R.drawable.lego_btn_more_selector);
+            SlidingTabLayout slidingTabLayout = this.d;
+            if (slidingTabLayout != null) {
+                slidingTabLayout.onChangeSkinType(i);
+            }
+        }
+    }
+
+    public void i(ViewPager viewPager, int i) {
+        SlidingTabLayout slidingTabLayout;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(1048581, this, viewPager, i) == null) && (slidingTabLayout = this.d) != null) {
+            slidingTabLayout.setViewPager(viewPager, i);
         }
     }
 }

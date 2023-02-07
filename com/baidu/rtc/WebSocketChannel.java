@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.net.MailTo;
 import androidx.core.view.InputDeviceCompat;
 import com.alipay.sdk.data.a;
 import com.baidu.android.imsdk.IMConstants;
@@ -24,7 +25,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import com.google.android.exoplayer2.upstream.DefaultDataSource;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import com.xiaomi.mipush.sdk.Constants;
@@ -710,7 +710,7 @@ public class WebSocketChannel {
             try {
                 jSONObject.putOpt("request", "leave");
                 jSONObject2.putOpt("janus", "message");
-                jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
+                jSONObject2.putOpt("body", jSONObject);
                 jSONObject2.putOpt("transaction", randomString(12));
                 jSONObject2.putOpt("session_id", this.mSessionId);
                 jSONObject2.putOpt("handle_id", janusHandle.handleId);
@@ -804,7 +804,7 @@ public class WebSocketChannel {
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject2.putOpt("janus", "message");
-                jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
+                jSONObject2.putOpt("body", jSONObject);
                 jSONObject2.putOpt("transaction", randomString);
                 jSONObject2.putOpt("session_id", this.mSessionId);
             } catch (JSONException e) {
@@ -951,7 +951,7 @@ public class WebSocketChannel {
             try {
                 jSONObject.putOpt("request", "unpublish");
                 jSONObject2.putOpt("janus", "message");
-                jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
+                jSONObject2.putOpt("body", jSONObject);
                 jSONObject2.putOpt("transaction", randomString(12));
                 jSONObject2.putOpt("session_id", this.mSessionId);
                 jSONObject2.putOpt("handle_id", bigInteger);
@@ -1436,7 +1436,7 @@ public class WebSocketChannel {
                     jSONObject2.putOpt("recording", jSONObject4);
                 }
                 jSONObject.putOpt("janus", "message");
-                jSONObject.putOpt(TtmlNode.TAG_BODY, jSONObject2);
+                jSONObject.putOpt("body", jSONObject2);
                 jSONObject.putOpt("transaction", randomString(12));
                 jSONObject.putOpt("session_id", this.mSessionId);
                 jSONObject.putOpt("handle_id", janusHandle.handleId);
@@ -1554,7 +1554,7 @@ public class WebSocketChannel {
                     jSONObject.putOpt("recording", jSONObject4);
                 }
                 jSONObject2.putOpt("janus", "message");
-                jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
+                jSONObject2.putOpt("body", jSONObject);
                 jSONObject2.putOpt("transaction", randomString);
                 jSONObject2.putOpt("session_id", this.mSessionId);
                 jSONObject2.putOpt("handle_id", janusHandle.handleId);
@@ -1614,7 +1614,7 @@ public class WebSocketChannel {
                     jSONObject2.putOpt("window_id_in_bypass", this.mMixLayoutPosition);
                 }
                 jSONObject.putOpt("janus", "message");
-                jSONObject.putOpt(TtmlNode.TAG_BODY, jSONObject2);
+                jSONObject.putOpt("body", jSONObject2);
                 jSONObject.putOpt("transaction", randomString(12));
                 jSONObject.putOpt("session_id", this.mSessionId);
                 jSONObject.putOpt("handle_id", janusHandle.handleId);
@@ -1717,7 +1717,7 @@ public class WebSocketChannel {
                 jSONObject.putOpt("request", "listparticipants");
                 jSONObject.putOpt("room", Long.valueOf(this.mRoomId));
                 jSONObject2.putOpt("janus", "message");
-                jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
+                jSONObject2.putOpt("body", jSONObject);
                 jSONObject2.putOpt("transaction", randomString);
                 jSONObject2.putOpt("session_id", this.mSessionId);
                 jSONObject2.putOpt("handle_id", ((JanusHandle) this.handles.values().toArray()[0]).handleId);
@@ -1841,7 +1841,7 @@ public class WebSocketChannel {
                     jSONObject.putOpt("recording", jSONObject4);
                 }
                 jSONObject2.putOpt("janus", "message");
-                jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
+                jSONObject2.putOpt("body", jSONObject);
                 jSONObject2.putOpt("transaction", randomString);
                 jSONObject2.putOpt("session_id", this.mSessionId);
                 jSONObject2.putOpt("handle_id", janusHandle.handleId);
@@ -2013,7 +2013,7 @@ public class WebSocketChannel {
                 jSONObject.putOpt("room", Long.valueOf(this.mRoomId));
                 jSONObject.putOpt("id", Long.valueOf(j));
                 jSONObject2.putOpt("janus", "message");
-                jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
+                jSONObject2.putOpt("body", jSONObject);
                 jSONObject2.putOpt("transaction", randomString);
                 jSONObject2.putOpt("session_id", this.mSessionId);
             } catch (JSONException e) {
@@ -2101,7 +2101,7 @@ public class WebSocketChannel {
                 jSONObject.putOpt("id", Long.valueOf(this.mUserId));
                 jSONObject.putOpt("userattribute", str);
                 jSONObject2.putOpt("janus", "message");
-                jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
+                jSONObject2.putOpt("body", jSONObject);
                 jSONObject2.putOpt("transaction", randomString);
                 jSONObject2.putOpt("session_id", this.mSessionId);
             } catch (JSONException e) {
@@ -2329,7 +2329,7 @@ public class WebSocketChannel {
                 jSONObject2.putOpt("type", sessionDescription.type);
                 jSONObject2.putOpt("sdp", sessionDescription.description);
                 jSONObject3.putOpt("janus", "message");
-                jSONObject3.putOpt(TtmlNode.TAG_BODY, jSONObject);
+                jSONObject3.putOpt("body", jSONObject);
                 jSONObject3.putOpt("jsep", jSONObject2);
                 jSONObject3.putOpt("transaction", randomString(12));
                 jSONObject3.putOpt("session_id", this.mSessionId);
@@ -2387,7 +2387,7 @@ public class WebSocketChannel {
                 jSONObject2.putOpt("type", sessionDescription.type);
                 jSONObject2.putOpt("sdp", sessionDescription.description);
                 jSONObject3.putOpt("janus", "message");
-                jSONObject3.putOpt(TtmlNode.TAG_BODY, jSONObject);
+                jSONObject3.putOpt("body", jSONObject);
                 jSONObject3.putOpt("jsep", jSONObject2);
                 jSONObject3.putOpt("transaction", randomString(12));
                 jSONObject3.putOpt("session_id", this.mSessionId);
@@ -2472,11 +2472,11 @@ public class WebSocketChannel {
                 jSONObject.putOpt("request", "senddata");
                 jSONObject.putOpt("room", Long.valueOf(this.mRoomId));
                 jSONObject.putOpt("id", Long.valueOf(this.mUserId));
-                jSONObject.putOpt("to", Long.valueOf(j));
+                jSONObject.putOpt(MailTo.TO, Long.valueOf(j));
                 jSONObject.putOpt("data", str);
                 jSONObject.putOpt("internal", Boolean.valueOf(z));
                 jSONObject2.putOpt("janus", "message");
-                jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
+                jSONObject2.putOpt("body", jSONObject);
                 jSONObject2.putOpt("transaction", randomString);
                 jSONObject2.putOpt("session_id", this.mSessionId);
             } catch (JSONException e) {
@@ -2566,7 +2566,7 @@ public class WebSocketChannel {
                 jSONObject.putOpt("video", bool);
                 jSONObject.putOpt("data", Boolean.TRUE);
                 jSONObject2.putOpt("janus", "message");
-                jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
+                jSONObject2.putOpt("body", jSONObject);
                 jSONObject2.putOpt("transaction", randomString);
                 jSONObject2.putOpt("session_id", this.mSessionId);
                 jSONObject2.putOpt("handle_id", janusHandle.handleId);

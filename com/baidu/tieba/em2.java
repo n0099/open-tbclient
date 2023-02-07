@@ -1,49 +1,119 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes4.dex */
-public class em2 extends di2<um2> {
+public class em2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public jh3 a;
 
-    @Override // com.baidu.tieba.di2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "seekTo" : (String) invokeV.objValue;
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes4.dex */
+    public interface b {
+        void a();
+    }
+
+    /* loaded from: classes4.dex */
+    public static final class c {
+        public static /* synthetic */ Interceptable $ic;
+        public static final em2 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-828512800, "Lcom/baidu/tieba/em2$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-828512800, "Lcom/baidu/tieba/em2$c;");
+                    return;
+                }
+            }
+            a = new em2(null);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947739071, "Lcom/baidu/tieba/em2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947739071, "Lcom/baidu/tieba/em2;");
+                return;
+            }
+        }
+        boolean z = gp1.a;
     }
 
     public em2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        jh3 jh3Var = new jh3("aiapps_guide_dialog_sp");
+        this.a = jh3Var;
+        jh3Var.edit();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.di2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull um2 um2Var) {
+    public static em2 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, um2Var) == null) {
-            um2Var.seekTo(command.arg1);
-            String str = command.what;
-            d(um2Var, str, "SeekTo: " + command.arg1, false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return c.a;
+        }
+        return (em2) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            w83 M = w83.M();
+            if (M == null) {
+                return false;
+            }
+            return M.U().c("boolean_var_key_fav_guide_show", Boolean.FALSE).booleanValue();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public /* synthetic */ em2(a aVar) {
+        this();
+    }
+
+    public void c(@NonNull Activity activity, String str, String str2, dm2 dm2Var, b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, str2, dm2Var, bVar) == null) {
+            ds2.l0().h(activity, str, str2, dm2Var, bVar);
         }
     }
 }

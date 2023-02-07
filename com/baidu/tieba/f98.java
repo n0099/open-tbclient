@@ -1,30 +1,52 @@
 package com.baidu.tieba;
 
-import android.text.SpannableStringBuilder;
-import android.widget.EditText;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import tbclient.ExcPbPage.ExcContent;
+import tbclient.ExcPbPage.ExcellentPbThreadInfo;
+import tbclient.ExcPbPage.UserInfo;
+import tbclient.Post;
+import tbclient.User;
 /* loaded from: classes4.dex */
-public class f98 {
+public class f98 implements h98 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fc9 a;
-    public fc9 b;
-    public EditText c;
-    public EditText d;
-    public PostWriteCallBackData e;
+    public UserInfo a;
+    public ExcellentPbThreadInfo b;
+    public List<Post> c;
+    public List<User> d;
 
-    public f98() {
+    @Override // com.baidu.tieba.h98
+    public int getErroCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.h98
+    public String getErrorText() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public f98(UserInfo userInfo, ExcellentPbThreadInfo excellentPbThreadInfo, List<Post> list, List<User> list2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {userInfo, excellentPbThreadInfo, list, list2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,180 +56,64 @@ public class f98 {
                 return;
             }
         }
-        fc9 fc9Var = new fc9();
-        this.a = fc9Var;
-        fc9Var.j(R.color.CAM_X0101);
-        this.a.h(R.color.cp_cont_h_alpha85);
-        fc9 fc9Var2 = new fc9();
-        this.b = fc9Var2;
-        fc9Var2.j(R.color.CAM_X0101);
-        this.b.h(R.color.cp_cont_h_alpha85);
+        this.a = userInfo;
+        this.b = excellentPbThreadInfo;
+        this.c = list;
+        this.d = list2;
     }
 
-    public void a(boolean z) {
-        EditText editText;
+    @Override // com.baidu.tieba.h98
+    public List<Post> getPostList() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (editText = this.c) != null && editText.getText() != null) {
-            int selectionEnd = this.c.getSelectionEnd();
-            SpannableStringBuilder f = this.a.f(this.c.getText());
-            if (f != null) {
-                boolean z2 = true;
-                this.a.l(true);
-                this.c.setText(f);
-                if (z && this.a.b() >= 0) {
-                    this.c.requestFocus();
-                    this.c.setSelection(this.a.b());
-                } else {
-                    this.c.setSelection(selectionEnd);
-                }
-                fc9 fc9Var = this.a;
-                if (fc9Var.b() < 0) {
-                    z2 = false;
-                }
-                fc9Var.k(z2);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
+        return (List) invokeV.objValue;
     }
 
-    public void b(boolean z) {
-        EditText editText;
+    @Override // com.baidu.tieba.h98
+    public ExcellentPbThreadInfo getThreadInfo() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && (editText = this.d) != null && editText.getText() != null) {
-            int selectionEnd = this.d.getSelectionEnd();
-            SpannableStringBuilder f = this.b.f(this.d.getText());
-            if (f != null) {
-                boolean z2 = true;
-                this.b.l(true);
-                this.d.setText(f);
-                if (z && this.b.b() >= 0) {
-                    this.d.requestFocus();
-                    this.d.setSelection(this.b.b());
-                } else {
-                    this.d.setSelection(selectionEnd);
-                }
-                fc9 fc9Var = this.b;
-                if (fc9Var.b() < 0) {
-                    z2 = false;
-                }
-                fc9Var.k(z2);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
         }
+        return (ExcellentPbThreadInfo) invokeV.objValue;
     }
 
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.n(null);
-            this.a.i(null);
-            this.a.k(false);
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b.n(null);
-            this.b.i(null);
-            this.b.k(false);
-        }
-    }
-
-    public fc9 e() {
+    @Override // com.baidu.tieba.h98
+    public UserInfo getUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.a;
         }
-        return (fc9) invokeV.objValue;
+        return (UserInfo) invokeV.objValue;
     }
 
-    public EditText f() {
+    @Override // com.baidu.tieba.h98
+    public List<User> getUserList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.d;
         }
-        return (EditText) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public fc9 g() {
+    @Override // com.baidu.tieba.h98
+    public boolean isEmpty() {
         InterceptResult invokeV;
+        List<ExcContent> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.b;
-        }
-        return (fc9) invokeV.objValue;
-    }
-
-    public PostWriteCallBackData h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.e;
-        }
-        return (PostWriteCallBackData) invokeV.objValue;
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.a.g();
-            this.b.g();
-            if (this.a.d()) {
-                a(false);
+            ExcellentPbThreadInfo excellentPbThreadInfo = this.b;
+            if (excellentPbThreadInfo == null || (list = excellentPbThreadInfo.content) == null || list.size() <= 0) {
+                return true;
             }
-            if (this.b.d()) {
-                b(false);
-            }
+            return false;
         }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.c = null;
-            this.d = null;
-        }
-    }
-
-    public void k(PostWriteCallBackData postWriteCallBackData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, postWriteCallBackData) != null) || postWriteCallBackData == null) {
-            return;
-        }
-        this.a.i(postWriteCallBackData.getSensitiveWords());
-        this.a.n(postWriteCallBackData.getErrorString());
-        if (ListUtils.isEmpty(this.a.a())) {
-            return;
-        }
-        a(true);
-        this.e = postWriteCallBackData;
-    }
-
-    public void l(PostWriteCallBackData postWriteCallBackData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048587, this, postWriteCallBackData) != null) || postWriteCallBackData == null) {
-            return;
-        }
-        this.b.i(postWriteCallBackData.getSensitiveWords());
-        this.b.n(postWriteCallBackData.getErrorString());
-        if (ListUtils.isEmpty(this.b.a())) {
-            return;
-        }
-        b(true);
-    }
-
-    public void m(EditText editText) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, editText) == null) {
-            this.c = editText;
-        }
-    }
-
-    public void n(EditText editText) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, editText) == null) {
-            this.d = editText;
-        }
+        return invokeV.booleanValue;
     }
 }

@@ -26,7 +26,7 @@ import androidx.fragment.app.FragmentManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.bdprivate.extensions.quicklogin.QuickLoginInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qn2;
+import com.baidu.tieba.ds2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -49,9 +49,9 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void D(int i);
+        void Z(int i);
 
-        void j0(boolean z);
+        void y0(boolean z);
     }
 
     public abstract void E1();
@@ -170,7 +170,7 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             b bVar = this.a;
             if (bVar != null) {
-                bVar.j0(this.g);
+                bVar.y0(this.g);
             }
             dismissAllowingStateLoss();
         }
@@ -182,7 +182,7 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             b bVar = this.a;
             if (bVar != null) {
-                bVar.j0(this.g);
+                bVar.y0(this.g);
             }
             super.onDestroyView();
         }
@@ -193,7 +193,7 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             super.onResume();
-            boolean a2 = qn2.M().a();
+            boolean a2 = ds2.M().a();
             if (a2 != this.c) {
                 G1(a2);
             }
@@ -283,7 +283,7 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
         if (interceptable == null || interceptable.invokeL(1048591, this, dialogInterface) == null) {
             b bVar = this.a;
             if (bVar != null) {
-                bVar.j0(this.g);
+                bVar.y0(this.g);
             }
             super.onDismiss(dialogInterface);
         }

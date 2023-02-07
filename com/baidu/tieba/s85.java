@@ -1,120 +1,216 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.graphics.Rect;
-import android.os.Build;
-import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
+import android.os.Handler;
+import android.os.Looper;
+import android.text.TextUtils;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbadkSettings;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class s85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public final View b;
-    public final int c;
-    public final boolean d;
-    public o85 e;
 
-    public s85(View view2) {
+    /* loaded from: classes6.dex */
+    public static class a extends BdAsyncTask<String, Integer, Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public NetWork a;
+        public final String b;
+        public final String c;
+        public final String d;
+
+        public a(String str, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2, str3};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = null;
+            this.b = str;
+            this.c = str2;
+            this.d = str3;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public Boolean doInBackground(String... strArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+                Boolean bool = Boolean.FALSE;
+                try {
+                    NetWork netWork = new NetWork(this.b);
+                    this.a = netWork;
+                    bool = Boolean.valueOf(netWork.downloadFile(this.c + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
+                    if (bool != null && bool.booleanValue()) {
+                        if (!StringUtils.isNull(FileHelper.renameTo(null, this.c + ".tmp", null, this.c)) && !TextUtils.isEmpty(this.b) && !this.b.equals(this.d)) {
+                            FileHelper.DelFile(TbMd5.getNameMd5FromUrl(this.d));
+                        }
+                    } else {
+                        FileHelper.DelFile(this.c + ".tmp");
+                    }
+                } catch (Exception unused) {
+                }
+                return bool;
+            }
+            return (Boolean) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(Boolean bool) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) {
+                super.onPostExecute((a) bool);
+                if (bool != null && bool.booleanValue()) {
+                    new s85().g();
+                }
+            }
+        }
+    }
+
+    public s85() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = -1;
-        this.b = view2;
-        this.c = v85.a(view2.getContext());
-        this.d = w85.c((Activity) view2.getContext());
     }
 
-    public final o85 a(View view2) {
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return TbadkSettings.getInst().loadString("launch_config_local_url", "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            String loadString = TbadkSettings.getInst().loadString("launch_config_remote_url", null);
+            if (StringUtils.isNull(loadString)) {
+                return;
+            }
+            TbadkSettings.getInst().saveString("launch_config_local_url", loadString);
+        }
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            String b = b();
+            if (TextUtils.equals(b, str) && e(b)) {
+                return;
+            }
+            f(str, b);
+        }
+    }
+
+    public final boolean e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            o85 o85Var = this.e;
-            if (o85Var != null) {
-                return o85Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            File GetFile = FileHelper.GetFile(TbMd5.getNameMd5FromUrl(str));
+            if (GetFile != null && GetFile.exists() && GetFile.isFile()) {
+                return true;
             }
-            if (view2 instanceof o85) {
-                o85 o85Var2 = (o85) view2;
-                this.e = o85Var2;
-                return o85Var2;
-            } else if (view2 instanceof ViewGroup) {
-                int i = 0;
-                while (true) {
-                    ViewGroup viewGroup = (ViewGroup) view2;
-                    if (i < viewGroup.getChildCount()) {
-                        o85 a = a(viewGroup.getChildAt(i));
-                        if (a != null) {
-                            this.e = a;
-                            return a;
-                        }
-                        i++;
-                    } else {
-                        return null;
-                    }
-                }
-            } else {
-                return null;
-            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void c(JSONObject jSONObject) {
+        JSONArray jSONArray;
+        JSONObject optJSONObject;
+        String str;
+        String str2;
+        JSONObject optJSONObject2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        try {
+            jSONArray = jSONObject.getJSONArray("APP_INDEX_START");
+        } catch (JSONException e) {
+            e.printStackTrace();
+            jSONArray = null;
+        }
+        TbadkSettings inst = TbadkSettings.getInst();
+        if (jSONArray == null || jSONArray.length() == 0 || (optJSONObject = jSONArray.optJSONObject(0)) == null) {
+            return;
+        }
+        int optInt = optJSONObject.optInt("url_type");
+        String optString = optJSONObject.optString("url");
+        String optString2 = optJSONObject.optString("apk_url");
+        String optString3 = optJSONObject.optString("apk_name");
+        String optString4 = optJSONObject.optString("app_name");
+        inst.saveString("url", optString);
+        inst.saveInt("url_type", optInt);
+        inst.saveString("apk_url", optString2);
+        inst.saveString("apk_name", optString3);
+        inst.saveString("app_name", optString4);
+        JSONArray optJSONArray = optJSONObject.optJSONArray("goods_info");
+        if (optJSONArray != null && optJSONArray.length() != 0 && (optJSONObject2 = optJSONArray.optJSONObject(0)) != null) {
+            str = optJSONObject2.optString("thread_pic");
+            str2 = optJSONObject2.optString("thread_pic_md5");
+            inst.saveString("apk_size", optJSONObject2.optString("apk_size"));
         } else {
-            return (o85) invokeL.objValue;
+            str = null;
+            str2 = null;
+        }
+        if (!StringUtils.isNull(str2) && !StringUtils.isNull(str)) {
+            String loadString = inst.loadString("launch_config_md5", null);
+            if (StringUtils.isNull(loadString)) {
+                inst.saveString("launch_config_md5", str2);
+                inst.saveString("launch_config_remote_url", str);
+                d(str);
+            } else if (!TextUtils.equals(loadString, str2)) {
+                inst.saveString("launch_config_md5", str2);
+                inst.saveString("launch_config_remote_url", str);
+                d(str);
+            }
         }
     }
 
-    @TargetApi(16)
-    public void b(int i, int i2) {
+    public final void f(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            if (this.d && Build.VERSION.SDK_INT >= 16 && this.b.getFitsSystemWindows()) {
-                Rect rect = new Rect();
-                this.b.getWindowVisibleDisplayFrame(rect);
-                i2 = rect.bottom - rect.top;
-            }
-            Log.d("KPSRootLayoutHandler", "onMeasure, width: " + i + " height: " + i2);
-            if (i2 < 0) {
-                return;
-            }
-            int i3 = this.a;
-            if (i3 < 0) {
-                this.a = i2;
-                return;
-            }
-            int i4 = i3 - i2;
-            if (i4 == 0) {
-                Log.d("KPSRootLayoutHandler", "" + i4 + " == 0 break;");
-            } else if (Math.abs(i4) == this.c) {
-                Log.w("KPSRootLayoutHandler", String.format("offset just equal statusBar height %d", Integer.valueOf(i4)));
-            } else {
-                this.a = i2;
-                o85 a = a(this.b);
-                if (a == null) {
-                    Log.w("KPSRootLayoutHandler", "can't find the valid panel conflict layout, give up!");
-                } else if (Math.abs(i4) < u85.f(this.b.getContext())) {
-                    Log.w("KPSRootLayoutHandler", "system bottom-menu-bar(such as HuaWei Mate7) causes layout changed");
-                } else if (i4 > 0) {
-                    a.handleHide();
-                } else if (a.b() && a.isVisible()) {
-                    a.handleShow();
-                }
-            }
+        if ((interceptable != null && interceptable.invokeLL(1048580, this, str, str2) != null) || !BdNetTypeUtil.isWifiNet()) {
+            return;
         }
+        new a(str, TbMd5.getNameMd5FromUrl(str), str2).execute(new String[0]);
     }
 }

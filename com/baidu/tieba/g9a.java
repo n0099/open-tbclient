@@ -1,16 +1,373 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Log;
+import android.util.SparseArray;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.frame.IntentData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import rx.internal.operators.CachedObservable$ReplayProducer;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.open.activity.AssistActivity;
+import com.yy.open.activity.BridgeActivity;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public final class g9a<T> extends qaa implements l8a<T> {
+public final class g9a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public SparseArray<c> a;
+    public Handler b;
+    public Context c;
+    public String d;
+    public k9a e;
 
-    public abstract void c(CachedObservable$ReplayProducer<T> cachedObservable$ReplayProducer);
+    public final void h(int i, Intent intent, d9a d9aVar, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), intent, d9aVar, Long.valueOf(j)}) == null) {
+        }
+    }
 
-    public abstract void d();
+    /* loaded from: classes4.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ d9a b;
+        public final /* synthetic */ Intent c;
+        public final /* synthetic */ long d;
+        public final /* synthetic */ g9a e;
 
-    public abstract void e(CachedObservable$ReplayProducer<T> cachedObservable$ReplayProducer);
+        public a(g9a g9aVar, int i, d9a d9aVar, Intent intent, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g9aVar, Integer.valueOf(i), d9aVar, intent, Long.valueOf(j)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = g9aVar;
+            this.a = i;
+            this.b = d9aVar;
+            this.c = intent;
+            this.d = j;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            String str;
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    if (this.a == 0) {
+                        this.b.onCancel();
+                        return;
+                    }
+                    String stringExtra = this.c.getStringExtra("resjson");
+                    this.e.e.a(stringExtra);
+                    JSONObject jSONObject = new JSONObject(stringExtra);
+                    if (jSONObject.has("resCode") && jSONObject.has("resMsg")) {
+                        String optString = jSONObject.optString("resMsg");
+                        int optInt = jSONObject.optInt("resCode");
+                        if (optInt != 1000006 && optInt != 1290001) {
+                            optInt = this.a;
+                            this.e.f(this.c, this.b, this.d, optInt, optString);
+                            return;
+                        }
+                        Log.e("chenqiang", "resCode:" + optInt);
+                        this.e.f(this.c, this.b, this.d, optInt, optString);
+                        return;
+                    }
+                    Log.e("chenqiang", "please update yy new version！");
+                    if (jSONObject.has("openid") && jSONObject.has("access_code")) {
+                        i = this.a;
+                        str = "success";
+                    } else {
+                        str = "handleAuthLoginResult--default error!";
+                        i = 444222199;
+                    }
+                    this.e.f(this.c, this.b, this.d, i, str);
+                } catch (Exception unused) {
+                    this.b.onError(new e9a(444222105, j9a.h(444222105)));
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d9a a;
+        public final /* synthetic */ e9a b;
+
+        public b(g9a g9aVar, d9a d9aVar, e9a e9aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g9aVar, d9aVar, e9aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = d9aVar;
+            this.b = e9aVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.onError(this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public final class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public d9a a;
+        public long b;
+
+        public c(g9a g9aVar, d9a d9aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g9aVar, d9aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = d9aVar;
+            this.b = System.currentTimeMillis();
+        }
+    }
+
+    public g9a(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.e = k9a.b();
+        this.c = context;
+        this.d = str;
+        this.a = new SparseArray<>();
+        this.b = new Handler(Looper.getMainLooper());
+    }
+
+    public final void c(Activity activity, String str, d9a d9aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, d9aVar) == null) {
+            if (i9a.d(activity, BridgeActivity.class) && i9a.d(activity, AssistActivity.class)) {
+                int a2 = j9a.a(activity);
+                if (a2 != 0) {
+                    try {
+                        this.a.put(62345, new c(this, d9aVar));
+                        String c2 = j9a.c(this.c, this.d, str, true);
+                        Intent intent = new Intent(activity, AssistActivity.class);
+                        intent.putExtra("type", "type_web");
+                        intent.putExtra("url", c2);
+                        activity.startActivityForResult(intent, 62345);
+                        return;
+                    } catch (Exception unused) {
+                        g(new e9a(a2), d9aVar);
+                        return;
+                    }
+                }
+                Intent e = j9a.e(activity);
+                this.a.put(62345, new c(this, d9aVar));
+                Bundle d = j9a.d(activity, this.d);
+                e.putExtra("action", "action_login");
+                e.putExtra("bundle", d);
+                i(activity, e, 62345);
+                return;
+            }
+            g(new e9a(3), d9aVar);
+        }
+    }
+
+    public final boolean d(int i, int i2, Intent intent, d9a d9aVar) {
+        InterceptResult invokeCommon;
+        long currentTimeMillis;
+        d9a d9aVar2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), intent, d9aVar})) == null) {
+            if (i != 62345 && i != 62347) {
+                return false;
+            }
+            c cVar = this.a.get(i);
+            if (cVar != null) {
+                currentTimeMillis = cVar.b;
+                d9aVar2 = cVar.a;
+                this.a.remove(i);
+            } else {
+                currentTimeMillis = System.currentTimeMillis();
+                d9aVar2 = d9aVar;
+            }
+            if (i == 62345) {
+                e(i2, intent, d9aVar2, currentTimeMillis);
+                return true;
+            } else if (i != 62347) {
+                return false;
+            } else {
+                h(i2, intent, d9aVar2, currentTimeMillis);
+                return true;
+            }
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public final void e(int i, Intent intent, d9a d9aVar, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), intent, d9aVar, Long.valueOf(j)}) == null) {
+            this.b.postDelayed(new a(this, i, d9aVar, intent, j), 10L);
+        }
+    }
+
+    public final void f(Intent intent, d9a d9aVar, long j, int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{intent, d9aVar, Long.valueOf(j), Integer.valueOf(i), str}) == null) {
+            switch (i) {
+                case 1000006:
+                    d9aVar.onError(new e9a(1000006, str));
+                    return;
+                case 1290001:
+                    d9aVar.onError(new e9a(1290001, str));
+                    return;
+                case 444111001:
+                    try {
+                        String stringExtra = intent.getStringExtra("resjson");
+                        this.e.a(stringExtra);
+                        JSONObject jSONObject = new JSONObject(stringExtra);
+                        jSONObject.optString("openid");
+                        jSONObject.optString("uid");
+                        jSONObject.optString("access_code");
+                        d9aVar.onComplete(jSONObject);
+                        return;
+                    } catch (Exception unused) {
+                        d9aVar.onError(new e9a(444222105, j9a.h(444222105)));
+                        return;
+                    }
+                case 444111002:
+                    d9aVar.onCancel();
+                    return;
+                case 444111003:
+                    try {
+                        JSONObject jSONObject2 = new JSONObject(intent.getStringExtra("resjson"));
+                        if ("1".equals(jSONObject2.optString("appType"))) {
+                            jSONObject2.optString("uid");
+                        } else {
+                            jSONObject2.optString("openid");
+                        }
+                        d9aVar.onComplete(jSONObject2);
+                        return;
+                    } catch (Exception unused2) {
+                        d9aVar.onError(new e9a(444222105, j9a.h(444222105)));
+                        return;
+                    }
+                case 444222000:
+                    d9aVar.onError(new e9a(444222000, str));
+                    return;
+                case 444222001:
+                    d9aVar.onError(new e9a(444222001, str));
+                    return;
+                case 444222002:
+                    d9aVar.onError(new e9a(444222002, str));
+                    return;
+                case 444222003:
+                    d9aVar.onError(new e9a(444222003, str));
+                    return;
+                case 444222104:
+                    d9aVar.onError(new e9a(444222104, str));
+                    return;
+                case 444222105:
+                    d9aVar.onError(new e9a(444222105, str));
+                    return;
+                case 444222106:
+                    try {
+                        new JSONObject(intent.getStringExtra("resjson"));
+                        d9aVar.onError(new e9a(444222106, str));
+                        return;
+                    } catch (Exception unused3) {
+                        d9aVar.onError(new e9a(444222105, j9a.h(444222105)));
+                        return;
+                    }
+                case 444222108:
+                    try {
+                        d9aVar.onComplete(new JSONObject(intent.getStringExtra("resjson")));
+                        return;
+                    } catch (Exception unused4) {
+                        d9aVar.onError(new e9a(444222105, j9a.h(444222105)));
+                        return;
+                    }
+                case 444222110:
+                    try {
+                        new JSONObject(intent.getStringExtra("resjson"));
+                        d9aVar.onError(new e9a(444222110, str));
+                        return;
+                    } catch (Exception unused5) {
+                        d9aVar.onError(new e9a(444222105, j9a.h(444222105)));
+                        return;
+                    }
+                default:
+                    Log.e("chenqiang", "default  error");
+                    d9aVar.onError(new e9a(i, j9a.h(i)));
+                    return;
+            }
+        }
+    }
+
+    public final void g(e9a e9aVar, d9a d9aVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, e9aVar, d9aVar) == null) && d9aVar != null) {
+            this.b.postDelayed(new b(this, d9aVar, e9aVar), 50L);
+        }
+    }
+
+    public final void i(Activity activity, Intent intent, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048582, this, activity, intent, i) == null) {
+            intent.putExtra("request_code", i);
+            Intent intent2 = new Intent(activity.getApplicationContext(), BridgeActivity.class);
+            intent2.putExtra(IntentData.KEY, intent);
+            activity.startActivityForResult(intent2, i);
+        }
+    }
 }

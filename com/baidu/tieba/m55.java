@@ -1,144 +1,69 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.framework.task.SocketMessageTask;
+import android.text.Editable;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.live.LiveFeedPageSdk;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.coreExtra.message.PingMessage;
-import com.baidu.tbadk.coreExtra.message.ResponsedPingMessage;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupForegroundColorSpan;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class m55 extends Handler implements pa {
+public class m55 extends h55<m55> {
     public static /* synthetic */ Interceptable $ic;
-    public static m55 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public int b;
-    public int c;
-    public int d;
-    public PingMessage e;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947923676, "Lcom/baidu/tieba/m55;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947923676, "Lcom/baidu/tieba/m55;");
-        }
-    }
-
-    @Override // com.baidu.tieba.pa
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 1003;
-        }
-        return invokeV.intValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends tb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m55 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(m55 m55Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m55Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = m55Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        /* renamed from: a */
-        public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, socketResponsedMessage) == null) && socketResponsedMessage != null) {
-                this.a.l(socketResponsedMessage);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m55 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(m55 m55Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m55Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = m55Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null) {
-                this.a.h((BackgroundSwitchMessage) customResponsedMessage);
-            }
-        }
-    }
+    public String i;
 
     public m55() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            q(true);
+            x();
+        }
+    }
+
+    public String u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "#[视频]" + this.i + "#";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.i;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public m55(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -148,170 +73,66 @@ public class m55 extends Handler implements pa {
                 return;
             }
         }
-        this.a = 0L;
-        this.b = 180000;
-        this.c = 900000;
-        this.d = 900000;
-        this.e = null;
+        this.i = str;
     }
 
-    public void m() {
+    @Override // com.baidu.tieba.h55
+    public void r(Editable editable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            int[] socketHeartBeatStratgy = TbadkCoreApplication.getInst().getSocketHeartBeatStratgy();
-            if (socketHeartBeatStratgy.length == 2) {
-                int i = socketHeartBeatStratgy[0] * 1000;
-                this.b = i;
-                this.c = socketHeartBeatStratgy[1] * 1000;
-                if (i < 180000) {
-                    this.b = 180000;
-                }
-                if (this.c < 180000) {
-                    this.c = 180000;
-                }
-            }
-        }
-    }
-
-    public static m55 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f == null) {
-                synchronized (m55.class) {
-                    if (f == null) {
-                        f = new m55();
-                    }
-                }
-            }
-            return f;
-        }
-        return (m55) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.pa
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            removeMessages(1);
-        }
-    }
-
-    @Override // com.baidu.tieba.pa
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            removeMessages(1);
-            sendMessageDelayed(obtainMessage(1), this.d);
-            this.a = System.currentTimeMillis();
-        }
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.pa
-    public boolean b(boolean z, String str) {
-        InterceptResult invokeZL;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZL = interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str)) == null) {
-            if ((!z && System.currentTimeMillis() - this.a < LiveFeedPageSdk.REFRESH_TIME) || !BdSocketLinkService.isOpen()) {
-                return false;
-            }
-            this.a = System.currentTimeMillis();
-            MessageManager.getInstance().sendMessage(this.e);
-            PingMessage pingMessage = this.e;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editable) == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append(str);
-            sb.append("-");
-            if (this.d == this.c) {
-                str2 = com.alipay.sdk.widget.d.u;
-            } else {
-                str2 = "fore";
+            sb.append("#");
+            sb.append("[视频]");
+            sb.append(this.i);
+            sb.append("#");
+            k(sb);
+        }
+    }
+
+    public static m55 w(@NonNull m55 m55Var, @NonNull Editable editable) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, m55Var, editable)) == null) {
+            m55 m55Var2 = new m55();
+            m55Var2.b(m55Var);
+            m55Var2.p(editable);
+            return m55Var2;
+        }
+        return (m55) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.h55
+    public void s(Editable editable, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, editable, i) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("#");
+            sb.append("[视频]");
+            sb.append(this.i);
+            sb.append("#");
+            k(sb);
+        }
+    }
+
+    @Override // com.baidu.tieba.h55
+    public void a(Editable editable, int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIII(1048576, this, editable, i, i2, i3) == null) {
+            super.a(editable, i, i2, i3);
+        }
+    }
+
+    public void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            k(u());
+            if (!no5.g(this.c, f())) {
+                EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.icon_pure_videotopic31, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
+                eMRichTextAnyIconSpan.d(UtilHelper.getDimenPixelSize(R.dimen.M_W_X001));
+                eMRichTextAnyIconSpan.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X001));
+                n(eMRichTextAnyIconSpan, f() + 1, f() + 1 + 4, 33);
+                n(new SpanGroupForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), f(), c(), 33);
             }
-            sb.append(str2);
-            wa.c("PingManager", pingMessage, 0, "send_ping", 0, sb.toString());
-            return true;
         }
-        return invokeZL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.pa
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || !PermissionUtil.isAgreePrivacyPolicy()) {
-            return;
-        }
-        if (BdSocketLinkService.isClose()) {
-            sa5.b(0, 0, 0, 1, 10);
-            BdSocketLinkService.startService(false, str);
-        } else if (BdSocketLinkService.isOpen()) {
-            b(false, str);
-        }
-    }
-
-    public final void h(BackgroundSwitchMessage backgroundSwitchMessage) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, backgroundSwitchMessage) != null) || backgroundSwitchMessage == null) {
-            return;
-        }
-        if (backgroundSwitchMessage.getData().booleanValue()) {
-            this.d = this.c;
-            return;
-        }
-        this.d = this.b;
-        d("switchToForeground");
-    }
-
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, message) == null) && message.what == 1) {
-            e();
-            b(true, "regular time send");
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            dh5 dh5Var = new dh5(1003);
-            dh5Var.setResponsedClass(ResponsedPingMessage.class);
-            dh5Var.h(false);
-            dh5Var.setPriority(-3);
-            dh5Var.f(SocketMessageTask.DupLicateMode.REMOVE_ME);
-            dh5Var.e(false);
-            MessageManager.getInstance().registerTask(dh5Var);
-            this.e = new PingMessage();
-            m();
-            a aVar = new a(this, 1003);
-            MessageManager.getInstance().registerListener(new b(this, 2001011));
-            MessageManager.getInstance().registerListener(aVar);
-        }
-    }
-
-    public final void l(ResponsedMessage<?> responsedMessage) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, responsedMessage) != null) || responsedMessage == null) {
-            return;
-        }
-        int error = responsedMessage.getError();
-        if (error == 0) {
-            com.baidu.adp.framework.message.Message<?> orginalMessage = responsedMessage.getOrginalMessage();
-            int i = jr4.a;
-            wa.c("PingManager", orginalMessage, 0, "ping_succ", i, "costtime:" + String.valueOf(System.currentTimeMillis() - this.a));
-            return;
-        }
-        BdSocketLinkService.close(7, "ping error");
-        int cmd = this.e.getCmd();
-        long clientLogID = this.e.getClientLogID();
-        wa.b("PingManager", cmd, clientLogID, 0, "ping_err", error, "costtime:" + String.valueOf(System.currentTimeMillis() - this.a));
     }
 }

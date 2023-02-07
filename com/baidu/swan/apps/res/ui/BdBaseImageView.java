@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.oh3;
+import com.baidu.tieba.bm3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -95,7 +95,7 @@ public class BdBaseImageView extends ImageView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (Color.alpha(oh3.d(getContext())) != 0) {
+            if (Color.alpha(bm3.d(getContext())) != 0) {
                 return true;
             }
             return false;
@@ -107,7 +107,7 @@ public class BdBaseImageView extends ImageView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!this.a && this.b == oh3.d(getContext())) {
+            if (!this.a && this.b == bm3.d(getContext())) {
                 return false;
             }
             return true;
@@ -120,8 +120,8 @@ public class BdBaseImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             if (b()) {
-                oh3.b(getContext(), getDrawable());
-                this.b = oh3.d(getContext());
+                bm3.b(getContext(), getDrawable());
+                this.b = bm3.d(getContext());
                 this.a = false;
             }
             super.draw(canvas);
@@ -133,7 +133,7 @@ public class BdBaseImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             if (a()) {
-                oh3.c(getContext(), getDrawable(), i);
+                bm3.c(getContext(), getDrawable(), i);
             } else {
                 super.setImageAlpha(i);
             }

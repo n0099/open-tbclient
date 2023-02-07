@@ -1,33 +1,37 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.crius.view.AdCriusPopView;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class ak0 extends dg1<n81> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ak0 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "cyber");
+    public static final ak0 b = new a();
+
+    boolean a();
 
     /* loaded from: classes3.dex */
-    public class a implements n81 {
+    public static class a implements ak0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public a(ak0 ak0Var) {
+        @Override // com.baidu.tieba.ak0
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ak0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -37,51 +41,5 @@ public class ak0 extends dg1<n81> {
                 }
             }
         }
-
-        @Override // com.baidu.tieba.n81
-        public Object a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-                return yj0.b(jSONObject);
-            }
-            return invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.n81
-        public b91<View> b(@NonNull Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-                return new AdCriusPopView(context);
-            }
-            return (b91) invokeL.objValue;
-        }
-    }
-
-    public ak0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.dg1
-    /* renamed from: a */
-    public n81 createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
-        }
-        return (n81) invokeV.objValue;
     }
 }

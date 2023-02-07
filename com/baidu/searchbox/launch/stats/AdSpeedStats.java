@@ -185,7 +185,7 @@ public final class AdSpeedStats extends AbstractSpeedStats {
     public long getDurationWithoutAD(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
             if (j > j2) {
                 return 0L;
             }
@@ -244,10 +244,19 @@ public final class AdSpeedStats extends AbstractSpeedStats {
         return invokeV.longValue;
     }
 
+    public long getAdViewEndTimeStamp() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mAdViewEndTimeStamp;
+        }
+        return invokeV.longValue;
+    }
+
     public boolean isLoadEnd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             if (this.mAdShowStartTimeStamp <= 0 && this.mAdViewEndTimeStamp <= 0) {
                 return false;
             }
@@ -259,7 +268,7 @@ public final class AdSpeedStats extends AbstractSpeedStats {
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
     public void reset() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.mAdLoadMethodStartTimeStamp = -1L;
             this.mAdLoadMethodEndTimeStamp = -1L;
             this.mAdLoadIdleEndTimeStamp = -1L;
@@ -333,7 +342,7 @@ public final class AdSpeedStats extends AbstractSpeedStats {
         String str4;
         String str5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, jSONObject)) == null) {
             super.packData(jSONObject);
             if (jSONObject == null) {
                 return false;
@@ -638,14 +647,14 @@ public final class AdSpeedStats extends AbstractSpeedStats {
 
     public void setAdFailCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             this.mFailCount = i;
         }
     }
 
     public void setAdLoadResult(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048585, this, i) != null) || this.mAdLoadResult > 0) {
+        if ((interceptable != null && interceptable.invokeI(1048586, this, i) != null) || this.mAdLoadResult > 0) {
             return;
         }
         this.mAdLoadResult = i;
@@ -653,49 +662,49 @@ public final class AdSpeedStats extends AbstractSpeedStats {
 
     public void setAdSource(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
             this.adSource = str;
         }
     }
 
     public void setBearLoadResult(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
             this.mBearLoadResult = z;
         }
     }
 
     public void setIsNeedBear(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
             this.isNeedBear = z;
         }
     }
 
     public void setIsNeedPlg(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
             this.isNeedPlg = z;
         }
     }
 
     public void setIsTimeout(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
             this.isTimeout = z;
         }
     }
 
     public void setPlgAdType(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
             this.mPlgAdType = str;
         }
     }
 
     public void setPlgLoadResult(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
             this.mPlgLoadResult = z;
         }
     }

@@ -7,13 +7,12 @@ import com.alipay.sdk.encrypt.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.cloudcontrol.request.CloudControlRequest;
 import com.baidu.tbadk.album.MediaFileInfo;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.img.ImageUploadResult;
 import com.baidu.tbadk.img.effect.ImageOperation;
-import com.baidu.tieba.ug;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.dj;
+import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -215,7 +214,7 @@ public class ImageFileInfo extends MediaFileInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return !yi.isEmpty(this.serverImageCode);
+            return !dj.isEmpty(this.serverImageCode);
         }
         return invokeV.booleanValue;
     }
@@ -456,7 +455,7 @@ public class ImageFileInfo extends MediaFileInfo {
                 Iterator<ImageOperation> it = getPageActionsList().iterator();
                 while (it.hasNext()) {
                     ImageOperation next = it.next();
-                    if (!CloudControlRequest.REQUEST_KEY_FILTER.equals(next.actionName) && (!z || !"resize".equals(next.actionName))) {
+                    if (!"filter".equals(next.actionName) && (!z || !"resize".equals(next.actionName))) {
                         imageFileInfo.addPageAction(next);
                     }
                 }
@@ -465,7 +464,7 @@ public class ImageFileInfo extends MediaFileInfo {
                 Iterator<ImageOperation> it2 = getPersistActionsList().iterator();
                 while (it2.hasNext()) {
                     ImageOperation next2 = it2.next();
-                    if (!CloudControlRequest.REQUEST_KEY_FILTER.equals(next2.actionName) && (!z || !"resize".equals(next2.actionName))) {
+                    if (!"filter".equals(next2.actionName) && (!z || !"resize".equals(next2.actionName))) {
                         imageFileInfo.addPageAction(next2);
                     }
                 }
@@ -560,7 +559,7 @@ public class ImageFileInfo extends MediaFileInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048620, this, z)) == null) {
             if (getImageType() == 1) {
-                return ug.h().g(this.filePath, 20);
+                return zg.h().g(this.filePath, 20);
             }
             if (z) {
                 if (this._cacheKey_all == null) {

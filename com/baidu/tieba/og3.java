@@ -1,84 +1,98 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import android.os.Build;
-import android.view.View;
-import android.widget.AbsoluteLayout;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.browser.sailor.BdSailorWebView;
-import com.baidu.browser.sailor.util.BdZeusUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class og3 {
+public class og3 extends ta3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948031246, "Lcom/baidu/tieba/og3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948031246, "Lcom/baidu/tieba/og3;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public og3(t93 t93Var) {
+        super(t93Var, "/swanAPI/file/removeSavedFile");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {t93Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = tk1.a;
     }
 
-    public static void a(@NonNull BdSailorWebView bdSailorWebView) {
-        AbsoluteLayout webView;
+    @Override // com.baidu.tieba.ta3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, w83 w83Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, bdSailorWebView) == null) {
-            Drawable d = mi4.d(bdSailorWebView.getContext(), R.drawable.obfuscated_res_0x7f0811c4);
-            Drawable d2 = mi4.d(bdSailorWebView.getContext(), R.drawable.obfuscated_res_0x7f0811c3);
-            if (BdZeusUtil.isWebkitLoaded()) {
-                webView = bdSailorWebView.getCurrentWebView();
-            } else {
-                webView = bdSailorWebView.getCurrentWebView().getWebView();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, w83Var)) == null) {
+            if (context != null && callbackHandler != null && w83Var != null && w83Var.f0() != null) {
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    w52.c("removeSavedFile", "params is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                String M = eg3.M(optParamsAsJo.optString("filePath"), w83.g0());
+                if (ta3.b) {
+                    Log.d("SaveFileAction", "——> handle: fileUrl " + optParamsAsJo.optString("filePath"));
+                    Log.d("SaveFileAction", "——> handle: filePath " + M);
+                }
+                if (ta3.b) {
+                    Log.d("RemoveSavedFileAction", "——> handle: filePath " + M);
+                }
+                if (TextUtils.isEmpty(M)) {
+                    w52.c("removeSavedFile", "file path is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                int a = w83Var.f0().a(M);
+                if (ta3.b) {
+                    Log.d("RemoveSavedFileAction", "——> handle: statusCode " + a);
+                }
+                if (a > 2000) {
+                    w52.c("removeSavedFile", "file path status code : " + a);
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a, q93.a(a)));
+                    return false;
+                } else if (ap4.k(M)) {
+                    w52.i("removeSavedFile", "file delete success");
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                    if (ta3.b) {
+                        Log.d("RemoveSavedFileAction", "——> handle:  delete OK ");
+                        return true;
+                    }
+                    return true;
+                } else {
+                    w52.c("removeSavedFile", "file delete fail");
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2004, q93.a(2004)));
+                    if (ta3.b) {
+                        Log.d("RemoveSavedFileAction", "——> handle:  delete fail ");
+                    }
+                    return false;
+                }
             }
-            if (Build.VERSION.SDK_INT >= 29) {
-                webView.setVerticalScrollbarThumbDrawable(d);
-                webView.setHorizontalScrollbarThumbDrawable(d2);
-                return;
-            }
-            b(webView, d, d2);
+            w52.c("removeSavedFile", "execute fail");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            return false;
         }
-    }
-
-    public static void b(@Nullable View view2, Drawable drawable, Drawable drawable2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65538, null, view2, drawable, drawable2) != null) || view2 == null) {
-            return;
-        }
-        try {
-            Field declaredField = View.class.getDeclaredField("mScrollCache");
-            declaredField.setAccessible(true);
-            Object obj = declaredField.get(view2);
-            Field declaredField2 = obj.getClass().getDeclaredField("scrollBar");
-            declaredField2.setAccessible(true);
-            Object obj2 = declaredField2.get(obj);
-            Method declaredMethod = obj2.getClass().getDeclaredMethod("setVerticalThumbDrawable", Drawable.class);
-            declaredMethod.setAccessible(true);
-            declaredMethod.invoke(obj2, drawable);
-            Method declaredMethod2 = obj2.getClass().getDeclaredMethod("setHorizontalThumbDrawable", Drawable.class);
-            declaredMethod2.setAccessible(true);
-            declaredMethod2.invoke(obj2, drawable2);
-        } catch (Throwable th) {
-            if (a) {
-                th.printStackTrace();
-            }
-        }
+        return invokeLLLL.booleanValue;
     }
 }

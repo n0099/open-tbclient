@@ -1,267 +1,88 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.pm.ActivityInfo;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.os.Build;
-import android.os.Bundle;
-import android.util.Log;
+import android.app.Activity;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.session.XRSessionAnchor;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.ArCoreApk;
-import com.google.ar.core.InstallActivity;
-import com.google.ar.core.exceptions.FatalException;
+import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
+import com.fun.ad.sdk.CustomInflater;
+import com.fun.ad.sdk.ExpressInflater;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
+import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes6.dex */
-public final class v2a extends ArCoreApk {
+public class v2a extends FunNativeAd2Bridger<l2a, View> {
     public static /* synthetic */ Interceptable $ic;
-    public static final v2a h;
     public transient /* synthetic */ FieldHolder $fh;
-    public Exception a;
-    public ArCoreApk.Availability b;
-    public boolean c;
-    public b3a d;
-    public boolean e;
-    public boolean f;
-    public int g;
+    public boolean b;
+    public final /* synthetic */ r2a c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948190276, "Lcom/baidu/tieba/v2a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948190276, "Lcom/baidu/tieba/v2a;");
-                return;
-            }
-        }
-        h = new v2a();
-    }
-
-    public v2a() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public v2a(r2a r2aVar, ReporterPidLoader reporterPidLoader) {
+        super(reporterPidLoader);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {r2aVar, reporterPidLoader};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = r2aVar;
     }
 
-    public static v2a d() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, l2a l2aVar, BaseNativeAd2<l2a, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return h;
-        }
-        return (v2a) invokeV.objValue;
-    }
-
-    public static boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final synchronized void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                Exception exc = this.a;
-                if (this.d != null) {
-                    this.d.a();
-                    this.d = null;
-                }
-            }
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, l2aVar, baseNativeAd2, funAdInteractionListener}) == null) {
         }
     }
 
-    public static /* synthetic */ boolean f(v2a v2aVar, boolean z) {
-        v2aVar.c = false;
-        return false;
-    }
-
-    public static int k(Context context) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public View createExpressView(l2a l2aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            try {
-                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(XRSessionAnchor.apkinfo, 4);
-                int i = packageInfo.versionCode;
-                if (i == 0) {
-                    if (packageInfo.services != null) {
-                        if (packageInfo.services.length == 0) {
-                        }
-                    }
-                    return -1;
-                }
-                return i;
-            } catch (PackageManager.NameNotFoundException unused) {
-                return -1;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, l2aVar)) == null) {
+            return ((TTNativeExpressAd) l2aVar.a).getExpressAdView();
         }
-        return invokeL.intValue;
+        return (View) invokeL.objValue;
     }
 
-    public final synchronized b3a e(Context context) {
-        InterceptResult invokeL;
-        b3a b3aVar;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, l2a l2aVar, BaseNativeAd2<l2a, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            synchronized (this) {
-                if (this.d == null) {
-                    b3a b3aVar2 = new b3a((byte) 0);
-                    b3aVar2.d(context.getApplicationContext());
-                    this.d = b3aVar2;
-                }
-                b3aVar = this.d;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, l2aVar, baseNativeAd2, funAdInteractionListener}) == null) {
+            l2a l2aVar2 = l2aVar;
+            ExpressAdListenerWrapper<TTNativeExpressAd.ExpressAdInteractionListener> expressAdListenerWrapper = this.c.f.get(l2aVar2);
+            if (expressAdListenerWrapper != null) {
+                expressAdListenerWrapper.funListener = funAdInteractionListener;
+            } else {
+                LogPrinter.e("Can not get correspond listener by csjNativeExpressAd.", new Object[0]);
             }
-            return b3aVar;
-        }
-        return (b3a) invokeL.objValue;
-    }
-
-    public final boolean h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            l(context);
-            if (k(context) != 0 && k(context) < this.g) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean j(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            l(context);
-            return this.f;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.google.ar.core.ArCoreApk
-    public final ArCoreApk.Availability a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (!i()) {
-                return ArCoreApk.Availability.UNSUPPORTED_DEVICE_NOT_CAPABLE;
-            }
-            try {
-                if (h(context)) {
-                    g();
-                    return u2a.c(context);
-                }
-                synchronized (this) {
-                    if ((this.b == null || this.b.isUnknown()) && !this.c) {
-                        this.c = true;
-                        u2a u2aVar = new u2a(this);
-                        if (h(context)) {
-                            u2aVar.a(ArCoreApk.Availability.SUPPORTED_INSTALLED);
-                        } else if (k(context) != -1) {
-                            u2aVar.a(ArCoreApk.Availability.SUPPORTED_APK_TOO_OLD);
-                        } else if (j(context)) {
-                            u2aVar.a(ArCoreApk.Availability.SUPPORTED_NOT_INSTALLED);
-                        } else {
-                            e(context).e(context, u2aVar);
-                        }
-                    }
-                    if (this.b != null) {
-                        return this.b;
-                    }
-                    if (this.c) {
-                        return ArCoreApk.Availability.UNKNOWN_CHECKING;
-                    }
-                    Log.e("ARCore-ArCoreApk", "request not running but result is null?");
-                    return ArCoreApk.Availability.UNKNOWN_ERROR;
-                }
-            } catch (FatalException e) {
-                Log.e("ARCore-ArCoreApk", "Error while checking app details and ARCore status", e);
-                return ArCoreApk.Availability.UNKNOWN_ERROR;
-            }
-        }
-        return (ArCoreApk.Availability) invokeL.objValue;
-    }
-
-    public final synchronized void l(Context context) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            synchronized (this) {
-                if (this.e) {
-                    return;
-                }
-                PackageManager packageManager = context.getPackageManager();
-                String packageName = context.getPackageName();
-                try {
-                    Bundle bundle = packageManager.getApplicationInfo(packageName, 128).metaData;
-                    if (bundle.containsKey(XRSessionAnchor.apkinfo)) {
-                        this.f = bundle.getString(XRSessionAnchor.apkinfo).equals("required");
-                        if (bundle.containsKey("com.google.ar.core.min_apk_version")) {
-                            this.g = bundle.getInt("com.google.ar.core.min_apk_version");
-                            try {
-                                ActivityInfo[] activityInfoArr = packageManager.getPackageInfo(packageName, 1).activities;
-                                String canonicalName = InstallActivity.class.getCanonicalName();
-                                int length = activityInfoArr.length;
-                                boolean z = false;
-                                int i = 0;
-                                while (true) {
-                                    if (i >= length) {
-                                        break;
-                                    } else if (canonicalName.equals(activityInfoArr[i].name)) {
-                                        z = true;
-                                        break;
-                                    } else {
-                                        i++;
-                                    }
-                                }
-                                if (!z) {
-                                    String valueOf = String.valueOf(canonicalName);
-                                    if (valueOf.length() != 0) {
-                                        str = "Application manifest must contain activity ".concat(valueOf);
-                                    } else {
-                                        str = new String("Application manifest must contain activity ");
-                                    }
-                                    throw new FatalException(str);
-                                }
-                                this.e = true;
-                                return;
-                            } catch (PackageManager.NameNotFoundException e) {
-                                throw new FatalException("Could not load application package info", e);
-                            }
-                        }
-                        throw new FatalException("Application manifest must contain meta-data com.google.ar.core.min_apk_version");
-                    }
-                    throw new FatalException("Application manifest must contain meta-data com.google.ar.core");
-                } catch (PackageManager.NameNotFoundException e2) {
-                    throw new FatalException("Could not load application package metadata", e2);
-                }
-            }
+            this.c.onShowStart(l2aVar2, this.b);
+            expressInflater.inflate();
+            View expressView = expressInflater.getExpressView();
+            r2a r2aVar = this.c;
+            r2aVar.getClass();
+            ((TTNativeExpressAd) l2aVar2.a).setDislikeCallback(activity, new u2a(r2aVar, expressView, l2aVar2, funAdInteractionListener, str));
+            this.b = true;
         }
     }
 }

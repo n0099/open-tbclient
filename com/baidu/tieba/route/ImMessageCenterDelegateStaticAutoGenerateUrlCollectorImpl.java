@@ -36,8 +36,8 @@ public final class ImMessageCenterDelegateStaticAutoGenerateUrlCollectorImpl imp
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             HashMap hashMap = new HashMap();
             new ArrayList();
-            hashMap.put("2007002", "com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic");
-            hashMap.put("2921002", "com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic");
+            hashMap.put("2007002", "com.baidu.tieba.immessagecenter.im.chat.notify.ImMessageCenterDelegateStatic");
+            hashMap.put("2921002", "com.baidu.tieba.immessagecenter.im.chat.notify.ImMessageCenterDelegateStatic");
             return hashMap;
         }
         return (Map) invokeV.objValue;
@@ -49,7 +49,7 @@ public final class ImMessageCenterDelegateStaticAutoGenerateUrlCollectorImpl imp
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             HashMap hashMap = new HashMap();
-            hashMap.put("com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic", new ArrayList());
+            hashMap.put("com.baidu.tieba.immessagecenter.im.chat.notify.ImMessageCenterDelegateStatic", new ArrayList());
             return hashMap;
         }
         return (Map) invokeV.objValue;

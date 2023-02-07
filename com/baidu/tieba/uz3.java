@@ -1,109 +1,205 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.os.Handler;
+import android.os.Message;
+import android.os.SystemClock;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.event.EventTarget;
-import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
+import com.baidu.sapi2.SapiWebView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class uz3 extends rb2 {
+public final class uz3 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
+    public static long b;
+    public static Handler c;
+    public static long d;
+    public static final Handler.Callback e;
+    public static final uz3 f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.rb2
-    public EventTarget A() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (EventTarget) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.rb2
-    public EventTarget D() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (EventTarget) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.tb2, com.baidu.searchbox.unitedscheme.TypedCallbackHandler
-    public int getInvokeSourceType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
     /* loaded from: classes6.dex */
-    public static class a extends nc2 {
+    public static final class a implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic;
+        public static final a a;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
 
-        @Override // com.baidu.tieba.oc2
-        public String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "swan-game-worker.js" : (String) invokeV.objValue;
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-358410882, "Lcom/baidu/tieba/uz3$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-358410882, "Lcom/baidu/tieba/uz3$a;");
+                    return;
+                }
+            }
+            a = new a();
         }
 
-        public a(String str) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
+                interceptable.invokeUnInit(65537, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                    interceptable.invokeInitBody(65537, newInitContext);
                 }
             }
-            this.a = str;
         }
 
-        @Override // com.baidu.tieba.oc2
-        public String getInitBasePath() {
-            InterceptResult invokeV;
+        @Override // android.os.Handler.Callback
+        public final boolean handleMessage(Message msg) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, msg)) == null) {
+                Intrinsics.checkNotNullParameter(msg, "msg");
+                if (msg.what == 0 && uz3.f.g() && uz3.a(uz3.f) < SapiWebView.DEFAULT_TIMEOUT_MILLIS) {
+                    long elapsedRealtime = SystemClock.elapsedRealtime();
+                    uz3.b = (uz3.a(uz3.f) + elapsedRealtime) - uz3.c(uz3.f);
+                    uz3 uz3Var = uz3.f;
+                    uz3.d = elapsedRealtime;
+                    Handler b = uz3.b(uz3.f);
+                    if (b != null) {
+                        b.sendEmptyMessageDelayed(0, 1000L);
+                    }
+                    if ((uz3.a(uz3.f) / 1000) % 15 == 0) {
+                        vy3.o.U(uz3.a(uz3.f));
+                        return true;
+                    }
+                    return true;
+                }
+                uz3 uz3Var2 = uz3.f;
+                uz3.d = 0L;
+                uz3.f.i(false);
+                return true;
             }
-            return (String) invokeV.objValue;
+            return invokeL.booleanValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uz3(@NonNull String str) {
-        super("worker", new a(str), null);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948228251, "Lcom/baidu/tieba/uz3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948228251, "Lcom/baidu/tieba/uz3;");
+                return;
+            }
+        }
+        f = new uz3();
+        e = a.a;
+    }
+
+    public uz3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (oc2) objArr2[1], (V8ThreadDelegatePolicy) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public final long f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b;
+        }
+        return invokeV.longValue;
+    }
+
+    public final boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            long j = b;
+            if (j < 30000) {
                 return;
             }
+            b = j % 30000;
+            vy3.o.M();
+        }
+    }
+
+    public static final /* synthetic */ long a(uz3 uz3Var) {
+        return b;
+    }
+
+    public static final /* synthetic */ Handler b(uz3 uz3Var) {
+        return c;
+    }
+
+    public static final /* synthetic */ long c(uz3 uz3Var) {
+        return d;
+    }
+
+    public final void i(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            a = z;
+        }
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (c == null) {
+                c = new Handler(e);
+            }
+            b = vy3.o.A();
+            a = true;
+            d = SystemClock.elapsedRealtime();
+            Handler handler = c;
+            if (handler != null) {
+                handler.sendEmptyMessageDelayed(0, 1000L);
+            }
+        }
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            a = false;
+            Handler handler = c;
+            if (handler != null) {
+                handler.removeCallbacksAndMessages(null);
+            }
+            if (d > 0) {
+                long elapsedRealtime = SystemClock.elapsedRealtime();
+                b = (b + elapsedRealtime) - d;
+                d = elapsedRealtime;
+            }
+            vy3.o.U(b);
         }
     }
 }

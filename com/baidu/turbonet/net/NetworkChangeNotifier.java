@@ -3,7 +3,7 @@ package com.baidu.turbonet.net;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.nj9;
+import com.baidu.tieba.un9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +25,7 @@ public class NetworkChangeNotifier {
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
     public final ArrayList<Long> b;
-    public final nj9<ConnectionTypeObserver> c;
+    public final un9<ConnectionTypeObserver> c;
     public NetworkChangeNotifierAutoDetect d;
     public int e;
     public double f;
@@ -166,7 +166,7 @@ public class NetworkChangeNotifier {
         this.g = 0;
         this.a = context.getApplicationContext();
         this.b = new ArrayList<>();
-        this.c = new nj9<>();
+        this.c = new un9<>();
     }
 
     @CalledByNative

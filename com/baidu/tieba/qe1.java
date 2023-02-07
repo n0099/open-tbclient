@@ -1,145 +1,34 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.os.Build;
 import android.text.TextUtils;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.prologue.business.data.BaseVM;
+import com.baidu.nps.pm.BundleInfo;
+import com.baidu.nps.utils.Constant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class qe1 implements gh1, ih1 {
+import java.lang.reflect.Array;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+/* loaded from: classes6.dex */
+public class qe1 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile qe1 b;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final hh1 a;
-    @NonNull
-    public ViewGroup b;
-    @NonNull
-    public final ze1 c;
-    @NonNull
-    public final BaseVM d;
-    @Nullable
-    public pe1 e;
-    public long f;
-    public long g;
-    public final long h;
-    public long i;
-    public boolean j;
-    public ue1 k;
+    public Map<String, se1> a;
 
-    @Override // com.baidu.tieba.gh1
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.gh1
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.gh1
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements df1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qe1 a;
-
-        @Override // com.baidu.tieba.df1
-        public void handleSchemeDispatchCallback(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            }
-        }
-
-        public a(qe1 qe1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qe1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qe1Var;
-        }
-
-        @Override // com.baidu.tieba.df1
-        public boolean c(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                if (this.a.e != null) {
-                    return this.a.e.c(str);
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qe1 a;
-
-        public b(qe1 qe1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qe1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qe1Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.e.d();
-            }
-        }
-    }
-
-    public qe1(@NonNull hh1 hh1Var, @NonNull ViewGroup viewGroup, @NonNull ze1 ze1Var) {
+    public qe1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {hh1Var, viewGroup, ze1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -149,163 +38,129 @@ public class qe1 implements gh1, ih1 {
                 return;
             }
         }
-        this.j = true;
-        this.h = System.currentTimeMillis();
-        this.a = hh1Var;
-        this.b = viewGroup;
-        this.c = ze1Var;
-        this.d = new BaseVM(ze1Var);
-        te1.b(ze1Var);
+        this.a = new HashMap();
     }
 
-    public final void j(String str) {
+    public static qe1 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            y8.f().e();
-            if (!this.j) {
-                return;
-            }
-            this.j = false;
-            this.d.e(str, this.i);
-        }
-    }
-
-    public void l(ue1 ue1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, ue1Var) == null) {
-            this.k = ue1Var;
-            hh1 hh1Var = this.a;
-            if (hh1Var != null) {
-                ue1Var.k(hh1Var);
-            }
-        }
-    }
-
-    public void m(@NonNull pe1 pe1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, pe1Var) == null) {
-            this.e = pe1Var;
-        }
-    }
-
-    @Override // com.baidu.tieba.ih1
-    public void onAdError(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.i = System.currentTimeMillis() - this.f;
-            pe1 pe1Var = this.e;
-            if (pe1Var != null) {
-                pe1Var.f();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.gh1
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (ye1.r() && !TextUtils.isEmpty(this.c.p)) {
-                ni0.b(this.c.p);
-                if (sg0.a) {
-                    x21.a().showToast(this.a.getAdView().getContext(), "执行nad统一新协议跳转");
-                }
-            } else {
-                gf1.a(ej0.b(), this.c.o, new a(this));
-                if (sg0.a) {
-                    x21.a().showToast(this.a.getAdView().getContext(), "执行splash旧协议跳转");
-                }
-            }
-            j(BaseVM.CloseType.CLICK_AD_AREA.value);
-            this.d.b("");
-            pe1 pe1Var = this.e;
-            if (pe1Var != null) {
-                pe1Var.a();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ih1
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f = System.currentTimeMillis();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("adShowScene", this.c.D);
-                jSONObject.put("adSplashType", this.c.e);
-                if (this.c.D == 1) {
-                    long j = this.g - this.h;
-                    if (j > 0) {
-                        jSONObject.put("adLoadCostTime", j);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b == null) {
+                synchronized (qe1.class) {
+                    if (b == null) {
+                        b = new qe1();
                     }
                 }
-                jSONObject.put("adRenderCostTime", this.f - this.h);
-                long currentTimeMillis = System.currentTimeMillis();
-                jSONObject.put("show_time", currentTimeMillis);
-                k(currentTimeMillis);
-            } catch (JSONException unused) {
             }
-            this.d.c(jSONObject);
-            xe1.D(this.c);
-            bf1.e(this.c);
-            pe1 pe1Var = this.e;
-            if (pe1Var != null) {
-                pe1Var.onAdShow();
-            }
+            return b;
+        }
+        return (qe1) invokeV.objValue;
+    }
+
+    public static <T> T[] a(Class<T> cls, Object[] objArr, Object[] objArr2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, cls, objArr, objArr2)) == null) {
+            T[] tArr = (T[]) ((Object[]) Array.newInstance((Class<?>) cls, objArr.length + objArr2.length));
+            System.arraycopy(objArr, 0, tArr, 0, objArr.length);
+            System.arraycopy(objArr2, 0, tArr, objArr.length, objArr2.length);
+            return tArr;
+        }
+        return (T[]) ((Object[]) invokeLLL.objValue);
+    }
+
+    public static void e(Field field, Object obj, Object obj2) throws IllegalAccessException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, field, obj, obj2) == null) {
+            field.set(obj, c((Object[]) field.get(obj), (Object[]) field.get(obj2)));
         }
     }
 
-    @Override // com.baidu.tieba.ih1
-    public void d() {
+    public static Object[] c(Object[] objArr, Object[] objArr2) throws IllegalArgumentException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.g = System.currentTimeMillis();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, objArr, objArr2)) == null) {
+            ArrayList arrayList = new ArrayList(Arrays.asList(objArr));
+            for (Object obj : objArr2) {
+                if (!arrayList.contains(obj)) {
+                    arrayList.add(obj);
+                }
+            }
+            Object[] objArr3 = (Object[]) Array.newInstance(objArr.getClass().getComponentType(), arrayList.size());
+            for (int i = 0; i < objArr3.length; i++) {
+                objArr3[i] = arrayList.get(i);
+            }
+            return objArr3;
+        }
+        return (Object[]) invokeLL.objValue;
+    }
+
+    public static void f(Field field, Object obj, Object obj2) throws IllegalAccessException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65541, null, field, obj, obj2) == null) {
+            List list = (List) field.get(obj);
+            list.addAll((List) field.get(obj2));
+            field.set(obj, list);
+            Field b2 = ff1.b(obj.getClass(), "nativeLibraryPathElements");
+            b2.set(obj, c((Object[]) b2.get(obj), (Object[]) b2.get(obj2)));
         }
     }
 
-    @Override // com.baidu.tieba.gh1
-    public void e() {
+    public static ClassLoader g(se1 se1Var, se1 se1Var2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            pe1 pe1Var = this.e;
-            if (pe1Var != null) {
-                pe1Var.onSkip();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, se1Var, se1Var2)) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                h(se1Var, se1Var2);
+                return se1Var;
             }
-            j(BaseVM.CloseType.CLICK_SKIP_BUTTON.value);
+            return null;
         }
+        return (ClassLoader) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.ih1
-    public void h(String str) {
+    public static ClassLoader h(se1 se1Var, se1 se1Var2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.i = System.currentTimeMillis() - this.f;
-            if ("time_end".equals(str)) {
-                j(BaseVM.CloseType.COUNTDOWN_TIME_FINISH.value);
-            } else if ("click_skip_button".equals(str)) {
-                j(BaseVM.CloseType.CLICK_SKIP_BUTTON.value);
-            } else if ("click_ad_area".equals(str)) {
-                j(BaseVM.CloseType.CLICK_AD_AREA.value);
-            } else {
-                j(BaseVM.CloseType.OTHER.value);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, se1Var, se1Var2)) == null) {
+            Field b2 = ff1.b(se1.class, "pathList");
+            try {
+                Object obj = b2.get(se1Var);
+                Field b3 = ff1.b(obj.getClass(), "dexElements");
+                Field b4 = ff1.b(obj.getClass(), "nativeLibraryDirectories");
+                Object[] objArr = (Object[]) b3.get(obj);
+                Object obj2 = b2.get(se1Var2);
+                b3.set(obj, a(objArr.getClass().getComponentType(), objArr, (Object[]) b3.get(obj2)));
+                if (Build.VERSION.SDK_INT >= 23) {
+                    f(b4, obj, obj2);
+                } else {
+                    e(b4, obj, obj2);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            if (this.e != null) {
-                sj0.b(new b(this));
-            }
+            return se1Var;
         }
+        return (ClassLoader) invokeLL.objValue;
     }
 
-    public final void k(long j) {
+    public se1 b(BundleInfo bundleInfo, Context context) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            String str = this.c.p;
-            if (!TextUtils.isEmpty(str)) {
-                this.c.p = str.replace("SplashShowTime", String.valueOf(j));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bundleInfo, context)) == null) {
+            boolean z = !TextUtils.isEmpty(bundleInfo.getGroupName());
+            se1 se1Var = new se1(af1.d(context, bundleInfo.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath(), af1.f(context, bundleInfo.getPackageName()).getAbsolutePath(), af1.e(context, bundleInfo.getPackageName()).getAbsolutePath(), context);
+            if (z && Build.VERSION.SDK_INT >= 21) {
+                se1 se1Var2 = this.a.get(bundleInfo.getGroupName());
+                if (se1Var2 == null) {
+                    this.a.put(bundleInfo.getGroupName(), se1Var);
+                    return se1Var;
+                }
+                g(se1Var2, se1Var);
+                return se1Var2;
             }
-            String str2 = this.c.O;
-            if (!TextUtils.isEmpty(str2)) {
-                this.c.O = str2.replace("SplashShowTime", String.valueOf(j));
-            }
+            return se1Var;
         }
+        return (se1) invokeLL.objValue;
     }
 }

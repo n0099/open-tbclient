@@ -1,88 +1,92 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
+import android.content.SharedPreferences;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class kw8 extends ThreadData {
-    public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId d;
+public class kw8 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 1500;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
-    public dw8 c;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947927613, "Lcom/baidu/tieba/kw8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947927613, "Lcom/baidu/tieba/kw8;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947927613, "Lcom/baidu/tieba/kw8;")) == null) {
+            return;
         }
-        d = BdUniqueId.gen();
-    }
-
-    public kw8() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947927613, "Lcom/baidu/tieba/kw8;");
+        }
+    }
+
+    public static int a(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return i;
+            }
+            try {
+                return BdBaseApplication.getInst().getApp().getSharedPreferences("network_config_prefs", 0).getInt(str, i);
+            } catch (Exception unused) {
+                return i;
             }
         }
+        return invokeLI.intValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public static String b(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str2;
+            }
+            try {
+                return BdBaseApplication.getInst().getApp().getSharedPreferences("network_config_prefs", 0).getString(str, str2);
+            } catch (Exception unused) {
+                return str2;
+            }
         }
-        return (String) invokeV.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    public dw8 f() {
+    public static int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return a;
         }
-        return (dw8) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public boolean g() {
-        InterceptResult invokeV;
+    public static void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            a = a("threshold_to_store_log", 1500);
         }
-        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.core.data.ThreadData, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public static void e(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return d;
+        if ((interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            try {
+                SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("network_config_prefs", 0).edit();
+                edit.putString(str, str2);
+                edit.apply();
+            } catch (Exception unused) {
+            }
         }
-        return (BdUniqueId) invokeV.objValue;
     }
 }

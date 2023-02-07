@@ -1,62 +1,35 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbConfig;
+import android.text.TextUtils;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class e35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public int c;
-    public int d;
-    public String e;
-    public String f;
-    public String g;
-    public int h;
-    public String i;
 
-    public e35() {
+    public static void a(String str, long j, int i, String str2, int i2, String str3, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Long.valueOf(j), Integer.valueOf(i), str2, Integer.valueOf(i2), str3, objArr}) == null) {
+            lh lhVar = new lh();
+            lhVar.c("cmd", Integer.valueOf(i));
+            if (!TextUtils.isEmpty(str2)) {
+                lhVar.b("action", str2);
+            }
+            lhVar.b("errNo", String.valueOf(i2));
+            if (!TextUtils.isEmpty(str3) && i2 != 0) {
+                lhVar.b(StatConstants.KEY_EXT_ERR_MSG, str3);
+            }
+            if (objArr != null && objArr.length > 0) {
+                lhVar.c(objArr);
+            }
+            if (i2 == 0) {
+                BdStatisticsManager.getInstance().debug(str, j, null, lhVar);
+            } else {
+                BdStatisticsManager.getInstance().error(str, j, (String) null, lhVar);
             }
         }
-    }
-
-    public void a(JSONObject jSONObject) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        boolean z2 = true;
-        if (jSONObject.optInt("isShowDownloadNaniPanel", 2) == 1) {
-            z = true;
-        } else {
-            z = false;
-        }
-        this.a = z;
-        if (jSONObject.optInt("isActivateNaniApp", 1) != 1) {
-            z2 = false;
-        }
-        this.b = z2;
-        this.c = jSONObject.optInt("downloadNaniShowPosition", 3);
-        this.d = jSONObject.optInt("downloadNaniShowRate", 2);
-        this.e = jSONObject.optString("downloadNaniLinkUrl", null);
-        this.f = jSONObject.optString("downloadNaniTxt", null);
-        this.g = jSONObject.optString("showNaniTailTxt", null);
-        this.h = jSONObject.optInt("showNaniTailVideoType", 0);
-        this.i = jSONObject.optString("preNaniShareUrl", TbConfig.NANI_DEFAULT_H5_PREFIX);
     }
 }

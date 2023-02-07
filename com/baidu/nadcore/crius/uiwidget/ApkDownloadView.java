@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.zj0;
+import com.baidu.tieba.lk0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ public class ApkDownloadView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public zj0 b;
+    public lk0 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ApkDownloadView(@NonNull Context context) {
@@ -85,13 +85,13 @@ public class ApkDownloadView extends FrameLayout {
         this.a = 0;
     }
 
-    public zj0 getRealDownloadView() {
+    public lk0 getRealDownloadView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.b;
         }
-        return (zj0) invokeV.objValue;
+        return (lk0) invokeV.objValue;
     }
 
     @Override // android.view.View

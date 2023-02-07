@@ -5,8 +5,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.TbadkSettings;
-import com.baidu.tieba.ni;
-import com.baidu.tieba.oi;
+import com.baidu.tieba.si;
+import com.baidu.tieba.ti;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -60,13 +60,13 @@ public class InitAbi64WebViewCompatTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
             if (TbadkSettings.getInst().isContains("key_last_running_in_64_bit")) {
-                if (TbadkSettings.getInst().loadBoolean("key_last_running_in_64_bit", false) != oi.a()) {
-                    ni.b(context);
+                if (TbadkSettings.getInst().loadBoolean("key_last_running_in_64_bit", false) != ti.a()) {
+                    si.b(context);
                 }
             } else {
-                ni.b(context);
+                si.b(context);
             }
-            TbadkSettings.getInst().saveBoolean("key_last_running_in_64_bit", oi.a());
+            TbadkSettings.getInst().saveBoolean("key_last_running_in_64_bit", ti.a());
         }
     }
 }

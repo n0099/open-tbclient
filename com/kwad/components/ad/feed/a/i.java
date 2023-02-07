@@ -53,11 +53,11 @@ public final class i extends a implements View.OnClickListener {
     public final void bg() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f091128)).setRatio(0.56f);
-            this.de = (TextView) findViewById(R.id.obfuscated_res_0x7f0910e7);
-            this.df = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910ed);
-            this.dg = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910e9);
-            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091154);
+            ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f09116b)).setRatio(0.56f);
+            this.de = (TextView) findViewById(R.id.obfuscated_res_0x7f09112a);
+            this.df = (ImageView) findViewById(R.id.obfuscated_res_0x7f091130);
+            this.dg = (ImageView) findViewById(R.id.obfuscated_res_0x7f09112c);
+            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091197);
         }
     }
 
@@ -103,7 +103,7 @@ public final class i extends a implements View.OnClickListener {
             } else if (view2 == this.df) {
                 i = 100;
             }
-            if (com.kwad.components.core.c.a.d.a(new a.C0593a(getContext()).L(this.mAdTemplate), 1) == 1) {
+            if (com.kwad.components.core.c.a.d.a(new a.C0597a(getContext()).L(this.mAdTemplate), 1) == 1) {
                 aq(i);
                 return;
             }

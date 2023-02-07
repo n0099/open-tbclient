@@ -1,27 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class u38 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str) {
-        int i;
+    public static String a(Throwable th) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-            if (TbadkCoreApplication.getCurrentMemberType() > 0) {
-                i = 1;
-            } else {
-                i = 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, th)) == null) {
+            if (th == null) {
+                return "";
             }
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("obj_type", i);
-            TiebaStatic.log(statisticItem);
+            StringBuilder sb = new StringBuilder(th.toString());
+            StackTraceElement[] stackTrace = th.getStackTrace();
+            if (stackTrace != null) {
+                for (int i = 0; i < stackTrace.length; i++) {
+                    StackTraceElement stackTraceElement = stackTrace[i];
+                    if (stackTraceElement != null && i < 7) {
+                        sb.append(" ----> ");
+                        sb.append(stackTraceElement.getClassName());
+                        sb.append(".");
+                        sb.append(stackTraceElement.getMethodName());
+                        sb.append("()");
+                    }
+                }
+            }
+            return sb.toString();
         }
+        return (String) invokeL.objValue;
     }
 }

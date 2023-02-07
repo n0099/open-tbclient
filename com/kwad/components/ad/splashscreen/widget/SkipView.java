@@ -462,9 +462,9 @@ public class SkipView extends LinearLayout implements com.kwad.components.ad.spl
             setOrientation(0);
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0481, this);
             this.mContext = context;
-            this.Bp = (TextView) findViewById(R.id.obfuscated_res_0x7f091288);
-            this.Bq = (TextView) findViewById(R.id.obfuscated_res_0x7f091289);
-            this.Bo = findViewById(R.id.obfuscated_res_0x7f091287);
+            this.Bp = (TextView) findViewById(R.id.obfuscated_res_0x7f0912cb);
+            this.Bq = (TextView) findViewById(R.id.obfuscated_res_0x7f0912cc);
+            this.Bo = findViewById(R.id.obfuscated_res_0x7f0912ca);
             setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.ad.splashscreen.widget.SkipView.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;

@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
+import android.webkit.JavascriptInterface;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,11 +14,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class na2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static final boolean d;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public boolean b;
 
     static {
         InterceptResult invokeClinit;
@@ -31,46 +30,41 @@ public class na2 {
                 return;
             }
         }
-        c = tk1.a;
-        qn2.g0().getSwitch("swan_sailor_init_delay", false);
-        d = false;
+        a = gp1.a;
     }
 
-    public na2() {
+    public na2(u72 u72Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {u72Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.b = false;
     }
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    @JavascriptInterface
+    public String setData(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c) {
-                Log.d("SwanSailorUpdateModel", "isSailorOptABSwitchOn:" + d);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (a) {
+                Log.d("DaemonJsBridge", "slave id: " + str + " data: " + str2);
             }
-            return d;
+            int i = 0;
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                ju2.U().y(new zi2(str, str2), false);
+            } else {
+                i = 202;
+            }
+            return UnitedSchemeUtility.wrapCallbackParams(i).toString();
         }
-        return invokeV.booleanValue;
-    }
-
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SwanSailorUpdateModel{scene='" + this.a + "'}";
-        }
-        return (String) invokeV.objValue;
+        return (String) invokeLL.objValue;
     }
 }

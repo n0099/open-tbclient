@@ -1,49 +1,11 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"StaticFieldLeak"})
+import androidx.annotation.Nullable;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public final class hk4 extends tk4 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile hk4 d;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface hk4 {
+    void a(JSONArray jSONArray, rg4 rg4Var, @Nullable rg4 rg4Var2, @Nullable rg4 rg4Var3);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hk4() {
-        super("aiapp_open_stat");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public static hk4 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (d == null) {
-                synchronized (hk4.class) {
-                    if (d == null) {
-                        d = new hk4();
-                    }
-                }
-            }
-            return d;
-        }
-        return (hk4) invokeV.objValue;
-    }
+    void b(JSONObject jSONObject, rg4 rg4Var, @Nullable rg4 rg4Var2, @Nullable rg4 rg4Var3);
 }

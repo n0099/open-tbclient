@@ -15,7 +15,7 @@ import kotlin.Deprecated;
 import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u00006\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\b\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\u0018\u0000 \u001b:\u0002\u001b\u001cB\u0011\b\u0002\u0012\u0006\u0010\u0017\u001a\u00020\u0016¢\u0006\u0004\b\u0019\u0010\u001aJE\u0010\u000b\u001a\u00020\n\"\b\b\u0000\u0010\u0002*\u00020\u00012\u0006\u0010\u0003\u001a\u00020\u00012\f\u0010\u0005\u001a\b\u0012\u0004\u0012\u00028\u00000\u00042\u0006\u0010\u0007\u001a\u00020\u00062\f\u0010\t\u001a\b\u0012\u0004\u0012\u00028\u00000\bH\u0007¢\u0006\u0004\b\u000b\u0010\fJ\u0017\u0010\u000e\u001a\u00020\n2\u0006\u0010\r\u001a\u00020\u0001H\u0007¢\u0006\u0004\b\u000e\u0010\u000fJ9\u0010\u0010\u001a\u00020\n\"\u0004\b\u0000\u0010\u00022\u0006\u0010\u0003\u001a\u00020\u00012\f\u0010\u0005\u001a\b\u0012\u0004\u0012\u00028\u00000\u00042\f\u0010\t\u001a\b\u0012\u0004\u0012\u00028\u00000\bH\u0007¢\u0006\u0004\b\u0010\u0010\u0011JE\u0010\u0010\u001a\u00020\n\"\b\b\u0000\u0010\u0002*\u00020\u00012\u0006\u0010\u0003\u001a\u00020\u00012\f\u0010\u0005\u001a\b\u0012\u0004\u0012\u00028\u00000\u00042\u0006\u0010\u0007\u001a\u00020\u00062\f\u0010\t\u001a\b\u0012\u0004\u0012\u00028\u00000\bH\u0007¢\u0006\u0004\b\u0010\u0010\fJ\u0017\u0010\u0012\u001a\u00020\n2\u0006\u0010\u0003\u001a\u00020\u0001H\u0007¢\u0006\u0004\b\u0012\u0010\u000fR\u0016\u0010\u0014\u001a\u00020\u00138\u0002@\u0002X\u0082D¢\u0006\u0006\n\u0004\b\u0014\u0010\u0015R\u0016\u0010\u0017\u001a\u00020\u00168\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0017\u0010\u0018¨\u0006\u001d"}, d2 = {"Lcom/baidu/searchbox/bdeventbus/BdEventBus;", "", ExifInterface.GPS_DIRECTION_TRUE, "subscriber", "Ljava/lang/Class;", "eventType", "", "threadMode", "Lcom/baidu/searchbox/bdeventbus/Action;", "action", "", "lazyRegister", "(Ljava/lang/Object;Ljava/lang/Class;ILcom/baidu/searchbox/bdeventbus/Action;)V", "event", "post", "(Ljava/lang/Object;)V", MiPushClient.COMMAND_REGISTER, "(Ljava/lang/Object;Ljava/lang/Class;Lcom/baidu/searchbox/bdeventbus/Action;)V", MiPushClient.COMMAND_UNREGISTER, "", "TAG", "Ljava/lang/String;", "Lcom/baidu/searchbox/bdeventbus/core/BdEventBusCore;", "bdEventBusCore", "Lcom/baidu/searchbox/bdeventbus/core/BdEventBusCore;", "<init>", "(Lcom/baidu/searchbox/bdeventbus/core/BdEventBusCore;)V", "Companion", "SingletonHolder", "lib-bd-event-bus_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(d1 = {"\u00004\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0007\u0018\u0000 \u00152\u00020\u0001:\u0002\u0015\u0016B\u000f\b\u0002\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J>\u0010\u0007\u001a\u00020\b\"\b\b\u0000\u0010\t*\u00020\u00012\u0006\u0010\n\u001a\u00020\u00012\f\u0010\u000b\u001a\b\u0012\u0004\u0012\u0002H\t0\f2\u0006\u0010\r\u001a\u00020\u000e2\f\u0010\u000f\u001a\b\u0012\u0004\u0012\u0002H\t0\u0010H\u0007J\u0010\u0010\u0011\u001a\u00020\b2\u0006\u0010\u0012\u001a\u00020\u0001H\u0007J2\u0010\u0013\u001a\u00020\b\"\u0004\b\u0000\u0010\t2\u0006\u0010\n\u001a\u00020\u00012\f\u0010\u000b\u001a\b\u0012\u0004\u0012\u0002H\t0\f2\f\u0010\u000f\u001a\b\u0012\u0004\u0012\u0002H\t0\u0010H\u0007J>\u0010\u0013\u001a\u00020\b\"\b\b\u0000\u0010\t*\u00020\u00012\u0006\u0010\n\u001a\u00020\u00012\f\u0010\u000b\u001a\b\u0012\u0004\u0012\u0002H\t0\f2\u0006\u0010\r\u001a\u00020\u000e2\f\u0010\u000f\u001a\b\u0012\u0004\u0012\u0002H\t0\u0010H\u0007J\u0010\u0010\u0014\u001a\u00020\b2\u0006\u0010\n\u001a\u00020\u0001H\u0007R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082D¢\u0006\u0002\n\u0000R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u0017"}, d2 = {"Lcom/baidu/searchbox/bdeventbus/BdEventBus;", "", "bdEventBusCore", "Lcom/baidu/searchbox/bdeventbus/core/BdEventBusCore;", "(Lcom/baidu/searchbox/bdeventbus/core/BdEventBusCore;)V", "TAG", "", "lazyRegister", "", ExifInterface.GPS_DIRECTION_TRUE, "subscriber", "eventType", "Ljava/lang/Class;", "threadMode", "", "action", "Lcom/baidu/searchbox/bdeventbus/Action;", "post", "event", MiPushClient.COMMAND_REGISTER, MiPushClient.COMMAND_UNREGISTER, "Companion", "SingletonHolder", "lib-bd-event-bus_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes2.dex */
 public final class BdEventBus {
     public static /* synthetic */ Interceptable $ic = null;
@@ -27,11 +27,19 @@ public final class BdEventBus {
     public final String TAG;
     public final BdEventBusCore bdEventBusCore;
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001c\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0007\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\f\u0010\rJ\r\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00048\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0006R\u0016\u0010\b\u001a\u00020\u00078\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\b\u0010\tR\u0016\u0010\n\u001a\u00020\u00018\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\n\u0010\u000b¨\u0006\u000e"}, d2 = {"Lcom/baidu/searchbox/bdeventbus/BdEventBus$Companion;", "Lcom/baidu/searchbox/bdeventbus/BdEventBus;", "getDefault", "()Lcom/baidu/searchbox/bdeventbus/BdEventBus;", "", "BDEVENTBUS_ENABLE", "Ljava/lang/String;", "", "DEFAULT_VALUE", "Z", "defaultInstance", "Lcom/baidu/searchbox/bdeventbus/BdEventBus;", "<init>", "()V", "lib-bd-event-bus_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    public /* synthetic */ BdEventBus(BdEventBusCore bdEventBusCore, DefaultConstructorMarker defaultConstructorMarker) {
+        this(bdEventBusCore);
+    }
+
+    @Metadata(d1 = {"\u0000 \n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u0006\u0010\t\u001a\u00020\bR\u000e\u0010\u0003\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0006X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\n"}, d2 = {"Lcom/baidu/searchbox/bdeventbus/BdEventBus$Companion;", "", "()V", "BDEVENTBUS_ENABLE", "", "DEFAULT_VALUE", "", "defaultInstance", "Lcom/baidu/searchbox/bdeventbus/BdEventBus;", "getDefault", "lib-bd-event-bus_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes2.dex */
     public static final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
 
         public Companion() {
             Interceptable interceptable = $ic;
@@ -55,13 +63,9 @@ public final class BdEventBus {
             }
             return (BdEventBus) invokeV.objValue;
         }
-
-        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
     }
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\bÂ\u0002\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0006\u0010\u0007R\u0019\u0010\u0002\u001a\u00020\u00018\u0006@\u0006¢\u0006\f\n\u0004\b\u0002\u0010\u0003\u001a\u0004\b\u0004\u0010\u0005¨\u0006\b"}, d2 = {"Lcom/baidu/searchbox/bdeventbus/BdEventBus$SingletonHolder;", "Lcom/baidu/searchbox/bdeventbus/BdEventBus;", "holder", "Lcom/baidu/searchbox/bdeventbus/BdEventBus;", "getHolder", "()Lcom/baidu/searchbox/bdeventbus/BdEventBus;", "<init>", "()V", "lib-bd-event-bus_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @Metadata(d1 = {"\u0000\u0014\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\bÂ\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002R\u0011\u0010\u0003\u001a\u00020\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006¨\u0006\u0007"}, d2 = {"Lcom/baidu/searchbox/bdeventbus/BdEventBus$SingletonHolder;", "", "()V", "holder", "Lcom/baidu/searchbox/bdeventbus/BdEventBus;", "getHolder", "()Lcom/baidu/searchbox/bdeventbus/BdEventBus;", "lib-bd-event-bus_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes2.dex */
     public static final class SingletonHolder {
         public static /* synthetic */ Interceptable $ic;
@@ -144,10 +148,6 @@ public final class BdEventBus {
         }
         this.bdEventBusCore = bdEventBusCore;
         this.TAG = "BdEventBus";
-    }
-
-    public /* synthetic */ BdEventBus(BdEventBusCore bdEventBusCore, DefaultConstructorMarker defaultConstructorMarker) {
-        this(bdEventBusCore);
     }
 
     @Deprecated(message = "请直接调用register方法")

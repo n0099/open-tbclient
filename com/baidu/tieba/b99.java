@@ -1,65 +1,49 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.Typeface;
+import android.text.Layout;
+import android.text.StaticLayout;
+import android.text.TextPaint;
 import android.text.TextUtils;
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.fo8;
-import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
-import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.video.VideoItemModel;
-import com.baidu.tieba.videoplay.VideoPlayView;
-import com.baidu.tieba.videoplay.nad.AdVideoFlowFragment;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.data.TextWordsEntity;
+import com.baidu.ugc.editvideo.subtitle.NewSubTitleCreater;
+import com.baidu.ugc.editvideo.subtitle.ninepatchchunk.NinePatchChunk;
+import java.io.File;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
-import java.util.Queue;
 /* loaded from: classes3.dex */
-public class b99 implements IAdBaseAsyncController.a, do8<VideoItemModel> {
+public class b99 {
     public static /* synthetic */ Interceptable $ic;
+    public static b99 k;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TbPageContext<BaseFragmentActivity> a;
-    public final List<VideoItemModel> b;
-    public final fo8 c;
-    public final Queue<AdvertAppInfo> d;
-    public final Map<VideoItemModel, AdvertAppInfo> e;
-    public int f;
-    public boolean g;
-    public int h;
-    public VideoPlayView i;
-    public ao8 j;
-    public final boolean k;
-    public fo8.a l;
-    public int m;
-    public VideoItemModel n;
+    public int a;
+    public int b;
+    public Context c;
+    public TextWordsEntity.TextStyleEntity d;
+    public TextWordsEntity.TextFontEntity e;
+    public final TextPaint f;
+    public final TextPaint g;
+    public final TextPaint h;
+    public int i;
+    public List<String> j;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.do8
-    /* renamed from: l */
-    public void d(int i, int i2, int i3, co8 co8Var, VideoItemModel videoItemModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), co8Var, videoItemModel}) == null) {
-        }
-    }
-
-    public b99(@NonNull List list, TbPageContext<BaseFragmentActivity> tbPageContext) {
+    public b99() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list, tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -69,180 +53,241 @@ public class b99 implements IAdBaseAsyncController.a, do8<VideoItemModel> {
                 return;
             }
         }
-        boolean z = false;
-        this.f = 0;
-        this.g = true;
-        this.b = list;
-        this.a = tbPageContext;
-        fo8 fo8Var = (fo8) rn8.l().h(IAdBaseAsyncController.Type.VIDEO_FLOW, this);
-        this.c = fo8Var;
-        fo8Var.a(this.a);
-        this.d = new LinkedList();
-        this.e = new HashMap();
-        int d = aq5.a().d();
-        int e = aq5.a().e();
-        if (d > 0 && e > 0) {
-            z = true;
-        }
-        this.k = z;
-        if (!z) {
-            return;
-        }
-        ao8 ao8Var = new ao8();
-        this.j = ao8Var;
-        ao8Var.d(d - 1);
-        this.j.e(e);
+        this.b = 5;
+        this.j = new ArrayList();
+        this.f = new TextPaint(1);
+        this.g = new TextPaint(1);
+        this.h = new TextPaint(1);
+        this.a = tw9.j(R.dimen.tbds72);
     }
 
-    @Override // com.baidu.tieba.do8
-    public void a(int i, int i2) {
+    public static b99 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-            if (i2 != 0) {
-                this.h = i2;
-            }
-            if (this.h - 2 <= i && this.d.isEmpty() && this.g) {
-                this.c.loadAd();
-                this.g = false;
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.recapp.async.IAdBaseAsyncController.a
-    public void b(@Nullable List<AdvertAppInfo> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || uq7.e(list)) {
-            return;
-        }
-        this.g = true;
-        this.d.addAll(list);
-        VideoItemModel videoItemModel = new VideoItemModel(new VideoItemData(), 5);
-        this.n = videoItemModel;
-        bo8.b(this.b, this.m, this.j, this.f, videoItemModel, this.d.peek(), this);
-    }
-
-    public List<VideoItemModel> h(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (Map.Entry<VideoItemModel, AdvertAppInfo> entry : this.e.entrySet()) {
-                if (TextUtils.equals(entry.getValue().a, str)) {
-                    arrayList.add(entry.getKey());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (k == null) {
+                synchronized (b99.class) {
+                    if (k == null) {
+                        k = new b99();
+                    }
                 }
             }
-            return arrayList;
+            return k;
         }
-        return (List) invokeL.objValue;
+        return (b99) invokeV.objValue;
     }
 
-    public void f(int i) {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            VideoItemModel videoItemModel = this.b.get(i);
-            if (this.e.containsKey(videoItemModel)) {
-                this.c.m(this.e.get(videoItemModel));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.f.setTypeface(Typeface.DEFAULT);
+            this.g.setTypeface(Typeface.DEFAULT);
+            this.h.setTypeface(Typeface.DEFAULT);
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.f.setShader(null);
+            this.f.setColor(-1);
+            this.f.clearShadowLayer();
+            this.g.clearShadowLayer();
+            this.h.clearShadowLayer();
+            this.j.clear();
+        }
+    }
+
+    public final int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return (int) (vw9.e() * 0.85d);
+        }
+        return invokeV.intValue;
+    }
+
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.c;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public final void a(String str, Canvas canvas, int i, int i2, int i3, TextPaint textPaint) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, canvas, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), textPaint}) == null) {
+            j(textPaint);
+            canvas.drawText(str, i, i2, textPaint);
+        }
+    }
+
+    public final String e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (str.contains("\n")) {
+                String[] split = str.split("\n");
+                if (split.length > 1) {
+                    int i = 0;
+                    int i2 = 0;
+                    for (int i3 = 0; i3 < split.length; i3++) {
+                        int length = split[i3].length();
+                        if (length > i2) {
+                            i = i3;
+                            i2 = length;
+                        }
+                    }
+                    return split[i];
+                }
+                return str;
             }
+            return str;
         }
+        return (String) invokeL.objValue;
     }
 
-    public void n(fo8.a aVar) {
+    public final void j(TextPaint textPaint) {
+        TextWordsEntity.TextFontEntity textFontEntity;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, aVar) == null) {
-            this.l = aVar;
-        }
-    }
-
-    public void o(VideoPlayView videoPlayView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, videoPlayView) == null) {
-            this.i = videoPlayView;
-        }
-    }
-
-    public AdVideoFlowFragment g(int i) {
-        InterceptResult invokeI;
-        gn8 i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            AdvertAppInfo advertAppInfo = this.e.get(this.b.get(i));
-            if (advertAppInfo == null || (i2 = this.c.i(advertAppInfo)) == null) {
-                return null;
-            }
-            if ((i2 instanceof View) && (this.a.getPageActivity() instanceof ii0)) {
-                advertAppInfo.r = ki0.b(advertAppInfo.r, (ii0) this.a.getPageActivity(), (View) i2);
-            }
-            i2.setPageChangeHandler(this.l, i);
-            AdVideoFlowFragment adVideoFlowFragment = new AdVideoFlowFragment();
-            adVideoFlowFragment.C1(i2);
-            return adVideoFlowFragment;
-        }
-        return (AdVideoFlowFragment) invokeI.objValue;
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || !this.k) {
+        if ((interceptable != null && interceptable.invokeL(1048585, this, textPaint) != null) || (textFontEntity = this.e) == null) {
             return;
         }
-        this.f = 0;
-        this.h = aq5.a().d() - 1;
-        if (this.d.size() < 1 && this.g) {
-            this.c.loadAd();
-            this.g = false;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.do8
-    /* renamed from: j */
-    public void c(int i, int i2, co8 co8Var, VideoItemModel videoItemModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), co8Var, videoItemModel}) == null) {
-            AdvertAppInfo advertAppInfo = (AdvertAppInfo) co8Var;
-            this.d.remove(advertAppInfo);
-            this.f = i2;
-            this.e.put(videoItemModel, advertAppInfo);
-            VideoPlayView videoPlayView = this.i;
-            if (videoPlayView != null) {
-                videoPlayView.S();
+        try {
+            if (textFontEntity.isDefault()) {
+                b();
+                return;
             }
+            this.e.setFontRootDir(new File(FileHelper.getVideoTmpDir()));
+            textPaint.setTypeface(Typeface.createFromFile(this.e.getSourceFile()));
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.do8
-    /* renamed from: k */
-    public void e(int i, int i2, VideoItemModel videoItemModel, co8 co8Var, VideoItemModel videoItemModel2) {
+    public final int[] g(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), videoItemModel, co8Var, videoItemModel2}) == null) {
-            AdvertAppInfo advertAppInfo = (AdvertAppInfo) co8Var;
-            this.d.remove(advertAppInfo);
-            this.f = i2;
-            this.e.put(videoItemModel, advertAppInfo);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new int[]{0, 0};
+            }
+            String e = e(str);
+            int[] iArr = new int[2];
+            TextPaint textPaint = new TextPaint(1);
+            j(textPaint);
+            textPaint.setStyle(Paint.Style.FILL);
+            textPaint.setTextSize(this.a);
+            float measureText = textPaint.measureText(e) + 2.0f + 40.0f;
+            if (measureText > f()) {
+                measureText = f() + 2.0f;
+            }
+            float f = 0.0f;
+            if (measureText > 0.0f) {
+                StaticLayout measuredStaticLayout = NewSubTitleCreater.getMeasuredStaticLayout(str, textPaint, (int) measureText, this.b, Layout.Alignment.ALIGN_CENTER, 0);
+                this.i = measuredStaticLayout.getLineCount();
+                int i = 0;
+                for (int i2 = 0; i2 < this.i; i2++) {
+                    int lineEnd = measuredStaticLayout.getLineEnd(i2);
+                    if (lineEnd != 0) {
+                        this.j.add(str.substring(i, lineEnd));
+                        i = lineEnd;
+                    }
+                }
+                f = measuredStaticLayout.getHeight() + 2.0f + 40.0f;
+            }
+            iArr[0] = (int) measureText;
+            iArr[1] = (int) f;
+            return iArr;
+        }
+        return (int[]) invokeL.objValue;
+    }
+
+    public Bitmap h(Context context, String str, TextWordsEntity.TextStyleEntity textStyleEntity, TextWordsEntity.TextFontEntity textFontEntity) {
+        InterceptResult invokeLLLL;
+        int i;
+        int i2;
+        int i3;
+        Canvas canvas;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, context, str, textStyleEntity, textFontEntity)) == null) {
+            c();
+            this.c = context;
+            this.d = textStyleEntity;
+            this.e = textFontEntity;
+            this.f.setTextSize(this.a);
+            int[] g = g(str);
+            if (g[0] >= 1 && g[1] >= 1) {
+                Bitmap a = fw9.a(this.d);
+                NinePatchChunk f = fw9.f(a, this.d);
+                if (f != null) {
+                    Rect rect = f.padding;
+                    i = rect.left;
+                    int i4 = rect.top;
+                    g[0] = g[0] + i;
+                    g[1] = g[1] + i4;
+                    g[0] = g[0] + rect.right;
+                    g[1] = g[1] + rect.bottom;
+                    if (a != null && g[0] < a.getWidth()) {
+                        g[0] = a.getWidth();
+                    }
+                    i2 = i4;
+                } else {
+                    i = 0;
+                    i2 = 0;
+                }
+                Bitmap createBitmap = Bitmap.createBitmap(g[0], g[1], Bitmap.Config.ARGB_8888);
+                Canvas canvas2 = new Canvas(createBitmap);
+                canvas2.save();
+                int i5 = 20;
+                fw9.b(a, f, canvas2, 20);
+                int g2 = fw9.g(this.f);
+                int i6 = i + 20;
+                int abs = (g2 / 2) + ((int) (Math.abs(this.f.ascent() + this.f.descent()) / 2.0f)) + 20 + i2;
+                int i7 = 0;
+                while (i7 < this.i) {
+                    int i8 = i7 + 1;
+                    fw9.c(this.f, this.d, null);
+                    int[] d = fw9.d(this.f, this.g, this.h, this.d, null);
+                    fw9.e(canvas2, this.f, i6, (g2 * i7) + i5 + i2, (g2 * i8) + i5 + i2, this.d, null);
+                    if (d[0] != 0) {
+                        i3 = i7;
+                        canvas = canvas2;
+                        a(this.j.get(i7), canvas2, i6, abs, i3, this.g);
+                    } else {
+                        i3 = i7;
+                        canvas = canvas2;
+                    }
+                    if (d[1] != 0) {
+                        a(this.j.get(i3), canvas, i6, abs, i3, this.h);
+                    }
+                    a(this.j.get(i3), canvas, i6, abs, i3, this.f);
+                    abs += g2;
+                    canvas2 = canvas;
+                    i7 = i8;
+                    i5 = 20;
+                }
+                canvas2.restore();
+                return createBitmap;
+            }
+            return Bitmap.createBitmap(10, this.a, Bitmap.Config.ARGB_8888);
+        }
+        return (Bitmap) invokeLLLL.objValue;
+    }
+
+    public void i(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
+            this.c = context;
         }
     }
 
-    public void m(int i) {
+    public void k(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048588, this, i) != null) || !this.k) {
-            return;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.a = i;
         }
-        this.m = i;
-        VideoItemModel videoItemModel = (VideoItemModel) uq7.d(this.b, i);
-        if (this.e.containsKey(videoItemModel)) {
-            AdvertAppInfo advertAppInfo = this.e.get(videoItemModel);
-            ep8.o(advertAppInfo);
-            pq7.b(pq7.a(advertAppInfo));
-            this.c.c(advertAppInfo, true);
-            return;
-        }
-        this.c.c(null, false);
-        if (i <= this.f) {
-            return;
-        }
-        VideoItemModel videoItemModel2 = new VideoItemModel(new VideoItemData(), 5);
-        this.n = videoItemModel2;
-        bo8.b(this.b, i, this.j, this.f, videoItemModel2, this.d.peek(), this);
     }
 }

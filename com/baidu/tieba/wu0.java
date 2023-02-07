@@ -1,33 +1,60 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideo;
-import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
+import android.annotation.SuppressLint;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class wu0 {
+public abstract class wu0 extends ny0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static ky0 a(@NonNull BdVideoSeries bdVideoSeries, @NonNull BdVideo bdVideo, @NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLLLL;
+    public void s(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, bdVideoSeries, bdVideo, str, str2)) == null) {
-            ky0 ky0Var = new ky0();
-            ky0Var.k(str2);
-            ky0Var.l(jy0.c(bdVideo.getCurrentLength()) + "/" + jy0.c(bdVideo.getTotalLength()));
-            ky0Var.p(bdVideoSeries.getVid());
-            ky0Var.m(bdVideo.getType());
-            ky0Var.j(System.currentTimeMillis());
-            ky0Var.n(bdVideo.getTitle());
-            ky0Var.o(str);
-            ky0Var.r(bdVideoSeries.getPositionMs());
-            ky0Var.q(bdVideo.getCurrentLength());
-            ky0Var.s(bdVideo.getTotalLength());
-            return ky0Var;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
         }
-        return (ky0) invokeLLLL.objValue;
+    }
+
+    public void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    public void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    public wu0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @SuppressLint({"KotlinPropertyAccess"})
+    public jy0 r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            sy0 sy0Var = this.a;
+            if (sy0Var != null) {
+                return (jy0) sy0Var;
+            }
+            throw new NullPointerException("null cannot be cast to non-null type com.baidu.nadcore.player.layer.AbsNewControlLayer");
+        }
+        return (jy0) invokeV.objValue;
     }
 }

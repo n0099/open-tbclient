@@ -42,13 +42,13 @@ public class OneKeyLoginView extends LinearLayout {
 
         /* renamed from: com.baidu.sapi2.views.logindialog.view.OneKeyLoginView$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0159a extends OneKeyLoginCallback {
+        public class C0158a extends OneKeyLoginCallback {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
             public final /* synthetic */ a b;
 
-            public C0159a(a aVar, long j) {
+            public C0158a(a aVar, long j) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -141,7 +141,7 @@ public class OneKeyLoginView extends LinearLayout {
                         Log.e(QuickLoginDialog.STAG, "onekey login privacy is not agree");
                         return;
                     }
-                    CoreViewRouter.getInstance().loadOneKeyLogin(this.a.a, new C0159a(this, System.currentTimeMillis()));
+                    CoreViewRouter.getInstance().loadOneKeyLogin(this.a.a, new C0158a(this, System.currentTimeMillis()));
                     return;
                 }
                 Log.e(QuickLoginDialog.STAG, "onekey login mContext || mConfirmCallback is null");

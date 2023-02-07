@@ -3,31 +3,74 @@ package com.baidu.tieba;
 import android.content.Context;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
+import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.RecommendForumLayout;
+import com.baidu.card.view.MutiImgTextLayout;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.gz;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class jy extends cx<uu4> {
+public class jy extends hx<sw4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RecommendForumLayout f;
-    public int g;
+    public MutiImgTextLayout f;
+    public sw4 g;
+    public int h;
+    public String i;
+
+    /* loaded from: classes5.dex */
+    public class a implements gz.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jy a;
+
+        public a(jy jyVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jyVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jyVar;
+        }
+
+        @Override // com.baidu.tieba.gz.b
+        public boolean a(gz.a aVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
+                if (this.a.g != null && this.a.g.getThreadData() != null) {
+                    xc6.a(this.a.g.getThreadData().getId());
+                    xc6.l(this.a.f.a, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    xc6.l(this.a.f.b, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jy(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity());
+    public jy(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,66 +81,57 @@ public class jy extends cx<uu4> {
                 return;
             }
         }
-        this.g = 3;
-        RecommendForumLayout recommendForumLayout = new RecommendForumLayout(tbPageContext);
-        this.f = recommendForumLayout;
-        recommendForumLayout.setPageUniqueId(bdUniqueId);
-        this.f.setShowMore(true);
+        this.h = 3;
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().g instanceof MutiImgTextLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().g.getParent() == null) {
+            this.f = (MutiImgTextLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().g;
+        } else {
+            this.f = new MutiImgTextLayout(context);
+        }
+        this.f.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
+    }
+
+    @Override // com.baidu.tieba.hx
+    public void p(ld6<sw4> ld6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, ld6Var) == null) {
+            this.f.setSubClickListener(ld6Var);
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ux
-    /* renamed from: s */
-    public void a(uu4 uu4Var) {
+    @Override // com.baidu.tieba.zx
+    /* renamed from: u */
+    public void a(sw4 sw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, uu4Var) == null) {
-            this.f.setData(uu4Var);
+        if (interceptable == null || interceptable.invokeL(1048581, this, sw4Var) == null) {
+            this.g = sw4Var;
+            this.f.setFrom(this.i);
+            this.f.a(sw4Var);
         }
     }
 
-    public void t(boolean z) {
+    public void v(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f.setEnableShowInto(z);
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.i = str;
         }
     }
 
-    public void u(View.OnClickListener onClickListener) {
+    public void w(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
-            this.f.setOnClickRightArrowListener(onClickListener);
-        }
-    }
-
-    public void v(vq4<tu4> vq4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, vq4Var) == null) {
-            this.f.setOnItemCoverListener(vq4Var);
-        }
-    }
-
-    public void w(PullLeftRefreshLayout.f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, fVar) == null) {
-            this.f.setOnRullOkCallbackr(fVar);
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.f.setFromCDN(z);
         }
     }
 
     public void x(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f.setShowMore(z);
+            this.f.setNeedFrsTabName(z);
         }
     }
 
-    public void y(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f.setShowSquareEntrance(z);
-        }
-    }
-
-    @Override // com.baidu.tieba.cx
+    @Override // com.baidu.tieba.hx
     public View k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -107,14 +141,19 @@ public class jy extends cx<uu4> {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.vx
+    @Override // com.baidu.tieba.hx
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            m(1, new a(this));
+        }
+    }
+
+    @Override // com.baidu.tieba.ay
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            if (this.g != i) {
-                this.f.onChangeSkinType(tbPageContext, i);
-            }
-            this.g = i;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
+            this.h = i;
         }
     }
 }

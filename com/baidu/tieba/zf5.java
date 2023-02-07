@@ -1,112 +1,83 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.view.Choreographer;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@TargetApi(16)
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+@Deprecated
 /* loaded from: classes7.dex */
-public class zf5 implements Choreographer.FrameCallback {
+public final class zf5 {
     public static /* synthetic */ Interceptable $ic;
+    @NonNull
+    public static final zf5 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public long c;
-    public int d;
-    public int e;
-    public boolean f;
+    public final Map<String, yf5> a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948358048, "Lcom/baidu/tieba/zf5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948358048, "Lcom/baidu/tieba/zf5;");
+                return;
+            }
+        }
+        b = new zf5();
+    }
 
     public zf5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = 0L;
-        this.d = 0;
-        this.e = -1;
-        this.f = false;
+        this.a = new HashMap();
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    public static void a(@NonNull String str, @NonNull yf5 yf5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            this.c = currentTimeMillis;
-            this.b = currentTimeMillis + 1000;
-            this.a = 0L;
-            this.d = 0;
-            this.e = -1;
-            this.f = false;
-            Choreographer.getInstance().postFrameCallback(this);
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, yf5Var) == null) {
+            b.a.put(str, yf5Var);
         }
     }
 
-    public void d() {
+    @Nullable
+    public static <T> T b(@NonNull String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f = true;
-            Choreographer.getInstance().removeFrameCallback(this);
-            a(System.currentTimeMillis());
-            this.d = 0;
-            this.c = 0L;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return (T) b.a.get(str);
         }
+        return (T) invokeL.objValue;
     }
 
-    public final void a(long j) {
+    @NonNull
+    public static <T> T c(@NonNull String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            long j2 = this.c;
-            if (j2 <= 0) {
-                return;
-            }
-            long j3 = j - j2;
-            if (j3 > 0 && this.e <= 0) {
-                this.e = (int) (60 - ((this.d * 1000) / j3));
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return (T) Objects.requireNonNull(b(str));
         }
-    }
-
-    @Override // android.view.Choreographer.FrameCallback
-    public void doFrame(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            long j2 = this.a;
-            if (j2 != 0) {
-                long j3 = (j - j2) / 1000000;
-                if (j3 > 16 && j3 < 960) {
-                    this.d = (int) (this.d + (j3 / 16));
-                }
-            }
-            this.a = j;
-            long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis < this.b && !this.f) {
-                Choreographer.getInstance().postFrameCallback(this);
-                return;
-            }
-            a(currentTimeMillis);
-            this.d = 0;
-            this.c = 0L;
-        }
+        return (T) invokeL.objValue;
     }
 }

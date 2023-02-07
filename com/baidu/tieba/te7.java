@@ -1,47 +1,51 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.TiebaIMConfig;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class te7 {
+public class te7 extends nx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public qo8 z;
 
-    public static ch5 a(int i, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
-        InterceptResult invokeIL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public te7(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, cls)) == null) {
-            try {
-                ch5 ch5Var = new ch5(i, cls.newInstance());
-                MessageManager.getInstance().registerTask(ch5Var);
-                return ch5Var;
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-                return null;
-            } catch (InstantiationException e2) {
-                e2.printStackTrace();
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (ch5) invokeIL.objValue;
     }
 
-    public static dh5 b(int i, Class<? extends SocketResponsedMessage> cls, boolean z) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.nx, com.baidu.tieba.dz
+    public qo8 t() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), cls, Boolean.valueOf(z)})) == null) {
-            dh5 dh5Var = new dh5(i);
-            dh5Var.setResponsedClass(cls);
-            dh5Var.h(z);
-            dh5Var.setParallel(TiebaIMConfig.getParallel());
-            MessageManager.getInstance().registerTask(dh5Var);
-            return dh5Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TextUtils.isEmpty(this.k) && this.k.equals("index")) {
+                this.z = new ve7(this.b, this.i);
+            } else {
+                this.z = new ue7(this.b, this.i);
+            }
+            this.z.setStageType("2001");
+            return this.z;
         }
-        return (dh5) invokeCommon.objValue;
+        return (qo8) invokeV.objValue;
     }
 }

@@ -1,69 +1,55 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.tieba.b32;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.WebSettings;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 /* loaded from: classes4.dex */
-public final class c32 {
+public class c32 extends c22 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public Paint.Cap a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947623751, "Lcom/baidu/tieba/c32;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947623751, "Lcom/baidu/tieba/c32;");
-                return;
+    public c32() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a = tk1.a;
     }
 
-    @NonNull
-    public static WebSettings.CodeCacheSetting a(String str, @NonNull String str2) {
-        InterceptResult invokeLL;
-        char c;
+    @Override // com.baidu.tieba.c22
+    public void a(d22 d22Var, Canvas canvas) {
+        Paint.Cap cap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            WebSettings.CodeCacheSetting codeCacheSetting = new WebSettings.CodeCacheSetting();
-            codeCacheSetting.id = str;
-            ArrayList<String> arrayList = new ArrayList<>();
-            codeCacheSetting.pathList = arrayList;
-            arrayList.add(str2);
-            if (str.hashCode() == 93029162 && str.equals("appjs")) {
-                c = 0;
-            } else {
-                c = 65535;
-            }
-            if (c != 0) {
-                codeCacheSetting.maxCount = 20;
-                codeCacheSetting.sizeLimit = 102400;
-            } else {
-                b32.a d = b32.b.d();
-                codeCacheSetting.maxCount = d.a;
-                codeCacheSetting.sizeLimit = d.b;
-                codeCacheSetting.diskCodeCacheSizeThreshold = d.c;
-            }
-            if (a) {
-                Log.d("WebViewCodeCacheHelper", "buildCacheSetting cacheType: " + str);
-                Log.d("WebViewCodeCacheHelper", "buildCacheSetting maxCount: " + codeCacheSetting.maxCount);
-                Log.d("WebViewCodeCacheHelper", "buildCacheSetting sizeLimit: " + codeCacheSetting.sizeLimit);
-            }
-            return codeCacheSetting;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, d22Var, canvas) == null) && (cap = this.a) != null) {
+            d22Var.c.setStrokeCap(cap);
         }
-        return (WebSettings.CodeCacheSetting) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.c22
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
+            String optString = jSONArray.optString(0);
+            if (TextUtils.equals(optString, "butt")) {
+                this.a = Paint.Cap.BUTT;
+            } else if (TextUtils.equals(optString, "round")) {
+                this.a = Paint.Cap.ROUND;
+            } else if (TextUtils.equals(optString, "square")) {
+                this.a = Paint.Cap.SQUARE;
+            }
+        }
     }
 }

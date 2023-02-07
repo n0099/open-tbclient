@@ -1,87 +1,110 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class x03 {
+public final class x03 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, ProviderDelegation> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948246510, "Lcom/baidu/tieba/x03;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public static final class a implements t03 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Function1 a;
+        public final /* synthetic */ String b;
+
+        public a(Function1 function1, String str) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {function1, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948246510, "Lcom/baidu/tieba/x03;");
-                return;
-            }
+            this.a = function1;
+            this.b = str;
         }
-        a = new ConcurrentHashMap();
-        c(is1.a());
-        c(qn2.s().d());
-    }
 
-    public x03() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    @Nullable
-    public static ProviderDelegation a(@NonNull Class<? extends ProviderDelegation> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cls)) == null) {
-            return a.get(cls.getName());
-        }
-        return (ProviderDelegation) invokeL.objValue;
-    }
-
-    @Nullable
-    public static ProviderDelegation b(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            return a.get(str);
-        }
-        return (ProviderDelegation) invokeL.objValue;
-    }
-
-    public static void c(@Nullable Map<Class, Object> map) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, map) == null) && map != null) {
-            for (Class cls : map.keySet()) {
-                if (cls != null) {
-                    Object obj = map.get(cls);
-                    if (obj instanceof ProviderDelegation) {
-                        a.put(cls.getName(), (ProviderDelegation) obj);
+        @Override // com.baidu.tieba.t03
+        public final void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                JSONArray a = x03.a();
+                if (a != null && a.length() != 0) {
+                    int length = a.length();
+                    for (int i = 0; i < length; i++) {
+                        if (Intrinsics.areEqual(this.b, a.get(i))) {
+                            Function1 function1 = this.a;
+                            if (function1 != null) {
+                                Unit unit = (Unit) function1.invoke(Boolean.TRUE);
+                                return;
+                            }
+                            return;
+                        }
                     }
+                    Function1 function12 = this.a;
+                    if (function12 != null) {
+                        Unit unit2 = (Unit) function12.invoke(Boolean.FALSE);
+                        return;
+                    }
+                    return;
+                }
+                Function1 function13 = this.a;
+                if (function13 != null) {
+                    Unit unit3 = (Unit) function13.invoke(Boolean.TRUE);
                 }
             }
         }
+    }
+
+    public static final /* synthetic */ JSONArray a() {
+        return c();
+    }
+
+    public static final void b(String str, Function1<? super Boolean, Unit> function1) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, function1) == null) {
+            s03.g().z(new a(function1, str));
+        }
+    }
+
+    public static final JSONArray c() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            w83 b0 = w83.b0();
+            if (b0 == null) {
+                return null;
+            }
+            String q = b0.e0().q("note_data_pay_check_list", "");
+            if (q != null && !StringsKt__StringsJVMKt.isBlank(q)) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
+                return null;
+            }
+            return new JSONObject(q).optJSONArray("pay_keys");
+        }
+        return (JSONArray) invokeV.objValue;
     }
 }

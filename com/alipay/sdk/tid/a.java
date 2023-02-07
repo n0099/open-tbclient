@@ -59,11 +59,11 @@ public class a {
 
     /* renamed from: com.alipay.sdk.tid.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0014a {
+    public static class C0013a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0014a() {
+        public C0013a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -351,7 +351,7 @@ public class a {
             this.c = System.currentTimeMillis();
             this.d = k();
             this.e = k();
-            C0014a.b(g, h);
+            C0013a.b(g, h);
         }
     }
 
@@ -383,7 +383,7 @@ public class a {
             Long valueOf = Long.valueOf(System.currentTimeMillis());
             String str5 = null;
             try {
-                a = C0014a.a(g, h, true);
+                a = C0013a.a(g, h, true);
             } catch (Exception e) {
                 e = e;
                 str = null;
@@ -456,7 +456,7 @@ public class a {
                 jSONObject.put("timestamp", this.c);
                 jSONObject.put(l, this.d);
                 jSONObject.put(m, this.e);
-                C0014a.a(g, h, jSONObject.toString(), true);
+                C0013a.a(g, h, jSONObject.toString(), true);
             } catch (Exception e) {
                 c.a(e);
             }

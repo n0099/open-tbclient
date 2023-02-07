@@ -6,11 +6,11 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.qw8;
-import com.baidu.tieba.rb;
-import com.baidu.tieba.s9;
-import com.baidu.tieba.u29;
-import com.baidu.tieba.w39;
+import com.baidu.tieba.o09;
+import com.baidu.tieba.t69;
+import com.baidu.tieba.v79;
+import com.baidu.tieba.wb;
+import com.baidu.tieba.x9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,13 +22,13 @@ public class AvatarPendantModel extends BdBaseModel<AvatarPendantActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
-    public w39 b;
-    public List<u29> c;
-    public rb d;
+    public v79 b;
+    public List<t69> c;
+    public wb d;
 
     /* loaded from: classes6.dex */
     public interface b {
-        void a(int i, String str, w39 w39Var, List<u29> list);
+        void a(int i, String str, v79 v79Var, List<t69> list);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -42,7 +42,7 @@ public class AvatarPendantModel extends BdBaseModel<AvatarPendantActivity> {
     }
 
     /* loaded from: classes6.dex */
-    public class a extends rb {
+    public class a extends wb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AvatarPendantModel a;
@@ -69,7 +69,7 @@ public class AvatarPendantModel extends BdBaseModel<AvatarPendantActivity> {
             this.a = avatarPendantModel;
         }
 
-        @Override // com.baidu.tieba.rb
+        @Override // com.baidu.tieba.wb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
@@ -106,7 +106,7 @@ public class AvatarPendantModel extends BdBaseModel<AvatarPendantActivity> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((s9) newInitContext.callArgs[0]);
+                super((x9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -124,7 +124,7 @@ public class AvatarPendantModel extends BdBaseModel<AvatarPendantActivity> {
         }
     }
 
-    public List<u29> L() {
+    public List<t69> L() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -154,8 +154,8 @@ public class AvatarPendantModel extends BdBaseModel<AvatarPendantActivity> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            qw8.h(309371, AvatarPendantListSocketResponseMessage.class, false, false);
-            qw8.c(309371, CmdConfigHttp.CMD_AVATAR_PENDANT_LIST, TbConfig.AVATAR_PENDANT, AvatarPendantListHttpResponseMessage.class, true, true, true, true);
+            o09.h(309371, AvatarPendantListSocketResponseMessage.class, false, false);
+            o09.c(309371, CmdConfigHttp.CMD_AVATAR_PENDANT_LIST, TbConfig.AVATAR_PENDANT, AvatarPendantListHttpResponseMessage.class, true, true, true, true);
         }
     }
 }

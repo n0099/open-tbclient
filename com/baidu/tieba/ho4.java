@@ -1,53 +1,40 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes4.dex */
-public class ho4 extends bo4 {
+public class ho4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
 
-    @Override // com.baidu.tieba.ao4
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "o" : (String) invokeV.objValue;
-    }
-
-    public ho4() {
+    public ho4(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = str2;
     }
 
-    @Override // com.baidu.tieba.ao4
-    public String a(String[] strArr, Map<String, String> map) {
-        InterceptResult invokeLL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, strArr, map)) == null) {
-            if (strArr != null && strArr.length != 0) {
-                String substring = strArr[0].substring(1);
-                StringBuilder sb = new StringBuilder("com.baidu.tieba://unidispatch/topicdetail");
-                sb.append("?topic_id=");
-                sb.append(substring);
-                c(strArr, sb, map, 1);
-                return sb.toString();
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (String) invokeLL.objValue;
+        return (String) invokeV.objValue;
     }
 }

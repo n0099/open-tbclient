@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
-import java.util.HashMap;
+import androidx.annotation.NonNull;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputTool.robotfloor.data.UserReplyInfoData;
 /* loaded from: classes4.dex */
 public interface hq7 {
-    void a(int i, HashMap<String, Object> hashMap);
+    void a(@NonNull UserReplyInfoData userReplyInfoData);
 }

@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.core.view.ViewCompat;
 import androidx.customview.widget.ViewDragHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tk1;
+import com.baidu.tieba.gp1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -170,7 +170,7 @@ public class SwanAppWebPopPullLayout extends FrameLayout {
                 return;
             }
         }
-        f = tk1.a;
+        f = gp1.a;
     }
 
     @Override // android.view.View

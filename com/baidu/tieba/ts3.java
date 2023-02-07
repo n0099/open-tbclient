@@ -1,8 +1,16 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import com.baidu.swan.game.ad.jsbridge.CommandType;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface ts3 {
-    void b(CommandType commandType, Uri uri);
+public class ts3 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static void a(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65536, null, j) == null) {
+            ss3.a().edit().putLong("latest_update_time", j).apply();
+        }
+    }
 }

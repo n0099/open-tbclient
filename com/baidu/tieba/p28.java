@@ -1,18 +1,17 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import tbclient.UpdateTail.ResData;
 /* loaded from: classes5.dex */
 public class p28 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<v28> a;
-    public Integer b;
-    public String c;
-    public String d;
+    public int a;
 
     public p28() {
         Interceptable interceptable = $ic;
@@ -26,5 +25,23 @@ public class p28 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public void b(ResData resData) {
+        Long l;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, resData) != null) || resData == null || (l = resData.tailId) == null) {
+            return;
+        }
+        this.a = l.intValue();
     }
 }

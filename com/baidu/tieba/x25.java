@@ -1,225 +1,315 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Objects;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.TabPic;
-import tbclient.TabPicDesc;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Enumeration;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipException;
+import java.util.zip.ZipFile;
+import java.util.zip.ZipOutputStream;
 /* loaded from: classes6.dex */
 public class x25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public boolean f;
-    public TabPic g;
-    public String h;
-    public int i;
 
-    public x25() {
+    public static boolean a(File file, String str) {
+        InterceptResult invokeLL;
+        ZipFile zipFile;
+        FileOutputStream fileOutputStream;
+        InputStream inputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!TextUtils.isEmpty(this.b) && this.a > 0) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, file, str)) == null) {
+            File file2 = new File(str);
+            if (!file2.exists() && !file2.mkdirs()) {
                 return false;
             }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.i == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Nullable
-    public static x25 a(String str) {
-        InterceptResult invokeL;
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str) || !str.startsWith("[pic-tab]")) {
-                return null;
-            }
+            boolean z = true;
+            ZipFile zipFile2 = null;
+            InputStream inputStream2 = null;
+            zipFile2 = null;
             try {
-                jSONObject = new JSONObject(str.substring(9));
-            } catch (JSONException e) {
-                e.printStackTrace();
-                jSONObject = null;
-            }
-            try {
-                x25 x25Var = new x25();
-                x25Var.g = b(jSONObject);
-                if (jSONObject != null) {
-                    x25Var.b = jSONObject.optString("tabName");
+                try {
+                    zipFile = new ZipFile(file);
+                } catch (Exception e) {
+                    e = e;
                 }
-                return x25Var;
-            } catch (Exception unused) {
-                return null;
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                Enumeration<? extends ZipEntry> entries = zipFile.entries();
+                while (entries.hasMoreElements()) {
+                    try {
+                        ZipEntry nextElement = entries.nextElement();
+                        String name = nextElement.getName();
+                        if (name == null || !name.contains("__MACOSX/")) {
+                            File file3 = new File(str, name);
+                            if (nextElement.isDirectory()) {
+                                file3.mkdirs();
+                            } else {
+                                inputStream = zipFile.getInputStream(nextElement);
+                                try {
+                                    fileOutputStream = new FileOutputStream(file3);
+                                    try {
+                                        try {
+                                            byte[] bArr = new byte[1024];
+                                            while (true) {
+                                                int read = inputStream.read(bArr);
+                                                if (read <= 0) {
+                                                    break;
+                                                }
+                                                fileOutputStream.write(bArr, 0, read);
+                                            }
+                                            fileOutputStream.flush();
+                                            if (inputStream != null) {
+                                                try {
+                                                    inputStream.close();
+                                                } catch (IOException e2) {
+                                                    e2.printStackTrace();
+                                                }
+                                            }
+                                            try {
+                                                fileOutputStream.close();
+                                            } catch (IOException e3) {
+                                                e3.printStackTrace();
+                                            }
+                                        } catch (Throwable th2) {
+                                            th = th2;
+                                            inputStream2 = inputStream;
+                                            if (inputStream2 != null) {
+                                                try {
+                                                    inputStream2.close();
+                                                } catch (IOException e4) {
+                                                    e4.printStackTrace();
+                                                }
+                                            }
+                                            if (fileOutputStream != null) {
+                                                try {
+                                                    fileOutputStream.close();
+                                                } catch (IOException e5) {
+                                                    e5.printStackTrace();
+                                                }
+                                            }
+                                            throw th;
+                                        }
+                                    } catch (Exception e6) {
+                                        e = e6;
+                                        e.printStackTrace();
+                                        if (inputStream != null) {
+                                            try {
+                                                inputStream.close();
+                                            } catch (IOException e7) {
+                                                e7.printStackTrace();
+                                            }
+                                        }
+                                        if (fileOutputStream != null) {
+                                            try {
+                                                fileOutputStream.close();
+                                            } catch (IOException e8) {
+                                                e8.printStackTrace();
+                                            }
+                                        }
+                                        z = false;
+                                    }
+                                } catch (Exception e9) {
+                                    e = e9;
+                                    fileOutputStream = null;
+                                } catch (Throwable th3) {
+                                    th = th3;
+                                    fileOutputStream = null;
+                                }
+                            }
+                        }
+                    } catch (Exception e10) {
+                        e = e10;
+                        inputStream = null;
+                        fileOutputStream = null;
+                    } catch (Throwable th4) {
+                        th = th4;
+                        fileOutputStream = null;
+                    }
+                }
+                try {
+                    zipFile.close();
+                } catch (IOException e11) {
+                    e11.printStackTrace();
+                }
+                return z;
+            } catch (Exception e12) {
+                e = e12;
+                zipFile2 = zipFile;
+                e.printStackTrace();
+                if (zipFile2 == null) {
+                    return false;
+                }
+                try {
+                    zipFile2.close();
+                    return false;
+                } catch (IOException e13) {
+                    e13.printStackTrace();
+                    return false;
+                }
+            } catch (Throwable th5) {
+                th = th5;
+                zipFile2 = zipFile;
+                if (zipFile2 != null) {
+                    try {
+                        zipFile2.close();
+                    } catch (IOException e14) {
+                        e14.printStackTrace();
+                    }
+                }
+                throw th;
             }
         }
-        return (x25) invokeL.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public void h(JSONObject jSONObject) {
+    public static boolean b(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, jSONObject) != null) || jSONObject == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            return a(new File(str), str2);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void c(File file, String str) throws ZipException, IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, file, str) == null) {
+            File file2 = new File(str);
+            if (!file2.exists()) {
+                file2.mkdirs();
+            }
+            ZipFile zipFile = new ZipFile(file);
+            Enumeration<? extends ZipEntry> entries = zipFile.entries();
+            while (entries.hasMoreElements()) {
+                ZipEntry nextElement = entries.nextElement();
+                String name = nextElement.getName();
+                if (!"./".equals(name) && !".".equals(name) && !name.endsWith("/")) {
+                    InputStream inputStream = zipFile.getInputStream(nextElement);
+                    File file3 = new File(str + File.separator + name);
+                    if (!file3.exists()) {
+                        File parentFile = file3.getParentFile();
+                        if (!parentFile.exists()) {
+                            parentFile.mkdirs();
+                        }
+                        file3.createNewFile();
+                    }
+                    FileOutputStream fileOutputStream = new FileOutputStream(file3);
+                    byte[] bArr = new byte[10240];
+                    while (true) {
+                        int read = inputStream.read(bArr);
+                        if (read <= 0) {
+                            break;
+                        }
+                        fileOutputStream.write(bArr, 0, read);
+                    }
+                    inputStream.close();
+                    fileOutputStream.close();
+                }
+            }
+        }
+    }
+
+    public static void d(String str, String str2, ZipOutputStream zipOutputStream) throws Exception {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(65539, null, str, str2, zipOutputStream) != null) || zipOutputStream == null) {
             return;
         }
-        this.a = jSONObject.optInt("tab_type");
-        this.b = jSONObject.optString("tab_name");
-        this.c = jSONObject.optString("tab_code");
-        this.i = jSONObject.optInt("is_main_tab", 0);
-        this.d = jSONObject.optString("tab_url");
-        this.e = jSONObject.optString("tab_version");
-        JSONObject optJSONObject = jSONObject.optJSONObject("head_pics");
-        if (optJSONObject != null) {
-            this.h = optJSONObject.toString();
-            this.g = b(optJSONObject);
+        File file = new File(str, str2);
+        if (!file.exists()) {
+            return;
         }
-    }
-
-    public static TabPic b(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            TabPic.Builder builder = new TabPic.Builder();
-            JSONObject optJSONObject = jSONObject.optJSONObject("normal");
-            if (optJSONObject != null) {
-                TabPicDesc.Builder builder2 = new TabPicDesc.Builder();
-                builder2.selected_pic_url = optJSONObject.optString("selected_pic_url");
-                builder2.unselected_pic_url = optJSONObject.optString("unselected_pic_url");
-                builder2.pic_height = Integer.valueOf(optJSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
-                builder2.pic_width = Integer.valueOf(optJSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH));
-                builder.normal = builder2.build(true);
-            }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("dark");
-            if (optJSONObject2 != null) {
-                TabPicDesc.Builder builder3 = new TabPicDesc.Builder();
-                builder3.selected_pic_url = optJSONObject2.optString("selected_pic_url");
-                builder3.unselected_pic_url = optJSONObject2.optString("unselected_pic_url");
-                builder3.pic_height = Integer.valueOf(optJSONObject2.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
-                builder3.pic_width = Integer.valueOf(optJSONObject2.optInt(VrPlayerActivityConfig.PIC_WIDTH));
-                builder.dark = builder3.build(true);
-            }
-            return builder.build(true);
-        }
-        return (TabPic) invokeL.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || x25.class != obj.getClass()) {
-                return false;
-            }
-            x25 x25Var = (x25) obj;
-            if (this.a == x25Var.a && this.f == x25Var.f && this.i == x25Var.i && StringUtils.equalsIgnoreNull(this.b, x25Var.b) && StringUtils.equalsIgnoreNull(this.c, x25Var.c) && StringUtils.equalsIgnoreNull(this.d, x25Var.d) && StringUtils.equalsIgnoreNull(this.e, x25Var.e) && StringUtils.equalsIgnoreNull(this.h, x25Var.h)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (g()) {
-                try {
-                    JSONObject jSONObject = new JSONObject(this.h);
-                    jSONObject.put("tabName", this.b);
-                    return "[pic-tab]" + jSONObject.toString();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    return "[pic-tab]" + this.h;
+        if (file.isFile()) {
+            ZipEntry zipEntry = new ZipEntry(str2);
+            FileInputStream fileInputStream = new FileInputStream(file);
+            zipOutputStream.putNextEntry(zipEntry);
+            byte[] bArr = new byte[4096];
+            while (true) {
+                int read = fileInputStream.read(bArr);
+                if (read != -1) {
+                    zipOutputStream.write(bArr, 0, read);
+                } else {
+                    zipOutputStream.closeEntry();
+                    return;
                 }
             }
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        TabPic tabPic;
-        TabPicDesc tabPicDesc;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (!TextUtils.isEmpty(this.h) && (tabPic = this.g) != null && (tabPicDesc = tabPic.normal) != null && !TextUtils.isEmpty(tabPicDesc.unselected_pic_url) && this.g.normal.pic_width.intValue() > 0) {
-                return true;
+        } else if (file.isDirectory()) {
+            String[] list = file.list();
+            if (list.length <= 0) {
+                zipOutputStream.putNextEntry(new ZipEntry(str2 + File.separator));
+                zipOutputStream.closeEntry();
             }
-            return false;
+            for (int i = 0; i < list.length; i++) {
+                d(str, str2 + File.separator + list[i], zipOutputStream);
+            }
         }
-        return invokeV.booleanValue;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
+    public static boolean e(String str, String str2) {
+        InterceptResult invokeLL;
+        ZipOutputStream zipOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return Objects.hash(Integer.valueOf(this.a), this.b, this.c, this.d, this.e, Boolean.valueOf(this.f), this.h);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            ZipOutputStream zipOutputStream2 = null;
+            try {
+                try {
+                    zipOutputStream = new ZipOutputStream(new FileOutputStream(str2));
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (FileNotFoundException e) {
+                e = e;
+            } catch (IOException e2) {
+                e = e2;
+            } catch (Exception e3) {
+                e = e3;
+            }
+            try {
+                File file = new File(str);
+                if (!file.exists()) {
+                    fj.f(zipOutputStream);
+                    return false;
+                }
+                d(file.getParent(), file.getName(), zipOutputStream);
+                zipOutputStream.finish();
+                zipOutputStream.close();
+                fj.f(zipOutputStream);
+                return true;
+            } catch (FileNotFoundException e4) {
+                e = e4;
+                zipOutputStream2 = zipOutputStream;
+                e.printStackTrace();
+                fj.f(zipOutputStream2);
+                return false;
+            } catch (IOException e5) {
+                e = e5;
+                zipOutputStream2 = zipOutputStream;
+                e.printStackTrace();
+                fj.f(zipOutputStream2);
+                return false;
+            } catch (Exception e6) {
+                e = e6;
+                zipOutputStream2 = zipOutputStream;
+                e.printStackTrace();
+                fj.f(zipOutputStream2);
+                return false;
+            } catch (Throwable th2) {
+                th = th2;
+                zipOutputStream2 = zipOutputStream;
+                fj.f(zipOutputStream2);
+                throw th;
+            }
         }
-        return invokeV.intValue;
-    }
-
-    public void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.i = z ? 1 : 0;
-        }
+        return invokeLL.booleanValue;
     }
 }

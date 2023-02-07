@@ -1,20 +1,43 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class zi0 {
+public abstract class zi0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Context context, String str) {
-        InterceptResult invokeLL;
+    @Nullable
+    public abstract String a();
+
+    public abstract String b();
+
+    public abstract boolean d(Context context, bj0 bj0Var, @Nullable Map<String, Object> map, @Nullable fj0 fj0Var);
+
+    public zi0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
-            return ti0.a().d(context, str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        return invokeLL.booleanValue;
+    }
+
+    public void c(fj0 fj0Var, @Nullable bj0 bj0Var, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{fj0Var, bj0Var, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            kj0.b(fj0Var, bj0Var, i, z);
+        }
     }
 }

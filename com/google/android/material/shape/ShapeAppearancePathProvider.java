@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ShapeAppearancePathProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public class ShapeAppearancePathProvider {
     public final ShapePath shapePath;
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface PathListener {
         void onCornerPathCreated(ShapePath shapePath, Matrix matrix, int i);
 
@@ -45,7 +45,7 @@ public class ShapeAppearancePathProvider {
         return (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) ? (i + 1) * 90 : invokeI.floatValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class ShapeAppearancePathSpec {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

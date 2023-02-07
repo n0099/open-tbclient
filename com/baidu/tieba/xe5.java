@@ -1,261 +1,212 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import android.graphics.Bitmap;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.network.outback.IOutbackClientIPProvider;
-import com.baidu.searchbox.network.outback.IOutbackContext;
-import com.baidu.searchbox.network.outback.core.CallFactory;
-import com.baidu.searchbox.network.outback.statistics.IAdditionalRecord;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.switchs.BdNetTypeSwitch;
-import com.baidu.tieba.o60;
-import com.baidu.tieba.s70;
-import com.baidu.tieba.t70;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.img.effect.ImageOperation;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-import javax.net.ssl.HostnameVerifier;
-import javax.net.ssl.SSLSession;
-import okhttp3.OkHttpClient;
-import okhttp3.internal.tls.OkHostnameVerifier;
-@Singleton
-@Service
+import java.util.List;
 /* loaded from: classes6.dex */
-public class xe5 implements IOutbackContext {
+public class xe5 {
     public static /* synthetic */ Interceptable $ic;
+    public static xe5 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, CallFactory.CallFactoryProducer> a;
-    public CallFactory.CallFactoryProducer b;
-    public CallFactory.CallFactoryProducer c;
-    public CallFactory.CallFactoryProducer d;
-    public int e;
+    public final HashMap<String, Class<? extends we5>> a;
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948297505, "Lcom/baidu/tieba/xe5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948297505, "Lcom/baidu/tieba/xe5;");
+                return;
+            }
         }
+        b = new xe5();
     }
 
-    @Override // com.baidu.searchbox.network.outback.IOutbackContext
-    public IOutbackClientIPProvider getClientIPProvider() {
+    public static xe5 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
         }
-        return (IOutbackClientIPProvider) invokeV.objValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements HostnameVerifier {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(xe5 xe5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xe5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // javax.net.ssl.HostnameVerifier
-        public boolean verify(String str, SSLSession sSLSession) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, sSLSession)) == null) {
-                return OkHostnameVerifier.INSTANCE.verify(str, sSLSession);
-            }
-            return invokeLL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements IAdditionalRecord {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.searchbox.network.outback.statistics.IAdditionalRecord
-        public long getAppLaunchTimeStamp() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return 0L;
-            }
-            return invokeV.longValue;
-        }
-
-        @Override // com.baidu.searchbox.network.outback.statistics.IAdditionalRecord
-        public String getClientIPV6() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return null;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.searchbox.network.outback.statistics.IAdditionalRecord
-        public String getHttpDnsAreaInfo() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return null;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.searchbox.network.outback.statistics.IAdditionalRecord
-        public long getHttpDnsAreaInfoLastUpdateTime() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return 0L;
-            }
-            return invokeV.longValue;
-        }
-
-        @Override // com.baidu.searchbox.network.outback.statistics.IAdditionalRecord
-        public int getIpStack() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return 0;
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.baidu.searchbox.network.outback.statistics.IAdditionalRecord
-        public int getNetworkQuality() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                return 0;
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.baidu.searchbox.network.outback.statistics.IAdditionalRecord
-        public String getProcessName() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                return null;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public b(xe5 xe5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xe5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+        return (xe5) invokeV.objValue;
     }
 
     public xe5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.e = SwitchManager.getInstance().findType(BdNetTypeSwitch.KEY);
-        TbadkCoreApplication.getInst().setBdNetType(this.e);
-        a();
-        OkHttpClient build = new OkHttpClient.Builder().hostnameVerifier(new a(this)).build();
-        o60.b bVar = new o60.b();
-        bVar.p(build);
-        this.b = bVar.n();
-        this.c = new t70.a().a();
-        this.d = new s70.a().a();
-        HashMap<String, CallFactory.CallFactoryProducer> hashMap = new HashMap<>();
-        this.a = hashMap;
-        hashMap.put(this.b.getEngineName(), this.b);
-        this.a.put(this.c.getEngineName(), this.c);
-        this.a.put(this.d.getEngineName(), this.d);
+        this.a = new HashMap<>();
+        f(ye5.class);
+        f(af5.class);
+        f(ve5.class);
+        f(ze5.class);
+        f(bf5.class);
     }
 
-    @Override // com.baidu.searchbox.network.outback.IOutbackContext
-    public CallFactory.CallFactoryProducer getBackupCallFactoryProducer() {
-        InterceptResult invokeV;
+    public we5 a(ImageOperation imageOperation) {
+        InterceptResult invokeL;
+        we5 e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (CallFactory.CallFactoryProducer) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.network.outback.IOutbackContext
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return AppRuntime.getAppContext();
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.network.outback.IOutbackContext
-    public CallFactory.CallFactoryProducer getDefaultCallFactoryProducer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (BdNetTypeSwitch.isOkHttp(this.e)) {
-                return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageOperation)) == null) {
+            Class<? extends we5> cls = this.a.get(imageOperation.actionName);
+            if (cls == null || (e = e(cls)) == null) {
+                return null;
             }
-            return this.c;
+            e.d(imageOperation.actionParam);
+            return e;
         }
-        return (CallFactory.CallFactoryProducer) invokeV.objValue;
+        return (we5) invokeL.objValue;
     }
 
-    @Override // com.baidu.searchbox.network.outback.IOutbackContext
-    public IAdditionalRecord getIAdditionalRecord() {
-        InterceptResult invokeV;
+    public final we5 e(Class<? extends we5> cls) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return new b(this);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cls)) == null) {
+            try {
+                return cls.newInstance();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+                return null;
+            } catch (InstantiationException e2) {
+                e2.printStackTrace();
+                return null;
+            }
         }
-        return (IAdditionalRecord) invokeV.objValue;
+        return (we5) invokeL.objValue;
     }
 
-    @Override // com.baidu.searchbox.network.outback.IOutbackContext
-    public HashMap<String, CallFactory.CallFactoryProducer> getOutbackEngines() {
-        InterceptResult invokeV;
+    public final void f(Class<? extends we5> cls) {
+        we5 e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, cls) == null) && (e = e(cls)) != null) {
+            this.a.put(e.a(), cls);
         }
-        return (HashMap) invokeV.objValue;
+    }
+
+    public Bitmap b(Bitmap bitmap, boolean z, List<ImageOperation> list, ImageFileInfo imageFileInfo) throws Exception {
+        InterceptResult invokeCommon;
+        Bitmap bitmap2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bitmap, Boolean.valueOf(z), list, imageFileInfo})) == null) {
+            if (bitmap == null) {
+                return bitmap;
+            }
+            if (ListUtils.isEmpty(list)) {
+                return bitmap;
+            }
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                we5 a = a(list.get(i));
+                if ((a instanceof bf5) && imageFileInfo != null) {
+                    ((bf5) a).e(imageFileInfo.getFilePath());
+                    return a.b(bitmap, z);
+                }
+            }
+            ye5 ye5Var = null;
+            int i2 = 0;
+            while (i2 < size) {
+                ImageOperation imageOperation = list.get(i2);
+                if ("resize".equals(imageOperation.actionName)) {
+                    ye5 ye5Var2 = (ye5) a(imageOperation);
+                    if (ye5Var == null || ye5Var2.f() <= ye5Var.f() || ye5Var2.e() <= ye5Var.e()) {
+                        ye5Var = ye5Var2;
+                    }
+                    list.remove(i2);
+                    i2--;
+                }
+                i2++;
+            }
+            if (ye5Var != null) {
+                bitmap2 = ye5Var.b(bitmap, z);
+            } else {
+                bitmap2 = null;
+            }
+            if (list != null) {
+                for (int i3 = 0; i3 < size; i3++) {
+                    we5 a2 = a(list.get(i3));
+                    if (a2 != null) {
+                        if (bitmap2 == null) {
+                            return null;
+                        }
+                        bitmap2 = a2.b(bitmap, z);
+                    }
+                }
+            }
+            return bitmap2;
+        }
+        return (Bitmap) invokeCommon.objValue;
+    }
+
+    public Bitmap c(String str, List<ImageOperation> list, ImageFileInfo imageFileInfo) throws Exception {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, list, imageFileInfo)) == null) {
+            Bitmap bitmap = null;
+            if (ListUtils.isEmpty(list)) {
+                return null;
+            }
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                we5 a = a(list.get(i));
+                if ((a instanceof bf5) && imageFileInfo != null) {
+                    return a.c(imageFileInfo.getFilePath());
+                }
+            }
+            ye5 ye5Var = null;
+            int i2 = 0;
+            while (i2 < list.size()) {
+                ImageOperation imageOperation = list.get(i2);
+                if ("resize".equals(imageOperation.actionName)) {
+                    ye5 ye5Var2 = (ye5) a(imageOperation);
+                    if (ye5Var == null || ye5Var2.f() <= ye5Var.f() || ye5Var2.e() <= ye5Var.e()) {
+                        ye5Var = ye5Var2;
+                    }
+                    list.remove(i2);
+                    i2--;
+                }
+                i2++;
+            }
+            if (ye5Var != null) {
+                bitmap = ye5Var.c(str);
+            }
+            if (list != null) {
+                for (int i3 = 0; i3 < list.size(); i3++) {
+                    we5 a2 = a(list.get(i3));
+                    if (a2 != null) {
+                        if (bitmap == null) {
+                            bitmap = a2.c(str);
+                        } else {
+                            bitmap = a2.b(bitmap, true);
+                        }
+                    }
+                }
+            }
+            return bitmap;
+        }
+        return (Bitmap) invokeLLL.objValue;
     }
 }

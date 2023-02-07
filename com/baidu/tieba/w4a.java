@@ -2,99 +2,162 @@ package com.baidu.tieba;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
+import android.view.ViewGroup;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.SoftReference;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.channel.ModuleConfigKs;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.AdRipper;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.kwad.sdk.api.KsAdSDK;
+import com.kwad.sdk.api.KsInterstitialAd;
+import com.kwad.sdk.api.KsLoadManager;
+import com.kwad.sdk.api.KsScene;
+import java.util.List;
 /* loaded from: classes6.dex */
-public final class w4a {
+public class w4a extends q4a<KsInterstitialAd> {
     public static /* synthetic */ Interceptable $ic;
-    public static SoftReference<w4a> d;
     public transient /* synthetic */ FieldHolder $fh;
-    public x4a a;
-    public String b;
-    public Context c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948221989, "Lcom/baidu/tieba/w4a;")) == null) {
-            return;
+    /* loaded from: classes6.dex */
+    public class a implements KsLoadManager.InterstitialAdListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ w4a a;
+
+        public a(w4a w4aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w4aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = w4aVar;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+
+        @Override // com.kwad.sdk.api.KsLoadManager.InterstitialAdListener
+        public void onError(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
+                this.a.onError(i, str);
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948221989, "Lcom/baidu/tieba/w4a;");
+
+        @Override // com.kwad.sdk.api.KsLoadManager.InterstitialAdListener
+        public void onInterstitialAdLoad(@Nullable List<KsInterstitialAd> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+                LogPrinter.d();
+                if (list == null || list.isEmpty()) {
+                    LogPrinter.e("onInterstitialAdLoad error: adList is null or empty", new Object[0]);
+                    this.a.onError(0, "NoFill");
+                    return;
+                }
+                this.a.onAdLoaded((w4a) list.get(0));
+            }
+        }
+
+        @Override // com.kwad.sdk.api.KsLoadManager.InterstitialAdListener
+        public void onRequestResult(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            }
         }
     }
 
-    public w4a(Context context, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public w4a(Ssp.Pid pid, ModuleConfigKs moduleConfigKs) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.INTERSTITIAL), pid, moduleConfigKs);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {pid, moduleConfigKs};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], (ModuleConfigKs) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b5a.b();
-        this.a = new x4a(context, str);
-        this.b = str;
-        this.c = context;
     }
 
-    public static w4a b(Context context, String str) {
-        InterceptResult invokeLL;
-        w4a w4aVar;
-        w4a w4aVar2;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public AdRipper createAdRipper(Ssp.Pid pid) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            if (context != null && str != null) {
-                SoftReference<w4a> softReference = d;
-                if (softReference == null) {
-                    w4aVar = null;
-                } else {
-                    w4aVar = softReference.get();
-                }
-                if (w4aVar == null || !str.equals(w4aVar.b)) {
-                    synchronized (w4a.class) {
-                        w4aVar2 = new w4a(context, str);
-                        d = new SoftReference<>(w4aVar2);
-                    }
-                    return w4aVar2;
-                }
-                return w4aVar;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new n4a(pid) : (AdRipper) invokeL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            KsInterstitialAd ksInterstitialAd = (KsInterstitialAd) obj;
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, context, funAdSlot) == null) {
+            KsAdSDK.getLoadManager().loadInterstitialAd(new KsScene.Builder(Long.parseLong(this.mPid.pid)).adNum(1).build(), new a(this));
+            onLoadStart(funAdSlot);
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public double getAdBiddingPrices(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            return ((KsInterstitialAd) obj).getECPM() / 100.0d;
+        }
+        return invokeL.doubleValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void setAdBiddingResult(Object obj, double d, double d2, boolean z, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{obj, Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            KsInterstitialAd ksInterstitialAd = (KsInterstitialAd) obj;
+            if (z) {
+                ksInterstitialAd.setBidEcpm((int) (d2 * 100.0d));
             }
-            throw new IllegalArgumentException("YYOpenSDK createInstance failed, Make sure context or appid is not null!");
-        }
-        return (w4a) invokeLL.objValue;
-    }
-
-    public final void a(Activity activity, u4a u4aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, u4aVar) == null) {
-            this.a.c(activity, "123", u4aVar);
         }
     }
 
-    public final void c(int i, int i2, Intent intent, u4a u4aVar) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), intent, u4aVar}) == null) {
-            this.a.d(i, i2, intent, u4aVar);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, activity, viewGroup, str, obj)) == null) {
+            KsInterstitialAd ksInterstitialAd = (KsInterstitialAd) obj;
+            onShowStart(ksInterstitialAd);
+            ksInterstitialAd.setAdInteractionListener(new x4a(this, ksInterstitialAd));
+            ksInterstitialAd.showInterstitialAd(activity, e());
+            return true;
         }
+        return invokeLLLL.booleanValue;
     }
 }

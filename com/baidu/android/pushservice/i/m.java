@@ -1648,7 +1648,7 @@ public final class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65609, null, context)) == null) {
             String c2 = c(context, true);
-            String str2 = c2.contains("XIAOMI") ? RomUtils.PROP_RO_BUILD_VERSION_INCREMENTAL : (c2.contains("HUAWEI") || c2.contains("HONOR")) ? "ro.build.version.emui" : c2.contains("MEIZU") ? "ro.build.flyme.version" : (c2.contains("OPPO") || c2.contains("REALME")) ? "ro.build.version.opporom" : c2.contains("VIVO") ? "ro.vivo.os.version" : c2.contains(RomTypeUtil.ROM_ONEPLUS) ? "ro.rom.version" : "";
+            String str2 = c2.contains(RomUtils.ROM_XIAOMI) ? RomUtils.PROP_RO_BUILD_VERSION_INCREMENTAL : (c2.contains("HUAWEI") || c2.contains("HONOR")) ? "ro.build.version.emui" : c2.contains("MEIZU") ? "ro.build.flyme.version" : (c2.contains("OPPO") || c2.contains("REALME")) ? "ro.build.version.opporom" : c2.contains("VIVO") ? "ro.vivo.os.version" : c2.contains(RomTypeUtil.ROM_ONEPLUS) ? "ro.rom.version" : "";
             try {
                 if (Build.VERSION.SDK_INT >= 28) {
                     str = SystemProperties.get(str2);
@@ -1659,7 +1659,7 @@ public final class m {
                 return str;
             } catch (Throwable th) {
                 new b.c(context).a(Log.getStackTraceString(th)).a();
-                return (Build.VERSION.SDK_INT < 21 || !(c2.contains("HUAWEI") || c2.contains("HONOR"))) ? c2.contains("XIAOMI") ? "MIUI_notfound" : (c2.contains("OPPO") || c2.contains("REALME")) ? "ColorOS_notfound" : c2.contains("VIVO") ? "FuntouchOS_notfound" : c2.contains("MEIZU") ? "FlymeOS_notfound" : "" : "EmotionUI_notfound";
+                return (Build.VERSION.SDK_INT < 21 || !(c2.contains("HUAWEI") || c2.contains("HONOR"))) ? c2.contains(RomUtils.ROM_XIAOMI) ? "MIUI_notfound" : (c2.contains("OPPO") || c2.contains("REALME")) ? "ColorOS_notfound" : c2.contains("VIVO") ? "FuntouchOS_notfound" : c2.contains("MEIZU") ? "FlymeOS_notfound" : "" : "EmotionUI_notfound";
             }
         }
         return (String) invokeL.objValue;
@@ -1718,7 +1718,7 @@ public final class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65612, null, context)) == null) {
             try {
-                return c(context, true).contains("XIAOMI");
+                return c(context, true).contains(RomUtils.ROM_XIAOMI);
             } catch (Exception unused) {
                 return false;
             }
@@ -2003,7 +2003,7 @@ public final class m {
             String str2 = "";
             if (x(context)) {
                 String c2 = c(context, true);
-                String str3 = c2.contains("XIAOMI") ? "ro.miui.ui.version.code" : (c2.contains("HUAWEI") || c2.contains("HONOR")) ? "ro.build.version.emui" : c2.contains("MEIZU") ? "ro.build.flyme.version" : (c2.contains("OPPO") || c2.contains("REALME")) ? "ro.build.version.opporom" : c2.contains("VIVO") ? "ro.vivo.os.version" : c2.contains(RomTypeUtil.ROM_ONEPLUS) ? "ro.rom.version" : "";
+                String str3 = c2.contains(RomUtils.ROM_XIAOMI) ? "ro.miui.ui.version.code" : (c2.contains("HUAWEI") || c2.contains("HONOR")) ? "ro.build.version.emui" : c2.contains("MEIZU") ? "ro.build.flyme.version" : (c2.contains("OPPO") || c2.contains("REALME")) ? "ro.build.version.opporom" : c2.contains("VIVO") ? "ro.vivo.os.version" : c2.contains(RomTypeUtil.ROM_ONEPLUS) ? "ro.rom.version" : "";
                 try {
                     if (Build.VERSION.SDK_INT >= 28) {
                         str2 = SystemProperties.get(str3);
@@ -2020,7 +2020,7 @@ public final class m {
                                 if (c2.contains("HUAWEI") || c2.contains("HONOR")) {
                                     return "1.0";
                                 }
-                                if (c2.contains("XIAOMI")) {
+                                if (c2.contains(RomUtils.ROM_XIAOMI)) {
                                     return "4.0";
                                 }
                                 if (c2.contains("MEIZU")) {

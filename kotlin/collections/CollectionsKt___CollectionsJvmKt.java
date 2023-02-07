@@ -19,13 +19,41 @@ import kotlin.internal.InlineOnly;
 import kotlin.jvm.JvmName;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000R\n\u0000\n\u0002\u0010 \n\u0000\n\u0002\u0010\u001c\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u001f\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010!\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000f\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\u001a(\u0010\u0000\u001a\b\u0012\u0004\u0012\u0002H\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\u0006\u0012\u0002\b\u00030\u00032\f\u0010\u0004\u001a\b\u0012\u0004\u0012\u0002H\u00020\u0005\u001aA\u0010\u0006\u001a\u0002H\u0007\"\u0010\b\u0000\u0010\u0007*\n\u0012\u0006\b\u0000\u0012\u0002H\u00020\b\"\u0004\b\u0001\u0010\u0002*\u0006\u0012\u0002\b\u00030\u00032\u0006\u0010\t\u001a\u0002H\u00072\f\u0010\u0004\u001a\b\u0012\u0004\u0012\u0002H\u00020\u0005¢\u0006\u0002\u0010\n\u001a\u0016\u0010\u000b\u001a\u00020\f\"\u0004\b\u0000\u0010\r*\b\u0012\u0004\u0012\u0002H\r0\u000e\u001a5\u0010\u000f\u001a\u00020\u0010\"\u0004\b\u0000\u0010\r*\b\u0012\u0004\u0012\u0002H\r0\u00032\u0012\u0010\u0011\u001a\u000e\u0012\u0004\u0012\u0002H\r\u0012\u0004\u0012\u00020\u00100\u0012H\u0087\bø\u0001\u0000¢\u0006\u0002\b\u0013\u001a5\u0010\u000f\u001a\u00020\u0014\"\u0004\b\u0000\u0010\r*\b\u0012\u0004\u0012\u0002H\r0\u00032\u0012\u0010\u0011\u001a\u000e\u0012\u0004\u0012\u0002H\r\u0012\u0004\u0012\u00020\u00140\u0012H\u0087\bø\u0001\u0000¢\u0006\u0002\b\u0015\u001a&\u0010\u0016\u001a\b\u0012\u0004\u0012\u0002H\r0\u0017\"\u000e\b\u0000\u0010\r*\b\u0012\u0004\u0012\u0002H\r0\u0018*\b\u0012\u0004\u0012\u0002H\r0\u0003\u001a8\u0010\u0016\u001a\b\u0012\u0004\u0012\u0002H\r0\u0017\"\u0004\b\u0000\u0010\r*\b\u0012\u0004\u0012\u0002H\r0\u00032\u001a\u0010\u0019\u001a\u0016\u0012\u0006\b\u0000\u0012\u0002H\r0\u001aj\n\u0012\u0006\b\u0000\u0012\u0002H\r`\u001b\u0082\u0002\u0007\n\u0005\b\u009920\u0001¨\u0006\u001c"}, d2 = {"filterIsInstance", "", "R", "", "klass", "Ljava/lang/Class;", "filterIsInstanceTo", "C", "", "destination", "(Ljava/lang/Iterable;Ljava/util/Collection;Ljava/lang/Class;)Ljava/util/Collection;", MediaAEffect.AE_ANIM_REVERSE, "", ExifInterface.GPS_DIRECTION_TRUE, "", "sumOf", "Ljava/math/BigDecimal;", "selector", "Lkotlin/Function1;", "sumOfBigDecimal", "Ljava/math/BigInteger;", "sumOfBigInteger", "toSortedSet", "Ljava/util/SortedSet;", "", "comparator", "Ljava/util/Comparator;", "Lkotlin/Comparator;", "kotlin-stdlib"}, k = 5, mv = {1, 5, 1}, xi = 1, xs = "kotlin/collections/CollectionsKt")
+@Metadata(d1 = {"\u0000R\n\u0000\n\u0002\u0010 \n\u0000\n\u0002\u0010\u001c\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u001f\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010!\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000f\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\u001a(\u0010\u0000\u001a\b\u0012\u0004\u0012\u0002H\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\u0006\u0012\u0002\b\u00030\u00032\f\u0010\u0004\u001a\b\u0012\u0004\u0012\u0002H\u00020\u0005\u001aA\u0010\u0006\u001a\u0002H\u0007\"\u0010\b\u0000\u0010\u0007*\n\u0012\u0006\b\u0000\u0012\u0002H\u00020\b\"\u0004\b\u0001\u0010\u0002*\u0006\u0012\u0002\b\u00030\u00032\u0006\u0010\t\u001a\u0002H\u00072\f\u0010\u0004\u001a\b\u0012\u0004\u0012\u0002H\u00020\u0005¢\u0006\u0002\u0010\n\u001a\u0016\u0010\u000b\u001a\u00020\f\"\u0004\b\u0000\u0010\r*\b\u0012\u0004\u0012\u0002H\r0\u000e\u001a5\u0010\u000f\u001a\u00020\u0010\"\u0004\b\u0000\u0010\r*\b\u0012\u0004\u0012\u0002H\r0\u00032\u0012\u0010\u0011\u001a\u000e\u0012\u0004\u0012\u0002H\r\u0012\u0004\u0012\u00020\u00100\u0012H\u0087\bø\u0001\u0000¢\u0006\u0002\b\u0013\u001a5\u0010\u000f\u001a\u00020\u0014\"\u0004\b\u0000\u0010\r*\b\u0012\u0004\u0012\u0002H\r0\u00032\u0012\u0010\u0011\u001a\u000e\u0012\u0004\u0012\u0002H\r\u0012\u0004\u0012\u00020\u00140\u0012H\u0087\bø\u0001\u0000¢\u0006\u0002\b\u0015\u001a&\u0010\u0016\u001a\b\u0012\u0004\u0012\u0002H\r0\u0017\"\u000e\b\u0000\u0010\r*\b\u0012\u0004\u0012\u0002H\r0\u0018*\b\u0012\u0004\u0012\u0002H\r0\u0003\u001a8\u0010\u0016\u001a\b\u0012\u0004\u0012\u0002H\r0\u0017\"\u0004\b\u0000\u0010\r*\b\u0012\u0004\u0012\u0002H\r0\u00032\u001a\u0010\u0019\u001a\u0016\u0012\u0006\b\u0000\u0012\u0002H\r0\u001aj\n\u0012\u0006\b\u0000\u0012\u0002H\r`\u001b\u0082\u0002\u0007\n\u0005\b\u009920\u0001¨\u0006\u001c"}, d2 = {"filterIsInstance", "", "R", "", "klass", "Ljava/lang/Class;", "filterIsInstanceTo", "C", "", "destination", "(Ljava/lang/Iterable;Ljava/util/Collection;Ljava/lang/Class;)Ljava/util/Collection;", MediaAEffect.AE_ANIM_REVERSE, "", ExifInterface.GPS_DIRECTION_TRUE, "", "sumOf", "Ljava/math/BigDecimal;", "selector", "Lkotlin/Function1;", "sumOfBigDecimal", "Ljava/math/BigInteger;", "sumOfBigInteger", "toSortedSet", "Ljava/util/SortedSet;", "", "comparator", "Ljava/util/Comparator;", "Lkotlin/Comparator;", "kotlin-stdlib"}, k = 5, mv = {1, 6, 0}, xi = 49, xs = "kotlin/collections/CollectionsKt")
 /* loaded from: classes9.dex */
 public class CollectionsKt___CollectionsJvmKt extends CollectionsKt__ReversedViewsKt {
-    public static final <R> List<R> filterIsInstance(Iterable<?> filterIsInstance, Class<R> klass) {
-        Intrinsics.checkNotNullParameter(filterIsInstance, "$this$filterIsInstance");
+    public static final <R> List<R> filterIsInstance(Iterable<?> iterable, Class<R> klass) {
+        Intrinsics.checkNotNullParameter(iterable, "<this>");
         Intrinsics.checkNotNullParameter(klass, "klass");
-        return (List) filterIsInstanceTo(filterIsInstance, new ArrayList(), klass);
+        return (List) filterIsInstanceTo(iterable, new ArrayList(), klass);
+    }
+
+    public static final <T> SortedSet<T> toSortedSet(Iterable<? extends T> iterable, Comparator<? super T> comparator) {
+        Intrinsics.checkNotNullParameter(iterable, "<this>");
+        Intrinsics.checkNotNullParameter(comparator, "comparator");
+        return (SortedSet) CollectionsKt___CollectionsKt.toCollection(iterable, new TreeSet(comparator));
+    }
+
+    public static final <C extends Collection<? super R>, R> C filterIsInstanceTo(Iterable<?> iterable, C destination, Class<R> klass) {
+        Intrinsics.checkNotNullParameter(iterable, "<this>");
+        Intrinsics.checkNotNullParameter(destination, "destination");
+        Intrinsics.checkNotNullParameter(klass, "klass");
+        for (Object obj : iterable) {
+            if (klass.isInstance(obj)) {
+                destination.add(obj);
+            }
+        }
+        return destination;
+    }
+
+    public static final <T> void reverse(List<T> list) {
+        Intrinsics.checkNotNullParameter(list, "<this>");
+        Collections.reverse(list);
+    }
+
+    public static final <T extends Comparable<? super T>> SortedSet<T> toSortedSet(Iterable<? extends T> iterable) {
+        Intrinsics.checkNotNullParameter(iterable, "<this>");
+        return (SortedSet) CollectionsKt___CollectionsKt.toCollection(iterable, new TreeSet());
     }
 
     /* JADX DEBUG: Type inference failed for r1v2. Raw type applied. Possible types: T, ? super T */
@@ -33,12 +61,14 @@ public class CollectionsKt___CollectionsJvmKt extends CollectionsKt__ReversedVie
     @InlineOnly
     @JvmName(name = "sumOfBigDecimal")
     @OverloadResolutionByLambdaReturnType
-    public static final <T> BigDecimal sumOfBigDecimal(Iterable<? extends T> iterable, Function1<? super T, ? extends BigDecimal> function1) {
-        BigDecimal valueOf = BigDecimal.valueOf(0);
-        Intrinsics.checkNotNullExpressionValue(valueOf, "BigDecimal.valueOf(this.toLong())");
+    public static final <T> BigDecimal sumOfBigDecimal(Iterable<? extends T> iterable, Function1<? super T, ? extends BigDecimal> selector) {
+        Intrinsics.checkNotNullParameter(iterable, "<this>");
+        Intrinsics.checkNotNullParameter(selector, "selector");
+        BigDecimal valueOf = BigDecimal.valueOf(0L);
+        Intrinsics.checkNotNullExpressionValue(valueOf, "valueOf(this.toLong())");
         Iterator<? extends T> it = iterable.iterator();
         while (it.hasNext()) {
-            valueOf = valueOf.add(function1.invoke((T) it.next()));
+            valueOf = valueOf.add(selector.invoke((T) it.next()));
             Intrinsics.checkNotNullExpressionValue(valueOf, "this.add(other)");
         }
         return valueOf;
@@ -49,42 +79,16 @@ public class CollectionsKt___CollectionsJvmKt extends CollectionsKt__ReversedVie
     @InlineOnly
     @JvmName(name = "sumOfBigInteger")
     @OverloadResolutionByLambdaReturnType
-    public static final <T> BigInteger sumOfBigInteger(Iterable<? extends T> iterable, Function1<? super T, ? extends BigInteger> function1) {
-        BigInteger valueOf = BigInteger.valueOf(0);
-        Intrinsics.checkNotNullExpressionValue(valueOf, "BigInteger.valueOf(this.toLong())");
+    public static final <T> BigInteger sumOfBigInteger(Iterable<? extends T> iterable, Function1<? super T, ? extends BigInteger> selector) {
+        Intrinsics.checkNotNullParameter(iterable, "<this>");
+        Intrinsics.checkNotNullParameter(selector, "selector");
+        BigInteger valueOf = BigInteger.valueOf(0L);
+        Intrinsics.checkNotNullExpressionValue(valueOf, "valueOf(this.toLong())");
         Iterator<? extends T> it = iterable.iterator();
         while (it.hasNext()) {
-            valueOf = valueOf.add(function1.invoke((T) it.next()));
+            valueOf = valueOf.add(selector.invoke((T) it.next()));
             Intrinsics.checkNotNullExpressionValue(valueOf, "this.add(other)");
         }
         return valueOf;
-    }
-
-    public static final <T> SortedSet<T> toSortedSet(Iterable<? extends T> toSortedSet, Comparator<? super T> comparator) {
-        Intrinsics.checkNotNullParameter(toSortedSet, "$this$toSortedSet");
-        Intrinsics.checkNotNullParameter(comparator, "comparator");
-        return (SortedSet) CollectionsKt___CollectionsKt.toCollection(toSortedSet, new TreeSet(comparator));
-    }
-
-    public static final <C extends Collection<? super R>, R> C filterIsInstanceTo(Iterable<?> filterIsInstanceTo, C destination, Class<R> klass) {
-        Intrinsics.checkNotNullParameter(filterIsInstanceTo, "$this$filterIsInstanceTo");
-        Intrinsics.checkNotNullParameter(destination, "destination");
-        Intrinsics.checkNotNullParameter(klass, "klass");
-        for (Object obj : filterIsInstanceTo) {
-            if (klass.isInstance(obj)) {
-                destination.add(obj);
-            }
-        }
-        return destination;
-    }
-
-    public static final <T> void reverse(List<T> reverse) {
-        Intrinsics.checkNotNullParameter(reverse, "$this$reverse");
-        Collections.reverse(reverse);
-    }
-
-    public static final <T extends Comparable<? super T>> SortedSet<T> toSortedSet(Iterable<? extends T> toSortedSet) {
-        Intrinsics.checkNotNullParameter(toSortedSet, "$this$toSortedSet");
-        return (SortedSet) CollectionsKt___CollectionsKt.toCollection(toSortedSet, new TreeSet());
     }
 }

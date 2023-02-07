@@ -1,37 +1,33 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.os.Bundle;
+import java.util.Map;
 /* loaded from: classes3.dex */
-public class ar8 implements r45 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ar8 {
 
-    public ar8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+    /* loaded from: classes3.dex */
+    public interface a {
+        int a(Context context, String[] strArr);
     }
 
-    @Override // com.baidu.tieba.r45
-    public q45 a(Context context, p45 p45Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, p45Var)) == null) {
-            return new zq8(context, p45Var);
-        }
-        return (q45) invokeLL.objValue;
+    /* loaded from: classes3.dex */
+    public interface b {
+        int a(Context context, Map<String, String> map);
     }
+
+    /* loaded from: classes3.dex */
+    public interface c {
+        int a(Context context, String str, String str2, boolean z, d dVar, boolean z2, Bundle bundle);
+    }
+
+    /* loaded from: classes3.dex */
+    public interface d {
+    }
+
+    boolean a(String str);
+
+    void b(Context context, String[] strArr, boolean z, Bundle bundle);
+
+    boolean c(Context context, String[] strArr, Bundle bundle);
 }

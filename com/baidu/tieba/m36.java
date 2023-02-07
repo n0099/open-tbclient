@@ -1,189 +1,97 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.ala.AlaCmdConfigHttp;
-import com.baidu.ala.downloader.ResourceDownloader;
-import com.baidu.ala.gift.AlaDynamicGift;
-import com.baidu.ala.gift.AlaDynamicGiftLocalInfoConfig;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaGetEnterEffectResponsedMessage;
-import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.ala.alasquare.livetab.view.LiveTabAlaRecommendViewHolder;
+import com.baidu.tieba.card.ala.secondfloor.AlaRecommendLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class m36 {
+public class m36 extends qn<n36, LiveTabAlaRecommendViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public b b;
-    public BdAsyncTask c;
-    public HttpMessageListener d;
+    public AlaRecommendLayout b;
+    public int c;
+    public String d;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(AlaGetEnterEffectResponsedMessage alaGetEnterEffectResponsedMessage);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m36 a;
-
-        /* renamed from: com.baidu.tieba.m36$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class C0349a extends BdAsyncTask {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ List a;
-            public final /* synthetic */ HttpResponsedMessage b;
-            public final /* synthetic */ a c;
-
-            public C0349a(a aVar, List list, HttpResponsedMessage httpResponsedMessage) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, list, httpResponsedMessage};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.c = aVar;
-                this.a = list;
-                this.b = httpResponsedMessage;
-            }
-
-            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-            public Object doInBackground(Object[] objArr) {
-                InterceptResult invokeL;
-                AlaDynamicGift alaDynamicGift;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                    for (yn ynVar : this.a) {
-                        if (ynVar instanceof AlaEnterEffectData) {
-                            AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) ynVar;
-                            if (alaEnterEffectData.type == 1 && (alaDynamicGift = alaEnterEffectData.gift) != null && alaDynamicGift.giftZip != null) {
-                                if (ResourceDownloader.checkDirNeedToDownload(AlaDynamicGiftLocalInfoConfig.DIR_PATH + alaEnterEffectData.gift.giftZip.zipName, AlaDynamicGiftLocalInfoConfig.PIC_MD5_PREFIX + alaEnterEffectData.gift.giftName)) {
-                                    alaEnterEffectData.downLoadStatus = 100;
-                                } else {
-                                    alaEnterEffectData.downLoadStatus = 101;
-                                }
-                            }
-                        }
-                    }
-                    return null;
-                }
-                return invokeL.objValue;
-            }
-
-            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-            public void onCancelled() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    super.onCancelled();
-                    this.c.a.b.a((AlaGetEnterEffectResponsedMessage) this.b);
-                }
-            }
-
-            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-            public void onPostExecute(Object obj) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-                    super.onPostExecute(obj);
-                    this.c.a.b.a((AlaGetEnterEffectResponsedMessage) this.b);
-                }
-            }
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(m36 m36Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m36Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = m36Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof AlaGetEnterEffectResponsedMessage)) {
-                AlaGetEnterEffectResponsedMessage alaGetEnterEffectResponsedMessage = (AlaGetEnterEffectResponsedMessage) httpResponsedMessage;
-                List<yn> effectList = alaGetEnterEffectResponsedMessage.getEffectList();
-                if (ListUtils.isEmpty(effectList)) {
-                    this.a.b.a(alaGetEnterEffectResponsedMessage);
-                    return;
-                }
-                this.a.c = new C0349a(this, effectList, httpResponsedMessage).execute(new Object[0]);
-            }
-        }
-    }
-
-    public m36(TbPageContext tbPageContext, b bVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m36(TbPageContext tbPageContext, int i, String str) {
+        super(tbPageContext.getPageActivity(), n36.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bVar};
+            Object[] objArr = {tbPageContext, Integer.valueOf(i), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a aVar = new a(this, AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT);
-        this.d = aVar;
+        this.d = "0";
         this.a = tbPageContext;
-        this.b = bVar;
-        tbPageContext.registerListener(aVar);
+        this.c = i;
+        this.d = str;
     }
 
-    public void c() {
-        BdAsyncTask bdAsyncTask;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: s */
+    public LiveTabAlaRecommendViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bdAsyncTask = this.c) != null) {
-            bdAsyncTask.cancel();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            AlaRecommendLayout alaRecommendLayout = new AlaRecommendLayout(this.a.getPageActivity());
+            this.b = alaRecommendLayout;
+            alaRecommendLayout.setPadding(UtilHelper.getDimenPixelSize(R.dimen.tbds34), UtilHelper.getDimenPixelSize(R.dimen.tbds21), UtilHelper.getDimenPixelSize(R.dimen.tbds34), this.b.getPaddingBottom());
+            this.b.setFid(this.d);
+            TiebaStatic.log(od6.e("c13620", this.c, this.d));
+            return new LiveTabAlaRecommendViewHolder(this.b);
         }
+        return (LiveTabAlaRecommendViewHolder) invokeL.objValue;
     }
 
-    public void d() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, n36 n36Var, LiveTabAlaRecommendViewHolder liveTabAlaRecommendViewHolder) {
+        InterceptResult invokeCommon;
+        AlaRecommendLayout alaRecommendLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT);
-            httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
-            this.a.sendMessage(httpMessage);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, n36Var, liveTabAlaRecommendViewHolder})) == null) {
+            if (liveTabAlaRecommendViewHolder != null && (alaRecommendLayout = liveTabAlaRecommendViewHolder.a) != null && n36Var != null) {
+                p15 d = p15.d(alaRecommendLayout.findViewById(R.id.ala_recommend_list_container));
+                d.n(R.string.J_X06);
+                d.f(R.color.CAM_X0201);
+                pd6 pd6Var = n36Var.a;
+                if (pd6Var != null && !ListUtils.isEmpty(pd6Var.c())) {
+                    liveTabAlaRecommendViewHolder.a.setData(n36Var.a);
+                    liveTabAlaRecommendViewHolder.a.d(TbadkCoreApplication.getInst().getSkinType());
+                    liveTabAlaRecommendViewHolder.a.setVisibility(0);
+                } else {
+                    liveTabAlaRecommendViewHolder.a.setVisibility(8);
+                }
+                return liveTabAlaRecommendViewHolder.getView();
+            }
+            return null;
         }
+        return (View) invokeCommon.objValue;
     }
 }

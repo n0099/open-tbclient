@@ -9,9 +9,9 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cx4;
+import com.baidu.tieba.ej;
 import com.baidu.tieba.frs.view.FrsTopBarGroupEntranceGuideView;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.p15;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -115,7 +115,7 @@ public final class FrsTopBarGroupEntranceGuideView extends RelativeLayout {
             }
         }
         c();
-        this.f = new Runnable() { // from class: com.baidu.tieba.a17
+        this.f = new Runnable() { // from class: com.baidu.tieba.l57
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -169,7 +169,7 @@ public final class FrsTopBarGroupEntranceGuideView extends RelativeLayout {
                 imageView = null;
             }
             imageView.setId(R.id.arrow_icon);
-            this.b = new RelativeLayout.LayoutParams(zi.g(getContext(), R.dimen.tbds42), zi.g(getContext(), R.dimen.tbds13));
+            this.b = new RelativeLayout.LayoutParams(ej.g(getContext(), R.dimen.tbds42), ej.g(getContext(), R.dimen.tbds13));
             ImageView imageView2 = this.a;
             if (imageView2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("arrowIcon");
@@ -199,7 +199,7 @@ public final class FrsTopBarGroupEntranceGuideView extends RelativeLayout {
                 Intrinsics.throwUninitializedPropertyAccessException("tipTextLp");
                 layoutParams5 = null;
             }
-            layoutParams5.rightMargin = zi.g(getContext(), R.dimen.M_H_X007);
+            layoutParams5.rightMargin = ej.g(getContext(), R.dimen.M_H_X007);
             TextView textView = new TextView(getContext());
             this.c = textView;
             if (textView == null) {
@@ -212,7 +212,7 @@ public final class FrsTopBarGroupEntranceGuideView extends RelativeLayout {
                 Intrinsics.throwUninitializedPropertyAccessException("tipTextView");
                 textView2 = null;
             }
-            textView2.setPadding(zi.g(getContext(), R.dimen.M_W_X005), zi.g(getContext(), R.dimen.M_H_X004), zi.g(getContext(), R.dimen.M_W_X005), zi.g(getContext(), R.dimen.M_H_X004));
+            textView2.setPadding(ej.g(getContext(), R.dimen.M_W_X005), ej.g(getContext(), R.dimen.M_H_X004), ej.g(getContext(), R.dimen.M_W_X005), ej.g(getContext(), R.dimen.M_H_X004));
             TextView textView3 = this.c;
             if (textView3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("tipTextView");
@@ -251,7 +251,7 @@ public final class FrsTopBarGroupEntranceGuideView extends RelativeLayout {
             } else {
                 textView = textView3;
             }
-            cx4 d = cx4.d(textView);
+            p15 d = p15.d(textView);
             d.v(R.color.CAM_X0101);
             d.z(R.dimen.T_X09);
             d.A(R.string.F_X01);

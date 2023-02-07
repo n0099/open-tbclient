@@ -1,72 +1,37 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.tieba.ad.AbsDataRecorder;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Stack;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class js5 {
+public class js5 extends is5 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile js5 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public AbsDataRecorder a;
-    public String b;
-    public String c;
-    public Stack<HashMap<AbsDataRecorder.Scene, AbsDataRecorder>> d;
-    public boolean e;
-    public Map<String, Integer> f;
+    public TbPageContext c;
+    public ks5 d;
+    public int e;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-679736608, "Lcom/baidu/tieba/js5$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-679736608, "Lcom/baidu/tieba/js5$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[AbsDataRecorder.Scene.values().length];
-            a = iArr;
-            try {
-                iArr[AbsDataRecorder.Scene.RECOMMEND.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[AbsDataRecorder.Scene.FRS_HOT.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[AbsDataRecorder.Scene.FRS_NEW.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-        }
-    }
-
-    public js5() {
+    public js5(TbPageContext tbPageContext, as5 as5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, as5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -76,231 +41,194 @@ public class js5 {
                 return;
             }
         }
-        this.e = false;
-        if (this.d == null) {
-            this.d = new Stack<>();
-        }
-        this.b = "key_ad_free_guid_display_num_" + TbadkCoreApplication.getCurrentAccount();
-        this.c = "key_ad_free_guid_display_time_" + TbadkCoreApplication.getCurrentAccount();
+        this.b = as5Var;
+        this.c = tbPageContext;
+        as5Var.a(this);
     }
 
-    public void o() {
+    @Override // com.baidu.tieba.hs5
+    public boolean a(String str) {
+        InterceptResult invokeL;
+        as5 as5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            a();
-            b();
-            if (TbadkCoreApplication.isLogin()) {
-                this.b = "key_ad_free_guid_display_num_" + TbadkCoreApplication.getCurrentAccount();
-                this.c = "key_ad_free_guid_display_time_" + TbadkCoreApplication.getCurrentAccount();
-            } else {
-                gs5.e().a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            as5 as5Var2 = this.b;
+            if (as5Var2 != null) {
+                as5Var2.i(str);
             }
-            this.a.a();
-        }
-    }
-
-    public static js5 k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (g == null) {
-                synchronized (js5.class) {
-                    if (g == null) {
-                        g = new js5();
-                    }
-                }
-            }
-            return g;
-        }
-        return (js5) invokeV.objValue;
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            cz4.l().E(this.b);
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            cz4.l().E(this.c);
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            HashMap<AbsDataRecorder.Scene, AbsDataRecorder> hashMap = new HashMap<>();
-            hashMap.put(AbsDataRecorder.Scene.FRS_HOT, null);
-            hashMap.put(AbsDataRecorder.Scene.FRS_NEW, null);
-            this.d.push(hashMap);
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && !this.d.isEmpty()) {
-            this.d.pop();
-        }
-    }
-
-    public final AbsDataRecorder f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.a == null) {
-                this.a = new ks5();
-            }
-            return this.a;
-        }
-        return (AbsDataRecorder) invokeV.objValue;
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (TbadkCoreApplication.isLogin() && TbadkCoreApplication.getCurrentMemberType() == 0 && gs5.e().i()) {
+            ls5 ls5Var = this.a;
+            if (ls5Var != null && (as5Var = this.b) != null) {
+                ls5Var.d(as5Var.c());
                 return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            cz4.l().x(this.b, cz4.l().m(this.b, 0) + 1);
-            cz4.l().y(this.c, System.currentTimeMillis());
-        }
-    }
-
-    public final int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (!TimeHelper.isSameDay(cz4.l().n(this.c, 0L), System.currentTimeMillis())) {
-                a();
-            }
-            return cz4.l().m(this.b, 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public AbsDataRecorder g(AbsDataRecorder.Scene scene) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, scene)) == null) {
-            int i = a.a[scene.ordinal()];
-            if (i != 1) {
-                if (i != 2 && i != 3) {
-                    return null;
-                }
-                return i(scene);
-            }
-            return f();
-        }
-        return (AbsDataRecorder) invokeL.objValue;
-    }
-
-    public int j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            Map<String, Integer> map = this.f;
-            if (map != null && map.get(str) != null) {
-                return this.f.get(str).intValue();
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public boolean l(AbsDataRecorder.Scene scene) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, scene)) == null) {
-            if (!bt5.i().p(scene) && n() && g(scene) != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void q(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.e = z;
-        }
-    }
-
-    public final AbsDataRecorder i(AbsDataRecorder.Scene scene) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, scene)) == null) {
-            if (!this.d.isEmpty()) {
-                HashMap<AbsDataRecorder.Scene, AbsDataRecorder> peek = this.d.peek();
-                if (peek.get(scene) == null) {
-                    if (scene == AbsDataRecorder.Scene.FRS_HOT) {
-                        peek.put(scene, new hs5());
-                    } else if (scene == AbsDataRecorder.Scene.FRS_NEW) {
-                        peek.put(scene, new is5());
-                    }
-                }
-                return peek.get(scene);
-            }
-            return null;
-        }
-        return (AbsDataRecorder) invokeL.objValue;
-    }
-
-    public void p(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048590, this, str, i) == null) {
-            if (this.f == null) {
-                this.f = new HashMap();
-            }
-            if (this.f.get(str) == null) {
-                this.f.put(str, Integer.valueOf(i));
-            }
-        }
-    }
-
-    public boolean r(int i, AbsDataRecorder.Scene scene) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048592, this, i, scene)) == null) {
-            if (!bt5.i().q() && n() && i >= gs5.e().f(AbsDataRecorder.Scene.PB) && h() < gs5.e().d()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeIL.booleanValue;
-    }
-
-    public boolean s(AbsDataRecorder.Scene scene) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, scene)) == null) {
-            AbsDataRecorder g2 = g(scene);
-            if (g2 == null || !l(scene) || g2.c() < gs5.e().f(scene) || h() >= gs5.e().d()) {
-                return false;
             }
             return true;
         }
         return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.hs5
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    @Override // com.baidu.tieba.hs5
+    public boolean c(ds5 ds5Var) {
+        InterceptResult invokeL;
+        as5 as5Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ds5Var)) == null) {
+            as5 as5Var2 = this.b;
+            if (as5Var2 != null && as5Var2.c() >= 30) {
+                j(this.c.getPageActivity(), false, String.format(this.c.getString(R.string.bawu_multi_del_post_max_num), 30));
+                return false;
+            }
+            as5 as5Var3 = this.b;
+            if (as5Var3 != null) {
+                as5Var3.f(ds5Var);
+            }
+            ls5 ls5Var = this.a;
+            if (ls5Var != null && (as5Var = this.b) != null) {
+                ls5Var.d(as5Var.c());
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.is5, com.baidu.tieba.hs5
+    public void dismiss() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            ls5 ls5Var = this.a;
+            if (ls5Var != null) {
+                ls5Var.a();
+            }
+            as5 as5Var = this.b;
+            if (as5Var != null && as5Var.b() != null && this.b.b().g() != null) {
+                this.b.b().g().a();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.is5
+    public void f() {
+        as5 as5Var;
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (as5Var = this.b) != null && as5Var.c() != 0) {
+            this.b.h("1");
+            i();
+            StatisticItem param = new StatisticItem(CommonStatisticKey.KEY_MULTI_DEL_BUTTON_CLICK).param("obj_type", "1");
+            if (this.e == 3) {
+                str = "3";
+            } else {
+                str = "2";
+            }
+            TiebaStatic.log(param.param("obj_source", str));
+        }
+    }
+
+    @Override // com.baidu.tieba.is5
+    public void g() {
+        as5 as5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (as5Var = this.b) != null && as5Var.c() != 0) {
+            String str = "2";
+            this.b.h("2");
+            i();
+            StatisticItem param = new StatisticItem(CommonStatisticKey.KEY_MULTI_DEL_BUTTON_CLICK).param("obj_type", "2");
+            if (this.e == 3) {
+                str = "3";
+            }
+            TiebaStatic.log(param.param("obj_source", str));
+        }
+    }
+
+    @Override // com.baidu.tieba.is5
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            dismiss();
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            ks5 ks5Var = new ks5(this.c, this.b);
+            this.d = ks5Var;
+            ks5Var.c(this.e);
+        }
+    }
+
+    @Override // com.baidu.tieba.hs5
+    public void show() {
+        ls5 ls5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (ls5Var = this.a) != null) {
+            ls5Var.e();
+        }
+    }
+
+    @Override // com.baidu.tieba.is5
+    public void h(fs5 fs5Var) {
+        String str;
+        boolean z;
+        gs5 gs5Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, fs5Var) == null) {
+            List<String> list = null;
+            int i = -1;
+            if (fs5Var != null) {
+                if (fs5Var.a && (gs5Var = fs5Var.c) != null) {
+                    list = gs5Var.a;
+                    i = gs5Var.c;
+                    str = gs5Var.d;
+                } else {
+                    str = fs5Var.b;
+                }
+            } else {
+                str = "";
+            }
+            ks5 ks5Var = this.d;
+            if (ks5Var != null) {
+                ks5Var.b();
+            }
+            Activity pageActivity = this.c.getPageActivity();
+            if (i == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            j(pageActivity, z, str);
+            as5 as5Var = this.b;
+            if (as5Var != null && as5Var.b() != null && this.b.b().g() != null) {
+                this.b.b().g().b(list);
+            }
+            if (i == 0) {
+                dismiss();
+            } else if (!ListUtils.isEmpty(list)) {
+                for (String str2 : list) {
+                    a(str2);
+                }
+            }
+        }
+    }
+
+    public final void j(Activity activity, boolean z, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{activity, Boolean.valueOf(z), str}) == null) && activity != null && !TextUtils.isEmpty(str)) {
+            View findViewById = activity.findViewById(16908290);
+            if (!(findViewById instanceof ViewGroup)) {
+                return;
+            }
+            BdTopToast bdTopToast = new BdTopToast(activity, 3000);
+            bdTopToast.h(z);
+            bdTopToast.g(str);
+            bdTopToast.i((ViewGroup) findViewById);
+        }
     }
 }

@@ -149,9 +149,9 @@ public final class b extends com.kwad.components.core.page.recycle.a {
     public void t(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, view2) == null) {
-            this.mWebTipBarLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0912e1);
-            this.mWebTipBarTitle = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0912e2);
-            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0912e3);
+            this.mWebTipBarLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091324);
+            this.mWebTipBarTitle = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091325);
+            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091326);
             this.mWebTipBarCloseBtn = imageView;
             imageView.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.core.page.b.1
                 public static /* synthetic */ Interceptable $ic;
@@ -310,7 +310,7 @@ public final class b extends com.kwad.components.core.page.recycle.a {
                         }
                         if (this.Fy.getChildCount() > 1) {
                             View view4 = this.Fy.findViewHolderForAdapterPosition(1).itemView;
-                            this.Fx.Fv = (WebView) view4.findViewById(R.id.obfuscated_res_0x7f0912d7);
+                            this.Fx.Fv = (WebView) view4.findViewById(R.id.obfuscated_res_0x7f09131a);
                             this.Fx.t(view4);
                         }
                         com.kwad.sdk.core.e.b.d("AdRecycleWebFragment", "onGlobalLayout");

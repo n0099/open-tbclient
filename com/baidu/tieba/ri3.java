@@ -1,46 +1,90 @@
 package com.baidu.tieba;
 
-import android.util.Base64;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.pi3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class ri3 {
+public abstract class ri3 extends ta3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String b;
-    public static final String c;
-    public static final String d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948122541, "Lcom/baidu/tieba/ri3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948122541, "Lcom/baidu/tieba/ri3;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ri3(t93 t93Var, String str) {
+        super(t93Var, str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {t93Var, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = a("b3Bwbw==");
-        b = a("T1BQTw==");
-        a("T3Bwbw==");
-        c = a("cm8uYnVpbGQudmVyc2lvbi5vcHBvcm9t");
-        d = a("Y29tLm9wcG8uZmVhdHVyZS5zY3JlZW4uaGV0ZXJvbW9ycGhpc20=");
     }
 
-    public static String a(String str) {
+    public boolean j(Context context, w83 w83Var, UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, w83Var, unitedSchemeEntity)) == null) {
+            if (w83Var == null) {
+                w52.c("battery", "none swanApp");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
+                if (ta3.b) {
+                    Log.d("SwanAppAction", "getBatteryInfo --- illegal swanApp");
+                }
+                return false;
+            } else if (context == null) {
+                w52.c("battery", "none context");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
+                if (ta3.b) {
+                    Log.d("SwanAppAction", "getBatteryInfo --- illegal context");
+                }
+                return false;
+            } else {
+                return true;
+            }
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    @Nullable
+    public JSONObject k(@NonNull pi3.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return new String(Base64.decode(str, 0));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                int i = 100;
+                if (aVar.a <= 100) {
+                    i = aVar.a;
+                }
+                jSONObject.put("level", String.valueOf(i));
+                jSONObject.put("isCharging", aVar.b);
+                return jSONObject;
+            } catch (JSONException unused) {
+                return null;
+            }
         }
-        return (String) invokeL.objValue;
+        return (JSONObject) invokeL.objValue;
     }
 }

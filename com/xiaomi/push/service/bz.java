@@ -95,23 +95,23 @@ public class bz {
                 for (int i4 = 0; i4 < list.size(); i4++) {
                     hn hnVar = list.get(i4);
                     if (hnVar != null) {
-                        if (hnVar.m473a() == null || !hnVar.m473a().containsKey("item_size")) {
+                        if (hnVar.m475a() == null || !hnVar.m475a().containsKey("item_size")) {
                             i2 = 0;
                         } else {
-                            String str4 = hnVar.m473a().get("item_size");
+                            String str4 = hnVar.m475a().get("item_size");
                             if (!TextUtils.isEmpty(str4)) {
                                 try {
                                     i2 = Integer.parseInt(str4);
                                 } catch (Exception unused) {
                                 }
-                                if (hnVar.m473a().size() != 1) {
+                                if (hnVar.m475a().size() != 1) {
                                     hnVar.a((Map<String, String>) null);
                                 } else {
-                                    hnVar.m473a().remove("item_size");
+                                    hnVar.m475a().remove("item_size");
                                 }
                             }
                             i2 = 0;
-                            if (hnVar.m473a().size() != 1) {
+                            if (hnVar.m475a().size() != 1) {
                             }
                         }
                         if (i2 <= 0) {
@@ -197,9 +197,9 @@ public class bz {
                 str = "item.category is null or empty, verfiy ClientUploadDataItem failed.";
             } else if (TextUtils.isEmpty(hnVar.f507c)) {
                 str = "item.name is null or empty, verfiy ClientUploadDataItem failed.";
-            } else if (!com.xiaomi.push.bp.m219a(hnVar.f508d)) {
+            } else if (!com.xiaomi.push.bp.m221a(hnVar.f508d)) {
                 str = "item.category can only contain ascii char, verfiy ClientUploadDataItem failed.";
-            } else if (com.xiaomi.push.bp.m219a(hnVar.f507c)) {
+            } else if (com.xiaomi.push.bp.m221a(hnVar.f507c)) {
                 String str2 = hnVar.f506b;
                 if (str2 == null || str2.length() <= 10240) {
                     return false;
@@ -208,7 +208,7 @@ public class bz {
             } else {
                 str = "item.name can only contain ascii char, verfiy ClientUploadDataItem failed.";
             }
-            com.xiaomi.channel.commonutils.logger.b.m103a(str);
+            com.xiaomi.channel.commonutils.logger.b.m105a(str);
             return true;
         }
         return invokeLZ.booleanValue;
@@ -217,6 +217,6 @@ public class bz {
     public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? !com.xiaomi.push.v.m765b() || Constants.HYBRID_PACKAGE_NAME.equals(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? !com.xiaomi.push.v.m767b() || Constants.HYBRID_PACKAGE_NAME.equals(str) : invokeL.booleanValue;
     }
 }

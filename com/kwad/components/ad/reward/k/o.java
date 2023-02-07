@@ -44,8 +44,8 @@ public final class o extends d implements View.OnClickListener {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.vU = (KsStyledTextButton) this.vl.findViewById(R.id.obfuscated_res_0x7f0911ac);
-            this.vV = this.vl.findViewById(R.id.obfuscated_res_0x7f0911ad);
+            this.vU = (KsStyledTextButton) this.vl.findViewById(R.id.obfuscated_res_0x7f0911ef);
+            this.vV = this.vl.findViewById(R.id.obfuscated_res_0x7f0911f0);
             this.vU.setOnClickListener(this);
             this.vV.setOnClickListener(this);
         }

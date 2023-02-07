@@ -1,18 +1,67 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.max.event.NestedEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final /* synthetic */ class jp0 {
-    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
+public final class jp0 implements lj0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final NestedEvent a;
+    public final boolean b;
 
-    static {
-        int[] iArr = new int[NestedEvent.values().length];
-        $EnumSwitchMapping$0 = iArr;
-        iArr[NestedEvent.UP_SHOW_VIDEO.ordinal()] = 1;
-        $EnumSwitchMapping$0[NestedEvent.UP_SHOW_WEB.ordinal()] = 2;
+    public jp0(NestedEvent type, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {type, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(type, "type");
+        this.a = type;
+        this.b = z;
+    }
+
+    @Override // com.baidu.tieba.lj0
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String simpleName = jp0.class.getSimpleName();
+            Intrinsics.checkNotNullExpressionValue(simpleName, "NestedScrollUpEvent::class.java.simpleName");
+            return simpleName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final NestedEvent getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (NestedEvent) invokeV.objValue;
     }
 }

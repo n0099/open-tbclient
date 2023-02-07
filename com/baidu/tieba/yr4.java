@@ -2,24 +2,45 @@ package com.baidu.tieba;
 
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetBigday.BigdayInfo;
+import tbclient.GetToken.DataRes;
+import tbclient.GetToken.ToastInfo;
 /* loaded from: classes7.dex */
 public class yr4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
-    public int c;
-    public long d;
-    public int e;
-    public long f;
-    public long g;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public a g;
+
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
 
     public yr4() {
         Interceptable interceptable = $ic;
@@ -35,58 +56,64 @@ public class yr4 {
         }
     }
 
-    public boolean a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!StringUtils.isNULL(this.a) && this.d > 0) {
-                int i = this.e;
-                if (i == 1 || i == 3) {
-                    long j = this.f;
-                    if (j > 0) {
-                        long j2 = this.g;
-                        if (j2 > 0 && j2 > j) {
-                            return true;
-                        }
-                        return false;
-                    }
-                    return false;
-                }
-                return false;
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public a b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.g;
+        }
+        return (a) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (StringUtils.isNull(this.c) && StringUtils.isNull(this.a) && StringUtils.isNull(this.b) && StringUtils.isNull(this.d) && StringUtils.isNull(this.e) && StringUtils.isNull(this.f) && this.g == null) {
+                return true;
             }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    public void b(BigdayInfo bigdayInfo) {
+    public void e(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bigdayInfo) == null) && bigdayInfo != null && !StringUtils.isNULL(bigdayInfo.img_url) && bigdayInfo.id.longValue() > 0) {
-            if ((bigdayInfo.position.intValue() == 1 || bigdayInfo.position.intValue() == 3) && bigdayInfo.start_time.longValue() > 0 && bigdayInfo.end_time.longValue() > 0 && bigdayInfo.end_time.longValue() > bigdayInfo.start_time.longValue()) {
-                this.a = bigdayInfo.img_url;
-                this.b = bigdayInfo.jump_url;
-                this.c = bigdayInfo.img_colour.intValue();
-                this.d = bigdayInfo.id.longValue();
-                this.e = bigdayInfo.position.intValue();
-                this.f = bigdayInfo.start_time.longValue();
-                this.g = bigdayInfo.end_time.longValue();
-            }
+        if ((interceptable != null && interceptable.invokeL(1048580, this, dataRes) != null) || dataRes == null) {
+            return;
         }
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (!(obj instanceof yr4)) {
-                return false;
-            }
-            yr4 yr4Var = (yr4) obj;
-            if (!yr4Var.a() || !a() || this.d != yr4Var.d || !StringHelper.equals(this.a, yr4Var.a) || (((this.b != null || yr4Var.b != null) && !StringHelper.equals(this.b, yr4Var.b)) || this.c != yr4Var.c || this.e != yr4Var.e || this.f != yr4Var.f || this.g != yr4Var.g)) {
-                return false;
-            }
-            return true;
+        this.a = dataRes.title;
+        this.b = dataRes.img;
+        this.c = dataRes.tips;
+        this.d = dataRes.url;
+        this.e = dataRes.btn_sure;
+        this.f = dataRes.btn_cancel;
+        if (dataRes.activity_done != null) {
+            a aVar = new a();
+            this.g = aVar;
+            ToastInfo toastInfo = dataRes.activity_done;
+            String str = toastInfo.url;
+            aVar.a = toastInfo.btntext;
+            String str2 = toastInfo.message;
+            String str3 = toastInfo.sharetoken;
         }
-        return invokeL.booleanValue;
     }
 }

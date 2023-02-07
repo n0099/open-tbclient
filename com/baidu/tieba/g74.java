@@ -1,151 +1,54 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
-import android.webkit.JavascriptInterface;
-import android.widget.FrameLayout;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JSRuntime;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
-import com.baidu.searchbox.v8engine.event.EventTargetImpl;
-import com.baidu.swan.games.view.button.base.ApiButton;
-import com.baidu.tieba.f74;
+import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.tieba.m03;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Collections;
+import java.util.HashMap;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Request;
+import okhttp3.Response;
+import org.json.JSONException;
 /* loaded from: classes4.dex */
-public class g74 extends EventTargetImpl implements f74.a {
+public class g74 extends c74 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean i;
     public transient /* synthetic */ FieldHolder $fh;
-    public ApiButton a;
-    @V8JavascriptField
-    public String image;
-    @V8JavascriptField
-    public f74 style;
-    @V8JavascriptField
-    public String text;
-    @V8JavascriptField
-    public String type;
+    public long h;
 
     /* loaded from: classes4.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g74 a;
-
-        public a(g74 g74Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g74Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = g74Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            ApiButton apiButton;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (apiButton = this.a.a) != null) {
-                d74.d(apiButton);
-                this.a.a = null;
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g74 a;
-
-        public b(g74 g74Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g74Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = g74Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            ApiButton apiButton;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (apiButton = this.a.a) != null) {
-                apiButton.hide();
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g74 a;
-
-        public c(g74 g74Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g74Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = g74Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            ApiButton apiButton;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (apiButton = this.a.a) != null) {
-                apiButton.show();
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class d implements Runnable {
+    public class a implements m03.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
-        public final /* synthetic */ g74 b;
+        public final /* synthetic */ d74 b;
+        public final /* synthetic */ boolean c;
+        public final /* synthetic */ zg3 d;
+        public final /* synthetic */ g74 e;
 
-        public d(g74 g74Var, String str) {
+        public a(g74 g74Var, String str, d74 d74Var, boolean z, zg3 zg3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {g74Var, str};
+                Object[] objArr = {g74Var, str, d74Var, Boolean.valueOf(z), zg3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -155,56 +58,72 @@ public class g74 extends EventTargetImpl implements f74.a {
                     return;
                 }
             }
-            this.b = g74Var;
+            this.e = g74Var;
             this.a = str;
+            this.b = d74Var;
+            this.c = z;
+            this.d = zg3Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.m03.b
+        public void a(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (tk1.a) {
-                    Log.d("BaseButtonProxy", "onFieldChangedCallback fieldName=" + this.a);
-                }
-                if (this.b.a == null) {
-                    return;
-                }
-                String str = this.a;
-                char c = 65535;
-                int hashCode = str.hashCode();
-                if (hashCode != 3556653) {
-                    if (hashCode == 100313435 && str.equals("image")) {
-                        c = 1;
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+                this.e.C(this.a, -1, "downloadFile:fail exceed max file size");
+                this.b.cancelTag(this.e.c);
+            }
+        }
+
+        @Override // com.baidu.tieba.m03.b
+        public void b(int i, long j, long j2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)}) == null) && System.currentTimeMillis() - this.e.h > 500) {
+                if (j2 <= 52428800 && j <= 52428800) {
+                    if (i <= 100) {
+                        f74 f74Var = new f74(i, j2, j);
+                        JSEvent jSEvent = new JSEvent("progressUpdate");
+                        jSEvent.data = f74Var;
+                        this.e.dispatchEvent(jSEvent);
                     }
-                } else if (str.equals("text")) {
-                    c = 0;
-                }
-                if (c != 0) {
-                    if (c == 1) {
-                        g74 g74Var = this.b;
-                        g74Var.a.setImageUrl(g74Var.image);
-                        return;
+                    if (this.c && this.d.d().a(j)) {
+                        this.e.C(this.a, -1, "downloadFile:fail exceed max file size");
+                        this.b.cancelTag(this.e.c);
                     }
-                    return;
+                } else {
+                    this.e.C(this.a, -1, "downloadFile:fail exceed max file size");
+                    this.b.cancelTag(this.e.c);
                 }
-                g74 g74Var2 = this.b;
-                g74Var2.a.setButtonText(g74Var2.text);
+                this.e.h = System.currentTimeMillis();
+            }
+        }
+
+        @Override // com.baidu.tieba.m03.b
+        public void c(long j, long j2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+                this.e.C(this.a, 0, "progress callback fail()");
+                this.b.cancelTag(this.e.c);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class e implements Runnable {
+    public class b implements Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g74 a;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ zg3 d;
+        public final /* synthetic */ boolean e;
+        public final /* synthetic */ g74 f;
 
-        public e(g74 g74Var) {
+        public b(g74 g74Var, String str, String str2, String str3, zg3 zg3Var, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {g74Var};
+                Object[] objArr = {g74Var, str, str2, str3, zg3Var, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -214,170 +133,278 @@ public class g74 extends EventTargetImpl implements f74.a {
                     return;
                 }
             }
-            this.a = g74Var;
+            this.f = g74Var;
+            this.a = str;
+            this.b = str2;
+            this.c = str3;
+            this.d = zg3Var;
+            this.e = z;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // okhttp3.Callback
+        public void onFailure(Call call, IOException iOException) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                g74 g74Var = this.a;
-                if (g74Var.a != null && !g74Var.B()) {
-                    this.a.a.h();
+            if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
+                this.f.C(this.a, 0, iOException.getMessage());
+                if (SwanAppNetworkUtils.i(null)) {
+                    pf3.u(0, this.a, 1, iOException.getMessage());
                 }
+            }
+        }
+
+        @Override // okhttp3.Callback
+        public void onResponse(Call call, Response response) {
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
+                try {
+                    JSEvent jSEvent = new JSEvent("headersReceived");
+                    jSEvent.data = new p74(this.f.I(response.headers()));
+                    this.f.dispatchEvent(jSEvent);
+                } catch (JSONException e) {
+                    if (g74.i) {
+                        e.printStackTrace();
+                    }
+                }
+                String str2 = null;
+                try {
+                    if (TextUtils.isEmpty(this.b)) {
+                        str2 = z93.A(this.f.I(response.headers()), this.c);
+                    } else {
+                        str2 = this.f.U(this.b);
+                    }
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                }
+                if (TextUtils.isEmpty(str2)) {
+                    this.f.C(this.a, -1, "downloadFile:filePath is invalid");
+                    return;
+                }
+                if (g74.i) {
+                    Log.d("DownloadTask", "the real file path is " + str2);
+                }
+                if (TextUtils.isEmpty(this.b)) {
+                    str = this.d.g(str2);
+                } else {
+                    str = this.b;
+                }
+                if (TextUtils.isEmpty(str)) {
+                    this.f.C(this.a, -1, "parse tmpFilePath from realFilePath fail");
+                    return;
+                }
+                int code = response.code();
+                String message = response.message();
+                h74 h74Var = new h74();
+                h74Var.statusCode = code;
+                if (TextUtils.isEmpty(this.b)) {
+                    h74Var.tempFilePath = str;
+                } else {
+                    h74Var.filePath = str;
+                }
+                InputStream byteStream = response.body().byteStream();
+                File file = new File(str2);
+                if (file.exists()) {
+                    long length = file.length();
+                    file.delete();
+                    if (this.e) {
+                        this.d.d().b(-length);
+                    }
+                }
+                if (this.f.V(byteStream, file)) {
+                    if (this.e) {
+                        this.d.d().b(file.length());
+                    }
+                    this.f.D(h74Var);
+                } else {
+                    this.f.C(this.a, -1, "downloadFile:fail abort");
+                }
+                ap4.d(byteStream);
+                ap4.d(response);
+                if (g74.i) {
+                    Log.d("DownloadTask", "onResponse: respCode: " + code + ", url=" + this.a + ", msg=" + message);
+                }
+                pf3.u(code, this.a, 1, message);
             }
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947746821, "Lcom/baidu/tieba/g74;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947746821, "Lcom/baidu/tieba/g74;");
+                return;
+            }
+        }
+        i = gp1.a;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g74(JsObject jsObject, tb2 tb2Var) {
-        super(tb2Var);
+    public g74(gg2 gg2Var, d12 d12Var) {
+        super(gg2Var, d12Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jsObject, tb2Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((JSRuntime) newInitContext.callArgs[0]);
+            Object[] objArr = {gg2Var, d12Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((gg2) objArr2[0], (d12) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.type = "text";
-        this.text = qn2.c().getString(R.string.obfuscated_res_0x7f0f0108);
-        A(jsObject);
+        this.a = 2;
     }
 
-    @JavascriptInterface
-    public void onFieldChangedCallback(String str) {
+    @Override // com.baidu.tieba.c74
+    public void C(String str, int i2, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            di3.e0(new d(this, str));
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i2, str2) == null) {
+            super.C(str, i2, str2);
+            q94.c(str, i2, str2, SwanAppNetworkUtils.i(null));
         }
     }
 
-    public final void A(JsObject jsObject) {
-        f74 f74Var;
-        String str;
+    public void T(Request request, String str, String str2, d74 d74Var, i74 i74Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jsObject) == null) {
-            qw1 F = qw1.F(jsObject);
-            if (tk1.a) {
-                if (("parse jsObject = " + F) != null) {
-                    str = F.toString();
-                } else {
-                    str = null;
-                }
-                Log.d("BaseButtonProxy", str);
+        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, str, str2, d74Var, i74Var) == null) {
+            String httpUrl = request.url().toString();
+            zg3 G = ju2.U().G();
+            boolean b2 = G.b(str);
+            pf3.A(httpUrl, 1);
+            d74Var.call(request, Collections.singletonList(i74Var), new b(this, httpUrl, str, str2, G, b2));
+        }
+    }
+
+    @Nullable
+    public String U(@NonNull String str) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            String i2 = ju2.U().G().i(str);
+            if (i2 == null) {
+                return null;
             }
-            if (F == null) {
-                return;
-            }
-            this.type = F.C("type", this.type);
-            this.text = F.C("text", this.text);
-            this.image = F.C("image", this.image);
-            qw1 x = F.x("style", null);
-            if (x == null) {
-                f74Var = this.style;
+            boolean endsWith = i2.endsWith(File.separator);
+            File parentFile = new File(i2).getParentFile();
+            if (parentFile != null && parentFile.exists()) {
+                z = true;
             } else {
-                f74Var = new f74(x);
+                z = false;
             }
-            this.style = f74Var;
-        }
-    }
-
-    public final boolean B() {
-        InterceptResult invokeV;
-        pu2 z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.a == null || this.style == null || (z = z()) == null || !d74.f(this.a, z)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @JavascriptInterface
-    public void destroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            di3.e0(new a(this));
-        }
-    }
-
-    @JavascriptInterface
-    public void hide() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            di3.e0(new b(this));
-        }
-    }
-
-    @Override // com.baidu.tieba.f74.a
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            di3.e0(new e(this));
-        }
-    }
-
-    @JavascriptInterface
-    public void show() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            di3.e0(new c(this));
-        }
-    }
-
-    public boolean y() {
-        InterceptResult invokeV;
-        f74 f74Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.a == null || (f74Var = this.style) == null) {
-                return false;
-            }
-            f74Var.b(this);
-            pu2 z = z();
-            if (z == null || !d74.a(this.a, z)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final pu2 z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            f74 f74Var = this.style;
-            if (f74Var == null || this.a == null) {
+            if (endsWith || !z) {
                 return null;
             }
-            int g = ai3.g(f74Var.width);
-            int g2 = ai3.g(this.style.height);
-            int g3 = ai3.g(this.style.left);
-            int g4 = ai3.g(this.style.top);
-            int g5 = ai3.g(this.style.borderWidth) * 2;
-            if (g < g5) {
-                g = g5;
-            }
-            if (g2 < g5) {
-                g2 = g5;
-            }
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.a.getLayoutParams();
-            if (layoutParams != null && layoutParams.width == g && layoutParams.height == g2 && layoutParams.leftMargin == g3 && layoutParams.topMargin == g4) {
-                return null;
-            }
-            return new pu2(g3, g4, g, g2);
+            return i2;
         }
-        return (pu2) invokeV.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public boolean V(InputStream inputStream, File file) {
+        InterceptResult invokeLL;
+        FileOutputStream fileOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, inputStream, file)) == null) {
+            if (inputStream == null || file == null) {
+                return false;
+            }
+            File parentFile = file.getParentFile();
+            if (parentFile != null && !parentFile.exists()) {
+                parentFile.mkdirs();
+            }
+            if (file.exists()) {
+                file.delete();
+            }
+            FileOutputStream fileOutputStream2 = null;
+            try {
+                try {
+                    fileOutputStream = new FileOutputStream(file);
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (Exception e) {
+                e = e;
+            }
+            try {
+                byte[] bArr = new byte[8192];
+                while (true) {
+                    int read = inputStream.read(bArr);
+                    if (read != -1) {
+                        fileOutputStream.write(bArr, 0, read);
+                    } else {
+                        fileOutputStream.flush();
+                        ap4.d(fileOutputStream);
+                        return true;
+                    }
+                }
+            } catch (Exception e2) {
+                e = e2;
+                fileOutputStream2 = fileOutputStream;
+                e.printStackTrace();
+                ap4.d(fileOutputStream2);
+                return false;
+            } catch (Throwable th2) {
+                th = th2;
+                fileOutputStream2 = fileOutputStream;
+                ap4.d(fileOutputStream2);
+                throw th;
+            }
+        } else {
+            return invokeLL.booleanValue;
+        }
+    }
+
+    public void start() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.b == null) {
+            return;
+        }
+        String z = z();
+        if (TextUtils.isEmpty(z)) {
+            return;
+        }
+        if (w83.M() == null) {
+            C("", -1, "request:swanApp is null");
+            return;
+        }
+        d74 d74Var = (d74) w83.M().i0();
+        String B = this.b.B("filePath");
+        if (!TextUtils.isEmpty(B)) {
+            if (ap4.x(B)) {
+                C(z, -1, "downloadFile:filePath is invalid");
+                return;
+            }
+            String[] split = B.split("/");
+            if (TextUtils.isEmpty(split[split.length - 1])) {
+                C(z, -1, "downloadFile:filePath is invalid");
+                return;
+            }
+        }
+        zg3 G = ju2.U().G();
+        boolean b2 = G.b(B);
+        if (b2 && G.d().a(0L)) {
+            C(z, -1, "downloadFile:fail exceed max size in usr");
+            return;
+        }
+        HashMap hashMap = new HashMap();
+        Request.Builder builder = new Request.Builder();
+        G(builder, this.b.w("header"), hashMap, false);
+        builder.url(z).tag(this.c).build();
+        String t = ap4.t(z);
+        this.h = 0L;
+        i74 i74Var = new i74();
+        i74Var.c(new a(this, z, d74Var, b2, G));
+        T(builder.build(), B, t, d74Var, i74Var);
     }
 }

@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sq4;
-import com.baidu.tieba.tq4;
-import com.baidu.tieba.y9;
+import com.baidu.tieba.da;
+import com.baidu.tieba.fv4;
+import com.baidu.tieba.gv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,13 +33,13 @@ public class BannerGifView extends RelativeLayout {
     public String e;
     public String f;
     public boolean g;
-    public sq4 h;
-    public tq4 i;
-    public final tq4 j;
+    public fv4 h;
+    public gv4 i;
+    public final gv4 j;
     public final View.OnClickListener k;
 
     /* loaded from: classes3.dex */
-    public class a implements tq4 {
+    public class a implements gv4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BannerGifView a;
@@ -62,7 +62,7 @@ public class BannerGifView extends RelativeLayout {
             this.a = bannerGifView;
         }
 
-        @Override // com.baidu.tieba.tq4
+        @Override // com.baidu.tieba.gv4
         public boolean a(View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -200,10 +200,10 @@ public class BannerGifView extends RelativeLayout {
         }
     }
 
-    public void setIWindowChangedListener(sq4 sq4Var) {
+    public void setIWindowChangedListener(fv4 fv4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, sq4Var) == null) {
-            this.h = sq4Var;
+        if (interceptable == null || interceptable.invokeL(1048587, this, fv4Var) == null) {
+            this.h = fv4Var;
         }
     }
 
@@ -215,10 +215,10 @@ public class BannerGifView extends RelativeLayout {
         }
     }
 
-    public void setOnClickEventListener(tq4 tq4Var) {
+    public void setOnClickEventListener(gv4 gv4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, tq4Var) == null) {
-            this.i = tq4Var;
+        if (interceptable == null || interceptable.invokeL(1048589, this, gv4Var) == null) {
+            this.i = gv4Var;
         }
     }
 
@@ -235,7 +235,7 @@ public class BannerGifView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
                 if (!TextUtils.isEmpty(this.f)) {
-                    UrlManager.getInstance().dealOneLink((TbPageContext) y9.a(getContext()), new String[]{this.f});
+                    UrlManager.getInstance().dealOneLink((TbPageContext) da.a(getContext()), new String[]{this.f});
                 }
             } catch (Exception e) {
                 e.printStackTrace();

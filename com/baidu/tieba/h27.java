@@ -1,10 +1,11 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.widget.ad.VipAdFreeGuideLayout;
-import com.baidu.tieba.ad.AbsDataRecorder;
-import com.baidu.tieba.funad.adapter.FunAdNativeViewHolder;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,108 +14,42 @@ public class h27 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(String str, String str2, int i) {
-        InterceptResult invokeLLI;
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, str, str2, i)) == null) {
-            if ("personalize".equals(str) && js5.k().s(AbsDataRecorder.Scene.RECOMMEND)) {
-                return true;
-            }
-            if ("frs_new_tab".equals(str2) && js5.k().s(AbsDataRecorder.Scene.FRS_NEW)) {
-                return true;
-            }
-            if ("frs_hot_tab".equals(str2) && js5.k().s(AbsDataRecorder.Scene.FRS_HOT)) {
-                return true;
-            }
-            if ("pb".equals(str) && js5.k().r(i, AbsDataRecorder.Scene.PB)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLLI.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? "100465_3" : (String) invokeV.objValue;
     }
 
-    public static void b(FunAdNativeViewHolder funAdNativeViewHolder, VipAdFreeGuideLayout vipAdFreeGuideLayout, String str, String str2, int i) {
-        ViewGroup c;
+    public static void a(@NonNull StatisticItem statisticItem) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{funAdNativeViewHolder, vipAdFreeGuideLayout, str, str2, Integer.valueOf(i)}) == null) {
-            if (!"personalize".equals(str) && !"frs_new_tab".equals(str2) && !"frs_hot_tab".equals(str2)) {
-                if ("pb".equals(str)) {
-                    if (js5.k().m() && i == 1) {
-                        vipAdFreeGuideLayout.setBottomCornerRound(false);
-                        vipAdFreeGuideLayout.setAllCornerRound(false);
-                        if (funAdNativeViewHolder != null && funAdNativeViewHolder.d() != null && (c = funAdNativeViewHolder.d().c(null)) != null) {
-                            c.setPadding(c.getPaddingLeft(), c.getPaddingTop(), c.getPaddingRight(), 0);
-                        }
-                    } else if (vipAdFreeGuideLayout != null) {
-                        vipAdFreeGuideLayout.setBottomCornerRound(false);
-                        vipAdFreeGuideLayout.setAllCornerRound(true);
-                    }
-                }
-            } else if (vipAdFreeGuideLayout != null) {
-                vipAdFreeGuideLayout.setBottomCornerRound(true);
-            }
+        if (interceptable == null || interceptable.invokeL(65536, null, statisticItem) == null) {
+            statisticItem.param("obj_param1", c());
         }
     }
 
-    public static void c(VipAdFreeGuideLayout vipAdFreeGuideLayout, String str, String str2, String str3) {
+    public static void b(@NonNull StatisticItem statisticItem, @NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65538, null, vipAdFreeGuideLayout, str, str2, str3) == null) {
-            if ("personalize".equals(str2)) {
-                vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.RECOMMEND, str);
-            } else if ("frs_new_tab".equals(str3)) {
-                vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.FRS_NEW, str);
-            } else if ("frs_hot_tab".equals(str3)) {
-                vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.FRS_HOT, str);
-            } else if ("pb".equals(str2)) {
-                vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.PB, str);
-            }
+        if (interceptable == null || interceptable.invokeLLL(65537, null, statisticItem, str, str2) == null) {
+            statisticItem.param("fid", str);
+            statisticItem.param("fname", str2);
         }
     }
 
-    public static void d(FunAdNativeViewHolder funAdNativeViewHolder, VipAdFreeGuideLayout vipAdFreeGuideLayout, String str, String str2, String str3, int i) {
+    public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65539, null, new Object[]{funAdNativeViewHolder, vipAdFreeGuideLayout, str, str2, str3, Integer.valueOf(i)}) != null) || vipAdFreeGuideLayout == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
+            StatisticItem param = new StatisticItem("c14564").param("fid", str).param("fname", str2).param("uid", TbadkCoreApplication.getCurrentAccountId());
+            a(param);
+            TiebaStatic.log(param);
         }
-        vipAdFreeGuideLayout.setVisibility(0);
-        b(funAdNativeViewHolder, vipAdFreeGuideLayout, str2, str3, i);
-        vipAdFreeGuideLayout.f();
-        c(vipAdFreeGuideLayout, str, str2, str3);
     }
 
-    public static void e(gx8 gx8Var, FunAdNativeViewHolder funAdNativeViewHolder, String str, String str2, String str3, int i) {
-        int f;
+    public static void e(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{gx8Var, funAdNativeViewHolder, str, str2, str3, Integer.valueOf(i)}) == null) {
-            VipAdFreeGuideLayout vipAdFreeGuideLayout = funAdNativeViewHolder.d().getVipAdFreeGuideLayout();
-            if (gx8Var != null && vipAdFreeGuideLayout != null) {
-                if ("personalize".equals(str2)) {
-                    f = js5.k().j(gx8Var.g());
-                } else {
-                    f = gx8Var.f();
-                }
-                if (f == 1) {
-                    vipAdFreeGuideLayout.setVisibility(8);
-                } else if (f == 2) {
-                    d(funAdNativeViewHolder, vipAdFreeGuideLayout, str, str2, str3, i);
-                } else if (a(str2, str3, i)) {
-                    d(funAdNativeViewHolder, vipAdFreeGuideLayout, str, str2, str3, i);
-                    js5.k().c();
-                    if ("personalize".equals(str2)) {
-                        js5.k().p(gx8Var.g(), 2);
-                    } else {
-                        gx8Var.q(2);
-                    }
-                } else {
-                    vipAdFreeGuideLayout.setVisibility(8);
-                    if ("personalize".equals(str2)) {
-                        js5.k().p(gx8Var.g(), 1);
-                    } else {
-                        gx8Var.q(1);
-                    }
-                }
-            }
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
+            StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_CLICK).param("fid", str).param("fname", str2).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_locate", 11);
+            a(param);
+            TiebaStatic.log(param);
         }
     }
 }

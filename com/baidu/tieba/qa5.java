@@ -1,79 +1,103 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.minivideo.plugin.capture.bean.FaceItem;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class qa5 extends la5 {
+public class qa5 implements Cdo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId l;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
+    public String b;
+    public String c;
+    public int d;
+    public int e;
+    public String f;
+    public String g;
+    public List<pa5> h;
+    public String i;
+    public boolean j;
+    public int k;
 
-    @Override // com.baidu.tieba.la5
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? FaceItem.DIR_STICKER : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.la5
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948085124, "Lcom/baidu/tieba/qa5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948085124, "Lcom/baidu/tieba/qa5;");
+                return;
+            }
         }
+        l = BdUniqueId.gen();
     }
 
     public qa5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = "";
     }
 
-    @Override // com.baidu.tieba.la5
-    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
-        InterceptResult invokeLZ;
+    @Override // com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, z)) == null) {
-            if (bitmap == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return l;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void a(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.a = jSONObject.optString("user_id");
+        this.b = jSONObject.optString("name_show");
+        this.c = jSONObject.optString(RecommendDetailActivityConfig.USER_PORTRAIT);
+        this.d = jSONObject.optInt("user_gender");
+        this.e = jSONObject.optInt("user_age", 0);
+        this.f = jSONObject.optString("user_constellation");
+        this.g = jSONObject.optString("distance");
+        JSONArray optJSONArray = jSONObject.optJSONArray("favorite_forum_list");
+        if (optJSONArray != null && optJSONArray.length() != 0) {
+            this.h = new ArrayList();
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                pa5 pa5Var = new pa5();
+                pa5Var.a(optJSONArray.optJSONObject(i));
+                this.h.add(pa5Var);
             }
-            ba5.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
-            return BitmapHelper.loadResizedBitmap(this.a, zi.l(TbadkCoreApplication.getInst()), zi.j(TbadkCoreApplication.getInst()));
         }
-        return (Bitmap) invokeLZ.objValue;
-    }
-
-    @Override // com.baidu.tieba.la5
-    public Bitmap c(String str) throws Exception {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return b(BitmapHelper.loadResizedBitmap(str, zi.l(TbadkCoreApplication.getInst()), zi.j(TbadkCoreApplication.getInst())), true);
+        this.i = jSONObject.optString("user_slogan");
+        boolean z = true;
+        if (jSONObject.optInt("is_friend", 0) != 1) {
+            z = false;
         }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.a = str;
-        }
+        this.j = z;
+        this.k = jSONObject.optInt("active_status", 0);
     }
 }

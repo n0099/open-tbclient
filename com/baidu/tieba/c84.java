@@ -1,38 +1,67 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.down.retry.HttpRetryStatistic;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class c84 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return new SimpleDateFormat("yyyy年MM月dd日", Locale.CHINESE).format(new Date(System.currentTimeMillis()));
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947628618, "Lcom/baidu/tieba/c84;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947628618, "Lcom/baidu/tieba/c84;");
+                return;
+            }
         }
-        return (String) invokeV.objValue;
+        a = gp1.a;
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
+    public c84() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return xc3.a().getString(str, null);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
-        return (String) invokeL.objValue;
     }
 
-    public static void c(String str, String str2) {
+    public <T> void a(String str, String str2, ResponseCallback<T> responseCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-            xc3.a().putString(str, str2);
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, responseCallback) == null) {
+            if (a) {
+                Log.d("requestWithUrlAndBody", HttpRetryStatistic.RETRY_URL + str + "\nbody:" + str2);
+            }
+            if (TextUtils.isEmpty(str)) {
+                return;
+            }
+            js1 e = ds2.e();
+            if (e.h() && e.g(str)) {
+                e.e(str, str2, responseCallback);
+                return;
+            }
+            ag4.g().postStringRequest().url(str).cookieManager(ds2.q().a()).mediaType("application/json;charset=utf-8").content(str2).build().executeAsync(responseCallback);
         }
     }
 }

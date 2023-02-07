@@ -1,110 +1,101 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.os.Build;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
+import android.app.Application;
+import android.content.Intent;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.GreyUtil;
+import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.atomData.LogoActivityConfig;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class xv4 {
+/* loaded from: classes7.dex */
+public class xv4 implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlertDialog a;
-    public Activity b;
-    public View c;
-    public DialogInterface.OnDismissListener d;
 
-    public xv4(Activity activity) {
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityDestroyed(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityPaused(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityResumed(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStarted(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStopped(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
+        }
+    }
+
+    public xv4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) && !PermissionUtil.isAgreePrivacyPolicy() && activity != null && !activity.getClass().getSimpleName().equals("LogoActivity") && activity.getClass().getPackage().getName().startsWith("com.baidu.tieba") && !PermissionUtil.isBrowseMode()) {
+            if (activity.getIntent() != null && activity.getIntent().getBooleanExtra(ImageViewerConfig.KEY_IS_BROWSE_MODE, false)) {
+                PermissionUtil.doBrowseModeInit();
                 return;
             }
-        }
-        this.b = activity;
-    }
-
-    public void c(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            this.c = view2;
-        }
-    }
-
-    public void d(DialogInterface.OnDismissListener onDismissListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onDismissListener) == null) {
-            this.d = onDismissListener;
-        }
-    }
-
-    public void a() {
-        AlertDialog alertDialog;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (alertDialog = this.a) != null && alertDialog.isShowing()) {
-            this.a.dismiss();
-        }
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (Build.VERSION.SDK_INT >= 19) {
-                return 5894;
+            Class<?> cls = null;
+            try {
+                cls = Class.forName(SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            return 1280;
-        }
-        return invokeV.intValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.b == null) {
-            return;
-        }
-        if (this.a == null) {
-            AlertDialog create = new AlertDialog.Builder(this.b).create();
-            this.a = create;
-            create.requestWindowFeature(b());
-            GreyUtil.grey(this.a);
-        }
-        if (this.a.isShowing()) {
-            this.a.dismiss();
-        }
-        this.a.setCancelable(true);
-        this.a.setOnDismissListener(this.d);
-        this.a.show();
-        Window window = this.a.getWindow();
-        window.getDecorView().setSystemUiVisibility(b());
-        window.addFlags(Integer.MIN_VALUE);
-        window.setStatusBarColor(0);
-        WindowManager.LayoutParams attributes = window.getAttributes();
-        attributes.width = -1;
-        attributes.height = -1;
-        window.setNavigationBarColor(0);
-        window.setAttributes(attributes);
-        window.setDimAmount(0.0f);
-        View view2 = this.c;
-        if (view2 != null) {
-            this.a.setContentView(view2);
+            if (cls != null) {
+                Intent intent = new Intent(activity, cls);
+                intent.putExtra(LogoActivityConfig.EXTRAINTENT, activity.getIntent());
+                activity.startActivity(intent);
+                activity.finish();
+            }
         }
     }
 }

@@ -1,87 +1,53 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
-import android.database.MatrixCursor;
-import android.net.Uri;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.util.io.BaseJsonData;
+import com.baidu.mobstat.Config;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.database.SwanAppDbControl;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.http.HttpManager;
+import com.baidu.searchbox.http.callback.StringResponseCallback;
+import com.baidu.searchbox.http.request.PostFormRequest;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class qq3 extends pq3 {
+public class qq3 extends ta3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String[] a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int c;
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public interface c {
+        void a(JSONObject jSONObject);
     }
 
     /* loaded from: classes6.dex */
-    public static class b implements Comparator<c> {
+    public class a implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ JSONObject c;
+        public final /* synthetic */ qq3 d;
 
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(c cVar, c cVar2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, cVar, cVar2)) == null) {
-                return Long.compare(cVar2.b, cVar.b);
-            }
-            return invokeLL.intValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public long b;
-
-        public c(qq3 qq3Var, String str, long j) {
+        public a(qq3 qq3Var, CallbackHandler callbackHandler, String str, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {qq3Var, str, Long.valueOf(j)};
+                Object[] objArr = {qq3Var, callbackHandler, str, jSONObject};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -91,95 +57,205 @@ public class qq3 extends pq3 {
                     return;
                 }
             }
-            this.a = str;
-            this.b = j;
+            this.d = qq3Var;
+            this.a = callbackHandler;
+            this.b = str;
+            this.c = jSONObject;
+        }
+
+        @Override // com.baidu.tieba.qq3.c
+        public void a(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+                if (jSONObject == null) {
+                    this.d.p(this.a, this.b, this.c);
+                    return;
+                }
+                qq3 qq3Var = this.d;
+                qq3Var.c = qq3Var.m(jSONObject);
+                this.d.p(this.a, this.b, this.c);
+            }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948100438, "Lcom/baidu/tieba/qq3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class b extends StringResponseCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c a;
+
+        public b(qq3 qq3Var, c cVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qq3Var, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948100438, "Lcom/baidu/tieba/qq3;");
-                return;
+            this.a = cVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: a */
+        public void onSuccess(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
+                try {
+                    this.a.a(new JSONObject(str));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    this.a.a(null);
+                }
             }
         }
-        a = new String[]{"_id", "app_id", "app_key", "app_sign", "version_code", "version_name", "description", "app_status", "status_detail", "status_desc", "resume_date", "icon_url", "app_name", "service_category", "subject_info", "type", "pkg_size", "app_category", "orientation", "create_time", "favorite_time"};
-    }
 
-    public final List<c> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Cursor l = SwanAppDbControl.f(AppRuntime.getAppContext()).l(null, null, null, null);
-            ArrayList arrayList = new ArrayList();
-            if (l != null && l.moveToFirst()) {
-                int columnIndex = l.getColumnIndex("app_id");
-                int columnIndex2 = l.getColumnIndex("favorite_time");
-                do {
-                    arrayList.add(new c(this, l.getString(columnIndex), l.getLong(columnIndex2)));
-                } while (l.moveToNext());
-                nk4.d(l);
-                return arrayList;
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+                this.a.a(null);
             }
-            nk4.d(l);
-            return arrayList;
         }
-        return (List) invokeV.objValue;
     }
 
-    public qq3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qq3(t93 t93Var) {
+        super(t93Var, "/swanAPI/privateGetUserInfo");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {t93Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = -1;
     }
 
-    public final void a(MatrixCursor matrixCursor, int i, c cVar, PMSAppInfo pMSAppInfo) {
+    @Override // com.baidu.tieba.ta3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, w83 w83Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLILL(1048576, this, matrixCursor, i, cVar, pMSAppInfo) == null) && matrixCursor != null && i >= 0 && cVar != null && pMSAppInfo != null) {
-            matrixCursor.newRow().add("_id", Integer.valueOf(i)).add("app_id", pMSAppInfo.appId).add("app_key", pMSAppInfo.appKey).add("app_sign", Long.valueOf(pMSAppInfo.appSign)).add("version_code", Long.valueOf(pMSAppInfo.versionCode)).add("version_name", pMSAppInfo.versionName).add("description", pMSAppInfo.description).add("app_status", Integer.valueOf(pMSAppInfo.appStatus)).add("status_detail", pMSAppInfo.statusDetail).add("status_desc", pMSAppInfo.statusDesc).add("resume_date", pMSAppInfo.resumeDate).add("icon_url", pMSAppInfo.iconUrl).add("app_name", pMSAppInfo.appName).add("service_category", pMSAppInfo.serviceCategory).add("subject_info", pMSAppInfo.subjectInfo).add("type", Integer.valueOf(pMSAppInfo.type)).add("pkg_size", Long.valueOf(pMSAppInfo.pkgSize)).add("app_category", Integer.valueOf(pMSAppInfo.appCategory)).add("orientation", Integer.valueOf(pMSAppInfo.getOrientation())).add("create_time", Long.valueOf(pMSAppInfo.createTime)).add("favorite_time", Long.valueOf(cVar.b));
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, w83Var)) == null) {
+            if (w83Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
+                return false;
+            }
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
+                return false;
+            }
+            String optString = optParamsAsJo.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
+                return false;
+            }
+            try {
+                o(context, callbackHandler, w83Var, optString);
+            } catch (JSONException unused) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            }
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            return true;
         }
+        return invokeLLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.pq3
-    @Nullable
-    public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        InterceptResult invokeLLLLL;
+    public final void o(Context context, CallbackHandler callbackHandler, w83 w83Var, String str) throws JSONException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, uri, strArr, str, strArr2, str2)) == null) {
-            List<c> b2 = b();
-            if (b2.isEmpty()) {
-                return null;
-            }
-            HashMap<String, PMSAppInfo> a2 = tq3.a();
-            if (a2.isEmpty()) {
-                return null;
-            }
-            Collections.sort(b2, new b(null));
-            MatrixCursor matrixCursor = new MatrixCursor(a, b2.size());
-            int i = 0;
-            for (c cVar : b2) {
-                PMSAppInfo pMSAppInfo = a2.get(cVar.a);
-                if (pMSAppInfo != null) {
-                    a(matrixCursor, i, cVar, pMSAppInfo);
-                    i++;
+        if (interceptable == null || interceptable.invokeLLLL(1048579, this, context, callbackHandler, w83Var, str) == null) {
+            String y = xo3.y(context);
+            if (!TextUtils.isEmpty(xo3.i(context)) && !TextUtils.isEmpty(y)) {
+                JSONObject jSONObject = new JSONObject();
+                xp3 g = xo3.g(context);
+                jSONObject.put("displayname", g.a);
+                jSONObject.put("portrait", g.b);
+                if (this.c != -1) {
+                    p(callbackHandler, str, jSONObject);
+                    return;
+                } else {
+                    n(new a(this, callbackHandler, str, jSONObject));
+                    return;
                 }
             }
-            return matrixCursor;
+            callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(10003).toString());
         }
-        return (Cursor) invokeLLLLL.objValue;
+    }
+
+    public final int m(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        JSONObject jSONObject2;
+        JSONObject jSONObject3;
+        JSONObject jSONObject4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+            try {
+                JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                JSONArray optJSONArray = jSONObject.optJSONArray("data");
+                if (optJSONObject == null) {
+                    if (optJSONArray != null && optJSONArray.length() > 0) {
+                        optJSONObject = optJSONArray.getJSONObject(0);
+                    } else {
+                        if (ta3.b) {
+                            Log.d(BaseJsonData.TAG, "Invalid data field!");
+                        }
+                        optJSONObject = null;
+                    }
+                }
+                if (optJSONObject == null || (jSONObject2 = optJSONObject.getJSONObject("userx")) == null || (jSONObject3 = jSONObject2.getJSONObject(Config.EVENT_ATTR)) == null || (jSONObject4 = jSONObject3.getJSONObject("dataset")) == null) {
+                    return -1;
+                }
+                return jSONObject4.optInt("gender");
+            } catch (JSONException unused) {
+                return -1;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public final void n(c cVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) != null) || cVar == null) {
+            return;
+        }
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("gender", "1");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(s52.v(wo3.c()))).addParam("data", jSONObject.toString()).cookieManager(ds2.q().a())).build().executeAsync(new b(this, cVar));
+    }
+
+    public final void p(CallbackHandler callbackHandler, String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, callbackHandler, str, jSONObject) == null) {
+            int i = this.c;
+            if (i != -1) {
+                try {
+                    jSONObject.put("gender", String.valueOf(i));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
+        }
     }
 }

@@ -1,126 +1,189 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
+import android.text.TextUtils;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
-import java.util.Set;
-import kotlin.Unit;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.util.HashMap;
 /* loaded from: classes4.dex */
-public final class fb6 {
+public class fb6 extends BdAsyncTask<Void, Void, jb6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final Set<db6> b;
-    public int c;
+    public final String a;
+    public final eb6 b;
+    public final String c;
+    public final String d;
+    public final String e;
+    public final boolean f;
+    public NetWork g;
 
-    public fb6(int i) {
+    public fb6(String str, eb6 eb6Var, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {str, eb6Var, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.b = new LinkedHashSet();
+        this.a = str;
+        this.b = eb6Var;
+        this.d = eb6Var.c();
+        this.c = this.b.a();
+        this.e = this.b.b();
+        this.f = z;
     }
 
-    public final db6 a(int i, int i2) {
-        InterceptResult invokeII;
-        db6 db6Var;
-        Object obj;
-        boolean z;
+    public final void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
-            synchronized (this) {
-                Iterator<T> it = this.b.iterator();
-                while (true) {
-                    db6Var = null;
-                    if (it.hasNext()) {
-                        obj = it.next();
-                        db6 db6Var2 = (db6) obj;
-                        if (db6Var2.l() >= i && db6Var2.j() >= i2 && db6Var2.l() - i < 5 && db6Var2.j() - i2 < 5) {
-                            z = true;
-                            continue;
-                        } else {
-                            z = false;
-                            continue;
-                        }
-                        if (z) {
-                            break;
-                        }
-                    } else {
-                        obj = null;
-                        break;
-                    }
-                }
-                db6 db6Var3 = (db6) obj;
-                if (db6Var3 != null) {
-                    this.b.remove(db6Var3);
-                    this.c -= db6Var3.k();
-                    db6Var = db6Var3;
-                }
-            }
-            return db6Var;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
         }
-        return (db6) invokeII.objValue;
+        FileHelper.deleteFileOrDir(new File(za6.f + "bdtbWCacheTemp/" + str));
     }
 
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                for (db6 db6Var : this.b) {
-                    db6Var.e();
-                }
-                this.b.clear();
-                this.c = 0;
-                Unit unit = Unit.INSTANCE;
-            }
-        }
-    }
-
-    public final boolean c(db6 db6Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Removed duplicated region for block: B:31:0x0160  */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x01b9  */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: c */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public jb6 doInBackground(Void... voidArr) {
         InterceptResult invokeL;
-        eb6 g;
+        jb6 c;
+        HashMap<String, db6> hashMap;
+        InputStream inputStream;
+        FileInputStream fileInputStream;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, db6Var)) == null) {
-            if (db6Var == null) {
-                g = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
+            b(this.a);
+            gb6.a(this.a);
+            if (this.f) {
+                if (!TextUtils.isEmpty(za6.h().i(this.a))) {
+                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_UPDATE_OFFLINE_PACK).param("obj_name", this.a).param("obj_id", this.d));
+                }
+                return null;
+            }
+            NetWork netWork = new NetWork();
+            this.g = netWork;
+            netWork.setUrl(this.c);
+            new File(za6.f + "bdtbWCacheTemp/" + this.a + "/").mkdirs();
+            String str2 = za6.f + "bdtbWCacheTemp/" + this.a + "/bdtbNWCache.zip";
+            if (this.g.downloadFile(str2, null, 0, 3, 0, true)) {
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_H5_OFFLINE_PACKAGE_DOWNLOAD).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", "1"));
+                try {
+                    try {
+                        fileInputStream = new FileInputStream(str2);
+                        try {
+                            String b = lj.b(fileInputStream);
+                            if (StringUtils.isNull(b) || !b.toLowerCase().equals(this.e.toLowerCase())) {
+                                e35.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "md5 error");
+                                b(this.a);
+                                fj.e(fileInputStream);
+                                return null;
+                            }
+                        } catch (FileNotFoundException e) {
+                            e = e;
+                            e.printStackTrace();
+                            fj.e(fileInputStream);
+                            str = za6.f + "bdtbWCacheTemp/" + this.a + "/" + this.d + "/";
+                            new File(str).mkdirs();
+                            if (!x25.b(str2, str)) {
+                            }
+                            b(this.a);
+                            c = gb6.c(this.a, this.d);
+                            if (c == null) {
+                            }
+                            e35.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "bundle incomplete");
+                            gb6.a(this.a);
+                            return null;
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        inputStream = "obj_type";
+                        fj.e(inputStream);
+                        throw th;
+                    }
+                } catch (FileNotFoundException e2) {
+                    e = e2;
+                    fileInputStream = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    inputStream = null;
+                    fj.e(inputStream);
+                    throw th;
+                }
+                fj.e(fileInputStream);
+                str = za6.f + "bdtbWCacheTemp/" + this.a + "/" + this.d + "/";
+                new File(str).mkdirs();
+                if (!x25.b(str2, str)) {
+                    String str3 = za6.f + "bdtbNWCache/" + this.a + "/" + this.d + "/";
+                    new File(str3).mkdirs();
+                    if (!FileHelper.CopyDir(str, str3, true)) {
+                        e35.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "write error");
+                    }
+                } else {
+                    e35.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "unzip error");
+                }
             } else {
-                g = db6Var.g();
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_H5_OFFLINE_PACKAGE_DOWNLOAD).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", "2"));
+                e35.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "download error");
             }
-            if (g == null) {
-                return true;
+            b(this.a);
+            c = gb6.c(this.a, this.d);
+            if (c == null && !TextUtils.isEmpty(c.a) && (hashMap = c.b) != null && hashMap.size() != 0) {
+                gb6.b(c.c, this.a);
+                return c;
             }
-            if (this.b.contains(db6Var)) {
-                return false;
-            }
-            if (db6Var.k() + this.c > this.a) {
-                BdLog.v("DrawingCache [Release][+] OOM Pool");
-                return false;
-            }
-            synchronized (this) {
-                this.b.add(db6Var);
-                db6Var.f();
-                this.c += db6Var.k();
-                Unit unit = Unit.INSTANCE;
-            }
-            return true;
+            e35.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "bundle incomplete");
+            gb6.a(this.a);
+            return null;
         }
-        return invokeL.booleanValue;
+        return (jb6) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public void onPostExecute(jb6 jb6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jb6Var) == null) {
+            super.onPostExecute(jb6Var);
+            if (jb6Var != null) {
+                za6.h().r(this.a, jb6Var.c);
+                za6.h().p();
+                cb6.a().j(this.a, jb6Var.b);
+                cb6.a().f(true, this.a);
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_UPDATE_OFFLINE_PACK).param("obj_name", this.a).param("obj_id", jb6Var.c));
+                return;
+            }
+            za6.h().e(this.a);
+            za6.h().p();
+            cb6.a().d(this.a);
+        }
     }
 }

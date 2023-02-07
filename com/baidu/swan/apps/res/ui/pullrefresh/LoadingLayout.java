@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tk1;
+import com.baidu.tieba.gp1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -174,7 +174,7 @@ public abstract class LoadingLayout extends FrameLayout {
                 return;
             }
         }
-        d = tk1.a;
+        d = gp1.a;
     }
 
     public int getCanRefreshPullLength() {

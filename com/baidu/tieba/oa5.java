@@ -1,27 +1,19 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.img.effect.ImageOperation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.Lbs;
 /* loaded from: classes5.dex */
-public class oa5 extends la5 {
+public class oa5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-
-    @Override // com.baidu.tieba.la5
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "rotate" : (String) invokeV.objValue;
-    }
+    public String a;
+    public String b;
 
     public oa5() {
         Interceptable interceptable = $ic;
@@ -36,59 +28,39 @@ public class oa5 extends la5 {
                 return;
             }
         }
-        this.a = 0;
+        this.a = null;
     }
 
-    public static ImageOperation e(int i) {
-        InterceptResult invokeI;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            ImageOperation imageOperation = new ImageOperation();
-            imageOperation.actionName = "rotate";
-            imageOperation.actionParam = String.valueOf(i);
-            return imageOperation;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (ImageOperation) invokeI.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.la5
-    public void d(String str) {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || str == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void c(Lbs lbs) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lbs) != null) || lbs == null) {
             return;
         }
-        this.a = Integer.parseInt(str);
-    }
-
-    @Override // com.baidu.tieba.la5
-    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, z)) == null) {
-            if (bitmap == null) {
-                return null;
-            }
-            ba5.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
-            int i = this.a;
-            if (i != 0 && i != 1) {
-                if (i != 2 && i != 3) {
-                    return bitmap;
-                }
-                return BitmapHelper.reversalBitmap(bitmap, this.a);
-            }
-            return BitmapHelper.rotateBitmap(bitmap, this.a);
+        try {
+            this.a = lbs.name;
+            String str = lbs.lat;
+            String str2 = lbs.lng;
+            this.b = lbs.distance;
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
-        return (Bitmap) invokeLZ.objValue;
-    }
-
-    @Override // com.baidu.tieba.la5
-    public Bitmap c(String str) throws Exception {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            int max = Math.max(zi.l(TbadkCoreApplication.getInst().getApp()), zi.j(TbadkCoreApplication.getInst().getApp()));
-            return b(BitmapHelper.loadResizedBitmap(str, max, max), true);
-        }
-        return (Bitmap) invokeL.objValue;
     }
 }

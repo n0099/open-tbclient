@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,11 +8,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Hottopic.HotThread;
 /* loaded from: classes7.dex */
-public class zd7 implements yn {
+public class zd7 extends xd7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
+    public static final BdUniqueId f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,7 +27,7 @@ public class zd7 implements yn {
                 return;
             }
         }
-        a = BdUniqueId.gen();
+        f = BdUniqueId.gen();
     }
 
     public zd7() {
@@ -42,25 +40,20 @@ public class zd7 implements yn {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        i(xc6.g());
+        k("percard#");
     }
 
-    @Override // com.baidu.tieba.yn
+    @Override // com.baidu.tieba.yd6, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return f;
         }
         return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void a(HotThread hotThread) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, hotThread) != null) || hotThread == null) {
-            return;
-        }
-        String str = hotThread.hot_title;
     }
 }

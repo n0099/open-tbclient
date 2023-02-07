@@ -1,35 +1,37 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.data.BdToastData;
+import com.baidu.tbadk.core.util.BdToastHelper;
+import com.baidu.tbadk.util.PriorityOrganizer;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
+import java.lang.ref.WeakReference;
+import org.json.JSONException;
 import org.json.JSONObject;
-import tbclient.ThreadInfo;
-import tbclient.VoiceRoom;
-import tbclient.VoiceRoomListPage.VoiceRoomListPageResIdl;
 /* loaded from: classes5.dex */
-public class o17 implements je5 {
+public class o17 extends PriorityOrganizer.Task {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public List<ThreadInfo> a;
+    public WeakReference<FrsActivity> m;
+    public WeakReference<FrsFragment> n;
+    public BdToastData o;
 
-    public o17() {
+    public o17(FrsActivity frsActivity, FrsFragment frsFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsActivity, frsFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,64 +41,63 @@ public class o17 implements je5 {
                 return;
             }
         }
-        this.a = new ArrayList();
+        this.m = new WeakReference<>(frsActivity);
+        this.n = new WeakReference<>(frsFragment);
+        this.o = new BdToastData();
     }
 
-    @NonNull
-    public List<VoiceRoomWrapper> a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public void A() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (ThreadInfo threadInfo : this.a) {
-                VoiceRoom voiceRoom = threadInfo.voice_room;
-                if (voiceRoom != null && b(voiceRoom)) {
-                    String str = threadInfo.fname;
-                    if (str == null) {
-                        str = "";
-                    }
-                    arrayList.add(new VoiceRoomWrapper(voiceRoom, str));
-                }
-            }
-            return arrayList;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.m.clear();
+            this.m.clear();
         }
-        return (List) invokeV.objValue;
     }
 
-    public final boolean b(@NonNull VoiceRoom voiceRoom) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public void z() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voiceRoom)) == null) {
-            Long l = voiceRoom.room_id;
-            if (l != null && l.longValue() != 0 && !TextUtils.isEmpty(voiceRoom.room_name)) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            BdToastHelper.toast(this.o);
+        }
+    }
+
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean u() {
+        InterceptResult invokeV;
+        WeakReference<FrsFragment> weakReference;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            WeakReference<FrsActivity> weakReference2 = this.m;
+            if (weakReference2 != null && weakReference2.get() != null && (weakReference = this.n) != null && weakReference.get() != null && TbSingleton.getInstance().getFrsResponseData() != null) {
                 return true;
             }
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.je5
-    public void initByJson(JSONObject jSONObject) {
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean w() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            try {
-                JSONArray optJSONArray = jSONObject.optJSONArray("voice_room_list");
-                if (optJSONArray != null) {
-                    this.a = DataExt.toEntityList(optJSONArray.toString(), ThreadInfo.class);
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            String stringExtra = this.m.get().getIntent().getStringExtra(FrsActivityConfig.TOAST_DATA);
+            if (TextUtils.isEmpty(stringExtra)) {
+                return false;
             }
+            try {
+                this.o.parserJson(new JSONObject(stringExtra));
+            } catch (JSONException e) {
+                BdLog.e(e);
+            }
+            BdToastData bdToastData = this.o;
+            if (bdToastData == null || bdToastData.getIconType() == 0) {
+                return false;
+            }
+            return true;
         }
-    }
-
-    @Override // com.baidu.tieba.je5
-    public void initByProtobuf(Message message) {
-        List<ThreadInfo> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, message) == null) && (message instanceof VoiceRoomListPageResIdl) && (list = ((VoiceRoomListPageResIdl) message).data.voice_room_list) != null) {
-            this.a = list;
-        }
+        return invokeV.booleanValue;
     }
 }

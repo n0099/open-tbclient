@@ -116,7 +116,7 @@ public class fl {
             try {
                 i = Integer.parseInt(gnVar.k());
             } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.m103a("Blob parse chid err " + e.getMessage());
+                com.xiaomi.channel.commonutils.logger.b.m105a("Blob parse chid err " + e.getMessage());
                 i = 1;
             }
             flVar.a(i);
@@ -125,7 +125,7 @@ public class fl {
             flVar.b(gnVar.n());
             flVar.a("XMLMSG", (String) null);
             try {
-                flVar.a(gnVar.mo442a().getBytes("utf8"), str);
+                flVar.a(gnVar.mo444a().getBytes("utf8"), str);
                 if (TextUtils.isEmpty(str)) {
                     flVar.a((short) 3);
                 } else {
@@ -133,7 +133,7 @@ public class fl {
                     flVar.a("SECMSG", (String) null);
                 }
             } catch (UnsupportedEncodingException e2) {
-                com.xiaomi.channel.commonutils.logger.b.m103a("Blob setPayload err： " + e2.getMessage());
+                com.xiaomi.channel.commonutils.logger.b.m105a("Blob setPayload err： " + e2.getMessage());
             }
             return flVar;
         }
@@ -156,7 +156,7 @@ public class fl {
                 slice.get(bArr, 0, i);
                 return new fl(aVar, s, bArr);
             } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.m103a("read Blob err :" + e.getMessage());
+                com.xiaomi.channel.commonutils.logger.b.m105a("read Blob err :" + e.getMessage());
                 throw new IOException("Malformed Input");
             }
         }
@@ -188,14 +188,14 @@ public class fl {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m404a() {
+    public String m406a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f395a.m303c() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f395a.m305c() : (String) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public ByteBuffer mo405a(ByteBuffer byteBuffer) {
+    public ByteBuffer mo407a(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteBuffer)) == null) {
@@ -206,7 +206,7 @@ public class fl {
             byteBuffer.putShort((short) this.f395a.a());
             byteBuffer.putInt(this.f399b.length);
             int position = byteBuffer.position();
-            this.f395a.m367a(byteBuffer.array(), byteBuffer.arrayOffset() + position, this.f395a.a());
+            this.f395a.m369a(byteBuffer.array(), byteBuffer.arrayOffset() + position, this.f395a.a());
             byteBuffer.position(position + this.f395a.a());
             byteBuffer.put(this.f399b);
             return byteBuffer;
@@ -215,7 +215,7 @@ public class fl {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public short m406a() {
+    public short m408a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f398a : invokeV.shortValue;
@@ -258,7 +258,7 @@ public class fl {
                 throw new IllegalArgumentException("command should not be empty");
             }
             this.f395a.c(str);
-            this.f395a.m298a();
+            this.f395a.m300a();
             if (TextUtils.isEmpty(str2)) {
                 return;
             }
@@ -287,21 +287,21 @@ public class fl {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m407a() {
+    public boolean m409a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f395a.j() : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m408a() {
+    public byte[] m410a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? fm.a(this, this.f399b) : (byte[]) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m409a(String str) {
+    public byte[] m411a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
@@ -311,7 +311,7 @@ public class fl {
             if (this.f395a.e() == 0) {
                 return fm.a(this, this.f399b);
             }
-            com.xiaomi.channel.commonutils.logger.b.m103a("unknow cipher = " + this.f395a.e());
+            com.xiaomi.channel.commonutils.logger.b.m105a("unknow cipher = " + this.f395a.e());
             return fm.a(this, this.f399b);
         }
         return (byte[]) invokeL.objValue;
@@ -324,10 +324,10 @@ public class fl {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public String m410b() {
+    public String m412b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f395a.m305d() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f395a.m307d() : (String) invokeV.objValue;
     }
 
     public void b(int i) {
@@ -353,10 +353,10 @@ public class fl {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public String m411c() {
+    public String m413c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f395a.m309f() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f395a.m311f() : (String) invokeV.objValue;
     }
 
     public void c(String str) {
@@ -374,7 +374,7 @@ public class fl {
             this.f395a.a(substring);
             this.f395a.b(substring2);
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m103a("Blob parse user err " + e.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m105a("Blob parse user err " + e.getMessage());
         }
     }
 
@@ -382,12 +382,12 @@ public class fl {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            String m307e = this.f395a.m307e();
-            if ("ID_NOT_AVAILABLE".equals(m307e)) {
+            String m309e = this.f395a.m309e();
+            if ("ID_NOT_AVAILABLE".equals(m309e)) {
                 return null;
             }
             if (this.f395a.g()) {
-                return m307e;
+                return m309e;
             }
             String d = d();
             this.f395a.e(d);
@@ -406,8 +406,8 @@ public class fl {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            if (this.f395a.m302b()) {
-                return Long.toString(this.f395a.m297a()) + "@" + this.f395a.m299a() + "/" + this.f395a.m301b();
+            if (this.f395a.m304b()) {
+                return Long.toString(this.f395a.m299a()) + "@" + this.f395a.m301a() + "/" + this.f395a.m303b();
             }
             return null;
         }
@@ -418,7 +418,7 @@ public class fl {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            return "Blob [chid=" + a() + "; Id=" + e() + "; cmd=" + m404a() + "; type=" + ((int) m406a()) + "; from=" + g() + " ]";
+            return "Blob [chid=" + a() + "; Id=" + e() + "; cmd=" + m406a() + "; type=" + ((int) m408a()) + "; from=" + g() + " ]";
         }
         return (String) invokeV.objValue;
     }

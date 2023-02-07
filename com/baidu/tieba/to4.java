@@ -1,63 +1,87 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.adBillingLog.AdBillingLogHttpResMsg;
-import com.baidu.tbadk.adBillingLog.AdBillingLogReqMsg;
-import com.baidu.tbadk.adBillingLog.AdBillingLogSocketResMsg;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.text.TextUtils;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class to4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948187920, "Lcom/baidu/tieba/to4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static NetworkInfo a(Context context) {
+        InterceptResult invokeL;
+        ConnectivityManager connectivityManager;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            Context appContext = AppRuntime.getAppContext();
+            if (appContext == null || (connectivityManager = (ConnectivityManager) appContext.getSystemService("connectivity")) == null) {
+                return null;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948187920, "Lcom/baidu/tieba/to4;");
-                return;
-            }
+            return connectivityManager.getActiveNetworkInfo();
         }
-        qw8.f(309711, AdBillingLogSocketResMsg.class, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_BILLING_LOG, qw8.a(TbConfig.URL_AD_BILLING_LOG, 309711));
-        tbHttpMessageTask.setResponsedClass(AdBillingLogHttpResMsg.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        return (NetworkInfo) invokeL.objValue;
     }
 
-    public to4() {
+    public static String b(int i, String str) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
+            switch (i) {
+                case 1:
+                case 2:
+                case 4:
+                case 7:
+                case 11:
+                case 16:
+                    return "2g";
+                case 3:
+                case 5:
+                case 6:
+                case 8:
+                case 9:
+                case 10:
+                case 12:
+                case 14:
+                case 15:
+                case 17:
+                    return "3g";
+                case 13:
+                case 18:
+                case 19:
+                    return "4g";
+                case 20:
+                    return "5g";
+                default:
+                    if (!TextUtils.isEmpty(str) && str.equalsIgnoreCase("LTE_CA")) {
+                        return "4g";
+                    }
+                    return "unknown";
             }
         }
+        return (String) invokeIL.objValue;
     }
 
-    public void a(uo4 uo4Var) {
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, uo4Var) == null) {
-            AdBillingLogReqMsg adBillingLogReqMsg = new AdBillingLogReqMsg();
-            adBillingLogReqMsg.setReqData(uo4Var);
-            MessageManager.getInstance().sendMessage(adBillingLogReqMsg);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            NetworkInfo a = a(AppRuntime.getAppContext());
+            if (a != null && a.isConnected()) {
+                if (a.getType() == 1) {
+                    return "wifi";
+                }
+                if (a.getType() == 0) {
+                    return b(a.getSubtype(), a.getSubtypeName());
+                }
+                return "unknown";
+            }
+            return "no";
         }
+        return (String) invokeV.objValue;
     }
 }

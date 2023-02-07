@@ -1,48 +1,51 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.BdUniqueId;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.util.DisplayMetrics;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.EditText;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.pb.pb.main.relatelist.RelateRecThreadListModel;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.GreyUtil;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tieba.bb8;
+import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.RelateRecThread.DataRes;
-import tbclient.ThreadInfo;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes6.dex */
-public class va8 {
+public abstract class va8<V extends bb8, D extends IBaseDialogData> implements ab8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<yn> a;
-    public final RelateRecThreadListModel b;
-    public c98 c;
-    public PbModel d;
-    public boolean e;
-    public List<yn> f;
-    public final pq4 g;
+    public AlertDialog a;
+    public TbPageContext b;
+    public Context c;
+    public DialogInterface.OnKeyListener d;
+    public DialogInterface.OnCancelListener e;
+    public int f;
+    public boolean g;
+    public V h;
 
     /* loaded from: classes6.dex */
-    public class a implements pq4 {
+    public class a implements ViewHelper.ViewCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ va8 a;
+        public final /* synthetic */ AtomicBoolean a;
 
-        public a(va8 va8Var) {
+        public a(va8 va8Var, AtomicBoolean atomicBoolean) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {va8Var};
+                Object[] objArr = {va8Var, atomicBoolean};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,77 +55,30 @@ public class va8 {
                     return;
                 }
             }
-            this.a = va8Var;
+            this.a = atomicBoolean;
         }
 
-        @Override // com.baidu.tieba.pq4
-        public void onError(int i, String str) {
+        @Override // com.baidu.tbadk.core.util.ViewHelper.ViewCallback
+        public boolean onViewFound(View view2) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) && this.a.c != null && this.a.c.f1() != null) {
-                this.a.c.f1().P();
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+                if (view2 instanceof EditText) {
+                    this.a.set(true);
+                    return true;
+                }
+                return false;
             }
-        }
-
-        @Override // com.baidu.tieba.pq4
-        public void onSuccess(Object obj) {
-            String str;
-            int intValue;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-                if (this.a.d != null && (obj instanceof DataRes)) {
-                    DataRes dataRes = (DataRes) obj;
-                    y48 l1 = this.a.d.l1();
-                    if (l1.l() != null) {
-                        str = l1.l().getFirst_class();
-                    } else {
-                        str = "";
-                    }
-                    List<ThreadInfo> list = dataRes.recom_thread_info;
-                    if (ListUtils.isEmpty(list)) {
-                        if (this.a.c != null && this.a.c.f1() != null) {
-                            this.a.c.f1().x(l1.t());
-                            this.a.c.f1().P();
-                            if (l1.t()) {
-                                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_PB_FOLD_ICON_SHOW);
-                                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                                statisticItem.param("fid", l1.m());
-                                statisticItem.param("fname", l1.n());
-                                statisticItem.param("tid", l1.S());
-                                TiebaStatic.log(statisticItem);
-                                return;
-                            }
-                            return;
-                        }
-                        return;
-                    }
-                    List<yn> b = wa8.b(list, str, this.a.d.k1());
-                    this.a.a.addAll(b);
-                    l1.S0(this.a.a);
-                    this.a.f.addAll(b);
-                    Integer num = dataRes.rec_type;
-                    if (num == null) {
-                        intValue = 0;
-                    } else {
-                        intValue = num.intValue();
-                    }
-                    l1.P0(intValue);
-                }
-                if (this.a.c != null && !ListUtils.isEmpty(this.a.a)) {
-                    this.a.c.Y3();
-                }
-                if (this.a.c.f1() != null && this.a.c.f1().p() && !ListUtils.isEmpty(this.a.a)) {
-                    this.a.c.f1().m();
-                }
-            }
+            return invokeL.booleanValue;
         }
     }
 
-    public va8(kc8 kc8Var, BdUniqueId bdUniqueId, c98 c98Var, PbModel pbModel) {
+    public va8(TbPageContext tbPageContext, V v, D d) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {kc8Var, bdUniqueId, c98Var, pbModel};
+            Object[] objArr = {tbPageContext, v, d};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -132,59 +88,83 @@ public class va8 {
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.f = new ArrayList();
-        this.g = new a(this);
-        this.c = c98Var;
-        this.d = pbModel;
-        RelateRecThreadListModel relateRecThreadListModel = new RelateRecThreadListModel(kc8Var.getPageContext(), bdUniqueId);
-        this.b = relateRecThreadListModel;
-        relateRecThreadListModel.N(this.g);
+        this.f = -1;
+        this.g = false;
+        this.b = tbPageContext;
+        this.c = tbPageContext.getPageActivity();
+        this.h = v;
+        d(d);
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
+    public void d(D d) {
+        V v;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            PbModel pbModel = this.d;
-            if (pbModel == null || TextUtils.isEmpty(pbModel.F1()) || this.d.l1() == null) {
-                return false;
-            }
-            if (this.e) {
-                return true;
-            }
-            if (this.d.l1().e0()) {
-                return false;
-            }
-            String forumId = this.d.getForumId();
-            if (TextUtils.isEmpty(forumId) && this.d.l1().l() != null) {
-                forumId = this.d.l1().l().getId();
-            }
-            long g = yg.g(forumId, 0L);
-            long g2 = yg.g(this.d.F1(), 0L);
-            int A1 = this.d.A1();
-            String z1 = this.d.z1();
-            if (!this.e) {
-                this.e = true;
-            }
-            return this.b.M(g, g2, 1, A1, z1);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.clear();
-            this.b.onDestroy();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, d) == null) && (v = this.h) != null) {
+            v.b(d);
         }
     }
 
-    public void f(c98 c98Var, PbModel pbModel) {
+    @Override // com.baidu.tieba.ab8
+    public void dismiss() {
+        AlertDialog alertDialog;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, c98Var, pbModel) == null) {
-            this.c = c98Var;
-            this.d = pbModel;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (alertDialog = this.a) != null) {
+            ih.a(alertDialog, this.b.getPageActivity());
+        }
+    }
+
+    @Override // com.baidu.tieba.ab8
+    public void show() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            AlertDialog alertDialog = this.a;
+            if (alertDialog != null) {
+                ih.i(alertDialog, this.b.getPageActivity());
+                return;
+            }
+            if (this.g) {
+                this.a = new AlertDialog.Builder(this.c, R.style.obfuscated_res_0x7f1003f5).create();
+            } else {
+                this.a = new AlertDialog.Builder(this.c).create();
+            }
+            GreyUtil.grey(this.a);
+            this.a.setCanceledOnTouchOutside(c());
+            this.a.setCancelable(b());
+            this.a.setOnKeyListener(this.d);
+            DialogInterface.OnCancelListener onCancelListener = this.e;
+            if (onCancelListener != null) {
+                this.a.setOnCancelListener(onCancelListener);
+            }
+            ih.i(this.a, this.b.getPageActivity());
+            if (this.a.getWindow().getDecorView().getParent() == null) {
+                return;
+            }
+            Window window = this.a.getWindow();
+            if (this.f == -1) {
+                this.f = 17;
+            }
+            window.setGravity(this.f);
+            window.setBackgroundDrawableResource(R.drawable.transparent_bg);
+            WindowManager.LayoutParams attributes = window.getAttributes();
+            attributes.dimAmount = 0.7f;
+            attributes.width = -1;
+            DisplayMetrics t = ej.t(this.b.getPageActivity());
+            if (t != null) {
+                int a2 = a();
+                if (UtilHelper.getRealScreenOrientation(this.c) == 2) {
+                    attributes.width = t.heightPixels - (a2 * 2);
+                } else {
+                    attributes.width = t.widthPixels - (a2 * 2);
+                }
+            }
+            attributes.height = -2;
+            window.setAttributes(attributes);
+            window.setContentView(this.h.getViewGroup());
+            AtomicBoolean atomicBoolean = new AtomicBoolean(false);
+            ViewHelper.processAllViewsIn(this.h.getViewGroup(), false, new a(this, atomicBoolean));
+            if (atomicBoolean.get()) {
+                window.clearFlags(131080);
+            }
         }
     }
 }

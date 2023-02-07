@@ -1,5 +1,11 @@
 package com.baidu.tieba;
+
+import android.view.View;
 /* loaded from: classes4.dex */
-public interface ee5 extends ce5 {
-    String getCacheKey();
+public interface ee5 {
+    void b();
+
+    View getView();
+
+    void onClick();
 }

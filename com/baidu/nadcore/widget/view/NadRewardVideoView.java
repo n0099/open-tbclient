@@ -11,14 +11,14 @@ import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.uitemplate.NadRewardCountDownView;
 import com.baidu.nadcore.widget.uitemplate.NadRewardVolumeView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d01;
-import com.baidu.tieba.fq0;
-import com.baidu.tieba.fs0;
-import com.baidu.tieba.gs0;
-import com.baidu.tieba.hq0;
-import com.baidu.tieba.js0;
-import com.baidu.tieba.pz0;
-import com.baidu.tieba.s81;
+import com.baidu.tieba.br0;
+import com.baidu.tieba.dd1;
+import com.baidu.tieba.dr0;
+import com.baidu.tieba.h11;
+import com.baidu.tieba.jt0;
+import com.baidu.tieba.kt0;
+import com.baidu.tieba.nt0;
+import com.baidu.tieba.t01;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -27,8 +27,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class NadRewardVideoView extends NadRewardBaseView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final js0 q;
-    public fs0 r;
+    public final nt0 q;
+    public jt0 r;
     public ViewGroup s;
     public NadRewardVolumeView t;
 
@@ -37,9 +37,9 @@ public abstract class NadRewardVideoView extends NadRewardBaseView {
     public abstract void H();
 
     @Override // com.baidu.nadcore.widget.view.NadRewardBaseView
-    public void m(LayoutInflater layoutInflater, hq0 hq0Var) {
+    public void m(LayoutInflater layoutInflater, dr0 dr0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, layoutInflater, hq0Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048580, this, layoutInflater, dr0Var) == null) {
         }
     }
 
@@ -76,16 +76,16 @@ public abstract class NadRewardVideoView extends NadRewardBaseView {
 
         @Override // com.baidu.nadcore.widget.uitemplate.NadRewardVolumeView.b
         public void a(boolean z) {
-            fs0 fs0Var;
+            jt0 jt0Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (fs0Var = this.a.r) != null) {
-                fs0Var.mute(z);
+            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (jt0Var = this.a.r) != null) {
+                jt0Var.mute(z);
             }
         }
     }
 
     /* loaded from: classes2.dex */
-    public class b extends js0 {
+    public class b extends nt0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NadRewardVideoView a;
@@ -108,7 +108,7 @@ public abstract class NadRewardVideoView extends NadRewardBaseView {
             this.a = nadRewardVideoView;
         }
 
-        @Override // com.baidu.tieba.js0, com.baidu.tieba.cs0
+        @Override // com.baidu.tieba.nt0, com.baidu.tieba.gt0
         public void a(int i) {
             boolean z;
             Interceptable interceptable = $ic;
@@ -116,7 +116,7 @@ public abstract class NadRewardVideoView extends NadRewardBaseView {
                 return;
             }
             NadRewardVolumeView nadRewardVolumeView = this.a.t;
-            if (d01.c(this.a.getContext()) <= 0) {
+            if (h11.c(this.a.getContext()) <= 0) {
                 z = true;
             } else {
                 z = false;
@@ -124,7 +124,7 @@ public abstract class NadRewardVideoView extends NadRewardBaseView {
             nadRewardVolumeView.setVolumeState(z);
         }
 
-        @Override // com.baidu.tieba.js0, com.baidu.tieba.cs0
+        @Override // com.baidu.tieba.nt0, com.baidu.tieba.gt0
         public void onEnd(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
@@ -152,7 +152,7 @@ public abstract class NadRewardVideoView extends NadRewardBaseView {
             }
         }
 
-        @Override // com.baidu.tieba.js0, com.baidu.tieba.cs0
+        @Override // com.baidu.tieba.nt0, com.baidu.tieba.gt0
         public void onError(int i, int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, str) == null) {
@@ -170,7 +170,7 @@ public abstract class NadRewardVideoView extends NadRewardBaseView {
             }
         }
 
-        @Override // com.baidu.tieba.js0, com.baidu.tieba.cs0
+        @Override // com.baidu.tieba.nt0, com.baidu.tieba.gt0
         public void onPause() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -185,7 +185,7 @@ public abstract class NadRewardVideoView extends NadRewardBaseView {
             }
         }
 
-        @Override // com.baidu.tieba.js0, com.baidu.tieba.cs0
+        @Override // com.baidu.tieba.nt0, com.baidu.tieba.gt0
         public void onPrepared() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -200,7 +200,7 @@ public abstract class NadRewardVideoView extends NadRewardBaseView {
             }
         }
 
-        @Override // com.baidu.tieba.js0, com.baidu.tieba.cs0
+        @Override // com.baidu.tieba.nt0, com.baidu.tieba.gt0
         public void onResume() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -215,7 +215,7 @@ public abstract class NadRewardVideoView extends NadRewardBaseView {
             }
         }
 
-        @Override // com.baidu.tieba.js0, com.baidu.tieba.cs0
+        @Override // com.baidu.tieba.nt0, com.baidu.tieba.gt0
         public void onStart() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
@@ -232,7 +232,7 @@ public abstract class NadRewardVideoView extends NadRewardBaseView {
                     if (adBaseModel.p != null) {
                         this.a.t.setVolumeState(adBaseModel.p.h);
                     }
-                    if (d01.c(this.a.getContext()) <= 0) {
+                    if (h11.c(this.a.getContext()) <= 0) {
                         this.a.t.setVolumeState(true);
                     }
                     this.a.t.setVisibility(0);
@@ -277,19 +277,19 @@ public abstract class NadRewardVideoView extends NadRewardBaseView {
 
         @Override // com.baidu.nadcore.widget.uitemplate.NadRewardCountDownView.g
         public void a() {
-            fs0 fs0Var;
+            jt0 jt0Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (fs0Var = this.b.r) != null) {
-                fs0Var.resume();
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (jt0Var = this.b.r) != null) {
+                jt0Var.resume();
             }
         }
 
         @Override // com.baidu.nadcore.widget.uitemplate.NadRewardCountDownView.g
         public void b() {
-            fs0 fs0Var;
+            jt0 jt0Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (fs0Var = this.b.r) != null) {
-                fs0Var.pause();
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (jt0Var = this.b.r) != null) {
+                jt0Var.pause();
             }
         }
 
@@ -297,9 +297,9 @@ public abstract class NadRewardVideoView extends NadRewardBaseView {
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                s81 s81Var = this.b.o;
-                if (s81Var != null) {
-                    s81Var.h(this.a);
+                dd1 dd1Var = this.b.o;
+                if (dd1Var != null) {
+                    dd1Var.h(this.a);
                 }
                 this.b.j();
             }
@@ -309,9 +309,9 @@ public abstract class NadRewardVideoView extends NadRewardBaseView {
         public void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                s81 s81Var = this.b.o;
-                if (s81Var != null) {
-                    s81Var.g(true, this.a);
+                dd1 dd1Var = this.b.o;
+                if (dd1Var != null) {
+                    dd1Var.g(true, this.a);
                 }
                 this.b.j();
             }
@@ -327,9 +327,9 @@ public abstract class NadRewardVideoView extends NadRewardBaseView {
 
         @Override // com.baidu.nadcore.widget.uitemplate.NadRewardCountDownView.g
         public void g() {
-            fs0 fs0Var;
+            jt0 jt0Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (fs0Var = this.b.r) != null && fs0Var.isPause()) {
+            if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (jt0Var = this.b.r) != null && jt0Var.isPause()) {
                 this.b.r.resume();
             }
         }
@@ -413,7 +413,7 @@ public abstract class NadRewardVideoView extends NadRewardBaseView {
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (hq0) objArr2[3]);
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (dr0) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -422,19 +422,19 @@ public abstract class NadRewardVideoView extends NadRewardBaseView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NadRewardVideoView(Context context, AttributeSet attributeSet, int i, hq0 hq0Var) {
-        super(context, attributeSet, i, hq0Var);
+    public NadRewardVideoView(Context context, AttributeSet attributeSet, int i, dr0 dr0Var) {
+        super(context, attributeSet, i, dr0Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i), hq0Var};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i), dr0Var};
             interceptable.invokeUnInit(65539, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (hq0) objArr2[3]);
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (dr0) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -468,9 +468,9 @@ public abstract class NadRewardVideoView extends NadRewardBaseView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.j();
-            fs0 fs0Var = this.r;
-            if (fs0Var != null) {
-                fs0Var.release();
+            jt0 jt0Var = this.r;
+            if (jt0Var != null) {
+                jt0Var.release();
                 this.r = null;
             }
         }
@@ -480,24 +480,24 @@ public abstract class NadRewardVideoView extends NadRewardBaseView {
     public void r(AdBaseModel adBaseModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, adBaseModel) == null) {
-            if ((adBaseModel instanceof fq0) && adBaseModel.j != null) {
+            if ((adBaseModel instanceof br0) && adBaseModel.j != null) {
                 if (this.s != null) {
-                    gs0 gs0Var = new gs0();
-                    gs0Var.a = 2;
+                    kt0 kt0Var = new kt0();
+                    kt0Var.a = 2;
                     if (this.r == null) {
-                        this.r = fs0.a.b(getContext(), 0, gs0Var);
+                        this.r = jt0.a.b(getContext(), 0, kt0Var);
                     }
-                    pz0 pz0Var = new pz0();
-                    pz0Var.j(2);
-                    pz0Var.l(false);
-                    pz0Var.n(true);
-                    this.r.d(pz0Var);
+                    t01 t01Var = new t01();
+                    t01Var.j(2);
+                    t01Var.l(false);
+                    t01Var.n(true);
+                    this.r.d(t01Var);
                     this.r.attachToContainer(this.s);
                     this.r.c(adBaseModel.j);
                     this.r.a(this.q);
-                    hq0 hq0Var = adBaseModel.p;
-                    if (hq0Var != null) {
-                        this.r.mute(hq0Var.h);
+                    dr0 dr0Var = adBaseModel.p;
+                    if (dr0Var != null) {
+                        this.r.mute(dr0Var.h);
                     }
                     this.r.start();
                 }

@@ -1,142 +1,95 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.graphics.Bitmap;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.novel.NovelMemberCardView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.imageManager.TbImageMemoryCache;
+import com.baidu.tbadk.img.effect.ImageOperation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ze5 {
+public class ze5 extends we5 {
     public static /* synthetic */ Interceptable $ic;
-    public static ze5 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final int b;
-    public boolean c;
-    public boolean d;
-    public boolean e;
+    public int a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948357087, "Lcom/baidu/tieba/ze5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948357087, "Lcom/baidu/tieba/ze5;");
-        }
+    @Override // com.baidu.tieba.we5
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "rotate" : (String) invokeV.objValue;
     }
 
     public ze5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = true;
-        this.d = true;
-        this.e = true;
-        this.a = zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds144);
-        this.b = zi.j(TbadkCoreApplication.getInst());
+        this.a = 0;
     }
 
-    public static ze5 a() {
-        InterceptResult invokeV;
+    public static ImageOperation e(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f == null) {
-                synchronized (ze5.class) {
-                    if (f == null) {
-                        f = new ze5();
-                    }
-                }
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            ImageOperation imageOperation = new ImageOperation();
+            imageOperation.actionName = "rotate";
+            imageOperation.actionParam = String.valueOf(i);
+            return imageOperation;
+        }
+        return (ImageOperation) invokeI.objValue;
+    }
+
+    @Override // com.baidu.tieba.we5
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || str == null) {
+            return;
+        }
+        this.a = Integer.parseInt(str);
+    }
+
+    @Override // com.baidu.tieba.we5
+    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, z)) == null) {
+            if (bitmap == null) {
+                return null;
             }
-            return f;
+            TbImageMemoryCache.n().l(BitmapHelper.getBitmapSize(bitmap) * 2);
+            int i = this.a;
+            if (i != 0 && i != 1) {
+                if (i != 2 && i != 3) {
+                    return bitmap;
+                }
+                return BitmapHelper.reversalBitmap(bitmap, this.a);
+            }
+            return BitmapHelper.rotateBitmap(bitmap, this.a);
         }
-        return (ze5) invokeV.objValue;
+        return (Bitmap) invokeLZ.objValue;
     }
 
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            f = null;
-            this.c = true;
-            this.d = true;
-            this.e = true;
-        }
-    }
-
-    public boolean b(View view2) {
+    @Override // com.baidu.tieba.we5
+    public Bitmap c(String str) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            if (view2 == null) {
-                return false;
-            }
-            int[] iArr = new int[2];
-            view2.getLocationOnScreen(iArr);
-            int i = iArr[1];
-            if (i <= 0 || i >= this.b - this.a) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            int max = Math.max(ej.l(TbadkCoreApplication.getInst().getApp()), ej.j(TbadkCoreApplication.getInst().getApp()));
+            return b(BitmapHelper.loadResizedBitmap(str, max, max), true);
         }
-        return invokeL.booleanValue;
-    }
-
-    public void c(String str, String str2, f65 f65Var, NovelMemberCardView novelMemberCardView, int i) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, f65Var, novelMemberCardView, Integer.valueOf(i)}) == null) && f65Var != null && novelMemberCardView != null && novelMemberCardView.getVisibility() == 0) {
-            String valueOf = String.valueOf(f65Var.f());
-            if (f65Var.h()) {
-                i2 = 2;
-            } else {
-                i2 = 1;
-            }
-            if (b(novelMemberCardView.getNovelReadMoreButton()) && !f65Var.h()) {
-                if (this.c) {
-                    this.c = false;
-                    bf5.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_READ_MORE_BUTTON_SHOW, i2, valueOf, str, str2);
-                }
-            } else {
-                this.c = true;
-            }
-            if (b(novelMemberCardView.getNovelPaidButton()) && f65Var.h()) {
-                if (this.d) {
-                    this.d = false;
-                    bf5.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_READ_MORE_BUTTON_SHOW, i2, valueOf, str, str2);
-                }
-            } else {
-                this.d = true;
-            }
-            if (b(novelMemberCardView.getNovelCoverPage()) && !f65Var.h()) {
-                if (this.e) {
-                    this.e = false;
-                    bf5.b(CommonStatisticKey.KEY_PB_NOVEL_INFO_CARD_VIEW_SHOW, 4, valueOf, str, str2, i);
-                    return;
-                }
-                return;
-            }
-            this.e = true;
-        }
+        return (Bitmap) invokeL.objValue;
     }
 }

@@ -1,98 +1,74 @@
 package com.baidu.tieba;
 
+import android.os.Build;
+import android.os.HandlerThread;
+import android.os.Looper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.permissionhelper.app.ActivityCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes5.dex */
-public class nw {
+public class nw extends HandlerThread {
     public static /* synthetic */ Interceptable $ic;
-    public static nw b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<Integer, ActivityCompat.OnRequestPermissionsResultCallback> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448312580, "Lcom/baidu/tieba/nw;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448312580, "Lcom/baidu/tieba/nw;");
-                return;
-            }
-        }
-        b = new nw();
-    }
-
-    public nw() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nw(String str, int i) {
+        super(str, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap();
     }
 
-    public static nw b() {
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                Looper looper = getLooper();
+                if (Build.VERSION.SDK_INT >= 18) {
+                    looper.quitSafely();
+                } else {
+                    looper.quit();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override // android.os.HandlerThread
+    public boolean quit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return quitSafely();
         }
-        return (nw) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public void a(int i, ActivityCompat.OnRequestPermissionsResultCallback onRequestPermissionsResultCallback) {
+    @Override // android.os.HandlerThread
+    public boolean quitSafely() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIL(1048576, this, i, onRequestPermissionsResultCallback) != null) || this.a == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ow.c(this);
+            return true;
         }
-        synchronized (nw.class) {
-            if (this.a.containsKey(Integer.valueOf(i))) {
-                this.a.remove(Integer.valueOf(i));
-            }
-            this.a.put(Integer.valueOf(i), onRequestPermissionsResultCallback);
-        }
-    }
-
-    public ActivityCompat.OnRequestPermissionsResultCallback c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            Map<Integer, ActivityCompat.OnRequestPermissionsResultCallback> map = this.a;
-            if (map != null && map.containsKey(Integer.valueOf(i))) {
-                return this.a.get(Integer.valueOf(i));
-            }
-            return null;
-        }
-        return (ActivityCompat.OnRequestPermissionsResultCallback) invokeI.objValue;
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            synchronized (nw.class) {
-                if (this.a != null && this.a.containsKey(Integer.valueOf(i))) {
-                    this.a.remove(Integer.valueOf(i));
-                }
-            }
-        }
+        return invokeV.booleanValue;
     }
 }

@@ -1,257 +1,227 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
-import android.text.TextUtils;
+import android.os.Handler;
+import android.os.Message;
+import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TiebaDatabase;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.util.EmotionUtil;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tbadk.img.UploadedImageInfo;
-import com.baidu.tieba.faceshop.MyEmotionGroupData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.InputStream;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes7.dex */
 public class yi6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final yi6 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public float a;
+    public float b;
+    public float c;
+    public float d;
+    public b e;
+    public Handler.Callback f;
+    public Handler g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948331171, "Lcom/baidu/tieba/yi6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a(int i, int i2);
+
+        void b(int i, int i2);
+
+        void c(int i, int i2);
+
+        void d(int i, int i2);
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements Handler.Callback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yi6 a;
+
+        public a(yi6 yi6Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yi6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948331171, "Lcom/baidu/tieba/yi6;");
-                return;
-            }
+            this.a = yi6Var;
         }
-        a = new yi6();
+
+        @Override // android.os.Handler.Callback
+        public boolean handleMessage(Message message) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
+                int i = message.arg1;
+                int i2 = message.arg2;
+                int i3 = message.what;
+                if (i3 != 0) {
+                    if (i3 != 1) {
+                        if (i3 != 2) {
+                            if (i3 != 3) {
+                                return false;
+                            }
+                            this.a.e.c(i, i2);
+                            return true;
+                        }
+                        this.a.e.d(i, i2);
+                        return true;
+                    }
+                    this.a.e.b(i, i2);
+                    return true;
+                }
+                this.a.e.a(i, i2);
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
     }
 
     public yi6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f = new a(this);
+        this.g = new Handler(this.f);
+    }
+
+    public void d(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.e = bVar;
+        }
+    }
+
+    public final void b(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+            this.g.removeMessages(2);
+            if (!this.g.hasMessages(2)) {
+                Message message = new Message();
+                message.what = 2;
+                message.arg1 = i;
+                message.arg2 = i2;
+                this.g.sendMessageDelayed(message, 60L);
             }
         }
     }
 
-    public static yi6 c() {
-        InterceptResult invokeV;
+    public final void e(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            this.g.removeMessages(0);
+            if (!this.g.hasMessages(1)) {
+                Message message = new Message();
+                message.what = 1;
+                message.arg1 = i;
+                message.arg2 = i2;
+                this.g.sendMessageDelayed(message, 60L);
+            }
         }
-        return (yi6) invokeV.objValue;
     }
 
-    public final boolean a(String str) {
+    public final void f(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            this.g.removeMessages(3);
+            if (!this.g.hasMessages(3)) {
+                Message message = new Message();
+                message.what = 3;
+                message.arg1 = i;
+                message.arg2 = i2;
+                this.g.sendMessageDelayed(message, 60L);
+            }
+        }
+    }
+
+    public final void g(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
+            this.g.removeMessages(1);
+            if (!this.g.hasMessages(0)) {
+                Message message = new Message();
+                message.what = 0;
+                message.arg1 = i;
+                message.arg2 = i2;
+                this.g.sendMessageDelayed(message, 60L);
+            }
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x0012, code lost:
+        if (r0 != 3) goto L11;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean c(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (new File(TbadkCoreApplication.getInst().getFilesDir(), str).exists()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean b(MyEmotionGroupData myEmotionGroupData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, myEmotionGroupData)) == null) {
-            if (myEmotionGroupData == null) {
-                return false;
-            }
-            aa mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            try {
-                mainDBDatabaseManager.f().delete(EmotionUtil.TABLE_NAME_USER_EMOTIONS, "uid = ? and groupId = ?", new String[]{myEmotionGroupData.uid, myEmotionGroupData.groupId});
-                return true;
-            } catch (Throwable th) {
-                mainDBDatabaseManager.i(th, "EmotionsDBManager.deleteMyEmotion");
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public MyEmotionGroupData d(String str, String str2) {
-        InterceptResult invokeLL;
-        Cursor cursor;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return null;
-            }
-            aa mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            try {
-                cursor = mainDBDatabaseManager.f().rawQuery("SELECT * FROM user_emotions where uid = ? and groupId = ? ", new String[]{str, str2});
-                try {
-                    if (cursor.moveToNext()) {
-                        return i(cursor);
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    try {
-                        mainDBDatabaseManager.i(th, "EmotionsDBManager.getMyEmotion");
-                        return null;
-                    } finally {
-                        aj.a(cursor);
-                    }
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                cursor = null;
-            }
-            return null;
-        }
-        return (MyEmotionGroupData) invokeLL.objValue;
-    }
-
-    public boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            aa mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            Cursor cursor = null;
-            try {
-                cursor = mainDBDatabaseManager.f().rawQuery("SELECT * FROM user_emotions where uid = ? and groupId = ? ", new String[]{TbadkCoreApplication.getCurrentAccount(), str});
-                if (!cursor.moveToNext()) {
-                    return false;
-                }
-                return true;
-            } catch (Throwable th) {
-                try {
-                    mainDBDatabaseManager.i(th, "EmotionsDBManager.hasEmotionByPckID");
-                    return false;
-                } finally {
-                    aj.a(cursor);
-                }
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, CONST_STR, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    public List<MyEmotionGroupData> h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            LinkedList linkedList = new LinkedList();
-            if (TextUtils.isEmpty(str)) {
-                return linkedList;
-            }
-            Cursor cursor = null;
-            try {
-                cursor = TiebaDatabase.getInstance().getMainDBDatabaseManager().f().rawQuery("SELECT * FROM user_emotions where uid = ? order by updateTime desc ", new String[]{str});
-                while (cursor.moveToNext()) {
-                    linkedList.add(i(cursor));
-                }
-            } finally {
-                try {
-                    return linkedList;
-                } finally {
-                }
-            }
-            return linkedList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public MyEmotionGroupData i(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, cursor)) == null) {
-            MyEmotionGroupData myEmotionGroupData = new MyEmotionGroupData();
-            myEmotionGroupData.id = cursor.getInt(cursor.getColumnIndex("id"));
-            myEmotionGroupData.uid = cursor.getString(cursor.getColumnIndex("uid"));
-            myEmotionGroupData.groupId = cursor.getString(cursor.getColumnIndex(TbEnum.SystemMessage.KEY_GROUP_ID));
-            myEmotionGroupData.updateTime = cursor.getLong(cursor.getColumnIndex("updateTime"));
-            return myEmotionGroupData;
-        }
-        return (MyEmotionGroupData) invokeL.objValue;
-    }
-
-    public int f(j18 j18Var) {
-        InterceptResult invokeL;
-        List<k18> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, j18Var)) == null) {
-            if (j18Var == null || (list = j18Var.e) == null || list.size() == 0) {
-                return 0;
-            }
-            String str = ".emotions/" + j18Var.a;
-            gj6 o = gj6.o();
-            List<k18> list2 = j18Var.e;
-            int i = 0;
-            for (int i2 = 0; i2 < list2.size(); i2++) {
-                k18 k18Var = list2.get(i2);
-                if (a(str + "/" + k18Var.c)) {
-                    if (a(str + "/" + k18Var.d)) {
-                        StringBuilder sb = new StringBuilder(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX_SHORT);
-                        sb.append(j18Var.a + "_" + k18Var.b);
-                        sb.append(",");
-                        sb.append(k18Var.f);
-                        sb.append(",");
-                        sb.append(k18Var.e);
-                        sb.append(",");
-                        String str2 = SmallTailInfo.EMOTION_PREFIX + sb.toString() + gj.c(sb.toString() + UploadedImageInfo.MD5_KEY).toLowerCase() + SmallTailInfo.EMOTION_SUFFIX;
-                        boolean isGifImage = FileHelper.isGifImage(bc5.b.e(j18Var.a, k18Var.c));
-                        zi6.g(j18Var.a, k18Var.d, zi6.c(str2, true, false));
-                        zi6.g(j18Var.a, k18Var.c, zi6.c(str2, false, isGifImage));
-                        if (o.f(str2, j18Var.a, i2 + 1)) {
-                            i++;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
+            int action = motionEvent.getAction();
+            if (action != 0) {
+                if (action != 1) {
+                    if (action == 2) {
+                        float rawX = motionEvent.getRawX();
+                        float rawY = motionEvent.getRawY();
+                        if (this.c == 0.0f || this.d == 0.0f) {
+                            this.c = motionEvent.getRawX();
+                            float rawY2 = motionEvent.getRawY();
+                            this.d = rawY2;
+                            this.a = this.c;
+                            this.b = rawY2;
                         }
+                        int i = (int) (rawY - this.b);
+                        int i2 = (int) (rawY - this.d);
+                        if (this.e != null) {
+                            if (i > 0) {
+                                e(i2, i);
+                            } else {
+                                g(i2, i);
+                            }
+                        }
+                        this.a = rawX;
+                        this.b = rawY;
                     }
                 }
-            }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
-    public int g(String str, InputStream inputStream) throws Exception {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, inputStream)) == null) {
-            gj6 o = gj6.o();
-            List<String> a2 = zi6.a(str, inputStream);
-            int i = 0;
-            int i2 = 0;
-            while (i < a2.size()) {
-                i++;
-                if (o.f(a2.get(i), str, i)) {
-                    i2++;
+                if (this.e != null) {
+                    int i3 = (int) (this.a - this.c);
+                    int i4 = (int) (this.b - this.d);
+                    if (Math.abs(i3) >= Math.abs(i4)) {
+                        f(i3, (int) this.c);
+                    } else {
+                        b(i3, i4);
+                    }
                 }
+                this.c = 0.0f;
+                this.d = 0.0f;
+            } else {
+                this.c = motionEvent.getRawX();
+                float rawY3 = motionEvent.getRawY();
+                this.d = rawY3;
+                this.a = this.c;
+                this.b = rawY3;
             }
-            return i2;
+            return true;
         }
-        return invokeLL.intValue;
+        return invokeL.booleanValue;
     }
 }

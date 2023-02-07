@@ -1,93 +1,87 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.net.request.Headers;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.jvm.internal.Ref;
+import com.yy.gslbsdk.db.DelayTB;
+import kotlin.jvm.JvmField;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class sq0 {
+public final class sq0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a d;
     public transient /* synthetic */ FieldHolder $fh;
+    @JvmField
+    public int a;
+    @JvmField
+    public long b;
+    @JvmField
+    public long c;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948159927, "Lcom/baidu/tieba/sq0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948159927, "Lcom/baidu/tieba/sq0;");
+                return;
+            }
+        }
+        d = new a(null);
+    }
 
     /* loaded from: classes6.dex */
-    public static final class a implements gr0 {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Ref.LongRef a;
-        public final /* synthetic */ Ref.ObjectRef b;
-        public final /* synthetic */ Ref.ObjectRef c;
-        public final /* synthetic */ Ref.ObjectRef d;
-        public final /* synthetic */ hn0 e;
-        public final /* synthetic */ File f;
-        public final /* synthetic */ Ref.BooleanRef g;
 
-        public a(Ref.LongRef longRef, Ref.ObjectRef objectRef, Ref.ObjectRef objectRef2, Ref.ObjectRef objectRef3, hn0 hn0Var, File file, Ref.BooleanRef booleanRef) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {longRef, objectRef, objectRef2, objectRef3, hn0Var, file, booleanRef};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = longRef;
-            this.b = objectRef;
-            this.c = objectRef2;
-            this.d = objectRef3;
-            this.e = hn0Var;
-            this.f = file;
-            this.g = booleanRef;
         }
 
-        @Override // com.baidu.tieba.gr0
-        public void a(Exception exc, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) {
-                this.e.accept(new fr0(false, this.a.element, (String) this.b.element, (String) this.c.element, exc));
-            }
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
         }
 
-        /* JADX WARN: Type inference failed for: r10v2, types: [T, java.lang.String] */
-        /* JADX WARN: Type inference failed for: r11v19, types: [T, java.lang.Exception] */
-        /* JADX WARN: Type inference failed for: r1v2, types: [T, java.lang.String] */
-        @Override // com.baidu.tieba.gr0
-        public void c(Headers headers, InputStream inputStream, int i) {
+        @JvmStatic
+        public final sq0 a(JSONObject jSONObject) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, headers, inputStream, i) == null) {
-                if (headers != null && inputStream != null) {
-                    this.b.element = headers.d(com.baidubce.http.Headers.ETAG);
-                    this.c.element = headers.d(com.baidubce.http.Headers.LAST_MODIFIED);
-                    if (i != 200) {
-                        if (i != 304) {
-                            this.g.element = false;
-                            Ref.ObjectRef objectRef = this.d;
-                            objectRef.element = new Exception("Unsupport http code:" + i);
-                        }
-                    } else {
-                        FileOutputStream fileOutputStream = new FileOutputStream(this.f);
-                        this.a.element = u31.b(inputStream, fileOutputStream);
-                        hj0.a(inputStream);
-                        hj0.a(fileOutputStream);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+                if (jSONObject != null) {
+                    sq0 sq0Var = new sq0();
+                    sq0Var.a = jSONObject.optInt("style");
+                    long j = 0;
+                    if (jSONObject.optLong(DelayTB.DELAY) >= 0) {
+                        j = jSONObject.optLong(DelayTB.DELAY);
                     }
-                    this.e.accept(new fr0(this.g.element, this.a.element, (String) this.b.element, (String) this.c.element, (Exception) this.d.element));
-                    return;
+                    sq0Var.b = j;
+                    sq0Var.c = jSONObject.optLong("duration");
+                    return sq0Var;
                 }
-                this.e.accept(new fr0(false, this.a.element, (String) this.b.element, (String) this.c.element, (Exception) this.d.element));
+                return null;
             }
+            return (sq0) invokeL.objValue;
         }
     }
 
@@ -95,48 +89,13 @@ public class sq0 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-        }
-    }
-
-    /* JADX WARN: Type inference failed for: r11v1, types: [T, java.lang.String] */
-    /* JADX WARN: Type inference failed for: r11v2, types: [T, java.lang.String] */
-    public void a(String url, yq0 meta, File toFile, hn0<zq0> callback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, url, meta, toFile, callback) == null) {
-            Intrinsics.checkNotNullParameter(url, "url");
-            Intrinsics.checkNotNullParameter(meta, "meta");
-            Intrinsics.checkNotNullParameter(toFile, "toFile");
-            Intrinsics.checkNotNullParameter(callback, "callback");
-            ar0 a2 = wq0.b().a();
-            Intrinsics.checkNotNullExpressionValue(a2, "HttpFactory.getInstance().getHttp()");
-            pr0 pr0Var = new pr0();
-            pr0Var.l(url);
-            Ref.ObjectRef objectRef = new Ref.ObjectRef();
-            objectRef.element = meta.a;
-            Ref.ObjectRef objectRef2 = new Ref.ObjectRef();
-            objectRef2.element = meta.b;
-            if (!meta.c) {
-                if (!TextUtils.isEmpty((String) objectRef.element)) {
-                    pr0Var.a("If-None-Match", (String) objectRef.element);
-                }
-                if (!TextUtils.isEmpty((String) objectRef2.element)) {
-                    pr0Var.a("If-Modified-Since", (String) objectRef2.element);
-                }
-            }
-            Ref.LongRef longRef = new Ref.LongRef();
-            longRef.element = 0L;
-            Ref.BooleanRef booleanRef = new Ref.BooleanRef();
-            booleanRef.element = true;
-            Ref.ObjectRef objectRef3 = new Ref.ObjectRef();
-            objectRef3.element = null;
-            a2.b(pr0Var, new a(longRef, objectRef, objectRef2, objectRef3, callback, toFile, booleanRef));
         }
     }
 }

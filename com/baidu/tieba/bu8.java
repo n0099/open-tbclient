@@ -1,30 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
+import tbclient.ForumList;
+import tbclient.GetDislikeList.DataRes;
 /* loaded from: classes3.dex */
 public class bu8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public BdTypeRecyclerView b;
-    public cu8 c;
-    public go d;
-    public List<ln> e;
+    public List<zt8> a;
+    public boolean b;
 
-    public bu8(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
+    public bu8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,36 +28,26 @@ public class bu8 {
                 return;
             }
         }
-        this.e = new LinkedList();
-        this.a = tbPageContext;
-        this.b = bdTypeRecyclerView;
-        a();
+        this.a = new ArrayList();
+        this.b = true;
     }
 
-    public final void a() {
+    public void a(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            cu8 cu8Var = new cu8(this.a);
-            this.c = cu8Var;
-            this.e.add(cu8Var);
-            go goVar = new go(this.a);
-            this.d = goVar;
-            this.e.add(goVar);
-            this.b.a(this.e);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) || dataRes == null) {
+            return;
         }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b.getAdapter().notifyDataSetChanged();
+        for (ForumList forumList : dataRes.forum_list) {
+            zt8 zt8Var = new zt8();
+            zt8Var.a = forumList.avatar;
+            zt8Var.b = forumList.forum_name;
+            zt8Var.c = String.valueOf(forumList.forum_id);
+            this.a.add(zt8Var);
         }
-    }
-
-    public void c(List<yn> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.b.setData(list);
+        boolean z = true;
+        if (dataRes.has_more.intValue() != 1) {
+            z = false;
         }
+        this.b = z;
     }
 }

@@ -1,12 +1,11 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.nk5;
+import com.baidu.tieba.yo5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,13 +35,13 @@ public class SubPbRequestMessage extends NetMessage {
     public boolean treatDelPage;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SubPbRequestMessage(Context context, long j, long j2, long j3, int i, int i2, int i3, double d, String str, int i4) {
+    public SubPbRequestMessage(long j, long j2, long j3, int i, int i2, int i3, double d, String str, int i4) {
         super(CmdConfigHttp.SubPb_HTTP_CMD, 302002);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r4;
-            Object[] objArr = {context, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Double.valueOf(d), str, Integer.valueOf(i4)};
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Double.valueOf(d), str, Integer.valueOf(i4)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i5 = newInitContext.flag;
             if ((i5 & 1) != 0) {
@@ -87,7 +86,7 @@ public class SubPbRequestMessage extends NetMessage {
             builder.top_ugc_pid = this.oriUgcTopPid;
             builder.forum_id = Long.valueOf(this.forumId);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                nk5.a(builder, true);
+                yo5.a(builder, true);
             }
             PbFloorReqIdl.Builder builder2 = new PbFloorReqIdl.Builder();
             builder2.data = builder.build(false);

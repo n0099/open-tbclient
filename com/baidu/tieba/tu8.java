@@ -1,208 +1,168 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.ListAdapter;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.widget.ListView.BdListView;
+import android.content.Context;
+import android.location.Location;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.NoDataView;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.lz4;
-import com.baidu.tieba.square.square.SquareActivity;
+import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 /* loaded from: classes6.dex */
-public class tu8 extends q9<Object> {
+public class tu8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<Object> a;
-    public View b;
-    public BdListView c;
-    public NoNetworkView d;
-    public mz4 e;
-    public qu8 f;
-    public NoDataView g;
+    public Context a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tu8(TbPageContext<Object> tbPageContext, View view2, View.OnKeyListener onKeyListener) {
-        super(tbPageContext);
+    public tu8(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, view2, onKeyListener};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((s9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.c = null;
-        this.e = null;
-        this.f = null;
-        this.a = tbPageContext;
-        this.b = view2;
-        BdListView bdListView = (BdListView) view2.findViewById(R.id.obfuscated_res_0x7f09204a);
-        this.c = bdListView;
-        bdListView.setOnKeyListener(onKeyListener);
-        if (this.a.getOrignalPage() instanceof SquareActivity) {
-            this.c.setOnItemClickListener((SquareActivity) this.a.getOrignalPage());
-        }
-        qu8 qu8Var = new qu8(tbPageContext);
-        this.f = qu8Var;
-        this.c.setAdapter((ListAdapter) qu8Var);
-        mz4 mz4Var = new mz4(tbPageContext);
-        this.e = mz4Var;
-        this.c.setPullRefresh(mz4Var);
-        this.d = (NoNetworkView) this.b.findViewById(R.id.view_no_network);
+        this.a = context;
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public tu8(TbPageContext<Object> tbPageContext, BdUniqueId bdUniqueId, View view2, View.OnKeyListener onKeyListener) {
-        this(tbPageContext, view2, onKeyListener);
+    public final String a(ShareItem shareItem) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, view2, onKeyListener};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((TbPageContext) objArr2[0], (View) objArr2[1], (View.OnKeyListener) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, shareItem)) == null) {
+            String str = "【" + shareItem.v + "】 " + shareItem.w;
+            shareItem.w = str;
+            return str;
         }
-        this.e.b0(bdUniqueId);
+        return (String) invokeL.objValue;
     }
 
-    public void i(NoNetworkView.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.d.a(bVar);
-        }
-    }
-
-    public void q(ru8 ru8Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ru8Var) == null) && ru8Var != null) {
-            try {
-                if (!ru8Var.g()) {
-                    this.f.i(ru8Var);
-                    this.f.notifyDataSetChanged();
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-    }
-
-    public void r(NoNetworkView.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bVar) == null) {
-            this.d.e(bVar);
-        }
-    }
-
-    public void s(lz4.g gVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, gVar) == null) {
-            this.e.f(gVar);
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c.A(0L);
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.d.setVisibility(0);
-        }
-    }
-
-    public View n() {
+    public final Location b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return cf6.b();
         }
-        return (View) invokeV.objValue;
+        return (Location) invokeV.objValue;
     }
 
-    public void o() {
-        NoDataView noDataView;
+    public void c(int i, ShareItem shareItem, boolean z) {
+        Location b;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (noDataView = this.g) != null) {
-            noDataView.setVisibility(8);
-            this.c.removeHeaderView(this.g);
+        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), shareItem, Boolean.valueOf(z)}) != null) || shareItem == null) {
+            return;
         }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.d.setVisibility(8);
+        if (!BdNetTypeUtil.isNetWorkAvailable()) {
+            ej.P(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
+            return;
         }
-    }
-
-    public void m(boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048579, this, z, str) == null) {
-            k();
-            if (!z && str != null) {
-                this.a.showToast(str, true);
+        if (z && (b = b()) != null) {
+            shareItem.F = b;
+        }
+        g95 g95Var = new g95(this.a, null);
+        if (i == 3) {
+            IWXAPI createWXAPI = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst(), TbConfig.WEIXIN_SHARE_APP_ID);
+            if (createWXAPI != null && !createWXAPI.isWXAppInstalled()) {
+                BdToast.b(this.a, TbadkCoreApplication.getInst().getText(R.string.obfuscated_res_0x7f0f1234)).k();
+                return;
             }
+            e(shareItem, 4);
+            g95Var.r(shareItem);
+        } else if (i == 2) {
+            IWXAPI createWXAPI2 = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst(), TbConfig.WEIXIN_SHARE_APP_ID);
+            if (createWXAPI2 != null && !createWXAPI2.isWXAppInstalled()) {
+                BdToast.b(this.a, TbadkCoreApplication.getInst().getText(R.string.obfuscated_res_0x7f0f1234)).k();
+                return;
+            }
+            e(shareItem, 3);
+            if (shareItem.b) {
+                shareItem.w = a(shareItem);
+            }
+            g95Var.s(shareItem);
+        } else if (i == 4) {
+            if (k09.b(this.a, "com.tencent.mobileqq")) {
+                e(shareItem, 5);
+                g95Var.n(shareItem);
+                return;
+            }
+            Context context = this.a;
+            BdToast.b(context, context.getText(R.string.share_qq_not_install)).k();
+        } else if (i == 5) {
+            if (!shareItem.a) {
+                shareItem.w = a(shareItem);
+            }
+            g95Var.q(shareItem);
+        } else if (i == 6) {
+            e(shareItem, 7);
+            if (!shareItem.a) {
+                shareItem.w = a(shareItem);
+            }
+            g95Var.p(shareItem);
+        } else if (i == 7) {
+            if (!shareItem.a) {
+                shareItem.w = a(shareItem);
+            }
+            g95Var.o(shareItem);
+        } else if (i == 8) {
+            if (k09.b(this.a, "com.tencent.mobileqq")) {
+                e(shareItem, 9);
+                g95Var.m(shareItem);
+                return;
+            }
+            Context context2 = this.a;
+            BdToast.b(context2, context2.getText(R.string.share_qq_not_install)).k();
         }
     }
 
-    public void onChangeSkinType(int i) {
+    public final void d(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            dr4 layoutMode = this.a.getLayoutMode();
-            boolean z = true;
-            if (i != 1) {
-                z = false;
-            }
-            layoutMode.l(z);
-            this.a.getLayoutMode().k(this.b);
-            this.f.h(i);
-            this.e.H(i);
-            this.d.d(this.mContext, i);
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
+            TiebaStatic.eventStat(this.a, "pb_new_share", null, 1, "loc", Integer.valueOf(i), PbChosenActivityConfig.KEY_TID, str);
         }
     }
 
-    public void t(int i) {
+    public final void e(ShareItem shareItem, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            if (this.g == null) {
-                this.g = NoDataViewFactory.a(this.a.getPageActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, zi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070283)), NoDataViewFactory.e.a(i), null);
+        if ((interceptable == null || interceptable.invokeLI(1048580, this, shareItem, i) == null) && shareItem != null && shareItem.u != null) {
+            if (shareItem.b) {
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("fid", shareItem.u).param("obj_type", i));
+            } else if (!shareItem.c && !shareItem.f) {
+                if (shareItem.d) {
+                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_PHOTO_LIVE).param("tid", shareItem.u).param("obj_type", i));
+                } else if (shareItem.a) {
+                    d(i, shareItem.G);
+                } else if (shareItem.e) {
+                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("obj_param1", 7).param("obj_type", i).param("fid", shareItem.u));
+                } else if (shareItem.g) {
+                    StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("obj_type", i);
+                    param.param("obj_source", shareItem.I);
+                    if (!dj.isEmpty(shareItem.x) && shareItem.x.contains("worldcup")) {
+                        param.param("obj_param1", 9);
+                    }
+                    TiebaStatic.log(param);
+                } else if (shareItem.h) {
+                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("tid", shareItem.u).param("fid", shareItem.N).param("obj_type", i).param("obj_source", shareItem.I).param("obj_param1", shareItem.J).param(TiebaStatic.Params.OBJ_PARAM2, shareItem.K).param(TiebaStatic.Params.OBJ_PARAM3, shareItem.L).param("obj_locate", shareItem.M));
+                }
+            } else {
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("tid", shareItem.u).param("obj_type", i).param("obj_source", shareItem.I).param("obj_param1", shareItem.J).param("fid", shareItem.N).param(TiebaStatic.Params.OBJ_PARAM2, shareItem.K));
             }
-            this.g.setTextOption(NoDataViewFactory.e.a(i));
-            this.g.f(this.a, TbadkCoreApplication.getInst().getSkinType());
-            this.g.setVisibility(0);
-            this.c.removeHeaderView(this.g);
-            this.c.addHeaderView(this.g);
         }
     }
 }

@@ -1,119 +1,86 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.widget.Toast;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.tieba.fn2;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import org.json.JSONObject;
+import java.util.TreeMap;
 /* loaded from: classes5.dex */
-public class of2 extends g63 {
+public final class of2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    /* loaded from: classes5.dex */
-    public class a implements fn2.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.fn2.c
-        public void a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            }
-        }
-
-        public a(of2 of2Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948030254, "Lcom/baidu/tieba/of2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {of2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
             }
-        }
-
-        @Override // com.baidu.tieba.fn2.c
-        public void onFailed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                Toast.makeText(qn2.c(), (int) R.string.obfuscated_res_0x7f0f0153, 1).show();
-            }
-        }
-
-        @Override // com.baidu.tieba.fn2.c
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                File d = qd3.d();
-                File c = qd3.c();
-                if (d.exists() && nk4.U(d.getPath(), c.getPath())) {
-                    i03.M(true);
-                    Toast.makeText(qn2.c(), (int) R.string.obfuscated_res_0x7f0f0154, 1).show();
-                    return;
-                }
-                Toast.makeText(qn2.c(), (int) R.string.obfuscated_res_0x7f0f0153, 1).show();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public of2(g53 g53Var) {
-        super(g53Var, "/swanAPI/debugSwanCore");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {g53Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948030254, "Lcom/baidu/tieba/of2;");
                 return;
             }
         }
+        b = gp1.a;
+        ds2.g0().getSwitch("swan_slave_ready", false);
+        c = false;
     }
 
-    @Override // com.baidu.tieba.g63
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j43 j43Var) {
-        InterceptResult invokeLLLL;
+    public of2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j43Var)) == null) {
-            if (!g63.b) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            JSONObject a2 = g63.a(unitedSchemeEntity, "params");
-            if (a2 == null) {
-                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f014b, 1).show();
-                return false;
-            }
-            String optString = a2.optString("downloadurl");
-            if (TextUtils.isEmpty(optString)) {
-                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f0120, 1).show();
-                return false;
-            }
-            fn2.J(optString, new a(this));
-            return true;
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    public static boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b) {
+                Log.d("SlaveReadyEvent", "isSlaveReadyABSwitchOn:" + c);
+            }
+            return c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "SlaveReadyEvent{slaveId='" + this.a + "'}";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static xi2 a(of2 of2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, of2Var)) == null) {
+            if (b) {
+                Log.d("SlaveReadyEvent", "createSlaveReadyMessage:" + of2Var);
+            }
+            TreeMap treeMap = new TreeMap();
+            treeMap.put("slaveId", of2Var.a);
+            return new xi2("SlaveReady", treeMap);
+        }
+        return (xi2) invokeL.objValue;
     }
 }

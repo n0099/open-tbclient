@@ -16,9 +16,9 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tieba.R;
-import com.baidu.tieba.iq0;
-import com.baidu.tieba.n71;
-import com.baidu.tieba.ni0;
+import com.baidu.tieba.er0;
+import com.baidu.tieba.wi0;
+import com.baidu.tieba.yb1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +32,7 @@ public class SimpleAdInfoView extends FrameLayout {
     public TextView b;
     public TextView c;
     public TextView d;
-    public iq0 e;
+    public er0 e;
     public c f;
     public View.OnClickListener g;
     public int h;
@@ -76,7 +76,7 @@ public class SimpleAdInfoView extends FrameLayout {
             int id = view2.getId();
             String str2 = "";
             if (id == R.id.nad_app_privacy) {
-                iq0.b bVar = this.a.e.g;
+                er0.b bVar = this.a.e.g;
                 if (bVar != null) {
                     str2 = bVar.b;
                     str = ClogBuilder.Area.APP_PRIVACY.type;
@@ -84,7 +84,7 @@ public class SimpleAdInfoView extends FrameLayout {
                 str = "";
             } else {
                 if (id == R.id.nad_app_permission) {
-                    iq0.a aVar = this.a.e.h;
+                    er0.a aVar = this.a.e.h;
                     if (aVar != null) {
                         str2 = aVar.b;
                         str = ClogBuilder.Area.APP_PERMISSION.type;
@@ -98,7 +98,7 @@ public class SimpleAdInfoView extends FrameLayout {
                 }
                 str = "";
             }
-            ni0.c(str2, this.a.getContext());
+            wi0.c(str2, this.a.getContext());
             c cVar = this.a.f;
             if (cVar != null) {
                 cVar.a(str);
@@ -231,7 +231,7 @@ public class SimpleAdInfoView extends FrameLayout {
         if ((interceptable != null && interceptable.invokeL(65539, this, attributeSet) != null) || attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, n71.SimpleAdInfoView);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, yb1.SimpleAdInfoView);
         this.h = obtainStyledAttributes.getResourceId(0, -1);
         obtainStyledAttributes.recycle();
     }
@@ -284,14 +284,14 @@ public class SimpleAdInfoView extends FrameLayout {
         return invokeV.intValue;
     }
 
-    public void setAdInfo(iq0 iq0Var) {
+    public void setAdInfo(er0 er0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, iq0Var) == null) {
-            if (iq0Var != null && iq0Var.k) {
-                this.e = iq0Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, er0Var) == null) {
+            if (er0Var != null && er0Var.k) {
+                this.e = er0Var;
                 if (this.a != null) {
-                    if (!TextUtils.isEmpty(iq0Var.f)) {
-                        this.a.setText(iq0Var.f);
+                    if (!TextUtils.isEmpty(er0Var.f)) {
+                        this.a.setText(er0Var.f);
                         this.a.setVisibility(0);
                         b(this.a);
                     } else {
@@ -299,8 +299,8 @@ public class SimpleAdInfoView extends FrameLayout {
                     }
                 }
                 if (this.b != null) {
-                    if (!TextUtils.isEmpty(iq0Var.d)) {
-                        this.b.setText(iq0Var.d);
+                    if (!TextUtils.isEmpty(er0Var.d)) {
+                        this.b.setText(er0Var.d);
                         this.b.setVisibility(0);
                         b(this.b);
                     } else {
@@ -308,18 +308,18 @@ public class SimpleAdInfoView extends FrameLayout {
                     }
                 }
                 if (this.c != null) {
-                    iq0.b bVar = iq0Var.g;
-                    if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(iq0Var.g.a)) {
-                        this.c.setText(iq0Var.g.a);
+                    er0.b bVar = er0Var.g;
+                    if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(er0Var.g.a)) {
+                        this.c.setText(er0Var.g.a);
                         this.c.setVisibility(0);
                     } else {
                         this.c.setVisibility(8);
                     }
                 }
                 if (this.d != null) {
-                    iq0.a aVar = iq0Var.h;
-                    if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(iq0Var.h.a)) {
-                        this.d.setText(iq0Var.h.a);
+                    er0.a aVar = er0Var.h;
+                    if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(er0Var.h.a)) {
+                        this.d.setText(er0Var.h.a);
                         this.d.setVisibility(0);
                         return;
                     }

@@ -1,66 +1,91 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import androidx.annotation.Nullable;
-import com.baidu.swan.apps.core.container.PullToRefreshBaseWebView;
-import com.baidu.tieba.qq1;
+import android.os.Bundle;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.CookieManager;
 /* loaded from: classes5.dex */
-public interface pq1<T extends qq1> extends rq1<T>, yp1 {
-    void C(int i);
+public class pq1 implements is1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean J();
+    /* loaded from: classes5.dex */
+    public static class a extends ProviderDelegation {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    boolean K();
+        /* renamed from: com.baidu.tieba.pq1$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class C0399a implements qn3<Bundle> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
-    void L(ab2 ab2Var);
+            public C0399a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
 
-    ar1 M();
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.qn3
+            /* renamed from: a */
+            public Bundle create() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("baidu_cookie", pq1.b());
+                    return bundle;
+                }
+                return (Bundle) invokeV.objValue;
+            }
+        }
 
-    void O(FrameLayout frameLayout, y43 y43Var);
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
 
-    int Q();
+        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+        public Bundle execCall(Bundle bundle) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+                return (Bundle) nn3.b(new C0399a(this));
+            }
+            return (Bundle) invokeL.objValue;
+        }
+    }
 
-    void R(String str);
-
-    void T();
-
-    boolean W(h83 h83Var);
-
-    boolean X(h83 h83Var);
-
-    void Y(x52 x52Var);
-
-    void a0(y52 y52Var);
-
-    boolean c();
-
-    @Nullable
-    z02 c0();
-
-    int f0();
-
-    void h(ju2 ju2Var);
-
-    PullToRefreshBaseWebView h0();
-
-    boolean i0();
-
-    void j(ViewGroup viewGroup, View view2);
-
-    @Nullable
-    String j0();
-
-    sq1 k();
-
-    String m();
-
-    boolean s(int i);
-
-    void v(String str);
-
-    boolean w(h83 h83Var);
-
-    void z(FrameLayout frameLayout, y43 y43Var);
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return CookieManager.getInstance().getCookie(".baidu.com");
+        }
+        return (String) invokeV.objValue;
+    }
 }

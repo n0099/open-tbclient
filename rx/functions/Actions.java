@@ -2,9 +2,9 @@ package rx.functions;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.x8a;
-import com.baidu.tieba.y8a;
-import com.baidu.tieba.z8a;
+import com.baidu.tieba.gda;
+import com.baidu.tieba.hda;
+import com.baidu.tieba.ida;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +21,7 @@ public final class Actions {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes9.dex */
-    public static final class NotImplemented implements y8a<Throwable> {
+    public static final class NotImplemented implements hda<Throwable> {
         public static final /* synthetic */ NotImplemented[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final NotImplemented INSTANCE;
@@ -83,7 +83,7 @@ public final class Actions {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.y8a
+        @Override // com.baidu.tieba.hda
         public void call(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
@@ -93,25 +93,25 @@ public final class Actions {
     }
 
     /* loaded from: classes9.dex */
-    public static final class a<T0, T1, T2, T3, T4, T5, T6, T7, T8> implements x8a, y8a<T0>, z8a<T0, T1> {
+    public static final class a<T0, T1, T2, T3, T4, T5, T6, T7, T8> implements gda, hda<T0>, ida<T0, T1> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.tieba.x8a
+        @Override // com.baidu.tieba.gda
         public void call() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.y8a
+        @Override // com.baidu.tieba.hda
         public void call(T0 t0) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t0) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.z8a
+        @Override // com.baidu.tieba.ida
         public void call(T0 t0, T1 t1) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, t0, t1) == null) {
@@ -206,12 +206,12 @@ public final class Actions {
         return (a) invokeV.objValue;
     }
 
-    public static y8a<Throwable> b() {
+    public static hda<Throwable> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             return NotImplemented.INSTANCE;
         }
-        return (y8a) invokeV.objValue;
+        return (hda) invokeV.objValue;
     }
 }

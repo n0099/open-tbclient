@@ -1,20 +1,21 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.ContextWrapper;
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public abstract class f43 extends ContextWrapper implements m43 {
+public class f43 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public int d;
+    public boolean e;
+    public boolean f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f43() {
-        super(AppRuntime.getApplication());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -22,11 +23,13 @@ public abstract class f43 extends ContextWrapper implements m43 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.d = -1;
+        this.e = false;
+        this.f = false;
     }
 }

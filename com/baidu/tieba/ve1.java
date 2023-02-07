@@ -1,109 +1,81 @@
 package com.baidu.tieba;
 
-import androidx.annotation.IdRes;
-import androidx.annotation.NonNull;
-import com.baidu.prologue.business.data.SplashStyleRecorder;
-import com.baidu.tieba.qg1;
+import android.content.Context;
+import android.os.Looper;
+import android.os.Message;
+import android.webkit.WebView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.CountDownLatch;
 /* loaded from: classes6.dex */
 public class ve1 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ve1 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
-    @NonNull
-    public static qg1 a(@NonNull ze1 ze1Var) {
-        InterceptResult invokeL;
-        boolean z;
-        boolean z2;
-        int b;
+    public ve1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, ze1Var)) == null) {
-            qg1.b bVar = new qg1.b(ze1Var.f(), ze1Var.g);
-            bVar.t("rsplash");
-            boolean z3 = false;
-            if (ze1Var.f == 1) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            bVar.i(z);
-            bVar.f(b());
-            bVar.m(c());
-            if (ze1Var.f == 1) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            bVar.o(z2);
-            bVar.n(d(ze1Var.m));
-            bVar.B(ze1Var.n * 1000);
-            bVar.z(1);
-            bVar.E(SplashStyleRecorder.a());
-            bVar.g(5);
-            bVar.x(false);
-            bVar.c(ze1Var.l);
-            bVar.e(25);
-            bVar.d(13);
-            bVar.A(72);
-            bVar.y(30);
-            bVar.D(68);
-            bVar.C(30);
-            bVar.h(17);
-            bVar.q(ze1Var.z);
-            if (ze1Var.A == 1) {
-                z3 = true;
-            }
-            bVar.w(z3);
-            bVar.b(ze1Var.B);
-            bVar.p(ze1Var.e());
-            bVar.r("跳转详情页或第三方应用");
-            if (ze1Var.h()) {
-                b = 47;
-            } else {
-                b = b() + 39;
-            }
-            bVar.s(b);
-            bVar.j(ze1Var.H);
-            bVar.l(ze1Var.G);
-            bVar.k(ze1Var.d());
-            bVar.v(ze1Var.M);
-            bVar.u(ze1Var.N);
-            return bVar.a();
         }
-        return (qg1) invokeL.objValue;
+        this.a = false;
     }
 
-    public static int b() {
+    public static ve1 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return le1.a().b();
-        }
-        return invokeV.intValue;
-    }
-
-    @IdRes
-    public static int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return le1.a().c();
-        }
-        return invokeV.intValue;
-    }
-
-    @IdRes
-    public static int d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            if (i == 1) {
-                return le1.a().h();
+            if (b == null) {
+                synchronized (ve1.class) {
+                    if (b == null) {
+                        b = new ve1();
+                    }
+                }
             }
-            return le1.a().g();
+            return b;
         }
-        return invokeI.intValue;
+        return (ve1) invokeV.objValue;
+    }
+
+    public void b(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, context) != null) || this.a) {
+            return;
+        }
+        if (Thread.currentThread() == Looper.getMainLooper().getThread()) {
+            c(context);
+            return;
+        }
+        CountDownLatch countDownLatch = new CountDownLatch(1);
+        new ue1(context, countDownLatch).sendMessage(Message.obtain());
+        try {
+            countDownLatch.await();
+        } catch (Exception unused) {
+        }
+    }
+
+    public final void c(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            ge1.a().c();
+            try {
+                new WebView(context);
+            } catch (Exception unused) {
+            }
+            this.a = true;
+        }
     }
 }

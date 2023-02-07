@@ -1,65 +1,81 @@
 package com.baidu.tieba;
 
-import org.json.JSONObject;
+import android.annotation.SuppressLint;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
+import androidx.core.app.NotificationCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public interface fo1 {
-    boolean A();
+public class fo1 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static long a = 60000;
+    public static long b;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean B();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947770753, "Lcom/baidu/tieba/fo1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947770753, "Lcom/baidu/tieba/fo1;");
+                return;
+            }
+        }
+        b = a * 60;
+    }
 
-    JSONObject C();
+    @SuppressLint({"WrongConstant"})
+    public static void a(Context context, long j) {
+        PendingIntent broadcast;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLJ(65537, null, context, j) != null) || j <= 0) {
+            return;
+        }
+        try {
+            AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
+            Intent intent = new Intent();
+            intent.setPackage(context.getPackageName());
+            intent.setAction("sso_action_t_m");
+            if (b(context)) {
+                broadcast = PendingIntent.getBroadcast(context, 101, intent, 201326592);
+            } else {
+                broadcast = PendingIntent.getBroadcast(context, 101, intent, 134217728);
+            }
+            alarmManager.cancel(broadcast);
+            alarmManager.set(0, System.currentTimeMillis() + j, broadcast);
+        } catch (Throwable th) {
+            go1.d(th);
+        }
+    }
 
-    boolean D();
-
-    void E();
-
-    long F();
-
-    boolean G();
-
-    long H();
-
-    String getExpInfos();
-
-    JSONObject getRawSwitch();
-
-    int getSwitch(String str, int i);
-
-    String getSwitch(String str, String str2);
-
-    boolean getSwitch(String str, boolean z);
-
-    boolean j();
-
-    String k();
-
-    boolean l();
-
-    boolean m();
-
-    long n();
-
-    boolean o();
-
-    boolean p();
-
-    int q();
-
-    boolean r();
-
-    boolean s();
-
-    boolean t();
-
-    int u();
-
-    boolean v();
-
-    boolean w();
-
-    boolean x();
-
-    int y();
-
-    boolean z();
+    public static boolean b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            try {
+                if (context.getApplicationInfo().targetSdkVersion >= 31) {
+                    if (Build.VERSION.SDK_INT >= 31) {
+                        return true;
+                    }
+                    return false;
+                }
+                return false;
+            } catch (Throwable th) {
+                go1.d(th);
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
 }

@@ -19,9 +19,9 @@ import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tieba.dj;
 import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.tbadkCore.data.PostData;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -253,10 +253,10 @@ public class ShareItem {
                     if (threadData.getAuthor() != null && !TextUtils.isEmpty(threadData.getAuthor().getName_show())) {
                         forwardInfo.transmitThreadAuthorNameShow = threadData.getAuthor().getName_show();
                     }
-                    if (i == 1 && postData != null && yi.isEmpty(forwardInfo.transmitThreadAuthorNameShow) && postData.r() != null) {
+                    if (i == 1 && postData != null && dj.isEmpty(forwardInfo.transmitThreadAuthorNameShow) && postData.r() != null) {
                         forwardInfo.transmitThreadAuthorNameShow = postData.r().getName_show();
                     }
-                    if (i == 2 && yi.isEmpty(forwardInfo.transmitThreadAuthorNameShow)) {
+                    if (i == 2 && dj.isEmpty(forwardInfo.transmitThreadAuthorNameShow)) {
                         forwardInfo.transmitThreadAuthorNameShow = TbadkCoreApplication.getCurrentAccountNameShow();
                     }
                 } else {

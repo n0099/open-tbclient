@@ -1,57 +1,21 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import androidx.annotation.NonNull;
+import android.graphics.Canvas;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class t22 extends ProviderDelegation {
+public class t22 extends c22 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public class a implements dj3<Bundle> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Bundle a;
-        public final /* synthetic */ t22 b;
-
-        public a(t22 t22Var, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {t22Var, bundle};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = t22Var;
-            this.a = bundle;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.dj3
-        /* renamed from: a */
-        public Bundle create() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.b.d(this.a);
-            }
-            return (Bundle) invokeV.objValue;
-        }
-    }
+    public float a;
+    public float b;
+    public float c;
+    public float d;
+    public boolean e;
 
     public t22() {
         Interceptable interceptable = $ic;
@@ -63,46 +27,29 @@ public class t22 extends ProviderDelegation {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.e = false;
+    }
+
+    @Override // com.baidu.tieba.c22
+    public void a(d22 d22Var, Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, d22Var, canvas) == null) && this.e) {
+            d22Var.f.quadTo(this.a, this.b, this.c, this.d);
         }
     }
 
-    public final Bundle d(@NonNull Bundle bundle) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.c22
+    public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            int i = bundle.getInt("type");
-            v22 v22Var = new v22();
-            String string = bundle.getString("param1");
-            Bundle bundle2 = new Bundle();
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            return bundle2;
-                        }
-                        bundle2.putString("result", v22Var.getCookie(string));
-                        return bundle2;
-                    }
-                    v22Var.storeCookie(string, bundle.getStringArrayList("param2"));
-                    return bundle2;
-                }
-                bundle2.putBoolean("result", v22Var.shouldSendCookie(string, bundle.getString("param2")));
-                return bundle2;
-            }
-            bundle2.putBoolean("result", v22Var.shouldAcceptCookie(string, bundle.getString("param2")));
-            return bundle2;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 3) {
+            this.a = nm3.g((float) jSONArray.optDouble(0));
+            this.b = nm3.g((float) jSONArray.optDouble(1));
+            this.c = nm3.g((float) jSONArray.optDouble(2));
+            this.d = nm3.g((float) jSONArray.optDouble(3));
+            this.e = true;
         }
-        return (Bundle) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(@NonNull Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
-            return (Bundle) aj3.b(new a(this, bundle));
-        }
-        return (Bundle) invokeL.objValue;
     }
 }

@@ -16,7 +16,7 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.rtc.PeerConnectionClient;
-import com.baidu.tieba.c8a;
+import com.baidu.tieba.lca;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -969,7 +969,7 @@ public class MediaCodecVideoEncoder {
                 Logging.w(TAG, "Egl context already set.");
                 staticEglBase.release();
             }
-            staticEglBase = c8a.b(context);
+            staticEglBase = lca.b(context);
         }
     }
 

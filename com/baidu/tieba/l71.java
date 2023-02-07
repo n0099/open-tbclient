@@ -1,11 +1,28 @@
 package com.baidu.tieba;
 
-import android.widget.ImageView;
+import com.baidu.nadcore.webpanel.model.AdData;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface l71<IMAGEVIEW extends ImageView> extends wn0 {
-    void a(String str, IMAGEVIEW imageview, boolean z);
+public class l71 extends tm0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(String str, IMAGEVIEW imageview, int i, int i2);
-
-    void e(String str, vn0 vn0Var);
+    public l71(int i, AdData adData) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), adData};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

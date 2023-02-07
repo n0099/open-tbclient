@@ -1,71 +1,82 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
 /* loaded from: classes4.dex */
-public class hv7 extends iv7 {
+public class hv7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.iv7, com.baidu.searchbox.live.interfaces.player.LivePlayer
-    public void saveProgressToDb() {
+    public static gv7 a(AdvertAppInfo advertAppInfo) {
+        InterceptResult invokeL;
+        AdvertAppInfo.ILegoAdvert iLegoAdvert;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, advertAppInfo)) == null) {
+            if (advertAppInfo == null || (iLegoAdvert = advertAppInfo.h) == null || !(iLegoAdvert instanceof gv7)) {
+                return null;
+            }
+            return (gv7) iLegoAdvert;
         }
+        return (gv7) invokeL.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hv7(String str) {
-        super(null, str);
+    public static void b(gv7 gv7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeL(65537, null, gv7Var) == null) && gv7Var != null && gv7Var.getParallelCharge() != null) {
+            o21.b(gv7Var.getParallelCharge().b);
+            Iterator<String> it = gv7Var.getParallelCharge().c.iterator();
+            while (it.hasNext()) {
+                o21.b(it.next());
             }
         }
     }
 
-    @Override // com.baidu.searchbox.player.BDVideoPlayer, com.baidu.searchbox.player.kernel.IKernelPlayer
-    public void onPrepared() {
+    public static void c(AdvertAppInfo advertAppInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.onPrepared();
-            int i = this.mVideoTask.position;
-            if (i > 0) {
-                seekTo(i);
+        if ((interceptable == null || interceptable.invokeL(65538, null, advertAppInfo) == null) && d(a(advertAppInfo))) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.y(ClogBuilder.LogType.EXCEPTION).k("1").l(DpStatConstants.FILECACHE_CLOSE_TYPE_OPT_DISABLE).p(advertAppInfo.g);
+            AdvertAppInfo.ILegoAdvert iLegoAdvert = advertAppInfo.h;
+            if (iLegoAdvert != null) {
+                clogBuilder.m(String.valueOf(iLegoAdvert.getGoodsStyle()));
             }
+            n21.b(clogBuilder);
         }
     }
 
-    @Override // com.baidu.tieba.iv7, com.baidu.tieba.gv7, com.baidu.searchbox.player.UniversalPlayer, com.baidu.searchbox.player.BDVideoPlayer
-    public void release() {
+    public static boolean d(gv7 gv7Var) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.release();
-            saveProgressToDb();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, gv7Var)) == null) {
+            if (gv7Var == null || gv7Var.getParallelCharge() == null) {
+                return false;
+            }
+            String str = gv7Var.getParallelCharge().a;
+            o21.b(str);
+            if (!TextUtils.isEmpty(str)) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Iterator<String> it = gv7Var.getParallelCharge().d.iterator();
+            while (it.hasNext()) {
+                String next = it.next();
+                if (!z && TextUtils.isEmpty(next)) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                o21.b(next);
+            }
+            return z;
         }
-    }
-
-    @Override // com.baidu.tieba.gv7, com.baidu.searchbox.player.BDVideoPlayer, com.baidu.searchbox.player.IBVideoPlayer
-    public void stop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.stop();
-            saveProgressToDb();
-        }
+        return invokeL.booleanValue;
     }
 }

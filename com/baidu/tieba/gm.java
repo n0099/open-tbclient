@@ -1,29 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.logsystem.exceptionhandler.impl.IExceptionHandlerContext;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
+import java.util.AbstractMap;
+import java.util.ArrayList;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class gm implements IExceptionHandlerContext {
+public abstract class gm {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
-    @Override // com.baidu.searchbox.logsystem.exceptionhandler.impl.IExceptionHandlerContext
-    public long getAppLaunchStartTimeStamp() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0L;
-        }
-        return invokeV.longValue;
-    }
+    public abstract String a();
 
     public gm() {
         Interceptable interceptable = $ic;
@@ -35,6 +28,78 @@ public class gm implements IExceptionHandlerContext {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = false;
+    }
+
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || this.a) {
+            return;
+        }
+        this.a = true;
+        if (TextUtils.isEmpty(a())) {
+            return;
+        }
+        try {
+            new JSONObject().put("version", i);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void c(int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            String a = a();
+            if (TextUtils.isEmpty(a)) {
+                return;
+            }
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new AbstractMap.SimpleEntry("version", String.valueOf(j)));
+            String str = a + "_download";
+            if (i == 0) {
+                fm.c(str, arrayList);
+            } else {
+                fm.b(str, arrayList);
+            }
+        }
+    }
+
+    public void d(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            String a = a();
+            if (TextUtils.isEmpty(a)) {
+                return;
+            }
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new AbstractMap.SimpleEntry("version", String.valueOf(i2)));
+            String str = a + "_install";
+            if (i == 13) {
+                fm.c(str, arrayList);
+            } else {
+                fm.b(str, arrayList);
+            }
+        }
+    }
+
+    public void e(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            String a = a();
+            if (TextUtils.isEmpty(a)) {
+                return;
+            }
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new AbstractMap.SimpleEntry("version", String.valueOf(i2)));
+            String str = a + "_launch";
+            if (i == 14) {
+                fm.c(str, arrayList);
+            } else {
+                fm.b(str, arrayList);
             }
         }
     }

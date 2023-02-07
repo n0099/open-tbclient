@@ -1,76 +1,97 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.client.HttpClient;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
 /* loaded from: classes3.dex */
-public class ac extends cc {
+public class ac extends bc<HttpMessage, HttpMessageTask, ob, HttpResponsedMessage> {
     public static /* synthetic */ Interceptable $ic;
-    public static ac d;
     public transient /* synthetic */ FieldHolder $fh;
-    public dc c;
+    public HttpClient i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448299467, "Lcom/baidu/tieba/ac;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448299467, "Lcom/baidu/tieba/ac;");
-        }
+    public HttpMessage w(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, httpMessage, httpMessageTask)) == null) ? httpMessage : (HttpMessage) invokeLL.objValue;
     }
 
-    public ac() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ac(MessageManager messageManager) {
+        super(messageManager);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {messageManager};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((MessageManager) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = null;
-        this.a = new dc(28000, TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000);
-        this.c = new dc(TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000, 5000);
-        this.b = 3;
+        this.i = null;
+        this.i = new HttpClient(messageManager);
+        this.e = fc.d();
     }
 
-    public static ac d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.oa
+    public LinkedList<HttpMessage> e(int i, BdUniqueId bdUniqueId) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                synchronized (ac.class) {
-                    if (d == null) {
-                        d = new ac();
-                    }
-                }
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bdUniqueId)) == null) {
+            return this.i.e(i, bdUniqueId);
+        }
+        return (LinkedList) invokeIL.objValue;
+    }
+
+    @Override // com.baidu.tieba.oa
+    public void h(int i, BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bdUniqueId) == null) {
+            this.i.h(i, bdUniqueId);
+        }
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
+    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.Message' to match base method */
+    @Override // com.baidu.tieba.bc
+    public /* bridge */ /* synthetic */ HttpMessage m(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
+        HttpMessage httpMessage2 = httpMessage;
+        w(httpMessage2, httpMessageTask);
+        return httpMessage2;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.oa
+    /* renamed from: y */
+    public void f(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, httpMessage, httpMessageTask) == null) {
+            if (httpMessageTask.getConnectTimeOut() == null) {
+                httpMessageTask.setConnectTimeOut(((fc) this.e).c());
             }
-            return d;
+            this.i.f(httpMessage, httpMessageTask);
         }
-        return (ac) invokeV.objValue;
     }
 
-    public dc c() {
-        InterceptResult invokeV;
+    public void x(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
+            this.i.j(bdUniqueId);
         }
-        return (dc) invokeV.objValue;
     }
 }

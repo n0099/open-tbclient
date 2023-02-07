@@ -1,90 +1,39 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class er2 implements iu2 {
+public class er2 extends cr2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<cr2> a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
 
-    public er2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public er2(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = 1;
-        this.c = -16777216;
-        this.d = 0;
-        this.e = 0;
     }
 
-    @Override // com.baidu.tieba.iu2
-    public boolean isValid() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.gr2, com.baidu.tieba.fr2
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<cr2> arrayList = this.a;
-            if (arrayList != null && !arrayList.isEmpty()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.iu2
-    public void a(JSONObject jSONObject) throws JSONException {
-        int length;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null || !jSONObject.has("points")) {
-            return;
-        }
-        JSONArray optJSONArray = jSONObject.optJSONArray("points");
-        if (optJSONArray == null) {
-            length = 0;
-        } else {
-            length = optJSONArray.length();
-        }
-        if (length > 0) {
-            this.a = new ArrayList<>(length);
-            for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    cr2 cr2Var = new cr2();
-                    cr2Var.a(optJSONObject);
-                    if (cr2Var.isValid()) {
-                        this.a.add(cr2Var);
-                    }
-                }
-            }
-        }
-        ArrayList<cr2> arrayList = this.a;
-        if (arrayList != null && arrayList.size() > 0) {
-            this.b = (int) Math.abs(wq2.b(jSONObject.optInt("strokeWidth", 1)));
-            this.c = wq2.a(jSONObject.optString("strokeColor"), -16777216);
-            this.d = wq2.a(jSONObject.optString("fillColor"), 0);
-            this.e = jSONObject.optInt("zIndex", 0);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            d();
         }
     }
 }

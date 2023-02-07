@@ -1,25 +1,28 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.network.http.IHttpNet;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubc.UBCManager;
-import java.util.Random;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public class jg {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public volatile boolean a;
     public int b;
-    public String c;
-    public boolean d;
-    public boolean e;
+    public int c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public Map<String, List<String>> h;
+    public byte[] i;
+    public int j;
 
     public jg() {
         Interceptable interceptable = $ic;
@@ -31,55 +34,39 @@ public class jg {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = false;
+        this.b = -1;
+        this.c = -1;
+        this.d = "";
+        this.e = "";
+        this.f = "";
+        this.g = "net error";
     }
 
-    public void a() {
-        JSONObject b;
-        UBCManager uBCManager;
+    public void a(IHttpNet iHttpNet) throws Exception {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || new Random().nextInt(100) > 20 || (b = b()) == null || (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, iHttpNet) != null) || iHttpNet == null) {
             return;
         }
-        uBCManager.onEvent("94", b.toString());
+        this.b = iHttpNet.getResponseCode();
+        this.d = iHttpNet.getContentEncoding();
+        this.e = iHttpNet.getContentType();
+        this.f = iHttpNet.getContentLength() + "";
+        this.h = iHttpNet.b();
     }
 
-    public JSONObject b() {
+    public boolean b() {
         InterceptResult invokeV;
-        JSONObject jSONObject;
-        JSONException e;
-        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            try {
-                jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("url", this.a);
-                    jSONObject.put("resultCode", this.b);
-                    jSONObject.put("resultMsg", this.c);
-                    int i2 = 1;
-                    if (this.d) {
-                        i = 1;
-                    } else {
-                        i = 0;
-                    }
-                    jSONObject.put("isHttps", i);
-                    if (!this.e) {
-                        i2 = 0;
-                    }
-                    jSONObject.put("isIpv6", i2);
-                } catch (JSONException e2) {
-                    e = e2;
-                    e.printStackTrace();
-                    return jSONObject;
-                }
-            } catch (JSONException e3) {
-                jSONObject = null;
-                e = e3;
+            if (this.b == 200) {
+                return true;
             }
-            return jSONObject;
+            return false;
         }
-        return (JSONObject) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 }

@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qh7;
+import com.baidu.tieba.bm7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -67,7 +67,7 @@ public class OfficialFeedItemBottom extends LinearLayout {
         b();
     }
 
-    public void setData(qh7.a aVar, boolean z) {
+    public void setData(bm7.a aVar, boolean z) {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048579, this, aVar, z) == null) {
@@ -100,9 +100,9 @@ public class OfficialFeedItemBottom extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setOrientation(1);
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d06aa, (ViewGroup) this, true);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0915cc);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0915c8);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d06b0, (ViewGroup) this, true);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09160d);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091609);
             c();
         }
     }

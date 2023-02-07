@@ -1,91 +1,53 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.core.container.PullToRefreshBaseWebView;
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.swan.apps.res.ui.wheelview3d.WheelView3d;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class q73 extends g63 {
+public final class q73 extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final WheelView3d a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q73(g53 g53Var) {
-        super(g53Var, "/swanAPI/startPullDownRefresh");
+    public q73(WheelView3d wheelView3d) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {g53Var};
+            Object[] objArr = {wheelView3d};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = wheelView3d;
     }
 
-    @Override // com.baidu.tieba.g63
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j43 j43Var) {
-        InterceptResult invokeLLLL;
+    @Override // android.os.Handler
+    public final void handleMessage(Message message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j43Var)) == null) {
-            if (j43Var != null) {
-                j43Var.B().I(j43Var.getAppId());
-            }
-            if (j43Var != null && j43Var.n0()) {
-                if (g63.b) {
-                    Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
+        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+            int i = message.what;
+            if (i != 1000) {
+                if (i != 2000) {
+                    if (i == 3000) {
+                        this.a.n();
+                        return;
+                    }
+                    return;
                 }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
-                return false;
+                this.a.r(WheelView3d.ACTION.FLING);
+                return;
             }
-            s32 V = wp2.U().V();
-            if (V == null) {
-                j12.c("startPullDownRefresh", "manager is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else if (!(V.m() instanceof r32)) {
-                j12.c("startPullDownRefresh", "top fragment error");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else {
-                r32 r32Var = (r32) V.m();
-                if (r32Var.h0() == null) {
-                    j12.c("startPullDownRefresh", "view is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                }
-                PullToRefreshBaseWebView h0 = r32Var.h0();
-                if (h0 == null) {
-                    j12.c("startPullDownRefresh", "view is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                } else if (h0.N()) {
-                    j12.c("startPullDownRefresh", "prevent pull to refresh");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                } else {
-                    j12.i("startPullDownRefresh", "start pull refresh");
-                    r32Var.h0().k(true, 100L);
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                    return true;
-                }
-            }
+            this.a.invalidate();
         }
-        return invokeLLLL.booleanValue;
     }
 }

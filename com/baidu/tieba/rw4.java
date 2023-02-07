@@ -1,8 +1,14 @@
 package com.baidu.tieba;
 
+import android.net.Uri;
+import android.os.Bundle;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.DeviceInfoUtil;
+import com.baidu.tbadk.core.util.RomTypeUtil;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,96 +17,109 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class rw4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final rw4 c;
-    public static final rw4 d;
-    public static final rw4 e;
-    public static final rw4 f;
-    public static final rw4 g;
-    public static final rw4 h;
-    public static final rw4 i;
-    public static final rw4 j;
-    public static final rw4 k;
-    public static final rw4 l;
-    public static final rw4 m;
-    public static final rw4 n;
-    public static final rw4 o;
-    public static final rw4 p;
+    public static rw4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final boolean b;
+    public Runnable a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948136026, "Lcom/baidu/tieba/rw4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rw4 a;
+
+        public a(rw4 rw4Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rw4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948136026, "Lcom/baidu/tieba/rw4;");
-                return;
+            this.a = rw4Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.d(0);
             }
         }
-        c = new rw4("sync_finish", false);
-        d = new rw4("main_page_load_finish", false);
-        e = new rw4("pb_load_finish", false);
-        f = new rw4("frs_load_finish", false);
-        g = new rw4("main_page_recommend", true);
-        h = new rw4("main_page_common_tab", true);
-        i = new rw4("main_page_hot_topic", true);
-        j = new rw4("main_page_concern", true);
-        k = new rw4("main_page_enter_forum", true);
-        l = new rw4("main_page_message", true);
-        m = new rw4("main_page_person_info", true);
-        n = new rw4("write_page", true);
-        o = new rw4("pb_page", true);
-        p = new rw4("frs_page", true);
     }
 
-    public rw4(String str, boolean z) {
+    public rw4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.b = z;
+        this.a = new a(this);
     }
 
-    public static rw4 a(String str) {
-        InterceptResult invokeL;
+    public static rw4 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return new rw4("main_page_common_tab_" + str, true);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (rw4.class) {
+                    if (b == null) {
+                        b = new rw4();
+                    }
+                }
+            }
+            return b;
         }
-        return (rw4) invokeL.objValue;
+        return (rw4) invokeV.objValue;
     }
 
-    public String b() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+            if (RomTypeUtil.check("EMUI")) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (a() || DeviceInfoUtil.isHonor()) {
+                d(1);
+                gh.a().postDelayed(this.a, 500L);
+            }
+        }
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            try {
+                Bundle bundle = new Bundle();
+                bundle.putString("package", "com.baidu.tieba");
+                bundle.putString(DealIntentService.KEY_CLASS, SpeedRuntimeProvider.MAIN_ACTIVITY_NAME);
+                bundle.putInt("badgenumber", i);
+                TbadkApplication.getInst().getContentResolver().call(Uri.parse("content://com.huawei.android.launcher.settings/badge/"), "change_badge", (String) null, bundle);
+            } catch (Throwable th) {
+                Log.i("huawei_corner", th.getMessage());
+            }
+        }
     }
 }

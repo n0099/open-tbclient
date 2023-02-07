@@ -1,78 +1,67 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.Item;
+import tbclient.RecommendForumInfo;
+import tbclient.SearchSug.DataRes;
+import tbclient.SugLiveInfo;
+import tbclient.SugRankingInfo;
 /* loaded from: classes5.dex */
 public class jy7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public ImageView b;
-    public Context c;
-    public TextView d;
 
-    public jy7() {
+    public static List<Cdo> a(DataRes dataRes, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, dataRes, str)) == null) {
+            if (dataRes == null) {
+                return null;
             }
+            ArrayList arrayList = new ArrayList();
+            RecommendForumInfo recommendForumInfo = dataRes.forum_card;
+            if (recommendForumInfo != null) {
+                fy7 fy7Var = new fy7();
+                fy7Var.i(recommendForumInfo);
+                arrayList.add(fy7Var);
+            }
+            Item item = dataRes.item_card;
+            if (item != null) {
+                gy7 gy7Var = new gy7();
+                gy7Var.i(item);
+                arrayList.add(gy7Var);
+            }
+            for (SugLiveInfo sugLiveInfo : dataRes.live_card) {
+                hy7 hy7Var = new hy7();
+                hy7Var.o(str);
+                hy7Var.m(sugLiveInfo);
+                arrayList.add(hy7Var);
+            }
+            SugRankingInfo sugRankingInfo = dataRes.ranking_card;
+            if (sugRankingInfo != null) {
+                iy7 iy7Var = new iy7();
+                iy7Var.h(str);
+                iy7Var.g(sugRankingInfo);
+                arrayList.add(iy7Var);
+            }
+            int size = arrayList.size();
+            for (String str2 : dataRes.list) {
+                ey7 ey7Var = new ey7();
+                ey7Var.c(str);
+                ey7Var.f(str2);
+                if (!StringUtils.isNull(str2) && !StringUtils.isNull(str) && str2.trim().equals(str.trim())) {
+                    arrayList.add(size, ey7Var);
+                } else {
+                    arrayList.add(ey7Var);
+                }
+            }
+            return arrayList;
         }
-    }
-
-    @SuppressLint({"ResourceAsColor"})
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setBackgroundResource(this.b, R.drawable.tail_tool_add_button_bg);
-            SkinManager.setImageResource(this.b, R.drawable.icon_tail_post_add);
-            SkinManager.setViewTextColor(this.d, R.color.CAM_X0109, 1);
-        }
-    }
-
-    public View a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            this.c = context;
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d088d, (ViewGroup) null);
-            this.a = inflate;
-            inflate.setTag(this);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0921b6);
-            this.b = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0921b5);
-            return this.a;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    public void c(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.b.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.d.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f140f), Integer.valueOf(i)));
-        }
+        return (List) invokeLL.objValue;
     }
 }

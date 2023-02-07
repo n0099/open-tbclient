@@ -1,27 +1,20 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import java.util.ArrayList;
-import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class ui2 extends di2<ri2> {
+public abstract class ui2 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public String b;
 
-    @Override // com.baidu.tieba.di2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "extractMediaMetadata" : (String) invokeV.objValue;
-    }
+    public abstract void c();
 
     public ui2() {
         Interceptable interceptable = $ic;
@@ -33,28 +26,58 @@ public class ui2 extends di2<ri2> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = true;
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // java.lang.Runnable
+    public final void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            c();
+            this.a = false;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.di2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull ri2 ri2Var) {
+    public ui2(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, ri2Var) == null) {
-            Object obj = command.obj;
-            if (obj instanceof ArrayList) {
-                ArrayList arrayList = (ArrayList) obj;
-                if (arrayList.size() < 4) {
-                    return;
-                }
-                HashMap hashMap = new HashMap();
-                hashMap.put("Cookie", (String) arrayList.get(1));
-                hashMap.put("User-Agent", (String) arrayList.get(2));
-                hashMap.put("Referer", (String) arrayList.get(3));
-                ri2Var.k((String) arrayList.get(0), hashMap);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = true;
+        this.b = str;
+    }
+
+    public boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(this.b)) {
+                return false;
+            }
+            return this.b.endsWith(str);
+        }
+        return invokeL.booleanValue;
     }
 }

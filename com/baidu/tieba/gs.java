@@ -1,176 +1,159 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.searchbox.http.HttpManager;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.searchbox.http.cookie.CookieManager;
+import com.baidu.bdptask.bdtls.DH;
+import com.baidu.bdptask.bdtls.RSA;
+import com.baidu.bdtask.framework.utils.DebugTrace;
+import com.baidu.tieba.tr;
+import com.baidu.tieba.ur;
+import com.baidu.tieba.vr;
+import com.baidu.tieba.wr;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import okhttp3.Response;
+import java.nio.ByteBuffer;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Random;
 /* loaded from: classes4.dex */
 public class gs {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public interface b {
-        void a(boolean z, byte[] bArr);
-    }
-
-    /* loaded from: classes4.dex */
-    public class a extends ResponseCallback<byte[]> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
-
-        /* renamed from: com.baidu.tieba.gs$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class RunnableC0290a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ byte[] a;
-            public final /* synthetic */ a b;
-
-            public RunnableC0290a(a aVar, byte[] bArr) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, bArr};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = bArr;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                b bVar;
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = this.b.a) != null) {
-                    bVar.a(true, this.a);
-                }
-            }
-        }
-
-        /* loaded from: classes4.dex */
-        public class b implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public b(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                b bVar;
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = this.a.a) != null) {
-                    bVar.a(false, null);
-                }
-            }
-        }
-
-        public a(gs gsVar, b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gsVar, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: a */
-        public void onSuccess(byte[] bArr, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, bArr, i) == null) {
-                ExecutorUtilsExt.postOnSerial(new RunnableC0290a(this, bArr), "HandshakeRequest");
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: b */
-        public byte[] parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i)) == null) {
-                return response.body().bytes();
-            }
-            return (byte[]) invokeLI.objValue;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
-                ExecutorUtilsExt.postOnSerial(new b(this), "HandshakeRequest");
-            }
-        }
-    }
-
-    public gs() {
+    public static as a(es esVar, byte[] bArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, esVar, bArr)) == null) {
+            as asVar = null;
+            if (esVar == null || bArr == null || bArr.length == 0) {
+                return null;
             }
+            try {
+                if (bArr[0] != 2) {
+                    return null;
+                }
+                as asVar2 = new as();
+                try {
+                    xr a = xr.a(Arrays.copyOfRange(bArr, 1, bArr.length));
+                    if (a == null) {
+                        return null;
+                    }
+                    asVar2.a(a);
+                    List<vr> b = a.b();
+                    if (b == null) {
+                        return null;
+                    }
+                    for (vr vrVar : b) {
+                        int a2 = vrVar.a();
+                        byte[] b2 = vrVar.b();
+                        if (a2 == 0) {
+                            int a3 = ms.a(RSA.decrypt(b2));
+                            esVar.e(DH.getDHSecretKey(a3, esVar.o().intValue(), esVar.p().intValue()));
+                            esVar.l(Integer.valueOf(a3));
+                        }
+                    }
+                    if (a.e() == null) {
+                        return null;
+                    }
+                    tr.a d = tr.d();
+                    d.a(a.e());
+                    esVar.h(d.b().a());
+                    if (esVar.q() == null) {
+                        return null;
+                    }
+                    long currentTimeMillis = (System.currentTimeMillis() / 1000) + a.c();
+                    DebugTrace debugTrace = DebugTrace.a;
+                    debugTrace.a("liftTime=" + a.c());
+                    DebugTrace debugTrace2 = DebugTrace.a;
+                    debugTrace2.a("expireTime=" + currentTimeMillis);
+                    esVar.c(currentTimeMillis);
+                    if (a.d() != null) {
+                        esVar.j(a.d());
+                        return asVar2;
+                    }
+                    return asVar2;
+                } catch (Exception e) {
+                    e = e;
+                    asVar = asVar2;
+                    DebugTrace debugTrace3 = DebugTrace.a;
+                    debugTrace3.a("exception=" + e.getMessage());
+                    return asVar;
+                }
+            } catch (Exception e2) {
+                e = e2;
+            }
+        } else {
+            return (as) invokeLL.objValue;
         }
     }
 
-    public void a(byte[] bArr, b bVar) {
+    public static byte[] b(es esVar, as asVar) throws Exception {
+        InterceptResult invokeLL;
+        byte[] encrypt;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, bArr, bVar) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("Content-Type", "application/octet-stream");
-            hashMap.put("Bdtls", "Bdtls");
-            hashMap.put("Bdtls-Content-Type", "json");
-            CookieManager cookieManager = CookieManager.WEBKIT_COOKIES;
-            HttpManager.getDefault(mr.c.h().getAppContext()).postByteRequest().url(mr.c.h().getEnv().b() + "/bdtls").cookieManager(cookieManager).headers(hashMap).content(bArr).build().executeAsync(new a(this, bVar));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, esVar, asVar)) == null) {
+            if (asVar == null) {
+                return null;
+            }
+            int currentTimeMillis = (int) (System.currentTimeMillis() / 1000);
+            byte[] bArr = new byte[32];
+            new Random().nextBytes(bArr);
+            wr.a a = wr.a();
+            a.a(Integer.valueOf(currentTimeMillis));
+            a.b(tt.a(bArr));
+            wr c = a.c();
+            int dHGroupId = DH.getDHGroupId();
+            int dHSecret = DH.getDHSecret();
+            int dHPublicKey = DH.getDHPublicKey(dHGroupId, dHSecret);
+            esVar.d(Integer.valueOf(dHGroupId));
+            esVar.g(Integer.valueOf(dHSecret));
+            esVar.i(Integer.valueOf(dHPublicKey));
+            byte[] d = ms.d(dHPublicKey);
+            if (d == null || (encrypt = RSA.encrypt(d)) == null) {
+                return null;
+            }
+            byte[] bytes = ut.b(wt.b(pt.a()), false).getBytes();
+            LinkedList linkedList = new LinkedList();
+            vr.a d2 = vr.d();
+            d2.a(0);
+            d2.b(tt.a(encrypt));
+            linkedList.offer(d2.c());
+            vr.a d3 = vr.d();
+            d3.a(1);
+            d3.b(tt.a(new byte[]{0}));
+            linkedList.offer(d3.c());
+            vr.a d4 = vr.d();
+            d4.a(2);
+            d4.b(tt.a(ms.d(dHGroupId)));
+            linkedList.offer(d4.c());
+            vr.a d5 = vr.d();
+            d5.a(3);
+            d5.b(tt.a(bytes));
+            linkedList.offer(d5.c());
+            if (rr.c.h().c()) {
+                DebugTrace debugTrace = DebugTrace.a;
+                debugTrace.a("groupId encode=" + dHGroupId);
+                DebugTrace debugTrace2 = DebugTrace.a;
+                debugTrace2.a("secretC encode=" + dHSecret);
+                DebugTrace debugTrace3 = DebugTrace.a;
+                debugTrace3.a("pubKey encode=" + dHPublicKey);
+                DebugTrace debugTrace4 = DebugTrace.a;
+                debugTrace4.a("signature encode=" + new String(bytes));
+            }
+            ur.a d6 = ur.d();
+            Iterator it = linkedList.iterator();
+            while (it.hasNext()) {
+                d6.a((vr) it.next());
+            }
+            d6.b(c);
+            d6.c(tt.a(fs.a));
+            byte[] a2 = d6.d().a();
+            ByteBuffer allocate = ByteBuffer.allocate(a2.length + 1);
+            allocate.put((byte) 1);
+            allocate.put(a2);
+            return allocate.array();
         }
+        return (byte[]) invokeLL.objValue;
     }
 }

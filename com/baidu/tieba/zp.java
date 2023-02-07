@@ -1,287 +1,90 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.BDPTask;
-import com.baidu.bdtask.TaskState;
-import com.baidu.bdtask.component.buoy.TaskBuoyViewModel;
-import com.baidu.bdtask.ctrl.model.TaskProcess;
-import com.baidu.bdtask.ctrl.model.TaskStatus;
-import com.baidu.bdtask.model.info.TaskInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class zp extends TaskBuoyViewModel {
+public final class zp {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int g;
-    public fq h;
-    public final long i;
-    public eq j;
+    public final float a;
+    public final long b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448323895, "Lcom/baidu/tieba/zp;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448323895, "Lcom/baidu/tieba/zp;");
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class a implements eq {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zp a;
-
-        /* JADX DEBUG: Incorrect args count in method signature: ()V */
-        public a(zp zpVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zpVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zpVar;
-        }
-
-        @Override // com.baidu.tieba.eq
-        public void a(long j, long j2) {
-            eq h;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) && (h = this.a.h()) != null) {
-                h.a(j, j2);
-            }
-        }
-
-        @Override // com.baidu.tieba.eq
-        public void onCancel() {
-            eq h;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (h = this.a.h()) != null) {
-                h.onCancel();
-            }
-        }
-
-        @Override // com.baidu.tieba.eq
-        public void onFinish() {
-            eq h;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (h = this.a.h()) != null) {
-                h.onFinish();
-            }
-        }
-
-        @Override // com.baidu.tieba.eq
-        public void onPause() {
-            eq h;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (h = this.a.h()) != null) {
-                h.onPause();
-            }
-        }
-
-        @Override // com.baidu.tieba.eq
-        public void onResume() {
-            eq h;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (h = this.a.h()) != null) {
-                h.onResume();
-            }
-        }
-
-        @Override // com.baidu.tieba.eq
-        public void onStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                if (this.a.k()) {
-                    eq h = this.a.h();
-                    if (h != null) {
-                        h.onResume();
-                        return;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this != obj) {
+                if (obj instanceof zp) {
+                    zp zpVar = (zp) obj;
+                    if (Float.compare(this.a, zpVar.a) == 0) {
+                        if (this.b == zpVar.b) {
+                        }
                     }
-                    return;
                 }
-                eq h2 = this.a.h();
-                if (h2 != null) {
-                    h2.onStart();
-                }
+                return false;
             }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zp(TaskInfo taskInfo) {
-        super(taskInfo);
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            long j = this.b;
+            return (Float.floatToIntBits(this.a) * 31) + ((int) (j ^ (j >>> 32)));
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "TaskSingleProcess(curRate=" + this.a + ", total=" + this.b + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public zp(float f, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {taskInfo};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {Float.valueOf(f), Long.valueOf(j)};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TaskInfo) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = 8;
-        this.i = taskInfo.getTaskRule().getStay();
+        this.a = f;
+        this.b = j;
     }
 
-    public final void o(eq eqVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, eqVar) == null) {
-            this.j = eqVar;
-        }
-    }
-
-    public final eq h() {
+    public final float a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.j;
+            return this.a;
         }
-        return (eq) invokeV.objValue;
+        return invokeV.floatValue;
     }
 
-    public final boolean j() {
+    public final long b() {
         InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if ((this.g & 4) == 4) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if ((this.g & 2) == 2) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if ((this.g & 1) == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || !l()) {
-            return;
-        }
-        this.g |= 4;
-        fq fqVar = this.h;
-        if (fqVar != null) {
-            fqVar.e();
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || !j()) {
-            return;
-        }
-        this.g |= 2;
-        r();
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.g = 1;
-            r();
-        }
-    }
-
-    public void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.g = 8;
-            fq fqVar = this.h;
-            if (fqVar != null) {
-                fqVar.h();
-            }
-        }
-    }
-
-    public final void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            fq fqVar = this.h;
-            if (fqVar != null) {
-                fqVar.j();
-            }
-            fq fqVar2 = new fq(i(), 200L, new a(this));
-            this.h = fqVar2;
-            if (fqVar2 != null) {
-                fqVar2.b();
-            }
-        }
-    }
-
-    public final long i() {
-        InterceptResult invokeV;
-        TaskProcess taskProcess;
-        long j;
-        TaskStatus taskStatus;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            TaskState m = BDPTask.m.m(c().getActionId());
-            if (m != null && (taskStatus = m.getTaskStatus()) != null) {
-                taskProcess = taskStatus.getProcess();
-            } else {
-                taskProcess = null;
-            }
-            long j2 = this.i;
-            if (taskProcess != null) {
-                j = taskProcess.getStayDurTimeMs();
-            } else {
-                j = 0;
-            }
-            long j3 = j2 - j;
-            if (j3 < 0) {
-                return 0L;
-            }
-            return j3;
+            return this.b;
         }
         return invokeV.longValue;
     }

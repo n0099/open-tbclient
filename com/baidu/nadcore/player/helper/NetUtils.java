@@ -5,7 +5,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import androidx.annotation.Nullable;
-import com.baidu.tieba.wr0;
+import com.baidu.tieba.at0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -126,7 +126,7 @@ public class NetUtils {
         ConnectivityManager connectivityManager;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            Context b = wr0.b();
+            Context b = at0.b();
             if (b == null || (connectivityManager = (ConnectivityManager) b.getSystemService("connectivity")) == null) {
                 return null;
             }

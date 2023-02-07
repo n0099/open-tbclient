@@ -1,22 +1,18 @@
 package com.baidu.tieba;
 
-import android.content.res.Configuration;
-import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.splashad.SplashAdView;
-import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import tbclient.FrsPage.GconAccount;
 /* loaded from: classes3.dex */
 public class b09 {
     public static /* synthetic */ Interceptable $ic;
-    public static b09 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<SplashAdView> a;
+    public boolean a;
+    public String b;
 
     public b09() {
         Interceptable interceptable = $ic;
@@ -32,56 +28,34 @@ public class b09 {
         }
     }
 
-    public static b09 a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                b = new b09();
-            }
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (b09) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void c() {
-        WeakReference<SplashAdView> weakReference;
-        SplashAdView splashAdView;
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (weakReference = this.a) != null && (splashAdView = weakReference.get()) != null) {
-            splashAdView.a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
+        return invokeV.booleanValue;
     }
 
-    public void d() {
-        WeakReference<SplashAdView> weakReference;
-        SplashAdView splashAdView;
+    public void c(GconAccount gconAccount) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (weakReference = this.a) != null && (splashAdView = weakReference.get()) != null) {
-            splashAdView.b();
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gconAccount) != null) || gconAccount == null) {
+            return;
         }
-    }
-
-    public void b(Configuration configuration) {
-        WeakReference<SplashAdView> weakReference;
-        SplashAdView splashAdView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, configuration) == null) && (weakReference = this.a) != null && (splashAdView = weakReference.get()) != null) {
-            splashAdView.onConfigurationChanged(configuration);
+        boolean z = true;
+        if (gconAccount.has_account.intValue() != 1) {
+            z = false;
         }
-    }
-
-    public void e(MainTabActivity mainTabActivity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, mainTabActivity) == null) && mainTabActivity != null) {
-            SplashAdView splashAdView = new SplashAdView(mainTabActivity, 2);
-            this.a = new WeakReference<>(splashAdView);
-            mainTabActivity.getWindow().setFlags(1024, 1024);
-            ViewGroup viewGroup = (ViewGroup) mainTabActivity.findViewById(R.id.obfuscated_res_0x7f09201c);
-            if (viewGroup != null) {
-                viewGroup.setVisibility(0);
-                viewGroup.addView(splashAdView);
-            }
-        }
+        this.a = z;
+        this.b = gconAccount.menu_name;
     }
 }

@@ -1,83 +1,113 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileFilter;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
 /* loaded from: classes7.dex */
 public class z58 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile z58 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public ThreadPoolExecutor a;
 
-    public static void a(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(65536, null, i) == null) && TbadkCoreApplication.getInst().getFontSize() != i) {
-            TbadkCoreApplication.getInst().setFontSize(i);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004018));
+    /* loaded from: classes7.dex */
+    public static class a implements FileFilter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.io.FileFilter
+        public boolean accept(File file) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
+                return Pattern.matches("cpu[0-9]", file.getName());
+            }
+            return invokeL.booleanValue;
         }
     }
 
-    public static String b() {
+    public z58() {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        int c = c();
+        c = c <= 0 ? 1 : c;
+        if (c > 4) {
+            i = 4;
+        } else {
+            i = c;
+        }
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i, i, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+        this.a = threadPoolExecutor;
+        threadPoolExecutor.allowCoreThreadTimeOut(true);
+    }
+
+    public static z58 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            int fontSize = TbadkCoreApplication.getInst().getFontSize();
-            if (fontSize == 0) {
-                return TbadkCoreApplication.getInst().getString(R.string.toast_font_size_xlarge);
+            if (b == null) {
+                synchronized (z58.class) {
+                    if (b == null) {
+                        b = new z58();
+                    }
+                }
             }
-            if (fontSize == 1) {
-                return TbadkCoreApplication.getInst().getString(R.string.toast_font_size_big);
-            }
-            if (fontSize == 2) {
-                return TbadkCoreApplication.getInst().getString(R.string.toast_font_size_mid);
-            }
-            return TbadkCoreApplication.getInst().getString(R.string.toast_font_size_small);
+            return b;
         }
-        return (String) invokeV.objValue;
+        return (z58) invokeV.objValue;
     }
 
-    public static void c() {
+    public final int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            int fontSize = TbadkCoreApplication.getInst().getFontSize();
-            int i = 3;
-            if (fontSize == 0) {
-                i = 1;
-            } else if (fontSize == 1) {
-                i = 2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            try {
+                return new File("/sys/devices/system/cpu/").listFiles(new a()).length;
+            } catch (Exception unused) {
+                return 1;
             }
-            if (fontSize != i) {
-                TbadkCoreApplication.getInst().setFontSize(i);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004018));
-            }
-            BdToast b = BdToast.b(TbadkCoreApplication.getInst(), b());
-            b.f(R.drawable.icon_word_t_size);
-            b.d(0);
-            b.k();
         }
+        return invokeV.intValue;
     }
 
-    public static void d() {
+    public void a(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            int fontSize = TbadkCoreApplication.getInst().getFontSize();
-            int i = 2;
-            if (fontSize == 0 || fontSize == 1) {
-                i = 0;
-            } else if (fontSize == 2) {
-                i = 1;
-            }
-            if (fontSize != i) {
-                TbadkCoreApplication.getInst().setFontSize(i);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004018));
-            }
-            BdToast b = BdToast.b(TbadkCoreApplication.getInst(), b());
-            b.f(R.drawable.icon_word_t_size);
-            b.d(0);
-            b.k();
+        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+            this.a.execute(runnable);
         }
     }
 }

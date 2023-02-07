@@ -1,12 +1,13 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
+import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
+import com.baidu.swan.apps.core.launchtips.monitor.request.RequestStatus;
+import com.baidu.swan.apps.core.launchtips.scene.SceneType;
+import com.baidu.tieba.e92;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,48 +15,74 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Locale;
 /* loaded from: classes6.dex */
-public class w92 implements u92 {
+public class w92 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final wc3 a;
+    public final e92 a;
+    public final n92 b;
+    public final b92 c;
+    public SceneType d;
 
     /* loaded from: classes6.dex */
-    public static class a extends ProviderDelegation {
+    public class a implements e92.b {
         public static /* synthetic */ Interceptable $ic;
-        public static boolean a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ p92 a;
+        public final /* synthetic */ d92 b;
+        public final /* synthetic */ w92 c;
 
-        public a() {
+        public a(w92 w92Var, p92 p92Var, d92 d92Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w92Var, p92Var, d92Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.c = w92Var;
+            this.a = p92Var;
+            this.b = d92Var;
         }
 
-        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-        public Bundle execCall(Bundle bundle) {
-            InterceptResult invokeL;
+        @Override // com.baidu.tieba.e92.b
+        public void a(NetworkStatus networkStatus) {
+            String str;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-                if (!a && ProcessUtils.isMainProcess()) {
-                    a = true;
-                    new wc3("swan_prelink_by_preload_recorder").clear().apply();
-                    if (w92.b) {
-                        Log.d("SwanPrelinkGlobalRecorder", "clean old data in main process");
-                    }
+            if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
+                x82.e(this.c.d.getType(), networkStatus.getStatus(), this.a.e().getStatus(), this.a.g(), this.a.b(), this.a.f(), this.a.a());
+                boolean m0 = qf2.U().m0();
+                long n = ds2.g0().n();
+                if (n >= LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION || m0) {
+                    this.c.f(networkStatus, this.b, this.a);
                 }
-                return null;
+                StringBuilder sb = new StringBuilder();
+                sb.append(this.c.d.getScene());
+                sb.append(String.format(Locale.getDefault(), "%d秒截屏；", Long.valueOf(n / 1000)));
+                if (m0) {
+                    str = "框架预加载：已完成；";
+                } else {
+                    str = "框架预加载：未完成；";
+                }
+                sb.append(str);
+                sb.append(this.b.a());
+                sb.append(this.a.d());
+                sb.append(networkStatus.getDesc());
+                sb.append(this.a.c());
+                if (w92.e) {
+                    Log.d("SceneWhiteScreenTips", ">> " + sb.toString());
+                }
+                y82.g(sb.toString());
             }
-            return (Bundle) invokeL.objValue;
         }
     }
 
@@ -72,7 +99,7 @@ public class w92 implements u92 {
                 return;
             }
         }
-        b = tk1.a;
+        e = gp1.a;
     }
 
     public w92() {
@@ -88,114 +115,61 @@ public class w92 implements u92 {
                 return;
             }
         }
-        this.a = new wc3("swan_prelink_by_preload_recorder");
-        d();
+        this.d = SceneType.SCENE_WHITE_SCREEN_L1;
+        this.c = b92.d();
+        this.a = new e92();
+        this.b = n92.d();
     }
 
-    public final void d() {
+    public void e(SceneType sceneType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            w03.c(a.class, null);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sceneType) == null) {
+            this.d = sceneType;
         }
     }
 
-    @Override // com.baidu.tieba.u92
-    public v92 a(String str, String str2) {
-        InterceptResult invokeLL;
+    public void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return null;
-            }
-            if (b) {
-                Log.d("SwanPrelinkGlobalRecorder", "get record : appId-" + str + ", url-" + str2);
-            }
-            String string = this.a.getString(e(str, str2), "");
-            if (TextUtils.isEmpty(string)) {
-                return null;
-            }
-            v92 g = g(string, str, str2);
-            if (b) {
-                Log.d("SwanPrelinkGlobalRecorder", "find record - " + string);
-            }
-            return g;
-        }
-        return (v92) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.u92
-    public void b(String str, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, z) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            if (b) {
-                Log.d("SwanPrelinkGlobalRecorder", "record : appId-" + str + ", url-" + str2);
-            }
-            String e = e(str, str2);
-            String f = f(str, str2);
-            if (TextUtils.isEmpty(this.a.getString(e, "")) || z) {
-                this.a.putString(e, f);
-            }
-        }
-    }
-
-    public final String e(@NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            String str3 = str + "_##_" + str2.hashCode();
-            if (b) {
-                Log.d("SwanPrelinkGlobalRecorder", "generateKey - " + str3);
-            }
-            return str3;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public final String f(@NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            String str3 = ProcessUtils.getCurProcessName() + "_##_" + System.currentTimeMillis();
-            if (b) {
-                Log.d("SwanPrelinkGlobalRecorder", "generateValue - " + str3);
-            }
-            return str3;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public final v92 g(@NonNull String str, @NonNull String str2, @NonNull String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, str, str2, str3)) == null) {
-            String[] split = str.split("_##_");
-            if (split != null && split.length >= 2) {
-                v92 v92Var = new v92();
-                v92Var.a = split[0];
-                v92Var.b = h(split[1]);
-                return v92Var;
-            }
-            return null;
-        }
-        return (v92) invokeLLL.objValue;
-    }
-
-    public final long h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return 0L;
-            }
-            try {
-                return Long.parseLong(str);
-            } catch (Exception e) {
-                if (b) {
-                    e.printStackTrace();
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            if (l92.b().c()) {
+                if (e) {
+                    Log.d("SceneWhiteScreenTips", ">> start to recheck white screen.");
                 }
-                return 0L;
+                l92.b().h(j92.b(str, 3000L));
+                l92.b().f();
+                return;
             }
+            if (e) {
+                Log.d("SceneWhiteScreenTips", ">> no need to recheck white screen.");
+            }
+            if (e) {
+                Log.d("SceneWhiteScreenTips", ">> start handle white screen tips.");
+            }
+            n92.d().j();
+            b92.d().j();
+            l92.b().j(true);
+            d92 f = this.c.f();
+            this.a.a(new a(this, this.b.f(), f));
         }
-        return invokeL.longValue;
+    }
+
+    public final void f(@NonNull NetworkStatus networkStatus, @NonNull d92 d92Var, @NonNull p92 p92Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, networkStatus, d92Var, p92Var) == null) {
+            boolean b = d92Var.b();
+            int i = R.string.obfuscated_res_0x7f0f13d8;
+            if (b) {
+                i = R.string.obfuscated_res_0x7f0f13dd;
+            } else if (p92Var.e() == RequestStatus.STATUS_SERVER_FAILED) {
+                i = R.string.obfuscated_res_0x7f0f13db;
+            } else if (p92Var.e() != RequestStatus.STATUS_FAILED) {
+                if (p92Var.e() == RequestStatus.STATUS_SLOW) {
+                    i = (networkStatus == NetworkStatus.NETWORK_BAD || networkStatus == NetworkStatus.NETWORK_OFFLINE) ? R.string.obfuscated_res_0x7f0f13dc : R.string.obfuscated_res_0x7f0f13d9;
+                } else if (p92Var.e() != RequestStatus.STATUS_CORE_FAILED) {
+                    i = R.string.obfuscated_res_0x7f0f13da;
+                }
+            }
+            w82.f(i);
+        }
     }
 }

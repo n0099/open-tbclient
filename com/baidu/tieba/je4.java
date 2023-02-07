@@ -1,115 +1,80 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mapapi.search.core.PoiInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class je4 {
     public static /* synthetic */ Interceptable $ic;
-    public static je4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public zd4 a;
+    public PoiInfo a;
+    public boolean b;
+    public boolean c;
 
-    public je4() {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public je4(PoiInfo poiInfo) {
+        this(poiInfo, false, false);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {poiInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((PoiInfo) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new zd4();
     }
 
-    public static je4 b() {
-        InterceptResult invokeV;
+    public static List<je4> a(List<PoiInfo> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            je4 je4Var = b;
-            if (je4Var != null) {
-                return je4Var;
-            }
-            synchronized (je4.class) {
-                if (b == null) {
-                    b = new je4();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
+            if (list != null && list.size() > 0) {
+                ArrayList arrayList = new ArrayList(list.size());
+                for (PoiInfo poiInfo : list) {
+                    if (poiInfo.location != null) {
+                        arrayList.add(new je4(poiInfo));
+                    }
                 }
+                return arrayList;
             }
-            return b;
+            return new ArrayList();
         }
-        return (je4) invokeV.objValue;
+        return (List) invokeL.objValue;
     }
 
-    public vd4 a(le4 le4Var) {
-        InterceptResult invokeL;
+    public je4(PoiInfo poiInfo, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, le4Var)) == null) {
-            if (le4Var == null) {
-                return null;
-            }
-            return new qe4(le4Var, false);
-        }
-        return (vd4) invokeL.objValue;
-    }
-
-    public synchronized boolean c(String str) {
-        InterceptResult invokeL;
-        boolean e;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            synchronized (this) {
-                e = this.a.e(str);
-            }
-            return e;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public synchronized boolean d(String str) {
-        InterceptResult invokeL;
-        boolean f;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            synchronized (this) {
-                f = this.a.f(str);
-            }
-            return f;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public synchronized void e(he4 he4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, he4Var) == null) {
-            synchronized (this) {
-                this.a.c(he4Var);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {poiInfo, Boolean.valueOf(z), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-    }
-
-    public synchronized <T> void f(le4<T> le4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, le4Var) == null) {
-            synchronized (this) {
-                le4Var.s(false);
-                this.a.h(le4Var);
-            }
+        if (poiInfo == null) {
+            this.a = new PoiInfo();
         }
-    }
-
-    public synchronized void g(he4 he4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, he4Var) == null) {
-            synchronized (this) {
-                this.a.i(he4Var);
-            }
-        }
+        this.a = poiInfo;
+        this.b = z;
+        this.c = z2;
     }
 }

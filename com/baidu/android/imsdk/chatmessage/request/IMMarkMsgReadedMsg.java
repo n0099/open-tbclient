@@ -2,6 +2,7 @@ package com.baidu.android.imsdk.chatmessage.request;
 
 import android.content.Context;
 import android.content.Intent;
+import androidx.core.net.MailTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.account.LoginManager;
 import com.baidu.android.imsdk.db.DBManager;
@@ -133,7 +134,7 @@ public class IMMarkMsgReadedMsg extends Message {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, str2, str3)) == null) {
             JSONObject jSONObject = new JSONObject(str2);
             int optInt = jSONObject.optInt("category");
-            long optLong = jSONObject.optLong("to");
+            long optLong = jSONObject.optLong(MailTo.TO);
             long optLong2 = jSONObject.optLong("msgid");
             long optLong3 = jSONObject.optLong(Constants.EXTRA_BEGIN_MSGID, -1L);
             long optLong4 = jSONObject.optLong(Constants.EXTRA_CLIENT_MAX_MSGID, -1L);
@@ -161,7 +162,7 @@ public class IMMarkMsgReadedMsg extends Message {
                 jSONObject.put("method", 67);
                 jSONObject.put("appid", this.mAppid);
                 jSONObject.put("uk", this.mUk);
-                jSONObject.put("to", this.mTo);
+                jSONObject.put(MailTo.TO, this.mTo);
                 jSONObject.put("category", this.mCategory);
                 jSONObject.put("origin_id", Utility.getTriggerId(this.mContext));
                 if (this.mMsgId > 0) {

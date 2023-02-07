@@ -1,39 +1,30 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
+import android.graphics.Bitmap;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.VoiceData;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tieba.ef9;
+import com.baidu.tieba.gf9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.core.imageloader.core.ImageLoader;
+import java.io.File;
+import java.util.List;
+import java.util.Vector;
 /* loaded from: classes4.dex */
-public class if9 extends lf9<ig9> {
+public class if9 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile if9 c;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public View g;
-    @Nullable
-    public PlayVoiceBntNew h;
-    @Nullable
-    public ImageView i;
+    public gf9 a;
+    public List<nf9> b;
 
     /* loaded from: classes4.dex */
-    public class a implements View.OnClickListener {
+    public class a implements mf9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ if9 a;
@@ -56,183 +47,137 @@ public class if9 extends lf9<ig9> {
             this.a = if9Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.tieba.mf9
+        public void a(ef9.b bVar) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+                ef9.a().c(bVar);
+                if (!hw9.e(this.a.b)) {
+                    if9 if9Var = this.a;
+                    if9Var.h((nf9) hw9.c(if9Var.b, 0));
+                    hw9.g(this.a.b, 0);
+                }
             }
-            this.a.B();
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public if9(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, ig9.class);
+    public if9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = new Vector();
+        this.a = new gf9.b().d();
     }
 
-    @Override // com.baidu.tieba.qf9
-    public void c(WriteData writeData) {
-        PlayVoiceBntNew playVoiceBntNew;
+    public void i(of9 of9Var, ff9 ff9Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, writeData) != null) || (playVoiceBntNew = this.h) == null) {
-            return;
-        }
-        VoiceData.VoiceModel voiceModel = playVoiceBntNew.getVoiceModel();
-        writeData.setVoiceModel(voiceModel);
-        if (voiceModel != null) {
-            if (voiceModel.getId() != null) {
-                writeData.setVoice(voiceModel.getId());
-                writeData.setVoiceDuringTime(voiceModel.getDuration());
-                return;
-            }
-            writeData.setVoice(null);
-            writeData.setVoiceDuringTime(-1);
-            return;
-        }
-        writeData.setVoice(null);
-        writeData.setVoiceDuringTime(-1);
-    }
-
-    @Override // com.baidu.tieba.qf9
-    public void a(@NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) == null) && writeData.getVoiceModel() != null) {
-            A(writeData.getVoiceModel());
-        }
-    }
-
-    @Override // com.baidu.tieba.qf9
-    public void e(@NonNull WriteData writeData) {
-        PlayVoiceBntNew playVoiceBntNew;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, writeData) != null) || (playVoiceBntNew = this.h) == null) {
-            return;
-        }
-        writeData.setVoiceModel(playVoiceBntNew.getVoiceModel());
-    }
-
-    @Override // com.baidu.tieba.qf9
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            WebPManager.setPureDrawable(this.i, R.drawable.icon_pure_home_delete16, R.color.CAM_X0107, null);
-            PlayVoiceBntNew playVoiceBntNew = this.h;
-            if (playVoiceBntNew != null) {
-                playVoiceBntNew.e();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.lf9, com.baidu.tieba.qf9
-    public void r(z65 z65Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, z65Var) == null) {
-            super.r(z65Var);
-            int i = z65Var.a;
-            if (i == 10) {
-                Object obj = z65Var.c;
-                if (obj instanceof VoiceData.VoiceModel) {
-                    A((VoiceData.VoiceModel) obj);
+        if (interceptable == null || interceptable.invokeLL(1048581, this, of9Var, ff9Var) == null) {
+            List<nf9> c2 = kf9.c(of9Var, ff9Var);
+            if (!hw9.e(c2)) {
+                for (nf9 nf9Var : c2) {
+                    h(nf9Var);
                 }
-            } else if (i == 11) {
-                B();
             }
         }
     }
 
-    public final void A(VoiceData.VoiceModel voiceModel) {
+    public void j(pf9 pf9Var, ff9 ff9Var) {
+        nf9 b;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, voiceModel) == null) && this.g != null && this.h != null && voiceModel != null && this.e != null && !TextUtils.isEmpty(voiceModel.getVoiceId()) && voiceModel.getDuration() > 0) {
-            ((ig9) this.d).a = voiceModel;
-            this.e.setVoiceModel(voiceModel);
-            this.g.setVisibility(0);
-            this.h.setVoiceModel(voiceModel);
-            this.h.o();
-            sf9 sf9Var = this.b;
-            if (sf9Var != null) {
-                sf9Var.i();
-                this.b.x(new int[]{34});
-            }
+        if ((interceptable == null || interceptable.invokeLL(1048582, this, pf9Var, ff9Var) == null) && (b = kf9.b(pf9Var, ff9Var)) != null) {
+            h(b);
         }
     }
 
-    @Override // com.baidu.tieba.qf9
-    public View s(@NonNull ViewGroup viewGroup) {
+    public static if9 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (c == null) {
+                synchronized (if9.class) {
+                    if (c == null) {
+                        c = new if9();
+                    }
+                }
+            }
+            return c;
+        }
+        return (if9) invokeV.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a != null) {
+            return;
+        }
+        throw new IllegalStateException(ImageLoader.ERROR_NOT_INIT);
+    }
+
+    public lf9 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            c();
+            return this.a.b;
+        }
+        return (lf9) invokeV.objValue;
+    }
+
+    public Bitmap d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0535, viewGroup, false);
-            this.g = inflate;
-            this.h = (PlayVoiceBntNew) inflate.findViewById(R.id.obfuscated_res_0x7f090468);
-            ImageView imageView = (ImageView) this.g.findViewById(R.id.obfuscated_res_0x7f09109e);
-            this.i = imageView;
-            if (imageView != null) {
-                imageView.setOnClickListener(new a(this));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            return this.g;
+            Bitmap a2 = g().a(str);
+            if (a2 != null && !a2.isRecycled()) {
+                return a2;
+            }
+            Bitmap a3 = e().a(str);
+            if (a3 == null || a3.isRecycled()) {
+                return null;
+            }
+            return a3;
         }
-        return (View) invokeL.objValue;
+        return (Bitmap) invokeL.objValue;
     }
 
-    public final void B() {
+    public final void h(nf9 nf9Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.g == null || this.h == null || this.e == null) {
-            return;
-        }
-        D d = this.d;
-        if (((ig9) d).a != null) {
-            j15.a(j15.b(((ig9) d).a.getVoiceId()));
-        }
-        ((ig9) this.d).a = null;
-        this.e.setVoiceModel(null);
-        this.g.setVisibility(8);
-        this.h.p();
-        this.h.setVoiceModel(null);
-        sf9 sf9Var = this.b;
-        if (sf9Var != null) {
-            sf9Var.f();
-            this.b.i();
-            this.b.x(new int[]{34});
+        if (interceptable == null || interceptable.invokeL(1048580, this, nf9Var) == null) {
+            c();
+            ef9.b b = ef9.a().b();
+            if (b != null) {
+                b.m(this.a.a);
+                b.setDataSource(nf9Var.a);
+                b.h(nf9Var, new a(this));
+                return;
+            }
+            this.b.add(nf9Var);
         }
     }
 
-    @Override // com.baidu.tieba.lf9, com.baidu.tieba.qf9
-    public void m(Bundle bundle, Intent intent, @NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, bundle, intent, writeData) == null) {
-            super.m(bundle, intent, writeData);
-        }
-    }
-
-    @Override // com.baidu.tieba.lf9, com.baidu.tieba.qf9
-    public boolean t() {
+    public bf9 e() {
         InterceptResult invokeV;
-        PlayVoiceBntNew playVoiceBntNew;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            View view2 = this.g;
-            if (view2 == null || view2.getVisibility() != 0 || (playVoiceBntNew = this.h) == null || playVoiceBntNew.getVoiceModel() == null) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            c();
+            String str = FileHelper.getVideoTmpDir() + File.separator + "shaft_images";
+            if (!TextUtils.equals(this.a.c.b(), str)) {
+                this.a.c.d(str);
             }
-            return true;
+            return this.a.c;
         }
-        return invokeV.booleanValue;
+        return (bf9) invokeV.objValue;
     }
 }

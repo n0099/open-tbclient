@@ -1,76 +1,137 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class sf3 extends mf3 {
+public class sf3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static volatile boolean b;
+    public static final List<a> c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sf3(g53 g53Var) {
-        super(g53Var, "/swanAPI/setTabBarBadge");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {g53Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((g53) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final wf3 a;
+        public JSONObject b;
+        public final long c;
+        public final String d;
+
+        public a(@NonNull wf3 wf3Var, @NonNull String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wf3Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wf3Var;
+            this.d = str;
+            this.c = wf3Var.l();
+            synchronized (sf3.c) {
+                if (sf3.b) {
+                    sf3.c.add(this);
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.g63
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j43 j43Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j43Var)) == null) {
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                j12.c("setTabBarBadge", "paramsJson is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948149449, "Lcom/baidu/tieba/sf3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            int optInt = optParamsAsJo.optInt("index");
-            String optString = optParamsAsJo.optString("text");
-            if (optString.length() > 3) {
-                optString = context.getString(R.string.obfuscated_res_0x7f0f01e4);
-            }
-            if (mf3.k()) {
-                j12.c("SetTabBarBadgeAction", "fail not TabBar page");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fail not TabBar page");
-                return false;
-            }
-            vf3 j = mf3.j();
-            if (j == null) {
-                j12.c("SetTabBarBadgeAction", "tabBarViewController is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else if (!j.w(optInt, optString)) {
-                j12.c("setTabBarBadge", "set bottom badge fail");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                return true;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948149449, "Lcom/baidu/tieba/sf3;");
+                return;
             }
         }
-        return invokeLLLL.booleanValue;
+        a = gp1.a;
+        b = false;
+        c = new ArrayList();
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            synchronized (c) {
+                b = true;
+                c.clear();
+            }
+        }
+    }
+
+    public static void c(@NonNull HybridUbcFlow hybridUbcFlow) {
+        UbcFlowEvent g;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65539, null, hybridUbcFlow) != null) || !"670".equals(hybridUbcFlow.l())) {
+            return;
+        }
+        hybridUbcFlow.D("networkStatus", String.valueOf(j03.c()));
+        if (u23.f || (g = hybridUbcFlow.g("na_first_meaningful_paint")) == null) {
+            return;
+        }
+        long g2 = g.g();
+        synchronized (c) {
+            if (a) {
+                Log.d("SwanReqStatisticManager", "size=" + c.size());
+            }
+            b = false;
+            JSONArray jSONArray = new JSONArray();
+            for (a aVar : c) {
+                if (aVar.c <= g2) {
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put("type", aVar.d);
+                        if (aVar.a != null) {
+                            aVar.a.p(jSONObject);
+                        }
+                        if (aVar.b != null) {
+                            Iterator<String> keys = aVar.b.keys();
+                            while (keys.hasNext()) {
+                                String next = keys.next();
+                                jSONObject.put(next, aVar.b.get(next));
+                            }
+                        }
+                        jSONArray.put(jSONObject);
+                    } catch (JSONException e) {
+                        if (a) {
+                            Log.e("SwanReqStatisticManager", "appendRequestRecord", e);
+                        }
+                    }
+                }
+            }
+            if (jSONArray.length() > 0) {
+                hybridUbcFlow.D("requests", jSONArray.toString());
+            }
+        }
     }
 }

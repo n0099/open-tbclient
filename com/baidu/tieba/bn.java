@@ -1,15 +1,15 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.titan.TitanDownloadService;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.Closeables;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.launch.stats.AppBeforeCreateSpeedStats;
+import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,24 +17,82 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.Scopes;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.Closeable;
 import java.io.IOException;
-import org.json.JSONException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class bn {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
-    public static volatile bn e;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public int c;
+
+    /* loaded from: classes3.dex */
+    public interface b<T> {
+        T a(int i, String str, InputStream inputStream) throws IOException;
+
+        void b(int i, String str, T t);
+    }
+
+    /* loaded from: classes3.dex */
+    public static abstract class a implements b<JSONObject> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.bn.b
+        /* renamed from: c */
+        public JSONObject a(int i, String str, InputStream inputStream) throws IOException {
+            InterceptResult invokeILL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, inputStream)) == null) {
+                if (i == 200) {
+                    if (inputStream != null) {
+                        try {
+                            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                            byte[] bArr = new byte[1024];
+                            while (true) {
+                                int read = inputStream.read(bArr);
+                                if (read == -1) {
+                                    break;
+                                }
+                                byteArrayOutputStream.write(bArr, 0, read);
+                            }
+                            JSONObject jSONObject = new JSONObject(byteArrayOutputStream.toString("UTF-8"));
+                            if (bn.a) {
+                                Log.d(TitanDownloadService.TAG, jSONObject.toString());
+                            }
+                            return jSONObject;
+                        } catch (Exception e) {
+                            throw new IOException(e);
+                        }
+                    }
+                    throw new IOException("parse response error: input stream is null");
+                }
+                throw new IOException("parse response error: statuscode is " + i);
+            }
+            return (JSONObject) invokeILL.objValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -49,247 +107,217 @@ public class bn {
                 return;
             }
         }
-        d = tm.a;
+        a = ym.a;
     }
 
-    public bn() {
+    public static String b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = -1L;
-        this.b = 0L;
-        this.c = 0;
-    }
-
-    public static synchronized bn d() {
-        InterceptResult invokeV;
-        bn bnVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (bn.class) {
-                if (e == null) {
-                    e = new bn();
-                }
-                bnVar = e;
-            }
-            return bnVar;
-        }
-        return (bn) invokeV.objValue;
-    }
-
-    public long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (a() > c()) {
-                return -1L;
-            }
-            return this.a;
-        }
-        return invokeV.longValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return invokeV.longValue;
-    }
-
-    public final File f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            File file = new File(AppRuntime.getAppContext().getCacheDir(), "titan_sandbox_cache");
-            file.mkdirs();
-            return new File(file, "update_v3.profile");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             try {
-                Context appContext = AppRuntime.getAppContext();
-                PackageInfo packageInfo = appContext.getPackageManager().getPackageInfo(appContext.getPackageName(), 0);
-                if (packageInfo != null) {
-                    if (d) {
-                        Log.d(TitanDownloadService.TAG, "cur host version code = " + packageInfo.versionCode);
-                    }
-                    return packageInfo.versionCode;
-                }
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public void g() {
-        DataInputStream dataInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            File f = f();
-            if (!f.exists()) {
-                return;
-            }
-            DataInputStream dataInputStream2 = null;
-            try {
-                try {
-                    dataInputStream = new DataInputStream(new FileInputStream(f));
-                } catch (IOException e2) {
-                    e = e2;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                this.a = dataInputStream.readLong();
-                this.b = dataInputStream.readLong();
-                this.c = dataInputStream.readInt();
-                Closeables.closeSafely(dataInputStream);
-            } catch (IOException e3) {
-                e = e3;
-                dataInputStream2 = dataInputStream;
+                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+            } catch (PackageManager.NameNotFoundException e) {
                 e.printStackTrace();
-                Closeables.closeSafely(dataInputStream2);
-            } catch (Throwable th2) {
-                th = th2;
-                dataInputStream2 = dataInputStream;
-                Closeables.closeSafely(dataInputStream2);
-                throw th;
+                return "0.8";
             }
         }
+        return (String) invokeL.objValue;
     }
 
-    public void h(int i) {
+    public static String c(Context context) {
+        InterceptResult invokeL;
+        String sb;
+        String replace;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public void i(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            this.b = j;
-        }
-    }
-
-    public void j(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            this.a = j;
-        }
-    }
-
-    public JSONObject k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("updateVersion", this.a);
-                jSONObject.put("lastUpdateTime", this.b);
-                jSONObject.put("hostVersionCode", this.c);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return "[updateVersion = " + this.a + ", lastUpdateTime = " + this.b + ", hostVersionCode = " + this.c + PreferencesUtil.RIGHT_MOUNT;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void l() {
-        File file;
-        DataOutputStream dataOutputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            if (d) {
-                Log.d(TitanDownloadService.TAG, "updateToFile value = " + toString());
-            }
-            File f = f();
-            DataOutputStream dataOutputStream2 = null;
-            try {
-                try {
-                    file = File.createTempFile(AppBeforeCreateSpeedStats.TITAN_DETAILS, Scopes.PROFILE, f.getParentFile());
-                    try {
-                        dataOutputStream = new DataOutputStream(new FileOutputStream(file));
-                    } catch (IOException e2) {
-                        e = e2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            String property = System.getProperty("http.agent");
+            if (TextUtils.isEmpty(property)) {
+                sb = "";
+            } else {
+                StringBuilder sb2 = new StringBuilder();
+                int length = property.length();
+                for (int i = 0; i < length; i++) {
+                    char charAt = property.charAt(i);
+                    if (charAt > 31 && charAt < 127) {
+                        sb2.append(charAt);
+                    } else {
+                        sb2.append(String.format("\\u%04x", Integer.valueOf(charAt)));
                     }
-                } catch (Throwable th) {
-                    th = th;
                 }
+                sb = sb2.toString();
+            }
+            String k = gj.k();
+            if (TextUtils.isEmpty(k)) {
+                replace = "0.0";
+            } else {
+                replace = k.replace("_", "-");
+            }
+            return sb + " baiduboxapp/" + b(context) + " (Baidu; P1 " + replace + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:69:0x0112 A[Catch: all -> 0x0125, TRY_LEAVE, TryCatch #3 {all -> 0x0125, blocks: (B:67:0x010d, B:69:0x0112), top: B:83:0x010d }] */
+    /* JADX WARN: Removed duplicated region for block: B:72:0x0121  */
+    /* JADX WARN: Removed duplicated region for block: B:78:0x0131  */
+    /* JADX WARN: Removed duplicated region for block: B:96:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static <T> void d(Context context, String str, String str2, byte[] bArr, Map<String, String> map, b<T> bVar) {
+        HttpURLConnection httpURLConnection;
+        InputStream inputStream;
+        OutputStream outputStream;
+        HttpURLConnection httpURLConnection2;
+        InputStream inputStream2;
+        OutputStream outputStream2;
+        HttpURLConnection httpURLConnection3;
+        T t;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, str2, bArr, map, bVar}) == null) {
+            OutputStream outputStream3 = null;
+            try {
+                httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
                 try {
-                    dataOutputStream.writeLong(this.a);
-                    dataOutputStream.writeLong(this.b);
-                    dataOutputStream.writeInt(this.c);
-                    dataOutputStream.close();
-                    f.delete();
-                    file.renameTo(f);
-                    Closeables.closeSafely(dataOutputStream);
-                    if (file == null || !file.exists()) {
-                        return;
+                    httpURLConnection.setConnectTimeout(30000);
+                    httpURLConnection.setReadTimeout(30000);
+                    httpURLConnection.setRequestProperty("User-Agent", c(context));
+                    httpURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
+                    httpURLConnection.setRequestMethod(str2);
+                    if (map != null) {
+                        for (Map.Entry<String, String> entry : map.entrySet()) {
+                            httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
+                        }
                     }
-                } catch (IOException e3) {
+                    if (TextUtils.equals(str2, "POST")) {
+                        if (bArr == null) {
+                            if (a) {
+                                Log.d(TitanDownloadService.TAG, "post requestSync body is null");
+                            }
+                            if (bVar != null) {
+                                bVar.b(-1, "post requestSync body is null", null);
+                            }
+                            Closeables.closeSafely((Closeable) null);
+                            Closeables.closeSafely((Closeable) null);
+                            if (httpURLConnection != null) {
+                                httpURLConnection.disconnect();
+                                return;
+                            }
+                            return;
+                        }
+                        httpURLConnection.setDoOutput(true);
+                        if (map == null || !map.containsKey("Content-Type")) {
+                            httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+                        }
+                        outputStream2 = httpURLConnection.getOutputStream();
+                        try {
+                            outputStream2.write(bArr);
+                        } catch (Exception e) {
+                            inputStream2 = null;
+                            httpURLConnection3 = httpURLConnection;
+                            outputStream = outputStream2;
+                            e = e;
+                            httpURLConnection2 = httpURLConnection3;
+                            try {
+                                e.printStackTrace();
+                                if (bVar != null) {
+                                    bVar.b(-1, e.getMessage(), null);
+                                }
+                                Closeables.closeSafely(outputStream);
+                                Closeables.closeSafely(inputStream2);
+                                if (httpURLConnection2 == null) {
+                                    httpURLConnection2.disconnect();
+                                    return;
+                                }
+                                return;
+                            } catch (Throwable th) {
+                                th = th;
+                                outputStream3 = outputStream;
+                                httpURLConnection = httpURLConnection2;
+                                inputStream = inputStream2;
+                                Closeables.closeSafely(outputStream3);
+                                Closeables.closeSafely(inputStream);
+                                if (httpURLConnection != null) {
+                                    httpURLConnection.disconnect();
+                                }
+                                throw th;
+                            }
+                        } catch (Throwable th2) {
+                            outputStream3 = outputStream2;
+                            th = th2;
+                            inputStream = null;
+                            Closeables.closeSafely(outputStream3);
+                            Closeables.closeSafely(inputStream);
+                            if (httpURLConnection != null) {
+                            }
+                            throw th;
+                        }
+                    } else {
+                        outputStream2 = null;
+                    }
+                    int responseCode = httpURLConnection.getResponseCode();
+                    Log.d(TitanDownloadService.TAG, "request code = " + responseCode + " msg = " + httpURLConnection.getResponseMessage());
+                    if (responseCode == 200) {
+                        inputStream = httpURLConnection.getInputStream();
+                        if (bVar != null) {
+                            try {
+                                t = bVar.a(responseCode, httpURLConnection.getResponseMessage(), inputStream);
+                            } catch (Exception e2) {
+                                httpURLConnection3 = httpURLConnection;
+                                outputStream = outputStream2;
+                                e = e2;
+                                inputStream2 = inputStream;
+                                httpURLConnection2 = httpURLConnection3;
+                                e.printStackTrace();
+                                if (bVar != null) {
+                                }
+                                Closeables.closeSafely(outputStream);
+                                Closeables.closeSafely(inputStream2);
+                                if (httpURLConnection2 == null) {
+                                }
+                            } catch (Throwable th3) {
+                                outputStream3 = outputStream2;
+                                th = th3;
+                                Closeables.closeSafely(outputStream3);
+                                Closeables.closeSafely(inputStream);
+                                if (httpURLConnection != null) {
+                                }
+                                throw th;
+                            }
+                        } else {
+                            t = null;
+                        }
+                    } else {
+                        inputStream = null;
+                        t = null;
+                    }
+                    if (bVar != null) {
+                        bVar.b(responseCode, httpURLConnection.getResponseMessage(), t);
+                    }
+                    Closeables.closeSafely(outputStream2);
+                    Closeables.closeSafely(inputStream);
+                    if (httpURLConnection != null) {
+                        httpURLConnection.disconnect();
+                    }
+                } catch (Exception e3) {
                     e = e3;
-                    dataOutputStream2 = dataOutputStream;
-                    e.printStackTrace();
-                    Closeables.closeSafely(dataOutputStream2);
-                    if (file == null || !file.exists()) {
-                        return;
-                    }
-                    file.delete();
-                } catch (Throwable th2) {
-                    th = th2;
-                    dataOutputStream2 = dataOutputStream;
-                    Closeables.closeSafely(dataOutputStream2);
-                    if (file != null && file.exists()) {
-                        file.delete();
-                    }
-                    throw th;
+                    httpURLConnection2 = httpURLConnection;
+                    outputStream = null;
+                    inputStream2 = null;
+                } catch (Throwable th4) {
+                    th = th4;
+                    inputStream = null;
                 }
-            } catch (IOException e4) {
+            } catch (Exception e4) {
                 e = e4;
-                file = null;
-            } catch (Throwable th3) {
-                th = th3;
-                file = null;
+                outputStream = null;
+                httpURLConnection2 = null;
+                inputStream2 = null;
+            } catch (Throwable th5) {
+                th = th5;
+                httpURLConnection = null;
+                inputStream = null;
             }
-            file.delete();
         }
     }
 }

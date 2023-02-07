@@ -6,7 +6,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebView;
 /* loaded from: classes8.dex */
 public final class EmailAddressParsedResult extends ParsedResult {
     public static /* synthetic */ Interceptable $ic;
@@ -21,7 +20,7 @@ public final class EmailAddressParsedResult extends ParsedResult {
     public String getMailtoURI() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? WebView.SCHEME_MAILTO : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "mailto:" : (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

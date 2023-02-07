@@ -8,9 +8,9 @@ import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.ij5;
-import com.baidu.tieba.t17;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.e67;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.tn5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -65,11 +65,11 @@ public class InitBearTask extends LaunchTask {
         if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || !TbadkCoreApplication.getInst().isMainProcess(false) || !PermissionUtil.isAgreePrivacyPolicy()) {
             return;
         }
-        boolean q = ij5.q();
+        boolean q = tn5.q();
         SpeedStatsManager.getInstance().setIsNeedBear(q);
-        SpeedStatsManager.getInstance().setIsNeedPlg(ij5.w());
+        SpeedStatsManager.getInstance().setIsNeedPlg(tn5.w());
         if (q) {
-            t17.m().u(new t17.l(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitBearTask.1
+            e67.m().u(new e67.l(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitBearTask.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ InitBearTask this$0;
@@ -92,11 +92,11 @@ public class InitBearTask extends LaunchTask {
                     this.this$0 = this;
                 }
 
-                @Override // com.baidu.tieba.t17.l
+                @Override // com.baidu.tieba.e67.l
                 public void initComplete() {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
-                        if (zi.E()) {
+                        if (ej.E()) {
                             Thread thread = new Thread(new Runnable(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitBearTask.1.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;

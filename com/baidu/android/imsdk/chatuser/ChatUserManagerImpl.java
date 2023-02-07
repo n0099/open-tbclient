@@ -25,7 +25,7 @@ import com.baidu.android.imsdk.internal.MessageFactory;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.RequsetNetworkUtils;
-import com.baidu.tieba.g80;
+import com.baidu.tieba.m80;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -345,7 +345,7 @@ public class ChatUserManagerImpl {
                     creatMethodIntent.putExtras(bundle);
                     creatMethodIntent.putExtra(Constants.EXTRA_SAVE_TO_DB, i);
                     try {
-                        g80.e(mContext).d(mContext, creatMethodIntent);
+                        m80.e(mContext).d(mContext, creatMethodIntent);
                         return;
                     } catch (Exception e) {
                         ListenerManager.getInstance().removeListener(addListener);
@@ -505,7 +505,7 @@ public class ChatUserManagerImpl {
                     bundle.putSerializable(Constants.EXTRA_UIDS, arrayList);
                     creatMethodIntent.putExtras(bundle);
                     try {
-                        g80.e(mContext).d(mContext, creatMethodIntent);
+                        m80.e(mContext).d(mContext, creatMethodIntent);
                         return;
                     } catch (Exception e) {
                         ListenerManager.getInstance().removeListener(addListener);

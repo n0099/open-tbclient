@@ -1,190 +1,87 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
+import com.baidu.searchbox.pms.init.PmsManager;
+import com.baidu.searchbox.pms.init.RequestParams;
+import com.baidu.tbadk.data.IconStampData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
+import java.io.File;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public final class o95 {
+public class o95 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a b;
     public transient /* synthetic */ FieldHolder $fh;
-    public x55 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947987102, "Lcom/baidu/tieba/o95;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947987102, "Lcom/baidu/tieba/o95;");
-                return;
-            }
-        }
-        b = new a(null);
-    }
-
-    @JvmStatic
-    public static final o95 b() {
-        InterceptResult invokeV;
+    public static String c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a() : (o95) invokeV.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            return null;
+                        }
+                        return "reply_7_times.mp4";
+                    }
+                    return "post_7_times.mp4";
+                }
+                return "reply_1_times.mp4";
+            }
+            return "post_1_times.mp4";
+        }
+        return (String) invokeI.objValue;
     }
 
-    /* loaded from: classes5.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @JvmStatic
-        public final o95 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return b.a.a();
-            }
-            return (o95) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final b a;
-        public static final o95 b;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-590155040, "Lcom/baidu/tieba/o95$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-590155040, "Lcom/baidu/tieba/o95$b;");
-                    return;
-                }
-            }
-            a = new b();
-            b = new o95();
-        }
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        public final o95 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return b;
-            }
-            return (o95) invokeV.objValue;
-        }
-    }
-
-    public o95() {
-        boolean z;
+    public static boolean a(IconStampData iconStampData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, iconStampData)) == null) {
+            if (iconStampData == null) {
+                return false;
             }
-        }
-        String cacheData = cz4.l().r("festival_config_data_key", "");
-        Intrinsics.checkNotNullExpressionValue(cacheData, "cacheData");
-        if (cacheData.length() > 0) {
-            z = true;
-        } else {
-            z = false;
-        }
-        if (z) {
-            try {
-                this.a = (x55) DataExt.toEntity(cacheData, x55.class);
-            } catch (Exception e) {
-                if (!TbadkCoreApplication.getInst().isDebugMode()) {
-                    e.printStackTrace();
-                    return;
-                }
-                throw e;
+            String c = c(iconStampData.stampType);
+            if (TextUtils.isEmpty(c)) {
+                return false;
             }
+            File file = new File(um.b(c));
+            if (StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get(c)) || !file.exists()) {
+                return false;
+            }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    public final x55 a() {
-        InterceptResult invokeV;
+    public static void b(boolean z) {
+        String c;
+        String c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (x55) invokeV.objValue;
-    }
-
-    public final void c(x55 x55Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x55Var) == null) {
-            if (x55Var == null) {
-                cz4.l().E("festival_config_data_key");
+        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
+            if (z) {
+                c = c(1);
+                c2 = c(3);
             } else {
-                cz4.l().z("festival_config_data_key", DataExt.toJson(x55Var));
+                c = c(2);
+                c2 = c(4);
             }
-        }
-    }
-
-    public final void update(x55 x55Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, x55Var) == null) {
-            this.a = x55Var;
-            if (!Intrinsics.areEqual(x55Var, x55Var)) {
-                c(x55Var);
+            if (!TextUtils.isEmpty(c) && !TextUtils.isEmpty(c2)) {
+                String str = BdBaseApplication.getInst().getResHashMap().get(c2);
+                if (StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get(c)) || StringUtils.isNull(str)) {
+                    RequestParams requestParams = new RequestParams();
+                    requestParams.setRunType(qm.a);
+                    requestParams.setRunNode("aps");
+                    ArrayList arrayList = new ArrayList();
+                    arrayList.add("com.baidu.tieba.resloader." + c);
+                    arrayList.add("com.baidu.tieba.resloader." + c2);
+                    requestParams.addChannel(new pm(arrayList, (DefaultDownloadCallback) null));
+                    PmsManager.getInstance().execute(requestParams);
+                }
             }
         }
     }

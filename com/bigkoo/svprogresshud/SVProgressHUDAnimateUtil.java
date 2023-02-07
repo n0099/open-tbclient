@@ -16,13 +16,13 @@ public class SVProgressHUDAnimateUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
             if (i == 17) {
-                return z ? com.baidu.tieba.R.anim.obfuscated_res_0x7f010133 : com.baidu.tieba.R.anim.obfuscated_res_0x7f010134;
+                return z ? com.baidu.tieba.R.anim.obfuscated_res_0x7f010135 : com.baidu.tieba.R.anim.obfuscated_res_0x7f010136;
             } else if (i == 48) {
-                return z ? com.baidu.tieba.R.anim.obfuscated_res_0x7f010136 : com.baidu.tieba.R.anim.obfuscated_res_0x7f010138;
+                return z ? com.baidu.tieba.R.anim.obfuscated_res_0x7f010138 : com.baidu.tieba.R.anim.obfuscated_res_0x7f01013a;
             } else if (i != 80) {
                 return -1;
             } else {
-                return z ? com.baidu.tieba.R.anim.obfuscated_res_0x7f010135 : com.baidu.tieba.R.anim.obfuscated_res_0x7f010137;
+                return z ? com.baidu.tieba.R.anim.obfuscated_res_0x7f010137 : com.baidu.tieba.R.anim.obfuscated_res_0x7f010139;
             }
         }
         return invokeCommon.intValue;

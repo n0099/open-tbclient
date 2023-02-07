@@ -1,101 +1,67 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.net.Uri;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.wv4;
+import android.webkit.JavascriptInterface;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
 /* loaded from: classes4.dex */
-public class ia6 {
+public abstract class ia6 implements fa6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public static class a implements wv4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
-        public final /* synthetic */ int b;
-
-        public a(TbPageContext tbPageContext, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tbPageContext, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tbPageContext;
-            this.b = i;
-        }
-
-        @Override // com.baidu.tieba.wv4.e
-        public void onClick(wv4 wv4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, wv4Var) == null) {
-                wv4Var.dismiss();
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.a.getPageActivity(), true, this.b)));
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b implements wv4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.wv4.e
-        public void onClick(wv4 wv4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, wv4Var) == null) {
-                wv4Var.dismiss();
-            }
-        }
-    }
-
-    public static void a(Intent intent, TbPageContext tbPageContext, int i) {
-        Uri uri;
+    public boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLI(65536, null, intent, tbPageContext, i) != null) || intent == null || !TbadkCoreApplication.isLogin() || (uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI)) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
         }
-        String queryParameter = uri.getQueryParameter("portrait");
-        if (TbadkCoreApplication.getCurrentPortrait() != null && queryParameter != null && !TbadkCoreApplication.getCurrentPortrait().contains(queryParameter)) {
-            wv4 wv4Var = new wv4(tbPageContext.getPageActivity());
-            wv4Var.setContentViewSize(1);
-            wv4Var.setMessage(tbPageContext.getString(R.string.account_not_the_same_as_pc));
-            wv4Var.setPositiveButton(R.string.change_account, new a(tbPageContext, i));
-            wv4Var.setNegativeButton(R.string.not_change_account, new b());
-            wv4Var.create(tbPageContext).show();
+        return invokeV.booleanValue;
+    }
+
+    public ia6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
+    }
+
+    public boolean c(Class<?> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
+            boolean z = false;
+            for (Method method : cls.getMethods()) {
+                Annotation[] annotations = method.getAnnotations();
+                int length = annotations.length;
+                int i = 0;
+                while (true) {
+                    if (i >= length) {
+                        break;
+                    } else if (annotations[i] instanceof JavascriptInterface) {
+                        z = true;
+                        break;
+                    } else {
+                        i++;
+                    }
+                }
+                if (z) {
+                    break;
+                }
+            }
+            return z;
+        }
+        return invokeL.booleanValue;
     }
 }

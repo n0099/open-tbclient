@@ -1,53 +1,201 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
+import android.os.Handler;
+import android.os.Message;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.NoPressedRelativeLayout;
+import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.Personalized.DataRes;
-import tbclient.Personalized.HeaderCard;
 /* loaded from: classes7.dex */
-public class y47 extends fs4 {
+public class y47 implements ay {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<ThreadData> b;
-    public int c;
-    public int d;
+    public final Handler a;
+    public NoPressedRelativeLayout b;
+    public FrsFragment c;
+    public TextView d;
+    public final Animation e;
+    public final Animation f;
+    public final Runnable g;
+    public int h;
+    public int i;
+    public int j;
 
-    @Override // com.baidu.tieba.fs4
-    public cu4 getNegFeedBackData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
+    /* loaded from: classes7.dex */
+    public class a implements Handler.Callback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ y47 a;
+
+        public a(y47 y47Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y47Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = y47Var;
         }
-        return (cu4) invokeV.objValue;
+
+        @Override // android.os.Handler.Callback
+        public boolean handleMessage(Message message) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
+                if (message.what != 111) {
+                    return false;
+                }
+                this.a.j();
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
     }
 
-    @Override // com.baidu.tieba.fs4
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return null;
+    /* loaded from: classes7.dex */
+    public class b implements Animation.AnimationListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ y47 a;
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationRepeat(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
+            }
         }
-        return (ThreadData) invokeV.objValue;
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationStart(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
+            }
+        }
+
+        public b(y47 y47Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y47Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = y47Var;
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationEnd(Animation animation) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, animation) == null) && this.a.d.getParent() != null) {
+                ((ViewGroup) this.a.d.getParent()).removeView(this.a.d);
+            }
+        }
     }
 
-    public y47() {
+    /* loaded from: classes7.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ y47 a;
+
+        public c(y47 y47Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y47Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = y47Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.e();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class d implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ y47 a;
+
+        public d(y47 y47Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y47Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = y47Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.e();
+                if (this.a.c != null && !this.a.c.E3() && this.a.c.u1() != null) {
+                    this.a.c.u1().b2();
+                }
+            }
+        }
+    }
+
+    public y47(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsFragment, noPressedRelativeLayout};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -57,88 +205,102 @@ public class y47 extends fs4 {
                 return;
             }
         }
-        this.c = 0;
-        this.d = -1;
-        this.b = new ArrayList();
+        this.h = -1;
+        this.i = -1;
+        this.j = -1;
+        this.b = noPressedRelativeLayout;
+        this.c = frsFragment;
+        this.a = new Handler(new a(this));
+        this.e = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_in);
+        Animation loadAnimation = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.obfuscated_res_0x7f010064);
+        this.f = loadAnimation;
+        loadAnimation.setAnimationListener(new b(this));
+        this.g = new c(this);
+        f();
     }
 
-    public int c() {
-        InterceptResult invokeV;
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.d.getParent() == null) {
+            return;
         }
-        return invokeV.intValue;
+        this.h = -1;
+        this.j = -1;
+        this.a.removeCallbacks(this.g);
+        this.d.clearAnimation();
+        this.d.startAnimation(this.f);
     }
 
-    public List<ThreadData> getDataList() {
-        InterceptResult invokeV;
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.removeCallbacksAndMessages(null);
         }
-        return (List) invokeV.objValue;
     }
 
-    public int getPosition() {
-        InterceptResult invokeV;
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            TextView textView = new TextView(TbadkCoreApplication.getInst());
+            this.d = textView;
+            textView.setOnClickListener(new d(this));
+            this.d.setGravity(17);
+            this.d.setText(R.string.obfuscated_res_0x7f0f074f);
+            int dimensionPixelSize = this.c.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5);
+            int dimensionPixelSize2 = this.c.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070225);
+            this.d.setPadding(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize);
+            this.d.setTextSize(0, this.c.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b5));
+            SkinManager.setBackgroundResource(this.d, R.drawable.bg_home_float);
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0302);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+            layoutParams.addRule(14);
+            layoutParams.topMargin = this.c.T0().getBottom() + ej.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070303);
+            this.d.setLayoutParams(layoutParams);
         }
-        return invokeV.intValue;
     }
 
-    public String getTitle() {
-        InterceptResult invokeV;
+    public void h(RecyclerView recyclerView, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return o96.y0;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public static boolean i(DataRes.Builder builder) {
-        InterceptResult invokeL;
-        HeaderCard headerCard;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, builder)) == null) {
-            if (TbadkCoreApplication.isLogin() && builder != null && (headerCard = builder.header_card) != null && !ListUtils.isEmpty(headerCard.thread_list)) {
-                return true;
+        if (interceptable == null || interceptable.invokeLII(1048579, this, recyclerView, i, i2) == null) {
+            this.h = i;
+            this.i = i2;
+            if (this.j < 0) {
+                this.j = i;
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.d = i;
         }
     }
 
-    public void f(HeaderCard headerCard) {
+    public void i(RecyclerView recyclerView, int i) {
+        int i2;
+        int i3;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, headerCard) == null) && headerCard != null && !ListUtils.isEmpty(headerCard.thread_list)) {
-            this.b.clear();
-            for (int i = 0; i < headerCard.thread_list.size(); i++) {
-                ThreadData threadData = new ThreadData();
-                threadData.setNeedCheckNTitle(false);
-                threadData.parserProtobuf(headerCard.thread_list.get(i));
-                this.b.add(threadData);
+        if ((interceptable == null || interceptable.invokeLI(1048580, this, recyclerView, i) == null) && i == 0) {
+            int i4 = this.h;
+            if (i4 > 0 && (i2 = this.i) > 0 && (i3 = this.j) >= 0 && i4 + i2 + 1 < i3) {
+                this.a.sendEmptyMessage(111);
             }
-            this.a = headerCard.card_title;
+            this.j = this.h;
         }
+    }
+
+    @Override // com.baidu.tieba.ay
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048582, this, tbPageContext, i) == null) {
+            SkinManager.setBackgroundResource(this.d, R.drawable.bg_home_float);
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0302);
+        }
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || this.d.getParent() != null) {
+            return;
+        }
+        this.b.addView(this.d);
+        this.d.clearAnimation();
+        this.d.startAnimation(this.e);
+        this.a.removeCallbacks(this.g);
+        this.a.postDelayed(this.g, 4000L);
     }
 }

@@ -1,88 +1,193 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.nio.ByteBuffer;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class wn3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public boolean c;
+    public boolean d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v6, resolved type: int */
-    /* JADX WARN: Multi-variable type inference failed */
-    public static sn3 a(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            sn3 sn3Var = null;
-            if (bArr == null) {
-                return null;
-            }
-            ByteBuffer wrap = ByteBuffer.wrap(bArr);
-            byte b = wrap.get();
-            byte b2 = wrap.get();
-            if (b == -27 && b2 == -89) {
-                sn3Var = new sn3();
-                wrap.get();
-                wrap.get();
-                sn3Var.r(wrap.get());
-                sn3Var.p(wrap.get());
-                int i = wrap.getShort();
-                sn3Var.q(i);
-                int i2 = wrap.getInt();
-                sn3Var.k(i2);
-                sn3Var.l(wrap.getLong());
-                byte[] bArr2 = new byte[i];
-                wrap.get(bArr2, 0, i);
-                sn3Var.o(bArr2);
-                if (i2 > 0) {
-                    byte[] bArr3 = new byte[i2];
-                    wrap.get(bArr3, 0, i2);
-                    sn3Var.j(bArr3);
-                }
-            }
-            return sn3Var;
-        }
-        return (sn3) invokeL.objValue;
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public static byte[] b(sn3 sn3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, sn3Var)) == null) {
-            if (sn3Var == null) {
-                return null;
-            }
-            ByteBuffer allocate = ByteBuffer.allocate(sn3Var.h() + 20 + sn3Var.b());
-            allocate.put((byte) -27);
-            allocate.put((byte) -89);
-            if (sn3Var.e() != null && sn3Var.e().length == 2) {
-                allocate.put(sn3Var.e()[0]);
-                allocate.put(sn3Var.e()[1]);
-                allocate.put(sn3Var.i());
-                allocate.put(sn3Var.g());
-                if (sn3Var.f() != null && sn3Var.f().length != 0) {
-                    int length = sn3Var.f().length;
-                    allocate.put((byte) ((length >> 8) & 255));
-                    allocate.put((byte) (length & 255));
-                    if (sn3Var.a() != null && sn3Var.a().length != 0) {
-                        allocate.putInt(sn3Var.a().length);
-                    } else {
-                        allocate.putInt(0);
-                    }
-                    allocate.putLong(sn3Var.c());
-                    if (sn3Var.f() != null) {
-                        allocate.put(sn3Var.f());
-                    }
-                    if (sn3Var.a() != null) {
-                        allocate.put(sn3Var.a());
-                    }
-                    return allocate.array();
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+        public boolean c;
+        public boolean d;
+        public boolean e;
+        public boolean f;
+        public boolean g;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return null;
+            this.c = true;
+            this.d = true;
+            this.e = true;
+            this.f = false;
+            this.g = true;
         }
-        return (byte[]) invokeL.objValue;
+
+        public static b b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                return new b();
+            }
+            return (b) invokeV.objValue;
+        }
+
+        public wn3 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                wn3 wn3Var = new wn3(null);
+                wn3Var.b = this.b;
+                wn3Var.c = this.c;
+                wn3Var.e = this.e;
+                wn3Var.d = this.d;
+                wn3Var.a = this.a;
+                wn3Var.f = this.f;
+                wn3Var.g = this.g;
+                return wn3Var;
+            }
+            return (wn3) invokeV.objValue;
+        }
+
+        public b c(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                this.f = z;
+                return this;
+            }
+            return (b) invokeZ.objValue;
+        }
+
+        public b d(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+                this.g = z;
+                return this;
+            }
+            return (b) invokeZ.objValue;
+        }
+
+        public b e(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+                this.b = i;
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b f(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+                this.a = i;
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b g(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
+                this.c = z;
+                return this;
+            }
+            return (b) invokeZ.objValue;
+        }
+
+        public b h(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
+                this.e = z;
+                return this;
+            }
+            return (b) invokeZ.objValue;
+        }
+
+        public b i(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
+                this.d = z;
+                return this;
+            }
+            return (b) invokeZ.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948276301, "Lcom/baidu/tieba/wn3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948276301, "Lcom/baidu/tieba/wn3;");
+                return;
+            }
+        }
+        boolean z = gp1.a;
+    }
+
+    public wn3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.g = true;
+    }
+
+    public /* synthetic */ wn3(a aVar) {
+        this();
     }
 }

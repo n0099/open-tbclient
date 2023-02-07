@@ -5,9 +5,9 @@ import android.graphics.BitmapFactory;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tieba.ba5;
-import com.baidu.tieba.jn;
-import com.baidu.tieba.sg;
+import com.baidu.tbadk.imageManager.TbImageMemoryCache;
+import com.baidu.tieba.on;
+import com.baidu.tieba.xg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -69,34 +69,34 @@ public class LocalFileDrawableLoaderProc extends AbstractImageLoaderProc {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.vg
-    public jn getFromLocal(String str, String str2, int i, int i2, sg sgVar, Object... objArr) {
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.ah
+    public on getFromLocal(String str, String str2, int i, int i2, xg xgVar, Object... objArr) {
         InterceptResult invokeCommon;
         Bitmap checkBitmapSize;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), sgVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), xgVar, objArr})) == null) {
             if (!StringUtils.isNull(str) && (checkBitmapSize = BitmapHelper.checkBitmapSize(BitmapFactory.decodeFile(str), i, i2)) != null) {
-                return new jn(checkBitmapSize, false);
+                return new on(checkBitmapSize, false);
             }
             return null;
         }
-        return (jn) invokeCommon.objValue;
+        return (on) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.vg
-    public jn getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.ah
+    public on getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
-            jn checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, ba5.k().m(str), i, i2);
+            on checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, TbImageMemoryCache.n().t(str), i, i2);
             if (checkIsValidPicMemoryCache != null && checkIsValidPicMemoryCache.p() != null && !checkIsValidPicMemoryCache.p().isRecycled()) {
                 return checkIsValidPicMemoryCache;
             }
             return null;
         }
-        return (jn) invokeCommon.objValue;
+        return (on) invokeCommon.objValue;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc

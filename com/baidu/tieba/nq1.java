@@ -1,101 +1,29 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import android.content.Context;
+import android.view.View;
+import android.widget.FrameLayout;
 /* loaded from: classes5.dex */
-public final class nq1 extends mp2<nq1> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface nq1 {
+    boolean a(View view2, cz2 cz2Var);
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        public static final String a = mp2.r("SwanFileFetcher.Params", "file_url");
-        public static final String b = mp2.r("SwanFileFetcher.Params", "file_save_path");
-        public static final String c = mp2.r("SwanFileFetcher.Params", "file_head_map");
-        public static final String d = mp2.r("SwanFileFetcher.Params", "image_save_gallery");
-        public static final String e = mp2.r("SwanFileFetcher.Params", "file_cancel_tag");
-    }
+    boolean b();
 
-    public nq1 J() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this : (nq1) invokeV.objValue;
-    }
+    boolean c(View view2, cz2 cz2Var);
 
-    public nq1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    boolean d(View view2);
 
-    @Override // com.baidu.tieba.fj3
-    public /* bridge */ /* synthetic */ fj3 d() {
-        J();
-        return this;
-    }
+    void e(vn3 vn3Var);
 
-    public nq1 E(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return z(a.e, str);
-        }
-        return (nq1) invokeL.objValue;
-    }
+    void f(vn3 vn3Var);
 
-    public nq1 G(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return z(a.b, str);
-        }
-        return (nq1) invokeL.objValue;
-    }
+    void g(boolean z);
 
-    public nq1 H(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return z(a.a, str);
-        }
-        return (nq1) invokeL.objValue;
-    }
+    Context getContext();
 
-    public nq1 I(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-            return t(a.d, z);
-        }
-        return (nq1) invokeZ.objValue;
-    }
+    FrameLayout getRootView();
 
-    public nq1 F(Map<String, String> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            Bundle bundle = new Bundle();
-            if (map != null && !map.isEmpty()) {
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    bundle.putString(entry.getKey(), entry.getValue());
-                }
-            }
-            return u(a.c, bundle);
-        }
-        return (nq1) invokeL.objValue;
-    }
+    boolean h();
+
+    boolean removeView(View view2);
 }

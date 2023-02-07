@@ -1,81 +1,141 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.database.ContentObserver;
-import android.os.Handler;
-import android.provider.Settings;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.personExtra.SmartAppBrowseHistoryHttpResponsedMessage;
+import com.baidu.tieba.personExtra.SmartAppBrowseHistoryRequestMessage;
+import com.baidu.tieba.personExtra.SmartAppBrowseHistorySocketResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ik8 extends ContentObserver {
+public class ik8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public a b;
+    public boolean a;
+    public b b;
+    public wb c;
 
     /* loaded from: classes4.dex */
-    public interface a {
-        void a(boolean z);
+    public interface b {
+        void a(boolean z, ck8 ck8Var);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ik8(Context context, Handler handler) {
-        super(handler);
+    /* loaded from: classes4.dex */
+    public class a extends wb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ik8 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ik8 ik8Var, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ik8Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ik8Var;
+        }
+
+        @Override // com.baidu.tieba.wb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                this.a.a = false;
+                if (responsedMessage != null && responsedMessage.getError() == 0) {
+                    if (!(responsedMessage instanceof SmartAppBrowseHistorySocketResponsedMessage)) {
+                        if (!(responsedMessage instanceof SmartAppBrowseHistoryHttpResponsedMessage)) {
+                            return;
+                        }
+                        this.a.d(true, ((SmartAppBrowseHistoryHttpResponsedMessage) responsedMessage).getData());
+                        return;
+                    }
+                    this.a.d(true, ((SmartAppBrowseHistorySocketResponsedMessage) responsedMessage).getData());
+                    return;
+                }
+                this.a.d(false, null);
+            }
+        }
+    }
+
+    public ik8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, handler};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Handler) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
+        this.a = false;
+        this.c = new a(this, CmdConfigHttp.CMD_HISTORY_SWAN, 309638);
+        f();
+        e();
     }
 
-    public final void a() {
-        Context context;
+    public final void d(boolean z, ck8 ck8Var) {
+        b bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (context = this.a) == null) {
+        if ((interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, ck8Var) == null) && (bVar = this.b) != null) {
+            bVar.a(z, ck8Var);
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.c);
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().registerListener(this.c);
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            o09.f(309638, SmartAppBrowseHistorySocketResponsedMessage.class, false);
+            o09.c(309638, CmdConfigHttp.CMD_HISTORY_SWAN, TbConfig.URL_HISTORY_SWAN, SmartAppBrowseHistoryHttpResponsedMessage.class, false, false, true, false);
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.a) {
             return;
         }
-        try {
-            int i = Settings.System.getInt(context.getContentResolver(), "accelerometer_rotation");
-            if (this.b != null) {
-                a aVar = this.b;
-                boolean z = true;
-                if (i != 1) {
-                    z = false;
-                }
-                aVar.a(z);
-            }
-        } catch (Settings.SettingNotFoundException e) {
-            e.printStackTrace();
-        }
+        this.a = true;
+        MessageManager.getInstance().sendMessage(new SmartAppBrowseHistoryRequestMessage());
     }
 
-    public void b(a aVar) {
+    public void h(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.b = aVar;
-            a();
-        }
-    }
-
-    @Override // android.database.ContentObserver
-    public void onChange(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            a();
+        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
+            this.b = bVar;
         }
     }
 }

@@ -13,7 +13,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import java.util.HashMap;
 import java.util.Iterator;
 import org.json.JSONArray;
@@ -204,8 +203,8 @@ public final class b {
                 String next = keys.next();
                 JSONObject jSONObject3 = jSONObject2.getJSONObject(next);
                 c cVar = new c(next);
-                if (jSONObject3.has(TtmlNode.TAG_BODY)) {
-                    JSONArray jSONArray = jSONObject3.getJSONArray(TtmlNode.TAG_BODY);
+                if (jSONObject3.has("body")) {
+                    JSONArray jSONArray = jSONObject3.getJSONArray("body");
                     cVar.b(jSONArray);
                     editor.putString(next + "@body", jSONArray.toString());
                 }

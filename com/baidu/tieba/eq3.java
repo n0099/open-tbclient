@@ -1,124 +1,188 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
+import android.util.Pair;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.be3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.imagepipeline.listener.RequestListener;
-import com.facebook.imagepipeline.request.ImageRequest;
-import java.util.Map;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public final class eq3 implements RequestListener {
+public class eq3 extends zw1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public w82 a;
 
-    @Override // com.facebook.imagepipeline.producers.ProducerListener
-    public void onProducerEvent(String str, String str2, String str3) {
+    /* loaded from: classes4.dex */
+    public interface c {
+        void a(String str);
+    }
+
+    @Override // com.baidu.tieba.zw1
+    public String h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "PrivateBusiness" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.zw1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "GetOpenBdussApi" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes4.dex */
+    public class a implements pn3<zd3<be3.e>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ JSONObject b;
+        public final /* synthetic */ eq3 c;
+
+        public a(eq3 eq3Var, String str, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eq3Var, str, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = eq3Var;
+            this.a = str;
+            this.b = jSONObject;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.pn3
+        /* renamed from: b */
+        public void a(zd3<be3.e> zd3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zd3Var) == null) {
+                if (!ud3.h(zd3Var)) {
+                    int b = zd3Var.b();
+                    ud3.f(b);
+                    this.c.d(this.a, new w02(b, ud3.f(b)));
+                    return;
+                }
+                JSONArray optJSONArray = this.b.optJSONArray("tpls");
+                ArrayList arrayList = new ArrayList();
+                int length = optJSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    arrayList.add(optJSONArray.optString(i));
+                }
+                this.c.z(this.b.optString("clientId"), arrayList, this.a);
+            }
         }
     }
 
-    @Override // com.facebook.imagepipeline.producers.ProducerListener
-    public void onProducerFinishWithCancellation(String str, String str2, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, map) == null) {
+    /* loaded from: classes4.dex */
+    public class b implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ eq3 b;
+
+        public b(eq3 eq3Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eq3Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = eq3Var;
+            this.a = str;
+        }
+
+        @Override // com.baidu.tieba.eq3.c
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                try {
+                    this.b.d(this.a, new w02(0, new JSONObject(str)));
+                } catch (JSONException unused) {
+                    this.b.d(this.a, new w02(10001, "internal error"));
+                }
+            }
         }
     }
 
-    @Override // com.facebook.imagepipeline.producers.ProducerListener
-    public void onProducerFinishWithFailure(String str, String str2, Throwable th, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, th, map) == null) {
-        }
-    }
-
-    @Override // com.facebook.imagepipeline.producers.ProducerListener
-    public void onProducerFinishWithSuccess(String str, String str2, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, map) == null) {
-        }
-    }
-
-    @Override // com.facebook.imagepipeline.producers.ProducerListener
-    public void onProducerStart(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-        }
-    }
-
-    @Override // com.facebook.imagepipeline.producers.ProducerListener
-    public void onUltimateProducerReached(String str, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048585, this, str, str2, z) == null) {
-        }
-    }
-
-    @Override // com.facebook.imagepipeline.producers.ProducerListener
-    public boolean requiresExtraMap(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public eq3(w82 w82Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public eq3(@NonNull xw1 xw1Var) {
+        super(xw1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {w82Var};
+            Object[] objArr = {xw1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((xw1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = w82Var;
     }
 
-    @Override // com.facebook.imagepipeline.listener.RequestListener
-    public void onRequestCancellation(String str) {
-        w82 w82Var;
+    @SuppressLint({"SwanBindApiNote"})
+    public w02 y(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && (w82Var = this.a) != null) {
-            w82Var.onCancel(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#getOpenBduss", false);
+            w83 b0 = w83.b0();
+            if (b0 == null) {
+                return new w02(1001, "null swan runtime");
+            }
+            Pair<w02, JSONObject> s = s(str);
+            w02 w02Var = (w02) s.first;
+            if (!w02Var.isSuccess()) {
+                return w02Var;
+            }
+            JSONObject jSONObject = (JSONObject) s.second;
+            String optString = jSONObject.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                return new w02(201, "empty cb");
+            }
+            b0.e0().g(v83.K(), "scope_get_open_bduss", new a(this, optString, jSONObject));
+            return w02.f();
         }
+        return (w02) invokeL.objValue;
     }
 
-    @Override // com.facebook.imagepipeline.listener.RequestListener
-    public void onRequestFailure(ImageRequest imageRequest, String str, Throwable th, boolean z) {
-        w82 w82Var;
+    public final void z(String str, ArrayList<String> arrayList, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{imageRequest, str, th, Boolean.valueOf(z)}) == null) && (w82Var = this.a) != null) {
-            w82Var.c(imageRequest, th);
-        }
-    }
-
-    @Override // com.facebook.imagepipeline.listener.RequestListener
-    public void onRequestStart(ImageRequest imageRequest, Object obj, String str, boolean z) {
-        w82 w82Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{imageRequest, obj, str, Boolean.valueOf(z)}) == null) && (w82Var = this.a) != null) {
-            w82Var.a(imageRequest);
-        }
-    }
-
-    @Override // com.facebook.imagepipeline.listener.RequestListener
-    public void onRequestSuccess(ImageRequest imageRequest, String str, boolean z) {
-        w82 w82Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, imageRequest, str, z) == null) && (w82Var = this.a) != null) {
-            w82Var.b(imageRequest);
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, arrayList, str2) == null) {
+            if (!xo3.F(v83.K())) {
+                d(str2, new w02(202, "user is not logged in or the params are invalid"));
+            } else {
+                xo3.o(v83.K(), str, arrayList, new b(this, str2));
+            }
         }
     }
 }

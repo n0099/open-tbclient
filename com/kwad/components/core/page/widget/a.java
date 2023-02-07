@@ -23,12 +23,12 @@ import com.kwad.sdk.api.loader.Wrapper;
 public final class a extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final InterfaceC0602a GY;
+    public final InterfaceC0606a GY;
     public final String GZ;
 
     /* renamed from: com.kwad.components.core.page.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC0602a {
+    public interface InterfaceC0606a {
         void a(DialogInterface dialogInterface);
 
         void b(DialogInterface dialogInterface);
@@ -37,19 +37,19 @@ public final class a extends Dialog {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public a(@NonNull Context context, @NonNull InterfaceC0602a interfaceC0602a) {
-        this(context, null, interfaceC0602a);
+    public a(@NonNull Context context, @NonNull InterfaceC0606a interfaceC0606a) {
+        this(context, null, interfaceC0606a);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, interfaceC0602a};
+            Object[] objArr = {context, interfaceC0606a};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (String) objArr2[1], (InterfaceC0602a) objArr2[2]);
+                this((Context) objArr2[0], (String) objArr2[1], (InterfaceC0606a) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -58,13 +58,13 @@ public final class a extends Dialog {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(@NonNull Context context, String str, @NonNull InterfaceC0602a interfaceC0602a) {
+    public a(@NonNull Context context, String str, @NonNull InterfaceC0606a interfaceC0606a) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, interfaceC0602a};
+            Object[] objArr = {context, str, interfaceC0606a};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -78,7 +78,7 @@ public final class a extends Dialog {
         if (context instanceof Activity) {
             setOwnerActivity((Activity) context);
         }
-        this.GY = interfaceC0602a;
+        this.GY = interfaceC0606a;
         this.GZ = str;
     }
 
@@ -87,7 +87,7 @@ public final class a extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             View inflate = LayoutInflater.from(Wrapper.wrapContextIfNeed(getContext())).inflate(R.layout.obfuscated_res_0x7f0d049e, (ViewGroup) null, false);
-            inflate.findViewById(R.id.obfuscated_res_0x7f091151).setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.core.page.widget.a.1
+            inflate.findViewById(R.id.obfuscated_res_0x7f091194).setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.core.page.widget.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a Ha;
@@ -118,7 +118,7 @@ public final class a extends Dialog {
                     }
                 }
             });
-            inflate.findViewById(R.id.obfuscated_res_0x7f091150).setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.core.page.widget.a.2
+            inflate.findViewById(R.id.obfuscated_res_0x7f091193).setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.core.page.widget.a.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a Ha;
@@ -148,7 +148,7 @@ public final class a extends Dialog {
                     }
                 }
             });
-            inflate.findViewById(R.id.obfuscated_res_0x7f0912e0).setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.core.page.widget.a.3
+            inflate.findViewById(R.id.obfuscated_res_0x7f091323).setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.core.page.widget.a.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a Ha;
@@ -179,7 +179,7 @@ public final class a extends Dialog {
                     }
                 }
             });
-            inflate.findViewById(R.id.obfuscated_res_0x7f0912df).setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.core.page.widget.a.4
+            inflate.findViewById(R.id.obfuscated_res_0x7f091322).setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.core.page.widget.a.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a Ha;
@@ -210,7 +210,7 @@ public final class a extends Dialog {
                     }
                 }
             });
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09114f);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091192);
             if (!TextUtils.isEmpty(this.GZ)) {
                 textView.setText(this.GZ);
             }

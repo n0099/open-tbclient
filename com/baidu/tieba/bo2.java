@@ -1,109 +1,61 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes3.dex */
-public class bo2 implements co3 {
+public class bo2 extends qm2<hp2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947651620, "Lcom/baidu/tieba/bo2;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947651620, "Lcom/baidu/tieba/bo2;");
-        }
+    @Override // com.baidu.tieba.qm2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "enableLocalMirror" : (String) invokeV.objValue;
     }
 
     public bo2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.co3
-    public String b() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qm2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull hp2 hp2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return uk1.a();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, hp2Var) == null) {
+            String str = command.what;
+            d(hp2Var, str, "" + command.obj, true);
+            Object obj = command.obj;
+            if (obj instanceof String) {
+                String str2 = (String) obj;
+                if (TextUtils.equals("auto", str2)) {
+                    hp2Var.h0(str2);
+                } else if (TextUtils.equals("enable", str2)) {
+                    hp2Var.h0(str2);
+                } else if (TextUtils.equals(PackageTable.DISABLE, str2)) {
+                    hp2Var.h0(str2);
+                }
+            }
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.co3
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return qn2.n().a();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.co3
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return vk4.b(AppRuntime.getAppContext()).a();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.co3
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return qn2.h0().i(AppRuntime.getAppContext());
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.co3
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return di3.D();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.co3
-    public boolean isDebug() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return tk1.a;
-        }
-        return invokeV.booleanValue;
     }
 }

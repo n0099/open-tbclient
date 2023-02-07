@@ -184,9 +184,13 @@ public class FontResourcesParserCompat {
         @NonNull
         public final FontRequest mRequest;
         public final int mStrategy;
+        @Nullable
+        public final String mSystemFontFamilyName;
         public final int mTimeoutMs;
 
+        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public ProviderResourceEntry(@NonNull FontRequest fontRequest, int i, int i2) {
+            this(fontRequest, i, i2, null);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -196,14 +200,35 @@ public class FontResourcesParserCompat {
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
                     int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    this((FontRequest) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), (String) objArr2[3]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @RestrictTo({RestrictTo.Scope.LIBRARY})
+        public ProviderResourceEntry(@NonNull FontRequest fontRequest, int i, int i2, @Nullable String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fontRequest, Integer.valueOf(i), Integer.valueOf(i2), str};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
             this.mRequest = fontRequest;
             this.mStrategy = i;
             this.mTimeoutMs = i2;
+            this.mSystemFontFamilyName = str;
         }
 
         public int getFetchStrategy() {
@@ -225,10 +250,21 @@ public class FontResourcesParserCompat {
             return (FontRequest) invokeV.objValue;
         }
 
-        public int getTimeout() {
+        @Nullable
+        @RestrictTo({RestrictTo.Scope.LIBRARY})
+        public String getSystemFontFamilyName() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.mSystemFontFamilyName;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public int getTimeout() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 return this.mTimeoutMs;
             }
             return invokeV.intValue;
@@ -386,12 +422,13 @@ public class FontResourcesParserCompat {
             int resourceId = obtainAttributes.getResourceId(1, 0);
             int integer = obtainAttributes.getInteger(2, 1);
             int integer2 = obtainAttributes.getInteger(3, 500);
+            String string4 = obtainAttributes.getString(6);
             obtainAttributes.recycle();
             if (string != null && string2 != null && string3 != null) {
                 while (xmlPullParser.next() != 3) {
                     skip(xmlPullParser);
                 }
-                return new ProviderResourceEntry(new FontRequest(string, string2, string3, readCerts(resources, resourceId)), integer, integer2);
+                return new ProviderResourceEntry(new FontRequest(string, string2, string3, readCerts(resources, resourceId)), integer, integer2, string4);
             }
             ArrayList arrayList = new ArrayList();
             while (xmlPullParser.next() != 3) {

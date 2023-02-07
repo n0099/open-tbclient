@@ -1,119 +1,76 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.badlogic.gdx.utils.GdxRuntimeException;
+import com.badlogic.gdx.utils.reflect.ReflectionException;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayOutputStream;
-import java.io.Closeable;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 /* loaded from: classes5.dex */
-public final class k8 {
+public class k8<T> extends g8<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final b9 d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448307744, "Lcom/baidu/tieba/k8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k8(Class<T> cls, int i, int i2) {
+        super(i, i2);
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448307744, "Lcom/baidu/tieba/k8;");
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class a extends ByteArrayOutputStream {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Override // java.io.ByteArrayOutputStream
-        public synchronized byte[] toByteArray() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                synchronized (this) {
-                    if (((ByteArrayOutputStream) this).count == ((ByteArrayOutputStream) this).buf.length) {
-                        return ((ByteArrayOutputStream) this).buf;
-                    }
-                    return super.toByteArray();
-                }
-            }
-            return (byte[]) invokeV.objValue;
-        }
-    }
-
-    public static void a(Closeable closeable) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, closeable) == null) && closeable != null) {
-            try {
-                closeable.close();
-            } catch (Throwable unused) {
-            }
-        }
-    }
-
-    public static void b(InputStream inputStream, OutputStream outputStream) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, inputStream, outputStream) == null) {
-            c(inputStream, outputStream, new byte[4096]);
-        }
-    }
-
-    public static byte[] d(InputStream inputStream, int i) throws IOException {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, inputStream, i)) == null) {
-            a aVar = new a(Math.max(0, i));
-            b(inputStream, aVar);
-            return aVar.toByteArray();
-        }
-        return (byte[]) invokeLI.objValue;
-    }
-
-    public static void c(InputStream inputStream, OutputStream outputStream, byte[] bArr) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLLL(65539, null, inputStream, outputStream, bArr) != null) {
-            return;
-        }
-        while (true) {
-            int read = inputStream.read(bArr);
-            if (read != -1) {
-                outputStream.write(bArr, 0, read);
-            } else {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cls, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        b9 g = g(cls);
+        this.d = g;
+        if (g != null) {
+            return;
+        }
+        throw new RuntimeException("Class cannot be created (missing no-arg constructor): " + cls.getName());
+    }
+
+    @Override // com.baidu.tieba.g8
+    public T d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                return (T) this.d.b(null);
+            } catch (Exception e) {
+                throw new GdxRuntimeException("Unable to create new instance: " + this.d.a().getName(), e);
+            }
+        }
+        return (T) invokeV.objValue;
+    }
+
+    public final b9 g(Class<T> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) {
+            try {
+                try {
+                    return a9.b(cls, null);
+                } catch (ReflectionException unused) {
+                    return null;
+                }
+            } catch (Exception unused2) {
+                b9 c = a9.c(cls, null);
+                c.c(true);
+                return c;
+            }
+        }
+        return (b9) invokeL.objValue;
     }
 }

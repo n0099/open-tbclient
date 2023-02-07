@@ -1,41 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.util.PriorityOrganizer;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import tbclient.CommonReq;
-import tbclient.VoiceRoomListPage.DataReq;
-import tbclient.VoiceRoomListPage.VoiceRoomListPageReqIdl;
 /* loaded from: classes5.dex */
-public class n17 implements ie5 {
+public class n17 extends PriorityOrganizer.Task {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
-    public final long b;
+    public FrsFragment m;
+    public FrsActivity n;
 
-    @Override // com.baidu.tieba.he5
-    public HashMap<String, String> E() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public n17(long j, long j2) {
+    public n17(FrsActivity frsActivity, FrsFragment frsFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
+            Object[] objArr = {frsActivity, frsFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -45,58 +32,42 @@ public class n17 implements ie5 {
                 return;
             }
         }
-        this.a = j;
-        this.b = j2;
+        this.n = frsActivity;
+        this.m = frsFragment;
     }
 
-    @Override // com.baidu.tieba.he5
-    public HashMap<String, Object> B() {
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put(IntentConfig.CALL_FROM, Long.valueOf(this.a));
-            hashMap.put("fid", Long.valueOf(this.b));
-            hashMap.put("q_type", Integer.valueOf(nr4.c().e()));
-            hashMap.put("scr_dip", Double.valueOf(a()));
-            hashMap.put("scr_h", Integer.valueOf(zi.j(TbadkCoreApplication.getInst().getApp())));
-            hashMap.put("scr_w", Integer.valueOf(zi.l(TbadkCoreApplication.getInst().getApp())));
-            return hashMap;
+            FrsFragment frsFragment = this.m;
+            if (frsFragment != null && !frsFragment.C3() && TbSingleton.getInstance().getFrsResponseData() != null) {
+                return true;
+            }
+            return false;
         }
-        return (HashMap) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final double a() {
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (g15.l()) {
+                return false;
+            }
+            return z37.a(TbSingleton.getInstance().getFrsResponseData(), this.m);
         }
-        return invokeV.doubleValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ke5
-    public Object h(boolean z) {
-        InterceptResult invokeZ;
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public void z() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            try {
-                DataReq.Builder builder = new DataReq.Builder();
-                builder.call_from = Long.valueOf(this.a);
-                builder.fid = Long.valueOf(this.b);
-                CommonReq.Builder builder2 = new CommonReq.Builder();
-                builder2.q_type = Integer.valueOf(nr4.c().e());
-                builder2.scr_dip = Double.valueOf(a());
-                builder2.scr_h = Integer.valueOf(zi.j(TbadkCoreApplication.getInst().getApp()));
-                builder2.scr_w = Integer.valueOf(zi.l(TbadkCoreApplication.getInst().getApp()));
-                VoiceRoomListPageReqIdl.Builder builder3 = new VoiceRoomListPageReqIdl.Builder();
-                builder3.data = builder.build(false);
-                return builder3.build(false);
-            } catch (Exception unused) {
-                BdLog.d("data convert error");
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            t();
         }
-        return invokeZ.objValue;
     }
 }

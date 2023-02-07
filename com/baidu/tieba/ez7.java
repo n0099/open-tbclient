@@ -1,27 +1,40 @@
 package com.baidu.tieba;
+
+import com.baidu.searchbox.live.imp.LiveUserSecurityDeviceInfoServiceImpl;
+import com.baidu.searchbox.live.interfaces.service.LiveUserSecurityDeviceInfoService;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public interface ez7 {
-    void a(long j, long j2, long j3);
+public final class ez7 extends ok1<LiveUserSecurityDeviceInfoService> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(boolean z);
+    public ez7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void c(boolean z, boolean z2);
-
-    boolean d(String str, String str2);
-
-    String e(String str, String str2);
-
-    void f();
-
-    void g(long j, int i);
-
-    void h(int i);
-
-    void i(int i);
-
-    void j();
-
-    void k(String str, String str2);
-
-    void l(int i);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ok1
+    /* renamed from: a */
+    public LiveUserSecurityDeviceInfoService createService() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new LiveUserSecurityDeviceInfoServiceImpl();
+        }
+        return (LiveUserSecurityDeviceInfoService) invokeV.objValue;
+    }
 }

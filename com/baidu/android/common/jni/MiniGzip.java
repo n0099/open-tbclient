@@ -1,7 +1,7 @@
 package com.baidu.android.common.jni;
 
 import android.os.SystemClock;
-import com.baidu.tieba.z8;
+import com.baidu.tieba.e9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -57,7 +57,7 @@ public final class MiniGzip {
             } else if (!new File(str).exists()) {
                 String str4 = a;
                 LogUtil.logD(str4, str + "  not exists.");
-            } else if (new z8(new File(str)).a()) {
+            } else if (new e9(new File(str)).a()) {
                 uncompressFile(str, str2);
                 String str5 = a;
                 LogUtil.logD(str5, "native ungzip use time : " + (SystemClock.elapsedRealtime() - elapsedRealtime));

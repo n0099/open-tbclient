@@ -1,10 +1,11 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.os.Bundle;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
+import com.baidu.tieba.mt2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,10 +13,104 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class nt2 extends lt2 {
+public class nt2 extends w43 {
     public static /* synthetic */ Interceptable $ic;
+    public static Map<String, pn3<Bundle>> h;
     public transient /* synthetic */ FieldHolder $fh;
+    public int f;
+    public String g;
+
+    /* loaded from: classes5.dex */
+    public class a implements pn3<Bundle> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ nt2 b;
+
+        public a(nt2 nt2Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nt2Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = nt2Var;
+            this.a = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.pn3
+        /* renamed from: b */
+        public void a(Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+                this.b.g = bundle.getString("key_launch_app_id");
+                this.b.f = bundle.getInt("key_launch_status");
+                if (TextUtils.equals(this.a, this.b.g)) {
+                    nt2 nt2Var = this.b;
+                    nt2Var.d.putInt(DnsModel.MSG_OK, nt2Var.f);
+                    this.b.c();
+                }
+                nt2.h.remove(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b implements pn3<Bundle> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ mt2.e b;
+
+        public b(String str, mt2.e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = eVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.pn3
+        /* renamed from: b */
+        public void a(Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+                String string = bundle.getString("key_launch_app_id");
+                int i = bundle.getInt("key_launch_status");
+                if (TextUtils.equals(this.a, string)) {
+                    if (i == 0) {
+                        this.b.b();
+                    } else {
+                        this.b.a();
+                    }
+                }
+                nt2.h.remove(this.a);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -30,46 +125,62 @@ public class nt2 extends lt2 {
                 return;
             }
         }
-        boolean z = tk1.a;
+        boolean z = gp1.a;
+        h = new dn4();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nt2(String str) {
-        super(str);
+    public nt2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.f = -1;
+        this.g = "";
     }
 
-    @Override // com.baidu.tieba.lt2
-    public boolean a(bt2 bt2Var, dt2 dt2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j43 j43Var) {
-        InterceptResult invokeCommon;
+    public static void k(String str) {
+        pn3<Bundle> pn3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{bt2Var, dt2Var, context, unitedSchemeEntity, callbackHandler, j43Var})) == null) {
-            j12.i("video", "seek, video id:" + dt2Var.j + " slave id: " + dt2Var.c);
-            d(bt2Var, dt2Var.r, unitedSchemeEntity, callbackHandler);
-            return true;
+        if ((interceptable == null || interceptable.invokeL(65544, null, str) == null) && (pn3Var = h.get(str)) != null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("key_launch_app_id", str);
+            bundle.putInt("key_launch_status", 1);
+            pn3Var.a(bundle);
         }
-        return invokeCommon.booleanValue;
     }
 
-    public final void d(bt2 bt2Var, int i, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+    public static void l(String str) {
+        pn3<Bundle> pn3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bt2Var, i, unitedSchemeEntity, callbackHandler) == null) {
-            bt2Var.t(i * 1000);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+        if ((interceptable == null || interceptable.invokeL(65545, null, str) == null) && (pn3Var = h.get(str)) != null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("key_launch_app_id", str);
+            bundle.putInt("key_launch_status", 0);
+            pn3Var.a(bundle);
+        }
+    }
+
+    @Override // com.baidu.tieba.w43
+    public void b(@NonNull Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            String string = bundle.getString("desAppId");
+            h.put(string, new a(this, string));
+        }
+    }
+
+    public static void j(String str, mt2.e eVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65543, null, str, eVar) == null) && !TextUtils.isEmpty(str) && eVar != null) {
+            h.put(str, new b(str, eVar));
         }
     }
 }

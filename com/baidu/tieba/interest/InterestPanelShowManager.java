@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.TimeHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cz4;
-import com.baidu.tieba.dp7;
-import com.baidu.tieba.ep7;
-import com.baidu.tieba.fp7;
-import com.baidu.tieba.y25;
+import com.baidu.tieba.l75;
+import com.baidu.tieba.p35;
+import com.baidu.tieba.vt7;
+import com.baidu.tieba.wt7;
+import com.baidu.tieba.xt7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ public class InterestPanelShowManager {
     public static /* synthetic */ Interceptable $ic;
     public static volatile InterestPanelShowManager c;
     public transient /* synthetic */ FieldHolder $fh;
-    public fp7 a;
+    public xt7 a;
     public boolean b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -132,14 +132,14 @@ public class InterestPanelShowManager {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            y25 interestBoardConfigData = TbadkCoreApplication.getInst().getInterestBoardConfigData();
+            l75 interestBoardConfigData = TbadkCoreApplication.getInst().getInterestBoardConfigData();
             if (interestBoardConfigData == null) {
                 return false;
             }
-            long n = cz4.l().n("key_app_launch_time", 0L);
-            int i = (int) (((((j - n) / 1000) / 60) / 60) / 24);
-            boolean interestGuideShowCountInLimit = TbSingleton.getInstance().interestGuideShowCountInLimit(cz4.l().r("key_interest_guide_show", ""), interestBoardConfigData);
-            if (n == 0 || i < interestBoardConfigData.b || !interestGuideShowCountInLimit) {
+            long o = p35.m().o("key_app_launch_time", 0L);
+            int i = (int) (((((j - o) / 1000) / 60) / 60) / 24);
+            boolean interestGuideShowCountInLimit = TbSingleton.getInstance().interestGuideShowCountInLimit(p35.m().s("key_interest_guide_show", ""), interestBoardConfigData);
+            if (o == 0 || i < interestBoardConfigData.b || !interestGuideShowCountInLimit) {
                 return false;
             }
             return true;
@@ -147,10 +147,10 @@ public class InterestPanelShowManager {
         return invokeJ.booleanValue;
     }
 
-    public void c(fp7 fp7Var) {
+    public void c(xt7 xt7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fp7Var) == null) {
-            this.a = fp7Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xt7Var) == null) {
+            this.a = xt7Var;
         }
     }
 
@@ -186,14 +186,14 @@ public class InterestPanelShowManager {
 
     public final InterestPanelShowState f() {
         InterceptResult invokeV;
-        fp7 fp7Var;
+        xt7 xt7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (!TimeHelper.isSameDay(cz4.l().n("key_interest_panel_show_time", 0L), System.currentTimeMillis()) && (fp7Var = this.a) != null && fp7Var.b() != null && this.a.a() != null) {
+            if (!TimeHelper.isSameDay(p35.m().o("key_interest_panel_show_time", 0L), System.currentTimeMillis()) && (xt7Var = this.a) != null && xt7Var.b() != null && this.a.a() != null) {
                 long currentTimeMillis = System.currentTimeMillis();
                 int registerTime = (int) (((currentTimeMillis - (this.a.b().getRegisterTime() * 1000)) / 86400000) + 1);
-                dp7 a = this.a.a();
-                List<ep7> b = a.b();
+                vt7 a = this.a.a();
+                List<wt7> b = a.b();
                 if (ListUtils.isEmpty(b)) {
                     return null;
                 }

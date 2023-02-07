@@ -38,11 +38,11 @@ public class ListRecommendDivider extends RecyclerView.ItemDecoration {
             }
         }
         Resources resources = context.getResources();
-        this.a = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070722);
-        this.b = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070723);
+        this.a = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070732);
+        this.b = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070733);
         Paint paint = new Paint();
         this.c = paint;
-        paint.setColor(resources.getColor(R.color.obfuscated_res_0x7f060ae6));
+        paint.setColor(resources.getColor(R.color.obfuscated_res_0x7f060af6));
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration

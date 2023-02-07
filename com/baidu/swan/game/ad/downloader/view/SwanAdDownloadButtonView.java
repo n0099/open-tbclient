@@ -162,9 +162,9 @@ public class SwanAdDownloadButtonView extends View {
         this.m = -1.0f;
         this.a.setAntiAlias(true);
         this.g.setAntiAlias(true);
-        this.i = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070654);
-        this.b = context.getResources().getColor(R.color.obfuscated_res_0x7f060a98);
-        this.c = context.getResources().getColor(R.color.obfuscated_res_0x7f060a99);
+        this.i = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070664);
+        this.b = context.getResources().getColor(R.color.obfuscated_res_0x7f060aa8);
+        this.c = context.getResources().getColor(R.color.obfuscated_res_0x7f060aa9);
     }
 
     public final void e(Canvas canvas) {

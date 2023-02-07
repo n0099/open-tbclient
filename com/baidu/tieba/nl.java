@@ -1,62 +1,35 @@
 package com.baidu.tieba;
 
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.RectF;
+import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IPackageDownloadCallback;
-import com.baidu.searchbox.pms.bean.ErrorInfo;
-import com.baidu.searchbox.pms.bean.PackageInfo;
-import com.baidu.searchbox.pms.callback.DownloadCallback;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class nl implements DownloadCallback {
+public abstract class nl extends gl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public IPackageDownloadCallback a;
+    public Path t;
+    public Paint u;
+    public a v;
+    public boolean w;
 
-    @Override // com.baidu.searchbox.pms.callback.DownloadCallback
-    public void onBulkDownloaded(List<PackageInfo> list, List<PackageInfo> list2, List<PackageInfo> list3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, list, list2, list3) == null) {
-        }
+    /* loaded from: classes5.dex */
+    public interface a {
+        Path a(RectF rectF);
+
+        void b(Canvas canvas);
     }
 
-    @Override // com.baidu.searchbox.pms.callback.DownloadCallback
-    public void onDownloadCancel(PackageInfo packageInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.pms.callback.DownloadCallback
-    public void onDownloadPause(PackageInfo packageInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, packageInfo) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.pms.callback.DownloadCallback
-    public void onDownloadResume(PackageInfo packageInfo, long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{packageInfo, Long.valueOf(j), Long.valueOf(j2)}) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.pms.callback.DownloadCallback
-    public void onDownloadStart(PackageInfo packageInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, packageInfo) == null) {
-        }
-    }
-
-    public nl(IPackageDownloadCallback iPackageDownloadCallback) {
+    public nl() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {iPackageDownloadCallback};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -66,32 +39,61 @@ public class nl implements DownloadCallback {
                 return;
             }
         }
-        this.a = iPackageDownloadCallback;
+        this.t = new Path();
+        this.u = null;
+        this.w = false;
     }
 
-    @Override // com.baidu.searchbox.pms.callback.DownloadCallback
-    public void onDownloadError(PackageInfo packageInfo, ErrorInfo errorInfo) {
+    @Override // com.baidu.tieba.el
+    public void c(hl hlVar, ImageView imageView, ImageView.ScaleType scaleType) {
+        Path a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, packageInfo, errorInfo) == null) {
-            this.a.onPackageDownloadFail(packageInfo.packageName, errorInfo.code, errorInfo.errorMsg);
-            yl.b(packageInfo.packageName, 1, packageInfo.version);
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, hlVar, imageView, scaleType) == null) {
+            super.c(hlVar, imageView, scaleType);
+            a aVar = this.v;
+            if (aVar == null || (a2 = aVar.a(j())) == null) {
+                return;
+            }
+            this.t.set(a2);
+            if (this.u == null) {
+                Paint paint = new Paint();
+                this.u = paint;
+                paint.setStyle(Paint.Style.STROKE);
+                this.u.setAntiAlias(true);
+                this.u.setColor(637534208);
+                this.u.setDither(true);
+                this.u.setStrokeWidth(2.0f);
+            }
         }
     }
 
-    @Override // com.baidu.searchbox.pms.callback.DownloadCallback
-    public void onDownloadSuccess(PackageInfo packageInfo, ErrorInfo errorInfo) {
+    @Override // com.baidu.tieba.el
+    public void g(Canvas canvas, hl hlVar, ImageView imageView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, packageInfo, errorInfo) == null) {
-            this.a.onPackageDownloadSuccess(packageInfo.packageName, packageInfo.filePath);
-            yl.b(packageInfo.packageName, 0, packageInfo.version);
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, hlVar, imageView) == null) {
+            super.g(canvas, hlVar, imageView);
+            if (!this.w) {
+                return;
+            }
+            canvas.drawPath(this.t, this.u);
+            a aVar = this.v;
+            if (aVar != null) {
+                aVar.b(canvas);
+            }
         }
     }
 
-    @Override // com.baidu.searchbox.pms.callback.DownloadCallback
-    public void onDownloadProgress(PackageInfo packageInfo, long j, long j2) {
+    public void t(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{packageInfo, Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            this.a.onProgress(j, j2);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.v = aVar;
+        }
+    }
+
+    public void u(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.w = z;
         }
     }
 }

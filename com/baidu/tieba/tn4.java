@@ -1,48 +1,43 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class tn4 {
+public class tn4 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    public static JSONObject a(@Nullable JSONObject jSONObject, int i, int i2, String str) {
-        InterceptResult invokeCommon;
+    public tn4(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{jSONObject, Integer.valueOf(i), Integer.valueOf(i2), str})) == null) {
-            if (i != 0 && i2 != 0 && !yi.isEmpty(str)) {
-                if (jSONObject == null) {
-                    jSONObject = new JSONObject();
-                }
-                try {
-                    jSONObject.put(i + "-" + i2, str);
-                } catch (JSONException e) {
-                    BdLog.e(e);
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return jSONObject;
         }
-        return (JSONObject) invokeCommon.objValue;
+        this.a = i;
     }
 
-    public static void b(int i, int i2) {
+    @Override // java.lang.Runnable
+    public void run() {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65537, null, i, i2) == null) {
-            new StatisticItem("c13318").param("obj_source", i).param("obj_type", i2).eventStat();
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (i = this.a) < 0) {
+            return;
         }
-    }
-
-    public static void c(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65538, null, i, i2) == null) {
-            new StatisticItem("c13317").param("obj_source", i).param("obj_type", i2).eventStat();
+        try {
+            Thread.sleep(i);
+        } catch (Throwable unused) {
         }
     }
 }

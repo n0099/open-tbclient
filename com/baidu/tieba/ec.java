@@ -1,94 +1,60 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.gif.NSGif;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public interface ec {
-    jn a(byte[] bArr, int i, int i2);
+public class ec extends hc {
+    public static /* synthetic */ Interceptable $ic;
+    public static ec c;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    jn get(String str);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448303311, "Lcom/baidu/tieba/ec;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448303311, "Lcom/baidu/tieba/ec;");
+        }
+    }
 
-    /* loaded from: classes4.dex */
-    public static class a implements ec {
-        public static /* synthetic */ Interceptable $ic;
-        public static ec c;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public final hc b;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = 0;
-            this.b = new hc();
-            if (NSGif.f) {
-                this.a = 0;
-            } else {
-                this.a = 1;
+    public ec() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
 
-        public static synchronized ec b() {
-            InterceptResult invokeV;
-            ec ecVar;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                synchronized (a.class) {
+    public static ec c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (ec.class) {
                     if (c == null) {
-                        c = new a();
-                    }
-                    ecVar = c;
-                }
-                return ecVar;
-            }
-            return (ec) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.ec
-        public jn a(byte[] bArr, int i, int i2) {
-            InterceptResult invokeLII;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
-                if (this.a == 0) {
-                    try {
-                        return this.b.a(bArr, i, i2);
-                    } catch (Exception unused) {
+                        c = new ec();
                     }
                 }
-                return null;
             }
-            return (jn) invokeLII.objValue;
+            return c;
         }
-
-        @Override // com.baidu.tieba.ec
-        public jn get(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                if (this.a == 0) {
-                    try {
-                        return this.b.get(str);
-                    } catch (Exception unused) {
-                    }
-                }
-                return null;
-            }
-            return (jn) invokeL.objValue;
-        }
+        return (ec) invokeV.objValue;
     }
 }

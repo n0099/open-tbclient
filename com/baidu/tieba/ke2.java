@@ -1,91 +1,91 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.text.TextUtils;
+import android.util.Log;
+import android.util.LruCache;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ke2 extends je2 {
+public class ke2 implements he2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, String> c;
+    public final LruCache<String, Long> a;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ke2(@NonNull String str) {
-        this(str, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], (Map) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947910129, "Lcom/baidu/tieba/ke2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947910129, "Lcom/baidu/tieba/ke2;");
                 return;
             }
         }
+        b = gp1.a;
     }
 
-    public ke2(@NonNull String str, @Nullable Map<String, String> map) {
+    public ke2(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, map};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        HashMap hashMap = new HashMap();
-        this.c = hashMap;
-        this.a = str;
-        if (map != null) {
-            hashMap.putAll(map);
+        i = i <= 0 ? 10 : i;
+        this.a = new LruCache<>(i);
+        if (b) {
+            Log.d("SwanPrelinkLocalRecorder", "lru size - " + i);
         }
     }
 
-    @Override // com.baidu.tieba.je2
-    public void m(Map<String, Object> map) {
+    @Override // com.baidu.tieba.he2
+    public ie2 a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            for (Map.Entry<String, String> entry : this.c.entrySet()) {
-                map.put(entry.getKey(), entry.getValue());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (b) {
+                Log.d("SwanPrelinkLocalRecorder", "prelink LRU size - " + this.a.size());
             }
+            Long l = this.a.get(str2);
+            if (l == null) {
+                return null;
+            }
+            ie2 ie2Var = new ie2();
+            ie2Var.a = ProcessUtils.getCurProcessName();
+            ie2Var.b = l.longValue();
+            return ie2Var;
         }
+        return (ie2) invokeLL.objValue;
     }
 
-    public JSONObject s() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.he2
+    public void b(String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                n(jSONObject);
-            } catch (JSONException e) {
-                if (je2.b) {
-                    e.printStackTrace();
-                }
-            }
-            return jSONObject;
+        if ((interceptable != null && interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, z) != null) || TextUtils.isEmpty(str2)) {
+            return;
         }
-        return (JSONObject) invokeV.objValue;
+        if (b) {
+            Log.d("SwanPrelinkLocalRecorder", "record : appId-" + str + ", url-" + str2);
+        }
+        this.a.put(str2, Long.valueOf(System.currentTimeMillis()));
     }
 }

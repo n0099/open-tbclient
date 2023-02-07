@@ -13,15 +13,15 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ln;
-import com.baidu.tieba.yj6;
+import com.baidu.tieba.jo6;
+import com.baidu.tieba.qn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class EmotionCategoryAdapter extends ln<yj6, EmotionCategoryViewHolder> {
+public class EmotionCategoryAdapter extends qn<jo6, EmotionCategoryViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -64,12 +64,12 @@ public class EmotionCategoryAdapter extends ln<yj6, EmotionCategoryViewHolder> {
                 return;
             }
             this.b = (TextView) view2.findViewById(R.id.emotion_title);
-            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0908cd);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0908dc);
-            this.b.setText(this.a.getResources().getText(R.string.obfuscated_res_0x7f0f056c));
+            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0908e1);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0908f0);
+            this.b.setText(this.a.getResources().getText(R.string.obfuscated_res_0x7f0f0578));
             this.c.setVisibility(8);
             this.d.setVisibility(8);
-            this.e = this.a.findViewById(R.id.obfuscated_res_0x7f0905ba);
+            this.e = this.a.findViewById(R.id.obfuscated_res_0x7f0905bb);
         }
 
         public void b(int i) {
@@ -103,7 +103,7 @@ public class EmotionCategoryAdapter extends ln<yj6, EmotionCategoryViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
+    @Override // com.baidu.tieba.qn
     /* renamed from: s */
     public EmotionCategoryViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -117,12 +117,12 @@ public class EmotionCategoryAdapter extends ln<yj6, EmotionCategoryViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
+    @Override // com.baidu.tieba.qn
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, yj6 yj6Var, EmotionCategoryViewHolder emotionCategoryViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, jo6 jo6Var, EmotionCategoryViewHolder emotionCategoryViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, yj6Var, emotionCategoryViewHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, jo6Var, emotionCategoryViewHolder})) == null) {
             return emotionCategoryViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

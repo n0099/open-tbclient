@@ -9,7 +9,7 @@ import com.baidu.tieba.interestlabel.message.ResponseHttpGetLabelMessage;
 import com.baidu.tieba.interestlabel.message.ResponseHttpSubLabelMessage;
 import com.baidu.tieba.interestlabel.message.ResponseSocketGetLabelMessage;
 import com.baidu.tieba.interestlabel.message.ResponseSocketSubLabelMessage;
-import com.baidu.tieba.qw8;
+import com.baidu.tieba.o09;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -57,16 +57,16 @@ public class InterestLabelStatic {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            qw8.h(309467, ResponseSocketGetLabelMessage.class, false, false);
-            qw8.c(309467, CmdConfigHttp.CMD_GET_INTEREST_LABEL_LIST, TbConfig.URL_GET_INTEREST_LABEL_LIST, ResponseHttpGetLabelMessage.class, false, false, true, false);
+            o09.h(309467, ResponseSocketGetLabelMessage.class, false, false);
+            o09.c(309467, CmdConfigHttp.CMD_GET_INTEREST_LABEL_LIST, TbConfig.URL_GET_INTEREST_LABEL_LIST, ResponseHttpGetLabelMessage.class, false, false, true, false);
         }
     }
 
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            qw8.h(309468, ResponseSocketSubLabelMessage.class, false, false);
-            qw8.c(309468, CmdConfigHttp.CMD_SUB_INTEREST_LABEL_LIST, TbConfig.URL_SUB_INTEREST_LABEL_LIST, ResponseHttpSubLabelMessage.class, false, false, true, false);
+            o09.h(309468, ResponseSocketSubLabelMessage.class, false, false);
+            o09.c(309468, CmdConfigHttp.CMD_SUB_INTEREST_LABEL_LIST, TbConfig.URL_SUB_INTEREST_LABEL_LIST, ResponseHttpSubLabelMessage.class, false, false, true, false);
         }
     }
 }

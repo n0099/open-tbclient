@@ -1,31 +1,39 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class ef5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public final ArrayList<String> c;
+    public View attachedView;
+    public boolean isAttached;
+    public boolean isWrapStyle;
 
-    public ef5(BdUniqueId bdUniqueId, String str, String str2, Intent intent) {
+    public void onViewAttached() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
+
+    public void onViewDettached() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        }
+    }
+
+    public ef5(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId, str, str2, intent};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,86 +43,63 @@ public class ef5 {
                 return;
             }
         }
-        this.c = new ArrayList<>();
-        this.a = str;
-        this.b = str2;
-        g(intent);
+        this.isWrapStyle = false;
+        this.attachedView = view2;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public void attachView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            attachView(view2, false);
         }
-        return (String) invokeV.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public void dettachView(View view2) {
+        View view3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && view2 != null && (view3 = this.attachedView) != null && view3.getParent() != null && (view2 instanceof ViewGroup)) {
+            try {
+                onViewDettached();
+                ((ViewGroup) view2).removeView(this.attachedView);
+                this.isAttached = false;
+            } catch (Exception unused) {
+            }
         }
-        return (String) invokeV.objValue;
     }
 
-    public ArrayList<String> c() {
-        InterceptResult invokeV;
+    public void setWrapStyle(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return TbPageExtraHelper.buildNextPageSourceKeyList(this.c, this.a);
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.isWrapStyle = z;
         }
-        return (ArrayList) invokeV.objValue;
     }
 
-    public ArrayList<String> d() {
+    public void attachView(View view2, boolean z) {
+        View view3;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, z) != null) || view2 == null || (view3 = this.attachedView) == null || view3.getParent() != null) {
+            return;
+        }
+        this.isAttached = true;
+        if5.a(view2, this.isWrapStyle).a(view2, this.attachedView, z);
+        onViewAttached();
+    }
+
+    public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
+            return this.attachedView;
         }
-        return (ArrayList) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    public String e() {
+    public boolean isViewAttached() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return (String) ListUtils.getItem(this.c, ListUtils.getCount(this.c) - 1);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (StringUtils.isNull(this.a)) {
-                return true;
-            }
-            return false;
+            return this.isAttached;
         }
         return invokeV.booleanValue;
-    }
-
-    public void g(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, intent) == null) {
-            this.c.clear();
-            if (intent != null) {
-                ArrayList<String> stringArrayListExtra = intent.getStringArrayListExtra("tb_page_extar_source_list");
-                if (!ListUtils.isEmpty(stringArrayListExtra)) {
-                    this.c.addAll(stringArrayListExtra);
-                }
-            }
-        }
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.b = str;
-        }
     }
 }

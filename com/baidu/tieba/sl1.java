@@ -1,21 +1,13 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.DialogInterface;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import org.json.JSONObject;
+import android.view.View;
 /* loaded from: classes6.dex */
 public interface sl1 {
-    void a(@NonNull Activity activity, @Nullable DialogInterface.OnClickListener onClickListener);
+    void a(tl1 tl1Var);
 
-    String b();
+    void c(rl1 rl1Var);
 
-    void c(JSONObject jSONObject);
+    View getAdView();
 
-    ec4 d();
-
-    void e(int i, String str);
-
-    void f(@NonNull cj3<Boolean> cj3Var);
+    void load();
 }

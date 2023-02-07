@@ -1,181 +1,86 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.browser.BrowserHelper;
-import com.baidu.tbadk.core.util.SkinManager;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.frs.gamepaltform.GameRankHorizontalLayout;
-import com.baidu.tieba.frs.gamepaltform.GameRankListViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class eu6 extends pn6<k27, GameRankListViewHolder> implements sy6 {
+public class eu6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qy6 l;
 
-    /* loaded from: classes4.dex */
-    public class a implements GameRankHorizontalLayout.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ eu6 a;
-
-        public a(eu6 eu6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eu6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = eu6Var;
-        }
-
-        @Override // com.baidu.tieba.frs.gamepaltform.GameRankHorizontalLayout.b
-        public void a(j27 j27Var, int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLI(1048576, this, j27Var, i) != null) || j27Var == null) {
-                return;
-            }
-            if (this.a.l != null) {
-                TiebaStatic.log(new StatisticItem("c12105").param("fid", this.a.l.c).param("obj_locate", i + 1));
-            }
-            if (!StringUtils.isNull(j27Var.c())) {
-                BrowserHelper.p(this.a.c.getPageActivity(), j27Var.c());
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(eu6 eu6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eu6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                cz4 l = cz4.l();
-                l.z("game_rank_list_info", System.currentTimeMillis() + ",7");
-                cz4.l().x("game_rank_list_show_times", 0);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921005));
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public eu6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId, bdUniqueId2);
+    public static void a(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeJ(65536, null, j) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_ACCELERATOR_PAGE_ENTER_GAME_BTN_CLICK);
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.addParam("obj_id", j);
+            TiebaStatic.log(statisticItem);
         }
-        this.l = new qy6();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: G */
-    public GameRankListViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public static void b(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            return new GameRankListViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d037a, (ViewGroup) null));
+        if (interceptable == null || interceptable.invokeJ(65537, null, j) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_ACCELERATOR_PAGE_ENTER_GAME_BTN_SHOW);
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.addParam("obj_id", j);
+            TiebaStatic.log(statisticItem);
         }
-        return (GameRankListViewHolder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pn6, com.baidu.tieba.ln
-    /* renamed from: H */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, k27 k27Var, GameRankListViewHolder gameRankListViewHolder) {
-        InterceptResult invokeCommon;
+    public static void c(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, k27Var, gameRankListViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) k27Var, (k27) gameRankListViewHolder);
-            if (k27Var == null) {
-                return null;
-            }
-            SkinManager.setBackgroundColor(view2, R.color.CAM_X0201);
-            if (this.l != null) {
-                TiebaStatic.log(new StatisticItem("c12104").param("fid", this.l.c));
-            }
-            GameRankHorizontalLayout gameRankHorizontalLayout = gameRankListViewHolder.a;
-            if (gameRankHorizontalLayout != null) {
-                gameRankHorizontalLayout.setData(k27Var);
-                gameRankListViewHolder.a.setOnCardClickListener(new a(this));
-            }
-            TextView textView = gameRankListViewHolder.b;
-            if (textView != null) {
-                textView.setOnClickListener(new b(this));
-            }
-            dr4 layoutMode = this.c.getLayoutMode();
-            boolean z = true;
-            if (this.f != 1) {
-                z = false;
-            }
-            layoutMode.l(z);
-            this.c.getLayoutMode().k(view2);
-            return view2;
+        if (interceptable == null || interceptable.invokeJ(65538, null, j) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_ACCELERATOR_PAGE_RETRY_BTN_CLICK);
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.addParam("obj_id", j);
+            TiebaStatic.log(statisticItem);
         }
-        return (View) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.sy6
-    public qy6 i() {
-        InterceptResult invokeV;
+    public static void d(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.l;
+        if (interceptable == null || interceptable.invokeJ(65539, null, j) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_ACCELERATOR_PAGE_RETRY_BTN_SHOW);
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.addParam("obj_id", j);
+            TiebaStatic.log(statisticItem);
         }
-        return (qy6) invokeV.objValue;
+    }
+
+    public static void f(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65541, null, j) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_ACCELERATOR_PAGE_STOP_BTN_CLICK);
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.addParam("obj_id", j);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static void g(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65542, null, j) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_ACCELERATOR_PAGE_STOP_BTN_SHOW);
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.addParam("obj_id", j);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static void e(String str, long j, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, Long.valueOf(j), Integer.valueOf(i)}) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_ACCELERATOR_PAGE_SHOW);
+            statisticItem.addParam("fid", str);
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.addParam("obj_id", j);
+            statisticItem.addParam("obj_source", i);
+            TiebaStatic.log(statisticItem);
+        }
     }
 }

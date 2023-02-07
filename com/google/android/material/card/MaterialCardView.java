@@ -73,7 +73,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
         }
         CHECKABLE_STATE_SET = new int[]{16842911};
         CHECKED_STATE_SET = new int[]{16842912};
-        DRAGGED_STATE_SET = new int[]{R.attr.obfuscated_res_0x7f040658};
+        DRAGGED_STATE_SET = new int[]{R.attr.obfuscated_res_0x7f04065c};
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -119,7 +119,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MaterialCardView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f0404b7);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0404b8);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

@@ -1,20 +1,20 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes4.dex */
-public abstract class hz3 {
+public class hz3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @NonNull
-    public abstract File a();
-
-    public abstract void b(@NonNull String str, long j);
+    public volatile HashMap<String, List<pz3>> a;
 
     public hz3() {
         Interceptable interceptable = $ic;
@@ -26,7 +26,120 @@ public abstract class hz3 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new HashMap<>();
+    }
+
+    public synchronized void a(String str, pz3 pz3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, pz3Var) == null) {
+            synchronized (this) {
+                if (e(str, pz3Var)) {
+                    return;
+                }
+                List<pz3> c = c(str);
+                if (!c.contains(pz3Var)) {
+                    c.add(pz3Var);
+                }
+                if (!this.a.containsKey(str)) {
+                    this.a.put(str, c);
+                }
+            }
+        }
+    }
+
+    public synchronized void b(String str, qz3 qz3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, qz3Var) == null) {
+            synchronized (this) {
+                for (pz3 pz3Var : new ArrayList(c(str))) {
+                    if (pz3Var != null) {
+                        pz3Var.a(qz3Var);
+                    }
+                }
+            }
+        }
+    }
+
+    public synchronized void g(String str, pz3 pz3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, pz3Var) == null) {
+            synchronized (this) {
+                if (TextUtils.isEmpty(str)) {
+                    return;
+                }
+                if (pz3Var == null) {
+                    this.a.remove(str);
+                    return;
+                }
+                List<pz3> c = c(str);
+                if (c.contains(pz3Var)) {
+                    c.remove(pz3Var);
+                    if (c.isEmpty()) {
+                        this.a.remove(str);
+                    }
+                }
+            }
+        }
+    }
+
+    public final List<pz3> c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new ArrayList();
+            }
+            List<pz3> list = this.a.get(str);
+            if (list == null) {
+                return new ArrayList();
+            }
+            return list;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public synchronized boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            synchronized (this) {
+                boolean z = false;
+                if (TextUtils.isEmpty(str)) {
+                    return false;
+                }
+                List<pz3> list = this.a.get(str);
+                if (list != null) {
+                    if (!list.isEmpty()) {
+                        z = true;
+                    }
+                }
+                return z;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            synchronized (this) {
+                g(str, null);
+            }
+        }
+    }
+
+    public final boolean e(String str, pz3 pz3Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, pz3Var)) == null) {
+            if (!TextUtils.isEmpty(str) && pz3Var != null) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
     }
 }

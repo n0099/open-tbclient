@@ -2,7 +2,7 @@ package com.baidu.swan.apps.core.launchtips.scene;
 
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.h42;
+import com.baidu.tieba.u82;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,8 +44,8 @@ public final class SceneType {
         SCENE_DOWNLOAD_PKG_TIMEOUT = new SceneType("SCENE_DOWNLOAD_PKG_TIMEOUT", 1, "pms_downloadPkg", "包下载进度更新间隔超2秒；");
         SCENE_SKELETON_TIMEOUT = new SceneType("SCENE_SKELETON_TIMEOUT", 2, "skeleton", "5秒内未触发骨架屏移除；");
         SCENE_WHITE_SCREEN_L1 = new SceneType("SCENE_WHITE_SCREEN_L1", 3, "whiteScreen_L1", "检测到纯白屏；");
-        SCENE_WHITE_SCREEN_L2 = new SceneType("SCENE_WHITE_SCREEN_L2", 4, "whiteScreen_L2", h42.a);
-        SCENE_WHITE_SCREEN_L3 = new SceneType("SCENE_WHITE_SCREEN_L3", 5, "whiteScreen_L3", h42.b);
+        SCENE_WHITE_SCREEN_L2 = new SceneType("SCENE_WHITE_SCREEN_L2", 4, "whiteScreen_L2", u82.a);
+        SCENE_WHITE_SCREEN_L3 = new SceneType("SCENE_WHITE_SCREEN_L3", 5, "whiteScreen_L3", u82.b);
         SCENE_INIT_DATA_ERROR = new SceneType("SCENE_INIT_DATA_ERROR", 6, "data_init", "业务数据初始化异常；");
         SceneType sceneType = new SceneType("SCENE_SKELETON_DEV_TIMEOUT", 7, "skeleton_dev", "开发者骨架屏异常；");
         SCENE_SKELETON_DEV_TIMEOUT = sceneType;

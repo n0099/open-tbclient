@@ -1,6 +1,9 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,15 +11,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class me2 {
+public class me2 implements ne2 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
+    public final he2 a;
+    public final int b;
+
+    @Override // com.baidu.tieba.ne2
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -31,15 +42,13 @@ public final class me2 {
                 return;
             }
         }
-        c = tk1.a;
+        c = gp1.a;
     }
 
-    public me2(String str, String str2) {
+    public me2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -49,25 +58,59 @@ public final class me2 {
                 return;
             }
         }
-        this.a = str;
-        this.b = str2;
+        this.a = new je2();
+        this.b = 30;
     }
 
-    public static me2 a(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ne2
+    public he2 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                return new me2(jSONObject.optString("webviewid"), jSONObject.optString("message"));
-            } catch (JSONException e) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (he2) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ne2
+    public boolean c(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3)) == null) {
+            if (c) {
+                Log.d("GlobalRecorderStrategy", "prefetchId - " + str);
+                Log.d("GlobalRecorderStrategy", "appId - " + str2);
+                Log.d("GlobalRecorderStrategy", "url - " + str3);
+            }
+            ie2 a = this.a.a(str2, str3);
+            boolean z = true;
+            if (a == null) {
                 if (c) {
-                    Log.e("SwanAppNativeMessage", "createEvent failed. " + Log.getStackTraceString(e));
-                    return null;
+                    Log.d("GlobalRecorderStrategy", "has no record, need prelink");
                 }
-                return null;
+                return true;
+            } else if (!TextUtils.isEmpty(str)) {
+                if (c) {
+                    Log.d("GlobalRecorderStrategy", "in preload stage, has record, not real prelink ");
+                }
+                return false;
+            } else {
+                String curProcessName = ProcessUtils.getCurProcessName();
+                if (!TextUtils.equals(curProcessName, a.a)) {
+                    if (c) {
+                        Log.d("GlobalRecorderStrategy", "process not match, current - " + curProcessName + ", record - " + a.a);
+                    }
+                    return true;
+                }
+                if (System.currentTimeMillis() - a.b < this.b * 1000) {
+                    z = false;
+                }
+                if (c) {
+                    Log.d("GlobalRecorderStrategy", "url in recorder, time is out - " + z);
+                }
+                return z;
             }
         }
-        return (me2) invokeL.objValue;
+        return invokeLLL.booleanValue;
     }
 }

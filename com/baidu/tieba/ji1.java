@@ -1,25 +1,255 @@
 package com.baidu.tieba;
 
+import android.app.Dialog;
 import android.content.Context;
-import android.text.TextUtils;
+import android.view.View;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSdk;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ji1 {
+public class ji1 extends Dialog {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ji1 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public TextView a;
+    public TextView b;
+    public View c;
+    public TextView d;
+    public TextView e;
 
+    /* loaded from: classes5.dex */
+    public interface f {
+        void a(Dialog dialog);
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ e a;
+        public final /* synthetic */ ji1 b;
+
+        public a(ji1 ji1Var, e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ji1Var, eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ji1Var;
+            this.a = eVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.b() != null) {
+                this.a.b().a(this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ e a;
+        public final /* synthetic */ ji1 b;
+
+        public b(ji1 ji1Var, e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ji1Var, eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ji1Var;
+            this.a = eVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.b() != null) {
+                this.a.b().a(this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ e a;
+        public final /* synthetic */ ji1 b;
+
+        public c(ji1 ji1Var, e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ji1Var, eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ji1Var;
+            this.a = eVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.b() != null) {
+                this.a.b().a(this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public e c;
+        public e d;
+        public e e;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public ji1 a(Context context) {
+            InterceptResult invokeL;
+            e eVar;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+                ji1 ji1Var = new ji1(context);
+                ji1Var.i(this.a);
+                ji1Var.g(this.b);
+                if (this.e != null && this.c != null && this.d != null) {
+                    throw new IllegalArgumentException(d.class.getSimpleName() + "CommonDialog button can't support both single & double");
+                } else if (this.e == null && (this.c == null || this.d == null)) {
+                    throw new IllegalArgumentException(d.class.getSimpleName() + "CommonDialog button double mode should set left & right, if you want to use a single button, you can setSingleButtonEntity()");
+                } else {
+                    e eVar2 = this.e;
+                    if (eVar2 != null) {
+                        ji1Var.h(eVar2);
+                    }
+                    e eVar3 = this.c;
+                    if (eVar3 != null && (eVar = this.d) != null) {
+                        ji1Var.f(eVar3, eVar);
+                    }
+                    return ji1Var;
+                }
+            }
+            return (ji1) invokeL.objValue;
+        }
+
+        public d b(e eVar, e eVar2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar, eVar2)) == null) {
+                this.c = eVar;
+                this.d = eVar2;
+                return this;
+            }
+            return (d) invokeLL.objValue;
+        }
+
+        public d c(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+                this.b = str;
+                return this;
+            }
+            return (d) invokeL.objValue;
+        }
+
+        public d d(e eVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, eVar)) == null) {
+                this.e = eVar;
+                return this;
+            }
+            return (d) invokeL.objValue;
+        }
+
+        public d e(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+                this.a = str;
+                return this;
+            }
+            return (d) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static abstract class e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public abstract String a();
+
+        public abstract f b();
+
+        public e() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ji1(Context context) {
+        this(context, R.style.obfuscated_res_0x7f100100);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -29,260 +259,91 @@ public class ji1 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
     }
 
-    public static ji1 a(Context context) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ji1(Context context, int i) {
+        super(context, i);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (b == null) {
-                synchronized (ji1.class) {
-                    if (b == null) {
-                        b = new ji1(context);
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return b;
         }
-        return (ji1) invokeL.objValue;
+        e();
     }
 
-    public String b(JSONObject jSONObject, long j) {
-        InterceptResult invokeLJ;
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, jSONObject, j)) == null) {
-            if (jSONObject != null) {
-                try {
-                    if (jSONObject.length() != 0) {
-                        String d = new dj1(this.a, null).d(jSONObject, j);
-                        if (!TextUtils.isEmpty(d)) {
-                            return d;
-                        }
-                    }
-                } catch (Throwable th) {
-                    tj1.d(th);
-                }
-            }
-            return "";
-        }
-        return (String) invokeLJ.objValue;
-    }
-
-    public String e(JSONObject jSONObject, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, jSONObject, j)) == null) {
-            if (jSONObject != null) {
-                try {
-                    if (jSONObject.length() != 0) {
-                        String i = new dj1(this.a, null).i(jSONObject, j);
-                        if (!TextUtils.isEmpty(i)) {
-                            return i;
-                        }
-                    }
-                } catch (Throwable th) {
-                    tj1.d(th);
-                }
-            }
-            return "";
-        }
-        return (String) invokeLJ.objValue;
-    }
-
-    public final void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            if (jSONObject != null) {
-                JSONArray optJSONArray = jSONObject.optJSONArray("1");
-                if (optJSONArray != null && optJSONArray.length() > 0) {
-                    hi1.f(this.a).C("k_retry_code_cm", optJSONArray.toString());
-                } else {
-                    hi1.f(this.a).C("k_retry_code_cm", "");
-                }
-                JSONArray optJSONArray2 = jSONObject.optJSONArray("2");
-                if (optJSONArray2 != null && optJSONArray2.length() > 0) {
-                    hi1.f(this.a).C("k_retry_code_cu", optJSONArray2.toString());
-                } else {
-                    hi1.f(this.a).C("k_retry_code_cu", "");
-                }
-                JSONArray optJSONArray3 = jSONObject.optJSONArray("3");
-                if (optJSONArray3 != null && optJSONArray3.length() > 0) {
-                    hi1.f(this.a).C("k_retry_code_ct", optJSONArray3.toString());
-                    return;
-                } else {
-                    hi1.f(this.a).C("k_retry_code_ct", "");
-                    return;
-                }
-            }
-            hi1.f(this.a).C("k_retry_code_cm", "");
-            hi1.f(this.a).C("k_retry_code_cu", "");
-            hi1.f(this.a).C("k_retry_code_ct", "");
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            setContentView(R.layout.obfuscated_res_0x7f0d022a);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0905b4);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0905b3);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0905b5);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0905b6);
+            this.c = findViewById(R.id.obfuscated_res_0x7f0905b7);
         }
     }
 
-    public synchronized boolean d() {
-        InterceptResult invokeV;
+    public final void f(e eVar, e eVar2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                try {
-                    if (f()) {
-                        return true;
-                    }
-                    dj1 dj1Var = new dj1(this.a, null);
-                    String b2 = dj1Var.b();
-                    if (TextUtils.isEmpty(b2)) {
-                        for (int i = 0; i < 3; i++) {
-                            b2 = dj1Var.b();
-                            if (!TextUtils.isEmpty(b2)) {
-                                break;
-                            }
-                        }
-                    }
-                    if (TextUtils.isEmpty(b2)) {
-                        return false;
-                    }
-                    JSONObject jSONObject = new JSONObject(b2);
-                    int optInt = jSONObject.optInt("0", -1);
-                    if (optInt == 2) {
-                        hi1.f(this.a).S(false);
-                    } else {
-                        hi1.f(this.a).S(true);
-                    }
-                    if (optInt == 1 || optInt == 3) {
-                        return true;
-                    }
-                    JSONObject optJSONObject = jSONObject.optJSONObject("1");
-                    if (optJSONObject == null) {
-                        return false;
-                    }
-                    JSONObject optJSONObject2 = optJSONObject.optJSONObject("yd_config");
-                    if (optJSONObject2 != null) {
-                        String optString = optJSONObject2.optString("app_id");
-                        String optString2 = optJSONObject2.optString("app_key");
-                        if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-                            qi1.k(FunAdSdk.PLATFORM_CM, optString, optString2);
-                        }
-                        int optInt2 = optJSONObject2.optInt("status", -1);
-                        if (optInt2 == 1) {
-                            hi1.f(this.a).l(true);
-                        } else if (optInt2 == 2) {
-                            hi1.f(this.a).l(false);
-                        }
-                        hi1.f(this.a).Y(optJSONObject2.toString());
-                    }
-                    JSONObject optJSONObject3 = optJSONObject.optJSONObject("dx_config");
-                    if (optJSONObject3 != null) {
-                        String optString3 = optJSONObject3.optString("app_id");
-                        String optString4 = optJSONObject3.optString("app_key");
-                        if (!TextUtils.isEmpty(optString3) && !TextUtils.isEmpty(optString4)) {
-                            qi1.k(Config.EXCEPTION_CRASH_TYPE, optString3, optString4);
-                        }
-                        int optInt3 = optJSONObject3.optInt("status", -1);
-                        if (optInt3 == 1) {
-                            hi1.f(this.a).w(true);
-                        } else if (optInt3 == 2) {
-                            hi1.f(this.a).w(false);
-                        }
-                        hi1.f(this.a).s(optJSONObject3.toString());
-                    }
-                    JSONObject optJSONObject4 = optJSONObject.optJSONObject("lt_config");
-                    if (optJSONObject4 != null) {
-                        String optString5 = optJSONObject4.optString("app_id");
-                        String optString6 = optJSONObject4.optString("app_key");
-                        if (!TextUtils.isEmpty(optString5) && !TextUtils.isEmpty(optString6)) {
-                            qi1.k("cu", optString5, optString6);
-                        }
-                        int optInt4 = optJSONObject4.optInt("status", -1);
-                        if (optInt4 == 1) {
-                            hi1.f(this.a).D(true);
-                        } else if (optInt4 == 2) {
-                            hi1.f(this.a).D(false);
-                        }
-                        hi1.f(this.a).M(optJSONObject4.toString());
-                    }
-                    JSONObject optJSONObject5 = optJSONObject.optJSONObject("auto_config");
-                    if (optJSONObject5 != null) {
-                        String optString7 = optJSONObject5.optString("app_key", "");
-                        String optString8 = optJSONObject5.optString("secret_key", "");
-                        if (!TextUtils.isEmpty(optString7) && !TextUtils.isEmpty(optString8)) {
-                            gi1.b = optString7;
-                            gi1.c = optString8;
-                            hi1.f(this.a).H(optString7, optString8);
-                        }
-                    }
-                    hi1.f(this.a).Q(optJSONObject.optString("encrypt_key", ""));
-                    JSONObject optJSONObject6 = jSONObject.optJSONObject("a_setting");
-                    if (optJSONObject6 != null) {
-                        hi1.f(this.a).I("1".equals(optJSONObject6.optString("1", "1")));
-                        hi1.f(this.a).y(optJSONObject6.optInt("2"));
-                        hi1.f(this.a).N("1".equals(optJSONObject6.optString("3", "0")));
-                        c(optJSONObject6.optJSONObject("4"));
-                    }
-                    hi1.f(this.a).j(jSONObject.optLong("3", 300L) * 1000);
-                    hi1.f(this.a).P(System.currentTimeMillis());
-                    return true;
-                } catch (Throwable th) {
-                    tj1.d(th);
-                    return false;
-                }
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar, eVar2) == null) {
+            this.c.setVisibility(0);
+            this.e.setVisibility(0);
+            this.d.setText(eVar.a());
+            this.d.setOnClickListener(new a(this, eVar));
+            this.e.setText(eVar2.a());
+            this.e.setOnClickListener(new b(this, eVar2));
         }
-        return invokeV.booleanValue;
     }
 
-    public final boolean f() {
-        InterceptResult invokeV;
+    public final void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            try {
-                if (System.currentTimeMillis() - hi1.f(this.a).i0() > hi1.f(this.a).E()) {
-                    return false;
-                }
-                String o0 = hi1.f(this.a).o0();
-                String O = hi1.f(this.a).O();
-                String f0 = hi1.f(this.a).f0();
-                if (TextUtils.isEmpty(o0) && TextUtils.isEmpty(O) && TextUtils.isEmpty(f0)) {
-                    return false;
-                }
-                if (!TextUtils.isEmpty(o0)) {
-                    JSONObject jSONObject = new JSONObject(o0);
-                    String string = jSONObject.getString("app_id");
-                    String string2 = jSONObject.getString("app_key");
-                    if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(string2)) {
-                        qi1.k(FunAdSdk.PLATFORM_CM, string, string2);
-                    }
-                }
-                if (!TextUtils.isEmpty(O)) {
-                    JSONObject jSONObject2 = new JSONObject(O);
-                    String string3 = jSONObject2.getString("app_id");
-                    String string4 = jSONObject2.getString("app_key");
-                    if (!TextUtils.isEmpty(string3) && !TextUtils.isEmpty(string4)) {
-                        qi1.k(Config.EXCEPTION_CRASH_TYPE, string3, string4);
-                    }
-                }
-                if (!TextUtils.isEmpty(f0)) {
-                    JSONObject jSONObject3 = new JSONObject(f0);
-                    String optString = jSONObject3.optString("app_id");
-                    String optString2 = jSONObject3.optString("app_key");
-                    if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-                        qi1.k("cu", optString, optString2);
-                        return true;
-                    }
-                    return true;
-                }
-                return true;
-            } catch (Throwable th) {
-                tj1.d(th);
-                return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            TextView textView = this.b;
+            if (str == null) {
+                str = "";
             }
+            textView.setText(str);
         }
-        return invokeV.booleanValue;
+    }
+
+    public final void h(e eVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, eVar) != null) || eVar == null) {
+            return;
+        }
+        this.c.setVisibility(8);
+        this.d.setVisibility(8);
+        this.e.setText(eVar.a());
+        this.e.setOnClickListener(new c(this, eVar));
+    }
+
+    public final void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            TextView textView = this.a;
+            if (str == null) {
+                str = "";
+            }
+            textView.setText(str);
+        }
     }
 }

@@ -5,7 +5,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,6 +52,7 @@ public class NetworkStatRecord {
     public String freeCardProduct;
     public int from;
     public long getNetworkInfoTs;
+    public boolean hasCookieManager;
     public String httpDnsAreaInfo;
     public long httpDnsAreaInfoLastUpdateTime;
     public int ipStack;
@@ -74,12 +74,14 @@ public class NetworkStatRecord {
     public String proxyHostString;
     public long readOverTs;
     public long realResponseLength;
+    public long receiveHeaderStartTs;
     public long receiveHeaderTs;
     public String remoteIP;
     public long requestBodyLength;
     public long responseLength;
     public long responseTs;
     public JSONObject sdtProbeErrorCode;
+    public long sendHeaderStartTs;
     public long sendHeaderTs;
     public long sslEndTs;
     public long sslStartTs;
@@ -119,7 +121,9 @@ public class NetworkStatRecord {
         this.finishTs = -1L;
         this.getNetworkInfoTs = -1L;
         this.failTs = -1L;
+        this.sendHeaderStartTs = -1L;
         this.sendHeaderTs = -1L;
+        this.receiveHeaderStartTs = -1L;
         this.receiveHeaderTs = -1L;
         this.dnsStartTs = -1L;
         this.dnsEndTs = -1L;
@@ -143,6 +147,7 @@ public class NetworkStatRecord {
         this.switchThreadInQueue = -1L;
         this.tcpiRtt = -1;
         this.unexpectedResHeader = new JSONObject();
+        this.hasCookieManager = false;
     }
 
     private JSONObject deepCopyDnsDetail(JSONObject jSONObject) throws JSONException {
@@ -407,6 +412,7 @@ public class NetworkStatRecord {
         Object obj2;
         Object obj3;
         Object obj4;
+        Object obj5;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONObject jSONObject = new JSONObject();
@@ -423,7 +429,7 @@ public class NetworkStatRecord {
                     jSONObject.put("netType", this.netType);
                 }
                 if (this.startTs != -1) {
-                    jSONObject.put(FetchLog.START_TIME, this.startTs);
+                    jSONObject.put("startTime", this.startTs);
                 }
                 if (this.tcpStartTs != -1) {
                     jSONObject.put("tcpStartTime", this.tcpStartTs);
@@ -459,8 +465,14 @@ public class NetworkStatRecord {
                 if (this.localDnsIpList != null && !this.localDnsIpList.isEmpty()) {
                     jSONObject.put("localDnsIpList", new JSONArray((Collection) this.localDnsIpList));
                 }
+                if (this.sendHeaderStartTs != -1) {
+                    jSONObject.put("sendHeaderStartTime", this.sendHeaderStartTs);
+                }
                 if (this.sendHeaderTs != -1) {
                     jSONObject.put("sendHeaderTime", this.sendHeaderTs);
+                }
+                if (this.receiveHeaderStartTs != -1) {
+                    jSONObject.put("receiveHeaderStartTime", this.receiveHeaderStartTs);
                 }
                 if (this.receiveHeaderTs != -1) {
                     jSONObject.put("receiveHeaderTime", this.receiveHeaderTs);
@@ -555,10 +567,12 @@ public class NetworkStatRecord {
                     obj4 = "0";
                 }
                 jSONObject.put("viaVPN", obj4);
-                if (!this.isProxyConnect) {
-                    str = "0";
+                if (this.isProxyConnect) {
+                    obj5 = "1";
+                } else {
+                    obj5 = "0";
                 }
-                jSONObject.put("viaProxy", str);
+                jSONObject.put("viaProxy", obj5);
                 if (this.isProxyConnect) {
                     if (this.proxyHostString != null) {
                         jSONObject.put("proxyHost", this.proxyHostString);
@@ -609,6 +623,10 @@ public class NetworkStatRecord {
                 if (this.unexpectedResHeader != null && this.unexpectedResHeader.length() > 0) {
                     jSONObject.put("unexpectedResHeader", this.unexpectedResHeader);
                 }
+                if (!this.hasCookieManager) {
+                    str = "0";
+                }
+                jSONObject.put("hasCookieManager", str);
             } catch (JSONException e) {
                 e.printStackTrace();
             }

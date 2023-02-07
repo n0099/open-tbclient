@@ -30,7 +30,7 @@ public class a extends d.a {
     public final Handler a;
     public final HashMap<ComponentName, IBinder> c;
     public final HashMap<ComponentName, b> d;
-    public final C0525a<Intent> e;
+    public final C0529a<Intent> e;
     public final HashMap<ComponentName, com.bytedance.pangle.service.a> f;
     public final HashSet<ComponentName> g;
     public final HashSet<ComponentName> h;
@@ -47,12 +47,12 @@ public class a extends d.a {
 
     /* renamed from: com.bytedance.pangle.service.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C0525a<T> extends HashMap<f, T> {
+    public class C0529a<T> extends HashMap<f, T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C0525a(a aVar) {
+        public C0529a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -223,7 +223,7 @@ public class a extends d.a {
         }
         this.c = new HashMap<>();
         this.d = new HashMap<>();
-        this.e = new C0525a<>(this);
+        this.e = new C0529a<>(this);
         this.f = new HashMap<>();
         this.g = new HashSet<>();
         this.h = new HashSet<>();

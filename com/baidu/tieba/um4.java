@@ -1,30 +1,48 @@
 package com.baidu.tieba;
 
+import androidx.annotation.AnimRes;
+import androidx.annotation.IdRes;
+import androidx.annotation.Nullable;
+import com.baidu.swan.support.v4.app.Fragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class um4 extends tm4 {
+public abstract class um4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public um4(om4 om4Var) {
-        super(om4Var);
+    public abstract um4 a(@IdRes int i, Fragment fragment);
+
+    public abstract um4 b(@IdRes int i, Fragment fragment, @Nullable String str);
+
+    public abstract um4 c(Fragment fragment, String str);
+
+    public abstract um4 d(@Nullable String str);
+
+    public abstract int e();
+
+    public abstract int f();
+
+    public abstract um4 g(Fragment fragment);
+
+    public abstract um4 h(Fragment fragment);
+
+    public abstract um4 i(@AnimRes int i, @AnimRes int i2);
+
+    public abstract um4 j(Fragment fragment);
+
+    public um4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {om4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((om4) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }

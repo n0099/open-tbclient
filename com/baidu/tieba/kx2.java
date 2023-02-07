@@ -1,10 +1,7 @@
 package com.baidu.tieba;
 
+import android.telephony.PhoneStateListener;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class kx2 implements cj3<HybridUbcFlow> {
+public class kx2 extends PhoneStateListener {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +28,7 @@ public class kx2 implements cj3<HybridUbcFlow> {
                 return;
             }
         }
-        a = tk1.a;
+        a = gp1.a;
     }
 
     public kx2() {
@@ -48,26 +45,37 @@ public class kx2 implements cj3<HybridUbcFlow> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cj3
-    /* renamed from: b */
-    public void a(HybridUbcFlow hybridUbcFlow) {
-        PMSAppInfo u;
-        long g;
+    @Override // android.telephony.PhoneStateListener
+    public void onCallStateChanged(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
-            if (a) {
-                Log.i("LaunchCounter", "report: flow=" + hybridUbcFlow);
-            }
-            if (hybridUbcFlow != null && (u = gc4.i().u(i43.K().getAppId())) != null) {
-                UbcFlowEvent g2 = hybridUbcFlow.g("naStart");
-                if (g2 == null) {
-                    g = System.currentTimeMillis();
-                } else {
-                    g = g2.g();
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+            super.onCallStateChanged(i, str);
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (a) {
+                            Log.e("PhoneStateListener", "invalid state");
+                            return;
+                        }
+                        return;
+                    }
+                    mx2.k().n();
+                    if (a) {
+                        Log.i("PhoneStateListener", "接听");
+                        return;
+                    }
+                    return;
                 }
-                u.countLaunch(g);
-                gc4.i().y(u);
+                mx2.k().n();
+                if (a) {
+                    Log.i("PhoneStateListener", "响铃:" + str);
+                    return;
+                }
+                return;
+            }
+            mx2.k().o();
+            if (a) {
+                Log.i("PhoneStateListener", "挂断");
             }
         }
     }

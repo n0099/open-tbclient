@@ -3,8 +3,8 @@ package com.google.ar.core;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.u2a;
-import com.baidu.tieba.v2a;
+import com.baidu.tieba.d7a;
+import com.baidu.tieba.e7a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -121,7 +121,7 @@ public class ArCoreApk {
             this.nativeCode = i2;
         }
 
-        public /* synthetic */ Availability(String str, int i, int i2, u2a u2aVar) {
+        public /* synthetic */ Availability(String str, int i, int i2, d7a d7aVar) {
             this(str, i, i2);
         }
 
@@ -443,7 +443,7 @@ public class ArCoreApk {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return v2a.d();
+            return e7a.d();
         }
         return (ArCoreApk) invokeV.objValue;
     }

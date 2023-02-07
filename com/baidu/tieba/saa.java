@@ -1,118 +1,52 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.AccessController;
-import java.security.PrivilegedAction;
 /* loaded from: classes6.dex */
-public final class saa {
+public class saa extends vaa implements qaa {
     public static /* synthetic */ Interceptable $ic;
-    public static final int a;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public String c;
 
-    /* loaded from: classes6.dex */
-    public static class a implements PrivilegedAction<ClassLoader> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.security.PrivilegedAction
-        /* renamed from: a */
-        public ClassLoader run() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return ClassLoader.getSystemClassLoader();
-            }
-            return (ClassLoader) invokeV.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        boolean z;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948146070, "Lcom/baidu/tieba/saa;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948146070, "Lcom/baidu/tieba/saa;");
+    public saa() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        int d = d();
-        a = d;
-        if (d != 0) {
-            z = true;
-        } else {
-            z = false;
-        }
-        b = z;
+        this.c = "*";
     }
 
-    public static int a() {
+    @Override // com.baidu.tieba.paa
+    public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public static ClassLoader b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.qaa
+    public void b(String str) throws IllegalArgumentException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (System.getSecurityManager() == null) {
-                return ClassLoader.getSystemClassLoader();
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            if (str != null) {
+                this.c = str;
+                return;
             }
-            return (ClassLoader) AccessController.doPrivileged(new a());
+            throw new IllegalArgumentException("http resource descriptor must not be null");
         }
-        return (ClassLoader) invokeV.objValue;
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            try {
-                return ((Integer) Class.forName("android.os.Build$VERSION", true, b()).getField("SDK_INT").get(null)).intValue();
-            } catch (Exception unused) {
-                return 0;
-            }
-        }
-        return invokeV.intValue;
     }
 }

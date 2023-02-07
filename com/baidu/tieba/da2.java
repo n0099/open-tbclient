@@ -1,105 +1,58 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.content.Context;
-import android.util.Log;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.IOException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class da2 extends ea2 {
+public class da2 extends x92<JSONObject, w02> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947697748, "Lcom/baidu/tieba/da2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947697748, "Lcom/baidu/tieba/da2;");
-                return;
-            }
-        }
-        b = tk1.a;
-        c = "swan_preset" + File.separator + "preset_list.json";
-    }
 
     public da2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.ea2
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return ug3.b(qn2.c(), c);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ea2
-    public boolean e(fa2 fa2Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ba2
+    @NonNull
+    /* renamed from: c */
+    public w02 a(@NonNull JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fa2Var)) == null) {
-            if (fa2Var == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return new w02(202);
             }
-            Context appContext = AppRuntime.getAppContext();
-            String str = "swan_preset" + File.separator + fa2Var.g + File.separator + fa2Var.q;
-            try {
-                File j = j(fa2Var.h, fa2Var.g, fa2Var.i);
-                if (j == null) {
-                    if (b) {
-                        Log.e("AssetPresetController", "获取解压路径失败");
-                    }
-                    return false;
-                }
-                return n(new BufferedInputStream(appContext.getAssets().open(str)), j);
-            } catch (IOException e) {
-                if (b) {
-                    e.printStackTrace();
-                }
-                return false;
+            JSONObject optJSONObject = jSONObject.optJSONObject("data");
+            if (optJSONObject == null) {
+                return new w02(202, "data is required");
             }
+            String optString = optJSONObject.optString("content");
+            String optString2 = optJSONObject.optString("type");
+            String optString3 = optJSONObject.optString("source");
+            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString3)) {
+                w52.k("Api-HandleException", String.format("发生jserror: type = %s, source = %s, content = %s", optString2, optString3, optString));
+                b92.d().e(z82.a(optString2, optString, optString3));
+                return new w02(0);
+            }
+            return new w02(202);
         }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ea2
-    public String f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            Application c2 = qn2.c();
-            return ug3.b(c2, "swan_preset" + File.separator + str + File.separator + "app_info.json");
-        }
-        return (String) invokeL.objValue;
+        return (w02) invokeL.objValue;
     }
 }

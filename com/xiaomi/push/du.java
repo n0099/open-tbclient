@@ -45,7 +45,7 @@ public class du extends dt {
     /* JADX DEBUG: Possible override for method com.xiaomi.push.dt.a()Z */
     @Override // com.xiaomi.push.al.a
     /* renamed from: a */
-    public String mo222a() {
+    public String mo224a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "23" : (String) invokeV.objValue;
@@ -56,7 +56,7 @@ public class du extends dt {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "ram:" + j.m607a() + ",rom:" + j.m610b() + "|ramOriginal:" + j.m612c() + ",romOriginal:" + j.d();
+            return "ram:" + j.m609a() + ",rom:" + j.m612b() + "|ramOriginal:" + j.m614c() + ",romOriginal:" + j.d();
         }
         return (String) invokeV.objValue;
     }

@@ -1,47 +1,22 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Handler;
+import android.os.HandlerThread;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class tn1 {
+public class tn1 extends HandlerThread {
     public static /* synthetic */ Interceptable $ic;
+    public static tn1 a;
+    public static Handler b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public Resources b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (Resources) invokeV.objValue;
-    }
-
-    public abstract void c(boolean z);
-
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-        }
-    }
-
-    public void f(Object obj, x93 x93Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, obj, x93Var) == null) {
-        }
-    }
-
-    public void g(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
-        }
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public tn1() {
+        super("BackgroundThread", 10);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,25 +24,36 @@ public abstract class tn1 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public boolean a() {
+    public static Handler a() {
         InterceptResult invokeV;
+        Handler handler;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return xc3.a().getBoolean("PREFS_NIGHT_MODE", false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (tn1.class) {
+                b();
+                handler = b;
+            }
+            return handler;
         }
-        return invokeV.booleanValue;
+        return (Handler) invokeV.objValue;
     }
 
-    public void e(boolean z) {
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            xc3.a().putBoolean("PREFS_NIGHT_MODE", z);
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && a == null) {
+            tn1 tn1Var = new tn1();
+            a = tn1Var;
+            tn1Var.start();
+            b = new Handler(a.getLooper());
         }
     }
 }

@@ -1,64 +1,96 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class zn0 {
+public final class zn0 {
     public static /* synthetic */ Interceptable $ic;
-    public static yn0 a;
+    public static eo0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948365581, "Lcom/baidu/tieba/zn0;")) == null) {
-            return;
+    @Nullable
+    public static co0 a(eo0 eo0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, eo0Var)) == null) {
+            if (eo0Var instanceof co0) {
+                return (co0) eo0Var;
+            }
+            return null;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948365581, "Lcom/baidu/tieba/zn0;");
-        }
+        return (co0) invokeL.objValue;
     }
 
-    public zn0() {
+    public static fo0 b(eo0 eo0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, eo0Var)) == null) {
+            if (eo0Var instanceof fo0) {
+                return (fo0) eo0Var;
+            }
+            return null;
+        }
+        return (fo0) invokeL.objValue;
+    }
+
+    public static void c(@NonNull eo0 eo0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, eo0Var) == null) {
+            synchronized (eo0.class) {
+                if (a != null) {
+                    return;
+                }
+                a = eo0Var;
             }
         }
     }
 
-    public static yn0 a() {
+    public static void f(do0 do0Var) {
+        fo0 b;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65541, null, do0Var) == null) && (b = b(a)) != null) {
+            b.b(do0Var);
+        }
+    }
+
+    public static void g(do0 do0Var) {
+        fo0 b;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65542, null, do0Var) == null) && (b = b(a)) != null) {
+            b.d(do0Var);
+        }
+    }
+
+    @Nullable
+    public static Activity d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (zn0.class) {
-                    if (a == null) {
-                        a = (yn0) ServiceManager.getService(yn0.a);
-                    }
-                    if (a == null) {
-                        a = yn0.b;
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            co0 a2 = a(a);
+            if (a2 == null) {
+                return null;
             }
-            return a;
+            return a2.a();
         }
-        return (yn0) invokeV.objValue;
+        return (Activity) invokeV.objValue;
+    }
+
+    @Nullable
+    public static Activity e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            co0 a2 = a(a);
+            if (a2 == null) {
+                return null;
+            }
+            return a2.c();
+        }
+        return (Activity) invokeV.objValue;
     }
 }

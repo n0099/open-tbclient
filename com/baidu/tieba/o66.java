@@ -1,436 +1,130 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import android.webkit.CookieManager;
-import android.webkit.CookieSyncManager;
-import android.webkit.WebView;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.ala.atomdata.AlaFansFamilyActivityConfig;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.browser.core.webview.offline.data.OfflineBridgeData;
-import com.baidu.tieba.browser.core.webview.offline.message.OfflineWebViewHttpReqMsg;
-import com.baidu.tieba.browser.core.webview.offline.message.OfflineWebViewHttpResMsg;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.TreeSet;
 /* loaded from: classes5.dex */
-public class o66 {
+public class o66 extends qn<e76, CardViewHolder<e86>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BdUniqueId a;
-    public Map<String, Boolean> b;
-    public Map<String, String> c;
-    public Map<String, String> d;
-    public HttpMessageListener e;
+    public TbPageContext a;
 
     /* loaded from: classes5.dex */
-    public class a extends HttpMessageListener {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ o66 a;
+        public final /* synthetic */ e76 a;
+        public final /* synthetic */ o66 b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(o66 o66Var, int i) {
-            super(i);
+        public a(o66 o66Var, e76 e76Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {o66Var, Integer.valueOf(i)};
+                Object[] objArr = {o66Var, e76Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = o66Var;
+            this.b = o66Var;
+            this.a = e76Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX DEBUG: Multi-variable search result rejected for r5v3, resolved type: boolean */
-        /* JADX WARN: Multi-variable type inference failed */
-        /* JADX WARN: Removed duplicated region for block: B:27:0x009b  */
-        /* JADX WARN: Removed duplicated region for block: B:39:0x018b  */
-        /* JADX WARN: Removed duplicated region for block: B:40:0x018e  */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            String str;
-            String str2;
-            WebView webView;
-            String str3;
-            int i;
-            boolean z;
-            int i2;
-            String str4;
-            String str5;
-            String s;
-            StringBuilder sb;
-            String str6;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof OfflineWebViewHttpResMsg)) {
-                return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.b.u(this.a);
             }
-            OfflineWebViewHttpResMsg offlineWebViewHttpResMsg = (OfflineWebViewHttpResMsg) httpResponsedMessage;
-            int i3 = 0;
-            String str7 = null;
-            if (!(offlineWebViewHttpResMsg.getOrginalMessage() instanceof OfflineWebViewHttpReqMsg)) {
-                str = "";
-                str2 = null;
-                webView = null;
-                str3 = null;
-                i = 0;
-            } else {
-                OfflineWebViewHttpReqMsg offlineWebViewHttpReqMsg = (OfflineWebViewHttpReqMsg) offlineWebViewHttpResMsg.getOrginalMessage();
-                boolean z2 = offlineWebViewHttpReqMsg.isFromRequestByNative;
-                webView = offlineWebViewHttpReqMsg.webView;
-                if (StringUtils.isNull(offlineWebViewHttpReqMsg.url)) {
-                    str = "";
-                    str2 = null;
-                    str3 = null;
-                    i = z2;
-                } else {
-                    String str8 = offlineWebViewHttpReqMsg.url;
-                    str = offlineWebViewHttpReqMsg.module;
-                    str3 = offlineWebViewHttpReqMsg.urlSign;
-                    String str9 = offlineWebViewHttpReqMsg.jsCallbackMethod;
-                    if (TextUtils.isEmpty(str9) && z2 == 0) {
-                        str9 = (String) this.a.c.remove(str3);
-                        i3 = 1;
-                    }
-                    z = ((Boolean) this.a.b.remove(str3)).booleanValue();
-                    str7 = str9;
-                    str2 = str8;
-                    i2 = z2;
-                    if (!offlineWebViewHttpResMsg.isSuccess() && !TextUtils.isEmpty(offlineWebViewHttpResMsg.getResult())) {
-                        str5 = offlineWebViewHttpResMsg.getResult();
-                        str4 = BasicPushStatus.SUCCESS_CODE;
-                    } else {
-                        str4 = offlineWebViewHttpResMsg.getError() + "";
-                        str5 = "\"\"";
-                    }
-                    s = pm8.q().s(str);
-                    if (s == null) {
-                        s = "0.0.0.0";
-                    }
-                    sb = new StringBuilder();
-                    sb.append("{");
-                    sb.append("\"status\":");
-                    sb.append("\"");
-                    sb.append(str4);
-                    sb.append("\"");
-                    sb.append(",");
-                    sb.append("\"data\":");
-                    sb.append(str5);
-                    sb.append(",");
-                    sb.append("\"cache_version\":");
-                    sb.append("\"");
-                    sb.append(s);
-                    sb.append("\"");
-                    sb.append(",");
-                    sb.append("\"cache\":");
-                    sb.append("\"");
-                    sb.append(i3);
-                    sb.append("\"");
-                    sb.append(",");
-                    sb.append("\"fromPreRequest\":");
-                    sb.append("\"");
-                    sb.append(i2 ^ 1);
-                    sb.append("\"");
-                    sb.append("}");
-                    o76.a("lt-http-proxy", "网络请求结果：fromPreRequest=" + (i2 ^ 1));
-                    if (i2 != 0 && !z) {
-                        if (StringUtils.isNull(str7)) {
-                            o76.a("lt-http-proxy", "请求完成：预请求-收到网络请求结果（" + httpResponsedMessage.getStatusCode() + "），缓存请求结果：url=" + str2);
-                            this.a.d.put(str3, sb.toString());
-                            return;
-                        }
-                        o76.a("lt-http-proxy", "请求完成：预请求-收到网络请求结果（" + httpResponsedMessage.getStatusCode() + "），开始回调js函数(" + str7 + ")：url=" + str2);
-                        this.a.l(webView, str7, sb.toString());
-                        return;
-                    }
-                    StringBuilder sb2 = new StringBuilder();
-                    sb2.append("请求完成：");
-                    if (i2 == 0) {
-                        str6 = "端能力";
-                    } else {
-                        str6 = "预请求";
-                    }
-                    sb2.append(str6);
-                    sb2.append("-收到网络请求结果（");
-                    sb2.append(httpResponsedMessage.getStatusCode());
-                    sb2.append("），开始回调端能力：url=");
-                    sb2.append(str2);
-                    o76.a("lt-http-proxy", sb2.toString());
-                    this.a.i(webView, str2, sb.toString());
-                }
-            }
-            z = false;
-            i2 = i;
-            if (!offlineWebViewHttpResMsg.isSuccess()) {
-            }
-            str4 = offlineWebViewHttpResMsg.getError() + "";
-            str5 = "\"\"";
-            s = pm8.q().s(str);
-            if (s == null) {
-            }
-            sb = new StringBuilder();
-            sb.append("{");
-            sb.append("\"status\":");
-            sb.append("\"");
-            sb.append(str4);
-            sb.append("\"");
-            sb.append(",");
-            sb.append("\"data\":");
-            sb.append(str5);
-            sb.append(",");
-            sb.append("\"cache_version\":");
-            sb.append("\"");
-            sb.append(s);
-            sb.append("\"");
-            sb.append(",");
-            sb.append("\"cache\":");
-            sb.append("\"");
-            sb.append(i3);
-            sb.append("\"");
-            sb.append(",");
-            sb.append("\"fromPreRequest\":");
-            sb.append("\"");
-            sb.append(i2 ^ 1);
-            sb.append("\"");
-            sb.append("}");
-            o76.a("lt-http-proxy", "网络请求结果：fromPreRequest=" + (i2 ^ 1));
-            if (i2 != 0) {
-            }
-            StringBuilder sb22 = new StringBuilder();
-            sb22.append("请求完成：");
-            if (i2 == 0) {
-            }
-            sb22.append(str6);
-            sb22.append("-收到网络请求结果（");
-            sb22.append(httpResponsedMessage.getStatusCode());
-            sb22.append("），开始回调端能力：url=");
-            sb22.append(str2);
-            o76.a("lt-http-proxy", sb22.toString());
-            this.a.i(webView, str2, sb.toString());
         }
     }
 
-    public o66() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public o66(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), e76.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new HashMap();
-        this.c = new HashMap();
-        this.d = new HashMap();
-        this.e = new a(this, CmdConfigHttp.CMD_WEB_HTTP_PROXY);
-        BdUniqueId gen = BdUniqueId.gen();
-        this.a = gen;
-        this.e.setTag(gen);
-        this.e.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.e);
+        this.a = tbPageContext;
     }
 
-    public final void f(WebView webView, OfflineBridgeData offlineBridgeData, String str, boolean z) {
-        String str2;
+    public final void u(e76 e76Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{webView, offlineBridgeData, str, Boolean.valueOf(z)}) == null) && offlineBridgeData != null && !StringUtils.isNull(offlineBridgeData.url) && !StringUtils.isNull(offlineBridgeData.type)) {
-            String g = g(offlineBridgeData.url);
-            String remove = this.d.remove(g);
-            if (!TextUtils.isEmpty(remove) && str != null) {
-                o76.a("lt-http-proxy", "请求完成：命中预请求缓存-执行js回调，url=" + offlineBridgeData.url);
-                l(webView, str, remove);
-            } else if (!TextUtils.isEmpty(remove) && z) {
-                o76.a("lt-http-proxy", "请求完成：命中预请求缓存-执行端能力回调，url=" + offlineBridgeData.url);
-                i(webView, offlineBridgeData.url, remove);
-            } else {
-                if (this.b.containsKey(g)) {
-                    if (!TextUtils.isEmpty(str)) {
-                        o76.a("lt-http-proxy", "加入等待队列：重复的请求-js回调函数-等待网络结果完成后回调，url=" + offlineBridgeData.url);
-                        this.c.put(g, str);
-                        return;
-                    } else if (z) {
-                        o76.a("lt-http-proxy", "加入等待队列：重复的请求-端能力-等待网络结果完成后回调，url=" + offlineBridgeData.url);
-                        this.b.put(g, Boolean.TRUE);
-                        return;
-                    }
-                }
-                StringBuilder sb = new StringBuilder();
-                if (z) {
-                    str2 = "端能力";
-                } else {
-                    str2 = "预请求";
-                }
-                sb.append(str2);
-                sb.append("-正在发起网络请求：");
-                sb.append(offlineBridgeData.url);
-                o76.a("lt-http-proxy", sb.toString());
-                this.b.put(g, Boolean.valueOf(z));
-                m(webView, offlineBridgeData, str, z, g);
-            }
+        if ((interceptable == null || interceptable.invokeL(1048579, this, e76Var) == null) && e76Var != null && e76Var.c() != null) {
+            TiebaStatic.log("c13134");
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaFansFamilyActivityConfig(this.mContext, e76Var.c().b().user_id, true, AlaFansFamilyActivityConfig.FROM_PERSON_CENTER)));
         }
     }
 
-    public final String g(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: v */
+    public CardViewHolder<e86> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
+            return new CardViewHolder<>(new e86(this.a));
+        }
+        return (CardViewHolder) invokeL.objValue;
+    }
+
+    public final void t(e76 e76Var, e86 e86Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, e76Var, e86Var) != null) || e76Var.c() == null) {
+            return;
+        }
+        e86Var.w(8);
+        e86Var.x(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0243));
+        e86Var.j(this.a, TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: w */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, e76 e76Var, CardViewHolder<e86> cardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, e76Var, cardViewHolder})) == null) {
+            if (cardViewHolder.a() == null) {
+                return null;
             }
-            try {
-                Uri parse = Uri.parse(str);
-                String str2 = parse.getScheme() + "://" + parse.getAuthority() + parse.getPath();
-                TreeSet<String> treeSet = new TreeSet(parse.getQueryParameterNames());
-                StringBuilder sb = new StringBuilder();
-                boolean z = true;
-                for (String str3 : treeSet) {
-                    if (z) {
-                        z = false;
-                        sb.append("?");
-                        sb.append(str3);
-                        sb.append("=");
-                        sb.append(parse.getQueryParameter(str3));
-                    } else {
-                        sb.append("&");
-                        sb.append(str3);
-                        sb.append("=");
-                        sb.append(parse.getQueryParameter(str3));
-                    }
-                }
-                return gj.c(str2 + ((Object) sb));
-            } catch (Exception unused) {
-                return str;
-            }
+            TiebaStatic.log("c13133");
+            t(e76Var, cardViewHolder.a());
+            cardViewHolder.a().h().setOnClickListener(new a(this, e76Var));
+            return cardViewHolder.a().h();
         }
-        return (String) invokeL.objValue;
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.a);
-            MessageManager.getInstance().removeMessage(this.a);
-            this.b.clear();
-            this.b = null;
-            this.d.clear();
-            this.d = null;
-            this.c.clear();
-            this.c = null;
-        }
-    }
-
-    public final void i(WebView webView, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, webView, str, str2) == null) {
-            LinkedHashMap linkedHashMap = new LinkedHashMap();
-            linkedHashMap.put("result", str2);
-            linkedHashMap.put("NotificationKey", str);
-            k76.a().a(webView, "RequestByNativeToH5", linkedHashMap);
-        }
-    }
-
-    public void j(WebView webView, OfflineBridgeData offlineBridgeData, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, webView, offlineBridgeData, str) == null) {
-            o76.a("lt-http-proxy", "预请求：" + offlineBridgeData.url);
-            f(webView, offlineBridgeData, str, false);
-        }
-    }
-
-    public void k(WebView webView, OfflineBridgeData offlineBridgeData, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{webView, offlineBridgeData, str, Boolean.valueOf(z)}) == null) {
-            o76.a("lt-http-proxy", "端能力请求：" + offlineBridgeData.url);
-            f(webView, offlineBridgeData, str, z);
-        }
-    }
-
-    public final void l(WebView webView, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048582, this, webView, str, str2) == null) && webView != null) {
-            webView.loadUrl("javascript:window." + str + "('" + str2 + "')");
-        }
-    }
-
-    public final void m(WebView webView, OfflineBridgeData offlineBridgeData, String str, boolean z, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{webView, offlineBridgeData, str, Boolean.valueOf(z), str2}) == null) {
-            OfflineWebViewHttpReqMsg offlineWebViewHttpReqMsg = new OfflineWebViewHttpReqMsg();
-            offlineWebViewHttpReqMsg.url = offlineBridgeData.url;
-            offlineWebViewHttpReqMsg.urlSign = str2;
-            offlineWebViewHttpReqMsg.module = offlineBridgeData.module;
-            offlineWebViewHttpReqMsg.begin = offlineBridgeData.begin;
-            offlineWebViewHttpReqMsg.jsCallbackMethod = str;
-            offlineWebViewHttpReqMsg.webView = webView;
-            offlineWebViewHttpReqMsg.setTag(this.a);
-            offlineWebViewHttpReqMsg.isFromRequestByNative = z;
-            CookieSyncManager.createInstance(d76.getContext());
-            String cookie = CookieManager.getInstance().getCookie("tieba.baidu.com");
-            if (!TextUtils.isEmpty(cookie)) {
-                HashMap<String, String> headers = offlineWebViewHttpReqMsg.getHeaders();
-                if (headers != null) {
-                    String str3 = headers.get("Cookie");
-                    if (!TextUtils.isEmpty(str3)) {
-                        if (str3.endsWith(";")) {
-                            cookie = str3 + cookie;
-                        } else {
-                            cookie = str3 + ";" + cookie;
-                        }
-                    }
-                    offlineWebViewHttpReqMsg.addHeader("Cookie", cookie);
-                } else {
-                    offlineWebViewHttpReqMsg.addHeader("Cookie", cookie);
-                }
-            }
-            offlineWebViewHttpReqMsg.setUserAgent(webView.getSettings().getUserAgentString());
-            offlineWebViewHttpReqMsg.addCookie("cache_version", pm8.q().s(offlineBridgeData.module));
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_WEB_HTTP_PROXY, offlineBridgeData.url);
-            tbHttpMessageTask.setResponsedClass(OfflineWebViewHttpResMsg.class);
-            tbHttpMessageTask.setIsNeedAddCommenParam(false);
-            tbHttpMessageTask.setIsUseCurrentBDUSS(false);
-            tbHttpMessageTask.setPriority(4);
-            if (offlineBridgeData.type.toLowerCase().equals("post")) {
-                Map<String, String> map = offlineBridgeData.data;
-                if (map != null && !map.isEmpty()) {
-                    for (Map.Entry<String, String> entry : offlineBridgeData.data.entrySet()) {
-                        offlineWebViewHttpReqMsg.addParam(entry.getKey(), entry.getValue());
-                    }
-                }
-                tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
-            } else {
-                tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
-            }
-            MessageManager.getInstance().sendMessage(offlineWebViewHttpReqMsg, tbHttpMessageTask);
-        }
+        return (View) invokeCommon.objValue;
     }
 }

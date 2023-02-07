@@ -1,27 +1,16 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.slave.SwanAppSlaveManager;
-import com.baidu.swan.apps.core.slave.SwanWebModeWidget;
-import com.baidu.swan.apps.view.SwanAppSimpleH5Widget;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes7.dex */
-public class yq1 implements kq1 {
+public class yq1 implements bt1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.kq1
-    public boolean j(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) ? i == 0 : invokeI.booleanValue;
-    }
 
     public yq1() {
         Interceptable interceptable = $ic;
@@ -37,93 +26,13 @@ public class yq1 implements kq1 {
         }
     }
 
-    @Override // com.baidu.tieba.kq1
-    public e62 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return new e62();
-        }
-        return (e62) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.kq1
-    public sq1 a(Context context) {
+    @Override // com.baidu.tieba.bt1
+    public InputStream a(InputStream inputStream) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            return new SwanWebModeWidget(context);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, inputStream)) == null) {
+            return new m9a(inputStream);
         }
-        return (sq1) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.kq1
-    public oq1 b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            return new g32(context);
-        }
-        return (oq1) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.kq1
-    public sq1 c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            return new fr1(context);
-        }
-        return (sq1) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.kq1
-    public sq1 f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
-            return new yr1(context);
-        }
-        return (sq1) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.kq1
-    public sq1 g(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
-            return new cs1(context);
-        }
-        return (sq1) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.kq1
-    public sq1 i(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) {
-            return new SwanAppSimpleH5Widget(context);
-        }
-        return (sq1) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.kq1
-    public pq1 e(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, context, i)) == null) {
-            return new SwanAppSlaveManager(context);
-        }
-        return (pq1) invokeLI.objValue;
-    }
-
-    @Override // com.baidu.tieba.kq1
-    public f62 h(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, context, i)) == null) {
-            return new g62().a(context, i);
-        }
-        return (f62) invokeLI.objValue;
+        return (InputStream) invokeL.objValue;
     }
 }

@@ -1,101 +1,50 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.view.View;
+import androidx.annotation.NonNull;
+import com.baidu.swan.game.ad.downloader.model.DownloadParams;
+import java.io.File;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class qx3 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public transient /* synthetic */ FieldHolder $fh;
-    public ry3 a;
+public interface qx3 {
+    String a();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948107165, "Lcom/baidu/tieba/qx3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948107165, "Lcom/baidu/tieba/qx3;");
-                return;
-            }
-        }
-        b = tk1.a;
-    }
+    boolean b(Context context, Intent intent, String str, String str2, String str3);
 
-    public qx3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
+    String c();
 
-    public void c() {
-        ry3 ry3Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (ry3Var = this.a) != null) {
-            ry3Var.c();
-        }
-    }
+    boolean d(@NonNull Context context, @NonNull JSONObject jSONObject, @NonNull DownloadParams.SwanAppDownloadType swanAppDownloadType, @NonNull xw3 xw3Var);
 
-    public static qx3 d(qw1 qw1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, qw1Var)) == null) {
-            if (qw1Var == null) {
-                return null;
-            }
-            qx3 qx3Var = new qx3();
-            qx3Var.a = ry3.e(qw1Var);
-            return qx3Var;
-        }
-        return (qx3) invokeL.objValue;
-    }
+    String e();
 
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            JSONObject a = a(str);
-            ry3 ry3Var = this.a;
-            if (ry3Var != null) {
-                ry3Var.b(a);
-            }
-        }
-    }
+    String f(String str);
 
-    public final JSONObject a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str);
-                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, com.baidu.pass.biometrics.face.liveness.b.a.g0);
-                jSONObject.put("errDes", wt3.a(str));
-            } catch (Exception e) {
-                if (b) {
-                    e.printStackTrace();
-                }
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
+    String g();
+
+    String getAppId();
+
+    String getAppKey();
+
+    String getScene();
+
+    String getSdkVersion();
+
+    int h();
+
+    String i(String str);
+
+    int j();
+
+    int k();
+
+    Uri l(@NonNull Context context, @NonNull File file);
+
+    String m();
+
+    JSONObject n();
+
+    boolean o(View view2);
 }

@@ -1,40 +1,16 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.content.Context;
+import com.baidu.swan.apps.core.container.NgWebView;
 /* loaded from: classes5.dex */
-public abstract class pu1 extends ms1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface pu1 {
+    void a(NgWebView ngWebView);
 
-    @Override // com.baidu.tieba.ms1
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "System" : (String) invokeV.objValue;
-    }
+    void b(NgWebView ngWebView, String str);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pu1(@NonNull ks1 ks1Var) {
-        super(ks1Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ks1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((ks1) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
+    void c(NgWebView ngWebView, int i, int i2, int i3, int i4, String str, boolean z);
+
+    void d(String str, Context context);
+
+    void e(String str, Context context);
 }

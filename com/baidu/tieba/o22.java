@@ -1,215 +1,59 @@
 package com.baidu.tieba;
 
-import android.net.LocalServerSocket;
-import android.net.LocalSocket;
-import android.util.Log;
+import android.graphics.Canvas;
+import android.graphics.Rect;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.tieba.k22;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
-import java.util.TimeZone;
+import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class o22 implements k22.c {
+public class o22 extends c22 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public k22.b a;
-    public LocalServerSocket b;
-    public m22 c;
-    public String d;
-    public boolean e;
+    public Rect a;
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Map<String, String> a;
-        public String b;
-        public String c;
-        public String d;
-        public boolean e;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new HashMap();
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static abstract class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public a a;
-
-        public String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
-        }
-
-        public abstract Map<String, String> b();
-
-        public abstract String c();
-
-        public b(a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = aVar;
-        }
-
-        public final void d(PrintWriter printWriter, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, printWriter, str, str2) == null) {
-                printWriter.append((CharSequence) str).append(": ").append((CharSequence) str2).append("\r\n");
-            }
-        }
-
-        public void e(OutputStream outputStream) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, outputStream) == null) {
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("E, d MMM yyyy HH:mm:ss 'GMT'", Locale.US);
-                simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
-                PrintWriter printWriter = new PrintWriter(new BufferedWriter(new OutputStreamWriter(outputStream)));
-                printWriter.append("HTTP/1.1").append(WebvttCueParser.CHAR_SPACE).append((CharSequence) c()).append(" \r\n");
-                d(printWriter, "Date", simpleDateFormat.format(new Date()));
-                printWriter.print("Content-Length: " + a().getBytes().length + "\r\n");
-                Map<String, String> b = b();
-                if (b != null && b.size() > 0) {
-                    for (Map.Entry<String, String> entry : b.entrySet()) {
-                        d(printWriter, entry.getKey(), entry.getValue());
-                    }
-                }
-                printWriter.append("\r\n");
-                printWriter.append((CharSequence) a());
-                printWriter.flush();
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947980282, "Lcom/baidu/tieba/o22;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947980282, "Lcom/baidu/tieba/o22;");
-                return;
-            }
-        }
-        f = tk1.a;
-    }
-
-    @Override // com.baidu.tieba.k22.c
-    public void stop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e = false;
-            LocalServerSocket localServerSocket = this.b;
-            if (localServerSocket != null) {
-                try {
-                    localServerSocket.close();
-                } catch (IOException e) {
-                    j12.d("V8InspectorServer", "stop local server fail", e);
-                }
-                this.b = null;
-            }
-            m22 m22Var = this.c;
-            if (m22Var != null) {
-                m22Var.l();
-                this.c = null;
-            }
-            this.a = null;
-        }
-    }
-
-    public o22(String str, k22.b bVar) {
+    public o22() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, bVar};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.d = str;
-        this.a = bVar;
     }
 
-    @Override // com.baidu.tieba.k22.c
-    public void start() {
+    @Override // com.baidu.tieba.c22
+    public void a(d22 d22Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.e) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, d22Var, canvas) == null) && this.a != null) {
+            int alpha = d22Var.b.getAlpha();
+            d22Var.c(d22Var.b);
+            canvas.drawRect(this.a, d22Var.b);
+            d22Var.b.setAlpha(alpha);
         }
-        try {
-            this.b = new LocalServerSocket(this.d);
-            this.e = true;
-            int i = 0;
-            while (this.e) {
-                LocalSocket accept = this.b.accept();
-                m22 m22Var = new m22(accept.getInputStream(), accept.getOutputStream());
-                this.c = m22Var;
-                m22Var.o(this.a);
-                ExecutorUtilsExt.postOnSerial(this.c, "V8InspectorServer");
-                if (i03.H() && (i = i + 1) > 10) {
-                    if (f) {
-                        Log.e("V8InspectorServer", "v8 inspector handshake exceeding the maximum limit");
-                        return;
-                    }
-                    return;
+    }
+
+    @Override // com.baidu.tieba.c22
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() == 4) {
+                    int g = nm3.g((float) jSONArray.optDouble(0));
+                    int g2 = nm3.g((float) jSONArray.optDouble(1));
+                    this.a = new Rect(g, g2, nm3.g((float) jSONArray.optDouble(2)) + g, nm3.g((float) jSONArray.optDouble(3)) + g2);
+                }
+            } catch (Exception e) {
+                if (gp1.a) {
+                    e.printStackTrace();
                 }
             }
-        } catch (IOException e) {
-            j12.d("V8InspectorServer", "launch local server fail", e);
         }
     }
 }

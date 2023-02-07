@@ -1,7 +1,7 @@
 package rx.internal.subscriptions;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.r8a;
+import com.baidu.tieba.ada;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes9.dex */
-public final class Unsubscribed implements r8a {
+public final class Unsubscribed implements ada {
     public static final /* synthetic */ Unsubscribed[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
     public static final Unsubscribed INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.r8a
+    @Override // com.baidu.tieba.ada
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -27,7 +27,7 @@ public final class Unsubscribed implements r8a {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.r8a
+    @Override // com.baidu.tieba.ada
     public void unsubscribe() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {

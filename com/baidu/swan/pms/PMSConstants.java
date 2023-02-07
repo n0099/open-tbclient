@@ -1,6 +1,6 @@
 package com.baidu.swan.pms;
 
-import com.baidu.tieba.sb4;
+import com.baidu.tieba.fg4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -235,11 +235,11 @@ public class PMSConstants {
         }
     }
 
-    public static boolean a(sb4 sb4Var) {
+    public static boolean a(fg4 fg4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, sb4Var)) == null) {
-            if (sb4Var != null && sb4Var.x()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, fg4Var)) == null) {
+            if (fg4Var != null && fg4Var.x()) {
                 return true;
             }
             return false;

@@ -1,88 +1,184 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
-import com.fun.ad.sdk.CustomInflater;
-import com.fun.ad.sdk.ExpressInflater;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
-import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.List;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 /* loaded from: classes5.dex */
-public class my9 extends FunNativeAd2Bridger<cy9, View> {
+public class my9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean b;
-    public final /* synthetic */ iy9 c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public my9(iy9 iy9Var, ReporterPidLoader reporterPidLoader) {
-        super(reporterPidLoader);
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        @NonNull
+        public File a;
+        @NonNull
+        public String b;
+
+        public a(@NonNull File file, @NonNull String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {file, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = file;
+            if (TextUtils.isEmpty(str)) {
+                this.b = this.a.getName();
+            } else {
+                this.b = str;
+            }
+        }
+
+        public a(@NonNull File file, @NonNull String str, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {file, str, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.a = file;
+            if (TextUtils.isEmpty(str)) {
+                this.b = this.a.getName();
+            } else {
+                this.b = str;
+            }
+        }
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:38:0x007d */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:56:0x009c */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r2v0, types: [com.baidu.titan.sdk.runtime.Interceptable] */
+    /* JADX WARN: Type inference failed for: r2v2, types: [java.util.zip.ZipOutputStream] */
+    /* JADX WARN: Type inference failed for: r2v3 */
+    /* JADX WARN: Type inference failed for: r2v4 */
+    /* JADX WARN: Type inference failed for: r2v5, types: [java.util.zip.ZipOutputStream] */
+    /* JADX WARN: Type inference failed for: r2v6, types: [java.util.zip.ZipOutputStream] */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:54:0x0098 -> B:72:0x009b). Please submit an issue!!! */
+    public static void a(File file, List<a> list) throws IOException {
+        ?? r2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {iy9Var, reporterPidLoader};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((ReporterPidLoader) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            r2 = interceptable;
+            if (r2.invokeLL(65536, null, file, list) != null) {
                 return;
             }
         }
-        this.c = iy9Var;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showCustom(Activity activity, CustomInflater customInflater, String str, cy9 cy9Var, BaseNativeAd2<cy9, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, cy9Var, baseNativeAd2, funAdInteractionListener}) == null) {
-        }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public View createExpressView(cy9 cy9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cy9Var)) == null) {
-            return ((TTNativeExpressAd) cy9Var.a).getExpressAdView();
-        }
-        return (View) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, cy9 cy9Var, BaseNativeAd2<cy9, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, cy9Var, baseNativeAd2, funAdInteractionListener}) == null) {
-            cy9 cy9Var2 = cy9Var;
-            ExpressAdListenerWrapper<TTNativeExpressAd.ExpressAdInteractionListener> expressAdListenerWrapper = this.c.f.get(cy9Var2);
-            if (expressAdListenerWrapper != null) {
-                expressAdListenerWrapper.funListener = funAdInteractionListener;
-            } else {
-                LogPrinter.e("Can not get correspond listener by csjNativeExpressAd.", new Object[0]);
+        if (file != null && file.exists() && list != null && list.size() != 0) {
+            FileInputStream fileInputStream = null;
+            try {
+                try {
+                    try {
+                        byte[] bArr = new byte[8192];
+                        r2 = new ZipOutputStream(new FileOutputStream(file));
+                        try {
+                            r2.setComment(file.getName());
+                            for (a aVar : list) {
+                                File file2 = aVar.a;
+                                if (file2.canRead()) {
+                                    FileInputStream fileInputStream2 = new FileInputStream(file2);
+                                    try {
+                                        r2.putNextEntry(new ZipEntry(aVar.b));
+                                        while (true) {
+                                            int read = fileInputStream2.read(bArr);
+                                            if (read == -1) {
+                                                break;
+                                            }
+                                            r2.write(bArr, 0, read);
+                                        }
+                                        fileInputStream2.close();
+                                        fileInputStream = fileInputStream2;
+                                    } catch (FileNotFoundException e) {
+                                        e = e;
+                                        fileInputStream = fileInputStream2;
+                                        e.printStackTrace();
+                                        if (fileInputStream != null) {
+                                            try {
+                                                fileInputStream.close();
+                                            } catch (IOException e2) {
+                                                e2.printStackTrace();
+                                            }
+                                        }
+                                        if (r2 != 0) {
+                                            r2.close();
+                                        }
+                                        return;
+                                    } catch (Throwable th) {
+                                        th = th;
+                                        fileInputStream = fileInputStream2;
+                                        if (fileInputStream != null) {
+                                            try {
+                                                fileInputStream.close();
+                                            } catch (IOException e3) {
+                                                e3.printStackTrace();
+                                            }
+                                        }
+                                        if (r2 != 0) {
+                                            try {
+                                                r2.close();
+                                            } catch (IOException e4) {
+                                                e4.printStackTrace();
+                                            }
+                                        }
+                                        throw th;
+                                    }
+                                }
+                            }
+                            r2.flush();
+                            if (fileInputStream != null) {
+                                try {
+                                    fileInputStream.close();
+                                } catch (IOException e5) {
+                                    e5.printStackTrace();
+                                }
+                            }
+                            r2.close();
+                        } catch (FileNotFoundException e6) {
+                            e = e6;
+                        }
+                    } catch (IOException e7) {
+                        e7.printStackTrace();
+                    }
+                } catch (FileNotFoundException e8) {
+                    e = e8;
+                    r2 = 0;
+                } catch (Throwable th2) {
+                    th = th2;
+                    r2 = 0;
+                }
+            } catch (Throwable th3) {
+                th = th3;
             }
-            this.c.onShowStart(cy9Var2, this.b);
-            expressInflater.inflate();
-            View expressView = expressInflater.getExpressView();
-            iy9 iy9Var = this.c;
-            iy9Var.getClass();
-            ((TTNativeExpressAd) cy9Var2.a).setDislikeCallback(activity, new ly9(iy9Var, expressView, cy9Var2, funAdInteractionListener, str));
-            this.b = true;
         }
     }
 }

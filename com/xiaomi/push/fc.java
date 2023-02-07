@@ -73,21 +73,21 @@ public class fc implements bg.b.a {
         if (!this.f380a || this.a == 11) {
             return;
         }
-        fa m399a = fh.m397a().m399a();
+        fa m401a = fh.m399a().m401a();
         int i = fe.a[this.f379a.ordinal()];
         if (i != 1) {
             if (i == 3) {
                 ezVar = ez.H;
             }
-            if (m399a != null) {
-                m399a.b(this.f376a.mo426a());
-                m399a.d(this.f378a.f960b);
-                m399a.f365b = 1;
+            if (m401a != null) {
+                m401a.b(this.f376a.mo428a());
+                m401a.d(this.f378a.f960b);
+                m401a.f365b = 1;
                 try {
-                    m399a.a((byte) Integer.parseInt(this.f378a.g));
+                    m401a.a((byte) Integer.parseInt(this.f378a.g));
                 } catch (NumberFormatException unused) {
                 }
-                fh.m397a().a(m399a);
+                fh.m399a().a(m401a);
                 return;
             }
             return;
@@ -100,16 +100,16 @@ public class fc implements bg.b.a {
         } else {
             try {
                 ff.a c = ff.c(fh.a().a());
-                m399a.f362a = c.a.a();
-                m399a.c(c.f381a);
+                m401a.f362a = c.a.a();
+                m401a.c(c.f381a);
             } catch (NullPointerException unused2) {
-                m399a = null;
+                m401a = null;
             }
-            if (m399a != null) {
+            if (m401a != null) {
             }
         }
-        m399a.f362a = ezVar.a();
-        if (m399a != null) {
+        m401a.f362a = ezVar.a();
+        if (m401a != null) {
         }
     }
 
@@ -117,7 +117,7 @@ public class fc implements bg.b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.f378a.a(this);
-            this.f376a = this.f377a.m663a();
+            this.f376a = this.f377a.m665a();
         }
     }
 

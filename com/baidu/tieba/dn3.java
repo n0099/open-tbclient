@@ -1,69 +1,15 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.process.ipc.agent.activity.MainProcessDelegateActivity;
-import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
-import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
 /* loaded from: classes4.dex */
-public class dn3 implements go2 {
+public class dn3 extends bn3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes4.dex */
-    public class a implements DelegateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cl1 a;
-
-        public a(dn3 dn3Var, cl1 cl1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dn3Var, cl1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cl1Var;
-        }
-
-        @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
-        public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) {
-                Bundle bundle = delegateResult.mResult;
-                if (bundle == null) {
-                    this.a.a(0);
-                    return;
-                }
-                String string = bundle.getString("invoiceInfo");
-                if (TextUtils.isEmpty(string)) {
-                    this.a.a(0);
-                } else {
-                    this.a.b(jh3.d(string));
-                }
-            }
-        }
-    }
+    public String a;
+    public String b;
 
     public dn3() {
         Interceptable interceptable = $ic;
@@ -76,14 +22,6 @@ public class dn3 implements go2 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.go2
-    public void a(Context context, String str, String str2, cl1 cl1Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, context, str, str2, cl1Var) == null) && context != null && cl1Var != null) {
-            DelegateUtils.callOnMainWithActivity((Activity) context, MainProcessDelegateActivity.class, cn3.class, new a(this, cl1Var));
         }
     }
 }

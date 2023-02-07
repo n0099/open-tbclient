@@ -95,12 +95,12 @@ public class InputFormView extends RelativeLayout implements View.OnClickListene
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0508, (ViewGroup) this, true);
-            this.mEditText = (LengthLimitEditText) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091e1c);
-            this.mImg = (ImageView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091e1e);
-            this.mBottomLine = inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091e1f);
-            this.mCleanEtBtn = inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091e1a);
-            this.mCleanEtBtnDarkShape = inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091e1b);
+            View inflate = LayoutInflater.from(getContext()).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0505, (ViewGroup) this, true);
+            this.mEditText = (LengthLimitEditText) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091e31);
+            this.mImg = (ImageView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091e33);
+            this.mBottomLine = inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091e34);
+            this.mCleanEtBtn = inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091e2f);
+            this.mCleanEtBtnDarkShape = inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091e30);
             this.mCleanEtBtn.setOnClickListener(this);
             this.mEditText.setOnFocusChangeListener(this);
             this.mEditText.setLengthLimit(this.mMaxLength);
@@ -164,7 +164,7 @@ public class InputFormView extends RelativeLayout implements View.OnClickListene
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && view2.getId() == com.baidu.tieba.R.id.obfuscated_res_0x7f091e1a) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && view2.getId() == com.baidu.tieba.R.id.obfuscated_res_0x7f091e2f) {
             this.mEditText.setText("");
             this.mCleanEtBtn.setVisibility(8);
         }
@@ -200,9 +200,9 @@ public class InputFormView extends RelativeLayout implements View.OnClickListene
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             this.isDarkMode = z;
             if (z) {
-                this.mEditText.setHintTextColor(getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060970));
-                this.mEditText.setTextColor(getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060974));
-                this.mBottomLine.setBackgroundColor(getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f06096e));
+                this.mEditText.setHintTextColor(getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060980));
+                this.mEditText.setTextColor(getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060984));
+                this.mBottomLine.setBackgroundColor(getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f06097e));
             }
         }
     }

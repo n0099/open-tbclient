@@ -1,82 +1,175 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.text.style.ImageSpan;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.Unit;
+import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public final class f91 extends ImageSpan {
+public final class f91 {
     public static /* synthetic */ Interceptable $ic;
+    public static w61 a;
+    public static i91 b;
+    public static y61 c;
+    public static h91 d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f91(Drawable _drawable) {
-        super(_drawable);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947718859, "Lcom/baidu/tieba/f91;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947718859, "Lcom/baidu/tieba/f91;");
+        }
+    }
+
+    public f91() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {_drawable};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Drawable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-        }
-        Intrinsics.checkNotNullParameter(_drawable, "_drawable");
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-            Intrinsics.checkNotNullParameter(canvas, "canvas");
-            Intrinsics.checkNotNullParameter(paint, "paint");
-            Drawable drawable = getDrawable();
-            canvas.save();
-            Intrinsics.checkNotNullExpressionValue(drawable, "drawable");
-            canvas.translate(f, (((i5 - i3) - drawable.getBounds().bottom) / 2) + i3);
-            drawable.draw(canvas);
-            canvas.restore();
         }
     }
 
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        InterceptResult invokeCommon;
+    @JvmStatic
+    public static final Context a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            Intrinsics.checkNotNullParameter(paint, "paint");
-            Drawable drawable = getDrawable();
-            Intrinsics.checkNotNullExpressionValue(drawable, "drawable");
-            Rect bounds = drawable.getBounds();
-            Intrinsics.checkNotNullExpressionValue(bounds, "drawable.bounds");
-            if (fontMetricsInt != null) {
-                Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
-                int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
-                int i4 = (bounds.bottom - bounds.top) / 2;
-                int i5 = i3 / 4;
-                int i6 = i4 - i5;
-                int i7 = -(i4 + i5);
-                fontMetricsInt.ascent = i7;
-                fontMetricsInt.top = i7;
-                fontMetricsInt.bottom = i6;
-                fontMetricsInt.descent = i6;
-            }
-            return bounds.right;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            Context b2 = nj0.b();
+            Intrinsics.checkNotNullExpressionValue(b2, "AdRuntime.applicationContext()");
+            return b2;
         }
-        return invokeCommon.intValue;
+        return (Context) invokeV.objValue;
+    }
+
+    @JvmStatic
+    public static final boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (hn0.b().a().a("nad_web_view_forbid_kb_opt_switch", 0) != 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @JvmStatic
+    public static final boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (hn0.b().a().a("nairobi_kernel_type", b81.b()) == b81.b()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @JvmStatic
+    public static final h91 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (d == null) {
+                synchronized (f91.class) {
+                    if (d == null) {
+                        d = (h91) ServiceManager.getService(h91.a);
+                    }
+                    if (d == null) {
+                        d = h91.b;
+                    }
+                    Unit unit = Unit.INSTANCE;
+                }
+            }
+            return d;
+        }
+        return (h91) invokeV.objValue;
+    }
+
+    @JvmStatic
+    public static final y61 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (c == null) {
+                synchronized (f91.class) {
+                    if (c == null) {
+                        c = (y61) ServiceManager.getService(y61.a);
+                    }
+                    if (c == null) {
+                        c = y61.b;
+                    }
+                    Unit unit = Unit.INSTANCE;
+                }
+            }
+            return c;
+        }
+        return (y61) invokeV.objValue;
+    }
+
+    @JvmStatic
+    public static final w61 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (a == null) {
+                synchronized (f91.class) {
+                    if (a == null) {
+                        a = (w61) ServiceManager.getService(w61.a);
+                    }
+                    if (a == null) {
+                        a = w61.b;
+                    }
+                    Unit unit = Unit.INSTANCE;
+                }
+            }
+            return a;
+        }
+        return (w61) invokeV.objValue;
+    }
+
+    @JvmStatic
+    public static final i91 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            if (b == null) {
+                synchronized (f91.class) {
+                    if (b == null) {
+                        b = (i91) ServiceManager.getService(i91.a);
+                    }
+                    if (b == null) {
+                        b = i91.b;
+                    }
+                    Unit unit = Unit.INSTANCE;
+                }
+            }
+            return b;
+        }
+        return (i91) invokeV.objValue;
     }
 }

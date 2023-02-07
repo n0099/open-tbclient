@@ -25,20 +25,20 @@ import com.baidu.tbadk.core.view.RoundTbImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.ad.VipAdFreeGuideLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a48;
-import com.baidu.tieba.b27;
-import com.baidu.tieba.cx4;
+import com.baidu.tieba.a45;
+import com.baidu.tieba.e19;
+import com.baidu.tieba.e67;
+import com.baidu.tieba.ej;
 import com.baidu.tieba.funad.view.FunAdAgreeView;
-import com.baidu.tieba.g27;
-import com.baidu.tieba.gx8;
-import com.baidu.tieba.hd7;
-import com.baidu.tieba.nv8;
-import com.baidu.tieba.nz4;
-import com.baidu.tieba.t17;
+import com.baidu.tieba.ib5;
+import com.baidu.tieba.kb5;
+import com.baidu.tieba.lz8;
+import com.baidu.tieba.m67;
+import com.baidu.tieba.p15;
+import com.baidu.tieba.r67;
+import com.baidu.tieba.sh7;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
-import com.baidu.tieba.w65;
-import com.baidu.tieba.y65;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.x88;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -70,7 +70,7 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
     public int getLayoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? R.layout.obfuscated_res_0x7f0d0363 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? R.layout.obfuscated_res_0x7f0d0362 : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
@@ -91,12 +91,12 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
     public class b implements FunAdAgreeView.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g27 a;
+        public final /* synthetic */ r67 a;
         public final /* synthetic */ Activity b;
         public final /* synthetic */ FunAdNativeFrsView c;
 
         /* loaded from: classes4.dex */
-        public class a implements w65 {
+        public class a implements ib5 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
@@ -119,7 +119,7 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
                 this.a = bVar;
             }
 
-            @Override // com.baidu.tieba.w65
+            @Override // com.baidu.tieba.ib5
             public void a(List<Bitmap> list) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
@@ -133,12 +133,12 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
             }
         }
 
-        public b(FunAdNativeFrsView funAdNativeFrsView, g27 g27Var, Activity activity) {
+        public b(FunAdNativeFrsView funAdNativeFrsView, r67 r67Var, Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {funAdNativeFrsView, g27Var, activity};
+                Object[] objArr = {funAdNativeFrsView, r67Var, activity};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -149,7 +149,7 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
                 }
             }
             this.c = funAdNativeFrsView;
-            this.a = g27Var;
+            this.a = r67Var;
             this.b = activity;
         }
 
@@ -158,7 +158,7 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.a.k(this.c.t, this.c.x);
-                y65.g().c(new a(this));
+                kb5.g().c(new a(this));
             }
         }
 
@@ -177,15 +177,15 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gx8 a;
+        public final /* synthetic */ e19 a;
         public final /* synthetic */ FunAdNativeFrsView b;
 
-        public a(FunAdNativeFrsView funAdNativeFrsView, gx8 gx8Var) {
+        public a(FunAdNativeFrsView funAdNativeFrsView, e19 e19Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {funAdNativeFrsView, gx8Var};
+                Object[] objArr = {funAdNativeFrsView, e19Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -196,7 +196,7 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
                 }
             }
             this.b = funAdNativeFrsView;
-            this.a = gx8Var;
+            this.a = e19Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -232,7 +232,7 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
     public final void q(TbImageView tbImageView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, tbImageView) == null) {
-            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f080755);
+            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f08074b);
             tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
             tbImageView.setIsLongPic(false);
             tbImageView.setIsSmartCrop(false);
@@ -288,7 +288,7 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
     private void setTextGrayAndUnClickable(TextView textView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, textView) == null) {
-            textView.setTextColor(nv8.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE));
+            textView.setTextColor(lz8.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE));
         }
     }
 
@@ -350,27 +350,27 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
-    public void f(@NonNull gx8 gx8Var, @NonNull Activity activity) {
+    public void f(@NonNull e19 e19Var, @NonNull Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, gx8Var, activity) == null) {
-            super.f(gx8Var, activity);
-            if (gx8Var.e() == null) {
+        if (interceptable == null || interceptable.invokeLL(1048579, this, e19Var, activity) == null) {
+            super.f(e19Var, activity);
+            if (e19Var.e() == null) {
                 return;
             }
-            FunNativeAd2 funNativeAd2 = (FunNativeAd2) gx8Var.e();
-            if (gx8Var.b() == null) {
+            FunNativeAd2 funNativeAd2 = (FunNativeAd2) e19Var.e();
+            if (e19Var.b() == null) {
                 AgreeData agreeData = new AgreeData();
-                agreeData.agreeNum = hd7.a(25, 1000);
-                gx8Var.k(agreeData);
+                agreeData.agreeNum = sh7.a(25, 1000);
+                e19Var.k(agreeData);
             }
             this.w.setText(this.c);
-            AgreeData b2 = gx8Var.b();
+            AgreeData b2 = e19Var.b();
             this.x.setAgreeAlone(true);
             this.x.setData(b2);
-            this.x.setAfterClickListener(new a(this, gx8Var));
-            this.x.setUseDynamicLikeRes(gx8Var.d(), "/feed", "frs".equals(this.G));
-            this.x.setAgreeLongClickListener(new b(this, new g27(activity), activity));
-            this.u.K(b27.j(funNativeAd2), 10, false);
+            this.x.setAfterClickListener(new a(this, e19Var));
+            this.x.setUseDynamicLikeRes(e19Var.d(), "/feed", "frs".equals(this.G));
+            this.x.setAgreeLongClickListener(new b(this, new r67(activity), activity));
+            this.u.K(m67.j(funNativeAd2), 10, false);
         }
     }
 
@@ -379,10 +379,10 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
             super.g(context);
-            this.t = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090c80);
-            this.u = (RoundTbImageView) findViewById(R.id.obfuscated_res_0x7f092373);
-            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f092374);
-            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f092372);
+            this.t = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090cc3);
+            this.u = (RoundTbImageView) findViewById(R.id.obfuscated_res_0x7f092385);
+            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f092386);
+            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f092384);
             this.x = (FunAdAgreeView) findViewById(R.id.obfuscated_res_0x7f090084);
             this.y = findViewById(R.id.share_num_container);
             this.B = findViewById(R.id.thread_info_commont_container);
@@ -390,9 +390,9 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
             this.D = (TextView) findViewById(R.id.thread_info_commont_num);
             this.z = (ImageView) findViewById(R.id.share_num_img);
             this.A = (TextView) findViewById(R.id.share_num);
-            this.E = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091319);
-            this.F = (ImageView) findViewById(R.id.obfuscated_res_0x7f090c7e);
-            this.s = (VipAdFreeGuideLayout) findViewById(R.id.obfuscated_res_0x7f090c92);
+            this.E = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09135c);
+            this.F = (ImageView) findViewById(R.id.obfuscated_res_0x7f090cc1);
+            this.s = (VipAdFreeGuideLayout) findViewById(R.id.obfuscated_res_0x7f090cd5);
             this.e.setVisibility(8);
             q(this.u);
             o();
@@ -441,7 +441,7 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
-    public t17.g getLogItem() {
+    public e67.g getLogItem() {
         InterceptResult invokeV;
         String str;
         Interceptable interceptable = $ic;
@@ -451,9 +451,9 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
             } else {
                 str = "0";
             }
-            return t17.b("frs", str);
+            return e67.b("frs", str);
         }
-        return (t17.g) invokeV.objValue;
+        return (e67.g) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
@@ -471,17 +471,17 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.h();
-            cx4.d(this).f(R.color.CAM_X0205);
-            cx4 d = cx4.d(this);
+            p15.d(this).f(R.color.CAM_X0205);
+            p15 d = p15.d(this);
             d.n(R.string.J_X06);
             d.i(R.color.CAM_X0205, R.color.CAM_X0206);
-            cx4.d(this.v).v(R.color.CAM_X0109);
-            cx4.d(this.w).v(R.color.CAM_X0105);
+            p15.d(this.v).v(R.color.CAM_X0109);
+            p15.d(this.w).v(R.color.CAM_X0105);
             WebPManager.setPureDrawable(this.F, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
-            nz4.a(this.z, R.drawable.icon_pure_card_share20);
-            nz4.a(this.C, R.drawable.icon_pure_card_comment20);
-            nz4.e(this.A);
-            nz4.e(this.D);
+            a45.a(this.z, R.drawable.icon_pure_card_share20);
+            a45.a(this.C, R.drawable.icon_pure_card_comment20);
+            a45.e(this.A);
+            a45.e(this.D);
             r(this.z, R.drawable.icon_pure_card_share20);
             r(this.C, R.drawable.icon_pure_card_comment20);
             setTextGrayAndUnClickable(this.A);
@@ -491,18 +491,18 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
         }
     }
 
-    public final void p(gx8 gx8Var, View view2) {
+    public final void p(e19 e19Var, View view2) {
         Activity currentActivity;
         int width;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048590, this, gx8Var, view2) == null) && this.x.getData() != null && this.x.getData().hasAgree && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null && !currentActivity.isFinishing()) {
-            a48 a48Var = new a48(getContext());
+        if ((interceptable == null || interceptable.invokeLL(1048590, this, e19Var, view2) == null) && this.x.getData() != null && this.x.getData().hasAgree && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null && !currentActivity.isFinishing()) {
+            x88 x88Var = new x88(getContext());
             int[] iArr = new int[2];
             view2.getLocationInWindow(iArr);
             int i = iArr[0];
             int i2 = iArr[1];
-            int g = zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds600);
-            int g2 = zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds1080);
+            int g = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds600);
+            int g2 = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds1080);
             int i3 = (int) ((g2 * 1) / 1.45d);
             if (i > i3) {
                 width = ((i - i3) + (this.x.getImgAgree().getWidth() / 2)) - 10;
@@ -511,18 +511,18 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
             }
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(g2, g);
             layoutParams.leftMargin = width;
-            layoutParams.topMargin = zi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X008);
-            a48Var.k(g);
-            a48Var.j(layoutParams);
-            a48Var.i(false);
-            a48Var.n("frs".equals(this.G), TbadkCoreApplication.getInst().getCurrentActivity().findViewById(16908290), 0, i2 - 10, gx8Var.g(), gx8Var.d());
+            layoutParams.topMargin = ej.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X008);
+            x88Var.k(g);
+            x88Var.j(layoutParams);
+            x88Var.i(false);
+            x88Var.n("frs".equals(this.G), TbadkCoreApplication.getInst().getCurrentActivity().findViewById(16908290), 0, i2 - 10, e19Var.g(), e19Var.d());
         }
     }
 
     public final void r(ImageView imageView, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048592, this, imageView, i) == null) {
-            imageView.setImageDrawable(WebPManager.getPureDrawable(i, nv8.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE), WebPManager.ResourceStateType.NORMAL_DISABLE));
+            imageView.setImageDrawable(WebPManager.getPureDrawable(i, lz8.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE), WebPManager.ResourceStateType.NORMAL_DISABLE));
         }
     }
 }

@@ -1,45 +1,67 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class mq7<T extends TypeAdapter.ViewHolder> extends ln<ICardInfo, T> implements up7 {
+public class mq7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public lq7<? extends BaseChatAdapter, ? extends BaseMsg> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mq7(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    public mq7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public void s(int i) {
+    @NonNull
+    public <T extends BaseChatAdapter, Msg extends BaseMsg> lq7<T, Msg> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.a = i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return (lq7<T, Msg>) this.a;
+        }
+        return (lq7) invokeV.objValue;
+    }
+
+    @Nullable
+    public static mq7 b(@NonNull View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            return (mq7) view2.getTag(R.id.obfuscated_res_0x7f09216e);
+        }
+        return (mq7) invokeL.objValue;
+    }
+
+    public <T extends BaseChatAdapter, Msg extends BaseMsg> void c(@NonNull lq7<T, Msg> lq7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lq7Var) == null) {
+            this.a = lq7Var;
+        }
+    }
+
+    public static void d(@NonNull View view2, @NonNull mq7 mq7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, view2, mq7Var) == null) {
+            view2.setTag(R.id.obfuscated_res_0x7f09216e, mq7Var);
         }
     }
 }

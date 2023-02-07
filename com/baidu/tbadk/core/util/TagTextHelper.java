@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tieba.R;
+import com.baidu.tieba.memberCenter.memberpay.MemberPayResult;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,7 +55,7 @@ public final class TagTextHelper {
                     return;
                 }
             }
-            NEW = new HotTopicTag("NEW", 0, R.string.tag_str_new, R.color.CAM_X0305);
+            NEW = new HotTopicTag(MemberPayResult.VipPayPrivilegeData.NEW_TIP_TEXT, 0, R.string.tag_str_new, R.color.CAM_X0305);
             HOT = new HotTopicTag("HOT", 1, R.string.tag_str_hot, R.color.CAM_X0301);
             REC = new HotTopicTag("REC", 2, R.string.tag_str_rec, R.color.CAM_X0306);
             BAO = new HotTopicTag("BAO", 3, R.string.tag_str_bao, R.color.CAM_X0308);

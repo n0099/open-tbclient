@@ -1,122 +1,211 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Message;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sina.weibo.sdk.utils.ResourceManager;
-import java.io.InputStream;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class ss2 implements qs2 {
+public abstract class ss2 implements gt1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948161911, "Lcom/baidu/tieba/ss2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948161911, "Lcom/baidu/tieba/ss2;");
-                return;
-            }
+    @Override // com.baidu.tieba.gt1
+    public String H() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
         }
-        a = tk1.a;
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gt1
+    public boolean J() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.gt1
+    public String K() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gt1
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.gt1
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gt1
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gt1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gt1
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.gt1
+    public int r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.gt1
+    public String w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gt1
+    public void x(Message message, wv2 wv2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048592, this, message, wv2Var) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.gt1
+    public String y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gt1
+    public String z(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, context)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
     }
 
     public ss2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.qs2
-    @SuppressLint({"BDThrowableCheck"})
-    public Bitmap decode(Context context, Uri uri) throws Exception {
-        InterceptResult invokeLL;
-        Bitmap bitmap;
-        Resources resourcesForApplication;
+    @Override // com.baidu.tieba.gt1
+    public String G() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, uri)) == null) {
-            String uri2 = uri.toString();
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inPreferredConfig = Bitmap.Config.RGB_565;
-            if (uri2.startsWith("android.resource://")) {
-                String authority = uri.getAuthority();
-                if (context.getPackageName().equals(authority)) {
-                    resourcesForApplication = context.getResources();
-                } else {
-                    resourcesForApplication = context.getPackageManager().getResourcesForApplication(authority);
-                }
-                List<String> pathSegments = uri.getPathSegments();
-                int size = pathSegments.size();
-                int i = 0;
-                if (size == 2 && pathSegments.get(0).equals(ResourceManager.DRAWABLE)) {
-                    i = resourcesForApplication.getIdentifier(pathSegments.get(1), ResourceManager.DRAWABLE, authority);
-                } else if (size == 1 && TextUtils.isDigitsOnly(pathSegments.get(0))) {
-                    try {
-                        i = Integer.parseInt(pathSegments.get(0));
-                    } catch (NumberFormatException e) {
-                        e.printStackTrace();
-                    }
-                }
-                bitmap = BitmapFactory.decodeResource(context.getResources(), i, options);
-            } else {
-                InputStream inputStream = null;
-                if (uri2.startsWith("file:///android_asset/")) {
-                    bitmap = BitmapFactory.decodeStream(context.getAssets().open(uri2.substring(22)), null, options);
-                } else if (uri2.startsWith("file://")) {
-                    bitmap = BitmapFactory.decodeFile(uri2.substring(7), options);
-                } else {
-                    try {
-                        InputStream openInputStream = context.getContentResolver().openInputStream(uri);
-                        try {
-                            Bitmap decodeStream = BitmapFactory.decodeStream(openInputStream, null, options);
-                            nk4.d(openInputStream);
-                            bitmap = decodeStream;
-                        } catch (Throwable th) {
-                            th = th;
-                            inputStream = openInputStream;
-                            nk4.d(inputStream);
-                            throw th;
-                        }
-                    } catch (Throwable th2) {
-                        th = th2;
-                    }
-                }
-            }
-            if (bitmap == null) {
-                if (!a) {
-                    j12.k("SkiaImageDecoder", "bitmap is null");
-                } else {
-                    throw new RuntimeException("Skia image region decoder returned null bitmap - image format may not be supported");
-                }
-            }
-            return bitmap;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return String.format("%s/ma/landingpage?t=service_agreement_m", "https://ossapi.baidu.com");
         }
-        return (Bitmap) invokeLL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gt1
+    public String I() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return s52.w(String.format("%s/ma/navigate", s52.a), true);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gt1
+    public String n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return s52.v(String.format("%s/ma/customer/checknewmess", s52.a));
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gt1
+    public String q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return String.format("%s/pms", "https://ossapi.baidu.com");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gt1
+    public String t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return String.format("%s", "https://ossapi.baidu.com");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gt1
+    public String m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            return s52.v(str);
+        }
+        return (String) invokeL.objValue;
     }
 }

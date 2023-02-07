@@ -1,162 +1,129 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import androidx.annotation.IntRange;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class a12 {
+public class a12 extends ta3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static int c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int[] a;
+    public String c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947562247, "Lcom/baidu/tieba/a12;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes3.dex */
+    public class a implements z02 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ a12 b;
+
+        public a(a12 a12Var, CallbackHandler callbackHandler) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a12Var, callbackHandler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947562247, "Lcom/baidu/tieba/a12;");
-                return;
+            this.b = a12Var;
+            this.a = callbackHandler;
+        }
+
+        @Override // com.baidu.tieba.z02
+        public void a(String str, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
+                if (str == null) {
+                    str = "";
+                    str3 = str;
+                }
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    if (str2 == null) {
+                        str2 = "";
+                    }
+                    jSONObject.put("scanType", str2);
+                    jSONObject.put("charSet", str3);
+                    jSONObject.put("result", str);
+                    w52.i("scanCode", jSONObject.toString());
+                    this.a.handleSchemeDispatchCallback(this.b.c, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
+                } catch (JSONException e) {
+                    if (ta3.b) {
+                        e.printStackTrace();
+                    }
+                    w52.i("scanCode", "scanCode exec fail");
+                    this.a.handleSchemeDispatchCallback(this.b.c, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                }
             }
         }
-        b = tk1.a;
-        c = 5;
     }
 
-    public a12(@IntRange(from = 1) int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a12(t93 t93Var) {
+        super(t93Var, "/swanAPI/scanCode");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {t93Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        c(i, false);
     }
 
-    public a12(@IntRange(from = 1) int i, boolean z) {
+    @Override // com.baidu.tieba.ta3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, w83 w83Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        c(i, z);
-    }
-
-    public final int a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return i >> c;
-        }
-        return invokeI.intValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public boolean b(@IntRange(from = 0) int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i < 0) {
-                j12.c("Component-DiffBitMap", "diff < 0: " + i);
-                if (!b) {
-                    return false;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, w83Var)) == null) {
+            if (w83Var == null) {
+                w52.i("scanCode", "swanApp is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
+                return false;
+            } else if (w83Var.n0()) {
+                if (ta3.b) {
+                    Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
                 }
-                throw new IndexOutOfBoundsException("diff < 0: " + i);
-            }
-            int[] iArr = this.a;
-            int length = (iArr.length << c) - 1;
-            if (i > length) {
-                String str = "diff > " + length + ": " + i;
-                j12.c("Component-DiffBitMap", str);
-                if (!b) {
-                    return false;
-                }
-                throw new IndexOutOfBoundsException(str);
-            } else if (((1 << i) & iArr[a(i)]) == 0) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
                 return false;
             } else {
+                String optString = wl3.d(unitedSchemeEntity.getParam("params")).optString("cb");
+                this.c = optString;
+                if (TextUtils.isEmpty(optString)) {
+                    w52.i("scanCode", "cb is empty");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                ds2.b0().a(w83Var.w(), new a(this, callbackHandler));
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 return true;
             }
         }
-        return invokeI.booleanValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public void d(@IntRange(from = 0) int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            if (i < 0) {
-                j12.c("Component-DiffBitMap", "diff < 0: " + i);
-                if (!b) {
-                    return;
-                }
-                throw new IndexOutOfBoundsException("diff < 0: " + i);
-            }
-            int[] iArr = this.a;
-            int length = (iArr.length << c) - 1;
-            if (i > length) {
-                String str = "diff > " + length + ": " + i;
-                j12.c("Component-DiffBitMap", str);
-                if (!b) {
-                    return;
-                }
-                throw new IndexOutOfBoundsException(str);
-            }
-            int a = a(i);
-            iArr[a] = (1 << i) | iArr[a];
-        }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public final void c(@IntRange(from = 1) int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            if (i <= 0) {
-                String str = "number <= 0: " + i;
-                j12.c("Component-DiffBitMap", str);
-                if (!b) {
-                    i = 500;
-                } else {
-                    throw new NegativeArraySizeException(str);
-                }
-            }
-            int[] iArr = new int[a(i - 1) + 1];
-            this.a = iArr;
-            int length = iArr.length;
-            if (z) {
-                for (int i2 = 0; i2 < length; i2++) {
-                    this.a[i2] = -1;
-                }
-            }
-        }
+        return invokeLLLL.booleanValue;
     }
 }

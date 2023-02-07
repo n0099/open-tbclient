@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.BdSailorWebChromeClient;
 import com.baidu.browser.sailor.BdSailorWebView;
 import com.baidu.swan.apps.core.slave.SwanAppWebViewWidget;
-import com.baidu.tieba.x52;
+import com.baidu.tieba.ka2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -125,7 +125,7 @@ public class SwanAppSimpleH5Widget extends SwanAppWebViewWidget {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bdSailorWebView, str)) == null) {
-                if (this.this$0.U != null && this.this$0.U.b(str)) {
+                if (this.this$0.U != null && this.this$0.U.a(str)) {
                     return true;
                 }
                 return false;
@@ -167,14 +167,14 @@ public class SwanAppSimpleH5Widget extends SwanAppWebViewWidget {
         X0(new SimpleWebChromeClient(this));
     }
 
-    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.j32
+    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.w72
     public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            x52 x52Var = this.U;
-            if (x52Var != null) {
-                x52Var.goBack();
+            ka2 ka2Var = this.U;
+            if (ka2Var != null) {
+                ka2Var.goBack();
             }
             return super.o();
         }

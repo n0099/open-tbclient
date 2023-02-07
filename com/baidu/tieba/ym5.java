@@ -1,269 +1,138 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.PorterDuff;
-import android.graphics.Rect;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tbadk.template.message.TemplateHttpResponseMessage;
+import com.baidu.tbadk.template.message.TemplateNetMessage;
+import com.baidu.tbadk.template.message.TemplateSocketResponsedMessage;
+import com.baidu.tieba.rm5;
+import com.baidu.tieba.sm5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class ym5 {
+public class ym5<Q extends rm5, P extends sm5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bitmap a;
-    public final a b;
-    public final Rect c;
-    public final Rect d;
-    public final Rect e;
-    public int f;
-    public Canvas g;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948334984, "Lcom/baidu/tieba/ym5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948334984, "Lcom/baidu/tieba/ym5;");
-        }
-    }
+    public final List<ql5> a;
+    public final x9<?> b;
+    public final tm5<Q, P> c;
+    public final Q d;
+    public final P e;
+    public final vm5 f;
+    public BdUniqueId g;
+    public boolean h;
+    public wb i;
+    public TbHttpMessageTask j;
+    public SocketMessageTask k;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public class a extends wb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public int c;
+        public final /* synthetic */ ym5 a;
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public int a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.b;
-            }
-            return invokeV.intValue;
-        }
-
-        public int b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a;
-            }
-            return invokeV.intValue;
-        }
-
-        public int c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.c;
-            }
-            return invokeV.intValue;
-        }
-
-        public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return ((((119 + this.a) * 17) + this.b) * 17) + (this.c * 100);
-            }
-            return invokeV.intValue;
-        }
-
-        public a(int i, int i2, int i3) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ym5 ym5Var, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                Object[] objArr = {ym5Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = i;
-            this.b = i2;
-            this.c = i3;
+            this.a = ym5Var;
         }
 
-        public boolean equals(Object obj) {
-            InterceptResult invokeL;
+        @Override // com.baidu.tieba.wb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-                if (obj instanceof a) {
-                    a aVar = (a) obj;
-                    if (this.a == aVar.b() && this.b == aVar.a() && this.c == aVar.c()) {
-                        return true;
-                    }
-                }
-                return false;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                hn5.b("TemplateModel-->onMessage");
+                this.a.n(responsedMessage);
             }
-            return invokeL.booleanValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                return "Position{row=" + this.a + ", column=" + this.b + ", sampleScale=" + this.c + '}';
-            }
-            return (String) invokeV.objValue;
         }
     }
 
-    public ym5(int i) {
+    public ym5(x9<?> x9Var, tm5<Q, P> tm5Var, vm5 vm5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.b = new a();
-        this.c = new Rect();
-        this.d = new Rect();
-        this.e = new Rect();
-        this.a = Bitmap.createBitmap(i, i, TbConfig.BitmapConfig);
-        this.f = i;
-        this.g = new Canvas();
-    }
-
-    public ym5(Bitmap bitmap) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bitmap};
-            interceptable.invokeUnInit(65538, newInitContext);
+            Object[] objArr = {x9Var, tm5Var, vm5Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new a();
-        this.c = new Rect();
-        this.d = new Rect();
-        this.e = new Rect();
-        if (bitmap != null) {
-            this.a = bitmap;
-            this.c.set(0, 0, bitmap.getWidth(), this.a.getHeight());
-        }
-        this.g = new Canvas();
+        this.a = new ArrayList();
+        this.h = false;
+        this.b = x9Var;
+        this.g = x9Var.getUniqueId();
+        this.c = tm5Var;
+        this.d = tm5Var.b();
+        this.e = this.c.d();
+        this.f = vm5Var;
+        o(d(), h(), e());
+        q(h());
+        p(d(), h());
     }
 
-    public void a() {
-        Bitmap bitmap;
+    public void l(Q q, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bitmap = this.a) != null && !bitmap.isRecycled() && this.a.isMutable()) {
-            this.g.setBitmap(this.a);
-            this.g.drawColor(-1, PorterDuff.Mode.CLEAR);
+        if (interceptable == null || interceptable.invokeLZ(1048586, this, q, z) == null) {
+            for (ql5 ql5Var : this.a) {
+                ql5Var.b(q, z);
+            }
         }
     }
 
-    public Bitmap b() {
-        InterceptResult invokeV;
+    public void m(Q q, P p) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeLL(1048587, this, q, p) == null) {
+            for (ql5 ql5Var : this.a) {
+                ql5Var.a(q, p);
+            }
         }
-        return (Bitmap) invokeV.objValue;
     }
 
-    public Rect c() {
-        InterceptResult invokeV;
+    public void b(ql5 ql5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, ql5Var) == null) && ql5Var != null && !this.a.contains(ql5Var)) {
+            this.a.add(ql5Var);
         }
-        return (Rect) invokeV.objValue;
     }
 
-    public a d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return (a) invokeV.objValue;
-    }
-
-    public Rect f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.c;
-        }
-        return (Rect) invokeV.objValue;
-    }
-
-    public Rect e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i = this.f;
-            a aVar = this.b;
-            int i2 = aVar.c;
-            int i3 = aVar.b * i * i2;
-            int i4 = aVar.a * i * i2;
-            this.e.set(i3, i4, (i * i2) + i3, (i * i2) + i4);
-            return this.e;
-        }
-        return (Rect) invokeV.objValue;
-    }
-
-    public boolean g(Rect rect) {
+    public final boolean c(ResponsedMessage<?> responsedMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, rect)) == null) {
-            if (rect == null) {
-                return false;
-            }
-            int i = rect.right - rect.left;
-            int i2 = this.f;
-            if (i != i2 || rect.bottom - rect.top != i2) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, responsedMessage)) == null) {
+            if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() != this.g) {
                 return false;
             }
             return true;
@@ -271,34 +140,190 @@ public class ym5 {
         return invokeL.booleanValue;
     }
 
-    public void h(Bitmap bitmap) {
+    public boolean i(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bitmap) == null) {
-            this.a = bitmap;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
+            hn5.b(" ----requestMessage---- ");
+            if (this.h) {
+                return false;
+            }
+            this.h = true;
+            l(f(), true);
+            r();
+            return true;
+        }
+        return invokeZ.booleanValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c.e();
+        }
+        return invokeV.intValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c.c();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Q f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return (Q) invokeV.objValue;
+    }
+
+    public P g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.e;
+        }
+        return (P) invokeV.objValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.c.a();
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            hn5.b(" ----loadMoreNetRequest---- ");
+            if (this.h) {
+                return false;
+            }
+            this.h = true;
+            l(f(), false);
+            r();
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.i);
         }
     }
 
-    public void i(int i, int i2, int i3, int i4) {
+    public void r() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2, i3, i4) == null) {
-            this.d.set(i, i2, i3, i4);
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            TemplateNetMessage templateNetMessage = new TemplateNetMessage(this.c, this.d, this.e);
+            templateNetMessage.setTag(this.g);
+            MessageManager.getInstance().sendMessage(templateNetMessage, this.k, this.j);
         }
     }
 
-    public void k(int i, int i2, int i3, int i4) {
+    public final void n(ResponsedMessage<?> responsedMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048586, this, i, i2, i3, i4) == null) {
-            this.c.set(i, i2, i3, i4);
+        if (interceptable == null || interceptable.invokeL(1048588, this, responsedMessage) == null) {
+            this.h = false;
+            if (!c(responsedMessage) || responsedMessage == null || responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof TemplateNetMessage)) {
+                return;
+            }
+            int error = responsedMessage.getError();
+            String errorString = responsedMessage.getErrorString();
+            if (responsedMessage.getError() == 0 && !responsedMessage.hasError()) {
+                if (responsedMessage instanceof TemplateSocketResponsedMessage) {
+                    TemplateSocketResponsedMessage templateSocketResponsedMessage = (TemplateSocketResponsedMessage) responsedMessage;
+                    m(f(), g());
+                    vm5 vm5Var = this.f;
+                    if (vm5Var != null) {
+                        vm5Var.onSuccess(templateSocketResponsedMessage.getIResp());
+                        return;
+                    }
+                    return;
+                } else if (responsedMessage instanceof TemplateHttpResponseMessage) {
+                    TemplateHttpResponseMessage templateHttpResponseMessage = (TemplateHttpResponseMessage) responsedMessage;
+                    m(f(), g());
+                    vm5 vm5Var2 = this.f;
+                    if (vm5Var2 != null) {
+                        vm5Var2.onSuccess(templateHttpResponseMessage.getIResp());
+                        return;
+                    }
+                    return;
+                } else {
+                    return;
+                }
+            }
+            if (TextUtils.isEmpty(errorString)) {
+                errorString = TbadkCoreApplication.getInst().getString(R.string.data_load_error);
+            }
+            vm5 vm5Var3 = this.f;
+            if (vm5Var3 != null) {
+                vm5Var3.onError(error, errorString);
+            }
         }
     }
 
-    public void j(int i, int i2, int i3) {
+    public final void o(int i, int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048585, this, i, i2, i3) == null) {
-            a aVar = this.b;
-            aVar.a = i;
-            aVar.b = i2;
-            aVar.c = i3;
+        if (interceptable == null || interceptable.invokeIIL(1048589, this, i, i2, str) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(i, o09.a(str, i2));
+            tbHttpMessageTask.setIsNeedLogin(true);
+            tbHttpMessageTask.setIsNeedTbs(true);
+            tbHttpMessageTask.setIsNeedAddCommenParam(true);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(true);
+            tbHttpMessageTask.setResponsedClass(TemplateHttpResponseMessage.class);
+            MessageManager.getInstance().unRegisterTask(i);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+            this.j = tbHttpMessageTask;
+        }
+    }
+
+    public final void p(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048590, this, i, i2) == null) {
+            if (this.i == null) {
+                this.i = new a(this, i, i2);
+            }
+            this.i.setTag(this.g);
+            this.i.getSocketMessageListener().isSelfListener();
+            this.i.getHttpMessageListener().isSelfListener();
+            MessageManager.getInstance().registerListener(this.i);
+        }
+    }
+
+    public final void q(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            SocketMessageTask socketMessageTask = new SocketMessageTask(i);
+            socketMessageTask.g(true);
+            socketMessageTask.h(false);
+            socketMessageTask.setNeedEncrypt(false);
+            socketMessageTask.setResponsedClass(TemplateSocketResponsedMessage.class);
+            MessageManager.getInstance().unRegisterTask(i);
+            MessageManager.getInstance().registerTask(socketMessageTask);
+            this.k = socketMessageTask;
+        }
+    }
+
+    public void s(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, bdUniqueId) == null) {
+            this.g = bdUniqueId;
+            o(d(), h(), e());
+            q(h());
+            p(d(), h());
         }
     }
 }

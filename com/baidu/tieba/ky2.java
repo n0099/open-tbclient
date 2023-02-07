@@ -1,211 +1,81 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ky2 implements np2 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static Boolean c = null;
-    public static int d = -1;
-    public static int e = -1;
-    public static int f = -1;
-    public static int g = -1;
-    public static int h = -1;
-    public static int i = -1;
-    public static int j = -1;
+public class ky2 extends jy2 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947929349, "Lcom/baidu/tieba/ky2;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947929349, "Lcom/baidu/tieba/ky2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947929349, "Lcom/baidu/tieba/ky2;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+        boolean z = gp1.a;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ky2(String str) {
+        super(str);
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947929349, "Lcom/baidu/tieba/ky2;");
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
     }
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.jy2
+    public boolean a(ey2 ey2Var, gy2 gy2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, w83 w83Var) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f == -1) {
-                f = b("swanswitch_file_res_cache_option");
-            }
-            if (f == 1) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{ey2Var, gy2Var, context, unitedSchemeEntity, callbackHandler, w83Var})) == null) {
+            w52.i("vrvideo", "remove, video id:" + gy2Var.j + " slave id: " + gy2Var.c);
+            d(ey2Var, gy2Var, unitedSchemeEntity, callbackHandler);
+            return true;
         }
-        return invokeV.booleanValue;
+        return invokeCommon.booleanValue;
     }
 
-    public static boolean c() {
-        InterceptResult invokeV;
+    public final void d(ey2 ey2Var, gy2 gy2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (i == -1) {
-                i = b("swan_http_interceptor_opt");
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ey2Var, gy2Var, unitedSchemeEntity, callbackHandler) == null) {
+            l42 a = j52.a(gy2Var);
+            if (a != null) {
+                a.B();
+            } else {
+                p52.a("VrVideoRemoveAction", "remove with a null component");
             }
-            if (i > 0) {
-                return true;
-            }
-            return false;
+            ey2Var.onDestroy();
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (f() > 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (j == -1) {
-                j = b("swan_js_thread_opt");
-            }
-            return j;
-        }
-        return invokeV.intValue;
-    }
-
-    public static int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (h == -1) {
-                h = b("swan_preload_slave_opt");
-            }
-            return h;
-        }
-        return invokeV.intValue;
-    }
-
-    public static boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (d == -1) {
-                d = b("swan_http_thread_opt");
-            }
-            if (d > 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            if (d == -1) {
-                d = b("swan_http_thread_opt");
-            }
-            int i2 = d;
-            if (i2 > 0 && i2 != 2) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            if (g == -1) {
-                g = b("swan_ubc_samping_opt");
-            }
-            return g;
-        }
-        return invokeV.intValue;
-    }
-
-    public static boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            if (j() > 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            if (c == null) {
-                c = Boolean.valueOf(d("swan_js_thread_dispatch"));
-            }
-            return c.booleanValue();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            if (e == -1) {
-                e = b("swan_webview_ssl_opt");
-            }
-            if (e > 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static int b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            qn2.g0().getSwitch(str, 0);
-            if (np2.a) {
-                Log.d("SwanPerformance", "packing[" + str + " = 0" + PreferencesUtil.RIGHT_MOUNT);
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public static boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (b(str) != 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 }

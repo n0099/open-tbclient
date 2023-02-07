@@ -1,21 +1,19 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class vk7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public String a;
-    @Nullable
-    public String b;
+    public final ArrayList<MetaData> a;
 
     public vk7() {
         Interceptable interceptable = $ic;
@@ -27,36 +25,26 @@ public class vk7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList<>();
     }
 
-    @Nullable
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Nullable
-    public String b() {
+    @NonNull
+    public ArrayList<MetaData> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+            return this.a;
         }
-        return (String) invokeV.objValue;
+        return (ArrayList) invokeV.objValue;
     }
 
-    public void c(JSONObject jSONObject) {
+    public void a(MetaData metaData) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, metaData) == null) {
+            this.a.add(metaData);
         }
-        this.a = jSONObject.optString("src");
-        this.b = jSONObject.optString("link");
     }
 }

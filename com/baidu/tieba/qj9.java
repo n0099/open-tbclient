@@ -1,26 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.nio.ByteBuffer;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import java.util.List;
 /* loaded from: classes6.dex */
-public final class qj9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface qj9<D> {
+    void a(@NonNull WriteData writeData);
 
-    public static void a(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65536, null, byteBuffer) != null) || byteBuffer.isDirect()) {
-            return;
-        }
-        throw new IllegalArgumentException("byteBuffer must be a direct ByteBuffer.");
-    }
+    void c(WriteData writeData);
 
-    public static void b(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, byteBuffer) != null) || byteBuffer.hasRemaining()) {
-            return;
-        }
-        throw new IllegalArgumentException("ByteBuffer is already full.");
-    }
+    void d();
+
+    void e(@NonNull WriteData writeData);
+
+    boolean g();
+
+    void h(@Nullable String str, @NonNull WriteData writeData);
+
+    void j(@NonNull sj9 sj9Var);
+
+    void m(Bundle bundle, Intent intent, @NonNull WriteData writeData);
+
+    boolean o();
+
+    void onActivityResult(int i, int i2, Intent intent);
+
+    void onChangeSkinType(int i);
+
+    void onPause();
+
+    void onResume();
+
+    void onSaveInstanceState(Bundle bundle);
+
+    void q(@NonNull List<qj9<?>> list);
+
+    void r(lb5 lb5Var);
+
+    View s(@NonNull ViewGroup viewGroup);
+
+    boolean t();
 }

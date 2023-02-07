@@ -1,57 +1,66 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public final class cc6 extends yb6 {
+public class cc6 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile cc6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean b;
+    public volatile int a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cc6(boolean z) {
-        super(64);
+    public cc6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = z;
+        this.a = 0;
+        this.a = 0;
     }
 
-    public /* synthetic */ cc6(boolean z, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i & 1) != 0 ? false : z);
-    }
-
-    @Override // com.baidu.tieba.yb6
-    public boolean b(hb6 item, kd6 timer, bb6 config) {
-        InterceptResult invokeLLL;
-        Long o;
+    public static cc6 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(timer, "timer");
-            Intrinsics.checkNotNullParameter(config, "config");
-            if (this.b && (o = item.e().o()) != null && o.longValue() == 0) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (cc6.class) {
+                    if (b == null) {
+                        b = new cc6();
+                    }
+                }
             }
-            return false;
+            return b;
         }
-        return invokeLLL.booleanValue;
+        return (cc6) invokeV.objValue;
+    }
+
+    public synchronized void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this) {
+                this.a++;
+            }
+        }
+    }
+
+    public synchronized void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                this.a--;
+            }
+        }
     }
 }

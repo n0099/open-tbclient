@@ -8,8 +8,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hx7;
-import com.baidu.tieba.kx7;
+import com.baidu.tieba.c28;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,8 +26,8 @@ public class MemberPayFragment extends BaseFragment {
     public int f;
     public int g;
     public String h;
-    public hx7 i;
-    public kx7 j;
+    public c28 i;
+    public MemberPayResult j;
     public View k;
 
     public MemberPayFragment() {
@@ -57,20 +56,20 @@ public class MemberPayFragment extends BaseFragment {
     }
 
     public void C1(Boolean bool) {
-        hx7 hx7Var;
+        c28 c28Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, bool) == null) && (hx7Var = this.i) != null) {
-            hx7Var.s(bool.booleanValue());
+        if ((interceptable == null || interceptable.invokeL(1048576, this, bool) == null) && (c28Var = this.i) != null) {
+            c28Var.s(bool.booleanValue());
         }
     }
 
-    public void D1(kx7 kx7Var) {
+    public void D1(MemberPayResult memberPayResult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kx7Var) == null) {
-            this.j = kx7Var;
-            hx7 hx7Var = this.i;
-            if (hx7Var != null) {
-                hx7Var.u(kx7Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, memberPayResult) == null) {
+            this.j = memberPayResult;
+            c28 c28Var = this.i;
+            if (c28Var != null) {
+                c28Var.u(memberPayResult);
             }
         }
     }
@@ -88,9 +87,9 @@ public class MemberPayFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             super.onChangeSkinType(i);
-            hx7 hx7Var = this.i;
-            if (hx7Var != null) {
-                hx7Var.r(i);
+            c28 c28Var = this.i;
+            if (c28Var != null) {
+                c28Var.r(i);
             }
         }
     }
@@ -119,10 +118,10 @@ public class MemberPayFragment extends BaseFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, layoutInflater, viewGroup, bundle)) == null) {
-            this.k = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d059e, viewGroup, false);
-            hx7 hx7Var = new hx7(getPageContext(), this.k, this.a, this.b, this.d, this.e, this.f, this.g, this.h, this.c);
-            this.i = hx7Var;
-            hx7Var.u(this.j);
+            this.k = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d059a, viewGroup, false);
+            c28 c28Var = new c28(getPageContext(), this.k, this.a, this.b, this.d, this.e, this.f, this.g, this.h, this.c);
+            this.i = c28Var;
+            c28Var.u(this.j);
             return this.k;
         }
         return (View) invokeLLL.objValue;

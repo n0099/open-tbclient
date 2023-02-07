@@ -1,43 +1,47 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.AbstractHttpManager;
+import com.baidu.searchbox.http.request.GetRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class rf4 implements uf4 {
+public class rf4 extends GetRequest.GetRequestBuilder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.uf4
-    public void a(JSONArray jSONArray, ec4 ec4Var, @Nullable ec4 ec4Var2, @Nullable ec4 ec4Var3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, jSONArray, ec4Var, ec4Var2, ec4Var3) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.uf4
-    public void b(JSONObject jSONObject, ec4 ec4Var, @Nullable ec4 ec4Var2, @Nullable ec4 ec4Var3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, ec4Var, ec4Var2, ec4Var3) == null) {
-        }
-    }
-
-    public rf4() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rf4(AbstractHttpManager abstractHttpManager) {
+        super(abstractHttpManager);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {abstractHttpManager};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((AbstractHttpManager) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.request.GetRequest.GetRequestBuilder, com.baidu.searchbox.http.request.HttpRequestBuilder
+    public GetRequest build() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            of4.b().j(this.httpUrl.toString(), this);
+            requestFrom(6);
+            return super.build();
+        }
+        return (GetRequest) invokeV.objValue;
     }
 }

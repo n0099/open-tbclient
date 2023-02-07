@@ -1,57 +1,168 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
 public class x38 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static String a = "c12585";
-        public static String b = "c12586";
-        public transient /* synthetic */ FieldHolder $fh;
+    public static void a(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65536, null, str) != null) || StringUtils.isNull(str)) {
+            return;
+        }
+        File file = new File(str);
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+    }
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-337944465, "Lcom/baidu/tieba/x38$a;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-337944465, "Lcom/baidu/tieba/x38$a;");
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65537, null, str) != null) || StringUtils.isNull(str)) {
+            return;
+        }
+        FileHelper.deleteFileOrDir(new File(z38.e + z38.a + str));
+    }
+
+    public static void c(String str, JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, str, jSONArray) == null) && !StringUtils.isNull(str) && jSONArray != null) {
+            try {
+                JSONArray jSONArray2 = new JSONArray(str);
+                for (int i = 0; i < jSONArray2.length(); i++) {
+                    jSONArray.put(jSONArray2.optJSONObject(i));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
 
-    public static CustomDialogData a(JSONObject jSONObject) {
+    public static JSONArray d(String str) {
         InterceptResult invokeL;
-        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
-            if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("tb_hudong")) != null && !TextUtils.isEmpty(optJSONObject.optString("content"))) {
-                try {
-                    return CustomDialogData.praseJSON(new JSONObject(Uri.decode(optJSONObject.optString("content"))));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            if (StringUtils.isNull(str)) {
+                return jSONArray;
             }
-            return null;
+            File file = new File(str);
+            if (!file.exists()) {
+                return jSONArray;
+            }
+            String e = e(file);
+            String[] split = e.split("\n");
+            if (split.length > 0) {
+                for (String str2 : split) {
+                    c(str2, jSONArray);
+                }
+            } else {
+                c(e, jSONArray);
+            }
+            FileHelper.deleteFile(file);
+            return jSONArray;
         }
-        return (CustomDialogData) invokeL.objValue;
+        return (JSONArray) invokeL.objValue;
+    }
+
+    public static String e(File file) {
+        InterceptResult invokeL;
+        FileInputStream fileInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) {
+            StringBuilder sb = new StringBuilder();
+            FileInputStream fileInputStream2 = null;
+            try {
+                try {
+                    fileInputStream = new FileInputStream(file);
+                } catch (Exception e) {
+                    e = e;
+                }
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                byte[] bArr = new byte[1024];
+                while (true) {
+                    int read = fileInputStream.read(bArr);
+                    if (read == -1) {
+                        break;
+                    }
+                    sb.append(new String(bArr, 0, read));
+                }
+                ch.c(fileInputStream);
+            } catch (Exception e2) {
+                e = e2;
+                fileInputStream2 = fileInputStream;
+                e.printStackTrace();
+                ch.c(fileInputStream2);
+                return sb.toString();
+            } catch (Throwable th2) {
+                th = th2;
+                fileInputStream2 = fileInputStream;
+                ch.c(fileInputStream2);
+                throw th;
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean f(File file, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, file, str)) == null) {
+            return g(file, str, true);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean g(File file, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        FileOutputStream fileOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65542, null, file, str, z)) == null) {
+            FileOutputStream fileOutputStream2 = null;
+            try {
+                try {
+                    if (!file.exists()) {
+                        file.createNewFile();
+                    }
+                    fileOutputStream = new FileOutputStream(file, z);
+                } catch (Exception e) {
+                    e = e;
+                }
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                fileOutputStream.write(str.getBytes());
+                fileOutputStream.flush();
+                ch.d(fileOutputStream);
+                return true;
+            } catch (Exception e2) {
+                e = e2;
+                fileOutputStream2 = fileOutputStream;
+                e.printStackTrace();
+                ch.d(fileOutputStream2);
+                return false;
+            } catch (Throwable th2) {
+                th = th2;
+                fileOutputStream2 = fileOutputStream;
+                ch.d(fileOutputStream2);
+                throw th;
+            }
+        }
+        return invokeLLZ.booleanValue;
     }
 }

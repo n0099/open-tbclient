@@ -14,9 +14,9 @@ import com.baidu.live.business.base.LiveBaseItemView;
 import com.baidu.live.business.model.data.LiveFeedReserveHeaderInfo;
 import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ia0;
-import com.baidu.tieba.vc0;
-import com.baidu.tieba.zc0;
+import com.baidu.tieba.bd0;
+import com.baidu.tieba.fd0;
+import com.baidu.tieba.oa0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -68,17 +68,17 @@ public class LiveReserveHeaderView extends LiveBaseItemView {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            vc0.h(this.i, 1, 13.0f);
-            vc0.f(this.j, ia0.c(getContext().getResources(), 12.0f), ia0.c(getContext().getResources(), 12.0f));
+            bd0.h(this.i, 1, 13.0f);
+            bd0.f(this.j, oa0.c(getContext().getResources(), 12.0f), oa0.c(getContext().getResources(), 12.0f));
         }
     }
 
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d055c, this);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0558, this);
             this.h = inflate.findViewById(R.id.layout_bg);
-            this.i = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092507);
+            this.i = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09251e);
             this.j = (ImageView) inflate.findViewById(R.id.iv_arrow);
             d();
             GradientDrawable gradientDrawable = new GradientDrawable();
@@ -95,17 +95,17 @@ public class LiveReserveHeaderView extends LiveBaseItemView {
             if (view2 != null) {
                 Drawable background = view2.getBackground();
                 if (background instanceof GradientDrawable) {
-                    ((GradientDrawable) background).setColor(zc0.f().a(getContext(), this.c, "color_F5F5F53"));
+                    ((GradientDrawable) background).setColor(fd0.f().a(getContext(), this.c, "color_F5F5F53"));
                     this.h.setBackgroundDrawable(background);
                 }
             }
             TextView textView = this.i;
             if (textView != null) {
-                textView.setTextColor(zc0.f().a(getContext(), this.c, "color_white4"));
+                textView.setTextColor(fd0.f().a(getContext(), this.c, "color_white4"));
             }
             ImageView imageView = this.j;
             if (imageView != null) {
-                imageView.setImageResource(zc0.f().p(this.c));
+                imageView.setImageResource(fd0.f().p(this.c));
             }
         }
     }

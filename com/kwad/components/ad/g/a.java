@@ -59,7 +59,7 @@ public final class a {
             ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, f2);
             ofFloat.setDuration(j);
             ofFloat.setInterpolator(PathInterpolatorCompat.create(0.0f, 0.0f, 0.58f, 1.0f));
-            ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(f / f2, f2, view2.getResources().getDimension(R.dimen.obfuscated_res_0x7f0703a1), view2) { // from class: com.kwad.components.ad.g.a.3
+            ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(f / f2, f2, view2.getResources().getDimension(R.dimen.obfuscated_res_0x7f0703a3), view2) { // from class: com.kwad.components.ad.g.a.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ float BH;
@@ -188,9 +188,9 @@ public final class a {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            this.uo = (Button) this.BA.findViewById(R.id.obfuscated_res_0x7f0911f7);
-            this.up = (Button) this.BA.findViewById(R.id.obfuscated_res_0x7f0911f9);
-            this.un = this.BA.findViewById(R.id.obfuscated_res_0x7f0911f8);
+            this.uo = (Button) this.BA.findViewById(R.id.obfuscated_res_0x7f09123a);
+            this.up = (Button) this.BA.findViewById(R.id.obfuscated_res_0x7f09123c);
+            this.un = this.BA.findViewById(R.id.obfuscated_res_0x7f09123b);
         }
     }
 

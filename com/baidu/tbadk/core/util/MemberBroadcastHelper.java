@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.data.MemberBroadcastData;
-import com.baidu.tieba.cz4;
+import com.baidu.tieba.p35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,10 +51,10 @@ public class MemberBroadcastHelper {
             String generatorSpNumKey = generatorSpNumKey(i);
             String generatorSpTimeKey = generatorSpTimeKey(i);
             if (!StringUtils.isNull(generatorSpNumKey)) {
-                cz4.l().E(generatorSpNumKey);
+                p35.m().H(generatorSpNumKey);
             }
             if (!StringUtils.isNull(generatorSpTimeKey)) {
-                cz4.l().E(generatorSpTimeKey);
+                p35.m().H(generatorSpTimeKey);
             }
         }
     }
@@ -64,10 +64,10 @@ public class MemberBroadcastHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
             if (i == 1) {
-                return cz4.p("key_daily_member_broadcast_show_num_");
+                return p35.q("key_daily_member_broadcast_show_num_");
             }
             if (i == 2) {
-                return cz4.p("key_om_member_broadcast_show_num_");
+                return p35.q("key_om_member_broadcast_show_num_");
             }
             return null;
         }
@@ -79,10 +79,10 @@ public class MemberBroadcastHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
             if (i == 1) {
-                return cz4.p("key_daily_member_broadcast_show_time_");
+                return p35.q("key_daily_member_broadcast_show_time_");
             }
             if (i == 2) {
-                return cz4.p("key_om_member_broadcast_show_time_");
+                return p35.q("key_om_member_broadcast_show_time_");
             }
             return null;
         }
@@ -94,11 +94,11 @@ public class MemberBroadcastHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i)) == null) {
             String generatorSpNumKey = generatorSpNumKey(i);
-            if (!TimeHelper.isSameDay(cz4.l().n(generatorSpTimeKey(i), 0L), System.currentTimeMillis())) {
+            if (!TimeHelper.isSameDay(p35.m().o(generatorSpTimeKey(i), 0L), System.currentTimeMillis())) {
                 clearSaveInfo(i);
                 return 0;
             }
-            return cz4.l().m(generatorSpNumKey, 0);
+            return p35.m().n(generatorSpNumKey, 0);
         }
         return invokeI.intValue;
     }
@@ -108,7 +108,7 @@ public class MemberBroadcastHelper {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65541, this, i)) == null) {
-            long n = cz4.l().n(generatorSpTimeKey(i), 0L);
+            long o = p35.m().o(generatorSpTimeKey(i), 0L);
             if (i == 1) {
                 i2 = this.mMemberBroadcastData.getDailyMinStep();
             } else if (i == 2) {
@@ -116,7 +116,7 @@ public class MemberBroadcastHelper {
             } else {
                 i2 = 0;
             }
-            if ((System.currentTimeMillis() - n) / 1000 > i2) {
+            if ((System.currentTimeMillis() - o) / 1000 > i2) {
                 return true;
             }
             return false;
@@ -130,10 +130,10 @@ public class MemberBroadcastHelper {
             String generatorSpNumKey = generatorSpNumKey(i);
             String generatorSpTimeKey = generatorSpTimeKey(i);
             if (!StringUtils.isNull(generatorSpNumKey)) {
-                cz4.l().x(generatorSpNumKey, cz4.l().m(generatorSpNumKey, 0) + 1);
+                p35.m().z(generatorSpNumKey, p35.m().n(generatorSpNumKey, 0) + 1);
             }
             if (!StringUtils.isNull(generatorSpTimeKey)) {
-                cz4.l().y(generatorSpTimeKey, System.currentTimeMillis());
+                p35.m().A(generatorSpTimeKey, System.currentTimeMillis());
             }
         }
     }

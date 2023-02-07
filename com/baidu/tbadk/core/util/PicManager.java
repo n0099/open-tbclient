@@ -10,10 +10,10 @@ import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.resourceLoader.IMImageSize;
+import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ba5;
-import com.baidu.tieba.jn;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.on;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -135,17 +135,17 @@ public class PicManager {
                 if (fixBitmap == null) {
                     return;
                 }
-                addPicMemoryCache(str, new jn(fixBitmap, z2));
+                addPicMemoryCache(str, new on(fixBitmap, z2));
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public static void addPicMemoryCache(String str, jn jnVar) {
+    public static void addPicMemoryCache(String str, on onVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, jnVar) == null) {
-            ba5.k().d(str, jnVar);
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, onVar) == null) {
+            TbImageMemoryCache.n().f(str, onVar);
         }
     }
 
@@ -153,8 +153,8 @@ public class PicManager {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
-            int g = zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds408);
-            int g2 = zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds174);
+            int g = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds408);
+            int g2 = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds174);
             float f = (i * 1.0f) / i2;
             int i3 = (f > 1.0f ? 1 : (f == 1.0f ? 0 : -1));
             if (i3 == 0) {
@@ -311,7 +311,7 @@ public class PicManager {
                 }
                 if (z) {
                     Bitmap image = StorageFile.getInstance().getImage(nameMd5FromUrl);
-                    ba5.k().i(imageSize);
+                    TbImageMemoryCache.n().l(imageSize);
                     if (image != null) {
                         addPicMemoryCache(str, image, z2, StorageFile.getInstance().isGif(nameMd5FromUrl), z3, nameMd5FromUrl);
                     }

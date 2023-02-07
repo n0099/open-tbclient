@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.a60;
+import com.baidu.tieba.g60;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -21,15 +21,14 @@ public class c60 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Class[] a;
-        public final /* synthetic */ a60.a b;
-        public final /* synthetic */ Context c;
+        public final /* synthetic */ g60.a b;
 
-        public a(Class[] clsArr, a60.a aVar, Context context) {
+        public a(Class[] clsArr, g60.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {clsArr, aVar, context};
+                Object[] objArr = {clsArr, aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -41,28 +40,17 @@ public class c60 {
             }
             this.a = clsArr;
             this.b = aVar;
-            this.c = context;
         }
 
-        /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[IGET, INVOKE] complete} */
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLL(1048576, this, componentName, iBinder) != null) {
-                return;
-            }
-            try {
+            if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
                 try {
-                    Object invoke = this.a[0].getMethod("asInterface", IBinder.class).invoke(null, iBinder);
-                    this.b.a(true, (String) invoke.getClass().getMethod("getOAID", new Class[0]).invoke(invoke, new Object[0]));
-                } finally {
-                    try {
-                        this.c.unbindService(this);
-                    } catch (Throwable unused) {
-                    }
+                    this.b.a(true, (String) this.a[0].getMethod("a", new Class[0]).invoke(this.a[0].getMethod("asInterface", IBinder.class).invoke(null, iBinder), new Object[0]));
+                } catch (Throwable unused) {
+                    this.b.a(false, null);
                 }
-            } catch (Throwable unused2) {
-                this.b.a(false, null);
             }
         }
 
@@ -74,18 +62,16 @@ public class c60 {
         }
     }
 
-    public static void a(Context context, a60.a aVar) {
+    public static void a(Context context, g60.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65536, null, context, aVar) == null) {
             if (context == null) {
                 aVar.a(false, null);
                 return;
             }
-            Intent intent = new Intent();
-            intent.setClassName("com.samsung.android.deviceidservice", "com.samsung.android.deviceidservice.DeviceIdService");
             Class[] clsArr = new Class[1];
             try {
-                clsArr[0] = Class.forName("com.samsung.android.deviceidservice.IDeviceIdService$Stub");
+                clsArr[0] = Class.forName("com.zui.deviceidservice.IDeviceidInterface$Stub");
             } catch (Throwable unused) {
             }
             if (clsArr[0] == null) {
@@ -93,7 +79,10 @@ public class c60 {
                 return;
             }
             try {
-                context.bindService(intent, new a(clsArr, aVar, context), 1);
+                a aVar2 = new a(clsArr, aVar);
+                Intent intent = new Intent();
+                intent.setClassName("com.zui.deviceidservice", "com.zui.deviceidservice.DeviceidService");
+                context.bindService(intent, aVar2, 1);
             } catch (Throwable unused2) {
                 aVar.a(false, null);
             }

@@ -1,31 +1,47 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.xm0;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONObject;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
-public final class om0 {
+public class om0 implements vm0, Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final y01 a;
-    public final Map<String, String> b;
-    @NonNull
-    public final Map<String, Map<String, String>> c;
-    public volatile boolean d;
+    public final ConcurrentLinkedQueue<xm0.b<?>> a;
+    public final AtomicBoolean b;
+
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final om0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-542280934, "Lcom/baidu/tieba/om0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-542280934, "Lcom/baidu/tieba/om0$a;");
+                    return;
+                }
+            }
+            a = new om0();
+        }
+    }
 
     public om0() {
-        String[] a;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -38,113 +54,43 @@ public final class om0 {
                 return;
             }
         }
-        this.b = new ConcurrentHashMap(128);
-        this.c = new ConcurrentHashMap(8);
-        this.a = b11.a().b("nad.cold.launch.config");
-        for (String str : vm0.a().a()) {
-            String string = this.a.getString(str, null);
-            if (string != null) {
-                v01.e(this.b, str, string);
-            }
-        }
+        this.a = new ConcurrentLinkedQueue<>();
+        this.b = new AtomicBoolean(false);
     }
 
-    @NonNull
-    public Map<String, String> a() {
+    public static vm0 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.a;
         }
-        return (Map) invokeV.objValue;
+        return (vm0) invokeV.objValue;
     }
 
-    @NonNull
-    public Map<String, Map<String, String>> b() {
-        InterceptResult invokeV;
+    @Override // java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
+            return;
         }
-        return (Map) invokeV.objValue;
-    }
-
-    public final void c(@NonNull JSONObject jSONObject) {
-        String[] a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            this.b.clear();
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                v01.e(this.b, next, jSONObject.optString(next));
-            }
-            SharedPreferences.Editor edit = this.a.edit();
-            edit.clear();
-            for (String str : vm0.a().a()) {
-                String str2 = (String) v01.b(this.b, str);
-                if (str2 != null) {
-                    edit.putString(str, str2);
-                }
-            }
-            edit.apply();
-            SharedPreferences.Editor edit2 = b11.a().b("nad.launch.config.global").edit();
-            edit2.clear();
-            for (String str3 : this.b.keySet()) {
-                String str4 = (String) v01.b(this.b, str3);
-                if (str4 != null) {
-                    edit2.putString(str3, str4);
-                }
-            }
-            edit2.apply();
-        }
-    }
-
-    public final void d(@NonNull JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
-            this.c.clear();
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                String optString = jSONObject.optString(next);
-                HashMap hashMap = null;
-                if (!TextUtils.isEmpty(optString)) {
-                    hashMap = new HashMap(8);
-                    JSONObject c = u01.c(optString);
-                    Iterator<String> keys2 = c.keys();
-                    while (keys2.hasNext()) {
-                        String next2 = keys2.next();
-                        v01.e(hashMap, next2, c.optString(next2));
-                    }
-                }
-                if (hashMap != null) {
-                    v01.e(this.c, next, hashMap);
-                    b11 a = b11.a();
-                    SharedPreferences.Editor edit = a.b("nad.launch.config." + next).edit();
-                    edit.clear();
-                    for (String str : hashMap.keySet()) {
-                        String str2 = (String) hashMap.get(str);
-                        if (str2 != null) {
-                            edit.putString(str, str2);
-                        }
-                    }
-                    edit.apply();
-                }
+        while (true) {
+            xm0.b<?> poll = this.a.poll();
+            if (poll != null) {
+                poll.a.onEvent(poll.b);
+            } else {
+                this.b.set(false);
+                return;
             }
         }
     }
 
-    public void update(@NonNull JSONObject jSONObject) {
+    @Override // com.baidu.tieba.vm0
+    public <T extends tm0> void a(ym0 ym0Var, wm0<T> wm0Var, T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
-            String optString = jSONObject.optString("global");
-            if (!TextUtils.isEmpty(optString)) {
-                c(u01.c(optString));
-            }
-            String optString2 = jSONObject.optString("place_conf");
-            if (!TextUtils.isEmpty(optString2)) {
-                d(u01.c(optString2));
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, ym0Var, wm0Var, t) == null) {
+            this.a.offer(new xm0.b<>(ym0Var, wm0Var, t));
+            if (this.b.compareAndSet(false, true)) {
+                o31.c(this, "AsyncDeliver", 3);
             }
         }
     }

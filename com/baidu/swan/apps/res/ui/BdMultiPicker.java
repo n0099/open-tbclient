@@ -12,10 +12,10 @@ import com.baidu.down.request.task.ProgressInfo;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.swan.apps.res.ui.wheelview3d.WheelView3d;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ai3;
-import com.baidu.tieba.b33;
-import com.baidu.tieba.tk1;
-import com.baidu.tieba.w23;
+import com.baidu.tieba.gp1;
+import com.baidu.tieba.j73;
+import com.baidu.tieba.nm3;
+import com.baidu.tieba.o73;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,7 +42,7 @@ public class BdMultiPicker extends LinearLayout {
     public int h;
     public int i;
     public int j;
-    public b33 k;
+    public o73 k;
 
     /* loaded from: classes3.dex */
     public interface b {
@@ -50,7 +50,7 @@ public class BdMultiPicker extends LinearLayout {
     }
 
     /* loaded from: classes3.dex */
-    public class a implements b33 {
+    public class a implements o73 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BdMultiPicker a;
@@ -73,7 +73,7 @@ public class BdMultiPicker extends LinearLayout {
             this.a = bdMultiPicker;
         }
 
-        @Override // com.baidu.tieba.b33
+        @Override // com.baidu.tieba.o73
         public void a(WheelView3d wheelView3d, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, wheelView3d, i) == null) {
@@ -115,7 +115,7 @@ public class BdMultiPicker extends LinearLayout {
                 return;
             }
         }
-        l = tk1.a;
+        l = gp1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -235,7 +235,7 @@ public class BdMultiPicker extends LinearLayout {
                 Log.d("BdMultiPicker", "update wheel UI dataArray : " + jSONArray);
             }
             wheelView3d.setCyclic(false);
-            wheelView3d.setAdapter(new w23(arrayList));
+            wheelView3d.setAdapter(new j73(arrayList));
             wheelView3d.setCurrentItem(i2);
         }
     }
@@ -275,18 +275,18 @@ public class BdMultiPicker extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(0);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00bd, this);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092765);
-            this.g = ai3.f(context, this.g);
-            this.j = ai3.f(context, this.j);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00bc, this);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09276a);
+            this.g = nm3.f(context, this.g);
+            this.j = nm3.f(context, this.j);
         }
     }
 
     public final void e(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.h = ai3.f(context, 16.0f);
-            this.i = ai3.f(context, 14.0f);
+            this.h = nm3.f(context, 16.0f);
+            this.i = nm3.f(context, 14.0f);
             for (int i = 0; i < this.d; i++) {
                 WheelView3d wheelView3d = new WheelView3d(context);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
@@ -404,7 +404,7 @@ public class BdMultiPicker extends LinearLayout {
                 arrayList.add("");
             }
             WheelView3d wheelView3d = (WheelView3d) this.a.getChildAt(i);
-            wheelView3d.setAdapter(new w23(arrayList));
+            wheelView3d.setAdapter(new j73(arrayList));
             wheelView3d.setCurrentItem(this.c.optInt(i));
             wheelView3d.setCyclic(false);
         }

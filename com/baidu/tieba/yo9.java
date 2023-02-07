@@ -1,9 +1,39 @@
 package com.baidu.tieba;
 
-import java.io.IOException;
+import java.util.List;
 /* loaded from: classes7.dex */
 public interface yo9 {
-    void close() throws IOException;
+    boolean a();
 
-    int write(byte[] bArr, int i, int i2) throws IOException;
+    int b();
+
+    boolean c(String str);
+
+    boolean d();
+
+    int e();
+
+    int f();
+
+    boolean g();
+
+    String h();
+
+    List<String> i();
+
+    boolean isPeakTime();
+
+    boolean j();
+
+    boolean k();
+
+    boolean l();
+
+    boolean m();
+
+    boolean n();
+
+    boolean o();
+
+    boolean p();
 }

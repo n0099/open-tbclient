@@ -1,11 +1,15 @@
 package com.baidu.tieba;
 
+import android.graphics.Bitmap;
+import android.graphics.Rect;
+import android.os.Looper;
+import android.os.Message;
 import android.text.TextUtils;
+import android.util.Log;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.apps.core.prefetch.statistics.item.RecordType;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.swan.apps.core.launchtips.scene.SceneType;
+import com.baidu.tieba.qz2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,208 +17,178 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class k92 implements l92 {
+public final class k92 extends f92<j92> {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<n92> a;
-    public boolean b;
+    public final qz2 a;
+    public final rz2 b;
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ j92 a;
+        public final /* synthetic */ k92 b;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-704761048, "Lcom/baidu/tieba/k92$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-704761048, "Lcom/baidu/tieba/k92$a;");
+        public a(k92 k92Var, j92 j92Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k92Var, j92Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            int[] iArr = new int[RecordType.values().length];
-            a = iArr;
-            try {
-                iArr[RecordType.APP_ID.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[RecordType.APP_VERSION.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[RecordType.PREFETCH_TYPE.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[RecordType.PREFETCH_EVENT.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-            try {
-                a[RecordType.PREFETCH_OTHER_MSG.ordinal()] = 5;
-            } catch (NoSuchFieldError unused5) {
-            }
-            try {
-                a[RecordType.PREFETCH_PRELINK.ordinal()] = 6;
-            } catch (NoSuchFieldError unused6) {
+            this.b = k92Var;
+            this.a = j92Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Bitmap p;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (p = nm3.p()) != null) {
+                Message.obtain(this.b, 2, j92.a(this.a.b, p)).sendToTarget();
             }
         }
     }
 
-    public k92() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947867845, "Lcom/baidu/tieba/k92;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947867845, "Lcom/baidu/tieba/k92;");
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = false;
+        c = gp1.a;
     }
 
-    public void a(String str, UbcFlowEvent ubcFlowEvent) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k92(Looper looper) {
+        super(looper);
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, ubcFlowEvent) != null) || !b(str)) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {looper};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Looper) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        ox2.q(PrefetchEvent.MODULE, str).F(ubcFlowEvent);
+        this.a = qz2.a.a("simple_parser");
+        this.b = (rz2) qz2.a.a("hsv_parser");
     }
 
-    public void d(String str, boolean z) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(1048579, this, str, z) != null) || !b(str)) {
-            return;
-        }
-        HybridUbcFlow q = ox2.q(PrefetchEvent.MODULE, str);
-        if (z) {
-            str2 = "success";
-        } else {
-            str2 = com.baidu.pass.biometrics.face.liveness.b.a.g0;
-        }
-        q.E("value", str2);
-    }
-
-    public void e(String str, n92 n92Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048580, this, str, n92Var) != null) || !b(str)) {
-            return;
-        }
-        c(ox2.q(PrefetchEvent.MODULE, str), n92Var);
-    }
-
-    public final boolean b(String str) {
+    public final boolean e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return !TextUtils.isEmpty(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            return TextUtils.equals(qm3.B(), str);
         }
         return invokeL.booleanValue;
     }
 
-    public void f(String str) {
+    public final void f(j92 j92Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || !b(str)) {
+        if ((interceptable != null && interceptable.invokeL(1048581, this, j92Var) != null) || j92Var == null) {
             return;
         }
-        ox2.s(PrefetchEvent.MODULE, str);
-        ox2.q(PrefetchEvent.MODULE, str);
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && b(str) && !this.b) {
-            this.b = true;
-            HybridUbcFlow q = ox2.q(PrefetchEvent.MODULE, str);
-            g(q);
-            q.A();
-            ox2.s(PrefetchEvent.MODULE, str);
+        if (c) {
+            Log.d("WhitePageHandler", ">> start to get capture.");
         }
+        qm3.e0(new a(this, j92Var));
     }
 
-    public final void c(HybridUbcFlow hybridUbcFlow, n92 n92Var) {
-        String str;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.f92
+    /* renamed from: c */
+    public void a(j92 j92Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, hybridUbcFlow, n92Var) == null) && hybridUbcFlow != null && n92Var != null) {
-            switch (a.a[n92Var.a.ordinal()]) {
-                case 1:
-                    hybridUbcFlow.D("app_id", n92Var.b);
-                    return;
-                case 2:
-                    hybridUbcFlow.D("app_version", n92Var.b);
-                    return;
-                case 3:
-                    if (n92Var.c) {
-                        str = "hot";
-                    } else {
-                        str = "cold";
-                    }
-                    hybridUbcFlow.E("type", str);
-                    return;
-                case 4:
-                    hybridUbcFlow.E("source", n92Var.b);
-                    return;
-                case 5:
-                    hybridUbcFlow.D("msg", n92Var.b);
-                    return;
-                case 6:
-                    synchronized (this.a) {
-                        this.a.add(n92Var);
-                    }
-                    return;
-                default:
-                    return;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, j92Var) != null) || j92Var == null) {
+            return;
+        }
+        if (!e(j92Var.b)) {
+            if (c) {
+                Log.d("WhitePageHandler", ">> stop to capture, page is not top, webViewId =" + j92Var.b);
+                return;
             }
+            return;
         }
+        f(j92Var);
     }
 
-    public final void g(HybridUbcFlow hybridUbcFlow) {
-        List<n92> list;
-        String str;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.f92
+    /* renamed from: d */
+    public void b(j92 j92Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, hybridUbcFlow) == null) && hybridUbcFlow != null && (list = this.a) != null && list.size() > 0) {
-            JSONObject jSONObject = new JSONObject();
-            JSONArray jSONArray = new JSONArray();
-            synchronized (this.a) {
-                try {
-                    for (n92 n92Var : this.a) {
-                        String str2 = n92Var.b;
-                        JSONObject jSONObject2 = new JSONObject();
-                        jSONObject2.put("url", str2);
-                        if (n92Var.c) {
-                            str = "1";
-                        } else {
-                            str = "0";
-                        }
-                        jSONObject2.put("link", str);
-                        jSONArray.put(jSONObject2);
-                    }
-                    jSONObject.put("links", jSONArray);
-                } catch (JSONException unused) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, j92Var) != null) || j92Var == null) {
+            return;
+        }
+        if (!e(j92Var.b)) {
+            if (c) {
+                Log.d("WhitePageHandler", ">> stop to parse capture, page is not top, webViewId = " + j92Var.b);
+                return;
+            }
+            return;
+        }
+        Bitmap bitmap = j92Var.d;
+        e82 f = fz2.f();
+        View B = ju2.U().B(j92Var.b);
+        if (bitmap != null && f != null && B != null) {
+            if (c) {
+                Log.d("WhitePageHandler", ">> start parsing capture");
+            }
+            Rect b = fz2.b(bitmap, f, B);
+            this.a.c(fz2.d(f));
+            if (!fz2.h() && this.a.a(bitmap, b)) {
+                if (c) {
+                    Log.d("WhitePageHandler", ">> capture is full white screen.");
                 }
-                this.a.clear();
+                w92 w92Var = new w92();
+                w92Var.e(SceneType.SCENE_WHITE_SCREEN_L1);
+                w92Var.d(j92Var.b);
+                return;
             }
-            if (jSONObject.length() > 0) {
-                hybridUbcFlow.D("prelink", jSONObject.toString());
+            double d = this.b.d(bitmap, b);
+            w92 w92Var2 = new w92();
+            if (fz2.g() && d >= 0.5d) {
+                if (c) {
+                    Log.d("WhitePageHandler", ">> capture is part white screen ratio: " + d);
+                }
+                w92Var2.e(SceneType.SCENE_WHITE_SCREEN_L3);
+                w92Var2.d(j92Var.b);
+            } else if (d >= 0.7d) {
+                if (c) {
+                    Log.d("WhitePageHandler", ">> capture is part white screen ratio: " + d);
+                }
+                w92Var2.e(SceneType.SCENE_WHITE_SCREEN_L2);
+                w92Var2.d(j92Var.b);
+            } else {
+                l92.b().a();
             }
+        } else if (c) {
+            Log.d("WhitePageHandler", ">> stop to parse capture, capture or fragment or webView is null.");
         }
     }
 }

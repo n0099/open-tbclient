@@ -1,19 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.nps.interfa.IThreadManager;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.Rect;
+import android.widget.ImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
-@Service
 /* loaded from: classes6.dex */
-public class ql implements IThreadManager {
+public class ql extends nl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Executor a;
+    public Rect x;
 
     public ql() {
         Interceptable interceptable = $ic;
@@ -28,14 +28,33 @@ public class ql implements IThreadManager {
                 return;
             }
         }
-        this.a = ExecutorUtilsExt.getElasticExecutor("NPS", 3);
+        this.x = new Rect();
     }
 
-    @Override // com.baidu.nps.interfa.IThreadManager
-    public void run(Runnable runnable) {
+    @Override // com.baidu.tieba.gl, com.baidu.tieba.el
+    public void h(Canvas canvas, hl hlVar, ImageView imageView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            this.a.execute(runnable);
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, canvas, hlVar, imageView) == null) {
+            Matrix matrix = this.f;
+            if (matrix != null) {
+                canvas.concat(matrix);
+            }
+            canvas.save();
+            if (this.w) {
+                try {
+                    canvas.clipPath(this.t);
+                } catch (Error unused) {
+                }
+            }
+            if (hlVar.e()) {
+                Bitmap bitmap = hlVar.a.getBitmap();
+                this.x.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
+                canvas.drawBitmap(bitmap, this.x, this.g, this.c);
+            } else {
+                this.x.set(0, 0, hlVar.b(), hlVar.a());
+                hlVar.b.g(canvas, this.x, this.g, this.c);
+            }
+            canvas.restore();
         }
     }
 }

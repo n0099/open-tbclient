@@ -1,7 +1,10 @@
 package com.baidu.android.util.connect;
 
 import android.annotation.SuppressLint;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
@@ -18,6 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes.dex */
 public class NetWorkUtils {
     public static /* synthetic */ Interceptable $ic = null;
@@ -30,7 +34,11 @@ public class NetWorkUtils {
     public static final String NETWORK_TYPE_CELL_UN_CONNECTED = "no";
     public static final int NETWORK_TYPE_LTE_CA = 19;
     public static final String NETWORK_TYPE_WIFI = "wifi";
+    public static final long NOT_NEED_REFRESH = 0;
     public static final String TAG = "NetWorkUtils";
+    public static volatile AtomicLong sNetworkChangedCounter;
+    public static volatile NetworkInfo sNetworkInfo;
+    public static volatile BroadcastReceiver sNetworkReceiver;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -112,16 +120,32 @@ public class NetWorkUtils {
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1172737524, "Lcom/baidu/android/util/connect/NetWorkUtils;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1172737524, "Lcom/baidu/android/util/connect/NetWorkUtils;");
+                return;
+            }
+        }
+        sNetworkChangedCounter = new AtomicLong(0L);
+    }
+
     public NetWorkUtils() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
@@ -129,7 +153,61 @@ public class NetWorkUtils {
     public static NetworkInfo getActiveNetworkInfo(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (context == null) {
+                return null;
+            }
+            if (DoveRuntime.getIDoveIoc() != null && (DoveRuntime.getIDoveIoc() == null || DoveRuntime.getIDoveIoc().enableDoveOpt())) {
+                if (sNetworkReceiver == null) {
+                    synchronized (NetWorkUtils.class) {
+                        if (sNetworkReceiver == null) {
+                            sNetworkInfo = getActiveNetworkInfoBySystemService(context);
+                            sNetworkReceiver = new BroadcastReceiver() { // from class: com.baidu.android.util.connect.NetWorkUtils.1
+                                public static /* synthetic */ Interceptable $ic;
+                                public transient /* synthetic */ FieldHolder $fh;
+
+                                {
+                                    Interceptable interceptable2 = $ic;
+                                    if (interceptable2 != null) {
+                                        InitContext newInitContext = TitanRuntime.newInitContext();
+                                        interceptable2.invokeUnInit(65536, newInitContext);
+                                        int i = newInitContext.flag;
+                                        if ((i & 1) != 0) {
+                                            int i2 = i & 2;
+                                            newInitContext.thisArg = this;
+                                            interceptable2.invokeInitBody(65536, newInitContext);
+                                        }
+                                    }
+                                }
+
+                                @Override // android.content.BroadcastReceiver
+                                public void onReceive(Context context2, Intent intent) {
+                                    Interceptable interceptable2 = $ic;
+                                    if ((interceptable2 == null || interceptable2.invokeLL(1048576, this, context2, intent) == null) && intent.getAction().equals("android.net.conn.CONNECTIVITY_CHANGE")) {
+                                        NetWorkUtils.sNetworkChangedCounter.incrementAndGet();
+                                    }
+                                }
+                            };
+                            context.getApplicationContext().registerReceiver(sNetworkReceiver, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
+                        }
+                    }
+                }
+                long j = sNetworkChangedCounter.get();
+                if (j > 0) {
+                    sNetworkInfo = getActiveNetworkInfoBySystemService(context);
+                    sNetworkChangedCounter.compareAndSet(j, 0L);
+                }
+                return sNetworkInfo;
+            }
+            return getActiveNetworkInfoBySystemService(context);
+        }
+        return (NetworkInfo) invokeL.objValue;
+    }
+
+    public static NetworkInfo getActiveNetworkInfoBySystemService(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             if (context == null) {
                 return null;
             }
@@ -150,7 +228,7 @@ public class NetWorkUtils {
         InterceptResult invokeL;
         WifiInfo connectionInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService("wifi");
             if (wifiManager == null || (connectionInfo = wifiManager.getConnectionInfo()) == null) {
                 return 0;
@@ -164,7 +242,7 @@ public class NetWorkUtils {
         InterceptResult invokeL;
         WifiInfo connectionInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
             WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService("wifi");
             if (wifiManager == null || (connectionInfo = wifiManager.getConnectionInfo()) == null) {
                 return 0;
@@ -177,7 +255,7 @@ public class NetWorkUtils {
     public static boolean isConnected(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
             NetworkInfo activeNetworkInfo = getActiveNetworkInfo(context);
             if (activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting()) {
                 return true;
@@ -190,7 +268,7 @@ public class NetWorkUtils {
     public static boolean isMobileConnected(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) {
             NetworkInfo activeNetworkInfo = getActiveNetworkInfo(context);
             if (activeNetworkInfo != null && activeNetworkInfo.isAvailable() && activeNetworkInfo.getType() == 0) {
                 return true;
@@ -203,7 +281,7 @@ public class NetWorkUtils {
     public static boolean isWifiConnected(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, context)) == null) {
             NetworkInfo activeNetworkInfo = getActiveNetworkInfo(context);
             if (activeNetworkInfo != null && activeNetworkInfo.isAvailable() && activeNetworkInfo.getType() == 1) {
                 return true;
@@ -217,7 +295,7 @@ public class NetWorkUtils {
         InterceptResult invokeL;
         WifiInfo connectionInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService("wifi");
             if (wifiManager == null || (connectionInfo = wifiManager.getConnectionInfo()) == null) {
                 return "NULL";
@@ -231,7 +309,7 @@ public class NetWorkUtils {
         InterceptResult invokeL;
         WifiInfo connectionInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
             WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService("wifi");
             if (wifiManager == null || (connectionInfo = wifiManager.getConnectionInfo()) == null) {
                 return "NULL";
@@ -245,7 +323,7 @@ public class NetWorkUtils {
         InterceptResult invokeL;
         WifiInfo connectionInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
             WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService("wifi");
             if (wifiManager == null || (connectionInfo = wifiManager.getConnectionInfo()) == null) {
                 return "NULL";
@@ -259,7 +337,7 @@ public class NetWorkUtils {
     public static InetAddress intToInetAddress(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65549, null, i)) == null) {
             try {
                 return InetAddress.getByAddress(new byte[]{(byte) (i & 255), (byte) ((i >> 8) & 255), (byte) ((i >> 16) & 255), (byte) ((i >> 24) & 255)});
             } catch (UnknownHostException unused) {
@@ -272,7 +350,7 @@ public class NetWorkUtils {
     public static boolean isHighNetworkConnected(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
             String networkTypeString = getNetworkTypeString(context);
             if (!"wifi".equals(networkTypeString) && !"5g".equals(networkTypeString) && !"4g".equals(networkTypeString) && !"3g".equals(networkTypeString)) {
                 return false;
@@ -285,7 +363,7 @@ public class NetWorkUtils {
     public static String getMobileType(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, str)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65543, null, i, str)) == null) {
             switch (i) {
                 case 1:
                 case 2:
@@ -325,7 +403,7 @@ public class NetWorkUtils {
         InterceptResult invokeL;
         char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
             String networkTypeString = getNetworkTypeString(context);
             int hashCode = networkTypeString.hashCode();
             if (hashCode != -284840886) {
@@ -400,7 +478,7 @@ public class NetWorkUtils {
     public static String getNetworkTypeString(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
             if (context == null) {
                 return "unknown";
             }

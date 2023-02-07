@@ -1,5 +1,6 @@
 package androidx.core.util;
 
+import android.text.TextUtils;
 import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -56,7 +57,7 @@ public final class Preconditions {
     public static <T> T checkNotNull(@Nullable T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, t)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, t)) == null) {
             if (t != null) {
                 return t;
             }
@@ -67,9 +68,22 @@ public final class Preconditions {
 
     public static void checkState(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65544, null, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(65545, null, z) == null) {
             checkState(z, null);
         }
+    }
+
+    @NonNull
+    public static <T extends CharSequence> T checkStringNotEmpty(@Nullable T t) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, t)) == null) {
+            if (!TextUtils.isEmpty(t)) {
+                return t;
+            }
+            throw new IllegalArgumentException();
+        }
+        return (T) invokeL.objValue;
     }
 
     public static void checkArgument(boolean z, @NonNull Object obj) {
@@ -97,7 +111,7 @@ public final class Preconditions {
     public static <T> T checkNotNull(@Nullable T t, @NonNull Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, t, obj)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, t, obj)) == null) {
             if (t != null) {
                 return t;
             }
@@ -108,10 +122,23 @@ public final class Preconditions {
 
     public static void checkState(boolean z, @Nullable String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZL(65545, null, z, str) != null) || z) {
+        if ((interceptable != null && interceptable.invokeZL(65546, null, z, str) != null) || z) {
             return;
         }
         throw new IllegalStateException(str);
+    }
+
+    @NonNull
+    public static <T extends CharSequence> T checkStringNotEmpty(@Nullable T t, @NonNull Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, t, obj)) == null) {
+            if (!TextUtils.isEmpty(t)) {
+                return t;
+            }
+            throw new IllegalArgumentException(String.valueOf(obj));
+        }
+        return (T) invokeLL.objValue;
     }
 
     public static int checkArgumentInRange(int i, int i2, int i3, @NonNull String str) {
@@ -127,5 +154,30 @@ public final class Preconditions {
             throw new IllegalArgumentException(String.format(Locale.US, "%s is out of range of [%d, %d] (too low)", str, Integer.valueOf(i2), Integer.valueOf(i3)));
         }
         return invokeCommon.intValue;
+    }
+
+    public static int checkFlagsArgument(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65542, null, i, i2)) == null) {
+            if ((i & i2) == i) {
+                return i;
+            }
+            throw new IllegalArgumentException("Requested flags 0x" + Integer.toHexString(i) + ", but only 0x" + Integer.toHexString(i2) + " are allowed");
+        }
+        return invokeII.intValue;
+    }
+
+    @NonNull
+    public static <T extends CharSequence> T checkStringNotEmpty(@Nullable T t, @NonNull String str, @NonNull Object... objArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65549, null, t, str, objArr)) == null) {
+            if (!TextUtils.isEmpty(t)) {
+                return t;
+            }
+            throw new IllegalArgumentException(String.format(str, objArr));
+        }
+        return (T) invokeLLL.objValue;
     }
 }

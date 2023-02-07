@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.pb.main;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.pb.PbPageRequestMessage;
-import com.baidu.tieba.y48;
+import com.baidu.tieba.u98;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean markCache;
-    public y48 pbData;
+    public u98 pbData;
     public String postId;
     public int updateType;
 
@@ -37,13 +37,13 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
         }
     }
 
-    public y48 getPbData() {
+    public u98 getPbData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.pbData;
         }
-        return (y48) invokeV.objValue;
+        return (u98) invokeV.objValue;
     }
 
     public int getUpdateType() {
@@ -64,23 +64,23 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
         return invokeV.booleanValue;
     }
 
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(byte[] bArr) throws Exception {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIL(1048576, this, i, bArr) != null) || bArr == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, bArr) != null) || bArr == null) {
             return;
         }
         PbPageResIdl pbPageResIdl = (PbPageResIdl) PbPageRequestMessage.WIRE.parseFrom(bArr, PbPageResIdl.class);
         setError(pbPageResIdl.error.errorno.intValue());
         setErrorString(pbPageResIdl.error.usermsg);
         if (getError() == 0 && pbPageResIdl.data != null) {
-            y48 y48Var = new y48();
-            this.pbData = y48Var;
-            y48Var.F0(1);
+            u98 u98Var = new u98();
+            this.pbData = u98Var;
+            u98Var.C0(1);
             try {
-                this.pbData.E0(pbPageResIdl.data);
-                if (!this.pbData.x0()) {
+                this.pbData.B0(pbPageResIdl.data);
+                if (!this.pbData.u0()) {
                     this.pbData = null;
-                } else if (isMarkCache() && this.pbData.v() != null && !this.pbData.v().equals(this.postId)) {
+                } else if (isMarkCache() && this.pbData.u() != null && !this.pbData.u().equals(this.postId)) {
                     this.pbData = null;
                 }
             } catch (Exception unused) {
@@ -95,23 +95,16 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
         }
     }
 
-    public void setPbData(y48 y48Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, y48Var) == null) {
-            this.pbData = y48Var;
-        }
-    }
-
     public void setPostId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             this.postId = str;
         }
     }
 
     public void setUpdateType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             this.updateType = i;
         }
     }

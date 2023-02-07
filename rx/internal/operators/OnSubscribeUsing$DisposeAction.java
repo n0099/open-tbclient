@@ -1,9 +1,9 @@
 package rx.internal.operators;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.r8a;
-import com.baidu.tieba.x8a;
-import com.baidu.tieba.y8a;
+import com.baidu.tieba.ada;
+import com.baidu.tieba.gda;
+import com.baidu.tieba.hda;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,19 +11,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes9.dex */
-public final class OnSubscribeUsing$DisposeAction<Resource> extends AtomicBoolean implements x8a, r8a {
+public final class OnSubscribeUsing$DisposeAction<Resource> extends AtomicBoolean implements gda, ada {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 4262875056400218316L;
     public transient /* synthetic */ FieldHolder $fh;
-    public y8a<? super Resource> dispose;
+    public hda<? super Resource> dispose;
     public Resource resource;
 
-    public OnSubscribeUsing$DisposeAction(y8a<? super Resource> y8aVar, Resource resource) {
+    public OnSubscribeUsing$DisposeAction(hda<? super Resource> hdaVar, Resource resource) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {y8aVar, resource};
+            Object[] objArr = {hdaVar, resource};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,14 +33,14 @@ public final class OnSubscribeUsing$DisposeAction<Resource> extends AtomicBoolea
                 return;
             }
         }
-        this.dispose = y8aVar;
+        this.dispose = hdaVar;
         this.resource = resource;
         lazySet(false);
     }
 
     /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: Resource, ? super Resource */
-    /* JADX WARN: Type inference failed for: r0v4, types: [com.baidu.tieba.y8a<? super Resource>, Resource] */
-    @Override // com.baidu.tieba.x8a
+    /* JADX WARN: Type inference failed for: r0v4, types: [com.baidu.tieba.hda<? super Resource>, Resource] */
+    @Override // com.baidu.tieba.gda
     public void call() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && compareAndSet(false, true)) {
@@ -54,7 +54,7 @@ public final class OnSubscribeUsing$DisposeAction<Resource> extends AtomicBoolea
         }
     }
 
-    @Override // com.baidu.tieba.r8a
+    @Override // com.baidu.tieba.ada
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -64,7 +64,7 @@ public final class OnSubscribeUsing$DisposeAction<Resource> extends AtomicBoolea
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.r8a
+    @Override // com.baidu.tieba.ada
     public void unsubscribe() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {

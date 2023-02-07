@@ -1,26 +1,23 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class rx8 {
+public class rx8 implements nx8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
-    public String c;
-    public qx8 d;
-    public qx8 e;
-    public qx8 f;
+    @NonNull
+    public final mx8 a;
 
-    public rx8(String str, String str2, boolean z) {
+    public rx8(@NonNull mx8 mx8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Boolean.valueOf(z)};
+            Object[] objArr = {mx8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,14 +27,15 @@ public class rx8 {
                 return;
             }
         }
-        this.a = false;
-        this.b = null;
-        this.c = null;
-        this.d = new qx8();
-        this.e = new qx8();
-        this.f = new qx8();
-        this.c = str;
-        this.b = str2;
-        this.a = z;
+        this.a = mx8Var;
+    }
+
+    @Override // com.baidu.tieba.nx8
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            uk5.b().l(System.currentTimeMillis());
+            sx8.g(this.a).b();
+        }
     }
 }

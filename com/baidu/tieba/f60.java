@@ -1,29 +1,47 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.ContentProviderClient;
+import android.content.Context;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Bundle;
+import com.baidu.tieba.g60;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public final class f60 {
+public class f60 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947715945, "Lcom/baidu/tieba/f60;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947715945, "Lcom/baidu/tieba/f60;");
+    public static void a(Context context, g60.a aVar) {
+        Bundle call;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, context, aVar) == null) {
+            if (context == null) {
+                aVar.a(false, null);
                 return;
             }
+            try {
+                Uri parse = Uri.parse("content://cn.nubia.identity/identity");
+                if (Build.VERSION.SDK_INT > 17) {
+                    ContentProviderClient acquireContentProviderClient = context.getContentResolver().acquireContentProviderClient(parse);
+                    if (acquireContentProviderClient != null) {
+                        call = acquireContentProviderClient.call("getOAID", null, null);
+                        if (Build.VERSION.SDK_INT >= 24) {
+                            acquireContentProviderClient.close();
+                        } else {
+                            acquireContentProviderClient.release();
+                        }
+                    } else {
+                        call = null;
+                    }
+                } else {
+                    call = context.getContentResolver().call(parse, "getOAID", (String) null, (Bundle) null);
+                }
+                aVar.a(true, (call == null || call.getInt("code", -1) != 0) ? null : call.getString("id"));
+            } catch (Throwable unused) {
+                aVar.a(false, null);
+            }
         }
-        a = Boolean.parseBoolean("true");
     }
 }

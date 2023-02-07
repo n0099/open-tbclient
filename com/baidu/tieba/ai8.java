@@ -1,94 +1,67 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-import org.json.JSONArray;
 /* loaded from: classes3.dex */
-public class ai8 {
+public class ai8 implements Cdo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    public static void a(String str, List<yn> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, str, list) != null) || StringUtils.isNull(str)) {
-            return;
-        }
-        if (list == null) {
-            list = new ArrayList<>();
-        }
-        JSONArray jSONArray = new JSONArray();
-        int size = list.size();
-        for (int i = 0; i < size; i++) {
-            yn ynVar = list.get(i);
-            if (ynVar instanceof m65) {
-                m65 m65Var = (m65) ynVar;
-                if (!m65Var.c()) {
-                    jSONArray.put(m65Var.a());
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947616249, "Lcom/baidu/tieba/ai8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947616249, "Lcom/baidu/tieba/ai8;");
+                return;
             }
         }
-        jSONArray.put(str);
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SET_USER_PICS);
-        httpMessage.addParam("pic_list", jSONArray.toString());
-        MessageManager.getInstance().sendMessage(httpMessage);
+        b = BdUniqueId.gen();
     }
 
-    public static String c(TbPageContext tbPageContext, String str) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, tbPageContext, str)) == null) {
-            if (tbPageContext != null && !StringUtils.isNull(str)) {
-                if (tbPageContext.getResources().getDisplayMetrics().densityDpi > 240.0f) {
-                    return "http://tb.himg.baidu.com/sys/portraith/item/" + str;
-                }
-                return "http://tb.himg.baidu.com/sys/portraitl/item/" + str;
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b;
         }
-        return (String) invokeLL.objValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public static void d(m65 m65Var, BdUniqueId bdUniqueId) {
+    public ai8(boolean z, xh8 xh8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65539, null, m65Var, bdUniqueId) != null) || m65Var == null || StringUtils.isNull(m65Var.a()) || !ListUtils.isEmpty(MessageManager.getInstance().findMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT, bdUniqueId))) {
-            return;
-        }
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT);
-        httpMessage.addParam("pic_url", m65Var.a());
-        httpMessage.setTag(bdUniqueId);
-        MessageManager.getInstance().sendMessage(httpMessage);
-    }
-
-    public static void b(m65 m65Var, List<yn> list) {
-        m65 m65Var2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, m65Var, list) == null) && m65Var != null && !ListUtils.isEmpty(list) && !StringUtils.isNull(m65Var.a())) {
-            JSONArray jSONArray = new JSONArray();
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                yn ynVar = list.get(i);
-                if ((ynVar instanceof m65) && (m65Var2 = (m65) ynVar) != m65Var && !m65Var2.c()) {
-                    jSONArray.put(m65Var2.a());
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), xh8Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SET_USER_PICS);
-            httpMessage.addParam("pic_list", jSONArray.toString());
-            if (jSONArray.length() <= 0) {
-                httpMessage.addParam("truncat", 1);
-            } else {
-                httpMessage.addParam("truncat", 0);
-            }
-            MessageManager.getInstance().sendMessage(httpMessage);
         }
+        String str = xh8Var.e;
+        String str2 = xh8Var.d;
+        this.a = xh8Var.a;
+        String str3 = xh8Var.f;
+        List<yh8> list = xh8Var.c;
+        int i3 = xh8Var.b;
     }
 }

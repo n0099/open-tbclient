@@ -1,45 +1,51 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
-import com.baidu.tbadk.core.view.FollowUserButton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.TabPic;
 /* loaded from: classes4.dex */
-public abstract class i37<T, V extends TypeAdapter.ViewHolder> extends ln<T, V> {
+public class i37 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FollowUserButton.a a;
+    public String a;
+    public int b;
+    public zt6 c;
+    public String d;
+    public int e;
+    public TabPic f;
+    public boolean g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i37(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    public i37() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public void s(FollowUserButton.a aVar) {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.a = aVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (obj != null && (obj instanceof i37)) {
+                i37 i37Var = (i37) obj;
+                if (this.b == i37Var.b && (str = this.a) != null && str.equals(i37Var.a)) {
+                    return true;
+                }
+                return super.equals(obj);
+            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 }

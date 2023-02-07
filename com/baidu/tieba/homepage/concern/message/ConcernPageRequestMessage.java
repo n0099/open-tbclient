@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
 import com.baidu.tbadk.util.AdExtParam;
-import com.baidu.tieba.cz4;
-import com.baidu.tieba.dp8;
-import com.baidu.tieba.lj5;
-import com.baidu.tieba.nk5;
-import com.baidu.tieba.q37;
+import com.baidu.tieba.b87;
+import com.baidu.tieba.p35;
+import com.baidu.tieba.wn5;
+import com.baidu.tieba.yo5;
+import com.baidu.tieba.ys8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +24,7 @@ import tbclient.Userlike.UserlikeReqIdl;
 public class ConcernPageRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public lj5 adInfo;
+    public wn5 adInfo;
     public String pageTag;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -56,18 +56,18 @@ public class ConcernPageRequestMessage extends NetMessage {
             if (isEmpty) {
                 e = 0;
             } else {
-                e = dp8.f().e("CONCERN");
+                e = ys8.f().e("CONCERN");
             }
             String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
             String str = "";
             if (isEmpty) {
                 d = "";
             } else {
-                d = dp8.f().d("CONCERN");
+                d = ys8.f().d("CONCERN");
             }
-            lj5 lj5Var = this.adInfo;
-            if (lj5Var != null && !isEmpty) {
-                str = lj5Var.b;
+            wn5 wn5Var = this.adInfo;
+            if (wn5Var != null && !isEmpty) {
+                str = wn5Var.b;
             }
             AdExtParam.a b = AdExtParam.a.b();
             b.g(e);
@@ -88,23 +88,23 @@ public class ConcernPageRequestMessage extends NetMessage {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
                 builder.page_tag = this.pageTag;
-                if (q37.I()) {
-                    if (!q37.B()) {
-                        builder.page_tag = q37.w();
+                if (b87.I()) {
+                    if (!b87.B()) {
+                        builder.page_tag = b87.w();
                     } else {
-                        builder.page_tag = q37.v();
+                        builder.page_tag = b87.v();
                     }
                 }
-                builder.last_req_unix = Long.valueOf(cz4.l().n(cz4.p("concern_data_res_request_time"), 0L));
+                builder.last_req_unix = Long.valueOf(p35.m().o(p35.q("concern_data_res_request_time"), 0L));
                 int i2 = 1;
                 if (UbsABTestHelper.isConcernForumCardShow()) {
-                    i = cz4.l().m("key_home_concern_all_status", 0);
+                    i = p35.m().n("key_home_concern_all_status", 0);
                 } else {
                     i = 1;
                 }
                 builder.follow_type = Integer.valueOf(i);
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    nk5.a(builder, true);
+                    yo5.a(builder, true);
                 }
                 if (!TextUtils.isEmpty(this.pageTag)) {
                     i2 = 2;
@@ -130,10 +130,10 @@ public class ConcernPageRequestMessage extends NetMessage {
         return (String) invokeV.objValue;
     }
 
-    public void setAdInfo(lj5 lj5Var) {
+    public void setAdInfo(wn5 wn5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lj5Var) == null) {
-            this.adInfo = lj5Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wn5Var) == null) {
+            this.adInfo = wn5Var;
         }
     }
 

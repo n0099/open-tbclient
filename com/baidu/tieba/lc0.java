@@ -1,50 +1,24 @@
 package com.baidu.tieba;
 
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.MessageDigest;
-import java.util.Locale;
 /* loaded from: classes5.dex */
 public class lc0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(byte[] bArr, String str, boolean z) {
-        InterceptResult invokeLLZ;
+    public static void a(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (byte b : bArr) {
-                String hexString = Integer.toHexString(b & 255);
-                if (z) {
-                    hexString = hexString.toUpperCase(Locale.getDefault());
-                }
-                if (hexString.length() == 1) {
-                    sb.append("0");
-                }
-                sb.append(hexString);
-                sb.append(str);
-            }
-            return sb.toString();
+        if (interceptable == null || interceptable.invokeL(65536, null, runnable) == null) {
+            ExecutorUtilsExt.postOnElastic(runnable, "live-feedpage-" + nc0.a().b(), 3);
         }
-        return (String) invokeLLZ.objValue;
     }
 
-    public static String b(byte[] bArr, boolean z) {
-        InterceptResult invokeLZ;
+    public static void b(Runnable runnable, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, bArr, z)) == null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.reset();
-                messageDigest.update(bArr);
-                bArr = messageDigest.digest();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return a(bArr, "", z);
+        if (interceptable == null || interceptable.invokeLLI(65537, null, runnable, str, i) == null) {
+            ExecutorUtilsExt.postOnElastic(runnable, str, i);
         }
-        return (String) invokeLZ.objValue;
     }
 }

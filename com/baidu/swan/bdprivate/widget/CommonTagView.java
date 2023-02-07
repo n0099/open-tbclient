@@ -9,8 +9,8 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ai3;
-import com.baidu.tieba.ik3;
+import com.baidu.tieba.nm3;
+import com.baidu.tieba.vo3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -101,28 +101,28 @@ public class CommonTagView extends TextView {
         int paddingBottom;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048576, this, context, attributeSet, i) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ik3.CommonTagView);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, vo3.CommonTagView);
             this.b = obtainStyledAttributes.getDimensionPixelOffset(1, 1);
             this.c = obtainStyledAttributes.getColor(0, -16777216);
             this.d = obtainStyledAttributes.getDimensionPixelOffset(2, 3);
             obtainStyledAttributes.recycle();
             if (getPaddingLeft() == 0) {
-                paddingLeft = ai3.f(context, 2.0f);
+                paddingLeft = nm3.f(context, 2.0f);
             } else {
                 paddingLeft = getPaddingLeft();
             }
             if (getPaddingRight() == 0) {
-                paddingRight = ai3.f(context, 2.0f);
+                paddingRight = nm3.f(context, 2.0f);
             } else {
                 paddingRight = getPaddingRight();
             }
             if (getPaddingTop() == 0) {
-                paddingTop = ai3.f(context, 1.0f);
+                paddingTop = nm3.f(context, 1.0f);
             } else {
                 paddingTop = getPaddingTop();
             }
             if (getPaddingBottom() == 0) {
-                paddingBottom = ai3.f(context, 1.0f);
+                paddingBottom = nm3.f(context, 1.0f);
             } else {
                 paddingBottom = getPaddingBottom();
             }

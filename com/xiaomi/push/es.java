@@ -84,7 +84,7 @@ public abstract class es extends eq {
         this.b = 0;
         this.f343a = str;
         this.a = i;
-        m380c();
+        m382c();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -111,7 +111,7 @@ public abstract class es extends eq {
     private Bitmap a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? com.xiaomi.push.service.al.a(h.m456a(a(), this.f343a)) : (Bitmap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? com.xiaomi.push.service.al.a(h.m458a(a(), this.f343a)) : (Bitmap) invokeV.objValue;
     }
 
     private String c() {
@@ -120,27 +120,27 @@ public abstract class es extends eq {
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             boolean e = e();
             this.f348b = e;
-            return e ? b() : mo384a();
+            return e ? b() : mo386a();
         }
         return (String) invokeV.objValue;
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    private void m380c() {
+    private void m382c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             int a = a(a().getResources(), c(), TtmlNode.TAG_LAYOUT, a().getPackageName());
             if (a == 0) {
-                com.xiaomi.channel.commonutils.logger.b.m103a("create RemoteViews failed, no such layout resource was found");
+                com.xiaomi.channel.commonutils.logger.b.m105a("create RemoteViews failed, no such layout resource was found");
                 return;
             }
             this.f341a = new RemoteViews(a().getPackageName(), a);
-            this.f346a = mo378a();
+            this.f346a = mo380a();
         }
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    private boolean m381c() {
+    private boolean m383c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
@@ -159,7 +159,7 @@ public abstract class es extends eq {
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    private boolean m382d() {
+    private boolean m384d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) ? (TextUtils.isEmpty(b()) || TextUtils.isEmpty(this.f343a)) ? false : true : invokeV.booleanValue;
@@ -168,16 +168,16 @@ public abstract class es extends eq {
     private boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) ? m382d() && f() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) ? m384d() && f() : invokeV.booleanValue;
     }
 
     private boolean f() {
         InterceptResult invokeV;
-        List<StatusBarNotification> m705b;
+        List<StatusBarNotification> m707b;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
-            if (Build.VERSION.SDK_INT >= 20 && (m705b = com.xiaomi.push.service.ax.a(a(), this.f343a).m705b()) != null && !m705b.isEmpty()) {
-                for (StatusBarNotification statusBarNotification : m705b) {
+            if (Build.VERSION.SDK_INT >= 20 && (m707b = com.xiaomi.push.service.ax.a(a(), this.f343a).m707b()) != null && !m707b.isEmpty()) {
+                for (StatusBarNotification statusBarNotification : m707b) {
                     if (statusBarNotification.getId() == this.a) {
                         Notification notification = statusBarNotification.getNotification();
                         if (notification == null) {
@@ -221,7 +221,7 @@ public abstract class es extends eq {
     /* JADX DEBUG: Possible override for method com.xiaomi.push.eq.a()Landroid/content/Context; */
     /* JADX DEBUG: Possible override for method com.xiaomi.push.eq.a()V */
     /* renamed from: a  reason: collision with other method in class */
-    public final RemoteViews m383a() {
+    public final RemoteViews m385a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f341a : (RemoteViews) invokeV.objValue;
@@ -296,16 +296,16 @@ public abstract class es extends eq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract String mo384a();
+    public abstract String mo386a();
 
     @Override // com.xiaomi.push.eq
     /* renamed from: a */
-    public void mo377a() {
+    public void mo379a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            super.mo377a();
+            super.mo379a();
             Bundle bundle = new Bundle();
-            if (m382d()) {
+            if (m384d()) {
                 bundle.putBoolean("mipush.customCopyLayout", this.f348b);
             } else {
                 bundle.putBoolean("mipush.customCopyLayout", false);
@@ -318,7 +318,7 @@ public abstract class es extends eq {
                 this.f344a.toArray(actionArr);
                 bundle.putParcelableArray("mipush.customActions", actionArr);
             }
-            if (m381c() || !com.xiaomi.push.service.ay.m707a(a().getContentResolver())) {
+            if (m383c() || !com.xiaomi.push.service.ay.m709a(a().getContentResolver())) {
                 d();
             } else {
                 bundle.putCharSequence("mipush.customTitle", this.f342a);
@@ -333,12 +333,12 @@ public abstract class es extends eq {
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
             Bitmap a = a();
             if (a != null) {
-                m383a().setImageViewBitmap(i, a);
+                m385a().setImageViewBitmap(i, a);
                 return;
             }
             int b = h.b(a(), this.f343a);
             if (b != 0) {
-                m383a().setImageViewResource(i, b);
+                m385a().setImageViewResource(i, b);
             }
         }
     }
@@ -350,10 +350,10 @@ public abstract class es extends eq {
     }
 
     /* renamed from: a */
-    public abstract boolean mo378a();
+    public abstract boolean mo380a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public final boolean m385a(int i) {
+    public final boolean m387a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) ? ((((double) Color.red(i)) * 0.299d) + (((double) Color.green(i)) * 0.587d)) + (((double) Color.blue(i)) * 0.114d) < 192.0d : invokeI.booleanValue;
@@ -375,7 +375,7 @@ public abstract class es extends eq {
     public abstract String b();
 
     /* renamed from: b  reason: collision with other method in class */
-    public final void m386b() {
+    public final void m388b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             super.setContentTitle(this.f342a);
@@ -388,7 +388,7 @@ public abstract class es extends eq {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public final boolean m387b() {
+    public final boolean m389b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f346a : invokeV.booleanValue;

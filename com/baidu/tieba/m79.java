@@ -1,169 +1,49 @@
 package com.baidu.tieba;
 
-import android.widget.ImageView;
+import android.annotation.SuppressLint;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListAdapter;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.video.record.GLVideoPreviewView;
-import com.baidu.tieba.video.record.ProgressView;
-import com.baidu.tieba.video.record.RecordVideoActivity;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.themeCenter.MemberRecommendView;
+import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.tieba.themeCenter.bubble.list.BubbleListActivity;
+import com.baidu.tieba.y35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.faceunity.encoder.TextureMovieEncoder;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+@SuppressLint({"ResourceAsColor"})
 /* loaded from: classes5.dex */
 public class m79 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public RecordVideoActivity c;
-    public ProgressView d;
-    public List<b> e;
-    public boolean f;
-    public long g;
+    public BubbleListActivity a;
+    public View b;
+    public NavigationBar c;
+    public MemberRecommendView d;
+    public BdListView e;
+    public z35 f;
+    public l79 g;
     public int h;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(int i);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements ProgressView.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m79 a;
-
-        /* renamed from: com.baidu.tieba.m79$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class C0351a implements TextureMovieEncoder.OnEncoderStatusUpdateListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ k79 a;
-            public final /* synthetic */ a b;
-
-            @Override // com.faceunity.encoder.TextureMovieEncoder.OnEncoderStatusUpdateListener
-            public void onStartSuccess() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                }
-            }
-
-            /* renamed from: com.baidu.tieba.m79$a$a$a  reason: collision with other inner class name */
-            /* loaded from: classes5.dex */
-            public class RunnableC0352a implements Runnable {
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ C0351a a;
-
-                public RunnableC0352a(C0351a c0351a) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {c0351a};
-                        interceptable.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = c0351a;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable = $ic;
-                    if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b.a.c != null) {
-                        this.a.b.a.c.w0();
-                    }
-                }
-            }
-
-            public C0351a(a aVar, k79 k79Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, k79Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = k79Var;
-            }
-
-            @Override // com.faceunity.encoder.TextureMovieEncoder.OnEncoderStatusUpdateListener
-            public void onStopSuccess() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    bh.a().post(new RunnableC0352a(this));
-                    this.a.setOnEncoderStatusUpdateListener(null);
-                }
-            }
-        }
-
-        public a(m79 m79Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m79Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = m79Var;
-        }
-
-        @Override // com.baidu.tieba.video.record.ProgressView.a
-        public void a(int i) {
-            l79 l79Var;
-            k79 q;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                this.a.h = i;
-                if (i != 100 || this.a.c == null || (l79Var = this.a.c.k) == null || (q = l79Var.q()) == null) {
-                    return;
-                }
-                if (q instanceof GLVideoPreviewView) {
-                    q.setOnEncoderStatusUpdateListener(new C0351a(this, q));
-                    this.a.o();
-                    return;
-                }
-                this.a.o();
-                if (this.a.c != null) {
-                    this.a.c.w0();
-                }
-            }
-        }
-    }
-
-    public m79(RecordVideoActivity recordVideoActivity) {
+    public m79(BubbleListActivity bubbleListActivity, h79 h79Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {recordVideoActivity};
+            Object[] objArr = {bubbleListActivity, h79Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -173,209 +53,160 @@ public class m79 {
                 return;
             }
         }
-        this.a = 1;
-        this.c = recordVideoActivity;
-        if (recordVideoActivity == null) {
-            return;
-        }
-        ImageView imageView = (ImageView) recordVideoActivity.findViewById(R.id.obfuscated_res_0x7f0904aa);
-        ImageView imageView2 = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090a25);
-        ProgressView progressView = (ProgressView) this.c.findViewById(R.id.obfuscated_res_0x7f092656);
-        this.d = progressView;
-        progressView.setListener(new a(this));
-        if (!f79.f(true)) {
-            imageView2.setVisibility(4);
-        }
-        if (!f79.g(recordVideoActivity.getPackageManager())) {
-            imageView.setVisibility(8);
-        }
+        this.f = null;
+        this.h = 0;
+        this.a = bubbleListActivity;
+        this.h = ej.g(bubbleListActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07023d);
+        View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0169, (ViewGroup) null);
+        this.b = inflate;
+        this.a.setContentView(inflate);
+        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.view_navigation_bar);
+        this.c = navigationBar;
+        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.c.setTitleText(R.string.obfuscated_res_0x7f0f0366);
+        MemberRecommendView memberRecommendView = (MemberRecommendView) this.b.findViewById(R.id.obfuscated_res_0x7f0926be);
+        this.d = memberRecommendView;
+        memberRecommendView.setFromType(7);
+        this.e = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f09141a);
+        z35 z35Var = new z35(this.a.getPageContext());
+        this.f = z35Var;
+        this.e.setPullRefresh(z35Var);
+        TextView textView = new TextView(this.a.getActivity());
+        textView.setHeight(ej.g(this.a.getActivity(), R.dimen.obfuscated_res_0x7f0701d5));
+        this.e.addFooterView(textView);
+        l79 l79Var = new l79(this.a.getPageContext(), h79Var);
+        this.g = l79Var;
+        this.e.setAdapter((ListAdapter) l79Var);
     }
 
-    public void m(int i) {
-        File[] listFiles;
+    public final List<List<DressItemData>> a(List<DressItemData> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.a = i;
-            if (i == 1) {
-                this.d.setVisibility(4);
-                this.d.d();
-                this.b = 0;
-                File file = new File(o59.f);
-                if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
-                    for (File file2 : listFiles) {
-                        if (file2.getPath().startsWith("rec_tmp_")) {
-                            file2.delete();
-                        }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            int size = list.size();
+            for (int i = 0; i < size; i = i + 1 + 1) {
+                ArrayList arrayList2 = new ArrayList();
+                for (int i2 = 0; i2 < 2; i2++) {
+                    int i3 = i + i2;
+                    if (i3 < size) {
+                        arrayList2.add(list.get(i3));
                     }
                 }
+                arrayList.add(arrayList2);
             }
-            List<b> list = this.e;
-            if (list != null) {
-                for (b bVar : list) {
-                    bVar.a(this.a);
-                }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public final boolean f(v79 v79Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, v79Var)) == null) {
+            if (v79Var != null && !StringUtils.isNull(v79Var.c())) {
+                this.d.setVisibility(0);
+                this.d.e(v79Var);
+                return true;
             }
+            this.d.setVisibility(8);
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0204);
+            this.a.hideNetRefreshView(this.b);
+            this.d.setVisibility(0);
+            this.e.setVisibility(0);
+            this.b.setVisibility(0);
         }
     }
 
-    public void c(b bVar) {
+    public View c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            if (this.e == null) {
-                this.e = new ArrayList();
-            }
-            this.e.add(bVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.e.A(0L);
         }
     }
 
     public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ProgressView progressView = this.d;
-            if (progressView != null) {
-                progressView.setCurrentState(ProgressView.State.DELETE);
-            }
-            this.b = this.d.getLastProgress();
-            l79 l79Var = this.c.k;
-            if (l79Var != null) {
-                l79Var.h();
-            }
-        }
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.h;
-        }
-        return invokeV.intValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.a == 6) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            n79 n79Var = this.c.I;
-            if (n79Var != null) {
-                return n79Var.i();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            int f = f();
-            if (f != 2 && f != 7) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.d.b()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void l() {
-        ProgressView progressView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && !this.f && (progressView = this.d) != null) {
-            progressView.setCurrentState(ProgressView.State.ROLLBACK);
-        }
-    }
-
-    public void n() {
         l79 l79Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048587, this) != null) || this.f) {
-            return;
-        }
-        ProgressView progressView = this.d;
-        if (progressView != null) {
-            progressView.setVisibility(0);
-            this.d.setCurrentState(ProgressView.State.START);
-        }
-        if (!this.f) {
-            this.f = true;
-            this.g = System.currentTimeMillis();
-        }
-        RecordVideoActivity recordVideoActivity = this.c;
-        if (recordVideoActivity != null && (l79Var = recordVideoActivity.k) != null) {
-            l79Var.L();
-            n79 n79Var = this.c.I;
-            if (n79Var != null) {
-                n79Var.n(this.b);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            il5.a(this.a.getPageContext(), this.b);
+            NavigationBar navigationBar = this.c;
+            if (navigationBar != null) {
+                navigationBar.onChangeSkinType(this.a.getPageContext(), TbadkApplication.getInst().getSkinType());
             }
+            BdListView bdListView = this.e;
+            if (bdListView != null && bdListView.getVisibility() == 0 && (l79Var = this.g) != null) {
+                l79Var.notifyDataSetChanged();
+            }
+            z35 z35Var = this.f;
+            if (z35Var != null) {
+                z35Var.H(TbadkApplication.getInst().getSkinType());
+            }
+            this.d.d();
         }
     }
 
-    public void o() {
-        l79 l79Var;
+    public void h() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || !this.f) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.d.setVisibility(8);
+            this.e.setVisibility(8);
+            this.b.setVisibility(8);
+            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201);
+            String string = this.a.getPageContext().getResources().getString(R.string.no_data_text);
+            this.a.setNetRefreshViewTopMargin(this.h);
+            this.a.showNetRefreshView(this.b, string, false);
         }
-        ProgressView progressView = this.d;
-        if (progressView != null) {
-            progressView.setCurrentState(ProgressView.State.PAUSE);
-        }
-        this.f = false;
-        this.b = (int) (this.b + (System.currentTimeMillis() - this.g));
-        ProgressView progressView2 = this.d;
-        if (progressView2 != null) {
-            int lastProgress = progressView2.getLastProgress();
-            int i = this.b;
-            if (lastProgress != i) {
-                this.d.c(i);
+    }
+
+    public final void e(List<List<DressItemData>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+            if (list != null && list.size() > 0) {
+                this.e.setVisibility(0);
+                this.g.b(list);
+                this.g.notifyDataSetChanged();
+                return;
             }
+            this.e.setVisibility(8);
         }
-        RecordVideoActivity recordVideoActivity = this.c;
-        if (recordVideoActivity != null && (l79Var = recordVideoActivity.k) != null) {
-            l79Var.M();
+    }
+
+    public void g(BdListView.p pVar, y35.g gVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, pVar, gVar) == null) {
+            this.e.setOnSrollToBottomListener(pVar);
+            this.f.f(gVar);
+        }
+    }
+
+    public void i(v79 v79Var, List<DressItemData> list, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, v79Var, list, z) == null) {
+            if (list != null && list.size() > 0) {
+                b();
+                f(v79Var);
+                e(a(list));
+                return;
+            }
+            h();
         }
     }
 }

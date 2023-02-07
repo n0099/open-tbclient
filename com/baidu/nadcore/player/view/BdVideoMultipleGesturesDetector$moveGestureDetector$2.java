@@ -1,7 +1,7 @@
 package com.baidu.nadcore.player.view;
 
-import com.baidu.tieba.m01;
-import com.baidu.tieba.n01;
+import com.baidu.tieba.q11;
+import com.baidu.tieba.r11;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,19 +12,19 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "Lcom/baidu/nadcore/player/view/BdVideoMoveGestureDetector;", "invoke"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
-public final class BdVideoMultipleGesturesDetector$moveGestureDetector$2 extends Lambda implements Function0<m01> {
+public final class BdVideoMultipleGesturesDetector$moveGestureDetector$2 extends Lambda implements Function0<q11> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ n01 this$0;
+    public final /* synthetic */ r11 this$0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BdVideoMultipleGesturesDetector$moveGestureDetector$2(n01 n01Var) {
+    public BdVideoMultipleGesturesDetector$moveGestureDetector$2(r11 r11Var) {
         super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {n01Var};
+            Object[] objArr = {r11Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,18 +35,18 @@ public final class BdVideoMultipleGesturesDetector$moveGestureDetector$2 extends
                 return;
             }
         }
-        this.this$0 = n01Var;
+        this.this$0 = r11Var;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // kotlin.jvm.functions.Function0
-    public final m01 invoke() {
+    public final q11 invoke() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.this$0.a();
         }
-        return (m01) invokeV.objValue;
+        return (q11) invokeV.objValue;
     }
 }

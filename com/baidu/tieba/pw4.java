@@ -1,107 +1,114 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.DialogInterface;
+import androidx.annotation.MainThread;
+import androidx.annotation.Nullable;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.dialog.TBAlertBuilder;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.LinkedList;
 /* loaded from: classes5.dex */
-public abstract class pw4 extends mw4 {
+public class pw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Activity c;
-    public TBAlertBuilder d;
-    public DialogInterface.OnDismissListener e;
-
-    public abstract void g(TBAlertBuilder tBAlertBuilder);
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    public abstract void i();
+    public final LinkedList<qw4> a;
 
     /* loaded from: classes5.dex */
-    public class a implements DialogInterface.OnDismissListener {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pw4 a;
+    }
 
-        public a(pw4 pw4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pw4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final pw4 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-504297378, "Lcom/baidu/tieba/pw4$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-504297378, "Lcom/baidu/tieba/pw4$b;");
                     return;
                 }
             }
-            this.a = pw4Var;
-        }
-
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.a.h();
-                this.a.c();
-                if (this.a.e != null) {
-                    this.a.e.onDismiss(dialogInterface);
-                }
-            }
+            a = new pw4(null);
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pw4(Activity activity) {
-        super(activity);
+    public pw4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = activity;
+        this.a = new LinkedList<>();
     }
 
-    @Override // com.baidu.tieba.mw4
-    public void b() {
-        TBAlertBuilder tBAlertBuilder;
+    public static pw4 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (tBAlertBuilder = this.d) != null) {
-            tBAlertBuilder.dismiss();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (pw4) invokeV.objValue;
+    }
+
+    public /* synthetic */ pw4(a aVar) {
+        this();
+    }
+
+    public final qw4 a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            Iterator<qw4> it = this.a.iterator();
+            while (it.hasNext()) {
+                qw4 next = it.next();
+                if (next.b() == i) {
+                    return next;
+                }
+            }
+            return null;
+        }
+        return (qw4) invokeI.objValue;
+    }
+
+    @MainThread
+    public void b(int i) {
+        qw4 a2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (a2 = a(i)) != null) {
+            a2.run();
         }
     }
 
-    @Override // com.baidu.tieba.mw4
-    public void e() {
+    public void d(@Nullable BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(this.c);
-            this.d = tBAlertBuilder;
-            tBAlertBuilder.s(new a(this));
-            g(this.d);
-            i();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
+            Iterator<qw4> it = this.a.iterator();
+            while (it.hasNext()) {
+                it.next().a(bdUniqueId);
+            }
         }
     }
 }

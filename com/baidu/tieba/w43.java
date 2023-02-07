@@ -1,50 +1,82 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
+import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayInputStream;
 /* loaded from: classes6.dex */
-public abstract class w43<T> implements nn2<T, byte[]> {
+public abstract class w43 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
+    public Bundle a;
+    public int b;
+    public String c;
+    public Bundle d;
 
-    public abstract T a(@NonNull on2 on2Var) throws Exception;
+    public abstract void b(@NonNull Bundle bundle);
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948220563, "Lcom/baidu/tieba/w43;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948220563, "Lcom/baidu/tieba/w43;");
+                return;
+            }
+        }
+        e = gp1.a;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            d(this.d);
+        }
+    }
 
     public w43() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new Bundle();
+        this.c = "";
+        this.d = new Bundle();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.nn2
-    public final T call(byte[] bArr) throws Exception {
-        InterceptResult invokeL;
+    public void d(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) {
-            if (bArr == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+            if (e) {
+                Log.d("MDelegate-Delegation", "messenger delegation finish");
             }
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-            on2 on2Var = new on2(byteArrayInputStream);
-            T a = a(on2Var);
-            on2Var.close();
-            byteArrayInputStream.close();
-            return a;
+            if (!e53.a(this.c)) {
+                if (e) {
+                    Log.d("MDelegate-Delegation", "messenger delegation finish with send result to client: " + this.b + " observer: " + this.c);
+                }
+                x43.c(this.b, this.c, bundle);
+            }
         }
-        return (T) invokeL.objValue;
     }
 }

@@ -1,56 +1,76 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.frs.accelerator.PkgNameAndNodeInfoData;
-import com.baidu.tieba.frs.accelerator.TornadoNodeInfo;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.forumMember.manito.ManitoHeaderItemViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class sp6 {
+public class sp6 extends as6<tp6, ManitoHeaderItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Map<Integer, PkgNameAndNodeInfoData> a(List<TornadoNodeInfo> list) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sp6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext, bdUniqueId);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            if (!ListUtils.isEmpty(list)) {
-                HashMap hashMap = new HashMap();
-                int i = 0;
-                for (int i2 = 0; i2 < list.size(); i2++) {
-                    for (int i3 = 0; i3 < list.get(i2).getNodeInfoList().size(); i3++) {
-                        hashMap.put(Integer.valueOf(i), new PkgNameAndNodeInfoData(list.get(i2).getPackageName(), list.get(i2).getNodeInfoList().get(i3), list.get(i2).getGameId()));
-                        i++;
-                    }
-                }
-                return hashMap;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return null;
         }
-        return (Map) invokeL.objValue;
     }
 
-    public static String[] b(List<TornadoNodeInfo> list, int i) {
-        InterceptResult invokeLI;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: E */
+    public ManitoHeaderItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, list, i)) == null) {
-            if (!ListUtils.isEmpty(list) && i > 0) {
-                String[] strArr = new String[i];
-                int i2 = 0;
-                for (int i3 = 0; i3 < list.size(); i3++) {
-                    for (int i4 = 0; i4 < list.get(i3).getNodeInfoList().size(); i4++) {
-                        strArr[i2] = list.get(i3).getNodeInfoList().get(i4).getNodeName();
-                        i2++;
-                    }
-                }
-                return strArr;
-            }
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            return new ManitoHeaderItemViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0590, (ViewGroup) null));
         }
-        return (String[]) invokeLI.objValue;
+        return (ManitoHeaderItemViewHolder) invokeL.objValue;
+    }
+
+    public View F(int i, View view2, ViewGroup viewGroup, tp6 tp6Var, ManitoHeaderItemViewHolder manitoHeaderItemViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, tp6Var, manitoHeaderItemViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) tp6Var, (tp6) manitoHeaderItemViewHolder);
+            if (manitoHeaderItemViewHolder.b != this.f) {
+                SkinManager.setBackgroundColor(manitoHeaderItemViewHolder.getView(), R.color.CAM_X0201);
+                SkinManager.setViewTextColor(manitoHeaderItemViewHolder.a, R.color.CAM_X0105, 1);
+            }
+            manitoHeaderItemViewHolder.a.setText(String.format(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f06d9), Integer.valueOf(tp6Var.a())));
+            manitoHeaderItemViewHolder.b = this.f;
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.as6, com.baidu.tieba.qn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        F(i, view2, viewGroup, (tp6) obj, (ManitoHeaderItemViewHolder) viewHolder);
+        return view2;
     }
 }

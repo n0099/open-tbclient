@@ -1,154 +1,122 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hw9;
-import com.baidu.tieba.jw9;
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
 /* loaded from: classes5.dex */
 public class kw9 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static Toast a = null;
+    public static int b = -1;
+    public static int c = -1;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, Deque<c>> a;
 
-    /* loaded from: classes5.dex */
-    public static class a implements c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final jw9 a;
-        public final HashSet<Ssp.Pid> b;
-
-        public a(jw9 jw9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jw9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = jw9Var;
-            this.b = new HashSet<>();
-            for (jw9.c cVar : jw9Var.e) {
-                for (jw9.b bVar : cVar.b) {
-                    this.b.add(bVar.c);
-                }
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947927644, "Lcom/baidu/tieba/kw9;")) == null) {
+            return;
         }
-
-        @Override // com.baidu.tieba.kw9.c
-        public Set<Ssp.Pid> a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (Set) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.kw9.c
-        public int b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.d : invokeV.intValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b implements c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final hw9 a;
-        public final HashSet<Ssp.Pid> b;
-
-        public b(hw9 hw9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hw9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hw9Var;
-            this.b = new HashSet<>();
-            for (hw9.b bVar : hw9Var.b) {
-                for (hw9.a aVar : bVar.b) {
-                    this.b.add(aVar.c);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.kw9.c
-        public Set<Ssp.Pid> a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (Set) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.kw9.c
-        public int b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.c : invokeV.intValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface c {
-        Set<Ssp.Pid> a();
-
-        int b();
-    }
-
-    public kw9() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.a = new HashMap<>();
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947927644, "Lcom/baidu/tieba/kw9;");
+        }
     }
 
-    public final Deque<c> a(String str) {
-        InterceptResult invokeL;
-        Deque<c> deque;
+    public static void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            synchronized (this.a) {
-                deque = this.a.get(str);
-                if (deque == null) {
-                    deque = new ArrayDeque<>();
-                    this.a.put(str, deque);
+        if (interceptable == null || interceptable.invokeI(65537, null, i) == null) {
+            b(i, 0);
+        }
+    }
+
+    public static void b(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65538, null, i, i2) == null) {
+            c(fs9.c().getContext().getResources().getString(i), i2);
+        }
+    }
+
+    public static void c(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65539, null, str, i) == null) {
+            d(str, i, null);
+        }
+    }
+
+    public static void d(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i, str2) == null) {
+            e(str, i, str2, -1);
+        }
+    }
+
+    public static void e(String str, int i, String str2, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2)}) == null) {
+            if (b != -1 && c != -1) {
+                Toast toast = a;
+                if (toast != null) {
+                    toast.cancel();
+                }
+                Toast toast2 = new Toast(fs9.c().getContext());
+                a = toast2;
+                if (i2 > -1) {
+                    toast2.setGravity(i2, 0, 0);
+                }
+                a.setDuration(i);
+                try {
+                    View inflate = LayoutInflater.from(fs9.c().getContext()).inflate(b, (ViewGroup) null);
+                    TextView textView = (TextView) inflate.findViewById(c);
+                    if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str) && str.contains(str2)) {
+                        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
+                        spannableStringBuilder.setSpan(new ForegroundColorSpan(fs9.c().getContext().getResources().getColor(R.color.app_theme_color)), str.indexOf(str2), str.indexOf(str2) + str2.length(), 33);
+                        textView.setText(spannableStringBuilder);
+                    } else {
+                        textView.setText(str);
+                    }
+                    a.setView(inflate);
+                    a.show();
+                    return;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return;
                 }
             }
-            return deque;
+            Toast toast3 = a;
+            if (toast3 == null) {
+                Toast makeText = Toast.makeText(fs9.c().getContext(), str, i);
+                a = makeText;
+                if (i2 > -1) {
+                    makeText.setGravity(i2, 0, 0);
+                }
+            } else {
+                toast3.cancel();
+                Toast makeText2 = Toast.makeText(fs9.c().getContext(), str, i);
+                a = makeText2;
+                if (i2 > -1) {
+                    makeText2.setGravity(i2, 0, 0);
+                }
+                a.setDuration(i);
+            }
+            try {
+                a.show();
+            } catch (Exception unused) {
+            }
         }
-        return (Deque) invokeL.objValue;
     }
 }

@@ -43,7 +43,7 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
     @StyleRes
     public static final int DEFAULT_STYLE = 2131755931;
     @AttrRes
-    public static final int DEFAULT_THEME_ATTR = 2130970419;
+    public static final int DEFAULT_THEME_ATTR = 2130970423;
     public transient /* synthetic */ FieldHolder $fh;
     public int arrowSize;
     @NonNull
@@ -441,7 +441,7 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(65548, this, attributeSet, i, i2) == null) {
             TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(this.context, attributeSet, R.styleable.Tooltip, i, i2, new int[0]);
-            this.arrowSize = this.context.getResources().getDimensionPixelSize(com.baidu.tieba.R.dimen.obfuscated_res_0x7f0704e0);
+            this.arrowSize = this.context.getResources().getDimensionPixelSize(com.baidu.tieba.R.dimen.obfuscated_res_0x7f0704e6);
             setShapeAppearanceModel(getShapeAppearanceModel().toBuilder().setBottomEdge(createMarkerEdge()).build());
             setText(obtainStyledAttributes.getText(5));
             setTextAppearance(MaterialResources.getTextAppearance(this.context, obtainStyledAttributes, 0));

@@ -1,107 +1,114 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Dialog;
-import android.content.Context;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
+import android.text.TextUtils;
+import android.util.Log;
+import android.webkit.JavascriptInterface;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.v8engine.FontParser;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.swan.apps.binding.model.JSTypeMismatchException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public final class d84 extends Dialog {
+public class d84 extends c84 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
+    public gg2 b;
 
     /* loaded from: classes4.dex */
-    public interface a {
-        void a();
-
-        void b();
-
-        void c();
-    }
-
-    /* loaded from: classes4.dex */
-    public static final class b implements View.OnTouchListener {
+    public class a extends ResponseCallback<i84> {
         public static /* synthetic */ Interceptable $ic;
-        public static final b a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ k84 a;
+        public final /* synthetic */ d12 b;
+        public final /* synthetic */ d84 c;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-906029013, "Lcom/baidu/tieba/d84$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
+        /* renamed from: com.baidu.tieba.d84$a$a  reason: collision with other inner class name */
+        /* loaded from: classes4.dex */
+        public class RunnableC0247a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ i84 a;
+            public final /* synthetic */ a b;
+
+            public RunnableC0247a(a aVar, i84 i84Var) {
+                Interceptable interceptable = $ic;
                 if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-906029013, "Lcom/baidu/tieba/d84$b;");
-                    return;
-                }
-            }
-            a = new b();
-        }
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.view.View.OnTouchListener
-        public final boolean onTouch(View v, MotionEvent event) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, v, event)) == null) {
-                Intrinsics.checkNotNullExpressionValue(event, "event");
-                int action = event.getAction();
-                if (action != 0) {
-                    if (action == 1 || action == 3) {
-                        Intrinsics.checkNotNullExpressionValue(v, "v");
-                        v.setAlpha(1.0f);
-                        return false;
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, i84Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
                     }
-                    return false;
                 }
-                Intrinsics.checkNotNullExpressionValue(v, "v");
-                v.setAlpha(0.2f);
-                return false;
+                this.b = aVar;
+                this.a = i84Var;
             }
-            return invokeLL.booleanValue;
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    ib4.call(this.b.b, true, this.a);
+                }
+            }
         }
-    }
 
-    /* loaded from: classes4.dex */
-    public static final class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d84 a;
+        /* loaded from: classes4.dex */
+        public class b implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
 
-        public c(d84 d84Var) {
+            public b(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    a aVar = this.a;
+                    ib4.call(aVar.b, false, aVar.a);
+                }
+            }
+        }
+
+        public a(d84 d84Var, k84 k84Var, d12 d12Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {d84Var};
+                Object[] objArr = {d84Var, k84Var, d12Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -111,147 +118,121 @@ public final class d84 extends Dialog {
                     return;
                 }
             }
-            this.a = d84Var;
+            this.c = d84Var;
+            this.a = k84Var;
+            this.b = d12Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public final void onClick(View view2) {
-            a aVar;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: a */
+        public void onSuccess(i84 i84Var, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (aVar = this.a.a) != null) {
-                aVar.c();
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static final class d implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d84 a;
-
-        public d(d84 d84Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d84Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, i84Var, i) == null) {
+                if (c84.a) {
+                    Log.d("CheckAdvisedToRestApi", "on success");
                 }
-            }
-            this.a = d84Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public final void onClick(View view2) {
-            a aVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (aVar = this.a.a) != null) {
-                aVar.b();
+                this.c.b.post(new RunnableC0247a(this, i84Var));
             }
         }
-    }
 
-    /* loaded from: classes4.dex */
-    public static final class e implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d84 a;
-
-        public e(d84 d84Var) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: b */
+        public i84 parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d84Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i)) == null) {
+                ResponseBody body = response.body();
+                if (body == null) {
+                    return null;
                 }
+                String string = body.string();
+                if (c84.a) {
+                    Log.d("CheckAdvisedToRestApi", "parse response: " + string);
+                }
+                JSONObject jSONObject = new JSONObject(string);
+                String optString = jSONObject.optString("errno");
+                if (!TextUtils.equals(optString, "0")) {
+                    if (c84.a) {
+                        Log.d("CheckAdvisedToRestApi", "errno = " + optString);
+                    }
+                    k84 k84Var = this.a;
+                    k84Var.errNo = optString;
+                    k84Var.errMsg = String.format("%s: fail Error: %s", "checkIsUserAdvisedToRest", jSONObject.optString("errmsg"));
+                    return null;
+                }
+                String optString2 = jSONObject.optJSONObject("data").optString("result");
+                i84 i84Var = new i84();
+                i84Var.result = !TextUtils.equals(optString2, "0");
+                i84Var.errNo = "0";
+                i84Var.errMsg = ib4.b("checkIsUserAdvisedToRest", DnsModel.MSG_OK);
+                return i84Var;
             }
-            this.a = d84Var;
+            return (i84) invokeLI.objValue;
         }
 
-        @Override // android.view.View.OnClickListener
-        public final void onClick(View view2) {
-            a aVar;
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (aVar = this.a.a) != null) {
-                aVar.a();
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
+                if (c84.a) {
+                    Log.e("CheckAdvisedToRestApi", "on fail");
+                }
+                if (TextUtils.isEmpty(this.a.errMsg)) {
+                    k84 k84Var = this.a;
+                    k84Var.errNo = "100";
+                    k84Var.errMsg = String.format("%s: fail Error: %s", "checkIsUserAdvisedToRest", exc.getMessage());
+                }
+                this.c.b.post(new b(this));
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d84(Context context) {
-        super(context, R.style.obfuscated_res_0x7f1001af);
+    public d84(@NonNull gg2 gg2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {gg2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(context, "context");
-        c();
+        this.b = gg2Var;
     }
 
-    public final void e(a onClickListener) {
+    @JavascriptInterface
+    public void checkIsUserAdvisedToRest(JsObject jsObject) {
+        d12 F;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            Intrinsics.checkNotNullParameter(onClickListener, "onClickListener");
-            this.a = onClickListener;
-        }
-    }
-
-    @SuppressLint({"ClickableViewAccessibility"})
-    public final View.OnTouchListener b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b.a;
-        }
-        return (View.OnTouchListener) invokeV.objValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d00c1);
-            setCanceledOnTouchOutside(false);
-            d();
-        }
-    }
-
-    @SuppressLint({"ClickableViewAccessibility"})
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ((Button) findViewById(R.id.obfuscated_res_0x7f090977)).setOnTouchListener(b());
-            ((Button) findViewById(R.id.obfuscated_res_0x7f090977)).setOnClickListener(new c(this));
-            ((ImageView) findViewById(R.id.obfuscated_res_0x7f090f25)).setOnTouchListener(b());
-            ((ImageView) findViewById(R.id.obfuscated_res_0x7f090f25)).setOnClickListener(new d(this));
-            ((Button) findViewById(R.id.obfuscated_res_0x7f090728)).setOnTouchListener(b());
-            ((Button) findViewById(R.id.obfuscated_res_0x7f090728)).setOnClickListener(new e(this));
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jsObject) == null) && (F = d12.F(jsObject)) != null && this.b != null) {
+            k84 k84Var = new k84();
+            try {
+                int d = F.d("todayPlayedTime");
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("ma_id", w83.g0());
+                    jSONObject.put("todayPlayedTime", String.valueOf(d));
+                } catch (JSONException e) {
+                    if (c84.a) {
+                        e.printStackTrace();
+                    }
+                }
+                a(n54.b().f(), jSONObject.toString(), new a(this, k84Var, F));
+            } catch (JSTypeMismatchException e2) {
+                if (c84.a) {
+                    e2.printStackTrace();
+                }
+                k84Var.errNo = FontParser.sFontWeightDefault;
+                k84Var.errMsg = ib4.a("checkIsUserAdvisedToRest", e2);
+                ib4.call(F, false, k84Var);
+            }
         }
     }
 }

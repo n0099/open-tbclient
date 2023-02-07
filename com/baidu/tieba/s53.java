@@ -1,66 +1,126 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.os.Bundle;
+import android.os.Message;
+import android.os.RemoteException;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.tieba.m53;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-@Deprecated
+import java.util.ArrayDeque;
+import java.util.Deque;
 /* loaded from: classes6.dex */
-public class s53 extends g63 {
+public class s53 implements m53.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Deque<Message> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s53(g53 g53Var) {
-        super(g53Var, "/swanAPI/isLoginSync");
+    @Override // com.baidu.tieba.m53.c
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.m53.c
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948102360, "Lcom/baidu/tieba/s53;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948102360, "Lcom/baidu/tieba/s53;");
+                return;
+            }
+        }
+        boolean z = gp1.a;
+    }
+
+    public s53() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {g53Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
+            }
+        }
+        this.a = new ArrayDeque();
+    }
+
+    @Override // com.baidu.tieba.m53.c
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            r53 Q = r53.Q();
+            while (Q.O() && !this.a.isEmpty()) {
+                Message peek = this.a.peek();
+                if (peek == null || e(peek)) {
+                    this.a.poll();
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.g63
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j43 j43Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.baidu.tieba.m53.c
+    public void b(@NonNull o53 o53Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j43Var)) == null) {
-            if (j43Var == null) {
-                j12.c("isLogin", "swanApp is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
-                return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o53Var) == null) {
+            Message h = o53Var.h();
+            h.arg1 = SwanAppProcessInfo.current().index;
+            if (v83.K().E()) {
+                Object obj = h.obj;
+                if (obj instanceof Bundle) {
+                    Bundle bundle = (Bundle) obj;
+                    if (!bundle.containsKey("ai_apps_id")) {
+                        bundle.putString("ai_apps_id", v83.K().getAppId());
+                    }
+                }
             }
-            boolean e = j43Var.N().e(context);
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("isLogin", e);
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-                return true;
-            } catch (JSONException unused) {
-                j12.c("isLogin", "json parse fail");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
+            if (!e(h) && o53Var.n()) {
+                this.a.offer(h);
+                r53.Q().c0();
             }
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    public final boolean e(Message message) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, message)) == null) {
+            r53 Q = r53.Q();
+            if (message != null && Q.O()) {
+                try {
+                    Q.S().send(message);
+                    return true;
+                } catch (RemoteException e) {
+                    Q.U();
+                    w52.l("SwanMsgSenderOfClient", " sendMsgToService msg = " + message.toString(), e);
+                    return false;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

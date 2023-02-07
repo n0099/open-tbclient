@@ -1,22 +1,44 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import java.io.File;
-import java.util.HashMap;
-/* loaded from: classes6.dex */
-public interface xo1 {
+import android.database.ContentObserver;
+import android.os.Handler;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
+public class xo1 extends ContentObserver {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public zo1 a;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void onResult(String str);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xo1(zo1 zo1Var) {
+        super(null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {zo1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Handler) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = zo1Var;
     }
 
-    void a(HashMap<String, String> hashMap, File file, a aVar, String str);
-
-    void b(Context context, String str, String str2, String str3);
-
-    void c(HashMap<String, String> hashMap, File file, a aVar);
-
-    void d(Bitmap bitmap, HashMap<String, String> hashMap, File[] fileArr, a aVar);
+    @Override // android.database.ContentObserver
+    public void onChange(boolean z) {
+        zo1 zo1Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (zo1Var = this.a) != null) {
+            zo1Var.b = zo1Var.a.a(0, null);
+        }
+    }
 }

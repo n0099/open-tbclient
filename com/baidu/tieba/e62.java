@@ -1,94 +1,112 @@
 package com.baidu.tieba;
 
+import android.net.Uri;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class e62 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean i;
     public transient /* synthetic */ FieldHolder $fh;
-    public b62 a;
+    public String a;
+    public String b;
+    public JSONArray c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public long h;
 
-    /* loaded from: classes4.dex */
-    public class a implements bc2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bc2 a;
-
-        public a(e62 e62Var, bc2 bc2Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947686216, "Lcom/baidu/tieba/e62;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e62Var, bc2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = bc2Var;
-        }
-
-        @Override // com.baidu.tieba.bc2
-        public void a(rb2 rb2Var) {
-            bc2 bc2Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, rb2Var) == null) && (bc2Var = this.a) != null) {
-                bc2Var.a(rb2Var);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947686216, "Lcom/baidu/tieba/e62;");
+                return;
             }
         }
+        i = gp1.a;
     }
 
     public e62() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = new b62(q12.d().getPath(), q12.b);
     }
 
-    public rb2 a() {
-        InterceptResult invokeV;
+    @NonNull
+    public static e62 c(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            b62 b62Var = this.a;
-            if (b62Var != null) {
-                return b62Var.d();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            e62 e62Var = new e62();
+            try {
+                e62Var.c = jSONObject.getJSONArray("host");
+                e62Var.b = jSONObject.getString("appKey");
+                e62Var.a = jSONObject.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
+                e62Var.d = jSONObject.getString("serverPort");
+                e62Var.f = jSONObject.getString("wsServerPort");
+                Uri.decode(jSONObject.optString("url"));
+                e62Var.g = jSONObject.optString("notInHistory", "1");
+                e62Var.h = jSONObject.optLong("coreVersion");
+            } catch (JSONException unused) {
+                if (i) {
+                    Log.e("RemoteDebugModel", "DebuggerLaunchAction params: JSONException");
+                }
             }
-            return null;
+            return e62Var;
         }
-        return (rb2) invokeV.objValue;
+        return (e62) invokeL.objValue;
     }
 
-    public void b() {
-        b62 b62Var;
+    public String a(int i2) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (b62Var = this.a) != null) {
-            b62Var.e();
-            this.a = null;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
+            JSONArray jSONArray = this.c;
+            if (jSONArray == null) {
+                return "";
+            }
+            return jSONArray.optString(i2);
         }
+        return (String) invokeI.objValue;
     }
 
-    public void c(bc2 bc2Var) {
-        b62 b62Var;
+    public String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bc2Var) == null) && (b62Var = this.a) != null) {
-            b62Var.f(new a(this, bc2Var));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            return "http://" + str + ":" + this.d + "/app.zip";
         }
+        return (String) invokeL.objValue;
     }
 }

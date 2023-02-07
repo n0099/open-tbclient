@@ -1,189 +1,54 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
-import com.baidu.swan.apps.core.launchtips.scene.SceneType;
-import com.baidu.tieba.r42;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class e52 {
+public final class e52 extends i42 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public boolean b;
-    public final r42 c;
+    public int D;
+    public String E;
 
-    /* loaded from: classes4.dex */
-    public class a implements r42.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e52 a;
-
-        public a(e52 e52Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e52Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = e52Var;
-        }
-
-        @Override // com.baidu.tieba.r42.b
-        public void a(NetworkStatus networkStatus) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
-                l42.g(SceneType.SCENE_DOWNLOAD_PKG_TIMEOUT.getScene() + networkStatus.getDesc());
-                k42.c(SceneType.SCENE_DOWNLOAD_PKG_TIMEOUT.getType(), networkStatus.getStatus());
-                this.a.e(networkStatus);
-                if (e52.d) {
-                    Log.d("SceneDownloadPkgTips", ">> " + SceneType.SCENE_DOWNLOAD_PKG_TIMEOUT.getScene() + networkStatus.getDesc());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static /* synthetic */ class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-880230007, "Lcom/baidu/tieba/e52$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-880230007, "Lcom/baidu/tieba/e52$b;");
-                    return;
-                }
-            }
-            int[] iArr = new int[NetworkStatus.values().length];
-            a = iArr;
-            try {
-                iArr[NetworkStatus.NETWORK_BAD.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[NetworkStatus.NETWORK_OFFLINE.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947685255, "Lcom/baidu/tieba/e52;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947685255, "Lcom/baidu/tieba/e52;");
-                return;
-            }
-        }
-        d = tk1.a;
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e52() {
+        super("coverView", "viewId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], (String) objArr[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new r42();
+        this.E = "";
     }
 
-    public final void c() {
+    @Override // com.baidu.tieba.i42, com.baidu.tieba.k42, com.baidu.tieba.m42, com.baidu.tieba.vy2
+    public void a(JSONObject jSONObject) throws JSONException {
+        JSONObject jSONObject2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c.a(new a(this));
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            boolean z = true;
-            if (i43.K().k() == 1) {
-                z = false;
-            }
-            this.b = z;
-            this.a = 0L;
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b = false;
-            if (d) {
-                Log.d("SceneDownloadPkgTips", ">> stop collecting network status.");
-            }
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !this.b) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        if (this.a == 0) {
-            if (d) {
-                Log.d("SceneDownloadPkgTips", ">> start to check download progress.");
-            }
-            this.a = System.currentTimeMillis();
-            return;
+        super.a(jSONObject);
+        this.D = jSONObject.optInt("scrollTop");
+        JSONObject jSONObject3 = this.j;
+        if (jSONObject3 != null) {
+            this.E = jSONObject3.optString("overflowY");
         }
-        long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.a > 2000) {
-            if (d) {
-                Log.d("SceneDownloadPkgTips", ">> download progress over 2s.");
-            }
-            c();
-            g();
-        }
-        this.a = currentTimeMillis;
-    }
-
-    public final void e(NetworkStatus networkStatus) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, networkStatus) == null) {
-            int i = b.a[networkStatus.ordinal()];
-            if (i != 1 && i != 2) {
-                j42.f(R.string.obfuscated_res_0x7f0f13bf);
-            } else {
-                j42.f(R.string.obfuscated_res_0x7f0f13b5);
-            }
+        cz2 cz2Var = this.h;
+        if (cz2Var != null && (jSONObject2 = this.j) != null) {
+            cz2Var.i(jSONObject2.optBoolean("fixed", false));
         }
     }
 }

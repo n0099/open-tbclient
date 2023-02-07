@@ -10,7 +10,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qe7;
+import com.baidu.tieba.bj7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ public class VideoHotTopicSearchAdapter extends RecyclerView.Adapter {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public String b;
-    public List<qe7> c;
+    public List<bj7> c;
     public LayoutInflater d;
     public TbPageContext e;
     public a f;
@@ -35,7 +35,7 @@ public class VideoHotTopicSearchAdapter extends RecyclerView.Adapter {
 
     /* loaded from: classes6.dex */
     public interface a {
-        void a(qe7 qe7Var);
+        void a(bj7 bj7Var);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -93,7 +93,7 @@ public class VideoHotTopicSearchAdapter extends RecyclerView.Adapter {
         this.d = LayoutInflater.from(tbPageContext.getPageActivity());
     }
 
-    public void d(String str, List<qe7> list) {
+    public void d(String str, List<bj7> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, list) == null) {
             this.b = str;
@@ -138,17 +138,17 @@ public class VideoHotTopicSearchAdapter extends RecyclerView.Adapter {
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-        qe7 qe7Var;
+        bj7 bj7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048583, this, viewHolder, i) != null) || (qe7Var = (qe7) ListUtils.getItem(this.c, i)) == null) {
+        if ((interceptable != null && interceptable.invokeLI(1048583, this, viewHolder, i) != null) || (bj7Var = (bj7) ListUtils.getItem(this.c, i)) == null) {
             return;
         }
         if (viewHolder instanceof HotNormalViewHolder) {
             HotNormalViewHolder hotNormalViewHolder = (HotNormalViewHolder) viewHolder;
-            hotNormalViewHolder.b(hotNormalViewHolder, i, qe7Var, this.e, this.b, this.f);
+            hotNormalViewHolder.b(hotNormalViewHolder, i, bj7Var, this.e, this.b, this.f);
         } else if (viewHolder instanceof HotVideoViewHolder) {
             HotVideoViewHolder hotVideoViewHolder = (HotVideoViewHolder) viewHolder;
-            hotVideoViewHolder.a(hotVideoViewHolder, i, qe7Var, this.e, this.g, this.f, this);
+            hotVideoViewHolder.a(hotVideoViewHolder, i, bj7Var, this.e, this.g, this.f, this);
         }
     }
 

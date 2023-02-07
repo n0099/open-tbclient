@@ -1,24 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
 public class c64 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile b64 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(rb2 rb2Var) {
+    public static synchronized b64 a() {
+        InterceptResult invokeV;
+        b64 b64Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, rb2Var) == null) && rb2Var != null && rb2Var.n().hasEventListener("audiointerruptionbegin") && my3.h().i()) {
-            rb2Var.dispatchEvent(new JSEvent("audiointerruptionbegin"));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (c64.class) {
+                if (a == null) {
+                    a = new b64();
+                }
+                b64Var = a;
+            }
+            return b64Var;
         }
-    }
-
-    public static void b(rb2 rb2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, rb2Var) == null) && rb2Var != null && rb2Var.n().hasEventListener("audiointerruptionend")) {
-            rb2Var.dispatchEvent(new JSEvent("audiointerruptionend"));
-        }
+        return (b64) invokeV.objValue;
     }
 }

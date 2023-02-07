@@ -1,265 +1,127 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.data.HotEventData;
-import com.baidu.tbadk.mutiprocess.hotevent.HotEvent;
-import com.baidu.tieba.t35;
+import com.baidu.tbadk.core.view.itemcard.ItemCardHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.Collections;
+import kotlin.jvm.JvmName;
+import kotlin.jvm.internal.Intrinsics;
+@JvmName(name = "ItemTabLogUtil")
 /* loaded from: classes6.dex */
-public class w45 {
+public final class w45 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static WeakReference<t35> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface d {
-        void onDismiss();
-    }
-
-    /* loaded from: classes6.dex */
-    public static class a implements t35.j {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d a;
-
-        public a(d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dVar;
-        }
-
-        @Override // com.baidu.tieba.t35.j
-        public void onDismiss() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean unused = w45.a = false;
-                d dVar = this.a;
-                if (dVar != null) {
-                    dVar.onDismiss();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements t35.h {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ HotEventData a;
-
-        public b(HotEventData hotEventData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hotEventData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hotEventData;
-        }
-
-        @Override // com.baidu.tieba.t35.h
-        public void onClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                UrlManager.getInstance().dealOneLink(TbadkApplication.getInst().getCurrentPageContext(TbadkApplication.getInst().getCurrentActivity()), new String[]{this.a.getBtnSchema()});
-                w45.e();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c implements t35.i {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ HotEventData a;
-
-        public c(HotEventData hotEventData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hotEventData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hotEventData;
-        }
-
-        @Override // com.baidu.tieba.t35.i
-        public void onClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                UrlManager.getInstance().dealOneLink(TbadkApplication.getInst().getCurrentPageContext(TbadkApplication.getInst().getCurrentActivity()), new String[]{this.a.getBtnSchema()});
-                w45.e();
-            }
-        }
-    }
-
-    public static void h(HotEventData hotEventData) {
-        Activity currentActivity;
+    public static final int a(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65543, null, hotEventData) != null) || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null) {
-            return;
-        }
-        nw4.g(Collections.singletonList(new ow4(currentActivity, hotEventData)));
-    }
-
-    public static t35 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            WeakReference<t35> weakReference = b;
-            if (weakReference != null) {
-                return weakReference.get();
+        if (interceptable == null || (invokeII = interceptable.invokeII(65536, null, i, i2)) == null) {
+            if (i != 1) {
+                return i != 2 ? -1 : 2;
+            } else if (i2 != 1) {
+                return i2 != 2 ? -1 : 3;
+            } else {
+                return 4;
             }
-            return null;
         }
-        return (t35) invokeV.objValue;
+        return invokeII.intValue;
     }
 
-    public static boolean d() {
-        InterceptResult invokeV;
+    public static final int b(String name) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, name)) == null) {
+            Intrinsics.checkNotNullParameter(name, "name");
+            if (Intrinsics.areEqual(ItemCardHelper.a, name)) {
+                return 1;
+            }
+            if (Intrinsics.areEqual(ItemCardHelper.b, name)) {
+                return 2;
+            }
+            return 9;
         }
-        return invokeV.booleanValue;
+        return invokeL.intValue;
     }
 
-    public static void e() {
+    public static final void c(v45 itemLogData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_HOT_EVENT_CLICK));
-        }
-    }
-
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_HOT_EVENT_SHOW));
-        }
-    }
-
-    public static t35 g(HotEventData hotEventData, d dVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, hotEventData, dVar)) == null) {
-            if (!TextUtils.isEmpty(hotEventData.getBtnSchema()) && !TextUtils.isEmpty(hotEventData.getTitle())) {
-                if (hotEventData.getWindowType() != 1 && hotEventData.getWindowType() != 2) {
-                    if (dVar != null) {
-                        dVar.onDismiss();
+        if (interceptable == null || interceptable.invokeL(65538, null, itemLogData) == null) {
+            Intrinsics.checkNotNullParameter(itemLogData, "itemLogData");
+            StatisticItem statisticItem = new StatisticItem();
+            boolean z = false;
+            switch (itemLogData.getType()) {
+                case 1:
+                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_TAB_ALBUM_CLICK).param("obj_name", itemLogData.b()).param("obj_locate", itemLogData.c()).param("obj_type", itemLogData.g()).param("fid", itemLogData.a()).param("uid", itemLogData.i());
+                    break;
+                case 2:
+                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_TAB_TAG_CLICK).param("obj_name", itemLogData.b()).param("obj_locate", itemLogData.c()).param("fid", itemLogData.a());
+                    break;
+                case 3:
+                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_TAB_RECOMMEND_CLICK).param("obj_name", itemLogData.b()).param("obj_locate", itemLogData.c()).param("obj_type", itemLogData.g()).param("fid", itemLogData.a());
+                    break;
+                case 4:
+                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_TAB_COMMENT_CLICK).param("obj_name", itemLogData.b()).param("obj_locate", itemLogData.c()).param("obj_type", itemLogData.g()).param("fid", itemLogData.a());
+                    break;
+                case 5:
+                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_TAB_SHOW).param("obj_name", itemLogData.b()).param("obj_source", itemLogData.f()).param("obj_locate", itemLogData.a());
+                    break;
+                case 6:
+                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_TAB_RANKING).param("obj_name", itemLogData.b()).param("obj_type", itemLogData.g()).param("fid", itemLogData.a());
+                    break;
+                case 7:
+                    statisticItem.key(CommonStatisticKey.KEY_FRS_ORDER_DOWNLOAD_EXPORT).param("obj_name", itemLogData.b()).param("obj_type", itemLogData.g()).param("fid", itemLogData.a()).param("uid", itemLogData.i());
+                    break;
+                case 8:
+                    statisticItem.key(CommonStatisticKey.KEY_FRS_ORDER_DOWNLOAD_CLICK).param("obj_name", itemLogData.b()).param("obj_type", itemLogData.g()).param("fid", itemLogData.a()).param("uid", itemLogData.i()).param("obj_source", itemLogData.f());
+                    String d = itemLogData.d();
+                    if (!((d == null || d.length() == 0) ? true : true)) {
+                        statisticItem.param("obj_locate", itemLogData.d());
+                        break;
                     }
-                    return null;
-                }
-                Activity currentActivity = TbadkApplication.getInst().getCurrentActivity();
-                if (TbadkCoreApplication.getInst().isMainProcess(true) && currentActivity == null) {
-                    HotEvent hotEvent = new HotEvent();
-                    hotEvent.hotEventData = hotEventData;
-                    hotEventData.setSkinType(TbadkCoreApplication.getInst().getSkinType());
-                    ad5.i(hotEvent);
-                    if (dVar != null) {
-                        dVar.onDismiss();
+                    break;
+                case 9:
+                    statisticItem.key(CommonStatisticKey.KEY_ITEM_RECENT_UPDATE_SHOW).param("fid", itemLogData.a());
+                    break;
+                case 10:
+                    statisticItem.key(CommonStatisticKey.KEY_ITEM_RECENT_UPDATE_CLICK).param("fid", itemLogData.a());
+                    break;
+                case 11:
+                    statisticItem.key(CommonStatisticKey.KEY_ITEM_HOT_VIDEO_SHOW).param("fid", itemLogData.a()).param("obj_locate", itemLogData.c());
+                    break;
+                case 12:
+                    statisticItem.key(CommonStatisticKey.KEY_ITEM_HOT_VIDEO_CLICK).param("fid", itemLogData.a()).param("obj_locate", itemLogData.c());
+                    String h = itemLogData.h();
+                    if (!((h == null || h.length() == 0) ? true : true)) {
+                        statisticItem.param("post_id", itemLogData.h());
+                        break;
                     }
-                    return null;
-                }
-                if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
-                    TbadkCoreApplication.getInst().setSkinType(hotEventData.getSkinType());
-                }
-                if (a) {
-                    if (dVar != null) {
-                        dVar.onDismiss();
-                    }
-                    return null;
-                }
-                if (hotEventData.getWindowType() == 1) {
-                    if (System.currentTimeMillis() - cz4.l().n("key_hot_event_tip_show_time", 0L) <= 600000) {
-                        if (dVar != null) {
-                            dVar.onDismiss();
-                        }
-                        return null;
-                    }
-                }
-                if (v35.c() && v35.b() != null) {
-                    v35.b().t();
-                }
-                if (TextUtils.isEmpty(hotEventData.getDesc())) {
-                    hotEventData.setDesc(TbadkApplication.getInst().getString(R.string.hot_event_desc_text));
-                }
-                if (TextUtils.isEmpty(hotEventData.getBtnText())) {
-                    hotEventData.setBtnText(TbadkApplication.getInst().getString(R.string.hot_event_btn_text));
-                } else {
-                    String btnText = hotEventData.getBtnText();
-                    if (StringHelper.getChineseAndEnglishLength(btnText) > 8) {
-                        hotEventData.setBtnText(StringHelper.cutChineseAndEnglishWithEmoji(btnText, 8, null));
-                    }
-                }
-                t35.g gVar = new t35.g(currentActivity);
-                gVar.m(hotEventData.getBtnText());
-                gVar.u(hotEventData.getTitle());
-                gVar.o(hotEventData.getDesc());
-                gVar.q(hotEventData.getIcon());
-                gVar.n(R.drawable.hot_event_icon);
-                gVar.p(5000);
-                gVar.s(new c(hotEventData));
-                gVar.r(new b(hotEventData));
-                gVar.t(new a(dVar));
-                t35 l = gVar.l();
-                l.p();
-                b = new WeakReference<>(l);
-                f();
-                if (hotEventData.getWindowType() == 1) {
-                    cz4.l().y("key_hot_event_tip_show_time", System.currentTimeMillis());
-                }
-                a = true;
-                return l;
+                    break;
+                case 13:
+                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_GAME_CODE_SHOW).param("fid", itemLogData.a()).param("obj_id", itemLogData.b()).param("uid", itemLogData.i());
+                    break;
+                case 14:
+                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_GAME_CODE_CLICK).param("fid", itemLogData.a()).param("obj_id", itemLogData.b()).param("uid", itemLogData.i());
+                    break;
+                case 15:
+                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_GAME_CODE_FLOATING_LAYER_SHOW).param("obj_id", itemLogData.b()).param("fid", itemLogData.a()).param("obj_locate", itemLogData.c()).param("uid", itemLogData.i());
+                    break;
+                case 16:
+                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_GAME_CODE_FLOATING_LAYER_CLICK).param("obj_id", itemLogData.b()).param("fid", itemLogData.a()).param("obj_name", itemLogData.e()).param("obj_type", itemLogData.g());
+                    break;
+                case 17:
+                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_ACCELERATOR_START_BTN_DESC_SHOW).param("fid", itemLogData.a()).param("uid", itemLogData.i()).param("obj_id", itemLogData.b());
+                    break;
+                case 18:
+                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_ACCELERATOR_START_BTN_DESC_CLICK).param("fid", itemLogData.a()).param("uid", itemLogData.i()).param("obj_id", itemLogData.b());
+                    break;
+                case 19:
+                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_ACCELERATOR_START_BTN_IMG_CLICK).param("fid", itemLogData.a()).param("uid", itemLogData.i()).param("obj_id", itemLogData.b());
+                    break;
             }
-            if (dVar != null) {
-                dVar.onDismiss();
-            }
-            return null;
+            TiebaStatic.log(statisticItem);
         }
-        return (t35) invokeLL.objValue;
     }
 }

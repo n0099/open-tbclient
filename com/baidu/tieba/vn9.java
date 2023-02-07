@@ -1,201 +1,82 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.ActivityManager;
+import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.os.Bundle;
+import android.os.Process;
+import androidx.multidex.MultiDex;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.PrintWriter;
-import java.io.StringWriter;
+import com.baidu.turbonet.base.BuildConfig;
+import java.lang.reflect.InvocationTargetException;
 /* loaded from: classes6.dex */
-public final class vn9 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 1000;
-    public static boolean b = true;
+public class vn9 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948246696, "Lcom/baidu/tieba/vn9;")) == null) {
+    public static String a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            try {
+                int myPid = Process.myPid();
+                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
+                    if (runningAppProcessInfo.pid == myPid) {
+                        return runningAppProcessInfo.processName;
+                    }
+                }
+                return null;
+            } catch (SecurityException unused) {
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void b(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65537, null, context) != null) || !BuildConfig.isMultidexEnabled()) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+        if (Build.VERSION.SDK_INT < 21 && !c(context)) {
+            tn9.h("base_multidex", "Skipping multidex installation: not needed for process.", new Object[0]);
+            return;
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948246696, "Lcom/baidu/tieba/vn9;");
-        }
+        MultiDex.install(context);
+        tn9.h("base_multidex", "Completed multidex installation.", new Object[0]);
     }
 
-    public static void a(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, str) == null) && b) {
-            c(2, "BaiDuAbSDK", str, null);
-        }
-    }
-
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && b) {
-            c(5, "BaiDuAbSDK", str, null);
-        }
-    }
-
-    public static void d(Throwable th) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th) == null) && b) {
-            c(2, "BaiDuAbSDK", "", th);
-        }
-    }
-
-    public static void e(Throwable th) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, th) == null) && b) {
-            c(4, "BaiDuAbSDK", "", th);
-        }
-    }
-
-    public static void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
-            b = z;
-        }
-    }
-
-    public static void c(int i, String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), str, str2, th}) == null) {
-            if (!TextUtils.isEmpty(str2)) {
-                int length = str2.length();
-                int i2 = a;
-                if (length >= i2) {
-                    if (i != 1) {
-                        if (i != 2) {
-                            if (i != 3) {
-                                if (i != 4) {
-                                    if (i == 5) {
-                                        Log.e(str, str2.substring(0, i2));
-                                    }
-                                } else {
-                                    Log.w(str, str2.substring(0, i2));
-                                }
-                            } else {
-                                Log.i(str, str2.substring(0, i2));
-                            }
-                        } else {
-                            Log.d(str, str2.substring(0, i2));
-                        }
-                    } else {
-                        Log.v(str, str2.substring(0, i2));
-                    }
-                } else if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
-                            if (i != 4) {
-                                if (i != 5) {
-                                    Log.d(str, str2);
-                                } else {
-                                    Log.e(str, str2);
-                                }
-                            } else {
-                                Log.w(str, str2);
-                            }
-                        } else {
-                            Log.i(str, str2);
-                        }
-                    } else {
-                        Log.d(str, str2);
-                    }
-                } else {
-                    Log.v(str, str2);
-                }
-            }
-            if (th != null) {
-                String f = f(th);
-                if (!TextUtils.isEmpty(f)) {
-                    if (i != 1) {
-                        if (i != 2) {
-                            if (i != 3) {
-                                if (i != 4) {
-                                    if (i != 5) {
-                                        Log.d(str, str2);
-                                        return;
-                                    } else {
-                                        Log.e(str, f);
-                                        return;
-                                    }
-                                }
-                                Log.w(str, f);
-                                return;
-                            }
-                            Log.i(str, f);
-                            return;
-                        }
-                        Log.d(str, f);
-                        return;
-                    }
-                    Log.v(str, f);
-                }
-            }
-        }
-    }
-
-    public static String f(Throwable th) {
+    public static boolean c(Context context) {
         InterceptResult invokeL;
-        PrintWriter printWriter;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, th)) == null) {
-            StringWriter stringWriter = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             try {
-                StringWriter stringWriter2 = new StringWriter();
-                try {
-                    printWriter = new PrintWriter(stringWriter2);
-                    try {
-                        th.printStackTrace(printWriter);
-                        printWriter.flush();
-                        stringWriter2.flush();
-                        String stringWriter3 = stringWriter2.toString();
-                        try {
-                            stringWriter2.close();
-                        } catch (Throwable th2) {
-                            th2.printStackTrace();
-                        }
-                        printWriter.close();
-                        return stringWriter3;
-                    } catch (Throwable th3) {
-                        th = th3;
-                        stringWriter = stringWriter2;
-                        try {
-                            th.printStackTrace();
-                            return "";
-                        } finally {
-                            if (stringWriter != null) {
-                                try {
-                                    stringWriter.close();
-                                } catch (Throwable th4) {
-                                    th4.printStackTrace();
-                                }
-                            }
-                            if (printWriter != null) {
-                                printWriter.close();
-                            }
-                        }
+                Object invoke = Process.class.getMethod("isIsolated", new Class[0]).invoke(null, new Object[0]);
+                if (invoke != null && (invoke instanceof Boolean)) {
+                    if (((Boolean) invoke).booleanValue()) {
+                        return false;
                     }
-                } catch (Throwable th5) {
-                    th = th5;
-                    printWriter = null;
                 }
-            } catch (Throwable th6) {
-                th = th6;
-                printWriter = null;
+            } catch (IllegalAccessException | IllegalArgumentException | NoSuchMethodException | InvocationTargetException unused) {
             }
-        } else {
-            return (String) invokeL.objValue;
+            String a = a(context);
+            if (a == null) {
+                return true;
+            }
+            try {
+                ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 128);
+                if (applicationInfo != null && applicationInfo.metaData != null) {
+                    Bundle bundle = applicationInfo.metaData;
+                    return !bundle.getBoolean(a + ".ignore_multidex", false);
+                }
+            } catch (PackageManager.NameNotFoundException unused2) {
+            }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 }

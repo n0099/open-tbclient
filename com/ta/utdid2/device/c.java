@@ -180,23 +180,23 @@ public class c {
         com.ta.utdid2.b.a.c cVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65541, this) == null) && (cVar = this.b) != null) {
-            if (g.m93a(cVar.getString("UTDID2"))) {
+            if (g.m95a(cVar.getString("UTDID2"))) {
                 String string = this.b.getString("UTDID");
-                if (!g.m93a(string)) {
+                if (!g.m95a(string)) {
                     f(string);
                 }
             }
             boolean z = false;
             boolean z2 = true;
-            if (!g.m93a(this.b.getString("DID"))) {
+            if (!g.m95a(this.b.getString("DID"))) {
                 this.b.remove("DID");
                 z = true;
             }
-            if (!g.m93a(this.b.getString("EI"))) {
+            if (!g.m95a(this.b.getString("EI"))) {
                 this.b.remove("EI");
                 z = true;
             }
-            if (!g.m93a(this.b.getString("SI"))) {
+            if (!g.m95a(this.b.getString("SI"))) {
                 this.b.remove("SI");
             } else {
                 z2 = z;
@@ -208,7 +208,7 @@ public class c {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    private byte[] m100c() throws Exception {
+    private byte[] m102c() throws Exception {
         InterceptResult invokeV;
         String str;
         Interceptable interceptable = $ic;
@@ -253,7 +253,7 @@ public class c {
             com.ta.utdid2.b.a.c cVar = this.b;
             if (cVar != null) {
                 String string = cVar.getString("UTDID2");
-                if (!g.m93a(string) && this.f32a.c(string) != null) {
+                if (!g.m95a(string) && this.f32a.c(string) != null) {
                     return string;
                 }
                 return null;
@@ -323,12 +323,12 @@ public class c {
                     return this.h;
                 }
                 try {
-                    byte[] m100c = m100c();
-                    if (m100c != null) {
-                        String encodeToString = com.ta.utdid2.a.a.b.encodeToString(m100c, 2);
+                    byte[] m102c = m102c();
+                    if (m102c != null) {
+                        String encodeToString = com.ta.utdid2.a.a.b.encodeToString(m102c, 2);
                         this.h = encodeToString;
                         f(encodeToString);
-                        String c = this.f32a.c(m100c);
+                        String c = this.f32a.c(m102c);
                         if (c != null) {
                             j(c);
                             g(c);
@@ -365,7 +365,7 @@ public class c {
                 } catch (Exception unused2) {
                     str = null;
                 }
-                if (!g.m93a(str)) {
+                if (!g.m95a(str)) {
                     String e2 = eVar.e(str);
                     if (b(e2)) {
                         h(e2);
@@ -374,7 +374,7 @@ public class c {
                     String d = eVar.d(str);
                     if (b(d)) {
                         String c = this.f32a.c(d);
-                        if (!g.m93a(c)) {
+                        if (!g.m95a(c)) {
                             j(c);
                             try {
                                 str = ApiReplaceUtil.getString(this.mContext.getContentResolver(), "dxCRMxhQkdGePGnp");
@@ -405,14 +405,14 @@ public class c {
                     return g;
                 }
                 String string2 = this.f31a.getString(this.i);
-                if (!g.m93a(string2)) {
+                if (!g.m95a(string2)) {
                     String d3 = eVar.d(string2);
                     if (!b(d3)) {
                         d3 = this.f32a.d(string2);
                     }
                     if (b(d3)) {
                         String c3 = this.f32a.c(d3);
-                        if (!g.m93a(d3)) {
+                        if (!g.m95a(d3)) {
                             this.h = d3;
                             if (z) {
                                 j(c3);

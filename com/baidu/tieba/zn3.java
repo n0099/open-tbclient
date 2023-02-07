@@ -1,111 +1,64 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.SystemClock;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
 /* loaded from: classes7.dex */
-public abstract class zn3 {
+public class zn3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public String c;
 
-    public abstract void e(IOException iOException);
+    /* loaded from: classes7.dex */
+    public static class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public long[] b;
+        public final /* synthetic */ Runnable c;
 
-    public abstract void f(int i);
-
-    public abstract void h(byte[] bArr);
-
-    public zn3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = false;
-        this.b = 0;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.b = 0;
-            in3.b().a(str, this);
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    public void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    public final String g(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bArr)) == null) {
-            String str = new String(bArr);
-            if (fn3.a) {
-                Log.d("BDTLS", "processResponseData encodeResponseData=" + str);
-            }
-            if (this.a) {
-                tn3 c = jn3.f().c(ln3.l().m(), bArr);
-                if (c != null) {
-                    if (!TextUtils.isEmpty(c.a())) {
-                        str = c.a();
-                    }
-                    this.b = c.b().intValue();
-                } else {
-                    this.b = -1;
-                }
-                ln3.l().m().s(this.b);
-                if (this.b == -1) {
-                    in3.b().f(false);
+        public a(Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {runnable};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return str;
+            this.c = runnable;
+            this.a = 5;
+            this.b = new long[5];
         }
-        return (String) invokeL.objValue;
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                long[] jArr = this.b;
+                System.arraycopy(jArr, 1, jArr, 0, jArr.length - 1);
+                long[] jArr2 = this.b;
+                jArr2[jArr2.length - 1] = SystemClock.uptimeMillis();
+                if (this.b[0] >= SystemClock.uptimeMillis() - 1000) {
+                    this.b = new long[this.a];
+                    this.c.run();
+                }
+            }
+        }
+    }
+
+    public static void a(View view2, Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, view2, runnable) == null) {
+            view2.setOnClickListener(new a(runnable));
+        }
     }
 }

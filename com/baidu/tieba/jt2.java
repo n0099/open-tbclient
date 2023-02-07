@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,10 +11,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebChromeClient;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class jt2 extends lt2 {
+public class jt2 extends ht2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String[] b;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.lt2
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "StorageApiDescInterceptor" : (String) invokeV.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -31,50 +41,68 @@ public class jt2 extends lt2 {
                 return;
             }
         }
-        boolean z = tk1.a;
+        b = new String[]{"setStorage", "getStorage", "removeStorage", "getSystemInfo", "getStorageInfo"};
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jt2(@NonNull String str) {
-        super(str);
+    public jt2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
     }
 
     @Override // com.baidu.tieba.lt2
-    public boolean a(bt2 bt2Var, dt2 dt2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j43 j43Var) {
-        InterceptResult invokeCommon;
+    public boolean enable() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{bt2Var, dt2Var, context, unitedSchemeEntity, callbackHandler, j43Var})) == null) {
-            j12.i("video", "playBackRate, video id:" + dt2Var.j + " slave id: " + dt2Var.c);
-            d(bt2Var, dt2Var.W, unitedSchemeEntity, callbackHandler);
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return e("swan_storage_async");
         }
-        return invokeCommon.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public final void d(bt2 bt2Var, String str, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+    @Override // com.baidu.tieba.lt2
+    public boolean a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bt2Var, str, unitedSchemeEntity, callbackHandler) == null) {
-            int q = bt2Var.q(str);
-            if (q != 0 && q != 202) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001));
-            } else {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(q));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            for (String str3 : b) {
+                if (TextUtils.equals(str3, str2)) {
+                    return true;
+                }
             }
+            return false;
         }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.lt2
+    @NonNull
+    public JSONObject c(@NonNull String str, @NonNull JSONObject jSONObject) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, jSONObject)) == null) {
+            JSONArray optJSONArray = jSONObject.optJSONArray(WebChromeClient.KEY_ARG_ARRAY);
+            if (optJSONArray != null) {
+                optJSONArray.put(d("cb", EMABTest.TYPE_STRING));
+            }
+            if ("getSystemInfo".equals(str) || "getStorageInfo".equals(str)) {
+                try {
+                    String optString = jSONObject.optString("method");
+                    jSONObject.put("method", optString + "Async");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeLL.objValue;
     }
 }

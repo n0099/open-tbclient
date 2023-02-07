@@ -1,34 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.webkit.JsPromptResult;
+import android.webkit.WebView;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public final class tb6 extends ob6 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface tb6 {
+    public static final ServiceReference a = new ServiceReference("Frames", "JsPromptBridge");
 
-    public tb6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void a(WebView webView, String str, HashMap<String, Object> hashMap);
 
-    @Override // com.baidu.tieba.ob6, com.baidu.tieba.b8.a
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            a().b();
-            super.reset();
-        }
-    }
+    boolean b(WebView webView, String str, JsPromptResult jsPromptResult);
+
+    void c(vb6 vb6Var, Object obj);
 }

@@ -8,7 +8,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.model.response.TaskProcessData;
 import com.baidu.sapi2.views.SmsLoginView;
-import com.baidu.tieba.q3a;
+import com.baidu.tieba.z7a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -780,7 +780,7 @@ public final class SVGAParser {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048590, this, inputStream, str) == null) {
-            i = q3a.a;
+            i = z7a.a;
             synchronized (Integer.valueOf(i)) {
                 File j = j(str);
                 j.mkdirs();

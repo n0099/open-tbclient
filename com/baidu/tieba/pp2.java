@@ -1,348 +1,102 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Context;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.core.SwanAppWebViewManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class pp2 {
+public class pp2 extends ta3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public cj3<pp2> b;
-    public final List<b> c;
-    public String d;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final List<String> a;
-        public final List<String> b;
-        public String c;
-        public final List<StackTraceElement> d;
-        public final /* synthetic */ pp2 e;
-
-        public b(pp2 pp2Var) {
-            StackTraceElement[] stackTrace;
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pp2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = pp2Var;
-            this.a = new ArrayList();
-            this.b = new ArrayList();
-            this.d = new ArrayList();
-            int i3 = 0;
-            for (StackTraceElement stackTraceElement : Thread.currentThread().getStackTrace()) {
-                i3++;
-                if (i3 > 2 && !stackTraceElement.getClassName().startsWith(pp2Var.d)) {
-                    this.d.add(stackTraceElement);
-                }
-            }
-        }
-
-        public /* synthetic */ b(pp2 pp2Var, a aVar) {
-            this(pp2Var);
-        }
-
-        public synchronized b a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                synchronized (this) {
-                    List<String> list = this.a;
-                    if (TextUtils.isEmpty(str)) {
-                        str = "";
-                    }
-                    list.add(str);
-                }
-                return this;
-            }
-            return (b) invokeL.objValue;
-        }
-
-        public b b(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.c = str;
-                return this;
-            }
-            return (b) invokeL.objValue;
-        }
-
-        public synchronized b c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                synchronized (this) {
-                    d(this.d.size());
-                }
-                return this;
-            }
-            return (b) invokeV.objValue;
-        }
-
-        public synchronized b e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                synchronized (this) {
-                    d(1);
-                }
-                return this;
-            }
-            return (b) invokeV.objValue;
-        }
-
-        public synchronized b d(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-                synchronized (this) {
-                    if (i < 1) {
-                        i = 1;
-                    }
-                    if (i > this.d.size()) {
-                        i = this.d.size();
-                    }
-                    for (int i2 = 0; i2 < i; i2++) {
-                        pp2 pp2Var = this.e;
-                        pp2Var.e("[Trace]==> " + this.d.get(i2).toString());
-                    }
-                }
-                return this;
-            }
-            return (b) invokeI.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements cj3<pp2> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c(pp2 pp2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pp2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ c(pp2 pp2Var, a aVar) {
-            this(pp2Var);
-        }
-
-        public final void b(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && pp2.e) {
-                Log.i(str, str2);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cj3
-        /* renamed from: c */
-        public void a(pp2 pp2Var) {
-            String str;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pp2Var) == null) && pp2.e) {
-                for (b bVar : pp2Var.c) {
-                    for (String str2 : bVar.a) {
-                        String h = pp2Var.h();
-                        if (TextUtils.isEmpty(bVar.c)) {
-                            str = h;
-                        } else {
-                            str = bVar.c;
-                        }
-                        b(str, h + " >>> " + str2);
-                    }
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948069655, "Lcom/baidu/tieba/pp2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948069655, "Lcom/baidu/tieba/pp2;");
-                return;
-            }
-        }
-        e = tk1.a;
-    }
-
-    public synchronized b d() {
-        InterceptResult invokeV;
-        b bVar;
+    public final int j(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                bVar = new b(this, null);
-                this.c.add(bVar);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i != -90) {
+                if (i != 0) {
+                    return i != 90 ? -1 : 0;
+                }
+                return 1;
             }
-            return bVar;
+            return 8;
         }
-        return (b) invokeV.objValue;
+        return invokeI.intValue;
     }
 
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public synchronized List<b> i() {
-        InterceptResult invokeV;
-        ArrayList arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            synchronized (this) {
-                arrayList = new ArrayList(this.c);
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public synchronized pp2 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            synchronized (this) {
-                k(this.b);
-            }
-            return this;
-        }
-        return (pp2) invokeV.objValue;
-    }
-
-    public pp2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pp2(t93 t93Var) {
+        super(t93Var, "/swanAPI/setFullscreenOrientationSync");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {t93Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new ArrayList();
-        this.d = pp2.class.getPackage().getName();
     }
 
-    public synchronized b e(String str) {
-        InterceptResult invokeL;
-        b d;
+    @Override // com.baidu.tieba.ta3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, w83 w83Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            synchronized (this) {
-                d = d();
-                d.a(str);
-            }
-            return d;
-        }
-        return (b) invokeL.objValue;
-    }
-
-    public pp2 g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            this.a = str;
-            return this;
-        }
-        return (pp2) invokeL.objValue;
-    }
-
-    public synchronized pp2 k(cj3<pp2> cj3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, cj3Var)) == null) {
-            synchronized (this) {
-                if (cj3Var == null) {
-                    try {
-                        cj3Var = new c(this, null);
-                    } catch (Throwable th) {
-                        throw th;
-                    }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, w83Var)) == null) {
+            if (w83Var == null) {
+                w52.c("setFullscreenOrientationSync", "none swanApp");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal runtime");
+                if (ta3.b) {
+                    Log.e("SwanAppAction", "setFullscreenOrientationSync --- illegal runtime");
                 }
-                cj3Var.a(this);
+                return false;
+            } else if (context == null) {
+                w52.c("setFullscreenOrientationSync", "none context");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
+                if (ta3.b) {
+                    Log.e("SwanAppAction", "setFullscreenOrientationSync --- illegal context");
+                }
+                return false;
+            } else {
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    w52.c("setFullscreenOrientationSync", "none params");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                    return false;
+                }
+                int optInt = optParamsAsJo.optInt("orientationType", -10000);
+                ev1 A = ju2.U().A(optParamsAsJo.optString("slaveId"));
+                if (!(A instanceof SwanAppWebViewManager)) {
+                    w52.c("setFullscreenOrientationSync", "no WebView with this slaveId");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                }
+                int j = j(optInt);
+                ((SwanAppWebViewManager) A).a1(j);
+                if (ta3.b) {
+                    Log.d("setFullscreenOrientationSync", "orientation set to : " + j);
+                }
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
+                return true;
             }
-            return this;
         }
-        return (pp2) invokeL.objValue;
-    }
-
-    public pp2 l(cj3<pp2> cj3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cj3Var)) == null) {
-            this.b = cj3Var;
-            return this;
-        }
-        return (pp2) invokeL.objValue;
-    }
-
-    public synchronized b f(String str, String str2) {
-        InterceptResult invokeLL;
-        b e2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            synchronized (this) {
-                e2 = e(str2);
-                e2.b(str);
-            }
-            return e2;
-        }
-        return (b) invokeLL.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

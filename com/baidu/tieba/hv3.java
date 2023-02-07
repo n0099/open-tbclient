@@ -1,205 +1,196 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
-import android.os.SystemClock;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.SapiWebView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import android.util.Base64;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidKeyException;
+import java.security.Key;
+import java.security.KeyFactory;
+import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.X509EncodedKeySpec;
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 /* loaded from: classes4.dex */
-public final class hv3 {
+public class hv3 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static long b;
-    public static Handler c;
-    public static long d;
-    public static final Handler.Callback e;
-    public static final hv3 f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public static final class a implements Handler.Callback {
-        public static /* synthetic */ Interceptable $ic;
-        public static final a a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-734283929, "Lcom/baidu/tieba/hv3$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-734283929, "Lcom/baidu/tieba/hv3$a;");
-                    return;
-                }
-            }
-            a = new a();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.os.Handler.Callback
-        public final boolean handleMessage(Message msg) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, msg)) == null) {
-                Intrinsics.checkNotNullParameter(msg, "msg");
-                if (msg.what == 0 && hv3.f.g() && hv3.a(hv3.f) < SapiWebView.DEFAULT_TIMEOUT_MILLIS) {
-                    long elapsedRealtime = SystemClock.elapsedRealtime();
-                    hv3.b = (hv3.a(hv3.f) + elapsedRealtime) - hv3.c(hv3.f);
-                    hv3 hv3Var = hv3.f;
-                    hv3.d = elapsedRealtime;
-                    Handler b = hv3.b(hv3.f);
-                    if (b != null) {
-                        b.sendEmptyMessageDelayed(0, 1000L);
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x004e */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x005f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r0v2 */
+    /* JADX WARN: Type inference failed for: r0v3 */
+    /* JADX WARN: Type inference failed for: r0v4, types: [java.io.ByteArrayOutputStream] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static byte[] a(byte[] bArr, Key key, int i) {
+        InterceptResult invokeLLI;
+        ByteArrayOutputStream byteArrayOutputStream;
+        byte[] doFinal;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, bArr, key, i)) == null) {
+            ?? r0 = 0;
+            if (bArr != null && bArr.length != 0 && key != null) {
+                try {
+                    if (i > 0) {
+                        try {
+                            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+                            cipher.init(1, key);
+                            byteArrayOutputStream = new ByteArrayOutputStream();
+                            try {
+                                int length = bArr.length;
+                                int i2 = 0;
+                                while (true) {
+                                    int i3 = length - i2;
+                                    if (i3 <= 0) {
+                                        break;
+                                    }
+                                    if (i3 > i) {
+                                        doFinal = cipher.doFinal(bArr, i2, i);
+                                    } else {
+                                        doFinal = cipher.doFinal(bArr, i2, i3);
+                                    }
+                                    byteArrayOutputStream.write(doFinal, 0, doFinal.length);
+                                    i2 += i;
+                                }
+                                byte[] byteArray = byteArrayOutputStream.toByteArray();
+                                try {
+                                    byteArrayOutputStream.close();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                                return byteArray;
+                            } catch (InvalidKeyException e2) {
+                                e = e2;
+                                e.printStackTrace();
+                                if (byteArrayOutputStream != null) {
+                                    try {
+                                        byteArrayOutputStream.close();
+                                    } catch (IOException e3) {
+                                        e3.printStackTrace();
+                                    }
+                                }
+                                return null;
+                            } catch (NoSuchAlgorithmException e4) {
+                                e = e4;
+                                e.printStackTrace();
+                                if (byteArrayOutputStream != null) {
+                                }
+                                return null;
+                            } catch (BadPaddingException e5) {
+                                e = e5;
+                                e.printStackTrace();
+                                if (byteArrayOutputStream != null) {
+                                }
+                                return null;
+                            } catch (IllegalBlockSizeException e6) {
+                                e = e6;
+                                e.printStackTrace();
+                                if (byteArrayOutputStream != null) {
+                                }
+                                return null;
+                            } catch (NoSuchPaddingException e7) {
+                                e = e7;
+                                e.printStackTrace();
+                                if (byteArrayOutputStream != null) {
+                                }
+                                return null;
+                            }
+                        } catch (InvalidKeyException e8) {
+                            e = e8;
+                            byteArrayOutputStream = null;
+                            e.printStackTrace();
+                            if (byteArrayOutputStream != null) {
+                            }
+                            return null;
+                        } catch (NoSuchAlgorithmException e9) {
+                            e = e9;
+                            byteArrayOutputStream = null;
+                            e.printStackTrace();
+                            if (byteArrayOutputStream != null) {
+                            }
+                            return null;
+                        } catch (BadPaddingException e10) {
+                            e = e10;
+                            byteArrayOutputStream = null;
+                            e.printStackTrace();
+                            if (byteArrayOutputStream != null) {
+                            }
+                            return null;
+                        } catch (IllegalBlockSizeException e11) {
+                            e = e11;
+                            byteArrayOutputStream = null;
+                            e.printStackTrace();
+                            if (byteArrayOutputStream != null) {
+                            }
+                            return null;
+                        } catch (NoSuchPaddingException e12) {
+                            e = e12;
+                            byteArrayOutputStream = null;
+                            e.printStackTrace();
+                            if (byteArrayOutputStream != null) {
+                            }
+                            return null;
+                        } catch (Throwable th) {
+                            th = th;
+                            if (r0 != 0) {
+                                try {
+                                    r0.close();
+                                } catch (IOException e13) {
+                                    e13.printStackTrace();
+                                }
+                            }
+                            throw th;
+                        }
                     }
-                    if ((hv3.a(hv3.f) / 1000) % 15 == 0) {
-                        iu3.o.U(hv3.a(hv3.f));
-                        return true;
-                    }
-                    return true;
+                } catch (Throwable th2) {
+                    th = th2;
+                    r0 = key;
                 }
-                hv3 hv3Var2 = hv3.f;
-                hv3.d = 0L;
-                hv3.f.i(false);
-                return true;
             }
-            return invokeL.booleanValue;
+            return null;
         }
+        return (byte[]) invokeLLI.objValue;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947837124, "Lcom/baidu/tieba/hv3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947837124, "Lcom/baidu/tieba/hv3;");
-                return;
-            }
-        }
-        f = new hv3();
-        e = a.a;
-    }
-
-    public hv3() {
+    public static byte[] b(byte[] bArr, String str, int i) {
+        InterceptResult invokeLLI;
+        PublicKey c;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, bArr, str, i)) == null) {
+            if (bArr == null || bArr.length == 0 || TextUtils.isEmpty(str) || i <= 0 || (c = c(str)) == null) {
+                return null;
+            }
+            return a(bArr, c, i);
+        }
+        return (byte[]) invokeLLI.objValue;
+    }
+
+    public static PublicKey c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                return KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes(IMAudioTransRequest.CHARSET), 0)));
+            } catch (UnsupportedEncodingException | NoSuchAlgorithmException | InvalidKeySpecException e) {
+                e.printStackTrace();
+                return null;
             }
         }
-    }
-
-    public final long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b;
-        }
-        return invokeV.longValue;
-    }
-
-    public final boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            long j = b;
-            if (j < 30000) {
-                return;
-            }
-            b = j % 30000;
-            iu3.o.M();
-        }
-    }
-
-    public static final /* synthetic */ long a(hv3 hv3Var) {
-        return b;
-    }
-
-    public static final /* synthetic */ Handler b(hv3 hv3Var) {
-        return c;
-    }
-
-    public static final /* synthetic */ long c(hv3 hv3Var) {
-        return d;
-    }
-
-    public final void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            a = z;
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (c == null) {
-                c = new Handler(e);
-            }
-            b = iu3.o.A();
-            a = true;
-            d = SystemClock.elapsedRealtime();
-            Handler handler = c;
-            if (handler != null) {
-                handler.sendEmptyMessageDelayed(0, 1000L);
-            }
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            a = false;
-            Handler handler = c;
-            if (handler != null) {
-                handler.removeCallbacksAndMessages(null);
-            }
-            if (d > 0) {
-                long elapsedRealtime = SystemClock.elapsedRealtime();
-                b = (b + elapsedRealtime) - d;
-                d = elapsedRealtime;
-            }
-            iu3.o.U(b);
-        }
+        return (PublicKey) invokeL.objValue;
     }
 }

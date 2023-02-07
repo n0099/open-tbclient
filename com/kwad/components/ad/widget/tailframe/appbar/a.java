@@ -117,19 +117,19 @@ public abstract class a extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             this.BA = LinearLayout.inflate(getContext(), getLayoutId(), this);
-            this.hF = (ImageView) findViewById(R.id.obfuscated_res_0x7f091102);
-            this.hG = (TextView) findViewById(R.id.obfuscated_res_0x7f091104);
-            this.wH = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f091105);
-            this.cz = (TextView) findViewById(R.id.obfuscated_res_0x7f091101);
-            this.CI = (TextView) findViewById(R.id.obfuscated_res_0x7f091103);
-            TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f091138);
+            this.hF = (ImageView) findViewById(R.id.obfuscated_res_0x7f091145);
+            this.hG = (TextView) findViewById(R.id.obfuscated_res_0x7f091147);
+            this.wH = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f091148);
+            this.cz = (TextView) findViewById(R.id.obfuscated_res_0x7f091144);
+            this.CI = (TextView) findViewById(R.id.obfuscated_res_0x7f091146);
+            TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f09117b);
             this.wZ = textProgressBar;
             textProgressBar.setTextDimen(com.kwad.sdk.b.kwai.a.a(getContext(), 16.0f));
             this.wZ.setTextColor(-1);
-            this.uu = (KsAppTagsView) findViewById(R.id.obfuscated_res_0x7f0911fd);
-            this.uo = (Button) findViewById(R.id.obfuscated_res_0x7f0911f7);
-            this.up = (Button) findViewById(R.id.obfuscated_res_0x7f0911f9);
-            this.un = findViewById(R.id.obfuscated_res_0x7f0911f8);
+            this.uu = (KsAppTagsView) findViewById(R.id.obfuscated_res_0x7f091240);
+            this.uo = (Button) findViewById(R.id.obfuscated_res_0x7f09123a);
+            this.up = (Button) findViewById(R.id.obfuscated_res_0x7f09123c);
+            this.un = findViewById(R.id.obfuscated_res_0x7f09123b);
             this.ux = new com.kwad.components.ad.g.a(this.BA);
         }
     }

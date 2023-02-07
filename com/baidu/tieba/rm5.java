@@ -1,15 +1,11 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.content.Intent;
 /* loaded from: classes6.dex */
-public interface rm5 {
-    void a();
+public interface rm5<T> {
+    void a(Intent intent);
 
-    void b(int i, int i2, int i3, int i4);
+    T b(boolean z);
 
-    Context getContext();
-
-    boolean post(Runnable runnable);
-
-    boolean removeCallbacks(Runnable runnable);
+    lm5 c();
 }

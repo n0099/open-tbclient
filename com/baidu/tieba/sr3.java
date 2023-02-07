@@ -1,132 +1,72 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes6.dex */
-public class sr3<ContenT> {
+public class sr3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, sr3<ContenT>.a> a;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-        public final ContenT b;
-        public final /* synthetic */ sr3 c;
-
-        public a(sr3 sr3Var, String str, ContenT content) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948160981, "Lcom/baidu/tieba/sr3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sr3Var, str, content};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.c = sr3Var;
-            this.a = str;
-            this.b = content;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.d(this.a);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948160981, "Lcom/baidu/tieba/sr3;");
+                return;
             }
         }
+        a = gp1.a;
     }
 
     public sr3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = new HashMap();
     }
 
-    public synchronized ContenT a(String str, ContenT content, long j) {
-        InterceptResult invokeCommon;
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, content, Long.valueOf(j)})) == null) {
-            synchronized (this) {
-                d(str);
-                if (content == null) {
-                    return null;
-                }
-                sr3<ContenT>.a aVar = new a(this, str, content);
-                this.a.put(str, aVar);
-                if (j > 0) {
-                    i43.M().postDelayed(aVar, j);
-                }
-                return content;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ds2.g0().getSwitch("game_bdtls_switcher", false);
+            if (a) {
+                w52.i("BDTLS", "isBdtlsSwitch=false");
             }
+            return false;
         }
-        return (ContenT) invokeCommon.objValue;
+        return invokeV.booleanValue;
     }
 
-    public synchronized void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                for (sr3<ContenT>.a aVar : this.a.values()) {
-                    if (aVar != null) {
-                        i43.M().removeCallbacks(aVar);
-                    }
-                }
-                this.a.clear();
-            }
-        }
-    }
-
-    public ContenT c(String str) {
+    public boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            sr3<ContenT>.a aVar = this.a.get(str);
-            if (aVar == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (!TextUtils.isEmpty(str) && (str.contains("ma/game/od/get_user_cloud_storage") || str.contains("ma/game/od/set_user_cloud_storage"))) {
+                return true;
             }
-            return aVar.b;
+            return false;
         }
-        return (ContenT) invokeL.objValue;
-    }
-
-    public synchronized ContenT d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            synchronized (this) {
-                sr3<ContenT>.a remove = this.a.remove(str);
-                if (remove != null) {
-                    i43.M().removeCallbacks(remove);
-                    return remove.b;
-                }
-                return null;
-            }
-        }
-        return (ContenT) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

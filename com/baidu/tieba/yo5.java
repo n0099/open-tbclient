@@ -1,212 +1,134 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Build;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.launch.ScheduleStrategy;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Calendar;
+import java.lang.reflect.Field;
+import tbclient.CommonReq;
 /* loaded from: classes7.dex */
 public class yo5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zo5 a;
 
-    public yo5(Context context, fp5 fp5Var) {
+    public static void a(Object obj, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, fp5Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLZ(65536, null, obj, z) == null) {
+            b(obj, z, false);
+        }
+    }
+
+    public static void b(Object obj, boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{obj, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            c(obj, z, z2, false);
+        }
+    }
+
+    public static void c(Object obj, boolean z, boolean z2, boolean z3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{obj, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) != null) || obj == null) {
+            return;
+        }
+        try {
+            Field field = obj.getClass().getField("common");
+            int i = 1;
+            if (!field.isAccessible()) {
+                field.setAccessible(true);
+            }
+            CommonReq.Builder builder = new CommonReq.Builder();
+            builder._client_type = 2;
+            builder._client_version = TbConfig.getVersion();
+            builder._client_id = TbadkCoreApplication.getClientId();
+            if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
+                builder.subapp_type = TbConfig.getSubappType();
+            }
+            if (!TbadkCoreApplication.getInst().isOfficial()) {
+                builder.apid = TbConfig.SW_APID;
+            }
+            builder._phone_imei = TbadkCoreApplication.getInst().getImei();
+            builder.from = TbadkCoreApplication.getFrom();
+            builder.cuid = TbadkCoreApplication.getInst().getCuid();
+            builder.cuid_galaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
+            builder.c3_aid = TbadkCoreApplication.getInst().getCuidGalaxy3();
+            builder.cuid_gid = TbadkCoreApplication.getInst().getCuidGid();
+            builder._timestamp = Long.valueOf(System.currentTimeMillis());
+            builder.model = gj.g();
+            builder._os_version = gj.k();
+            builder.brand = Build.BRAND;
+            builder.user_agent = cq5.b();
+            if (z) {
+                if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
+                    builder.BDUSS = jh5.b();
+                    if (!StringUtils.isNull(jh5.e())) {
+                        builder.stoken = jh5.e();
+                    }
+                } else {
+                    AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
+                    if (currentAccountInfo != null) {
+                        builder.BDUSS = currentAccountInfo.getBDUSS();
+                        String a = ew4.a(currentAccountInfo);
+                        if (!StringUtils.isNull(a)) {
+                            builder.stoken = a;
+                        }
+                    }
+                }
+            }
+            if (z2) {
+                if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
+                    builder.tbs = jh5.f();
+                } else {
+                    builder.tbs = TbadkCoreApplication.getInst().getTbs();
+                }
+            }
+            if (z3) {
+                builder.applist = TbadkCoreApplication.getInst().getInstalledAppIds();
+            }
+            builder.pversion = TiebaIMConfig.PROTOBUF_VERSION;
+            builder.lego_lib_version = TbConfig.getLegoLibVersion();
+            if (p35.m().n("android_safe_sdk_open", 0) == 1) {
+                builder.z_id = TbadkCoreApplication.getInst().getZid();
+            }
+            builder.net_type = Integer.valueOf(BdNetTypeUtil.netType());
+            builder.oaid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
+            builder.sample_id = TbSingleton.getInstance().getSampleId();
+            builder.is_teenager = 0;
+            builder.sdk_ver = TbadkCoreApplication.getInst().getSdk_ver();
+            builder.framework_ver = TbadkCoreApplication.getInst().getFramework_ver();
+            builder.naws_game_ver = TbadkCoreApplication.getInst().getNaws_game_ver();
+            builder.q_type = Integer.valueOf(aw4.c().e());
+            builder.scr_h = Integer.valueOf(ej.j(TbadkCoreApplication.getInst()));
+            builder.scr_w = Integer.valueOf(ej.l(TbadkCoreApplication.getInst()));
+            builder.scr_dip = Double.valueOf(ej.i(TbadkCoreApplication.getInst()));
+            builder.active_timestamp = Long.valueOf(TbSingleton.getInstance().getActiveTimeStamp());
+            builder.first_install_time = Long.valueOf(TbSingleton.getInstance().getAppFirstInstallTime());
+            builder.last_update_time = Long.valueOf(TbSingleton.getInstance().getAppLastUpdateTime());
+            builder.event_day = TbSingleton.getInstance().getData();
+            builder.android_id = TbadkCoreApplication.getInst().getAndroidId();
+            if (!PermissionUtil.isAgreePrivacyPolicy()) {
+                i = 2;
+            }
+            builder.cmode = Integer.valueOf(i);
+            builder.start_type = Integer.valueOf(d25.f);
+            builder.start_scheme = d25.e();
+            builder.extra = p35.m().s("key_sync_extra_field", "");
+            builder.personalized_rec_switch = Integer.valueOf(TbSingleton.getInstance().getPersonalizedRecSwitch());
+            builder.device_score = String.valueOf(ScheduleStrategy.getDeviceScore());
+            field.set(obj, builder.build(false));
+        } catch (Throwable th) {
+            if (BdLog.isDebugMode()) {
+                th.printStackTrace();
             }
         }
-        zo5 zo5Var = new zo5(2);
-        this.a = zo5Var;
-        zo5Var.A = context;
-        zo5Var.a = fp5Var;
-    }
-
-    public kp5 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new kp5(this.a);
-        }
-        return (kp5) invokeV.objValue;
-    }
-
-    public yo5 b(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-            this.a.T = z;
-            return this;
-        }
-        return (yo5) invokeZ.objValue;
-    }
-
-    public yo5 c(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            this.a.R = z;
-            return this;
-        }
-        return (yo5) invokeZ.objValue;
-    }
-
-    public yo5 d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            this.a.P = i;
-            return this;
-        }
-        return (yo5) invokeI.objValue;
-    }
-
-    public yo5 e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            this.a.H = i;
-            return this;
-        }
-        return (yo5) invokeI.objValue;
-    }
-
-    public yo5 f(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            this.a.L = i;
-            return this;
-        }
-        return (yo5) invokeI.objValue;
-    }
-
-    public yo5 g(Calendar calendar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, calendar)) == null) {
-            this.a.e = calendar;
-            return this;
-        }
-        return (yo5) invokeL.objValue;
-    }
-
-    public yo5 h(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, viewGroup)) == null) {
-            this.a.y = viewGroup;
-            return this;
-        }
-        return (yo5) invokeL.objValue;
-    }
-
-    public yo5 i(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            this.a.O = i;
-            return this;
-        }
-        return (yo5) invokeI.objValue;
-    }
-
-    public yo5 l(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048587, this, f)) == null) {
-            this.a.Q = f;
-            return this;
-        }
-        return (yo5) invokeF.objValue;
-    }
-
-    public yo5 m(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
-            this.a.N = i;
-            return this;
-        }
-        return (yo5) invokeI.objValue;
-    }
-
-    public yo5 n(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
-            this.a.M = i;
-            return this;
-        }
-        return (yo5) invokeI.objValue;
-    }
-
-    public yo5 p(boolean[] zArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, zArr)) == null) {
-            this.a.d = zArr;
-            return this;
-        }
-        return (yo5) invokeL.objValue;
-    }
-
-    public yo5 j(String str, String str2, String str3, String str4, String str5, String str6) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, str3, str4, str5, str6})) == null) {
-            zo5 zo5Var = this.a;
-            zo5Var.l = str;
-            zo5Var.m = str2;
-            zo5Var.n = str3;
-            zo5Var.o = str4;
-            zo5Var.p = str5;
-            zo5Var.q = str6;
-            return this;
-        }
-        return (yo5) invokeCommon.objValue;
-    }
-
-    public yo5 k(int i, ap5 ap5Var) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i, ap5Var)) == null) {
-            zo5 zo5Var = this.a;
-            zo5Var.x = i;
-            zo5Var.c = ap5Var;
-            return this;
-        }
-        return (yo5) invokeIL.objValue;
-    }
-
-    public yo5 o(int i, int i2, int i3, int i4, int i5, int i6) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
-            zo5 zo5Var = this.a;
-            zo5Var.r = i;
-            zo5Var.s = i2;
-            zo5Var.t = i3;
-            zo5Var.u = i4;
-            zo5Var.v = i5;
-            zo5Var.w = i6;
-            return this;
-        }
-        return (yo5) invokeCommon.objValue;
     }
 }

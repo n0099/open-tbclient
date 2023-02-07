@@ -1,77 +1,59 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class p52 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized o52 a(@NonNull String str) {
-        InterceptResult invokeL;
-        o52 t52Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            synchronized (p52.class) {
-                char c = 65535;
-                switch (str.hashCode()) {
-                    case 48:
-                        if (str.equals("0")) {
-                            c = 0;
-                            break;
-                        }
-                        break;
-                    case 49:
-                        if (str.equals("1")) {
-                            c = 1;
-                            break;
-                        }
-                        break;
-                    case 50:
-                        if (str.equals("2")) {
-                            c = 2;
-                            break;
-                        }
-                        break;
-                    case 51:
-                        if (str.equals("3")) {
-                            c = 3;
-                            break;
-                        }
-                        break;
-                    case 52:
-                        if (str.equals("4")) {
-                            c = 4;
-                            break;
-                        }
-                        break;
-                }
-                if (c != 0) {
-                    if (c != 1) {
-                        if (c != 2) {
-                            if (c != 3) {
-                                if (c != 4) {
-                                    t52Var = new n52();
-                                } else {
-                                    t52Var = new r52();
-                                }
-                            } else {
-                                t52Var = new q52();
-                            }
-                        } else {
-                            t52Var = new s52();
-                        }
-                    } else {
-                        t52Var = new m52();
-                    }
-                } else {
-                    t52Var = new t52();
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948012956, "Lcom/baidu/tieba/p52;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return t52Var;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948012956, "Lcom/baidu/tieba/p52;");
+                return;
+            }
         }
-        return (o52) invokeL.objValue;
+        a = gp1.a;
+    }
+
+    public static void a(@NonNull String str, @NonNull String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            b(str, str2, null);
+        }
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public static void b(@NonNull String str, @NonNull String str2, @Nullable Throwable th) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            if (th == null) {
+                w52.c(str, str2);
+                if (a) {
+                    throw new RuntimeException(str2);
+                }
+                return;
+            }
+            w52.d(str, str2, th);
+            if (!a) {
+                return;
+            }
+            throw new RuntimeException(str2, th);
+        }
     }
 }

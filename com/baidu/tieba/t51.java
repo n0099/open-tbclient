@@ -1,33 +1,30 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.n61;
+import com.baidu.tieba.z41;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class t51 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public Handler b;
+    public z41 a;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public class a extends z41.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n61.a a;
-        public final /* synthetic */ t51 b;
+        public final /* synthetic */ b a;
 
-        public a(t51 t51Var, n61.a aVar) {
+        public a(t51 t51Var, b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {t51Var, aVar};
+                Object[] objArr = {t51Var, bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -37,23 +34,126 @@ public class t51 {
                     return;
                 }
             }
-            this.b = t51Var;
-            this.a = aVar;
+            this.a = bVar;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.z41.c
+        public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.c(this.a.a);
+                super.a();
+                this.a.a();
+            }
+        }
+
+        @Override // com.baidu.tieba.z41.c
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                super.b();
+                this.a.b();
+            }
+        }
+
+        @Override // com.baidu.tieba.z41.c
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                super.c();
+                this.a.c();
+            }
+        }
+
+        @Override // com.baidu.tieba.z41.c
+        public void d() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                super.d();
+                this.a.d();
+            }
+        }
+
+        @Override // com.baidu.tieba.z41.c
+        public void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                super.e();
+                this.a.e();
+            }
+        }
+
+        @Override // com.baidu.tieba.z41.c
+        public void f(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+                super.f(j);
+                this.a.f(j);
             }
         }
     }
 
-    public t51() {
+    /* loaded from: classes6.dex */
+    public static abstract class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
+
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            }
+        }
+
+        public void d() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            }
+        }
+
+        public void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            }
+        }
+
+        public void f(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            }
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public t51(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -63,37 +163,58 @@ public class t51 {
                 return;
             }
         }
-        this.a = false;
+        this.a = new z41(j, j2);
     }
 
-    public void d() {
+    public final synchronized void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this) {
+                this.a.b();
+            }
+        }
+    }
+
+    public final synchronized void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                this.a.d();
+            }
+        }
+    }
+
+    public final synchronized void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Handler handler = this.b;
-            if (handler != null) {
-                handler.removeCallbacksAndMessages(null);
-                this.b = null;
+            synchronized (this) {
+                this.a.e();
             }
-            this.a = false;
         }
     }
 
-    public void b(n61.a aVar) {
+    public final synchronized t51 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && !this.a && aVar != null && aVar.a()) {
-            if (this.b == null) {
-                this.b = new Handler();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (this) {
+                this.a.g();
             }
-            this.b.postDelayed(new a(this, aVar), (long) (aVar.c * 1000.0d));
+            return this;
         }
+        return (t51) invokeV.objValue;
     }
 
-    public final void c(String str) {
+    public t51 d(b bVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || this.a || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bVar)) == null) {
+            if (bVar == null) {
+                return this;
+            }
+            this.a.f(new a(this, bVar));
+            return this;
         }
-        f11.b(str);
-        this.a = true;
+        return (t51) invokeL.objValue;
     }
 }

@@ -1,21 +1,65 @@
 package com.baidu.tieba;
+
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Autowired
 /* loaded from: classes6.dex */
-public interface w10 {
-    String getBDVCInfo();
+public class w10 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    String getC3Aid();
+    /* loaded from: classes6.dex */
+    public class a implements y10 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    String getCfrom();
+        @Override // com.baidu.tieba.y10
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return null;
+            }
+            return (String) invokeV.objValue;
+        }
 
-    String getDeviceId();
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
 
-    String getFrom();
+    @Inject(force = false)
+    public static x10 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return uv8.a();
+        }
+        return (x10) invokeV.objValue;
+    }
 
-    String getSchemeHeader();
-
-    String getSid();
-
-    String getZid();
-
-    String processUrlExternal(String str, boolean z);
+    @Inject(force = false)
+    public static y10 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new a();
+        }
+        return (y10) invokeV.objValue;
+    }
 }

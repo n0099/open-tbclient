@@ -1,192 +1,95 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class z88 extends d15 {
+public class z88 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean p;
-    public boolean q;
-    public int r;
-    public TbPageContext s;
-    public String t;
-    public int u;
-    public ThreadData v;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z88(TbPageContext tbPageContext, c15 c15Var, int i) {
-        super(tbPageContext, c15Var);
+    public static SpannableString a(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, c15Var, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (c15) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
+            SpannableString spannableString = new SpannableString(str);
+            if (i <= 0) {
+                i = R.color.CAM_X0101;
             }
+            spannableString.setSpan(new ForegroundColorSpan(TbadkCoreApplication.getInst().getResources().getColor(i)), 0, str.length(), 17);
+            return spannableString;
         }
-        this.p = false;
-        this.q = false;
-        this.r = 0;
-        this.r = i;
-        this.s = tbPageContext;
-        if (i == 1) {
-            super.m("4");
-        } else if (i == 3) {
-            super.m("5");
-        } else if (i != 4 && i != 5 && i != 6) {
-            super.m("0");
-        } else {
-            super.m("4");
-        }
+        return (SpannableString) invokeLI.objValue;
     }
 
-    @Override // com.baidu.tieba.d15, android.view.View.OnClickListener
-    public void onClick(View view2) {
-        String str;
+    public static void b(String str, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || view2 == null || view2.getAlpha() < 0.4d) {
+        if ((interceptable != null && interceptable.invokeLI(65537, null, str, i) != null) || TextUtils.isEmpty(str)) {
             return;
         }
-        b15 b15Var = this.a;
-        if (b15Var != null) {
-            str = b15Var.getUserId();
-        } else {
-            str = "";
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        spannableStringBuilder.append((CharSequence) a(str, i));
+        BdToast.b(TbadkCoreApplication.getInst().getContext(), spannableStringBuilder).k();
+    }
+
+    public static void c(String str, int i, String str2, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2)}) != null) || TextUtils.isEmpty(str)) {
+            return;
         }
-        TiebaStatic.log(new StatisticItem("c12408").param("obj_source", u()).param("obj_id", str).param("tid", this.t));
-        int i = this.r;
-        int i2 = 8;
-        int i3 = 0;
-        if (i == 1) {
-            i2 = 3;
-        } else if (i == 3) {
-            i2 = 2;
-        } else if (i == 5) {
-            i2 = 5;
-        } else if (i == 7) {
-            i2 = 7;
-        } else if (i == 6) {
-            i2 = 6;
-        } else if (i == 4) {
-            i2 = 4;
-        } else if (i != 8) {
-            i2 = 0;
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        spannableStringBuilder.append((CharSequence) a(str, i));
+        if (!TextUtils.isEmpty(str2)) {
+            spannableStringBuilder.append((CharSequence) a(str2, i2));
         }
-        StatisticItem statisticItem = new StatisticItem("c12507");
-        statisticItem.param("obj_locate", i2);
-        statisticItem.param("obj_id", str);
-        statisticItem.param("tid", this.t);
-        statisticItem.param("obj_param1", this.u);
-        if (!yi.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
-            statisticItem.param("obj_source", TbadkCoreApplication.getInst().getTaskId());
+        BdToast.b(TbadkCoreApplication.getInst().getContext(), spannableStringBuilder).k();
+    }
+
+    public static void d(String str, int i, String str2, int i2, String str3, int i3, String str4, int i4) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2), str3, Integer.valueOf(i3), str4, Integer.valueOf(i4)}) != null) || TextUtils.isEmpty(str)) {
+            return;
         }
-        TiebaStatic.log(statisticItem);
-        StatisticItem statisticItem2 = new StatisticItem(TbadkCoreStatisticKey.KEY_CONCERN_BTN_CLICK);
-        statisticItem2.param("obj_id", str);
-        statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
-        statisticItem2.param("tid", this.t);
-        ThreadData threadData = this.v;
-        if (threadData != null) {
-            statisticItem2.param("nid", threadData.getNid());
-            if (this.v.getBaijiahaoData() != null && !yi.isEmpty(this.v.getBaijiahaoData().oriUgcVid)) {
-                statisticItem2.param(TiebaStatic.Params.OBJ_PARAM6, this.v.getBaijiahaoData().oriUgcVid);
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        spannableStringBuilder.append((CharSequence) a(str, i));
+        if (!TextUtils.isEmpty(str2)) {
+            spannableStringBuilder.append((CharSequence) a(str2, i2));
+        }
+        if (!TextUtils.isEmpty(str3)) {
+            spannableStringBuilder.append((CharSequence) "\n");
+            spannableStringBuilder.append((CharSequence) a(str3, i3));
+            if (!TextUtils.isEmpty(str4)) {
+                spannableStringBuilder.append((CharSequence) a(str4, i4));
             }
-            statisticItem2.param("recom_source", this.v.mRecomSource);
-            statisticItem2.param("ab_tag", this.v.mRecomAbTag);
-            statisticItem2.param("weight", this.v.mRecomWeight);
-            statisticItem2.param("extra", this.v.mRecomExtra);
         }
-        TbPageContext tbPageContext = this.s;
-        if (tbPageContext != null) {
-            jf5.e(tbPageContext.getPageActivity(), statisticItem2);
-        }
-        TiebaStatic.log(statisticItem2);
-        super.onClick(view2);
-        if (this.p && this.a != null) {
-            TiebaStatic.log(new StatisticItem("c11924").param("obj_id", this.a.getUserId()));
-        }
-        if (this.q && this.a != null) {
-            int i4 = this.r;
-            if (i4 == 1) {
-                i3 = 1;
-            } else if (i4 == 2) {
-                i3 = 2;
-            }
-            TiebaStatic.log(new StatisticItem("c12150").param("obj_locate", i3).param("obj_id", this.a.getUserId()));
+        BdToast.b(TbadkCoreApplication.getInst().getContext(), spannableStringBuilder).k();
+    }
+
+    public static void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
+            b(str, R.color.CAM_X0101);
         }
     }
 
-    public final int u() {
-        InterceptResult invokeV;
+    public static void f(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String fromPageKey = UtilHelper.getFromPageKey(this.s);
-            if (fromPageKey == null) {
-                return 3;
-            }
-            if (fromPageKey.equals("a038")) {
-                return 1;
-            }
-            if (fromPageKey.equals("a002")) {
-                return 2;
-            }
-            if (fromPageKey.equals("a006")) {
-                return 3;
-            }
-            if (fromPageKey.equals("a011")) {
-                return 4;
-            }
-            if (fromPageKey.equals("a033")) {
-                return 5;
-            }
-            if (fromPageKey.equals("a010")) {
-                return 6;
-            }
-            return 7;
-        }
-        return invokeV.intValue;
-    }
-
-    public void v(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) == null) {
-            this.v = threadData;
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
+            c(str, R.color.CAM_X0101, str2, R.color.CAM_X0305);
         }
     }
 
-    public void w(int i) {
+    public static void g(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.u = i;
-        }
-    }
-
-    public void x(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.t = str;
-            p(str);
+        if (interceptable == null || interceptable.invokeLLLL(65542, null, str, str2, str3, str4) == null) {
+            d(str, R.color.CAM_X0101, str2, R.color.CAM_X0305, str3, R.color.CAM_X0109, str4, R.color.CAM_X0305);
         }
     }
 }

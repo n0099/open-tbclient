@@ -1,58 +1,79 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.UiThread;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.browser.core.cache.prerender.LRUCache;
+import com.baidu.tieba.browser.core.webview.base.BaseWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tencent.mm.opensdk.utils.Log;
 /* loaded from: classes7.dex */
-public class y96 extends BaseCardInfo {
+public class y96 extends LRUCache<String, BaseWebView> {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948285043, "Lcom/baidu/tieba/y96;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948285043, "Lcom/baidu/tieba/y96;");
-                return;
-            }
-        }
-        b = BdUniqueId.gen();
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public y96() {
+        super(8);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    @UiThread
+    public synchronized BaseWebView d(String str) {
+        InterceptResult invokeL;
+        BaseWebView baseWebView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            synchronized (this) {
+                baseWebView = null;
+                if (!TextUtils.isEmpty(str) && s96.f(str)) {
+                    baseWebView = (BaseWebView) super.b(str);
+                }
+                if (baseWebView != null) {
+                    baseWebView.f();
+                }
+            }
+            return baseWebView;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (BaseWebView) invokeL.objValue;
+    }
+
+    @UiThread
+    public synchronized BaseWebView e(String str, @NonNull BaseWebView baseWebView) {
+        InterceptResult invokeLL;
+        BaseWebView baseWebView2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, baseWebView)) == null) {
+            synchronized (this) {
+                baseWebView2 = (BaseWebView) super.c(str, baseWebView);
+                Log.e("lt-log", "recycle:" + str + "，instance=" + baseWebView2);
+                if (baseWebView2 == null) {
+                    baseWebView.e();
+                    baseWebView.setPrerender(true);
+                } else {
+                    baseWebView2.e();
+                    baseWebView2.setPrerender(false);
+                }
+            }
+            return baseWebView2;
+        }
+        return (BaseWebView) invokeLL.objValue;
     }
 }

@@ -1,183 +1,80 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.text.TextUtils;
-import android.webkit.JsPromptResult;
-import android.webkit.WebView;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tbadk.xiuba.JSResultData;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class gq4 implements j76 {
+public final class gq4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
 
-    @Override // com.baidu.tieba.j76
-    public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        i76.a(this, webView, str, jSONObject);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947802559, "Lcom/baidu/tieba/gq4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947802559, "Lcom/baidu/tieba/gq4;");
+                return;
+            }
+        }
+        g = gp1.a;
     }
 
     public gq4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.j76
-    public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLLLL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            if (!TextUtils.equals("CommonJSBridge", str)) {
-                return false;
-            }
-            if (TextUtils.equals("startLoginModule", str2)) {
-                try {
-                    jsPromptResult.confirm(f(webView, new JSONObject(str3).optString("cssUrl")).a());
-                    return true;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            } else if (CommonTbJsBridge.LOAD_THIRD_PARTY_LOGIN.equals(str2)) {
-                jsPromptResult.confirm(d(webView, str3));
-            }
-            return false;
-        }
-        return invokeLLLLL.booleanValue;
-    }
-
-    public zx8 c(WebView webView, int i, String str) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, webView, i, str)) == null) {
-            zx8 zx8Var = new zx8();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            Activity a = d76.a(webView.getContext());
-            if (a == null) {
-                try {
-                    jSONObject.put("resultCode", 0);
-                } catch (JSONException e) {
-                    BdLog.e(e);
-                }
-                zx8Var.o(jSONObject.toString());
-                return zx8Var;
-            }
-            LoginActivityConfig loginActivityConfig = new LoginActivityConfig((Context) a, true);
-            loginActivityConfig.setThirdPartyLoginForResult(i, str);
-            if (webView != null) {
-                loginActivityConfig.setUrl(webView.getOriginalUrl());
-            }
-            ViewHelper.checkUpIsLoginFromH5(loginActivityConfig);
+            JSONObject jSONObject2 = new JSONObject();
             try {
-                jSONObject.put("resultCode", 1);
-            } catch (JSONException e2) {
-                BdLog.e(e2);
-            }
-            zx8Var.o(jSONObject.toString());
-            return zx8Var;
-        }
-        return (zx8) invokeLIL.objValue;
-    }
-
-    public final String d(WebView webView, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, str)) == null) {
-            if (!yi.isEmpty(str)) {
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    return c(webView, jSONObject.optInt("socialType", 0), jSONObject.optString("activityId")).a();
-                } catch (JSONException e) {
-                    BdLog.e(e);
+                jSONObject.put("videoBitrate", this.a);
+                jSONObject.put("audioBitrate", this.b);
+                jSONObject.put("videoFPS", this.c);
+                jSONObject.put("netSpeed", this.d);
+                jSONObject.put("videoWidth", this.e);
+                jSONObject.put("videoHeight", this.f);
+                jSONObject2.putOpt("info", jSONObject);
+                return jSONObject2.toString();
+            } catch (JSONException e) {
+                if (g) {
+                    Log.e("LiveNetworkStatus", "toJSONObject failed: " + Log.getStackTraceString(e));
                     return null;
                 }
-            }
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public zx8 f(WebView webView, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, str)) == null) {
-            zx8 zx8Var = new zx8();
-            Activity a = d76.a(webView.getContext());
-            if (a != null) {
-                ViewHelper.checkUpIsLoginFromH5(a, webView.getOriginalUrl(), str);
-            }
-            JSResultData jSResultData = new JSResultData();
-            jSResultData.setStatus(1);
-            jSResultData.setErrorCode("0");
-            jSResultData.setErrorMsg("");
-            zx8Var.o(OrmObject.jsonStrWithObject(jSResultData));
-            return zx8Var;
-        }
-        return (zx8) invokeLL.objValue;
-    }
-
-    public zx8 e(WebView webView, HashMap hashMap) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, hashMap)) == null) {
-            if (hashMap == null || hashMap.get("isLogin") == null || !((Boolean) hashMap.get("isLogin")).booleanValue()) {
                 return null;
             }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("resultCode", 1);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            a(webView, CommonTbJsBridge.LOGIN_RESULT_TO_H5, jSONObject);
-            zx8 zx8Var = new zx8();
-            zx8Var.o(jSONObject.toString());
-            return zx8Var;
         }
-        return (zx8) invokeLL.objValue;
-    }
-
-    public zx8 g(WebView webView, HashMap hashMap) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, webView, hashMap)) == null) {
-            if (hashMap == null) {
-                return null;
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("resultCode", 1);
-                jSONObject.put("socialType", hashMap.get("social_type"));
-                jSONObject.put("activityId", hashMap.get("activityId"));
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            a(webView, CommonTbJsBridge.RESULT_THIRD_PARTY_LOGIN, jSONObject);
-            zx8 zx8Var = new zx8();
-            zx8Var.o(jSONObject.toString());
-            return zx8Var;
-        }
-        return (zx8) invokeLL.objValue;
+        return (String) invokeV.objValue;
     }
 }

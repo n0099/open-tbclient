@@ -1,139 +1,106 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.GradientDrawable;
-import android.text.TextUtils;
 import android.util.Log;
-import android.view.View;
-import android.view.ViewParent;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
-import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public final class q02 extends uz1<TextView, r02> {
+public class q02 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public SwanAppComponentContainerView i;
-    public TextView j;
+    public HashMap<String, j02> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q02(@NonNull Context context, @NonNull r02 r02Var) {
-        super(context, r02Var);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948037942, "Lcom/baidu/tieba/q02;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948037942, "Lcom/baidu/tieba/q02;");
+                return;
+            }
+        }
+        b = gp1.a;
+    }
+
+    public q02() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, r02Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (vz1) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        g(4);
-        this.i = new SwanAppComponentContainerView(context);
-        this.j = new TextView(context);
+        this.a = new LinkedHashMap();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.uz1, com.baidu.tieba.wz1, com.baidu.tieba.yz1
-    @NonNull
-    /* renamed from: Z */
-    public b12 k(@NonNull r02 r02Var, @NonNull r02 r02Var2) {
-        InterceptResult invokeLL;
+    public synchronized void a(BasePendingOperation basePendingOperation) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, r02Var, r02Var2)) == null) {
-            b12 k = super.k(r02Var, r02Var2);
-            if (!TextUtils.equals(r02Var.E, r02Var2.E) && (TextUtils.equals(r02Var.E, "scroll") || TextUtils.equals(r02Var2.E, "scroll"))) {
-                k.b(7);
+        if (interceptable == null || interceptable.invokeL(1048576, this, basePendingOperation) == null) {
+            synchronized (this) {
+                if (basePendingOperation == null) {
+                    return;
+                }
+                if (b) {
+                    Log.d("PendingOperationHandler", "*************** 【Add pending module】:" + basePendingOperation.b() + " params: " + basePendingOperation.c());
+                }
+                c(basePendingOperation.getType()).b(basePendingOperation);
             }
-            if (!TextUtils.equals(r02Var.E, r02Var2.E) || (TextUtils.equals(r02Var2.E, "scroll") && r02Var.D != r02Var2.D)) {
-                k.b(8);
-            }
-            return k;
         }
-        return (b12) invokeLL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wz1
-    /* renamed from: c0 */
-    public void Q(@NonNull TextView textView, @NonNull r02 r02Var) {
+    public synchronized void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, textView, r02Var) == null) {
-            if (yz1.h) {
-                Log.d("Component-CoverView", "renderBackground");
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                for (Map.Entry<String, j02> entry : this.a.entrySet()) {
+                    entry.getValue().c();
+                }
+                this.a.clear();
             }
-            if (r02Var.j == null) {
-                return;
-            }
-            SwanAppComponentContainerView m = m();
-            if (m != null) {
-                m.setModel(r02Var);
-            }
-            ViewParent parent = textView.getParent();
-            if (!(parent instanceof View)) {
-                return;
-            }
-            GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setColor(r02Var.k);
-            gradientDrawable.setCornerRadius(r02Var.n);
-            gradientDrawable.setStroke(r02Var.l, r02Var.m);
-            ((View) parent).setBackground(gradientDrawable);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wz1
-    /* renamed from: b0 */
-    public void P(@NonNull View view2, @NonNull r02 r02Var) {
+    public synchronized void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, view2, r02Var) == null) {
-            if (yz1.h) {
-                Log.d("Component-CoverView", "renderAlpha");
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                for (Map.Entry<String, j02> entry : this.a.entrySet()) {
+                    entry.getValue().a();
+                }
             }
-            if (r02Var.j == null) {
-                return;
-            }
-            ViewParent parent = view2.getParent();
-            if (!(parent instanceof View)) {
-                return;
-            }
-            super.P((View) parent, r02Var);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yz1
-    @NonNull
-    /* renamed from: a0 */
-    public TextView v(@NonNull Context context) {
+    public final j02 c(BasePendingOperation.OperationType operationType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
-            return this.j;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, operationType)) == null) {
+            if (!this.a.containsKey(operationType.name())) {
+                j02 a = n02.a(operationType);
+                this.a.put(operationType.name(), a);
+                return a;
+            }
+            return this.a.get(operationType.name());
         }
-        return (TextView) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.yz1
-    @NonNull
-    public SwanAppComponentContainerView u(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, context)) == null) {
-            return this.i;
-        }
-        return (SwanAppComponentContainerView) invokeL.objValue;
+        return (j02) invokeL.objValue;
     }
 }

@@ -52,7 +52,7 @@ public class AddrListAdapter extends CommonAdapter<JSONObject> {
     public int getItemLayoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d0506 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d0503 : invokeV.intValue;
     }
 
     /* loaded from: classes2.dex */
@@ -92,16 +92,16 @@ public class AddrListAdapter extends CommonAdapter<JSONObject> {
                 }
             }
             this.this$0 = addrListAdapter;
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091dc9);
-            this.tvTagIcon = (TextView) findViewById(R.id.obfuscated_res_0x7f091de5);
-            this.tvName = (TextView) findViewById(R.id.obfuscated_res_0x7f091dd4);
-            this.tvPhone = (TextView) findViewById(R.id.obfuscated_res_0x7f091dd8);
-            this.tvDefaultTag = (TextView) findViewById(R.id.obfuscated_res_0x7f091db7);
-            this.tvTag = (TextView) findViewById(R.id.obfuscated_res_0x7f091de1);
-            this.tvNuoMiTag = (TextView) findViewById(R.id.obfuscated_res_0x7f091e4d);
-            this.tvDetail = (TextView) findViewById(R.id.obfuscated_res_0x7f091dc0);
-            this.ivEdit = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e9e);
-            this.darkShapeView = findViewById(R.id.obfuscated_res_0x7f091de6);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091dde);
+            this.tvTagIcon = (TextView) findViewById(R.id.obfuscated_res_0x7f091dfa);
+            this.tvName = (TextView) findViewById(R.id.obfuscated_res_0x7f091de9);
+            this.tvPhone = (TextView) findViewById(R.id.obfuscated_res_0x7f091ded);
+            this.tvDefaultTag = (TextView) findViewById(R.id.obfuscated_res_0x7f091dcc);
+            this.tvTag = (TextView) findViewById(R.id.obfuscated_res_0x7f091df6);
+            this.tvNuoMiTag = (TextView) findViewById(R.id.obfuscated_res_0x7f091e62);
+            this.tvDetail = (TextView) findViewById(R.id.obfuscated_res_0x7f091dd5);
+            this.ivEdit = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ee3);
+            this.darkShapeView = findViewById(R.id.obfuscated_res_0x7f091dfb);
             if (addrListAdapter.mAddrListColorMap != null) {
                 String str = (String) addrListAdapter.mAddrListColorMap.get(PassAddrColorLocation.ADDRESS_ITEM_IC_TEXT_COLOR);
                 if (!TextUtils.isEmpty(str)) {
@@ -131,15 +131,15 @@ public class AddrListAdapter extends CommonAdapter<JSONObject> {
             }
             if (addrListAdapter.isDarkMode) {
                 Resources resources = addrListAdapter.mContext.getResources();
-                findViewById.setBackgroundResource(R.drawable.obfuscated_res_0x7f081075);
-                this.ivEdit.setImageDrawable(addrListAdapter.mContext.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08108c));
-                this.tvName.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0609ad));
-                this.tvPhone.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0609ad));
-                this.tvDefaultTag.setBackgroundResource(R.drawable.obfuscated_res_0x7f08107b);
-                this.tvDefaultTag.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0609ab));
-                this.tvTag.setBackgroundResource(R.drawable.obfuscated_res_0x7f08107d);
-                this.tvTag.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0609a8));
-                this.tvDetail.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0609a3));
+                findViewById.setBackgroundResource(R.drawable.obfuscated_res_0x7f08106b);
+                this.ivEdit.setImageDrawable(addrListAdapter.mContext.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081082));
+                this.tvName.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0609bd));
+                this.tvPhone.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0609bd));
+                this.tvDefaultTag.setBackgroundResource(R.drawable.obfuscated_res_0x7f081071);
+                this.tvDefaultTag.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0609bb));
+                this.tvTag.setBackgroundResource(R.drawable.obfuscated_res_0x7f081073);
+                this.tvTag.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0609b8));
+                this.tvDetail.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0609b3));
             }
         }
 
@@ -268,7 +268,7 @@ public class AddrListAdapter extends CommonAdapter<JSONObject> {
                                 str = trim.substring(0, 1);
                             }
                             this.tvTagIcon.setText(str);
-                            this.tvTagIcon.setBackgroundResource(R.drawable.obfuscated_res_0x7f08107e);
+                            this.tvTagIcon.setBackgroundResource(R.drawable.obfuscated_res_0x7f081074);
                             if (this.this$0.mAddrListColorMap != null) {
                                 String str2 = (String) this.this$0.mAddrListColorMap.get(PassAddrColorLocation.ADDRESS_ITEM_IC_BG_COLOR);
                                 if (!TextUtils.isEmpty(str2)) {
@@ -278,13 +278,13 @@ public class AddrListAdapter extends CommonAdapter<JSONObject> {
                                 }
                             }
                         } else {
-                            this.tvTagIcon.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810a2);
+                            this.tvTagIcon.setBackgroundResource(R.drawable.obfuscated_res_0x7f081098);
                         }
                     } else {
-                        this.tvTagIcon.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810a5);
+                        this.tvTagIcon.setBackgroundResource(R.drawable.obfuscated_res_0x7f08109b);
                     }
                 } else {
-                    this.tvTagIcon.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810a4);
+                    this.tvTagIcon.setBackgroundResource(R.drawable.obfuscated_res_0x7f08109a);
                 }
                 this.tvNuoMiTag.setVisibility(8);
                 String trim2 = jSONObject.optString(AddressField.KEY_ADDR_ID).trim();

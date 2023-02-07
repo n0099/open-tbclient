@@ -1,16 +1,16 @@
 package com.baidu.tieba;
 
-import android.animation.TypeEvaluator;
-import com.baidu.mapapi.model.LatLng;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class g94 implements TypeEvaluator<LatLng> {
+public class g94 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public df4 a;
+    public boolean b;
 
     public g94() {
         Interceptable interceptable = $ic;
@@ -22,22 +22,47 @@ public class g94 implements TypeEvaluator<LatLng> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.b = true;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            c(false);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.animation.TypeEvaluator
-    /* renamed from: a */
-    public LatLng evaluate(float f, LatLng latLng, LatLng latLng2) {
-        InterceptResult invokeCommon;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), latLng, latLng2})) == null) {
-            double d = latLng.latitude;
-            double d2 = f;
-            double d3 = latLng.longitude;
-            return new LatLng(d + ((latLng2.latitude - d) * d2), d3 + (d2 * (latLng2.longitude - d3)));
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            c(true);
         }
-        return (LatLng) invokeCommon.objValue;
+    }
+
+    public void b(df4 df4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, df4Var) == null) {
+            this.a = df4Var;
+            c(this.b);
+        }
+    }
+
+    public final void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.b = z;
+            df4 df4Var = this.a;
+            if (df4Var == null) {
+                return;
+            }
+            if (z) {
+                df4Var.d(4, 1);
+            } else {
+                df4Var.l(4);
+            }
+        }
     }
 }

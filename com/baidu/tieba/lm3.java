@@ -1,75 +1,21 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Build;
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.app.NotificationManagerCompat;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tieba.n33;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
+import java.io.File;
 /* loaded from: classes5.dex */
 public class lm3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static final String[] b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public interface b {
-        void onResult(boolean z);
-    }
-
-    /* loaded from: classes5.dex */
-    public static class a implements DialogInterface.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
-
-        public a(b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bVar;
-        }
-
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
-            b bVar;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) && (bVar = this.a) != null) {
-                if (i == -1) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                bVar.onResult(z);
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -84,95 +30,154 @@ public class lm3 {
                 return;
             }
         }
-        a = tk1.a;
-        b = new String[]{"BLA-AL00", "R7Plus"};
+        a = gp1.a;
     }
 
-    public static DialogInterface.OnClickListener a(b bVar) {
-        InterceptResult invokeL;
+    public static boolean a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bVar)) == null) {
-            return new a(bVar);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            if (b(str) > b(str2)) {
+                return true;
+            }
+            return false;
         }
-        return (DialogInterface.OnClickListener) invokeL.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public static boolean b(Context context) {
+    public static long b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 19) {
-                return NotificationManagerCompat.from(context).areNotificationsEnabled();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            String[] g = g(str);
+            if (g == null) {
+                return 0L;
+            }
+            long j = 0;
+            for (int i = 0; i < g.length; i++) {
+                try {
+                    j += Integer.parseInt(g[i]) * ((long) Math.pow(1000.0d, (g.length - i) - 1));
+                } catch (NumberFormatException e) {
+                    w52.l("SwanAppSwanCoreUtils", "getVersionCode exception", e);
+                    return 0L;
+                }
+            }
+            w52.b("SwanAppSwanCoreUtils", "getVersion version: ", str, " ,versionCode: ", Long.valueOf(j));
+            return j;
+        }
+        return invokeL.longValue;
+    }
+
+    public static long c(String str) {
+        InterceptResult invokeL;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            String[] g = g(str);
+            if (g == null) {
+                return 0L;
+            }
+            long j2 = 0;
+            for (int i = 0; i < 3; i++) {
+                try {
+                    if (i < g.length) {
+                        j = Integer.parseInt(g[i]);
+                    } else {
+                        j = 0;
+                    }
+                    j2 = (j2 << 16) | j;
+                } catch (NumberFormatException e) {
+                    if (!a) {
+                        return 0L;
+                    }
+                    throw e;
+                }
+            }
+            if (a) {
+                Log.d("SwanAppSwanCoreUtils", "getVersion version: " + str + " ,versionCode: " + j2);
+            }
+            return j2;
+        }
+        return invokeL.longValue;
+    }
+
+    public static String d(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j)) == null) {
+            if (j < 0) {
+                w52.k("SwanAppSwanCoreUtils", "versionCode < 0, versionCode = " + j);
+                return "0";
+            }
+            StringBuilder sb = new StringBuilder();
+            long j2 = j;
+            for (int i = 2; i >= 0; i--) {
+                if (i > 0) {
+                    long pow = (long) Math.pow(1000.0d, i);
+                    sb.append(j2 / pow);
+                    sb.append(".");
+                    j2 %= pow;
+                } else {
+                    sb.append(j2);
+                }
+            }
+            String sb2 = sb.toString();
+            w52.b("SwanAppSwanCoreUtils", "getVersionName version code: ", Long.valueOf(j), " ,version name: ", sb2);
+            return sb2;
+        }
+        return (String) invokeJ.objValue;
+    }
+
+    public static boolean e(String str) {
+        InterceptResult invokeL;
+        String[] list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            File file = new File(str);
+            if (!file.isDirectory() || (list = file.list()) == null || list.length <= 0) {
+                return false;
             }
             return true;
         }
         return invokeL.booleanValue;
     }
 
-    public static void c(Context context) {
+    public static boolean f(String str) {
+        InterceptResult invokeL;
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
-            String packageName = context.getPackageName();
-            Intent intent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS");
-            intent.setData(Uri.fromParts("package", packageName, null));
-            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            context.startActivity(intent);
-        }
-    }
-
-    public static void d(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
-            if (!Arrays.asList(b).contains(Build.MODEL)) {
-                Intent intent = new Intent();
-                intent.setAction("android.settings.APP_NOTIFICATION_SETTINGS");
-                int i = Build.VERSION.SDK_INT;
-                if (i >= 26) {
-                    intent.putExtra("android.provider.extra.APP_PACKAGE", context.getPackageName());
-                    intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-                } else if (i >= 21) {
-                    intent.putExtra("app_package", context.getPackageName());
-                    intent.putExtra("app_uid", context.getApplicationInfo().uid);
-                }
-                try {
-                    context.startActivity(intent);
-                    return;
-                } catch (Exception e) {
-                    if (a) {
-                        Log.e("GuideHelper", "openNotificationSettingPages() Exception:" + e);
-                    }
-                    c(context);
-                    return;
-                }
-            }
-            c(context);
-        }
-    }
-
-    public static void e(Context context, b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, context, bVar) == null) {
-            if (!(context instanceof Activity)) {
-                if (!a) {
-                    return;
-                }
-                throw new IllegalArgumentException("context must be activity.");
-            } else if (bVar == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            long b = b(str);
+            SwanCoreVersion d0 = qf2.U().d0();
+            if (d0 != null) {
+                j = b(d0.swanCoreVersionName);
             } else {
-                DialogInterface.OnClickListener a2 = a(bVar);
-                n33.a aVar = new n33.a(context);
-                aVar.n(new rj3());
-                n33 c = aVar.c();
-                aVar.U(R.string.obfuscated_res_0x7f0f12e6);
-                aVar.x(context.getString(R.string.obfuscated_res_0x7f0f12e5));
-                aVar.y();
-                aVar.J(qn2.M().a());
-                aVar.O(R.string.obfuscated_res_0x7f0f12e7, a2);
-                aVar.B(R.string.obfuscated_res_0x7f0f12e4, a2);
-                aVar.a();
-                c.setCancelable(false);
-                c.show();
+                j = 0;
             }
+            if (j < b) {
+                return true;
+            }
+            return false;
         }
+        return invokeL.booleanValue;
+    }
+
+    public static String[] g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+            if (split.length != 3) {
+                return null;
+            }
+            return split;
+        }
+        return (String[]) invokeL.objValue;
     }
 }

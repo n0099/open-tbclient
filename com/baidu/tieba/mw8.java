@@ -1,43 +1,41 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Build;
-import android.os.Environment;
-import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.util.ISwanData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class mw8 {
+public class mw8 implements ISwanData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Activity activity) {
-        InterceptResult invokeL;
+    @Override // com.baidu.searchbox.util.ISwanData
+    public String getSwanNativeVersionGroup() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
-            if (Build.VERSION.SDK_INT < 23) {
-                return true;
-            }
-            boolean checkWriteExternalStorage = PermissionUtil.checkWriteExternalStorage(activity);
-            if (activity.getApplicationInfo().targetSdkVersion < 23 && Environment.getExternalStorageState().equals("unmounted")) {
-                return false;
-            }
-            return checkWriteExternalStorage;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
         }
-        return invokeL.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public static boolean b(Context context, String str) {
-        InterceptResult invokeLL;
+    public mw8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            if (context.getPackageManager().getPackageInfo(str, 0) == null) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return true;
         }
-        return invokeLL.booleanValue;
     }
 }

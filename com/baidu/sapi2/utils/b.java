@@ -36,12 +36,12 @@ public class b {
 
         /* renamed from: com.baidu.sapi2.utils.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0155a implements Runnable {
+        public class RunnableC0154a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0155a(a aVar) {
+            public RunnableC0154a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -92,7 +92,7 @@ public class b {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.post(new RunnableC0155a(this));
+                this.a.post(new RunnableC0154a(this));
             }
         }
     }
@@ -118,7 +118,7 @@ public class b {
             View inflate = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.layout_sapi_sdk_loading_timeout, (ViewGroup) null);
             Button button = (Button) inflate.findViewById(R.id.btn_retry);
             if (SapiAccountManager.getInstance().getConfignation().isDarkMode && inflate != null) {
-                ((LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091e37)).setBackgroundColor(context.getResources().getColor(R.color.sapi_sdk_dark_mode_color));
+                ((LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091e4c)).setBackgroundColor(context.getResources().getColor(R.color.sapi_sdk_dark_mode_color));
                 ((TextView) inflate.findViewById(R.id.sapi_sdk_loading_timeout_tv)).setTextColor(context.getResources().getColor(R.color.sapi_sdk_dark_mode_no_network_tv_color));
                 ((ImageView) inflate.findViewById(R.id.sapi_sdk_loading_timeout_iv)).setImageResource(R.drawable.sapi_sdk_icon_connection_failed_dark);
                 button.setBackgroundResource(R.drawable.sapi_sdk_btn_gray);

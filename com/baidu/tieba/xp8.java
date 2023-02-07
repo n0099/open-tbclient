@@ -1,156 +1,152 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
+import android.content.Intent;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.pushdialog.PushDialogActivity;
+import com.baidu.tieba.pushdialog.data.PushDialogHttpResMsg;
+import com.baidu.tieba.pushdialog.data.PushDialogReqNetMsg;
+import com.baidu.tieba.pushdialog.data.PushDialogSocketResMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class xp8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public String c;
-    public aq8 d;
+    public PushDialogActivity a;
+    public String b;
+    public long c;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
+    /* loaded from: classes7.dex */
+    public class a extends wb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ xp8 a;
 
-    /* loaded from: classes6.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final xp8 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-281609653, "Lcom/baidu/tieba/xp8$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-281609653, "Lcom/baidu/tieba/xp8$b;");
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(xp8 xp8Var, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xp8Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new xp8(null);
+            this.a = xp8Var;
+        }
+
+        @Override // com.baidu.tieba.wb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                if (responsedMessage instanceof PushDialogHttpResMsg) {
+                    this.a.f((PushDialogHttpResMsg) responsedMessage);
+                } else if (responsedMessage instanceof PushDialogSocketResMsg) {
+                    this.a.g((PushDialogSocketResMsg) responsedMessage);
+                }
+            }
         }
     }
 
-    public xp8() {
+    public xp8(PushDialogActivity pushDialogActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pushDialogActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = pushDialogActivity;
+        pushDialogActivity.registerListener(new a(this, CmdConfigHttp.CMD_GET_PUSH_DIALOG_DATA, 309614));
+        Intent intent = this.a.getIntent();
+        if (intent != null) {
+            this.b = intent.getStringExtra("thread_id");
+            this.c = intent.getLongExtra("task_id", 0L);
+            if (StringUtils.isNull(this.b)) {
+                this.a.finish();
             }
         }
     }
 
-    public static xp8 d() {
+    public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return (xp8) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    public String c() {
+    public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String str = this.c;
-            if (str == null) {
-                return "";
-            }
-            return str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
         return (String) invokeV.objValue;
     }
 
-    public boolean e() {
-        InterceptResult invokeV;
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.a && this.b) {
-                return true;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            long g = dh.g(this.b, 0L);
+            if (g == 0) {
+                PushDialogActivity pushDialogActivity = this.a;
+                if (pushDialogActivity != null) {
+                    pushDialogActivity.z1(false, null);
+                    return;
+                }
+                return;
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public /* synthetic */ xp8(a aVar) {
-        this();
-    }
-
-    public void a(Uri uri) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, uri) == null) && uri != null && b(uri)) {
-            this.c = null;
+            PushDialogReqNetMsg pushDialogReqNetMsg = new PushDialogReqNetMsg();
+            pushDialogReqNetMsg.setTask_id(this.c);
+            pushDialogReqNetMsg.setTid(g);
+            MessageManager.getInstance().sendMessage(pushDialogReqNetMsg);
         }
     }
 
-    public final boolean b(Uri uri) {
-        InterceptResult invokeL;
+    public final void f(PushDialogHttpResMsg pushDialogHttpResMsg) {
+        PushDialogActivity pushDialogActivity;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) {
-            if (this.d == null) {
-                this.d = new aq8();
+        if ((interceptable == null || interceptable.invokeL(1048579, this, pushDialogHttpResMsg) == null) && (pushDialogActivity = this.a) != null) {
+            if (pushDialogHttpResMsg.getError() == 0) {
+                z = true;
+            } else {
+                z = false;
             }
-            return this.d.a(uri);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.b = true;
-            this.c = str;
+            pushDialogActivity.z1(z, pushDialogHttpResMsg.getData());
         }
     }
 
-    public void h(boolean z) {
+    public final void g(PushDialogSocketResMsg pushDialogSocketResMsg) {
+        PushDialogActivity pushDialogActivity;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    public void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.b = z;
-        }
-    }
-
-    public void g(Uri uri, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048581, this, uri, str) != null) || !b(uri)) {
-            return;
-        }
-        this.b = true;
-        if (!TextUtils.isEmpty(str)) {
-            this.c = zp8.a(str);
-        } else {
-            this.c = null;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, pushDialogSocketResMsg) == null) && (pushDialogActivity = this.a) != null) {
+            pushDialogActivity.z1(!pushDialogSocketResMsg.hasError(), pushDialogSocketResMsg.getData());
         }
     }
 }

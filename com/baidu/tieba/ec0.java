@@ -1,93 +1,113 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.List;
+import java.util.WeakHashMap;
 /* loaded from: classes4.dex */
-public final class ec0 {
+public class ec0 {
     public static /* synthetic */ Interceptable $ic;
+    public static ec0 b;
+    public static WeakHashMap<Object, List<cc0>> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final int b;
-    public final boolean c;
-    public final String d;
+    public fc0 a;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof ec0) {
-                    ec0 ec0Var = (ec0) obj;
-                    return Intrinsics.areEqual(this.a, ec0Var.a) && this.b == ec0Var.b && this.c == ec0Var.c && Intrinsics.areEqual(this.d, ec0Var.d);
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ec0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-837807623, "Lcom/baidu/tieba/ec0$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
                 }
-                return false;
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-837807623, "Lcom/baidu/tieba/ec0$b;");
+                    return;
+                }
             }
-            return true;
+            a = new ec0(null);
         }
-        return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: boolean */
-    /* JADX WARN: Multi-variable type inference failed */
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String str = this.a;
-            int hashCode = (((str != null ? str.hashCode() : 0) * 31) + this.b) * 31;
-            boolean z = this.c;
-            int i = z;
-            if (z != 0) {
-                i = 1;
-            }
-            int i2 = (hashCode + i) * 31;
-            String str2 = this.d;
-            return i2 + (str2 != null ? str2.hashCode() : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public ec0(String str, int i, boolean z, String str2) {
+    public ec0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Boolean.valueOf(z), str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.b = i;
-        this.c = z;
-        this.d = str2;
+        c = new WeakHashMap<>();
+        this.a = new fc0();
     }
 
-    public final int a() {
+    public static ec0 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                b = b.a;
+            }
+            return b;
         }
-        return invokeV.intValue;
+        return (ec0) invokeV.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public /* synthetic */ ec0(a aVar) {
+        this();
+    }
+
+    public void b(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "YYPluginBundleInfo { packageName=" + this.a + " versionCode=" + this.b + " needUpdate=" + this.c + " ext=" + this.d + " }";
+        if ((interceptable != null && interceptable.invokeL(1048576, this, obj) != null) || obj == null || c.isEmpty()) {
+            return;
         }
-        return (String) invokeV.objValue;
+        this.a.c(c, obj);
+    }
+
+    public void e(Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, obj) == null) && obj != null && !c.isEmpty() && c.containsKey(obj)) {
+            this.a.e(c, obj);
+        }
+    }
+
+    public void c(Object obj, Class<?> cls, int i, bc0 bc0Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, cls, i, bc0Var) == null) && obj != null && cls != null && bc0Var != null && gc0.a(i)) {
+            this.a.d(c, obj, cls, i, bc0Var);
+        }
+    }
+
+    public synchronized void d(Object obj, Class<?> cls, bc0 bc0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, obj, cls, bc0Var) == null) {
+            synchronized (this) {
+                c(obj, cls, 1, bc0Var);
+            }
+        }
     }
 }

@@ -1,55 +1,41 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
-import android.os.StatFs;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.browser.core.async.BdRunnable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public final class pw {
+public abstract class pw extends BdRunnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<BdRunnable> c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448314502, "Lcom/baidu/tieba/pw;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public pw() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448314502, "Lcom/baidu/tieba/pw;");
-        }
+        this.c = new ArrayList();
     }
 
-    public static float a() {
+    public List<BdRunnable> d() {
         InterceptResult invokeV;
-        long j;
-        StatFs statFs;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            long j2 = 0;
-            try {
-                statFs = new StatFs(Environment.getDataDirectory().getPath());
-                j = statFs.getBlockSize();
-            } catch (Exception e) {
-                e = e;
-                j = 0;
-            }
-            try {
-                j2 = statFs.getAvailableBlocks();
-            } catch (Exception e2) {
-                e = e2;
-                e.printStackTrace();
-                return ((float) (j2 * j)) / 1024.0f;
-            }
-            return ((float) (j2 * j)) / 1024.0f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return invokeV.floatValue;
+        return (List) invokeV.objValue;
     }
 }

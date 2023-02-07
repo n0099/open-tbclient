@@ -1,463 +1,371 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.database.DataSetObserver;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
+import android.widget.ListAdapter;
+import android.widget.WrapperListAdapter;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.center.clearcache.UserSettingForceListListener;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.i45;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.MemoryChangedMessage;
-import com.baidu.tieba.im.message.MemoryInitCompleteMessage;
-import com.baidu.tieba.im.message.RequestMemoryListMessage;
-import com.baidu.tieba.im.message.ResponsedMemoryListMessage;
+import com.baidu.tieba.horizonalList.widget.HListView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes3.dex */
-public class ai7 {
+public class ai7 implements WrapperListAdapter, Filterable {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ai7 c;
+    public static final ArrayList<HListView.c> f;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ImMessageCenterPojo> a;
-    public final CustomMessageListener b;
+    public final ListAdapter a;
+    public ArrayList<HListView.c> b;
+    public ArrayList<HListView.c> c;
+    public boolean d;
+    public final boolean e;
 
-    /* loaded from: classes3.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ai7 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ai7 ai7Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947616218, "Lcom/baidu/tieba/ai7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ai7Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = ai7Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947616218, "Lcom/baidu/tieba/ai7;");
                 return;
             }
-            if (customResponsedMessage.getCmd() == 2016002) {
-                this.a.r(customResponsedMessage);
-            } else if (customResponsedMessage.getCmd() == 2016004) {
-                this.a.q(customResponsedMessage);
-            } else if (customResponsedMessage.getCmd() == 2016007) {
-                this.a.s(customResponsedMessage);
-            } else if (customResponsedMessage.getCmd() == 2016001) {
-                if (this.a.a != null) {
-                    this.a.a.clear();
-                }
-                x35.h0().g0(new i45());
-                x35.h0().b0(0);
-                x35.h0().a();
-                x35.h0().k();
-            } else if (customResponsedMessage.getCmd() == 2016010 && this.a.a != null) {
-                this.a.t(false);
-            }
         }
+        f = new ArrayList<>();
     }
 
-    public ai7() {
+    @Override // android.widget.ListAdapter
+    public boolean areAllItemsEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ListAdapter listAdapter = this.a;
+            if (listAdapter == null) {
+                return true;
+            }
+            if (this.d && listAdapter.areAllItemsEnabled()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b.size();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        int b;
+        int c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.a != null) {
+                b = b() + c();
+                c = this.a.getCount();
+            } else {
+                b = b();
+                c = c();
+            }
+            return b + c;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Filterable
+    public Filter getFilter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.e) {
+                return ((Filterable) this.a).getFilter();
+            }
+            return null;
+        }
+        return (Filter) invokeV.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getViewTypeCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            ListAdapter listAdapter = this.a;
+            if (listAdapter != null) {
+                return listAdapter.getViewTypeCount();
+            }
+            return 1;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.WrapperListAdapter
+    public ListAdapter getWrappedAdapter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.a;
+        }
+        return (ListAdapter) invokeV.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public boolean hasStableIds() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            ListAdapter listAdapter = this.a;
+            if (listAdapter != null) {
+                return listAdapter.hasStableIds();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.widget.Adapter
+    public boolean isEmpty() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            ListAdapter listAdapter = this.a;
+            if (listAdapter != null && !listAdapter.isEmpty()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public ai7(ArrayList<HListView.c> arrayList, ArrayList<HListView.c> arrayList2, ListAdapter listAdapter) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {arrayList, arrayList2, listAdapter};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new LinkedList();
-        this.b = new a(this, 0);
-        u();
-    }
-
-    public final void g(ImMessageCenterPojo imMessageCenterPojo, i45 i45Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imMessageCenterPojo, i45Var) == null) && imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == -8 && li7.a().b()) {
-            i45Var.O(imMessageCenterPojo.getUnread_count());
-        }
-    }
-
-    public final void j(ImMessageCenterPojo imMessageCenterPojo, i45 i45Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, imMessageCenterPojo, i45Var) == null) && imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == -7 && oi7.a().b()) {
-            i45Var.T(imMessageCenterPojo.getUnread_count());
-        }
-    }
-
-    public final void k(ImMessageCenterPojo imMessageCenterPojo, i45 i45Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, imMessageCenterPojo, i45Var) == null) && imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == -4) {
-            i45Var.L(imMessageCenterPojo.getUnread_count());
-            i45Var.F(imMessageCenterPojo.getLast_content());
-            i45Var.B(imMessageCenterPojo.getGroup_name());
-        }
-    }
-
-    public final void n(ImMessageCenterPojo imMessageCenterPojo, List<ImMessageCenterPojo> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048583, this, imMessageCenterPojo, list) == null) && imMessageCenterPojo != null && list != null) {
-            v(imMessageCenterPojo, list);
-            list.add(imMessageCenterPojo);
-        }
-    }
-
-    public final boolean f(ImMessageCenterPojo imMessageCenterPojo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imMessageCenterPojo)) == null) {
-            if (imMessageCenterPojo == null) {
-                return false;
-            }
-            if (TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) && TextUtils.isEmpty(imMessageCenterPojo.getNameShow())) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static ai7 m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (c == null) {
-                synchronized (ai7.class) {
-                    if (c == null) {
-                        c = new ai7();
-                    }
-                }
-            }
-            return c;
-        }
-        return (ai7) invokeV.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:36:0x0086  */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x0090  */
-    /* JADX WARN: Removed duplicated region for block: B:43:0x00fd  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void h(ImMessageCenterPojo imMessageCenterPojo, i45 i45Var) {
-        int userType;
-        String str;
-        String str2;
-        String str3;
-        JSONArray jSONArray;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, imMessageCenterPojo, i45Var) != null) || imMessageCenterPojo == null || imMessageCenterPojo.getCustomGroupType() != 4 || !mi7.j().c(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid()) || StringUtils.isNull(imMessageCenterPojo.getLast_content()) || imMessageCenterPojo.getUnread_count() <= 0 || (userType = imMessageCenterPojo.getUserType()) == 3) {
-            return;
-        }
-        i45.a aVar = new i45.a();
-        aVar.a = imMessageCenterPojo.getGid();
-        aVar.e = imMessageCenterPojo.getGroup_name();
-        if (userType == 4) {
-            String str4 = null;
-            try {
-                jSONArray = new JSONArray(imMessageCenterPojo.getLastContentRawData());
-            } catch (Exception e) {
-                e = e;
-                str = null;
-                str2 = null;
-            }
-            if (jSONArray.length() == 1) {
-                JSONObject jSONObject = jSONArray.getJSONObject(0);
-                str = jSONObject.optString("title", null);
-                try {
-                    str2 = jSONObject.optString("text", null);
-                } catch (Exception e2) {
-                    e = e2;
-                    str2 = null;
-                }
-                try {
-                    str3 = jSONObject.optString(UserSettingForceListListener.FORCE_LIST_ITEM_SHOW_KEY, null);
-                } catch (Exception e3) {
-                    e = e3;
-                    BdLog.e(e, true);
-                    str3 = null;
-                    str4 = str;
-                    if (str2 == null) {
-                    }
-                    if (str4 == null) {
-                    }
-                    aVar.b = str4;
-                    aVar.c = str2;
-                    aVar.i = str3;
-                    aVar.d = imMessageCenterPojo.getGroup_name() + ":" + imMessageCenterPojo.getLast_content();
-                    aVar.f = userType;
-                    aVar.g = imMessageCenterPojo.getUnread_count();
-                    i45Var.g().add(aVar);
-                    if (userType == 4) {
-                    }
-                    i45Var.P(i45Var.u() + imMessageCenterPojo.getUnread_count());
-                }
-                str4 = str;
-                if (str2 == null) {
-                    str4 = imMessageCenterPojo.getGroup_name();
-                    str2 = imMessageCenterPojo.getLast_content();
-                }
-                if (str4 == null) {
-                    str4 = imMessageCenterPojo.getGroup_name();
-                }
-                aVar.b = str4;
-                aVar.c = str2;
-                aVar.i = str3;
-                aVar.d = imMessageCenterPojo.getGroup_name() + ":" + imMessageCenterPojo.getLast_content();
-            } else {
-                str3 = null;
-                str2 = null;
-                if (str2 == null) {
-                }
-                if (str4 == null) {
-                }
-                aVar.b = str4;
-                aVar.c = str2;
-                aVar.i = str3;
-                aVar.d = imMessageCenterPojo.getGroup_name() + ":" + imMessageCenterPojo.getLast_content();
-            }
+        this.a = listAdapter;
+        this.e = listAdapter instanceof Filterable;
+        if (arrayList == null) {
+            this.b = f;
         } else {
-            String str5 = TbadkCoreApplication.getInst().getContext().getString(R.string.chosen_pb_original_bar, imMessageCenterPojo.getGroup_name()) + ZeusCrashHandler.NAME_SEPERATOR + imMessageCenterPojo.getLast_content();
-            aVar.c = str5;
-            aVar.d = str5;
+            this.b = arrayList;
         }
-        aVar.f = userType;
-        aVar.g = imMessageCenterPojo.getUnread_count();
-        i45Var.g().add(aVar);
-        if (userType == 4) {
-            i45Var.N(i45Var.s() + imMessageCenterPojo.getUnread_count());
+        if (arrayList2 == null) {
+            this.c = f;
+        } else {
+            this.c = arrayList2;
         }
-        i45Var.P(i45Var.u() + imMessageCenterPojo.getUnread_count());
+        if (a(this.b) && a(this.c)) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.d = z;
     }
 
-    public final void i(ImMessageCenterPojo imMessageCenterPojo, i45 i45Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, imMessageCenterPojo, i45Var) == null) && imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == 2 && imMessageCenterPojo.getIsFriend() == 1 && ni7.j().c(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid())) {
-            if (imMessageCenterPojo.getUnread_count() > 0) {
-                i45Var.E(imMessageCenterPojo.getLast_content());
-                String nameShow = imMessageCenterPojo.getNameShow();
-                HashMap<String, String> h = i45Var.h();
-                if (h != null) {
-                    h.put(imMessageCenterPojo.getGid(), nameShow);
-                }
-            }
-            i45Var.R(i45Var.w() + imMessageCenterPojo.getUnread_count());
-        }
-    }
-
-    public final void l(List<i45.a> list, List<i45.a> list2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048582, this, list, list2) == null) && list != null && list.size() != 0 && list2 != null && list2.size() != 0) {
-            for (i45.a aVar : list) {
-                if (aVar != null) {
-                    for (i45.a aVar2 : list2) {
-                        if (aVar2 != null && StringHelper.equals(aVar.a, aVar2.a)) {
-                            aVar.h = aVar2.g;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public final boolean o(ImMessageCenterPojo imMessageCenterPojo) {
+    public final boolean a(ArrayList<HListView.c> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, imMessageCenterPojo)) == null) {
-            if (imMessageCenterPojo == null) {
-                return false;
-            }
-            if (imMessageCenterPojo.getCustomGroupType() == -4) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, arrayList)) == null) {
+            if (arrayList != null) {
+                Iterator<HListView.c> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    if (!it.next().c) {
+                        return false;
+                    }
+                }
                 return true;
-            }
-            if (imMessageCenterPojo.getCustomGroupType() == 4) {
-                return f(imMessageCenterPojo);
-            }
-            if (imMessageCenterPojo.getCustomGroupType() == -8) {
-                return true;
-            }
-            if (imMessageCenterPojo.getCustomGroupType() == 2) {
-                return f(imMessageCenterPojo);
-            }
-            if (imMessageCenterPojo.getCustomGroupType() != -7) {
-                return false;
             }
             return true;
         }
         return invokeL.booleanValue;
     }
 
-    public final boolean p(ImMessageCenterPojo imMessageCenterPojo) {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+            int c = c();
+            ListAdapter listAdapter = this.a;
+            if (listAdapter != null && i >= c && (i2 = i - c) < listAdapter.getCount()) {
+                return this.a.getItemId(i2);
+            }
+            return -1L;
+        }
+        return invokeI.longValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getItemViewType(int i) {
+        InterceptResult invokeI;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            int c = c();
+            ListAdapter listAdapter = this.a;
+            if (listAdapter != null && i >= c && (i2 = i - c) < listAdapter.getCount()) {
+                return this.a.getItemViewType(i2);
+            }
+            return -2;
+        }
+        return invokeI.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public void registerDataSetObserver(DataSetObserver dataSetObserver) {
+        ListAdapter listAdapter;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048593, this, dataSetObserver) == null) && (listAdapter = this.a) != null) {
+            listAdapter.registerDataSetObserver(dataSetObserver);
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public void unregisterDataSetObserver(DataSetObserver dataSetObserver) {
+        ListAdapter listAdapter;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048594, this, dataSetObserver) == null) && (listAdapter = this.a) != null) {
+            listAdapter.unregisterDataSetObserver(dataSetObserver);
+        }
+    }
+
+    public boolean d(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, imMessageCenterPojo)) == null) {
-            if (imMessageCenterPojo.getCustomGroupType() == 2 && imMessageCenterPojo.getIsFriend() == 1) {
-                return ni7.j().c(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
-            }
-            if (imMessageCenterPojo.getCustomGroupType() == 4) {
-                return mi7.j().c(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, view2)) == null) {
+            boolean z = false;
+            for (int i = 0; i < this.c.size(); i++) {
+                if (this.c.get(i).a == view2) {
+                    this.c.remove(i);
+                    if (a(this.b) && a(this.c)) {
+                        z = true;
+                    }
+                    this.d = z;
+                    return true;
+                }
             }
             return false;
         }
         return invokeL.booleanValue;
     }
 
-    public final void q(CustomResponsedMessage<?> customResponsedMessage) {
+    public boolean e(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, customResponsedMessage) != null) || !(customResponsedMessage instanceof MemoryChangedMessage)) {
-            return;
-        }
-        MemoryChangedMessage memoryChangedMessage = (MemoryChangedMessage) customResponsedMessage;
-        ImMessageCenterPojo data = memoryChangedMessage.getData();
-        boolean p = p(data);
-        if (memoryChangedMessage.getType() == 1) {
-            n(data, this.a);
-        } else if (memoryChangedMessage.getType() == 2) {
-            v(data, this.a);
-        }
-        t(p);
-    }
-
-    public final void r(CustomResponsedMessage<?> customResponsedMessage) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048587, this, customResponsedMessage) == null) && (customResponsedMessage instanceof MemoryInitCompleteMessage) && ((MemoryInitCompleteMessage) customResponsedMessage).getData().booleanValue()) {
-            MessageManager.getInstance().sendMessage(new RequestMemoryListMessage(1));
-        }
-    }
-
-    public final void s(CustomResponsedMessage<?> customResponsedMessage) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048588, this, customResponsedMessage) != null) || !(customResponsedMessage instanceof ResponsedMemoryListMessage)) {
-            return;
-        }
-        ResponsedMemoryListMessage responsedMemoryListMessage = (ResponsedMemoryListMessage) customResponsedMessage;
-        List<ImMessageCenterPojo> data = responsedMemoryListMessage.getData();
-        if (responsedMemoryListMessage.getType() == 1) {
-            this.a.clear();
-            for (ImMessageCenterPojo imMessageCenterPojo : data) {
-                if (o(imMessageCenterPojo)) {
-                    this.a.add(imMessageCenterPojo);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, view2)) == null) {
+            boolean z = false;
+            for (int i = 0; i < this.b.size(); i++) {
+                if (this.b.get(i).a == view2) {
+                    this.b.remove(i);
+                    if (a(this.b) && a(this.c)) {
+                        z = true;
+                    }
+                    this.d = z;
+                    return true;
                 }
             }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public final void w(i45 i45Var) {
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048592, this, i45Var) != null) || i45Var == null) {
-            return;
-        }
-        for (ImMessageCenterPojo imMessageCenterPojo : this.a) {
-            if (imMessageCenterPojo != null && imMessageCenterPojo.getIs_hidden() != 1 && o(imMessageCenterPojo)) {
-                h(imMessageCenterPojo, i45Var);
-                i(imMessageCenterPojo, i45Var);
-                k(imMessageCenterPojo, i45Var);
-                g(imMessageCenterPojo, i45Var);
-                j(imMessageCenterPojo, i45Var);
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            int c = c();
+            if (i < c) {
+                return this.b.get(i).b;
             }
+            int i2 = i - c;
+            int i3 = 0;
+            ListAdapter listAdapter = this.a;
+            if (listAdapter != null && i2 < (i3 = listAdapter.getCount())) {
+                return this.a.getItem(i2);
+            }
+            return this.c.get(i2 - i3).b;
         }
+        return invokeI.objValue;
     }
 
-    public final void t(boolean z) {
+    @Override // android.widget.ListAdapter
+    public boolean isEnabled(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            i45 i45Var = new i45();
-            i45Var.H(z);
-            w(i45Var);
-            i45Var.C();
-            i45Var.D();
-            i45Var.S(x35.h0().E().w());
-            i45Var.J(x35.h0().E().k());
-            i45Var.Q(x35.h0().E().u());
-            i45Var.M(x35.h0().E().q());
-            i45Var.K(x35.h0().E().n());
-            l(i45Var.g(), x35.h0().E().g());
-            if (!z35.d().t()) {
-                i45Var.I(0);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
+            int c = c();
+            if (i < c) {
+                return this.b.get(i).c;
             }
-            if (!z35.d().v()) {
-                i45Var.R(0);
+            int i2 = i - c;
+            int i3 = 0;
+            ListAdapter listAdapter = this.a;
+            if (listAdapter != null && i2 < (i3 = listAdapter.getCount())) {
+                return this.a.isEnabled(i2);
             }
-            if (!z35.d().o()) {
-                i45Var.P(0);
-                i45Var.O(0);
-                i45Var.N(0);
-            }
-            if (z35.d().f() <= 0) {
-                i45Var.I(0);
-                i45Var.R(0);
-                i45Var.O(0);
-                i45Var.P(0);
-                i45Var.N(0);
-                i45Var.T(0);
-                i45Var.H(false);
-            }
-            if ((((((i45Var.w() + i45Var.j()) + i45Var.n()) + i45Var.q()) + i45Var.t()) + i45Var.u()) - i45Var.l() <= 0) {
-                i45Var.H(false);
-            }
-            x35.h0().V(i45Var);
+            return this.c.get(i2 - i3).c;
         }
+        return invokeI.booleanValue;
     }
 
-    public final void u() {
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            MessageManager.getInstance().registerListener(2016004, this.b);
-            MessageManager.getInstance().registerListener(2016007, this.b);
-            MessageManager.getInstance().registerListener(2016001, this.b);
-            MessageManager.getInstance().registerListener(2016010, this.b);
-            MessageManager.getInstance().registerListener(2016002, this.b);
-        }
-    }
-
-    public final void v(ImMessageCenterPojo imMessageCenterPojo, List<ImMessageCenterPojo> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048591, this, imMessageCenterPojo, list) == null) && imMessageCenterPojo != null && list != null) {
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                ImMessageCenterPojo imMessageCenterPojo2 = list.get(i);
-                if (imMessageCenterPojo2 != null && imMessageCenterPojo2.getGid().equals(imMessageCenterPojo.getGid()) && imMessageCenterPojo2.getCustomGroupType() == imMessageCenterPojo.getCustomGroupType()) {
-                    list.remove(i);
-                    return;
-                }
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048587, this, i, view2, viewGroup)) == null) {
+            int c = c();
+            if (i < c) {
+                return this.b.get(i).a;
             }
+            int i2 = i - c;
+            int i3 = 0;
+            ListAdapter listAdapter = this.a;
+            if (listAdapter != null && i2 < (i3 = listAdapter.getCount())) {
+                return this.a.getView(i2, view2, viewGroup);
+            }
+            return this.c.get(i2 - i3).a;
         }
+        return (View) invokeILL.objValue;
     }
 }

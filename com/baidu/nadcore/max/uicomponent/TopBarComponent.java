@@ -9,10 +9,10 @@ import com.baidu.nadcore.component.AbsComponentPlugin;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ap0;
-import com.baidu.tieba.bi0;
-import com.baidu.tieba.yo0;
-import com.baidu.tieba.zo0;
+import com.baidu.tieba.ki0;
+import com.baidu.tieba.pp0;
+import com.baidu.tieba.qp0;
+import com.baidu.tieba.rp0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -27,7 +27,7 @@ public final class TopBarComponent extends AbsComponentPlugin {
     public FrameLayout d;
     public AdImageView e;
 
-    public final void h(ViewGroup viewGroup) {
+    public final void k(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) {
         }
@@ -61,11 +61,11 @@ public final class TopBarComponent extends AbsComponentPlugin {
         public final void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                ap0 ap0Var = (ap0) this.a.b().j(ap0.class);
-                if (ap0Var != null) {
+                rp0 rp0Var = (rp0) this.a.b().j(rp0.class);
+                if (rp0Var != null) {
                     String str = ClogBuilder.LogType.FREE_CLICK.type;
                     Intrinsics.checkNotNullExpressionValue(str, "ClogBuilder.LogType.FREE_CLICK.type");
-                    ap0Var.a(str, "exit");
+                    rp0Var.a(str, "exit");
                 }
                 this.a.a().finish();
             }
@@ -104,8 +104,8 @@ public final class TopBarComponent extends AbsComponentPlugin {
             if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
                 return;
             }
-            this.a.j(this.b);
-            this.a.h(this.b);
+            this.a.l(this.b);
+            this.a.k(this.b);
         }
     }
 
@@ -128,9 +128,9 @@ public final class TopBarComponent extends AbsComponentPlugin {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onRelease();
-            bi0.e(this.d);
+            ki0.g(this.d);
             this.d = null;
-            bi0.e(this.e);
+            ki0.g(this.e);
             this.e = null;
         }
     }
@@ -144,13 +144,13 @@ public final class TopBarComponent extends AbsComponentPlugin {
         }
     }
 
-    public final void j(ViewGroup viewGroup) {
+    public final void l(ViewGroup viewGroup) {
         FrameLayout frameLayout;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) != null) || this.d != null) {
             return;
         }
-        yo0 a2 = zo0.a();
+        pp0 a2 = qp0.a();
         Intrinsics.checkNotNullExpressionValue(a2, "NadMaxRuntime.getUIProvider()");
         a2.b();
         View inflate = LayoutInflater.from(getContext()).inflate(R.layout.nad_max_top, viewGroup, true);

@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.atomData.SimpleVideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.httpNet.ComplianceParmasHelper;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.a45;
+import com.baidu.tieba.j85;
+import com.baidu.tieba.n85;
 import com.baidu.tieba.play.SimpleVideoPlayActivity;
-import com.baidu.tieba.w35;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +26,7 @@ public class TbadkStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static class a implements CustomMessageTask.CustomRunnable<w35> {
+    public static class a implements CustomMessageTask.CustomRunnable<j85> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -46,11 +46,11 @@ public class TbadkStatic {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<w35> run(CustomMessage<w35> customMessage) {
+        public CustomResponsedMessage<j85> run(CustomMessage<j85> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                return new CustomResponsedMessage<>(2156675, new a45());
+                return new CustomResponsedMessage<>(2156675, new n85());
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }

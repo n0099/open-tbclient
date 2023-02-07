@@ -88,7 +88,7 @@ public class ew implements eu.a {
 
     @Override // com.xiaomi.push.eu.a
     /* renamed from: a */
-    public boolean mo389a() {
+    public boolean mo391a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f355a : invokeV.booleanValue;

@@ -1,17 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.mutiprocess.share.ShareEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public abstract class fi5<T> implements hi5<T> {
+public class fi5 implements fh5<ShareEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
 
     public fi5() {
         Interceptable interceptable = $ic;
@@ -23,44 +25,34 @@ public abstract class fi5<T> implements hi5<T> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = -1;
-        this.b = "";
     }
 
-    @Override // com.baidu.tieba.hi5
-    public int getErrorCode() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.fh5
+    /* renamed from: a */
+    public boolean onEvent(ShareEvent shareEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, shareEvent)) == null) {
+            if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
+                return false;
+            }
+            int i = shareEvent.status;
+            if (shareEvent.from == 1) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921696, Integer.valueOf(i)));
+            }
+            if (i == 1) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921406, shareEvent));
+                String str = shareEvent.tid;
+                if (!TextUtils.isEmpty(str)) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921417, str));
+                    return true;
+                }
+            }
+            return false;
         }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.hi5
-    public String getErrorMsg() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.b = str;
-        }
+        return invokeL.booleanValue;
     }
 }

@@ -125,7 +125,7 @@ public class UnitedSchemeEntity implements Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public UnitedSchemeEntity m42clone() {
+    public UnitedSchemeEntity m44clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

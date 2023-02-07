@@ -1,22 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class vx5 extends BaseCardInfo {
+public class vx5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId d;
+    public static final int a;
+    public static final int b;
+    public static final int c;
+    public static final int d;
     public transient /* synthetic */ FieldHolder $fh;
-    public ex5 a;
-    public ex5 b;
-    public boolean c;
 
     static {
         InterceptResult invokeClinit;
@@ -31,32 +28,9 @@ public class vx5 extends BaseCardInfo {
                 return;
             }
         }
-        d = BdUniqueId.gen();
-    }
-
-    public vx5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.c = false;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return d;
-        }
-        return (BdUniqueId) invokeV.objValue;
+        a = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds130);
+        b = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds226);
+        c = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds30);
+        d = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds800);
     }
 }

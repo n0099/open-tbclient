@@ -1,95 +1,92 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.response.NextActive;
-import com.baidu.bdtask.model.response.TaskProcessData;
-import com.baidu.bdtask.model.response.TaskResponseData;
 import com.baidu.bdtask.model.ui.TaskUIData;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public final class du extends vt<TaskResponseData> {
+public final class du {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final xt a;
+    public final int a;
+    public final TaskUIData b;
 
-    public String b() {
-        InterceptResult invokeV;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "response" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this != obj) {
+                if (obj instanceof du) {
+                    du duVar = (du) obj;
+                    if (!(this.a == duVar.a) || !Intrinsics.areEqual(this.b, duVar.b)) {
+                    }
+                }
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public du(xt xtVar) {
-        super(xtVar);
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            int i = this.a * 31;
+            TaskUIData taskUIData = this.b;
+            return i + (taskUIData != null ? taskUIData.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "CurUIData(uiType=" + this.a + ", UIData=" + this.b + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public du(int i, TaskUIData taskUIData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {xtVar};
+            Object[] objArr = {Integer.valueOf(i), taskUIData};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((xt) newInitContext.callArgs[0]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = xtVar;
+        this.a = i;
+        this.b = taskUIData;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vt
-    /* renamed from: c */
-    public TaskResponseData a(String str) {
-        InterceptResult invokeL;
-        JSONObject jSONObject;
-        int optInt;
+    public final TaskUIData a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            try {
-                jSONObject = new JSONObject(str);
-                optInt = jSONObject.optInt(TaskResponseData.keyUiType);
-            } catch (Exception e) {
-                e = e;
-            }
-            try {
-                vt a = this.a.a(TaskUIData.key);
-                String optString = jSONObject.optString(TaskUIData.key);
-                Intrinsics.checkExpressionValueIsNotNull(optString, "responseObj.optString(TaskUIData.key)");
-                TaskUIData taskUIData = (TaskUIData) a.a(optString);
-                if (taskUIData == null) {
-                    taskUIData = new TaskUIData(null, null, 0, null, null, null, null, null, null, 0, null, null, 4095, null);
-                }
-                JSONObject optJSONObject = jSONObject.optJSONObject("progress");
-                if (optJSONObject == null) {
-                    optJSONObject = new JSONObject();
-                }
-                int optInt2 = optJSONObject.optInt("total");
-                int optInt3 = optJSONObject.optInt(TaskProcessData.keyComplete);
-                boolean optBoolean = optJSONObject.optBoolean("done");
-                JSONObject optJSONObject2 = jSONObject.optJSONObject(TaskResponseData.keyNextActive);
-                if (optJSONObject2 == null) {
-                    optJSONObject2 = new JSONObject();
-                }
-                long optLong = optJSONObject2.optLong(NextActive.keyUtil, 0L);
-                String taskInfo = optJSONObject2.optString(NextActive.keyTaskInfo, "");
-                TaskProcessData taskProcessData = new TaskProcessData(optInt2, optInt3, optBoolean);
-                Intrinsics.checkExpressionValueIsNotNull(taskInfo, "taskInfo");
-                return new TaskResponseData(optInt, taskProcessData, taskUIData, new NextActive(optLong, taskInfo));
-            } catch (Exception e2) {
-                e = e2;
-                e.printStackTrace();
-                return new TaskResponseData(0, null, null, null, 15, null);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (TaskResponseData) invokeL.objValue;
+        return (TaskUIData) invokeV.objValue;
+    }
+
+    public final int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
     }
 }

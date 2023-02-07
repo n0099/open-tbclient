@@ -1,132 +1,59 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.w36;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes7.dex */
-public final class y36 extends w36<y36> {
+public class y36 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public z36 s;
-    public float t;
-    public boolean u;
+    public List<x36> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public <K> y36(K k, x36<K> x36Var) {
-        super(k, x36Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {k, x36Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(objArr2[0], (x36) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948279277, "Lcom/baidu/tieba/y36;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948279277, "Lcom/baidu/tieba/y36;");
                 return;
             }
         }
-        this.s = null;
-        this.t = Float.MAX_VALUE;
-        this.u = false;
+        b = BdUniqueId.gen();
     }
 
-    @Override // com.baidu.tieba.w36
-    public void h() {
+    public y36() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            l();
-            this.s.g(e());
-            super.h();
-        }
-    }
-
-    @Override // com.baidu.tieba.w36
-    public boolean j(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            if (this.u) {
-                float f = this.t;
-                if (f != Float.MAX_VALUE) {
-                    this.s.e(f);
-                    this.t = Float.MAX_VALUE;
-                }
-                this.b = this.s.a();
-                this.a = 0.0f;
-                this.u = false;
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            if (this.t != Float.MAX_VALUE) {
-                this.s.a();
-                long j2 = j / 2;
-                w36.h h = this.s.h(this.b, this.a, j2);
-                this.s.e(this.t);
-                this.t = Float.MAX_VALUE;
-                w36.h h2 = this.s.h(h.a, h.b, j2);
-                this.b = h2.a;
-                this.a = h2.b;
-            } else {
-                w36.h h3 = this.s.h(this.b, this.a, j);
-                this.b = h3.a;
-                this.a = h3.b;
-            }
-            float max = Math.max(this.b, this.h);
-            this.b = max;
-            float min = Math.min(max, this.g);
-            this.b = min;
-            if (!k(min, this.a)) {
-                return false;
-            }
-            this.b = this.s.a();
-            this.a = 0.0f;
-            return true;
-        }
-        return invokeJ.booleanValue;
-    }
-
-    public boolean k(float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            return this.s.c(f, f2);
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            z36 z36Var = this.s;
-            if (z36Var != null) {
-                double a = z36Var.a();
-                if (a <= this.g) {
-                    if (a >= this.h) {
-                        return;
-                    }
-                    throw new UnsupportedOperationException("Final position of the spring cannot be less than the min value.");
-                }
-                throw new UnsupportedOperationException("Final position of the spring cannot be greater than the max value.");
-            }
-            throw new UnsupportedOperationException("Incomplete SpringAnimation: Either final position or a spring force needs to be set.");
         }
     }
 
-    public y36 m(z36 z36Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, z36Var)) == null) {
-            this.s = z36Var;
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b;
         }
-        return (y36) invokeL.objValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 }

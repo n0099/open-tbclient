@@ -1,87 +1,84 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tbadkCore.location.LocationData;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class fy8 {
+public class fy8 extends rv4 {
     public static /* synthetic */ Interceptable $ic;
-    public static fy8 c;
+    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public LocationData a;
-    public boolean b;
 
-    public void f(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947780580, "Lcom/baidu/tieba/fy8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947780580, "Lcom/baidu/tieba/fy8;");
+                return;
+            }
         }
+        c = TbConfig.SERVER_ADDRESS + TbConfig.FORUM_SQUARE;
     }
 
     public fy8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.b = cz4.l().i("no_longer_show_address", false);
     }
 
-    public static fy8 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (fy8.class) {
-                    if (c == null) {
-                        c = new fy8();
-                    }
-                }
-            }
-            return c;
-        }
-        return (fy8) invokeV.objValue;
-    }
-
-    public LocationData b() {
+    public long g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            NetWork netWork = this.a;
+            if (netWork != null) {
+                return netWork.getNetContext().getStat().stat.c;
+            }
+            return 0L;
         }
-        return (LocationData) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    public boolean c() {
+    public long h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+            NetWork netWork = this.a;
+            if (netWork != null) {
+                return netWork.getNetContext().getStat().stat.d;
+            }
+            return 0L;
         }
-        return invokeV.booleanValue;
+        return invokeV.longValue;
     }
 
-    public void d(LocationData locationData) {
+    public String i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, locationData) == null) {
-            this.a = locationData;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            f(c);
+            return d();
         }
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.b = z;
-        }
+        return (String) invokeV.objValue;
     }
 }

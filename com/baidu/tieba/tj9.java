@@ -1,9 +1,30 @@
 package com.baidu.tieba;
+
+import com.baidu.tbadk.TbConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface tj9 {
-    void a(long j);
+public class tj9 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final String a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(Exception exc, long j);
-
-    void onComplete(long j);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948183270, "Lcom/baidu/tieba/tj9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948183270, "Lcom/baidu/tieba/tj9;");
+                return;
+            }
+        }
+        a = TbConfig.VIRTUAL_IMAGE_MAIN_URL;
+    }
 }

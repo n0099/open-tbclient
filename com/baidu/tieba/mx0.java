@@ -1,16 +1,19 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
+import android.app.Application;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.common.runtime.AppRuntimeInit;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public abstract class mx0 extends ex0 {
+public class mx0 implements qn0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,44 +31,21 @@ public abstract class mx0 extends ex0 {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ex0
-    @NonNull
-    /* renamed from: K */
-    public yr0 u() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.qn0
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (yr0) super.u();
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || dk0.a().a()) {
+            return;
         }
-        return (yr0) invokeV.objValue;
+        z01.a();
     }
 
-    @Override // com.baidu.tieba.ex0, com.baidu.tieba.rx0
-    public void onLayerRelease() {
+    @Override // com.baidu.tieba.qn0
+    public void b(@NonNull Application application) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.onLayerRelease();
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mx0(@NonNull Activity activity) {
-        super(activity);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, application) == null) {
+            AppRuntimeInit.onApplicationattachBaseContext(application);
+            hk1.b(application);
         }
     }
 }

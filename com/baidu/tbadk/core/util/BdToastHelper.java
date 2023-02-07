@@ -10,9 +10,9 @@ import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bh;
-import com.baidu.tieba.nv8;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.gh;
+import com.baidu.tieba.lz8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -128,11 +128,11 @@ public class BdToastHelper {
                 return;
             }
             if (!TextUtils.isEmpty(bdToastData.getUrl()) && TbadkCoreApplication.getInst().getCurrentActivity() != null) {
-                if (zi.E()) {
+                if (ej.E()) {
                     showToastByUrl(bdToastData.getUrl());
                     return;
                 } else {
-                    bh.a().post(new Runnable(bdToastData) { // from class: com.baidu.tbadk.core.util.BdToastHelper.1
+                    gh.a().post(new Runnable(bdToastData) { // from class: com.baidu.tbadk.core.util.BdToastHelper.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ BdToastData val$data;
@@ -170,14 +170,14 @@ public class BdToastHelper {
             if (toastSpannableString != null) {
                 BdToast b = BdToast.b(TbadkCoreApplication.getInst().getContext(), toastSpannableString);
                 setToastIcon(b, bdToastData);
-                int f = nv8.f(bdToastData.getBackground());
+                int f = lz8.f(bdToastData.getBackground());
                 if (f != 0 && f != Integer.MAX_VALUE) {
                     b.c(f);
                 }
-                if (zi.E()) {
+                if (ej.E()) {
                     b.k();
                 } else {
-                    bh.a().post(new Runnable(b) { // from class: com.baidu.tbadk.core.util.BdToastHelper.2
+                    gh.a().post(new Runnable(b) { // from class: com.baidu.tbadk.core.util.BdToastHelper.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ BdToast val$bdToast;

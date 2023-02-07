@@ -11,22 +11,27 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.editortools.view.CommonTabHost;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g75;
-import com.baidu.tieba.h75;
-import com.baidu.tieba.yg;
-import com.baidu.tieba.z65;
+import com.baidu.tieba.dh;
+import com.baidu.tieba.lb5;
+import com.baidu.tieba.sb5;
+import com.baidu.tieba.tb5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
 public class MoreDeskView extends CommonTabHost {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<g75> m;
+    public LinkedList<sb5> m;
     public SparseIntArray n;
     public CustomMessageListener o;
     public CustomMessageListener p;
@@ -65,7 +70,7 @@ public class MoreDeskView extends CommonTabHost {
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof Boolean)) {
                 return;
             }
-            this.a.r();
+            this.a.s();
         }
     }
 
@@ -103,7 +108,7 @@ public class MoreDeskView extends CommonTabHost {
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Boolean)) {
                 return;
             }
-            this.a.r();
+            this.a.s();
         }
     }
 
@@ -136,18 +141,18 @@ public class MoreDeskView extends CommonTabHost {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void q(z65 z65Var) {
+    public final void r(lb5 lb5Var) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, z65Var) == null) {
-            Integer valueOf = Integer.valueOf(this.n.get(z65Var.b));
+        if (interceptable == null || interceptable.invokeL(1048585, this, lb5Var) == null) {
+            Integer valueOf = Integer.valueOf(this.n.get(lb5Var.b));
             int i2 = 0;
             if (valueOf != null) {
                 i = valueOf.intValue();
             } else {
                 i = 0;
             }
-            Object obj = z65Var.c;
+            Object obj = lb5Var.c;
             if (obj != null) {
                 if (obj instanceof String) {
                     String str = (String) obj;
@@ -155,19 +160,19 @@ public class MoreDeskView extends CommonTabHost {
                         if (TextUtils.isEmpty(str.trim())) {
                             i = 1;
                         } else {
-                            i = yg.e(str, 1);
+                            i = dh.e(str, 1);
                         }
                     }
                 }
                 if (i >= 0) {
                     i2 = i;
                 }
-                this.n.put(z65Var.b, i2);
+                this.n.put(lb5Var.b, i2);
             }
             i = 0;
             if (i >= 0) {
             }
-            this.n.put(z65Var.b, i2);
+            this.n.put(lb5Var.b, i2);
         }
     }
 
@@ -196,50 +201,51 @@ public class MoreDeskView extends CommonTabHost {
         setToolId(2);
     }
 
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tieba.a75
-    public void A(z65 z65Var) {
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tieba.mb5
+    public void A(lb5 lb5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, z65Var) == null) {
-            super.A(z65Var);
-            if (z65Var != null && z65Var.a == 2 && z65Var.b != 5) {
-                q(z65Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, lb5Var) == null) {
+            super.A(lb5Var);
+            if (lb5Var != null && lb5Var.a == 2 && lb5Var.b != 5) {
+                r(lb5Var);
                 o();
             }
         }
     }
 
-    public void n(LinkedList<g75> linkedList) {
+    public void n(LinkedList<sb5> linkedList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, linkedList) == null) {
             this.m = linkedList;
         }
     }
 
-    public final void p(boolean z) {
+    public final void q(boolean z) {
         AccountData currentAccountObj;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048583, this, z) == null) && (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) != null) {
+        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) != null) {
             currentAccountObj.setIsSelectTail(z);
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tieba.l75
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tieba.xb5
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            p();
             super.display();
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tieba.l75
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tieba.xb5
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             setShowDelete(false);
-            h75 h75Var = new h75();
-            h75Var.C(this.m);
-            h(h75Var);
-            r();
+            tb5 tb5Var = new tb5();
+            tb5Var.C(this.m);
+            h(tb5Var);
+            s();
         }
     }
 
@@ -250,7 +256,7 @@ public class MoreDeskView extends CommonTabHost {
             super.onAttachedToWindow();
             MessageManager.getInstance().registerListener(this.o);
             MessageManager.getInstance().registerListener(this.p);
-            r();
+            s();
         }
     }
 
@@ -272,17 +278,35 @@ public class MoreDeskView extends CommonTabHost {
                 i += this.n.valueAt(i2);
             }
             if (i > 0) {
-                J(new z65(2, 2, " "));
+                J(new lb5(2, 2, " "));
             } else {
-                J(new z65(2, 2, null));
+                J(new lb5(2, 2, null));
             }
         }
     }
 
-    public final void r() {
+    public void p() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || ListUtils.isEmpty(this.m)) {
+            return;
+        }
+        Iterator<sb5> it = this.m.iterator();
+        while (it.hasNext()) {
+            sb5 next = it.next();
+            if (next != null) {
+                if (next.getToolId() == 12) {
+                    TiebaStatic.log(new StatisticItem(CommonStatisticKey.BUBBLE_TOOL_SHOW).param("uid", TbadkCoreApplication.getCurrentAccount()));
+                } else if (next.getToolId() == 16) {
+                    TiebaStatic.log(new StatisticItem(CommonStatisticKey.TAIL_TOOL_SHOW).param("uid", TbadkCoreApplication.getCurrentAccount()));
+                }
+            }
+        }
+    }
+
+    public final void s() {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             String defaultBubble = TbadkCoreApplication.getInst().getDefaultBubble();
             if (currentAccountObj == null) {
@@ -290,18 +314,18 @@ public class MoreDeskView extends CommonTabHost {
             }
             if (currentAccountObj.getIsSelectTail()) {
                 z = true;
-                J(new z65(2, 2, " "));
-                J(new z65(2, 16, " "));
+                J(new lb5(2, 2, " "));
+                J(new lb5(2, 16, " "));
             } else {
                 if (!StringUtils.isNull(defaultBubble)) {
-                    J(new z65(2, 12, " "));
-                    J(new z65(2, 2, " "));
+                    J(new lb5(2, 12, " "));
+                    J(new lb5(2, 2, " "));
                 } else {
-                    J(new z65(2, 2, null));
+                    J(new lb5(2, 2, null));
                 }
                 z = false;
             }
-            p(z);
+            q(z);
         }
     }
 }

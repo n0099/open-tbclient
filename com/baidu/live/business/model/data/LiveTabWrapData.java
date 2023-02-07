@@ -1,7 +1,7 @@
 package com.baidu.live.business.model.data;
 
 import android.text.TextUtils;
-import com.baidu.tieba.ka0;
+import com.baidu.tieba.qa0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -63,15 +63,15 @@ public class LiveTabWrapData {
                 JSONArray optJSONArray = jSONObject.optJSONArray("items");
                 getTabListByJson(optJSONArray);
                 if (z && optJSONArray != null && (list = this.tabList) != null && !list.isEmpty() && z2) {
-                    ka0.e(LIVE_FEED_PAGE_TAB_CACHE_TIME, System.currentTimeMillis());
-                    ka0.f(LIVE_FEED_PAGE_TAB_CACHE_KEY, optJSONArray.toString());
+                    qa0.e(LIVE_FEED_PAGE_TAB_CACHE_TIME, System.currentTimeMillis());
+                    qa0.f(LIVE_FEED_PAGE_TAB_CACHE_KEY, optJSONArray.toString());
                 }
             }
             if (z2 && z) {
                 List<LiveTabEntity> list2 = this.tabList;
                 if (list2 == null || list2.isEmpty()) {
                     this.cacheCause = 2;
-                    String b = ka0.b(LIVE_FEED_PAGE_TAB_CACHE_KEY, "");
+                    String b = qa0.b(LIVE_FEED_PAGE_TAB_CACHE_KEY, "");
                     if (!TextUtils.isEmpty(b)) {
                         try {
                             getTabListByJson(new JSONArray(b));
@@ -81,10 +81,10 @@ public class LiveTabWrapData {
                             } else if (this.errCode != 0) {
                                 this.cacheCause = 3;
                             }
-                            this.cacheTime = ka0.c(LIVE_FEED_PAGE_TAB_CACHE_TIME, 0L);
+                            this.cacheTime = qa0.c(LIVE_FEED_PAGE_TAB_CACHE_TIME, 0L);
                         } catch (JSONException unused) {
-                            ka0.g(LIVE_FEED_PAGE_TAB_CACHE_KEY);
-                            ka0.g(LIVE_FEED_PAGE_TAB_CACHE_TIME);
+                            qa0.g(LIVE_FEED_PAGE_TAB_CACHE_KEY);
+                            qa0.g(LIVE_FEED_PAGE_TAB_CACHE_TIME);
                         }
                     }
                 }

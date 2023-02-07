@@ -12,10 +12,10 @@ import com.baidu.live.feedpage.interfaces.IHKLiveFeedPageInvoke;
 import com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke;
 import com.baidu.searchbox.live.interfaces.net.INetWork;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tieba.dc0;
-import com.baidu.tieba.pb0;
-import com.baidu.tieba.r4a;
-import com.baidu.tieba.zc0;
+import com.baidu.tieba.a9a;
+import com.baidu.tieba.fd0;
+import com.baidu.tieba.jc0;
+import com.baidu.tieba.vb0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -203,7 +203,7 @@ public class LiveFeedPageSdk {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
-            return r4a.a(context);
+            return a9a.a(context);
         }
         return (String) invokeL.objValue;
     }
@@ -218,7 +218,7 @@ public class LiveFeedPageSdk {
     public void initNetWork(INetWork iNetWork) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, iNetWork) == null) {
-            dc0.b(iNetWork);
+            jc0.b(iNetWork);
         }
     }
 
@@ -238,15 +238,15 @@ public class LiveFeedPageSdk {
 
     public void startLiveSearchActivity(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048591, this, context) == null) && pb0.a() != null) {
-            pb0.a().a(context, "");
+        if ((interceptable == null || interceptable.invokeL(1048591, this, context) == null) && vb0.a() != null) {
+            vb0.a().a(context, "");
         }
     }
 
     public void updateUiMode(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            zc0.f().u(str);
+            fd0.f().u(str);
         }
     }
 
@@ -261,7 +261,7 @@ public class LiveFeedPageSdk {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
             this.mHost = str;
-            zc0.f().s(str, str2);
+            fd0.f().s(str, str2);
         }
     }
 

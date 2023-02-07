@@ -1,5 +1,6 @@
 package com.baidu.android.util.concurrent.task;
 
+import android.annotation.SuppressLint;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -7,6 +8,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.concurrent.task.Task;
+import com.baidu.tieba.memberCenter.memberpay.MemberPayResult;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -113,7 +115,7 @@ public class TaskManager {
                     return;
                 }
             }
-            NEW = new State("NEW", 0);
+            NEW = new State(MemberPayResult.VipPayPrivilegeData.NEW_TIP_TEXT, 0);
             RUNNING = new State(TornadoLiteRuntime.STATE_RUNNING, 1);
             PAUSED = new State("PAUSED", 2);
             FINISHED = new State("FINISHED", 3);
@@ -484,6 +486,7 @@ public class TaskManager {
         }
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public TaskManager next(Task task) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -680,6 +683,7 @@ public class TaskManager {
         }
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public void postExecute(Task task) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, task) == null) {

@@ -1,81 +1,120 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.HttpManager;
+import com.baidu.tieba.h93;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+import okhttp3.Callback;
+import okhttp3.Interceptor;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+@SuppressLint({"StaticFieldLeak"})
 /* loaded from: classes4.dex */
-public class d74 {
+public class d74 extends HttpManager {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile d74 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(View view2, pu2 pu2Var) {
-        InterceptResult invokeLL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d74() {
+        super(ds2.c());
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, view2, pu2Var)) == null) {
-            am1 X = wp2.U().X();
-            if (X != null && X.c(view2, pu2Var)) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeLL.booleanValue;
     }
 
-    public static boolean f(View view2, pu2 pu2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, view2, pu2Var)) == null) {
-            am1 X = wp2.U().X();
-            if (X != null && X.a(view2, pu2Var)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static Context b() {
+    public static d74 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            am1 X = wp2.U().X();
-            if (X != null) {
-                return X.getContext();
+            if (a == null) {
+                synchronized (d74.class) {
+                    if (a == null) {
+                        a = new d74();
+                    }
+                }
             }
-            return null;
+            return a;
         }
-        return (Context) invokeV.objValue;
+        return (d74) invokeV.objValue;
     }
 
-    public static void c(ij3 ij3Var) {
-        am1 X;
+    public static d74 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, ij3Var) == null) && (X = wp2.U().X()) != null) {
-            X.e(ij3Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            d74 d74Var = new d74();
+            d74Var.setHttpDnsEnable(a().getHttpDnsEnable());
+            return d74Var;
         }
+        return (d74) invokeV.objValue;
     }
 
-    public static boolean d(View view2) {
-        InterceptResult invokeL;
+    public void call(Request request, List<Interceptor> list, Callback callback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
-            am1 X = wp2.U().X();
-            if (X != null && X.removeView(view2)) {
-                return true;
+        if ((interceptable != null && interceptable.invokeLLL(1048576, this, request, list, callback) != null) || request == null) {
+            return;
+        }
+        OkHttpClient.Builder newBuilder = getOkHttpClient().newBuilder();
+        if (list != null && !list.isEmpty()) {
+            for (Interceptor interceptor : list) {
+                if (interceptor != null) {
+                    newBuilder.addInterceptor(interceptor);
+                }
             }
-            return false;
         }
-        return invokeL.booleanValue;
+        newBuilder.build().newCall(request).enqueue(callback);
     }
 
-    public static void e(ij3 ij3Var) {
-        am1 X;
+    public void call(Request request, Callback callback) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, ij3Var) == null) && (X = wp2.U().X()) != null) {
-            X.f(ij3Var);
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, callback) == null) && request != null) {
+            getOkHttpClient().newCall(request).enqueue(callback);
         }
+    }
+
+    @Override // com.baidu.searchbox.http.AbstractHttpManager
+    public OkHttpClient initClient() {
+        InterceptResult invokeV;
+        h93.a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (w83.M() == null) {
+                return super.initClient();
+            }
+            q84 q84Var = (q84) w83.M().T();
+            OkHttpClient.Builder newBuilder = super.initClient().newBuilder();
+            int i = 60000;
+            if (q84Var != null && (aVar = q84Var.a) != null) {
+                i = aVar.a;
+                newBuilder.connectTimeout(aVar.b, TimeUnit.MILLISECONDS);
+                newBuilder.addNetworkInterceptor(new p03());
+            }
+            long j = i;
+            newBuilder.readTimeout(j, TimeUnit.MILLISECONDS);
+            newBuilder.writeTimeout(j, TimeUnit.MILLISECONDS);
+            OkHttpClient build = newBuilder.build();
+            build.dispatcher().setMaxRequests(10);
+            return build;
+        }
+        return (OkHttpClient) invokeV.objValue;
     }
 }

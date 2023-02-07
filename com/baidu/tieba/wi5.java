@@ -1,29 +1,11 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes6.dex */
-public class wi5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface wi5 {
+    boolean b1();
 
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return TbadkCoreApplication.getInst().isDebugMode();
-        }
-        return invokeV.booleanValue;
-    }
+    BdUniqueId getUniqueId();
 
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, str) != null) || !a()) {
-            return;
-        }
-        Log.d("TemplatePageLoader", str);
-    }
+    boolean y0(xi5 xi5Var);
 }

@@ -1,28 +1,46 @@
 package com.baidu.tieba;
 
-import android.graphics.Matrix;
-import android.graphics.PointF;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c7;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class wb6 extends ob6 {
+public final class wb6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final c7<vb6> b;
-    public final PointF c;
-    public float d;
-    public final PointF e;
-    public float f;
+    public final tb6 a;
 
-    public final void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final wb6 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-323227680, "Lcom/baidu/tieba/wb6$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-323227680, "Lcom/baidu/tieba/wb6$b;");
+                    return;
+                }
+            }
+            a = new wb6(null);
         }
     }
 
@@ -39,82 +57,20 @@ public final class wb6 extends ob6 {
                 return;
             }
         }
-        this.b = new c7<>(0);
-        this.c = new PointF();
-        this.e = new PointF(1.0f, 1.0f);
-        this.f = 1.0f;
+        this.a = (tb6) ServiceManager.getService(tb6.a);
     }
 
-    public final void c(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            g();
-            c7.b<vb6> it = this.b.iterator();
-            Intrinsics.checkNotNullExpressionValue(it, "actions.iterator()");
-            while (it.hasNext()) {
-                it.next().a(j);
-            }
-        }
-    }
-
-    public final void d(vb6 action) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, action) == null) {
-            Intrinsics.checkNotNullParameter(action, "action");
-            action.c(this);
-            action.b();
-            this.b.a(action);
-        }
-    }
-
-    public final void i(Matrix matrix) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, matrix) == null) {
-            Intrinsics.checkNotNullParameter(matrix, "matrix");
-            PointF pointF = this.e;
-            matrix.setScale(pointF.x, pointF.y);
-            matrix.postRotate(this.d);
-            PointF pointF2 = this.c;
-            matrix.postTranslate(pointF2.x, pointF2.y);
-        }
-    }
-
-    public final float e() {
+    @NonNull
+    public static tb6 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a.a;
         }
-        return invokeV.floatValue;
+        return (tb6) invokeV.objValue;
     }
 
-    public final PointF f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return (PointF) invokeV.objValue;
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            a().f().u();
-            this.c.set(0.0f, 0.0f);
-            this.d = 0.0f;
-            this.e.set(1.0f, 1.0f);
-            this.f = 1.0f;
-        }
-    }
-
-    @Override // com.baidu.tieba.ob6, com.baidu.tieba.b8.a
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.reset();
-            g();
-            this.b.clear();
-        }
+    public /* synthetic */ wb6(a aVar) {
+        this();
     }
 }

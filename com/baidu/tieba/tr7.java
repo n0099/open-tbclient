@@ -1,11 +1,150 @@
 package com.baidu.tieba;
 
-import com.squareup.wire.Message;
+import android.content.Context;
+import android.graphics.Rect;
+import android.view.View;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.immessagecenter.chatgroup.utility.tag.core.TagAdapter;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
-public interface tr7 {
-    void a(boolean z, Message message, boolean z2, long j, String str, int i);
+public class tr7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public RecyclerView a;
+    public TagAdapter b;
+    public wr7 c;
 
-    void b(long j, String str, String str2, int i);
+    /* loaded from: classes6.dex */
+    public static class a extends RecyclerView.ItemDecoration {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final int a;
+        public final int b;
 
-    void c(long j, String str, Message message, boolean z);
+        public a(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i;
+            this.b = i2;
+        }
+
+        @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
+        public void getItemOffsets(Rect rect, View view2, RecyclerView recyclerView, RecyclerView.State state) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLL(1048576, this, rect, view2, recyclerView, state) == null) {
+                super.getItemOffsets(rect, view2, recyclerView, state);
+                int i = this.a;
+                rect.set(i / 2, this.b, i / 2, 0);
+            }
+        }
+    }
+
+    public tr7(Context context, RecyclerView recyclerView, wr7 wr7Var, xr7 xr7Var, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, recyclerView, wr7Var, xr7Var, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        if (context != null && recyclerView != null && wr7Var != null && xr7Var != null) {
+            this.a = recyclerView;
+            TagAdapter tagAdapter = new TagAdapter(xr7Var, wr7Var, context);
+            this.b = tagAdapter;
+            this.a.setAdapter(tagAdapter);
+            this.c = wr7Var;
+            if (i2 == 1) {
+                rr7 rr7Var = new rr7(recyclerView, i);
+                GridLayoutManager gridLayoutManager = new GridLayoutManager(context, rr7Var.b());
+                gridLayoutManager.setSpanSizeLookup(rr7Var);
+                this.a.setLayoutManager(gridLayoutManager);
+                this.a.addItemDecoration(new a(i, i));
+                return;
+            }
+            this.a.addItemDecoration(new a(i, 0));
+            this.a.setLayoutManager(new LinearLayoutManager(context, 0, false));
+            return;
+        }
+        throw new IllegalArgumentException("入参不能为null");
+    }
+
+    public ur7 a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return this.c.d(i);
+        }
+        return (ur7) invokeI.objValue;
+    }
+
+    public void c(List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.c.g(list);
+        }
+    }
+
+    public void d(List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            this.c.h(list);
+        }
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.c.i(i);
+        }
+    }
+
+    public void f(vr7 vr7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, vr7Var) == null) {
+            this.c.k(vr7Var);
+        }
+    }
+
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.c.m(i);
+        }
+    }
+
+    public List<ur7> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c.f();
+        }
+        return (List) invokeV.objValue;
+    }
 }

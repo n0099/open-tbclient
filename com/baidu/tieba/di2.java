@@ -1,78 +1,139 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.collection.ArraySet;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gi2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 /* loaded from: classes4.dex */
-public abstract class di2<W extends gi2> {
+public class di2 implements ei2, vh2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public jh2 a;
+    public lq1 b;
+    public volatile vh2[] c;
+    public ci2 d;
 
-    public abstract void a(@NonNull ZeusPlugin.Command command, @NonNull W w);
-
-    @NonNull
-    public abstract String b();
-
-    public void c(@NonNull ZeusPlugin.Command command) {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, command) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947705436, "Lcom/baidu/tieba/di2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes4.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ di2 a;
+
+        public a(di2 di2Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {di2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947705436, "Lcom/baidu/tieba/di2;");
-                return;
+            this.a = di2Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.e();
             }
         }
-        a = tk1.a;
     }
 
-    public di2() {
+    public di2(@NonNull ci2 ci2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ci2Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = new jh2();
+        this.b = es2.m();
+        this.c = new vh2[]{new zh2(), new xh2(), new wh2(), new yh2()};
+        this.d = ci2Var;
+    }
+
+    @Override // com.baidu.tieba.vh2
+    public synchronized ArraySet<String> a() {
+        InterceptResult invokeV;
+        ArraySet<String> arraySet;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                w52.k("RecoveryPolicy", "renameAllPlatformFiles start");
+                arraySet = new ArraySet<>();
+                for (vh2 vh2Var : this.c) {
+                    arraySet.addAll((ArraySet<? extends String>) vh2Var.a());
+                }
+                w52.k("RecoveryPolicy", "renameAllPlatformFiles end");
+            }
+            return arraySet;
+        }
+        return (ArraySet) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ei2
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ql3.k(new a(this), "performRecovery");
         }
     }
 
-    public void d(@NonNull W w, @Nullable String str, @Nullable String str2, boolean z) {
+    public void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{w, str, str2, Boolean.valueOf(z)}) == null) && a) {
-            String str3 = ("【" + w.j0() + "-" + w.hashCode() + "】\t") + "【" + str + "】";
-            if (!TextUtils.isEmpty(str2)) {
-                str3 = str3 + "\t【" + str2 + "】";
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            m53 e = m53.e();
+            o53 o53Var = new o53(132);
+            o53Var.d();
+            e.h(o53Var);
+        }
+    }
+
+    public void c(ArraySet<String> arraySet) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arraySet) == null) && arraySet != null && !arraySet.isEmpty()) {
+            w52.k("RecoveryPolicy", "deleteFiles start");
+            Iterator<String> it = arraySet.iterator();
+            while (it.hasNext()) {
+                ap4.k(it.next());
             }
-            if (z) {
-                j12.i("【InlineCommand】", str3);
-            } else {
-                Log.v("【InlineCommand】", str3);
-            }
+            w52.k("RecoveryPolicy", "deleteFiles end");
+        }
+    }
+
+    public void f(Collection<String> collection) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, collection) == null) && collection != null && !collection.isEmpty()) {
+            w52.k("RecoveryPolicy", "resetAccredit appIds=" + collection);
+            this.a.g(new ArrayList(collection));
         }
     }
 }

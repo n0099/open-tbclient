@@ -1,29 +1,44 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class k40 {
+public class k40 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947862978, "Lcom/baidu/tieba/k40;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static JSONObject a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (b(str)) {
+                return null;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947862978, "Lcom/baidu/tieba/k40;");
-                return;
+            try {
+                return new JSONObject(str);
+            } catch (Throwable unused) {
+                return null;
             }
         }
-        a = Boolean.parseBoolean("true");
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static boolean b(String str) {
+        InterceptResult invokeL;
+        int length;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (str != null && (length = str.length()) != 0) {
+                for (int i = 0; i < length; i++) {
+                    if (!Character.isWhitespace(str.charAt(i))) {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

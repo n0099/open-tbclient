@@ -1,59 +1,129 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.annotation.SuppressLint;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.Nullable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayOutputStream;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Modifier;
 /* loaded from: classes6.dex */
-public abstract class x43<T> implements nn2<byte[], T> {
+public class x43 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void a(@NonNull T t, @NonNull pn2 pn2Var) throws Exception;
-
-    public x43() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948250354, "Lcom/baidu/tieba/x43;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948250354, "Lcom/baidu/tieba/x43;");
+                return;
+            }
+        }
+        a = gp1.a;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public static void a(int i, String str, String str2, @Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), str, str2, bundle}) == null) {
+            w43 b = b(str);
+            if (b == null) {
+                if (!a) {
+                    c(i, str2, null);
+                    return;
+                }
+                throw new RuntimeException("Messenger创建代理类失败");
+            }
+            if (a) {
+                Log.d("MDelegate-Delegation", "exec call messenger delegation: " + str);
+            }
+            if (bundle == null) {
+                bundle = new Bundle();
+            }
+            b.a = bundle;
+            b.b = i;
+            b.c = str2;
+            b.b(bundle);
         }
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.baidu.tieba.nn2
-    public /* bridge */ /* synthetic */ byte[] call(Object obj) throws Exception {
-        return call2((x43<T>) obj);
-    }
-
-    @Override // com.baidu.tieba.nn2
-    /* renamed from: call  reason: avoid collision after fix types in other method */
-    public final byte[] call2(T t) throws Exception {
+    @SuppressLint({"BDThrowableCheck"})
+    public static w43 b(@Nullable String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
-            if (t == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                if (a) {
+                    Log.e("MDelegate-Delegation", "create delegation with null delegate name");
+                }
                 return null;
             }
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            pn2 pn2Var = new pn2(byteArrayOutputStream);
-            a(t, pn2Var);
-            byte[] byteArray = byteArrayOutputStream.toByteArray();
-            pn2Var.close();
-            byteArrayOutputStream.close();
-            return byteArray;
+            try {
+                Class<?> cls = Class.forName(str);
+                if (cls == null) {
+                    if (!a) {
+                        return null;
+                    }
+                    throw new RuntimeException("Messenger代理类不存在：" + str);
+                }
+                int modifiers = cls.getModifiers();
+                if (w43.class.isAssignableFrom(cls) && !cls.isInterface() && !Modifier.isAbstract(modifiers)) {
+                    Constructor<?> declaredConstructor = cls.getDeclaredConstructor(new Class[0]);
+                    declaredConstructor.setAccessible(true);
+                    Object newInstance = declaredConstructor.newInstance(new Object[0]);
+                    if (!(newInstance instanceof w43)) {
+                        if (!a) {
+                            return null;
+                        }
+                        throw new RuntimeException("Messenger代理类不是:" + w43.class.getName());
+                    }
+                    return (w43) newInstance;
+                }
+                if (!a) {
+                    return null;
+                }
+                throw new RuntimeException("Messenger代理类不合法：" + str);
+            } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | NoSuchMethodException | InvocationTargetException e) {
+                if (!a) {
+                    return null;
+                }
+                e.printStackTrace();
+                throw new RuntimeException(e);
+            }
         }
-        return (byte[]) invokeL.objValue;
+        return (w43) invokeL.objValue;
+    }
+
+    public static void c(int i, String str, @Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeILL(65539, null, i, str, bundle) != null) || e53.a(str)) {
+            return;
+        }
+        if (a) {
+            Log.d("MDelegate-Delegation", "send result to client: " + i + " observer: " + str);
+        }
+        Bundle bundle2 = new Bundle();
+        bundle2.putString("key_observer_id", str);
+        if (bundle != null) {
+            bundle2.putBundle("key_result_data", bundle);
+        }
+        if (i == -1000) {
+            p53.f(bundle2);
+        } else {
+            p53.e(i, bundle2);
+        }
     }
 }

@@ -65,12 +65,12 @@ public class a {
 
     /* renamed from: com.alipay.sdk.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC0015a implements Runnable {
+    public class RunnableC0014a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public RunnableC0015a(a aVar) {
+        public RunnableC0014a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -417,7 +417,7 @@ public class a {
         Activity activity;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (activity = this.b) != null) {
-            activity.runOnUiThread(new RunnableC0015a(this));
+            activity.runOnUiThread(new RunnableC0014a(this));
         }
     }
 

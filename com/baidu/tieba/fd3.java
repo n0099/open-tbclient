@@ -1,15 +1,19 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.tieba.ed3;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.setting.oauth.OAuthException;
+import com.baidu.swan.apps.setting.oauth.TaskState;
+import com.baidu.tieba.be3;
+import com.baidu.tieba.ex1;
+import com.baidu.tieba.f82;
+import com.baidu.tieba.fe3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,35 +21,503 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.net.WebAddress;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.SortedSet;
-import java.util.TreeSet;
-@Autowired
+import java.util.Set;
 /* loaded from: classes4.dex */
-public final class fd3 {
+public class fd3 extends x83 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
-    public static volatile fd3 g;
-    public static final ed3.a h;
+    public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, ArrayList<ed3>> a;
-    public final jd3 b;
-    public volatile Boolean c;
-    public volatile Boolean d;
-    public final boolean e;
+    public jh3 a;
+    public final String b;
+    public final String c;
+    public final Set<j> d;
+    public final Map<String, be3> e;
+    public final mn3 f;
 
     /* loaded from: classes4.dex */
-    public class a implements Runnable {
+    public interface j {
+        void a();
+    }
+
+    public void w(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, activity) == null) {
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class a implements pn3<wd3> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fd3 a;
+        public final /* synthetic */ pn3 a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ boolean c;
+        public final /* synthetic */ Context d;
+        public final /* synthetic */ fd3 e;
 
-        public a(fd3 fd3Var) {
+        /* renamed from: com.baidu.tieba.fd3$a$a  reason: collision with other inner class name */
+        /* loaded from: classes4.dex */
+        public class C0276a implements pn3<zd3<be3.e>> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public C0276a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.pn3
+            /* renamed from: b */
+            public void a(zd3<be3.e> zd3Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zd3Var) == null) {
+                    a aVar = this.a;
+                    aVar.e.u(aVar.a, zd3Var);
+                }
+            }
+        }
+
+        public a(fd3 fd3Var, pn3 pn3Var, String str, boolean z, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fd3Var, pn3Var, str, Boolean.valueOf(z), context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = fd3Var;
+            this.a = pn3Var;
+            this.b = str;
+            this.c = z;
+            this.d = context;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Type inference failed for: r8v4, types: [com.baidu.tieba.be3$e, ResultDataT] */
+        /* JADX WARN: Type inference failed for: r8v6, types: [com.baidu.tieba.be3$e, ResultDataT] */
+        @Override // com.baidu.tieba.pn3
+        /* renamed from: b */
+        public void a(wd3 wd3Var) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wd3Var) == null) {
+                zd3 zd3Var = new zd3();
+                if (fd3.g && v43.m()) {
+                    zd3Var.e();
+                    zd3Var.a = new be3.e(true, null);
+                    this.e.u(this.a, zd3Var);
+                    return;
+                }
+                boolean z2 = false;
+                if (wd3Var == null) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                w52.k("SwanAppSetting", "isResultNull = " + z + "; scope = " + this.b);
+                if (!z && !wd3Var.d) {
+                    if (!this.c ? wd3Var.j == 0 : wd3Var.j <= 0) {
+                        z2 = true;
+                    }
+                    if (z2) {
+                        this.e.c(this.d, this.b, this.c, new C0276a(this));
+                        return;
+                    }
+                    if (wd3Var.j > 0) {
+                        zd3Var.e();
+                        zd3Var.a = new be3.e(true, null);
+                    } else {
+                        zd3Var.d(new OAuthException(10003));
+                    }
+                    this.e.u(this.a, zd3Var);
+                    return;
+                }
+                zd3Var.d(new OAuthException(10005));
+                this.e.u(this.a, zd3Var);
+                w52.l("SwanAppSetting", "checkOrAuthorize", new Exception("authorize fail"));
+                pf3.r(10005, wd3Var);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class d extends kn3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ be3 b;
+        public final /* synthetic */ String c;
+
+        /* loaded from: classes4.dex */
+        public class a implements pn3<zd3<be3.e>> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ d a;
+
+            public a(d dVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {dVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = dVar;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.pn3
+            /* renamed from: b */
+            public void a(zd3<be3.e> zd3Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zd3Var) == null) {
+                    this.a.a();
+                }
+            }
+        }
+
+        public d(fd3 fd3Var, be3 be3Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fd3Var, be3Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = be3Var;
+            this.c = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                be3 be3Var = this.b;
+                be3Var.q(hf3.a(this.c));
+                be3Var.o(new a(this));
+                this.b.call();
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class h extends kn3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Activity b;
+        public final /* synthetic */ ex1.d c;
+        public final /* synthetic */ Bundle d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ pn3 f;
+
+        /* loaded from: classes4.dex */
+        public class a implements pn3<zd3<fe3.d>> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ h a;
+
+            public a(h hVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {hVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = hVar;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.pn3
+            /* renamed from: b */
+            public void a(zd3<fe3.d> zd3Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zd3Var) == null) {
+                    this.a.a();
+                }
+            }
+        }
+
+        public h(fd3 fd3Var, Activity activity, ex1.d dVar, Bundle bundle, String str, pn3 pn3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fd3Var, activity, dVar, bundle, str, pn3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = activity;
+            this.c = dVar;
+            this.d = bundle;
+            this.e = str;
+            this.f = pn3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                fe3 b = v83.K().x().a().b().b(this.b, this.c, this.d);
+                b.q(this.e);
+                b.o(this.f);
+                b.o(new a(this));
+                b.call();
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements pn3<wd3> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pn3 a;
+        public final /* synthetic */ fd3 b;
+
+        public b(fd3 fd3Var, pn3 pn3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fd3Var, pn3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = fd3Var;
+            this.a = pn3Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.pn3
+        /* renamed from: b */
+        public void a(wd3 wd3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wd3Var) != null) {
+                return;
+            }
+            this.b.u(this.a, wd3Var);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c implements pn3<zd3<be3.e>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ fd3 b;
+
+        public c(fd3 fd3Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fd3Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = fd3Var;
+            this.a = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.pn3
+        /* renamed from: b */
+        public void a(zd3<be3.e> zd3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zd3Var) == null) {
+                this.b.e.remove(this.a);
+            }
+        }
+    }
+
+    /* JADX INFO: Add missing generic type declarations: [ResulT] */
+    /* loaded from: classes4.dex */
+    public class e<ResulT> extends i<pn3<ResulT>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Object a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public e(fd3 fd3Var, Object obj) {
+            super(fd3Var, null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fd3Var, obj};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((fd3) objArr2[0], (a) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = obj;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: com.baidu.tieba.pn3<ResulT> */
+        /* JADX WARN: Multi-variable type inference failed */
+        @Override // com.baidu.tieba.fd3.i
+        /* renamed from: b */
+        public void a(pn3<ResulT> pn3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pn3Var) == null) {
+                pn3Var.a(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class f implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ i a;
+        public final /* synthetic */ Object b;
+
+        public f(fd3 fd3Var, i iVar, Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fd3Var, iVar, obj};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = iVar;
+            this.b = obj;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.a(this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class g extends i<j> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public g(fd3 fd3Var) {
+            super(fd3Var, null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fd3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((fd3) objArr2[0], (a) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.fd3.i
+        /* renamed from: b */
+        public void a(j jVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jVar) == null) {
+                jVar.a();
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public abstract class i<CallBackT> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public abstract void a(CallBackT callbackt);
+
+        public i(fd3 fd3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,45 +529,12 @@ public final class fd3 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = fd3Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.b.l();
-                this.a.q().a(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public void a(@NonNull fd3 fd3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, fd3Var) == null) {
-            }
-        }
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+        public /* synthetic */ i(fd3 fd3Var, a aVar) {
+            this(fd3Var);
         }
     }
 
@@ -112,473 +551,308 @@ public final class fd3 {
                 return;
             }
         }
-        f = tk1.a;
-        h = new ed3.a();
+        g = gp1.a;
     }
 
-    public static synchronized fd3 l() {
-        InterceptResult invokeV;
-        fd3 fd3Var;
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            synchronized (fd3.class) {
-                if (g == null) {
-                    g = new fd3();
-                }
-                fd3Var = g;
-            }
-            return fd3Var;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            o().edit().clear().apply();
         }
-        return (fd3) invokeV.objValue;
     }
 
-    public boolean o() {
-        InterceptResult invokeV;
+    public synchronized void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Inject(force = false)
-    public final synchronized b q() {
-        InterceptResult invokeV;
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             synchronized (this) {
-                bVar = new b();
+                this.e.clear();
+                this.f.c();
+                k();
             }
-            return bVar;
         }
-        return (b) invokeV.objValue;
     }
 
-    public void t() {
+    public synchronized void k() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && i43.K().E() && a()) {
-            dh3.k(new a(this), "preInitCookieDb");
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            synchronized (this) {
+                this.d.clear();
+            }
         }
     }
 
-    public fd3() {
+    @SuppressLint({"ApplySharedPref"})
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            o().edit().clear().commit();
+        }
+    }
+
+    public final jh3 o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            if (this.a == null) {
+                this.a = new jh3(this.c, false);
+            }
+            return this.a;
+        }
+        return (jh3) invokeV.objValue;
+    }
+
+    public String p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public synchronized void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+            synchronized (this) {
+                t(this.d, new g(this));
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fd3(w83 w83Var) {
+        super(w83Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {w83Var};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((w83) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new LinkedHashMap(32, 0.75f, true);
-        qn2.g0().getSwitch("swan_cookie_enable", false);
-        this.e = false;
-        this.b = new jd3(this);
+        this.d = new HashSet();
+        this.e = new HashMap();
+        this.f = new mn3();
+        this.b = eg3.t(w83Var);
+        this.c = "aiapp_setting_" + this.b;
     }
 
-    public static synchronized void u(boolean z) {
+    public void g(Context context, String str, pn3<zd3<be3.e>> pn3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65541, null, z) == null) {
-            synchronized (fd3.class) {
-                if (g != null) {
-                    g.r(z);
-                }
-                g = null;
+        if (interceptable == null || interceptable.invokeLLL(1048586, this, context, str, pn3Var) == null) {
+            h(context, str, false, pn3Var);
+        }
+    }
+
+    public static void x(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable) == null) {
+            qm3.e0(runnable);
+        }
+    }
+
+    public synchronized void C(j jVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jVar) == null) {
+            synchronized (this) {
+                this.d.add(jVar);
             }
         }
     }
 
-    public String j(String str) {
+    public void D(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.a.remove(str);
+        }
+    }
+
+    public synchronized void F(j jVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, jVar) == null) {
+            synchronized (this) {
+                this.d.remove(jVar);
+            }
+        }
+    }
+
+    public boolean f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            return f(str, null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            if (g && v43.m()) {
+                return true;
+            }
+            wd3 k = u03.k(str);
+            if (k != null && !k.d && k.a()) {
+                return true;
+            }
+            return false;
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public final synchronized void r(boolean z) {
+    public void A(String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j2) == null) {
+            o().putLong(str, j2);
+        }
+    }
+
+    public void B(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            o().putString(str, str2);
+        }
+    }
+
+    public void e(String str, pn3<wd3> pn3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, pn3Var) == null) {
+            if (TextUtils.isEmpty(str)) {
+                u(pn3Var, null);
+            } else {
+                u03.i(str, new b(this, pn3Var));
+            }
+        }
+    }
+
+    public boolean m(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048592, this, str, z)) == null) {
+            return o().getBoolean(str, z);
+        }
+        return invokeLZ.booleanValue;
+    }
+
+    public long n(String str, long j2) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048593, this, str, j2)) == null) {
+            return o().getLong(str, j2);
+        }
+        return invokeLJ.longValue;
+    }
+
+    public String q(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, str, str2)) == null) {
+            return o().getString(str, str2);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public synchronized <CallBackT> void s(CallBackT callbackt, i<CallBackT> iVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048598, this, callbackt, iVar) == null) {
             synchronized (this) {
-                if (z) {
-                    this.b.c();
+                x(new f(this, iVar, callbackt));
+            }
+        }
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.baidu.tieba.fd3 */
+    /* JADX WARN: Multi-variable type inference failed */
+    public synchronized <CallBackT> void t(Collection<CallBackT> collection, i<CallBackT> iVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048599, this, collection, iVar) == null) {
+            synchronized (this) {
+                Iterator it = new ArrayList(collection).iterator();
+                while (it.hasNext()) {
+                    s(it.next(), iVar);
                 }
-                this.b.e();
-                j12.k("SwanCookieManager", "onRelease");
             }
         }
     }
 
-    public synchronized void y(ed3 ed3Var) {
+    public final <ResulT> void u(pn3<ResulT> pn3Var, ResulT result) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, ed3Var) == null) {
-            synchronized (this) {
-                ed3Var.i = 1;
-            }
+        if (interceptable == null || interceptable.invokeLL(1048600, this, pn3Var, result) == null) {
+            s(pn3Var, new e(this, result));
         }
     }
 
-    public synchronized boolean a() {
+    public void z(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048604, this, str, z) == null) {
+            o().putBoolean(str, z);
+        }
+    }
+
+    public boolean E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                if (this.c != null) {
-                    j12.k("SwanCookieManager", "acceptCookie =" + this.c);
-                    return this.c.booleanValue();
-                }
-                h();
-                boolean z = false;
-                if (this.d == null) {
-                    return false;
-                }
-                if (this.d.booleanValue() && this.e) {
-                    z = true;
-                }
-                this.c = Boolean.valueOf(z);
-                j12.k("SwanCookieManager", "mEnableStore =" + this.d + "; mCookieABSwitch=" + this.e);
-                return this.c.booleanValue();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            f82 V = ju2.U().V();
+            if (V == null) {
+                o83.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f01a8).G();
+                return false;
             }
+            f82.b i2 = V.i("navigateTo");
+            i2.n(f82.g, f82.i);
+            i2.k("authority", null).a();
+            return true;
         }
         return invokeV.booleanValue;
     }
 
-    public final synchronized void d(ArrayList<ed3> arrayList, ed3 ed3Var) {
+    public void c(Context context, String str, boolean z, pn3<zd3<be3.e>> pn3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList, ed3Var) == null) {
-            synchronized (this) {
-                if (arrayList != null && ed3Var != null) {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    if (ed3Var.e >= 0 && ed3Var.e <= currentTimeMillis) {
-                        return;
-                    }
-                    if (arrayList.size() >= 50) {
-                        ed3 ed3Var2 = new ed3();
-                        ed3Var2.g = currentTimeMillis;
-                        Iterator<ed3> it = arrayList.iterator();
-                        while (it.hasNext()) {
-                            ed3 next = it.next();
-                            if (next != null && next.g < ed3Var2.g && next.i != 2) {
-                                ed3Var2 = next;
-                            }
-                        }
-                        ed3Var2.i = 2;
-                    }
-                    ed3Var.g = currentTimeMillis;
-                    ed3Var.h = currentTimeMillis;
-                    ed3Var.i = 0;
-                    arrayList.add(ed3Var);
-                }
-            }
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{context, str, Boolean.valueOf(z), pn3Var}) == null) {
+            d(context, str, z, true, false, pn3Var);
         }
     }
 
-    public String f(String str, @Nullable String str2) {
-        InterceptResult invokeLL;
+    public void d(Context context, String str, boolean z, boolean z2, boolean z3, pn3<zd3<be3.e>> pn3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            if (f) {
-                Log.d("SwanCookieManager", "getCookie url: " + str + "; defaultCookie=" + str2);
-            }
-            if (i43.K().E() && a()) {
-                if (!gd3.a(str)) {
-                    return str2;
-                }
-                try {
-                    return i(new WebAddress(str), str2);
-                } catch (Exception unused) {
-                    if (f) {
-                        Log.e("SwanCookieManager", "Bad address: " + str);
-                    }
-                }
-            }
-            return str2;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{context, str, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), pn3Var}) == null) {
+            y(context, str, z, z2, z3, pn3Var);
         }
-        return (String) invokeLL.objValue;
     }
 
-    public final synchronized String i(WebAddress webAddress, String str) {
-        InterceptResult invokeLL;
+    public void h(Context context, String str, boolean z, pn3<zd3<be3.e>> pn3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, webAddress, str)) == null) {
-            synchronized (this) {
-                String[] e = gd3.e(webAddress);
-                if (e == null) {
-                    return str;
-                }
-                String d = gd3.d(e[0]);
-                if (d == null) {
-                    return str;
-                }
-                ArrayList<ed3> arrayList = this.a.get(d);
-                if (arrayList == null) {
-                    arrayList = this.b.k(d);
-                    this.a.put(d, arrayList);
-                }
-                SortedSet<ed3> m = m(arrayList, webAddress.getScheme(), e);
-                if (m != null && !m.isEmpty()) {
-                    String b2 = gd3.b(m, str);
-                    if (f) {
-                        Log.d("SwanCookieManager", "getCookie result:" + b2 + ";defaultCookie=" + str);
-                    }
-                    return b2;
-                }
-                return str;
-            }
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{context, str, Boolean.valueOf(z), pn3Var}) == null) {
+            e(str, new a(this, pn3Var, str, z, context));
         }
-        return (String) invokeLL.objValue;
     }
 
-    public void x(String str, Collection<String> collection) {
+    public void r(Activity activity, ex1.d dVar, Bundle bundle, pn3<zd3<fe3.d>> pn3Var, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048595, this, str, collection) == null) && !TextUtils.isEmpty(str) && collection != null && !collection.isEmpty()) {
-            if (k(collection) > 4096) {
-                j12.o("SwanCookieManager", "setCookie values is too large");
+        if (interceptable == null || interceptable.invokeLLLLL(1048597, this, activity, dVar, bundle, pn3Var, str) == null) {
+            this.f.d(new h(this, activity, dVar, bundle, str, pn3Var));
+        }
+    }
+
+    public final void y(Context context, String str, boolean z, boolean z2, boolean z3, pn3<zd3<be3.e>> pn3Var) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048603, this, new Object[]{context, str, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), pn3Var}) == null) {
+            if (TextUtils.isEmpty(str)) {
+                str2 = "";
+            } else {
+                str2 = str;
+            }
+            be3 be3Var = this.e.get(str2);
+            if (be3Var != null && TaskState.FINISHED != be3Var.e()) {
+                be3Var.o(pn3Var);
                 return;
             }
-            if (f) {
-                Log.d("SwanCookieManager", "setCookie: url=" + str + "; values=" + collection);
-            }
-            for (String str2 : collection) {
-                w(str, str2);
-            }
-        }
-    }
-
-    public final synchronized void e(String str, String str2, ArrayList<ed3> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, arrayList) == null) {
-            synchronized (this) {
-                if (!TextUtils.isEmpty(str2) && arrayList != null && !arrayList.isEmpty()) {
-                    String d = gd3.d(str2);
-                    if (d == null) {
-                        return;
-                    }
-                    ArrayList<ed3> arrayList2 = this.a.get(d);
-                    if (arrayList2 == null) {
-                        arrayList2 = this.b.k(d);
-                        this.a.put(d, arrayList2);
-                    }
-                    int size = arrayList.size();
-                    for (int i = 0; i < size; i++) {
-                        ed3 ed3Var = arrayList.get(i);
-                        if (!p(arrayList2, ed3Var, str)) {
-                            d(arrayList2, ed3Var);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public synchronized void g(ed3 ed3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ed3Var) == null) {
-            synchronized (this) {
-                if (ed3Var == null) {
-                    return;
-                }
-                if (ed3Var.i == 2) {
-                    String d = gd3.d(ed3Var.a);
-                    if (d == null) {
-                        return;
-                    }
-                    ArrayList<ed3> arrayList = this.a.get(d);
-                    if (arrayList != null) {
-                        arrayList.remove(ed3Var);
-                        if (arrayList.isEmpty()) {
-                            this.a.remove(d);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public final long k(Collection<String> collection) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, collection)) == null) {
-            long j = 0;
-            if (collection != null && !collection.isEmpty()) {
-                for (String str : collection) {
-                    if (str != null) {
-                        j += str.length();
-                    }
-                }
-            }
-            return j;
-        }
-        return invokeL.longValue;
-    }
-
-    public void h() {
-        SwanAppConfigData Q;
-        SwanAppConfigData.c cVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || this.d != null || (Q = i43.K().q().Q()) == null || (cVar = Q.r) == null) {
-            return;
-        }
-        this.d = Boolean.valueOf(cVar.a);
-        j12.k("SwanCookieManager", "enableStore =" + this.d);
-    }
-
-    public synchronized ArrayList<ed3> n() {
-        InterceptResult invokeV;
-        ArrayList<ed3> arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            synchronized (this) {
-                arrayList = new ArrayList<>();
-                for (ArrayList<ed3> arrayList2 : this.a.values()) {
-                    if (arrayList2 != null) {
-                        Iterator<ed3> it = arrayList2.iterator();
-                        while (it.hasNext()) {
-                            ed3 next = it.next();
-                            if (next != null && next.i != 1) {
-                                arrayList.add(next);
-                            }
-                        }
-                    }
-                }
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public final synchronized SortedSet<ed3> m(ArrayList<ed3> arrayList, String str, String[] strArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, arrayList, str, strArr)) == null) {
-            synchronized (this) {
-                if (arrayList != null) {
-                    if (!arrayList.isEmpty() && strArr != null) {
-                        long currentTimeMillis = System.currentTimeMillis();
-                        TreeSet treeSet = new TreeSet(h);
-                        Iterator<ed3> it = arrayList.iterator();
-                        while (it.hasNext()) {
-                            ed3 next = it.next();
-                            if (next != null && next.a(strArr[0]) && next.c(strArr[1]) && (next.e < 0 || next.e > currentTimeMillis)) {
-                                if (!next.f || "https".equals(str)) {
-                                    if (next.i != 2) {
-                                        next.g = currentTimeMillis;
-                                        treeSet.add(next);
-                                    }
-                                }
-                            }
-                        }
-                        return treeSet;
-                    }
-                }
-                return null;
-            }
-        }
-        return (SortedSet) invokeLLL.objValue;
-    }
-
-    public final synchronized boolean p(ArrayList<ed3> arrayList, ed3 ed3Var, String str) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048588, this, arrayList, ed3Var, str)) == null) {
-            synchronized (this) {
-                if (arrayList == null || ed3Var == null) {
-                    return false;
-                }
-                long currentTimeMillis = System.currentTimeMillis();
-                Iterator<ed3> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    ed3 next = it.next();
-                    if (ed3Var.b(next)) {
-                        if (ed3Var.e >= 0 && ed3Var.e <= currentTimeMillis) {
-                            next.h = currentTimeMillis;
-                            next.i = 2;
-                            return true;
-                        }
-                        if (!next.f || "https".equals(str)) {
-                            next.d = ed3Var.d;
-                            next.e = ed3Var.e;
-                            next.f = ed3Var.f;
-                            next.g = currentTimeMillis;
-                            next.h = currentTimeMillis;
-                            next.i = 3;
-                        }
-                        return true;
-                    }
-                }
-                return false;
-            }
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public final ArrayList<ed3> s(String[] strArr, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, strArr, str)) == null) {
-            if (strArr == null || TextUtils.isEmpty(str)) {
-                return null;
-            }
-            if (strArr[1].length() > 1) {
-                int lastIndexOf = strArr[1].lastIndexOf(47);
-                String str2 = strArr[1];
-                if (lastIndexOf <= 0) {
-                    lastIndexOf++;
-                }
-                strArr[1] = str2.substring(0, lastIndexOf);
-            }
-            try {
-                return gd3.g(strArr[0], strArr[1], str);
-            } catch (Exception unused) {
-                if (!f) {
-                    return null;
-                }
-                Log.e("SwanCookieManager", "parse cookie failed: " + str);
-                return null;
-            }
-        }
-        return (ArrayList) invokeLL.objValue;
-    }
-
-    public final synchronized void v(WebAddress webAddress, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048593, this, webAddress, str) == null) {
-            synchronized (this) {
-                if (webAddress != null) {
-                    if (!TextUtils.isEmpty(str)) {
-                        if (str.length() > 4096) {
-                            j12.o("SwanCookieManager", "setCookie value is too large");
-                            return;
-                        }
-                        String[] e = gd3.e(webAddress);
-                        if (e == null) {
-                            return;
-                        }
-                        e(webAddress.getScheme(), e[0], s(e, str));
-                        this.b.g();
-                    }
-                }
-            }
-        }
-    }
-
-    public void w(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048594, this, str, str2) != null) || !i43.K().E() || !a() || !gd3.a(str)) {
-            return;
-        }
-        try {
-            v(new WebAddress(str), str2);
-        } catch (Exception unused) {
-            if (f) {
-                Log.e("SwanCookieManager", "setCookie with bad address: " + str);
-            }
+            be3 d2 = v83.K().x().a().b().d(context, z, z2, new String[]{str2}, null, z3);
+            this.e.put(str2, d2);
+            d2.o(pn3Var);
+            d2.o(new c(this, str2));
+            pf3.T(hf3.a(str), "requestModifyScope");
+            this.f.d(new d(this, d2, str));
         }
     }
 }

@@ -1,24 +1,21 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.RecomTopicList;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetGiftList.PresentCategoryList;
 /* loaded from: classes6.dex */
 public class w67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
+    public int a;
     public String b;
-    public int c;
-    public int d;
-    public boolean e;
-    public int f;
-    public long g;
+    public ArrayList<Integer> c;
 
     public w67() {
         Interceptable interceptable = $ic;
@@ -30,53 +27,49 @@ public class w67 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.e = true;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
+            return this.a;
         }
         return invokeV.intValue;
     }
 
-    public boolean b() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f == 1) {
-                return true;
-            }
-            return false;
+            return this.b;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public w67(@NonNull RecomTopicList recomTopicList, int i) {
+    public ArrayList<Integer> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {recomTopicList, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
-        this.a = recomTopicList.topic_id.longValue();
-        this.b = recomTopicList.topic_name;
-        this.c = recomTopicList.tag.intValue();
-        this.d = i + 1;
-        this.f = recomTopicList.is_video_topic.intValue();
-        this.g = recomTopicList.discuss_num.longValue();
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public void d(PresentCategoryList presentCategoryList) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, presentCategoryList) != null) || presentCategoryList == null) {
+            return;
+        }
+        this.a = presentCategoryList.category_id.intValue();
+        this.b = presentCategoryList.category_name;
+        List<Integer> list = presentCategoryList.gift_ids;
+        if (list != null && list.size() > 0) {
+            ArrayList<Integer> arrayList = new ArrayList<>();
+            this.c = arrayList;
+            arrayList.addAll(presentCategoryList.gift_ids);
+        }
     }
 }

@@ -18,7 +18,7 @@ public class a {
     public static final a a;
     public static final String b = "com.baidu.platform.comapi.util.a";
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<Class<?>, CopyOnWriteArraySet<C0145a>> c;
+    public final Map<Class<?>, CopyOnWriteArraySet<C0144a>> c;
     public final Map<Class<?>, Object> d;
 
     /* loaded from: classes2.dex */
@@ -28,7 +28,7 @@ public class a {
 
     /* renamed from: com.baidu.platform.comapi.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0145a implements b {
+    public class C0144a implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final b a;
@@ -102,13 +102,13 @@ public class a {
     }
 
     public void a(Object obj) {
-        CopyOnWriteArraySet<C0145a> copyOnWriteArraySet;
+        CopyOnWriteArraySet<C0144a> copyOnWriteArraySet;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && this.c.containsKey(obj.getClass())) {
             synchronized (this) {
                 copyOnWriteArraySet = this.c.get(obj.getClass());
             }
-            Iterator<C0145a> it = copyOnWriteArraySet.iterator();
+            Iterator<C0144a> it = copyOnWriteArraySet.iterator();
             while (it.hasNext()) {
                 j.a(new com.baidu.platform.comapi.util.b(this, it.next(), obj), 0L);
             }

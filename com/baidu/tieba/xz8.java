@@ -1,55 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class xz8 extends yz8 {
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.FrsPage.NavTabInfo;
+import tbclient.FrsTabInfo;
+/* loaded from: classes7.dex */
+public class xz8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Runnable b;
+    public List<FrsTabInfo> a;
+    public List<FrsTabInfo> b;
+    public List<FrsTabInfo> c;
 
-    @Override // com.baidu.tieba.yz8
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    public xz8(Runnable runnable, int i) {
+    public xz8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {runnable, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = runnable;
-        this.a = i;
+        this.a = new ArrayList();
+        this.b = new ArrayList();
+        this.c = new ArrayList();
     }
 
-    @Override // com.baidu.tieba.yz8
-    public void b() {
+    public void a(NavTabInfo navTabInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.run();
+        if ((interceptable != null && interceptable.invokeL(1048576, this, navTabInfo) != null) || navTabInfo == null) {
+            return;
         }
-    }
-
-    @Override // com.baidu.tieba.yz8
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            sz8.a = Math.max(sz8.a, this.a + 1);
-        }
+        this.a = new ArrayList(navTabInfo.tab);
+        this.b = new ArrayList(navTabInfo.menu);
+        this.c = new ArrayList(navTabInfo.head);
     }
 }

@@ -1,66 +1,156 @@
 package com.baidu.tieba;
 
-import android.database.sqlite.SQLiteDatabase;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.db.PackageTable;
+import android.os.Build;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
+import java.lang.reflect.Method;
 /* loaded from: classes7.dex */
-public class yc4 implements rc4<ld4> {
+public class yc4 {
     public static /* synthetic */ Interceptable $ic;
+    public static Object a;
+    public static Method b;
+    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "so_lib" : (String) invokeV.objValue;
-    }
-
-    public yc4() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948325343, "Lcom/baidu/tieba/yc4;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948325343, "Lcom/baidu/tieba/yc4;");
+        }
+    }
+
+    public static boolean a(String... strArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, strArr)) == null) {
+            if (!c) {
+                e();
+            }
+            Method method = b;
+            if (method == null) {
+                return false;
+            }
+            try {
+                method.invoke(a, strArr);
+                return true;
+            } catch (Throwable unused) {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean c(Class<?> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) {
+            if (!f()) {
+                return true;
+            }
+            if (cls == null) {
+                return false;
+            }
+            return a(b(cls.getName()));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean d(String... strArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, strArr)) == null) {
+            if (!f()) {
+                return true;
+            }
+            if (strArr != null && strArr.length > 0) {
+                return a(strArr);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
+            }
+            String replaceAll = str.replaceAll(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, "/");
+            if (!replaceAll.startsWith(PreferencesUtil.LEFT_MOUNT)) {
+                return "L" + replaceAll + ";";
+            }
+            return replaceAll;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static synchronized void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            synchronized (yc4.class) {
+                if (c) {
+                    return;
+                }
+                try {
+                    c = true;
+                    Class<?> cls = Class.forName("dalvik.system.VMRuntime");
+                    Method b2 = zc4.b(cls, "getRuntime", new Class[0]);
+                    if (b2 != null) {
+                        b2.setAccessible(true);
+                        Object invoke = b2.invoke(null, new Object[0]);
+                        a = invoke;
+                        if (invoke != null) {
+                            Method b3 = zc4.b(cls, "setHiddenApiExemptions", String[].class);
+                            b = b3;
+                            if (b3 != null) {
+                                b3.setAccessible(true);
+                            }
+                        }
+                    }
+                } catch (Throwable unused) {
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.rc4
-    public void a(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-            sQLiteDatabase.execSQL(b());
-        }
-    }
-
-    public final String b() {
+    public static boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "CREATE TABLE IF NOT EXISTS " + c() + "(_id INTEGER PRIMARY KEY AUTOINCREMENT,bundle_id TEXT NOT NULL,category INT NOT NULL,version_name TEXT NOT NULL,version_code INT DEFAULT 0,size LONG DEFAULT 0," + PackageTable.MD5 + " TEXT NOT NULL,sign TEXT NOT NULL," + TTDownloadField.TT_DOWNLOAD_URL + " TEXT NOT NULL," + PackageTable.FILE_PATH + " TEXT," + PackageTable.CURRENT_SIZE + " LONG DEFAULT 0,create_time LONG DEFAULT 0,update_time LONG DEFAULT 0,state INT DEFAULT 0,max_age LONG DEFAULT 0," + PackageTable.ABI + " TEXT,lib_name TEXT NOT NULL UNIQUE);";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 28) {
+                return true;
+            }
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.rc4
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+    public static boolean g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) {
-            while (i < i2) {
-                if (i == 9) {
-                    sQLiteDatabase.execSQL(b());
-                }
-                i++;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (Build.VERSION.SDK_INT > 29) {
+                return true;
             }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 }

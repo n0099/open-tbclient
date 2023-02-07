@@ -1,47 +1,93 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class kc0 {
+public final class kc0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final int b;
+    public final boolean c;
+    public final String d;
 
-    public static <T> int a(List<T> list) {
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            if (list != null && !list.isEmpty()) {
-                return list.size();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (this != obj) {
+                if (obj instanceof kc0) {
+                    kc0 kc0Var = (kc0) obj;
+                    return Intrinsics.areEqual(this.a, kc0Var.a) && this.b == kc0Var.b && this.c == kc0Var.c && Intrinsics.areEqual(this.d, kc0Var.d);
+                }
+                return false;
             }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public static <T> boolean c(List<T> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
-            if (a(list) <= 0) {
-                return true;
-            }
-            return false;
+            return true;
         }
         return invokeL.booleanValue;
     }
 
-    public static <T> T b(List<T> list, int i) {
-        InterceptResult invokeLI;
+    /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: boolean */
+    /* JADX WARN: Multi-variable type inference failed */
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, list, i)) == null) {
-            if (list == null || list.isEmpty() || i < 0 || i >= list.size()) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            String str = this.a;
+            int hashCode = (((str != null ? str.hashCode() : 0) * 31) + this.b) * 31;
+            boolean z = this.c;
+            int i = z;
+            if (z != 0) {
+                i = 1;
             }
-            return list.get(i);
+            int i2 = (hashCode + i) * 31;
+            String str2 = this.d;
+            return i2 + (str2 != null ? str2.hashCode() : 0);
         }
-        return (T) invokeLI.objValue;
+        return invokeV.intValue;
+    }
+
+    public kc0(String str, int i, boolean z, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), Boolean.valueOf(z), str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = str;
+        this.b = i;
+        this.c = z;
+        this.d = str2;
+    }
+
+    public final int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "YYPluginBundleInfo { packageName=" + this.a + " versionCode=" + this.b + " needUpdate=" + this.c + " ext=" + this.d + " }";
+        }
+        return (String) invokeV.objValue;
     }
 }

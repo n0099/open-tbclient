@@ -1,80 +1,46 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ri2;
+import android.text.TextUtils;
+import com.baidu.searchbox.download.center.clearcache.controller.ClearCacheUbcController;
+import com.baidu.swan.apps.jsbridge.SwanAppNativeSwanJsBridge;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class si2 extends ei2<ri2> {
+public final class si2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public class a implements ri2.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ si2 a;
-
-        public a(si2 si2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {si2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = si2Var;
-        }
-
-        @Override // com.baidu.tieba.ri2.a
-        public void a(Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) && this.a.b != null) {
-                this.a.b.onCallback(this.a, "onMediaMetadataExtracted", bundle);
-            }
-        }
-
-        @Override // com.baidu.tieba.ri2.a
-        public void onRelease() {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.a.b == null) {
-                return;
-            }
-            this.a.b = null;
+    public static void a(u72 u72Var, wi2 wi2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, u72Var, wi2Var) == null) && u72Var != null && wi2Var != null) {
+            wi2Var.g(u72Var);
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public si2(@NonNull ri2 ri2Var) {
-        super(ri2Var);
+    public static String b(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ri2Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((gi2) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, str3)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
+                String quote = JSONObject.quote(str3);
+                return str + "." + str2 + " = " + quote + ";";
             }
+            return "";
         }
-        ((ri2) this.c).w(new a(this));
-        this.a.a(new ui2());
-        this.a.a(new vi2());
+        return (String) invokeLLL.objValue;
+    }
+
+    public static String c(u72 u72Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, u72Var)) == null) {
+            if (u72Var.isWebView()) {
+                return ClearCacheUbcController.DOCUMENT;
+            }
+            return SwanAppNativeSwanJsBridge.JAVASCRIPT_INTERFACE_NAME;
+        }
+        return (String) invokeL.objValue;
     }
 }

@@ -1,6 +1,6 @@
 package com.fun.ad.sdk.channel;
 
-import com.baidu.tieba.vz9;
+import com.baidu.tieba.e4a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,7 +35,7 @@ public class JyModule implements Module {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, funAdConfig, str)) == null) {
             PBInitialize.init(funAdConfig.appContext, str);
-            return new vz9();
+            return new e4a();
         }
         return (PidLoaderCreator) invokeLL.objValue;
     }

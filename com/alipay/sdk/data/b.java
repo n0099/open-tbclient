@@ -90,14 +90,14 @@ public class b {
 
     /* renamed from: com.alipay.sdk.data.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class CallableC0011b implements Callable<String> {
+    public static class CallableC0010b implements Callable<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ com.alipay.sdk.sys.a a;
         public final /* synthetic */ Context b;
         public final /* synthetic */ HashMap c;
 
-        public CallableC0011b(com.alipay.sdk.sys.a aVar, Context context, HashMap hashMap) {
+        public CallableC0010b(com.alipay.sdk.sys.a aVar, Context context, HashMap hashMap) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -274,7 +274,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, aVar, context, hashMap)) == null) {
             try {
-                return (String) Executors.newFixedThreadPool(2).submit(new CallableC0011b(aVar, context, hashMap)).get(3000L, TimeUnit.MILLISECONDS);
+                return (String) Executors.newFixedThreadPool(2).submit(new CallableC0010b(aVar, context, hashMap)).get(3000L, TimeUnit.MILLISECONDS);
             } catch (Throwable th) {
                 com.alipay.sdk.app.statistic.a.a(aVar, com.alipay.sdk.app.statistic.b.o, com.alipay.sdk.app.statistic.b.u, th);
                 return "";

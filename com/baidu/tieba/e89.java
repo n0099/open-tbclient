@@ -1,98 +1,51 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Intent;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashSet;
-import java.util.Set;
+import com.baidu.ufosdk.FeedbackConfigurations;
+import com.baidu.ufosdk.FeedbackManager;
+import com.baidu.ufosdk.IConfigurations;
 /* loaded from: classes4.dex */
 public class e89 {
     public static /* synthetic */ Interceptable $ic;
-    public static Set<String> a;
-    public static Set<String> b;
-    public static Set<String> c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947688355, "Lcom/baidu/tieba/e89;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static Intent a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            b();
+            return FeedbackManager.getInstance(TbadkCoreApplication.getInst().getContext()).getFeedbackIntentWithCategory(0, "https://ufosdk.baidu.com/ufosdk/helpCenter/qtbMBmwrIBtM25TGeonQxQ%3D%3D");
+        }
+        return (Intent) invokeV.objValue;
+    }
+
+    public static void b() {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            FeedbackConfigurations.Builder builder = new FeedbackConfigurations.Builder();
+            if (TbadkCoreApplication.getInst().getVersionName() != null) {
+                str = TbadkCoreApplication.getInst().getVersionName();
+            } else {
+                str = "";
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947688355, "Lcom/baidu/tieba/e89;");
-                return;
+            builder.setAppIdentifier(TbadkCoreApplication.getInst().getPackageName(), str);
+            builder.setBaiduCuid(TbadkCoreApplication.getInst().getCuidGalaxy2());
+            if (TbadkCoreApplication.getCurrentAccount() != null) {
+                builder.setAccount(TbadkCoreApplication.getCurrentAccountName(), TbadkCoreApplication.getCurrentAccount());
             }
-        }
-        a = new HashSet();
-        b = new HashSet();
-        c = new HashSet();
-    }
-
-    public static void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            b.add(str);
-        }
-    }
-
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            c.add(str);
-        }
-    }
-
-    public static void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            a.add(str);
-        }
-    }
-
-    public static void e(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65541, null, str) != null) || b.size() == 0) {
-            return;
-        }
-        d(str, b);
-        b.clear();
-    }
-
-    public static void f(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65542, null, str) != null) || c.size() == 0) {
-            return;
-        }
-        d(str, c);
-        c.clear();
-    }
-
-    public static void g(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65543, null, str) != null) || a.size() == 0) {
-            return;
-        }
-        d(str, a);
-        a.clear();
-    }
-
-    public static void d(String str, Set<String> set) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, set) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14295");
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("obj_locate", str);
-            statisticItem.param("obj_type", set.size());
-            TiebaStatic.log(statisticItem);
+            int i = 0;
+            builder.setFeedbackBackbar(0);
+            IConfigurations build = builder.build();
+            if (TbadkCoreApplication.getInst().getSkinType() != 0) {
+                i = 1;
+            }
+            build.setThemeMode(i);
+            FeedbackManager.getInstance(TbadkCoreApplication.getInst().getContext()).initFeedbackSDK(build);
         }
     }
 }

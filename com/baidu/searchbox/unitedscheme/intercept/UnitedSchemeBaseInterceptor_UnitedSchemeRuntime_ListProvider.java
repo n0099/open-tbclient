@@ -1,11 +1,11 @@
 package com.baidu.searchbox.unitedscheme.intercept;
 
-import com.baidu.tieba.ci2;
-import com.baidu.tieba.h24;
-import com.baidu.tieba.k83;
-import com.baidu.tieba.l83;
-import com.baidu.tieba.m83;
-import com.baidu.tieba.nf1;
+import com.baidu.tieba.pm2;
+import com.baidu.tieba.u64;
+import com.baidu.tieba.xc3;
+import com.baidu.tieba.yc3;
+import com.baidu.tieba.yj1;
+import com.baidu.tieba.zc3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public class UnitedSchemeBaseInterceptor_UnitedSchemeRuntime_ListProvider implements nf1 {
+public class UnitedSchemeBaseInterceptor_UnitedSchemeRuntime_ListProvider implements yj1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,17 +31,17 @@ public class UnitedSchemeBaseInterceptor_UnitedSchemeRuntime_ListProvider implem
         }
     }
 
-    @Override // com.baidu.tieba.nf1
+    @Override // com.baidu.tieba.yj1
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new ci2());
-            arrayList.add(new k83());
-            arrayList.add(new l83());
-            arrayList.add(new m83());
-            arrayList.add(new h24());
+            arrayList.add(new pm2());
+            arrayList.add(new xc3());
+            arrayList.add(new yc3());
+            arrayList.add(new zc3());
+            arrayList.add(new u64());
             return arrayList;
         }
         return invokeV.objValue;

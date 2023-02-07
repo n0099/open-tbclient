@@ -1,18 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.repo.entity.BotsDTO;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class xk7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BotsDTO.BotListDTO.UserDTO a;
-    public BotsDTO.BotListDTO.SkillDTO b;
-    public List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> c;
+    public String a;
+    public String b;
 
     public xk7() {
         Interceptable interceptable = $ic;
@@ -25,15 +22,6 @@ public class xk7 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = null;
-            this.b = null;
-            this.c = null;
         }
     }
 }

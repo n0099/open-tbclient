@@ -1,5 +1,6 @@
 package com.baidu.android.util.concurrent.task;
 
+import android.annotation.SuppressLint;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.concurrent.task.TaskManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -125,6 +126,7 @@ public class TaskOperation {
         }
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public void setTaskParams(TaskOperation taskOperation) {
         Object[] taskParams;
         Interceptable interceptable = $ic;

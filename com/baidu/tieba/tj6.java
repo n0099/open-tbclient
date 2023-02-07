@@ -1,111 +1,37 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.core.data.PrivateForumPopInfoData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.enterForum.data.ForumCreateInfoData;
+import com.baidu.tieba.enterForum.data.HotSearchInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import tbclient.ForumGuide.DataRes;
 /* loaded from: classes6.dex */
-public class tj6 extends BaseAdapter {
+public class tj6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<cp4> a;
-    public String b;
-    public Context c;
-    public ea5 d;
-    public int e;
-    public int f;
+    public xj6 a;
+    public hz4 b;
+    public ForumCreateInfoData c;
+    public PrivateForumPopInfoData d;
+    public bk6 e;
+    public ck6 f;
+    public boolean g;
+    public int h;
+    public HotSearchInfoData i;
+    public int j;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements aa5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ViewGroup a;
-
-        public a(tj6 tj6Var, ViewGroup viewGroup) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tj6Var, viewGroup};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = viewGroup;
-        }
-
-        @Override // com.baidu.tieba.aa5
-        public void a(jn jnVar, String str, boolean z) {
-            HeadImageView headImageView;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLZ(1048576, this, jnVar, str, z) == null) && (headImageView = (HeadImageView) this.a.findViewWithTag(str)) != null && jnVar != null) {
-                headImageView.invalidate();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public HeadImageView a;
-        public TextView b;
-        public ImageView c;
-
-        public b(tj6 tj6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tj6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(tj6 tj6Var, a aVar) {
-            this(tj6Var);
-        }
-    }
-
-    public tj6(Context context) {
+    public tj6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -115,105 +41,194 @@ public class tj6 extends BaseAdapter {
                 return;
             }
         }
-        this.c = context;
-        this.d = new ea5();
-        this.f = (int) this.c.getResources().getDimension(R.dimen.obfuscated_res_0x7f07023c);
-        this.e = zi.l(this.c) / 2;
+        this.g = true;
+        this.h = 0;
+        this.a = new xj6();
+        this.b = new hz4();
+        this.c = new ForumCreateInfoData();
+        this.d = new PrivateForumPopInfoData();
+        this.e = new bk6();
+        this.f = new ck6();
+        this.g = false;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public cp4 getItem(int i) {
-        InterceptResult invokeI;
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<cp4> list = this.a;
-            if (list != null && i >= 0 && i < list.size()) {
-                return this.a.get(i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (System.currentTimeMillis() / ia5.a.longValue() == (this.h * 1000) / ia5.a.longValue()) {
+                return true;
             }
-            return null;
+            return false;
         }
-        return (cp4) invokeI.objValue;
+        return invokeV.booleanValue;
     }
 
-    public void b(List<cp4> list, String str) {
+    public ForumCreateInfoData b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, str) == null) {
-            this.a = list;
-            this.b = str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
+        return (ForumCreateInfoData) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public ck6 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<cp4> list = this.a;
-            if (list != null) {
-                return list.size();
-            }
-            return 0;
+            return this.f;
+        }
+        return (ck6) invokeV.objValue;
+    }
+
+    public HotSearchInfoData d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.i;
+        }
+        return (HotSearchInfoData) invokeV.objValue;
+    }
+
+    public xj6 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return (xj6) invokeV.objValue;
+    }
+
+    public hz4 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b;
+        }
+        return (hz4) invokeV.objValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.j;
         }
         return invokeV.intValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        b bVar;
+    public boolean h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
-            if (view2 != null) {
-                bVar = (b) view2.getTag();
-            } else {
-                view2 = LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d01e2, viewGroup, false);
-                bVar = new b(this, null);
-                bVar.a = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091041);
-                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091052);
-                ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09102d);
-                bVar.c = imageView;
-                SkinManager.setImageResource(imageView, R.drawable.icon_site_ok);
-                view2.setTag(bVar);
-            }
-            bVar.a.setTag(null);
-            bVar.a.setDefaultResource(R.drawable.pic_image_h_not);
-            bVar.a.K(null, 12, false);
-            bVar.a.invalidate();
-            cp4 item = getItem(i);
-            if (item != null) {
-                if (!TextUtils.isEmpty(item.g())) {
-                    item.g();
-                    String v = zi.v(bVar.b.getPaint(), item.g(), this.e);
-                    bVar.b.setText(v + "(" + item.c() + SmallTailInfo.EMOTION_SUFFIX);
-                } else {
-                    bVar.b.setText("");
-                }
-                String b2 = item.b();
-                if (!TextUtils.isEmpty(b2) && b2.equals(this.b)) {
-                    bVar.c.setVisibility(0);
-                } else {
-                    bVar.c.setVisibility(8);
-                }
-                ImageFileInfo e = item.e();
-                if (e != null) {
-                    e.clearPageActions();
-                    int i2 = this.f;
-                    e.addPageAction(na5.g(i2, i2));
-                    jn c = this.d.c(e, false);
-                    bVar.a.setTag(e.toCachedKey(false));
-                    if (c != null) {
-                        bVar.a.invalidate();
-                    } else {
-                        this.d.e(e, new a(this, viewGroup), false, false);
-                    }
-                }
-            } else {
-                bVar.b.setText("");
-            }
-            return view2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.g;
         }
-        return (View) invokeILL.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public void i(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dataRes) != null) || dataRes == null) {
+            return;
+        }
+        try {
+            if (dataRes.like_forum != null) {
+                this.a.c(dataRes.like_forum);
+            }
+            if (dataRes.forum_create_info != null) {
+                this.c.K(dataRes.forum_create_info);
+            }
+            if (!ListUtils.isEmpty(dataRes.hot_search)) {
+                this.i = new HotSearchInfoData();
+                this.i.I(dataRes.hot_search.get(0).search_title);
+            }
+        } catch (Exception e) {
+            BdLog.detailException(e);
+        }
+    }
+
+    public void j(tbclient.ForumRecommend.DataRes dataRes) {
+        int intValue;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048585, this, dataRes) != null) || dataRes == null) {
+            return;
+        }
+        try {
+            if (dataRes.forum_popup_info != null) {
+                this.f.f(dataRes.forum_popup_info);
+            }
+            p(dataRes.time.intValue());
+            if (dataRes.sort_type.intValue() == 0) {
+                intValue = 1;
+            } else {
+                intValue = dataRes.sort_type.intValue();
+            }
+            this.j = intValue;
+            if (dataRes.like_forum != null) {
+                this.a.c(dataRes.like_forum);
+            }
+            if (dataRes.recommend_forum_info != null) {
+                this.b.i(dataRes.recommend_forum_info);
+            }
+            if (dataRes.forum_create_info != null) {
+                this.c.K(dataRes.forum_create_info);
+            }
+            if (dataRes.private_forum_popinfo != null) {
+                this.d.L(dataRes.private_forum_popinfo);
+            }
+            if (dataRes.hot_search != null) {
+                HotSearchInfoData hotSearchInfoData = new HotSearchInfoData();
+                this.i = hotSearchInfoData;
+                hotSearchInfoData.H(dataRes.hot_search);
+            }
+            if (dataRes.nav_tab_info != null) {
+                this.e.a(dataRes.nav_tab_info);
+            }
+        } catch (Exception e) {
+            BdLog.detailException(e);
+        }
+    }
+
+    public void k(ForumCreateInfoData forumCreateInfoData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, forumCreateInfoData) == null) {
+            this.c = forumCreateInfoData;
+        }
+    }
+
+    public void l(HotSearchInfoData hotSearchInfoData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, hotSearchInfoData) == null) {
+            this.i = hotSearchInfoData;
+        }
+    }
+
+    public void m(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            this.g = z;
+        }
+    }
+
+    public void n(xj6 xj6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, xj6Var) == null) {
+            this.a = xj6Var;
+        }
+    }
+
+    public void o(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.j = i;
+        }
+    }
+
+    public void p(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.h = i;
+        }
     }
 }

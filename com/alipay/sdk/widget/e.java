@@ -45,7 +45,7 @@ public class e extends LinearLayout {
     public ImageView c;
     public ProgressBar d;
     public WebView e;
-    public final C0018e f;
+    public final C0017e f;
     public f g;
     public g h;
     public h i;
@@ -88,13 +88,13 @@ public class e extends LinearLayout {
 
         /* renamed from: com.alipay.sdk.widget.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class RunnableC0017a implements Runnable {
+        public class RunnableC0016a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ View a;
             public final /* synthetic */ a b;
 
-            public RunnableC0017a(a aVar, View view2) {
+            public RunnableC0016a(a aVar, View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -146,7 +146,7 @@ public class e extends LinearLayout {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (hVar = this.a.i) != null) {
                 view2.setEnabled(false);
-                e.m.postDelayed(new RunnableC0017a(this, view2), 256L);
+                e.m.postDelayed(new RunnableC0016a(this, view2), 256L);
                 if (view2 == this.a.a) {
                     hVar.b(this.a);
                 } else if (view2 == this.a.c) {
@@ -330,13 +330,13 @@ public class e extends LinearLayout {
 
     /* renamed from: com.alipay.sdk.widget.e$e  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0018e {
+    public static final class C0017e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
         public boolean b;
 
-        public C0018e(boolean z, boolean z2) {
+        public C0017e(boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -438,13 +438,13 @@ public class e extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e(Context context, AttributeSet attributeSet, com.alipay.sdk.sys.a aVar, C0018e c0018e) {
+    public e(Context context, AttributeSet attributeSet, com.alipay.sdk.sys.a aVar, C0017e c0017e) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, aVar, c0018e};
+            Object[] objArr = {context, attributeSet, aVar, c0017e};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -457,7 +457,7 @@ public class e extends LinearLayout {
             }
         }
         this.k = new a(this);
-        this.f = c0018e == null ? new C0018e(false, false) : c0018e;
+        this.f = c0017e == null ? new C0017e(false, false) : c0017e;
         this.j = aVar;
         this.l = context.getResources().getDisplayMetrics().density;
         setOrientation(1);
@@ -467,19 +467,19 @@ public class e extends LinearLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public e(Context context, com.alipay.sdk.sys.a aVar, C0018e c0018e) {
-        this(context, null, aVar, c0018e);
+    public e(Context context, com.alipay.sdk.sys.a aVar, C0017e c0017e) {
+        this(context, null, aVar, c0017e);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, aVar, c0018e};
+            Object[] objArr = {context, aVar, c0017e};
             interceptable.invokeUnInit(65538, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], (com.alipay.sdk.sys.a) objArr2[2], (C0018e) objArr2[3]);
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], (com.alipay.sdk.sys.a) objArr2[2], (C0017e) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

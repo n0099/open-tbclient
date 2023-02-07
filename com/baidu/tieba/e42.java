@@ -1,113 +1,92 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.h33;
-import com.baidu.tieba.n33;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.swan.apps.storage.PathType;
+import com.baidu.tieba.f42;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.backends.pipeline.PipelineDraweeControllerBuilder;
+import com.facebook.drawee.controller.AbstractDraweeController;
+import com.facebook.drawee.controller.BaseControllerListener;
+import com.facebook.drawee.drawable.ScalingUtils;
+import com.facebook.drawee.generic.GenericDraweeHierarchy;
+import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
+import com.facebook.drawee.generic.RoundingParams;
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.facebook.imagepipeline.image.ImageInfo;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import java.io.File;
+import java.util.HashMap;
 /* loaded from: classes4.dex */
-public class e42 extends h33 {
+public abstract class e42<V extends SimpleDraweeView, M extends f42> extends j42<V, M> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrameLayout k;
-    public a l;
 
     /* loaded from: classes4.dex */
-    public static class a extends h33.b {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
-        public View g;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(Context context) {
-            super(context);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Context) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-881153559, "Lcom/baidu/tieba/e42$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-881153559, "Lcom/baidu/tieba/e42$a;");
                     return;
                 }
             }
-        }
-
-        @Override // com.baidu.tieba.n33.a
-        public /* bridge */ /* synthetic */ n33.a U(int i) {
-            d0(i);
-            return this;
-        }
-
-        public a c0(View view2) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) {
-                this.g = view2;
-                return this;
+            int[] iArr = new int[PathType.values().length];
+            a = iArr;
+            try {
+                iArr[PathType.BD_FILE.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
             }
-            return (a) invokeL.objValue;
-        }
-
-        public a d0(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-                super.U(i);
-                return this;
+            try {
+                a[PathType.RELATIVE.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
             }
-            return (a) invokeI.objValue;
-        }
-
-        @Override // com.baidu.tieba.n33.a
-        public n33 h(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-                return new e42(context);
+            try {
+                a[PathType.NETWORK.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
             }
-            return (n33) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.h33.b, com.baidu.tieba.n33.a
-        public n33 c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                e42 e42Var = (e42) super.c();
-                e42Var.q(this);
-                return e42Var;
+            try {
+                a[PathType.ERROR.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
             }
-            return (n33) invokeV.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e42(Context context) {
-        super(context);
+    public e42(@Nullable Context context, @NonNull M m) {
+        super(context, m);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {context, m};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (k42) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -115,31 +94,126 @@ public class e42 extends h33 {
         }
     }
 
-    @Override // com.baidu.tieba.h33
-    public View k(ViewGroup viewGroup) {
+    public static Uri W(@NonNull String str) {
         InterceptResult invokeL;
+        String str2;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.g).inflate(R.layout.obfuscated_res_0x7f0d00dc, viewGroup, false);
-            this.k = (FrameLayout) inflate.findViewById(R.id.ssl_certificate_container);
-            p();
-            return inflate;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            PathType s = eg3.s(str);
+            w83 M = w83.M();
+            if (M != null) {
+                str2 = M.b;
+                str3 = M.k0();
+            } else {
+                str2 = null;
+                str3 = null;
+            }
+            if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
+                return null;
+            }
+            int i = a.a[s.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        return null;
+                    }
+                    return Uri.parse(str);
+                }
+                File file = new File(str);
+                if (file.exists()) {
+                    return Uri.fromFile(file);
+                }
+                String L = eg3.L(str, M, str3);
+                if (TextUtils.isEmpty(L)) {
+                    return null;
+                }
+                return Uri.fromFile(new File(L));
+            }
+            String M2 = eg3.M(str, str2);
+            if (TextUtils.isEmpty(M2)) {
+                return null;
+            }
+            return Uri.fromFile(new File(M2));
         }
-        return (View) invokeL.objValue;
+        return (Uri) invokeL.objValue;
     }
 
-    public void q(a aVar) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.j42
+    /* renamed from: T */
+    public void O(@NonNull V v, @NonNull M m, @NonNull o52 o52Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.l = aVar;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, v, m, o52Var) == null) {
+            super.C(v, m, o52Var);
+            if (o52Var.a(9)) {
+                U(v, m);
+            }
         }
     }
 
-    public final void p() {
-        a aVar;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.j42, com.baidu.tieba.l42
+    @NonNull
+    /* renamed from: S */
+    public o52 k(@NonNull M m, @NonNull M m2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (aVar = this.l) != null) {
-            this.k.addView(aVar.g);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, m, m2)) == null) {
+            o52 k = super.k(m, m2);
+            if (!TextUtils.equals(m.t, m2.t)) {
+                k.b(9);
+            }
+            return k;
         }
+        return (o52) invokeLL.objValue;
+    }
+
+    public void U(@NonNull V v, @NonNull M m) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, v, m) == null) {
+            V(v, m, null);
+        }
+    }
+
+    public final void V(@NonNull V v, @NonNull M m, @Nullable BaseControllerListener<ImageInfo> baseControllerListener) {
+        Uri W;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(1048582, this, v, m, baseControllerListener) != null) || m.j == null) {
+            return;
+        }
+        if (l42.h) {
+            Log.d("Component-SimpleDrawee", "renderImageStyle");
+        }
+        String str = m.t;
+        if (TextUtils.isEmpty(str) || (W = W(str)) == null) {
+            return;
+        }
+        w52.i("Component-SimpleDrawee", "Image Uri:" + W);
+        PipelineDraweeControllerBuilder oldController = Fresco.newDraweeControllerBuilder().setOldController(v.getController());
+        if (baseControllerListener != null) {
+            oldController.setControllerListener(baseControllerListener);
+        }
+        HashMap hashMap = new HashMap();
+        String g0 = qf2.U().g0();
+        if (!TextUtils.isEmpty(g0)) {
+            hashMap.put("User-Agent", g0);
+        }
+        String b = dm3.b();
+        if (!TextUtils.isEmpty(b) && dm3.c(W.toString())) {
+            hashMap.put("Referer", b);
+        }
+        qt1 C = ds2.C();
+        ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(W);
+        C.e(newBuilderWithSource, hashMap);
+        oldController.setImageRequest(newBuilderWithSource.build());
+        AbstractDraweeController build = oldController.build();
+        RoundingParams roundingParams = new RoundingParams();
+        roundingParams.setCornersRadius(m.n);
+        GenericDraweeHierarchy build2 = new GenericDraweeHierarchyBuilder(v.getResources()).build();
+        build2.setRoundingParams(roundingParams);
+        build2.setActualImageScaleType(ScalingUtils.ScaleType.FIT_XY);
+        v.setHierarchy(build2);
+        v.setController(build);
     }
 }

@@ -7,7 +7,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tk1;
+import com.baidu.tieba.gp1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,7 +36,7 @@ public class SelectorTextView extends TextView {
                 return;
             }
         }
-        b = tk1.a;
+        b = gp1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

@@ -1,146 +1,67 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.HttpMessage;
+import android.content.Context;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AlaMasterLiveRoomActivityConfig;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
-import com.baidu.tbadk.util.PageType;
-import com.baidu.tieba.tbadkCore.FrsViewData;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import com.baidu.tieba.wv4;
+import com.baidu.tieba.frs.itemtab.card.CardItemRecommendLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.PermissionRequest;
 /* loaded from: classes4.dex */
-public class i07 {
+public class i07 extends hx<sw4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public CardItemRecommendLayout f;
 
-    /* loaded from: classes4.dex */
-    public static class a implements wv4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.wv4.e
-        public void onClick(wv4 wv4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, wv4Var) == null) {
-                wv4Var.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b implements PermissionJudgePolicy.OnPermissionsGrantedListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
-        public final /* synthetic */ FrsViewData b;
-
-        public b(TbPageContext tbPageContext, FrsViewData frsViewData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tbPageContext, frsViewData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tbPageContext;
-            this.b = frsViewData;
-        }
-
-        @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.OnPermissionsGrantedListener
-        public void onPermissionsGranted() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_ALA_VERIFY_STRATEGY));
-                uf.n().j(false);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaMasterLiveRoomActivityConfig(this.a.getPageActivity(), this.b.getForum().getName(), this.b.getForum().getId(), this.b.getUserData().getUserId(), this.b.getForum().getSpecialForumType())));
-            }
-        }
-    }
-
-    public static void a(TbPageContext tbPageContext, FrsViewData frsViewData) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public i07(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, tbPageContext, frsViewData) != null) || tbPageContext == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
-        permissionJudgePolicy.clearRequestPermissionList();
-        permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
-        permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), PermissionRequest.RESOURCE_VIDEO_CAPTURE);
-        permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), PermissionRequest.RESOURCE_AUDIO_CAPTURE);
-        permissionJudgePolicy.setOnPermissionsGrantedListener(new b(tbPageContext, frsViewData));
-        permissionJudgePolicy.startRequestPermission(tbPageContext.getPageActivity());
+        this.f = new CardItemRecommendLayout(context);
     }
 
-    public static void b(FrsViewData frsViewData, TbPageContext tbPageContext) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.zx
+    /* renamed from: s */
+    public void a(sw4 sw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, frsViewData, tbPageContext) == null) {
-            TiebaStatic.log(new StatisticItem("c11839").param("uid", TbadkCoreApplication.getCurrentAccount()));
-            if (tbPageContext != null && frsViewData != null && frsViewData.getForum() != null) {
-                if (Build.VERSION.SDK_INT < 21) {
-                    wv4 wv4Var = new wv4(tbPageContext.getPageActivity());
-                    wv4Var.setAutoNight(false);
-                    wv4Var.setTitle(R.string.obfuscated_res_0x7f0f0fc6);
-                    wv4Var.setMessage(tbPageContext.getResources().getString(R.string.disallow_open_live_by_android_v5_0));
-                    wv4Var.setTitleShowCenter(true);
-                    wv4Var.setMessageShowCenter(true);
-                    wv4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0a21, new a());
-                    wv4Var.create(tbPageContext).show();
-                } else if (!TbadkCoreApplication.isLogin()) {
-                    if (frsViewData != null && frsViewData.getAnti() != null) {
-                        frsViewData.getAnti().setIfpost(1);
-                    }
-                    ViewHelper.skipToLoginActivity(tbPageContext.getPageActivity());
-                } else {
-                    AntiData anti = frsViewData.getAnti();
-                    if (anti != null && (AntiHelper.n(anti) || AntiHelper.g(anti) || AntiHelper.h(anti))) {
-                        anti.setBlock_forum_name(frsViewData.getForum().getName());
-                        anti.setBlock_forum_id(frsViewData.getForum().getId());
-                        anti.setUser_name(frsViewData.getUserData().getUserName());
-                        anti.setUser_id(frsViewData.getUserData().getUserId());
-                        if (AntiHelper.x(tbPageContext.getPageActivity(), anti, AntiHelper.OperationType.CREATE_THREAD, PageType.FRS)) {
-                            return;
-                        }
-                    }
-                    if (frsViewData.getUserData() != null) {
-                        a(tbPageContext, frsViewData);
-                    }
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(1048579, this, sw4Var) == null) {
+            this.f.setData(sw4Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.hx
+    public View k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.f;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ay
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            this.f.onChangeSkinType(tbPageContext, i);
         }
     }
 }

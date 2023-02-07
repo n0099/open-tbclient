@@ -3,7 +3,7 @@ package com.baidu.searchbox.task.sync.appcreate;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.switchs.ImgUaSwitch;
-import com.baidu.tieba.rl5;
+import com.baidu.tieba.cq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,6 +51,6 @@ public class InitUaTask extends LaunchTask {
         if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !ImgUaSwitch.isOn()) {
             return;
         }
-        System.setProperty("http.agent", rl5.b());
+        System.setProperty("http.agent", cq5.b());
     }
 }

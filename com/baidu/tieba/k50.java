@@ -3,48 +3,41 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.MessageDigest;
+import java.math.BigInteger;
 /* loaded from: classes5.dex */
 public class k50 {
     public static /* synthetic */ Interceptable $ic;
+    public static byte[] a;
+    public static byte[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static byte[] a(String str, String str2) {
-        InterceptResult invokeLL;
+    public static byte[] a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("SHA1");
-                messageDigest.update(str.getBytes(str2));
-                return messageDigest.digest();
-            } catch (Exception unused) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            byte[] bArr = b;
+            if (bArr != null) {
+                return bArr;
             }
+            byte[] byteArray = new BigInteger(j50.c).modPow(new BigInteger(j50.d), new BigInteger(j50.e)).toByteArray();
+            b = byteArray;
+            return byteArray;
         }
-        return (byte[]) invokeLL.objValue;
+        return (byte[]) invokeV.objValue;
     }
 
-    public static byte[] b(byte[] bArr) {
-        InterceptResult invokeL;
+    public static byte[] b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
-                messageDigest.update(bArr);
-                return messageDigest.digest();
-            } catch (Exception unused) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            byte[] bArr = a;
+            if (bArr != null) {
+                return bArr;
             }
+            byte[] byteArray = new BigInteger(j50.a).modPow(new BigInteger(j50.b), new BigInteger(j50.e)).toByteArray();
+            a = byteArray;
+            return byteArray;
         }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static String c(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
-            return f50.b(b(bArr), false);
-        }
-        return (String) invokeL.objValue;
+        return (byte[]) invokeV.objValue;
     }
 }

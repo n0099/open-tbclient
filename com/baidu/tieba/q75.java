@@ -1,185 +1,106 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class q75 implements z95 {
+public class q75 {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<String, Integer> a;
-    public static final ArrayList<Integer> b;
-    public static final HashMap<String, Integer> c;
-    public static final HashMap<String, String> d;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948044762, "Lcom/baidu/tieba/q75;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948044762, "Lcom/baidu/tieba/q75;");
-                return;
-            }
-        }
-        a = new HashMap<>(200);
-        b = new ArrayList<>(180);
-        c = new HashMap<>(180);
-        d = new HashMap<>(180);
-    }
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
 
     public q75() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            try {
-                Class.forName("com.baidu.tieba.n75");
-            } catch (Throwable th) {
-                BdLog.e(th);
-            }
-            try {
-                Class.forName("com.baidu.tieba.qe6");
-            } catch (Throwable th2) {
-                BdLog.e(th2);
-            }
-            try {
-                Class.forName("com.baidu.tieba.se6");
-            } catch (Throwable th3) {
-                BdLog.e(th3);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.z95
-    public int a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            g();
-            return b.size();
+            return this.d;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public void g() {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && d.isEmpty()) {
-            i();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.z95
-    public String b(int i) {
-        InterceptResult invokeI;
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            g();
-            int h = h(i);
-            for (Map.Entry<String, Integer> entry : c.entrySet()) {
-                if (entry.getValue().intValue() == h) {
-                    return entry.getKey();
-                }
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
         }
-        return (String) invokeI.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.z95
-    public String d(int i) {
-        InterceptResult invokeI;
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            g();
-            for (Map.Entry<String, Integer> entry : a.entrySet()) {
-                if (entry.getValue().intValue() == i) {
-                    return entry.getKey();
-                }
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
         }
-        return (String) invokeI.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.z95
-    public int e(String str) {
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static q75 g(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            g();
-            Integer num = a.get(str);
-            if ("video_icon".equals(str)) {
-                return Integer.valueOf((int) R.drawable.ico_link_video).intValue();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            q75 q75Var = new q75();
+            if (jSONObject != null) {
+                q75Var.a = jSONObject.optString("source");
+                q75Var.b = jSONObject.optString("show_text");
+                q75Var.c = jSONObject.optString("show_link");
+                q75Var.d = jSONObject.optString("show_image");
+                q75Var.e = jSONObject.optString("show_time");
+                q75Var.f = jSONObject.optString("show_max");
             }
-            if (num != null) {
-                return num.intValue();
-            }
-            return 0;
+            return q75Var;
         }
-        return invokeL.intValue;
-    }
-
-    @Override // com.baidu.tieba.z95
-    public String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            g();
-            return d.get(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.z95
-    public int f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            g();
-            Integer num = c.get(str);
-            if (num != null) {
-                return num.intValue();
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public final int h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            g();
-            if (i >= 0 && i < b.size()) {
-                return b.get(i).intValue();
-            }
-            return 0;
-        }
-        return invokeI.intValue;
+        return (q75) invokeL.objValue;
     }
 }

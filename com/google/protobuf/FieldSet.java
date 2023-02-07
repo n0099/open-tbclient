@@ -820,7 +820,7 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public FieldSet<FieldDescriptorType> m83clone() {
+    public FieldSet<FieldDescriptorType> m85clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {

@@ -1,19 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
+import android.content.Intent;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class un5 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile un5 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
-    public vn5 c;
 
     public un5() {
         Interceptable interceptable = $ic;
@@ -29,20 +27,26 @@ public class un5 {
         }
     }
 
-    public void a(String str) {
+    public static un5 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || yi.isEmpty(str)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (un5.class) {
+                    if (a == null) {
+                        a = new un5();
+                    }
+                }
+            }
+            return a;
         }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            jSONObject.optInt("error_code");
-            this.b = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
-            vn5 vn5Var = new vn5();
-            this.c = vn5Var;
-            vn5Var.a(jSONObject.optJSONObject("info"));
-        } catch (JSONException e) {
-            e.printStackTrace();
+        return (un5) invokeV.objValue;
+    }
+
+    public void b(Intent intent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, intent) == null) && intent != null && intent.getData() != null && !StringUtils.isNull(intent.getData().getSchemeSpecificPart())) {
+            p35.m().H("key_ad_retarget_tips_app_count_" + intent.getData().getSchemeSpecificPart());
         }
     }
 }

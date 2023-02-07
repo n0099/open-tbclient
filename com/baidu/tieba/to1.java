@@ -1,94 +1,46 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.os.Message;
-import androidx.annotation.Nullable;
-import com.baidu.searchbox.http.request.HttpRequest;
-import java.util.Map;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface to1 {
-    @Nullable
-    String A();
+public class to1 implements qo1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public so1 a;
 
-    String B();
+    public to1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    String C();
+    @Override // com.baidu.tieba.qo1
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.a() : (String) invokeV.objValue;
+    }
 
-    String D();
-
-    long E();
-
-    HttpRequest F(Context context, Map<String, String> map);
-
-    String G();
-
-    String H();
-
-    String I();
-
-    boolean J();
-
-    String K();
-
-    String L();
-
-    HttpRequest M(Context context, Map<String, String> map);
-
-    boolean N();
-
-    String O();
-
-    HttpRequest a(Context context, Map<String, String> map);
-
-    String b();
-
-    String c();
-
-    void d();
-
-    String e();
-
-    String f();
-
-    HttpRequest g(Context context, Map<String, String> map);
-
-    String h();
-
-    String i();
-
-    boolean isDebug();
-
-    String j();
-
-    void k();
-
-    String l();
-
-    String m(String str);
-
-    String n();
-
-    HttpRequest o(Context context, Map<String, String> map);
-
-    String p();
-
-    String q();
-
-    int r();
-
-    HttpRequest s(Context context, Map<String, String> map);
-
-    String t();
-
-    HttpRequest u(Context context, Map<String, String> map);
-
-    String v();
-
-    String w();
-
-    void x(Message message, jr2 jr2Var);
-
-    String y();
-
-    String z(Context context);
+    @Override // com.baidu.tieba.qo1
+    public void a(Context context, ro1 ro1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ro1Var) == null) {
+            so1 so1Var = new so1(context);
+            this.a = so1Var;
+            so1Var.b();
+        }
+    }
 }

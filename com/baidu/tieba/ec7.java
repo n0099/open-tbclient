@@ -1,76 +1,132 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.drawable.Drawable;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ThreadInfo;
 /* loaded from: classes4.dex */
-public class ec7 extends BaseCardInfo {
+public class ec7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId f;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public long c;
-    public String d;
-    public ThreadData e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947729616, "Lcom/baidu/tieba/ec7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static Drawable[] a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947729616, "Lcom/baidu/tieba/ec7;");
-                return;
+            Drawable[] drawableArr = new Drawable[2];
+            char c = 65535;
+            switch (str.hashCode()) {
+                case -1581702362:
+                    if (str.equals("share_num")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case -6986408:
+                    if (str.equals("care_num")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 975378291:
+                    if (str.equals("agree_num")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case 2103869862:
+                    if (str.equals("comment_num")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
             }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        if (c != 3) {
+                            drawableArr[0] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080f82, WebPManager.ResourceStateType.NORMAL);
+                            drawableArr[1] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080fb5, WebPManager.ResourceStateType.NORMAL);
+                        } else {
+                            drawableArr[0] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080f81, WebPManager.ResourceStateType.NORMAL);
+                            drawableArr[1] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080fb4, WebPManager.ResourceStateType.NORMAL);
+                        }
+                    } else {
+                        drawableArr[0] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080f83, WebPManager.ResourceStateType.NORMAL);
+                        drawableArr[1] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080fb6, WebPManager.ResourceStateType.NORMAL);
+                    }
+                } else {
+                    drawableArr[0] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080f85, WebPManager.ResourceStateType.NORMAL);
+                    drawableArr[1] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080fb8, WebPManager.ResourceStateType.NORMAL);
+                }
+            } else {
+                drawableArr[0] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080f84, WebPManager.ResourceStateType.NORMAL);
+                drawableArr[1] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080fb7, WebPManager.ResourceStateType.NORMAL);
+            }
+            return drawableArr;
         }
-        f = BdUniqueId.gen();
+        return (Drawable[]) invokeL.objValue;
     }
 
-    public ec7() {
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public static String b(String str) {
+        InterceptResult invokeL;
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            switch (str.hashCode()) {
+                case -1581702362:
+                    if (str.equals("share_num")) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -6986408:
+                    if (str.equals("care_num")) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 975378291:
+                    if (str.equals("agree_num")) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 2103869862:
+                    if (str.equals("comment_num")) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
             }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        if (c != 3) {
+                            return TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0a81);
+                        }
+                        return TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0a80);
+                    }
+                    return TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0a82);
+                }
+                return TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0a84);
+            }
+            return TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0a83);
         }
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return f;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void c(ThreadInfo threadInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, threadInfo) != null) || threadInfo == null) {
-            return;
-        }
-        ThreadData threadData = new ThreadData();
-        this.e = threadData;
-        threadData.parserProtobuf(threadInfo);
-        this.e.parser_title();
+        return (String) invokeL.objValue;
     }
 }

@@ -13,8 +13,8 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.service.AsyncService;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bj;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.dj;
+import com.baidu.tieba.gj;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -251,8 +251,8 @@ public class BdNetTypeUtil {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65570, null)) == null) {
-            String j = bj.j();
-            if (j.length() < 4 || yi.isEmptyStringAfterTrim(j) || (substring = j.substring(0, 3)) == null || !substring.equals(NATION_CODE)) {
+            String j = gj.j();
+            if (j.length() < 4 || dj.isEmptyStringAfterTrim(j) || (substring = j.substring(0, 3)) == null || !substring.equals(NATION_CODE)) {
                 return 0;
             }
             try {
@@ -575,7 +575,7 @@ public class BdNetTypeUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) {
-            if (getInstance().isWifi || readNetworkOperatorType() == 1 || yi.isEmptyStringAfterTrim(Proxy.getDefaultHost())) {
+            if (getInstance().isWifi || readNetworkOperatorType() == 1 || dj.isEmptyStringAfterTrim(Proxy.getDefaultHost())) {
                 return false;
             }
             return true;

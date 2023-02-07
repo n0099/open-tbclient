@@ -17,8 +17,8 @@ import com.baidu.nps.main.manager.Bundle;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.searchbox.live.frame.IntentData;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.cj0;
-import com.baidu.tieba.dj0;
+import com.baidu.tieba.lj0;
+import com.baidu.tieba.mj0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,7 +34,7 @@ public class ComponentArchManager implements LifecycleObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final CopyOnWriteArrayList<IComponentPlugin> a;
-    public final SimpleArrayMap<Class<? extends dj0>, dj0> b;
+    public final SimpleArrayMap<Class<? extends mj0>, mj0> b;
     public final Context c;
     public final Lifecycle d;
 
@@ -91,7 +91,7 @@ public class ComponentArchManager implements LifecycleObserver {
                 iComponentPlugin.injectContext(this.c);
                 iComponentPlugin.s(this);
                 iComponentPlugin.r();
-                iComponentPlugin.v();
+                iComponentPlugin.u();
                 return;
             }
             throw new NullPointerException("null cannot be cast to non-null type android.app.Activity");
@@ -102,11 +102,11 @@ public class ComponentArchManager implements LifecycleObserver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iComponentPlugin) == null) {
             this.d.removeObserver(iComponentPlugin);
-            iComponentPlugin.g();
+            iComponentPlugin.h();
         }
     }
 
-    public final void d(cj0 event) {
+    public final void d(lj0 event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, event) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
@@ -133,16 +133,16 @@ public class ComponentArchManager implements LifecycleObserver {
         }
     }
 
-    public <T extends dj0> T j(Class<T> clazz) {
+    public <T extends mj0> T j(Class<T> clazz) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, clazz)) == null) {
             Intrinsics.checkNotNullParameter(clazz, "clazz");
-            dj0 dj0Var = this.b.get(clazz);
-            if (!(dj0Var instanceof dj0)) {
-                dj0Var = null;
+            mj0 mj0Var = this.b.get(clazz);
+            if (!(mj0Var instanceof mj0)) {
+                mj0Var = null;
             }
-            return (T) dj0Var;
+            return (T) mj0Var;
         }
         return (T) invokeL.objValue;
     }
@@ -156,10 +156,48 @@ public class ComponentArchManager implements LifecycleObserver {
         }
     }
 
+    public final boolean g(int i, KeyEvent event) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i, event)) == null) {
+            Intrinsics.checkNotNullParameter(event, "event");
+            Iterator<IComponentPlugin> it = this.a.iterator();
+            while (it.hasNext()) {
+                if (it.next().onKeyDown(i, event)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeIL.booleanValue;
+    }
+
+    public final void k(IComponentPlugin component, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048586, this, component, z) == null) {
+            Intrinsics.checkNotNullParameter(component, "component");
+            e(component);
+            b(component);
+            if (z) {
+                this.d.addObserver(component);
+            }
+            this.a.add(component);
+        }
+    }
+
+    public final void m(Class<? extends mj0> clazz, mj0 componentService) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048587, this, clazz, componentService) == null) {
+            Intrinsics.checkNotNullParameter(clazz, "clazz");
+            Intrinsics.checkNotNullParameter(componentService, "componentService");
+            this.b.put(clazz, componentService);
+        }
+    }
+
     public final Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.c;
         }
         return (Context) invokeV.objValue;
@@ -192,44 +230,6 @@ public class ComponentArchManager implements LifecycleObserver {
             n();
             this.b.clear();
             this.a.clear();
-        }
-    }
-
-    public final boolean h(int i, KeyEvent event) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048583, this, i, event)) == null) {
-            Intrinsics.checkNotNullParameter(event, "event");
-            Iterator<IComponentPlugin> it = this.a.iterator();
-            while (it.hasNext()) {
-                if (it.next().onKeyDown(i, event)) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeIL.booleanValue;
-    }
-
-    public final void k(IComponentPlugin component, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048586, this, component, z) == null) {
-            Intrinsics.checkNotNullParameter(component, "component");
-            e(component);
-            b(component);
-            if (z) {
-                this.d.addObserver(component);
-            }
-            this.a.add(component);
-        }
-    }
-
-    public final void m(Class<? extends dj0> clazz, dj0 componentService) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, clazz, componentService) == null) {
-            Intrinsics.checkNotNullParameter(clazz, "clazz");
-            Intrinsics.checkNotNullParameter(componentService, "componentService");
-            this.b.put(clazz, componentService);
         }
     }
 }

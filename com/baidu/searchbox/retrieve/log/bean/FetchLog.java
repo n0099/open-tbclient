@@ -91,8 +91,8 @@ public class FetchLog {
                         reportTaskCheckFail(optString, optString2, optString2, jSONObject);
                         return null;
                     }
-                    String optString4 = optJSONObject.optString(START_TIME);
-                    String optString5 = optJSONObject.optString(END_TIME);
+                    String optString4 = optJSONObject.optString("startTime");
+                    String optString5 = optJSONObject.optString("endTime");
                     long parseLong = Long.parseLong(optString4) * 1000;
                     long parseLong2 = Long.parseLong(optString5) * 1000;
                     ArrayList arrayList = new ArrayList();

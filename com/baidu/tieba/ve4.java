@@ -1,45 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.sd4;
+import android.graphics.Bitmap;
+import android.graphics.Matrix;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ve4 extends se4 {
+public class ve4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ve4() {
+    public static Bitmap a(Bitmap bitmap, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65536, null, bitmap, i, i2)) == null) {
+            if (bitmap == null || i <= 0 || i2 <= 0) {
+                return null;
+            }
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
+            if (width == 0 || height == 0) {
+                return null;
+            }
+            Matrix matrix = new Matrix();
+            matrix.postScale(i / width, i2 / height);
+            try {
+                return Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
+            } catch (Exception | OutOfMemoryError e) {
+                e.printStackTrace();
+                return null;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.sd4
-    public void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, sd4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
-            ue4.b(str, map, map2, jSONObject, new td4(aVar));
-        }
-    }
-
-    @Override // com.baidu.tieba.sd4
-    public void z(String str, Map<String, String> map, Map<String, String> map2, sd4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map, map2, aVar) == null) {
-            ue4.a(str, map, map2, new td4(aVar));
-        }
+        return (Bitmap) invokeLII.objValue;
     }
 }

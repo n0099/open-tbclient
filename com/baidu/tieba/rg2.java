@@ -1,192 +1,186 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.storage.PathType;
+import com.baidu.searchbox.v8engine.V8Engine;
+import com.baidu.searchbox.v8engine.V8ExceptionInfo;
+import com.baidu.searchbox.v8engine.event.EventTarget;
+import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class rg2 implements mc3 {
+public class rg2 implements V8Engine.JavaScriptExceptionDelegate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nc3 a;
+    public eg2 a;
+    public String b;
 
-    public rg2() {
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final boolean d;
+        public transient /* synthetic */ FieldHolder $fh;
+        public JSEvent a;
+        public String b;
+        public String c;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-461875025, "Lcom/baidu/tieba/rg2$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-461875025, "Lcom/baidu/tieba/rg2$a;");
+                    return;
+                }
+            }
+            d = gp1.a;
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.a = new JSEvent("error");
+        }
+
+        public JSEvent a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("message", this.b);
+                    jSONObject.put("stack", this.c);
+                } catch (JSONException e) {
+                    if (d) {
+                        Log.e("V8Exception", Log.getStackTraceString(e));
+                    }
+                }
+                if (jSONObject.length() > 0) {
+                    this.a.data = jSONObject;
+                }
+                return this.a;
+            }
+            return (JSEvent) invokeV.objValue;
+        }
+
+        public a b(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                this.b = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a c(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+                this.c = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948120588, "Lcom/baidu/tieba/rg2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948120588, "Lcom/baidu/tieba/rg2;");
+                return;
+            }
+        }
+        boolean z = gp1.a;
+    }
+
+    public rg2(eg2 eg2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {eg2Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        tg2.X(tg2.p(), tg2.t());
+        this.b = "";
+        this.a = eg2Var;
     }
 
-    @Override // com.baidu.tieba.mc3
-    @NonNull
-    public synchronized nc3 d() {
-        InterceptResult invokeV;
-        nc3 nc3Var;
+    public final void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this) {
-                if (this.a == null) {
-                    this.a = new sg2();
-                }
-                nc3Var = this.a;
-            }
-            return nc3Var;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, str2) != null) || this.a.n() == null) {
+            return;
         }
-        return (nc3) invokeV.objValue;
+        EventTarget n = this.a.n();
+        a aVar = new a();
+        aVar.b(str + "\n" + str2);
+        aVar.c("");
+        n.dispatchEvent(aVar.a());
     }
 
-    @Override // com.baidu.tieba.mc3
-    public String f() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.v8engine.V8Engine.JavaScriptExceptionDelegate
+    @SuppressLint({"SwanDebugLog"})
+    public void onV8ExceptionCallBack(V8ExceptionInfo v8ExceptionInfo) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return tg2.P(gg2.USER_DATA_PATH);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v8ExceptionInfo) != null) || v8ExceptionInfo == null) {
+            return;
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.mc3
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return tg2.N("bdfile://tmp");
+        String str2 = "";
+        if (TextUtils.isEmpty(v8ExceptionInfo.exceptionMsg)) {
+            str = "";
+        } else {
+            str = v8ExceptionInfo.exceptionMsg;
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.mc3
-    public String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return tg2.Y(str);
+        if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionTrace)) {
+            str2 = v8ExceptionInfo.exceptionTrace;
         }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.mc3
-    public String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return tg2.N("bdfile://tmp" + File.separator + str);
+        Log.e("V8Exception", this.a.m0() + "msg: " + str + " ,stack: " + str2);
+        this.a.y().a(str);
+        if ((TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) || this.b.equals(str)) {
+            return;
         }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.mc3
-    public String e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (rb3.s(str) == PathType.RELATIVE) {
-                return tg2.Y(str);
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.mc3
-    public String g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            return tg2.Z(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.mc3
-    public String h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            return g(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.mc3
-    public String i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            String B = tg2.B(str);
-            if (TextUtils.isEmpty(B)) {
-                return null;
-            }
-            return B;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.mc3
-    public String m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            return e(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.mc3
-    public boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                if (!gg2.USER_DATA_PATH.equals(str)) {
-                    if (str.startsWith(gg2.USER_DATA_PATH + File.separator)) {
-                    }
-                }
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.mc3
-    public boolean l(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                if (str.startsWith("bdfile://tmp" + File.separator) || "bdfile://tmp".equals(str)) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.mc3
-    public boolean j(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048585, this, str, z)) == null) {
-            return tg2.V(str);
-        }
-        return invokeLZ.booleanValue;
+        this.b = str;
+        a(str, str2);
+        hq1 j = es2.j();
+        j.e(str + ";" + str2);
+        qf3.b(v8ExceptionInfo);
+        es2.i().r(v8ExceptionInfo);
     }
 }

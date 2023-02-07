@@ -1,314 +1,223 @@
 package com.baidu.tieba;
 
-import android.database.ContentObserver;
-import android.database.Cursor;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.MutableContextWrapper;
+import android.graphics.Bitmap;
 import android.net.Uri;
-import android.os.Bundle;
-import androidx.core.view.InputDeviceCompat;
+import android.os.Build;
+import android.webkit.ValueCallback;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.pm.BundleInfo;
-import com.baidu.nps.pm.BundleInfoGroup;
-import com.baidu.nps.utils.Constant;
-import com.baidu.nps.utils.ContextHolder;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.webview.NadNativeBrowserView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public class ba1 {
+public final class ba1 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
-    public static ba1 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public w91 a;
+    public NadNativeBrowserView b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947638135, "Lcom/baidu/tieba/ba1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    @RequiresApi(21)
+    /* loaded from: classes3.dex */
+    public static final class a implements a71 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final WebChromeClient.FileChooserParams a;
+
+        public a(WebChromeClient.FileChooserParams fileChooserParams) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fileChooserParams};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947638135, "Lcom/baidu/tieba/ba1;");
-                return;
-            }
+            this.a = fileChooserParams;
         }
-        a = new ba1();
+
+        @Override // com.baidu.tieba.a71
+        public Intent a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                WebChromeClient.FileChooserParams fileChooserParams = this.a;
+                if (fileChooserParams != null) {
+                    return fileChooserParams.createIntent();
+                }
+                return null;
+            }
+            return (Intent) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.a71
+        public String[] b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                WebChromeClient.FileChooserParams fileChooserParams = this.a;
+                if (fileChooserParams != null) {
+                    return fileChooserParams.getAcceptTypes();
+                }
+                return null;
+            }
+            return (String[]) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.a71
+        public int c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                WebChromeClient.FileChooserParams fileChooserParams = this.a;
+                if (fileChooserParams != null) {
+                    return fileChooserParams.getMode();
+                }
+                return -1;
+            }
+            return invokeV.intValue;
+        }
     }
 
-    public ba1() {
+    public ba1(NadNativeBrowserView webView, w91 w91Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {webView, w91Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(webView, "webView");
+        this.a = w91Var;
+        this.b = webView;
     }
 
-    public static ba1 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
-        }
-        return (ba1) invokeV.objValue;
-    }
-
-    public Bundle c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return a(wa1.b(), "download_all", null, null);
-        }
-        return (Bundle) invokeV.objValue;
-    }
-
-    public Bundle f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return a(wa1.b(), "fetch", null, null);
-        }
-        return (Bundle) invokeV.objValue;
-    }
-
-    public Bundle k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return a(wa1.b(), "presetinfo", null, null);
-        }
-        return (Bundle) invokeV.objValue;
-    }
-
-    public final Bundle a(Uri uri, String str, String str2, Bundle bundle) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, uri, str, str2, bundle)) == null) {
-            try {
-                return ContextHolder.getApplicationContext().getContentResolver().call(uri, str, str2, bundle);
-            } catch (IllegalArgumentException e) {
-                if (oa1.a()) {
-                    e.printStackTrace();
-                }
-                Bundle bundle2 = new Bundle();
-                bundle2.putInt(Constant.TAG.RET_CODE, 56);
-                return bundle2;
-            }
-        }
-        return (Bundle) invokeLLLL.objValue;
-    }
-
-    public void b(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            a(wa1.b(), "cleardeprecated", null, bundle);
-        }
-    }
-
-    public Bundle d(BundleInfo bundleInfo) {
+    public final Activity a(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bundleInfo)) == null) {
-            Uri b = wa1.b();
-            Bundle bundle = new Bundle();
-            bundle.putParcelable(Constant.TAG.PARAM_VALUE, BundleInfo.toContentValues(bundleInfo));
-            return a(b, "downloadBackground", null, bundle);
-        }
-        return (Bundle) invokeL.objValue;
-    }
-
-    public Bundle e(BundleInfo bundleInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bundleInfo)) == null) {
-            Uri b = wa1.b();
-            Bundle bundle = new Bundle();
-            bundle.putParcelable(Constant.TAG.PARAM_VALUE, BundleInfo.toContentValues(bundleInfo));
-            return a(b, "download", null, bundle);
-        }
-        return (Bundle) invokeL.objValue;
-    }
-
-    public Bundle m(BundleInfo bundleInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, bundleInfo)) == null) {
-            Uri b = wa1.b();
-            Bundle bundle = new Bundle();
-            bundle.putParcelable(Constant.TAG.PARAM_VALUE, BundleInfo.toContentValues(bundleInfo));
-            return a(b, "installonly", null, bundle);
-        }
-        return (Bundle) invokeL.objValue;
-    }
-
-    public Bundle n(BundleInfo bundleInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, bundleInfo)) == null) {
-            Uri b = wa1.b();
-            Bundle bundle = new Bundle();
-            bundle.putParcelable(Constant.TAG.PARAM_VALUE, BundleInfo.toContentValues(bundleInfo));
-            return a(b, "localinstall", null, bundle);
-        }
-        return (Bundle) invokeL.objValue;
-    }
-
-    public Bundle o(BundleInfo bundleInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, bundleInfo)) == null) {
-            Uri b = wa1.b();
-            Bundle bundle = new Bundle();
-            bundle.putParcelable(Constant.TAG.PARAM_VALUE, BundleInfo.toContentValues(bundleInfo));
-            return a(b, "presetinstallsingle", null, bundle);
-        }
-        return (Bundle) invokeL.objValue;
-    }
-
-    public void q(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            Uri b = wa1.b();
-            Bundle bundle = new Bundle();
-            bundle.putString(Constant.TAG.PARAM_PKG_NAME, str);
-            a(b, "record", null, bundle);
-        }
-    }
-
-    public void s(BundleInfo bundleInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, bundleInfo) == null) {
-            Uri b = wa1.b();
-            Bundle bundle = new Bundle();
-            bundle.putParcelable(Constant.TAG.PARAM_VALUE, BundleInfo.toContentValues(bundleInfo));
-            ContextHolder.getApplicationContext().getContentResolver().call(b, "resettype", (String) null, bundle);
-        }
-    }
-
-    public Map<String, BundleInfoGroup> g(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
-            Cursor query = ContextHolder.getApplicationContext().getContentResolver().query(wa1.b(), null, "", null, null);
-            Map<String, BundleInfoGroup> u = u(BundleInfo.toBundleInfoList(query), j);
-            try {
-                query.close();
-            } catch (Exception unused) {
-            }
-            return u;
-        }
-        return (Map) invokeJ.objValue;
-    }
-
-    public List<BundleInfo> h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            Cursor query = ContextHolder.getApplicationContext().getContentResolver().query(wa1.b(), null, "pkg_name = ? ", new String[]{str}, null);
-            List<BundleInfo> bundleInfoList = BundleInfo.toBundleInfoList(query);
-            try {
-                query.close();
-            } catch (Exception unused) {
-            }
-            return bundleInfoList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public boolean p(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            Uri b = wa1.b();
-            Bundle bundle = new Bundle();
-            bundle.putString(Constant.TAG.PARAM_PKG_NAME, str);
-            Bundle a2 = a(b, "check", null, bundle);
-            if (a2 == null || a2.getInt(Constant.TAG.PARAM_PKG_STUS, -1) != 47) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public BundleInfoGroup i(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, j)) == null) {
-            Cursor query = ContextHolder.getApplicationContext().getContentResolver().query(wa1.b(), null, "pkg_name = ? ", new String[]{str}, null);
-            BundleInfoGroup t = t(BundleInfo.toBundleInfoList(query), j);
-            try {
-                query.close();
-            } catch (Exception unused) {
-            }
-            return t;
-        }
-        return (BundleInfoGroup) invokeLJ.objValue;
-    }
-
-    public Bundle l(BundleInfo bundleInfo, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048586, this, bundleInfo, z)) == null) {
-            Uri b = wa1.b();
-            Bundle bundle = new Bundle();
-            bundle.putParcelable(Constant.TAG.PARAM_VALUE, BundleInfo.toContentValues(bundleInfo));
-            bundle.putBoolean(Constant.TAG.PARAM_MULTI_BUNDLE_ENABLE, z);
-            return a(b, "install", null, bundle);
-        }
-        return (Bundle) invokeLZ.objValue;
-    }
-
-    public void r(boolean z, ContentObserver contentObserver) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048592, this, z, contentObserver) == null) {
-            ContextHolder.getApplicationContext().getContentResolver().registerContentObserver(wa1.b(), z, contentObserver);
-        }
-    }
-
-    public final BundleInfoGroup t(List<BundleInfo> list, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048594, this, list, j)) == null) {
-            BundleInfoGroup bundleInfoGroup = new BundleInfoGroup(j);
-            for (BundleInfo bundleInfo : list) {
-                bundleInfoGroup.updateBundleByType(bundleInfo.getType(), bundleInfo);
-            }
-            return bundleInfoGroup;
-        }
-        return (BundleInfoGroup) invokeLJ.objValue;
-    }
-
-    public final Map<String, BundleInfoGroup> u(List<BundleInfo> list, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048595, this, list, j)) == null) {
-            HashMap hashMap = new HashMap();
-            if (list == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, webView)) == null) {
+            if (webView == null) {
                 return null;
             }
-            for (BundleInfo bundleInfo : list) {
-                BundleInfoGroup bundleInfoGroup = (BundleInfoGroup) hashMap.get(bundleInfo.getPackageName());
-                if (bundleInfoGroup == null) {
-                    bundleInfoGroup = new BundleInfoGroup(j);
-                    hashMap.put(bundleInfo.getPackageName(), bundleInfoGroup);
+            if (webView.getContext() instanceof Activity) {
+                Context context = webView.getContext();
+                if (context != null) {
+                    return (Activity) context;
                 }
-                bundleInfoGroup.updateBundleByType(bundleInfo.getType(), bundleInfo);
+                throw new NullPointerException("null cannot be cast to non-null type android.app.Activity");
+            } else if (!(webView.getContext() instanceof MutableContextWrapper)) {
+                return null;
+            } else {
+                Context context2 = webView.getContext();
+                if (context2 != null) {
+                    if (!(((MutableContextWrapper) context2).getBaseContext() instanceof Activity)) {
+                        return null;
+                    }
+                    Context context3 = webView.getContext();
+                    if (context3 != null) {
+                        Context baseContext = ((MutableContextWrapper) context3).getBaseContext();
+                        if (baseContext != null) {
+                            return (Activity) baseContext;
+                        }
+                        throw new NullPointerException("null cannot be cast to non-null type android.app.Activity");
+                    }
+                    throw new NullPointerException("null cannot be cast to non-null type android.content.MutableContextWrapper");
+                }
+                throw new NullPointerException("null cannot be cast to non-null type android.content.MutableContextWrapper");
             }
-            return hashMap;
         }
-        return (Map) invokeLJ.objValue;
+        return (Activity) invokeL.objValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public Bitmap getDefaultVideoPoster() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            try {
+                Bitmap createBitmap = Bitmap.createBitmap(1, 1, Bitmap.Config.RGB_565);
+                createBitmap.eraseColor(0);
+                return createBitmap;
+            } catch (Exception unused) {
+                return super.getDefaultVideoPoster();
+            }
+        }
+        return (Bitmap) invokeV.objValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onProgressChanged(WebView webView, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, webView, i) == null) {
+            super.onProgressChanged(webView, i);
+            w91 w91Var = this.a;
+            if (w91Var != null) {
+                w91Var.a(this.b, i);
+            }
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onReceivedTitle(WebView webView, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, webView, str) == null) {
+            super.onReceivedTitle(webView, str);
+            w91 w91Var = this.a;
+            if (w91Var != null) {
+                w91Var.b(this.b, str);
+            }
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onRequestFocus(WebView webView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, webView) == null) {
+            super.onRequestFocus(webView);
+            w91 w91Var = this.a;
+            if (w91Var != null) {
+                w91Var.c(this.b);
+            }
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, webView, valueCallback, fileChooserParams)) == null) {
+            this.b.V();
+            Activity a2 = a(webView);
+            if (a2 != null && Build.VERSION.SDK_INT >= 21) {
+                return d71.h(a2, valueCallback, new a(fileChooserParams));
+            }
+            if (valueCallback != null) {
+                valueCallback.onReceiveValue(null);
+            }
+            return false;
+        }
+        return invokeLLL.booleanValue;
     }
 }

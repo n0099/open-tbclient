@@ -1,98 +1,190 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.net.Uri;
+import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.browser.newshare.ThreadAchievementShareInfo;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.cyberplayer.sdk.extractor.CyberExtractor;
+import com.baidu.tieba.en2;
+import com.baidu.tieba.tm2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class nq4 {
+public class nq4 implements en2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public final View b;
-    public final ThreadAchievementShareInfo.ParamBean c;
-    public TbImageView d;
-    public ImageView e;
-    public TextView f;
-    public TextView g;
-    public TextView h;
-    public TextView i;
+    public String a;
+    public en2.a b;
+    public CyberExtractor c;
+    public volatile boolean d;
 
-    public nq4(Context context, ThreadAchievementShareInfo threadAchievementShareInfo) {
+    @Override // com.baidu.tieba.tm2
+    @Nullable
+    public String j0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ Map b;
+        public final /* synthetic */ nq4 c;
+
+        public a(nq4 nq4Var, String str, Map map) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nq4Var, str, map};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = nq4Var;
+            this.a = str;
+            this.b = map;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.c.d) {
+                    if (nq4.e) {
+                        Log.d("MediaExtractorWidget", "media extractor already released");
+                        return;
+                    }
+                    return;
+                }
+                this.c.c.setDataSource(this.c.getContext(), Uri.parse(yp2.a(this.a)), this.b);
+                Bundle metaData = this.c.c.getMetaData();
+                if (this.c.b != null) {
+                    this.c.b.a(metaData);
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948011096, "Lcom/baidu/tieba/nq4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948011096, "Lcom/baidu/tieba/nq4;");
+                return;
+            }
+        }
+        e = gp1.a;
+    }
+
+    @Override // com.baidu.tieba.tm2
+    @Nullable
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return ds2.c();
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.en2
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.d = true;
+            CyberExtractor cyberExtractor = this.c;
+            if (cyberExtractor != null) {
+                cyberExtractor.release();
+            }
+            this.c = null;
+            en2.a aVar = this.b;
+            if (aVar != null) {
+                aVar.onRelease();
+            }
+            this.b = null;
+        }
+    }
+
+    public nq4(ZeusPluginFactory.Invoker invoker, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, threadAchievementShareInfo};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {invoker, str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = context;
-        this.b = LayoutInflater.from(context).inflate(R.layout.video_interaction_achievement, (ViewGroup) null);
-        this.c = threadAchievementShareInfo.getParams();
-        c();
-        b();
+        this.a = str;
+        this.d = false;
     }
 
-    public View a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.tm2
+    public void A(@NonNull tm2.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public final void b() {
-        ThreadAchievementShareInfo.ParamBean paramBean;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (paramBean = this.c) != null && paramBean.getVideo_info() != null && !TextUtils.isEmpty(this.c.getVideo_info().getThumbnail_url())) {
-            this.d.K(this.c.getVideo_info().getThumbnail_url(), 10, false);
-            this.i.setText(StringHelper.numFormatOverWanWithNegative(this.c.getAgree_num()));
-            this.f.setText(StringHelper.numFormatOverWanWithNegative(this.c.getPost_num()));
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            this.c = new CyberExtractor(true);
+            aVar.a(true);
         }
     }
 
-    public final void c() {
+    @Override // com.baidu.tieba.en2
+    public void w(en2.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f = (TextView) this.b.findViewById(R.id.comment_num);
-            this.g = (TextView) this.b.findViewById(R.id.comment_desc);
-            this.h = (TextView) this.b.findViewById(R.id.praise_desc);
-            TextView textView = (TextView) this.b.findViewById(R.id.praise_num);
-            this.i = textView;
-            textView.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
-            this.f.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
-            this.h.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            this.g.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.video_img);
-            this.d = tbImageView;
-            tbImageView.setDefaultBgResource(R.color.transparent);
-            this.d.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.d.setPlaceHolder(2);
-            ImageView imageView = (ImageView) this.b.findViewById(R.id.play_icon);
-            this.e = imageView;
-            imageView.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_play44_svg, R.color.CAM_X0101, null));
+        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
+            this.b = aVar;
         }
+    }
+
+    @Override // com.baidu.tieba.en2
+    public void k(String str, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048580, this, str, map) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        ql3.j(new a(this, str, map), "loadMetadata");
     }
 }

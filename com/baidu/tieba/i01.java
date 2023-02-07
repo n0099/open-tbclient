@@ -1,65 +1,67 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.player.event.SystemEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public class i01 {
+public final class i01 extends c01 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a() {
+    @Override // com.baidu.tieba.ww0
+    public int[] getSubscribeEvent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return l01.l().getString("key_clarity_lifecycle", "");
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new int[]{1} : (int[]) invokeV.objValue;
     }
 
-    public static String b() {
-        InterceptResult invokeV;
+    public i01() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return l01.l().getString("key_clarity_login", "");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        return (String) invokeV.objValue;
     }
 
-    public static String c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.c01, com.baidu.tieba.ww0
+    public void n(vv0 event) {
+        bt0 it;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return l01.l().getString("key_clarity_mobile", "");
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
+            Intrinsics.checkNotNullParameter(event, "event");
+            if (Intrinsics.areEqual(SystemEvent.ACTION_VOLUME_CHANGED, event.c()) && (it = i()) != null) {
+                Intrinsics.checkNotNullExpressionValue(it, "player");
+                if (!it.a0() && !it.Q()) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (z) {
+                    it = null;
+                }
+                if (it != null) {
+                    int g = event.g(5);
+                    Intrinsics.checkNotNullExpressionValue(it, "it");
+                    nu0 y = it.y();
+                    Intrinsics.checkNotNullExpressionValue(y, "it.playerCallbackManager");
+                    hu0 c = y.c();
+                    if (c != null) {
+                        c.a(g);
+                    }
+                }
+            }
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return l01.l().getString("key_clarity_smart", "");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return l01.l().getString("key_clarity_wifi", "");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return l01.l().getInt("key_clarity_user", -2);
-        }
-        return invokeV.intValue;
     }
 }

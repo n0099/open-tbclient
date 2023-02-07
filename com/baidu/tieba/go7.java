@@ -1,75 +1,15 @@
 package com.baidu.tieba;
-
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import tbclient.NewFloorInfo;
 /* loaded from: classes4.dex */
-public class go7 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface go7 {
+    boolean a();
 
-    public static void a(xn7 xn7Var, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65536, null, xn7Var, i) == null) && xn7Var != null && xn7Var.y() != null && !ListUtils.isEmpty(xn7Var.m()) && xn7Var.m().size() >= 2) {
-            List<NewFloorInfo> m = xn7Var.m();
-            if (m.size() > 2) {
-                if (StringHelper.equals(xn7Var.y().getUserId(), TbadkCoreApplication.getCurrentAccount())) {
-                    if (m.get(1) != null) {
-                        if (m.get(1).is_floor.intValue() == 0) {
-                            b(xn7Var, 12, i);
-                            return;
-                        } else if (m.get(1).is_floor.intValue() == 1) {
-                            b(xn7Var, 13, i);
-                            return;
-                        } else {
-                            return;
-                        }
-                    }
-                    return;
-                } else if (m.get(1) != null) {
-                    if (m.get(1).is_floor.intValue() == 0) {
-                        if (xn7Var.s() != null) {
-                            if (StringHelper.equals(xn7Var.s().getUserId(), TbadkCoreApplication.getCurrentAccount())) {
-                                b(xn7Var, 14, i);
-                                return;
-                            } else {
-                                b(xn7Var, 15, i);
-                                return;
-                            }
-                        }
-                        return;
-                    } else if (m.get(1).is_floor.intValue() == 1) {
-                        b(xn7Var, 16, i);
-                        return;
-                    } else {
-                        return;
-                    }
-                } else {
-                    return;
-                }
-            }
-            b(xn7Var, 11, i);
-        }
-    }
+    void b();
 
-    public static void b(xn7 xn7Var, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(65537, null, xn7Var, i, i2) == null) && xn7Var != null && xn7Var.v() != null && xn7Var.o() != null) {
-            StatisticItem statisticItem = new StatisticItem("c12928");
-            statisticItem.param("tid", xn7Var.o().f);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("fid", xn7Var.o().e);
-            statisticItem.param("fname", xn7Var.o().d);
-            statisticItem.param("pid", xn7Var.q());
-            statisticItem.param("obj_type", i);
-            statisticItem.param("obj_locate", i2);
-            TiebaStatic.log(statisticItem);
-        }
-    }
+    boolean isForeground();
+
+    void setRecoding(boolean z);
+
+    void startRecord();
+
+    void stopRecord();
 }

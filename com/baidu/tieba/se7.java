@@ -1,117 +1,105 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.framework.task.SocketMessageTask;
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.message.ResponseCheckUserMaskMessage;
-import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
-import com.baidu.tbadk.newFriends.ResponseAddFriendMessage;
-import com.baidu.tbadk.newFriends.ResponseApplyMessage;
-import com.baidu.tbadk.newFriends.ResponseDeleteFriendMessage;
-import com.baidu.tieba.im.message.ResponseGetMaskInfoMessage;
-import com.baidu.tieba.im.message.ResponsePullMessage;
-import com.baidu.tieba.im.push.PushResponseMessage;
-import com.baidu.tieba.im.pushNotify.PushNotifyMessage;
-import com.baidu.tieba.im.pushNotify.PushNotifyMessageDecoder;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.card.ala.secondfloor.AlaRecommendLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
 /* loaded from: classes6.dex */
-public class se7 {
+public class se7 extends hx<sw4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public AlaRecommendLayout f;
+    public int g;
 
-    /* loaded from: classes6.dex */
-    public static class a extends pb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public se7(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-
-        public SocketResponsedMessage c(SocketResponsedMessage socketResponsedMessage) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
-                if (socketResponsedMessage instanceof PushNotifyMessageDecoder) {
-                    PushNotifyMessageDecoder pushNotifyMessageDecoder = (PushNotifyMessageDecoder) socketResponsedMessage;
-                    if (pushNotifyMessageDecoder.getMsgList() != null) {
-                        Iterator<PushNotifyMessage> it = pushNotifyMessageDecoder.getMsgList().iterator();
-                        while (it.hasNext()) {
-                            MessageManager.getInstance().dispatchResponsedMessageToUI(it.next());
-                        }
-                    }
-                }
-                return socketResponsedMessage;
-            }
-            return (SocketResponsedMessage) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
-        /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.ResponsedMessage' to match base method */
-        @Override // com.baidu.tieba.mb
-        public /* bridge */ /* synthetic */ SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
-            SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
-            c(socketResponsedMessage2);
-            return socketResponsedMessage2;
+        this.g = 3;
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().b instanceof AlaRecommendLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().b.getParent() == null) {
+            this.f = (AlaRecommendLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().b;
+        } else {
+            this.f = new AlaRecommendLayout(tbPageContext.getPageActivity());
         }
     }
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            b();
-            c();
-        }
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            te7.b(104102, ResponseUpdateMaskInfoMessage.class, false);
-            te7.b(202003, ResponsePullMessage.class, false).f(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
-            te7.b(202009, PushResponseMessage.class, false);
-            te7.b(202006, PushNotifyMessageDecoder.class, false);
-            te7.b(104103, ResponseGetMaskInfoMessage.class, false);
-            te7.b(304100, ResponseAddFriendMessage.class, false);
-            te7.b(304102, ResponseDeleteFriendMessage.class, false);
-            te7.b(304103, ResponseApplyMessage.class, false);
-            te7.b(104104, ResponseCheckUserMaskMessage.class, false);
-            MessageManager.getInstance().registerStickyMode(2001120);
-        }
-    }
-
-    public static boolean c() {
+    @Override // com.baidu.tieba.hx
+    public View k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            MessageManager.getInstance().addResponsedMessageRule(new a(202006));
-            MessageManager.getInstance().addResponsedMessageRule(new vh7());
-            MessageManager.getInstance().addResponsedMessageRule(new zh7());
-            MessageManager.getInstance().addMessageRule(new uh7());
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.f;
         }
-        return invokeV.booleanValue;
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ay
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            if (this.g != i) {
+                this.f.d(i);
+                q(this.f, 3);
+            }
+            this.g = i;
+        }
+    }
+
+    public pd6 s(sw4 sw4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, sw4Var)) == null) {
+            if (sw4Var instanceof be7) {
+                be7 be7Var = (be7) sw4Var;
+                return new pd6(be7Var.getType(), be7Var.c(), "recommend");
+            } else if (sw4Var instanceof g97) {
+                g97 g97Var = (g97) sw4Var;
+                return new pd6(g97Var.getType(), g97Var.c(), ImageViewerConfig.FROM_CONCERN);
+            } else {
+                return new pd6();
+            }
+        }
+        return (pd6) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.zx
+    /* renamed from: t */
+    public void a(sw4 sw4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, sw4Var) == null) {
+            pd6 s = s(sw4Var);
+            if (s != null && !ListUtils.isEmpty(s.c())) {
+                this.f.setData(s);
+                this.f.d(TbadkCoreApplication.getInst().getSkinType());
+                this.f.setVisibility(0);
+                return;
+            }
+            this.f.setVisibility(8);
+        }
     }
 }

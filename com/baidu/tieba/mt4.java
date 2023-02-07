@@ -1,169 +1,151 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
+import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
+import com.baidu.tbadk.core.data.AlaUserInfoData;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.FrsPage.Banner;
 /* loaded from: classes5.dex */
 public class mt4 {
     public static /* synthetic */ Interceptable $ic;
+    public static View.OnClickListener a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public String c;
-    public int d;
-    public String e;
-    public String f;
-    public String g;
-    public float h;
-    public boolean i;
 
-    public mt4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public static class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            String str;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2 != null && view2.getTag() != null && (view2.getTag() instanceof kt4)) {
+                if (!BdNetTypeUtil.isNetWorkAvailable()) {
+                    ej.P(view2.getContext(), R.string.no_network_guide);
+                    return;
+                }
+                kt4 kt4Var = (kt4) view2.getTag();
+                AlaUserInfoData alaUserInfoData = kt4Var.a;
+                if (alaUserInfoData == null) {
+                    return;
+                }
+                AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
+                long j = alaUserInfoData.anchor_live;
+                if (j != 0) {
+                    alaLiveInfoCoreData.liveID = j;
+                } else {
+                    long j2 = alaUserInfoData.enter_live;
+                    if (j2 != 0) {
+                        alaLiveInfoCoreData.liveID = j2;
+                    } else {
+                        long j3 = alaUserInfoData.live_id;
+                        if (j3 != 0) {
+                            alaLiveInfoCoreData.liveID = j3;
+                        } else {
+                            return;
+                        }
+                    }
+                }
+                int i = kt4Var.b;
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                if (i != 1) {
+                    if (i != 2 && i != 3 && i != 4) {
+                        if (i != 5) {
+                            if (i == 7) {
+                                if (alaUserInfoData.ala_id != 0) {
+                                    TiebaStatic.log(new StatisticItem("c11855").param("uid", currentAccount).param("click_uid", alaUserInfoData.ala_id).param(IFavorStateServiceKt.KEY_FAVOR_LIVE_STATUS, alaUserInfoData.live_status));
+                                }
+                                TiebaStatic.log(new StatisticItem("c12542"));
+                                if (kt4Var.c && !StringUtils.isNull(alaUserInfoData.sex)) {
+                                    BdToast b = BdToast.b(view2.getContext(), String.format(view2.getContext().getString(R.string.person_privacy_toast), alaUserInfoData.sex));
+                                    b.g(BdToast.ToastIcon.FAILURE);
+                                    b.k();
+                                    return;
+                                }
+                            }
+                        } else {
+                            TiebaStatic.log(new StatisticItem("c11852").param("uid", currentAccount));
+                        }
+                    } else {
+                        TiebaStatic.log(new StatisticItem("c11851").param("uid", currentAccount));
+                    }
+                } else {
+                    TiebaStatic.log(new StatisticItem("c11850").param("uid", currentAccount));
+                }
+                int i2 = kt4Var.b;
+                if (i2 == 5) {
+                    str = AlaLiveRoomActivityConfig.FROM_TYPE_PERSON_ATTENTION;
+                } else if (i2 == 7) {
+                    str = AlaLiveRoomActivityConfig.FROM_TYPE_PERSON_PLAY;
+                } else {
+                    str = AlaLiveRoomActivityConfig.FROM_TYPE_TAIL_LIGHT;
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2911003, new AlaLiveRoomActivityConfig(view2.getContext(), alaLiveInfoCoreData, str, null, false, "")));
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947984188, "Lcom/baidu/tieba/mt4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947984188, "Lcom/baidu/tieba/mt4;");
                 return;
             }
         }
-        this.i = true;
+        a = new a();
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public static TextView a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (StringUtils.isNull(this.c)) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (context == null || MessageManager.getInstance().findTask(2911003) == null) {
+                return null;
             }
-            int i = this.d;
-            if (i == 1) {
-                int i2 = this.a;
-                if (i2 != 1 && i2 != 4 && i2 != 2 && i2 != 3) {
-                    return false;
-                }
-                return true;
-            } else if (i != 2 || StringUtils.isNull(this.e)) {
-                return false;
-            } else {
-                return true;
-            }
+            TextView textView = (TextView) LayoutInflater.from(context).inflate(R.layout.ala_tail_view_layout, (ViewGroup) null);
+            textView.setOnClickListener(a);
+            return textView;
         }
-        return invokeV.booleanValue;
-    }
-
-    public final void f(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            String[] split = str.split(",");
-            if (split != null && split.length >= 2) {
-                int e = yg.e(split[0], 1);
-                int e2 = yg.e(split[1], 1);
-                if (e2 != 0) {
-                    this.h = e / e2;
-                }
-            }
-        } catch (Exception e3) {
-            BdLog.e(e3.getMessage());
-        }
-    }
-
-    public void h(Banner banner) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, banner) != null) || banner == null) {
-            return;
-        }
-        this.a = banner.banner_type.intValue();
-        this.b = banner.banner_url;
-        this.c = banner.value;
-        this.d = banner.type.intValue();
-        this.e = banner.desc;
-        banner.template_id.intValue();
-        this.f = banner.obj_id;
-        String str = banner.tag_name;
-        this.g = banner.tag_name_url;
-        f(banner.tag_name_wh);
-    }
-
-    public void g(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        try {
-            this.a = jSONObject.optInt("bannerType");
-            this.b = jSONObject.optString("bannerUrl");
-            this.c = jSONObject.optString("value");
-            this.d = jSONObject.optInt("type");
-            this.e = jSONObject.optString("desc");
-            jSONObject.optInt("template_id");
-            this.f = jSONObject.optString("obj_id");
-            jSONObject.optString("tag_name");
-            this.g = jSONObject.optString("tag_name_url");
-            f(jSONObject.optString("tag_name_wh"));
-        } catch (Exception e) {
-            BdLog.e(e.toString());
-        }
+        return (TextView) invokeL.objValue;
     }
 }

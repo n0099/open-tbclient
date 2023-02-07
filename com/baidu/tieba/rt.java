@@ -1,61 +1,55 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Base64;
+import android.util.DisplayMetrics;
+import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.nio.charset.Charset;
 /* loaded from: classes6.dex */
 public class rt {
     public static /* synthetic */ Interceptable $ic;
+    public static final DisplayMetrics a;
+    public static final float b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            if (bArr == null) {
-                return "";
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448316331, "Lcom/baidu/tieba/rt;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return new String(bArr, Charset.forName("UTF-8"));
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448316331, "Lcom/baidu/tieba/rt;");
+                return;
+            }
         }
-        return (String) invokeL.objValue;
+        DisplayMetrics displayMetrics = rr.c.h().getAppContext().getResources().getDisplayMetrics();
+        a = displayMetrics;
+        b = displayMetrics.density;
     }
 
-    public static byte[] b(String str) {
-        InterceptResult invokeL;
+    public static int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new byte[0];
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            int identifier = rr.c.h().getAppContext().getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
+            int i = 0;
+            if (identifier > 0) {
+                try {
+                    i = rr.c.h().getAppContext().getResources().getDimensionPixelSize(identifier);
+                } catch (Exception unused) {
+                }
             }
-            return str.getBytes(Charset.forName("UTF-8"));
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static byte[] c(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
-            if (bArr == null) {
-                return new byte[0];
+            if (i == 0) {
+                return (int) (b * 25.0f);
             }
-            return Base64.encode(bArr, 2);
+            return i;
         }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static byte[] d(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            if (bArr != null && bArr.length != 0) {
-                return Base64.decode(bArr, 2);
-            }
-            return new byte[0];
-        }
-        return (byte[]) invokeL.objValue;
+        return invokeV.intValue;
     }
 }

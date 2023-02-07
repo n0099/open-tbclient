@@ -1,55 +1,78 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.pms.utils.AbiType;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ld4 extends hd4 {
+public class ld4 extends id4<iv2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long o;
-    public String p;
-    public AbiType q;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947939021, "Lcom/baidu/tieba/ld4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947939021, "Lcom/baidu/tieba/ld4;");
+                return;
+            }
+        }
+        boolean z = gp1.a;
+    }
 
     public ld4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.hd4
-    public boolean a() {
+    public static ld4 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!TextUtils.isEmpty(this.g) && this.i > 0 && this.k > 0 && !TextUtils.isEmpty(this.p) && !TextUtils.isEmpty(this.l) && !TextUtils.isEmpty(this.n) && this.q != null) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new ld4();
         }
-        return invokeV.booleanValue;
+        return (ld4) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.hd4
-    public String toString() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.id4
+    public boolean b(Context context, iv2 iv2Var, fv2 fv2Var, w83 w83Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "libName=" + this.p + ", abi=" + this.q + ", maxAge=" + this.o + " " + super.toString();
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, iv2Var, fv2Var, w83Var, jSONObject)) == null) {
+            return e(context, iv2Var, fv2Var, w83Var);
         }
-        return (String) invokeV.objValue;
+        return invokeLLLLL.booleanValue;
+    }
+
+    public final boolean e(Context context, iv2 iv2Var, fv2 fv2Var, w83 w83Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, iv2Var, fv2Var, w83Var)) == null) {
+            w52.i("map", "MapUpdateAction start");
+            boolean update = fd4.b().update(context, iv2Var);
+            w52.i("map", "MapUpdateAction end");
+            return update;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

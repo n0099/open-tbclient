@@ -1,26 +1,18 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.Bitmap;
+import android.graphics.Rect;
+import android.util.Log;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class tz2 {
+public class tz2 extends qz2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public JSONObject g;
-    public String h;
-    public jw1 i;
 
     public tz2() {
         Interceptable interceptable = $ic;
@@ -36,65 +28,40 @@ public class tz2 {
         }
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.qz2
+    public boolean a(Bitmap bitmap, Rect rect) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            jw1 jw1Var = this.i;
-            if (jw1Var != null && !jw1Var.isSuccess()) {
-                return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bitmap, rect)) == null) {
+            if (qz2.c) {
+                Log.d("SolidErrorPageParser", "SolidErrorPageParser: start error page parse");
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.d) && !TextUtils.isEmpty(this.f) && !TextUtils.isEmpty(this.e)) {
-                return true;
+            if (bitmap == null) {
+                return false;
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        String a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("SwanPluginFunPageModel{providerAppKey='");
-            sb.append(this.a);
-            sb.append('\'');
-            sb.append(", providerRootPath='");
-            sb.append(this.c);
-            sb.append('\'');
-            sb.append(", providerVersion='");
-            sb.append(this.d);
-            sb.append('\'');
-            sb.append(", componentId='");
-            sb.append(this.f);
-            sb.append('\'');
-            sb.append(", cb='");
-            sb.append(this.h);
-            sb.append('\'');
-            sb.append(", pageParams=");
-            sb.append(this.g);
-            sb.append(", swanApiResult=");
-            jw1 jw1Var = this.i;
-            if (jw1Var == null) {
-                a = null;
-            } else {
-                a = jw1Var.a();
+            if (!b(bitmap, rect)) {
+                rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
             }
-            sb.append(a);
-            sb.append('}');
-            return sb.toString();
+            int i = 0;
+            for (int i2 = rect.left + 1; i2 < rect.right - 1; i2++) {
+                for (int i3 = rect.top + 1; i3 < rect.bottom - 1; i3++) {
+                    int pixel = bitmap.getPixel(i2, i3);
+                    if (i == 0) {
+                        i = pixel;
+                    }
+                    if (i != pixel && pixel != 0) {
+                        if (gp1.a) {
+                            Log.d("SolidErrorPageParser", "非纯色, 图片大小 " + bitmap.getWidth() + " x " + bitmap.getHeight() + "; rect + " + rect.toShortString() + "; (" + i2 + "," + i3 + SmallTailInfo.EMOTION_SUFFIX);
+                        }
+                        return false;
+                    }
+                }
+            }
+            if (qz2.c) {
+                Log.d("SolidErrorPageParser", "color = " + i + "图片大小 " + rect.width() + " x " + rect.height());
+            }
+            return true;
         }
-        return (String) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 }

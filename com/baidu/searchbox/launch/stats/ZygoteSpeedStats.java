@@ -30,8 +30,10 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class ZygoteSpeedStats extends AbstractSpeedStats {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final String AD_CLOSE_TO_MAIN_FINISH = "adCloseToMainFinish";
     public static final String AFTER_MAINTAB_CREATE_COST_NO_AD = "afterMainTabCreateCostNoAd";
     public static final int APPLICATION_LAUNCH_THRESHOLD = 1000;
+    public static final String APP_CREATE_TO_MAIN_CREATE = "appCreateToMainCreate";
     public static final String APP_HAS_BACKGROUND = "hasBackground";
     public static final String APP_STARTED_COST = "appStartedCost";
     public static final boolean DEBUG;
@@ -46,6 +48,7 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
     public static final String IS_SWITCH_ON = "isSwitchOn";
     public static final String LAUNCH_2_APP_ON_START = "launch2AppOnStart";
     public static final String LAUNCH_TO_DEAW_COST = "launch2draw";
+    public static final String MAIN_CREATE_TO_AD_CLOSE = "mainCreateToAdClose";
     public static final int STAT_PROCESS_START_TIME_INDEX = 21;
     public static final String TAG = "ZygoteSpeedStats";
     public static final String UNFIX_USER_PERCEPTION_COST = "unfixUserPerceptionCost";
@@ -160,7 +163,7 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
         }
     }
 
-    /* JADX WARN: Not initialized variable reg: 2, insn: 0x00c3: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:61:0x00c3 */
+    /* JADX WARN: Not initialized variable reg: 2, insn: 0x00c4: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:61:0x00c4 */
     private long getStartTimeFromStats() {
         InterceptResult invokeV;
         BufferedReader bufferedReader;
@@ -398,18 +401,60 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
                     }
                 }
             }
+            long mainActivityCreateStartTimeStamp = SpeedStatsManager.getInstance().getMainActivityCreateStartTimeStamp() - SpeedStatsManager.getInstance().getAppLaunchStartTimeStamp();
+            if (mainActivityCreateStartTimeStamp > 50 && mainActivityCreateStartTimeStamp < 60000) {
+                hashMap.put(APP_CREATE_TO_MAIN_CREATE, String.valueOf(mainActivityCreateStartTimeStamp));
+                JSONObject jsonData6 = SpeedStatsUtils.getJsonData(mainActivityCreateStartTimeStamp, null);
+                if (jsonData6 != null) {
+                    try {
+                        jSONObject.put(APP_CREATE_TO_MAIN_CREATE, jsonData6);
+                    } catch (JSONException e6) {
+                        if (DEBUG) {
+                            e6.printStackTrace();
+                        }
+                    }
+                }
+            }
+            long durationWithoutAD3 = SpeedStatsManager.getInstance().getDurationWithoutAD(SpeedStatsManager.getInstance().getMainActivityCreateStartTimeStamp(), SpeedStatsManager.getInstance().getAdViewEndTimeStamp());
+            if (durationWithoutAD3 > 50 && durationWithoutAD3 < 60000) {
+                hashMap.put(MAIN_CREATE_TO_AD_CLOSE, String.valueOf(durationWithoutAD3));
+                JSONObject jsonData7 = SpeedStatsUtils.getJsonData(durationWithoutAD3, null);
+                if (jsonData7 != null) {
+                    try {
+                        jSONObject.put(MAIN_CREATE_TO_AD_CLOSE, jsonData7);
+                    } catch (JSONException e7) {
+                        if (DEBUG) {
+                            e7.printStackTrace();
+                        }
+                    }
+                }
+            }
+            long appLaunchEndTimeStamp2 = SpeedStatsManager.getInstance().getAppLaunchEndTimeStamp() - SpeedStatsManager.getInstance().getAdViewEndTimeStamp();
+            if (appLaunchEndTimeStamp2 > 50 && appLaunchEndTimeStamp2 < 60000) {
+                hashMap.put(AD_CLOSE_TO_MAIN_FINISH, String.valueOf(appLaunchEndTimeStamp2));
+                JSONObject jsonData8 = SpeedStatsUtils.getJsonData(appLaunchEndTimeStamp2, null);
+                if (jsonData8 != null) {
+                    try {
+                        jSONObject.put(AD_CLOSE_TO_MAIN_FINISH, jsonData8);
+                    } catch (JSONException e8) {
+                        if (DEBUG) {
+                            e8.printStackTrace();
+                        }
+                    }
+                }
+            }
             if (!this.isSwitchOn) {
                 str = "0";
             }
             hashMap.put(IS_SWITCH_ON, str);
-            JSONObject jsonData6 = SpeedStatsUtils.getJsonData(this.mUnFixUserPerceptionCost, hashMap);
-            if (jsonData6 != null) {
+            JSONObject jsonData9 = SpeedStatsUtils.getJsonData(this.mUnFixUserPerceptionCost, hashMap);
+            if (jsonData9 != null) {
                 try {
-                    jSONObject.put(SpeedStatsMainTable.APP_ZYGOTE, jsonData6);
+                    jSONObject.put(SpeedStatsMainTable.APP_ZYGOTE, jsonData9);
                     return true;
-                } catch (JSONException e6) {
+                } catch (JSONException e9) {
                     if (DEBUG) {
-                        e6.printStackTrace();
+                        e9.printStackTrace();
                         return true;
                     }
                     return true;

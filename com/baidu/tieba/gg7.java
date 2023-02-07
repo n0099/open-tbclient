@@ -1,8 +1,6 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,14 +10,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class gg7 implements yn {
+public class gg7 implements Cdo {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
-    public int c;
-    public int d;
+    public String c;
+    public String d;
 
     static {
         InterceptResult invokeClinit;
@@ -51,34 +49,30 @@ public class gg7 implements yn {
         }
     }
 
-    @Override // com.baidu.tieba.yn
+    @Override // com.baidu.tieba.Cdo
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return e;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public boolean isValid() {
-        InterceptResult invokeV;
+    public static gg7 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!StringUtils.isNull(this.a) && !StringUtils.isNull(this.b)) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            return false;
+            gg7 gg7Var = new gg7();
+            gg7Var.a = jSONObject.optString("title");
+            gg7Var.b = jSONObject.optString("desc");
+            gg7Var.c = jSONObject.optString("tag");
+            gg7Var.d = jSONObject.optString("img");
+            return gg7Var;
         }
-        return invokeV.booleanValue;
-    }
-
-    public void a(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        this.a = jSONObject.optString("pid");
-        this.b = jSONObject.optString("url");
+        return (gg7) invokeL.objValue;
     }
 }

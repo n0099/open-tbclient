@@ -1,81 +1,70 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.os.Bundle;
+import android.text.TextUtils;
+import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import com.heytap.mcssdk.mode.CommandMessage;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class wh1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile wh1 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThreadPoolExecutor a;
-    public ScheduledThreadPoolExecutor b;
 
-    public wh1() {
+    public static void a(Context context, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if ((interceptable != null && interceptable.invokeLL(65536, null, context, bundle) != null) || bundle == null) {
+            return;
         }
-        b();
+        try {
+            String string = bundle.getString("zid");
+            if (!TextUtils.isEmpty(string)) {
+                bundle.remove("zid");
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("c", bundle.getString("cuid"));
+                jSONObject.put("z", string);
+                jSONObject.put("mac", mh1.c());
+                jSONObject.put("app", "android");
+                jSONObject.put("ver", nh1.a(context));
+                bundle.putString(GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO, jSONObject.toString());
+            }
+        } catch (Exception e) {
+            th1.b(e.getMessage());
+        }
     }
 
-    public static wh1 a() {
-        InterceptResult invokeV;
+    public static Bundle b(Context context, Bundle bundle) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (wh1.class) {
-                    if (c == null) {
-                        c = new wh1();
-                    }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, bundle)) == null) {
+            if (bundle == null) {
+                return new Bundle();
+            }
+            kh1.a = bundle.getString("bduss");
+            kh1.b = bundle.getString("tpOrderId");
+            kh1.g = bundle.getString("nativeAppId");
+            kh1.h = bundle.getString("sceneSource");
+            kh1.c = bundle.getString("appKey");
+            kh1.d = bundle.getString("dealId");
+            bundle.putString("deviceType", "ANDROID");
+            bundle.putString("channel", "cashiersdk");
+            bundle.putString(CommandMessage.SDK_VERSION, "2.8.7.9");
+            String[] stringArray = bundle.getStringArray("blockedPayChannels");
+            if (stringArray != null && stringArray.length > 0) {
+                bundle.remove("blockedPayChannels");
+                JSONArray jSONArray = new JSONArray();
+                for (String str : stringArray) {
+                    jSONArray.put(str);
                 }
+                bundle.putString("bannedChannels", jSONArray.toString());
             }
-            return c;
+            a(context, bundle);
+            return bundle;
         }
-        return (wh1) invokeV.objValue;
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = xh1.g(5, 15);
-            this.b = xh1.f(3);
-        }
-    }
-
-    public void c(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) && runnable != null) {
-            try {
-                this.a.submit(runnable);
-            } catch (Throwable unused) {
-            }
-        }
-    }
-
-    public void d(vh1 vh1Var, long j, long j2, TimeUnit timeUnit) {
-        ScheduledThreadPoolExecutor scheduledThreadPoolExecutor;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{vh1Var, Long.valueOf(j), Long.valueOf(j2), timeUnit}) == null) && vh1Var != null && (scheduledThreadPoolExecutor = this.b) != null && !scheduledThreadPoolExecutor.isShutdown()) {
-            try {
-                vh1Var.i(System.currentTimeMillis());
-                vh1Var.h(this.b.scheduleAtFixedRate(vh1Var, j, j2, timeUnit));
-            } catch (Throwable unused) {
-            }
-        }
+        return (Bundle) invokeLL.objValue;
     }
 }

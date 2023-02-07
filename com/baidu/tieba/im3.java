@@ -1,50 +1,34 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
 /* loaded from: classes4.dex */
 public class im3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947858266, "Lcom/baidu/tieba/im3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947858266, "Lcom/baidu/tieba/im3;");
-                return;
-            }
-        }
-        a = tk1.a;
-    }
-
-    public static void a(String str, String str2, String str3, String str4, String str5) {
+    public static void a(@NonNull Context context, @NonNull File file) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65537, null, str, str2, str3, str4, str5) == null) {
-            mb3 mb3Var = new mb3();
-            mb3Var.a = "swan";
-            mb3Var.b = str;
-            mb3Var.g = str2;
-            if (TextUtils.equals(str, "click")) {
-                mb3Var.e = str3;
-            }
-            mb3Var.f = str5;
-            mb3Var.a("source", str4);
-            if (a) {
-                Log.d("LoginAndGetMobileStatics", "staticLoginResult: event = " + mb3Var.f());
-            }
-            cb3.x("1372", mb3Var);
+        if ((interceptable != null && interceptable.invokeLL(65536, null, context, file) != null) || !file.exists()) {
+            return;
         }
+        Intent intent = new Intent();
+        intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+        intent.setAction("android.intent.action.SEND");
+        intent.setTypeAndNormalize(qm3.s(file));
+        if (Build.VERSION.SDK_INT >= 24) {
+            intent.putExtra("android.intent.extra.STREAM", tm3.a(context, file));
+            intent.addFlags(1);
+        } else {
+            intent.putExtra("android.intent.extra.STREAM", Uri.fromFile(file));
+        }
+        context.startActivity(intent);
     }
 }

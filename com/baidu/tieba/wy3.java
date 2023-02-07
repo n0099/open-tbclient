@@ -1,85 +1,96 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.v8engine.V8EngineConfiguration;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.manage.Download;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class wy3 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+public class wy3 implements e64 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String b = "hasDownloadApk";
     public transient /* synthetic */ FieldHolder $fh;
-
-    public static int b(boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (z && z2) {
-                return 3;
-            }
-            if (z) {
-                return 1;
-            }
-            return z2 ? 2 : 0;
-        }
-        return invokeCommon.intValue;
-    }
+    public String a;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948286872, "Lcom/baidu/tieba/wy3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948286872, "Lcom/baidu/tieba/wy3;");
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948286872, "Lcom/baidu/tieba/wy3;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948286872, "Lcom/baidu/tieba/wy3;");
+        }
+    }
+
+    public wy3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        a = tk1.a;
+        this.a = "com.baidu.gamenow";
     }
 
-    @NonNull
-    public static V8EngineConfiguration.CodeCacheSetting a(String str, @NonNull String str2) {
-        InterceptResult invokeLL;
-        char c;
+    @Override // com.baidu.tieba.e64
+    public boolean a(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            V8EngineConfiguration.CodeCacheSetting codeCacheSetting = new V8EngineConfiguration.CodeCacheSetting();
-            codeCacheSetting.id = str;
-            ArrayList<String> arrayList = new ArrayList<>();
-            codeCacheSetting.pathList = arrayList;
-            arrayList.add(str2);
-            if (str.hashCode() == -1253235525 && str.equals("gamejs")) {
-                c = 0;
-            } else {
-                c = 65535;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (!(obj instanceof Download)) {
+                return false;
             }
-            if (c != 0) {
-                codeCacheSetting.maxCount = 20;
-                codeCacheSetting.sizeLimit = 102400;
-            } else {
-                uy3 a2 = vy3.a();
-                codeCacheSetting.maxCount = a2.a;
-                codeCacheSetting.sizeLimit = a2.b;
-                codeCacheSetting.diskCodeCacheSizeThreshold = a2.c;
+            Download download = (Download) obj;
+            if (TextUtils.equals(az3.a, download.getKeyByUser())) {
+                return true;
             }
-            if (a) {
-                Log.d("GameV8CodeCacheHelper", "buildCacheSetting cacheType: " + str);
-                Log.d("GameV8CodeCacheHelper", "buildCacheSetting cachePath: " + str2);
-                Log.d("GameV8CodeCacheHelper", "buildCacheSetting maxCount: " + codeCacheSetting.maxCount);
-                Log.d("GameV8CodeCacheHelper", "buildCacheSetting sizeLimit: " + codeCacheSetting.sizeLimit);
-                Log.d("GameV8CodeCacheHelper", "buildCacheSetting diskCodeCacheSizeThreshold: " + codeCacheSetting.diskCodeCacheSizeThreshold);
-            }
-            return codeCacheSetting;
+            return TextUtils.isEmpty(wl3.d(download.getFromParam()).optString("apk_id"));
         }
-        return (V8EngineConfiguration.CodeCacheSetting) invokeLL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.e64
+    public void b(Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) != null) || !(obj instanceof Download)) {
+            return;
+        }
+        ez3 ez3Var = new ez3((Download) obj);
+        sz3.n().f("reallyDownloaded", new rz3(), ez3Var.m(), ez3Var.j(), ez3Var.l());
+    }
+
+    @Override // com.baidu.tieba.e64
+    public void c(Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) != null) || !(obj instanceof Download)) {
+            return;
+        }
+        Download download = (Download) obj;
+        ez3 ez3Var = new ez3(download);
+        sz3.n().f("statusInstalled", new rz3(), download.getKeyByUser(), ez3Var.j(), ez3Var.l());
+        if (TextUtils.equals(ez3Var.m(), this.a)) {
+            kh3.a().putBoolean(b, true);
+            sz3.n().p(13, ez3Var.m(), ez3Var.h(), ez3Var.l());
+        }
     }
 }

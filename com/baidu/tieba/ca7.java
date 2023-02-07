@@ -1,152 +1,203 @@
 package com.baidu.tieba;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-import tbclient.ThreadInfo;
 /* loaded from: classes4.dex */
-public class ca7 {
+public class ca7 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
-    public static long b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public List<ka7> a;
+    public TbPageContext b;
+    public int c;
+    public int d;
+    public BdUniqueId e;
+    public boolean f;
 
     /* loaded from: classes4.dex */
-    public static class a extends zk5<Object> {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ThreadInfo a;
+    }
 
-        public a(ThreadInfo threadInfo) {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    /* loaded from: classes4.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+        public BarImageView b;
+        public ImageView c;
+
+        public b(ca7 ca7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {threadInfo};
+                Object[] objArr = {ca7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = threadInfo;
         }
 
-        @Override // com.baidu.tieba.zk5
-        public Object doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                String[] split = cz4.l().r("read_progress_" + TbadkCoreApplication.getCurrentAccount(), "").split(",");
-                if (split.length != 2) {
-                    return null;
-                }
-                String str = split[0];
-                long g = yg.g(split[1], 0L);
-                if (g != 0 && !StringUtils.isNull(str)) {
-                    cz4.l().z("read_progress_" + TbadkCoreApplication.getCurrentAccount(), this.a.tid + "," + g);
-                }
-                return null;
-            }
-            return invokeV.objValue;
+        public /* synthetic */ b(ca7 ca7Var, a aVar) {
+            this(ca7Var);
         }
     }
 
-    public ca7() {
+    public ca7(TbPageContext tbPageContext, int i, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, Integer.valueOf(i), bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static void d(long j, int i, List<ThreadInfo> list, List<yn> list2) {
-        ThreadInfo threadInfo;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), list, list2}) == null) && j == b && !ListUtils.isEmpty(list) && !ListUtils.isEmpty(list2)) {
-            if (i == 0) {
-                for (int i2 = 0; i2 < list2.size(); i2++) {
-                    if (list2.get(i2) instanceof ba7) {
-                        list2.remove(i2);
-                        return;
-                    }
-                }
                 return;
             }
-            int i3 = i + 1;
-            if (ListUtils.getCount(list) > i3 && (threadInfo = list.get(i3)) != null && threadInfo.tid.longValue() != 0) {
-                b = threadInfo.tid.longValue();
-                dl5.b(new a(threadInfo), null);
+        }
+        this.c = -1;
+        this.f = false;
+        this.b = tbPageContext;
+        this.e = bdUniqueId;
+        this.d = i;
+        this.c = p35.m().n("key_game_video_tab_has_choosed_sub_class_id", -1);
+    }
+
+    public final void a(b bVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, bVar) != null) || bVar == null) {
+            return;
+        }
+        SkinManager.setViewTextColor(bVar.a, (int) R.color.CAM_X0107);
+        SkinManager.setImageResource(bVar.c, R.drawable.icon_game_video_tab_choose_select);
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return ListUtils.getItem(this.a, i);
+        }
+        return invokeI.objValue;
+    }
+
+    public void b(List<ka7> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.a = list;
+            if (!this.f && !ListUtils.isEmpty(list)) {
+                for (ka7 ka7Var : list) {
+                    if (!StringUtils.isNull(ka7Var.c)) {
+                        zg.h().m(ka7Var.c, 10, null, this.e);
+                    }
+                }
+                this.f = true;
             }
         }
     }
 
-    public void a(List<yn> list) {
-        g96 g96Var;
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || !TbadkCoreApplication.isLogin()) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return ListUtils.getCount(this.a);
         }
-        if (this.a == null) {
-            cz4 l = cz4.l();
-            this.a = l.r("read_progress_" + TbadkCoreApplication.getCurrentAccount(), "");
-        }
-        if (StringUtils.isNull(this.a)) {
-            return;
-        }
-        String[] split = this.a.split(",");
-        if (split.length != 2) {
-            return;
-        }
-        String str = split[0];
-        long g = yg.g(split[1], 0L);
-        if (g != 0 && !StringUtils.isNull(str) && !ListUtils.isEmpty(list)) {
-            for (int i = 0; i < list.size(); i++) {
-                if ((list.get(i) instanceof g96) && (g96Var = (g96) list.get(i)) != null && !StringUtils.isNull(g96Var.g) && g96Var.g.equals(str)) {
-                    ba7 ba7Var = new ba7();
-                    ba7Var.a = g;
-                    ba7Var.b = false;
-                    list.add(i, ba7Var);
-                    return;
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        View view3;
+        b bVar;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                bVar = new b(this, null);
+                view3 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0381, (ViewGroup) null);
+                bVar.a = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f090f08);
+                bVar.b = (BarImageView) view3.findViewById(R.id.obfuscated_res_0x7f090f06);
+                bVar.c = (ImageView) view3.findViewById(R.id.obfuscated_res_0x7f090f07);
+                bVar.b.setShowOval(true);
+                bVar.b.setAutoChangeStyle(true);
+                bVar.b.setBorderColor(this.b.getResources().getColor(R.color.black_alpha8));
+                bVar.b.setBorderWidth(this.b.getResources().getDimensionPixelOffset(R.dimen.tbds3));
+                view3.setTag(bVar);
+            } else {
+                view3 = view2;
+                bVar = (b) view2.getTag();
+            }
+            a(bVar);
+            ka7 ka7Var = (ka7) ListUtils.getItem(this.a, i);
+            if (ka7Var != null) {
+                TextView textView = bVar.a;
+                if (StringUtils.isNull(ka7Var.b)) {
+                    str = "";
+                } else {
+                    str = ka7Var.b;
+                }
+                textView.setText(str);
+                bVar.b.K(ka7Var.c, 10, false);
+                if (ka7Var.d == 1) {
+                    bVar.b.setAlpha(1);
+                    bVar.a.setAlpha(1.0f);
+                } else {
+                    bVar.b.setAlpha(0.5f);
+                    bVar.a.setAlpha(0.5f);
+                }
+                if (ka7Var.a == this.c && this.d != 101) {
+                    bVar.c.setVisibility(0);
+                } else {
+                    bVar.c.setVisibility(8);
                 }
             }
+            return view3;
         }
-    }
-
-    public void b(ThreadInfo threadInfo) {
-        Long l;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadInfo) == null) && t97.a && threadInfo != null && threadInfo != null && (l = threadInfo.tid) != null && l.longValue() != 0) {
-            this.a = null;
-            b = threadInfo.tid.longValue();
-            cz4.l().z("read_progress_" + TbadkCoreApplication.getCurrentAccount(), threadInfo.tid + "," + System.currentTimeMillis());
-        }
-    }
-
-    public void c(boolean z, List<ThreadInfo> list) {
-        ThreadInfo threadInfo;
-        Long l;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, list) == null) && TbadkCoreApplication.isLogin() && !ListUtils.isEmpty(list) && z && (threadInfo = (ThreadInfo) ListUtils.getItem(list, 0)) != null && (l = threadInfo.tid) != null && l.longValue() != 0) {
-            this.a = null;
-            b = threadInfo.tid.longValue();
-            cz4.l().z("read_progress_" + TbadkCoreApplication.getCurrentAccount(), threadInfo.tid + "," + System.currentTimeMillis());
-        }
+        return (View) invokeILL.objValue;
     }
 }

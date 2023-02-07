@@ -1,111 +1,107 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.DisplayMetrics;
+import android.view.WindowManager;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTRewardVideoAd;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes6.dex */
-public class vw9 implements TTRewardVideoAd.RewardAdInteractionListener {
+public class vw9 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
+    public static float b;
+    public static int c;
+    public static int d;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public final /* synthetic */ fy9 c;
-    public final /* synthetic */ String d;
-    public final /* synthetic */ oy9 e;
 
-    public vw9(oy9 oy9Var, fy9 fy9Var, String str) {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948255345, "Lcom/baidu/tieba/vw9;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {oy9Var, fy9Var, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948255345, "Lcom/baidu/tieba/vw9;");
+        }
+    }
+
+    public static int a(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) {
+            if (!a) {
+                f();
             }
+            return (int) ((f * b) + 0.5f);
         }
-        this.e = oy9Var;
-        this.c = fy9Var;
-        this.d = str;
+        return invokeF.intValue;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd.RewardAdInteractionListener
-    public void onAdClose() {
+    public static int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LogPrinter.d("second adClose", new Object[0]);
-            this.e.onAdClose(this.c);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (!a) {
+                f();
+            }
+            return d;
         }
+        return invokeV.intValue;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd.RewardAdInteractionListener
-    public void onAdShow() {
+    public static int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LogPrinter.d("second adshow", new Object[0]);
-            this.e.onAdShow(this.c, this.a, this.d);
-            this.a = true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (!a) {
+                f();
+            }
+            return c;
         }
+        return invokeV.intValue;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd.RewardAdInteractionListener
-    public void onAdVideoBarClick() {
+    public static int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LogPrinter.d("second Adclick", new Object[0]);
-            this.e.onAdClicked(this.c, this.b, this.d);
-            this.b = true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return b();
         }
+        return invokeV.intValue;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd.RewardAdInteractionListener
-    public void onRewardArrived(boolean z, int i, Bundle bundle) {
+    public static int e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), bundle}) == null) {
-            LogPrinter.d("onRewardArrived", new Object[0]);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return c();
         }
+        return invokeV.intValue;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd.RewardAdInteractionListener
-    public void onRewardVerify(boolean z, int i, String str, int i2, String str2) {
+    public static void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), str, Integer.valueOf(i2), str2}) == null) {
-            LogPrinter.d("second onRewardVerify rewardVerify:%b rewardAmount:%d rewardName:%s errCode:%d errMsg:%s", Boolean.valueOf(z), Integer.valueOf(i), str, Integer.valueOf(i2), str2);
-            this.e.onRewardedVideo(this.c, z, i2, this.d);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd.RewardAdInteractionListener
-    public void onSkippedVideo() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            LogPrinter.e("CSJRewardVideoAd secondVideo onSkippedVideo", new Object[0]);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd.RewardAdInteractionListener
-    public void onVideoComplete() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            LogPrinter.d("second onVideoComplete", new Object[0]);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd.RewardAdInteractionListener
-    public void onVideoError() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            LogPrinter.d("second onVideoError", new Object[0]);
-            this.e.onAdError(this.c, 0, "second:onVideoError");
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            WindowManager windowManager = (WindowManager) fs9.c().getContext().getSystemService("window");
+            windowManager.getDefaultDisplay().getMetrics(displayMetrics);
+            int orientation = windowManager.getDefaultDisplay().getOrientation();
+            if (orientation != 1 && orientation != 3) {
+                c = displayMetrics.widthPixels;
+                d = displayMetrics.heightPixels;
+            } else {
+                c = displayMetrics.heightPixels;
+                d = displayMetrics.widthPixels;
+            }
+            b = displayMetrics.density;
+            a = true;
         }
     }
 }

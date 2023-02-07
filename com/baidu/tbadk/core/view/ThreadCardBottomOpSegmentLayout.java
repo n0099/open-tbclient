@@ -11,7 +11,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.AgreeView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AgreeView.h s0;
+    public AgreeView.h t0;
 
     /* loaded from: classes3.dex */
     public class a implements AgreeView.h {
@@ -75,7 +75,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
                 return;
             }
         }
-        this.s0 = new a(this);
+        this.t0 = new a(this);
     }
 
     public final void R(boolean z) {
@@ -85,7 +85,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
                 S(0, -1, 0, 1.0f, true, this.e.I());
                 return;
             }
-            S(-2, -1, zi.g(getContext(), R.dimen.tbds78), 0.0f, false, this.e.I());
+            S(-2, -1, ej.g(getContext(), R.dimen.tbds78), 0.0f, false, this.e.I());
         }
     }
 
@@ -157,7 +157,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
                 return;
             }
         }
-        this.s0 = new a(this);
+        this.t0 = new a(this);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -179,7 +179,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
                 return;
             }
         }
-        this.s0 = new a(this);
+        this.t0 = new a(this);
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
@@ -207,7 +207,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.G();
-            this.e.setVisibilityListener(this.s0);
+            this.e.setVisibilityListener(this.t0);
             boolean V = V();
             if (U(V) || T(V)) {
                 this.e.A(V);
@@ -239,7 +239,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
             } else if (f2 != 0.0f || i != -2) {
                 layoutParams.width = -2;
                 layoutParams.weight = 0.0f;
-                layoutParams.leftMargin = zi.g(this.E, R.dimen.tbds50);
+                layoutParams.leftMargin = ej.g(this.E, R.dimen.tbds50);
                 layoutParams.rightMargin = 0;
                 this.e.setLayoutParams(layoutParams);
             }

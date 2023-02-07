@@ -1,28 +1,46 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.davemorrissey.labs.subscaleview.ImageSource;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class ll2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    @V8JavascriptField
+    public String errMsg;
+    @V8JavascriptField
+    public String[] files;
 
-    public static String a(@NonNull String str) {
-        InterceptResult invokeL;
+    public ll2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (str.startsWith(ImageSource.FILE_SCHEME)) {
-                str = str.substring(8);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            j43 M = j43.M();
-            if (rb3.E(str) && M != null) {
-                return rb3.H(str, M);
-            }
-            return str;
         }
-        return (String) invokeL.objValue;
+        this.a = 0;
+        this.a = 0 + 1;
+        this.b = 0;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "ReadDirCallBack" + this.b;
+        }
+        return (String) invokeV.objValue;
     }
 }

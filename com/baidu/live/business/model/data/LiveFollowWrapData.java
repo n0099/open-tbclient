@@ -1,7 +1,7 @@
 package com.baidu.live.business.model.data;
 
-import com.baidu.tieba.kc0;
-import com.baidu.tieba.nc0;
+import com.baidu.tieba.qc0;
+import com.baidu.tieba.tc0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -80,9 +80,9 @@ public class LiveFollowWrapData {
                 }
             }
         }
-        if (!kc0.c(this.followList) && (optJSONObject = jSONObject.optJSONObject("more")) != null) {
+        if (!qc0.c(this.followList) && (optJSONObject = jSONObject.optJSONObject("more")) != null) {
             String optString = optJSONObject.optString("scheme");
-            if (!nc0.a(optString)) {
+            if (!tc0.a(optString)) {
                 this.followMore = new FollowMore(optString, optJSONObject.optString("txt"));
             }
         }

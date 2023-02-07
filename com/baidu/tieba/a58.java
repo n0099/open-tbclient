@@ -1,105 +1,52 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class a58 implements yn {
+public class a58 {
     public static /* synthetic */ Interceptable $ic;
-    public static BdUniqueId i;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
-    public int d;
-    public boolean e;
-    public String f;
-    public String g;
-    public boolean h;
+    public List<qa5> a;
+    public boolean b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947566277, "Lcom/baidu/tieba/a58;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947566277, "Lcom/baidu/tieba/a58;");
-                return;
-            }
-        }
-        i = BdUniqueId.gen();
-    }
-
-    @Override // com.baidu.tieba.yn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return i;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public a58(ForumData forumData) {
+    public a58() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {forumData};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.e = false;
-        if (forumData == null) {
-            return;
-        }
-        this.a = forumData.getName();
-        this.b = forumData.getImage_url();
-        this.c = forumData.getPost_num();
-        this.d = forumData.getMember_num();
-        this.f = forumData.getId();
-        this.h = forumData.isLike() == 1;
     }
 
-    public a58(fv4 fv4Var) {
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fv4Var};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.e = false;
-        if (fv4Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        this.a = fv4Var.b;
-        this.b = fv4Var.c;
-        this.c = fv4Var.g;
-        this.d = fv4Var.h;
-        this.f = fv4Var.a;
-        this.h = fv4Var.e();
+        JSONArray optJSONArray = jSONObject.optJSONArray("user_info_list");
+        boolean z = false;
+        if (optJSONArray != null && optJSONArray.length() != 0) {
+            this.a = new ArrayList();
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                qa5 qa5Var = new qa5();
+                qa5Var.a(optJSONArray.optJSONObject(i));
+                this.a.add(qa5Var);
+            }
+        }
+        if (jSONObject.optInt("has_more", 0) == 1) {
+            z = true;
+        }
+        this.b = z;
     }
 }

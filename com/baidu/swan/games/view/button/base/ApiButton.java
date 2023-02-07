@@ -22,14 +22,14 @@ import com.baidu.searchbox.v8engine.FontParser;
 import com.baidu.searchbox.v8engine.event.EventTargetImpl;
 import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.swan.apps.storage.PathType;
-import com.baidu.tieba.ai3;
-import com.baidu.tieba.f74;
-import com.baidu.tieba.gh3;
-import com.baidu.tieba.h74;
-import com.baidu.tieba.j43;
-import com.baidu.tieba.t23;
-import com.baidu.tieba.tk1;
-import com.baidu.tieba.vg3;
+import com.baidu.tieba.g73;
+import com.baidu.tieba.gp1;
+import com.baidu.tieba.il3;
+import com.baidu.tieba.nm3;
+import com.baidu.tieba.sb4;
+import com.baidu.tieba.tl3;
+import com.baidu.tieba.ub4;
+import com.baidu.tieba.w83;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -54,7 +54,7 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
     public String c;
     public String d;
     public Bitmap e;
-    public f74 f;
+    public sb4 f;
     public int g;
     public int h;
 
@@ -96,7 +96,7 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
         public void onFailureImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dataSource) == null) {
-                if (j43.v) {
+                if (w83.v) {
                     Log.d("ApiButton", "——> onFailureImpl: " + dataSource.getFailureCause().getMessage());
                 }
                 this.b.j();
@@ -110,12 +110,12 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
         public void onNewResultImpl(@Nullable Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
-                if (j43.v) {
+                if (w83.v) {
                     Log.d("ApiButton", "——> onNewResultImpl: ");
                 }
                 if (this.a.isFinished()) {
                     ApiButton apiButton = this.b;
-                    apiButton.e = gh3.g(bitmap, apiButton.g, this.b.h);
+                    apiButton.e = tl3.g(bitmap, apiButton.g, this.b.h);
                     this.b.j();
                     this.a.close();
                 }
@@ -150,13 +150,13 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setColor(i);
-            int g = ai3.g(this.f.borderWidth);
+            int g = nm3.g(this.f.borderWidth);
             if (g > 0) {
-                gradientDrawable.setStroke(g, f74.c(i));
+                gradientDrawable.setStroke(g, sb4.c(i));
             }
             double d = this.f.borderRadius;
             if (d != 0.0d) {
-                gradientDrawable.setCornerRadius(ai3.g((float) d));
+                gradientDrawable.setCornerRadius(nm3.g((float) d));
             }
             return gradientDrawable;
         }
@@ -173,10 +173,10 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
             if (this.d == null) {
                 return false;
             }
-            Bitmap c = gh3.c(uri, getContext());
+            Bitmap c = tl3.c(uri, getContext());
             this.e = c;
             if (c != null) {
-                this.e = gh3.g(c, this.g, this.h);
+                this.e = tl3.g(c, this.g, this.h);
             }
             if (this.e != null) {
                 return true;
@@ -221,10 +221,10 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
                 return Color.parseColor(str);
             }
             try {
-                int parseColor = Color.parseColor(vg3.b(str));
+                int parseColor = Color.parseColor(il3.b(str));
                 return ((parseColor & 255) << 16) | ((parseColor >>> 24) << 24) | (((parseColor >> 8) & 255) << 8) | ((parseColor >> 16) & 255);
             } catch (Exception e) {
-                if (tk1.a) {
+                if (gp1.a) {
                     e.printStackTrace();
                     return i;
                 }
@@ -237,8 +237,8 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
     private void setBorder(GradientDrawable gradientDrawable) {
         int g;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65545, this, gradientDrawable) == null) && (g = ai3.g(this.f.borderWidth)) > 0) {
-            gradientDrawable.setStroke(g, f74.c(m(this.f.borderColor, 0)));
+        if ((interceptable == null || interceptable.invokeL(65545, this, gradientDrawable) == null) && (g = nm3.g(this.f.borderWidth)) > 0) {
+            gradientDrawable.setStroke(g, sb4.c(m(this.f.borderColor, 0)));
         }
     }
 
@@ -247,7 +247,7 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
         if (interceptable == null || interceptable.invokeL(65546, this, gradientDrawable) == null) {
             double d = this.f.borderRadius;
             if (d != 0.0d) {
-                gradientDrawable.setCornerRadius(ai3.g((float) d));
+                gradientDrawable.setCornerRadius(nm3.g((float) d));
             }
         }
     }
@@ -267,10 +267,10 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
         }
     }
 
-    public void setApiButtonStyle(f74 f74Var) {
+    public void setApiButtonStyle(sb4 sb4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, f74Var) == null) {
-            this.f = f74Var;
+        if (interceptable == null || interceptable.invokeL(1048595, this, sb4Var) == null) {
+            this.f = sb4Var;
         }
     }
 
@@ -372,9 +372,9 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            f74 f74Var = this.f;
-            if (f74Var != null) {
-                f74Var.hidden = true;
+            sb4 sb4Var = this.f;
+            if (sb4Var != null) {
+                sb4Var.hidden = true;
             }
             setVisibility(8);
         }
@@ -407,7 +407,7 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
                     t(uri);
                     return;
                 } catch (Exception e) {
-                    if (tk1.a) {
+                    if (gp1.a) {
                         e.printStackTrace();
                         return;
                     }
@@ -421,9 +421,9 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
     public void show() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            f74 f74Var = this.f;
-            if (f74Var != null) {
-                f74Var.hidden = false;
+            sb4 sb4Var = this.f;
+            if (sb4Var != null) {
+                sb4Var.hidden = false;
             }
             setVisibility(0);
         }
@@ -435,10 +435,10 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
-            if (h74.a(this.d) == PathType.NETWORK) {
+            if (ub4.a(this.d) == PathType.NETWORK) {
                 return Uri.parse(this.d);
             }
-            if (h74.a(this.d) != PathType.RELATIVE || (b = h74.b()) == null) {
+            if (ub4.a(this.d) != PathType.RELATIVE || (b = ub4.b()) == null) {
                 return null;
             }
             if (this.d.startsWith(".")) {
@@ -449,7 +449,7 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
             } else {
                 str = b + File.separator + this.d;
             }
-            if (tk1.a) {
+            if (gp1.a) {
                 Log.d("ApiButton", "——> getUri: " + str);
             }
             return Uri.parse(str);
@@ -492,7 +492,7 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
         Object gradientDrawable2 = new GradientDrawable();
         gradientDrawable.setColor(0);
         if (this.e != null) {
-            gradientDrawable2 = new t23(this.e, ai3.g((float) this.f.borderRadius), 0, 0);
+            gradientDrawable2 = new g73(this.e, nm3.g((float) this.f.borderRadius), 0, 0);
         }
         setBackgroundDrawable(new LayerDrawable(new Drawable[]{gradientDrawable2, gradientDrawable}));
         g();
@@ -537,7 +537,7 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048590, this, i, i2, i3, i4) == null) {
             super.onSizeChanged(i, i2, i3, i4);
-            if (tk1.a) {
+            if (gp1.a) {
                 Log.d("ApiButton", "onSizeChanged mWidth=" + this.g + ";mHeight" + this.h);
             }
             this.g = i;
@@ -551,8 +551,8 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            int g = ai3.g(this.f.borderWidth);
-            int g2 = ai3.g(this.f.lineHeight);
+            int g = nm3.g(this.f.borderWidth);
+            int g2 = nm3.g(this.f.lineHeight);
             if (g2 > 0) {
                 i = ((g2 / 2) - (getTextLineHeight() / 2)) - getTextTopPadding();
             } else {

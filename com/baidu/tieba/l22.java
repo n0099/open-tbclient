@@ -1,9 +1,13 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.util.Log;
-import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.searchbox.unitedscheme.SchemeCollecter;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Matrix;
+import android.text.TextUtils;
+import android.util.Base64;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,22 +19,20 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class l22 {
+public class l22 extends c22 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean h;
-    public static String i;
-    public static String j;
-    public static String k;
-    public static String l;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    @SuppressLint({"BDOfflineUrl"})
+    public Bitmap a;
     public String b;
-    public boolean c;
-    public boolean d;
-    public int e;
-    public int f;
-    public boolean g;
+    public Matrix c;
+
+    @Override // com.baidu.tieba.c22
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -45,65 +47,111 @@ public class l22 {
                 return;
             }
         }
-        h = tk1.a;
-        i = "V8Master";
-        j = "page";
-        k = "runtime/index.js";
-        l = "ws://localhost:4000";
+        d = gp1.a;
     }
 
-    public l22() {
+    public l22(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = String.valueOf(System.currentTimeMillis());
-        this.b = "http://chrome-devtools-frontend.appspot.com/serve_rev/@74dd8d5ea19a92d0e6092e59a0c8bd3a40877b71/inspector.html?ws=localhost:4000";
-        this.c = false;
-        this.d = true;
-        this.e = 0;
-        this.f = 0;
-        this.g = true;
+        this.b = str;
     }
 
-    public String toString() {
+    @Override // com.baidu.tieba.c22
+    public void a(d22 d22Var, Canvas canvas) {
+        Bitmap bitmap;
+        Matrix matrix;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, d22Var, canvas) == null) && (bitmap = this.a) != null && (matrix = this.c) != null) {
+            canvas.drawBitmap(bitmap, matrix, d22Var.d);
+        }
+    }
+
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             try {
-                jSONObject.putOpt("title", i);
-                jSONObject.putOpt("type", j);
-                jSONObject.putOpt("url", k);
-                jSONObject.putOpt("webSocketDebuggerUrl", l);
-                jSONObject.putOpt("id", this.a);
-                jSONObject.putOpt("devtoolsFrontendUrl", this.b);
-                jSONObject.putOpt("swanJsVersion", od3.h(0));
-                jSONObject.putOpt("appVersion", di3.D());
-                jSONObject2.putOpt("attached", Boolean.valueOf(this.c));
-                jSONObject2.putOpt(SchemeCollecter.CLASSIFY_EMPTY, Boolean.valueOf(this.d));
-                jSONObject2.putOpt("screenX", Integer.valueOf(this.e));
-                jSONObject2.putOpt("screenY", Integer.valueOf(this.f));
-                jSONObject2.putOpt(MapBundleKey.MapObjKey.OBJ_SL_VISI, Boolean.valueOf(this.g));
-                jSONObject.putOpt("description", jSONObject2.toString());
-                jSONArray.put(jSONObject);
-            } catch (JSONException e) {
-                if (h) {
-                    Log.e("V8Module", "Build V8 module fail", e);
+                JSONObject jSONObject = new JSONObject(this.b);
+                int g = nm3.g((float) jSONObject.optDouble("x"));
+                int g2 = nm3.g((float) jSONObject.optDouble("y"));
+                int optInt = jSONObject.optInt("width");
+                int optInt2 = jSONObject.optInt("height");
+                if (optInt > 0 && optInt2 > 0) {
+                    float g3 = nm3.g(optInt);
+                    float g4 = nm3.g(optInt2);
+                    String optString = jSONObject.optString("data");
+                    if (TextUtils.isEmpty(optString)) {
+                        return 2001;
+                    }
+                    try {
+                        byte[] decode = Base64.decode(optString, 2);
+                        int i = optInt * optInt2 * 4;
+                        if (decode != null && decode.length == i) {
+                            this.a = e(d(decode, optInt, optInt2), g3, g4);
+                            Matrix matrix = new Matrix();
+                            this.c = matrix;
+                            matrix.postTranslate(g, g2);
+                            return 0;
+                        }
+                        return 2001;
+                    } catch (Exception e) {
+                        if (d) {
+                            e.printStackTrace();
+                        }
+                        w52.c("canvasPutImageData", "canvasGetImageData meets exception in decoding bitmap");
+                        return 1001;
+                    }
                 }
+                return 2002;
+            } catch (JSONException e2) {
+                if (d) {
+                    e2.printStackTrace();
+                }
+                return 1001;
             }
-            return jSONArray.toString();
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
+    }
+
+    @NonNull
+    public final Bitmap d(@NonNull byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i, i2)) == null) {
+            int i3 = i * i2;
+            int[] iArr = new int[i3];
+            for (int i4 = 0; i4 < i3; i4++) {
+                int i5 = i4 * 4;
+                iArr[i4] = Color.argb(bArr[i5 + 3] & 255, bArr[i5] & 255, bArr[i5 + 1] & 255, bArr[i5 + 2] & 255);
+            }
+            Bitmap createBitmap = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_4444);
+            createBitmap.setPixels(iArr, 0, i, 0, 0, i, i2);
+            return createBitmap;
+        }
+        return (Bitmap) invokeLII.objValue;
+    }
+
+    @NonNull
+    public final Bitmap e(@NonNull Bitmap bitmap, float f, float f2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{bitmap, Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            Matrix matrix = new Matrix();
+            matrix.postScale(f / bitmap.getWidth(), f2 / bitmap.getHeight());
+            return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+        }
+        return (Bitmap) invokeCommon.objValue;
     }
 }

@@ -1,57 +1,74 @@
 package com.baidu.tieba;
 
-import androidx.annotation.CallSuper;
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Activity;
+import android.app.Application;
+import android.content.Context;
+import android.content.ContextWrapper;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public abstract class pb6 extends s0 {
+public final class pb6 {
     public static /* synthetic */ Interceptable $ic;
+    public static Application a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final mb6 d;
 
-    public abstract void j();
-
-    public pb6(mb6 danmakuContext) {
+    public static Activity a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {danmakuContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (context instanceof Activity) {
+                return (Activity) context;
             }
+            while (context instanceof ContextWrapper) {
+                if (context instanceof Activity) {
+                    return (Activity) context;
+                }
+                context = ((ContextWrapper) context).getBaseContext();
+            }
+            return null;
         }
-        Intrinsics.checkNotNullParameter(danmakuContext, "danmakuContext");
-        this.d = danmakuContext;
+        return (Activity) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.s0
-    @CallSuper
-    public void g(p0 engine) {
+    public static void b(Application application) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, engine) == null) {
-            Intrinsics.checkNotNullParameter(engine, "engine");
-            super.g(engine);
-            j();
+        if (interceptable == null || interceptable.invokeL(65537, null, application) == null) {
+            a = application;
         }
     }
 
-    public final mb6 i() {
+    public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            try {
+                ConnectivityManager connectivityManager = (ConnectivityManager) a.getSystemService("connectivity");
+                if (connectivityManager != null) {
+                    NetworkInfo[] allNetworkInfo = connectivityManager.getAllNetworkInfo();
+                    if (allNetworkInfo.length > 0) {
+                        for (NetworkInfo networkInfo : allNetworkInfo) {
+                            if (networkInfo.getState() == NetworkInfo.State.CONNECTED) {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            } catch (Exception unused) {
+            }
+            return false;
         }
-        return (mb6) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public static Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return a;
+        }
+        return (Context) invokeV.objValue;
     }
 }

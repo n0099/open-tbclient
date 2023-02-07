@@ -1,63 +1,25 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.audiorecorder.lib.voice.VoiceRecordButton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class dp extends k75 {
+public class dp {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dp(Context context) {
-        super(context, TbadkCoreApplication.getInst().getResources().getString(R.string.msglist_voice), 6);
+    public static float a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.d = R.drawable.icon_pure_post_voice_n_svg;
-        this.e = R.drawable.icon_mask_post_voice24_selection_svg;
-        this.i = true;
-        this.n = 6;
-        this.o = true;
-        this.m = VoiceRecordButton.x(context);
-        this.p = new int[]{1, 9};
-    }
-
-    @Override // com.baidu.tieba.k75
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!TbadkCoreApplication.getInst().isAudioRecorderOpen()) {
-                String uegVoiceWarning = TbadkCoreApplication.getInst().getUegVoiceWarning();
-                if (StringUtils.isNull(uegVoiceWarning)) {
-                    uegVoiceWarning = TbadkCoreApplication.getInst().getString(R.string.ueg_voice_warning);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    return i != 3 ? 0.0f : 5.5f;
                 }
-                UtilHelper.showToast(TbadkCoreApplication.getInst(), uegVoiceWarning);
-                return false;
+                return -7.7f;
             }
-            return super.a();
+            return 6.6f;
         }
-        return invokeV.booleanValue;
+        return invokeI.floatValue;
     }
 }

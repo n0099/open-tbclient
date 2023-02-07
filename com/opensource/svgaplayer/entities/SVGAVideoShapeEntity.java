@@ -7,9 +7,9 @@ import android.graphics.RectF;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.tieba.v3a;
-import com.baidu.tieba.x3a;
-import com.baidu.tieba.y3a;
+import com.baidu.tieba.e8a;
+import com.baidu.tieba.g8a;
+import com.baidu.tieba.h8a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -298,7 +298,7 @@ public final class SVGAVideoShapeEntity {
         Type type;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048588, this, shapeEntity) == null) && (shapeType = shapeEntity.type) != null) {
-            int i = x3a.$EnumSwitchMapping$0[shapeType.ordinal()];
+            int i = g8a.$EnumSwitchMapping$0[shapeType.ordinal()];
             if (i != 1) {
                 if (i != 2) {
                     if (i != 3) {
@@ -357,7 +357,7 @@ public final class SVGAVideoShapeEntity {
         if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.e != null) {
             return;
         }
-        y3a.a().reset();
+        h8a.a().reset();
         Type type = this.a;
         String str = null;
         if (type == Type.shape) {
@@ -372,7 +372,7 @@ public final class SVGAVideoShapeEntity {
             }
             String str2 = str;
             if (str2 != null) {
-                new v3a(str2).a(y3a.a());
+                new e8a(str2).a(h8a.a());
             }
         } else if (type == Type.ellipse) {
             Map<String, ? extends Object> map2 = this.b;
@@ -423,7 +423,7 @@ public final class SVGAVideoShapeEntity {
                             float floatValue2 = number2.floatValue();
                             float floatValue3 = number3.floatValue();
                             float floatValue4 = number4.floatValue();
-                            y3a.a().addOval(new RectF(floatValue - floatValue3, floatValue2 - floatValue4, floatValue + floatValue3, floatValue2 + floatValue4), Path.Direction.CW);
+                            h8a.a().addOval(new RectF(floatValue - floatValue3, floatValue2 - floatValue4, floatValue + floatValue3, floatValue2 + floatValue4), Path.Direction.CW);
                         } else {
                             return;
                         }
@@ -497,7 +497,7 @@ public final class SVGAVideoShapeEntity {
                                 float floatValue7 = number7.floatValue();
                                 float floatValue8 = number8.floatValue();
                                 float floatValue9 = number9.floatValue();
-                                y3a.a().addRoundRect(new RectF(floatValue5, floatValue6, floatValue7 + floatValue5, floatValue8 + floatValue6), floatValue9, floatValue9, Path.Direction.CW);
+                                h8a.a().addRoundRect(new RectF(floatValue5, floatValue6, floatValue7 + floatValue5, floatValue8 + floatValue6), floatValue9, floatValue9, Path.Direction.CW);
                             } else {
                                 return;
                             }
@@ -517,7 +517,7 @@ public final class SVGAVideoShapeEntity {
         Path path = new Path();
         this.e = path;
         if (path != null) {
-            path.set(y3a.a());
+            path.set(h8a.a());
         }
     }
 
@@ -721,7 +721,7 @@ public final class SVGAVideoShapeEntity {
             aVar.n(f);
             ShapeEntity.ShapeStyle.LineCap lineCap = shapeStyle.lineCap;
             if (lineCap != null) {
-                int i7 = x3a.$EnumSwitchMapping$1[lineCap.ordinal()];
+                int i7 = g8a.$EnumSwitchMapping$1[lineCap.ordinal()];
                 if (i7 != 1) {
                     if (i7 != 2) {
                         if (i7 == 3) {
@@ -736,7 +736,7 @@ public final class SVGAVideoShapeEntity {
             }
             ShapeEntity.ShapeStyle.LineJoin lineJoin = shapeStyle.lineJoin;
             if (lineJoin != null) {
-                int i8 = x3a.$EnumSwitchMapping$2[lineJoin.ordinal()];
+                int i8 = g8a.$EnumSwitchMapping$2[lineJoin.ordinal()];
                 if (i8 != 1) {
                     if (i8 != 2) {
                         if (i8 == 3) {

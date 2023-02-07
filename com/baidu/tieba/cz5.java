@@ -1,66 +1,69 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.ala.data.SdkLiveInfoData;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ForumUserLiveActiivtyConfig;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class cz5 {
+public class cz5 extends ok1<bk0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(dx5 dx5Var, String str, String str2) {
-        SdkLiveInfoData sdkLiveInfoData;
-        String str3;
-        String str4;
-        String str5;
-        String str6;
-        int i;
-        SdkLiveInfoData.YYExt yYExt;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65536, null, dx5Var, str, str2) == null) && dx5Var != null && (sdkLiveInfoData = dx5Var.a) != null) {
-            SdkLiveInfoData.AlaLiveInfo alaLiveInfo = sdkLiveInfoData.liveInfo;
-            String str7 = "";
-            if (alaLiveInfo == null || (yYExt = alaLiveInfo.yyExt) == null) {
-                str3 = "";
-                str4 = str3;
-                str5 = str4;
-                str6 = str5;
-            } else {
-                str4 = yYExt.sid;
-                str5 = yYExt.ssid;
-                str6 = yYExt.yyUid;
-                str3 = yYExt.templateId;
+    /* loaded from: classes4.dex */
+    public class a implements bk0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.bk0
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TbConfig.WEIXIN_SHARE_APP_ID : (String) invokeV.objValue;
+        }
+
+        public a(cz5 cz5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cz5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            StatisticItem param = new StatisticItem(str).param("fid", dx5Var.c).param("liveid", dx5Var.a.liveId).param("hdid", TbadkCoreApplication.getInst().getHdid()).param(TiebaStatic.YYParams.YYSID, str4).param(TiebaStatic.YYParams.YYSSID, str5).param(TiebaStatic.YYParams.YYUID, str6).param("template_id", str3);
-            if (!TextUtils.isEmpty(str4)) {
-                str7 = "1";
-            }
-            StatisticItem param2 = param.param(TiebaStatic.YYParams.YYLIVEID, str7).param(TiebaStatic.Params.VID, dx5Var.a.nid);
-            if (TextUtils.equals(ForumUserLiveActiivtyConfig.KEY_FROM_FRS_CARD, str2)) {
-                i = 1;
-            } else {
-                i = 2;
-            }
-            TiebaStatic.log(param2.param("obj_source", i));
         }
     }
 
-    public static void b(dx5 dx5Var, String str) {
+    public cz5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, dx5Var, str) == null) {
-            a(dx5Var, "c14705", str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static void c(dx5 dx5Var, String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ok1
+    /* renamed from: a */
+    public bk0 createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, dx5Var, str) == null) {
-            a(dx5Var, "c14704", str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
         }
+        return (bk0) invokeV.objValue;
     }
 }

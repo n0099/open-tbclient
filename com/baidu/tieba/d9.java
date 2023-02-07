@@ -1,140 +1,166 @@
 package com.baidu.tieba;
 
+import android.app.Application;
 import android.content.Context;
-import android.text.TextUtils;
+import android.os.Handler;
+import android.os.Looper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
+import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class d9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final d9 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public f9 a;
-    public Context b;
-    public int c;
+    public volatile boolean a;
+    public yi1 b;
+    public long c;
+    public final Handler d;
+    public final CopyOnWriteArrayList<ul1> e;
 
-    public d9(Context context) {
+    /* loaded from: classes4.dex */
+    public interface b {
+        void onFailed();
+
+        void onSuccess();
+    }
+
+    /* loaded from: classes4.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ d9 b;
+
+        public a(d9 d9Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {d9Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = d9Var;
+            this.a = i;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a == 1 && ((float) (System.currentTimeMillis() - this.b.c)) < jj1.i() * 60000.0f) {
+                    return;
+                }
+                if (this.b.b == null) {
+                    this.b.b = new yi1();
+                }
+                this.b.b.k();
+                this.b.c = System.currentTimeMillis();
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448301048, "Lcom/baidu/tieba/d9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448301048, "Lcom/baidu/tieba/d9;");
+                return;
+            }
+        }
+        f = new d9();
+    }
+
+    public static d9 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return f;
+        }
+        return (d9) invokeV.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.e.clear();
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !m51.b()) {
+            return;
+        }
+        Context b2 = nj0.b();
+        if (b2 instanceof Application) {
+            ((Application) b2).registerActivityLifecycleCallbacks(new cj1());
+        }
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            JSONObject d = wi1.a().d();
+            if (d == null || d.optBoolean("real_time_query_switch", true)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public d9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = context;
-        this.a = new g9(context);
-        this.c = l9.b().a();
+        this.a = false;
+        this.d = new Handler(Looper.getMainLooper());
+        this.e = new CopyOnWriteArrayList<>();
     }
 
-    public f9 a() {
-        InterceptResult invokeV;
+    public void j(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (f9) invokeV.objValue;
-    }
-
-    public HashMap<String, b9> b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            HashMap<String, b9> hashMap = new HashMap<>();
-            if (!TextUtils.isEmpty(str)) {
-                try {
-                    JSONArray jSONArray = new JSONObject(str).getJSONArray("exps");
-                    if (jSONArray != null && jSONArray.length() > 0) {
-                        int length = jSONArray.length();
-                        for (int i = 0; i < length; i++) {
-                            JSONObject jSONObject = jSONArray.getJSONObject(i);
-                            if (jSONObject != null) {
-                                int i2 = jSONObject.getInt("exp_id");
-                                long j = jSONObject.getLong("expired_time");
-                                int i3 = jSONObject.getInt("components_key");
-                                if (System.currentTimeMillis() / 1000 <= j) {
-                                    b9 b9Var = new b9(i2, i3, j);
-                                    hashMap.put(i2 + "_" + i3, b9Var);
-                                }
-                            }
-                        }
-                    }
-                } catch (JSONException e) {
-                    e9.a("V1DataProcessor", "parse config JSONException!", e);
-                }
-            }
-            return hashMap;
-        }
-        return (HashMap) invokeL.objValue;
-    }
-
-    public List<j9> c(int i) {
-        InterceptResult invokeI;
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            ArrayList arrayList = new ArrayList();
-            String d = this.a.d();
-            if (!TextUtils.isEmpty(d)) {
-                try {
-                    JSONArray jSONArray = new JSONObject(d).getJSONArray("exps");
-                    if (jSONArray != null && jSONArray.length() > 0) {
-                        int length = jSONArray.length();
-                        for (int i2 = 0; i2 < length; i2++) {
-                            JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
-                            if (jSONObject2 != null && (jSONObject = jSONObject2.getJSONObject("components_values")) != null) {
-                                Iterator<String> keys = jSONObject.keys();
-                                while (keys.hasNext()) {
-                                    String next = keys.next();
-                                    if (s20.a(next, this.c) == i) {
-                                        arrayList.add(new j9(next, jSONObject.get(next)));
-                                    }
-                                }
-                            }
-                        }
-                    }
-                } catch (JSONException e) {
-                    e9.a("V1DataProcessor", "parse config JSONException!", e);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeI.objValue;
-    }
-
-    public synchronized void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                JSONObject jSONObject = new JSONObject();
-                String e = this.a.e();
-                String d = this.a.d();
-                if (!TextUtils.isEmpty(e) && !TextUtils.isEmpty(d)) {
-                    try {
-                        jSONObject.put("version", e);
-                        jSONObject.put("data", new JSONObject(d));
-                        j20.i(jSONObject);
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
-                    }
-                }
-            }
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.d.postDelayed(new a(this, i), 5000L);
         }
     }
 }

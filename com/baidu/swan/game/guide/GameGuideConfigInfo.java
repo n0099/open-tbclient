@@ -5,8 +5,8 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.airbnb.lottie.LottieComposition;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.tieba.bv3;
-import com.baidu.tieba.tk1;
+import com.baidu.tieba.gp1;
+import com.baidu.tieba.oz3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -340,7 +340,7 @@ public class GameGuideConfigInfo implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
             if (jSONObject == null) {
-                if (tk1.a) {
+                if (gp1.a) {
                     Log.d(TAG, "data 为空");
                 }
                 return null;
@@ -348,7 +348,7 @@ public class GameGuideConfigInfo implements Serializable {
             GameGuideConfigInfo gameGuideConfigInfo = new GameGuideConfigInfo();
             int optInt = jSONObject.optInt("status", 0);
             gameGuideConfigInfo.status = optInt;
-            bv3.p(Boolean.valueOf(jSONObject.optBoolean(KEY_OPEN_INSTALL_BOOT, false)).booleanValue());
+            oz3.p(Boolean.valueOf(jSONObject.optBoolean(KEY_OPEN_INSTALL_BOOT, false)).booleanValue());
             gameGuideConfigInfo.expirationTime = jSONObject.optLong(KEY_EXPIRATION_TIME, 0L);
             gameGuideConfigInfo.packageExpire = jSONObject.optLong(KEY_PACKAGE_EXPIRE, 0L);
             gameGuideConfigInfo.install_result = jSONObject.optBoolean(KEY_INSTALL_RESULT, true);
@@ -362,7 +362,7 @@ public class GameGuideConfigInfo implements Serializable {
             }
             gameGuideConfigInfo.popupSelection = jSONObject.optInt(KEY_POPUP_SELECTION, 0);
             if (optInt == 0) {
-                if (tk1.a) {
+                if (gp1.a) {
                     Log.d(TAG, "配置数据标明不展示");
                 }
                 return gameGuideConfigInfo;

@@ -1,74 +1,71 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.GeneralResource;
 /* loaded from: classes5.dex */
-public class nz4 {
+public class nz4 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public int c;
 
-    public static void a(ImageView imageView, int i) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948019745, "Lcom/baidu/tieba/nz4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948019745, "Lcom/baidu/tieba/nz4;");
+                return;
+            }
+        }
+        d = BdUniqueId.gen();
+    }
+
+    public nz4() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65536, null, imageView, i) == null) && imageView != null) {
-            WebPManager.setPureDrawable(imageView, i, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
-            ViewGroup.LayoutParams layoutParams = imageView.getLayoutParams();
-            if (layoutParams != null) {
-                layoutParams.width = zi.g(TbadkApplication.getInst(), R.dimen.tbds52);
-                layoutParams.height = zi.g(TbadkApplication.getInst(), R.dimen.tbds52);
-                imageView.setLayoutParams(layoutParams);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void b(ViewGroup viewGroup) {
-        ViewGroup.LayoutParams layoutParams;
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, viewGroup) == null) && viewGroup != null && (layoutParams = viewGroup.getLayoutParams()) != null) {
-            layoutParams.height = zi.g(TbadkApplication.getInst(), R.dimen.tbds120);
-            viewGroup.setLayoutParams(layoutParams);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return d;
         }
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public static void c(TextView textView) {
+    public void c(GeneralResource generalResource) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, textView) == null) && textView != null) {
-            cx4.d(textView).v(R.color.CAM_X0107);
-        }
-    }
-
-    public static void d(TextView textView) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, textView) == null) && textView != null) {
-            cx4.d(textView).z(R.dimen.tbds36);
-        }
-    }
-
-    public static void e(TextView textView) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, textView) == null) && textView != null) {
-            cx4 d = cx4.d(textView);
-            d.z(R.dimen.tbds36);
-            d.v(R.color.CAM_X0107);
-        }
-    }
-
-    public static void f(TBLottieAnimationView tBLottieAnimationView, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65541, null, tBLottieAnimationView, i) == null) && tBLottieAnimationView != null) {
-            if (i != 1 && i != 4) {
-                SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.lottie_agree_day);
-            } else {
-                SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.lottie_agree_night);
-            }
-            tBLottieAnimationView.setColorFilter(SkinManager.getColor(R.color.CAM_X0107));
+        if ((interceptable == null || interceptable.invokeL(1048576, this, generalResource) == null) && generalResource != null) {
+            this.a = generalResource.res_image;
+            this.b = generalResource.res_link;
+            this.c = generalResource.res_floor.intValue();
         }
     }
 }

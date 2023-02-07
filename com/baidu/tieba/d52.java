@@ -1,232 +1,139 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.launchtips.monitor.request.RequestStatus;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.graphics.drawable.GradientDrawable;
+import android.text.TextUtils;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewParent;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes4.dex */
-public final class d52 {
+public final class d52 extends h42<TextView, e52> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<z42> a;
-    public final List<z42> b;
-    public final List<z42> c;
+    public SwanAppComponentContainerView i;
+    public TextView j;
 
-    /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-908859189, "Lcom/baidu/tieba/d52$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-908859189, "Lcom/baidu/tieba/d52$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[RequestStatus.values().length];
-            a = iArr;
-            try {
-                iArr[RequestStatus.STATUS_SEND.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[RequestStatus.STATUS_SUCCESS.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[RequestStatus.STATUS_FAILED.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-        }
-    }
-
-    public d52() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d52(@NonNull Context context, @NonNull e52 e52Var) {
+        super(context, e52Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, e52Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (i42) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = new ArrayList();
-        this.c = new ArrayList();
+        g(4);
+        this.i = new SwanAppComponentContainerView(context);
+        this.j = new TextView(context);
     }
 
-    public synchronized List<z42> d() {
-        InterceptResult invokeV;
-        ArrayList arrayList;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.h42, com.baidu.tieba.j42, com.baidu.tieba.l42
+    @NonNull
+    /* renamed from: Z */
+    public o52 k(@NonNull e52 e52Var, @NonNull e52 e52Var2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this) {
-                arrayList = new ArrayList();
-                for (z42 z42Var : this.c) {
-                    if (z42Var != null && z42Var.g(true)) {
-                        arrayList.add(z42Var);
-                    }
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, e52Var, e52Var2)) == null) {
+            o52 k = super.k(e52Var, e52Var2);
+            if (!TextUtils.equals(e52Var.E, e52Var2.E) && (TextUtils.equals(e52Var.E, "scroll") || TextUtils.equals(e52Var2.E, "scroll"))) {
+                k.b(7);
             }
-            return arrayList;
+            if (!TextUtils.equals(e52Var.E, e52Var2.E) || (TextUtils.equals(e52Var2.E, "scroll") && e52Var.D != e52Var2.D)) {
+                k.b(8);
+            }
+            return k;
         }
-        return (List) invokeV.objValue;
+        return (o52) invokeLL.objValue;
     }
 
-    public synchronized List<z42> f() {
-        InterceptResult invokeV;
-        ArrayList arrayList;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.j42
+    /* renamed from: c0 */
+    public void Q(@NonNull TextView textView, @NonNull e52 e52Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            synchronized (this) {
-                arrayList = new ArrayList();
-                for (z42 z42Var : this.c) {
-                    if (z42Var != null && z42Var.f()) {
-                        arrayList.add(z42Var);
-                    }
-                }
+        if (interceptable == null || interceptable.invokeLL(1048583, this, textView, e52Var) == null) {
+            if (l42.h) {
+                Log.d("Component-CoverView", "renderBackground");
             }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public synchronized List<z42> g() {
-        InterceptResult invokeV;
-        ArrayList arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            synchronized (this) {
-                arrayList = new ArrayList();
-                for (z42 z42Var : this.b) {
-                    if (z42Var != null && z42Var.h()) {
-                        arrayList.add(z42Var);
-                    }
-                }
+            if (e52Var.j == null) {
+                return;
             }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public synchronized void a(z42 z42Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, z42Var) == null) {
-            synchronized (this) {
-                if (z42Var == null) {
-                    return;
-                }
-                int i = a.a[z42Var.e.ordinal()];
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i == 3) {
-                            this.c.add(z42Var);
-                            c(this.a, z42Var);
-                        }
-                    } else {
-                        this.b.add(z42Var);
-                        c(this.a, z42Var);
-                    }
-                } else {
-                    this.a.add(z42Var);
-                }
+            SwanAppComponentContainerView m = m();
+            if (m != null) {
+                m.setModel(e52Var);
             }
+            ViewParent parent = textView.getParent();
+            if (!(parent instanceof View)) {
+                return;
+            }
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            gradientDrawable.setColor(e52Var.k);
+            gradientDrawable.setCornerRadius(e52Var.n);
+            gradientDrawable.setStroke(e52Var.l, e52Var.m);
+            ((View) parent).setBackground(gradientDrawable);
         }
     }
 
-    public synchronized void b() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.j42
+    /* renamed from: b0 */
+    public void P(@NonNull View view2, @NonNull e52 e52Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                this.c.clear();
-                this.a.clear();
-                this.b.clear();
+        if (interceptable == null || interceptable.invokeLL(1048582, this, view2, e52Var) == null) {
+            if (l42.h) {
+                Log.d("Component-CoverView", "renderAlpha");
             }
+            if (e52Var.j == null) {
+                return;
+            }
+            ViewParent parent = view2.getParent();
+            if (!(parent instanceof View)) {
+                return;
+            }
+            super.P((View) parent, e52Var);
         }
     }
 
-    public synchronized int e() {
-        InterceptResult invokeV;
-        int size;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.l42
+    @NonNull
+    /* renamed from: a0 */
+    public TextView v(@NonNull Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this) {
-                size = this.c.size();
-            }
-            return size;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
+            return this.j;
         }
-        return invokeV.intValue;
+        return (TextView) invokeL.objValue;
     }
 
-    public synchronized int h() {
-        InterceptResult invokeV;
-        int size;
+    @Override // com.baidu.tieba.l42
+    @NonNull
+    public SwanAppComponentContainerView u(@NonNull Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            synchronized (this) {
-                size = this.b.size();
-            }
-            return size;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, context)) == null) {
+            return this.i;
         }
-        return invokeV.intValue;
-    }
-
-    public synchronized int i() {
-        InterceptResult invokeV;
-        int size;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            synchronized (this) {
-                size = this.a.size() + h() + e();
-            }
-            return size;
-        }
-        return invokeV.intValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x0024, code lost:
-        r5.remove();
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final synchronized void c(List<z42> list, z42 z42Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, z42Var) == null) {
-            synchronized (this) {
-                if (list != null) {
-                    if (!list.isEmpty() && z42Var != null) {
-                        Iterator<z42> it = list.iterator();
-                        while (true) {
-                            if (!it.hasNext()) {
-                                break;
-                            } else if (z42Var.equals(it.next())) {
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        return (SwanAppComponentContainerView) invokeL.objValue;
     }
 }

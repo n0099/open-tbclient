@@ -7089,7 +7089,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RecyclerView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405ab);
+        this(context, attributeSet, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405ae);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -10964,7 +10964,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         if (interceptable == null || interceptable.invokeLLLL(1048670, this, stateListDrawable, drawable, stateListDrawable2, drawable2) == null) {
             if (stateListDrawable != null && drawable != null && stateListDrawable2 != null && drawable2 != null) {
                 Resources resources = getContext().getResources();
-                new FastScroller(this, stateListDrawable, drawable, stateListDrawable2, drawable2, resources.getDimensionPixelSize(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070327), resources.getDimensionPixelSize(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070329), resources.getDimensionPixelOffset(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070328));
+                new FastScroller(this, stateListDrawable, drawable, stateListDrawable2, drawable2, resources.getDimensionPixelSize(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070328), resources.getDimensionPixelSize(com.baidu.tieba.R.dimen.obfuscated_res_0x7f07032a), resources.getDimensionPixelOffset(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070329));
                 return;
             }
             throw new IllegalArgumentException("Trying to set fast scroller without both required drawables." + exceptionLabel());

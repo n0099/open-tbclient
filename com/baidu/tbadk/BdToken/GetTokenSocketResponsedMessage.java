@@ -3,7 +3,7 @@ package com.baidu.tbadk.BdToken;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ln4;
+import com.baidu.tieba.yr4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.GetToken.GetTokenResIdl;
 public class GetTokenSocketResponsedMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ln4 mData;
+    public yr4 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetTokenSocketResponsedMessage() {
@@ -36,13 +36,13 @@ public class GetTokenSocketResponsedMessage extends SocketResponsedMessage {
         }
     }
 
-    public ln4 getData() {
+    public yr4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mData;
         }
-        return (ln4) invokeV.objValue;
+        return (yr4) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -61,9 +61,9 @@ public class GetTokenSocketResponsedMessage extends SocketResponsedMessage {
                 setErrorString(getTokenResIdl.error.usermsg);
             }
             if (getTokenResIdl.data != null) {
-                ln4 ln4Var = new ln4();
-                this.mData = ln4Var;
-                ln4Var.e(getTokenResIdl.data);
+                yr4 yr4Var = new yr4();
+                this.mData = yr4Var;
+                yr4Var.e(getTokenResIdl.data);
             }
             return null;
         }

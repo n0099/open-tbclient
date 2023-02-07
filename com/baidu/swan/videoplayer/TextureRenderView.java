@@ -13,8 +13,8 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gl4;
-import com.baidu.tieba.hl4;
+import com.baidu.tieba.tp4;
+import com.baidu.tieba.up4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,15 +25,15 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 @TargetApi(14)
 /* loaded from: classes3.dex */
-public class TextureRenderView extends TextureView implements gl4 {
+public class TextureRenderView extends TextureView implements tp4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hl4 a;
+    public up4 a;
     public int b;
     public SurfaceTexture c;
     public b d;
 
-    @Override // com.baidu.tieba.gl4
+    @Override // com.baidu.tieba.tp4
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class TextureRenderView extends TextureView implements gl4 {
     }
 
     /* loaded from: classes3.dex */
-    public static final class a implements gl4.b {
+    public static final class a implements tp4.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public TextureRenderView a;
@@ -64,7 +64,7 @@ public class TextureRenderView extends TextureView implements gl4 {
             this.a = textureRenderView;
         }
 
-        @Override // com.baidu.tieba.gl4.b
+        @Override // com.baidu.tieba.tp4.b
         @TargetApi(16)
         public void a(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
@@ -79,14 +79,14 @@ public class TextureRenderView extends TextureView implements gl4 {
             }
         }
 
-        @Override // com.baidu.tieba.gl4.b
-        public gl4 b() {
+        @Override // com.baidu.tieba.tp4.b
+        public tp4 b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 return this.a;
             }
-            return (gl4) invokeV.objValue;
+            return (tp4) invokeV.objValue;
         }
 
         public Surface c() {
@@ -109,7 +109,7 @@ public class TextureRenderView extends TextureView implements gl4 {
         public int d;
         public volatile boolean e;
         public WeakReference<TextureRenderView> f;
-        public Map<gl4.a, Object> g;
+        public Map<tp4.a, Object> g;
 
         @Override // android.view.TextureView.SurfaceTextureListener
         public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
@@ -148,7 +148,7 @@ public class TextureRenderView extends TextureView implements gl4 {
                 this.c = 0;
                 this.d = 0;
                 a aVar = new a(this.f.get());
-                for (gl4.a aVar2 : this.g.keySet()) {
+                for (tp4.a aVar2 : this.g.keySet()) {
                     aVar2.a(aVar);
                 }
                 return this.e;
@@ -156,7 +156,7 @@ public class TextureRenderView extends TextureView implements gl4 {
             return invokeL.booleanValue;
         }
 
-        public void a(gl4.a aVar) {
+        public void a(tp4.a aVar) {
             a aVar2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
@@ -176,7 +176,7 @@ public class TextureRenderView extends TextureView implements gl4 {
             }
         }
 
-        public void b(gl4.a aVar) {
+        public void b(tp4.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
                 this.g.remove(aVar);
@@ -205,7 +205,7 @@ public class TextureRenderView extends TextureView implements gl4 {
                 this.c = 0;
                 this.d = 0;
                 a aVar = new a(this.f.get());
-                for (gl4.a aVar2 : this.g.keySet()) {
+                for (tp4.a aVar2 : this.g.keySet()) {
                     aVar2.b(aVar, 0, 0);
                 }
             }
@@ -220,7 +220,7 @@ public class TextureRenderView extends TextureView implements gl4 {
                 this.c = i;
                 this.d = i2;
                 a aVar = new a(this.f.get());
-                for (gl4.a aVar2 : this.g.keySet()) {
+                for (tp4.a aVar2 : this.g.keySet()) {
                     aVar2.c(aVar, 0, i, i2);
                 }
             }
@@ -295,16 +295,16 @@ public class TextureRenderView extends TextureView implements gl4 {
         c(context);
     }
 
-    @Override // com.baidu.tieba.gl4
-    public void a(gl4.a aVar) {
+    @Override // com.baidu.tieba.tp4
+    public void a(tp4.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             this.d.b(aVar);
         }
     }
 
-    @Override // com.baidu.tieba.gl4
-    public void b(gl4.a aVar) {
+    @Override // com.baidu.tieba.tp4
+    public void b(tp4.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             this.d.a(aVar);
@@ -314,7 +314,7 @@ public class TextureRenderView extends TextureView implements gl4 {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.a = new hl4(this);
+            this.a = new up4(this);
             b bVar = new b(this);
             this.d = bVar;
             setSurfaceTextureListener(bVar);
@@ -339,7 +339,7 @@ public class TextureRenderView extends TextureView implements gl4 {
         }
     }
 
-    @Override // com.baidu.tieba.gl4
+    @Override // com.baidu.tieba.tp4
     public void setAspectRatio(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
@@ -388,13 +388,13 @@ public class TextureRenderView extends TextureView implements gl4 {
         return (SurfaceTexture) invokeV.objValue;
     }
 
-    public gl4.b getSurfaceHolder() {
+    public tp4.b getSurfaceHolder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return new a(this);
         }
-        return (gl4.b) invokeV.objValue;
+        return (tp4.b) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -406,7 +406,7 @@ public class TextureRenderView extends TextureView implements gl4 {
         }
     }
 
-    @Override // com.baidu.tieba.gl4
+    @Override // com.baidu.tieba.tp4
     @TargetApi(16)
     public void release() {
         Interceptable interceptable = $ic;
@@ -437,7 +437,7 @@ public class TextureRenderView extends TextureView implements gl4 {
         }
     }
 
-    @Override // com.baidu.tieba.gl4
+    @Override // com.baidu.tieba.tp4
     public void setVideoSize(int i, int i2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeII(1048593, this, i, i2) == null) && i > 0 && i2 > 0) {

@@ -1,38 +1,70 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.Iterator;
+import java.util.List;
+import kotlin.collections.CollectionsKt__CollectionsKt;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class lg6 {
+public final class lg6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<? extends jg6> a;
+    public List<? extends Object> b;
 
-    public void b(mg6 mg6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, mg6Var) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947941966, "Lcom/baidu/tieba/lg6;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947941966, "Lcom/baidu/tieba/lg6;");
         }
     }
 
-    public void c(mg6 mg6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mg6Var) == null) {
-        }
-    }
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final boolean a;
 
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+        public a(boolean z, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z;
         }
-    }
 
-    public void e(mg6 mg6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, mg6Var) == null) {
+        public final boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return invokeV.booleanValue;
         }
     }
 
@@ -40,30 +72,79 @@ public class lg6 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        this.a = CollectionsKt__CollectionsKt.emptyList();
+        this.b = CollectionsKt__CollectionsKt.emptyList();
+    }
+
+    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: java.util.List<? extends com.baidu.tieba.jg6>, java.util.List<com.baidu.tieba.jg6> */
+    public final List<jg6> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final List<Object> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final a a(sf6 item, vh6 timer, mf6 config) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(timer, "timer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            Iterator<? extends jg6> it = this.a.iterator();
+            int i = 0;
+            boolean z = false;
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                jg6 next = it.next();
+                boolean b = next.b(item, timer, config);
+                if (b) {
+                    i = next.a();
+                    z = b;
+                    break;
+                }
+                z = b;
+            }
+            return new a(z, i);
+        }
+        return (a) invokeLLL.objValue;
+    }
+
+    public final void d(List<? extends jg6> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            Intrinsics.checkNotNullParameter(list, "<set-?>");
+            this.a = list;
         }
     }
 
-    public static lg6 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public final void e(List<? extends Object> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            lg6 lg6Var = new lg6();
-            lg6Var.c(mg6.a(jSONObject.optJSONObject("day")));
-            lg6Var.b(mg6.a(jSONObject.optJSONObject("dark")));
-            lg6Var.e(mg6.a(jSONObject.optJSONObject("night")));
-            lg6Var.d(jSONObject.toString());
-            return lg6Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+            Intrinsics.checkNotNullParameter(list, "<set-?>");
+            this.b = list;
         }
-        return (lg6) invokeL.objValue;
     }
 }

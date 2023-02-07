@@ -1,23 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
+import android.os.Build;
+import android.webkit.JsPromptResult;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.FrsPage.PrivateForumShareinfo;
-import tbclient.FrsPage.PrivateForumTotalInfo;
-import tbclient.PrivateForumInfo;
-import tbclient.PrivatePopInfo;
 /* loaded from: classes5.dex */
-public class pu4 {
+public class pu4 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PrivatePopInfo a;
-    public PrivateForumInfo b;
-    public Integer c;
+    public u19 a;
 
     public pu4() {
         Interceptable interceptable = $ic;
@@ -29,53 +26,45 @@ public class pu4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = null;
     }
 
-    public PrivateForumInfo a() {
-        InterceptResult invokeV;
+    public final void a(WebView webView, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if ((interceptable == null || interceptable.invokeLLL(1048576, this, webView, str, str2) == null) && webView != null && !dj.isEmpty(str) && !dj.isEmpty(str2)) {
+            if (Build.VERSION.SDK_INT >= 19) {
+                webView.evaluateJavascript("javascript:" + str + "('" + str2 + "')", null);
+                return;
+            }
+            webView.loadUrl("javascript:" + str + "('" + str2 + "')");
         }
-        return (PrivateForumInfo) invokeV.objValue;
     }
 
-    public Integer b() {
-        InterceptResult invokeV;
+    public void b(u19 u19Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u19Var) == null) {
+            this.a = u19Var;
         }
-        return (Integer) invokeV.objValue;
     }
 
-    public PrivatePopInfo c() {
-        InterceptResult invokeV;
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
+        u19 u19Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            if (!m75.a(str) && str2.startsWith("tiebaapp")) {
+                x19 x19Var = new x19();
+                x19Var.v(b29.b(str2));
+                x19Var.x(301);
+                a(webView, x19Var.c(), x19Var.d());
+            }
+            if ((!m75.a(str) || (u19Var = this.a) == null || !u19Var.onJsPrompt(str2, jsPromptResult)) && jsPromptResult != null) {
+                jsPromptResult.cancel();
+            }
+            return true;
         }
-        return (PrivatePopInfo) invokeV.objValue;
-    }
-
-    public void d(PrivateForumTotalInfo privateForumTotalInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, privateForumTotalInfo) != null) || privateForumTotalInfo == null) {
-            return;
-        }
-        try {
-            PrivateForumShareinfo privateForumShareinfo = privateForumTotalInfo.private_forum_shareinfo;
-            this.b = privateForumTotalInfo.private_forum_info;
-            this.c = privateForumTotalInfo.private_forum_taskpercent;
-            this.a = privateForumTotalInfo.private_forum_popinfo;
-        } catch (Exception e) {
-            BdLog.detailException(e);
-        }
+        return invokeLLLLL.booleanValue;
     }
 }

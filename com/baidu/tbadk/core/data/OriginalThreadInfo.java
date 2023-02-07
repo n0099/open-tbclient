@@ -13,13 +13,13 @@ import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ck5;
-import com.baidu.tieba.hu4;
-import com.baidu.tieba.mo5;
-import com.baidu.tieba.qv4;
-import com.baidu.tieba.uo5;
+import com.baidu.tieba.d05;
+import com.baidu.tieba.ft5;
+import com.baidu.tieba.ky4;
+import com.baidu.tieba.no5;
+import com.baidu.tieba.uy4;
 import com.baidu.tieba.video.ActivityItemData;
-import com.baidu.tieba.xt4;
+import com.baidu.tieba.xs5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -74,7 +74,7 @@ public class OriginalThreadInfo {
     public final List<PbContent> t;
     public SpannableString u;
     @Nullable
-    public List<uo5> v;
+    public List<ft5> v;
     @Nullable
     public ThreadData w;
     public boolean x;
@@ -178,7 +178,7 @@ public class OriginalThreadInfo {
     }
 
     @Nullable
-    public List<uo5> h() {
+    public List<ft5> h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -258,7 +258,7 @@ public class OriginalThreadInfo {
             if (this.v == null) {
                 this.v = new ArrayList();
             }
-            this.u = new SpannableString(mo5.I(this.s, this.E, true, this.w, this.v));
+            this.u = new SpannableString(xs5.I(this.s, this.E, true, this.w, this.v));
         }
     }
 
@@ -314,7 +314,7 @@ public class OriginalThreadInfo {
             originalThreadInfo2.h = arrayList2;
             originalThreadInfo2.r = threadData.getThreadVideoInfo();
             if (threadData.isLinkThread() && threadData.getLinkThreadData() != null) {
-                xt4 linkThreadData = threadData.getLinkThreadData();
+                ky4 linkThreadData = threadData.getLinkThreadData();
                 originalThreadInfo2.g = linkThreadData.d();
                 abstractData.text = linkThreadData.a();
                 mediaData.setPic(linkThreadData.b());
@@ -392,7 +392,7 @@ public class OriginalThreadInfo {
                     PbContent pbContent = this.s.get(i);
                     if (pbContent != null && !TextUtils.isEmpty(pbContent.text) && 18 == pbContent.type.intValue() && m() && (str = pbContent.text) != null && str.length() >= 3) {
                         ActivityItemData activityItemData = new ActivityItemData();
-                        activityItemData.link_url = ck5.d(pbContent.text);
+                        activityItemData.link_url = no5.d(pbContent.text);
                         String str2 = pbContent.text;
                         activityItemData.activity_name = str2.substring(1, str2.length() - 2);
                         return activityItemData;
@@ -554,7 +554,7 @@ public class OriginalThreadInfo {
                 this.f = jSONObject.optString("tid");
                 this.g = jSONObject.optString("title");
                 this.k = jSONObject.optInt("thread_type");
-                this.s = hu4.a(jSONObject.optJSONArray("content"));
+                this.s = uy4.a(jSONObject.optJSONArray("content"));
                 JSONObject optJSONObject = jSONObject.optJSONObject("ala_info");
                 if (optJSONObject != null) {
                     AlaInfoData alaInfoData = new AlaInfoData();
@@ -608,7 +608,7 @@ public class OriginalThreadInfo {
                     this.p = baijiahaoData;
                     baijiahaoData.parseJson(optJSONObject2);
                 }
-                this.r = qv4.a(jSONObject.optJSONObject(WriteActivityConfig.VIDEO_INFO));
+                this.r = d05.a(jSONObject.optJSONObject(WriteActivityConfig.VIDEO_INFO));
                 JSONArray optJSONArray3 = jSONObject.optJSONArray("voice_info");
                 if (optJSONArray3 != null && optJSONArray3.length() > 0) {
                     this.q = new ArrayList<>();

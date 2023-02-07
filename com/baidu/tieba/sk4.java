@@ -2,110 +2,96 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class sk4 {
+public class sk4 extends ek4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Deprecated
-    public static String a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        StringBuilder sb;
-        StringBuilder sb2;
+    public sk4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, str2, str3)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            String str4 = str2 + "=";
-            int indexOf = str.indexOf("?");
-            String str5 = null;
-            if (indexOf < 0) {
-                int indexOf2 = str.indexOf("#");
-                if (indexOf2 < 0) {
-                    sb2 = new StringBuilder(str);
-                } else {
-                    str5 = str.substring(indexOf2);
-                    sb2 = new StringBuilder(str.substring(0, indexOf2));
-                }
-                sb2.append("?");
-                sb2.append(str4);
-                sb2.append(str3);
-                if (str5 != null) {
-                    sb2.append(str5);
-                }
-                return sb2.toString();
-            }
-            if (str.indexOf("&" + str4, indexOf) < 0) {
-                if (str.indexOf("?" + str4, indexOf) < 0) {
-                    int indexOf3 = str.indexOf("#");
-                    if (indexOf3 < 0) {
-                        sb = new StringBuilder(str);
-                    } else {
-                        str5 = str.substring(indexOf3);
-                        str = str.substring(0, indexOf3);
-                        sb = new StringBuilder(str);
-                    }
-                    if (!str.endsWith("&") && !str.endsWith("?")) {
-                        sb.append("&");
-                    }
-                    sb.append(str4);
-                    sb.append(str3);
-                    if (str5 != null) {
-                        sb.append(str5);
-                    }
-                    return sb.toString();
-                }
-                return str;
-            }
-            return str;
         }
-        return (String) invokeLLL.objValue;
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ek4, com.baidu.tieba.hk4
+    public void b(JSONObject jSONObject, rg4 rg4Var, @Nullable rg4 rg4Var2, @Nullable rg4 rg4Var3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            int d = kk4.d();
-            int b = kk4.b();
-            int a = kk4.a();
-            String f = kk4.f();
-            StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append(d);
-            stringBuffer.append("_");
-            stringBuffer.append(b);
-            stringBuffer.append("_");
-            stringBuffer.append(f);
-            stringBuffer.append("_");
-            stringBuffer.append(str);
-            stringBuffer.append("_");
-            stringBuffer.append(a);
-            return stringBuffer.toString();
+        if ((interceptable != null && interceptable.invokeLLLL(1048576, this, jSONObject, rg4Var, rg4Var2, rg4Var3) != null) || jSONObject == null) {
+            return;
         }
-        return (String) invokeL.objValue;
+        uk4.b().e(jSONObject.optJSONObject("tipmsgs"));
+        yk4.f().k(jSONObject.optJSONObject("page_tips"));
+        qk4.b().d(jSONObject.optJSONObject("pkg_clean_strategy"));
+        al4.a().d(jSONObject.optJSONObject("pkg_preload"));
+        il4.f(jSONObject.optJSONObject("app_inner_preload"));
+        tk4.a().c(jSONObject.optJSONObject("getpkg_retry_switch"));
+        fl4.b().d(jSONObject.optJSONObject("tts"));
+        bl4.a().e(jSONObject.optJSONObject("simple_control_item"));
+        gl4.e(jSONObject.optJSONObject("update_expire_time"));
+        if (cl4.a) {
+            c(jSONObject);
+        }
+        el4.b().f(jSONObject.optJSONObject("web_degrade_strategy"));
+        vk4.a().c(jSONObject.optJSONObject("local_debug"));
+        hg4.a().b(jSONObject.optJSONObject(hg4.a().c()));
+        if (dl4.b()) {
+            xk4.a().b(jSONObject.optJSONObject("api_description"));
+        }
+        wk4.a().e(jSONObject.optJSONObject("no_history_apps"));
     }
 
-    @NonNull
-    public static Map<String, String> c(@NonNull String str) {
-        InterceptResult invokeL;
-        String[] split;
+    public final void c(@NonNull JSONObject jSONObject) {
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            HashMap hashMap = new HashMap();
-            for (String str2 : str.split(";")) {
-                if (str2 != null && str2.contains("=")) {
-                    int indexOf = str2.indexOf("=");
-                    hashMap.put(str2.substring(0, indexOf).trim().toUpperCase(), str2.substring(indexOf + 1));
-                }
-            }
-            return hashMap;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || (optJSONObject = jSONObject.optJSONObject("heartbeat")) == null || optJSONObject.optLong("errno") != 0) {
+            return;
         }
-        return (Map) invokeL.objValue;
+        fg4 b = hg4.b();
+        yo4 yo4Var = null;
+        if (b != null) {
+            yo4Var = b.i();
+        }
+        String optString = optJSONObject.optString("version");
+        if (!TextUtils.isEmpty(optString)) {
+            cl4.b = optString;
+            if (yo4Var != null) {
+                yo4Var.putString("key_h2_heart_beat_version", optString);
+            }
+        }
+        JSONObject optJSONObject2 = optJSONObject.optJSONObject("data");
+        if (optJSONObject2 != null) {
+            if (optJSONObject2.optInt(SetImageWatermarkTypeReqMsg.SWITCH) > 0) {
+                int optInt = optJSONObject2.optInt("timespan");
+                int optInt2 = optJSONObject2.optInt(com.alipay.sdk.data.a.O);
+                if (yo4Var != null) {
+                    if (optInt > 0) {
+                        yo4Var.putInt("key_h2_heart_beat_timespan", optInt);
+                    }
+                    if (optInt2 > 0) {
+                        yo4Var.putInt("key_h2_heart_beat_timeout", optInt2);
+                        return;
+                    }
+                    return;
+                }
+                return;
+            }
+            cl4.a = false;
+        }
     }
 }

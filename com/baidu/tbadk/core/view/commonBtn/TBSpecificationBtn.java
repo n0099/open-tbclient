@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a05;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.n45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -326,12 +326,12 @@ public class TBSpecificationBtn extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
             this.l = TbadkCoreApplication.getInst().getSkinType();
-            a05 a05Var = new a05();
-            this.b = a05Var;
-            a05Var.t = this.n;
+            n45 n45Var = new n45();
+            this.b = n45Var;
+            n45Var.t = this.n;
             Paint paint = new Paint();
             this.d = paint;
-            paint.setTextSize(zi.g(getContext(), R.dimen.T_X08));
+            paint.setTextSize(ej.g(getContext(), R.dimen.T_X08));
             this.d.setAntiAlias(true);
         }
     }
@@ -487,7 +487,7 @@ public class TBSpecificationBtn extends View {
     public void setTextSize(@DimenRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.d.setTextSize(zi.g(getContext(), i));
+            this.d.setTextSize(ej.g(getContext(), i));
             Paint paint = this.d;
             String str = this.e;
             paint.getTextBounds(str, 0, str.length(), this.h);

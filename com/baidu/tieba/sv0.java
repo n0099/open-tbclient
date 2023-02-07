@@ -1,28 +1,114 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.nadcore.player.constants.PlayerStatus;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.player.event.StatisticsEvent;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface sv0 {
-    void a(@NonNull ru0 ru0Var);
+public class sv0 extends pv0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void d(@NonNull ru0 ru0Var);
+    public sv0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    int getExpectOrder();
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            c(rv0.w(StatisticsEvent.ACTION_PLAYER_PAUSE));
+        }
+    }
 
-    @Nullable
-    int[] getSubscribeEvent();
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            c(rv0.w(StatisticsEvent.ACTION_PLAYER_RESUME));
+        }
+    }
 
-    int getType();
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            c(rv0.w(StatisticsEvent.ACTION_PLAYER_START));
+        }
+    }
 
-    void h(PlayerStatus playerStatus, PlayerStatus playerStatus2);
+    public void d(int i, int i2, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, obj) == null) {
+            vv0 w = rv0.w(StatisticsEvent.ACTION_PLAYER_ERROR);
+            w.n(2, String.valueOf(obj));
+            w.n(4, Integer.valueOf(i2));
+            c(w);
+        }
+    }
 
-    void j(@NonNull ru0 ru0Var);
+    public void e(int i, int i2, Object obj) {
+        vv0 w;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj) == null) {
+            if (i != 701) {
+                if (i != 702) {
+                    if (i != 904 && i != 956) {
+                        if (i != 10009) {
+                            if (i != 11004) {
+                                if (i != 11005) {
+                                    w = null;
+                                } else {
+                                    w = rv0.w(StatisticsEvent.ACTION_ERROR_RETRY_END);
+                                }
+                            } else {
+                                w = rv0.w(StatisticsEvent.ACTION_ERROR_RETRY_START);
+                                w.n(4, Integer.valueOf(i2));
+                            }
+                        } else {
+                            w = rv0.w("statistics_player_carlton");
+                            w.n(2, String.valueOf(obj));
+                        }
+                    } else {
+                        w = rv0.w(StatisticsEvent.ACTION_PLAYER_FIRST_FRAME_DISPLAY);
+                        w.n(2, String.valueOf(obj));
+                    }
+                } else {
+                    w = rv0.w(StatisticsEvent.ACTION_BUFFER_END);
+                }
+            } else {
+                w = rv0.w(StatisticsEvent.ACTION_BUFFER_START);
+            }
+            if (w != null) {
+                c(w);
+            }
+        }
+    }
 
-    void k(@NonNull ru0 ru0Var);
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            vv0 w = rv0.w(StatisticsEvent.ACTION_PLAYER_COMPLETE);
+            w.n(1, Integer.valueOf(i));
+            c(w);
+        }
+    }
 
-    void n(@NonNull ru0 ru0Var);
-
-    void q(@NonNull ru0 ru0Var);
+    public void j(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            vv0 w = rv0.w(StatisticsEvent.ACTION_PLAYER_STOP);
+            w.n(1, Integer.valueOf(i));
+            c(w);
+        }
+    }
 }

@@ -1,307 +1,284 @@
 package com.baidu.tieba;
 
+import android.annotation.TargetApi;
+import android.media.MediaCodec;
+import android.media.MediaCrypto;
+import android.media.MediaFormat;
+import android.view.Surface;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.ar.record.EncoderParams;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.FestivalTipData;
-import tbclient.IconUrlInfo;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
-public final class ta9 {
+public class ta9 extends wa9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final b b;
-    public final String c;
+    public long d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948174621, "Lcom/baidu/tieba/ta9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948174621, "Lcom/baidu/tieba/ta9;");
-                return;
-            }
-        }
-        d = new a(null);
-    }
-
-    @JvmStatic
-    public static final ta9 a(FestivalTipData festivalTipData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, festivalTipData)) == null) ? d.a(festivalTipData) : (ta9) invokeL.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof ta9) {
-                ta9 ta9Var = (ta9) obj;
-                return Intrinsics.areEqual(this.a, ta9Var.a) && Intrinsics.areEqual(this.b, ta9Var.b) && Intrinsics.areEqual(this.c, ta9Var.c);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c.hashCode() : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "FestivalTipViewData(text=" + this.a + ", iconUrl=" + this.b + ", jumpUrl=" + this.c + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @JvmStatic
-        public final ta9 a(FestivalTipData festivalTipData) {
-            InterceptResult invokeL;
-            b bVar;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, festivalTipData)) == null) {
-                Intrinsics.checkNotNullParameter(festivalTipData, "festivalTipData");
-                String str = festivalTipData.text;
-                String str2 = "";
-                if (str == null) {
-                    str = "";
-                }
-                IconUrlInfo iconUrlInfo = festivalTipData.icon_url;
-                if (iconUrlInfo == null) {
-                    bVar = null;
-                } else {
-                    String str3 = iconUrlInfo.day;
-                    if (str3 == null) {
-                        str3 = "";
-                    }
-                    String str4 = iconUrlInfo.night;
-                    if (str4 == null) {
-                        str4 = "";
-                    }
-                    String str5 = iconUrlInfo.dark;
-                    if (str5 == null) {
-                        str5 = "";
-                    }
-                    bVar = new b(str3, str4, str5);
-                }
-                if (bVar == null) {
-                    bVar = new b(null, null, null, 7, null);
-                }
-                String str6 = festivalTipData.jump_url;
-                if (str6 != null) {
-                    str2 = str6;
-                }
-                return new ta9(str, bVar, str2);
-            }
-            return (ta9) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-        public final String b;
-        public final String c;
-
-        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public b() {
-            this(null, null, null, 7, null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr = newInitContext.callArgs;
-                    this((String) objArr[0], (String) objArr[1], (String) objArr[2], ((Integer) objArr[3]).intValue(), (DefaultConstructorMarker) objArr[4]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        public boolean equals(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-                if (this == obj) {
-                    return true;
-                }
-                if (obj instanceof b) {
-                    b bVar = (b) obj;
-                    return Intrinsics.areEqual(this.a, bVar.a) && Intrinsics.areEqual(this.b, bVar.b) && Intrinsics.areEqual(this.c, bVar.c);
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-
-        public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c.hashCode() : invokeV.intValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                return "IconUrl(dayUrl=" + this.a + ", nightUrl=" + this.b + ", darkUrl=" + this.c + ')';
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public b(String dayUrl, String nightUrl, String darkUrl) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dayUrl, nightUrl, darkUrl};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            Intrinsics.checkNotNullParameter(dayUrl, "dayUrl");
-            Intrinsics.checkNotNullParameter(nightUrl, "nightUrl");
-            Intrinsics.checkNotNullParameter(darkUrl, "darkUrl");
-            this.a = dayUrl;
-            this.b = nightUrl;
-            this.c = darkUrl;
-        }
-
-        public /* synthetic */ b(String str, String str2, String str3, int i, DefaultConstructorMarker defaultConstructorMarker) {
-            this((i & 1) != 0 ? "" : str, (i & 2) != 0 ? "" : str2, (i & 4) != 0 ? "" : str3);
-        }
-
-        public final String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.c;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final String c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.b;
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    public ta9(String text, b iconUrl, String jumpUrl) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ta9(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {text, iconUrl, jumpUrl};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(text, "text");
-        Intrinsics.checkNotNullParameter(iconUrl, "iconUrl");
-        Intrinsics.checkNotNullParameter(jumpUrl, "jumpUrl");
-        this.a = text;
-        this.b = iconUrl;
-        this.c = jumpUrl;
+        this.d = 88200L;
     }
 
-    public final b b() {
-        InterceptResult invokeV;
+    /* JADX WARN: Removed duplicated region for block: B:107:0x0170 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x00db A[Catch: all -> 0x01a7, Exception -> 0x01aa, TryCatch #8 {Exception -> 0x01aa, all -> 0x01a7, blocks: (B:13:0x002e, B:17:0x005b, B:19:0x0061, B:21:0x006d, B:24:0x0072, B:29:0x0082, B:33:0x00d5, B:35:0x00db, B:37:0x00e1, B:38:0x00ed, B:40:0x00f1, B:42:0x0123, B:43:0x0158, B:44:0x015d, B:49:0x0174, B:52:0x017c, B:30:0x00a0, B:54:0x019b), top: B:101:0x002e }] */
+    /* JADX WARN: Removed duplicated region for block: B:88:0x01dc A[Catch: Exception -> 0x01d8, TRY_LEAVE, TryCatch #5 {Exception -> 0x01d8, blocks: (B:84:0x01d4, B:88:0x01dc), top: B:97:0x01d4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:97:0x01d4 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    @Override // com.baidu.tieba.wa9
+    @TargetApi(16)
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void b(String str) {
+        Throwable th;
+        FileOutputStream fileOutputStream;
+        ByteBuffer[] byteBufferArr;
+        long j;
+        int dequeueOutputBuffer;
+        int dequeueInputBuffer;
+        boolean z;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            ta9 ta9Var = this;
+            FileInputStream fileInputStream = null;
+            try {
+                try {
+                    if (ta9Var.b == 0) {
+                        ta9Var.b = 48000;
+                    }
+                    if (ta9Var.c == 0) {
+                        ta9Var.c = 1;
+                    }
+                    ta9Var.d = (ta9Var.b * 16) / 8;
+                    FileInputStream fileInputStream2 = new FileInputStream(ta9Var.a);
+                    try {
+                        fileOutputStream = new FileOutputStream(str);
+                        try {
+                            MediaCodec f = f();
+                            f.start();
+                            ByteBuffer[] inputBuffers = f.getInputBuffers();
+                            ByteBuffer[] outputBuffers = f.getOutputBuffers();
+                            MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
+                            byte[] bArr = new byte[4096];
+                            ByteBuffer[] byteBufferArr2 = outputBuffers;
+                            long j2 = 0;
+                            long j3 = 0;
+                            boolean z2 = false;
+                            int i2 = 0;
+                            boolean z3 = false;
+                            boolean z4 = false;
+                            int i3 = 0;
+                            while (!z3) {
+                                if (!z4 && (dequeueInputBuffer = f.dequeueInputBuffer(10000L)) >= 0) {
+                                    ByteBuffer byteBuffer = inputBuffers[dequeueInputBuffer];
+                                    byteBuffer.clear();
+                                    int remaining = byteBuffer.remaining();
+                                    if (remaining != bArr.length) {
+                                        bArr = new byte[remaining];
+                                    }
+                                    byte[] bArr2 = bArr;
+                                    if (!z2 && (i2 = fileInputStream2.read(bArr2)) == -1) {
+                                        i = i2;
+                                        z = true;
+                                    } else {
+                                        z = z2;
+                                        i = i2;
+                                    }
+                                    if (z) {
+                                        f.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
+                                        byteBufferArr = inputBuffers;
+                                        i2 = i;
+                                        bArr = bArr2;
+                                        z2 = z;
+                                        j = 10000;
+                                        z4 = true;
+                                        dequeueOutputBuffer = f.dequeueOutputBuffer(bufferInfo, j);
+                                        if (dequeueOutputBuffer < 0) {
+                                            if ((bufferInfo.flags & 2) != 0) {
+                                                BdLog.i("audio encoder: codec config buffer");
+                                                f.releaseOutputBuffer(dequeueOutputBuffer, false);
+                                            } else {
+                                                if (bufferInfo.size != 0) {
+                                                    ByteBuffer byteBuffer2 = byteBufferArr2[dequeueOutputBuffer];
+                                                    byteBuffer2.position(bufferInfo.offset);
+                                                    byteBuffer2.limit(bufferInfo.offset + bufferInfo.size);
+                                                    BdLog.i(String.format(" writing audio sample : size=%s , presentationTimeUs=%s", Integer.valueOf(bufferInfo.size), Long.valueOf(bufferInfo.presentationTimeUs)));
+                                                    if (j2 < bufferInfo.presentationTimeUs) {
+                                                        long j4 = bufferInfo.presentationTimeUs;
+                                                        int i4 = bufferInfo.size;
+                                                        int i5 = i4 + 7;
+                                                        byteBuffer2.position(bufferInfo.offset);
+                                                        byteBuffer2.limit(bufferInfo.offset + i4);
+                                                        byte[] bArr3 = new byte[i5];
+                                                        ta9Var.e(bArr3, i5);
+                                                        byteBuffer2.get(bArr3, 7, i4);
+                                                        fileOutputStream.write(bArr3, 0, i5);
+                                                        BdLog.i(i5 + " bytes written.");
+                                                        j2 = j4;
+                                                    } else {
+                                                        BdLog.i("error sample! its presentationTimeUs should not lower than before.");
+                                                    }
+                                                }
+                                                f.releaseOutputBuffer(dequeueOutputBuffer, false);
+                                                if ((bufferInfo.flags & 4) != 0) {
+                                                    ta9Var = this;
+                                                    inputBuffers = byteBufferArr;
+                                                    z3 = true;
+                                                }
+                                            }
+                                        } else if (dequeueOutputBuffer == -3) {
+                                            byteBufferArr2 = f.getOutputBuffers();
+                                        } else if (dequeueOutputBuffer == -2) {
+                                            BdLog.i("format change : " + f.getOutputFormat());
+                                        }
+                                        ta9Var = this;
+                                        inputBuffers = byteBufferArr;
+                                    } else {
+                                        int i6 = i;
+                                        byteBuffer.put(bArr2, 0, i6);
+                                        int i7 = i3 + i6;
+                                        byteBufferArr = inputBuffers;
+                                        f.queueInputBuffer(dequeueInputBuffer, 0, i6, j3, 0);
+                                        i3 = i7;
+                                        i2 = i6;
+                                        j3 = (long) (((i7 / 2.0d) * 1000000.0d) / ta9Var.d);
+                                        bArr = bArr2;
+                                        z2 = z;
+                                    }
+                                } else {
+                                    byteBufferArr = inputBuffers;
+                                }
+                                j = 10000;
+                                dequeueOutputBuffer = f.dequeueOutputBuffer(bufferInfo, j);
+                                if (dequeueOutputBuffer < 0) {
+                                }
+                                ta9Var = this;
+                                inputBuffers = byteBufferArr;
+                            }
+                            BdLog.i("acc encode done");
+                            fileInputStream2.close();
+                            fileOutputStream.close();
+                        } catch (Exception e) {
+                            e = e;
+                            fileInputStream = fileInputStream2;
+                            try {
+                                e.printStackTrace();
+                                if (fileInputStream != null) {
+                                    fileInputStream.close();
+                                }
+                                if (fileOutputStream != null) {
+                                    fileOutputStream.close();
+                                }
+                            } catch (Throwable th2) {
+                                th = th2;
+                                if (fileInputStream != null) {
+                                    try {
+                                        fileInputStream.close();
+                                    } catch (Exception e2) {
+                                        e2.printStackTrace();
+                                        throw th;
+                                    }
+                                }
+                                if (fileOutputStream != null) {
+                                    fileOutputStream.close();
+                                }
+                                throw th;
+                            }
+                        } catch (Throwable th3) {
+                            th = th3;
+                            fileInputStream = fileInputStream2;
+                            if (fileInputStream != null) {
+                            }
+                            if (fileOutputStream != null) {
+                            }
+                            throw th;
+                        }
+                    } catch (Exception e3) {
+                        e = e3;
+                        fileOutputStream = null;
+                    } catch (Throwable th4) {
+                        th = th4;
+                        fileOutputStream = null;
+                    }
+                } catch (Exception e4) {
+                    e4.printStackTrace();
+                }
+            } catch (Exception e5) {
+                e = e5;
+                fileOutputStream = null;
+            } catch (Throwable th5) {
+                th = th5;
+                fileOutputStream = null;
+            }
         }
-        return (b) invokeV.objValue;
     }
 
-    public final String c() {
-        InterceptResult invokeV;
+    public final void e(byte[] bArr, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i) == null) {
+            int[] iArr = {96000, 88200, 64000, 48000, 44100, 32000, 24000, 22050, 16000, 12000, 11025, 8000, 7350};
+            int i2 = 0;
+            while (true) {
+                if (i2 < 13) {
+                    if (iArr[i2] == this.b) {
+                        break;
+                    }
+                    i2++;
+                } else {
+                    i2 = 4;
+                    break;
+                }
+            }
+            bArr[0] = -1;
+            bArr[1] = -7;
+            bArr[2] = (byte) (64 + (i2 << 2) + 0);
+            bArr[3] = (byte) (128 + (i >> 11));
+            bArr[4] = (byte) ((i & 2047) >> 3);
+            bArr[5] = (byte) (((i & 7) << 5) + 31);
+            bArr[6] = -4;
         }
-        return (String) invokeV.objValue;
     }
 
-    public final String d() {
+    @TargetApi(16)
+    public final MediaCodec f() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+            MediaCodec createEncoderByType = MediaCodec.createEncoderByType("audio/mp4a-latm");
+            MediaFormat mediaFormat = new MediaFormat();
+            mediaFormat.setString("mime", "audio/mp4a-latm");
+            mediaFormat.setInteger("bitrate", EncoderParams.AUDIO_BIT_RATE);
+            mediaFormat.setInteger("channel-count", this.c);
+            mediaFormat.setInteger("sample-rate", this.b);
+            mediaFormat.setInteger("aac-profile", 2);
+            createEncoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
+            return createEncoderByType;
         }
-        return (String) invokeV.objValue;
+        return (MediaCodec) invokeV.objValue;
     }
 }

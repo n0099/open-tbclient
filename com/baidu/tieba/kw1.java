@@ -1,21 +1,21 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
-import android.util.Log;
-import android.util.Pair;
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class kw1 {
+public final class kw1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final String[] b;
+    public static String a;
+    public static final kw1 b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,82 +31,77 @@ public class kw1 {
                 return;
             }
         }
-        a = tk1.a;
-        b = new String[]{"swan", "swanAPI", "utils"};
+        b = new kw1();
     }
 
-    @NonNull
-    public static Pair<Boolean, iw1> a(js1 js1Var, String str) {
-        InterceptResult invokeLL;
+    public kw1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, js1Var, str)) == null) {
-            jw1 jw1Var = new jw1();
-            boolean b2 = b(str, js1Var.a().g());
-            if (b2) {
-                jw1Var.b = 402;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            return new Pair<>(Boolean.valueOf(b2), jw1Var);
         }
-        return (Pair) invokeLL.objValue;
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public static boolean b(String str, CallbackHandler callbackHandler) {
-        InterceptResult invokeLL;
+    public final String a() {
+        InterceptResult invokeV;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, callbackHandler)) == null) {
-            if (!(callbackHandler instanceof rq1)) {
-                if (a) {
-                    Log.d("SwanApiSafe", "intercept: false, handler is null or not WebSafeHolder");
-                }
-                return false;
-            } else if (TextUtils.isEmpty(str)) {
-                if (!a) {
-                    return false;
-                }
-                throw new RuntimeException("whitelistName is empty");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String str = a;
+            if (str != null && !StringsKt__StringsJVMKt.isBlank(str)) {
+                z = false;
             } else {
-                String b0 = ((rq1) callbackHandler).b0();
-                if ("ai_apps_widget".equals(b0)) {
-                    z = c(str);
-                } else if ("ai_apps_ad_landing".equals(b0)) {
-                    z = !a53.a(str);
-                } else {
-                    if (!"swan_app_alliance_login_widget".equals(b0) && !"swan_app_alliance_choose_address_widget".equals(b0) && a) {
-                        Log.d("SwanApiSafe", "intercept: false, source frame is not aiapps widget frame");
-                    }
-                    return false;
-                }
-                if (a) {
-                    Log.d("SwanApiSafe", "intercept: result=" + z + ", path=" + str);
-                }
-                return z;
+                z = true;
             }
+            if (z) {
+                a = b();
+            }
+            return a;
         }
-        return invokeLL.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public static boolean c(@NonNull String str) {
-        InterceptResult invokeL;
-        String[] strArr;
+    public final String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            int indexOf = str.indexOf("/");
-            if (indexOf < 0) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            eh3 a2 = kh3.a();
+            if (a2 == null) {
+                return null;
             }
-            if (str.startsWith("swan")) {
-                String substring = str.substring(indexOf + 1);
-                for (String str2 : b) {
-                    if (a53.g(str2 + "/" + substring)) {
-                        return false;
-                    }
-                }
-                return true;
-            }
-            return !a53.g(str);
+            return a2.getString("alliance_login_uk", null);
         }
-        return invokeL.booleanValue;
+        return (String) invokeV.objValue;
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            kh3.a().putString("alliance_login_uk", "");
+            a = null;
+        }
+    }
+
+    public final void c(int i, JSONObject jsonObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, jsonObject) == null) {
+            Intrinsics.checkNotNullParameter(jsonObject, "jsonObject");
+            if (i == 0) {
+                e(jsonObject);
+            }
+        }
+    }
+
+    public final void e(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
+            kh3.a().putString("alliance_login_uk", jSONObject.optString("uk"));
+        }
     }
 }

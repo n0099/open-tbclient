@@ -1,99 +1,128 @@
 package com.baidu.tieba;
 
+import android.widget.FrameLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tbadkCore.data.PaymentConfirmRequestData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.PlaceOrder.DataRes;
 /* loaded from: classes6.dex */
 public class v27 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public long d;
-    public String e;
-    public int f;
-    public String g;
-    public String h;
-    public long i;
-    public int j;
-    public int k;
-    public long l;
-    public int m;
+    public final FrsFragment a;
+    public xt6 b;
+    public TextView c;
+    public boolean d;
+    public int e;
 
-    public v27() {
+    public v27(FrsFragment frsFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public PaymentConfirmRequestData a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            PaymentConfirmRequestData paymentConfirmRequestData = new PaymentConfirmRequestData();
-            paymentConfirmRequestData.setTdou_num(this.i);
-            paymentConfirmRequestData.setOpen_id(this.l);
-            paymentConfirmRequestData.setOrder_id(this.g);
-            paymentConfirmRequestData.setScene_id(this.b);
-            paymentConfirmRequestData.setGoods_name(this.a);
-            paymentConfirmRequestData.setGoods_pic(this.e);
-            paymentConfirmRequestData.setTerminal("" + this.f);
-            paymentConfirmRequestData.setGoods_num((long) this.j);
-            paymentConfirmRequestData.setGoods_unit(this.h);
-            paymentConfirmRequestData.setGoods_duration(this.d);
-            paymentConfirmRequestData.setGoods_user_level(this.c);
-            paymentConfirmRequestData.setPay_type(this.k);
-            paymentConfirmRequestData.setCurrency(this.m);
-            return paymentConfirmRequestData;
-        }
-        return (PaymentConfirmRequestData) invokeV.objValue;
-    }
-
-    public void c(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes) != null) || dataRes == null) {
+        this.e = -1;
+        if (frsFragment != null) {
+            this.a = frsFragment;
+            if (UtilHelper.canUseStyleImmersiveSticky()) {
+                UtilHelper.getStatusBarHeight();
+                return;
+            }
             return;
         }
-        dataRes.timestamp.intValue();
-        this.a = dataRes.goods_name;
-        this.b = dataRes.scene_id.intValue();
-        this.c = dataRes.goods_user_level.intValue();
-        this.d = dataRes.goods_duration.intValue();
-        this.e = dataRes.goods_pic;
-        this.f = dataRes.terminal.intValue();
-        this.g = dataRes.order_id;
-        this.h = dataRes.goods_unit;
-        this.i = dataRes.tdou_num.intValue();
-        dataRes.goods_price.intValue();
-        this.j = dataRes.goods_num.intValue();
-        this.k = dataRes.pay_type.intValue();
-        dataRes.user_id.longValue();
-        dataRes.tb_timestamp.intValue();
-        this.l = dataRes.open_id.longValue();
-        dataRes.gift_count.intValue();
-        this.m = dataRes.currency.intValue();
+        throw new NullPointerException("FrsFragment is null");
+    }
+
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            if (i >= 0) {
+                d(true);
+                e(i);
+                return;
+            }
+            d(false);
+            e(i);
+        }
+    }
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.d = z;
+        }
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    public void b() {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.d && (i = this.e) >= 0) {
+                f(i);
+            }
+            this.d = false;
+        }
+    }
+
+    public void c() {
+        xt6 xt6Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (xt6Var = this.b) != null) {
+            xt6Var.e();
+        }
+    }
+
+    public final void f(int i) {
+        gs6 u1;
+        FrameLayout v0;
+        String string;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048581, this, i) != null) || (u1 = this.a.u1()) == null || u1.g0() == null || (v0 = u1.v0()) == null) {
+            return;
+        }
+        if (this.c == null && this.a.getPageContext() != null) {
+            TextView textView = new TextView(this.a.getPageContext().getPageActivity());
+            this.c = textView;
+            textView.setTextSize(0, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b5));
+            this.c.setGravity(17);
+        }
+        if (this.c != null) {
+            if (i > 0) {
+                string = String.format(TbadkCoreApplication.getInst().getString(R.string.recommend_frs_refresh_return), Integer.valueOf(i));
+            } else {
+                string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f126f);
+            }
+            this.c.setText(string);
+        }
+        SkinManager.setBackgroundResource(this.c, R.color.CAM_X0302);
+        SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0112);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, ej.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702de));
+        if (this.b == null) {
+            this.b = new xt6();
+        }
+        this.b.h(this.c, v0, layoutParams, 2000);
+        this.e = -1;
     }
 }

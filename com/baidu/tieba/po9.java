@@ -1,36 +1,246 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.http.HttpManager;
+import com.baidu.searchbox.http.request.PostBodyRequest;
+import com.baidu.searchbox.http.request.PostByteRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.utils.FileUtils;
-import java.util.List;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Map;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import okio.BufferedSink;
+import okio.Okio;
+import okio.Source;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public abstract class po9 {
+public class po9 extends io9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public int b;
-    public po9 c;
-    public mo9 d;
-    public volatile boolean e;
-    public volatile boolean f;
-    public String g;
 
     /* loaded from: classes5.dex */
-    public interface a {
-        void a(po9 po9Var);
+    public class a extends mp9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Response a;
 
-        void b(po9 po9Var);
+        public a(po9 po9Var, Response response) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {po9Var, response};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = response;
+        }
 
-        void c(int i, int i2);
+        @Override // com.baidu.tieba.mp9
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.body().close();
+            }
+        }
 
-        void d(String str, po9 po9Var);
+        @Override // com.baidu.tieba.mp9
+        public String b() throws IOException {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.a.body().string();
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.mp9
+        public int c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.a.code();
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.mp9
+        public String d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.a.message();
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.mp9
+        public boolean e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.a.isSuccessful();
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends RequestBody {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Map a;
+        public final /* synthetic */ InputStream b;
+
+        public b(po9 po9Var, Map map, InputStream inputStream) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {po9Var, map, inputStream};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = map;
+            this.b = inputStream;
+        }
+
+        @Override // okhttp3.RequestBody
+        public long contentLength() throws IOException {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.a.containsKey("Content-Length")) {
+                    try {
+                        return Long.valueOf((String) this.a.get("Content-Length")).longValue();
+                    } catch (Exception unused) {
+                    }
+                }
+                return super.contentLength();
+            }
+            return invokeV.longValue;
+        }
+
+        @Override // okhttp3.RequestBody
+        public MediaType contentType() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return MediaType.parse("application/octet-stream");
+            }
+            return (MediaType) invokeV.objValue;
+        }
+
+        @Override // okhttp3.RequestBody
+        public void writeTo(BufferedSink bufferedSink) throws IOException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
+                Source source = null;
+                try {
+                    source = Okio.source(this.b);
+                    bufferedSink.writeAll(source);
+                } finally {
+                    if (source != null) {
+                        source.close();
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c extends mp9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Response a;
+
+        public c(po9 po9Var, Response response) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {po9Var, response};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = response;
+        }
+
+        @Override // com.baidu.tieba.mp9
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.body().close();
+            }
+        }
+
+        @Override // com.baidu.tieba.mp9
+        public String b() throws IOException {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.a.body().string();
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.mp9
+        public int c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.a.code();
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.mp9
+        public String d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.a.message();
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.mp9
+        public boolean e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.a.isSuccessful();
+            }
+            return invokeV.booleanValue;
+        }
     }
 
     public po9() {
@@ -47,137 +257,38 @@ public abstract class po9 {
         }
     }
 
-    public String a(String str, String str2) {
-        InterceptResult invokeLL;
-        String fileNameWithOutExtention;
-        StringBuilder sb;
+    @Override // com.baidu.tieba.io9
+    public mp9 j(String str, InputStream inputStream, Map<String, String> map) throws IOException {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, inputStream, map)) == null) {
+            PostBodyRequest.PostBodyRequestBuilder postRequest = HttpManager.getDefault(AppRuntime.getAppContext()).postRequest();
+            postRequest.requestFrom(3);
+            postRequest.url(str);
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                postRequest.addHeader(entry.getKey(), entry.getValue());
             }
-            if (str2 == null) {
-                str2 = "";
+            postRequest.cookieManager(HttpManager.getDefault(AppRuntime.getAppContext()).getCookieManager(true, true));
+            postRequest.requestBody(new b(this, map, inputStream));
+            return new c(this, postRequest.build().executeSync());
+        }
+        return (mp9) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.io9
+    public mp9 k(String str, byte[] bArr, Map<String, String> map) throws IOException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bArr, map)) == null) {
+            PostByteRequest.PostByteRequestBuilder postByteRequest = HttpManager.getDefault(AppRuntime.getAppContext()).postByteRequest();
+            postByteRequest.requestFrom(3);
+            postByteRequest.url(str);
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                postByteRequest.addHeader(entry.getKey(), entry.getValue());
             }
-            if (TextUtils.isEmpty(this.g)) {
-                sb = new StringBuilder();
-                fileNameWithOutExtention = FileUtils.removeExtention(str);
-            } else {
-                fileNameWithOutExtention = FileUtils.getFileNameWithOutExtention(str);
-                sb = new StringBuilder();
-                sb.append(this.g);
-            }
-            sb.append(fileNameWithOutExtention);
-            sb.append(str2);
-            return sb.toString();
+            postByteRequest.cookieManager(HttpManager.getDefault(AppRuntime.getAppContext()).getCookieManager(true, true));
+            return new a(this, postByteRequest.content(bArr).build().executeSync());
         }
-        return (String) invokeLL.objValue;
-    }
-
-    public abstract void b();
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public abstract void d(mo9 mo9Var);
-
-    public void e(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.a = aVar;
-        }
-    }
-
-    public void f(po9 po9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, po9Var) == null) {
-            this.c = po9Var;
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || this.f) {
-            return;
-        }
-        this.e = true;
-        a aVar = this.a;
-        if (aVar != null) {
-            aVar.d(getClass().getName() + str, this);
-        }
-    }
-
-    public abstract void h();
-
-    public void i(int i) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) || (aVar = this.a) == null) {
-            return;
-        }
-        aVar.c(this.b, i);
-    }
-
-    public boolean j(mo9 mo9Var) {
-        InterceptResult invokeL;
-        List<ko9> a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, mo9Var)) == null) {
-            if (mo9Var != null && mo9Var.c() != null && mo9Var.c().size() == 1 && mo9Var.c().get(0).a() != null && (a2 = mo9Var.c().get(0).a()) != null && a2.size() == 1) {
-                ko9 ko9Var = a2.get(0);
-                if (ko9Var.b() != null && !ko9Var.b().isNeedEdit()) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public void l(mo9 mo9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, mo9Var) == null) {
-            this.d = mo9Var;
-            a aVar = this.a;
-            if (aVar != null) {
-                aVar.c(this.b, 100);
-                this.a.b(this);
-            }
-            po9 po9Var = this.c;
-            if (po9Var != null) {
-                po9Var.d(mo9Var);
-            }
-        }
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.c == null : invokeV.booleanValue;
-    }
-
-    public mo9 n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.d : (mo9) invokeV.objValue;
-    }
-
-    public void o() {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (aVar = this.a) == null) {
-            return;
-        }
-        aVar.a(this);
+        return (mp9) invokeLLL.objValue;
     }
 }

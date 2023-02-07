@@ -12,13 +12,13 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hw8;
+import com.baidu.tieba.ed6;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.f09;
+import com.baidu.tieba.il5;
 import com.baidu.tieba.lego.card.model.FocusListCard;
-import com.baidu.tieba.s86;
-import com.baidu.tieba.tp7;
-import com.baidu.tieba.xg5;
-import com.baidu.tieba.xp7;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.lu7;
+import com.baidu.tieba.pu7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -73,13 +73,13 @@ public class FocusListCardView extends BaseCardView<FocusListCard> {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || TextUtils.isEmpty(this.a.getFocusItemList().get(this.b).f)) {
                 return;
             }
-            s86.b().d(true);
-            tp7 e = xp7.e(this.a);
+            ed6.b().d(true);
+            lu7 e = pu7.e(this.a);
             e.b("obj_locate", this.b + 1);
             e.d(TiebaStatic.Params.OBJ_URL, this.a.getFocusItemList().get(this.b).f);
             e.c("obj_id", this.a.getFocusItemList().get(this.b).g);
             e.a(this.a);
-            hw8.c(this.c.i, this.a.getFocusItemList().get(this.b).f);
+            f09.c(this.c.i, this.a.getFocusItemList().get(this.b).f);
         }
     }
 
@@ -156,7 +156,7 @@ public class FocusListCardView extends BaseCardView<FocusListCard> {
     public void t(FocusListCard focusListCard, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, focusListCard, i) == null) {
-            xg5.a(this.i, getRootView());
+            il5.a(this.i, getRootView());
             if (focusListCard != null) {
                 C(focusListCard);
             }
@@ -180,10 +180,10 @@ public class FocusListCardView extends BaseCardView<FocusListCard> {
                     } else {
                         this.t.get(i).setVisibility(8);
                     }
-                    TextView textView = (TextView) l(this.s.get(i), R.id.obfuscated_res_0x7f090a58);
-                    TextView textView2 = (TextView) l(this.s.get(i), R.id.obfuscated_res_0x7f0920a0);
-                    TextView textView3 = (TextView) l(this.s.get(i), R.id.obfuscated_res_0x7f091cec);
-                    ImageView imageView = (ImageView) l(this.s.get(i), R.id.obfuscated_res_0x7f091cf2);
+                    TextView textView = (TextView) l(this.s.get(i), R.id.obfuscated_res_0x7f090a9e);
+                    TextView textView2 = (TextView) l(this.s.get(i), R.id.obfuscated_res_0x7f0920b1);
+                    TextView textView3 = (TextView) l(this.s.get(i), R.id.obfuscated_res_0x7f091d01);
+                    ImageView imageView = (ImageView) l(this.s.get(i), R.id.obfuscated_res_0x7f091d07);
                     D(textView, textView2, textView3, focusListCard.getFocusItemList().get(i));
                     textView.setText(focusListCard.getFocusItemList().get(i).a);
                     textView2.setText(focusListCard.getFocusItemList().get(i).b);
@@ -198,7 +198,7 @@ public class FocusListCardView extends BaseCardView<FocusListCard> {
                     } else {
                         imageView.setVisibility(8);
                         LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) textView3.getLayoutParams();
-                        layoutParams2.setMargins(0, 0, zi.g(getContext(), R.dimen.obfuscated_res_0x7f0701be), 0);
+                        layoutParams2.setMargins(0, 0, ej.g(getContext(), R.dimen.obfuscated_res_0x7f0701be), 0);
                         textView3.setLayoutParams(layoutParams2);
                         this.s.get(i).setOnClickListener(null);
                     }
@@ -216,25 +216,25 @@ public class FocusListCardView extends BaseCardView<FocusListCard> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0184, (ViewGroup) null);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0183, (ViewGroup) null);
             this.m = inflate;
-            this.n = (TextView) l(inflate, R.id.obfuscated_res_0x7f09137b);
-            this.o = (View) l(this.m, R.id.obfuscated_res_0x7f092371);
-            this.p = (View) l(this.m, R.id.obfuscated_res_0x7f0903e9);
-            this.q = (View) l(this.m, R.id.obfuscated_res_0x7f091cf5);
-            this.r = (LinearLayout) l(this.m, R.id.obfuscated_res_0x7f0906fb);
+            this.n = (TextView) l(inflate, R.id.obfuscated_res_0x7f0913bd);
+            this.o = (View) l(this.m, R.id.obfuscated_res_0x7f092383);
+            this.p = (View) l(this.m, R.id.obfuscated_res_0x7f0903de);
+            this.q = (View) l(this.m, R.id.obfuscated_res_0x7f091d0a);
+            this.r = (LinearLayout) l(this.m, R.id.obfuscated_res_0x7f09070d);
             this.s = new ArrayList();
-            this.s.add((LinearLayout) l(this.r, R.id.obfuscated_res_0x7f0917e8));
-            this.s.add((LinearLayout) l(this.r, R.id.obfuscated_res_0x7f09251d));
-            this.s.add((LinearLayout) l(this.r, R.id.obfuscated_res_0x7f0922b0));
-            this.s.add((LinearLayout) l(this.r, R.id.obfuscated_res_0x7f090b07));
-            this.s.add((LinearLayout) l(this.r, R.id.obfuscated_res_0x7f090a19));
+            this.s.add((LinearLayout) l(this.r, R.id.obfuscated_res_0x7f091828));
+            this.s.add((LinearLayout) l(this.r, R.id.obfuscated_res_0x7f092537));
+            this.s.add((LinearLayout) l(this.r, R.id.obfuscated_res_0x7f0922c5));
+            this.s.add((LinearLayout) l(this.r, R.id.obfuscated_res_0x7f090b4a));
+            this.s.add((LinearLayout) l(this.r, R.id.obfuscated_res_0x7f090a60));
             this.t = new ArrayList();
-            this.t.add((View) l(this.r, R.id.obfuscated_res_0x7f0917e9));
-            this.t.add((View) l(this.r, R.id.obfuscated_res_0x7f09251f));
-            this.t.add((View) l(this.r, R.id.obfuscated_res_0x7f0922b1));
-            this.t.add((View) l(this.r, R.id.obfuscated_res_0x7f090b08));
-            this.t.add((View) l(this.r, R.id.obfuscated_res_0x7f090a1a));
+            this.t.add((View) l(this.r, R.id.obfuscated_res_0x7f091829));
+            this.t.add((View) l(this.r, R.id.obfuscated_res_0x7f092539));
+            this.t.add((View) l(this.r, R.id.obfuscated_res_0x7f0922c6));
+            this.t.add((View) l(this.r, R.id.obfuscated_res_0x7f090b4b));
+            this.t.add((View) l(this.r, R.id.obfuscated_res_0x7f090a61));
             return this.m;
         }
         return (View) invokeV.objValue;

@@ -109,11 +109,11 @@ public class ir implements iu<ir, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, irVar)) == null) {
             if (ir.class.equals(irVar.getClass())) {
-                int compareTo = Boolean.valueOf(m597a()).compareTo(Boolean.valueOf(irVar.m597a()));
+                int compareTo = Boolean.valueOf(m599a()).compareTo(Boolean.valueOf(irVar.m599a()));
                 if (compareTo != 0) {
                     return compareTo;
                 }
-                if (!m597a() || (a9 = iv.a(this.f802a, irVar.f802a)) == 0) {
+                if (!m599a() || (a9 = iv.a(this.f802a, irVar.f802a)) == 0) {
                     int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(irVar.b()));
                     if (compareTo2 != 0) {
                         return compareTo2;
@@ -202,19 +202,19 @@ public class ir implements iu<ir, Object>, Serializable, Cloneable {
         if (interceptable != null && interceptable.invokeL(1048579, this, jfVar) != null) {
             return;
         }
-        jfVar.mo622a();
+        jfVar.mo624a();
         while (true) {
-            jc mo618a = jfVar.mo618a();
-            byte b2 = mo618a.a;
+            jc mo620a = jfVar.mo620a();
+            byte b2 = mo620a.a;
             if (b2 == 0) {
                 jfVar.f();
                 a();
                 return;
             }
-            switch (mo618a.f833a) {
+            switch (mo620a.f833a) {
                 case 1:
                     if (b2 == 11) {
-                        this.f802a = jfVar.mo623a();
+                        this.f802a = jfVar.mo625a();
                         continue;
                         jfVar.g();
                     }
@@ -230,45 +230,45 @@ public class ir implements iu<ir, Object>, Serializable, Cloneable {
                     break;
                 case 3:
                     if (b2 == 11) {
-                        this.f804b = jfVar.mo623a();
+                        this.f804b = jfVar.mo625a();
                         continue;
                         jfVar.g();
                     }
                     break;
                 case 4:
                     if (b2 == 11) {
-                        this.f805c = jfVar.mo623a();
+                        this.f805c = jfVar.mo625a();
                         continue;
                         jfVar.g();
                     }
                     break;
                 case 5:
                     if (b2 == 11) {
-                        this.f806d = jfVar.mo623a();
+                        this.f806d = jfVar.mo625a();
                         continue;
                         jfVar.g();
                     }
                     break;
                 case 6:
                     if (b2 == 11) {
-                        this.f807e = jfVar.mo623a();
+                        this.f807e = jfVar.mo625a();
                         continue;
                         jfVar.g();
                     }
                     break;
                 case 7:
                     if (b2 == 11) {
-                        this.f808f = jfVar.mo623a();
+                        this.f808f = jfVar.mo625a();
                         continue;
                         jfVar.g();
                     }
                     break;
                 case 8:
                     if (b2 == 15) {
-                        jd mo619a = jfVar.mo619a();
-                        this.f803a = new ArrayList(mo619a.f834a);
-                        for (int i = 0; i < mo619a.f834a; i++) {
-                            this.f803a.add(jfVar.mo623a());
+                        jd mo621a = jfVar.mo621a();
+                        this.f803a = new ArrayList(mo621a.f834a);
+                        for (int i = 0; i < mo621a.f834a; i++) {
+                            this.f803a.add(jfVar.mo625a());
                         }
                         jfVar.i();
                         continue;
@@ -282,28 +282,28 @@ public class ir implements iu<ir, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m597a() {
+    public boolean m599a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f802a != null : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m598a(ir irVar) {
+    public boolean m600a(ir irVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, irVar)) == null) {
             if (irVar == null) {
                 return false;
             }
-            boolean m597a = m597a();
-            boolean m597a2 = irVar.m597a();
-            if ((m597a || m597a2) && !(m597a && m597a2 && this.f802a.equals(irVar.f802a))) {
+            boolean m599a = m599a();
+            boolean m599a2 = irVar.m599a();
+            if ((m599a || m599a2) && !(m599a && m599a2 && this.f802a.equals(irVar.f802a))) {
                 return false;
             }
             boolean b2 = b();
             boolean b3 = irVar.b();
-            if ((b2 || b3) && !(b2 && b3 && this.f801a.m516a(irVar.f801a))) {
+            if ((b2 || b3) && !(b2 && b3 && this.f801a.m518a(irVar.f801a))) {
                 return false;
             }
             boolean c2 = c();
@@ -357,7 +357,7 @@ public class ir implements iu<ir, Object>, Serializable, Cloneable {
         if (interceptable == null || interceptable.invokeL(1048583, this, jfVar) == null) {
             a();
             jfVar.a(f800a);
-            if (this.f802a != null && m597a()) {
+            if (this.f802a != null && m599a()) {
                 jfVar.a(a);
                 jfVar.a(this.f802a);
                 jfVar.b();
@@ -402,7 +402,7 @@ public class ir implements iu<ir, Object>, Serializable, Cloneable {
                 jfVar.b();
             }
             jfVar.c();
-            jfVar.mo626a();
+            jfVar.mo628a();
         }
     }
 
@@ -465,7 +465,7 @@ public class ir implements iu<ir, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, obj)) == null) {
             if (obj != null && (obj instanceof ir)) {
-                return m598a((ir) obj);
+                return m600a((ir) obj);
             }
             return false;
         }
@@ -506,7 +506,7 @@ public class ir implements iu<ir, Object>, Serializable, Cloneable {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
             StringBuilder sb = new StringBuilder("XmPushActionUnSubscription(");
             boolean z2 = false;
-            if (m597a()) {
+            if (m599a()) {
                 sb.append("debug:");
                 String str = this.f802a;
                 if (str == null) {

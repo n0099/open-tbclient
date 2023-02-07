@@ -1,18 +1,61 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.ShortUserInfo;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public class hh6 {
+public class hh6 implements gh6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ShortUserInfo> a;
-    public String b;
-    public String c;
+
+    @Override // com.baidu.tieba.gh6
+    public void a(sf6 item, long j, sh6 displayer, mf6 config) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{item, Long.valueOf(j), displayer, config}) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(displayer, "displayer");
+            Intrinsics.checkNotNullParameter(config, "config");
+        }
+    }
+
+    @Override // com.baidu.tieba.gh6
+    public void b(sf6 item) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+        }
+    }
+
+    @Override // com.baidu.tieba.gh6
+    public void c(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.gh6
+    public void clear() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.gh6
+    public boolean d(sf6 item, long j, sh6 displayer, mf6 config) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{item, Long.valueOf(j), displayer, config})) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(displayer, "displayer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            return false;
+        }
+        return invokeCommon.booleanValue;
+    }
 
     public hh6() {
         Interceptable interceptable = $ic;

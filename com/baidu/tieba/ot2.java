@@ -1,75 +1,108 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Looper;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.tieba.km3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class ot2 extends lt2 {
+public class ot2 implements au2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948043708, "Lcom/baidu/tieba/ot2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static SwanAppConfigData a(File file) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, file)) == null) {
+            if (file != null && file.exists()) {
+                long currentTimeMillis = System.currentTimeMillis();
+                SwanAppConfigData b = i93.b(file.getAbsolutePath());
+                if (au2.a) {
+                    long currentTimeMillis2 = System.currentTimeMillis();
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("buildAppJsonConfig cost = ");
+                    sb.append(currentTimeMillis2 - currentTimeMillis);
+                    sb.append("ms ; current thread is main = ");
+                    if (Looper.getMainLooper() == Looper.myLooper()) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    sb.append(z);
+                    sb.append(" ; path = ");
+                    sb.append(file);
+                    Log.d("SwanPerformance", sb.toString());
+                }
+                return b;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948043708, "Lcom/baidu/tieba/ot2;");
-                return;
-            }
+            return null;
         }
-        boolean z = tk1.a;
+        return (SwanAppConfigData) invokeL.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ot2(String str) {
-        super(str);
+    public static SwanAppConfigData b(File file) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
+            if (file != null && file.exists()) {
+                SwanAppConfigData swanAppConfigData = (SwanAppConfigData) pt2.c().b(file.getAbsolutePath());
+                if (swanAppConfigData == null) {
+                    swanAppConfigData = z23.e().j(file);
+                    if (swanAppConfigData == null) {
+                        swanAppConfigData = a(file);
+                    }
+                    pt2.c().d(file.getAbsolutePath(), swanAppConfigData);
+                } else if (au2.a) {
+                    Log.d("SwanPerformance", "adopt cached app.json");
+                }
+                return swanAppConfigData;
             }
+            return null;
         }
+        return (SwanAppConfigData) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.lt2
-    public boolean a(bt2 bt2Var, dt2 dt2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j43 j43Var) {
-        InterceptResult invokeCommon;
+    public static Boolean c(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{bt2Var, dt2Var, context, unitedSchemeEntity, callbackHandler, j43Var})) == null) {
-            j12.i("video", "sendDanmu, video id:" + dt2Var.j + " slave id: " + dt2Var.c);
-            d(bt2Var, dt2Var.t, unitedSchemeEntity, callbackHandler);
-            return true;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
+            Boolean bool = (Boolean) pt2.c().b("getNightModeStateCache");
+            if (bool == null) {
+                return Boolean.valueOf(ds2.M().a());
+            }
+            if (z) {
+                pt2.c().e("getNightModeStateCache");
+            }
+            return bool;
         }
-        return invokeCommon.booleanValue;
+        return (Boolean) invokeZ.objValue;
     }
 
-    public final void d(bt2 bt2Var, String str, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+    public static List<km3.a> d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bt2Var, str, unitedSchemeEntity, callbackHandler) == null) {
-            bt2Var.r(str);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            List<km3.a> list = (List) pt2.c().b("getStorageListCache");
+            if (list == null) {
+                List<km3.a> d = km3.d();
+                pt2.c().d("getStorageListCache", d);
+                return d;
+            }
+            return list;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public static void e(Boolean bool) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bool) == null) {
+            pt2.c().d("getNightModeStateCache", bool);
         }
     }
 }

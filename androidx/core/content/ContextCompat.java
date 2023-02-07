@@ -16,6 +16,7 @@ import android.app.usage.UsageStatsManager;
 import android.appwidget.AppWidgetManager;
 import android.bluetooth.BluetoothManager;
 import android.content.ClipboardManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.RestrictionsManager;
@@ -63,10 +64,14 @@ import android.view.inputmethod.InputMethodManager;
 import android.view.textservice.TextServicesManager;
 import androidx.annotation.ColorInt;
 import androidx.annotation.ColorRes;
+import androidx.annotation.DoNotInline;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
+import androidx.core.content.res.ResourcesCompat;
+import androidx.core.os.ExecutorCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.multidex.MultiDex;
 import com.baidu.android.imsdk.db.TableDefine;
@@ -84,14 +89,358 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.HashMap;
 import java.util.concurrent.Executor;
-import java.util.concurrent.RejectedExecutionException;
 /* loaded from: classes.dex */
 public class ContextCompat {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ContextCompat";
     public static final Object sLock;
+    public static final Object sSync;
     public static TypedValue sTempValue;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @RequiresApi(16)
+    /* loaded from: classes.dex */
+    public static class Api16Impl {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public Api16Impl() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @DoNotInline
+        public static void startActivities(Context context, Intent[] intentArr, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(65537, null, context, intentArr, bundle) == null) {
+                context.startActivities(intentArr, bundle);
+            }
+        }
+
+        @DoNotInline
+        public static void startActivity(Context context, Intent intent, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(65538, null, context, intent, bundle) == null) {
+                context.startActivity(intent, bundle);
+            }
+        }
+    }
+
+    @RequiresApi(19)
+    /* loaded from: classes.dex */
+    public static class Api19Impl {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public Api19Impl() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @DoNotInline
+        public static File[] getExternalCacheDirs(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+                return context.getExternalCacheDirs();
+            }
+            return (File[]) invokeL.objValue;
+        }
+
+        @DoNotInline
+        public static File[] getObbDirs(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+                return context.getObbDirs();
+            }
+            return (File[]) invokeL.objValue;
+        }
+
+        @DoNotInline
+        public static File[] getExternalFilesDirs(Context context, String str) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
+                return context.getExternalFilesDirs(str);
+            }
+            return (File[]) invokeLL.objValue;
+        }
+    }
+
+    @RequiresApi(21)
+    /* loaded from: classes.dex */
+    public static class Api21Impl {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public Api21Impl() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @DoNotInline
+        public static File getCodeCacheDir(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+                return context.getCodeCacheDir();
+            }
+            return (File) invokeL.objValue;
+        }
+
+        @DoNotInline
+        public static File getNoBackupFilesDir(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+                return context.getNoBackupFilesDir();
+            }
+            return (File) invokeL.objValue;
+        }
+
+        @DoNotInline
+        public static Drawable getDrawable(Context context, int i) {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, context, i)) == null) {
+                return context.getDrawable(i);
+            }
+            return (Drawable) invokeLI.objValue;
+        }
+    }
+
+    @RequiresApi(23)
+    /* loaded from: classes.dex */
+    public static class Api23Impl {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public Api23Impl() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @DoNotInline
+        public static int getColor(Context context, int i) {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
+                return context.getColor(i);
+            }
+            return invokeLI.intValue;
+        }
+
+        @DoNotInline
+        public static ColorStateList getColorStateList(Context context, int i) {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, context, i)) == null) {
+                return context.getColorStateList(i);
+            }
+            return (ColorStateList) invokeLI.objValue;
+        }
+
+        @DoNotInline
+        public static <T> T getSystemService(Context context, Class<T> cls) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, cls)) == null) {
+                return (T) context.getSystemService(cls);
+            }
+            return (T) invokeLL.objValue;
+        }
+
+        @DoNotInline
+        public static String getSystemServiceName(Context context, Class<?> cls) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, cls)) == null) {
+                return context.getSystemServiceName(cls);
+            }
+            return (String) invokeLL.objValue;
+        }
+    }
+
+    @RequiresApi(24)
+    /* loaded from: classes.dex */
+    public static class Api24Impl {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public Api24Impl() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @DoNotInline
+        public static Context createDeviceProtectedStorageContext(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+                return context.createDeviceProtectedStorageContext();
+            }
+            return (Context) invokeL.objValue;
+        }
+
+        @DoNotInline
+        public static File getDataDir(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+                return context.getDataDir();
+            }
+            return (File) invokeL.objValue;
+        }
+
+        @DoNotInline
+        public static boolean isDeviceProtectedStorage(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+                return context.isDeviceProtectedStorage();
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    @RequiresApi(26)
+    /* loaded from: classes.dex */
+    public static class Api26Impl {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public Api26Impl() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @DoNotInline
+        public static ComponentName startForegroundService(Context context, Intent intent) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, intent)) == null) {
+                return context.startForegroundService(intent);
+            }
+            return (ComponentName) invokeLL.objValue;
+        }
+    }
+
+    @RequiresApi(28)
+    /* loaded from: classes.dex */
+    public static class Api28Impl {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public Api28Impl() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @DoNotInline
+        public static Executor getMainExecutor(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+                return context.getMainExecutor();
+            }
+            return (Executor) invokeL.objValue;
+        }
+    }
+
+    @RequiresApi(30)
+    /* loaded from: classes.dex */
+    public static class Api30Impl {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public Api30Impl() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @DoNotInline
+        public static String getAttributionTag(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+                return context.getAttributionTag();
+            }
+            return (String) invokeL.objValue;
+        }
+    }
 
     /* loaded from: classes.dex */
     public static final class LegacyServiceMapHolder {
@@ -193,40 +542,6 @@ public class ContextCompat {
         }
     }
 
-    /* loaded from: classes.dex */
-    public static class MainHandlerExecutor implements Executor {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Handler mHandler;
-
-        public MainHandlerExecutor(@NonNull Handler handler) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {handler};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.mHandler = handler;
-        }
-
-        @Override // java.util.concurrent.Executor
-        public void execute(Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, runnable) != null) || this.mHandler.post(runnable)) {
-                return;
-            }
-            throw new RejectedExecutionException(this.mHandler + " is shutting down");
-        }
-    }
-
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -241,6 +556,7 @@ public class ContextCompat {
             }
         }
         sLock = new Object();
+        sSync = new Object();
     }
 
     public ContextCompat() {
@@ -273,9 +589,9 @@ public class ContextCompat {
     public static int getColor(@NonNull Context context, @ColorRes int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, context, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, context, i)) == null) {
             if (Build.VERSION.SDK_INT >= 23) {
-                return context.getColor(i);
+                return Api23Impl.getColor(context, i);
             }
             return context.getResources().getColor(i);
         }
@@ -286,11 +602,8 @@ public class ContextCompat {
     public static ColorStateList getColorStateList(@NonNull Context context, @ColorRes int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, context, i)) == null) {
-            if (Build.VERSION.SDK_INT >= 23) {
-                return context.getColorStateList(i);
-            }
-            return context.getResources().getColorStateList(i);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, context, i)) == null) {
+            return ResourcesCompat.getColorStateList(context.getResources(), i, context.getTheme());
         }
         return (ColorStateList) invokeLI.objValue;
     }
@@ -299,8 +612,8 @@ public class ContextCompat {
     public static File[] getExternalFilesDirs(@NonNull Context context, @Nullable String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, context, str)) == null) {
-            return Build.VERSION.SDK_INT >= 19 ? context.getExternalFilesDirs(str) : new File[]{context.getExternalFilesDir(str)};
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, context, str)) == null) {
+            return Build.VERSION.SDK_INT >= 19 ? Api19Impl.getExternalFilesDirs(context, str) : new File[]{context.getExternalFilesDir(str)};
         }
         return (File[]) invokeLL.objValue;
     }
@@ -309,9 +622,9 @@ public class ContextCompat {
     public static <T> T getSystemService(@NonNull Context context, @NonNull Class<T> cls) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, context, cls)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, context, cls)) == null) {
             if (Build.VERSION.SDK_INT >= 23) {
-                return (T) context.getSystemService(cls);
+                return (T) Api23Impl.getSystemService(context, cls);
             }
             String systemServiceName = getSystemServiceName(context, cls);
             if (systemServiceName != null) {
@@ -326,9 +639,9 @@ public class ContextCompat {
     public static String getSystemServiceName(@NonNull Context context, @NonNull Class<?> cls) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, context, cls)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, null, context, cls)) == null) {
             if (Build.VERSION.SDK_INT >= 23) {
-                return context.getSystemServiceName(cls);
+                return Api23Impl.getSystemServiceName(context, cls);
             }
             return LegacyServiceMapHolder.SERVICES.get(cls);
         }
@@ -338,7 +651,7 @@ public class ContextCompat {
     public static boolean startActivities(@NonNull Context context, @NonNull Intent[] intentArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, context, intentArr)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65555, null, context, intentArr)) == null) {
             return startActivities(context, intentArr, null);
         }
         return invokeLL.booleanValue;
@@ -346,9 +659,9 @@ public class ContextCompat {
 
     public static void startForegroundService(@NonNull Context context, @NonNull Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65557, null, context, intent) == null) {
+        if (interceptable == null || interceptable.invokeLL(65558, null, context, intent) == null) {
             if (Build.VERSION.SDK_INT >= 26) {
-                context.startForegroundService(intent);
+                Api26Impl.startForegroundService(context, intent);
             } else {
                 context.startService(intent);
             }
@@ -361,19 +674,32 @@ public class ContextCompat {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             if (Build.VERSION.SDK_INT >= 24) {
-                return context.createDeviceProtectedStorageContext();
+                return Api24Impl.createDeviceProtectedStorageContext(context);
             }
             return null;
         }
         return (Context) invokeL.objValue;
     }
 
-    public static File getCodeCacheDir(@NonNull Context context) {
+    @Nullable
+    public static String getAttributionTag(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            if (Build.VERSION.SDK_INT >= 30) {
+                return Api30Impl.getAttributionTag(context);
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static File getCodeCacheDir(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                return context.getCodeCacheDir();
+                return Api21Impl.getCodeCacheDir(context);
             }
             return createFilesDir(new File(context.getApplicationInfo().dataDir, MultiDex.CODE_CACHE_NAME));
         }
@@ -384,9 +710,9 @@ public class ContextCompat {
     public static File getDataDir(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
             if (Build.VERSION.SDK_INT >= 24) {
-                return context.getDataDir();
+                return Api24Impl.getDataDir(context);
             }
             String str = context.getApplicationInfo().dataDir;
             if (str != null) {
@@ -401,8 +727,8 @@ public class ContextCompat {
     public static File[] getExternalCacheDirs(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-            return Build.VERSION.SDK_INT >= 19 ? context.getExternalCacheDirs() : new File[]{context.getExternalCacheDir()};
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
+            return Build.VERSION.SDK_INT >= 19 ? Api19Impl.getExternalCacheDirs(context) : new File[]{context.getExternalCacheDir()};
         }
         return (File[]) invokeL.objValue;
     }
@@ -410,11 +736,11 @@ public class ContextCompat {
     public static Executor getMainExecutor(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
             if (Build.VERSION.SDK_INT >= 28) {
-                return context.getMainExecutor();
+                return Api28Impl.getMainExecutor(context);
             }
-            return new MainHandlerExecutor(new Handler(context.getMainLooper()));
+            return ExecutorCompat.create(new Handler(context.getMainLooper()));
         }
         return (Executor) invokeL.objValue;
     }
@@ -423,9 +749,9 @@ public class ContextCompat {
     public static File getNoBackupFilesDir(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                return context.getNoBackupFilesDir();
+                return Api21Impl.getNoBackupFilesDir(context);
             }
             return createFilesDir(new File(context.getApplicationInfo().dataDir, "no_backup"));
         }
@@ -436,8 +762,8 @@ public class ContextCompat {
     public static File[] getObbDirs(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
-            return Build.VERSION.SDK_INT >= 19 ? context.getObbDirs() : new File[]{context.getObbDir()};
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
+            return Build.VERSION.SDK_INT >= 19 ? Api19Impl.getObbDirs(context) : new File[]{context.getObbDir()};
         }
         return (File[]) invokeL.objValue;
     }
@@ -445,26 +771,25 @@ public class ContextCompat {
     public static boolean isDeviceProtectedStorage(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, context)) == null) {
             if (Build.VERSION.SDK_INT >= 24) {
-                return context.isDeviceProtectedStorage();
+                return Api24Impl.isDeviceProtectedStorage(context);
             }
             return false;
         }
         return invokeL.booleanValue;
     }
 
-    public static synchronized File createFilesDir(File file) {
+    public static File createFilesDir(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) {
-            synchronized (ContextCompat.class) {
-                if (!file.exists() && !file.mkdirs()) {
-                    if (file.exists()) {
+            synchronized (sSync) {
+                if (!file.exists()) {
+                    if (file.mkdirs()) {
                         return file;
                     }
                     Log.w("ContextCompat", "Unable to create files subdir " + file.getPath());
-                    return null;
                 }
                 return file;
             }
@@ -477,10 +802,10 @@ public class ContextCompat {
         InterceptResult invokeLI;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, context, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, context, i)) == null) {
             int i3 = Build.VERSION.SDK_INT;
             if (i3 >= 21) {
-                return context.getDrawable(i);
+                return Api21Impl.getDrawable(context, i);
             }
             if (i3 >= 16) {
                 return context.getResources().getDrawable(i);
@@ -500,9 +825,9 @@ public class ContextCompat {
     public static boolean startActivities(@NonNull Context context, @NonNull Intent[] intentArr, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65555, null, context, intentArr, bundle)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65556, null, context, intentArr, bundle)) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
-                context.startActivities(intentArr, bundle);
+                Api16Impl.startActivities(context, intentArr, bundle);
                 return true;
             }
             context.startActivities(intentArr);
@@ -513,9 +838,9 @@ public class ContextCompat {
 
     public static void startActivity(@NonNull Context context, @NonNull Intent intent, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65556, null, context, intent, bundle) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65557, null, context, intent, bundle) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
-                context.startActivity(intent, bundle);
+                Api16Impl.startActivity(context, intent, bundle);
             } else {
                 context.startActivity(intent);
             }

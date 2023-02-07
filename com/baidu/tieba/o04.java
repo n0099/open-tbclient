@@ -1,20 +1,7 @@
 package com.baidu.tieba;
-
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public class o04 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface o04 extends p04 {
+    void setFilePath(String str);
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            return TextUtils.equals(xc3.b("swan_debug_feature").getString("KEY_DEBUG_SWAN_GAME_CORE_MODE", "none"), str);
-        }
-        return invokeL.booleanValue;
-    }
+    void setPackageName(String str);
 }

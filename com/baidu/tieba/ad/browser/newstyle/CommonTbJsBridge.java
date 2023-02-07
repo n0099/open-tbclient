@@ -12,9 +12,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.xiuba.JSResultData;
-import com.baidu.tieba.gj;
-import com.baidu.tieba.vx8;
-import com.baidu.tieba.zx8;
+import com.baidu.tieba.lj;
+import com.baidu.tieba.t19;
+import com.baidu.tieba.x19;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class CommonTbJsBridge implements vx8 {
+public class CommonTbJsBridge implements t19 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GET_SUPPLEMENT_INFO = "getSupplementInfo";
     public static final String INTERFACE_NAME = "CommonJSBridge";
@@ -63,7 +63,7 @@ public class CommonTbJsBridge implements vx8 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.vx8
+    @Override // com.baidu.tieba.t19
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -90,11 +90,11 @@ public class CommonTbJsBridge implements vx8 {
         return invokeLLLL.booleanValue;
     }
 
-    public zx8 getSupplementInfo() {
+    public x19 getSupplementInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            zx8 zx8Var = new zx8();
+            x19 x19Var = new x19();
             StringBuilder sb = new StringBuilder(1024);
             String imei = TbadkCoreApplication.getInst().getImei();
             sb.append("imei=");
@@ -117,7 +117,7 @@ public class CommonTbJsBridge implements vx8 {
             sb.append("zid=");
             sb.append(zid);
             sb.append("tiebaclient!!!");
-            String c = gj.c(sb.toString());
+            String c = lj.c(sb.toString());
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("imei", imei);
@@ -128,14 +128,14 @@ public class CommonTbJsBridge implements vx8 {
                 jSONObject.put("client_version", version);
                 jSONObject.put("zid", zid);
                 jSONObject.put("sign", c);
-                zx8Var.o(jSONObject.toString());
-                return zx8Var;
+                x19Var.o(jSONObject.toString());
+                return x19Var;
             } catch (JSONException e) {
                 BdLog.e(e);
-                zx8Var.o("");
-                return zx8Var;
+                x19Var.o("");
+                return x19Var;
             }
         }
-        return (zx8) invokeV.objValue;
+        return (x19) invokeV.objValue;
     }
 }

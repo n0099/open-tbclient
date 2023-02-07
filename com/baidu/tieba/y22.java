@@ -1,72 +1,50 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.graphics.Canvas;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.z22;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public class y22 implements z22.b {
+public class y22 extends c22 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948278192, "Lcom/baidu/tieba/y22;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948278192, "Lcom/baidu/tieba/y22;");
-                return;
-            }
-        }
-        a = tk1.a;
-    }
+    public float a;
+    public float b;
 
     public y22() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.z22.b
-    public void a() {
+    @Override // com.baidu.tieba.c22
+    public void a(d22 d22Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && a) {
-            Log.d("SimplePreDownloadCallback", "pre download success");
+        if (interceptable == null || interceptable.invokeLL(1048576, this, d22Var, canvas) == null) {
+            if (d22Var.a() == 0) {
+                d22Var.b(canvas.save());
+            }
+            canvas.scale(this.a, this.b);
         }
     }
 
-    @Override // com.baidu.tieba.z22.b
-    public void c() {
+    @Override // com.baidu.tieba.c22
+    public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && a) {
-            Log.w("SimplePreDownloadCallback", "pre download has invalid app id");
-        }
-    }
-
-    @Override // com.baidu.tieba.z22.b
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && a) {
-            Log.w("SimplePreDownloadCallback", "pre download fail error code - " + i);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 1) {
+            this.a = (float) jSONArray.optDouble(0);
+            this.b = (float) jSONArray.optDouble(1);
         }
     }
 }

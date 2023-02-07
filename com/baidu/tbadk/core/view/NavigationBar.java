@@ -33,11 +33,11 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cx4;
-import com.baidu.tieba.dr4;
-import com.baidu.tieba.oz8;
-import com.baidu.tieba.s9;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.n39;
+import com.baidu.tieba.p15;
+import com.baidu.tieba.qv4;
+import com.baidu.tieba.x9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -471,7 +471,7 @@ public class NavigationBar extends RelativeLayout {
         this.isFixedHeight = true;
         this.isNeedAddStatusBarHeight = false;
         this.mTopPadding = 0;
-        this.mNavHeight = zi.g(getContext(), R.dimen.obfuscated_res_0x7f070306);
+        this.mNavHeight = ej.g(getContext(), R.dimen.obfuscated_res_0x7f070307);
         this.mFixedNavHeight = 0;
         this.mBottomLineColor = R.color.CAM_X0204;
         this.mBackGroundColor = R.color.CAM_X0208;
@@ -528,7 +528,7 @@ public class NavigationBar extends RelativeLayout {
         this.isFixedHeight = true;
         this.isNeedAddStatusBarHeight = false;
         this.mTopPadding = 0;
-        this.mNavHeight = zi.g(getContext(), R.dimen.obfuscated_res_0x7f070306);
+        this.mNavHeight = ej.g(getContext(), R.dimen.obfuscated_res_0x7f070307);
         this.mFixedNavHeight = 0;
         this.mBottomLineColor = R.color.CAM_X0204;
         this.mBackGroundColor = R.color.CAM_X0208;
@@ -540,12 +540,12 @@ public class NavigationBar extends RelativeLayout {
     }
 
     @SuppressLint({"ResourceAsColor"})
-    public void onChangeSkinType(s9<?> s9Var, int i) {
+    public void onChangeSkinType(x9<?> x9Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048611, this, s9Var, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048611, this, x9Var, i) == null) {
             boolean z = true;
             if (this.mIsCorner) {
-                cx4 d2 = cx4.d(this);
+                p15 d2 = p15.d(this);
                 d2.m(1);
                 d2.n(R.string.J_X14);
                 d2.f(this.mBackGroundColor);
@@ -565,9 +565,9 @@ public class NavigationBar extends RelativeLayout {
                 SkinManager.setViewTextColor(textView2, R.color.CAM_X0106, 1);
             }
             initPadding();
-            if (s9Var instanceof TbPageContext) {
-                TbPageContext tbPageContext = (TbPageContext) s9Var;
-                dr4 layoutMode = tbPageContext.getLayoutMode();
+            if (x9Var instanceof TbPageContext) {
+                TbPageContext tbPageContext = (TbPageContext) x9Var;
+                qv4 layoutMode = tbPageContext.getLayoutMode();
                 if (i != 1) {
                     z = false;
                 }
@@ -601,7 +601,7 @@ public class NavigationBar extends RelativeLayout {
         this.isFixedHeight = true;
         this.isNeedAddStatusBarHeight = false;
         this.mTopPadding = 0;
-        this.mNavHeight = zi.g(getContext(), R.dimen.obfuscated_res_0x7f070306);
+        this.mNavHeight = ej.g(getContext(), R.dimen.obfuscated_res_0x7f070307);
         this.mFixedNavHeight = 0;
         this.mBottomLineColor = R.color.CAM_X0204;
         this.mBackGroundColor = R.color.CAM_X0208;
@@ -874,7 +874,7 @@ public class NavigationBar extends RelativeLayout {
     public void initPadding() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            setPadding(zi.d(this.mCurrentActivity, getResources().getDimension(R.dimen.obfuscated_res_0x7f07022f)), this.mTopPadding, zi.d(this.mCurrentActivity, getResources().getDimension(R.dimen.obfuscated_res_0x7f07022f)), zi.d(this.mCurrentActivity, getResources().getDimension(R.dimen.obfuscated_res_0x7f07022f)));
+            setPadding(ej.d(this.mCurrentActivity, getResources().getDimension(R.dimen.obfuscated_res_0x7f070230)), this.mTopPadding, ej.d(this.mCurrentActivity, getResources().getDimension(R.dimen.obfuscated_res_0x7f070230)), ej.d(this.mCurrentActivity, getResources().getDimension(R.dimen.obfuscated_res_0x7f070230)));
         }
     }
 
@@ -887,9 +887,9 @@ public class NavigationBar extends RelativeLayout {
             View inflate = LayoutInflater.from(context).inflate(R.layout.widget_navigation_bar, (ViewGroup) this, true);
             this.mRootView = inflate;
             this.mContentLayout = (FrameLayout) inflate.findViewById(R.id.navigation_bar_content_layout);
-            this.mLeftBox = (LinearLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09135f);
-            this.mCenterBox = (LinearLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0905e4);
-            this.mRightBox = (LinearLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091cef);
+            this.mLeftBox = (LinearLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0913a1);
+            this.mCenterBox = (LinearLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0905f2);
+            this.mRightBox = (LinearLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091d04);
             this.mAbsoluteCenterBox = (LinearLayout) this.mRootView.findViewById(R.id.absoluteCenterBox);
             this.mCenterImgBox = (LinearLayout) this.mRootView.findViewById(R.id.center_img_box);
             this.mCenterIcon = (ImageView) this.mRootView.findViewById(R.id.center_img);
@@ -901,7 +901,7 @@ public class NavigationBar extends RelativeLayout {
             findViewById.setBackgroundDrawable(SkinManager.getDrawable(0, (int) R.drawable.navigation_cover_top_bg));
             this.barBgView = this.mRootView.findViewById(R.id.navigation_bar_view_bg);
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, oz8.NavigationBar);
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, n39.NavigationBar);
                 z = obtainStyledAttributes.getBoolean(0, true);
                 obtainStyledAttributes.recycle();
             } else {
@@ -1465,7 +1465,7 @@ public class NavigationBar extends RelativeLayout {
     public void setContentPaddingTop(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048622, this, i) == null) {
-            this.mContentLayout.setPadding(zi.d(this.mCurrentActivity, getResources().getDimension(R.dimen.obfuscated_res_0x7f07022f)), i, zi.d(this.mCurrentActivity, getResources().getDimension(R.dimen.obfuscated_res_0x7f07022f)), zi.d(this.mCurrentActivity, getResources().getDimension(R.dimen.obfuscated_res_0x7f07022f)));
+            this.mContentLayout.setPadding(ej.d(this.mCurrentActivity, getResources().getDimension(R.dimen.obfuscated_res_0x7f070230)), i, ej.d(this.mCurrentActivity, getResources().getDimension(R.dimen.obfuscated_res_0x7f070230)), ej.d(this.mCurrentActivity, getResources().getDimension(R.dimen.obfuscated_res_0x7f070230)));
         }
     }
 

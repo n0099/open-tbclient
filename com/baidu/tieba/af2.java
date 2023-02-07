@@ -1,43 +1,76 @@
 package com.baidu.tieba;
 
+import android.util.Log;
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public final class af2 {
+public class af2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public boolean b;
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            File b = b();
-            if (b.exists()) {
-                nk4.j(b);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947613180, "Lcom/baidu/tieba/af2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947613180, "Lcom/baidu/tieba/af2;");
+                return;
             }
         }
+        c = gp1.a;
+        ds2.g0().getSwitch("swan_sailor_init_delay", false);
+        d = false;
     }
 
-    public static File b() {
-        InterceptResult invokeV;
+    public af2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new File(bp2.d().get(0).a, "/aiapps_debug_extension_core/");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return (File) invokeV.objValue;
+        this.b = false;
     }
 
-    public static File c() {
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            File b = b();
-            if (!b.exists()) {
-                b.mkdirs();
+            if (c) {
+                Log.d("SwanSailorUpdateModel", "isSailorOptABSwitchOn:" + d);
             }
-            return new File(b, "debugExtensionCore.zip");
+            return d;
         }
-        return (File) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "SwanSailorUpdateModel{scene='" + this.a + "'}";
+        }
+        return (String) invokeV.objValue;
     }
 }

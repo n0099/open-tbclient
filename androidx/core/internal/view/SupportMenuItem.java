@@ -61,6 +61,9 @@ public interface SupportMenuItem extends MenuItem {
     MenuItem setAlphabeticShortcut(char c, int i);
 
     @Override // android.view.MenuItem
+    /* bridge */ /* synthetic */ MenuItem setContentDescription(CharSequence charSequence);
+
+    @Override // android.view.MenuItem
     SupportMenuItem setContentDescription(CharSequence charSequence);
 
     @Override // android.view.MenuItem
@@ -82,6 +85,9 @@ public interface SupportMenuItem extends MenuItem {
     MenuItem setShowAsActionFlags(int i);
 
     SupportMenuItem setSupportActionProvider(ActionProvider actionProvider);
+
+    @Override // android.view.MenuItem
+    /* bridge */ /* synthetic */ MenuItem setTooltipText(CharSequence charSequence);
 
     @Override // android.view.MenuItem
     SupportMenuItem setTooltipText(CharSequence charSequence);

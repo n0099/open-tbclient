@@ -1,104 +1,81 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.sapi2.share.ShareCallPacking;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.concurrent.atomic.AtomicBoolean;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class vs9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final AtomicBoolean a;
-    public static HashMap<Integer, Boolean> b;
-    public static HashMap<Integer, Long> c;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<rs9> a;
+    public int[] b;
 
-    public static boolean e() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public vs9(List<rs9> list) {
+        this(list, null);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948251501, "Lcom/baidu/tieba/vs9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948251501, "Lcom/baidu/tieba/vs9;");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((List) objArr2[0], (int[]) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new AtomicBoolean(false);
-        b = new HashMap<>();
-        c = new HashMap<>();
     }
 
-    public static long a(int i) {
-        InterceptResult invokeI;
+    public vs9(List<rs9> list, int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            if (c.containsKey(Integer.valueOf(i))) {
-                return c.get(Integer.valueOf(i)).longValue();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list, iArr};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return Long.MAX_VALUE;
         }
-        return invokeI.longValue;
+        this.a = list;
+        c(iArr);
     }
 
-    public static SharedPreferences b(Context context) {
-        InterceptResult invokeL;
+    public List<rs9> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            return context.getSharedPreferences("CONFIG_RUNTIME", 0);
-        }
-        return (SharedPreferences) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
     }
 
-    public static boolean d(int i) {
-        InterceptResult invokeI;
+    public int[] b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            if (b.containsKey(Integer.valueOf(i))) {
-                return b.get(Integer.valueOf(i)).booleanValue();
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (int[]) invokeV.objValue;
+    }
+
+    public void c(int[] iArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iArr) == null) {
+            this.b = iArr;
+            if (hw9.e(this.a)) {
+                return;
             }
-            return true;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public static synchronized void c(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
-            synchronized (vs9.class) {
-                if (!a.get()) {
-                    SharedPreferences b2 = b(context);
-                    Iterator<Integer> it = ws9.a.iterator();
-                    while (it.hasNext()) {
-                        int intValue = it.next().intValue();
-                        HashMap<Integer, Long> hashMap = c;
-                        Integer valueOf = Integer.valueOf(intValue);
-                        hashMap.put(valueOf, Long.valueOf(b2.getLong("cache_" + intValue, 10080L)));
-                        HashMap<Integer, Boolean> hashMap2 = b;
-                        Integer valueOf2 = Integer.valueOf(intValue);
-                        hashMap2.put(valueOf2, Boolean.valueOf(b2.getBoolean("close_" + intValue, false)));
-                    }
-                    c.put(Integer.valueOf((int) ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT), Long.MAX_VALUE);
-                    b.put(Integer.valueOf((int) ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT), Boolean.TRUE);
-                    a.set(true);
+            for (rs9 rs9Var : this.a) {
+                if (rs9Var.b() != null) {
+                    rs9Var.b().mSoundTypes = iArr;
                 }
             }
         }

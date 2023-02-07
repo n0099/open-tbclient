@@ -21,12 +21,12 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a05;
-import com.baidu.tieba.cx4;
-import com.baidu.tieba.gw6;
-import com.baidu.tieba.i05;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.n45;
+import com.baidu.tieba.p15;
+import com.baidu.tieba.r07;
+import com.baidu.tieba.v45;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -161,9 +161,9 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
                 this.b.setText(gameCodeList.label);
                 if (gameCodeList.claimed_status.intValue() == 1) {
                     this.c.setVisibility(8);
-                    a05 a05Var = new a05();
-                    a05Var.r(R.color.CAM_X0302, R.color.CAM_X0101);
-                    this.d.setConfig(a05Var);
+                    n45 n45Var = new n45();
+                    n45Var.r(R.color.CAM_X0302, R.color.CAM_X0101);
+                    this.d.setConfig(n45Var);
                     this.d.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.default_get_gift));
                     this.d.setClickState(true);
                     this.d.setClickable(true);
@@ -171,28 +171,28 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
                 } else if (gameCodeList.claimed_status.intValue() == 2) {
                     this.c.setVisibility(0);
                     this.c.setText(gameCodeList.claimed_value);
-                    a05 a05Var2 = new a05();
-                    a05Var2.r(R.color.CAM_X0302, R.color.CAM_X0101);
-                    a05Var2.i(R.drawable.obfuscated_res_0x7f080990, 0, TBSpecificationButtonConfig.IconType.WEBP);
-                    this.d.setConfig(a05Var2);
-                    this.d.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0469));
+                    n45 n45Var2 = new n45();
+                    n45Var2.r(R.color.CAM_X0302, R.color.CAM_X0101);
+                    n45Var2.i(R.drawable.obfuscated_res_0x7f080984, 0, TBSpecificationButtonConfig.IconType.WEBP);
+                    this.d.setConfig(n45Var2);
+                    this.d.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0475));
                     this.d.setClickState(true);
                     this.d.setClickable(true);
                     this.d.setOnClickListener(new b(this, gameCodeList));
                 } else if (gameCodeList.claimed_status.intValue() == 3) {
                     this.c.setVisibility(8);
-                    a05 a05Var3 = new a05();
-                    a05Var3.r(R.color.CAM_X0201, R.color.CAM_X0109);
-                    this.d.setConfig(a05Var3);
-                    this.d.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f07d0));
+                    n45 n45Var3 = new n45();
+                    n45Var3.r(R.color.CAM_X0201, R.color.CAM_X0109);
+                    this.d.setConfig(n45Var3);
+                    this.d.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f07f2));
                     this.d.setClickState(false);
                     this.d.setClickable(false);
                     this.d.setOnClickListener(null);
                 }
                 if (gameCodeList.type.intValue() == 1) {
-                    WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f080967, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
+                    WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f08095b, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
                 } else if (gameCodeList.type.intValue() == 2) {
-                    WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f0809ac, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
+                    WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f0809a0, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
                 }
             }
         }
@@ -200,10 +200,10 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
         public void c(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                i05 i05Var = new i05(16);
-                i05Var.m(this.e.list_id.intValue());
-                i05Var.o(i);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, i05Var));
+                v45 v45Var = new v45(16);
+                v45Var.m(this.e.list_id.intValue());
+                v45Var.o(i);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, v45Var));
             }
         }
 
@@ -211,14 +211,14 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 if (this.e.type.intValue() == 1) {
-                    WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f080967, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
+                    WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f08095b, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
                 } else if (this.e.type.intValue() == 2) {
-                    WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f0809ac, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
+                    WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f0809a0, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
                 }
-                cx4 d = cx4.d(this.b);
+                p15 d = p15.d(this.b);
                 d.v(R.color.CAM_X0105);
                 d.z(R.dimen.T_X06);
-                cx4 d2 = cx4.d(this.c);
+                p15 d2 = p15.d(this.c);
                 d2.v(R.color.CAM_X0109);
                 d2.z(R.dimen.T_X09);
                 TBSpecificationBtn tBSpecificationBtn = this.d;
@@ -275,7 +275,7 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
     public void onBindViewHolder(@NonNull GameCodeViewHolder gameCodeViewHolder, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, gameCodeViewHolder, i) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new i05(15, i + 1)));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new v45(15, i + 1)));
             gameCodeViewHolder.b(this.a.get(i));
             gameCodeViewHolder.d();
         }
@@ -290,20 +290,20 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) {
             RelativeLayout relativeLayout = new RelativeLayout(viewGroup.getContext());
-            relativeLayout.setLayoutParams(new RelativeLayout.LayoutParams(-1, zi.g(viewGroup.getContext(), R.dimen.tbds125)));
+            relativeLayout.setLayoutParams(new RelativeLayout.LayoutParams(-1, ej.g(viewGroup.getContext(), R.dimen.tbds125)));
             View tBSpecificationBtn = new TBSpecificationBtn(viewGroup.getContext());
             tBSpecificationBtn.setId(3);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(zi.g(viewGroup.getContext(), R.dimen.tbds177), zi.g(viewGroup.getContext(), R.dimen.tbds75));
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ej.g(viewGroup.getContext(), R.dimen.tbds177), ej.g(viewGroup.getContext(), R.dimen.tbds75));
             layoutParams.addRule(11);
             layoutParams.addRule(15);
-            layoutParams.rightMargin = zi.g(viewGroup.getContext(), R.dimen.M_W_X005);
+            layoutParams.rightMargin = ej.g(viewGroup.getContext(), R.dimen.M_W_X005);
             tBSpecificationBtn.setLayoutParams(layoutParams);
             relativeLayout.addView(tBSpecificationBtn);
             RelativeLayout relativeLayout2 = new RelativeLayout(viewGroup.getContext());
             ImageView imageView = new ImageView(viewGroup.getContext());
             imageView.setId(1);
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(zi.g(viewGroup.getContext(), R.dimen.tbds42), zi.g(viewGroup.getContext(), R.dimen.tbds42));
+            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(ej.g(viewGroup.getContext(), R.dimen.tbds42), ej.g(viewGroup.getContext(), R.dimen.tbds42));
             layoutParams2.addRule(9);
             layoutParams2.addRule(10);
             imageView.setLayoutParams(layoutParams2);
@@ -317,8 +317,8 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
             layoutParams3.addRule(6, imageView.getId());
             layoutParams3.addRule(8, imageView.getId());
             layoutParams3.addRule(10);
-            layoutParams3.topMargin = zi.g(viewGroup.getContext(), R.dimen.tbds2);
-            layoutParams3.leftMargin = zi.g(viewGroup.getContext(), R.dimen.M_W_X003);
+            layoutParams3.topMargin = ej.g(viewGroup.getContext(), R.dimen.tbds2);
+            layoutParams3.leftMargin = ej.g(viewGroup.getContext(), R.dimen.M_W_X003);
             eMTextView.setLayoutParams(layoutParams3);
             relativeLayout2.addView(eMTextView);
             EMTextView eMTextView2 = new EMTextView(viewGroup.getContext());
@@ -327,7 +327,7 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
             RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams4.addRule(5, eMTextView.getId());
             layoutParams4.addRule(3, eMTextView.getId());
-            layoutParams4.topMargin = zi.g(viewGroup.getContext(), R.dimen.M_H_X002);
+            layoutParams4.topMargin = ej.g(viewGroup.getContext(), R.dimen.M_H_X002);
             eMTextView2.setLayoutParams(layoutParams4);
             eMTextView2.setVisibility(8);
             relativeLayout2.addView(eMTextView2);
@@ -335,7 +335,7 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
             layoutParams5.addRule(9);
             layoutParams5.addRule(0, tBSpecificationBtn.getId());
             layoutParams5.addRule(15);
-            layoutParams5.leftMargin = zi.g(viewGroup.getContext(), R.dimen.M_W_X005);
+            layoutParams5.leftMargin = ej.g(viewGroup.getContext(), R.dimen.M_W_X005);
             relativeLayout2.setLayoutParams(layoutParams5);
             relativeLayout.addView(relativeLayout2);
             return new GameCodeViewHolder(relativeLayout);
@@ -351,21 +351,21 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
         }
     }
 
-    public void g(gw6 gw6Var) {
+    public void g(r07 r07Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, gw6Var) == null) {
-            GameCodeList gameCodeList = this.a.get(gw6Var.a);
+        if (interceptable == null || interceptable.invokeL(1048579, this, r07Var) == null) {
+            GameCodeList gameCodeList = this.a.get(r07Var.a);
             GameCodeList.Builder builder = new GameCodeList.Builder();
             builder.claimed_status = 2;
-            builder.claimed_value = gw6Var.b;
+            builder.claimed_value = r07Var.b;
             builder.type = gameCodeList.type;
             builder.label = gameCodeList.label;
             builder.begin_time = gameCodeList.begin_time;
             builder.end_time = gameCodeList.end_time;
             builder.item_id = gameCodeList.item_id;
             builder.list_id = gameCodeList.list_id;
-            this.a.set(gw6Var.a, builder.build(false));
-            notifyItemChanged(gw6Var.a);
+            this.a.set(r07Var.a, builder.build(false));
+            notifyItemChanged(r07Var.a);
         }
     }
 

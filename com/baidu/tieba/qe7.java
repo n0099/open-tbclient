@@ -1,218 +1,116 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetRecommendTopic.TopicList;
-/* loaded from: classes5.dex */
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import tbclient.App;
+import tbclient.BannerList;
+import tbclient.Personalized.DataRes;
+/* loaded from: classes6.dex */
 public class qe7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
-    public long c;
-    public boolean d;
-    public boolean e;
-    public boolean f;
-    public boolean g;
-    public long h;
-    public int i;
-    public String j;
 
-    public qe7(String str, long j, boolean z) {
+    public static void a(String str, List<Cdo> list) {
+        e19 e19Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, str, list) == null) && list != null && list.size() > 0 && !TextUtils.isEmpty(str)) {
+            Iterator<Cdo> it = list.iterator();
+            int i = 0;
+            AdvertAppInfo advertAppInfo = null;
+            int i2 = 0;
+            int i3 = 0;
+            while (it.hasNext()) {
+                i++;
+                Cdo next = it.next();
+                if ((i2 + 1 == i || i3 + 1 == i) && (next instanceof sx5)) {
+                    it.remove();
+                }
+                if (next instanceof wd7) {
+                    advertAppInfo = ((wd7) next).c();
+                } else if (next instanceof iy4) {
+                    iy4 iy4Var = (iy4) next;
+                    if (iy4Var.c() instanceof AdvertAppInfo.ILegoAdvert) {
+                        advertAppInfo = ((AdvertAppInfo.ILegoAdvert) iy4Var.c()).getAdvertAppInfo();
+                    }
+                } else if ((next instanceof ThreadData) && (e19Var = ((ThreadData) next).funAdData) != null && e19Var.i()) {
+                    it.remove();
+                    i3 = i;
+                }
+                if (advertAppInfo != null && str.equals(advertAppInfo.a)) {
+                    it.remove();
+                    advertAppInfo = null;
+                    i2 = i;
+                }
             }
         }
-        this.b = str;
-        this.c = j;
-        this.a = z;
     }
 
-    public qe7(@NonNull TopicList topicList) {
+    public static void b(List<Cdo> list, DataRes.Builder builder, ic7 ic7Var, td7 td7Var) {
+        e19 e19Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {topicList};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLLLL(65537, null, list, builder, ic7Var, td7Var) == null) {
+            if (list != null && list.size() > 0) {
+                Iterator<Cdo> it = list.iterator();
+                while (it.hasNext()) {
+                    Cdo next = it.next();
+                    if (!(next instanceof wd7) && !(next instanceof iy4) && !(next instanceof sx5)) {
+                        if ((next instanceof ThreadData) && (e19Var = ((ThreadData) next).funAdData) != null) {
+                            e19Var.p(true);
+                            it.remove();
+                        }
+                    } else {
+                        it.remove();
+                    }
+                }
+            }
+            if (builder != null && ListUtils.getCount(builder.thread_list) > 0) {
+                BannerList.Builder builder2 = new BannerList.Builder(builder.banner_list);
+                List<App> list2 = builder2.app;
+                if (list2 != null) {
+                    list2.clear();
+                }
+                builder.banner_list = builder2.build(false);
+                DataRes.Builder builder3 = new DataRes.Builder(builder.build(true));
+                builder3.banner_list = builder2.build(true);
+                if (ic7Var != null) {
+                    ic7Var.a(builder3);
+                }
+            }
+            if (td7Var != null) {
+                td7Var.y(list);
             }
         }
-        this.a = topicList.is_video_topic.intValue() == 1;
-        this.b = topicList.topic_name;
-        this.c = topicList.topic_id.longValue();
-        this.h = topicList.discuss_num.longValue();
-        this.i = topicList.tag.intValue();
     }
 
-    public qe7(@NonNull tbclient.GetSugTopic.TopicList topicList) {
+    public static void c(String str, DataRes.Builder builder, ic7 ic7Var) {
+        BannerList bannerList;
+        List<App> list;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {topicList};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeLLL(65538, null, str, builder, ic7Var) == null) && !TextUtils.isEmpty(str) && builder != null && (bannerList = builder.banner_list) != null && (list = bannerList.app) != null && list.size() > 0) {
+            ArrayList arrayList = new ArrayList();
+            for (App app : builder.banner_list.app) {
+                if (app != null && str.equals(rq8.a(app))) {
+                    arrayList.add(app);
+                }
             }
-        }
-        this.a = topicList.is_video_topic.intValue() == 1;
-        this.b = topicList.topic_name;
-        this.c = topicList.topic_id.longValue();
-        this.h = topicList.discuss_num.longValue();
-        this.i = topicList.tag.intValue();
-        this.j = topicList.slogan;
-    }
-
-    public long a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.h;
-        }
-        return invokeV.longValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.j;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.i;
-        }
-        return invokeV.intValue;
-    }
-
-    public Long d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return Long.valueOf(this.c);
-        }
-        return (Long) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.f;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (j() && this.d) {
-                return true;
+            BannerList.Builder builder2 = new BannerList.Builder(builder.banner_list);
+            List<App> list2 = builder2.app;
+            if (list2 != null) {
+                list2.removeAll(arrayList);
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.f = z;
-        }
-    }
-
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.e = z;
-        }
-    }
-
-    public void m(boolean z) {
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            if (j() && z) {
-                z2 = true;
-            } else {
-                z2 = false;
+            builder.banner_list = builder2.build(false);
+            DataRes.Builder builder3 = new DataRes.Builder(builder.build(true));
+            builder3.banner_list = builder2.build(true);
+            if (ic7Var != null) {
+                ic7Var.a(builder3);
             }
-            this.d = z2;
-        }
-    }
-
-    public void n(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.g = z;
         }
     }
 }

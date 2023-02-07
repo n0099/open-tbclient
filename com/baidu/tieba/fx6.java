@@ -1,29 +1,36 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.util.PriorityOrganizer;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.frs.forumRule.ForumRulesShowActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class fx6 extends PriorityOrganizer.Task {
+public class fx6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsFragment m;
-    public FrsActivity n;
-    public boolean o;
+    public final List<qn> a;
+    public BdTypeRecyclerView b;
+    public ix6 c;
+    public hx6 d;
+    public gx6 e;
 
-    public fx6(FrsActivity frsActivity, FrsFragment frsFragment) {
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+        }
+    }
+
+    public fx6(ForumRulesShowActivity forumRulesShowActivity, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsActivity, frsFragment};
+            Object[] objArr = {forumRulesShowActivity, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,49 +40,49 @@ public class fx6 extends PriorityOrganizer.Task {
                 return;
             }
         }
-        this.n = frsActivity;
-        this.m = frsFragment;
+        this.a = new ArrayList();
+        a(forumRulesShowActivity, bdTypeRecyclerView);
     }
 
-    public void F(boolean z) {
+    public final void a(ForumRulesShowActivity forumRulesShowActivity, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.o = z;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, forumRulesShowActivity, bdTypeRecyclerView) == null) {
+            this.b = bdTypeRecyclerView;
+            this.c = new ix6(forumRulesShowActivity, mx6.m);
+            this.d = new hx6(forumRulesShowActivity, nx6.d);
+            this.e = new gx6(forumRulesShowActivity, lx6.f);
+            this.a.add(this.c);
+            this.a.add(this.d);
+            this.a.add(this.e);
+            bdTypeRecyclerView.a(this.a);
         }
     }
 
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public boolean u() {
-        InterceptResult invokeV;
+    public void c(List<Cdo> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            FrsFragment frsFragment = this.m;
-            if (frsFragment != null && !frsFragment.B3() && TbSingleton.getInstance().getFrsResponseData() != null) {
-                return true;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            BdTypeRecyclerView bdTypeRecyclerView = this.b;
+            if (bdTypeRecyclerView != null) {
+                bdTypeRecyclerView.setData(list);
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public boolean w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (tw4.l() || !this.o || !oz6.d(TbSingleton.getInstance().getFrsResponseData(), this.m)) {
-                return false;
+            hx6 hx6Var = this.d;
+            if (hx6Var != null) {
+                hx6Var.w(list);
             }
-            return true;
         }
-        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public void z() {
+    public void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            t();
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            ix6 ix6Var = this.c;
+            if (ix6Var != null) {
+                ix6Var.setFrom(str);
+            }
+            gx6 gx6Var = this.e;
+            if (gx6Var != null) {
+                gx6Var.setFrom(str);
+            }
         }
     }
 }

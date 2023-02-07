@@ -1,6 +1,5 @@
 package com.yy.mobile.framework.revenuesdk.payservice.revenueservice.protocol;
 
-import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -81,8 +80,8 @@ public class GetUserAccountResponse implements IBaseJsonResponse {
                             MyBalanceInfo.AccountPeriod accountPeriod = new MyBalanceInfo.AccountPeriod();
                             accountPeriod.currencyType = optJSONObject2.optInt("currencyType", 0);
                             accountPeriod.amount = optJSONObject2.optInt(PayUiEventContent.AMOUNT, 0);
-                            accountPeriod.startTime = optJSONObject2.optLong(FetchLog.START_TIME, 0L);
-                            accountPeriod.endTime = optJSONObject2.optLong(FetchLog.END_TIME, 0L);
+                            accountPeriod.startTime = optJSONObject2.optLong("startTime", 0L);
+                            accountPeriod.endTime = optJSONObject2.optLong("endTime", 0L);
                             this.accountPeriodList.put(Integer.valueOf(accountPeriod.currencyType), accountPeriod);
                         }
                     }

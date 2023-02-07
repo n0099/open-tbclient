@@ -1,71 +1,93 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.os.Bundle;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class nf3 extends mf3 {
+public class nf3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile nf3 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nf3(g53 g53Var) {
-        super(g53Var, "/swanAPI/closeTabBar");
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(String str, String str2);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948000494, "Lcom/baidu/tieba/nf3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948000494, "Lcom/baidu/tieba/nf3;");
+                return;
+            }
+        }
+        boolean z = gp1.a;
+    }
+
+    public nf3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {g53Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((g53) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.g63
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j43 j43Var) {
-        InterceptResult invokeLLLL;
+    public static nf3 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j43Var)) == null) {
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                j12.c("closeTabBar", "paramsJson is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else if (mf3.k()) {
-                j12.c("CloseTabBarAction", "fail not TabBar page");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fail not TabBar page");
-                return false;
-            } else {
-                vf3 j = mf3.j();
-                if (j == null) {
-                    j12.c("CloseTabBarAction", "tabBarViewController is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                } else if (!j.j(optParamsAsJo.optBoolean("animation"))) {
-                    j12.c("closeTabBar", "close tab bar fail");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                } else {
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (nf3.class) {
+                    if (b == null) {
+                        b = new nf3();
+                    }
                 }
             }
+            return b;
         }
-        return invokeLLLL.booleanValue;
+        return (nf3) invokeV.objValue;
+    }
+
+    public void b(String str) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            if (ProcessUtils.isMainProcess() && (aVar = this.a) != null) {
+                aVar.a("swanLauncherTag", str);
+            } else {
+                c("swanLauncherTag", str);
+            }
+        }
+    }
+
+    public final void c(String str, String str2) {
+        r53 y;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && (y = v83.K().y()) != null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("statTag", str);
+            bundle.putString("statisticData", str2);
+            y.W(bundle, mf3.class);
+        }
     }
 }

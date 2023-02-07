@@ -15,7 +15,7 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000 \n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b&\b\u0000\u0018\u0000 .:\u0001.B\u0011\b\u0016\u0012\u0006\u0010+\u001a\u00020\u0003¢\u0006\u0004\b,\u0010\u0012B\u0007¢\u0006\u0004\b,\u0010-J\u001f\u0010\u0006\u001a\u00020\u00052\u0006\u0010\u0002\u001a\u00020\u00012\b\u0010\u0004\u001a\u0004\u0018\u00010\u0003¢\u0006\u0004\b\u0006\u0010\u0007J\u001f\u0010\n\u001a\u00020\t2\b\u0010\b\u001a\u0004\u0018\u00010\u00032\u0006\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\n\u0010\u000bJ\u000f\u0010\f\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\f\u0010\rR$\u0010\u000e\u001a\u0004\u0018\u00010\u00038\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u000e\u0010\u000f\u001a\u0004\b\u0010\u0010\r\"\u0004\b\u0011\u0010\u0012R$\u0010\u0013\u001a\u0004\u0018\u00010\u00038\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0013\u0010\u000f\u001a\u0004\b\u0014\u0010\r\"\u0004\b\u0015\u0010\u0012R$\u0010\u0016\u001a\u0004\u0018\u00010\u00038\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0016\u0010\u000f\u001a\u0004\b\u0017\u0010\r\"\u0004\b\u0018\u0010\u0012R$\u0010\u0019\u001a\u0004\u0018\u00010\u00038\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0019\u0010\u000f\u001a\u0004\b\u001a\u0010\r\"\u0004\b\u001b\u0010\u0012R$\u0010\u001c\u001a\u0004\u0018\u00010\u00038\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001c\u0010\u000f\u001a\u0004\b\u001d\u0010\r\"\u0004\b\u001e\u0010\u0012R$\u0010\u001f\u001a\u0004\u0018\u00010\u00038\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001f\u0010\u000f\u001a\u0004\b \u0010\r\"\u0004\b!\u0010\u0012R$\u0010\"\u001a\u0004\u0018\u00010\u00038\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\"\u0010\u000f\u001a\u0004\b#\u0010\r\"\u0004\b$\u0010\u0012R$\u0010%\u001a\u0004\u0018\u00010\u00038\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b%\u0010\u000f\u001a\u0004\b&\u0010\r\"\u0004\b'\u0010\u0012R$\u0010(\u001a\u0004\u0018\u00010\u00038\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b(\u0010\u000f\u001a\u0004\b)\u0010\r\"\u0004\b*\u0010\u0012¨\u0006/"}, d2 = {"Lcom/baidu/searchbox/common/security/CacheDeviceInfo;", "", "deviceFlag", "", "newDeviceValue", "", "isDeviceInfoSyncMapping", "(ILjava/lang/String;)Z", "newValue", "", "setDeviceInfo", "(Ljava/lang/String;I)V", "toString", "()Ljava/lang/String;", "androidId", "Ljava/lang/String;", "getAndroidId", "setAndroidId", "(Ljava/lang/String;)V", "harmonyVersion", "getHarmonyVersion", "setHarmonyVersion", "imei", "getImei", "setImei", "macAddress", "getMacAddress", "setMacAddress", HttpConstants.HTTP_MANUFACTURER, "getManufacturer", "setManufacturer", "model", "getModel", "setModel", "oaid", "getOaid", "setOaid", "operator", "getOperator", "setOperator", "osVersion", "getOsVersion", "setOsVersion", "jsonString", "<init>", "()V", "Companion", "lib-security-framework_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(d1 = {"\u0000(\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000e\n\u0002\b\"\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0004\b\u0000\u0018\u0000 .2\u00020\u0001:\u0001.B\u000f\b\u0016\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004B\u0005¢\u0006\u0002\u0010\u0005J\u0018\u0010%\u001a\u00020&2\u0006\u0010'\u001a\u00020(2\b\u0010)\u001a\u0004\u0018\u00010\u0003J\u0018\u0010*\u001a\u00020+2\b\u0010,\u001a\u0004\u0018\u00010\u00032\u0006\u0010'\u001a\u00020(J\b\u0010-\u001a\u00020\u0003H\u0016R\u001c\u0010\u0006\u001a\u0004\u0018\u00010\u0003X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0007\u0010\b\"\u0004\b\t\u0010\u0004R\u001c\u0010\n\u001a\u0004\u0018\u00010\u0003X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u000b\u0010\b\"\u0004\b\f\u0010\u0004R\u001c\u0010\r\u001a\u0004\u0018\u00010\u0003X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u000e\u0010\b\"\u0004\b\u000f\u0010\u0004R\u001c\u0010\u0010\u001a\u0004\u0018\u00010\u0003X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0011\u0010\b\"\u0004\b\u0012\u0010\u0004R\u001c\u0010\u0013\u001a\u0004\u0018\u00010\u0003X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0014\u0010\b\"\u0004\b\u0015\u0010\u0004R\u001c\u0010\u0016\u001a\u0004\u0018\u00010\u0003X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0017\u0010\b\"\u0004\b\u0018\u0010\u0004R\u001c\u0010\u0019\u001a\u0004\u0018\u00010\u0003X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001a\u0010\b\"\u0004\b\u001b\u0010\u0004R\u001c\u0010\u001c\u001a\u0004\u0018\u00010\u0003X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001d\u0010\b\"\u0004\b\u001e\u0010\u0004R\u001c\u0010\u001f\u001a\u0004\u0018\u00010\u0003X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b \u0010\b\"\u0004\b!\u0010\u0004R\u001c\u0010\"\u001a\u0004\u0018\u00010\u0003X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b#\u0010\b\"\u0004\b$\u0010\u0004¨\u0006/"}, d2 = {"Lcom/baidu/searchbox/common/security/CacheDeviceInfo;", "", "jsonString", "", "(Ljava/lang/String;)V", "()V", "androidId", "getAndroidId", "()Ljava/lang/String;", "setAndroidId", "enUid", "getEnUid", "setEnUid", "harmonyVersion", "getHarmonyVersion", "setHarmonyVersion", "imei", "getImei", "setImei", "macAddress", "getMacAddress", "setMacAddress", HttpConstants.HTTP_MANUFACTURER, "getManufacturer", "setManufacturer", "model", "getModel", "setModel", "oaid", "getOaid", "setOaid", "operator", "getOperator", "setOperator", "osVersion", "getOsVersion", "setOsVersion", "isDeviceInfoSyncMapping", "", "deviceFlag", "", "newDeviceValue", "setDeviceInfo", "", "newValue", "toString", "Companion", "lib-security-framework_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes2.dex */
 public final class CacheDeviceInfo {
     public static /* synthetic */ Interceptable $ic = null;
@@ -29,8 +29,10 @@ public final class CacheDeviceInfo {
     public static final String JSON_KEY_OAID = "oa";
     public static final String JSON_KEY_OPERATOR = "op";
     public static final String JSON_KEY_OS_VERSION = "ov";
+    public static final String JSON_KEY_UID = "u";
     public transient /* synthetic */ FieldHolder $fh;
     public String androidId;
+    public String enUid;
     public String harmonyVersion;
     public String imei;
     public String macAddress;
@@ -56,11 +58,15 @@ public final class CacheDeviceInfo {
         Companion = new Companion(null);
     }
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\r\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\f\u0010\rR\u0016\u0010\u0002\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0003R\u0016\u0010\u0006\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0006\u0010\u0003R\u0016\u0010\u0007\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0007\u0010\u0003R\u0016\u0010\b\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\b\u0010\u0003R\u0016\u0010\t\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\t\u0010\u0003R\u0016\u0010\n\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\n\u0010\u0003R\u0016\u0010\u000b\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u000b\u0010\u0003¨\u0006\u000e"}, d2 = {"Lcom/baidu/searchbox/common/security/CacheDeviceInfo$Companion;", "", "JSON_KEY_ANDROID_ID", "Ljava/lang/String;", "JSON_KEY_HARMONY_VERSION", "JSON_KEY_IMEI", "JSON_KEY_MAC", "JSON_KEY_MANUFACTURER", "JSON_KEY_MODEL", "JSON_KEY_OAID", "JSON_KEY_OPERATOR", "JSON_KEY_OS_VERSION", "<init>", "()V", "lib-security-framework_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @Metadata(d1 = {"\u0000\u0014\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\n\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\b\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000¨\u0006\u000e"}, d2 = {"Lcom/baidu/searchbox/common/security/CacheDeviceInfo$Companion;", "", "()V", "JSON_KEY_ANDROID_ID", "", "JSON_KEY_HARMONY_VERSION", "JSON_KEY_IMEI", "JSON_KEY_MAC", "JSON_KEY_MANUFACTURER", "JSON_KEY_MODEL", "JSON_KEY_OAID", "JSON_KEY_OPERATOR", "JSON_KEY_OS_VERSION", "JSON_KEY_UID", "lib-security-framework_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes2.dex */
     public static final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
 
         public Companion() {
             Interceptable interceptable = $ic;
@@ -74,10 +80,6 @@ public final class CacheDeviceInfo {
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-        }
-
-        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
         }
     }
 
@@ -104,10 +106,19 @@ public final class CacheDeviceInfo {
         return (String) invokeV.objValue;
     }
 
-    public final String getHarmonyVersion() {
+    public final String getEnUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.enUid;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String getHarmonyVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.harmonyVersion;
         }
         return (String) invokeV.objValue;
@@ -116,7 +127,7 @@ public final class CacheDeviceInfo {
     public final String getImei() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.imei;
         }
         return (String) invokeV.objValue;
@@ -125,7 +136,7 @@ public final class CacheDeviceInfo {
     public final String getMacAddress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.macAddress;
         }
         return (String) invokeV.objValue;
@@ -134,7 +145,7 @@ public final class CacheDeviceInfo {
     public final String getManufacturer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.manufacturer;
         }
         return (String) invokeV.objValue;
@@ -143,7 +154,7 @@ public final class CacheDeviceInfo {
     public final String getModel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.model;
         }
         return (String) invokeV.objValue;
@@ -152,7 +163,7 @@ public final class CacheDeviceInfo {
     public final String getOaid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.oaid;
         }
         return (String) invokeV.objValue;
@@ -161,7 +172,7 @@ public final class CacheDeviceInfo {
     public final String getOperator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.operator;
         }
         return (String) invokeV.objValue;
@@ -170,7 +181,7 @@ public final class CacheDeviceInfo {
     public final String getOsVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.osVersion;
         }
         return (String) invokeV.objValue;
@@ -205,12 +216,13 @@ public final class CacheDeviceInfo {
         this.operator = jSONObject.optString("op", null);
         this.harmonyVersion = jSONObject.optString(JSON_KEY_HARMONY_VERSION, null);
         this.manufacturer = jSONObject.optString(JSON_KEY_MANUFACTURER, null);
+        this.enUid = jSONObject.optString("u", null);
     }
 
     public final boolean isDeviceInfoSyncMapping(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048585, this, i, str)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
@@ -256,7 +268,7 @@ public final class CacheDeviceInfo {
 
     public final void setDeviceInfo(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048587, this, str, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048588, this, str, i) == null) {
             if (i != 1) {
                 if (i != 2) {
                     if (i != 4) {
@@ -314,63 +326,70 @@ public final class CacheDeviceInfo {
 
     public final void setAndroidId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
             this.androidId = str;
+        }
+    }
+
+    public final void setEnUid(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+            this.enUid = str;
         }
     }
 
     public final void setHarmonyVersion(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
             this.harmonyVersion = str;
         }
     }
 
     public final void setImei(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
             this.imei = str;
         }
     }
 
     public final void setMacAddress(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
             this.macAddress = str;
         }
     }
 
     public final void setManufacturer(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
             this.manufacturer = str;
         }
     }
 
     public final void setModel(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
             this.model = str;
         }
     }
 
     public final void setOaid(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
             this.oaid = str;
         }
     }
 
     public final void setOperator(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
             this.operator = str;
         }
     }
 
     public final void setOsVersion(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
             this.osVersion = str;
         }
     }
@@ -378,7 +397,7 @@ public final class CacheDeviceInfo {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("ma", this.macAddress);
             jSONObject.put("im", this.imei);
@@ -389,6 +408,7 @@ public final class CacheDeviceInfo {
             jSONObject.put("op", this.operator);
             jSONObject.put(JSON_KEY_HARMONY_VERSION, this.harmonyVersion);
             jSONObject.put(JSON_KEY_MANUFACTURER, this.manufacturer);
+            jSONObject.put("u", this.enUid);
             String jSONObject2 = jSONObject.toString();
             Intrinsics.checkNotNullExpressionValue(jSONObject2, "json.toString()");
             return jSONObject2;

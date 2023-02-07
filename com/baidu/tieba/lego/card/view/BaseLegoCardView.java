@@ -21,14 +21,14 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dr7;
-import com.baidu.tieba.hq7;
-import com.baidu.tieba.hw8;
-import com.baidu.tieba.l86;
+import com.baidu.tieba.ed6;
+import com.baidu.tieba.f09;
 import com.baidu.tieba.lego.card.model.BaseLegoCardInfo;
 import com.baidu.tieba.lego.card.model.ICardInfo;
-import com.baidu.tieba.s86;
-import com.baidu.tieba.vq7;
+import com.baidu.tieba.nv7;
+import com.baidu.tieba.vv7;
+import com.baidu.tieba.xc6;
+import com.baidu.tieba.zu7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,7 +37,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends LinearLayout implements dr7<T> {
+public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends LinearLayout implements vv7<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
@@ -50,38 +50,38 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     public ImageView h;
     public TbPageContext i;
     public int j;
-    public hq7 k;
+    public zu7 k;
     public boolean l;
 
-    @Override // com.baidu.tieba.dr7
+    @Override // com.baidu.tieba.vv7
     public void c(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.dr7
+    @Override // com.baidu.tieba.vv7
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.dr7
+    @Override // com.baidu.tieba.vv7
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.dr7
+    @Override // com.baidu.tieba.vv7
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.dr7
+    @Override // com.baidu.tieba.vv7
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -90,14 +90,14 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
 
     public abstract View q();
 
-    @Override // com.baidu.tieba.dr7
+    @Override // com.baidu.tieba.vv7
     public final void setFromCDN(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.dr7
+    @Override // com.baidu.tieba.vv7
     public void setMulDel(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
@@ -155,7 +155,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
             SkinManager.setBackgroundResource(textView, R.drawable.btn_focus_border_bg);
             textView.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(R.drawable.btn_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
             textView.setEnabled(true);
-            textView.setPadding(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07025f), 0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070230), 0);
+            textView.setPadding(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070260), 0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070231), 0);
         }
     }
 
@@ -238,8 +238,8 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
                 }
             }
             statisticItem.param("obj_locate", getStatPosition());
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, l86.e());
-            s86.b().a(statisticItem);
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, xc6.e());
+            ed6.b().a(statisticItem);
         }
     }
 
@@ -379,20 +379,20 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     public final void m(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, t) == null) {
-            s86.b().d(true);
+            ed6.b().d(true);
             v(t);
         }
     }
 
-    @Override // com.baidu.tieba.dr7
-    public final void setAfterClickSchemeListener(hq7 hq7Var) {
+    @Override // com.baidu.tieba.vv7
+    public final void setAfterClickSchemeListener(zu7 zu7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, hq7Var) == null) {
-            this.k = hq7Var;
+        if (interceptable == null || interceptable.invokeL(1048596, this, zu7Var) == null) {
+            this.k = zu7Var;
         }
     }
 
-    @Override // com.baidu.tieba.dr7
+    @Override // com.baidu.tieba.vv7
     public final void setBusinessType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
@@ -414,7 +414,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         }
     }
 
-    @Override // com.baidu.tieba.dr7
+    @Override // com.baidu.tieba.vv7
     public final void setPosition(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
@@ -425,10 +425,10 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     public void v(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, t) == null) {
-            int c = hw8.c(this.i, t.getScheme());
-            hq7 hq7Var = this.k;
-            if (hq7Var != null) {
-                hq7Var.a(c, null);
+            int c = f09.c(this.i, t.getScheme());
+            zu7 zu7Var = this.k;
+            if (zu7Var != null) {
+                zu7Var.a(c, null);
             }
         }
     }
@@ -507,7 +507,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
 
     /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.baidu.tieba.lego.card.view.BaseLegoCardView<T extends com.baidu.tieba.lego.card.model.BaseLegoCardInfo> */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.baidu.tieba.dr7
+    @Override // com.baidu.tieba.vv7
     public final void update(Object obj) {
         ICardInfo iCardInfo;
         ICardInfo updateCard;
@@ -533,7 +533,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     public final void x(View view2, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(1048608, this, view2, i, i2, i3) == null) {
-            if (!vq7.a(i) && !vq7.a(i2)) {
+            if (!nv7.a(i) && !nv7.a(i2)) {
                 if (r()) {
                     i = i2;
                 }
@@ -547,7 +547,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     public final void y(TextView textView, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(1048609, this, textView, i, i2, i3) == null) {
-            if (!vq7.a(i) && !vq7.a(i2)) {
+            if (!nv7.a(i) && !nv7.a(i2)) {
                 if (r()) {
                     i = i2;
                 }

@@ -1,147 +1,148 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.content.Context;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.OutputStreamWriter;
-import java.text.SimpleDateFormat;
-import java.util.Locale;
+import com.bytedance.sdk.openadsdk.AdSlot;
+import com.bytedance.sdk.openadsdk.TTAdNative;
+import com.bytedance.sdk.openadsdk.TTAdSdk;
+import com.bytedance.sdk.openadsdk.TTFullScreenVideoAd;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes4.dex */
-public class h2a {
+public class h2a extends w1a<i2a> {
     public static /* synthetic */ Interceptable $ic;
-    public static final Object a;
-    public static final SimpleDateFormat b;
-    public static final SimpleDateFormat c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public static class a implements Runnable {
+    public class a implements TTAdNative.FullScreenVideoAdListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ h2a a;
 
-        public a() {
+        public a(h2a h2aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {h2aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.a = h2aVar;
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
+        public void onError(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
+                this.a.onError(i, str);
             }
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener
+        public void onFullScreenVideoAdLoad(TTFullScreenVideoAd tTFullScreenVideoAd) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                long currentTimeMillis = System.currentTimeMillis();
-                File[] f = e2a.f();
-                if (f != null && f.length > 0) {
-                    synchronized (h2a.a) {
-                        for (File file : f) {
-                            if (currentTimeMillis - file.lastModified() > 172800000) {
-                                file.delete();
-                            }
-                        }
-                    }
-                }
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tTFullScreenVideoAd) == null) {
+                LogPrinter.d();
+                this.a.onAdLoaded((h2a) new i2a(tTFullScreenVideoAd));
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener
+        public void onFullScreenVideoCached() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                LogPrinter.d();
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener
+        public void onFullScreenVideoCached(TTFullScreenVideoAd tTFullScreenVideoAd) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, tTFullScreenVideoAd) == null) {
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947773202, "Lcom/baidu/tieba/h2a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947773202, "Lcom/baidu/tieba/h2a;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public h2a(FunAdType funAdType, Ssp.Pid pid) {
+        super(funAdType, pid);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {funAdType, pid};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new Object();
-        b = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss.SSS", Locale.US);
-        c = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
     }
 
-    public static void b() {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            g2a.b().post(new a());
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+            i2a i2aVar = (i2a) obj;
         }
     }
 
-    public static String c(String str) {
+    public AdSlot e(FunAdSlot funAdSlot) {
         InterceptResult invokeL;
-        String d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            synchronized (a) {
-                d = d("looper", str);
-            }
-            return d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, funAdSlot)) == null) {
+            return new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setOrientation(this.mPid.isHorizontal ? 2 : 1).build();
         }
-        return (String) invokeL.objValue;
+        return (AdSlot) invokeL.objValue;
     }
 
-    public static String d(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
-            String str3 = "";
-            BufferedWriter bufferedWriter = null;
-            try {
-                File c2 = e2a.c();
-                long currentTimeMillis = System.currentTimeMillis();
-                str3 = c2.getAbsolutePath() + "/" + str + "-" + b.format(Long.valueOf(currentTimeMillis)) + ".log";
-                BufferedWriter bufferedWriter2 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(str3, true), "UTF-8"));
-                try {
-                    bufferedWriter2.write("\r\n");
-                    bufferedWriter2.write("**********************");
-                    bufferedWriter2.write("\r\n");
-                    bufferedWriter2.write(c.format(Long.valueOf(currentTimeMillis)) + "(write log time)");
-                    bufferedWriter2.write("\r\n");
-                    bufferedWriter2.write("\r\n");
-                    bufferedWriter2.write(str2);
-                    bufferedWriter2.write("\r\n");
-                    bufferedWriter2.flush();
-                    bufferedWriter2.close();
-                } catch (Throwable th) {
-                    th = th;
-                    bufferedWriter = bufferedWriter2;
-                    try {
-                        Log.e("LogWriter", "save: ", th);
-                        return str3;
-                    } finally {
-                        if (bufferedWriter != null) {
-                            try {
-                                bufferedWriter.close();
-                            } catch (Exception e) {
-                                Log.e("LogWriter", "save: ", e);
-                            }
-                        }
-                    }
-                }
-            } catch (Throwable th2) {
-                th = th2;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
+            if (this.e == null) {
+                this.e = TTAdSdk.getAdManager().createAdNative(context.getApplicationContext());
             }
-            return str3;
+            AdSlot e = e(funAdSlot);
+            onLoadStart(funAdSlot);
+            this.e.loadFullScreenVideoAd(e, new a(this));
         }
-        return (String) invokeLL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
+            i2a i2aVar = (i2a) obj;
+            onShowStart(i2aVar);
+            ((TTFullScreenVideoAd) i2aVar.a).setFullScreenVideoAdInteractionListener(new k2a(this, i2aVar));
+            ((TTFullScreenVideoAd) i2aVar.a).setDownloadListener(new o1a(null));
+            ((TTFullScreenVideoAd) i2aVar.a).showFullScreenVideoAd(activity);
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

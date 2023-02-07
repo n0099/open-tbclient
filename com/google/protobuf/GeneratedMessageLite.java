@@ -398,7 +398,7 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
         private void ensureExtensionsIsMutable() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(65539, this) == null) && !this.extensionsIsMutable) {
-                this.extensions = this.extensions.m83clone();
+                this.extensions = this.extensions.m85clone();
                 this.extensionsIsMutable = true;
             }
         }

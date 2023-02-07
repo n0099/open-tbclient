@@ -1,45 +1,78 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class jd4 extends hd4 {
+public class jd4 extends id4<iv2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String o;
-    public String p;
-    public int q;
-    public boolean r;
-    public String s;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947879439, "Lcom/baidu/tieba/jd4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947879439, "Lcom/baidu/tieba/jd4;");
+                return;
+            }
+        }
+        boolean z = gp1.a;
+    }
 
     public jd4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.hd4
-    public boolean a() {
+    public static jd4 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (super.a() && !TextUtils.isEmpty(this.p)) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new jd4();
         }
-        return invokeV.booleanValue;
+        return (jd4) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.id4
+    public boolean b(Context context, iv2 iv2Var, fv2 fv2Var, w83 w83Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, iv2Var, fv2Var, w83Var, jSONObject)) == null) {
+            return d(context, iv2Var, fv2Var, w83Var);
+        }
+        return invokeLLLLL.booleanValue;
+    }
+
+    public final boolean d(Context context, iv2 iv2Var, fv2 fv2Var, w83 w83Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, iv2Var, fv2Var, w83Var)) == null) {
+            w52.i("map", "MapCreateAction start");
+            boolean a = fd4.b().a(context, iv2Var);
+            w52.i("map", "MapCreateAction end");
+            return a;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

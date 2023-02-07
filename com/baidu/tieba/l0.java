@@ -1,90 +1,131 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.annotation.SuppressLint;
+import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
-public class l0<TResult> {
+public final class l0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final l0 b;
+    public static final int c;
+    public static final int d;
+    public static final int e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final k0<TResult> a;
+    public final Executor a;
+
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b implements Executor {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        @Override // java.util.concurrent.Executor
+        public void execute(Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+                new Handler(Looper.getMainLooper()).post(runnable);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448308457, "Lcom/baidu/tieba/l0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448308457, "Lcom/baidu/tieba/l0;");
+                return;
+            }
+        }
+        b = new l0();
+        int availableProcessors = Runtime.getRuntime().availableProcessors();
+        c = availableProcessors;
+        d = availableProcessors + 1;
+        e = (availableProcessors * 2) + 1;
+    }
 
     public l0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new k0<>();
+        this.a = new b(null);
     }
 
-    public k0<TResult> a() {
+    public static ExecutorService b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(d, e, 1L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+            a(threadPoolExecutor, true);
+            return threadPoolExecutor;
         }
-        return (k0) invokeV.objValue;
+        return (ExecutorService) invokeV.objValue;
     }
 
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || d()) {
-            return;
-        }
-        throw new IllegalStateException("Cannot cancel a completed task.");
-    }
-
-    public boolean d() {
+    public static Executor c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.r();
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return b.a;
         }
-        return invokeV.booleanValue;
+        return (Executor) invokeV.objValue;
     }
 
-    public void c(Exception exc) {
+    @SuppressLint({"NewApi"})
+    public static void a(ThreadPoolExecutor threadPoolExecutor, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) != null) || e(exc)) {
-            return;
+        if ((interceptable == null || interceptable.invokeLZ(65538, null, threadPoolExecutor, z) == null) && Build.VERSION.SDK_INT >= 9) {
+            threadPoolExecutor.allowCoreThreadTimeOut(z);
         }
-        throw new IllegalStateException("Cannot set the error on a completed task.");
-    }
-
-    public boolean e(Exception exc) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, exc)) == null) {
-            return this.a.s(exc);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean f(TResult tresult) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, tresult)) == null) {
-            return this.a.t(tresult);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void setResult(TResult tresult) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, tresult) != null) || f(tresult)) {
-            return;
-        }
-        throw new IllegalStateException("Cannot set the result of a completed task.");
     }
 }

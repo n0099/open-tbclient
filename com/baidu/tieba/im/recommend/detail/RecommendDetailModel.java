@@ -20,10 +20,10 @@ import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
 import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.message.SettingChangeMessage;
-import com.baidu.tieba.mi7;
-import com.baidu.tieba.rb;
-import com.baidu.tieba.s9;
-import com.baidu.tieba.tb;
+import com.baidu.tieba.wb;
+import com.baidu.tieba.x9;
+import com.baidu.tieba.xm7;
+import com.baidu.tieba.yb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,12 +43,12 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
     public boolean e;
     public boolean f;
     public long g;
-    public rb h;
+    public wb h;
     public CustomMessageListener i;
 
     /* loaded from: classes4.dex */
     public interface e {
-        void O(UserInfoBigVip userInfoBigVip, boolean z);
+        void N(UserInfoBigVip userInfoBigVip, boolean z);
 
         void T0(boolean z);
 
@@ -78,7 +78,7 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
     }
 
     /* loaded from: classes4.dex */
-    public class a extends rb {
+    public class a extends wb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RecommendDetailModel a;
@@ -105,17 +105,17 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
             this.a = recommendDetailModel;
         }
 
-        @Override // com.baidu.tieba.rb
+        @Override // com.baidu.tieba.wb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 this.a.f = true;
                 if (this.a.a != null && this.a.c != null) {
                     if (responsedMessage == null) {
-                        this.a.c.onFailed(this.a.a.getString(R.string.obfuscated_res_0x7f0f0cd1));
+                        this.a.c.onFailed(this.a.a.getString(R.string.obfuscated_res_0x7f0f0cfe));
                     } else if (responsedMessage.getError() != 0) {
                         if (TextUtils.isEmpty(responsedMessage.getErrorString())) {
-                            this.a.c.onFailed(this.a.a.getString(R.string.obfuscated_res_0x7f0f0cd1));
+                            this.a.c.onFailed(this.a.a.getString(R.string.obfuscated_res_0x7f0f0cfe));
                         } else {
                             this.a.c.onFailed(responsedMessage.getErrorString());
                         }
@@ -124,14 +124,14 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
                             RecommendDetailHttpResponseMessage recommendDetailHttpResponseMessage = (RecommendDetailHttpResponseMessage) responsedMessage;
                             if (recommendDetailHttpResponseMessage.getDetailInfo() != null) {
                                 this.a.e = true;
-                                this.a.c.O(recommendDetailHttpResponseMessage.getDetailInfo(), true);
+                                this.a.c.N(recommendDetailHttpResponseMessage.getDetailInfo(), true);
                             }
                         }
                         if (responsedMessage instanceof RecommendDetailSocketResponseMessage) {
                             RecommendDetailSocketResponseMessage recommendDetailSocketResponseMessage = (RecommendDetailSocketResponseMessage) responsedMessage;
                             if (recommendDetailSocketResponseMessage.getDetailInfo() != null) {
                                 this.a.e = true;
-                                this.a.c.O(recommendDetailSocketResponseMessage.getDetailInfo(), true);
+                                this.a.c.N(recommendDetailSocketResponseMessage.getDetailInfo(), true);
                             }
                         }
                     }
@@ -141,7 +141,7 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
     }
 
     /* loaded from: classes4.dex */
-    public class b extends tb {
+    public class b extends yb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RecommendDetailModel a;
@@ -184,7 +184,7 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
             if (requestUpdateMaskInfoMessage.getMaskType() == 6 && this.a.a != null && this.a.c != null) {
                 if (responseUpdateMaskInfoMessage.getError() != 0) {
                     if (StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString())) {
-                        this.a.a.showToast(R.string.obfuscated_res_0x7f0f0cd1);
+                        this.a.a.showToast(R.string.obfuscated_res_0x7f0f0cfe);
                     } else {
                         this.a.a.showToast(responseUpdateMaskInfoMessage.getErrorString());
                     }
@@ -247,7 +247,7 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
                     UserInfoBigVip userInfoBigVip = (UserInfoBigVip) customResponsedMessage.getData();
                     if (this.a.c != null && userInfoBigVip != null) {
                         this.a.e = true;
-                        this.a.c.O(userInfoBigVip, false);
+                        this.a.c.N(userInfoBigVip, false);
                     }
                     this.a.T();
                     return;
@@ -289,7 +289,7 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                mi7.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.b.g), this.a);
+                xm7.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.b.g), this.a);
                 return null;
             }
             return (Void) invokeL.objValue;
@@ -308,7 +308,7 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((s9) newInitContext.callArgs[0]);
+                super((x9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

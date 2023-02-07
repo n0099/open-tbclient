@@ -1,167 +1,142 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.logsystem.basic.upload.Constant;
-import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class bk4 {
+public class bk4 extends ck4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ConcurrentHashMap<String, String> f;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public String c;
-    public JSONObject d;
-    public List<rj4> e;
+    public String d;
+    public String e;
+    public int f;
+    public String g;
+    public String h;
+    public int i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947647838, "Lcom/baidu/tieba/bk4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947647838, "Lcom/baidu/tieba/bk4;");
-                return;
-            }
-        }
-        ConcurrentHashMap<String, String> concurrentHashMap = new ConcurrentHashMap<>();
-        f = concurrentHashMap;
-        concurrentHashMap.put("1415", PayUVEventType.PAY_RUBY_ENTRANCE_BANNER_SHOW);
-    }
-
-    public List<rj4> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public bk4(String str, JSONObject jSONObject) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bk4(String str, int i, String str2, int i2) {
+        super(i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, jSONObject};
+            Object[] objArr = {str, Integer.valueOf(i), str2, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.i = -1;
+        this.d = str;
+        this.e = str2;
+        this.f = i;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bk4(String str, String str2, String str3, int i) {
+        super(i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.e = new ArrayList();
-        this.c = str;
-        this.d = jSONObject;
+        this.i = -1;
+        this.d = str;
+        this.e = str3;
+        try {
+            this.f = Integer.valueOf(str2).intValue();
+        } catch (NumberFormatException unused) {
+            this.f = 0;
+        }
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public boolean e() {
+    public String f() {
         InterceptResult invokeV;
-        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.i;
+        }
+        return invokeV.intValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.h;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            try {
-                JSONObject jSONObject = this.d;
-                this.a = jSONObject.getInt("threshold");
-                this.b = jSONObject.getInt("timeup");
-                JSONArray jSONArray = new JSONArray(jSONObject.getString("item"));
-                int length = jSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    JSONObject jSONObject2 = jSONArray.getJSONObject(i);
-                    String string = jSONObject2.getString("ubcid");
-                    if (!TextUtils.isEmpty(string) && f.containsKey(string)) {
-                        String optString = jSONObject2.optString("bizid");
-                        f.get(string);
-                        str = optString;
-                    } else {
-                        str = string;
-                    }
-                    String string2 = jSONObject2.getString(SetImageWatermarkTypeReqMsg.SWITCH);
-                    String string3 = jSONObject2.getString(Constant.IS_REAL);
-                    String string4 = jSONObject2.getString("isAbtest");
-                    int parseInt = Integer.parseInt(jSONObject2.getString(com.alipay.sdk.data.a.O));
-                    String string5 = jSONObject2.getString("type");
-                    if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3) && !TextUtils.isEmpty(string5)) {
-                        rj4 rj4Var = new rj4(str, string2, string3, parseInt, string5, string4);
-                        if (jSONObject2.has("rate")) {
-                            rj4Var.g = Integer.parseInt(jSONObject2.getString("rate"));
-                        }
-                        if (jSONObject2.has("bizid")) {
-                            jSONObject2.getString("bizid");
-                        }
-                        if (jSONObject2.has("c")) {
-                            rj4Var.h = jSONObject2.getString("c");
-                        }
-                        if (jSONObject2.has("limitUnit")) {
-                            rj4Var.i = Integer.parseInt(jSONObject2.getString("limitUnit"));
-                        }
-                        if (jSONObject2.has("limitCnt")) {
-                            rj4Var.j = Integer.parseInt(jSONObject2.getString("limitCnt"));
-                        }
-                        if (jSONObject2.has(Constant.ID_TYPE)) {
-                            rj4Var.k = jSONObject2.getString(Constant.ID_TYPE);
-                        }
-                        if (jSONObject2.has("appblacklist")) {
-                            jSONObject2.getString("appblacklist");
-                        }
-                        this.e.add(rj4Var);
-                    }
-                }
-                return true;
-            } catch (NumberFormatException | JSONException unused) {
-                return false;
-            }
+            return this.f;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
+    }
+
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.h = str;
+        }
+    }
+
+    public bk4 m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            this.g = str;
+            return this;
+        }
+        return (bk4) invokeL.objValue;
     }
 }

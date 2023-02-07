@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,30 +12,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class t74 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public volatile float height;
-    @V8JavascriptField
-    public volatile float left;
-    @V8JavascriptField
-    public volatile float top;
-    @V8JavascriptField
-    public volatile float width;
+    public gg2 a;
+    public u74 b;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-    }
-
-    public void b(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-        }
-    }
-
-    public t74() {
-        Resources resources;
+    public t74(gg2 gg2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {gg2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -45,35 +30,30 @@ public class t74 {
                 return;
             }
         }
-        if (qn2.c() != null) {
-            resources = qn2.c().getResources();
-        } else {
-            resources = null;
-        }
-        this.left = a(resources, R.dimen.obfuscated_res_0x7f07070c);
-        this.top = a(resources, R.dimen.obfuscated_res_0x7f07070d);
-        this.width = a(resources, R.dimen.obfuscated_res_0x7f07070e);
-        this.height = a(resources, R.dimen.obfuscated_res_0x7f07070b);
+        this.a = gg2Var;
     }
 
-    public String toString() {
+    public v74 a(JsObject jsObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jsObject)) == null) {
+            v74 v74Var = new v74(b(), this.a);
+            v74Var.B(jsObject);
+            return v74Var;
+        }
+        return (v74) invokeL.objValue;
+    }
+
+    @NonNull
+    public final u74 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "{left=" + this.left + ", top=" + this.top + ", width=" + this.width + ", height=" + this.height + "}";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final float a(Resources resources, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, resources, i)) == null) {
-            if (resources != null && i != 0) {
-                return z64.b(resources.getDimension(i));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.b == null) {
+                this.b = new u74();
             }
-            return 0.0f;
+            return this.b;
         }
-        return invokeLI.floatValue;
+        return (u74) invokeV.objValue;
     }
 }

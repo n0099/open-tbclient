@@ -42,7 +42,7 @@ public class LocationFooterViewHolder extends RecyclerView.ViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
             this.a = (TextView) view2.findViewById(R.id.loading_text);
-            this.b = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f0914c1);
+            this.b = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091503);
         }
     }
 

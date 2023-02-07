@@ -13,14 +13,14 @@ import io.reactivex.Scheduler;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.plugins.RxJavaPlugins;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class CompletableDisposeOn extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Scheduler scheduler;
     public final CompletableSource source;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class CompletableObserverImplementation implements CompletableObserver, Disposable, Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

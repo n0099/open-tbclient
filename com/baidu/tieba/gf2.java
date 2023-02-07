@@ -1,115 +1,182 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.o93;
+import android.util.Log;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.sr2;
+import com.baidu.tieba.tt2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.io.File;
 /* loaded from: classes4.dex */
-public class gf2 extends g63 {
+public class gf2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static Boolean b;
+    public static int c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public class a implements cj3<m93<o93.e>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-
-        public a(gf2 gf2Var, CallbackHandler callbackHandler, String str, String str2) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947791926, "Lcom/baidu/tieba/gf2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gf2Var, callbackHandler, str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = callbackHandler;
-            this.b = str;
-            this.c = str2;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cj3
-        /* renamed from: b */
-        public void a(m93<o93.e> m93Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m93Var) == null) {
-                if (!h93.h(m93Var)) {
-                    h93.q(m93Var, this.a, this.b);
-                } else {
-                    ze2.h(this.c, this.a, this.b);
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gf2(g53 g53Var) {
-        super(g53Var, "/swanAPI/debug/replaceDynamicLib");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {g53Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947791926, "Lcom/baidu/tieba/gf2;");
                 return;
             }
         }
+        a = gp1.a;
+        ds2.g0().getSwitch("swan_naview_slave_preload_type", 0);
+        c = 0;
     }
 
-    @Override // com.baidu.tieba.g63
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j43 j43Var) {
-        InterceptResult invokeLLLL;
+    public static boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j43Var)) == null) {
-            JSONObject a2 = g63.a(unitedSchemeEntity, "params");
-            if (a2 == null) {
-                b43.f(context, R.string.obfuscated_res_0x7f0f014b).G();
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "'params' is null");
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            Boolean bool = b;
+            if (bool != null) {
+                return bool.booleanValue();
+            }
+            Boolean valueOf = Boolean.valueOf(a());
+            b = valueOf;
+            return valueOf.booleanValue();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (c == 2) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (c == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (c == 3) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            boolean z = false;
+            if (!qf2.U().r0()) {
+                Log.w("NASlaveConfig", "v8 is not enabled");
+                return false;
+            } else if (!ds2.F0().j(1)) {
+                return false;
+            } else {
+                String c0 = qf2.U().c0();
+                if (TextUtils.isEmpty(c0)) {
+                    Log.w("NASlaveConfig", "base path is not exists");
+                    return false;
+                } else if (!new File(c0, "slave-talos/index.js").isFile()) {
+                    Log.w("NASlaveConfig", "talos-js file is not exists");
+                    return false;
+                } else if (a && v43.Y()) {
+                    return true;
+                } else {
+                    if (c != 0) {
+                        z = true;
+                    }
+                    if (a) {
+                        Log.d("NASlaveConfig", "isNARenderEnabled canUseNA: " + z);
+                    }
+                    return z;
+                }
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static int b(@Nullable l93 l93Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, l93Var)) == null) {
+            if (l93Var == null || !d()) {
+                return 0;
+            }
+            return "na".equals(l93Var.r) ? 1 : 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (str == null) {
+                return 0;
+            }
+            if (str.contains("?")) {
+                str = str.substring(0, str.indexOf("?"));
+            }
+            int b2 = b(ju2.U().f(str));
+            if (a) {
+                Log.d("NASlaveConfig", "getSlaveType pageUrl: " + str + " slaveType:" + b2);
+            }
+            return b2;
+        }
+        return invokeL.intValue;
+    }
+
+    public static boolean h(w83 w83Var) {
+        InterceptResult invokeL;
+        tt2.a W;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, w83Var)) == null) {
+            if (w83Var == null || !w83Var.E()) {
                 return false;
             }
-            String optString = a2.optString("url");
-            if (TextUtils.isEmpty(optString)) {
-                b43.f(context, R.string.obfuscated_res_0x7f0f014c).G();
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "dynamic lib 'url' is empty");
+            if (v43.B(w83Var.W())) {
+                str = sr2.b.g().getPath() + File.separator;
+            } else {
+                str = sr2.e.i(W.H(), W.v1()).getPath() + File.separator;
+            }
+            if (a) {
+                Log.d("NASlaveConfig", "手动解析的basePath: " + str);
+            }
+            if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            String optString2 = a2.optString("cb");
-            if (TextUtils.isEmpty(optString2)) {
-                b43.f(context, R.string.obfuscated_res_0x7f0f014a).G();
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "dynamic lib 'cb' is empty");
-                return false;
-            }
-            j43Var.e0().g(context, "mapp_cts_debug", new a(this, callbackHandler, optString2, optString));
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+            ju2.U().K(str);
             return true;
         }
-        return invokeLLLL.booleanValue;
+        return invokeL.booleanValue;
     }
 }

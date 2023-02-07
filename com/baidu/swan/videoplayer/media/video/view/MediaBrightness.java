@@ -13,7 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.he3;
+import com.baidu.tieba.ui3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -115,7 +115,7 @@ public final class MediaBrightness extends FrameLayout {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f = he3.c().a((Activity) getContext());
+            this.f = ui3.c().a((Activity) getContext());
         }
     }
 
@@ -131,14 +131,14 @@ public final class MediaBrightness extends FrameLayout {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0866, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d085f, (ViewGroup) this, true);
             this.a = inflate;
-            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090eb5);
-            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0912f2);
-            int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0706e1);
+            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090efa);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091335);
+            int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0706f1);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize);
             layoutParams.gravity = 17;
-            this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f081260);
+            this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f081255);
             this.a.setLayoutParams(layoutParams);
         }
     }
@@ -151,7 +151,7 @@ public final class MediaBrightness extends FrameLayout {
             } else if (f <= 0.0f) {
                 f = 0.0f;
             }
-            he3.c().e((Activity) getContext(), f);
+            ui3.c().e((Activity) getContext(), f);
         }
     }
 

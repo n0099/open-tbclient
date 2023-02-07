@@ -1,41 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
-import java.io.File;
 /* loaded from: classes5.dex */
 public class km4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947917879, "Lcom/baidu/tieba/km4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947917879, "Lcom/baidu/tieba/km4;");
-                return;
-            }
+    public static void startActivity(Context context, Intent intent, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, context, intent, bundle) == null) {
+            context.startActivity(intent, bundle);
         }
-        a = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + ZeusWebViewPreloadClass.ZEUS_FILE_DIR + File.separator + "libs";
     }
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    public static void startActivityForResult(Activity activity, Intent intent, int i, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new File(a + File.separator + "libzeuswebviewchromium.so").exists();
+        if (interceptable == null || interceptable.invokeLLIL(65537, null, activity, intent, i, bundle) == null) {
+            activity.startActivityForResult(intent, i, bundle);
         }
-        return invokeV.booleanValue;
     }
 }

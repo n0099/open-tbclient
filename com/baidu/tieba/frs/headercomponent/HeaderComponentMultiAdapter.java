@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ev6;
+import com.baidu.tieba.pz6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ public class HeaderComponentMultiAdapter extends RecyclerView.Adapter<a> {
     public transient /* synthetic */ FieldHolder $fh;
     public List<LiveFuseForumData> a;
     public Context b;
-    public ev6 c;
+    public pz6 c;
 
     /* loaded from: classes4.dex */
     public static class a extends RecyclerView.ViewHolder {
@@ -48,7 +48,7 @@ public class HeaderComponentMultiAdapter extends RecyclerView.Adapter<a> {
                     return;
                 }
             }
-            this.a = (HeaderComponentMultiItemView) view2.findViewById(R.id.obfuscated_res_0x7f0906d2);
+            this.a = (HeaderComponentMultiItemView) view2.findViewById(R.id.obfuscated_res_0x7f0906e4);
         }
     }
 
@@ -89,7 +89,7 @@ public class HeaderComponentMultiAdapter extends RecyclerView.Adapter<a> {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
-            return new a(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d031c, (ViewGroup) null));
+            return new a(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d031b, (ViewGroup) null));
         }
         return (a) invokeLI.objValue;
     }
@@ -111,10 +111,10 @@ public class HeaderComponentMultiAdapter extends RecyclerView.Adapter<a> {
         return invokeV.intValue;
     }
 
-    public void g(ev6 ev6Var) {
+    public void g(pz6 pz6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ev6Var) == null) {
-            this.c = ev6Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, pz6Var) == null) {
+            this.c = pz6Var;
         }
     }
 }

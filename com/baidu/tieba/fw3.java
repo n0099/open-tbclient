@@ -1,170 +1,132 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.down.manage.Download;
-import com.baidu.down.request.task.ProgressInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collection;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class fw3 extends ew3 {
+public class fw3<ContenT> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Map<String, fw3<ContenT>.a> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947778503, "Lcom/baidu/tieba/fw3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes4.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+        public final ContenT b;
+        public final /* synthetic */ fw3 c;
+
+        public a(fw3 fw3Var, String str, ContenT content) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fw3Var, str, content};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947778503, "Lcom/baidu/tieba/fw3;");
-                return;
+            this.c = fw3Var;
+            this.a = str;
+            this.b = content;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.c.d(this.a);
             }
         }
-        d = tk1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fw3(Download download) {
-        super("onSuccess", 0, g(f(download), ""));
+    public fw3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {download};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new HashMap();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fw3(String str) {
-        super("onSuccess", 0, g(null, str));
+    public synchronized ContenT a(String str, ContenT content, long j) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, content, Long.valueOf(j)})) == null) {
+            synchronized (this) {
+                d(str);
+                if (content == null) {
+                    return null;
+                }
+                fw3<ContenT>.a aVar = new a(this, str, content);
+                this.a.put(str, aVar);
+                if (j > 0) {
+                    v83.M().postDelayed(aVar, j);
+                }
+                return content;
             }
         }
+        return (ContenT) invokeCommon.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fw3(Collection<Download> collection) {
-        super("onSuccess", 0, g(e(collection), ""));
+    public synchronized void b() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {collection};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                for (fw3<ContenT>.a aVar : this.a.values()) {
+                    if (aVar != null) {
+                        v83.M().removeCallbacks(aVar);
+                    }
+                }
+                this.a.clear();
             }
         }
     }
 
-    public static JSONArray e(Collection<Download> collection) {
+    public ContenT c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, collection)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            if (collection == null) {
-                return jSONArray;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            fw3<ContenT>.a aVar = this.a.get(str);
+            if (aVar == null) {
+                return null;
             }
-            for (Download download : collection) {
-                if (download != null) {
-                    jSONArray.put(f(download));
-                }
-            }
-            return jSONArray;
+            return aVar.b;
         }
-        return (JSONArray) invokeL.objValue;
+        return (ContenT) invokeL.objValue;
     }
 
-    public static JSONObject f(Download download) {
+    public synchronized ContenT d(String str) {
         InterceptResult invokeL;
-        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, download)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (download == null) {
-                return jSONObject;
-            }
-            try {
-                jSONObject.put("apkId", new sv3(download).c());
-                jSONObject.put("downloadId", download.getId());
-                jSONObject.put("packageName", download.getKeyByUser());
-                jSONObject.put("url", download.getUrl());
-                jSONObject.put("status", download.getState().ordinal());
-                jSONObject.put(ProgressInfo.JSON_KEY_CURRENT, download.getCurrentbytes());
-                jSONObject.put("total", download.getTotalbytes());
-                if (uv3.j(download)) {
-                    str = "1";
-                } else {
-                    str = "0";
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            synchronized (this) {
+                fw3<ContenT>.a remove = this.a.remove(str);
+                if (remove != null) {
+                    v83.M().removeCallbacks(remove);
+                    return remove.b;
                 }
-                jSONObject.put("fileExist", str);
-            } catch (JSONException e) {
-                if (d) {
-                    e.printStackTrace();
-                }
+                return null;
             }
-            return jSONObject;
         }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public static String g(Object obj, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, obj, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("data", obj);
-                jSONObject.put("message", str);
-            } catch (JSONException e) {
-                if (d) {
-                    e.printStackTrace();
-                }
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeLL.objValue;
+        return (ContenT) invokeL.objValue;
     }
 }

@@ -1,24 +1,36 @@
 package com.baidu.tieba;
 
+import android.util.SparseArray;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.liveremind.LiveRemindConfig;
-import com.baidu.tbadk.data.LiveRemindData;
-import com.baidu.tbadk.data.LiveRemindNormalConfigData;
-import com.baidu.tbadk.data.LiveRemindRecommendData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import org.json.JSONArray;
 /* loaded from: classes5.dex */
 public class py4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile py4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public LiveRemindData a;
-    public LiveRemindNormalConfigData b;
-    public List<LiveRemindRecommendData> c;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public long e;
+    public SparseArray<String> f;
+    public SparseArray<String> g;
+    public int h;
+    public JSONArray i;
+    public JSONArray j;
+    public String k;
+    public String l;
+    public String m;
+    public int n;
+    public int o;
+    public String p;
+    public int q;
+    public boolean r;
 
     public py4() {
         Interceptable interceptable = $ic;
@@ -30,58 +42,161 @@ public class py4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.f = null;
+        this.g = null;
     }
 
-    public static py4 a() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (d == null) {
-                synchronized (py4.class) {
-                    if (d == null) {
-                        d = new py4();
-                    }
-                }
-            }
-            return d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.h;
         }
-        return (py4) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public final void b() {
-        List<LiveRemindRecommendData> list;
+    public SparseArray<String> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (list = this.c) != null && list.size() >= 1) {
-            LiveRemindConfig.c().e(this.c.get(0));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.f;
+        }
+        return (SparseArray) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public JSONArray d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.j;
+        }
+        return (JSONArray) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public JSONArray g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.i;
+        }
+        return (JSONArray) invokeV.objValue;
+    }
+
+    public String getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.e;
+        }
+        return invokeV.longValue;
+    }
+
+    public void i(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.h = i;
         }
     }
 
-    public LiveRemindRecommendData c(int i) {
-        InterceptResult invokeI;
+    public void j(SparseArray<String> sparseArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (this.c != null) {
-                for (int i2 = 0; i2 < this.c.size(); i2++) {
-                    if (this.c.get(i2) != null && this.c.get(i2).getShowPage() == i) {
-                        return this.c.get(i2);
-                    }
-                }
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeL(1048586, this, sparseArray) == null) {
+            this.f = sparseArray;
         }
-        return (LiveRemindRecommendData) invokeI.objValue;
     }
 
-    public void d(LiveRemindData liveRemindData) {
+    public void k(long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, liveRemindData) != null) || liveRemindData == null) {
-            return;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            this.c = String.valueOf(j);
         }
-        this.a = liveRemindData;
-        this.b = liveRemindData.getNormalConfig();
-        this.c = liveRemindData.getLiveRecommendList();
-        b();
+    }
+
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public void m(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, jSONArray) == null) {
+            this.j = jSONArray;
+        }
+    }
+
+    public void n(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+            this.d = str;
+        }
+    }
+
+    public void o(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void p(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, jSONArray) == null) {
+            this.i = jSONArray;
+        }
+    }
+
+    public void q(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
+            this.e = j;
+        }
+    }
+
+    public void r(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+            this.a = str;
+        }
     }
 }

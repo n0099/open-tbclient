@@ -1,25 +1,30 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.thread.task.ElasticTask;
+import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.LinkedList;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 /* loaded from: classes5.dex */
 public class p21 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<ElasticTask> a;
+    public ClogBuilder.LogType a;
+    public String b;
+    public String c;
+    public boolean d;
 
-    public p21() {
+    public p21(ClogBuilder.LogType logType, String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {logType, str, str2, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,61 +34,52 @@ public class p21 {
                 return;
             }
         }
-        this.a = new LinkedList<>();
+        this.c = "";
+        this.a = logType;
+        this.b = str;
+        this.c = str2;
+        this.d = z;
     }
 
-    public long a() {
-        InterceptResult invokeV;
+    public u21 a(int i, String str) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Iterator<ElasticTask> it = this.a.iterator();
-            long j = 0;
-            while (it.hasNext()) {
-                j += it.next().d();
-            }
-            return j;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
+            return b(i, str, "normal");
         }
-        return invokeV.longValue;
+        return (u21) invokeIL.objValue;
     }
 
-    public ElasticTask b() {
-        InterceptResult invokeV;
+    public u21 b(int i, String str, String str2) {
+        InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.a.isEmpty()) {
-                return null;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, str2)) == null) {
+            u21 u21Var = new u21();
+            try {
+                u21Var.g("1030").h(this.c).b("f1", this.a.type).b("f2", str2).b("f3", URLEncoder.encode(this.b, IMAudioTransRequest.CHARSET)).b("f4", String.valueOf(i)).b("f5", str);
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
             }
-            return this.a.get(0);
+            return u21Var;
         }
-        return (ElasticTask) invokeV.objValue;
+        return (u21) invokeILL.objValue;
     }
 
-    public boolean d() {
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.isEmpty();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
         }
         return invokeV.booleanValue;
     }
 
-    public void c(Runnable runnable, String str, int i) {
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, runnable, str, i) == null) {
-            if (runnable != null && !TextUtils.isEmpty(str)) {
-                ElasticTask a = v21.b().a(runnable, str, i);
-                this.a.add(a);
-                a.f();
-                return;
-            }
-            throw new IllegalArgumentException("illegal params");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
         }
-    }
-
-    public void e(ElasticTask elasticTask) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, elasticTask) == null) {
-            this.a.remove(elasticTask);
-        }
+        return (String) invokeV.objValue;
     }
 }

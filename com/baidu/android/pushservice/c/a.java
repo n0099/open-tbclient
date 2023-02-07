@@ -12,6 +12,7 @@ import android.os.Build;
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.cloudcommand.dao.CloudCommandTable;
 import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -37,16 +38,16 @@ public class a {
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.baidu.android.pushservice.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class EnumC0032a {
+    public static final class EnumC0031a {
         public static /* synthetic */ Interceptable $ic;
-        public static final EnumC0032a a;
-        public static final EnumC0032a b;
-        public static final EnumC0032a c;
-        public static final EnumC0032a d;
-        public static final EnumC0032a e;
-        public static final EnumC0032a f;
-        public static final EnumC0032a g;
-        public static final /* synthetic */ EnumC0032a[] h;
+        public static final EnumC0031a a;
+        public static final EnumC0031a b;
+        public static final EnumC0031a c;
+        public static final EnumC0031a d;
+        public static final EnumC0031a e;
+        public static final EnumC0031a f;
+        public static final EnumC0031a g;
+        public static final /* synthetic */ EnumC0031a[] h;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -62,18 +63,18 @@ public class a {
                     return;
                 }
             }
-            a = new EnumC0032a("alarmMsgInfoId", 0);
-            b = new EnumC0032a("msgId", 1);
-            c = new EnumC0032a("sendtime", 2);
-            d = new EnumC0032a("showtime", 3);
-            e = new EnumC0032a("expiretime", 4);
-            f = new EnumC0032a("msgEnable", 5);
-            EnumC0032a enumC0032a = new EnumC0032a("isAlarm", 6);
-            g = enumC0032a;
-            h = new EnumC0032a[]{a, b, c, d, e, f, enumC0032a};
+            a = new EnumC0031a("alarmMsgInfoId", 0);
+            b = new EnumC0031a(CloudCommandTable.MSG_ID, 1);
+            c = new EnumC0031a("sendtime", 2);
+            d = new EnumC0031a("showtime", 3);
+            e = new EnumC0031a("expiretime", 4);
+            f = new EnumC0031a("msgEnable", 5);
+            EnumC0031a enumC0031a = new EnumC0031a("isAlarm", 6);
+            g = enumC0031a;
+            h = new EnumC0031a[]{a, b, c, d, e, f, enumC0031a};
         }
 
-        public EnumC0032a(String str, int i) {
+        public EnumC0031a(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -195,7 +196,7 @@ public class a {
             c = new c(PmsConstant.Statistic.Key.REV_TIMESTAMP, 2);
             d = new c("networkStatus", 3);
             e = new c("msgType", 4);
-            f = new c("msgId", 5);
+            f = new c(CloudCommandTable.MSG_ID, 5);
             g = new c("msgLen", 6);
             h = new c("errorMsg", 7);
             i = new c("requestId", 8);
@@ -332,19 +333,19 @@ public class a {
             c = sb.toString();
             StringBuilder sb2 = new StringBuilder();
             sb2.append("CREATE TABLE AlarmMsgInfo (");
-            sb2.append(EnumC0032a.a.name());
+            sb2.append(EnumC0031a.a.name());
             sb2.append(" INTEGER PRIMARY KEY AUTOINCREMENT, ");
-            sb2.append(EnumC0032a.b.name());
+            sb2.append(EnumC0031a.b.name());
             sb2.append(" TEXT NOT NULL, ");
-            sb2.append(EnumC0032a.c.name());
+            sb2.append(EnumC0031a.c.name());
             sb2.append(" LONG NOT NULL, ");
-            sb2.append(EnumC0032a.d.name());
+            sb2.append(EnumC0031a.d.name());
             sb2.append(" LONG NOT NULL, ");
-            sb2.append(EnumC0032a.e.name());
+            sb2.append(EnumC0031a.e.name());
             sb2.append(" LONG NOT NULL, ");
-            sb2.append(EnumC0032a.f.name());
+            sb2.append(EnumC0031a.f.name());
             sb2.append(" INTEGER, ");
-            sb2.append(EnumC0032a.g.name());
+            sb2.append(EnumC0031a.g.name());
             sb2.append(" INTEGER);");
             d = sb2.toString();
             e = "CREATE TABLE AppInfo (" + b.a.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + b.b.name() + " TEXT, " + b.c.name() + " INTEGER, " + b.d.name() + " TEXT UNIQUE, " + b.e.name() + " TEXT, " + b.f.name() + " TEXT, " + b.g.name() + " TEXT, " + b.h.name() + " TEXT, " + b.i.name() + " TEXT);";
@@ -537,7 +538,7 @@ public class a {
                 }
             }
             a = new g("MsgInfoId", 0);
-            b = new g("msgId", 1);
+            b = new g(CloudCommandTable.MSG_ID, 1);
             g gVar = new g(PmsConstant.Statistic.Key.REV_TIMESTAMP, 2);
             c = gVar;
             d = new g[]{a, b, gVar};

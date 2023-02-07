@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.telephony.PhoneStateListener;
-import android.telephony.TelephonyManager;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.os.SystemClock;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.thread.executor.BaseExecutorCell;
+import com.baidu.nadcore.thread.task.ElasticTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,110 +13,166 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class b41 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public volatile q31 a;
+    public volatile q31 b;
+    public volatile q31 c;
+    public int d;
+    public long e;
 
-    /* loaded from: classes3.dex */
-    public interface a {
-        void a(int i);
-    }
-
-    public static boolean a(@NonNull Context context) {
-        InterceptResult invokeL;
+    public b41() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return invokeL.booleanValue;
+        this.d = 0;
+        this.e = 0L;
     }
 
-    /* loaded from: classes3.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        @Nullable
-        public PhoneStateListener a;
-
-        /* loaded from: classes3.dex */
-        public class a extends PhoneStateListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public a(b bVar, a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
+    public q31 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.c == null) {
+                synchronized (this) {
+                    if (this.c == null) {
+                        this.c = (q31) BaseExecutorCell.b(n31.i, BaseExecutorCell.ExecutorType.DREDGE_DISASTER);
                     }
                 }
-                this.a = aVar;
             }
+            return this.c;
+        }
+        return (q31) invokeV.objValue;
+    }
 
-            @Override // android.telephony.PhoneStateListener
-            public void onCallStateChanged(int i, String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                    this.a.a(i);
+    public q31 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.a == null) {
+                synchronized (this) {
+                    if (this.a == null) {
+                        this.a = (q31) BaseExecutorCell.b(n31.g, BaseExecutorCell.ExecutorType.DREDGE_NORMAL);
+                    }
                 }
             }
+            return this.a;
         }
+        return (q31) invokeV.objValue;
+    }
 
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public q31 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.b == null) {
+                synchronized (this) {
+                    if (this.b == null) {
+                        this.b = (q31) BaseExecutorCell.b(n31.h, BaseExecutorCell.ExecutorType.DREDGE_NORMAL);
+                    }
                 }
             }
+            return this.b;
         }
+        return (q31) invokeV.objValue;
+    }
 
-        @Nullable
-        public PhoneStateListener a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a;
+    public int a() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            double a = c41.f().g().a();
+            if (a >= n31.j && 3 != this.d) {
+                if (a >= n31.k) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z || SystemClock.elapsedRealtime() - this.e > n31.m) {
+                    g();
+                    this.e = SystemClock.elapsedRealtime();
+                    c41.f().j(n31.m + 10);
+                    return 1;
+                }
             }
-            return (PhoneStateListener) invokeV.objValue;
+            if (this.d == 0 || a >= n31.l || SystemClock.elapsedRealtime() - this.e <= n31.n) {
+                return 0;
+            }
+            b();
+            this.e = SystemClock.elapsedRealtime();
+            c41.f().j(n31.n + 10);
+            return -1;
         }
+        return invokeV.intValue;
+    }
 
-        public void b(a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-                this.a = new a(this, aVar);
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            int i = this.d;
+            if (1 == i) {
+                e().j();
+                this.d = 0;
+            } else if (2 == i) {
+                f().j();
+                this.d = 1;
+            } else if (3 == i) {
+                d().j();
+                this.d = 2;
             }
         }
     }
 
-    public static boolean b(@NonNull Context context, @NonNull TelephonyManager telephonyManager, @NonNull b bVar) {
-        InterceptResult invokeLLL;
+    public final void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, telephonyManager, bVar)) == null) {
-            telephonyManager.listen(bVar.a(), 32);
-            return true;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            int i = this.d;
+            if (i == 0) {
+                e().i();
+                this.d = 1;
+            } else if (1 == i) {
+                f().i();
+                this.d = 2;
+            } else if (2 == i) {
+                d().i();
+                this.d = 3;
+            }
         }
-        return invokeLLL.booleanValue;
     }
 
-    public static boolean c(@NonNull Context context, @NonNull TelephonyManager telephonyManager, @NonNull b bVar) {
-        InterceptResult invokeLLL;
+    public boolean c(ElasticTask elasticTask) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, telephonyManager, bVar)) == null) {
-            telephonyManager.listen(bVar.a(), 0);
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, elasticTask)) == null) {
+            int i = this.d;
+            if (i == 0) {
+                return false;
+            }
+            if (i == 1) {
+                return e().c(elasticTask);
+            }
+            if (i == 2) {
+                if (e().c(elasticTask)) {
+                    return true;
+                }
+                return f().c(elasticTask);
+            } else if (i != 3) {
+                return false;
+            } else {
+                if (e().c(elasticTask) || f().c(elasticTask)) {
+                    return true;
+                }
+                return d().c(elasticTask);
+            }
         }
-        return invokeLLL.booleanValue;
+        return invokeL.booleanValue;
     }
 }

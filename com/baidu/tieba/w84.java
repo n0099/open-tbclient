@@ -1,7 +1,10 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.JSRuntime;
+import com.baidu.searchbox.v8engine.event.EventTargetImpl;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,11 +12,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class w84 extends v84<vq2> {
+public class w84 extends EventTargetImpl implements de0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public t84 b;
+    public String c;
 
     static {
         InterceptResult invokeClinit;
@@ -28,51 +34,119 @@ public class w84 extends v84<vq2> {
                 return;
             }
         }
-        boolean z = tk1.a;
+        d = gp1.a;
     }
 
-    public w84() {
+    @Override // com.baidu.tieba.de0
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            x("pause", this.b);
+            yf3 yf3Var = new yf3();
+            yf3Var.b = "pause";
+            pf3.h(yf3Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.de0
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            x("resume", this.b);
+            yf3 yf3Var = new yf3();
+            yf3Var.b = "resume";
+            pf3.h(yf3Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.de0
+    public void onStart() {
+        Object u84Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            int i = this.a;
+            if (i == -1) {
+                u84Var = this.b;
+            } else {
+                u84Var = new u84(i);
+            }
+            x("start", u84Var);
+            yf3 yf3Var = new yf3();
+            yf3Var.b = "start";
+            pf3.h(yf3Var);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public w84(JSRuntime jSRuntime) {
+        super(jSRuntime);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSRuntime};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((JSRuntime) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = -1;
+        this.b = new t84();
+        x84.a().b().s(this);
     }
 
-    public static w84 e() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.de0
+    public void onError(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new w84();
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            if (d) {
+                Log.d("GameRecorderApi", "onError:" + i);
+            }
+            x("error", new s84("internal error"));
         }
-        return (w84) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.v84
-    public boolean b(Context context, vq2 vq2Var, sq2 sq2Var, j43 j43Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
+    @Override // com.baidu.tieba.de0
+    public void w(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, vq2Var, sq2Var, j43Var, jSONObject)) == null) {
-            return d(context, vq2Var, sq2Var, j43Var);
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) {
+            if (d) {
+                Log.d("GameRecorderApi", "schemeVideoPath:" + this.c);
+            }
+            x("stop", new v84(this.c));
+            yf3 yf3Var = new yf3();
+            yf3Var.b = "stop";
+            yf3Var.a("dura", String.valueOf(i / 1000.0f));
+            pf3.h(yf3Var);
         }
-        return invokeLLLLL.booleanValue;
     }
 
-    public final boolean d(Context context, vq2 vq2Var, sq2 sq2Var, j43 j43Var) {
-        InterceptResult invokeLLLL;
+    public final void x(String str, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, vq2Var, sq2Var, j43Var)) == null) {
-            j12.i("map", "MapCreateAction start");
-            boolean a = s84.b().a(context, vq2Var);
-            j12.i("map", "MapCreateAction end");
-            return a;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, obj) == null) {
+            if (d) {
+                Log.i("GameRecorderApi", "dispatchEvent:" + str);
+            }
+            dispatchEvent(new JSEvent(str, obj));
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    public void y(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public void z(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.c = str;
+        }
     }
 }

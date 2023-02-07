@@ -1,0 +1,305 @@
+package com.baidu.searchbox.retrieve.debug;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
+public final class R {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes3.dex */
+    public static final class dimen {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final int divider_width = 0x7f07022f;
+        public static final int id_config_width = 0x7f070346;
+        public static final int layout_padding_horizontal = 0x7f070410;
+        public static final int layout_padding_vertical = 0x7f070411;
+        public static final int long_btn_padding_horizontal = 0x7f07041a;
+        public static final int normal_text_size = 0x7f0705e9;
+        public static final int retrieve_info_test_size = 0x7f070621;
+        public static final int space_config_padding_horizontal = 0x7f07065a;
+        public static final int space_config_size_width = 0x7f07065b;
+        public static final int title_text_size = 0x7f0709a8;
+        public static final int voyager_biz_width = 0x7f0709c4;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public dimen() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static final class id {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final int btn_active_re_upload = 0x7f09042b;
+        public static final int btn_active_snap_re_upload = 0x7f09042c;
+        public static final int btn_active_snap_upload = 0x7f09042d;
+        public static final int btn_active_upload = 0x7f09042e;
+        public static final int btn_clean_log = 0x7f09043a;
+        public static final int btn_get_cuid = 0x7f090445;
+        public static final int btn_log_flush = 0x7f090453;
+        public static final int btn_query_files = 0x7f090467;
+        public static final int btn_save_10000_log = 0x7f09046a;
+        public static final int btn_save_1000_log = 0x7f09046b;
+        public static final int btn_save_config = 0x7f09046c;
+        public static final int btn_save_config_id = 0x7f09046d;
+        public static final int btn_save_one_log = 0x7f09046e;
+        public static final int btn_voyager_save_config = 0x7f090477;
+        public static final int cb_config_clear = 0x7f0905c5;
+        public static final int cb_config_id1 = 0x7f0905c6;
+        public static final int cb_config_id2 = 0x7f0905c7;
+        public static final int cb_config_id3 = 0x7f0905c8;
+        public static final int cb_config_space1 = 0x7f0905c9;
+        public static final int cb_config_space2 = 0x7f0905ca;
+        public static final int cb_config_space3 = 0x7f0905cb;
+        public static final int cb_config_total_switch = 0x7f0905cc;
+        public static final int cb_log_flush_wait = 0x7f0905cd;
+        public static final int cb_voyager_config_clear = 0x7f0905cf;
+        public static final int cb_voyager_config_total_switch = 0x7f0905d0;
+        public static final int cb_voyager_switch1 = 0x7f0905d1;
+        public static final int cb_voyager_switch2 = 0x7f0905d2;
+        public static final int et_biz_expire_time1 = 0x7f09097e;
+        public static final int et_biz_expire_time2 = 0x7f09097f;
+        public static final int et_biz_max_count1 = 0x7f090980;
+        public static final int et_biz_max_count2 = 0x7f090981;
+        public static final int et_biz_max_size1 = 0x7f090982;
+        public static final int et_biz_max_size2 = 0x7f090983;
+        public static final int et_biz_net_type1 = 0x7f090984;
+        public static final int et_biz_net_type2 = 0x7f090985;
+        public static final int et_config_id1 = 0x7f090986;
+        public static final int et_config_id2 = 0x7f090987;
+        public static final int et_config_id3 = 0x7f090988;
+        public static final int et_config_id_size = 0x7f090989;
+        public static final int et_config_id_size1 = 0x7f09098a;
+        public static final int et_config_id_size2 = 0x7f09098b;
+        public static final int et_config_id_size3 = 0x7f09098c;
+        public static final int et_config_single_size = 0x7f09098d;
+        public static final int et_config_space1 = 0x7f09098e;
+        public static final int et_config_space2 = 0x7f09098f;
+        public static final int et_config_space3 = 0x7f090990;
+        public static final int et_config_space_size = 0x7f090991;
+        public static final int et_config_space_size1 = 0x7f090992;
+        public static final int et_config_space_size2 = 0x7f090993;
+        public static final int et_config_space_size3 = 0x7f090994;
+        public static final int et_config_space_time1 = 0x7f090995;
+        public static final int et_config_space_time2 = 0x7f090996;
+        public static final int et_config_space_time3 = 0x7f090997;
+        public static final int et_config_space_timeout = 0x7f090998;
+        public static final int et_config_total_size = 0x7f090999;
+        public static final int et_log_content = 0x7f09099e;
+        public static final int et_log_space = 0x7f09099f;
+        public static final int et_upload_dataId = 0x7f0909a2;
+        public static final int et_upload_end_time = 0x7f0909a3;
+        public static final int et_upload_filter = 0x7f0909a4;
+        public static final int et_upload_max_size = 0x7f0909a5;
+        public static final int et_upload_start_time = 0x7f0909a6;
+        public static final int et_upload_type = 0x7f0909a7;
+        public static final int et_voyager_biz_type1 = 0x7f0909a9;
+        public static final int et_voyager_biz_type2 = 0x7f0909aa;
+        public static final int et_voyager_config_count_per_round = 0x7f0909ab;
+        public static final int et_voyager_config_expire_time = 0x7f0909ac;
+        public static final int et_voyager_config_history_del_count = 0x7f0909ad;
+        public static final int et_voyager_config_history_expire_time = 0x7f0909ae;
+        public static final int et_voyager_config_history_max_count = 0x7f0909af;
+        public static final int et_voyager_config_single_max_count = 0x7f0909b0;
+        public static final int et_voyager_config_single_max_size = 0x7f0909b1;
+        public static final int et_voyager_config_total_max_count = 0x7f0909b2;
+        public static final int et_voyager_config_total_max_size = 0x7f0909b3;
+        public static final int et_voyager_config_upload_interval = 0x7f0909b4;
+        public static final int tv_clear_intro = 0x7f09247c;
+        public static final int tv_log_flush_intro = 0x7f0924c2;
+        public static final int tv_log_query_result = 0x7f0924c3;
+        public static final int tv_retrieve_plat_intro = 0x7f092504;
+        public static final int tv_total_switch_intro = 0x7f092526;
+        public static final int tv_voyager_clear_intro = 0x7f092532;
+        public static final int tv_voyager_total_switch_intro = 0x7f092533;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public id() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static final class layout {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final int debug_yalog_activity = 0x7f0d0210;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public layout() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static final class string {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final int app_name = 0x7f0f029e;
+        public static final int btn_active_re_upload = 0x7f0f0355;
+        public static final int btn_active_snap_re_upload = 0x7f0f0356;
+        public static final int btn_active_snap_upload = 0x7f0f0357;
+        public static final int btn_active_upload = 0x7f0f0358;
+        public static final int btn_clear_log = 0x7f0f035b;
+        public static final int btn_flush_log = 0x7f0f035c;
+        public static final int btn_get_cuid = 0x7f0f035d;
+        public static final int btn_query_file = 0x7f0f035e;
+        public static final int btn_register_config = 0x7f0f035f;
+        public static final int btn_register_config_id = 0x7f0f0360;
+        public static final int btn_voyager_register_config = 0x7f0f0362;
+        public static final int btn_write_one_log = 0x7f0f0363;
+        public static final int btn_write_ten_thousand_log = 0x7f0f0364;
+        public static final int btn_write_thousand_log = 0x7f0f0365;
+        public static final int et_biz_expire_time_hint = 0x7f0f05ed;
+        public static final int et_biz_max_count_hint = 0x7f0f05ee;
+        public static final int et_biz_max_size_hint = 0x7f0f05ef;
+        public static final int et_biz_net_type_hint = 0x7f0f05f0;
+        public static final int et_config_id_size_hint = 0x7f0f05f1;
+        public static final int et_config_single_size_hint = 0x7f0f05f2;
+        public static final int et_config_space_size_hint = 0x7f0f05f3;
+        public static final int et_config_space_timeout_hint = 0x7f0f05f4;
+        public static final int et_config_total_size_hint = 0x7f0f05f5;
+        public static final int et_log_space_default = 0x7f0f05f6;
+        public static final int et_upload_end_time_value = 0x7f0f05f7;
+        public static final int et_upload_id_value = 0x7f0f05f8;
+        public static final int et_upload_max_size_value = 0x7f0f05f9;
+        public static final int et_upload_space_value = 0x7f0f05fa;
+        public static final int et_upload_start_time_value = 0x7f0f05fb;
+        public static final int et_upload_type_value = 0x7f0f05fc;
+        public static final int et_voyager_biz_type1_hint = 0x7f0f05fd;
+        public static final int et_voyager_biz_type2_hint = 0x7f0f05fe;
+        public static final int et_voyager_config_count_per_round_hint = 0x7f0f05ff;
+        public static final int et_voyager_config_expire_time_hint = 0x7f0f0600;
+        public static final int et_voyager_config_history_del_count_hint = 0x7f0f0601;
+        public static final int et_voyager_config_history_expire_time_hint = 0x7f0f0602;
+        public static final int et_voyager_config_history_max_count_hint = 0x7f0f0603;
+        public static final int et_voyager_config_single_max_count_hint = 0x7f0f0604;
+        public static final int et_voyager_config_single_max_size_hint = 0x7f0f0605;
+        public static final int et_voyager_config_total_max_count_hint = 0x7f0f0606;
+        public static final int et_voyager_config_total_max_size_hint = 0x7f0f0607;
+        public static final int et_voyager_config_upload_interval_hint = 0x7f0f0608;
+        public static final int tv_biz_expire_time = 0x7f0f1564;
+        public static final int tv_biz_max_count = 0x7f0f1565;
+        public static final int tv_biz_max_size = 0x7f0f1566;
+        public static final int tv_biz_net_type = 0x7f0f1567;
+        public static final int tv_clear_off_intro = 0x7f0f1568;
+        public static final int tv_clear_on_intro = 0x7f0f1569;
+        public static final int tv_config_clear_text = 0x7f0f156a;
+        public static final int tv_config_id_size_text = 0x7f0f156b;
+        public static final int tv_config_single_size_text = 0x7f0f156c;
+        public static final int tv_config_space_size_text = 0x7f0f156d;
+        public static final int tv_config_space_timeout_text = 0x7f0f156e;
+        public static final int tv_config_switch_text = 0x7f0f156f;
+        public static final int tv_config_total_size_text = 0x7f0f1570;
+        public static final int tv_flush_wait_false = 0x7f0f1571;
+        public static final int tv_flush_wait_true = 0x7f0f1572;
+        public static final int tv_id_name1 = 0x7f0f1573;
+        public static final int tv_id_name2 = 0x7f0f1574;
+        public static final int tv_id_name3 = 0x7f0f1575;
+        public static final int tv_id_size = 0x7f0f1576;
+        public static final int tv_id_switch = 0x7f0f1577;
+        public static final int tv_log_content = 0x7f0f1578;
+        public static final int tv_log_space = 0x7f0f1579;
+        public static final int tv_log_test = 0x7f0f157a;
+        public static final int tv_retrieve_client_title = 0x7f0f157b;
+        public static final int tv_retrieve_plat_title = 0x7f0f157c;
+        public static final int tv_retrieve_title = 0x7f0f157d;
+        public static final int tv_space_name1 = 0x7f0f157e;
+        public static final int tv_space_name2 = 0x7f0f157f;
+        public static final int tv_space_name3 = 0x7f0f1580;
+        public static final int tv_space_time = 0x7f0f1581;
+        public static final int tv_switch_off_intro = 0x7f0f1582;
+        public static final int tv_switch_on_intro = 0x7f0f1583;
+        public static final int tv_upload_end_time = 0x7f0f1584;
+        public static final int tv_upload_id = 0x7f0f1585;
+        public static final int tv_upload_max_size = 0x7f0f1586;
+        public static final int tv_upload_space = 0x7f0f1587;
+        public static final int tv_upload_start_time = 0x7f0f1588;
+        public static final int tv_upload_type = 0x7f0f1589;
+        public static final int tv_voyager_biz_expire_time = 0x7f0f158a;
+        public static final int tv_voyager_biz_only_wifi = 0x7f0f158b;
+        public static final int tv_voyager_biz_single_max_count = 0x7f0f158c;
+        public static final int tv_voyager_biz_single_max_size = 0x7f0f158d;
+        public static final int tv_voyager_biz_switch = 0x7f0f158e;
+        public static final int tv_voyager_biz_type1_text = 0x7f0f158f;
+        public static final int tv_voyager_biz_type2_text = 0x7f0f1590;
+        public static final int tv_voyager_clear_off_intro = 0x7f0f1591;
+        public static final int tv_voyager_clear_on_intro = 0x7f0f1592;
+        public static final int tv_voyager_cloud_config = 0x7f0f1593;
+        public static final int tv_voyager_config_clear_text = 0x7f0f1594;
+        public static final int tv_voyager_config_count_per_round_text = 0x7f0f1595;
+        public static final int tv_voyager_config_expire_time_text = 0x7f0f1596;
+        public static final int tv_voyager_config_history_del_count_text = 0x7f0f1597;
+        public static final int tv_voyager_config_history_expire_time_text = 0x7f0f1598;
+        public static final int tv_voyager_config_history_max_count_text = 0x7f0f1599;
+        public static final int tv_voyager_config_single_max_count_text = 0x7f0f159a;
+        public static final int tv_voyager_config_single_max_size_text = 0x7f0f159b;
+        public static final int tv_voyager_config_switch_text = 0x7f0f159c;
+        public static final int tv_voyager_config_total_max_count_text = 0x7f0f159d;
+        public static final int tv_voyager_config_total_max_size_text = 0x7f0f159e;
+        public static final int tv_voyager_config_upload_interval_text = 0x7f0f159f;
+        public static final int tv_voyager_switch_off_intro = 0x7f0f15a0;
+        public static final int tv_voyager_switch_on_intro = 0x7f0f15a1;
+        public static final int tv_yalog_cloud_config = 0x7f0f15a2;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public string() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public R() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+}

@@ -1,146 +1,101 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.apps.publisher.draft.DraftData;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class u13 {
+public class u13 implements pn3<HybridUbcFlow> {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948158098, "Lcom/baidu/tieba/u13;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948158098, "Lcom/baidu/tieba/u13;");
+                return;
+            }
+        }
+        a = gp1.a;
+    }
+
+    public u13() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            File file = new File(b(), "publisher_draft");
-            if (file.exists()) {
-                file.delete();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static final String b() {
-        InterceptResult invokeV;
-        String str;
+    public final JSONObject b(HybridUbcFlow hybridUbcFlow) throws JSONException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            j43 M = j43.M();
-            if (M != null) {
-                str = M.b;
-            } else {
-                str = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (hybridUbcFlow != null && !hybridUbcFlow.f.isEmpty()) {
+                jSONObject.put("flowId", hybridUbcFlow.l());
+                JSONArray jSONArray = new JSONArray();
+                for (UbcFlowEvent ubcFlowEvent : hybridUbcFlow.f) {
+                    if (!ubcFlowEvent.b() && !TextUtils.isEmpty(ubcFlowEvent.a)) {
+                        if (a) {
+                            Log.i("FlowJarToH5Reporter", "buildJoMsg: event=" + ubcFlowEvent);
+                        }
+                        jSONArray.put(new JSONObject().put("actionId", ubcFlowEvent.a).put("timestamp", ubcFlowEvent.g()));
+                    }
+                }
+                jSONObject.put("data", jSONArray);
             }
-            String v = rb3.v(str);
-            Intrinsics.checkNotNullExpressionValue(v, "StorageUtil.getSwanAppStoreDirectory(appId)");
-            return v;
+            if (a) {
+                Log.i("FlowJarToH5Reporter", "buildJoMsg: joMsg=" + jSONObject);
+            }
+            return jSONObject;
         }
-        return (String) invokeV.objValue;
+        return (JSONObject) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:32:0x005b  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static final DraftData c() {
-        InterceptResult invokeV;
-        ObjectInputStream objectInputStream;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.pn3
+    /* renamed from: c */
+    public void a(HybridUbcFlow hybridUbcFlow) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            File file = new File(b(), "publisher_draft");
-            ObjectInputStream objectInputStream2 = null;
-            try {
-                try {
-                    if (file.exists()) {
-                        objectInputStream = new ObjectInputStream(new FileInputStream(file));
-                        try {
-                            Object readObject = objectInputStream.readObject();
-                            if (readObject != null) {
-                                DraftData draftData = (DraftData) readObject;
-                                if (System.currentTimeMillis() - draftData.getTimeStamp() > 432000000) {
-                                    objectInputStream.close();
-                                    return null;
-                                }
-                                objectInputStream.close();
-                                return draftData;
-                            }
-                            throw new NullPointerException("null cannot be cast to non-null type com.baidu.swan.apps.publisher.draft.DraftData");
-                        } catch (Exception e) {
-                            e = e;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hybridUbcFlow) == null) {
+            if (a) {
+                Log.i("FlowJarToH5Reporter", "report: flow=" + hybridUbcFlow);
+            }
+            if (ju2.U().Y()) {
+                if (a || ju2.U().N()) {
+                    try {
+                        d23.e().c(b(hybridUbcFlow));
+                    } catch (JSONException e) {
+                        if (a) {
                             e.printStackTrace();
-                            if (objectInputStream != null) {
-                                objectInputStream.close();
-                            }
-                            return null;
                         }
                     }
-                } catch (Throwable th) {
-                    th = th;
-                    objectInputStream2 = "publisher_draft";
-                    if (objectInputStream2 != null) {
-                        objectInputStream2.close();
-                    }
-                    throw th;
                 }
-            } catch (Exception e2) {
-                e = e2;
-                objectInputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
-                if (objectInputStream2 != null) {
-                }
-                throw th;
-            }
-            return null;
-        }
-        return (DraftData) invokeV.objValue;
-    }
-
-    public static final void d(DraftData draftData) {
-        ObjectOutputStream objectOutputStream;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, draftData) == null) && draftData != null) {
-            File file = new File(b(), "publisher_draft");
-            try {
-                if (file.exists()) {
-                    file.delete();
-                    file.createNewFile();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            ObjectOutputStream objectOutputStream2 = null;
-            try {
-                try {
-                    objectOutputStream = new ObjectOutputStream(new FileOutputStream(file));
-                } catch (Exception e2) {
-                    e = e2;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                objectOutputStream.writeObject(draftData);
-                objectOutputStream.close();
-            } catch (Exception e3) {
-                e = e3;
-                objectOutputStream2 = objectOutputStream;
-                e.printStackTrace();
-                if (objectOutputStream2 != null) {
-                    objectOutputStream2.close();
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                objectOutputStream2 = objectOutputStream;
-                if (objectOutputStream2 != null) {
-                    objectOutputStream2.close();
-                }
-                throw th;
             }
         }
     }

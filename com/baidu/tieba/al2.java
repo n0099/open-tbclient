@@ -1,117 +1,130 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.core.SwanAppWebViewManager;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes3.dex */
-public abstract class al2 extends g63 {
+public class al2 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final bl2 a;
+    public final Runnable b;
+    public String c;
+    public String[] d;
+    public AtomicBoolean e;
+    public List<al2> f;
 
-    public abstract boolean j(@NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull ml2 ml2Var, @NonNull List<String> list);
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public al2(g53 g53Var, String str) {
-        super(g53Var, str);
+    public al2(bl2 bl2Var, Runnable runnable, String str, String[] strArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {g53Var, str};
+            Object[] objArr = {bl2Var, runnable, str, strArr};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.e = new AtomicBoolean(false);
+        this.f = Collections.synchronizedList(new ArrayList());
+        this.a = bl2Var;
+        this.b = runnable;
+        this.c = str;
+        this.d = strArr;
     }
 
-    @Override // com.baidu.tieba.g63
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j43 j43Var) {
-        InterceptResult invokeLLLL;
+    public void a(al2 al2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j43Var)) == null) {
-            if (j43Var == null) {
-                j12.c("componentFullScreen", "none swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-                if (g63.b) {
-                    Log.e("SwanAppAction", "getAutoRotationSync --- illegal swanApp");
-                }
-                return false;
-            } else if (context == null) {
-                j12.c("componentFullScreen", "none context");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-                if (g63.b) {
-                    Log.e("SwanAppAction", "getAutoRotationSync --- illegal context");
-                }
-                return false;
-            } else {
-                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-                if (optParamsAsJo == null) {
-                    j12.c("componentFullScreen", "none params");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                    return false;
-                }
-                String optString = optParamsAsJo.optString("slaveId");
-                JSONArray optJSONArray = optParamsAsJo.optJSONArray("componentId");
-                if (!TextUtils.isEmpty(optString) && optJSONArray != null && optJSONArray.length() != 0) {
-                    ArrayList arrayList = new ArrayList();
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        String optString2 = optJSONArray.optString(i);
-                        if (!TextUtils.isEmpty(optString2)) {
-                            arrayList.add(optString2);
-                        }
-                    }
-                    if (arrayList.size() == 0) {
-                        j12.c("componentFullScreen", "empty component id list");
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                        return false;
-                    }
-                    rq1 A = wp2.U().A(optString);
-                    if (!(A instanceof SwanAppWebViewManager)) {
-                        j12.c("componentFullScreen", "cant get WebView");
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                        return false;
-                    }
-                    ml2 F0 = ((SwanAppWebViewManager) A).F0();
-                    if (F0 == null) {
-                        j12.c("componentFullScreen", "cant get CustomViewHelper");
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                        return false;
-                    } else if (!j(unitedSchemeEntity, F0, arrayList)) {
-                        j12.c("componentFullScreen", "custom view handle fail");
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                        return false;
-                    } else {
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
-                        return true;
-                    }
-                }
-                j12.c("componentFullScreen", "param error");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                return false;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, al2Var) == null) && !this.f.contains(al2Var)) {
+            this.f.add(al2Var);
+        }
+    }
+
+    public void g(al2 al2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, al2Var) == null) {
+            this.f.remove(al2Var);
+        }
+    }
+
+    public String[] b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return (String[]) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.f.isEmpty();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e.get();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            ql3.k(this, this.c);
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.b.run();
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.e.set(true);
+        }
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            try {
+                h();
+            } finally {
+                this.a.g(this);
             }
         }
-        return invokeLLLL.booleanValue;
     }
 }

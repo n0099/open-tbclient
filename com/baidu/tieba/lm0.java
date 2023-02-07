@@ -1,145 +1,160 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
+import android.os.CountDownTimer;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.nm0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentLinkedQueue;
+import java.lang.ref.WeakReference;
 /* loaded from: classes5.dex */
-public class lm0 extends Handler implements jm0 {
+public class lm0<VIEW extends nm0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ConcurrentLinkedQueue<b<?>> a;
-    public boolean b;
+    public CountDownTimer a;
+    public long b;
+    public long c;
+    public WeakReference<VIEW> d;
 
     /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final lm0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-628168387, "Lcom/baidu/tieba/lm0$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-628168387, "Lcom/baidu/tieba/lm0$a;");
-                    return;
-                }
-            }
-            a = new lm0();
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b<T extends hm0> {
+    public static class a extends CountDownTimer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final km0<T> a;
-        public final T b;
+        public final WeakReference<lm0> a;
 
-        public b(mm0 mm0Var, km0<T> km0Var, T t) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(@NonNull lm0 lm0Var, long j, long j2) {
+            super(j, j2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {mm0Var, km0Var, t};
+                Object[] objArr = {lm0Var, Long.valueOf(j), Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Long) objArr2[0]).longValue(), ((Long) objArr2[1]).longValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = km0Var;
-            this.b = t;
+            this.a = new WeakReference<>(lm0Var);
+        }
+
+        @Override // android.os.CountDownTimer
+        public void onFinish() {
+            lm0 lm0Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (lm0Var = this.a.get()) != null) {
+                lm0Var.f(lm0Var.j());
+            }
+        }
+
+        @Override // android.os.CountDownTimer
+        public void onTick(long j) {
+            lm0 lm0Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && (lm0Var = this.a.get()) != null) {
+                lm0Var.c = lm0Var.b - j;
+                lm0Var.g(lm0Var.e(), lm0Var.j());
+            }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lm0() {
-        super(Looper.getMainLooper());
+    public lm0(@NonNull VIEW view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ConcurrentLinkedQueue<>();
-        this.b = false;
+        this.d = new WeakReference<>(view2);
     }
 
-    public static jm0 b() {
+    public void h(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            i();
+            this.b = j;
+            this.c = 0L;
+            a aVar = new a(this, this.b, 1000L);
+            this.a = aVar;
+            aVar.start();
+            VIEW k = k();
+            if (k != null) {
+                long j2 = this.b;
+                k.b(j2, j2);
+            }
+        }
+    }
+
+    public final void g(long j, long j2) {
+        VIEW k;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) && (k = k()) != null) {
+            k.onProgress(j, j2);
+        }
+    }
+
+    public final void f(long j) {
+        VIEW k;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && (k = k()) != null) {
+            k.a(j);
+        }
+    }
+
+    public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return (jm0) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    @Override // com.baidu.tieba.jm0
-    public <T extends hm0> void a(mm0 mm0Var, km0<T> km0Var, T t) {
+    public void i() {
+        CountDownTimer countDownTimer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, mm0Var, km0Var, t) == null) {
-            if (sj0.a()) {
-                km0Var.onEvent(t);
-                return;
-            }
-            synchronized (this) {
-                this.a.offer(new b<>(mm0Var, km0Var, t));
-                if (!this.b) {
-                    sendMessage(Message.obtain());
-                }
-            }
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || (countDownTimer = this.a) == null) {
+            return;
+        }
+        countDownTimer.cancel();
+        VIEW k = k();
+        if (k != null) {
+            k.c(this.c, this.b);
         }
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(@NonNull Message message) {
+    public long j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) {
-            try {
-                long currentTimeMillis = System.currentTimeMillis();
-                do {
-                    b<?> poll = this.a.poll();
-                    if (poll == null) {
-                        synchronized (this) {
-                            poll = this.a.poll();
-                            if (poll == null) {
-                                this.b = false;
-                                return;
-                            }
-                        }
-                    }
-                    poll.a.onEvent(poll.b);
-                } while (System.currentTimeMillis() - currentTimeMillis < 5);
-                sendMessage(Message.obtain());
-                this.b = true;
-            } finally {
-                this.b = false;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b;
         }
+        return invokeV.longValue;
+    }
+
+    public final VIEW k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.d.get();
+        }
+        return (VIEW) invokeV.objValue;
     }
 }

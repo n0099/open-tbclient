@@ -1,50 +1,43 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
 import android.text.TextUtils;
-import android.util.SparseIntArray;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.ar.auth.FeatureCodes;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.be3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.GregorianCalendar;
-import java.util.TimeZone;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class ld3 {
+public class ld3 extends ta3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Pattern a;
-    public static final Pattern b;
-    public static final SparseIntArray c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
+    public class a implements pn3<zd3<be3.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ CallbackHandler b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ ld3 d;
 
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public int c;
-        public int d;
-        public int e;
-        public int f;
-
-        public b() {
+        public a(ld3 ld3Var, Context context, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ld3Var, context, callbackHandler, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -54,203 +47,110 @@ public final class ld3 {
                     return;
                 }
             }
-            this.a = -1;
-            this.b = -1;
-            this.c = -1;
-            this.d = -1;
-            this.e = -1;
-            this.f = -1;
+            this.d = ld3Var;
+            this.a = context;
+            this.b = callbackHandler;
+            this.c = str;
         }
 
-        public boolean a() {
-            InterceptResult invokeV;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.pn3
+        /* renamed from: b */
+        public void a(zd3<be3.e> zd3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.a != -1 && this.b != -1 && this.c != -1 && this.d != -1 && this.e != -1 && this.f != -1) {
-                    return false;
-                }
-                return true;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zd3Var) == null) {
+                this.d.l(zd3Var, this.a, this.b, this.c);
             }
-            return invokeV.booleanValue;
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947938990, "Lcom/baidu/tieba/ld3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947938990, "Lcom/baidu/tieba/ld3;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ld3(t93 t93Var) {
+        super(t93Var, "/swanAPI/getCommonSysInfo");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {t93Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = Pattern.compile("([0-9]{1,2})[- ]([A-Za-z]{3,9})[- ]([0-9]{2,4})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])");
-        b = Pattern.compile("[ ]([A-Za-z]{3,9})[ ]+([0-9]{1,2})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])[ ]([0-9]{2,4})");
-        SparseIntArray sparseIntArray = new SparseIntArray();
-        c = sparseIntArray;
-        sparseIntArray.put(d("jan"), 0);
-        c.put(d("feb"), 1);
-        c.put(d("mar"), 2);
-        c.put(d("apr"), 3);
-        c.put(d("may"), 4);
-        c.put(d("jun"), 5);
-        c.put(d("jul"), 6);
-        c.put(d("aug"), 7);
-        c.put(d("sep"), 8);
-        c.put(d("oct"), 9);
-        c.put(d("nov"), 10);
-        c.put(d("dec"), 11);
     }
 
-    public static int a(@NonNull Matcher matcher, int i) {
-        InterceptResult invokeLI;
+    @Override // com.baidu.tieba.ta3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, w83 w83Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, matcher, i)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, w83Var)) == null) {
+            if (w83Var == null) {
+                w52.i("GetSysInfo", "swanApp is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
+                return false;
+            }
+            String optString = wl3.d(unitedSchemeEntity.getParam("params")).optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                w52.i("GetSysInfo", "cb is empty");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
+            }
+            w83Var.e0().g((Activity) context, "mapp_i_get_common_sys_info", new a(this, context, callbackHandler, optString));
+            w52.i("GetSysInfo", "callback success");
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public final void k(Context context, String str, CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, callbackHandler) == null) {
+            String i = ds2.h0().i(AppRuntime.getAppContext());
+            String r = qm3.r();
+            String a2 = ds2.G0().a(context);
+            String h = ds2.h0().h(context);
+            String cookie = ds2.q().a().getCookie(".baidu.com");
+            String l = om3.l(cookie, "BAIDUID");
+            String l2 = om3.l(cookie, "H_WISE_SIDS");
+            String a3 = ip4.b(AppRuntime.getAppContext()).a();
+            if (ta3.b) {
+                Log.d("GetSysInfoAction", "cuid = " + i + ", imei = " + r + ", zid = " + a2 + ", uid = " + h + ", baiDuId = " + l + ", sid = " + l2);
+            }
             try {
-                String group = matcher.group(i);
-                if (TextUtils.isEmpty(group)) {
-                    return -1;
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("cuid", i);
+                jSONObject.put("imei", r);
+                jSONObject.put("zid", a2);
+                jSONObject.put("uid", h);
+                jSONObject.put("baidu_id", l);
+                jSONObject.put("sid", l2);
+                jSONObject.put("uuid", a3);
+                w52.i("GetSysInfo", "fetch commonSysInfo success");
+                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
+            } catch (JSONException e) {
+                if (ta3.b) {
+                    e.printStackTrace();
                 }
-                if (group.length() == 2) {
-                    return ((group.charAt(0) - '0') * 10) + (group.charAt(1) - '0');
-                }
-                return group.charAt(0) - '0';
-            } catch (Exception unused) {
-                return -1;
+                w52.c("GetSysInfo", "generate data occur exception");
+                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
             }
         }
-        return invokeLI.intValue;
     }
 
-    public static int b(@NonNull Matcher matcher, int i) {
-        InterceptResult invokeLI;
+    public final void l(zd3<be3.e> zd3Var, Context context, CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, matcher, i)) == null) {
-            try {
-                return c.get(d(matcher.group(i)), -1);
-            } catch (Exception unused) {
-                return -1;
-            }
-        }
-        return invokeLI.intValue;
-    }
-
-    public static int c(@NonNull Matcher matcher, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, matcher, i)) == null) {
-            try {
-                String group = matcher.group(i);
-                if (TextUtils.isEmpty(group)) {
-                    return -1;
-                }
-                if (group.length() == 2) {
-                    int charAt = ((group.charAt(0) - '0') * 10) + (group.charAt(1) - '0');
-                    if (charAt >= 70) {
-                        return charAt + FeatureCodes.SKY_SEG;
-                    }
-                    return charAt + 2000;
-                } else if (group.length() == 3) {
-                    return ((group.charAt(0) - '0') * 100) + ((group.charAt(1) - '0') * 10) + (group.charAt(2) - '0') + FeatureCodes.SKY_SEG;
-                } else {
-                    if (group.length() == 4) {
-                        return ((group.charAt(0) - '0') * 1000) + ((group.charAt(1) - '0') * 100) + ((group.charAt(2) - '0') * 10) + (group.charAt(3) - '0');
-                    }
-                    return 1970;
-                }
-            } catch (Exception unused) {
-                return -1;
-            }
-        }
-        return invokeLI.intValue;
-    }
-
-    public static int d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            int i = -1;
-            if (!TextUtils.isEmpty(str) && str.length() >= 3) {
-                for (int i2 = 0; i2 < 3; i2++) {
-                    i += Character.toLowerCase(str.charAt(i2)) - 'a';
-                }
-            }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
-    public static long e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return -1L;
-            }
-            b bVar = new b(null);
-            Matcher matcher = a.matcher(str);
-            if (matcher.find()) {
-                bVar.c = a(matcher, 1);
-                bVar.b = b(matcher, 2);
-                bVar.a = c(matcher, 3);
-                f(bVar, matcher, 4);
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, zd3Var, context, callbackHandler, str) == null) {
+            if (!ud3.h(zd3Var)) {
+                ud3.q(zd3Var, callbackHandler, str);
             } else {
-                Matcher matcher2 = b.matcher(str);
-                if (!matcher2.find()) {
-                    return -1L;
-                }
-                bVar.b = b(matcher2, 1);
-                bVar.c = a(matcher2, 2);
-                f(bVar, matcher2, 3);
-                bVar.a = c(matcher2, 4);
-            }
-            if (bVar.a()) {
-                return -1L;
-            }
-            if (bVar.a >= 2038) {
-                bVar.a = 2038;
-                bVar.b = 0;
-                bVar.c = 1;
-            }
-            GregorianCalendar gregorianCalendar = new GregorianCalendar();
-            gregorianCalendar.setTimeZone(TimeZone.getTimeZone("UTC"));
-            gregorianCalendar.set(bVar.a, bVar.b, bVar.c, bVar.d, bVar.e, bVar.f);
-            return gregorianCalendar.getTimeInMillis();
-        }
-        return invokeL.longValue;
-    }
-
-    public static void f(@NonNull b bVar, @NonNull Matcher matcher, int i) {
-        int i2;
-        int i3;
-        int i4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65542, null, bVar, matcher, i) == null) {
-            try {
-                String group = matcher.group(i);
-                if (TextUtils.isEmpty(group)) {
-                    return;
-                }
-                int charAt = group.charAt(0) - '0';
-                if (group.charAt(1) != ':') {
-                    i2 = 2;
-                    charAt = (charAt * 10) + (group.charAt(1) - '0');
-                } else {
-                    i2 = 1;
-                }
-                bVar.d = charAt;
-                bVar.e = ((group.charAt(i3) - '0') * 10) + (group.charAt(i4) - '0');
-                int i5 = i2 + 1 + 1 + 1 + 1;
-                bVar.f = ((group.charAt(i5) - '0') * 10) + (group.charAt(i5 + 1) - '0');
-            } catch (Exception unused) {
+                k(context, str, callbackHandler);
             }
         }
     }

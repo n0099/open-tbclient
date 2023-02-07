@@ -13,9 +13,9 @@ import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.as3;
-import com.baidu.tieba.bt3;
-import com.baidu.tieba.et3;
+import com.baidu.tieba.nw3;
+import com.baidu.tieba.ox3;
+import com.baidu.tieba.rx3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class RewardVideoView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public et3 a;
+    public rx3 a;
     public Context b;
     public boolean c;
     public VolumeBroadcastReceiver d;
@@ -150,18 +150,18 @@ public class RewardVideoView extends RelativeLayout {
     }
 
     public void e(boolean z) {
-        et3 et3Var;
+        rx3 rx3Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && (et3Var = this.a) != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && (rx3Var = this.a) != null) {
             this.c = z;
-            et3Var.mute(z);
+            rx3Var.mute(z);
         }
     }
 
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            as3 b = b();
+            nw3 b = b();
             b.p = str;
             this.a.h(b);
             this.a.d(false);
@@ -176,19 +176,19 @@ public class RewardVideoView extends RelativeLayout {
     }
 
     @NonNull
-    public final as3 b() {
+    public final nw3 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            as3 as3Var = new as3();
-            as3Var.f = true;
-            as3Var.b = this.c;
-            as3Var.o = false;
-            as3Var.z = false;
-            as3Var.v = false;
-            return as3Var;
+            nw3 nw3Var = new nw3();
+            nw3Var.f = true;
+            nw3Var.b = this.c;
+            nw3Var.o = false;
+            nw3Var.z = false;
+            nw3Var.v = false;
+            return nw3Var;
         }
-        return (as3) invokeV.objValue;
+        return (nw3) invokeV.objValue;
     }
 
     public boolean d() {
@@ -200,13 +200,13 @@ public class RewardVideoView extends RelativeLayout {
         return invokeV.booleanValue;
     }
 
-    public et3 getPlayer() {
+    public rx3 getPlayer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.a;
         }
-        return (et3) invokeV.objValue;
+        return (rx3) invokeV.objValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -226,7 +226,7 @@ public class RewardVideoView extends RelativeLayout {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            et3 c = bt3.c();
+            rx3 c = ox3.c();
             c.e(getContext(), b());
             this.a = c;
             AudioManager audioManager = (AudioManager) this.b.getSystemService("audio");
@@ -243,9 +243,9 @@ public class RewardVideoView extends RelativeLayout {
             this.c = z;
             FrameLayout frameLayout = new FrameLayout(this.b);
             addView(frameLayout, new RelativeLayout.LayoutParams(-1, -1));
-            et3 et3Var = this.a;
-            if (et3Var != null) {
-                et3Var.a(frameLayout);
+            rx3 rx3Var = this.a;
+            if (rx3Var != null) {
+                rx3Var.a(frameLayout);
             }
         }
     }

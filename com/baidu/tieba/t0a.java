@@ -1,81 +1,154 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.r0a;
+import com.baidu.tieba.q0a;
+import com.baidu.tieba.s0a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.CustomInflater;
-import com.fun.ad.sdk.ExpressInflater;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
-import com.kwad.sdk.api.KsNativeAd;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public class t0a extends FunNativeAd2Bridger<KsNativeAd, com.fun.module.ks.x> {
+public class t0a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final r0a.b b;
-    public final /* synthetic */ Context c;
-    public final /* synthetic */ r0a d;
+    public final HashMap<String, Deque<c>> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t0a(r0a r0aVar, ReporterPidLoader reporterPidLoader, KsNativeAd ksNativeAd, Context context) {
-        super(reporterPidLoader);
+    /* loaded from: classes6.dex */
+    public static class a implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final s0a a;
+        public final HashSet<Ssp.Pid> b;
+
+        public a(s0a s0aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s0aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = s0aVar;
+            this.b = new HashSet<>();
+            for (s0a.c cVar : s0aVar.e) {
+                for (s0a.b bVar : cVar.b) {
+                    this.b.add(bVar.c);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.t0a.c
+        public Set<Ssp.Pid> a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (Set) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.t0a.c
+        public int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.d : invokeV.intValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final q0a a;
+        public final HashSet<Ssp.Pid> b;
+
+        public b(q0a q0aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q0aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = q0aVar;
+            this.b = new HashSet<>();
+            for (q0a.b bVar : q0aVar.b) {
+                for (q0a.a aVar : bVar.b) {
+                    this.b.add(aVar.c);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.t0a.c
+        public Set<Ssp.Pid> a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (Set) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.t0a.c
+        public int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.c : invokeV.intValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface c {
+        Set<Ssp.Pid> a();
+
+        int b();
+    }
+
+    public t0a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {r0aVar, reporterPidLoader, ksNativeAd, context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = r0aVar;
-        this.c = context;
-        this.b = new r0a.b(r0aVar, ksNativeAd);
+        this.a = new HashMap<>();
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX DEBUG: Return type fixed from 'android.view.View' to match base method */
-    /* JADX WARN: Type inference failed for: r1v1, types: [android.view.View, com.fun.module.ks.x] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public com.fun.module.ks.x createExpressView(KsNativeAd ksNativeAd) {
+    public final Deque<c> a(String str) {
         InterceptResult invokeL;
+        Deque<c> deque;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ksNativeAd)) == null) {
-            return this.d.e(this.c, ksNativeAd);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            synchronized (this.a) {
+                deque = this.a.get(str);
+                if (deque == null) {
+                    deque = new ArrayDeque<>();
+                    this.a.put(str, deque);
+                }
+            }
+            return deque;
         }
-        return (View) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showCustom(Activity activity, CustomInflater customInflater, String str, KsNativeAd ksNativeAd, BaseNativeAd2<KsNativeAd, com.fun.module.ks.x> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, ksNativeAd, baseNativeAd2, funAdInteractionListener}) == null) {
-            this.d.i(ksNativeAd, str, customInflater.inflate(), customInflater.getClickViews(), this.b, funAdInteractionListener);
-        }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, KsNativeAd ksNativeAd, BaseNativeAd2<KsNativeAd, com.fun.module.ks.x> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, ksNativeAd, baseNativeAd2, funAdInteractionListener}) == null) {
-            this.d.i(ksNativeAd, str, expressInflater.inflate(), baseNativeAd2.getExpressView().getClickViews(), this.b, funAdInteractionListener);
-        }
+        return (Deque) invokeL.objValue;
     }
 }

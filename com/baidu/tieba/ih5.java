@@ -1,31 +1,42 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.app.Application;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.Process;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
-import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ih5 extends kh5<n96, CardViewHolder<j86>> {
+public class ih5 implements hh5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public NEGFeedBackView.b g;
-    public z86<n96> h;
+    public b a;
+    public gh5 b;
+    public Application c;
+    public String d;
+    public final nh5 e;
+    public final oh5 f;
 
     /* loaded from: classes4.dex */
-    public class a extends z86<n96> {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ih5 b;
+    }
 
-        public a(ih5 ih5Var) {
+    /* loaded from: classes4.dex */
+    public class b extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ih5 this$0;
+
+        public b(ih5 ih5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,74 +51,156 @@ public class ih5 extends kh5<n96, CardViewHolder<j86>> {
                     return;
                 }
             }
-            this.b = ih5Var;
+            this.this$0 = ih5Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.z86
-        /* renamed from: d */
-        public void a(View view2, n96 n96Var) {
+        public /* synthetic */ b(ih5 ih5Var, a aVar) {
+            this(ih5Var);
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            eh5 a;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, n96Var) == null) {
-                this.b.u(view2, n96Var);
+            if ((interceptable != null && interceptable.invokeLL(1048576, this, context, intent) != null) || intent == null) {
+                return;
+            }
+            if (!jh5.i()) {
+                String c = jh5.c();
+                jh5.m(c + " Process Not In WhiteList，No Receive");
+            } else if (!"intent.action.ACTION.TB.MUTI_PROCESS".equals(intent.getAction()) || (a = this.this$0.e.a(intent)) == null) {
+            } else {
+                int myPid = Process.myPid();
+                int pid = a.getPid();
+                if (a != null && a.getType() == 1) {
+                    if (myPid == pid) {
+                        return;
+                    }
+                } else if (a.getType() == 2) {
+                    if (myPid != pid) {
+                        return;
+                    }
+                } else if (a.getType() == 3 && !jh5.l()) {
+                    return;
+                }
+                if (this.this$0.b != null) {
+                    this.this$0.b.a(a);
+                }
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ih5(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext, bdUniqueId);
+    public ih5(Application application) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {application};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = null;
-        this.h = new a(this);
+        this.d = null;
+        this.e = new nh5();
+        this.f = new oh5();
+        this.c = application;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: M */
-    public CardViewHolder<j86> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final void f(eh5 eh5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            j86 j86Var = new j86(this.c, this.mPageId);
-            j86Var.C(A());
-            j86Var.X(this.mPageId);
-            return new CardViewHolder<>(j86Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, eh5Var) == null) {
+            if (eh5Var != null) {
+                try {
+                    Intent intent = new Intent();
+                    intent.setPackage(e());
+                    intent.setAction("intent.action.ACTION.TB.MUTI_PROCESS");
+                    this.f.a(intent, eh5Var);
+                    this.c.sendBroadcast(intent);
+                    return;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return;
+                }
+            }
+            throw new NullPointerException("send multi-process message is null");
         }
-        return (CardViewHolder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: N */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, n96 n96Var, CardViewHolder<j86> cardViewHolder) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.hh5
+    public void a(eh5 eh5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, n96Var, cardViewHolder})) == null) {
-            n96Var.I(n96Var.position + 1);
-            j86 a2 = cardViewHolder.a();
-            a2.a0(i + 1);
-            a2.i(n96Var);
-            a2.n(this.h);
-            a2.B(this.g);
-            L(cardViewHolder.getView(), n96Var, i, i);
-            return cardViewHolder.getView();
+        if (interceptable == null || interceptable.invokeL(1048576, this, eh5Var) == null) {
+            f(eh5Var);
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.hh5
+    public void b(gh5 gh5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gh5Var) == null) {
+            this.b = gh5Var;
+        }
+    }
+
+    private void registerReceiver() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            try {
+                unregisterReceiver();
+                this.a = new b(this, null);
+                IntentFilter intentFilter = new IntentFilter();
+                intentFilter.setPriority(1000);
+                intentFilter.addAction("intent.action.ACTION.TB.MUTI_PROCESS");
+                this.c.registerReceiver(this.a, intentFilter);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void unregisterReceiver() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            try {
+                if (this.a != null && this.c != null) {
+                    this.c.unregisterReceiver(this.a);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public final String e() {
+        InterceptResult invokeV;
+        Application application;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.d == null && (application = this.c) != null) {
+                this.d = application.getPackageName();
+            }
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.hh5
+    public void startService() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            registerReceiver();
+        }
+    }
+
+    public void stopService() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            unregisterReceiver();
+        }
     }
 }

@@ -9,9 +9,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.VideoAggregationActivityConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dr4;
-import com.baidu.tieba.nf5;
-import com.baidu.tieba.yg;
+import com.baidu.tieba.dh;
+import com.baidu.tieba.qv4;
+import com.baidu.tieba.yj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,7 +39,7 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.kf5
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.vj5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -53,24 +53,24 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public nf5 getPageStayDurationItem() {
+    public yj5 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            nf5 pageStayDurationItem = super.getPageStayDurationItem();
+            yj5 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null && StringUtils.isNull(this.b) && VideoAggregationActivityConfig.TYPE_FROM_VIDEO_CARD.equals(this.c)) {
-                pageStayDurationItem.C(yg.g(this.b, 0L));
+                pageStayDurationItem.C(dh.g(this.b, 0L));
             }
             return pageStayDurationItem;
         }
-        return (nf5) invokeV.objValue;
+        return (yj5) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && this.a != null) {
-            dr4 layoutMode = getLayoutMode();
+            qv4 layoutMode = getLayoutMode();
             boolean z = true;
             if (i != 1) {
                 z = false;
@@ -108,7 +108,7 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
                 finish();
             }
             this.a = VideoAggregationFragment.G1(this.b, this.c, stringExtra, stringExtra2);
-            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f0906fb, this.a).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f09070d, this.a).commit();
         }
     }
 

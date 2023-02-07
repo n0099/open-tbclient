@@ -1,17 +1,27 @@
 package com.baidu.tieba;
 
-import androidx.recyclerview.widget.DiffUtil;
-import com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper;
+import android.os.MessageQueue;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.mvc.message.MvcHttpMessage;
+import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
+import com.baidu.tbadk.mvc.message.MvcNetMessage;
+import com.baidu.tieba.frs.mc.FrsModelController;
+import com.baidu.tieba.tbadkCore.FrsRequestData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.lang.ref.WeakReference;
 /* loaded from: classes5.dex */
-public final class j17 extends DiffUtil.ItemCallback<VoiceRoomWrapper> {
+public class j17 implements MessageQueue.IdleHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public WeakReference<FrsModelController> a;
+    public MvcHttpResponsedMessage<vz8> b;
+    public MvcHttpMessage<FrsRequestData, vz8> c;
+    public MvcNetMessage<FrsRequestData, vz8> d;
+    public c09 e;
 
     public j17() {
         Interceptable interceptable = $ic;
@@ -27,34 +37,57 @@ public final class j17 extends DiffUtil.ItemCallback<VoiceRoomWrapper> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.recyclerview.widget.DiffUtil.ItemCallback
-    /* renamed from: a */
-    public boolean areContentsTheSame(VoiceRoomWrapper oldItem, VoiceRoomWrapper newItem) {
-        InterceptResult invokeLL;
+    @Override // android.os.MessageQueue.IdleHandler
+    public boolean queueIdle() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, oldItem, newItem)) == null) {
-            Intrinsics.checkNotNullParameter(oldItem, "oldItem");
-            Intrinsics.checkNotNullParameter(newItem, "newItem");
-            if (Intrinsics.areEqual(oldItem.getVoiceRoom().status, newItem.getVoiceRoom().status) && Intrinsics.areEqual(oldItem.getVoiceRoom().joined_num, newItem.getVoiceRoom().joined_num)) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            FrsModelController frsModelController = this.a.get();
+            if (frsModelController == null) {
+                return false;
+            }
+            frsModelController.K0(this.b, this.c, this.d);
+            c09 c09Var = this.e;
+            if (c09Var != null) {
+                c09Var.b();
             }
             return false;
         }
-        return invokeLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.recyclerview.widget.DiffUtil.ItemCallback
-    /* renamed from: b */
-    public boolean areItemsTheSame(VoiceRoomWrapper oldItem, VoiceRoomWrapper newItem) {
-        InterceptResult invokeLL;
+    public void a(FrsModelController frsModelController) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, oldItem, newItem)) == null) {
-            Intrinsics.checkNotNullParameter(oldItem, "oldItem");
-            Intrinsics.checkNotNullParameter(newItem, "newItem");
-            return Intrinsics.areEqual(oldItem.getVoiceRoom().room_id, newItem.getVoiceRoom().room_id);
+        if (interceptable == null || interceptable.invokeL(1048576, this, frsModelController) == null) {
+            this.a = new WeakReference<>(frsModelController);
         }
-        return invokeLL.booleanValue;
+    }
+
+    public void b(c09 c09Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c09Var) == null) {
+            this.e = c09Var;
+        }
+    }
+
+    public void c(MvcHttpMessage<FrsRequestData, vz8> mvcHttpMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mvcHttpMessage) == null) {
+            this.c = mvcHttpMessage;
+        }
+    }
+
+    public void d(MvcNetMessage<FrsRequestData, vz8> mvcNetMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, mvcNetMessage) == null) {
+            this.d = mvcNetMessage;
+        }
+    }
+
+    public void e(MvcHttpResponsedMessage<vz8> mvcHttpResponsedMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, mvcHttpResponsedMessage) == null) {
+            this.b = mvcHttpResponsedMessage;
+        }
     }
 }

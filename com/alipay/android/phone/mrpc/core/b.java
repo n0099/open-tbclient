@@ -60,7 +60,7 @@ public final class b implements HttpClient {
     public transient /* synthetic */ FieldHolder $fh;
     public final HttpClient d;
     public RuntimeException e;
-    public volatile C0006b f;
+    public volatile C0005b f;
 
     /* loaded from: classes.dex */
     public class a implements HttpRequestInterceptor {
@@ -92,28 +92,28 @@ public final class b implements HttpClient {
 
         @Override // org.apache.http.HttpRequestInterceptor
         public final void process(HttpRequest httpRequest, HttpContext httpContext) {
-            C0006b c0006b;
+            C0005b c0005b;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, httpRequest, httpContext) == null) && (c0006b = this.a.f) != null && C0006b.a(c0006b) && (httpRequest instanceof HttpUriRequest)) {
-                C0006b.a(c0006b, b.a((HttpUriRequest) httpRequest));
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, httpRequest, httpContext) == null) && (c0005b = this.a.f) != null && C0005b.a(c0005b) && (httpRequest instanceof HttpUriRequest)) {
+                C0005b.a(c0005b, b.a((HttpUriRequest) httpRequest));
             }
         }
     }
 
     /* renamed from: com.alipay.android.phone.mrpc.core.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0006b {
+    public static class C0005b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
         public final int b;
 
-        public static /* synthetic */ void a(C0006b c0006b, String str) {
-            Log.println(c0006b.b, c0006b.a, str);
+        public static /* synthetic */ void a(C0005b c0005b, String str) {
+            Log.println(c0005b.b, c0005b.a, str);
         }
 
-        public static /* synthetic */ boolean a(C0006b c0006b) {
-            return Log.isLoggable(c0006b.a, c0006b.b);
+        public static /* synthetic */ boolean a(C0005b c0005b) {
+            return Log.isLoggable(c0005b.a, c0005b.b);
         }
     }
 

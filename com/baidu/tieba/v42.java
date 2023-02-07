@@ -1,90 +1,76 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import android.os.Message;
+import android.content.Context;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.camera.view.CameraPreview;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class v42 extends HandlerThread implements u42<t42> {
+public final class v42 extends l42<CameraPreview, q12> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Handler a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948190741, "Lcom/baidu/tieba/v42;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948190741, "Lcom/baidu/tieba/v42;");
-                return;
-            }
-        }
-        boolean z = tk1.a;
-    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v42() {
-        super("EventDispatcherImpl");
+    public v42(@NonNull Context context, @NonNull q12 q12Var) {
+        super(context, q12Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, q12Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (m42) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        c();
+        g(2);
     }
 
-    public final void c() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.l42
+    /* renamed from: G */
+    public void C(@NonNull CameraPreview cameraPreview, @NonNull q12 q12Var, @NonNull o52 o52Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            start();
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, cameraPreview, q12Var, o52Var) == null) {
+            super.C(cameraPreview, q12Var, o52Var);
+            if (t()) {
+                cameraPreview.x(q12Var);
+            }
         }
     }
 
-    @Override // android.os.HandlerThread, com.baidu.tieba.u42
-    public Looper getLooper() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.l42
+    @NonNull
+    /* renamed from: F */
+    public CameraPreview v(@NonNull Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return super.getLooper();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            return new CameraPreview(context, n());
         }
-        return (Looper) invokeV.objValue;
+        return (CameraPreview) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.u42
-    public void a(@NonNull Handler handler) {
+    @Override // com.baidu.tieba.l42
+    public void z() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, handler) == null) {
-            this.a = handler;
-        }
-    }
-
-    @Override // com.baidu.tieba.u42
-    public void b(t42 t42Var) {
-        Handler handler;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t42Var) == null) && t42Var != null && (handler = this.a) != null) {
-            this.a.sendMessageDelayed(Message.obtain(handler, t42Var.a, t42Var), t42Var.c);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.z();
+            CameraPreview q = q();
+            if (q != null) {
+                q.p();
+            }
         }
     }
 }

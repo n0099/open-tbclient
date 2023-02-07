@@ -1,29 +1,60 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.database.Cursor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class z21 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface z21 {
+    a a(g31 g31Var, x21... x21VarArr);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948307952, "Lcom/baidu/tieba/z21;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    void beginTransaction();
+
+    int delete(g31 g31Var, x21... x21VarArr);
+
+    void endTransaction();
+
+    Cursor query(l31 l31Var);
+
+    void setTransactionSuccessful();
+
+    int update(g31 g31Var, x21... x21VarArr);
+
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final long a;
+        public final int b;
+
+        public a(long j, int i) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Long.valueOf(j), Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948307952, "Lcom/baidu/tieba/z21;");
-                return;
-            }
+            this.a = j;
+            this.b = i;
         }
-        a = sg0.a;
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return "Res{rowId=" + this.a + ", updateCount=" + this.b + '}';
+            }
+            return (String) invokeV.objValue;
+        }
     }
 }

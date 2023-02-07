@@ -1,176 +1,83 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.gson.Gson;
+import java.lang.reflect.Type;
 /* loaded from: classes5.dex */
-public class ot9 {
+public class ot9 implements nt9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public long b;
-    public int c;
-    public long d;
-    public int e;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public boolean b;
-        public long c;
-        public int d;
-        public long e;
-        public int f;
-
-        public b(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = qt9.a;
-            this.c = qt9.g;
-            this.d = qt9.j;
-            this.e = qt9.k;
-            this.f = qt9.l;
-        }
-
-        public ot9 g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new ot9(this, null);
-            }
-            return (ot9) invokeV.objValue;
-        }
-    }
-
-    public ot9(b bVar) {
+    public ot9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        String unused = bVar.a;
-        this.a = bVar.b;
-        this.b = bVar.c;
-        this.c = bVar.d;
-        this.d = bVar.e;
-        this.e = bVar.f;
     }
 
-    public /* synthetic */ ot9(b bVar, a aVar) {
-        this(bVar);
-    }
-
-    public long a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.nt9
+    public String a(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            try {
+                if (fs9.c().d() != null && fs9.c().d().c() != null) {
+                    return fs9.c().d().c().a(obj);
+                }
+                return new Gson().toJson(obj);
+            } catch (Exception e) {
+                iw9.b(e.getMessage());
+                return "";
+            }
         }
-        return invokeV.longValue;
+        return (String) invokeL.objValue;
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.nt9
+    public <T> T b(String str, Class<T> cls) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cls)) == null) {
+            try {
+                if (fs9.c().d() != null && fs9.c().d().c() != null) {
+                    return (T) fs9.c().d().c().b(str, cls);
+                }
+                return (T) new Gson().fromJson(str, (Class<Object>) cls);
+            } catch (Exception e) {
+                iw9.b(e.getMessage());
+                return null;
+            }
         }
-        return invokeV.intValue;
+        return (T) invokeLL.objValue;
     }
 
-    public int c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.nt9
+    public <T> T c(String str, Type type) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, type)) == null) {
+            try {
+                if (fs9.c().d() != null && fs9.c().d().c() != null) {
+                    return (T) fs9.c().d().c().c(str, type);
+                }
+                return (T) new Gson().fromJson(str, type);
+            } catch (Exception e) {
+                iw9.b(e.getMessage());
+                return null;
+            }
         }
-        return invokeV.intValue;
-    }
-
-    public long d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return invokeV.longValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    public void g(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.b = j;
-        }
-    }
-
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public void i(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public void j(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            this.d = j;
-        }
+        return (T) invokeLL.objValue;
     }
 }

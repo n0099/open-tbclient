@@ -1,145 +1,122 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.media.chooser.model.MediaModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class nw2 implements cj3<HybridUbcFlow> {
+public class nw2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static ArrayList<MediaModel> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public class a implements lw2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ UbcFlowEvent a;
-        public final /* synthetic */ UbcFlowEvent b;
-        public final /* synthetic */ nw2 c;
+    public static void a() {
+        ArrayList<MediaModel> arrayList;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65536, null) == null) && (arrayList = a) != null) {
+            arrayList.clear();
+            a = null;
+        }
+    }
 
-        public a(nw2 nw2Var, UbcFlowEvent ubcFlowEvent, UbcFlowEvent ubcFlowEvent2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nw2Var, ubcFlowEvent, ubcFlowEvent2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            ArrayList<MediaModel> arrayList = a;
+            if (arrayList == null) {
+                return 0;
+            }
+            return arrayList.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public static ArrayList<MediaModel> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return a;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            ArrayList<MediaModel> arrayList = a;
+            if (arrayList != null && arrayList.size() != 0 && a.get(0) != null) {
+                return a.get(0).getType();
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static int c(MediaModel mediaModel) {
+        InterceptResult invokeL;
+        ArrayList<MediaModel> arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, mediaModel)) == null) {
+            if (mediaModel == null || (arrayList = a) == null) {
+                return -1;
+            }
+            int size = arrayList.size();
+            for (int i = 0; i < size; i++) {
+                if (mediaModel.equals(a.get(i))) {
+                    return i;
                 }
             }
-            this.c = nw2Var;
-            this.a = ubcFlowEvent;
-            this.b = ubcFlowEvent2;
+            return -1;
         }
-
-        @Override // com.baidu.tieba.lw2
-        public boolean a(ow2 ow2Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ow2Var)) == null) {
-                if (ow2Var == null) {
-                    return false;
-                }
-                return this.c.c(ow2Var, this.a, this.b);
-            }
-            return invokeL.booleanValue;
-        }
+        return invokeL.intValue;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948016800, "Lcom/baidu/tieba/nw2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948016800, "Lcom/baidu/tieba/nw2;");
-                return;
-            }
-        }
-        a = tk1.a;
-    }
-
-    public nw2() {
+    public static boolean f(MediaModel mediaModel) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, mediaModel)) == null) {
+            ArrayList<MediaModel> arrayList = a;
+            if (arrayList == null) {
+                return false;
             }
+            return arrayList.contains(mediaModel);
         }
-        mw2.f().g();
-        if (a) {
-            Log.d("MaUpdateReporter", "MaUpdateReporter init - " + System.currentTimeMillis());
-        }
+        return invokeL.booleanValue;
     }
 
-    public final boolean c(@NonNull ow2 ow2Var, @NonNull UbcFlowEvent ubcFlowEvent, @NonNull UbcFlowEvent ubcFlowEvent2) {
-        InterceptResult invokeLLL;
+    public static boolean g(MediaModel mediaModel) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ow2Var, ubcFlowEvent, ubcFlowEvent2)) == null) {
-            long b = ow2Var.b();
-            if (b >= ubcFlowEvent.g() && b <= ubcFlowEvent2.g()) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, mediaModel)) == null) {
+            ArrayList<MediaModel> arrayList = a;
+            if (arrayList != null && arrayList.size() != 0) {
+                return a.contains(mediaModel);
             }
             return false;
         }
-        return invokeLLL.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cj3
-    /* renamed from: d */
-    public void a(HybridUbcFlow hybridUbcFlow) {
+    public static void h(MediaModel mediaModel) {
+        ArrayList<MediaModel> arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hybridUbcFlow) == null) {
-            if (a) {
-                Log.i("MaUpdateReporter", "report: flow=" + hybridUbcFlow);
-            }
-            if (hybridUbcFlow == null) {
-                return;
-            }
-            UbcFlowEvent g = hybridUbcFlow.g("naStart");
-            UbcFlowEvent g2 = hybridUbcFlow.g("na_first_meaningful_paint");
-            if (g != null && g2 != null) {
-                mw2.f().h(new a(this, g, g2));
-                mw2.f().a(hybridUbcFlow);
-                if (a) {
-                    Log.d("MaUpdateReporter", "na_start ts - " + g.g());
-                    Log.d("MaUpdateReporter", "fmp_end ts - " + g2.g());
-                    return;
-                }
-                return;
-            }
-            if (a) {
-                if (g == null) {
-                    Log.w("MaUpdateReporter", "MaUpdateReporter: na_start = null !!!");
-                } else {
-                    Log.w("MaUpdateReporter", "MaUpdateReporter: na_first_meaningful_paint = null !!!");
-                }
-            }
-            mw2.f().c();
+        if ((interceptable == null || interceptable.invokeL(65543, null, mediaModel) == null) && (arrayList = a) != null) {
+            arrayList.remove(mediaModel);
         }
+    }
+
+    public static void i(MediaModel mediaModel) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65544, null, mediaModel) != null) || mediaModel == null) {
+            return;
+        }
+        if (a == null) {
+            a = new ArrayList<>();
+        }
+        a.add(mediaModel);
     }
 }

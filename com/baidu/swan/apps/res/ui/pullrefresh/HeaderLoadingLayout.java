@@ -81,7 +81,7 @@ public class HeaderLoadingLayout extends LoadingLayout {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, viewGroup, attributeSet)) == null) {
-            return LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00c5, viewGroup, false);
+            return LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00c4, viewGroup, false);
         }
         return (View) invokeLLL.objValue;
     }
@@ -155,12 +155,12 @@ public class HeaderLoadingLayout extends LoadingLayout {
     public final void n(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
-            this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091bc3);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091bc1);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091bc4);
-            this.g = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091bc5);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091bc7);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091bc9);
+            this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091bd7);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091bd5);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091bd8);
+            this.g = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091bd9);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091bdb);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091bdd);
             RotateAnimation rotateAnimation = new RotateAnimation(0.0f, -180.0f, 1, 0.5f, 1, 0.5f);
             this.k = rotateAnimation;
             rotateAnimation.setDuration(120L);

@@ -31,6 +31,7 @@ import com.baidu.down.request.taskmanager.TaskFacade;
 import com.baidu.down.utils.Utils;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiWebView;
+import com.baidu.searchbox.cloudcommand.dao.CloudCommandTable;
 import com.baidu.searchbox.unitedscheme.SchemeDescPatchListener;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -792,7 +793,7 @@ public final class DownloadManager {
                                 e.printStackTrace();
                                 JSONObject jSONObject = new JSONObject();
                                 try {
-                                    jSONObject.put("msgId", "2");
+                                    jSONObject.put(CloudCommandTable.MSG_ID, "2");
                                     jSONObject.put("messageDetail", e.getMessage());
                                 } catch (JSONException e2) {
                                     e2.printStackTrace();
@@ -1046,7 +1047,7 @@ public final class DownloadManager {
                 } else if (z) {
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.put("msgId", "5");
+                        jSONObject.put(CloudCommandTable.MSG_ID, "5");
                         jSONObject.put("messageDetail", "not enough free space");
                     } catch (JSONException e4) {
                         e4.printStackTrace();

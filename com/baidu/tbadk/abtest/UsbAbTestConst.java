@@ -24,8 +24,10 @@ public class UsbAbTestConst {
     public static final String KEY_FUN_AD_SDK_PICPAGE_BEAR = "12_2_picpage_bear_a";
     public static final String KEY_FUN_AD_SDK_PICPAGE_INSERT_BEAR = "12_11_picpage_ahead_bear_a";
     public static final String KEY_HOMEPAGE_RECOMMEND_LIVE_SECOND_FLOOR = "12_28_homepage_recommend_live_a";
+    public static final String KEY_HOME_MAX_THREAD_COUNT_DISABLE = "home_page_max_thread_count_disable";
     public static final String KEY_HOT_RANK_SHOW = "12_15_live_cell_style_a";
     public static final String KEY_HOT_SPLASH_FIX = "12_25_splash_req_ad_rule";
+    public static final String KEY_IMAGE_CACHE_OPTIMIZE = "12.36_imagecache_optimize_a";
     public static final String KEY_IMG_CLICK_TO_PB = "12_24_tupiandianji_b";
     public static final String KEY_IMG_NOT_CANCEL = "12_28_img_not_cancel";
     public static final String KEY_LIVE_CARD_GAME_SHOW = "12_18_live_gameshow_style_a";

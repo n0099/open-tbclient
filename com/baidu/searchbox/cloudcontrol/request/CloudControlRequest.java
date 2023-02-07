@@ -386,7 +386,7 @@ public class CloudControlRequest {
             hashMap4.put(REQUEST_KEY_CTRL_VERSION, jSONObject3);
         }
         if (jSONObject2.length() != 0) {
-            hashMap4.put(REQUEST_KEY_FILTER, jSONObject2);
+            hashMap4.put("filter", jSONObject2);
         }
         if (!this.mSharedPrefsWrapper.getBoolean(CloudControlConstant.SP_KEY_BLACK_PUBPARAM, false)) {
             String string = this.mSharedPrefsWrapper.getString(CloudControlConstant.SP_KEY_PUBPARAM, "");

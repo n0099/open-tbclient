@@ -1,76 +1,61 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class sq2 {
+public class sq2 extends qm2<hr2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public UnitedSchemeEntity a;
-    public CallbackHandler b;
 
-    public sq2(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+    @Override // com.baidu.tieba.qm2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setDataSource" : (String) invokeV.objValue;
+    }
+
+    public sq2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {unitedSchemeEntity, callbackHandler};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = unitedSchemeEntity;
-        this.b = callbackHandler;
     }
 
-    public static sq2 a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qm2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull hr2 hr2Var) {
+        Object obj;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, unitedSchemeEntity, callbackHandler)) == null) {
-            return new sq2(unitedSchemeEntity, callbackHandler);
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, hr2Var) != null) || (obj = command.obj) == null) {
+            return;
         }
-        return (sq2) invokeLL.objValue;
-    }
-
-    public void c(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) {
-            UnitedSchemeUtility.safeCallback(this.b, this.a, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
+        ArrayList arrayList = (ArrayList) obj;
+        if (command.arg1 != 0) {
+            z = true;
+        } else {
+            z = false;
         }
-    }
-
-    public void b(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
-            UnitedSchemeUtility.safeCallback(this.b, this.a, UnitedSchemeUtility.wrapCallbackParams(i, str2).toString(), str);
-        }
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.a.result = UnitedSchemeUtility.wrapCallbackParams(i);
-        }
-    }
-
-    public void e(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
-            UnitedSchemeEntity unitedSchemeEntity = this.a;
-            unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(this.b, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-        }
+        String str = (String) arrayList.get(0);
+        String f = sh3.l().f(str, (String) arrayList.get(1));
+        command.ret = hr2Var.O(str, f, (String) arrayList.get(2), z) ? 1 : 0;
+        String str2 = command.what;
+        d(hr2Var, str2, "DataSource: " + str + " ;UserAgent: " + ((String) arrayList.get(2)) + " ;Cookies: " + f + ";hideUrlLog: " + z, true);
     }
 }

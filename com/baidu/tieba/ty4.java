@@ -2,94 +2,203 @@ package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.LinkedList;
-import org.json.JSONException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
+import tbclient.Page;
 /* loaded from: classes6.dex */
 public class ty4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final LinkedList<String> a;
-    public static final LinkedList<String> b;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948197530, "Lcom/baidu/tieba/ty4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948197530, "Lcom/baidu/tieba/ty4;");
+    public ty4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new LinkedList<>();
-        b = new LinkedList<>();
+        this.a = 0;
+        this.b = 0;
+        this.e = 0;
+        this.f = 0;
+        this.g = 0;
+        this.h = 0;
+        this.c = 0;
+        this.d = 0;
     }
 
-    public static JSONObject a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            b(jSONObject, "uid", TbadkCoreApplication.getCurrentAccount());
-            b(jSONObject, "latest_related_tid", TbadkCoreApplication.getInst().getLatestRelatedTid());
-            b(jSONObject, "latest_related_fid", TbadkCoreApplication.getInst().getLatestRelatedFid());
-            b(jSONObject, "continuous_crash_times", String.valueOf(zy4.q().o()));
-            b(jSONObject, "trigger_safe_mode_status", String.valueOf(zy4.q().s()));
-            b(jSONObject, "fid_info", String.valueOf(a));
-            b(jSONObject, "tid_info", String.valueOf(b));
-            return jSONObject;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
         }
-        return (JSONObject) invokeL.objValue;
+        return invokeV.intValue;
     }
 
-    public static JSONObject b(JSONObject jSONObject, String str, String str2) {
-        InterceptResult invokeLLL;
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, jSONObject, str, str2)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            if (str != null && str2 != null) {
-                try {
-                    jSONObject.put(str, str2);
-                } catch (JSONException e) {
-                    BdLog.e(e);
-                }
-            }
-            return jSONObject;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.g;
         }
-        return (JSONObject) invokeLLL.objValue;
+        return invokeV.intValue;
     }
 
-    public static void c(String str) {
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            a.offer(str);
-            if (a.size() > 10) {
-                a.poll();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.h;
+        }
+        return invokeV.intValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public void i(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        try {
+            this.a = jSONObject.optInt("total_page", 0);
+            this.b = jSONObject.optInt("total_num", 0);
+            this.c = jSONObject.optInt("total_count", 0);
+            this.e = jSONObject.optInt("current_page", 0);
+            this.f = jSONObject.optInt(SuggestAddrField.KEY_PAGE_SIZE, 0);
+            this.g = jSONObject.optInt("has_more", 0);
+            this.h = jSONObject.optInt("has_prev", 0);
+            this.d = jSONObject.optInt("lz_total_floor", 0);
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 
-    public static void d(String str) {
+    public void j(Page page) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            b.offer(str);
-            if (b.size() > 10) {
-                b.poll();
-            }
+        if ((interceptable != null && interceptable.invokeL(1048585, this, page) != null) || page == null) {
+            return;
+        }
+        this.a = page.total_page.intValue();
+        this.b = page.total_num.intValue();
+        this.c = page.total_count.intValue();
+        this.e = page.current_page.intValue();
+        this.f = page.page_size.intValue();
+        this.g = page.has_more.intValue();
+        this.h = page.has_prev.intValue();
+        this.d = page.lz_total_floor.intValue();
+    }
+
+    public void k(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    public void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.g = i;
+        }
+    }
+
+    public void m(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.h = i;
+        }
+    }
+
+    public void n(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void o(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.f = i;
+        }
+    }
+
+    public void p(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    public void q(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.a = i;
         }
     }
 }

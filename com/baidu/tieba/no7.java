@@ -1,397 +1,820 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
-import android.net.Uri;
-import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.PopupWindow;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.GreyUtil;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbMd5;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.data.AlaInfoData;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.resourceLoaderProc.BigImageLoaderProc;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
-import com.baidu.tbadk.coreExtra.view.MultiImageView;
-import com.baidu.tbadk.coreExtra.view.UrlDragImageView;
-import com.baidu.tieba.image.ImageViewerActivity;
+import com.baidu.tbadk.util.AdExtParam;
+import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public class no7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ImageViewerActivity a;
-    public b b;
-    public Runnable c;
-    public View.OnClickListener d;
-    public final int e;
-    public final int f;
+    public boolean A;
+    public String B;
+    public boolean C;
+    public boolean D;
+    public String E;
+    public String F;
+    public int G;
+    public String H;
+    public String I;
+    public String J;
+    public String K;
+    public String L;
+    public int M;
+    public MetaData N;
+    public String O;
+    public boolean P;
+    public ForumData Q;
+    public int R;
+    public final HashSet<String> S;
+    public ArrayList<String> a;
+    public HashMap<String, String> b;
+    public Map<String, ImageUrlData> c;
+    public ArrayList<AlaInfoData> d;
+    public ArrayList<bp7> e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public String j;
+    public String k;
+    public String l;
+    public boolean m;
+    public boolean n;
+    public a o;
+    public int p;
+    public boolean q;
+    public boolean r;
+    public b s;
+    public AdvertAppInfo t;
+    public String u;
+    public String v;
+    public int w;
+    public boolean x;
+    public String y;
+    public String z;
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ no7 a;
+    public interface b {
+        void a(ArrayList<String> arrayList, int i, int i2, boolean z, String str, boolean z2, AdvertAppInfo advertAppInfo, boolean z3);
 
-        public a(no7 no7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {no7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = no7Var;
-        }
+        void b(int i, String str);
+    }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b != null) {
-                this.a.b.dismiss();
-            }
+    public void j0(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b extends PopupWindow implements View.OnClickListener {
+    public class a extends BdAsyncTask<Object, Integer, qo7> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Activity a;
-        public View b;
-        public EMTextView c;
-        public ImageView d;
-        public ImageView e;
-        public ImageView f;
-        public ImageView g;
-        public ImageView h;
-        public MultiImageView i;
-        public t45 j;
-        public final /* synthetic */ no7 k;
+        public NetWork a;
+        public String b;
+        public String c;
+        public int d;
+        public int e;
+        public final /* synthetic */ no7 f;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(no7 no7Var, Activity activity) {
-            super(activity);
+        public a(no7 no7Var, String str, String str2, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {no7Var, activity};
+                Object[] objArr = {no7Var, str, str2, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Context) newInitContext.callArgs[0]);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.k = no7Var;
-            this.a = activity;
-            this.j = new t45(activity, null);
-            setWidth(zi.l(activity) - (no7Var.f * 2));
-            setHeight(-2);
-            setFocusable(false);
-            setTouchable(true);
-            setOutsideTouchable(true);
-            setBackgroundDrawable(new ColorDrawable(0));
-            a();
-            d();
+            this.f = no7Var;
+            this.a = null;
+            this.b = null;
+            this.c = null;
+            this.d = 0;
+            this.e = 0;
+            this.c = str2;
+            this.b = str;
+            this.d = i;
+            this.e = i2;
         }
 
-        public final void a() {
+        public final void b() {
+            String str;
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03df, (ViewGroup) null);
-                this.b = inflate;
-                this.c = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f0922ff);
-                ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091be6);
-                this.d = imageView;
-                imageView.setImageDrawable(this.a.getDrawable(R.drawable.icon_mask_share_qq40_svg));
-                this.d.setOnClickListener(this);
-                ImageView imageView2 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091beb);
-                this.e = imageView2;
-                imageView2.setImageDrawable(this.a.getDrawable(R.drawable.icon_mask_share_qqzone40_svg));
-                this.e.setOnClickListener(this);
-                ImageView imageView3 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092760);
-                this.f = imageView3;
-                imageView3.setImageDrawable(this.a.getDrawable(R.drawable.icon_mask_share_wechat40_svg));
-                this.f.setOnClickListener(this);
-                ImageView imageView4 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092762);
-                this.g = imageView4;
-                imageView4.setImageDrawable(this.a.getDrawable(R.drawable.icon_mask_share_circle40_svg));
-                this.g.setOnClickListener(this);
-                ImageView imageView5 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09275f);
-                this.h = imageView5;
-                imageView5.setImageDrawable(this.a.getDrawable(R.drawable.icon_share_wechatexpression));
-                this.h.setOnClickListener(this);
-                setContentView(this.b);
-                GreyUtil.grey(this);
-            }
-        }
-
-        public final ShareItem b() {
-            InterceptResult invokeV;
-            UrlDragImageView currentUrlDragImageView;
-            String str;
-            String str2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                MultiImageView multiImageView = this.i;
-                if (multiImageView == null || (currentUrlDragImageView = multiImageView.getCurrentUrlDragImageView()) == null) {
-                    return null;
-                }
-                ImageUrlData imageUrlData = currentUrlDragImageView.getmAssistUrlData();
-                if (imageUrlData == null) {
-                    str = "";
-                    str2 = str;
+                this.a.addPostData("forum_id", this.f.i);
+                NetWork netWork = this.a;
+                if (this.f.u != null) {
+                    str = this.f.u;
                 } else {
-                    str = imageUrlData.imageUrl;
-                    str2 = BigImageLoaderProc.getNameMd5FromUrl(str);
+                    str = "0";
                 }
-                if (TextUtils.isEmpty(str)) {
-                    str = this.i.getCurrentImageUrl();
-                    str2 = TbMd5.getNameMd5FromUrl(str);
+                netWork.addPostData("user_id", str);
+                this.a.addPostData(TiebaStatic.Params.SAMPLE_ID, TbSingleton.getInstance().getSampleId());
+                this.a.addPostData("scr_w", String.valueOf(ej.l(TbadkCoreApplication.getInst().getApp())));
+                this.a.addPostData("scr_h", String.valueOf(ej.j(TbadkCoreApplication.getInst().getApp())));
+                NetWork netWork2 = this.a;
+                if (TbImageHelper.getInstance().isShowBigImage()) {
+                    i = 2;
+                } else {
+                    i = 1;
                 }
-                ShareItem shareItem = new ShareItem();
-                int i = 5;
-                if (imageUrlData != null) {
-                    long j = imageUrlData.threadId;
-                    if (j > 0) {
-                        shareItem.x = TbConfig.HTTPS_PB_PREFIX + j + "?fr=share";
-                    }
-                    shareItem.O = j + "";
-                    shareItem.N = imageUrlData.forumId;
-                    i = this.k.e(imageUrlData.from);
-                }
-                if (!yi.isEmpty(str)) {
-                    shareItem.z = Uri.parse(str);
-                    shareItem.k0 = 2;
-                    Bundle bundle = new Bundle();
-                    bundle.putString("path", "images");
-                    bundle.putString("name", str2);
-                    bundle.putBoolean("formatData", true);
-                    bundle.putBoolean("isSubDir", true);
-                    bundle.putBoolean("isSdcard", false);
-                    bundle.putBoolean("isSavedCache", true);
-                    shareItem.E = bundle;
-                }
-                Bundle bundle2 = new Bundle();
-                bundle2.putString("tid", shareItem.O);
-                bundle2.putString("fid", shareItem.N);
-                bundle2.putString("uid", TbadkCoreApplication.getCurrentAccount());
-                bundle2.putInt("obj_source", i);
-                bundle2.putInt("obj_locate", 12);
-                shareItem.l(bundle2);
-                return shareItem;
+                netWork2.addPostData("q_type", String.valueOf(i));
+                this.a.addPostData("_os_version", gj.k());
+                this.a.addPostData("page_name", "PB");
+                this.a.addPostData("pic_index", String.valueOf(this.f.a.size()));
             }
-            return (ShareItem) invokeV.objValue;
         }
 
-        public final boolean c(ShareItem shareItem) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public qo7 doInBackground(Object... objArr) {
             InterceptResult invokeL;
+            int i;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, shareItem)) == null) {
-                if (!TextUtils.isEmpty(shareItem.E0) && !TextUtils.isEmpty(shareItem.F0)) {
-                    return true;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr)) == null) {
+                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.IMAGE_PB_ADDRESS);
+                this.a = netWork;
+                netWork.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.f.j);
+                this.a.addPostData("tid", this.b);
+                String str = this.c;
+                if (str != null) {
+                    this.a.addPostData(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY, str);
                 }
-                return false;
+                if (!TextUtils.isEmpty(this.f.f) && !"0".equals(this.f.f)) {
+                    this.a.addPostData("post_id", this.f.f);
+                }
+                NetWork netWork2 = this.a;
+                int i2 = 2;
+                if (this.f.r) {
+                    i = 1;
+                } else {
+                    i = 2;
+                }
+                netWork2.addPostData("source", String.valueOf(i));
+                this.f.r = false;
+                this.a.addPostData(UnitedSchemeConstants.UNITED_SCHEME_NEXT, String.valueOf(this.d));
+                this.a.addPostData("prev", String.valueOf(this.e));
+                this.a.addPostData("not_see_lz", String.valueOf(!this.f.q ? 1 : 0));
+                NetWork netWork3 = this.a;
+                if (this.f.C) {
+                    i2 = 1;
+                }
+                netWork3.addPostData("is_top_agree", String.valueOf(i2));
+                if (!this.f.n) {
+                    this.a.addPostData("r", String.valueOf(1));
+                }
+                if (!StringUtils.isNull(this.f.v, true)) {
+                    this.a.addPostData("obj_type", this.f.v);
+                } else {
+                    this.a.addPostData("obj_type", ImageViewerConfig.FROM_OTHER);
+                }
+                if (TextUtils.isEmpty(this.f.y)) {
+                    if (System.currentTimeMillis() - p35.m().o("applist_intalled_apk_ids_timestamp", 0L) < 86400000) {
+                        this.f.y = p35.m().s("applist_intalled_apk_ids", "");
+                    }
+                }
+                this.a.addPostData("applist", this.f.y);
+                String lastCachedOid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
+                if (!TextUtils.isEmpty(lastCachedOid)) {
+                    this.a.addPostData("oaid", lastCachedOid);
+                }
+                this.a.addPostData("app_transmit_data", yn5.a());
+                this.a.addPostData("ad_ext_params", AdExtParam.a.b().a());
+                b();
+                this.a.getNetContext().getRequest().mNeedBackgroundLogin = false;
+                String postNetData = this.a.postNetData();
+                if (this.a.getNetContext().getResponse().isRequestSuccess()) {
+                    qo7 qo7Var = new qo7();
+                    qo7Var.n(postNetData, true);
+                    return qo7Var;
+                }
+                return null;
             }
-            return invokeL.booleanValue;
+            return (qo7) invokeL.objValue;
         }
 
-        public void f(MultiImageView multiImageView) {
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, multiImageView) == null) {
-                this.i = multiImageView;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                NetWork netWork = this.a;
+                if (netWork != null) {
+                    netWork.cancelNetConnect();
+                }
+                this.f.o = null;
+                super.cancel(true);
             }
         }
 
-        public void d() {
+        public String d() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);
-                cx4 d = cx4.d(this.b);
-                d.n(R.string.J_X06);
-                d.f(R.color.CAM_X0204);
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.c;
             }
+            return (String) invokeV.objValue;
         }
 
-        public void e() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: e */
+        public void onPostExecute(qo7 qo7Var) {
+            boolean z;
+            ImageUrlData imageUrlData;
+            boolean z2;
+            boolean z3;
+            int i;
+            int i2;
+            String str;
+            AgreeData agreeData;
+            boolean z4;
+            String s;
+            String str2;
+            int i3;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.i = null;
-                this.a = null;
-                this.j = null;
-            }
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            ShareItem b;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048582, this, view2) != null) || (b = b()) == null) {
-                return;
-            }
-            if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                zi.P(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
-            } else if (view2 == this.d) {
-                if (mw8.b(this.a, "com.tencent.mobileqq")) {
-                    if (c(b) && b.b() != null && b.b().contains(4)) {
-                        n45.f(b, this.a, 8, null);
+            if (interceptable == null || interceptable.invokeL(1048581, this, qo7Var) == null) {
+                super.onPostExecute(qo7Var);
+                if (this.f.c == null) {
+                    return;
+                }
+                String str3 = null;
+                this.f.o = null;
+                if (qo7Var == null) {
+                    if (this.f.s != null) {
+                        NetWork netWork = this.a;
+                        if (netWork != null) {
+                            i3 = netWork.getServerErrorCode();
+                            if (this.c == null) {
+                                str3 = this.a.getErrorString();
+                            }
+                        } else {
+                            i3 = -1;
+                        }
+                        this.f.s.b(i3, str3);
                         return;
+                    }
+                    return;
+                }
+                boolean isEmpty = ListUtils.isEmpty(qo7Var.g());
+                if (this.f.A && !isEmpty) {
+                    this.f.a.clear();
+                    this.f.c.clear();
+                    this.f.b.clear();
+                }
+                if (qo7Var.h() != 0) {
+                    this.f.p = qo7Var.h();
+                }
+                this.f.t = qo7Var.a();
+                this.f.R = qo7Var.m;
+                no7 no7Var = this.f;
+                no7Var.L = qo7Var.i;
+                no7Var.M = qo7Var.j();
+                no7 no7Var2 = this.f;
+                no7Var2.N = qo7Var.k;
+                no7Var2.O = qo7Var.j;
+                if (qo7Var.l == 1) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                no7Var2.P = z;
+                if (this.c == null) {
+                    this.f.a.clear();
+                    this.f.b.clear();
+                }
+                LinkedList<oo7> g = qo7Var.g();
+                int size = g.size();
+                if (size > 0) {
+                    int i4 = 0;
+                    while (i4 < size) {
+                        oo7 oo7Var = g.get(i4);
+                        String V = this.f.V(oo7Var);
+                        ImageUrlData imageUrlData2 = new ImageUrlData();
+                        String g2 = oo7Var.g();
+                        imageUrlData2.id = g2;
+                        if (StringHelper.equals(g2, this.f.B)) {
+                            imageUrlData2.setSourceImageRectInScreen(this.f.z);
+                        }
+                        imageUrlData2.imageUrl = V;
+                        String str4 = V + "*" + oo7Var.l();
+                        imageUrlData2.mWidth = oo7Var.t();
+                        imageUrlData2.mHeigth = oo7Var.f();
+                        imageUrlData2.urlType = 10;
+                        imageUrlData2.originalUrl = oo7Var.j();
+                        boolean z5 = isEmpty;
+                        imageUrlData2.originalSize = oo7Var.k();
+                        imageUrlData2.picId = oo7Var.m();
+                        imageUrlData2.forumId = this.f.i;
+                        imageUrlData2.forumName = this.f.j;
+                        imageUrlData2.threadId = dh.g(this.b, -1L);
+                        imageUrlData2.nid = this.f.h;
+                        imageUrlData2.postId = dh.g(oo7Var.c(), -1L);
+                        imageUrlData2.userId = oo7Var.q();
+                        if (StringUtils.isNull(oo7Var.s())) {
+                            s = oo7Var.r();
+                        } else {
+                            s = oo7Var.s();
+                        }
+                        imageUrlData2.userNameShow = s;
+                        imageUrlData2.mIsReserver = this.f.n;
+                        imageUrlData2.mIsSeeHost = this.f.q;
+                        imageUrlData2.overAllIndex = oo7Var.l();
+                        imageUrlData2.mThreadType = this.f.w;
+                        imageUrlData2.mPicType = oo7Var.n();
+                        imageUrlData2.mTagName = oo7Var.p();
+                        imageUrlData2.mIsShowOrigonButton = oo7Var.x();
+                        imageUrlData2.isLongPic = oo7Var.w();
+                        imageUrlData2.isBlockedPic = oo7Var.u();
+                        imageUrlData2.from = this.f.v;
+                        if (oo7Var.o() != null) {
+                            imageUrlData2.richTextArray = oo7Var.o().toString();
+                        }
+                        imageUrlData2.isFirstPost = oo7Var.v();
+                        if (oo7Var.a() != null) {
+                            AgreeData a = oo7Var.a();
+                            imageUrlData2.agreeData = a;
+                            a.isFromImageViewer = true;
+                            a.mImageViewerFromPage = this.f.v;
+                            imageUrlData2.agreeData.forumId = this.f.i;
+                            imageUrlData2.agreeData.threadId = String.valueOf(imageUrlData2.threadId);
+                            AgreeData agreeData2 = imageUrlData2.agreeData;
+                            agreeData2.nid = imageUrlData2.nid;
+                            agreeData2.postId = String.valueOf(imageUrlData2.postId);
+                            imageUrlData2.agreeData.indexOfPic = imageUrlData2.overAllIndex;
+                            imageUrlData2.commentNum = oo7Var.d();
+                            if (oo7Var.v()) {
+                                AgreeData agreeData3 = imageUrlData2.agreeData;
+                                agreeData3.objType = 3;
+                                agreeData3.isInThread = true;
+                                agreeData3.isInPost = false;
+                            } else {
+                                AgreeData agreeData4 = imageUrlData2.agreeData;
+                                agreeData4.objType = 1;
+                                agreeData4.isInThread = false;
+                                agreeData4.isInPost = true;
+                            }
+                            imageUrlData2.agreeData.cardType = this.f.G;
+                            imageUrlData2.agreeData.recomSource = this.f.H;
+                            imageUrlData2.agreeData.recomAbTag = this.f.I;
+                            imageUrlData2.agreeData.recomExtra = this.f.K;
+                            imageUrlData2.agreeData.recomWeight = this.f.J;
+                        }
+                        imageUrlData2.faceGroupInfoData = oo7Var.e();
+                        String str5 = imageUrlData2.id + "_" + oo7Var.l();
+                        if (!this.f.S.isEmpty() && this.f.S.contains(imageUrlData2.id) && this.f.b.containsKey(imageUrlData2.id)) {
+                            String str6 = (String) this.f.b.get(imageUrlData2.id);
+                            this.f.S.remove(imageUrlData2.id);
+                            this.f.a.remove(str6);
+                            this.f.b.remove(imageUrlData2.id);
+                            ImageUrlData imageUrlData3 = (ImageUrlData) this.f.c.get(str6);
+                            if (imageUrlData3 != null) {
+                                imageUrlData3.imageUrl = imageUrlData2.imageUrl;
+                                imageUrlData3.picId = imageUrlData2.picId;
+                                imageUrlData3.overAllIndex = imageUrlData2.overAllIndex;
+                                imageUrlData3.mIsShowOrigonButton = imageUrlData2.mIsShowOrigonButton;
+                                imageUrlData3.isLongPic = imageUrlData2.isLongPic;
+                                imageUrlData3.richTextArray = imageUrlData2.richTextArray;
+                                imageUrlData3.commentNum = imageUrlData2.commentNum;
+                                imageUrlData3.agreeData = imageUrlData2.agreeData;
+                                imageUrlData3.isFirstPost = imageUrlData2.isFirstPost;
+                                imageUrlData3.userId = imageUrlData2.userId;
+                                imageUrlData3.userNameShow = imageUrlData2.userNameShow;
+                                imageUrlData3.forumId = this.f.i;
+                                imageUrlData3.forumName = this.f.j;
+                                imageUrlData3.mHeigth = imageUrlData2.mHeigth;
+                                imageUrlData3.mWidth = imageUrlData2.mWidth;
+                                imageUrlData3.faceGroupInfoData = imageUrlData2.faceGroupInfoData;
+                                if (StringHelper.equals(imageUrlData2.id, this.f.B)) {
+                                    imageUrlData3.setSourceImageRectInScreen(this.f.z);
+                                }
+                            }
+                            this.f.c.remove(str6);
+                            this.f.c.put(str4, imageUrlData2);
+                            this.f.a.add(str4);
+                            this.f.b.put(str5, str4);
+                        } else if (this.f.b.containsKey(str5)) {
+                            String str7 = (String) this.f.b.get(str5);
+                            ImageUrlData imageUrlData4 = (ImageUrlData) this.f.c.get(str7);
+                            if (imageUrlData4 == null) {
+                                this.f.c.put(str7, imageUrlData2);
+                            } else {
+                                imageUrlData4.imageUrl = imageUrlData2.imageUrl;
+                                imageUrlData4.picId = imageUrlData2.picId;
+                                imageUrlData4.overAllIndex = imageUrlData2.overAllIndex;
+                                imageUrlData4.mIsShowOrigonButton = imageUrlData2.mIsShowOrigonButton;
+                                imageUrlData4.isLongPic = imageUrlData2.isLongPic;
+                                imageUrlData4.richTextArray = imageUrlData2.richTextArray;
+                                imageUrlData4.commentNum = imageUrlData2.commentNum;
+                                imageUrlData4.agreeData = imageUrlData2.agreeData;
+                                imageUrlData4.isFirstPost = imageUrlData2.isFirstPost;
+                                imageUrlData4.userId = imageUrlData2.userId;
+                                imageUrlData4.userNameShow = imageUrlData2.userNameShow;
+                                imageUrlData4.forumId = this.f.i;
+                                imageUrlData4.forumName = this.f.j;
+                                imageUrlData4.mHeigth = imageUrlData2.mHeigth;
+                                imageUrlData4.mWidth = imageUrlData2.mWidth;
+                                imageUrlData4.faceGroupInfoData = imageUrlData2.faceGroupInfoData;
+                                if (StringHelper.equals(imageUrlData2.id, this.f.B)) {
+                                    imageUrlData4.setSourceImageRectInScreen(this.f.z);
+                                }
+                            }
+                        } else {
+                            if (this.f.D) {
+                                no7 no7Var3 = this.f;
+                                no7Var3.p = no7Var3.c.size();
+                                str2 = null;
+                                this.f.t = null;
+                            } else {
+                                str2 = null;
+                                this.f.c.put(str4, imageUrlData2);
+                                if (this.f.x && i4 < this.f.a.size()) {
+                                    this.f.a.add(i4, str4);
+                                } else {
+                                    this.f.a.add(str4);
+                                }
+                                this.f.b.put(str5, str4);
+                            }
+                            i4++;
+                            isEmpty = z5;
+                            str3 = str2;
+                        }
+                        str2 = null;
+                        i4++;
+                        isEmpty = z5;
+                        str3 = str2;
+                    }
+                    imageUrlData = str3;
+                    z2 = isEmpty;
+                    oo7 oo7Var2 = (oo7) ListUtils.getItem(g, 0);
+                    if (oo7Var2 != null) {
+                        this.f.k = oo7Var2.g();
+                    }
+                    oo7 oo7Var3 = (oo7) ListUtils.getItem(g, size - 1);
+                    if (oo7Var3 != null) {
+                        this.f.l = oo7Var3.g();
+                        no7 no7Var4 = this.f;
+                        if (no7Var4.p == oo7Var3.l()) {
+                            z4 = true;
+                        } else {
+                            z4 = false;
+                        }
+                        no7Var4.m = z4;
+                    }
+                } else {
+                    imageUrlData = null;
+                    z2 = isEmpty;
+                    this.f.m = true;
+                }
+                ImageUrlData imageUrlData5 = imageUrlData;
+                for (ImageUrlData imageUrlData6 : this.f.c.values()) {
+                    if (imageUrlData6.agreeData == null) {
+                        long j = imageUrlData6.postId;
+                        if (imageUrlData5 == null) {
+                            for (ImageUrlData imageUrlData7 : this.f.c.values()) {
+                                if (imageUrlData7.postId == j && (agreeData = imageUrlData7.agreeData) != null) {
+                                    imageUrlData6.agreeData = agreeData;
+                                    imageUrlData6.richTextArray = imageUrlData7.richTextArray;
+                                    imageUrlData6.commentNum = imageUrlData7.commentNum;
+                                    imageUrlData6.userId = imageUrlData7.userId;
+                                    imageUrlData6.userNameShow = imageUrlData7.userNameShow;
+                                    imageUrlData6.faceGroupInfoData = imageUrlData7.faceGroupInfoData;
+                                    imageUrlData6.forumId = this.f.i;
+                                    imageUrlData6.forumName = this.f.j;
+                                    imageUrlData5 = imageUrlData7;
+                                }
+                            }
+                        } else if (j == imageUrlData5.postId) {
+                            imageUrlData6.agreeData = imageUrlData5.agreeData;
+                            imageUrlData6.richTextArray = imageUrlData5.richTextArray;
+                            imageUrlData6.commentNum = imageUrlData5.commentNum;
+                            imageUrlData6.userId = imageUrlData5.userId;
+                            imageUrlData6.userNameShow = imageUrlData5.userNameShow;
+                            imageUrlData6.faceGroupInfoData = imageUrlData5.faceGroupInfoData;
+                            imageUrlData6.forumId = this.f.i;
+                            imageUrlData6.forumName = this.f.j;
+                        }
+                    }
+                }
+                if (this.c == null) {
+                    this.f.g = this.b;
+                    z3 = true;
+                    i = 0;
+                } else {
+                    z3 = false;
+                    i = -1;
+                }
+                if (this.f.x) {
+                    if (this.f.b != null && !this.f.b.isEmpty()) {
+                        for (String str8 : this.f.b.keySet()) {
+                            if (!TextUtils.isEmpty(str8) && str8.contains(this.c)) {
+                                str = (String) this.f.b.get(str8);
+                                break;
+                            }
+                        }
+                    }
+                    str = imageUrlData;
+                    i2 = ListUtils.getPosition(this.f.a, str) - 1;
+                } else {
+                    i2 = i;
+                }
+                this.f.E = qo7Var.e();
+                this.f.F = qo7Var.k();
+                this.f.Q = qo7Var.f();
+                if (this.f.d == null) {
+                    this.f.d = new ArrayList();
+                    if (qo7Var.d() != null && qo7Var.g().size() > 0) {
+                        this.f.d.addAll(qo7Var.d());
+                    }
+                }
+                if (qo7Var.i() != null && !qo7Var.i().isEmpty()) {
+                    if (this.f.e == null) {
+                        this.f.e = new ArrayList();
                     } else {
-                        this.j.m(b);
-                        return;
+                        this.f.e.clear();
                     }
+                    this.f.e.addAll(qo7Var.i());
                 }
-                Activity activity = this.a;
-                BdToast.b(activity, activity.getText(R.string.share_qq_not_install)).k();
-            } else if (view2 == this.e) {
-                if (mw8.b(this.a, "com.tencent.mobileqq")) {
-                    if (c(b) && b.b() != null && b.b().contains(4)) {
-                        n45.f(b, this.a, 4, null);
-                        return;
-                    } else {
-                        this.j.n(b);
-                        return;
-                    }
+                if (this.f.s != null) {
+                    this.f.s.a(this.f.a, i2, this.f.p, false, null, z3, this.f.t, z2);
                 }
-                Activity activity2 = this.a;
-                BdToast.b(activity2, activity2.getText(R.string.share_qq_not_install)).k();
-            } else if (view2 == this.f) {
-                if (c(b) && b.b() != null && b.b().contains(3)) {
-                    n45.f(b, this.a, 3, null);
-                } else if (b.s0 != 1) {
-                    this.j.r(b);
-                }
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("obj_source", 22).param("tid", b.O).param("fid", b.N));
-            } else if (view2 == this.g) {
-                if (c(b) && b.b() != null && b.b().contains(2)) {
-                    n45.f(b, this.a, 2, null);
-                } else if (b.s0 != 1) {
-                    if (b.b) {
-                        b.w = "【" + b.v + "】 " + b.w;
-                    }
-                    this.j.s(b);
-                }
-            } else if (view2 == this.h && this.k.d != null) {
-                this.k.d.onClick(view2);
+                this.f.A = false;
             }
         }
     }
 
-    public no7(ImageViewerActivity imageViewerActivity) {
+    public no7(ArrayList<String> arrayList, Map<String, ImageUrlData> map, String str, String str2, String str3, String str4, String str5, String str6, String str7, int i, boolean z, int i2, String str8, String str9, String str10, String str11) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {imageViewerActivity};
+            Object[] objArr = {arrayList, map, str, str2, str3, str4, str5, str6, str7, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2), str8, str9, str10, str11};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds12);
-        this.f = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds34);
-        this.a = imageViewerActivity;
-        this.b = new b(this, imageViewerActivity);
-        this.c = new a(this);
+        this.b = new HashMap<>();
+        this.m = false;
+        this.n = true;
+        this.o = null;
+        this.p = 0;
+        this.q = false;
+        this.r = false;
+        this.s = null;
+        this.t = null;
+        this.x = false;
+        this.D = false;
+        this.S = new HashSet<>();
+        this.a = arrayList;
+        this.c = map;
+        if (arrayList == null) {
+            this.a = new ArrayList<>();
+        }
+        Iterator<String> it = this.a.iterator();
+        while (it.hasNext()) {
+            String next = it.next();
+            String a2 = mo7.a(next);
+            this.b.put(a2, next);
+            this.S.add(a2);
+        }
+        this.g = str3;
+        this.h = str4;
+        this.j = str2;
+        this.i = str;
+        this.l = str5;
+        this.w = i;
+        this.m = str5 == null;
+        this.u = str6;
+        this.v = str7;
+        this.A = z;
+        this.C = false;
+        this.G = i2;
+        this.H = str8;
+        this.I = str9;
+        this.J = str10;
+        this.K = str11;
     }
 
-    public final int e(String str) {
+    public void d0(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.f = str;
+        }
+    }
+
+    public void e0(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.B = str;
+        }
+    }
+
+    public void f0(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.r = z;
+        }
+    }
+
+    public void g0(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.D = z;
+        }
+    }
+
+    public void h0(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            this.C = z;
+        }
+    }
+
+    public void i0(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, bVar) == null) {
+            this.s = bVar;
+        }
+    }
+
+    public void k0(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+            this.n = z;
+        }
+    }
+
+    public void l0(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+            this.q = z;
+        }
+    }
+
+    public void m0(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
+            this.z = str;
+        }
+    }
+
+    public final String V(oo7 oo7Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if ("index".equals(str)) {
-                return 1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, oo7Var)) == null) {
+            if (oo7Var.b() != null && oo7Var.b().length() > 0) {
+                return oo7Var.b();
             }
-            if (ImageViewerConfig.FROM_CONCERN.equals(str)) {
-                return 2;
+            StringBuilder sb = new StringBuilder(150);
+            int threadImageMaxWidth = TbConfig.getThreadImageMaxWidth();
+            int i = threadImageMaxWidth * threadImageMaxWidth;
+            if (oo7Var.f() * oo7Var.t() > i) {
+                double sqrt = Math.sqrt(i / (oo7Var.f() * oo7Var.t()));
+                sb.append(BigImageLoaderProc.NCDN_PER);
+                sb.append(String.valueOf((int) (oo7Var.t() * sqrt)));
+                sb.append("&height=");
+                sb.append(String.valueOf((int) (oo7Var.f() * sqrt)));
+            } else {
+                sb.append(BigImageLoaderProc.NCDN_PER);
+                sb.append(String.valueOf(oo7Var.t()));
+                sb.append("&height=");
+                sb.append(String.valueOf(oo7Var.f()));
             }
-            if ("hot_topic".equals(str)) {
-                return 3;
-            }
-            if ("frs".equals(str)) {
-                return 4;
-            }
-            return 5;
+            sb.append("&src=");
+            sb.append(dj.getUrlEncode(oo7Var.h()));
+            return sb.toString();
         }
-        return invokeL.intValue;
+        return (String) invokeL.objValue;
     }
 
-    public void f() {
+    public ArrayList<AlaInfoData> W() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            b bVar = this.b;
-            if (bVar != null) {
-                bVar.e();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public String X() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.E;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public ArrayList<bp7> Y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public void Z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.x = false;
+            if (this.m) {
+                return;
             }
-            this.a = null;
-            this.d = null;
+            n0(this.g, this.l, 10, 0);
         }
     }
 
-    public void g(MultiImageView multiImageView, int i, View.OnClickListener onClickListener) {
-        b bVar;
-        String str;
-        String str2;
-        ImageUrlData imageUrlData;
+    public String b0() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, multiImageView, i, onClickListener) == null) && (bVar = this.b) != null && multiImageView != null) {
-            if (!bVar.isShowing()) {
-                dh.m(this.b, multiImageView, 81, 0, i + pi.b(this.a) + this.e);
-                int i2 = 5;
-                UrlDragImageView currentUrlDragImageView = multiImageView.getCurrentUrlDragImageView();
-                String str3 = "";
-                if (currentUrlDragImageView == null || (imageUrlData = currentUrlDragImageView.getmAssistUrlData()) == null) {
-                    str = "";
-                    str2 = str;
-                } else {
-                    String str4 = imageUrlData.threadId + "";
-                    str2 = imageUrlData.forumId + "";
-                    str3 = imageUrlData.postId + "";
-                    int e = e(imageUrlData.from);
-                    str = str4;
-                    i2 = e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.F;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int c0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.R;
+        }
+        return invokeV.intValue;
+    }
+
+    public void a0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.x = true;
+            String str = this.a.get(0);
+            if (StringUtils.isNull(this.k)) {
+                this.k = mo7.a(str);
+            }
+            n0(this.g, this.k, 0, 10);
+        }
+    }
+
+    public final void n0(String str, String str2, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLII(1048594, this, str, str2, i, i2) == null) {
+            a aVar = this.o;
+            if (aVar != null) {
+                if (str2 != null && str2.equals(aVar.d())) {
+                    return;
                 }
-                TiebaStatic.log(new StatisticItem("c14045").param("post_id", str3).param("tid", str).param("fid", str2).param("obj_source", i2));
+                this.o.cancel();
             }
-            this.b.f(multiImageView);
-            this.d = onClickListener;
-            bh.a().removeCallbacks(this.c);
-            bh.a().postDelayed(this.c, 5000L);
+            a aVar2 = new a(this, str, str2, i, i2);
+            this.o = aVar2;
+            aVar2.setPriority(3);
+            this.o.execute(new Object[0]);
         }
     }
 }

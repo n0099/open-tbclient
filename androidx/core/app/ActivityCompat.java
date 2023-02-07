@@ -5,6 +5,7 @@ import android.app.SharedElementCallback;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
+import android.content.LocusId;
 import android.content.pm.PackageManager;
 import android.graphics.Matrix;
 import android.graphics.RectF;
@@ -14,6 +15,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Parcelable;
+import android.text.TextUtils;
 import android.view.DragEvent;
 import android.view.View;
 import androidx.annotation.IdRes;
@@ -24,6 +26,7 @@ import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
 import androidx.core.app.SharedElementCallback;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.LocusIdCompat;
 import androidx.core.view.DragAndDropPermissionsCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -32,6 +35,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
@@ -56,6 +60,40 @@ public class ActivityCompat extends ContextCompat {
     /* loaded from: classes.dex */
     public interface RequestPermissionsRequestCodeValidator {
         void validateRequestPermissionsRequestCode(int i);
+    }
+
+    @RequiresApi(30)
+    /* loaded from: classes.dex */
+    public static class Api30Impl {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public Api30Impl() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public static void setLocusContext(@NonNull Activity activity, @Nullable LocusIdCompat locusIdCompat, @Nullable Bundle bundle) {
+            LocusId locusId;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(65537, null, activity, locusIdCompat, bundle) == null) {
+                if (locusIdCompat == null) {
+                    locusId = null;
+                } else {
+                    locusId = locusIdCompat.toLocusId();
+                }
+                activity.setLocusContext(locusId, bundle);
+            }
+        }
     }
 
     @RequiresApi(21)
@@ -243,14 +281,14 @@ public class ActivityCompat extends ContextCompat {
 
     public static void setPermissionCompatDelegate(@Nullable PermissionCompatDelegate permissionCompatDelegate) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65549, null, permissionCompatDelegate) == null) {
+        if (interceptable == null || interceptable.invokeL(65550, null, permissionCompatDelegate) == null) {
             sDelegate = permissionCompatDelegate;
         }
     }
 
     public static void startPostponedEnterTransition(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65553, null, activity) == null) && Build.VERSION.SDK_INT >= 21) {
+        if ((interceptable == null || interceptable.invokeL(65554, null, activity) == null) && Build.VERSION.SDK_INT >= 21) {
             activity.startPostponedEnterTransition();
         }
     }
@@ -377,7 +415,7 @@ public class ActivityCompat extends ContextCompat {
     public static boolean shouldShowRequestPermissionRationale(@NonNull Activity activity, @NonNull String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, activity, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, activity, str)) == null) {
             if (Build.VERSION.SDK_INT >= 23) {
                 return activity.shouldShowRequestPermissionRationale(str);
             }
@@ -392,6 +430,11 @@ public class ActivityCompat extends ContextCompat {
             PermissionCompatDelegate permissionCompatDelegate = sDelegate;
             if (permissionCompatDelegate != null && permissionCompatDelegate.requestPermissions(activity, strArr, i)) {
                 return;
+            }
+            for (String str : strArr) {
+                if (TextUtils.isEmpty(str)) {
+                    throw new IllegalArgumentException("Permission request for permissions " + Arrays.toString(strArr) + " must not contain null or empty values");
+                }
             }
             if (Build.VERSION.SDK_INT >= 23) {
                 if (activity instanceof RequestPermissionsRequestCodeValidator) {
@@ -445,9 +488,16 @@ public class ActivityCompat extends ContextCompat {
         }
     }
 
+    public static void setLocusContext(@NonNull Activity activity, @Nullable LocusIdCompat locusIdCompat, @Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65549, null, activity, locusIdCompat, bundle) == null) && Build.VERSION.SDK_INT >= 30) {
+            Api30Impl.setLocusContext(activity, locusIdCompat, bundle);
+        }
+    }
+
     public static void startActivityForResult(@NonNull Activity activity, @NonNull Intent intent, int i, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65551, null, activity, intent, i, bundle) == null) {
+        if (interceptable == null || interceptable.invokeLLIL(65552, null, activity, intent, i, bundle) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
                 activity.startActivityForResult(intent, i, bundle);
             } else {
@@ -458,7 +508,7 @@ public class ActivityCompat extends ContextCompat {
 
     public static void startIntentSenderForResult(@NonNull Activity activity, @NonNull IntentSender intentSender, int i, @Nullable Intent intent, int i2, int i3, int i4, @Nullable Bundle bundle) throws IntentSender.SendIntentException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65552, null, new Object[]{activity, intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bundle}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65553, null, new Object[]{activity, intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bundle}) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
                 activity.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4, bundle);
             } else {

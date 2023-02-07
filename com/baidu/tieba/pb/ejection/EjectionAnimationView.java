@@ -13,10 +13,10 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.oa8;
+import com.baidu.tieba.pa8;
 import com.baidu.tieba.pb.ejection.value.LifeCycleState;
-import com.baidu.tieba.u58;
-import com.baidu.tieba.v58;
-import com.baidu.tieba.x58;
+import com.baidu.tieba.ra8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -38,9 +38,9 @@ public class EjectionAnimationView extends View {
     public boolean f;
     public int g;
     public int h;
-    public ArrayList<u58> i;
+    public ArrayList<oa8> i;
     public List<Bitmap> j;
-    public x58 k;
+    public ra8 k;
     public Vibrator l;
 
     /* loaded from: classes5.dex */
@@ -177,13 +177,13 @@ public class EjectionAnimationView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, canvas) == null) {
             super.onDraw(canvas);
-            ArrayList<u58> arrayList = this.i;
+            ArrayList<oa8> arrayList = this.i;
             if (arrayList == null) {
                 return;
             }
-            Iterator<u58> it = arrayList.iterator();
+            Iterator<oa8> it = arrayList.iterator();
             while (it.hasNext()) {
-                u58 next = it.next();
+                oa8 next = it.next();
                 if (next.v == LifeCycleState.ACTIVE) {
                     next.b(canvas);
                 }
@@ -198,10 +198,10 @@ public class EjectionAnimationView extends View {
         }
     }
 
-    public void setEjectionAnimationViewCallback(x58 x58Var) {
+    public void setEjectionAnimationViewCallback(ra8 ra8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, x58Var) == null) {
-            this.k = x58Var;
+        if (interceptable == null || interceptable.invokeL(1048588, this, ra8Var) == null) {
+            this.k = ra8Var;
         }
     }
 
@@ -217,7 +217,7 @@ public class EjectionAnimationView extends View {
         Bitmap bitmap;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.e && !ListUtils.isEmpty(this.j) && (bitmap = this.j.get(new Random().nextInt(this.j.size()))) != null && !bitmap.isRecycled()) {
-            this.i.add(new v58(bitmap, this.g, this.h, this.b, this.c));
+            this.i.add(new pa8(bitmap, this.g, this.h, this.b, this.c));
         }
     }
 
@@ -228,9 +228,9 @@ public class EjectionAnimationView extends View {
             this.i = new ArrayList<>();
             this.e = true;
             this.d = 1;
-            x58 x58Var = this.k;
-            if (x58Var != null) {
-                x58Var.onStart();
+            ra8 ra8Var = this.k;
+            if (ra8Var != null) {
+                ra8Var.onStart();
             }
             this.a.sendEmptyMessage(0);
             Vibrator vibrator = this.l;
@@ -244,9 +244,9 @@ public class EjectionAnimationView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.f = true;
-            Iterator<u58> it = this.i.iterator();
+            Iterator<oa8> it = this.i.iterator();
             while (it.hasNext()) {
-                u58 next = it.next();
+                oa8 next = it.next();
                 if (next.v == LifeCycleState.ACTIVE) {
                     this.f = false;
                     next.a();
@@ -275,9 +275,9 @@ public class EjectionAnimationView extends View {
             this.d = 1;
             this.i = new ArrayList<>();
             this.a.removeMessages(0);
-            x58 x58Var = this.k;
-            if (x58Var != null) {
-                x58Var.onStop();
+            ra8 ra8Var = this.k;
+            if (ra8Var != null) {
+                ra8Var.onStop();
             }
             Vibrator vibrator = this.l;
             if (vibrator != null) {

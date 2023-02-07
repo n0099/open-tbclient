@@ -1,1336 +1,1271 @@
 package com.baidu.tieba;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.text.TextUtils;
+import android.view.View;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import androidx.fragment.app.FragmentManager;
+import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.LiveFeedPageSdk;
-import com.baidu.live.business.model.data.LeftLableInfo;
+import com.baidu.live.business.LiveTabFeedView;
+import com.baidu.live.business.base.LiveBaseFragment;
+import com.baidu.live.business.listener.LiveFeedBannerListener;
+import com.baidu.live.business.listener.LiveFeedFollowListener;
+import com.baidu.live.business.listener.LiveFeedToolListener;
+import com.baidu.live.business.listener.TabFeedActionListener;
+import com.baidu.live.business.model.ILiveFeedModel;
+import com.baidu.live.business.model.LiveFeedModel;
+import com.baidu.live.business.model.data.LiveBannerEntity;
+import com.baidu.live.business.model.data.LiveBannerWrapData;
+import com.baidu.live.business.model.data.LiveFeedConfig;
+import com.baidu.live.business.model.data.LiveFeedData;
+import com.baidu.live.business.model.data.LiveFeedToolWrapData;
+import com.baidu.live.business.model.data.LiveFeedWrapData;
+import com.baidu.live.business.model.data.LiveFollowEntity;
+import com.baidu.live.business.model.data.LiveFollowWrapData;
+import com.baidu.live.business.model.data.LiveHostInfo;
 import com.baidu.live.business.model.data.LiveRoomEntity;
-import com.baidu.live.business.model.data.LiveSearchResultInfo;
-import com.baidu.live.business.model.data.LiveStatInfo;
-import com.baidu.live.business.model.data.RightLableInfo;
-import com.baidu.live.business.model.data.ThirdLabelInfo;
-import com.baidu.live.business.util.GrParasmUtil;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.searchbox.live.shell.list.basic.MixYYFakeShell;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.live.business.model.data.LiveTabWrapData;
+import com.baidu.live.business.view.smarttab.SmartTabLayout;
+import com.baidu.live.feedfollow.view.LiveFeedFollowView;
+import com.baidu.live.feedpage.interfaces.ILiveFeedOther;
+import com.baidu.live.feedpage.interfaces.ILiveFeedRefresh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.Flow;
-import com.baidu.ubc.UBCManager;
-import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.bumptech.glide.load.engine.GlideException;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class ca0 {
+public class ca0 implements bc0<da0> {
     public static /* synthetic */ Interceptable $ic;
-    public static final UBCManager a;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean A;
+    public final BroadcastReceiver B;
+    public final String a;
+    public final int b;
+    public Context c;
+    public FragmentManager d;
+    public LiveTabFeedView e;
+    public LiveFeedModel f;
+    public String g;
+    public String h;
+    public LiveFeedConfig i;
+    public boolean j;
+    public boolean k;
+    public h l;
+    public boolean m;
+    public boolean n;
+    public boolean o;
+    public boolean p;
+    public String q;
+    public String r;
+    public boolean s;
+    public Flow t;
+    public Flow u;
+    public Flow v;
+    public ILiveFeedRefresh.OnRefreshListener w;
+    public ILiveFeedModel.OnDataLoadCallback x;
+    public boolean y;
+    public String z;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947667895, "Lcom/baidu/tieba/ca0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes4.dex */
+    public class a implements ILiveFeedModel.OnDataLoadCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ca0 a;
+
+        public a(ca0 ca0Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ca0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947667895, "Lcom/baidu/tieba/ca0;");
+            this.a = ca0Var;
+        }
+
+        @Override // com.baidu.live.business.model.ILiveFeedModel.OnDataLoadCallback
+        public void onFail(int i, String str, Map<String, String> map) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeILL(1048576, this, i, str, map) == null) && map != null && !TextUtils.isEmpty(map.get("resource")) && TextUtils.equals(this.a.g, map.get("resource"))) {
+                LiveFeedData liveFeedData = new LiveFeedData();
+                liveFeedData.getDataByCache(i, str, true, true);
+                this.a.y(liveFeedData);
+            }
+        }
+
+        @Override // com.baidu.live.business.model.ILiveFeedModel.OnDataLoadCallback
+        public void onSuccess(LiveFeedData liveFeedData, Map<String, String> map) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, liveFeedData, map) == null) {
+                if (liveFeedData == null) {
+                    onFail(-100, "数据解析失败", map);
+                } else if (this.a.f.getFollowResource().equals(liveFeedData.resource)) {
+                    this.a.G(liveFeedData.followWrapData);
+                } else {
+                    this.a.y(liveFeedData);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements TabFeedActionListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ca0 a;
+
+        public b(ca0 ca0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ca0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ca0Var;
+        }
+
+        @Override // com.baidu.live.business.listener.TabFeedActionListener
+        public void onSearchShowing(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeZ(1048579, this, z) != null) {
+                return;
+            }
+            this.a.H(z);
+        }
+
+        @Override // com.baidu.live.business.listener.TabFeedActionListener
+        public void onClickErrorRefresh() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.h0();
+            }
+        }
+
+        @Override // com.baidu.live.business.listener.TabFeedActionListener
+        public void onClickSearch() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.c0();
+            }
+        }
+
+        @Override // com.baidu.live.business.listener.TabFeedActionListener
+        public void onClickStartLive(View view2, TextView textView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, textView) != null) {
+                return;
+            }
+            this.a.I(view2, textView);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c implements LiveFeedBannerListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ca0 a;
+
+        public c(ca0 ca0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ca0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ca0Var;
+        }
+
+        @Override // com.baidu.live.business.listener.LiveFeedBannerListener
+        public void onBannerShow(@NonNull LiveBannerEntity liveBannerEntity) {
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, liveBannerEntity) == null) {
+                LiveHostInfo liveHostInfo = liveBannerEntity.hostInfo;
+                if (liveHostInfo == null) {
+                    str = "";
+                } else {
+                    str = liveHostInfo.uk;
+                }
+                ia0.g(this.a.c, this.a.a, liveBannerEntity.position, liveBannerEntity.roomId, liveBannerEntity.nid, liveBannerEntity.bannerType, str, ia0.n(this.a.h), liveBannerEntity.materialId, liveBannerEntity.statInfo);
+            }
+        }
+
+        @Override // com.baidu.live.business.listener.LiveFeedBannerListener
+        public void onClickBanner(@Nullable LiveBannerEntity liveBannerEntity) {
+            LiveBannerEntity.BannerCmdInfo bannerCmdInfo;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, liveBannerEntity) == null) {
+                if (liveBannerEntity != null && (bannerCmdInfo = liveBannerEntity.cmdInfo) != null && !tc0.a(bannerCmdInfo.action)) {
+                    LiveHostInfo liveHostInfo = liveBannerEntity.hostInfo;
+                    if (liveHostInfo == null) {
+                        str = "";
+                    } else {
+                        str = liveHostInfo.uk;
+                    }
+                    ia0.f(this.a.c, this.a.a, liveBannerEntity.position, liveBannerEntity.roomId, liveBannerEntity.nid, liveBannerEntity.bannerType, str, ia0.n(this.a.h), liveBannerEntity.materialId, liveBannerEntity.statInfo);
+                    LiveFeedPageSdk.getInstance().getInvoker().invokeScheme(this.a.c, liveBannerEntity.cmdInfo.action);
+                    return;
+                }
+                LiveFeedPageSdk.getInstance().getInvoker().showToast(this.a.c, this.a.c.getResources().getString(R.string.obfuscated_res_0x7f0f0aa9));
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class d implements LiveFeedFollowListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ca0 a;
+
+        public d(ca0 ca0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ca0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ca0Var;
+        }
+
+        @Override // com.baidu.live.business.listener.LiveFeedFollowListener
+        public void onClickFollow(@NonNull LiveFollowEntity liveFollowEntity, int i) {
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, liveFollowEntity, i) == null) {
+                String n = ia0.n(this.a.h);
+                if (liveFollowEntity.isMore) {
+                    if (liveFollowEntity.cmd != null) {
+                        LiveFeedPageSdk.getInstance().getInvoker().invokeScheme(this.a.c, liveFollowEntity.cmd);
+                    }
+                    ia0.k(this.a.c, this.a.a, n);
+                    return;
+                }
+                LiveFeedPageSdk.getInstance().getInvoker().invokeScheme(this.a.c, liveFollowEntity.cmd);
+                LiveHostInfo liveHostInfo = liveFollowEntity.hostInfo;
+                if (liveHostInfo == null) {
+                    str = "";
+                } else {
+                    str = liveHostInfo.uk;
+                }
+                ia0.i(this.a.c, this.a.a, str, n, i + 1, liveFollowEntity.roomId, liveFollowEntity.nid, liveFollowEntity.statInfo);
+            }
+        }
+
+        @Override // com.baidu.live.business.listener.LiveFeedFollowListener
+        public void onFollowShow(@NonNull LiveFollowEntity liveFollowEntity, int i) {
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, liveFollowEntity, i) == null) {
+                String n = ia0.n(this.a.h);
+                if (liveFollowEntity.isMore) {
+                    ia0.l(this.a.c, this.a.a, n);
+                    return;
+                }
+                LiveHostInfo liveHostInfo = liveFollowEntity.hostInfo;
+                if (liveHostInfo == null) {
+                    str = "";
+                } else {
+                    str = liveHostInfo.uk;
+                }
+                ia0.j(this.a.c, this.a.a, str, n, i + 1, liveFollowEntity.roomId, liveFollowEntity.nid, liveFollowEntity.statInfo);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class e implements LiveBaseFragment.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ca0 a;
+
+        public e(ca0 ca0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ca0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ca0Var;
+        }
+
+        @Override // com.baidu.live.business.base.LiveBaseFragment.a
+        public void onFeedReserveHeaderItemClick(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+                ia0.x(this.a.c, this.a.h, this.a.a, Boolean.FALSE, str);
+            }
+        }
+
+        @Override // com.baidu.live.business.base.LiveBaseFragment.a
+        public void onShowToast(String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048586, this, str) == null) && LiveFeedPageSdk.getInstance().getInvoker() != null) {
+                LiveFeedPageSdk.getInstance().getInvoker().showToast(this.a.c, str);
+            }
+        }
+
+        @Override // com.baidu.live.business.base.LiveBaseFragment.a
+        public void onBannerItemClick(LiveBannerEntity liveBannerEntity) {
+            LiveBannerEntity.BannerCmdInfo bannerCmdInfo;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, liveBannerEntity) == null) {
+                if (liveBannerEntity != null && (bannerCmdInfo = liveBannerEntity.cmdInfo) != null && !tc0.a(bannerCmdInfo.action)) {
+                    LiveHostInfo liveHostInfo = liveBannerEntity.hostInfo;
+                    if (liveHostInfo == null) {
+                        str = "";
+                    } else {
+                        str = liveHostInfo.uk;
+                    }
+                    ia0.f(this.a.c, this.a.a, liveBannerEntity.position, liveBannerEntity.roomId, liveBannerEntity.nid, liveBannerEntity.bannerType, str, ia0.n(this.a.h), liveBannerEntity.materialId, liveBannerEntity.statInfo);
+                    LiveFeedPageSdk.getInstance().getInvoker().invokeScheme(this.a.c, liveBannerEntity.cmdInfo.action);
+                    return;
+                }
+                LiveFeedPageSdk.getInstance().getInvoker().showToast(this.a.c, this.a.c.getResources().getString(R.string.obfuscated_res_0x7f0f0aa9));
+            }
+        }
+
+        @Override // com.baidu.live.business.base.LiveBaseFragment.a
+        public void onBannerItemShow(LiveBannerEntity liveBannerEntity) {
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, liveBannerEntity) == null) {
+                LiveHostInfo liveHostInfo = liveBannerEntity.hostInfo;
+                if (liveHostInfo == null) {
+                    str = "";
+                } else {
+                    str = liveHostInfo.uk;
+                }
+                ia0.g(this.a.c, this.a.a, liveBannerEntity.position, liveBannerEntity.roomId, liveBannerEntity.nid, liveBannerEntity.bannerType, str, ia0.n(this.a.h), liveBannerEntity.materialId, liveBannerEntity.statInfo);
+            }
+        }
+
+        @Override // com.baidu.live.business.base.LiveBaseFragment.a
+        public void onClickFeedItemRoom(LiveRoomEntity liveRoomEntity, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, liveRoomEntity, i) == null) {
+                String a = ra0.a(liveRoomEntity);
+                LiveFeedPageSdk.liveLog("FeedItemClick: position: $position  scheme: $scheme");
+                if (LiveFeedPageSdk.getInstance().getInvoker() != null) {
+                    LiveFeedPageSdk.getInstance().getInvoker().invokeScheme(this.a.c, a);
+                }
+                ia0.q(this.a.h, this.a.a, Boolean.FALSE, liveRoomEntity, this.a.c, i);
+            }
+        }
+
+        @Override // com.baidu.live.business.base.LiveBaseFragment.a
+        public void onFeedStabilityLog(LiveFeedWrapData liveFeedWrapData, int i) {
+            int size;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048581, this, liveFeedWrapData, i) == null) {
+                if (qc0.c(liveFeedWrapData.roomInfoList)) {
+                    size = 0;
+                } else {
+                    size = liveFeedWrapData.roomInfoList.size();
+                }
+                ia0.h(this.a.c, this.a.a, ia0.n(this.a.h), liveFeedWrapData.errCode, liveFeedWrapData.errMsg, liveFeedWrapData.tab, liveFeedWrapData.subTab, liveFeedWrapData.sessionId, size, i, liveFeedWrapData.refreshType, liveFeedWrapData.refreshIndex);
+            }
+        }
+
+        @Override // com.baidu.live.business.base.LiveBaseFragment.a
+        public void onTabPageShowLog(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048589, this, str, str2) == null) {
+                ca0 ca0Var = this.a;
+                ca0Var.t = ia0.s(ca0Var.c, true, this.a.a, ia0.n(this.a.h), str, str2, null);
+                LiveFeedPageSdk.liveLog("LivePageLog onShowLog  " + str + GlideException.IndentedAppendable.INDENT + str2 + "   " + this.a.t.hashCode());
+            }
+        }
+
+        @Override // com.baidu.live.business.base.LiveBaseFragment.a
+        public void onFeedItemRoomShow(LiveRoomEntity liveRoomEntity, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048579, this, liveRoomEntity, i) == null) {
+                ia0.q(this.a.h, this.a.a, Boolean.TRUE, liveRoomEntity, this.a.c, i);
+            }
+        }
+
+        @Override // com.baidu.live.business.base.LiveBaseFragment.a
+        public void onSlideLoadMore(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) {
+                ia0.C(this.a.c, this.a.a, ia0.n(this.a.h), str, str2);
+            }
+        }
+
+        @Override // com.baidu.live.business.base.LiveBaseFragment.a
+        public void onHitCache(String str, String str2, String str3, String str4, String str5, int i, LiveFeedWrapData liveFeedWrapData, LiveFeedWrapData liveFeedWrapData2) {
+            int i2;
+            int i3;
+            String str6;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, str2, str3, str4, str5, Integer.valueOf(i), liveFeedWrapData, liveFeedWrapData2}) == null) && liveFeedWrapData.isCacheData) {
+                if (i == -101) {
+                    i2 = 1;
+                } else if (liveFeedWrapData2 != null && liveFeedWrapData2.errCode != 0) {
+                    i2 = 3;
+                } else {
+                    i2 = 2;
+                }
+                Context context = this.a.c;
+                String str7 = this.a.a;
+                String n = ia0.n(this.a.h);
+                if (liveFeedWrapData2 == null) {
+                    i3 = -100;
+                } else {
+                    i3 = liveFeedWrapData2.errCode;
+                }
+                if (liveFeedWrapData2 == null) {
+                    str6 = "";
+                } else {
+                    str6 = liveFeedWrapData2.errMsg;
+                }
+                ia0.r(context, str7, n, i3, str6, str4, str5, str, str2, str3, i2, "feed", liveFeedWrapData.cacheTime, System.currentTimeMillis(), 1);
+            }
+        }
+
+        @Override // com.baidu.live.business.base.LiveBaseFragment.a
+        public void onItemLabelClickListener(String str, int i, LiveRoomEntity liveRoomEntity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048583, this, str, i, liveRoomEntity) == null) {
+                ia0.B(this.a.c, this.a.a, ia0.n(this.a.h), i, liveRoomEntity);
+                if (LiveFeedPageSdk.getInstance().getInvoker() != null) {
+                    LiveFeedPageSdk.getInstance().getInvoker().invokeScheme(this.a.c, str);
+                }
+            }
+        }
+
+        @Override // com.baidu.live.business.base.LiveBaseFragment.a
+        public void onItemPlayerEnd(int i, String str, String str2, int i2, LiveRoomEntity liveRoomEntity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), str, str2, Integer.valueOf(i2), liveRoomEntity}) == null) {
+                if (i == 1) {
+                    if (this.a.u != null && liveRoomEntity != null) {
+                        ia0.v(this.a.c, false, this.a.a, ia0.n(this.a.h), i2, str, str2, liveRoomEntity, this.a.u);
+                        this.a.u = null;
+                    }
+                } else if (i == 2 && this.a.v != null && liveRoomEntity != null) {
+                    ia0.v(this.a.c, false, this.a.a, ia0.n(this.a.h), i2, str, str2, liveRoomEntity, this.a.v);
+                    this.a.v = null;
+                }
+            }
+        }
+
+        @Override // com.baidu.live.business.base.LiveBaseFragment.a
+        public void onItemPlayerStart(int i, String str, String str2, int i2, LiveRoomEntity liveRoomEntity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), str, str2, Integer.valueOf(i2), liveRoomEntity}) == null) {
+                if (i == 1) {
+                    ca0 ca0Var = this.a;
+                    ca0Var.u = ia0.v(ca0Var.c, true, this.a.a, ia0.n(this.a.h), i2, str, str2, liveRoomEntity, null);
+                } else if (i == 2) {
+                    ca0 ca0Var2 = this.a;
+                    ca0Var2.v = ia0.v(ca0Var2.c, true, this.a.a, ia0.n(this.a.h), i2, str, str2, liveRoomEntity, null);
+                }
+            }
+        }
+
+        @Override // com.baidu.live.business.base.LiveBaseFragment.a
+        public void onTabPageHideLog(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) && this.a.t != null) {
+                LiveFeedPageSdk.liveLog("LivePageLog onHintLog  " + str + GlideException.IndentedAppendable.INDENT + str2 + "   " + this.a.t.hashCode());
+                ia0.s(this.a.c, false, this.a.a, ia0.n(this.a.h), str, str2, this.a.t);
+                this.a.t = null;
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class f implements LiveFeedToolListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ca0 a;
+
+        public f(ca0 ca0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ca0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ca0Var;
+        }
+
+        @Override // com.baidu.live.business.listener.LiveFeedToolListener
+        public void onItemClick(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                ia0.A(this.a.c, this.a.h, this.a.a, Boolean.FALSE, str);
+            }
+        }
+
+        @Override // com.baidu.live.business.listener.LiveFeedToolListener
+        public void onItemShow(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                ia0.A(this.a.c, this.a.h, this.a.a, Boolean.TRUE, str);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class g extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ca0 this$0;
+
+        public g(ca0 ca0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ca0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = ca0Var;
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+                this.this$0.R();
+                boolean f = oa0.f(context);
+                if (!f || this.this$0.o) {
+                    this.this$0.o = f;
+                    return;
+                }
+                this.this$0.o = true;
+                if (this.this$0.m) {
+                    LiveFeedPageSdk.liveLog("网络变化: Tab 可用，Feed 刷新");
+                    this.this$0.V();
+                    return;
+                }
+                LiveFeedPageSdk.liveLog("网络变化: 全页面刷新");
+                this.this$0.Q();
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class h {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+        public long b;
+
+        public h() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = LiveFeedPageSdk.REFRESH_TIME;
+        }
+
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.b = System.currentTimeMillis();
+            }
+        }
+
+        public /* synthetic */ h(a aVar) {
+            this();
+        }
+
+        public void b(long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) != null) || j <= 0) {
+                return;
+            }
+            this.a = j;
+        }
+
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                LiveFeedPageSdk.liveLog("onShow   " + (System.currentTimeMillis() - this.b));
+                if (System.currentTimeMillis() - this.b > this.a) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    public ca0(Context context, int i, FragmentManager fragmentManager, String str, String str2, boolean z, String str3, String str4, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i), fragmentManager, str, str2, Boolean.valueOf(z), str3, str4, Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+        this.k = true;
+        this.l = new h(null);
+        this.x = new a(this);
+        this.A = false;
+        this.B = new g(this);
+        this.c = context;
+        this.a = str2;
+        this.d = fragmentManager;
+        this.h = str;
+        this.q = str3;
+        this.r = str4;
+        this.s = z2;
+        this.p = z;
+        this.l.b = System.currentTimeMillis();
+        LiveFeedPageSdk.IMMERSION.equals(this.h);
+        this.b = i;
+        ec0.a().d(this, ea0.class, this);
+        ec0.a().d(this, ga0.class, this);
+        ec0.a().d(this, fa0.class, this);
+        ec0.a().d(this, ha0.class, this);
+        O();
+        LiveFeedModel liveFeedModel = new LiveFeedModel(this.h, this.a);
+        this.f = liveFeedModel;
+        this.e.setFeedModel(liveFeedModel);
+        this.g = this.f.getInitResource();
+        this.e.F(this.h, this.p, this.b, this.d, this.q, this.r);
     }
 
-    public static void A(Context context, String str, String str2, Boolean bool, String str3) {
+    public final void G(LiveFollowWrapData liveFollowWrapData) {
+        boolean z;
+        LiveFeedConfig.AbSwitchConfig abSwitchConfig;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65537, null, context, str, str2, bool, str3) == null) {
-            z(context, str2, n(str), bool.booleanValue(), str3);
-        }
-    }
-
-    public static void x(Context context, String str, String str2, Boolean bool, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65581, null, context, str, str2, bool, str3) == null) {
-            w(context, str2, n(str), bool.booleanValue(), str3);
-        }
-    }
-
-    public static void B(Context context, String str, String str2, int i, LiveRoomEntity liveRoomEntity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, str, str2, Integer.valueOf(i), liveRoomEntity}) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", "clk");
-                a(str, jSONObject);
-                JSONObject jSONObject2 = new JSONObject();
-                b(context, str2, jSONObject2);
-                jSONObject2.put("pos", i);
-                if (liveRoomEntity != null) {
-                    JSONObject jSONObject3 = new JSONObject();
-                    String str3 = liveRoomEntity.grExt;
-                    if (!TextUtils.isEmpty(str3)) {
-                        jSONObject3.put("gr_ext", new JSONObject(str3));
-                    }
-                    jSONObject2.put("ext", jSONObject3);
-                    jSONObject2.put("topic_id", liveRoomEntity.getTopicId());
-                }
-                jSONObject.put("ext", jSONObject2);
-            } catch (JSONException e) {
-                LiveFeedPageSdk.liveLog(e.getMessage());
-            }
-            LiveFeedPageSdk.liveLog("grLog clk      " + jSONObject.toString());
-            a.onEvent("5635", jSONObject.toString());
-        }
-    }
-
-    public static void C(Context context, String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65539, null, context, str, str2, str3, str4) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", "show");
-                a(str, jSONObject);
-                JSONObject jSONObject2 = new JSONObject();
-                b(context, str2, jSONObject2);
-                if (!TextUtils.isEmpty(str3)) {
-                    jSONObject2.put("erjitab", str3);
-                }
-                if (!TextUtils.isEmpty(str4)) {
-                    jSONObject2.put("sanjitab", str4);
-                }
-                jSONObject.put("ext", jSONObject2.toString());
-            } catch (JSONException e) {
-                LiveFeedPageSdk.liveLog(e.getMessage());
-            }
-            a.onEvent("3326", jSONObject.toString());
-        }
-    }
-
-    public static void D(Context context, LiveSearchResultInfo liveSearchResultInfo, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, liveSearchResultInfo, str, str2) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", str2);
-                jSONObject.put("from", "liveshow");
-                jSONObject.put("page", "neisou_page");
-                jSONObject.put("source", "yijitabzhibo");
-                JSONObject jSONObject2 = new JSONObject();
-                b(context, null, jSONObject2);
-                jSONObject2.put("pos", str);
-                e(liveSearchResultInfo.statInfo, jSONObject2);
-                jSONObject2.put("bduid", liveSearchResultInfo.uk);
-                jSONObject2.put(MixYYFakeShell.ROOM_ID_YY, liveSearchResultInfo.roomId);
-                jSONObject2.put("nid", liveSearchResultInfo.feedId);
-                jSONObject2.put("status", "live");
-                jSONObject.put("ext", jSONObject2.toString());
-            } catch (JSONException e) {
-                LiveFeedPageSdk.liveLog(e.getMessage());
-            }
-            if (str2.equals("show")) {
-                a.onEvent("5142", jSONObject.toString());
-            }
-            if (str2.equals("clk")) {
-                a.onEvent("5143", jSONObject.toString());
-            }
-        }
-    }
-
-    public static void E(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, context) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", "clk");
-                jSONObject.put("from", "liveshow");
-                jSONObject.put("page", "neisou_page");
-                jSONObject.put("source", "yijitabzhibo");
-                JSONObject jSONObject2 = new JSONObject();
-                b(context, null, jSONObject2);
-                jSONObject.put("ext", jSONObject2.toString());
-            } catch (JSONException e) {
-                LiveFeedPageSdk.liveLog(e.getMessage());
-            }
-            a.onEvent("4788", jSONObject.toString());
-        }
-    }
-
-    public static void G(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, context) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", "clk");
-                jSONObject.put("from", "liveshow");
-                jSONObject.put("page", "main_page");
-                jSONObject.put("source", "yijitabzhibo");
-                JSONObject jSONObject2 = new JSONObject();
-                b(context, null, jSONObject2);
-                jSONObject.put("ext", jSONObject2.toString());
-            } catch (JSONException e) {
-                LiveFeedPageSdk.liveLog(e.getMessage());
-            }
-            a.onEvent("4792", jSONObject.toString());
-        }
-    }
-
-    public static void H(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, context) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", "show");
-                jSONObject.put("from", "liveshow");
-                jSONObject.put("page", "main_page");
-                jSONObject.put("source", "yijitabzhibo");
-                JSONObject jSONObject2 = new JSONObject();
-                b(context, null, jSONObject2);
-                jSONObject.put("ext", jSONObject2.toString());
-            } catch (JSONException e) {
-                LiveFeedPageSdk.liveLog(e.getMessage());
-            }
-            a.onEvent("4793", jSONObject.toString());
-        }
-    }
-
-    public static void K(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65547, null, context) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", "show");
-                jSONObject.put("from", "liveshow");
-                jSONObject.put("page", "neisou_page");
-                jSONObject.put("source", "yijitabzhibo");
-                JSONObject jSONObject2 = new JSONObject();
-                b(context, null, jSONObject2);
-                jSONObject.put("ext", jSONObject2.toString());
-            } catch (JSONException e) {
-                LiveFeedPageSdk.liveLog(e.getMessage());
-            }
-            a.onEvent("5120", jSONObject.toString());
-        }
-    }
-
-    public static void L(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, null, context) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", "show");
-                jSONObject.put("from", "liveshow");
-                jSONObject.put("page", "neisou_page");
-                jSONObject.put("source", "yijitabzhibo");
-                JSONObject jSONObject2 = new JSONObject();
-                b(context, null, jSONObject2);
-                jSONObject.put("ext", jSONObject2.toString());
-            } catch (JSONException e) {
-                LiveFeedPageSdk.liveLog(e.getMessage());
-            }
-            a.onEvent("4791", jSONObject.toString());
-        }
-    }
-
-    public static void M(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65549, null, context) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", "clk");
-                jSONObject.put("from", "liveshow");
-                jSONObject.put("page", "neisou_page");
-                jSONObject.put("source", "yijitabzhibo");
-                JSONObject jSONObject2 = new JSONObject();
-                b(context, null, jSONObject2);
-                jSONObject.put("ext", jSONObject2.toString());
-            } catch (JSONException e) {
-                LiveFeedPageSdk.liveLog(e.getMessage());
-            }
-            a.onEvent("4789", jSONObject.toString());
-        }
-    }
-
-    public static void N(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65550, null, context) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", "show");
-                jSONObject.put("from", "liveshow");
-                jSONObject.put("page", "neisou_page");
-                jSONObject.put("source", "yijitabzhibo");
-                JSONObject jSONObject2 = new JSONObject();
-                b(context, null, jSONObject2);
-                jSONObject.put("ext", jSONObject2.toString());
-            } catch (JSONException e) {
-                LiveFeedPageSdk.liveLog(e.getMessage());
-            }
-            a.onEvent("4790", jSONObject.toString());
-        }
-    }
-
-    public static void R(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65554, null, context) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", "show");
-                jSONObject.put("from", "liveshow");
-                jSONObject.put("page", "neisou_page");
-                jSONObject.put("source", "yijitabzhibo");
-                JSONObject jSONObject2 = new JSONObject();
-                b(context, null, jSONObject2);
-                jSONObject.put("ext", jSONObject2.toString());
-            } catch (JSONException e) {
-                LiveFeedPageSdk.liveLog(e.getMessage());
-            }
-            a.onEvent("4807", jSONObject.toString());
-        }
-    }
-
-    public static String o(LiveRoomEntity liveRoomEntity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65572, null, liveRoomEntity)) == null) {
-            if (liveRoomEntity == null) {
-                return "";
-            }
-            if (liveRoomEntity.isYYShow() && liveRoomEntity.isHorizontalScreen()) {
-                int i = liveRoomEntity.showTpl;
-                if (i != 1 && i != 2) {
-                    if (i == 3) {
-                        return "y-2";
-                    }
-                } else {
-                    return "y-1";
-                }
-            } else if (liveRoomEntity.isHorizontalScreen()) {
-                int i2 = liveRoomEntity.showTpl;
-                if (i2 != 1 && i2 != 2) {
-                    if (i2 == 3) {
-                        return "h-2";
-                    }
-                } else {
-                    return "h-1";
-                }
+        if ((interceptable == null || interceptable.invokeL(1048582, this, liveFollowWrapData) == null) && this.e != null) {
+            LiveFeedConfig liveFeedConfig = this.i;
+            if (liveFeedConfig != null && (abSwitchConfig = liveFeedConfig.abSwitchConfig) != null && abSwitchConfig.otherNewStyle) {
+                z = true;
             } else {
-                int i3 = liveRoomEntity.showTpl;
-                if (i3 != 1 && i3 != 2) {
-                    if (i3 == 3) {
-                        return "v-2";
-                    }
-                } else {
-                    return "v-1";
-                }
+                z = false;
             }
-            return "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void F(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, context, str) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", "clk");
-                jSONObject.put("from", "liveshow");
-                jSONObject.put("page", "neisou_page");
-                jSONObject.put("source", "yijitabzhibo");
-                JSONObject jSONObject2 = new JSONObject();
-                b(context, null, jSONObject2);
-                jSONObject2.put("pos", str);
-                jSONObject.put("ext", jSONObject2.toString());
-            } catch (JSONException e) {
-                LiveFeedPageSdk.liveLog(e.getMessage());
-            }
-            a.onEvent("4808", jSONObject.toString());
+            this.e.y(liveFollowWrapData, z, this.i);
         }
     }
 
-    public static void O(Context context, String str) {
+    public final void H(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65551, null, context, str) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", "show");
-                jSONObject.put("from", "liveshow");
-                jSONObject.put("page", "neisou_page");
-                jSONObject.put("source", "yijitabzhibo");
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("sousuoci", str);
-                b(context, null, jSONObject2);
-                jSONObject.put("ext", jSONObject2.toString());
-            } catch (JSONException e) {
-                LiveFeedPageSdk.liveLog(e.getMessage());
-            }
-            a.onEvent("4797", jSONObject.toString());
-        }
-    }
-
-    public static void c(LiveRoomEntity liveRoomEntity, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65560, null, liveRoomEntity, jSONObject) == null) {
-            LeftLableInfo leftLableInfo = liveRoomEntity.leftLabel;
-            if (leftLableInfo != null && !TextUtils.isEmpty(leftLableInfo.dot)) {
-                try {
-                    jSONObject.put("lt_value", liveRoomEntity.leftLabel.dot);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            RightLableInfo rightLableInfo = liveRoomEntity.rightLabel;
-            if (rightLableInfo != null && !TextUtils.isEmpty(rightLableInfo.dot)) {
-                try {
-                    jSONObject.put("rt_value", liveRoomEntity.rightLabel.dot);
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                }
-            }
-            ThirdLabelInfo thirdLabelInfo = liveRoomEntity.thirdLabel;
-            if (thirdLabelInfo != null && !TextUtils.isEmpty(thirdLabelInfo.dot)) {
-                try {
-                    jSONObject.put("ld_value", liveRoomEntity.thirdLabel.dot);
-                } catch (JSONException e3) {
-                    e3.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public static void I(Context context, int i, LiveRoomEntity liveRoomEntity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65545, null, context, i, liveRoomEntity) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", "clk");
-                jSONObject.put("from", "liveshow");
-                jSONObject.put("page", "neisou_page");
-                jSONObject.put("source", "yijitabzhibo");
-                JSONObject jSONObject2 = new JSONObject();
-                b(context, null, jSONObject2);
-                jSONObject2.put("pos", i);
-                if (liveRoomEntity != null) {
-                    String str = "";
-                    if (liveRoomEntity.hostInfo != null) {
-                        str = liveRoomEntity.hostInfo.uk;
-                    }
-                    d(liveRoomEntity.roomId, liveRoomEntity.nid, liveRoomEntity.liveStatus, str, jSONObject2);
-                    e(liveRoomEntity.statInfo, jSONObject2);
-                }
-                jSONObject.put("ext", jSONObject2.toString());
-            } catch (JSONException e) {
-                LiveFeedPageSdk.liveLog(e.getMessage());
-            }
-            a.onEvent("5119", jSONObject.toString());
-        }
-    }
-
-    public static void J(Context context, int i, LiveRoomEntity liveRoomEntity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65546, null, context, i, liveRoomEntity) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", "show");
-                jSONObject.put("from", "liveshow");
-                jSONObject.put("page", "neisou_page");
-                jSONObject.put("source", "yijitabzhibo");
-                JSONObject jSONObject2 = new JSONObject();
-                b(context, null, jSONObject2);
-                jSONObject2.put("pos", i);
-                if (liveRoomEntity != null) {
-                    String str = "";
-                    if (liveRoomEntity.hostInfo != null) {
-                        str = liveRoomEntity.hostInfo.uk;
-                    }
-                    d(liveRoomEntity.roomId, liveRoomEntity.nid, liveRoomEntity.liveStatus, str, jSONObject2);
-                    e(liveRoomEntity.statInfo, jSONObject2);
-                }
-                jSONObject.put("ext", jSONObject2.toString());
-            } catch (JSONException e) {
-                LiveFeedPageSdk.liveLog(e.getMessage());
-            }
-            a.onEvent("5121", jSONObject.toString());
-        }
-    }
-
-    public static Flow P(Context context, boolean z, Flow flow) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{context, Boolean.valueOf(z), flow})) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             if (z) {
-                return a.beginFlow("4800");
+                i0();
+                ia0.H(this.c);
+                return;
             }
-            if (flow != null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("type", "show");
-                    jSONObject.put("from", "liveshow");
-                    jSONObject.put("page", "neisou_page");
-                    jSONObject.put("source", "yijitabzhibo");
-                    b(context, null, new JSONObject());
-                } catch (JSONException e) {
-                    LiveFeedPageSdk.liveLog(e.getMessage());
-                }
-                a.flowSetValueWithDuration(flow, jSONObject.toString());
-                a.flowEnd(flow);
+            N(false);
+        }
+    }
+
+    public final void J(int i) {
+        LiveTabFeedView liveTabFeedView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048585, this, i) == null) && (liveTabFeedView = this.e) != null) {
+            liveTabFeedView.A(i);
+        }
+    }
+
+    public final void N(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            LiveTabFeedView liveTabFeedView = this.e;
+            if (liveTabFeedView != null) {
+                liveTabFeedView.j0(false);
             }
-            return flow;
-        }
-        return (Flow) invokeCommon.objValue;
-    }
-
-    public static void Q(Context context, LiveRoomEntity liveRoomEntity, LiveSearchResultInfo liveSearchResultInfo, Boolean bool, int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65553, null, new Object[]{context, liveRoomEntity, liveSearchResultInfo, bool, Integer.valueOf(i), str}) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", str);
-                jSONObject.put("from", "liveshow");
-                jSONObject.put("page", "neisou_page");
-                jSONObject.put("source", "yijitabzhibo");
-                JSONObject jSONObject2 = new JSONObject();
-                b(context, null, jSONObject2);
-                jSONObject2.put("pos", i);
-                if (bool.booleanValue()) {
-                    e(liveSearchResultInfo.statInfo, jSONObject2);
-                    jSONObject2.put("bduid", liveSearchResultInfo.uk);
-                    jSONObject2.put("touxiangqu_mukuai", "1");
-                    jSONObject2.put("ziyuanqu_mukuai", 0);
-                    jSONObject2.put(MixYYFakeShell.ROOM_ID_YY, liveSearchResultInfo.roomId);
-                } else {
-                    e(liveRoomEntity.statInfo, jSONObject2);
-                    jSONObject2.put("bduid", liveRoomEntity.hostInfo.uk);
-                    jSONObject2.put("ziyuanqu_mukuai", 1);
-                    jSONObject2.put("touxiangqu_mukuai", "");
-                    jSONObject2.put(MixYYFakeShell.ROOM_ID_YY, liveRoomEntity.roomId);
-                    jSONObject2.put("nid", liveRoomEntity.nid);
-                    if (liveRoomEntity.liveStatus == 0) {
-                        jSONObject2.put("status", "preview");
-                    } else if (liveRoomEntity.liveStatus == 1) {
-                        jSONObject2.put("status", "live");
-                    } else {
-                        jSONObject2.put("status", "record");
-                    }
-                }
-                jSONObject.put("ext", jSONObject2.toString());
-            } catch (JSONException e) {
-                LiveFeedPageSdk.liveLog(e.getMessage());
-            }
-            if (str.equals("show")) {
-                a.onEvent("4785", jSONObject.toString());
-            }
-            if (str.equals("clk")) {
-                a.onEvent("4784", jSONObject.toString());
-            }
-        }
-    }
-
-    public static void S(Context context, int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65555, null, context, i, str) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", "clk");
-                jSONObject.put("from", "liveshow");
-                jSONObject.put("page", "neisou_page");
-                jSONObject.put("source", "yijitabzhibo");
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("pos", i);
-                jSONObject2.put("action", str);
-                b(context, null, jSONObject2);
-                jSONObject.put("ext", jSONObject2.toString());
-            } catch (JSONException e) {
-                LiveFeedPageSdk.liveLog(e.getMessage());
-            }
-            a.onEvent("4786", jSONObject.toString());
-        }
-    }
-
-    public static void b(Context context, String str, JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65559, null, context, str, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        jSONObject.put("host_suzhu", m());
-        if (!nc0.a(str)) {
-            jSONObject.put("position_changjing", str);
-        }
-        String yyhdid = LiveFeedPageSdk.getInstance().getYYHDID(context);
-        if (!TextUtils.isEmpty(yyhdid)) {
-            jSONObject.put("hdid", yyhdid);
-        }
-        String bdId = LiveFeedPageSdk.getInstance().getBdId();
-        if (!TextUtils.isEmpty(bdId)) {
-            jSONObject.put("yonghuid", bdId);
-        }
-    }
-
-    public static void k(Context context, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65568, null, context, str, str2) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", "click");
-                jSONObject.put("from", "liveshow");
-                jSONObject.put("page", "main_page");
-                if (!nc0.a(str)) {
-                    jSONObject.put("source", str);
-                }
-                jSONObject.put("value", "follow_more");
-                JSONObject jSONObject2 = new JSONObject();
-                b(context, str2, jSONObject2);
-                jSONObject.put("ext", jSONObject2.toString());
-            } catch (JSONException e) {
-                LiveFeedPageSdk.liveLog(e.getMessage());
-            }
-            a.onEvent("3326", jSONObject.toString());
-        }
-    }
-
-    public static void l(Context context, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65569, null, context, str, str2) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", "show");
-                jSONObject.put("from", "liveshow");
-                jSONObject.put("page", "main_page");
-                if (!nc0.a(str)) {
-                    jSONObject.put("source", str);
-                }
-                jSONObject.put("value", "follow_more");
-                JSONObject jSONObject2 = new JSONObject();
-                b(context, str2, jSONObject2);
-                jSONObject.put("ext", jSONObject2.toString());
-            } catch (JSONException e) {
-                LiveFeedPageSdk.liveLog(e.getMessage());
-            }
-            a.onEvent("3326", jSONObject.toString());
-        }
-    }
-
-    public static void T(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65556, null, context, i) == null) {
-            S(context, i, StickerDataChangeType.REPLACE);
-        }
-    }
-
-    public static void U(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65557, null, context, i) == null) {
-            S(context, i, "search");
-        }
-    }
-
-    public static void a(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65558, null, str, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        try {
-            jSONObject.put("from", "liveshow");
-            jSONObject.put("page", "main_page");
-            if (!nc0.a(str)) {
-                jSONObject.put("source", str);
-            }
-        } catch (JSONException e) {
-            LiveFeedPageSdk.liveLog(e.getMessage());
-        }
-    }
-
-    public static void d(String str, String str2, int i, String str3, JSONObject jSONObject) throws JSONException {
-        String str4;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65561, null, new Object[]{str, str2, Integer.valueOf(i), str3, jSONObject}) != null) || jSONObject == null) {
-            return;
-        }
-        if (!TextUtils.isEmpty(str)) {
-            jSONObject.put(MixYYFakeShell.ROOM_ID_YY, str);
-        }
-        if (!TextUtils.isEmpty(str2)) {
-            jSONObject.put("nid", str2);
-        }
-        if (i == 0) {
-            str4 = "preview";
-        } else if (i == 1) {
-            str4 = "live";
-        } else if (i == 3) {
-            str4 = "record";
-        } else {
-            str4 = "";
-        }
-        if (!TextUtils.isEmpty(str4)) {
-            jSONObject.put("status", str4);
-        }
-        if (!TextUtils.isEmpty(str3)) {
-            jSONObject.put("bduid", str3);
-        }
-    }
-
-    public static void w(Context context, String str, String str2, boolean z, String str3) {
-        String str4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65580, null, new Object[]{context, str, str2, Boolean.valueOf(z), str3}) == null) {
-            JSONObject jSONObject = new JSONObject();
             if (z) {
-                str4 = CriusAttrConstants.DISPLAY;
-            } else {
-                str4 = "click";
+                qa0.d("sp_search_guide_show", true);
             }
-            try {
-                jSONObject.put("type", str4);
-                jSONObject.put("value", str3);
-                a(str, jSONObject);
-                JSONObject jSONObject2 = new JSONObject();
-                b(context, str2, jSONObject2);
-                jSONObject.put("ext", jSONObject2.toString());
-            } catch (JSONException e) {
-                LiveFeedPageSdk.liveLog(e.getMessage());
-            }
-            a.onEvent("5516", jSONObject.toString());
         }
     }
 
-    public static void z(Context context, String str, String str2, boolean z, String str3) {
-        String str4;
+    public void S(String str) {
+        LiveTabFeedView liveTabFeedView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65583, null, new Object[]{context, str, str2, Boolean.valueOf(z), str3}) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (z) {
-                str4 = CriusAttrConstants.DISPLAY;
-            } else {
-                str4 = "click";
-            }
-            try {
-                jSONObject.put("type", str4);
-                jSONObject.put("value", str3);
-                a(str, jSONObject);
-                JSONObject jSONObject2 = new JSONObject();
-                b(context, str2, jSONObject2);
-                jSONObject.put("ext", jSONObject2.toString());
-            } catch (JSONException e) {
-                LiveFeedPageSdk.liveLog(e.getMessage());
-            }
-            a.onEvent("5504", jSONObject.toString());
+        if ((interceptable == null || interceptable.invokeL(1048594, this, str) == null) && (liveTabFeedView = this.e) != null) {
+            liveTabFeedView.P(str);
         }
     }
 
-    public static void e(LiveStatInfo liveStatInfo, JSONObject jSONObject) {
-        long j;
-        long j2;
-        long j3;
+    public void U(ILiveFeedRefresh.OnLoadMoreListener onLoadMoreListener) {
+        LiveTabFeedView liveTabFeedView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65562, null, liveStatInfo, jSONObject) == null) && jSONObject != null && liveStatInfo != null) {
-            long j4 = 0;
-            try {
-                j = Long.parseLong(liveStatInfo.sid);
-            } catch (NumberFormatException e) {
-                e.printStackTrace();
-                j = 0;
-            }
-            try {
-                j2 = Long.parseLong(liveStatInfo.ssid);
-            } catch (NumberFormatException e2) {
-                e2.printStackTrace();
-                j2 = 0;
-            }
-            try {
-                j3 = Long.parseLong(liveStatInfo.yyuid);
-            } catch (NumberFormatException e3) {
-                e3.printStackTrace();
-                j3 = 0;
-            }
-            try {
-                j4 = Integer.parseInt(liveStatInfo.tpl);
-            } catch (NumberFormatException e4) {
-                e4.printStackTrace();
-            }
-            try {
-                jSONObject.put(TiebaStatic.YYParams.YYSID, j);
-                jSONObject.put(TiebaStatic.YYParams.YYSSID, j2);
-                jSONObject.put(TiebaStatic.YYParams.YYUID, j3);
-                if (liveStatInfo.isYY) {
-                    jSONObject.put("isyylive", 1);
-                }
-                jSONObject.put("yytpl_id", j4);
-                jSONObject.put("template_id", liveStatInfo.templateId);
-            } catch (JSONException e5) {
-                LiveFeedPageSdk.liveLog(e5.getMessage());
-            }
+        if ((interceptable == null || interceptable.invokeL(1048596, this, onLoadMoreListener) == null) && (liveTabFeedView = this.e) != null) {
+            liveTabFeedView.R(onLoadMoreListener);
         }
     }
 
-    public static void f(Context context, String str, int i, String str2, String str3, int i2, String str4, String str5, String str6, LiveStatInfo liveStatInfo) {
+    public void W(ILiveFeedRefresh.OnRefreshListener onRefreshListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65563, null, new Object[]{context, str, Integer.valueOf(i), str2, str3, Integer.valueOf(i2), str4, str5, str6, liveStatInfo}) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", "click");
-                jSONObject.put("from", "liveshow");
-                jSONObject.put("page", "zhibopindao_page");
-                if (!nc0.a(str)) {
-                    jSONObject.put("source", str);
+        if (interceptable == null || interceptable.invokeL(1048598, this, onRefreshListener) == null) {
+            if (this.A) {
+                LiveTabFeedView liveTabFeedView = this.e;
+                if (liveTabFeedView != null) {
+                    liveTabFeedView.S(onRefreshListener);
+                    return;
                 }
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("pos_banner", i);
-                if (!nc0.a(str2)) {
-                    jSONObject2.put(MixYYFakeShell.ROOM_ID_YY, str2);
-                }
-                if (!nc0.a(str3)) {
-                    jSONObject2.put("nid", str3);
-                }
-                jSONObject2.put("huodong", i2);
-                if (!nc0.a(str6)) {
-                    jSONObject2.put("mtr_id", str6);
-                }
-                b(context, str5, jSONObject2);
-                jSONObject2.put("bduid", str4);
-                e(liveStatInfo, jSONObject2);
-                jSONObject.put("ext", jSONObject2.toString());
-            } catch (JSONException e) {
-                LiveFeedPageSdk.liveLog(e.getMessage());
+                return;
             }
-            a.onEvent("4222", jSONObject.toString());
+            this.w = onRefreshListener;
+            h0();
         }
     }
 
-    public static void g(Context context, String str, int i, String str2, String str3, int i2, String str4, String str5, String str6, LiveStatInfo liveStatInfo) {
+    public void X(int i) {
+        LiveTabFeedView liveTabFeedView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65564, null, new Object[]{context, str, Integer.valueOf(i), str2, str3, Integer.valueOf(i2), str4, str5, str6, liveStatInfo}) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", "show");
-                jSONObject.put("from", "liveshow");
-                jSONObject.put("page", "zhibopindao_page");
-                if (!nc0.a(str)) {
-                    jSONObject.put("source", str);
-                }
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("pos_banner", i);
-                if (!nc0.a(str2)) {
-                    jSONObject2.put(MixYYFakeShell.ROOM_ID_YY, str2);
-                }
-                if (!nc0.a(str3)) {
-                    jSONObject2.put("nid", str3);
-                }
-                jSONObject2.put("huodong", i2);
-                if (!nc0.a(str6)) {
-                    jSONObject2.put("mtr_id", str6);
-                }
-                b(context, str5, jSONObject2);
-                jSONObject2.put("bduid", str4);
-                e(liveStatInfo, jSONObject2);
-                jSONObject.put("ext", jSONObject2.toString());
-            } catch (JSONException e) {
-                LiveFeedPageSdk.liveLog(e.getMessage());
-            }
-            a.onEvent("4221", jSONObject.toString());
+        if ((interceptable == null || interceptable.invokeI(1048599, this, i) == null) && (liveTabFeedView = this.e) != null) {
+            liveTabFeedView.T(i);
         }
     }
 
-    public static void h(Context context, String str, String str2, int i, String str3, String str4, String str5, String str6, int i2, int i3, int i4, int i5) {
-        String str7;
+    public final void f0(LiveBannerWrapData liveBannerWrapData) {
+        LiveTabFeedView liveTabFeedView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65565, null, new Object[]{context, str, str2, Integer.valueOf(i), str3, str4, str5, str6, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("from", "liveshow");
-                jSONObject.put("source", str);
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("host_suzhu", m());
-                jSONObject2.put("request_result_code", i);
-                jSONObject2.put("request_result_msg", str3);
-                jSONObject2.put("request_erjitab", str4);
-                jSONObject2.put("request_sanjisubtab", str5);
-                jSONObject2.put("request_session_id", str6);
-                jSONObject2.put("response_feed_real_num", i3);
-                jSONObject2.put("response_feed_num", i2);
-                jSONObject2.put("page_type", str2);
-                jSONObject2.put("refresh_type", String.valueOf(i4));
-                jSONObject2.put("refresh_index", i5);
-                if (context != null) {
-                    if (ia0.f(context)) {
-                        str7 = "0";
-                    } else {
-                        str7 = "1";
-                    }
-                    jSONObject2.put("net_status", str7);
-                }
-                if (LiveFeedPageSdk.getInstance().getInvoker() != null) {
-                    jSONObject2.put("cuid", LiveFeedPageSdk.getInstance().getInvoker().getCuid());
-                    jSONObject2.put("uk", LiveFeedPageSdk.getInstance().getInvoker().getUK());
-                }
-                jSONObject.put("ext", jSONObject2.toString());
-            } catch (JSONException e) {
-                LiveFeedPageSdk.liveLog(e.getMessage());
-            }
-            a.onEvent("4358", jSONObject.toString());
+        if ((interceptable == null || interceptable.invokeL(1048609, this, liveBannerWrapData) == null) && (liveTabFeedView = this.e) != null) {
+            liveTabFeedView.a0(liveBannerWrapData);
         }
     }
 
-    public static void t(Context context, String str, String str2, long j, int i, String str3, String str4, String str5, String str6, String str7, String str8, String str9) {
-        String str10;
+    public void v(ILiveFeedOther.LiveFeedStatusListener liveFeedStatusListener) {
+        LiveTabFeedView liveTabFeedView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65577, null, new Object[]{context, str, str2, Long.valueOf(j), Integer.valueOf(i), str3, str4, str5, str6, str7, str8, str9}) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("from", "liveshow");
-                jSONObject.put("source", str);
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("host_suzhu", m());
-                jSONObject2.put("request_time", j);
-                jSONObject2.put("page_type", str2);
-                jSONObject2.put("request_result_code", i);
-                jSONObject2.put("request_result_msg", str3);
-                jSONObject2.put("request_logid", str4);
-                jSONObject2.put("request_resource", str5);
-                jSONObject2.put("request_erjitab", str6);
-                jSONObject2.put("request_sanjisubtab", str7);
-                jSONObject2.put("request_session_id", str8);
-                if (!TextUtils.isEmpty(str9)) {
-                    jSONObject2.put("response_tab_availability", str9);
-                }
-                if (context != null) {
-                    if (ia0.f(context)) {
-                        str10 = "0";
-                    } else {
-                        str10 = "1";
-                    }
-                    jSONObject2.put("net_status", str10);
-                }
-                if (LiveFeedPageSdk.getInstance().getInvoker() != null) {
-                    jSONObject2.put("cuid", LiveFeedPageSdk.getInstance().getInvoker().getCuid());
-                    jSONObject2.put("uk", LiveFeedPageSdk.getInstance().getInvoker().getUK());
-                }
-                jSONObject.put("ext", jSONObject2.toString());
-            } catch (JSONException e) {
-                LiveFeedPageSdk.liveLog(e.getMessage());
-            }
-            a.onEvent("4298", jSONObject.toString());
+        if ((interceptable == null || interceptable.invokeL(1048614, this, liveFeedStatusListener) == null) && (liveTabFeedView = this.e) != null) {
+            liveTabFeedView.q(liveFeedStatusListener);
         }
     }
 
-    public static void i(Context context, String str, String str2, String str3, int i, String str4, String str5, LiveStatInfo liveStatInfo) {
+    public final void L(LiveFeedToolWrapData liveFeedToolWrapData, LiveFeedConfig liveFeedConfig) {
+        LiveTabFeedView liveTabFeedView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65566, null, new Object[]{context, str, str2, str3, Integer.valueOf(i), str4, str5, liveStatInfo}) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", "click");
-                jSONObject.put("from", "liveshow");
-                jSONObject.put("page", "follow_page");
-                if (!nc0.a(str)) {
-                    jSONObject.put("source", str);
-                }
-                JSONObject jSONObject2 = new JSONObject();
-                b(context, str3, jSONObject2);
-                if (!TextUtils.isEmpty(str4)) {
-                    jSONObject2.put(MixYYFakeShell.ROOM_ID_YY, str4);
-                }
-                if (!TextUtils.isEmpty(str5)) {
-                    jSONObject2.put("nid", str5);
-                }
-                jSONObject2.put("pos", i);
-                jSONObject2.put("bduid", str2);
-                e(liveStatInfo, jSONObject2);
-                jSONObject.put("ext", jSONObject2.toString());
-            } catch (JSONException e) {
-                LiveFeedPageSdk.liveLog(e.getMessage());
-            }
-            a.onEvent("4223", jSONObject.toString());
+        if ((interceptable == null || interceptable.invokeLL(1048587, this, liveFeedToolWrapData, liveFeedConfig) == null) && (liveTabFeedView = this.e) != null) {
+            liveTabFeedView.C(liveFeedToolWrapData, liveFeedConfig);
         }
     }
 
-    public static void j(Context context, String str, String str2, String str3, int i, String str4, String str5, LiveStatInfo liveStatInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65567, null, new Object[]{context, str, str2, str3, Integer.valueOf(i), str4, str5, liveStatInfo}) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", "show");
-                jSONObject.put("from", "liveshow");
-                jSONObject.put("page", "follow_page");
-                if (!nc0.a(str)) {
-                    jSONObject.put("source", str);
-                }
-                JSONObject jSONObject2 = new JSONObject();
-                b(context, str3, jSONObject2);
-                if (!TextUtils.isEmpty(str4)) {
-                    jSONObject2.put(MixYYFakeShell.ROOM_ID_YY, str4);
-                }
-                if (!TextUtils.isEmpty(str5)) {
-                    jSONObject2.put("nid", str5);
-                }
-                jSONObject2.put("pos", i);
-                jSONObject2.put("bduid", str2);
-                e(liveStatInfo, jSONObject2);
-                jSONObject.put("ext", jSONObject2.toString());
-            } catch (JSONException e) {
-                LiveFeedPageSdk.liveLog(e.getMessage());
-            }
-            a.onEvent("4224", jSONObject.toString());
-        }
-    }
-
-    public static String m() {
+    public View A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65570, null)) == null) {
-            if ("baidu".equals(LiveFeedPageSdk.getInstance().getHost())) {
-                return "shoubai";
-            }
-            if (LiveFeedPageSdk.HOST_HAOKAN.equals(LiveFeedPageSdk.getInstance().getHost())) {
-                return LiveFeedPageSdk.HOST_HAOKAN;
-            }
-            if (LiveFeedPageSdk.HOST_QUANMIN.equals(LiveFeedPageSdk.getInstance().getHost())) {
-                return LiveFeedPageSdk.HOST_QUANMIN;
-            }
-            if ("tieba".equals(LiveFeedPageSdk.getInstance().getHost())) {
-                return "tieba";
-            }
-            return "";
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
         }
-        return (String) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static String n(String str) {
-        InterceptResult invokeL;
-        char c;
+    public RecyclerView B() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65571, null, str)) == null) {
-            switch (str.hashCode()) {
-                case -2042598803:
-                    if (str.equals(LiveFeedPageSdk.FOLLOW_VIDEO)) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1137617387:
-                    if (str.equals(LiveFeedPageSdk.IMMERSION)) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1333267023:
-                    if (str.equals(LiveFeedPageSdk.VIDEO_BAR)) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1418021314:
-                    if (str.equals(LiveFeedPageSdk.HOST_LIVE_TAB)) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            LiveTabFeedView liveTabFeedView = this.e;
+            if (liveTabFeedView != null) {
+                return liveTabFeedView.getMSubTipLayout();
             }
-            if (c == 0) {
-                return "zhibopindao";
-            }
-            if (c != 1) {
-                if (c != 2) {
-                    if (c != 3) {
-                        return "zhibopindao";
-                    }
-                    return "followvideo";
-                }
-                return "videobar";
-            }
-            return "chenjinshi";
+            return null;
         }
-        return (String) invokeL.objValue;
+        return (RecyclerView) invokeV.objValue;
     }
 
-    public static void p(Context context, String str, String str2, int i, String str3, String str4, LiveRoomEntity liveRoomEntity) {
-        Object obj;
+    public SmartTabLayout C() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65573, null, new Object[]{context, str, str2, Integer.valueOf(i), str3, str4, liveRoomEntity}) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", "clk");
-                a(str, jSONObject);
-                JSONObject jSONObject2 = new JSONObject();
-                b(context, str2, jSONObject2);
-                jSONObject2.put("pos", i);
-                if (!TextUtils.isEmpty(str3)) {
-                    jSONObject2.put("erjitab", str3);
-                }
-                if (!TextUtils.isEmpty(str4)) {
-                    jSONObject2.put("sanjitab", str4);
-                }
-                if (liveRoomEntity != null) {
-                    String str5 = "";
-                    if (liveRoomEntity.hostInfo != null) {
-                        str5 = liveRoomEntity.hostInfo.uk;
-                    }
-                    String str6 = "1";
-                    if (liveRoomEntity.fromReserve) {
-                        obj = "1";
-                    } else {
-                        obj = "0";
-                    }
-                    jSONObject2.put("is_preview", obj);
-                    if (!liveRoomEntity.hasInterest) {
-                        str6 = "0";
-                    }
-                    jSONObject2.put("charu", str6);
-                    d(liveRoomEntity.roomId, liveRoomEntity.nid, liveRoomEntity.liveStatus, str5, jSONObject2);
-                    e(liveRoomEntity.statInfo, jSONObject2);
-                    c(liveRoomEntity, jSONObject2);
-                    jSONObject2.put("id", liveRoomEntity.nid);
-                    JSONObject jSONObject3 = new JSONObject();
-                    String str7 = liveRoomEntity.grExt;
-                    if (!TextUtils.isEmpty(str7)) {
-                        jSONObject3.put("gr_ext", new JSONObject(str7));
-                    }
-                    jSONObject2.put("ext", jSONObject3);
-                    jSONObject2.put("topic_id", liveRoomEntity.getTopicId());
-                }
-                jSONObject.put("ext", jSONObject2);
-            } catch (JSONException e) {
-                LiveFeedPageSdk.liveLog(e.getMessage());
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            LiveTabFeedView liveTabFeedView = this.e;
+            if (liveTabFeedView != null) {
+                return liveTabFeedView.getMSmartTabLayout();
             }
-            LiveFeedPageSdk.liveLog("grLog clk      " + jSONObject.toString());
-            a.onEvent("4384", jSONObject.toString());
+            return null;
+        }
+        return (SmartTabLayout) invokeV.objValue;
+    }
+
+    public View D() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            LiveTabFeedView liveTabFeedView = this.e;
+            if (liveTabFeedView != null) {
+                return liveTabFeedView.getMViewPager();
+            }
+            return null;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public boolean M() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            LiveTabFeedView liveTabFeedView = this.e;
+            if (liveTabFeedView != null) {
+                return liveTabFeedView.D();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean P() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            LiveTabFeedView liveTabFeedView = this.e;
+            if (liveTabFeedView != null) {
+                return liveTabFeedView.L();
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void Q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            LiveTabFeedView liveTabFeedView = this.e;
+            if (liveTabFeedView != null) {
+                liveTabFeedView.k0();
+            }
+            h0();
         }
     }
 
-    public static void y(Context context, String str, String str2, int i, String str3, String str4, LiveRoomEntity liveRoomEntity) {
-        Object obj;
+    public final void R() {
+        LiveTabFeedView liveTabFeedView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65582, null, new Object[]{context, str, str2, Integer.valueOf(i), str3, str4, liveRoomEntity}) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", CriusAttrConstants.DISPLAY);
-                a(str, jSONObject);
-                JSONObject jSONObject2 = new JSONObject();
-                b(context, str2, jSONObject2);
-                jSONObject2.put("pos", i);
-                if (!TextUtils.isEmpty(str3)) {
-                    jSONObject2.put("erjitab", str3);
-                }
-                if (!TextUtils.isEmpty(str4)) {
-                    jSONObject2.put("sanjitab", str4);
-                }
-                if (liveRoomEntity != null) {
-                    String str5 = "";
-                    if (liveRoomEntity.hostInfo != null) {
-                        str5 = liveRoomEntity.hostInfo.uk;
-                    }
-                    Object obj2 = "1";
-                    if (liveRoomEntity.fromReserve) {
-                        obj = "1";
-                    } else {
-                        obj = "0";
-                    }
-                    jSONObject2.put("is_preview", obj);
-                    if (!liveRoomEntity.hasInterest) {
-                        obj2 = "0";
-                    }
-                    jSONObject2.put("charu", obj2);
-                    d(liveRoomEntity.roomId, liveRoomEntity.nid, liveRoomEntity.liveStatus, str5, jSONObject2);
-                    e(liveRoomEntity.statInfo, jSONObject2);
-                    c(liveRoomEntity, jSONObject2);
-                    JSONObject jSONObject3 = new JSONObject();
-                    jSONObject3.put("id", liveRoomEntity.nid);
-                    JSONObject jSONObject4 = new JSONObject();
-                    String str6 = liveRoomEntity.grExt;
-                    if (!TextUtils.isEmpty(str6)) {
-                        jSONObject4.put("gr_ext", new JSONObject(str6));
-                    }
-                    jSONObject3.put("ext", jSONObject4);
-                    jSONObject3.put("position_changjing ", str2);
-                    jSONObject3.put("pos", i);
-                    JSONArray jSONArray = new JSONArray();
-                    jSONArray.put(jSONObject3);
-                    jSONObject2.put("item", jSONArray);
-                    jSONObject2.put("topic_id", liveRoomEntity.getTopicId());
-                }
-                jSONObject.put("ext", jSONObject2);
-            } catch (JSONException e) {
-                LiveFeedPageSdk.liveLog(e.getMessage());
-            }
-            LiveFeedPageSdk.liveLog("grLog display      " + jSONObject.toString());
-            a.onEvent("4383", jSONObject.toString());
+        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && (liveTabFeedView = this.e) != null) {
+            liveTabFeedView.M();
         }
     }
 
-    public static void q(String str, String str2, Boolean bool, LiveRoomEntity liveRoomEntity, Context context, int i) {
+    public void V() {
+        LiveTabFeedView liveTabFeedView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65574, null, new Object[]{str, str2, bool, liveRoomEntity, context, Integer.valueOf(i)}) == null) {
-            if (liveRoomEntity.needLogShow || !bool.booleanValue()) {
-                GrParasmUtil.logGrParam(liveRoomEntity.nid, bool.booleanValue(), !bool.booleanValue());
-                String n = n(str);
-                if (bool.booleanValue()) {
-                    y(context, str2, n, i + 1, liveRoomEntity.belongSubTab, liveRoomEntity.belongThirdTab, liveRoomEntity);
-                } else {
-                    p(context, str2, n, i + 1, liveRoomEntity.belongSubTab, liveRoomEntity.belongThirdTab, liveRoomEntity);
-                }
-                liveRoomEntity.needLogShow = false;
+        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && (liveTabFeedView = this.e) != null) {
+            liveTabFeedView.S(null);
+        }
+    }
+
+    public final void Y() {
+        LiveTabFeedView liveTabFeedView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && (liveTabFeedView = this.e) != null) {
+            liveTabFeedView.U();
+        }
+    }
+
+    public void a0() {
+        LiveTabFeedView liveTabFeedView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048602, this) == null) && (liveTabFeedView = this.e) != null) {
+            liveTabFeedView.W();
+        }
+    }
+
+    public void b0() {
+        LiveTabFeedView liveTabFeedView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048603, this) == null) && (liveTabFeedView = this.e) != null) {
+            liveTabFeedView.X();
+        }
+    }
+
+    public final void c0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
+            N(true);
+            ia0.G(this.c);
+            LiveFeedPageSdk.getInstance().startLiveSearchActivity(this.c);
+        }
+    }
+
+    public final void h0() {
+        LiveFeedModel liveFeedModel;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048611, this) == null) && (liveFeedModel = this.f) != null) {
+            liveFeedModel.reqInit(this.x);
+        }
+    }
+
+    public final void i0() {
+        LiveTabFeedView liveTabFeedView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048612, this) == null) && !qa0.a("sp_search_guide_show", false) && (liveTabFeedView = this.e) != null) {
+            liveTabFeedView.j0(true);
+        }
+    }
+
+    public final void j0() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048613, this) == null) && this.c != null && this.n) {
+            LiveFeedPageSdk.liveLog("解注册网络变化广播");
+            this.c.unregisterReceiver(this.B);
+            this.n = false;
+        }
+    }
+
+    public boolean w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
+            LiveTabFeedView liveTabFeedView = this.e;
+            if (liveTabFeedView != null) {
+                return liveTabFeedView.u();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
+            LiveTabFeedView liveTabFeedView = this.e;
+            if (liveTabFeedView != null) {
+                return liveTabFeedView.v();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public LiveFeedFollowView z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
+            LiveTabFeedView liveTabFeedView = this.e;
+            if (liveTabFeedView != null) {
+                return liveTabFeedView.getFeedFollowView();
+            }
+            return null;
+        }
+        return (LiveFeedFollowView) invokeV.objValue;
+    }
+
+    public final void E(LiveFeedConfig liveFeedConfig) {
+        boolean z;
+        LiveFeedConfig.AbSwitchConfig abSwitchConfig;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, liveFeedConfig) == null) {
+            this.i = liveFeedConfig;
+            if (liveFeedConfig != null && (abSwitchConfig = liveFeedConfig.abSwitchConfig) != null && abSwitchConfig.newTab) {
+                z = true;
+            } else {
+                z = false;
+            }
+            LiveTabFeedView liveTabFeedView = this.e;
+            if (liveTabFeedView != null) {
+                liveTabFeedView.setTabStyle(z);
+            }
+            if (liveFeedConfig != null) {
+                this.l.b(liveFeedConfig.timeoutRefreshTime * 1000);
             }
         }
     }
 
-    public static void r(Context context, String str, String str2, int i, String str3, String str4, String str5, String str6, String str7, String str8, int i2, String str9, long j, long j2, int i3) {
-        String str10;
+    public final void F(LiveFeedData liveFeedData) {
+        LiveTabFeedView liveTabFeedView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65575, null, new Object[]{context, str, str2, Integer.valueOf(i), str3, str4, str5, str6, str7, str8, Integer.valueOf(i2), str9, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i3)}) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("from", "liveshow");
-                jSONObject.put("source", str);
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("host_suzhu", m());
-                jSONObject2.put("page_type", str2);
-                jSONObject2.put("request_result_code", i);
-                jSONObject2.put("request_result_msg", str3);
-                jSONObject2.put("request_erjitab", str6);
-                jSONObject2.put("request_sanjisubtab", str7);
-                jSONObject2.put("request_session_id", str8);
-                jSONObject2.put("resp_logid", str4);
-                jSONObject2.put("resource", str5);
-                jSONObject2.put("cache_item", str9);
-                jSONObject2.put("cache_cause", i2);
-                jSONObject2.put("cache_time", j);
-                jSONObject2.put("cache_read_time", j2);
-                jSONObject2.put("cache_availability", i3);
-                if (context != null) {
-                    if (ia0.f(context)) {
-                        str10 = "0";
-                    } else {
-                        str10 = "1";
-                    }
-                    jSONObject2.put("net_status", str10);
-                }
-                if (LiveFeedPageSdk.getInstance().getInvoker() != null) {
-                    jSONObject2.put("cuid", LiveFeedPageSdk.getInstance().getInvoker().getCuid());
-                    jSONObject2.put("uk", LiveFeedPageSdk.getInstance().getInvoker().getUK());
-                }
-                jSONObject.put("ext", jSONObject2.toString());
-            } catch (JSONException e) {
-                LiveFeedPageSdk.liveLog(e.getMessage());
+        if ((interceptable == null || interceptable.invokeL(1048581, this, liveFeedData) == null) && liveFeedData != null) {
+            E(liveFeedData.feedConfig);
+            f0(liveFeedData.bannerWrapData);
+            K(liveFeedData);
+            J(ta0.a());
+            G(liveFeedData.followWrapData);
+            L(liveFeedData.toolWrapData, liveFeedData.feedConfig);
+            if (this.s && (liveTabFeedView = this.e) != null) {
+                this.s = false;
+                liveTabFeedView.setExpanded(false);
             }
-            a.onEvent("4359", jSONObject.toString());
         }
     }
 
-    public static Flow s(Context context, boolean z, String str, String str2, String str3, String str4, Flow flow) {
-        InterceptResult invokeCommon;
+    public void e0(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65576, null, new Object[]{context, Boolean.valueOf(z), str, str2, str3, str4, flow})) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048608, this, z) == null) {
+            LiveFeedPageSdk.liveLog("onUserVisibleHint " + this.k + " " + z);
+            if (this.j == z) {
+                return;
+            }
+            this.j = z;
             if (z) {
-                return a.beginFlow("3327");
+                Z();
+                g0();
+                return;
             }
-            if (flow != null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    a(str, jSONObject);
-                    JSONObject jSONObject2 = new JSONObject();
-                    b(context, str2, jSONObject2);
-                    if (!TextUtils.isEmpty(str3)) {
-                        jSONObject2.put("erjitab", str3);
-                    }
-                    if (!TextUtils.isEmpty(str4)) {
-                        jSONObject2.put("sanjitab", str4);
-                    }
-                    jSONObject.put("ext", jSONObject2.toString());
-                } catch (JSONException e) {
-                    LiveFeedPageSdk.liveLog(e.getMessage());
-                }
-                a.flowSetValueWithDuration(flow, jSONObject.toString());
-                a.flowEnd(flow);
-            }
-            return flow;
-        }
-        return (Flow) invokeCommon.objValue;
-    }
-
-    public static void u(Context context, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65578, null, context, str, str2) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", "show");
-                a(str, jSONObject);
-                JSONObject jSONObject2 = new JSONObject();
-                b(context, str2, jSONObject2);
-                jSONObject.put("ext", jSONObject2.toString());
-            } catch (JSONException e) {
-                LiveFeedPageSdk.liveLog(e.getMessage());
-            }
-            a.onEvent("4261", jSONObject.toString());
+            Y();
+            j0();
         }
     }
 
-    public static Flow v(Context context, boolean z, String str, String str2, int i, String str3, String str4, LiveRoomEntity liveRoomEntity, Flow flow) {
-        InterceptResult invokeCommon;
-        String str5;
+    public final void I(View view2, TextView textView) {
+        String defaultStartLiveScheme;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65579, null, new Object[]{context, Boolean.valueOf(z), str, str2, Integer.valueOf(i), str3, str4, liveRoomEntity, flow})) == null) {
-            if (z) {
-                return a.beginFlow("4912");
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, textView) == null) {
+            LiveFeedConfig liveFeedConfig = this.i;
+            if (liveFeedConfig != null && !TextUtils.isEmpty(liveFeedConfig.startLiveScheme)) {
+                defaultStartLiveScheme = this.i.startLiveScheme;
+            } else {
+                defaultStartLiveScheme = LiveFeedPageSdk.getInstance().getDefaultStartLiveScheme();
             }
-            if (flow != null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("type", "show");
-                    a(str, jSONObject);
-                    JSONObject jSONObject2 = new JSONObject();
-                    b(context, str2, jSONObject2);
-                    jSONObject2.put("pos", i);
-                    jSONObject2.put("kapianshipei", o(liveRoomEntity));
-                    if (!TextUtils.isEmpty(str3)) {
-                        jSONObject2.put("erjitab", str3);
-                    }
-                    if (!TextUtils.isEmpty(str4)) {
-                        jSONObject2.put("sanjitab", str4);
-                    }
-                    if (liveRoomEntity != null) {
-                        String str6 = "";
-                        if (liveRoomEntity.hostInfo == null) {
-                            str5 = "";
-                        } else {
-                            str5 = liveRoomEntity.hostInfo.uk;
-                        }
-                        d(liveRoomEntity.roomId, liveRoomEntity.nid, liveRoomEntity.liveStatus, str5, jSONObject2);
-                        jSONObject2.put("auto_play", liveRoomEntity.autoPlay);
-                        if (!TextUtils.isEmpty(liveRoomEntity.beginTime)) {
-                            str6 = liveRoomEntity.beginTime;
-                        }
-                        jSONObject2.put("live_union_id", str6);
-                        e(liveRoomEntity.statInfo, jSONObject2);
-                        jSONObject2.put("id", liveRoomEntity.nid);
-                        JSONObject jSONObject3 = new JSONObject();
-                        String str7 = liveRoomEntity.grExt;
-                        if (!TextUtils.isEmpty(str7)) {
-                            jSONObject3.put("gr_ext", new JSONObject(str7));
-                        }
-                        jSONObject2.put("ext", jSONObject3);
-                    }
-                    jSONObject.put("ext", jSONObject2.toString());
-                } catch (JSONException e) {
-                    LiveFeedPageSdk.liveLog(e.getMessage());
-                }
-                a.flowSetValueWithDuration(flow, jSONObject.toString());
-                a.flowEnd(flow);
+            if (LiveFeedPageSdk.getInstance().getHKInvoker() != null) {
+                LiveFeedPageSdk.getInstance().getHKInvoker().clickStartLive(view2, textView, defaultStartLiveScheme);
+            } else if (LiveFeedPageSdk.getInstance().getInvoker() != null) {
+                LiveFeedPageSdk.getInstance().getInvoker().invokeScheme(this.c, defaultStartLiveScheme);
             }
-            return flow;
         }
-        return (Flow) invokeCommon.objValue;
+    }
+
+    public void d0(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048607, this, str, str2) == null) {
+            LiveFeedPageSdk.liveLog("D8800088 onTabSelectedEvent 新值 subTabType = " + str + ", thirdTabType = " + str2);
+            LiveFeedPageSdk.liveLog("D8800088 onTabSelectedEvent 旧值 mSubTabType = " + this.q + ", mThirdTabType = " + this.r);
+            LiveTabFeedView liveTabFeedView = this.e;
+            if (liveTabFeedView != null) {
+                liveTabFeedView.Y(str, str2);
+            }
+        }
+    }
+
+    public final void K(LiveFeedData liveFeedData) {
+        LiveTabWrapData liveTabWrapData;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048586, this, liveFeedData) != null) || liveFeedData == null) {
+            return;
+        }
+        ta0.b();
+        if (!this.A && (liveTabWrapData = liveFeedData.tabWrapData) != null && !qc0.c(liveTabWrapData.tabList)) {
+            this.A = true;
+            LiveTabFeedView liveTabFeedView = this.e;
+            if (liveTabFeedView != null) {
+                liveTabFeedView.B(liveFeedData);
+            }
+            if (liveFeedData.tabWrapData.isCacheData) {
+                Context context = this.c;
+                String str = this.a;
+                String n = ia0.n(this.h);
+                LiveTabWrapData liveTabWrapData2 = liveFeedData.tabWrapData;
+                ia0.r(context, str, n, liveTabWrapData2.errCode, liveTabWrapData2.errMsg, liveFeedData.logId, liveFeedData.resource, "", "", "", liveTabWrapData2.cacheCause, "tab", liveTabWrapData2.cacheTime, System.currentTimeMillis(), 1);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bc0
+    public void call(da0 da0Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048605, this, da0Var) == null) && da0Var != null && da0Var.a() == this.b) {
+            LiveFeedPageSdk.liveLog("LiveEventBus event: " + da0Var.getClass() + GlideException.IndentedAppendable.INDENT + da0Var.a());
+            if (da0Var instanceof ea0) {
+                LiveBannerWrapData liveBannerWrapData = ((ea0) da0Var).b;
+                if (liveBannerWrapData != null) {
+                    f0(liveBannerWrapData);
+                }
+            } else if (da0Var instanceof ga0) {
+                LiveFollowWrapData liveFollowWrapData = ((ga0) da0Var).b;
+                if (liveFollowWrapData != null) {
+                    G(liveFollowWrapData);
+                }
+            } else if (da0Var instanceof fa0) {
+                this.l.c();
+            } else if (da0Var instanceof ha0) {
+                ha0 ha0Var = (ha0) da0Var;
+                boolean z = ha0Var.b;
+                this.y = z;
+                String str = ha0Var.c;
+                this.z = str;
+                LiveTabFeedView liveTabFeedView = this.e;
+                if (liveTabFeedView != null) {
+                    liveTabFeedView.l0(z, str);
+                }
+            }
+        }
+    }
+
+    public final void O() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            LiveTabFeedView liveTabFeedView = new LiveTabFeedView(this.c);
+            this.e = liveTabFeedView;
+            liveTabFeedView.setFeedActionListener(new b(this));
+            this.e.setFeedBannerListener(new c(this));
+            this.e.setFeedFollowListener(new d(this));
+            this.e.setSubTabPageListener(new e(this));
+            this.e.setFeedToolListener(new f(this));
+        }
+    }
+
+    public void T() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            ec0.a().e(this);
+            j0();
+            LiveTabFeedView liveTabFeedView = this.e;
+            if (liveTabFeedView != null) {
+                liveTabFeedView.Q();
+            }
+            this.k = true;
+            ta0.b();
+            this.p = false;
+            sb0.d(String.valueOf(this.b));
+        }
+    }
+
+    public final void Z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+            LiveTabFeedView liveTabFeedView = this.e;
+            if (liveTabFeedView != null) {
+                liveTabFeedView.V();
+            }
+            if (this.l.a()) {
+                LiveTabFeedView liveTabFeedView2 = this.e;
+                if (liveTabFeedView2 != null) {
+                    liveTabFeedView2.S(null);
+                }
+            } else {
+                LiveFeedModel liveFeedModel = this.f;
+                if (liveFeedModel != null && !this.k) {
+                    liveFeedModel.reqFollow(this.x);
+                }
+            }
+            this.k = false;
+        }
+    }
+
+    public final void g0() {
+        Context context;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048610, this) == null) && (context = this.c) != null && !this.n) {
+            this.o = oa0.f(context);
+            LiveFeedPageSdk.liveLog("注册网络变化广播");
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+            this.c.registerReceiver(this.B, intentFilter);
+            this.n = true;
+        }
+    }
+
+    public final void y(LiveFeedData liveFeedData) {
+        LiveTabWrapData liveTabWrapData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048617, this, liveFeedData) == null) {
+            ILiveFeedRefresh.OnRefreshListener onRefreshListener = this.w;
+            if (onRefreshListener != null) {
+                onRefreshListener.onPullRefreshEnd();
+            }
+            if (liveFeedData != null) {
+                this.y = liveFeedData.isMinor;
+                LiveFeedConfig liveFeedConfig = liveFeedData.feedConfig;
+                if (liveFeedConfig != null) {
+                    this.z = liveFeedConfig.minorUfoUrl;
+                }
+            }
+            LiveTabFeedView liveTabFeedView = this.e;
+            if (liveTabFeedView != null) {
+                liveTabFeedView.l0(this.y, this.z);
+            }
+            if (liveFeedData != null && (liveTabWrapData = liveFeedData.tabWrapData) != null && !qc0.c(liveTabWrapData.tabList)) {
+                F(liveFeedData);
+                LiveTabFeedView liveTabFeedView2 = this.e;
+                if (liveTabFeedView2 != null) {
+                    liveTabFeedView2.g0();
+                }
+                this.m = true;
+                if (!liveFeedData.tabWrapData.isCacheData) {
+                    this.l.c();
+                    return;
+                }
+                return;
+            }
+            LiveTabFeedView liveTabFeedView3 = this.e;
+            if (liveTabFeedView3 != null) {
+                liveTabFeedView3.h0();
+            }
+            this.m = false;
+        }
     }
 }

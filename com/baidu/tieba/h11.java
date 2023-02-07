@@ -1,95 +1,65 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.media.AudioManager;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class h11 implements k11 {
+public class h11 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final StringBuilder a;
 
-    @Override // com.baidu.tieba.k11
-    public void a() {
+    @Nullable
+    public static AudioManager a(@Nullable Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    public h11() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (context == null) {
+                return null;
+            }
+            try {
+                return (AudioManager) context.getSystemService("audio");
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
             }
         }
-        this.a = new StringBuilder();
+        return (AudioManager) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.k11
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
+    public static int b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.k11
-    public <T extends k11> T b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            return (T) d(str, str2);
-        }
-        return (T) invokeLL.objValue;
-    }
-
-    public <T extends k11> T c(String str, Object obj) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, obj)) == null) {
-            return (T) d(str, obj);
-        }
-        return (T) invokeLL.objValue;
-    }
-
-    public <T extends k11> T d(String str, Object obj) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, obj)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            AudioManager a = a(context);
+            if (a != null) {
+                return a.getStreamMaxVolume(3);
             }
-            if (obj != null) {
-                try {
-                    if (!TextUtils.isEmpty(String.valueOf(obj))) {
-                        if (this.a.length() > 0) {
-                            this.a.append('&');
-                        }
-                        StringBuilder sb = this.a;
-                        sb.append(str);
-                        sb.append(com.alipay.sdk.encrypt.a.h);
-                        sb.append(obj);
-                    }
-                } catch (Exception unused) {
-                }
-            }
-            return this;
+            return -1;
         }
-        return (T) invokeLL.objValue;
+        return invokeL.intValue;
+    }
+
+    public static int c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            AudioManager a = a(context);
+            if (a != null) {
+                return a.getStreamVolume(3);
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public static void d(Context context, int i) {
+        AudioManager a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65539, null, context, i) == null) && (a = a(context)) != null) {
+            a.setStreamVolume(3, i, 8);
+        }
     }
 }

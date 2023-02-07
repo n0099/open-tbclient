@@ -1,139 +1,65 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragment;
+import android.app.Activity;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.base.BdBaseFragmentActivity;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tbadk.util.PriorityOrganizer;
+import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class gd8 extends mn {
+public class gd8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseFragment b;
-    public b c;
-    public TBSpecificationBtn d;
-    public View.OnClickListener e;
+    public final PbActivity a;
+    public ef8 b;
+    public ff8 c;
 
-    /* loaded from: classes4.dex */
-    public interface b {
-        void g1(boolean z);
-    }
-
-    @Override // com.baidu.tieba.mn
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gd8 a;
-
-        public a(gd8 gd8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gd8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gd8Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                ViewHelper.skipToLoginActivity(this.a.b.getContext());
-                if (this.a.c != null) {
-                    this.a.c.g1(true);
-                }
-            }
-        }
-    }
-
-    public gd8(BaseFragment baseFragment, b bVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gd8(PbActivity pbActivity) {
+        super(2921728);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragment, bVar};
+            Object[] objArr = {pbActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = new a(this);
-        this.b = baseFragment;
-        this.c = bVar;
+        this.a = pbActivity;
+        this.b = new ef8(pbActivity);
+        ff8 ff8Var = new ff8(pbActivity);
+        this.c = ff8Var;
+        PriorityOrganizer.m(this.b, ff8Var);
+        setPriority(1);
     }
 
-    public void g(int i) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            xg5.a(this.b.getPageContext(), this.a);
-            TBSpecificationBtn tBSpecificationBtn = this.d;
-            if (tBSpecificationBtn != null) {
-                tBSpecificationBtn.k();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921728) {
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            BdUniqueId bdUniqueId = null;
+            if (currentActivity instanceof BdBaseFragmentActivity) {
+                bdUniqueId = ((BdBaseFragmentActivity) currentActivity).getUniqueId();
             }
-        }
-    }
-
-    public void i(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.d.setOnClickListener(onClickListener);
-        }
-    }
-
-    @Override // com.baidu.tieba.mn
-    public View a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            View inflate = LayoutInflater.from(this.b.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0587, (ViewGroup) null);
-            this.a = inflate;
-            this.d = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f0914e4);
-            zz4 zz4Var = new zz4();
-            BaseFragment baseFragment = this.b;
-            if (baseFragment != null && baseFragment.getContext() != null) {
-                this.d.setText(this.b.getContext().getResources().getString(R.string.login_see_more));
+            if (getTag() == bdUniqueId && !this.b.v(true)) {
+                this.b.E(true);
+                this.a.p0().t(this.b);
             }
-            this.d.setTextSize(R.dimen.tbds42);
-            this.d.setConfig(zz4Var);
-            this.d.setOnClickListener(this.e);
-            g(TbadkCoreApplication.getInst().getSkinType());
-            return this.a;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         }
     }
 }

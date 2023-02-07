@@ -1,18 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.FrameHelper;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.InvalidParameterException;
 /* loaded from: classes5.dex */
-public abstract class mb<T extends ResponsedMessage<?>> extends nb<T> {
+public abstract class mb extends qb<CustomMessage<?>, CustomMessageTask> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract T a(T t);
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public mb(int i) {
@@ -32,20 +31,8 @@ public abstract class mb<T extends ResponsedMessage<?>> extends nb<T> {
                 return;
             }
         }
-    }
-
-    public T b(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) {
-            if (t != null) {
-                if (getCmd() == 0 || getCmd() == t.getCmd()) {
-                    return a(t);
-                }
-                return t;
-            }
-            return t;
+        if (i != 0 && FrameHelper.e(i) != FrameHelper.TYPE.CUSTOM) {
+            throw new InvalidParameterException("cmd invalid");
         }
-        return (T) invokeL.objValue;
     }
 }

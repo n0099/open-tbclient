@@ -1,14 +1,14 @@
 package com.baidu.searchbox.abtest.ioc;
 
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.tieba.dg1;
+import com.baidu.tieba.ok1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class AbTestServiceFetcher extends dg1<AbTestService> {
+public class AbTestServiceFetcher extends ok1<AbTestService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,7 +28,7 @@ public class AbTestServiceFetcher extends dg1<AbTestService> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.dg1
+    @Override // com.baidu.tieba.ok1
     public AbTestService createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

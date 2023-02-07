@@ -1,142 +1,139 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import kotlin.collections.CollectionsKt__MutableCollectionsJVMKt;
-import kotlin.collections.CollectionsKt__MutableCollectionsKt;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.RejectedExecutionHandler;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
-public abstract class rb6 extends pb6 implements r0 {
+public class rb6 extends ThreadPoolExecutor {
     public static /* synthetic */ Interceptable $ic;
+    public static final int a;
+    public static final int b;
+    public static final int c;
+    public static volatile rb6 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final t0 e;
-    public final Comparator<q0> f;
-    public final List<q0> g;
-    public boolean h;
 
-    @Override // com.baidu.tieba.pb6
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+    /* loaded from: classes6.dex */
+    public static class a implements ThreadFactory {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.util.concurrent.ThreadFactory
+        public Thread newThread(Runnable runnable) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+                return new Thread(runnable, "webview-thread");
+            }
+            return (Thread) invokeL.objValue;
         }
     }
 
-    public abstract void l(q0 q0Var, float f);
+    /* loaded from: classes6.dex */
+    public class b implements RejectedExecutionHandler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.util.concurrent.RejectedExecutionHandler
+        public void rejectedExecution(Runnable runnable, ThreadPoolExecutor threadPoolExecutor) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, runnable, threadPoolExecutor) == null) {
+                runnable.run();
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948115907, "Lcom/baidu/tieba/rb6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948115907, "Lcom/baidu/tieba/rb6;");
+                return;
+            }
+        }
+        int availableProcessors = Runtime.getRuntime().availableProcessors();
+        a = availableProcessors;
+        int i = availableProcessors + 1;
+        b = i;
+        c = i;
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rb6(mb6 context, t0 family, Comparator<q0> comparator) {
-        super(context);
+    public rb6(int i, int i2, long j, TimeUnit timeUnit, BlockingQueue<Runnable> blockingQueue, ThreadFactory threadFactory) {
+        super(i, i2, j, timeUnit, blockingQueue, threadFactory, new b());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, family, comparator};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((mb6) newInitContext.callArgs[0]);
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), timeUnit, blockingQueue, threadFactory};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), ((Long) objArr2[2]).longValue(), (TimeUnit) objArr2[3], (BlockingQueue) objArr2[4], (ThreadFactory) objArr2[5], (RejectedExecutionHandler) objArr2[6]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(context, "context");
-        Intrinsics.checkNotNullParameter(family, "family");
-        Intrinsics.checkNotNullParameter(comparator, "comparator");
-        this.e = family;
-        this.f = comparator;
-        this.g = new ArrayList();
     }
 
-    public /* synthetic */ rb6(mb6 mb6Var, t0 t0Var, Comparator comparator, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(mb6Var, t0Var, (i & 4) != 0 ? new qb6() : comparator);
-    }
-
-    public void a(q0 entity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, entity) == null) {
-            Intrinsics.checkNotNullParameter(entity, "entity");
-            this.g.remove(entity);
-            this.h = true;
-        }
-    }
-
-    @Override // com.baidu.tieba.r0
-    public void b(q0 entity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, entity) == null) {
-            Intrinsics.checkNotNullParameter(entity, "entity");
-            this.g.add(entity);
-            this.h = true;
-        }
-    }
-
-    @Override // com.baidu.tieba.pb6, com.baidu.tieba.s0
-    public void g(p0 engine) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, engine) == null) {
-            Intrinsics.checkNotNullParameter(engine, "engine");
-            super.g(engine);
-            engine.o(this);
-            this.g.clear();
-            this.h = false;
-        }
-    }
-
-    @Override // com.baidu.tieba.s0
-    public void update(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f) == null) {
-            m();
-            for (q0 q0Var : this.g) {
-                l(q0Var, f);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.s0
-    public void c(p0 engine) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, engine) == null) {
-            Intrinsics.checkNotNullParameter(engine, "engine");
-            this.g.clear();
-            a1<q0> newEntities = engine.j(this.e);
-            if (newEntities.size() > 0) {
-                List<q0> list = this.g;
-                Intrinsics.checkNotNullExpressionValue(newEntities, "newEntities");
-                CollectionsKt__MutableCollectionsKt.addAll(list, newEntities);
-            }
-            CollectionsKt__MutableCollectionsJVMKt.sortWith(this.g, this.f);
-            this.h = false;
-            engine.f(this.e, this);
-        }
-    }
-
-    public final List<q0> k() {
+    public static rb6 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            m();
-            return this.g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (rb6.class) {
+                    if (d == null) {
+                        d = new rb6(b, c, 30L, TimeUnit.SECONDS, new ArrayBlockingQueue(64), new a());
+                    }
+                }
+            }
+            return d;
         }
-        return (List) invokeV.objValue;
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.h) {
-            CollectionsKt__MutableCollectionsJVMKt.sortWith(this.g, this.f);
-            this.h = false;
-        }
+        return (rb6) invokeV.objValue;
     }
 }

@@ -1,38 +1,37 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.opengl.EGL14;
-import android.opengl.EGLConfig;
-import android.opengl.EGLContext;
-import android.opengl.EGLDisplay;
-import android.opengl.EGLExt;
-import android.opengl.EGLSurface;
-import android.util.Log;
-import android.view.Surface;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.monitor.MonitorType;
-import org.webrtc.EglBase10;
-@TargetApi(18)
+import java.util.LinkedList;
 /* loaded from: classes4.dex */
 public class f69 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public EGLDisplay a;
-    public EGLContext b;
-    public EGLSurface c;
-    public Surface d;
+    public m69 a;
+    public d15 b;
+    public l69 c;
+    public k69 d;
+    public i69 e;
+    public g69 f;
+    public g69 g;
+    public g69 h;
+    public j69 i;
+    public h69 j;
+    public MainTabActivity k;
+    public v39 l;
+    public boolean m;
 
-    public f69(Surface surface) {
+    public f69(@NonNull MainTabActivity mainTabActivity, @NonNull v39 v39Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {surface};
+            Object[] objArr = {mainTabActivity, v39Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,107 +41,64 @@ public class f69 {
                 return;
             }
         }
-        if (surface != null) {
-            this.d = surface;
-            b();
+        this.m = false;
+        this.k = mainTabActivity;
+        this.l = v39Var;
+        this.a = new m69(mainTabActivity.getPageContext(), v39Var, mainTabActivity, false);
+        this.b = new d15(mainTabActivity.getPageContext());
+        this.c = new l69(mainTabActivity, v39Var);
+        this.d = new k69(mainTabActivity, v39Var);
+        this.i = new j69(mainTabActivity, v39Var);
+        this.j = new h69(mainTabActivity, v39Var);
+        this.e = new i69(mainTabActivity, v39Var);
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.m) {
             return;
         }
-        throw null;
+        LinkedList linkedList = new LinkedList();
+        linkedList.add(this.j);
+        linkedList.add(this.c);
+        linkedList.add(this.d);
+        linkedList.add(this.e);
+        a15.g(linkedList);
     }
 
-    public final void a(String str) {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            boolean z = false;
-            while (true) {
-                int eglGetError = EGL14.eglGetError();
-                if (eglGetError == 12288) {
-                    break;
-                }
-                Log.e("InputSurface", str + ": EGL error: 0x" + Integer.toHexString(eglGetError));
-                z = true;
-            }
-            if (!z) {
-                return;
-            }
-            throw new RuntimeException("EGL error encountered (see log)");
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !this.m) {
+            return;
         }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            EGLDisplay eglGetDisplay = EGL14.eglGetDisplay(0);
-            this.a = eglGetDisplay;
-            if (eglGetDisplay != EGL14.EGL_NO_DISPLAY) {
-                int[] iArr = new int[2];
-                if (EGL14.eglInitialize(eglGetDisplay, iArr, 0, iArr, 1)) {
-                    EGLConfig[] eGLConfigArr = new EGLConfig[1];
-                    if (EGL14.eglChooseConfig(this.a, new int[]{MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 8, MonitorType.MONITOR_TYPE_INIT_WEBKIT, 8, 12322, 8, 12352, 4, 12610, 1, 12344}, 0, eGLConfigArr, 0, 1, new int[1], 0)) {
-                        this.b = EGL14.eglCreateContext(this.a, eGLConfigArr[0], EGL14.EGL_NO_CONTEXT, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, 12344}, 0);
-                        a("eglCreateContext");
-                        if (this.b != null) {
-                            this.c = EGL14.eglCreateWindowSurface(this.a, eGLConfigArr[0], this.d, new int[]{12344}, 0);
-                            a("eglCreateWindowSurface");
-                            if (this.c != null) {
-                                return;
-                            }
-                            throw new RuntimeException("surface was null");
-                        }
-                        throw new RuntimeException("null context");
-                    }
-                    throw new RuntimeException("unable to find RGB888+recordable ES2 EGL config");
-                }
-                this.a = null;
-                throw new RuntimeException("unable to initialize EGL14");
-            }
-            throw new RuntimeException("unable to get EGL14 display");
-        }
+        ut7.m = false;
+        LinkedList linkedList = new LinkedList();
+        linkedList.add(this.j);
+        linkedList.add(this.a);
+        a15.g(linkedList);
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            EGLDisplay eGLDisplay = this.a;
-            EGLSurface eGLSurface = this.c;
-            if (EGL14.eglMakeCurrent(eGLDisplay, eGLSurface, eGLSurface, this.b)) {
-                return;
-            }
-            throw new RuntimeException("eglMakeCurrent failed");
-        }
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return EGL14.eglSwapBuffers(this.a, this.c);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (EGL14.eglGetCurrentContext().equals(this.b)) {
-                EGLDisplay eGLDisplay = this.a;
-                EGLSurface eGLSurface = EGL14.EGL_NO_SURFACE;
-                EGL14.eglMakeCurrent(eGLDisplay, eGLSurface, eGLSurface, EGL14.EGL_NO_CONTEXT);
-            }
-            EGL14.eglDestroySurface(this.a, this.c);
-            EGL14.eglDestroyContext(this.a, this.b);
-            this.d.release();
-            this.a = null;
-            this.b = null;
-            this.c = null;
-            this.d = null;
-        }
-    }
-
-    public void e(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            EGLExt.eglPresentationTimeANDROID(this.a, this.c, j);
+            LinkedList linkedList = new LinkedList();
+            linkedList.add(this.a);
+            linkedList.add(this.c);
+            linkedList.add(this.d);
+            linkedList.add(this.j);
+            linkedList.add(this.b);
+            linkedList.add(this.i);
+            g69 g69Var = new g69(this.k, this.l, "source_from_help");
+            this.f = g69Var;
+            linkedList.add(g69Var);
+            g69 g69Var2 = new g69(this.k, this.l, "source_from_virtual_image");
+            this.g = g69Var2;
+            linkedList.add(g69Var2);
+            g69 g69Var3 = new g69(this.k, this.l, "source_from_theme");
+            this.h = g69Var3;
+            linkedList.add(g69Var3);
+            a15.g(linkedList);
+            this.m = true;
         }
     }
 }

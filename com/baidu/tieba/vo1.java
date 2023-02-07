@@ -1,14 +1,48 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.net.Uri;
-import com.baidu.tieba.v53;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface vo1 {
-    boolean a(Activity activity, String str, v53.b bVar);
+public class vo1 implements qo1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public uo1 a;
 
-    boolean b(Context context, String str);
+    public vo1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+    }
 
-    boolean c(Activity activity, Uri uri, String str);
+    @Override // com.baidu.tieba.qo1
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.a("OUID") : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.qo1
+    public void a(Context context, ro1 ro1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ro1Var) == null) {
+            uo1 uo1Var = new uo1(context);
+            this.a = uo1Var;
+            uo1Var.b();
+        }
+    }
 }

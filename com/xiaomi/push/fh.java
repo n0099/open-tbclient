@@ -89,11 +89,11 @@ public class fh {
                 }
                 return null;
             }
-            fa m399a = m399a();
-            m399a.a(ez.k.a());
-            m399a.c(aVar.f166a);
-            m399a.c(aVar.f168a);
-            return m399a;
+            fa m401a = m401a();
+            m401a.a(ez.k.a());
+            m401a.c(aVar.f166a);
+            m401a.c(aVar.f168a);
+            return m401a;
         }
         return (fa) invokeL.objValue;
     }
@@ -113,10 +113,10 @@ public class fh {
                 fbVar.b(a2);
             } catch (iz unused) {
             }
-            LinkedList<bl.a> m216a = this.f388a.m216a();
-            while (m216a.size() > 0) {
+            LinkedList<bl.a> m218a = this.f388a.m218a();
+            while (m218a.size() > 0) {
                 try {
-                    fa a3 = a(m216a.getLast());
+                    fa a3 = a(m218a.getLast());
                     if (a3 != null) {
                         a3.b(a2);
                     }
@@ -126,7 +126,7 @@ public class fh {
                     if (a3 != null) {
                         arrayList.add(a3);
                     }
-                    m216a.removeLast();
+                    m218a.removeLast();
                 } catch (iz | NoSuchElementException unused2) {
                 }
             }
@@ -149,14 +149,14 @@ public class fh {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static fh m397a() {
+    public static fh m399a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a.a : (fh) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private void m398a() {
+    private void m400a() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65541, this) == null) && this.f391a && System.currentTimeMillis() - this.f387a > this.a) {
             this.f391a = false;
@@ -165,14 +165,14 @@ public class fh {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized fa m399a() {
+    public synchronized fa m401a() {
         InterceptResult invokeV;
         fa faVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
                 faVar = new fa();
-                faVar.a(bj.m209a((Context) this.f389a.f384a));
+                faVar.a(bj.m211a((Context) this.f389a.f384a));
                 faVar.f361a = (byte) 0;
                 faVar.f365b = 1;
                 faVar.d((int) (System.currentTimeMillis() / 1000));
@@ -183,7 +183,7 @@ public class fh {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized fb m400a() {
+    public synchronized fb m402a() {
         InterceptResult invokeV;
         fb fbVar;
         Interceptable interceptable = $ic;
@@ -204,7 +204,7 @@ public class fh {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m401a(int i) {
+    public void m403a(int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || i <= 0) {
             return;
@@ -243,7 +243,7 @@ public class fh {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m402a() {
+    public boolean m404a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f391a : invokeV.booleanValue;
@@ -253,8 +253,8 @@ public class fh {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            m398a();
-            return this.f391a && this.f388a.m215a() > 0;
+            m400a();
+            return this.f391a && this.f388a.m217a() > 0;
         }
         return invokeV.booleanValue;
     }

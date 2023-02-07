@@ -1,105 +1,82 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nps.interfa.IWebViewDataDirectoryManager;
+import com.baidu.nps.interfa.IWebViewDataDirectoryManager_WebViewDataDirectoryManager_Provider;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class ge1 {
     public static /* synthetic */ Interceptable $ic;
-    public static Toast a;
+    public static ge1 b;
     public transient /* synthetic */ FieldHolder $fh;
+    @Inject
+    public bk1<IWebViewDataDirectoryManager> a;
 
-    public static View a(Context context, String str) {
-        InterceptResult invokeLL;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04e1, (ViewGroup) null);
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091adf)).setText(str);
-            return inflate;
-        }
-        return (View) invokeLL.objValue;
-    }
-
-    public static void f(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65541, null, context, str) != null) || context == null) {
-            return;
-        }
-        Toast toast = a;
-        if (toast != null) {
-            toast.cancel();
-        }
-        b(context);
-        a.setView(a(context, str));
-        a.show();
-    }
-
-    public static void b(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            Toast toast = new Toast(context.getApplicationContext());
-            a = toast;
-            toast.setGravity(17, 0, 0);
-            a.setDuration(0);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            zj1 b2 = zj1.b();
+            this.a = b2;
+            b2.a(new IWebViewDataDirectoryManager_WebViewDataDirectoryManager_Provider());
         }
     }
 
-    public static View c(Context context, int i, String str, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, Integer.valueOf(i), str, Boolean.valueOf(z)})) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04e0, (ViewGroup) null);
-            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091ade);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091adf);
-            if (-1 == i) {
-                imageView.setVisibility(8);
-            } else {
-                imageView.setVisibility(0);
-                imageView.setImageResource(i);
-                if (z) {
-                    imageView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.obfuscated_res_0x7f010098));
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947790934, "Lcom/baidu/tieba/ge1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            textView.setText(str);
-            return inflate;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947790934, "Lcom/baidu/tieba/ge1;");
+                return;
+            }
         }
-        return (View) invokeCommon.objValue;
+        b = new ge1();
     }
 
-    public static void d(Context context, int i, String str) {
+    public ge1() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLIL(65539, null, context, i, str) != null) || context == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        Toast toast = a;
-        if (toast != null) {
-            toast.cancel();
-        }
-        b(context);
-        a.setView(c(context, i, str, false));
-        a.show();
+        b();
     }
 
-    public static void e(Context context, int i, String str) {
+    public static ge1 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i, str) != null) || context == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
         }
-        Toast toast = a;
-        if (toast != null) {
-            toast.cancel();
+        return (ge1) invokeV.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (ze1.a()) {
+                Log.i("NPS-WebViewDataDirec", "webViewDataDirectoryManagerHolder class=" + this.a.getClass());
+            }
+            this.a.get().setDataDirectorySuffix();
         }
-        b(context);
-        a.setView(c(context, i, str, true));
-        a.show();
     }
 }

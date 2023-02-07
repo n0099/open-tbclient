@@ -95,7 +95,7 @@ public class aw {
             options.inJustDecodeBounds = true;
             BitmapFactory.decodeStream(inputStream, null, options);
             if (options.outWidth == -1 || options.outHeight == -1) {
-                com.xiaomi.channel.commonutils.logger.b.m103a("decode dimension failed for bitmap.");
+                com.xiaomi.channel.commonutils.logger.b.m105a("decode dimension failed for bitmap.");
                 return 1;
             }
             int round = Math.round((context.getResources().getDisplayMetrics().densityDpi / 160.0f) * 48.0f);
@@ -226,7 +226,7 @@ public class aw {
             httpURLConnection.connect();
             int contentLength = httpURLConnection.getContentLength();
             if (z && contentLength > 102400) {
-                com.xiaomi.channel.commonutils.logger.b.m103a("Bitmap size is too big, max size is 102400  contentLen size is " + contentLength + " from url " + str);
+                com.xiaomi.channel.commonutils.logger.b.m105a("Bitmap size is too big, max size is 102400  contentLen size is " + contentLength + " from url " + str);
                 com.xiaomi.push.ab.a((Closeable) null);
                 if (httpURLConnection != null) {
                     httpURLConnection.disconnect();
@@ -235,7 +235,7 @@ public class aw {
             }
             int responseCode = httpURLConnection.getResponseCode();
             if (responseCode != 200) {
-                com.xiaomi.channel.commonutils.logger.b.m103a("Invalid Http Response Code " + responseCode + " received");
+                com.xiaomi.channel.commonutils.logger.b.m105a("Invalid Http Response Code " + responseCode + " received");
                 com.xiaomi.push.ab.a((Closeable) null);
                 if (httpURLConnection != null) {
                     httpURLConnection.disconnect();
@@ -256,7 +256,7 @@ public class aw {
                     byteArrayOutputStream.write(bArr, 0, read);
                 }
                 if (i <= 0) {
-                    com.xiaomi.channel.commonutils.logger.b.m103a("length 102400 exhausted.");
+                    com.xiaomi.channel.commonutils.logger.b.m105a("length 102400 exhausted.");
                     a aVar = new a(null, 102400);
                     com.xiaomi.push.ab.a(inputStream);
                     if (httpURLConnection != null) {
@@ -389,7 +389,7 @@ public class aw {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65541, null, context, bArr, str) == null) {
             if (bArr == null) {
-                com.xiaomi.channel.commonutils.logger.b.m103a("cannot save small icon cause bitmap is null");
+                com.xiaomi.channel.commonutils.logger.b.m105a("cannot save small icon cause bitmap is null");
                 return;
             }
             a(context);

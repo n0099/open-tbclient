@@ -1,25 +1,75 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.content.ContentValues;
+import android.content.UriMatcher;
+import android.database.Cursor;
 import android.net.Uri;
-import android.text.TextUtils;
+import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.vivo.identifier.IdentifierIdClient;
 /* loaded from: classes5.dex */
-public class mk1 implements dk1 {
+public class mk1 extends lk1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public lk1 a;
-    public String b;
-    public Context c;
-    public kk1 d;
 
+    @Override // com.baidu.tieba.lk1
+    public int delete(int i, Uri uri, String str, String[] strArr) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), uri, str, strArr})) == null) {
+            return 0;
+        }
+        return invokeCommon.intValue;
+    }
+
+    @Override // com.baidu.tieba.lk1
+    public String getType(int i, Uri uri) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, uri)) == null) {
+            return null;
+        }
+        return (String) invokeIL.objValue;
+    }
+
+    @Override // com.baidu.tieba.lk1
+    public Uri insert(int i, Uri uri, ContentValues contentValues) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, uri, contentValues)) == null) {
+            return null;
+        }
+        return (Uri) invokeILL.objValue;
+    }
+
+    @Override // com.baidu.tieba.lk1
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.lk1
+    public int update(int i, Uri uri, ContentValues contentValues, String str, String[] strArr) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), uri, contentValues, str, strArr})) == null) {
+            return 0;
+        }
+        return invokeCommon.intValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public mk1() {
+        super(0, 100);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -27,57 +77,65 @@ public class mk1 implements dk1 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.dk1
-    public String a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.lk1
+    public Bundle call(String str, String str2, Bundle bundle) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.b)) {
-                this.b = this.a.a(0, null);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, bundle)) == null) {
+            if ("_get_service_handler".equals(str)) {
+                return ek1.a();
             }
-            return this.b;
+            return null;
         }
-        return (String) invokeV.objValue;
+        return (Bundle) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.dk1
-    public void a(Context context, ek1 ek1Var) {
+    @Override // com.baidu.tieba.lk1
+    public boolean d(String str, String str2, Bundle bundle) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ek1Var) == null) {
-            this.a = new lk1(context);
-            this.c = context;
-            if (b()) {
-                this.d = new kk1(this);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, this.d);
-            }
-            if (ek1Var != null) {
-                ek1Var.a();
-            }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, bundle)) == null) {
+            return "_get_service_handler".equals(str);
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.lk1
+    public void e(Uri uri, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(1048579, this, uri, i) != null) || i == 3) {
+            return;
+        }
+        super.e(uri, i);
+    }
+
+    @Override // com.baidu.tieba.lk1
+    public void f(UriMatcher uriMatcher, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, uriMatcher, str) == null) {
+            uriMatcher.addURI(str, "ipc_manager/method/get_service_handler", 1);
         }
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
-        String str;
+    @Override // com.baidu.tieba.lk1
+    public Cursor query(int i, Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            try {
-                Class<?> cls = Class.forName("android.os.SystemProperties");
-                str = (String) cls.getMethod("get", String.class, String.class).invoke(cls, IdentifierIdClient.SYS_IDENTIFIERID_SUPPORTED, "0");
-            } catch (Throwable unused) {
-                str = null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), uri, strArr, str, strArr2, str2})) == null) {
+            if (i == 1) {
+                return new fk1(ek1.a());
             }
-            if ("1".equals(str)) {
-                return true;
-            }
-            return false;
+            return null;
         }
-        return invokeV.booleanValue;
+        return (Cursor) invokeCommon.objValue;
     }
 }

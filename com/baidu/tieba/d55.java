@@ -1,181 +1,108 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.data.IconStampData;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.view.NewUserRewardDialogView;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.RectF;
+import android.text.style.ReplacementSpan;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class d55 {
+public class d55 extends ReplacementSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
+    public int i;
+    public int j;
 
-    /* loaded from: classes4.dex */
-    public static class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ NewUserRewardDialogView a;
-        public final /* synthetic */ wv4 b;
-
-        public a(NewUserRewardDialogView newUserRewardDialogView, wv4 wv4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {newUserRewardDialogView, wv4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = newUserRewardDialogView;
-            this.b = wv4Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.d();
-                this.b.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
-        public final /* synthetic */ wv4 b;
-        public final /* synthetic */ int c;
-
-        public b(TbPageContext tbPageContext, wv4 wv4Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tbPageContext, wv4Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tbPageContext;
-            this.b = wv4Var;
-            this.c = i;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                UrlManager.getInstance().dealOneLink(this.a, new String[]{"https://tieba.baidu.com/mo/q/icon/panelIcon?opacity=0&user_id=" + TbadkCoreApplication.getCurrentAccount()});
-                this.b.dismiss();
-                d55.d(this.c);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PostWriteCallBackData a;
-        public final /* synthetic */ TbPageContext b;
-
-        public c(PostWriteCallBackData postWriteCallBackData, TbPageContext tbPageContext) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {postWriteCallBackData, tbPageContext};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = postWriteCallBackData;
-            this.b = tbPageContext;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                av8 av8Var = new av8();
-                PostWriteCallBackData postWriteCallBackData = this.a;
-                if (postWriteCallBackData != null) {
-                    IconStampData iconStampData = postWriteCallBackData.getIconStampData();
-                    av8Var.f(iconStampData.stampType);
-                    av8Var.h(iconStampData.stampTitle);
-                }
-                new zu8(this.b.getPageActivity(), av8Var).a();
-                d55.f();
-            }
-        }
-    }
-
-    public static void d(int i) {
+    public d55(int i, int i2, int i3, int i4, int i5, int i6, int i7) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_STAMP_SHARE_DIALOG).param("obj_type", 2).param("obj_source", 2).param("obj_locate", i));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i8 = newInitContext.flag;
+            if ((i8 & 1) != 0) {
+                int i9 = i8 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.i = 0;
+        this.j = 0;
+        this.b = i;
+        this.c = i2;
+        this.d = i3;
+        this.e = i4;
+        this.f = i5;
+        this.g = i6;
+        this.h = i7;
+    }
+
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.j = i;
         }
     }
 
-    public static void e(int i) {
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) {
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_STAMP_SHARE_DIALOG).param("obj_type", 1).param("obj_source", 2).param("obj_locate", i));
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.i = i;
         }
     }
 
-    public static void f() {
+    @Override // android.text.style.ReplacementSpan
+    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_CLICK).param("obj_locate", 31));
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
+            float textSize = paint.getTextSize();
+            int color = paint.getColor();
+            float f2 = f + this.h;
+            paint.setTextSize(this.d);
+            paint.setColor(SkinManager.getColor(this.b));
+            paint.setAntiAlias(true);
+            int i6 = i3 + i5;
+            int i7 = this.d;
+            int i8 = this.c;
+            int i9 = this.g;
+            int i10 = this.i;
+            RectF rectF = new RectF(f2, ((((i6 - i7) - i8) - i9) / 2) + i10, (this.a + f2) - this.j, ((((i6 + i7) + i8) + i9) / 2) + i10);
+            int i11 = this.c;
+            canvas.drawRoundRect(rectF, i11, i11, paint);
+            paint.setColor(SkinManager.getColor(this.e));
+            Paint.FontMetrics fontMetrics = paint.getFontMetrics();
+            canvas.drawText(charSequence, i, i2, f2 + this.c + this.f, (int) ((rectF.centerY() - (fontMetrics.top / 2.0f)) - (fontMetrics.bottom / 2.0f)), paint);
+            paint.setTextSize(textSize);
+            paint.setColor(color);
         }
     }
 
-    public static void c(TbPageContext tbPageContext, PostWriteCallBackData postWriteCallBackData, int i) {
+    @Override // android.text.style.ReplacementSpan
+    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLI(65538, null, tbPageContext, postWriteCallBackData, i) != null) || postWriteCallBackData == null || !b55.a(postWriteCallBackData.getIconStampData())) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
+            float textSize = paint.getTextSize();
+            paint.setTextSize(this.d);
+            this.a = (int) (paint.measureText(charSequence, i, i2) + (this.c * 2) + (this.f * 2) + this.j);
+            paint.setTextSize(textSize);
+            return this.a;
         }
-        NewUserRewardDialogView newUserRewardDialogView = new NewUserRewardDialogView(tbPageContext.getPageActivity());
-        newUserRewardDialogView.setData(postWriteCallBackData.getIconStampData());
-        wv4 wv4Var = new wv4(tbPageContext.getPageActivity());
-        wv4Var.setContentViewSize(5);
-        wv4Var.setContentView(newUserRewardDialogView);
-        wv4Var.setCanceledOnTouchOutside(false);
-        wv4Var.setAnimRes(R.style.obfuscated_res_0x7f1003d6);
-        wv4Var.create(tbPageContext).show();
-        newUserRewardDialogView.setCloseListener(new a(newUserRewardDialogView, wv4Var));
-        newUserRewardDialogView.getNewsUserDialogLookView().setOnClickListener(new b(tbPageContext, wv4Var, i));
-        newUserRewardDialogView.getNewUserDialogShareView().setOnClickListener(new c(postWriteCallBackData, tbPageContext));
-        e(i);
+        return invokeCommon.intValue;
     }
 }

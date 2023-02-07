@@ -1,52 +1,33 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebResourceRequest;
-import com.baidu.webkit.sdk.WebResourceResponse;
-import java.util.Map;
-import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes5.dex */
-public class l82 implements s82 {
+public class l82 implements m82 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CopyOnWriteArrayList<x82> b;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    @Override // com.baidu.tieba.m82
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
     }
 
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final l82 a;
-        public transient /* synthetic */ FieldHolder $fh;
+    @Override // com.baidu.tieba.m82
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-677055387, "Lcom/baidu/tieba/l82$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-677055387, "Lcom/baidu/tieba/l82$b;");
-                    return;
-                }
-            }
-            a = new l82(null);
+    @Override // com.baidu.tieba.m82
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 
@@ -60,55 +41,7 @@ public class l82 implements s82 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = new CopyOnWriteArrayList<>();
-    }
-
-    public static l82 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (l82) invokeV.objValue;
-    }
-
-    public /* synthetic */ l82(a aVar) {
-        this();
-    }
-
-    public void a(x82 x82Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, x82Var) == null) && x82Var != null && !this.b.contains(x82Var)) {
-            this.b.add(x82Var);
-        }
-    }
-
-    @RequiresApi(api = 21)
-    public WebResourceResponse c(WebResourceRequest webResourceRequest, boolean z) {
-        InterceptResult invokeLZ;
-        Uri url;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webResourceRequest, z)) == null) {
-            if (webResourceRequest == null || (url = webResourceRequest.getUrl()) == null) {
-                return null;
-            }
-            return d(url.toString(), webResourceRequest.getRequestHeaders(), z);
-        }
-        return (WebResourceResponse) invokeLZ.objValue;
-    }
-
-    public final WebResourceResponse d(String str, Map<String, String> map, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, str, map, z)) == null) {
-            if (this.b.isEmpty() || TextUtils.isEmpty(str) || str.startsWith("file://")) {
-                return null;
-            }
-            return new a92(this.b, str, map, 0, z).b(str, map, z);
-        }
-        return (WebResourceResponse) invokeLLZ.objValue;
     }
 }

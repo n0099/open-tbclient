@@ -1,212 +1,122 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tbadk.img.effect.ImageOperation;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class ma5 {
     public static /* synthetic */ Interceptable $ic;
-    public static ma5 b;
+    public static ma5 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, Class<? extends la5>> a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947965960, "Lcom/baidu/tieba/ma5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947965960, "Lcom/baidu/tieba/ma5;");
-                return;
-            }
-        }
-        b = new ma5();
-    }
-
-    public static ma5 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
-        }
-        return (ma5) invokeV.objValue;
-    }
+    public HashMap<String, String> a;
+    public HashMap<String, String> b;
+    public HashMap<String, String> c;
 
     public ma5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = new HashMap<>();
-        f(na5.class);
-        f(pa5.class);
-        f(ka5.class);
-        f(oa5.class);
-        f(qa5.class);
+        this.b = new HashMap<>();
+        this.c = new HashMap<>();
     }
 
-    public la5 a(ImageOperation imageOperation) {
-        InterceptResult invokeL;
-        la5 e;
+    public static synchronized ma5 a() {
+        InterceptResult invokeV;
+        ma5 ma5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageOperation)) == null) {
-            Class<? extends la5> cls = this.a.get(imageOperation.actionName);
-            if (cls == null || (e = e(cls)) == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (ma5.class) {
+                if (d == null) {
+                    d = new ma5();
+                }
+                ma5Var = d;
             }
-            e.d(imageOperation.actionParam);
-            return e;
+            return ma5Var;
         }
-        return (la5) invokeL.objValue;
+        return (ma5) invokeV.objValue;
     }
 
-    public final la5 e(Class<? extends la5> cls) {
-        InterceptResult invokeL;
+    public void b(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cls)) == null) {
-            try {
-                return cls.newInstance();
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-                return null;
-            } catch (InstantiationException e2) {
-                e2.printStackTrace();
-                return null;
-            }
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return (la5) invokeL.objValue;
-    }
-
-    public final void f(Class<? extends la5> cls) {
-        la5 e;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, cls) == null) && (e = e(cls)) != null) {
-            this.a.put(e.a(), cls);
+        try {
+            JSONObject optJSONObject = jSONObject.optJSONObject("upload_file_frequency");
+            if (optJSONObject != null) {
+                String optString = optJSONObject.optString("2g");
+                String optString2 = optJSONObject.optString("3g");
+                String optString3 = optJSONObject.optString("4g");
+                String optString4 = optJSONObject.optString("wifi");
+                if (optString != null) {
+                    this.a.put("2g", optString);
+                }
+                if (optString2 != null) {
+                    this.a.put("3g", optString2);
+                }
+                if (optString3 != null) {
+                    this.a.put("4g", optString3);
+                }
+                if (optString4 != null) {
+                    this.a.put("wifi", optString4);
+                }
+            }
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("upload_data_num");
+            if (optJSONObject2 != null) {
+                String optString5 = optJSONObject2.optString("2g");
+                String optString6 = optJSONObject2.optString("3g");
+                String optString7 = optJSONObject2.optString("4g");
+                String optString8 = optJSONObject2.optString("wifi");
+                if (optString5 != null) {
+                    this.b.put("2g", optString5);
+                }
+                if (optString6 != null) {
+                    this.b.put("3g", optString6);
+                }
+                if (optString7 != null) {
+                    this.b.put("4g", optString7);
+                }
+                if (optString8 != null) {
+                    this.b.put("wifi", optString8);
+                }
+            }
+            JSONObject optJSONObject3 = jSONObject.optJSONObject("merge_data_frequency");
+            if (optJSONObject3 != null) {
+                String optString9 = optJSONObject3.optString("2g");
+                String optString10 = optJSONObject3.optString("3g");
+                String optString11 = optJSONObject3.optString("4g");
+                String optString12 = optJSONObject3.optString("wifi");
+                if (optString9 != null) {
+                    this.c.put("2g", optString9);
+                }
+                if (optString10 != null) {
+                    this.c.put("3g", optString10);
+                }
+                if (optString11 != null) {
+                    this.c.put("4g", optString11);
+                }
+                if (optString12 != null) {
+                    this.c.put("wifi", optString12);
+                }
+            }
+            jSONObject.optString("is_on");
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
-    }
-
-    public Bitmap b(Bitmap bitmap, boolean z, List<ImageOperation> list, ImageFileInfo imageFileInfo) throws Exception {
-        InterceptResult invokeCommon;
-        Bitmap bitmap2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bitmap, Boolean.valueOf(z), list, imageFileInfo})) == null) {
-            if (bitmap == null) {
-                return bitmap;
-            }
-            if (ListUtils.isEmpty(list)) {
-                return bitmap;
-            }
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                la5 a = a(list.get(i));
-                if ((a instanceof qa5) && imageFileInfo != null) {
-                    ((qa5) a).e(imageFileInfo.getFilePath());
-                    return a.b(bitmap, z);
-                }
-            }
-            na5 na5Var = null;
-            int i2 = 0;
-            while (i2 < size) {
-                ImageOperation imageOperation = list.get(i2);
-                if ("resize".equals(imageOperation.actionName)) {
-                    na5 na5Var2 = (na5) a(imageOperation);
-                    if (na5Var == null || na5Var2.f() <= na5Var.f() || na5Var2.e() <= na5Var.e()) {
-                        na5Var = na5Var2;
-                    }
-                    list.remove(i2);
-                    i2--;
-                }
-                i2++;
-            }
-            if (na5Var != null) {
-                bitmap2 = na5Var.b(bitmap, z);
-            } else {
-                bitmap2 = null;
-            }
-            if (list != null) {
-                for (int i3 = 0; i3 < size; i3++) {
-                    la5 a2 = a(list.get(i3));
-                    if (a2 != null) {
-                        if (bitmap2 == null) {
-                            return null;
-                        }
-                        bitmap2 = a2.b(bitmap, z);
-                    }
-                }
-            }
-            return bitmap2;
-        }
-        return (Bitmap) invokeCommon.objValue;
-    }
-
-    public Bitmap c(String str, List<ImageOperation> list, ImageFileInfo imageFileInfo) throws Exception {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, list, imageFileInfo)) == null) {
-            Bitmap bitmap = null;
-            if (ListUtils.isEmpty(list)) {
-                return null;
-            }
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                la5 a = a(list.get(i));
-                if ((a instanceof qa5) && imageFileInfo != null) {
-                    return a.c(imageFileInfo.getFilePath());
-                }
-            }
-            na5 na5Var = null;
-            int i2 = 0;
-            while (i2 < list.size()) {
-                ImageOperation imageOperation = list.get(i2);
-                if ("resize".equals(imageOperation.actionName)) {
-                    na5 na5Var2 = (na5) a(imageOperation);
-                    if (na5Var == null || na5Var2.f() <= na5Var.f() || na5Var2.e() <= na5Var.e()) {
-                        na5Var = na5Var2;
-                    }
-                    list.remove(i2);
-                    i2--;
-                }
-                i2++;
-            }
-            if (na5Var != null) {
-                bitmap = na5Var.c(str);
-            }
-            if (list != null) {
-                for (int i3 = 0; i3 < list.size(); i3++) {
-                    la5 a2 = a(list.get(i3));
-                    if (a2 != null) {
-                        if (bitmap == null) {
-                            bitmap = a2.c(str);
-                        } else {
-                            bitmap = a2.b(bitmap, true);
-                        }
-                    }
-                }
-            }
-            return bitmap;
-        }
-        return (Bitmap) invokeLLL.objValue;
     }
 }

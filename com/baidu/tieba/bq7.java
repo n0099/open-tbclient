@@ -1,48 +1,31 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class bq7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, qo4> a;
-
-    /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes3.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final bq7 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-910557245, "Lcom/baidu/tieba/bq7$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-910557245, "Lcom/baidu/tieba/bq7$b;");
-                    return;
-                }
-            }
-            a = new bq7(null);
-        }
-    }
+    @Nullable
+    public List<String> a;
+    @Nullable
+    public String b;
+    @Nullable
+    public String c;
+    @Nullable
+    public String d;
+    @Nullable
+    public String e;
 
     public bq7() {
         Interceptable interceptable = $ic;
@@ -54,45 +37,80 @@ public class bq7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new HashMap<>();
     }
 
-    public static bq7 a() {
+    @Nullable
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return (bq7) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public /* synthetic */ bq7(a aVar) {
-        this();
-    }
-
-    public void b(qo4 qo4Var) {
+    @Nullable
+    public List<String> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, qo4Var) == null) {
-            c(qo4Var.a(), qo4Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
+        return (List) invokeV.objValue;
     }
 
-    public final void c(String str, qo4 qo4Var) {
+    @Nullable
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, qo4Var) == null) {
-            this.a.put(str, qo4Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void d(String str, HashMap<String, String> hashMap, ro4 ro4Var) {
-        qo4 qo4Var;
+    @Nullable
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, hashMap, ro4Var) != null) || str == null || hashMap == null || hashMap.isEmpty() || ro4Var == null || (qo4Var = this.a.get(str)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Nullable
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void f(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        qo4Var.b(hashMap, ro4Var);
+        this.b = jSONObject.optString("hot_nums_text");
+        this.c = jSONObject.optString("add_url");
+        this.d = jSONObject.optString("manage_url");
+        this.e = jSONObject.optString("manager_switch");
+        JSONArray optJSONArray = jSONObject.optJSONArray("head_img");
+        if (optJSONArray != null && optJSONArray.length() > 0) {
+            if (this.a == null) {
+                this.a = new ArrayList();
+            }
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                String optString = optJSONArray.optString(i);
+                if (!TextUtils.isEmpty(optString)) {
+                    this.a.add(optString);
+                }
+            }
+        }
     }
 }

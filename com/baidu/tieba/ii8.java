@@ -1,113 +1,77 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GiftInfo;
-import tbclient.User;
 /* loaded from: classes4.dex */
-public class ii8 extends BaseCardInfo {
+public class ii8 extends qn<ej8, CardViewHolder<xj8>> {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId h;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public String c;
-    public String d;
-    public String e;
-    public int f;
-    public List<yn> g;
+    public TbPageContext a;
+    public ld6<ej8> b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947854577, "Lcom/baidu/tieba/ii8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947854577, "Lcom/baidu/tieba/ii8;");
-                return;
-            }
-        }
-        h = BdUniqueId.gen();
-    }
-
-    public ii8() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ii8(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = tbPageContext;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: s */
+    public CardViewHolder<xj8> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            xj8 xj8Var = new xj8(this.a);
+            xj8Var.n(this.b);
+            return new CardViewHolder<>(xj8Var);
+        }
+        return (CardViewHolder) invokeL.objValue;
+    }
+
+    public void u(ld6<ej8> ld6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, ld6Var) == null) {
+            this.b = ld6Var;
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ej8 ej8Var, CardViewHolder<xj8> cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return h;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ej8Var, cardViewHolder})) == null) {
+            cardViewHolder.a().i(ej8Var);
+            return cardViewHolder.getView();
         }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return !ListUtils.isEmpty(this.g);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void c(User user) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, user) == null) && user != null && !ListUtils.isEmpty(user.gift_list)) {
-            this.c = String.valueOf(user.id);
-            this.d = user.name;
-            this.e = user.name_show;
-            this.f = user.sex.intValue();
-            String str = this.c;
-            if (str != null && str.equals(TbadkCoreApplication.getCurrentAccount())) {
-                this.a = true;
-            } else {
-                this.a = false;
-            }
-            if (user.sex.intValue() == 2) {
-                this.b = false;
-            } else {
-                this.b = true;
-            }
-            Integer num = user.gift_num;
-            if (num != null) {
-                num.intValue();
-            }
-            this.g = new ArrayList();
-            for (GiftInfo giftInfo : user.gift_list) {
-                if (giftInfo != null) {
-                    qi8 qi8Var = new qi8();
-                    qi8Var.c(giftInfo);
-                    this.g.add(qi8Var);
-                }
-            }
-        }
+        return (View) invokeCommon.objValue;
     }
 }

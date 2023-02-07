@@ -1,40 +1,39 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class z80 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public Boolean a;
-    public Boolean b;
-    public Socket c;
-    public InputStream d;
-    public OutputStream e;
+public interface z80 extends b90 {
+    void onResponse(int i, String str, @NonNull a aVar);
 
-    public z80() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+        public long b;
+        public byte[] c;
+        public List<y80> d;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
+            this.d = new ArrayList();
         }
-        Boolean bool = Boolean.FALSE;
-        this.a = bool;
-        this.b = bool;
-        this.c = null;
-        this.d = null;
-        this.e = null;
     }
 }

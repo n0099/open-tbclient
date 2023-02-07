@@ -1,124 +1,119 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.database.DataSetObserver;
+import android.content.res.ColorStateList;
+import android.graphics.Bitmap;
+import android.graphics.BitmapShader;
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.graphics.Shader;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
+import android.graphics.drawable.StateListDrawable;
 import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.Filterable;
-import android.widget.ListAdapter;
-import android.widget.TextView;
+import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
 /* loaded from: classes5.dex */
-public class pn extends BaseAdapter implements zn {
+public class pn extends Drawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public ListAdapter b;
-    public ArrayList<c> c;
-    public ArrayList<c> d;
-    public boolean e;
-    public DataSetObserver f;
-    public DataSetObserver g;
-    public b h;
+    public final RectF a;
+    public final RectF b;
+    public final RectF c;
+    public final BitmapShader d;
+    public final Paint e;
+    public final int f;
+    public final int g;
+    public final RectF h;
+    public final Paint i;
+    public final Matrix j;
+    public float k;
+    public boolean l;
+    public float m;
+    public ColorStateList n;
+    public ImageView.ScaleType o;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void onPreLoad();
+    @Override // android.graphics.drawable.Drawable
+    public int getOpacity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return -3;
+        }
+        return invokeV.intValue;
     }
 
     /* loaded from: classes5.dex */
-    public class a extends DataSetObserver {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pn a;
 
-        public a(pn pnVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pnVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(260545362, "Lcom/baidu/tieba/pn$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(260545362, "Lcom/baidu/tieba/pn$a;");
                     return;
                 }
             }
-            this.a = pnVar;
-        }
-
-        @Override // android.database.DataSetObserver
-        public void onChanged() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                super.onChanged();
-                if (this.a.f != null) {
-                    this.a.f.onChanged();
-                }
-                if (this.a.h != null) {
-                    this.a.h.onPreLoad();
-                }
+            int[] iArr = new int[ImageView.ScaleType.values().length];
+            a = iArr;
+            try {
+                iArr[ImageView.ScaleType.CENTER.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
             }
-        }
-
-        @Override // android.database.DataSetObserver
-        public void onInvalidated() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                super.onInvalidated();
-                if (this.a.f != null) {
-                    this.a.f.onInvalidated();
-                }
+            try {
+                a[ImageView.ScaleType.CENTER_CROP.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
             }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public View a;
-        public Object b;
-        public boolean c;
-
-        public c(pn pnVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pnVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+            try {
+                a[ImageView.ScaleType.CENTER_INSIDE.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[ImageView.ScaleType.FIT_CENTER.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                a[ImageView.ScaleType.FIT_END.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                a[ImageView.ScaleType.FIT_START.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
+            try {
+                a[ImageView.ScaleType.FIT_XY.ordinal()] = 7;
+            } catch (NoSuchFieldError unused7) {
             }
         }
     }
 
-    public pn(Context context) {
+    public pn(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {bitmap};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -128,472 +123,353 @@ public class pn extends BaseAdapter implements zn {
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        boolean z = false;
-        this.e = false;
-        this.f = null;
-        this.g = null;
-        this.h = null;
-        this.a = context;
-        this.c = new ArrayList<>();
-        this.d = new ArrayList<>();
-        if (i(this.c) && i(this.d)) {
-            z = true;
-        }
-        this.e = z;
-        this.g = new a(this);
+        this.a = new RectF();
+        this.b = new RectF();
+        this.c = new RectF();
+        this.h = new RectF();
+        this.j = new Matrix();
+        this.k = 0.0f;
+        this.l = false;
+        this.m = 0.0f;
+        this.n = ColorStateList.valueOf(0);
+        this.o = ImageView.ScaleType.FIT_XY;
+        this.f = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        this.g = height;
+        this.c.set(0.0f, 0.0f, this.f, height);
+        Shader.TileMode tileMode = Shader.TileMode.CLAMP;
+        BitmapShader bitmapShader = new BitmapShader(bitmap, tileMode, tileMode);
+        this.d = bitmapShader;
+        bitmapShader.setLocalMatrix(this.j);
+        Paint paint = new Paint();
+        this.e = paint;
+        paint.setStyle(Paint.Style.FILL);
+        this.e.setAntiAlias(true);
+        this.e.setShader(this.d);
+        Paint paint2 = new Paint();
+        this.i = paint2;
+        paint2.setStyle(Paint.Style.STROKE);
+        this.i.setAntiAlias(true);
+        this.i.setColor(this.n.getColorForState(getState(), 0));
+        this.i.setStrokeWidth(this.m);
     }
 
-    public void e(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            f(view2, null, true, -1);
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            int n = n();
-            ListAdapter listAdapter = this.b;
-            if (listAdapter != null && i >= n && (i2 = i - n) < listAdapter.getCount()) {
-                return this.b.getItemId(i2);
-            }
-            return Long.MIN_VALUE;
-        }
-        return invokeI.longValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        InterceptResult invokeI;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            int n = n();
-            ListAdapter listAdapter = this.b;
-            if (listAdapter != null && i >= n && (i2 = i - n) < listAdapter.getCount()) {
-                return this.b.getItemViewType(i2);
-            }
-            return -2;
-        }
-        return invokeI.intValue;
-    }
-
-    public final boolean i(ArrayList<c> arrayList) {
+    public static Bitmap a(Drawable drawable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, arrayList)) == null) {
-            if (arrayList != null) {
-                Iterator<c> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    if (!it.next().c) {
-                        return false;
-                    }
-                }
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, drawable)) == null) {
+            if (drawable instanceof BitmapDrawable) {
+                return ((BitmapDrawable) drawable).getBitmap();
             }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void r(ListAdapter listAdapter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, listAdapter) == null) {
-            ListAdapter listAdapter2 = this.b;
-            this.b = listAdapter;
-            if (listAdapter != null) {
-                boolean z = listAdapter instanceof Filterable;
-            }
-            notifyDataSetChanged();
-        }
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public void registerDataSetObserver(DataSetObserver dataSetObserver) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, dataSetObserver) == null) {
-            super.registerDataSetObserver(dataSetObserver);
-            this.f = dataSetObserver;
-            ListAdapter listAdapter = this.b;
-            if (listAdapter != null) {
-                listAdapter.registerDataSetObserver(this.g);
-            }
-        }
-    }
-
-    public void s(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, bVar) == null) {
-            this.h = bVar;
-        }
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public void unregisterDataSetObserver(DataSetObserver dataSetObserver) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, dataSetObserver) == null) {
-            super.unregisterDataSetObserver(dataSetObserver);
-            this.f = dataSetObserver;
-            ListAdapter listAdapter = this.b;
-            if (listAdapter != null) {
-                listAdapter.unregisterDataSetObserver(this.g);
-            }
-        }
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.ListAdapter
-    public boolean areAllItemsEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ListAdapter listAdapter = this.b;
-            if (listAdapter != null) {
-                if (this.e && listAdapter.areAllItemsEnabled()) {
-                    return true;
-                }
-                return false;
-            }
-            return super.areAllItemsEnabled();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.widget.Adapter, com.baidu.tieba.zn
-    public int getCount() {
-        InterceptResult invokeV;
-        int l;
-        int n;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.b != null) {
-                l = l() + n();
-                n = this.b.getCount();
-            } else {
-                l = l();
-                n = n();
-            }
-            return l + n;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            ListAdapter listAdapter = this.b;
-            if (listAdapter == null) {
-                return 1;
-            }
-            return listAdapter.getViewTypeCount() + 1;
-        }
-        return invokeV.intValue;
-    }
-
-    public ListAdapter getWrappedAdapter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.b;
-        }
-        return (ListAdapter) invokeV.objValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public boolean hasStableIds() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            ListAdapter listAdapter = this.b;
-            if (listAdapter != null) {
-                return listAdapter.hasStableIds();
-            }
-            return super.hasStableIds();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public boolean isEmpty() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            ListAdapter listAdapter = this.b;
-            if (listAdapter != null && !listAdapter.isEmpty()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return this.d.size();
-        }
-        return invokeV.intValue;
-    }
-
-    public int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return this.d.size();
-        }
-        return invokeV.intValue;
-    }
-
-    public int m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return this.c.size();
-        }
-        return invokeV.intValue;
-    }
-
-    public int n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return this.c.size();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.BaseAdapter, com.baidu.tieba.zn
-    public void notifyDataSetChanged() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048597, this) != null) || !zi.E()) {
-            return;
-        }
-        super.notifyDataSetChanged();
-    }
-
-    public int o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            ListAdapter listAdapter = this.b;
-            if (listAdapter != null) {
-                return listAdapter.getCount();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public void f(View view2, Object obj, boolean z, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{view2, obj, Boolean.valueOf(z), Integer.valueOf(i)}) != null) || view2 == null) {
-            return;
-        }
-        c cVar = new c(this);
-        cVar.a = view2;
-        cVar.b = obj;
-        cVar.c = z;
-        if (i >= 0 && i <= this.d.size()) {
-            this.d.add(i, cVar);
-        } else {
-            this.d.add(cVar);
-        }
-        notifyDataSetChanged();
-    }
-
-    public void h(View view2, Object obj, boolean z, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048587, this, new Object[]{view2, obj, Boolean.valueOf(z), Integer.valueOf(i)}) != null) || view2 == null) {
-            return;
-        }
-        c cVar = new c(this);
-        cVar.a = view2;
-        cVar.b = obj;
-        cVar.c = z;
-        if (i >= 0 && i <= this.c.size()) {
-            this.c.add(i, cVar);
-        } else {
-            this.c.add(cVar);
-        }
-        notifyDataSetChanged();
-    }
-
-    public void g(View view2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, view2, i) == null) {
-            h(view2, null, true, i);
-        }
-    }
-
-    @Override // android.widget.Adapter, com.baidu.tieba.zn
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            int n = n();
-            if (i < n) {
-                return this.c.get(i).b;
-            }
-            int i2 = i - n;
-            int i3 = 0;
-            ListAdapter listAdapter = this.b;
-            if (listAdapter != null && i2 < (i3 = listAdapter.getCount())) {
-                return this.b.getItem(i2);
-            }
-            int i4 = i2 - i3;
-            if (i4 >= 0 && i4 < this.d.size()) {
-                return this.d.get(i4).b;
+            int intrinsicWidth = drawable.getIntrinsicWidth();
+            int intrinsicHeight = drawable.getIntrinsicHeight();
+            if (intrinsicWidth > 0 && intrinsicHeight > 0) {
+                Bitmap createBitmap = Bitmap.createBitmap(intrinsicWidth, intrinsicHeight, Bitmap.Config.ARGB_8888);
+                Canvas canvas = new Canvas(createBitmap);
+                drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+                drawable.draw(canvas);
+                return createBitmap;
             }
             return null;
         }
-        return invokeI.objValue;
+        return (Bitmap) invokeL.objValue;
     }
 
-    @Override // android.widget.BaseAdapter, android.widget.ListAdapter
-    public boolean isEnabled(int i) {
-        InterceptResult invokeI;
-        int i2;
+    public static Drawable b(Drawable drawable) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) {
-            int n = n();
-            if (i < n) {
-                return this.c.get(i).c;
-            }
-            int i3 = i - n;
-            ListAdapter listAdapter = this.b;
-            if (listAdapter != null) {
-                i2 = listAdapter.getCount();
-                if (i3 < i2) {
-                    return this.b.isEnabled(i3);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, drawable)) == null) {
+            if (drawable != null) {
+                if (drawable instanceof pn) {
+                    return drawable;
                 }
+                if (drawable instanceof ColorDrawable) {
+                    return drawable;
+                }
+                if (drawable instanceof LayerDrawable) {
+                    LayerDrawable layerDrawable = (LayerDrawable) drawable;
+                    int numberOfLayers = layerDrawable.getNumberOfLayers();
+                    for (int i = 0; i < numberOfLayers; i++) {
+                        layerDrawable.setDrawableByLayerId(layerDrawable.getId(i), b(layerDrawable.getDrawable(i)));
+                    }
+                    return layerDrawable;
+                } else if (drawable instanceof StateListDrawable) {
+                    return (StateListDrawable) drawable;
+                } else {
+                    Bitmap a2 = a(drawable);
+                    if (a2 != null && !a2.isRecycled()) {
+                        return new pn(a2);
+                    }
+                    Log.w("BdRoundedDrawable", "Failed to create bitmap from drawable!");
+                }
+            }
+            return drawable;
+        }
+        return (Drawable) invokeL.objValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void draw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
+            if (this.l) {
+                if (this.m > 0.0f) {
+                    canvas.drawOval(this.h, this.i);
+                    canvas.drawOval(this.b, this.e);
+                    return;
+                }
+                canvas.drawOval(this.b, this.e);
+            } else if (this.m > 0.0f) {
+                RectF rectF = this.h;
+                float f = this.k;
+                canvas.drawRoundRect(rectF, f, f, this.i);
+                canvas.drawRoundRect(this.b, Math.max(this.k - this.m, 0.0f), Math.max(this.k - this.m, 0.0f), this.e);
             } else {
-                i2 = 0;
+                RectF rectF2 = this.b;
+                float f2 = this.k;
+                canvas.drawRoundRect(rectF2, f2, f2, this.e);
             }
-            int i4 = i3 - i2;
-            if (i4 < 0 || i4 >= this.d.size()) {
-                return false;
-            }
-            return this.d.get(i4).c;
         }
-        return invokeI.booleanValue;
     }
 
-    public boolean p(View view2) {
+    public pn c(ColorStateList colorStateList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, view2)) == null) {
-            boolean z = false;
-            if (view2 == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, colorStateList)) == null) {
+            if (colorStateList == null) {
+                colorStateList = ColorStateList.valueOf(0);
             }
-            for (int i = 0; i < this.d.size(); i++) {
-                if (this.d.get(i).a == view2) {
-                    this.d.remove(i);
-                    if (i(this.c) && i(this.d)) {
-                        z = true;
-                    }
-                    this.e = z;
-                    notifyDataSetChanged();
-                    return true;
-                }
+            this.n = colorStateList;
+            this.i.setColor(colorStateList.getColorForState(getState(), 0));
+            return this;
+        }
+        return (pn) invokeL.objValue;
+    }
+
+    public pn d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            float f = i;
+            this.m = f;
+            this.i.setStrokeWidth(f);
+            return this;
+        }
+        return (pn) invokeI.objValue;
+    }
+
+    public pn e(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048579, this, f)) == null) {
+            this.k = f;
+            return this;
+        }
+        return (pn) invokeF.objValue;
+    }
+
+    public pn f(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
+            this.l = z;
+            return this;
+        }
+        return (pn) invokeZ.objValue;
+    }
+
+    public pn g(ImageView.ScaleType scaleType) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, scaleType)) == null) {
+            if (scaleType == null) {
+                scaleType = ImageView.ScaleType.FIT_XY;
             }
-            return false;
+            if (this.o != scaleType) {
+                this.o = scaleType;
+                h();
+            }
+            return this;
+        }
+        return (pn) invokeL.objValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void onBoundsChange(Rect rect) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, rect) == null) {
+            super.onBoundsChange(rect);
+            this.a.set(rect);
+            h();
+        }
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public boolean onStateChange(int[] iArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, iArr)) == null) {
+            int colorForState = this.n.getColorForState(iArr, 0);
+            if (this.i.getColor() != colorForState) {
+                this.i.setColor(colorForState);
+                return true;
+            }
+            return super.onStateChange(iArr);
         }
         return invokeL.booleanValue;
     }
 
-    public boolean q(View view2) {
-        InterceptResult invokeL;
+    @Override // android.graphics.drawable.Drawable
+    public void setAlpha(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, view2)) == null) {
-            boolean z = false;
-            if (view2 == null) {
-                return false;
-            }
-            for (int i = 0; i < this.c.size(); i++) {
-                if (this.c.get(i).a == view2) {
-                    this.c.remove(i);
-                    if (i(this.c) && i(this.d)) {
-                        z = true;
-                    }
-                    this.e = z;
-                    notifyDataSetChanged();
-                    return true;
-                }
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.e.setAlpha(i);
+            invalidateSelf();
         }
-        return invokeL.booleanValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
+    @Override // android.graphics.drawable.Drawable
+    public void setColorFilter(ColorFilter colorFilter) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
-            int n = n();
-            if (i < n) {
-                View view3 = this.c.get(i).a;
-                if (view3 == null) {
-                    return j();
-                }
-                return view3;
-            }
-            int i2 = i - n;
-            int i3 = 0;
-            ListAdapter listAdapter = this.b;
-            View view4 = null;
-            if (listAdapter != null && i2 < (i3 = listAdapter.getCount())) {
-                try {
-                    view4 = this.b.getView(i2, view2, viewGroup);
-                } catch (Exception e) {
-                    if (e.getMessage() != null) {
-                        BdLog.detailException(e);
-                        Log.e("BdListAdapter", e.getMessage());
-                        e.printStackTrace();
-                    }
-                } catch (OutOfMemoryError unused) {
-                    BdBaseApplication.getInst().onAppMemoryLow();
-                    view4 = this.b.getView(i2, view2, viewGroup);
-                }
-                if (view4 == null) {
-                    return j();
-                }
-                return view4;
-            }
-            try {
-                view4 = this.d.get(i2 - i3).a;
-            } catch (Exception e2) {
-                BdLog.detailException(e2);
-            }
-            if (view4 == null) {
-                return j();
-            }
-            return view4;
+        if (interceptable == null || interceptable.invokeL(1048590, this, colorFilter) == null) {
+            this.e.setColorFilter(colorFilter);
+            invalidateSelf();
         }
-        return (View) invokeILL.objValue;
     }
 
-    public final View j() {
+    @Override // android.graphics.drawable.Drawable
+    public int getIntrinsicHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            TextView textView = new TextView(this.a);
-            textView.setText(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0ac0));
-            int d = zi.d(this.a, 15.0f);
-            textView.setPadding(d, d, d, d);
-            return textView;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.g;
         }
-        return (View) invokeV.objValue;
+        return invokeV.intValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public int getIntrinsicWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public boolean isStateful() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.n.isStateful();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void h() {
+        float width;
+        float height;
+        float min;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.h.set(this.a);
+            RectF rectF = this.b;
+            float f = this.m;
+            rectF.set(f, f, this.h.width() - this.m, this.h.height() - this.m);
+            float f2 = 0.0f;
+            switch (a.a[this.o.ordinal()]) {
+                case 1:
+                    this.h.set(this.a);
+                    RectF rectF2 = this.b;
+                    float f3 = this.m;
+                    rectF2.set(f3, f3, this.h.width() - this.m, this.h.height() - this.m);
+                    this.j.set(null);
+                    this.j.setTranslate((int) (((this.b.width() - this.f) * 0.5f) + 0.5f), (int) (((this.b.height() - this.g) * 0.5f) + 0.5f));
+                    break;
+                case 2:
+                    this.h.set(this.a);
+                    RectF rectF3 = this.b;
+                    float f4 = this.m;
+                    rectF3.set(f4, f4, this.h.width() - this.m, this.h.height() - this.m);
+                    this.j.set(null);
+                    if (this.f * this.b.height() > this.b.width() * this.g) {
+                        width = this.b.height() / this.g;
+                        f2 = (this.b.width() - (this.f * width)) * 0.5f;
+                        height = 0.0f;
+                    } else {
+                        width = this.b.width() / this.f;
+                        height = (this.b.height() - (this.g * width)) * 0.5f;
+                    }
+                    this.j.setScale(width, width);
+                    Matrix matrix = this.j;
+                    float f5 = this.m;
+                    matrix.postTranslate(((int) (f2 + 0.5f)) + f5, ((int) (height + 0.5f)) + f5);
+                    break;
+                case 3:
+                    this.j.set(null);
+                    if (this.f <= this.a.width() && this.g <= this.a.height()) {
+                        min = 1.0f;
+                    } else {
+                        min = Math.min(this.a.width() / this.f, this.a.height() / this.g);
+                    }
+                    this.j.setScale(min, min);
+                    this.j.postTranslate((int) (((this.a.width() - (this.f * min)) * 0.5f) + 0.5f), (int) (((this.a.height() - (this.g * min)) * 0.5f) + 0.5f));
+                    this.h.set(this.c);
+                    this.j.mapRect(this.h);
+                    RectF rectF4 = this.b;
+                    RectF rectF5 = this.h;
+                    float f6 = rectF5.left;
+                    float f7 = this.m;
+                    rectF4.set(f6 + f7, rectF5.top + f7, rectF5.right - f7, rectF5.bottom - f7);
+                    this.j.setRectToRect(this.c, this.b, Matrix.ScaleToFit.FILL);
+                    break;
+                case 4:
+                    this.h.set(this.c);
+                    this.j.setRectToRect(this.c, this.a, Matrix.ScaleToFit.CENTER);
+                    this.j.mapRect(this.h);
+                    RectF rectF6 = this.b;
+                    RectF rectF7 = this.h;
+                    float f8 = rectF7.left;
+                    float f9 = this.m;
+                    rectF6.set(f8 + f9, rectF7.top + f9, rectF7.right - f9, rectF7.bottom - f9);
+                    this.j.setRectToRect(this.c, this.b, Matrix.ScaleToFit.FILL);
+                    break;
+                case 5:
+                    this.h.set(this.c);
+                    this.j.setRectToRect(this.c, this.a, Matrix.ScaleToFit.END);
+                    this.j.mapRect(this.h);
+                    RectF rectF8 = this.b;
+                    RectF rectF9 = this.h;
+                    float f10 = rectF9.left;
+                    float f11 = this.m;
+                    rectF8.set(f10 + f11, rectF9.top + f11, rectF9.right - f11, rectF9.bottom - f11);
+                    this.j.setRectToRect(this.c, this.b, Matrix.ScaleToFit.FILL);
+                    break;
+                case 6:
+                    this.h.set(this.c);
+                    this.j.setRectToRect(this.c, this.a, Matrix.ScaleToFit.START);
+                    this.j.mapRect(this.h);
+                    RectF rectF10 = this.b;
+                    RectF rectF11 = this.h;
+                    float f12 = rectF11.left;
+                    float f13 = this.m;
+                    rectF10.set(f12 + f13, rectF11.top + f13, rectF11.right - f13, rectF11.bottom - f13);
+                    this.j.setRectToRect(this.c, this.b, Matrix.ScaleToFit.FILL);
+                    break;
+                default:
+                    this.h.set(this.a);
+                    RectF rectF12 = this.b;
+                    float f14 = this.m;
+                    rectF12.set(f14 + 0.0f, f14 + 0.0f, this.h.width() - this.m, this.h.height() - this.m);
+                    this.j.set(null);
+                    this.j.setRectToRect(this.c, this.b, Matrix.ScaleToFit.FILL);
+                    break;
+            }
+            RectF rectF13 = this.h;
+            float f15 = this.m;
+            rectF13.inset(f15 / 2.0f, f15 / 2.0f);
+            this.d.setLocalMatrix(this.j);
+        }
     }
 }

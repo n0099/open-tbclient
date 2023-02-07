@@ -1,117 +1,129 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.o93;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.TreeMap;
 /* loaded from: classes5.dex */
-public class nf2 extends g63 {
+public final class nf2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean n;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public boolean g;
+    public String h;
+    public boolean i;
+    public String j;
+    public String k;
+    public String l;
+    public boolean m;
 
-    /* loaded from: classes5.dex */
-    public class a implements cj3<m93<o93.e>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ UnitedSchemeEntity b;
-        public final /* synthetic */ JSONObject c;
-        public final /* synthetic */ Context d;
-
-        public a(nf2 nf2Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, JSONObject jSONObject, Context context) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948000463, "Lcom/baidu/tieba/nf2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nf2Var, callbackHandler, unitedSchemeEntity, jSONObject, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = callbackHandler;
-            this.b = unitedSchemeEntity;
-            this.c = jSONObject;
-            this.d = context;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cj3
-        /* renamed from: b */
-        public void a(m93<o93.e> m93Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m93Var) == null) {
-                if (!h93.h(m93Var)) {
-                    h93.p(m93Var, this.a, this.b);
-                    return;
-                }
-                boolean b = xe2.b(this.c.optInt("emitReplaceSwanCore"));
-                if (b && !od3.c()) {
-                    b43.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f0146).G();
-                    this.b.result = UnitedSchemeUtility.wrapCallbackParams(1001, this.d.getResources().getString(R.string.obfuscated_res_0x7f0f0146));
-                    return;
-                }
-                i03.M(b);
-                UnitedSchemeUtility.callCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(0));
-                i03.Z();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nf2(g53 g53Var) {
-        super(g53Var, "/swanAPI/debug/setReplaceSwanCoreConfig");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {g53Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948000463, "Lcom/baidu/tieba/nf2;");
                 return;
             }
         }
+        n = gp1.a;
     }
 
-    @Override // com.baidu.tieba.g63
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j43 j43Var) {
-        InterceptResult invokeLLLL;
+    public nf2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j43Var)) == null) {
-            JSONObject a2 = g63.a(unitedSchemeEntity, "params");
-            if (a2 == null) {
-                j12.c("setReplaceSwanCoreConfig", "params is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else if (!a2.has("emitReplaceSwanCore")) {
-                j12.c("setReplaceSwanCoreConfig", "emitReplaceSwanCore is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else {
-                j43Var.e0().g(context, "mapp_cts_debug", new a(this, callbackHandler, unitedSchemeEntity, a2, context));
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    public static xi2 a(nf2 nf2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, nf2Var)) == null) {
+            TreeMap treeMap = new TreeMap();
+            treeMap.put(PrefetchEvent.EVENT_KEY_APP_PATH, nf2Var.a);
+            treeMap.put("pagePath", nf2Var.b);
+            treeMap.put("pageType", nf2Var.c);
+            treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_SCONSOLE, nf2Var.e);
+            if (!TextUtils.isEmpty(nf2Var.f)) {
+                if (n) {
+                    Log.d("PageReadyEvent", "add initData: " + nf2Var.f);
+                }
+                treeMap.put("initData", nf2Var.f);
+            }
+            if (!TextUtils.isEmpty(nf2Var.d)) {
+                treeMap.put("onReachBottomDistance", nf2Var.d);
+            }
+            treeMap.put(PrefetchEvent.EVENT_DATA_SHOW_PERFORMANCE_PANEL, String.valueOf(nf2Var.g));
+            if (!TextUtils.isEmpty(nf2Var.h)) {
+                treeMap.put("routeId", nf2Var.h);
+            }
+            treeMap.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, String.valueOf(nf2Var.i));
+            if (!TextUtils.isEmpty(nf2Var.j)) {
+                treeMap.put("slavePreload", nf2Var.j);
+            }
+            treeMap.put("root", nf2Var.k);
+            u43.a(treeMap, "page ready event");
+            oc3.a(nf2Var.b, treeMap);
+            String f = om3.f(oc3.b(nf2Var.b));
+            w52.k("PageReadyEvent", "#createPageReadyMessage pagePath=" + ((String) treeMap.get("pagePath")));
+            String c = g93.c(nf2Var.a, f);
+            nf2Var.l = c;
+            if (!TextUtils.isEmpty(c)) {
+                treeMap.put("pageConfig", nf2Var.l);
+            }
+            sa2 W = qf2.U().W();
+            if (W != null) {
+                treeMap.put("masterId", W.a());
+            }
+            if (nf2Var.m) {
+                treeMap.put("isFirstPage", "true");
+            }
+            if (a82.c()) {
+                treeMap.put("offlinePerfTool", String.valueOf(1));
+            }
+            if (ue3.d()) {
+                treeMap.put("performanceType", CloudStabilityUBCUtils.VALUE_TYPE);
+            }
+            if (ue3.f()) {
+                treeMap.put("performanceType", "stabilityProfile");
+            }
+            return new xi2("PageReady", treeMap);
+        }
+        return (xi2) invokeL.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "PageReadyEvent{appPath='" + this.a + "', pagePath='" + this.b + "', pageType='" + this.c + "', onReachBottomDistance='" + this.d + "', sConsole='" + this.e + "', initData='" + this.f + "', showPerformancePanel=" + this.g + ", routeId='" + this.h + "', isT7Available=" + this.i + ", preloadFile='" + this.j + "', rootPath='" + this.k + "', pageConfig='" + this.l + "'}";
+        }
+        return (String) invokeV.objValue;
     }
 }

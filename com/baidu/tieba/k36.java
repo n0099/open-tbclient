@@ -1,20 +1,35 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.live.interfaces.service.AccountManagerService;
+import com.baidu.searchbox.live.interfaces.service.AppInfoService;
+import com.baidu.searchbox.live.interfaces.service.RouterService;
+import com.baidu.searchbox.live.interfaces.service.ToastService;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class k36 {
+public class k36 implements ILiveFeedPageInvoke {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public String d;
+    public AccountManagerService a;
+    public AppInfoService b;
+    public ToastService c;
+    public RouterService d;
+
+    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke
+    public String getIID() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "" : (String) invokeV.objValue;
+    }
 
     public k36() {
         Interceptable interceptable = $ic;
@@ -26,54 +41,74 @@ public class k36 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = (AccountManagerService) ServiceManager.getService(AccountManagerService.Companion.getSERVICE_REFERENCE());
+        this.b = (AppInfoService) ServiceManager.getService(AppInfoService.Companion.getSERVICE_REFERENCE());
+        this.c = (ToastService) ServiceManager.getService(ToastService.Companion.getSERVICE_REFERENCE());
+        this.d = (RouterService) ServiceManager.getService(RouterService.Companion.getSERVICE_REFERENCE());
     }
 
-    public String a() {
+    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke
+    public String getCuid() {
         InterceptResult invokeV;
+        AppInfoService appInfoService;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            if (this.a != null && (appInfoService = this.b) != null) {
+                return this.a.getSocialEncryption(appInfoService.getCuid(), "baiduuid_");
+            }
+            return "";
         }
         return (String) invokeV.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int c() {
+    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke
+    public String getUIMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            if (skinType == 1) {
+                return "night";
+            }
+            if (skinType == 4) {
+                return "dark";
+            }
+            return "day";
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public int d() {
+    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke
+    public String getUK() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
+            AccountManagerService accountManagerService = this.a;
+            if (accountManagerService != null) {
+                return accountManagerService.getAccount().getUk();
+            }
+            return "";
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public void e(JSONObject jSONObject) {
+    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke
+    public void invokeScheme(Context context, String str) {
+        RouterService routerService;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, context, str) == null) && context != null && !TextUtils.isEmpty(str) && (routerService = this.d) != null) {
+            routerService.invokeScheme(context, str);
         }
-        this.a = jSONObject.optString("mark_name");
-        this.d = jSONObject.optString("mark_pic");
-        this.c = jSONObject.optInt("mark_rank");
-        this.b = jSONObject.optInt("mark_score");
+    }
+
+    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke
+    public void showToast(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048581, this, context, str) == null) && this.c != null && context != null && !TextUtils.isEmpty(str)) {
+            this.c.showNormal(context, str, 0);
+        }
     }
 }

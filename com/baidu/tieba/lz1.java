@@ -1,380 +1,230 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.text.TextUtils;
+import android.annotation.SuppressLint;
+import android.util.Pair;
 import android.view.View;
+import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.upload.UploadConstant;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.view.SwanAppActionBar;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileOutputStream;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class lz1 extends gz1 {
+public class lz1 extends cz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int k;
-    public int l;
-    public int m;
-    public int n;
-    public int o;
-    public int p;
-    public String q;
-    public float r;
+
+    public final int B(boolean z, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            if (z) {
+                return i;
+            }
+            return -1;
+        }
+        return invokeCommon.intValue;
+    }
+
+    @Override // com.baidu.tieba.zw1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "RequestFullScreenApi" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ lz1 c;
+
+        public a(lz1 lz1Var, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lz1Var, Integer.valueOf(i), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = lz1Var;
+            this.a = i;
+            this.b = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                View b = s73.b();
+                LinearLayout d = s73.d();
+                int i = this.a;
+                if (i != -90) {
+                    if (i != 0) {
+                        if (i != 90) {
+                            s73.o();
+                            if (b != null) {
+                                b.setVisibility(0);
+                            }
+                            if (d != null) {
+                                d.setVisibility(0);
+                            }
+                            lz1.E();
+                        } else {
+                            if (b != null) {
+                                b.setVisibility(8);
+                            }
+                            if (d != null) {
+                                d.setVisibility(8);
+                            }
+                            s73.g();
+                            s73.m(true);
+                            lz1.D(0);
+                        }
+                    } else {
+                        if (d != null) {
+                            d.setVisibility(8);
+                        }
+                        lz1.C();
+                    }
+                } else {
+                    if (b != null) {
+                        b.setVisibility(8);
+                    }
+                    if (d != null) {
+                        d.setVisibility(8);
+                    }
+                    s73.g();
+                    s73.m(true);
+                    lz1.D(8);
+                }
+                nz1.e().u(this.a);
+                this.c.d(this.b, new w02(0));
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lz1(String str) {
-        super(str);
+    public lz1(@NonNull xw1 xw1Var) {
+        super(xw1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {xw1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
+                super((xw1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.q = "png";
-        this.r = 1.0f;
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            this.k = ai3.g((float) jSONObject.optDouble("x"));
-            this.l = ai3.g((float) jSONObject.optDouble("y"));
-            this.m = ai3.g((float) jSONObject.optDouble("width"));
-            this.n = ai3.g((float) jSONObject.optDouble("height"));
-            this.o = ai3.g((float) jSONObject.optDouble("destWidth"));
-            this.p = ai3.g((float) jSONObject.optDouble("destHeight"));
-            this.q = jSONObject.optString(UploadConstant.KEY_FILE_TYPE);
-            this.r = (float) jSONObject.optDouble("quality");
-        } catch (Exception e) {
-            if (tk1.a) {
-                e.printStackTrace();
+    }
+
+    @SuppressLint({"SourceLockedOrientationActivity"})
+    public static void C() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            SwanAppActivity activity = ju2.U().getActivity();
+            if (fl3.d(activity)) {
+                activity.setRequestedOrientation(1);
+            }
+            e82 H = ju2.U().H();
+            if (H != null) {
+                H.R3(true);
+                H.p2();
             }
         }
     }
 
-    public boolean h() {
-        InterceptResult invokeV;
+    public static void D(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return TextUtils.equals(this.q, "jpg");
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.gz1, com.baidu.tieba.zz1, com.baidu.tieba.iu2
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.m > 0 && this.n > 0) {
-                return true;
+        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
+            if (ju2.U().H() != null) {
+                ju2.U().H().R3(false);
             }
-            return false;
+            SwanAppActivity activity = ju2.U().getActivity();
+            if (fl3.d(activity)) {
+                activity.setRequestedOrientation(i);
+            }
+            if (activity.getWindow() != null) {
+                activity.getWindow().clearFlags(2048);
+                activity.getWindow().setFlags(1024, 1024);
+            }
         }
-        return invokeV.booleanValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0045 A[Catch: OutOfMemoryError -> 0x00f3, Exception -> 0x00fc, TryCatch #2 {Exception -> 0x00fc, OutOfMemoryError -> 0x00f3, blocks: (B:9:0x000f, B:11:0x0027, B:14:0x002c, B:16:0x0030, B:18:0x0036, B:21:0x003b, B:23:0x003f, B:25:0x0045, B:28:0x004d, B:30:0x0053, B:32:0x0059, B:35:0x0061, B:37:0x0068, B:39:0x006e, B:41:0x0073, B:43:0x0079, B:45:0x007e, B:47:0x00b9, B:49:0x00be, B:51:0x00c9, B:52:0x00cc, B:54:0x00d2, B:55:0x00d9, B:48:0x00bc, B:44:0x007c, B:40:0x0071, B:36:0x0064, B:29:0x0050), top: B:71:0x000f }] */
-    /* JADX WARN: Removed duplicated region for block: B:32:0x0059 A[Catch: OutOfMemoryError -> 0x00f3, Exception -> 0x00fc, TryCatch #2 {Exception -> 0x00fc, OutOfMemoryError -> 0x00f3, blocks: (B:9:0x000f, B:11:0x0027, B:14:0x002c, B:16:0x0030, B:18:0x0036, B:21:0x003b, B:23:0x003f, B:25:0x0045, B:28:0x004d, B:30:0x0053, B:32:0x0059, B:35:0x0061, B:37:0x0068, B:39:0x006e, B:41:0x0073, B:43:0x0079, B:45:0x007e, B:47:0x00b9, B:49:0x00be, B:51:0x00c9, B:52:0x00cc, B:54:0x00d2, B:55:0x00d9, B:48:0x00bc, B:44:0x007c, B:40:0x0071, B:36:0x0064, B:29:0x0050), top: B:71:0x000f }] */
-    /* JADX WARN: Removed duplicated region for block: B:39:0x006e A[Catch: OutOfMemoryError -> 0x00f3, Exception -> 0x00fc, TryCatch #2 {Exception -> 0x00fc, OutOfMemoryError -> 0x00f3, blocks: (B:9:0x000f, B:11:0x0027, B:14:0x002c, B:16:0x0030, B:18:0x0036, B:21:0x003b, B:23:0x003f, B:25:0x0045, B:28:0x004d, B:30:0x0053, B:32:0x0059, B:35:0x0061, B:37:0x0068, B:39:0x006e, B:41:0x0073, B:43:0x0079, B:45:0x007e, B:47:0x00b9, B:49:0x00be, B:51:0x00c9, B:52:0x00cc, B:54:0x00d2, B:55:0x00d9, B:48:0x00bc, B:44:0x007c, B:40:0x0071, B:36:0x0064, B:29:0x0050), top: B:71:0x000f }] */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x0071 A[Catch: OutOfMemoryError -> 0x00f3, Exception -> 0x00fc, TryCatch #2 {Exception -> 0x00fc, OutOfMemoryError -> 0x00f3, blocks: (B:9:0x000f, B:11:0x0027, B:14:0x002c, B:16:0x0030, B:18:0x0036, B:21:0x003b, B:23:0x003f, B:25:0x0045, B:28:0x004d, B:30:0x0053, B:32:0x0059, B:35:0x0061, B:37:0x0068, B:39:0x006e, B:41:0x0073, B:43:0x0079, B:45:0x007e, B:47:0x00b9, B:49:0x00be, B:51:0x00c9, B:52:0x00cc, B:54:0x00d2, B:55:0x00d9, B:48:0x00bc, B:44:0x007c, B:40:0x0071, B:36:0x0064, B:29:0x0050), top: B:71:0x000f }] */
-    /* JADX WARN: Removed duplicated region for block: B:43:0x0079 A[Catch: OutOfMemoryError -> 0x00f3, Exception -> 0x00fc, TryCatch #2 {Exception -> 0x00fc, OutOfMemoryError -> 0x00f3, blocks: (B:9:0x000f, B:11:0x0027, B:14:0x002c, B:16:0x0030, B:18:0x0036, B:21:0x003b, B:23:0x003f, B:25:0x0045, B:28:0x004d, B:30:0x0053, B:32:0x0059, B:35:0x0061, B:37:0x0068, B:39:0x006e, B:41:0x0073, B:43:0x0079, B:45:0x007e, B:47:0x00b9, B:49:0x00be, B:51:0x00c9, B:52:0x00cc, B:54:0x00d2, B:55:0x00d9, B:48:0x00bc, B:44:0x007c, B:40:0x0071, B:36:0x0064, B:29:0x0050), top: B:71:0x000f }] */
-    /* JADX WARN: Removed duplicated region for block: B:44:0x007c A[Catch: OutOfMemoryError -> 0x00f3, Exception -> 0x00fc, TryCatch #2 {Exception -> 0x00fc, OutOfMemoryError -> 0x00f3, blocks: (B:9:0x000f, B:11:0x0027, B:14:0x002c, B:16:0x0030, B:18:0x0036, B:21:0x003b, B:23:0x003f, B:25:0x0045, B:28:0x004d, B:30:0x0053, B:32:0x0059, B:35:0x0061, B:37:0x0068, B:39:0x006e, B:41:0x0073, B:43:0x0079, B:45:0x007e, B:47:0x00b9, B:49:0x00be, B:51:0x00c9, B:52:0x00cc, B:54:0x00d2, B:55:0x00d9, B:48:0x00bc, B:44:0x007c, B:40:0x0071, B:36:0x0064, B:29:0x0050), top: B:71:0x000f }] */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x00b9 A[Catch: OutOfMemoryError -> 0x00f3, Exception -> 0x00fc, TryCatch #2 {Exception -> 0x00fc, OutOfMemoryError -> 0x00f3, blocks: (B:9:0x000f, B:11:0x0027, B:14:0x002c, B:16:0x0030, B:18:0x0036, B:21:0x003b, B:23:0x003f, B:25:0x0045, B:28:0x004d, B:30:0x0053, B:32:0x0059, B:35:0x0061, B:37:0x0068, B:39:0x006e, B:41:0x0073, B:43:0x0079, B:45:0x007e, B:47:0x00b9, B:49:0x00be, B:51:0x00c9, B:52:0x00cc, B:54:0x00d2, B:55:0x00d9, B:48:0x00bc, B:44:0x007c, B:40:0x0071, B:36:0x0064, B:29:0x0050), top: B:71:0x000f }] */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x00bc A[Catch: OutOfMemoryError -> 0x00f3, Exception -> 0x00fc, TryCatch #2 {Exception -> 0x00fc, OutOfMemoryError -> 0x00f3, blocks: (B:9:0x000f, B:11:0x0027, B:14:0x002c, B:16:0x0030, B:18:0x0036, B:21:0x003b, B:23:0x003f, B:25:0x0045, B:28:0x004d, B:30:0x0053, B:32:0x0059, B:35:0x0061, B:37:0x0068, B:39:0x006e, B:41:0x0073, B:43:0x0079, B:45:0x007e, B:47:0x00b9, B:49:0x00be, B:51:0x00c9, B:52:0x00cc, B:54:0x00d2, B:55:0x00d9, B:48:0x00bc, B:44:0x007c, B:40:0x0071, B:36:0x0064, B:29:0x0050), top: B:71:0x000f }] */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x00c9 A[Catch: OutOfMemoryError -> 0x00f3, Exception -> 0x00fc, TryCatch #2 {Exception -> 0x00fc, OutOfMemoryError -> 0x00f3, blocks: (B:9:0x000f, B:11:0x0027, B:14:0x002c, B:16:0x0030, B:18:0x0036, B:21:0x003b, B:23:0x003f, B:25:0x0045, B:28:0x004d, B:30:0x0053, B:32:0x0059, B:35:0x0061, B:37:0x0068, B:39:0x006e, B:41:0x0073, B:43:0x0079, B:45:0x007e, B:47:0x00b9, B:49:0x00be, B:51:0x00c9, B:52:0x00cc, B:54:0x00d2, B:55:0x00d9, B:48:0x00bc, B:44:0x007c, B:40:0x0071, B:36:0x0064, B:29:0x0050), top: B:71:0x000f }] */
-    /* JADX WARN: Removed duplicated region for block: B:54:0x00d2 A[Catch: OutOfMemoryError -> 0x00f3, Exception -> 0x00fc, TryCatch #2 {Exception -> 0x00fc, OutOfMemoryError -> 0x00f3, blocks: (B:9:0x000f, B:11:0x0027, B:14:0x002c, B:16:0x0030, B:18:0x0036, B:21:0x003b, B:23:0x003f, B:25:0x0045, B:28:0x004d, B:30:0x0053, B:32:0x0059, B:35:0x0061, B:37:0x0068, B:39:0x006e, B:41:0x0073, B:43:0x0079, B:45:0x007e, B:47:0x00b9, B:49:0x00be, B:51:0x00c9, B:52:0x00cc, B:54:0x00d2, B:55:0x00d9, B:48:0x00bc, B:44:0x007c, B:40:0x0071, B:36:0x0064, B:29:0x0050), top: B:71:0x000f }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean i(View view2, String str) {
-        InterceptResult invokeLL;
-        int i;
-        int i2;
-        int i3;
-        int i4;
-        int i5;
-        int i6;
-        Bitmap.CompressFormat compressFormat;
-        File file;
+    public w02 F(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, str)) == null) {
-            if (view2 != null && !TextUtils.isEmpty(str)) {
-                try {
-                    Bitmap x = ai3.x(view2, view2.getWidth(), view2.getHeight());
-                    int width = x.getWidth();
-                    int height = x.getHeight();
-                    if (this.k >= 0 && this.k < width) {
-                        i = this.k;
-                        this.k = i;
-                        if (this.l >= 0 && this.l < height) {
-                            i2 = this.l;
-                            this.l = i2;
-                            if (this.m > 0 && this.k + this.m <= width) {
-                                i3 = this.m;
-                                this.m = i3;
-                                if (this.n > 0 && this.l + this.n <= height) {
-                                    i4 = this.n;
-                                    this.n = i4;
-                                    if (this.o > 0) {
-                                        i5 = this.m;
-                                    } else {
-                                        i5 = this.o;
-                                    }
-                                    this.o = i5;
-                                    if (this.p > 0) {
-                                        i6 = this.n;
-                                    } else {
-                                        i6 = this.p;
-                                    }
-                                    this.p = i6;
-                                    Bitmap createBitmap = Bitmap.createBitmap(this.o, i6, x.getConfig());
-                                    new Canvas(createBitmap).drawBitmap(x, new Rect(this.k, this.l, this.k + this.m, this.l + this.n), new Rect(0, 0, this.o, this.p), new Paint());
-                                    if (!h()) {
-                                        compressFormat = Bitmap.CompressFormat.JPEG;
-                                    } else {
-                                        compressFormat = Bitmap.CompressFormat.PNG;
-                                    }
-                                    file = new File(str);
-                                    if (file.exists()) {
-                                        file.delete();
-                                    }
-                                    if (file.getParentFile() != null) {
-                                        file.getParentFile().mkdirs();
-                                    }
-                                    file.createNewFile();
-                                    FileOutputStream fileOutputStream = new FileOutputStream(file);
-                                    createBitmap.compress(compressFormat, (int) (this.r * 100.0f), fileOutputStream);
-                                    fileOutputStream.flush();
-                                    nk4.d(fileOutputStream);
-                                    return true;
-                                }
-                                i4 = height - this.l;
-                                this.n = i4;
-                                if (this.o > 0) {
-                                }
-                                this.o = i5;
-                                if (this.p > 0) {
-                                }
-                                this.p = i6;
-                                Bitmap createBitmap2 = Bitmap.createBitmap(this.o, i6, x.getConfig());
-                                new Canvas(createBitmap2).drawBitmap(x, new Rect(this.k, this.l, this.k + this.m, this.l + this.n), new Rect(0, 0, this.o, this.p), new Paint());
-                                if (!h()) {
-                                }
-                                file = new File(str);
-                                if (file.exists()) {
-                                }
-                                if (file.getParentFile() != null) {
-                                }
-                                file.createNewFile();
-                                FileOutputStream fileOutputStream2 = new FileOutputStream(file);
-                                createBitmap2.compress(compressFormat, (int) (this.r * 100.0f), fileOutputStream2);
-                                fileOutputStream2.flush();
-                                nk4.d(fileOutputStream2);
-                                return true;
-                            }
-                            i3 = width - this.k;
-                            this.m = i3;
-                            if (this.n > 0) {
-                                i4 = this.n;
-                                this.n = i4;
-                                if (this.o > 0) {
-                                }
-                                this.o = i5;
-                                if (this.p > 0) {
-                                }
-                                this.p = i6;
-                                Bitmap createBitmap22 = Bitmap.createBitmap(this.o, i6, x.getConfig());
-                                new Canvas(createBitmap22).drawBitmap(x, new Rect(this.k, this.l, this.k + this.m, this.l + this.n), new Rect(0, 0, this.o, this.p), new Paint());
-                                if (!h()) {
-                                }
-                                file = new File(str);
-                                if (file.exists()) {
-                                }
-                                if (file.getParentFile() != null) {
-                                }
-                                file.createNewFile();
-                                FileOutputStream fileOutputStream22 = new FileOutputStream(file);
-                                createBitmap22.compress(compressFormat, (int) (this.r * 100.0f), fileOutputStream22);
-                                fileOutputStream22.flush();
-                                nk4.d(fileOutputStream22);
-                                return true;
-                            }
-                            i4 = height - this.l;
-                            this.n = i4;
-                            if (this.o > 0) {
-                            }
-                            this.o = i5;
-                            if (this.p > 0) {
-                            }
-                            this.p = i6;
-                            Bitmap createBitmap222 = Bitmap.createBitmap(this.o, i6, x.getConfig());
-                            new Canvas(createBitmap222).drawBitmap(x, new Rect(this.k, this.l, this.k + this.m, this.l + this.n), new Rect(0, 0, this.o, this.p), new Paint());
-                            if (!h()) {
-                            }
-                            file = new File(str);
-                            if (file.exists()) {
-                            }
-                            if (file.getParentFile() != null) {
-                            }
-                            file.createNewFile();
-                            FileOutputStream fileOutputStream222 = new FileOutputStream(file);
-                            createBitmap222.compress(compressFormat, (int) (this.r * 100.0f), fileOutputStream222);
-                            fileOutputStream222.flush();
-                            nk4.d(fileOutputStream222);
-                            return true;
-                        }
-                        i2 = 0;
-                        this.l = i2;
-                        if (this.m > 0) {
-                            i3 = this.m;
-                            this.m = i3;
-                            if (this.n > 0) {
-                            }
-                            i4 = height - this.l;
-                            this.n = i4;
-                            if (this.o > 0) {
-                            }
-                            this.o = i5;
-                            if (this.p > 0) {
-                            }
-                            this.p = i6;
-                            Bitmap createBitmap2222 = Bitmap.createBitmap(this.o, i6, x.getConfig());
-                            new Canvas(createBitmap2222).drawBitmap(x, new Rect(this.k, this.l, this.k + this.m, this.l + this.n), new Rect(0, 0, this.o, this.p), new Paint());
-                            if (!h()) {
-                            }
-                            file = new File(str);
-                            if (file.exists()) {
-                            }
-                            if (file.getParentFile() != null) {
-                            }
-                            file.createNewFile();
-                            FileOutputStream fileOutputStream2222 = new FileOutputStream(file);
-                            createBitmap2222.compress(compressFormat, (int) (this.r * 100.0f), fileOutputStream2222);
-                            fileOutputStream2222.flush();
-                            nk4.d(fileOutputStream2222);
-                            return true;
-                        }
-                        i3 = width - this.k;
-                        this.m = i3;
-                        if (this.n > 0) {
-                        }
-                        i4 = height - this.l;
-                        this.n = i4;
-                        if (this.o > 0) {
-                        }
-                        this.o = i5;
-                        if (this.p > 0) {
-                        }
-                        this.p = i6;
-                        Bitmap createBitmap22222 = Bitmap.createBitmap(this.o, i6, x.getConfig());
-                        new Canvas(createBitmap22222).drawBitmap(x, new Rect(this.k, this.l, this.k + this.m, this.l + this.n), new Rect(0, 0, this.o, this.p), new Paint());
-                        if (!h()) {
-                        }
-                        file = new File(str);
-                        if (file.exists()) {
-                        }
-                        if (file.getParentFile() != null) {
-                        }
-                        file.createNewFile();
-                        FileOutputStream fileOutputStream22222 = new FileOutputStream(file);
-                        createBitmap22222.compress(compressFormat, (int) (this.r * 100.0f), fileOutputStream22222);
-                        fileOutputStream22222.flush();
-                        nk4.d(fileOutputStream22222);
-                        return true;
-                    }
-                    i = 0;
-                    this.k = i;
-                    if (this.l >= 0) {
-                        i2 = this.l;
-                        this.l = i2;
-                        if (this.m > 0) {
-                        }
-                        i3 = width - this.k;
-                        this.m = i3;
-                        if (this.n > 0) {
-                        }
-                        i4 = height - this.l;
-                        this.n = i4;
-                        if (this.o > 0) {
-                        }
-                        this.o = i5;
-                        if (this.p > 0) {
-                        }
-                        this.p = i6;
-                        Bitmap createBitmap222222 = Bitmap.createBitmap(this.o, i6, x.getConfig());
-                        new Canvas(createBitmap222222).drawBitmap(x, new Rect(this.k, this.l, this.k + this.m, this.l + this.n), new Rect(0, 0, this.o, this.p), new Paint());
-                        if (!h()) {
-                        }
-                        file = new File(str);
-                        if (file.exists()) {
-                        }
-                        if (file.getParentFile() != null) {
-                        }
-                        file.createNewFile();
-                        FileOutputStream fileOutputStream222222 = new FileOutputStream(file);
-                        createBitmap222222.compress(compressFormat, (int) (this.r * 100.0f), fileOutputStream222222);
-                        fileOutputStream222222.flush();
-                        nk4.d(fileOutputStream222222);
-                        return true;
-                    }
-                    i2 = 0;
-                    this.l = i2;
-                    if (this.m > 0) {
-                    }
-                    i3 = width - this.k;
-                    this.m = i3;
-                    if (this.n > 0) {
-                    }
-                    i4 = height - this.l;
-                    this.n = i4;
-                    if (this.o > 0) {
-                    }
-                    this.o = i5;
-                    if (this.p > 0) {
-                    }
-                    this.p = i6;
-                    Bitmap createBitmap2222222 = Bitmap.createBitmap(this.o, i6, x.getConfig());
-                    new Canvas(createBitmap2222222).drawBitmap(x, new Rect(this.k, this.l, this.k + this.m, this.l + this.n), new Rect(0, 0, this.o, this.p), new Paint());
-                    if (!h()) {
-                    }
-                    file = new File(str);
-                    if (file.exists()) {
-                    }
-                    if (file.getParentFile() != null) {
-                    }
-                    file.createNewFile();
-                    FileOutputStream fileOutputStream2222222 = new FileOutputStream(file);
-                    createBitmap2222222.compress(compressFormat, (int) (this.r * 100.0f), fileOutputStream2222222);
-                    fileOutputStream2222222.flush();
-                    nk4.d(fileOutputStream2222222);
-                    return true;
-                } catch (Exception e) {
-                    if (tk1.a) {
-                        e.printStackTrace();
-                    }
-                } catch (OutOfMemoryError e2) {
-                    if (tk1.a) {
-                        e2.printStackTrace();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#setFullScreen", false);
+            Pair<w02, JSONObject> s = s(str);
+            w02 w02Var = (w02) s.first;
+            if (!w02Var.isSuccess()) {
+                return w02Var;
+            }
+            JSONObject jSONObject = (JSONObject) s.second;
+            A(B(jSONObject.optBoolean("fullScreen"), jSONObject.optInt("direction")), jSONObject.optString("cb"));
+            return w02.f();
+        }
+        return (w02) invokeL.objValue;
+    }
+
+    @SuppressLint({"SourceLockedOrientationActivity"})
+    public static void E() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            SwanAppActivity activity = ju2.U().getActivity();
+            e82 H = ju2.U().H();
+            if (fl3.d(activity)) {
+                activity.setRequestedOrientation(1);
+            }
+            if (!s73.i(s73.e(activity))) {
+                s73.m(false);
+            }
+            if (activity.getWindow() != null) {
+                activity.getWindow().clearFlags(1024);
+                activity.getWindow().clearFlags(2048);
+            }
+            if (H != null) {
+                H.R3(false);
+                H.p2();
+                xn3 I1 = H.I1();
+                if (I1 != null) {
+                    int i = I1.d().b;
+                    View b = s73.b();
+                    if (b != null) {
+                        b.findViewById(R.id.obfuscated_res_0x7f09017c).setBackgroundColor(i);
                     }
                 }
+                SwanAppActionBar K1 = H.K1();
+                K1.f(K1.getCenterTitleView().getCurrentTextColor(), false);
             }
-            return false;
         }
-        return invokeLL.booleanValue;
+    }
+
+    public final void A(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+            qm3.a0(new a(this, i, str));
+        }
     }
 }

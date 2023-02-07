@@ -1,36 +1,98 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.BdUniqueId;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
-import java.util.HashMap;
-import java.util.List;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface pn8 {
-    ln<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId);
+public class pn8 extends mc6<im8> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public View i;
+    public TbImageView j;
+    public TextView k;
+    public ImageView l;
+    public im8 m;
 
-    kn8 b();
+    @Override // com.baidu.tieba.mc6
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0746 : invokeV.intValue;
+    }
 
-    fn8 c();
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pn8(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        View h = h();
+        this.i = h;
+        this.j = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f091b06);
+        this.k = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f091b05);
+        this.l = (ImageView) this.i.findViewById(R.id.obfuscated_res_0x7f091b07);
+        this.i.setOnClickListener(this);
+    }
 
-    ln<?, ?> d(on8 on8Var, BdUniqueId bdUniqueId);
+    @Override // com.baidu.tieba.mc6
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) != null) || this.a == i) {
+            return;
+        }
+        this.a = i;
+        SkinManager.setBackgroundColor(this.i, R.color.CAM_X0201);
+        SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1);
+        SkinManager.setImageResource(this.l, R.drawable.icon_play_video, i);
+    }
 
-    void e();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && this.i == view2) {
+            MessageManager messageManager = MessageManager.getInstance();
+            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.c);
+            im8 im8Var = this.m;
+            messageManager.sendMessage(new CustomMessage(2004001, pbActivityConfig.createNormalCfg(im8Var.c, im8Var.d, "person_page")));
+        }
+    }
 
-    List<AdvertAppInfo> f();
-
-    ln<?, ?> g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str);
-
-    IAdBaseAsyncController h(@NonNull IAdBaseAsyncController.Type type, @Nullable IAdBaseAsyncController.a aVar);
-
-    mn8 i();
-
-    void j(AdvertAppInfo advertAppInfo);
-
-    void k(HashMap<String, String> hashMap, Context context);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.mc6
+    /* renamed from: r */
+    public void i(im8 im8Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, im8Var) != null) || im8Var == null) {
+            return;
+        }
+        this.m = im8Var;
+        this.j.K(im8Var.a, 10, false);
+        this.k.setText(im8Var.b);
+        j(this.b, TbadkCoreApplication.getInst().getSkinType());
+    }
 }

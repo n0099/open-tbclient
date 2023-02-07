@@ -1,37 +1,51 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
+import android.util.Pair;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.canvas.view.CanvasView;
+import com.baidu.swan.apps.favordata.SwanFavorDataManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ix1 extends gx1 {
+public class ix1 extends zw1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.zw1
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Favorite" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.zw1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "FollowStatusApi" : (String) invokeV.objValue;
+    }
 
     /* loaded from: classes5.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ iz1 a;
-        public final /* synthetic */ CanvasView b;
-        public final /* synthetic */ CallbackHandler c;
+        public final /* synthetic */ w83 a;
+        public final /* synthetic */ JSONObject b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ ix1 d;
 
-        public a(ix1 ix1Var, iz1 iz1Var, CanvasView canvasView, CallbackHandler callbackHandler) {
+        public a(ix1 ix1Var, w83 w83Var, JSONObject jSONObject, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ix1Var, iz1Var, canvasView, callbackHandler};
+                Object[] objArr = {ix1Var, w83Var, jSONObject, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -41,38 +55,47 @@ public class ix1 extends gx1 {
                     return;
                 }
             }
-            this.a = iz1Var;
-            this.b = canvasView;
-            this.c = callbackHandler;
+            this.d = ix1Var;
+            this.a = w83Var;
+            this.b = jSONObject;
+            this.c = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
+            String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                JSONObject i = this.a.i(this.b);
-                String str = this.a.e;
-                if (!TextUtils.isEmpty(str)) {
-                    this.c.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(i, 0).toString());
+                String O = this.a.O();
+                try {
+                    JSONObject jSONObject = this.b;
+                    if (uf2.n(O)) {
+                        str = "1";
+                    } else {
+                        str = "0";
+                    }
+                    jSONObject.put("isFavor", str);
+                } catch (JSONException unused) {
+                    w52.c("FollowStatusApi", "json put data fail");
                 }
+                this.d.d(this.c, new w02(0, this.b));
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ix1(g53 g53Var) {
-        super(g53Var, "/swanAPI/canvas/getImageData");
+    public ix1(@NonNull xw1 xw1Var) {
+        super(xw1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {g53Var};
+            Object[] objArr = {xw1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((g53) objArr2[0], (String) objArr2[1]);
+                super((xw1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -80,49 +103,36 @@ public class ix1 extends gx1 {
         }
     }
 
-    @Override // com.baidu.tieba.g63
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j43 j43Var) {
-        InterceptResult invokeLLLL;
-        r32 H;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j43Var)) == null) {
-            iz1 m = m(unitedSchemeEntity);
-            if (m == null) {
-                j12.c("SwanAppCanvas", "CanvasGetImageData action parse model is null");
-                unitedSchemeEntity.result = l(201);
-                return false;
-            }
-            if (TextUtils.isEmpty(m.c) && (H = wp2.U().H()) != null) {
-                m.c = H.t3();
-            }
-            if (!TextUtils.isEmpty(m.c) && !TextUtils.isEmpty(m.b)) {
-                CanvasView a2 = k02.a(m);
-                if (a2 == null) {
-                    j12.c("SwanAppCanvas", "CanvasGetImageData canvas view is null");
-                    unitedSchemeEntity.result = l(201);
-                    return false;
-                }
-                dh3.k(new a(this, m, a2, callbackHandler), "CanvasGetImageDataAction");
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                return true;
-            }
-            j12.c("SwanAppCanvas", "CanvasGetImageData slave id = " + m.c + " ; canvas id = " + m.b);
-            unitedSchemeEntity.result = l(201);
-            return false;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public iz1 m(UnitedSchemeEntity unitedSchemeEntity) {
+    public w02 x(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity)) == null) {
-            String str = unitedSchemeEntity.getParams().get("params");
-            if (!TextUtils.isEmpty(str)) {
-                return new iz1(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            w83 b0 = w83.b0();
+            if (b0 == null) {
+                w52.c("FollowStatusApi", "swan app is null");
+                return new w02(1001, "swan app is null");
+            } else if (b0.w() == null) {
+                w52.c("FollowStatusApi", "swan activity is null");
+                return new w02(1001, "swan activity is null");
+            } else {
+                Pair<w02, JSONObject> s = s(str);
+                w02 w02Var = (w02) s.first;
+                if (!w02Var.isSuccess()) {
+                    w52.c("FollowStatusApi", "json str parse fail");
+                    return w02Var;
+                }
+                String optString = ((JSONObject) s.second).optString("cb");
+                if (TextUtils.isEmpty(optString)) {
+                    w52.c("FollowStatusApi", "cb is empty");
+                    return new w02(202, "cb is empty");
+                }
+                if (b0.N().e(ds2.c())) {
+                    SwanFavorDataManager.h().d();
+                }
+                ql3.k(new a(this, b0, new JSONObject(), optString), "getFavorStatus");
+                return new w02(0);
             }
-            return null;
         }
-        return (iz1) invokeL.objValue;
+        return (w02) invokeL.objValue;
     }
 }

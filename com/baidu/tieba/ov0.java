@@ -1,24 +1,52 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.nadcore.player.helper.BdVideoGesture;
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface ov0 {
-    void b();
+public class ov0 extends vv0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void c(int i, int i2);
+    public ov0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void f(float f);
+    public static vv0 w(@NonNull String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
+            vv0 m = vv0.m(str, 7);
+            m.u(1);
+            m.s(i);
+            return m;
+        }
+        return (vv0) invokeLI.objValue;
+    }
 
-    int getCurrentPosition();
-
-    void i(float f);
-
-    void l(int i, float f);
-
-    void m(BdVideoGesture.VideoPluginGesture videoPluginGesture);
-
-    Activity o();
-
-    boolean p();
+    @Override // com.baidu.tieba.vv0
+    public boolean b(@NonNull ww0 ww0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ww0Var)) == null) {
+            if (1 != ww0Var.getType()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
 }

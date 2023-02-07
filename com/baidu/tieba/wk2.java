@@ -1,19 +1,20 @@
 package com.baidu.tieba;
 
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class wk2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public int c;
+    @V8JavascriptField
+    public long createTime;
+    @V8JavascriptField
+    public String filePath;
+    @V8JavascriptField
+    public long size;
 
     public wk2() {
         Interceptable interceptable = $ic;
@@ -27,22 +28,5 @@ public class wk2 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public JSONObject a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("userId", this.a);
-                jSONObject.put("displayName", this.b);
-                jSONObject.put("volumeLevel", this.c);
-                return jSONObject;
-            } catch (JSONException unused) {
-                return null;
-            }
-        }
-        return (JSONObject) invokeV.objValue;
     }
 }

@@ -69,7 +69,7 @@ public class SmartBubbleAnimatedView extends View {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
-                layoutParams.height = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07060d);
+                layoutParams.height = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07061a);
                 this.a.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 this.a.c = ((Float) valueAnimator.getAnimatedValue()).floatValue();
                 if (this.a.l && (layoutParams instanceof LinearLayout.LayoutParams)) {
@@ -318,8 +318,8 @@ public class SmartBubbleAnimatedView extends View {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.f.setColor(-16711681);
             this.g.setColor(-7829368);
-            this.g.setTextSize(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07060e));
-            this.k = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07060d);
+            this.g.setTextSize(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07061b));
+            this.k = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07061a);
         }
     }
 

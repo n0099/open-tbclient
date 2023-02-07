@@ -1,24 +1,95 @@
 package com.baidu.tieba;
 
+import android.os.Process;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.caverock.androidsvg.CSSParser;
-import com.caverock.androidsvg.PreserveAspectRatio;
-import com.caverock.androidsvg.SVG;
+import java.nio.ByteBuffer;
 /* loaded from: classes4.dex */
 public class dv9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CSSParser.n a;
-    public PreserveAspectRatio b;
-    public String c;
-    public SVG.b d;
-    public String e;
-    public SVG.b f;
+    public volatile boolean a;
+    public pv9 b;
+    public b c;
+    public uv9 d;
+    public boolean e;
+
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes4.dex */
+    public class b extends Thread {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dv9 a;
+
+        public b(dv9 dv9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dv9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dv9Var;
+        }
+
+        public /* synthetic */ b(dv9 dv9Var, a aVar) {
+            this(dv9Var);
+        }
+
+        @Override // java.lang.Thread, java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Process.setThreadPriority(-19);
+                try {
+                    try {
+                        this.a.b = new pv9(-100);
+                        if (this.a.b.d() != null) {
+                            ByteBuffer allocateDirect = ByteBuffer.allocateDirect(pv9.d);
+                            this.a.b.c();
+                            if (this.a.b.e() != 3) {
+                                return;
+                            }
+                            while (!this.a.a) {
+                                allocateDirect.clear();
+                                int a = this.a.b.a(allocateDirect, pv9.d);
+                                if (a > 0) {
+                                    double a2 = wv9.a(allocateDirect, a);
+                                    if (this.a.d != null && a2 > 0.0d) {
+                                        this.a.d.a(a2);
+                                    }
+                                }
+                            }
+                        } else if (this.a.d != null) {
+                            this.a.d.a("failed to initialize AudioRecord", true);
+                        }
+                    } catch (Exception unused) {
+                        if (this.a.d != null) {
+                            this.a.d.a("failed to initialize AudioRecord", true);
+                        }
+                    }
+                } finally {
+                    this.a.i();
+                }
+            }
+        }
+    }
 
     public dv9() {
         Interceptable interceptable = $ic;
@@ -33,135 +104,53 @@ public class dv9 {
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
+        this.a = false;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            CSSParser.n nVar = this.a;
-            if (nVar != null && nVar.f() > 0) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.e = true;
+            this.a = false;
+            b bVar = new b(this, null);
+            this.c = bVar;
+            bVar.start();
         }
-        return invokeV.booleanValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    public void d(uv9 uv9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.b != null) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uv9Var) == null) {
+            this.d = uv9Var;
         }
-        return invokeV.booleanValue;
     }
 
-    public boolean d() {
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a = true;
+            this.e = false;
+        }
+    }
+
+    public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : invokeV.booleanValue;
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a = false;
+            this.e = false;
+            pv9 pv9Var = this.b;
+            if (pv9Var != null) {
+                pv9Var.b();
+            }
             if (this.c != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.e != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.d != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public dv9(dv9 dv9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dv9Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                this.c = null;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        if (dv9Var == null) {
-            return;
-        }
-        this.a = dv9Var.a;
-        this.b = dv9Var.b;
-        this.d = dv9Var.d;
-        this.e = dv9Var.e;
-        this.f = dv9Var.f;
-    }
-
-    public dv9 a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            this.a = new CSSParser(CSSParser.Source.RenderOptions).d(str);
-            return this;
-        }
-        return (dv9) invokeL.objValue;
-    }
-
-    public dv9 h(float f, float f2, float f3, float f4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
-            this.f = new SVG.b(f, f2, f3, f4);
-            return this;
-        }
-        return (dv9) invokeCommon.objValue;
     }
 }

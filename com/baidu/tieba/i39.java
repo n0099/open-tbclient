@@ -1,97 +1,151 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.MemberPayStatistic;
-import com.baidu.tieba.themeCenter.background.DressItemData;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class i39 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
+    public static String b;
+    public static int c;
+    public static String d;
+    public static String e;
+    public static String f;
+    public static BdUniqueId g;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public int b;
 
-    public i39(TbPageContext<?> tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947802714, "Lcom/baidu/tieba/i39;")) == null) {
+            return;
         }
-        this.a = tbPageContext;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947802714, "Lcom/baidu/tieba/i39;");
+        }
     }
 
-    public final boolean a(DressItemData dressItemData) {
-        InterceptResult invokeL;
+    public static BdUniqueId a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dressItemData)) == null) {
-            if (TbadkCoreApplication.getCurrentMemberType() == 1 && dressItemData.getFreeUserLevel() == 1) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return g;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (c == 8) {
                 return true;
             }
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public void b(DressItemData dressItemData, boolean z) {
-        String string;
-        String str;
-        int i;
-        String str2;
+    public static void h(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dressItemData, z) != null) || dressItemData == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(65544, null, bdUniqueId) == null) {
+            g = bdUniqueId;
         }
-        boolean a = s29.a(dressItemData);
-        if (!a) {
-            a = a(dressItemData);
+    }
+
+    public static void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
+            b = str;
         }
-        if (a) {
-            this.b = dressItemData.getPropsId();
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_BUBBLE_SET);
-            httpMessage.setExtra(Integer.valueOf(this.b));
-            httpMessage.addParam("bcode", String.valueOf(this.b));
-            MessageManager.getInstance().sendMessage(httpMessage);
-        } else if (dressItemData.getFreeUserLevel() == 100) {
-            if (dressItemData.getActivityFinish() == 0) {
-                s29.b(this.a, 5, dressItemData.getActivityUrl());
-            }
-        } else {
-            if (dressItemData.getFreeUserLevel() == 101) {
-                str = this.a.getString(R.string.obfuscated_res_0x7f0f0313);
-                i = 9;
-            } else {
-                if (dressItemData.getFreeUserLevel() > 1) {
-                    string = String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0319), Integer.valueOf(dressItemData.getFreeUserLevel()));
-                } else {
-                    string = this.a.getString(R.string.obfuscated_res_0x7f0f0315);
-                }
-                str = string;
-                i = 0;
-            }
-            if (z) {
-                str2 = MemberPayStatistic.REFER_PAGE_POST_BUBBLE;
-            } else {
-                str2 = MemberPayStatistic.REFER_PAGE_ALL_BUBBLE;
-            }
-            s29.d(this.a, 5, str, i, str2, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
+    }
+
+    public static void j(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65546, null, i) == null) {
+            c = i;
+        }
+    }
+
+    public static void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65547, null, z) == null) {
+            a = z;
+        }
+    }
+
+    public static void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65548, null, str) == null) {
+            d = str;
+        }
+    }
+
+    public static void m(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65549, null, str) == null) {
+            e = str;
+        }
+    }
+
+    public static void n(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65550, null, str) == null) {
+            f = str;
         }
     }
 }

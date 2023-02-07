@@ -221,7 +221,7 @@ public final class h extends d implements View.OnClickListener {
             if (view2 == null || view2.getWidth() <= 0) {
                 return null;
             }
-            ObjectAnimator duration = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_X, view2.getResources().getDimension(R.dimen.obfuscated_res_0x7f070376) + f).setDuration(1000L);
+            ObjectAnimator duration = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_X, view2.getResources().getDimension(R.dimen.obfuscated_res_0x7f070378) + f).setDuration(1000L);
             duration.setInterpolator(PathInterpolatorCompat.create(0.42f, 0.0f, 1.0f, 1.0f));
             ObjectAnimator duration2 = ObjectAnimator.ofFloat(view2, Key.ALPHA, 1.0f, 1.0f).setDuration(1000L);
             AnimatorSet animatorSet = new AnimatorSet();
@@ -242,7 +242,7 @@ public final class h extends d implements View.OnClickListener {
                 return null;
             }
             Interpolator create = PathInterpolatorCompat.create(0.51f, 0.0f, 0.67f, 1.0f);
-            ValueAnimator duration = ValueAnimator.ofInt(height, view2.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703c2)).setDuration(500L);
+            ValueAnimator duration = ValueAnimator.ofInt(height, view2.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703c4)).setDuration(500L);
             duration.setInterpolator(create);
             if (ag.cB(view2.getContext()) && view4 != null && (view4.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view4.getLayoutParams();
@@ -331,7 +331,7 @@ public final class h extends d implements View.OnClickListener {
         }
         KsPriceView ksPriceView = this.nI;
         if (ksPriceView != null) {
-            int dimensionPixelSize = ksPriceView.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703cd);
+            int dimensionPixelSize = ksPriceView.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703cf);
             this.nI.getConfig().ab(dimensionPixelSize).ad(dimensionPixelSize).ac(this.nI.getResources().getColor(R.color.obfuscated_res_0x7f06077a));
             this.nI.d(aVar.iS(), aVar.dB(), true);
         }
@@ -367,17 +367,17 @@ public final class h extends d implements View.OnClickListener {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            this.pV = (ViewGroup) this.uL.findViewById(R.id.obfuscated_res_0x7f091222);
-            this.it = (KSCornerImageView) this.uL.findViewById(R.id.obfuscated_res_0x7f09121d);
-            this.eQ = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f091224);
-            this.iu = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f09120c);
-            this.nI = (KsPriceView) this.uL.findViewById(R.id.obfuscated_res_0x7f09121f);
-            this.uM = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f091221);
-            this.uN = (KsStyledTextButton) this.uL.findViewById(R.id.obfuscated_res_0x7f091207);
-            this.uR = (ImageView) this.uL.findViewById(R.id.obfuscated_res_0x7f09121e);
-            this.uQ = this.uL.findViewById(R.id.obfuscated_res_0x7f09120a);
-            this.uO = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f091209);
-            this.uP = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f09120b);
+            this.pV = (ViewGroup) this.uL.findViewById(R.id.obfuscated_res_0x7f091265);
+            this.it = (KSCornerImageView) this.uL.findViewById(R.id.obfuscated_res_0x7f091260);
+            this.eQ = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f091267);
+            this.iu = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f09124f);
+            this.nI = (KsPriceView) this.uL.findViewById(R.id.obfuscated_res_0x7f091262);
+            this.uM = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f091264);
+            this.uN = (KsStyledTextButton) this.uL.findViewById(R.id.obfuscated_res_0x7f09124a);
+            this.uR = (ImageView) this.uL.findViewById(R.id.obfuscated_res_0x7f091261);
+            this.uQ = this.uL.findViewById(R.id.obfuscated_res_0x7f09124d);
+            this.uO = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f09124c);
+            this.uP = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f09124e);
             ViewGroup viewGroup = this.pV;
             if (viewGroup != null) {
                 viewGroup.setOnClickListener(this);
@@ -393,7 +393,7 @@ public final class h extends d implements View.OnClickListener {
             ViewGroup.LayoutParams layoutParams = this.pV.getLayoutParams();
             if (layoutParams instanceof FrameLayout.LayoutParams) {
                 FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;
-                layoutParams2.width = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703b5);
+                layoutParams2.width = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703b7);
                 this.pV.setLayoutParams(layoutParams2);
             }
         }

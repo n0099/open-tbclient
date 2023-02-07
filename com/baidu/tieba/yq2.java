@@ -1,22 +1,25 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes7.dex */
-public class yq2 extends vq2 {
+public class yq2 extends qm2<hr2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public cr2 A;
-    public double B;
-    public int C;
-    public String z;
+
+    @Override // com.baidu.tieba.qm2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "start" : (String) invokeV.objValue;
+    }
 
     public yq2() {
         Interceptable interceptable = $ic;
@@ -28,40 +31,18 @@ public class yq2 extends vq2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.z = "";
-        this.C = 1000;
     }
 
-    @Override // com.baidu.tieba.vq2, com.baidu.tieba.zz1, com.baidu.tieba.iu2
-    public void a(JSONObject jSONObject) throws JSONException {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qm2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull hr2 hr2Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, hr2Var) == null) {
+            hr2Var.start();
+            d(hr2Var, command.what, null, false);
         }
-        super.a(jSONObject);
-        this.z = jSONObject.optString("markerId");
-        cr2 cr2Var = new cr2();
-        this.A = cr2Var;
-        cr2Var.a(jSONObject.optJSONObject("destination"));
-        jSONObject.optBoolean("autoRotate");
-        this.B = jSONObject.optDouble("rotate");
-        this.C = Math.abs(jSONObject.optInt("duration", this.C));
-    }
-
-    @Override // com.baidu.tieba.zz1, com.baidu.tieba.iu2
-    public boolean isValid() {
-        InterceptResult invokeV;
-        cr2 cr2Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(this.z) && (cr2Var = this.A) != null && cr2Var.isValid()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

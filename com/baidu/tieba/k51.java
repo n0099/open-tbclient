@@ -1,50 +1,80 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.content.Context;
 import android.os.Build;
-import android.view.Window;
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.protobuf.CodedInputStream;
 /* loaded from: classes5.dex */
-public interface k51 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "statusBarTool");
-    public static final k51 b = new a();
+public class k51 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = false;
+    public static boolean b = false;
+    public static boolean c = false;
+    public static boolean d = true;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void a(@NonNull Activity activity);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947863970, "Lcom/baidu/tieba/k51;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947863970, "Lcom/baidu/tieba/k51;");
+        }
+    }
 
-    /* loaded from: classes5.dex */
-    public static class a implements k51 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public static boolean a(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            try {
+                if (Build.VERSION.SDK_INT >= 23) {
+                    if (context.checkSelfPermission(str) != 0) {
+                        return false;
+                    }
+                    return true;
+                } else if (context.checkCallingOrSelfPermission(str) != 0) {
+                    return false;
+                } else {
+                    return true;
                 }
+            } catch (Throwable unused) {
+                return false;
             }
         }
+        return invokeLL.booleanValue;
+    }
 
-        @Override // com.baidu.tieba.k51
-        public void a(@NonNull Activity activity) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && Build.VERSION.SDK_INT >= 21) {
-                Window window = activity.getWindow();
-                window.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
-                window.addFlags(Integer.MIN_VALUE);
-                window.setStatusBarColor(activity.getResources().getColor(R.color.nad_white));
+    public static boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                if ("permission_location".equalsIgnoreCase(str)) {
+                    return b;
+                }
+                if ("permission_storage".equalsIgnoreCase(str)) {
+                    return c;
+                }
+                if ("permission_app_list".equalsIgnoreCase(str)) {
+                    return d;
+                }
+                if ("permission_read_phone_state".equalsIgnoreCase(str)) {
+                    return a;
+                }
+                return false;
             }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 }

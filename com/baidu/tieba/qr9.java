@@ -1,36 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.minivideo.arface.utils.ThreadPool;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class qr9 {
+public final class qr9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public boolean d;
-    public b e;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public static class a extends wr9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qr9 a;
+        public final /* synthetic */ Map a;
+        public final /* synthetic */ com.baidu.ubs.analytics.a.a b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
 
-        public a(qr9 qr9Var) {
+        public a(Map map, com.baidu.ubs.analytics.a.a aVar, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {qr9Var};
+                Object[] objArr = {map, aVar, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -40,149 +34,58 @@ public class qr9 {
                     return;
                 }
             }
-            this.a = qr9Var;
+            this.a = map;
+            this.b = aVar;
+            this.c = str;
+            this.d = str2;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.wr9
+        public final void a() {
+            String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.i();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(int i);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948101585, "Lcom/baidu/tieba/qr9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948101585, "Lcom/baidu/tieba/qr9;");
-        }
-    }
-
-    public qr9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i = this.c;
-            if (i != 0) {
-                return i;
-            }
-            int i2 = this.b;
-            return i2 != 0 ? i2 : this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public synchronized void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            synchronized (this) {
-                if (i == this.c) {
-                    return;
+                if (this.a != null) {
+                    StringBuffer stringBuffer = new StringBuffer();
+                    stringBuffer.append("{");
+                    for (Map.Entry entry : this.a.entrySet()) {
+                        stringBuffer.append("\"");
+                        stringBuffer.append(entry.getKey());
+                        stringBuffer.append("\":\"");
+                        stringBuffer.append(entry.getValue().toString().replace("\"", "\\\""));
+                        stringBuffer.append("\",");
+                    }
+                    StringBuffer stringBuffer2 = new StringBuffer(stringBuffer.subSequence(0, stringBuffer.length() - 1));
+                    stringBuffer2.append("}");
+                    this.b.w(stringBuffer2.toString());
                 }
-                if ((this.b == 0 || i != this.b) && (this.b != 0 || i != this.a)) {
-                    this.c = i;
-                    if (i != 0 && !this.d) {
-                        this.d = true;
-                        g();
+                try {
+                    this.b.x(tr9.e().I());
+                    this.b.u(String.valueOf(System.currentTimeMillis()));
+                    this.b.t(this.c);
+                    com.baidu.ubs.analytics.a.a aVar = this.b;
+                    if (this.d == null) {
+                        str = "";
+                    } else {
+                        str = this.d;
+                    }
+                    aVar.s(str);
+                    new uq9().c(this.b);
+                } catch (Exception e) {
+                    if (e.getMessage() != null) {
+                        ur9.b(e.getMessage());
                     }
                 }
-                this.c = 0;
             }
         }
     }
 
-    public void c(b bVar) {
+    public static void a(String str, String str2, String str3, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.e = bVar;
-        }
-    }
-
-    public final synchronized void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                if (this.c != this.a) {
-                    this.b = this.c;
-                }
-                this.c = 0;
-            }
-        }
-    }
-
-    public final synchronized void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                if (this.b != 0) {
-                    this.a = this.b;
-                }
-                this.b = 0;
-            }
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            ThreadPool.b().e(new a(this));
-        }
-    }
-
-    public final synchronized void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            synchronized (this) {
-                this.d = false;
-            }
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048583, this) != null) {
-            return;
-        }
-        while (true) {
-            e();
-            int i = this.b;
-            if (i == 0) {
-                h();
-                return;
-            }
-            b bVar = this.e;
-            if (bVar != null) {
-                bVar.a(i);
-            }
-            f();
+        if (interceptable == null || interceptable.invokeLLLL(65536, null, str, str2, str3, map) == null) {
+            com.baidu.ubs.analytics.a.a aVar = new com.baidu.ubs.analytics.a.a();
+            aVar.v(str);
+            vr9.c(new a(map, aVar, str2, str3));
         }
     }
 }

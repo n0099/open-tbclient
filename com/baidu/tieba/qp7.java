@@ -1,11 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.lego.activity.LegoListFragment;
+import androidx.annotation.NonNull;
+import java.util.List;
 /* loaded from: classes6.dex */
 public interface qp7 {
-    gr7 D0();
+    int a();
 
-    br7 S();
+    void d(@NonNull sp7 sp7Var);
 
-    LegoListFragment d0();
+    void detach();
+
+    @NonNull
+    List<op7> e();
+
+    void f();
 }

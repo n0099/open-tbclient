@@ -1,154 +1,111 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.webkit.JsPromptResult;
-import android.webkit.WebView;
-import androidx.annotation.Nullable;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.schemeaction.SchemeActionManager;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.ala.livecard.holder.FrsPageAlaInsertRecLiveHolder;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class r56 implements h76 {
+public class r56 extends as6<oz8, FrsPageAlaInsertRecLiveHolder> implements jd6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<j76> b;
-    public final s56 c;
+    public String l;
+    public c66 m;
 
-    public r56() {
+    @Override // com.baidu.tieba.jd6
+    public void p(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public r56(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext, bdUniqueId, bdUniqueId2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new ArrayList<>();
-        this.c = new s56();
+        this.l = "";
     }
 
-    @Override // com.baidu.tieba.h76
-    public void a(WebView webView, String str, @Nullable HashMap<String, Object> hashMap) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: E */
+    public FrsPageAlaInsertRecLiveHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, webView, str, hashMap) == null) {
-            this.c.e(webView, this.c.f(webView, str, hashMap));
-        }
-    }
-
-    @Override // com.baidu.tieba.h76
-    public boolean b(WebView webView, String str, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, jsPromptResult)) == null) {
-            if (str.startsWith("tiebaapp")) {
-                return f(webView, str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            TbPageContext<?> tbPageContext = this.c;
+            if (tbPageContext == null) {
+                return null;
             }
-            return e(webView, str, jsPromptResult);
+            c66 c66Var = new c66(tbPageContext);
+            this.m = c66Var;
+            c66Var.a(this.l);
+            return new FrsPageAlaInsertRecLiveHolder(this.m);
         }
-        return invokeLLL.booleanValue;
+        return (FrsPageAlaInsertRecLiveHolder) invokeL.objValue;
     }
 
-    public final boolean g(TbPageContext<?> tbPageContext, String str, zx8 zx8Var) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.jd6
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, tbPageContext, str, zx8Var)) == null) {
-            if (zx8Var == null || zx8Var.i() || !SchemeActionManager.getInstance().doSchemeAction(tbPageContext, str)) {
-                return false;
-            }
-            zx8Var.r(true);
-            zx8Var.y(0);
-            return true;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.h76
-    public void c(j76 j76Var, Object obj) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, j76Var, obj) == null) && (obj instanceof xx8)) {
-            this.b.add(j76Var);
-            this.c.a((xx8) obj);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.l = str;
         }
     }
 
-    public final boolean d(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLLLL;
+    public View F(int i, View view2, ViewGroup viewGroup, oz8 oz8Var, FrsPageAlaInsertRecLiveHolder frsPageAlaInsertRecLiveHolder) {
+        InterceptResult invokeCommon;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            Iterator<j76> it = this.b.iterator();
-            while (it.hasNext()) {
-                j76 next = it.next();
-                if (next != null && next.b(webView, str, str2, str3, jsPromptResult)) {
-                    return true;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, oz8Var, frsPageAlaInsertRecLiveHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) oz8Var, (oz8) frsPageAlaInsertRecLiveHolder);
+            if (oz8Var != null) {
+                FrsViewData frsViewData = this.b;
+                if (frsViewData != null) {
+                    i2 = frsViewData.getTopThreadSize();
+                } else {
+                    i2 = 0;
                 }
+                List<ThreadData> list = oz8Var.a;
+                if (list != null && list.get(0) != null) {
+                    oz8Var.a.get(0).statFloor = (i + 1) - i2;
+                }
+                frsPageAlaInsertRecLiveHolder.a.a(this.l);
+                frsPageAlaInsertRecLiveHolder.a.i(oz8Var);
             }
-            return false;
+            return view2;
         }
-        return invokeLLLLL.booleanValue;
+        return (View) invokeCommon.objValue;
     }
 
-    public final boolean e(WebView webView, String str, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, webView, str, jsPromptResult)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                return d(webView, jSONObject.optString("interfaceName", ""), jSONObject.optString("methodName", ""), jSONObject.optString(Constants.EXTRA_PARAM, ""), jsPromptResult);
-            } catch (JSONException unused) {
-                return false;
-            }
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public final boolean f(WebView webView, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, str)) == null) {
-            by8 by8Var = new by8();
-            String a = dy8.a(str);
-            String d = dy8.d(str);
-            String b = dy8.b(str);
-            by8Var.f(a);
-            by8Var.h(d);
-            zx8 zx8Var = new zx8();
-            zx8Var.v(b);
-            if (yi.isEmpty(a) || yi.isEmpty(d) || yi.isEmpty(b)) {
-                zx8Var.y(101);
-            }
-            try {
-                by8Var.j(dy8.f(str));
-            } catch (JSONException unused) {
-                by8Var.j(new JSONObject());
-                zx8Var.y(101);
-            }
-            by8Var.i(dy8.e(str));
-            by8Var.g(dy8.c(str));
-            zx8 c = this.c.c(webView, by8Var, zx8Var);
-            if (c.g()) {
-                this.c.d(webView, c);
-                return false;
-            }
-            g(lv8.a(webView.getContext()), str, c);
-            return false;
-        }
-        return invokeLL.booleanValue;
+    @Override // com.baidu.tieba.as6, com.baidu.tieba.qn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        F(i, view2, viewGroup, (oz8) obj, (FrsPageAlaInsertRecLiveHolder) viewHolder);
+        return view2;
     }
 }

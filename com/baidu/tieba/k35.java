@@ -1,57 +1,116 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class k35 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static j35 a = null;
+    public static int b = 0;
+    public static int c = 0;
+    public static int d = 0;
+    public static int e = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public ArrayList<Object> b;
 
-    public k35() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947862172, "Lcom/baidu/tieba/k35;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947862172, "Lcom/baidu/tieba/k35;");
+        }
+    }
+
+    public static int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            j35 j35Var = a;
+            if (j35Var == null) {
+                return -1;
             }
+            return j35Var.getCurrentTabType();
         }
-        c(new ArrayList<>());
+        return invokeV.intValue;
     }
 
-    public ArrayList<Object> a() {
+    public static Class<?> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            j35 j35Var = a;
+            if (j35Var == null) {
+                return null;
+            }
+            return j35Var.d();
         }
-        return (ArrayList) invokeV.objValue;
+        return (Class) invokeV.objValue;
     }
 
-    public String b() {
+    public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            j35 j35Var = a;
+            if (j35Var == null) {
+                return null;
+            }
+            return j35Var.f();
         }
         return (String) invokeV.objValue;
     }
 
-    public void c(ArrayList<Object> arrayList) {
+    public static void d(Context context) {
+        j35 j35Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
-            this.b = arrayList;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) != null) || (j35Var = a) == null) {
+            return;
         }
+        j35Var.a(context);
+    }
+
+    public static void h(j35 j35Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, j35Var) == null) {
+            a = j35Var;
+        }
+    }
+
+    public static void e(Context context, int i) {
+        j35 j35Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(65541, null, context, i) != null) || (j35Var = a) == null) {
+            return;
+        }
+        j35Var.b(context, i);
+    }
+
+    public static void f(Context context, int i, boolean z) {
+        j35 j35Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65542, null, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || (j35Var = a) == null) {
+            return;
+        }
+        j35Var.c(context, i, z);
+    }
+
+    public static void g(Context context, int i, boolean z) {
+        j35 j35Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65543, null, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || (j35Var = a) == null) {
+            return;
+        }
+        j35Var.e(context, i, z);
     }
 }

@@ -46,7 +46,7 @@ public final class a {
         }
         a = new a("UNSUPPORT", 0, -1, "unsupport");
         b = new a("HUA_WEI", 1, 0, "HUAWEI");
-        c = new a("XIAOMI", 2, 1, "Xiaomi");
+        c = new a(RomUtils.ROM_XIAOMI, 2, 1, "Xiaomi");
         d = new a("VIVO", 3, 2, "vivo");
         e = new a("OPPO", 4, 3, "oppo");
         f = new a("MOTO", 5, 4, "motorola");

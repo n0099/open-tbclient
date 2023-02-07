@@ -1,101 +1,61 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
-import android.content.Intent;
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.atomData.LogoActivityConfig;
-import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class kr4 implements Application.ActivityLifecycleCallbacks {
+public class kr4 extends gr4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public volatile long e;
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityDestroyed(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityPaused(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityResumed(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityStarted(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityStopped(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
-        }
-    }
-
-    public kr4() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kr4(br4 br4Var) {
+        super(br4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {br4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((br4) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) && !PermissionUtil.isAgreePrivacyPolicy() && activity != null && !activity.getClass().getSimpleName().equals("LogoActivity") && activity.getClass().getPackage().getName().startsWith("com.baidu.tieba") && !PermissionUtil.isBrowseMode()) {
-            if (activity.getIntent() != null && activity.getIntent().getBooleanExtra(ImageViewerConfig.KEY_IS_BROWSE_MODE, false)) {
-                PermissionUtil.doBrowseModeInit();
                 return;
             }
-            Class<?> cls = null;
-            try {
-                cls = Class.forName(SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            if (cls != null) {
-                Intent intent = new Intent(activity, cls);
-                intent.putExtra(LogoActivityConfig.EXTRAINTENT, activity.getIntent());
-                activity.startActivity(intent);
-                activity.finish();
-            }
         }
+        this.e = System.currentTimeMillis();
+    }
+
+    public synchronized long i() {
+        InterceptResult invokeV;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                this.e = System.currentTimeMillis() + 60000;
+                j = this.e;
+            }
+            return j;
+        }
+        return invokeV.longValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (System.currentTimeMillis() - this.e >= 60000) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

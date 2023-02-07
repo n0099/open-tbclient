@@ -2,6 +2,7 @@ package com.baidu.tbadk.module.hottopic;
 
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,6 +26,8 @@ public class VideoHotTopicParams {
     public String enterType;
     @SerializedName("pageId")
     public String flutterPageId;
+    @SerializedName("from_comment")
+    public String fromComment;
     @SerializedName("has_more")
     public boolean hasMore;
     @SerializedName("sort_type")
@@ -114,9 +117,18 @@ public class VideoHotTopicParams {
         return (String) invokeV.objValue;
     }
 
+    public boolean isShowComment() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return "1".equals(this.fromComment);
+        }
+        return invokeV.booleanValue;
+    }
+
     public void setCurrentPn(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             this.currentPn = i;
         }
     }

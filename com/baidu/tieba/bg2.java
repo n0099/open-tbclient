@@ -1,64 +1,52 @@
 package com.baidu.tieba;
 
+import android.app.Application;
+import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
-import com.baidu.searchbox.config.QuickPersistConfigConst;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
+import com.baidu.swan.apps.database.subscribe.SwanAppSubscribeMsgProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class bg2 {
+public final class bg2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a() {
-        InterceptResult invokeV;
-        String optString;
-        int indexOf;
+    public static void a(@NonNull SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            j43 b0 = j43.b0();
-            JSONObject jSONObject = new JSONObject();
-            if (b0 != null) {
-                jSONObject = b0.W().M();
+        if (interceptable == null || interceptable.invokeL(65536, null, sQLiteDatabase) == null) {
+            try {
+                sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS swanapp_subscribe_msg(_id INTEGER PRIMARY KEY AUTOINCREMENT,appKey varchar(100) NOT NULL,templateId varchar(50) NOT NULL,title varchar(100) NOT NULL,tips TEXT,result TINYINT default 0);");
+            } catch (Exception e) {
+                w52.d("SwanAppSubscribeMsg", "createTable", e);
             }
-            if (jSONObject != null && (optString = jSONObject.optString("keyfeed")) != null && (indexOf = optString.indexOf("_")) >= 0 && TextUtils.equals("miniapp", optString.substring(0, indexOf))) {
-                return optString.substring(indexOf + 1);
-            }
-            return "";
         }
-        return (String) invokeV.objValue;
     }
 
-    public static Map<String, Object> b(String str, String str2) {
-        InterceptResult invokeLL;
+    @WorkerThread
+    public static void b(@Nullable String... strArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("app_key", str);
-            hashMap.put("op_type", str2);
-            String a = a();
-            if (!TextUtils.isEmpty(a)) {
-                hashMap.put("nid", a);
+        if (interceptable == null || interceptable.invokeL(65537, null, strArr) == null) {
+            Application c = ds2.c();
+            if (c != null && strArr != null) {
+                StringBuilder sb = new StringBuilder();
+                int length = strArr.length;
+                for (int i = 0; i < length; i++) {
+                    String str = strArr[i];
+                    if (!TextUtils.isEmpty(str)) {
+                        sb.append(str);
+                        if (i < length - 1) {
+                            sb.append(",");
+                        }
+                    }
+                }
+                int delete = c.getContentResolver().delete(SwanAppSubscribeMsgProvider.c, "appKey in (?)", new String[]{sb.toString()});
+                w52.i("SwanAppSubscribeMsg", "deleteAllByAppKey count=" + delete + ", appKey=" + sb.toString());
+                return;
             }
-            return hashMap;
+            w52.o("SwanAppSubscribeMsg", "deleteAllByAppKey fail");
         }
-        return (Map) invokeLL.objValue;
-    }
-
-    public static Map<String, Object> c(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("app_key", str);
-            hashMap.put(QuickPersistConfigConst.KEY_SPLASH_SORT, Integer.valueOf(i));
-            hashMap.put("op_type", StickerDataChangeType.ADD);
-            return hashMap;
-        }
-        return (Map) invokeLI.objValue;
     }
 }

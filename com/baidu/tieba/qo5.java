@@ -1,51 +1,61 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.ItemCardView;
-import com.baidu.tbadk.gif.GifView;
-import com.baidu.tbadk.widget.tiejia.TiebaPlusRecommendCard;
-import com.baidu.tieba.view.festivalview.FestivalTipView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.InitUserNameDialogActivityConfig;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface qo5 {
-    pg<TiebaPlusRecommendCard> B1();
+public class qo5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    int C();
+    /* loaded from: classes6.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    void F(Context context, String str);
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
 
-    void H(Context context, String str);
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                qo5.b();
+            }
+        }
+    }
 
-    pg<RelativeLayout> N();
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            if (!ej.E()) {
+                gh.a().post(new a());
+            } else {
+                b();
+            }
+        }
+    }
 
-    pg<FestivalTipView> P();
-
-    pg<ImageView> Q();
-
-    pg<View> R();
-
-    void T(Context context, String str);
-
-    void U(Context context, String str, boolean z);
-
-    pg<TextView> W0();
-
-    void Y(Context context, String str, String str2);
-
-    void c0(Context context, String str);
-
-    void e1(Context context, String str);
-
-    ListView getListView();
-
-    pg<ItemCardView> i0();
-
-    pg<GifView> v();
-
-    pg<LinearLayout> y();
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new InitUserNameDialogActivityConfig(TbadkCoreApplication.getInst().getContext())));
+        }
+    }
 }

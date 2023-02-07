@@ -1,59 +1,91 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class mz5 extends BaseCardInfo {
+public class mz5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
+    public static boolean a;
+    public static boolean b;
+    public static boolean c;
+    public static long d;
+    public static String e;
+    public static long f;
+    public static String g;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<lz5> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947989985, "Lcom/baidu/tieba/mz5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static void a(String str, String str2, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, str2, Long.valueOf(j)}) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST_SUCCESS_NOT_SHOW);
+            statisticItem.param("obj_source", str);
+            statisticItem.param("obj_type", "a064");
+            if (nz5.b.equals(str)) {
+                statisticItem.param(TiebaStatic.Params.OBJ_TO, str2);
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947989985, "Lcom/baidu/tieba/mz5;");
+            statisticItem.param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis());
+            statisticItem.param(TiebaStatic.Params.SPLASH_UNI, j);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && b && a && c) {
+            if (nz5.b.equals(g)) {
+                a(nz5.c, null, d);
+            } else {
+                a(nz5.b, e, f);
+            }
+            c();
+        }
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            b = false;
+            a = false;
+            c = false;
+            d = 0L;
+            e = null;
+            f = 0L;
+            g = null;
+        }
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            c = true;
+            g = str;
+            b();
+        }
+    }
+
+    public static void e(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j) == null) {
+            a = true;
+            d = j;
+            b();
+        }
+    }
+
+    public static void f(int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            if (i == 3 && !tn5.v()) {
                 return;
             }
+            b = true;
+            e = tn5.m(i);
+            f = j;
+            b();
         }
-        b = BdUniqueId.gen();
-    }
-
-    public mz5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b;
-        }
-        return (BdUniqueId) invokeV.objValue;
     }
 }

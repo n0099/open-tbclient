@@ -9,7 +9,7 @@ import android.view.View;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -67,8 +67,8 @@ public class ArrowView extends View {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            e = zi.g(context, R.dimen.tbds20);
-            f = zi.g(context, R.dimen.tbds13);
+            e = ej.g(context, R.dimen.tbds20);
+            f = ej.g(context, R.dimen.tbds13);
             Paint paint = new Paint();
             this.c = paint;
             paint.setColor(context.getResources().getColor(R.color.CAM_X0201));

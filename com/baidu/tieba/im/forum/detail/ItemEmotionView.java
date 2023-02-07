@@ -83,7 +83,7 @@ public class ItemEmotionView extends RelativeLayout {
     public void setEmotionOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            findViewById(R.id.obfuscated_res_0x7f090343).setOnClickListener(onClickListener);
+            findViewById(R.id.obfuscated_res_0x7f090338).setOnClickListener(onClickListener);
         }
     }
 }

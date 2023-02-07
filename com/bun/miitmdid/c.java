@@ -83,7 +83,7 @@ public final class c {
         b = cVar;
         c cVar2 = new c("HUAWEI", 1, 0, "HUAWEI");
         c = cVar2;
-        c cVar3 = new c("XIAOMI", 2, 1, "Xiaomi");
+        c cVar3 = new c(RomUtils.ROM_XIAOMI, 2, 1, "Xiaomi");
         d = cVar3;
         c cVar4 = new c("VIVO", 3, 2, "vivo");
         e = cVar4;

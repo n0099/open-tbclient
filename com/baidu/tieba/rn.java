@@ -1,19 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.view.View;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class rn extends BaseCardInfo {
+public abstract class rn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public yn b;
+    public View a;
+
+    public abstract View a();
+
+    public abstract void d();
 
     public rn() {
         Interceptable interceptable = $ic;
@@ -25,40 +28,38 @@ public class rn extends BaseCardInfo {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = null;
     }
 
-    public yn c() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            View view2 = this.a;
+            if (view2 == null) {
+                return -1;
+            }
+            Object tag = view2.getTag();
+            if (!(tag instanceof TypeAdapter.ViewHolder)) {
+                return -1;
+            }
+            return ((TypeAdapter.ViewHolder) tag).getAdapterPosition();
         }
-        return (yn) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yn
-    public BdUniqueId getType() {
+    public final View c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.a == null) {
+                this.a = a();
+            }
             return this.a;
         }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void f(yn ynVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ynVar) == null) {
-            this.b = ynVar;
-        }
-    }
-
-    public void g(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
-            this.a = bdUniqueId;
-        }
+        return (View) invokeV.objValue;
     }
 }

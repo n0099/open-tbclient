@@ -66,6 +66,11 @@ public class Reflection {
         return factory.getOrCreateKotlinPackage(cls, "");
     }
 
+    @SinceKotlin(version = "1.6")
+    public static KType mutableCollectionType(KType kType) {
+        return factory.mutableCollectionType(kType);
+    }
+
     public static KMutableProperty0 mutableProperty0(MutablePropertyReference0 mutablePropertyReference0) {
         return factory.mutableProperty0(mutablePropertyReference0);
     }
@@ -76,6 +81,11 @@ public class Reflection {
 
     public static KMutableProperty2 mutableProperty2(MutablePropertyReference2 mutablePropertyReference2) {
         return factory.mutableProperty2(mutablePropertyReference2);
+    }
+
+    @SinceKotlin(version = "1.6")
+    public static KType nothingType(KType kType) {
+        return factory.nothingType(kType);
     }
 
     @SinceKotlin(version = "1.4")
@@ -120,6 +130,11 @@ public class Reflection {
     @SinceKotlin(version = "1.4")
     public static KType nullableTypeOf(Class cls, KTypeProjection kTypeProjection) {
         return factory.typeOf(getOrCreateKotlinClass(cls), Collections.singletonList(kTypeProjection), true);
+    }
+
+    @SinceKotlin(version = "1.6")
+    public static KType platformType(KType kType, KType kType2) {
+        return factory.platformType(kType, kType2);
     }
 
     @SinceKotlin(version = "1.4")

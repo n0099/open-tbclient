@@ -13,21 +13,21 @@ import com.baidu.payment.PaymentManager;
 import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
 import com.baidu.swan.support.v4.app.FragmentActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.db1;
-import com.baidu.tieba.fb1;
-import com.baidu.tieba.gb1;
-import com.baidu.tieba.gx2;
-import com.baidu.tieba.i43;
-import com.baidu.tieba.jw1;
-import com.baidu.tieba.p32;
-import com.baidu.tieba.pk4;
-import com.baidu.tieba.q33;
-import com.baidu.tieba.qn2;
-import com.baidu.tieba.r33;
-import com.baidu.tieba.s32;
-import com.baidu.tieba.tk1;
-import com.baidu.tieba.uk1;
-import com.baidu.tieba.wp2;
+import com.baidu.tieba.c82;
+import com.baidu.tieba.cp4;
+import com.baidu.tieba.d83;
+import com.baidu.tieba.ds2;
+import com.baidu.tieba.e83;
+import com.baidu.tieba.f82;
+import com.baidu.tieba.gp1;
+import com.baidu.tieba.hp1;
+import com.baidu.tieba.ju2;
+import com.baidu.tieba.of1;
+import com.baidu.tieba.qf1;
+import com.baidu.tieba.rf1;
+import com.baidu.tieba.t13;
+import com.baidu.tieba.v83;
+import com.baidu.tieba.w02;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -52,10 +52,10 @@ public class PaymentPanelManager {
     public final PaymentManager c;
 
     /* loaded from: classes3.dex */
-    public class b implements db1 {
+    public class b implements of1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gx2 a;
+        public final /* synthetic */ t13 a;
         public final /* synthetic */ String b;
         public final /* synthetic */ String c;
         public final /* synthetic */ String d;
@@ -64,7 +64,7 @@ public class PaymentPanelManager {
         public final /* synthetic */ PaymentPanelManager g;
 
         /* loaded from: classes3.dex */
-        public class a implements fb1 {
+        public class a implements qf1 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ JSONObject a;
@@ -93,30 +93,30 @@ public class PaymentPanelManager {
                 this.c = jSONObject2;
             }
 
-            @Override // com.baidu.tieba.fb1
+            @Override // com.baidu.tieba.qf1
             public void a(JSONObject jSONObject) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
                     if (jSONObject == null) {
                         b bVar = this.d;
-                        bVar.a.d(bVar.b, new jw1(1002, "result data(price calculation) empty"));
+                        bVar.a.d(bVar.b, new w02(1002, "result data(price calculation) empty"));
                         this.d.g.D();
                     } else if (jSONObject.optInt("statusCode", -1) != 0) {
                         b bVar2 = this.d;
-                        bVar2.a.d(bVar2.b, new jw1(1002, "result data(price calculation) error: error code is Non-zero"));
+                        bVar2.a.d(bVar2.b, new w02(1002, "result data(price calculation) error: error code is Non-zero"));
                         this.d.g.D();
                     } else {
                         try {
                             if (!this.d.g.r(jSONObject.optJSONArray("promotionStatus"), this.a)) {
                                 this.d.g.G(this.d.e, this.b);
-                                this.d.a.d(this.d.b, new jw1(1003, "invalid coupon"));
+                                this.d.a.d(this.d.b, new w02(1003, "invalid coupon"));
                                 this.d.g.D();
                                 return;
                             }
                             JSONObject x = this.d.g.x(jSONObject, this.c, "totalAmount", "userPayAmount", "reduceAmount");
                             if (x == null) {
                                 b bVar3 = this.d;
-                                bVar3.a.d(bVar3.b, new jw1(1002, "result data(price calculation) error: price"));
+                                bVar3.a.d(bVar3.b, new w02(1002, "result data(price calculation) error: price"));
                                 this.d.g.D();
                                 return;
                             }
@@ -127,7 +127,7 @@ public class PaymentPanelManager {
                                 String y = bVar4.g.y(bVar4.f);
                                 if (TextUtils.isEmpty(y)) {
                                     b bVar5 = this.d;
-                                    bVar5.a.d(bVar5.b, new jw1(1001, "get inlinePaySign fail"));
+                                    bVar5.a.d(bVar5.b, new w02(1001, "get inlinePaySign fail"));
                                     this.d.g.D();
                                     return;
                                 }
@@ -135,14 +135,14 @@ public class PaymentPanelManager {
                                 b bVar6 = this.d;
                                 bVar6.g.K(bVar6.e, this.b);
                                 b bVar7 = this.d;
-                                bVar7.a.d(bVar7.b, new jw1(0, jSONObject2));
+                                bVar7.a.d(bVar7.b, new w02(0, jSONObject2));
                                 this.d.g.D();
                             } catch (JSONException e) {
                                 if (PaymentPanelManager.d) {
                                     Log.d("PaymentPanelManager", Log.getStackTraceString(e));
                                 }
                                 b bVar8 = this.d;
-                                bVar8.a.d(bVar8.b, new jw1(1002, "result data(price calculation) error: unknown"));
+                                bVar8.a.d(bVar8.b, new w02(1002, "result data(price calculation) error: unknown"));
                                 this.d.g.D();
                             }
                         } catch (ServerResultException e2) {
@@ -150,7 +150,7 @@ public class PaymentPanelManager {
                                 Log.d("PaymentPanelManager", Log.getStackTraceString(e2));
                             }
                             b bVar9 = this.d;
-                            bVar9.a.d(bVar9.b, new jw1(1002, "result data(price calculation) error: format or content"));
+                            bVar9.a.d(bVar9.b, new w02(1002, "result data(price calculation) error: format or content"));
                             this.d.g.D();
                         }
                     }
@@ -158,12 +158,12 @@ public class PaymentPanelManager {
             }
         }
 
-        public b(PaymentPanelManager paymentPanelManager, gx2 gx2Var, String str, String str2, String str3, JSONArray jSONArray, String str4) {
+        public b(PaymentPanelManager paymentPanelManager, t13 t13Var, String str, String str2, String str3, JSONArray jSONArray, String str4) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {paymentPanelManager, gx2Var, str, str2, str3, jSONArray, str4};
+                Object[] objArr = {paymentPanelManager, t13Var, str, str2, str3, jSONArray, str4};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -174,7 +174,7 @@ public class PaymentPanelManager {
                 }
             }
             this.g = paymentPanelManager;
-            this.a = gx2Var;
+            this.a = t13Var;
             this.b = str;
             this.c = str2;
             this.d = str3;
@@ -182,18 +182,18 @@ public class PaymentPanelManager {
             this.f = str4;
         }
 
-        @Override // com.baidu.tieba.db1
+        @Override // com.baidu.tieba.of1
         public void a(boolean z, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048576, this, z, jSONObject) == null) {
                 if (!z) {
-                    this.a.d(this.b, new jw1(0));
+                    this.a.d(this.b, new w02(0));
                 } else if (jSONObject == null) {
-                    this.a.d(this.b, new jw1(1002, "selected coupon result is null"));
+                    this.a.d(this.b, new w02(1002, "selected coupon result is null"));
                 } else {
                     String w = this.g.w(jSONObject);
                     if (TextUtils.isEmpty(w)) {
-                        this.a.d(this.b, new jw1(1002, "selected coupon result error: empty host info"));
+                        this.a.d(this.b, new w02(1002, "selected coupon result error: empty host info"));
                         return;
                     }
                     Bundle bundle = new Bundle();
@@ -211,7 +211,7 @@ public class PaymentPanelManager {
                         if (PaymentPanelManager.d) {
                             Log.d("PaymentPanelManager", Log.getStackTraceString(e));
                         }
-                        this.a.d(this.b, new jw1(1002, "selected coupon result error: host info error"));
+                        this.a.d(this.b, new w02(1002, "selected coupon result error: host info error"));
                     }
                 }
             }
@@ -245,20 +245,20 @@ public class PaymentPanelManager {
     }
 
     /* loaded from: classes3.dex */
-    public class a implements gb1 {
+    public class a implements rf1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gx2 a;
+        public final /* synthetic */ t13 a;
         public final /* synthetic */ String b;
         public final /* synthetic */ String c;
         public final /* synthetic */ PaymentPanelManager d;
 
-        public a(PaymentPanelManager paymentPanelManager, gx2 gx2Var, String str, String str2) {
+        public a(PaymentPanelManager paymentPanelManager, t13 t13Var, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {paymentPanelManager, gx2Var, str, str2};
+                Object[] objArr = {paymentPanelManager, t13Var, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -269,30 +269,30 @@ public class PaymentPanelManager {
                 }
             }
             this.d = paymentPanelManager;
-            this.a = gx2Var;
+            this.a = t13Var;
             this.b = str;
             this.c = str2;
         }
 
-        @Override // com.baidu.tieba.gb1
+        @Override // com.baidu.tieba.rf1
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                gx2 gx2Var = this.a;
+                t13 t13Var = this.a;
                 String str2 = this.b;
-                gx2Var.d(str2, new jw1(1002, str + ""));
+                t13Var.d(str2, new w02(1002, str + ""));
                 this.d.D();
             }
         }
 
-        @Override // com.baidu.tieba.gb1
+        @Override // com.baidu.tieba.rf1
         public void onSuccess(String str) {
             JSONArray jSONArray;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
                 this.d.D();
                 if (TextUtils.isEmpty(str)) {
-                    this.a.d(this.b, new jw1(1002, "result data(panel info) empty"));
+                    this.a.d(this.b, new w02(1002, "result data(panel info) empty"));
                     return;
                 }
                 try {
@@ -302,12 +302,12 @@ public class PaymentPanelManager {
                     JSONObject jSONObject2 = null;
                     if (!isNull) {
                         if (!(remove instanceof JSONArray)) {
-                            this.a.d(this.b, new jw1(1002, "result data(panel info) error: coupons"));
+                            this.a.d(this.b, new w02(1002, "result data(panel info) error: coupons"));
                             return;
                         }
                         jSONArray = (JSONArray) remove;
                         if (jSONArray.length() > 0 && (jSONObject2 = this.d.u(jSONArray)) == null) {
-                            this.a.d(this.b, new jw1(1002, "result data(panel info) error: default coupon"));
+                            this.a.d(this.b, new w02(1002, "result data(panel info) error: default coupon"));
                             return;
                         }
                     } else {
@@ -316,25 +316,25 @@ public class PaymentPanelManager {
                     JSONObject q = this.d.q(jSONArray, jSONObject2, this.c);
                     JSONObject x = this.d.x(jSONObject, q, "totalMoney", "payMoney", "reduceMoney");
                     if (x == null) {
-                        this.a.d(this.b, new jw1(1002, "result data(panel info) error: price"));
+                        this.a.d(this.b, new w02(1002, "result data(panel info) error: price"));
                         return;
                     }
                     jSONObject.put("couponInfo", x);
                     String y = this.d.y(this.c);
                     if (TextUtils.isEmpty(y)) {
-                        this.a.d(this.b, new jw1(1001, "get inlinePaySign fail"));
+                        this.a.d(this.b, new w02(1001, "get inlinePaySign fail"));
                         return;
                     }
                     this.d.I(y, this.d.w(q));
                     JSONObject jSONObject3 = new JSONObject();
                     this.d.a.put(this.c, jSONArray);
                     jSONObject3.put("panelInfo", jSONObject);
-                    this.a.d(this.b, new jw1(0, jSONObject3));
+                    this.a.d(this.b, new w02(0, jSONObject3));
                 } catch (JSONException e) {
                     if (PaymentPanelManager.d) {
                         Log.d("PaymentPanelManager", Log.getStackTraceString(e));
                     }
-                    this.a.d(this.b, new jw1(1001, "result data(panel info) error: unknown"));
+                    this.a.d(this.b, new w02(1001, "result data(panel info) error: unknown"));
                 }
             }
         }
@@ -379,7 +379,7 @@ public class PaymentPanelManager {
                 return;
             }
         }
-        d = tk1.a;
+        d = gp1.a;
     }
 
     public static void F() {
@@ -407,16 +407,16 @@ public class PaymentPanelManager {
     }
 
     public final void D() {
-        s32 V;
+        f82 V;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (V = wp2.U().V()) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (V = ju2.U().V()) == null) {
             return;
         }
-        p32 m = V.m();
-        if (!(m instanceof q33.a)) {
+        c82 m = V.m();
+        if (!(m instanceof d83.a)) {
             return;
         }
-        r33.c(m);
+        e83.c(m);
     }
 
     public final void t() {
@@ -446,19 +446,19 @@ public class PaymentPanelManager {
     }
 
     public final void L() {
-        s32 V;
+        f82 V;
         FragmentActivity activity;
-        q33 d2;
+        d83 d2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || (V = wp2.U().V()) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || (V = ju2.U().V()) == null) {
             return;
         }
-        p32 m = V.m();
-        if (!(m instanceof q33.a) || (activity = m.getActivity()) == null || (d2 = ((q33.a) m).d()) == null) {
+        c82 m = V.m();
+        if (!(m instanceof d83.a) || (activity = m.getActivity()) == null || (d2 = ((d83.a) m).d()) == null) {
             return;
         }
         d2.l(false);
-        r33.f(d2, activity, activity.getString(R.string.obfuscated_res_0x7f0f019e), true);
+        e83.f(d2, activity, activity.getString(R.string.obfuscated_res_0x7f0f019e), true);
     }
 
     public String A(@NonNull String str) {
@@ -547,49 +547,49 @@ public class PaymentPanelManager {
         }
     }
 
-    public void C(@NonNull gx2 gx2Var, @NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull String str4, @NonNull String str5) {
+    public void C(@NonNull t13 t13Var, @NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull String str4, @NonNull String str5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{gx2Var, str, str2, str3, str4, str5}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{t13Var, str, str2, str3, str4, str5}) == null) {
             Bundle bundle = new Bundle();
             bundle.putString("dealId", str2);
             bundle.putString("appKey", str3);
             bundle.putString("totalAmount", str4);
             p(bundle);
             L();
-            this.c.m(bundle, new a(this, gx2Var, str5, str));
+            this.c.m(bundle, new a(this, t13Var, str5, str));
         }
     }
 
-    public void s(@NonNull gx2 gx2Var, Activity activity, @NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull String str4) {
+    public void s(@NonNull t13 t13Var, Activity activity, @NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{gx2Var, activity, str, str2, str3, str4}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{t13Var, activity, str, str2, str3, str4}) == null) {
             JSONArray jSONArray = this.a.get(str);
             if (jSONArray == null) {
-                gx2Var.d(str4, new jw1(1001, "empty coupons list"));
+                t13Var.d(str4, new w02(1001, "empty coupons list"));
             } else {
-                this.c.l(activity, jSONArray, new b(this, gx2Var, str4, str2, str3, jSONArray, str));
+                this.c.l(activity, jSONArray, new b(this, t13Var, str4, str2, str3, jSONArray, str));
             }
         }
     }
 
-    public void J(@NonNull gx2 gx2Var, @NonNull String str, @NonNull String str2, @NonNull String str3) {
+    public void J(@NonNull t13 t13Var, @NonNull String str, @NonNull String str2, @NonNull String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, gx2Var, str, str2, str3) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t13Var, str, str2, str3) == null) {
             JSONObject jSONObject = new JSONObject();
             String y = y(str);
             if (TextUtils.isEmpty(y)) {
-                gx2Var.d(str3, new jw1(1001, "get inlinePaySign fail: inline pay key is empty!"));
+                t13Var.d(str3, new w02(1001, "get inlinePaySign fail: inline pay key is empty!"));
                 return;
             }
             try {
                 jSONObject.put("inlinePaySign", y);
                 H(y, str2);
-                gx2Var.d(str3, new jw1(0, jSONObject));
+                t13Var.d(str3, new w02(0, jSONObject));
             } catch (JSONException e2) {
                 if (d) {
                     Log.d("PaymentPanelManager", Log.getStackTraceString(e2));
                 }
-                gx2Var.d(str3, new jw1(1001, "get inlinePaySign fail"));
+                t13Var.d(str3, new w02(1001, "get inlinePaySign fail"));
             }
         }
     }
@@ -637,11 +637,11 @@ public class PaymentPanelManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) {
             if (SwanAppAllianceLoginHelper.d.f()) {
-                bundle.putString("openBduss", qn2.h0().d(qn2.c()));
-                bundle.putString("clientId", qn2.n().b());
+                bundle.putString("openBduss", ds2.h0().d(ds2.c()));
+                bundle.putString("clientId", ds2.n().b());
                 return;
             }
-            bundle.putString("bduss", qn2.h0().d(qn2.c()));
+            bundle.putString("bduss", ds2.h0().d(ds2.c()));
         }
     }
 
@@ -650,11 +650,11 @@ public class PaymentPanelManager {
         if (interceptable == null || interceptable.invokeL(1048588, this, bundle) == null) {
             o(bundle);
             bundle.putString("deviceType", "ANDROID");
-            bundle.putString("cuid", qn2.h0().i(qn2.c()));
+            bundle.putString("cuid", ds2.h0().i(ds2.c()));
             bundle.putString("channel", "cashiersdk");
-            bundle.putString("nativeAppId", qn2.n().a());
+            bundle.putString("nativeAppId", ds2.n().a());
             bundle.putString(ConstantsAPI.Token.WX_TOKEN_PLATFORMID_KEY, "100003");
-            bundle.putString("swanNativeVersion", uk1.a());
+            bundle.putString("swanNativeVersion", hp1.a());
         }
     }
 
@@ -744,7 +744,7 @@ public class PaymentPanelManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
-            return pk4.d((i43.K().getAppId() + "_" + str).getBytes(), true);
+            return cp4.d((v83.K().getAppId() + "_" + str).getBytes(), true);
         }
         return (String) invokeL.objValue;
     }

@@ -1,55 +1,62 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.content.ContentValues;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.sweetsqlite.Column;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public interface g31 {
-    <T> T a(Class<T> cls);
+public abstract class g31 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(Context context);
+    public abstract f31 b();
 
-    /* loaded from: classes4.dex */
-    public static final class a implements g31 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.g31
-        public <T> T a(Class<T> clazz) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, clazz)) == null) {
-                Intrinsics.checkNotNullParameter(clazz, "clazz");
-                return null;
-            }
-            return (T) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.g31
-        public void b(Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
+    public g31() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    public ContentValues a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return d31.b(b().c());
         }
+        return (ContentValues) invokeV.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Column[] c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(getClass().getName());
+            sb.append("\n");
+            for (Column column : b().c()) {
+                sb.append("|");
+                sb.append(column.field.e);
+                sb.append("| ");
+                sb.append(column.isAssignedValue ? 1 : 0);
+                sb.append(" | ");
+                sb.append(column.stringValue());
+                sb.append("\n");
+            }
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

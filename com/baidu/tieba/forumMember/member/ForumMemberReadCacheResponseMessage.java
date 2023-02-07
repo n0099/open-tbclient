@@ -3,7 +3,7 @@ package com.baidu.tieba.forumMember.member;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.iw8;
+import com.baidu.tieba.g09;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,7 +28,7 @@ public class ForumMemberReadCacheResponseMessage extends CustomResponsedMessage<
     public MemberGodInfo mMemberGodInfo;
     public List<MemberGroupInfo> mMemberGroupInfoList;
     public PriManagerApplyInfo mPrivateMgrApplyInfo;
-    public iw8 mUserInfo;
+    public g09 mUserInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumMemberReadCacheResponseMessage() {
@@ -65,9 +65,9 @@ public class ForumMemberReadCacheResponseMessage extends CustomResponsedMessage<
                 }
                 if (getError() == 0 && (dataRes = getMemberInfoResIdl.data) != null) {
                     if (dataRes.forum_member_info != null) {
-                        iw8 iw8Var = new iw8();
-                        this.mUserInfo = iw8Var;
-                        iw8Var.y(getMemberInfoResIdl.data.forum_member_info.is_like.intValue());
+                        g09 g09Var = new g09();
+                        this.mUserInfo = g09Var;
+                        g09Var.y(getMemberInfoResIdl.data.forum_member_info.is_like.intValue());
                         this.mUserInfo.u(getMemberInfoResIdl.data.forum_member_info.cur_score.intValue());
                         this.mUserInfo.x(getMemberInfoResIdl.data.forum_member_info.levelup_score.intValue());
                         this.mUserInfo.A(getMemberInfoResIdl.data.forum_member_info.user_level.intValue());
@@ -129,13 +129,13 @@ public class ForumMemberReadCacheResponseMessage extends CustomResponsedMessage<
         return (PriManagerApplyInfo) invokeV.objValue;
     }
 
-    public iw8 getUserInfo() {
+    public g09 getUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.mUserInfo;
         }
-        return (iw8) invokeV.objValue;
+        return (g09) invokeV.objValue;
     }
 
     public boolean isBawuShow() {

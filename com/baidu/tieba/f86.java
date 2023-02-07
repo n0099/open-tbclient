@@ -2,36 +2,46 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class f86 extends a86<ud6> {
+public class f86 extends mc6<a76> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView i;
-    public TextView j;
-    public TextView k;
+    public ProgressBar j;
+    public FrameLayout k;
     public TextView l;
     public TextView m;
-    public View n;
-    public View o;
-    public String p;
+    public TextView n;
 
-    @Override // com.baidu.tieba.a86
+    @Override // com.baidu.tieba.mc6
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d018c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0104 : invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.mc6
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -55,88 +65,53 @@ public class f86 extends a86<ud6> {
         r(h());
     }
 
-    public void t(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.p = str;
-        }
-    }
-
-    @Override // com.baidu.tieba.a86
-    public void j(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            SkinManager.setBackgroundResource(h(), R.color.CAM_X0201);
-            SkinManager.setBackgroundResource(this.n, R.color.CAM_X0205);
-            SkinManager.setBackgroundResource(this.o, R.color.CAM_X0205);
-            SkinManager.setViewTextColor(this.i, R.color.CAM_X0106, 1);
-            SkinManager.setViewTextColor(this.j, R.color.CAM_X0105, 1);
-            SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1);
-            SkinManager.setViewTextColor(this.l, R.color.CAM_X0105, 1);
-            SkinManager.setViewTextColor(this.m, R.color.CAM_X0105, 1);
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-            if (view2 == this.j || view2 == this.k || view2 == this.l || view2 == this.m) {
-                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 8).param("fid", this.p));
-                UrlManager.getInstance().dealOneLink((TbPageContext) y9.a(this.b.getPageActivity()), new String[]{(String) view2.getTag()}, true);
-            }
-        }
-    }
-
     public final void r(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09051f);
-            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090520);
-            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090521);
-            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090522);
-            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090523);
-            this.j.setOnClickListener(this);
-            this.k.setOnClickListener(this);
-            this.l.setOnClickListener(this);
-            this.m.setOnClickListener(this);
-            this.n = view2.findViewById(R.id.obfuscated_res_0x7f090842);
-            this.o = view2.findViewById(R.id.obfuscated_res_0x7f090843);
+            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09020a);
+            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0913ce);
+            this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0913cf);
+            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090221);
+            this.j = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f09020b);
+            this.k = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0913d2);
+            h().setOnClickListener(this);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.a86
+    @Override // com.baidu.tieba.mc6
     /* renamed from: s */
-    public void i(ud6 ud6Var) {
+    public void i(a76 a76Var) {
+        x66 c;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, ud6Var) == null) && ud6Var != null && ud6Var.c() != null) {
-            if (!TextUtils.isEmpty(ud6Var.c().title)) {
-                this.i.setText(ud6Var.c().title);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, a76Var) == null) && (c = a76Var.c()) != null && c.b() != null) {
+            String str = "LV." + c.b().yy_level_id;
+            if (!TextUtils.isEmpty(c.b().yy_level_name)) {
+                str = c.b().yy_level_name + str;
+                this.m.setText(c.b().yy_level_name);
             }
-            this.j.setVisibility(8);
-            this.k.setVisibility(8);
-            this.l.setVisibility(8);
-            this.m.setVisibility(8);
-            if (ud6Var.c().sub_nodes.size() >= 1) {
-                this.j.setVisibility(0);
-                this.j.setTag(ud6Var.c().sub_nodes.get(0).url);
-                this.j.setText(ud6Var.c().sub_nodes.get(0).title);
+            this.i.setText(str);
+            if (c.b().yy_levelup_exp <= c.b().yy_level_exp) {
+                this.m.setVisibility(8);
+                this.n.setVisibility(8);
+                this.l.setVisibility(8);
+                this.j.setVisibility(8);
+                return;
             }
-            if (ud6Var.c().sub_nodes.size() >= 2) {
-                this.k.setVisibility(0);
-                this.k.setTag(ud6Var.c().sub_nodes.get(1).url);
-                this.k.setText(ud6Var.c().sub_nodes.get(1).title);
+            if (!TextUtils.isEmpty(c.b().yy_level_next_name)) {
+                this.n.setText(c.b().yy_level_next_name);
             }
-            if (ud6Var.c().sub_nodes.size() >= 3) {
-                this.l.setVisibility(0);
-                this.l.setTag(ud6Var.c().sub_nodes.get(2).url);
-                this.l.setText(ud6Var.c().sub_nodes.get(2).title);
-            }
-            if (ud6Var.c().sub_nodes.size() >= 4) {
-                this.m.setVisibility(0);
-                this.m.setTag(ud6Var.c().sub_nodes.get(3).url);
-                this.m.setText(ud6Var.c().sub_nodes.get(3).title);
+            long j = c.b().yy_levelup_exp;
+            long j2 = c.b().yy_level_exp;
+            this.j.setMax((int) j);
+            this.j.setProgress((int) j2);
+            if (!TextUtils.isEmpty(c.b().yy_level_next_name) && c.b().yy_levelup_exp > c.b().yy_level_exp) {
+                String string = this.b.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0226);
+                int i = (int) ((((float) (c.b().yy_levelup_exp - c.b().yy_level_exp)) * 100.0f) / ((float) c.b().yy_levelup_exp));
+                if (i <= 0) {
+                    i = 1;
+                }
+                this.l.setText(String.format(string, c.b().yy_level_next_name, i + "%"));
             }
         }
     }

@@ -1,27 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.content.Context;
 /* loaded from: classes5.dex */
-public class m64 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile l64 a;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public static synchronized l64 a() {
-        InterceptResult invokeV;
-        l64 l64Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (m64.class) {
-                if (a == null) {
-                    a = new l64();
-                }
-                l64Var = a;
-            }
-            return l64Var;
-        }
-        return (l64) invokeV.objValue;
-    }
+public interface m64 {
+    void a(xy2 xy2Var, Context context);
 }

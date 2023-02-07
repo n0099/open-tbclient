@@ -1,128 +1,113 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.data.VideoCategoryClassData;
-import com.baidu.tieba.write.write.work.classdialog.model.GetSelectClassReqMessage;
-import com.baidu.tieba.write.write.work.selecttag.model.GetSelectTagReqMessage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.TimeHelper;
+import com.baidu.tbadk.switchs.CheckIsQuestionThreadSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
 public class qi9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> a;
-    public List<List<String>> b;
-    public VideoCategoryClassData c;
-    public BdUniqueId d;
 
-    public qi9(BdUniqueId bdUniqueId) {
+    public static void a(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeII(65536, null, i, i2) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CHECK_DIALOG_CLICK);
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.addParam("obj_locate", i);
+            statisticItem.addParam("obj_type", i2);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CHECK_DIALOG_SHOW);
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (CheckIsQuestionThreadSwitch.getSwitchType() != 3 && CheckIsQuestionThreadSwitch.getSwitchType() != 2) {
+                return false;
             }
+            return true;
         }
-        this.a = new ArrayList();
-        this.b = new ArrayList();
-        this.c = new VideoCategoryClassData();
-        this.d = bdUniqueId;
+        return invokeV.booleanValue;
     }
 
-    public VideoCategoryClassData a(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
-            this.c.setFirstClass(this.a.get(i));
-            this.c.setSecondClass(this.b.get(i).get(i2));
-            this.c.getTags().clear();
-            return this.c;
-        }
-        return (VideoCategoryClassData) invokeII.objValue;
-    }
-
-    public List<String> b() {
+    public static boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (TimeHelper.getDayDifference(System.currentTimeMillis(), p35.m().o("key_check_is_question_thread_time", 0L)) > 7) {
+                return true;
+            }
+            return false;
         }
-        return (List) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public List<List<String>> c() {
+    public static boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (CheckIsQuestionThreadSwitch.getSwitchType() == 2) {
+                return true;
+            }
+            return false;
         }
-        return (List) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public ArrayList<String> d() {
+    public static boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c.getTags();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (CheckIsQuestionThreadSwitch.getSwitchType() == 3) {
+                return true;
+            }
+            return false;
         }
-        return (ArrayList) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public void e() {
+    public static void c(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            GetSelectClassReqMessage getSelectClassReqMessage = new GetSelectClassReqMessage();
-            getSelectClassReqMessage.setTag(this.d);
-            MessageManager.getInstance().sendMessage(getSelectClassReqMessage);
+        if ((interceptable != null && interceptable.invokeL(65538, null, activity) != null) || activity == null) {
+            return;
         }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            GetSelectTagReqMessage getSelectTagReqMessage = new GetSelectTagReqMessage();
-            getSelectTagReqMessage.setTag(this.d);
-            getSelectTagReqMessage.setFirstClass(this.c.getFirstClass());
-            getSelectTagReqMessage.setSecondClass(this.c.getSecondClass());
-            MessageManager.getInstance().sendMessage(getSelectTagReqMessage);
+        if (activity instanceof BaseFragmentActivity) {
+            ((BaseFragmentActivity) activity).closeLoadingDialog();
+        } else if (activity instanceof BaseActivity) {
+            ((BaseActivity) activity).closeLoadingDialog();
         }
     }
 
-    public void g(List<String> list) {
+    public static void h(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
-            this.a.clear();
-            this.a.addAll(list);
+        if ((interceptable != null && interceptable.invokeL(65543, null, activity) != null) || activity == null) {
+            return;
         }
-    }
-
-    public void h(List<List<String>> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
-            this.b.clear();
-            this.b.addAll(list);
-        }
-    }
-
-    public void i(VideoCategoryClassData videoCategoryClassData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, videoCategoryClassData) == null) {
-            this.c = videoCategoryClassData;
+        String string = activity.getString(R.string.obfuscated_res_0x7f0f03dc);
+        if (activity instanceof BaseFragmentActivity) {
+            ((BaseFragmentActivity) activity).showLoadingDialog(string);
+        } else if (activity instanceof BaseActivity) {
+            ((BaseActivity) activity).showLoadingDialog(string);
         }
     }
 }

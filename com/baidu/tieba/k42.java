@@ -1,124 +1,151 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.graphics.Color;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.searchbox.download.center.clearcache.UserSettingForceListListener;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class k42 {
+public class k42 extends m42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public JSONObject j;
+    public int k;
+    public int l;
+    public int m;
+    public int n;
+    public JSONArray o;
+    public float p;
+    @Nullable
+    public JSONObject q;
+    public long r;
+    public String s;
 
-    /* loaded from: classes5.dex */
-    public static class a implements SwanAppNetworkUtils.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k42(String str, @NonNull String str2) {
+        super(str, str2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.k = 0;
+        this.m = 0;
+        this.p = -1.0f;
+        this.s = "";
+    }
 
-        public a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    @Override // com.baidu.tieba.m42, com.baidu.tieba.vy2
+    public void a(JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        super.a(jSONObject);
+        this.j = jSONObject.optJSONObject("style");
+        this.q = jSONObject.optJSONObject(AnimatedStateListDrawableCompat.ELEMENT_TRANSITION);
+        i();
+        h();
+    }
+
+    @Override // com.baidu.tieba.m42
+    public void g(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            super.g(jSONObject);
+            i();
+            h();
+        }
+    }
+
+    @Override // com.baidu.tieba.m42
+    public Object clone() throws CloneNotSupportedException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            k42 k42Var = (k42) super.clone();
+            if (this.j != null) {
+                try {
+                    k42Var.j = new JSONObject(this.j.toString());
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
-            this.a = str;
-        }
-
-        @Override // com.baidu.swan.apps.network.SwanAppNetworkUtils.b
-        public void onResult(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                k42.b(this.a, i);
-            }
-        }
-    }
-
-    public static void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-            SwanAppNetworkUtils.b(new a(str));
-        }
-    }
-
-    public static void b(String str, int i) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65537, null, str, i) == null) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        str2 = "unknown";
-                    } else {
-                        str2 = "offline";
-                    }
-                } else {
-                    str2 = "bad";
+            if (this.o != null) {
+                try {
+                    k42Var.o = new JSONArray(this.o.toString());
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
                 }
-            } else {
-                str2 = FrsActivityConfig.GOOD;
             }
-            c(str, str2);
+            if (this.q != null) {
+                try {
+                    k42Var.q = new JSONObject(this.q.toString());
+                } catch (JSONException e3) {
+                    e3.printStackTrace();
+                }
+            }
+            return k42Var;
+        }
+        return invokeV.objValue;
+    }
+
+    public final void h() {
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (jSONObject = this.q) != null) {
+            try {
+                this.r = Long.parseLong(jSONObject.optString("duration"));
+            } catch (Exception unused) {
+                w52.b("Component-Model-View", "duration occurs exception");
+                this.r = 0L;
+            }
+            this.s = this.q.optString("easing");
         }
     }
 
-    public static void c(String str, String str2) {
+    public final void i() {
+        JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-            d(str, str2, null);
-        }
-    }
-
-    public static void d(String str, String str2, @Nullable String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, str3) == null) {
-            e(str, str2, str3, 0, 0, 0, 0L);
-        }
-    }
-
-    public static void e(String str, String str2, @Nullable String str3, int i, int i2, int i3, long j) {
-        Object obj;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j)}) == null) {
-            lb3 lb3Var = new lb3();
-            lb3Var.a = "swan";
-            lb3Var.b = str;
-            lb3Var.a("appid", i43.K().getAppId());
-            lb3Var.a(DpStatConstants.KEY_NETWORK_STATUS, str2);
-            if (!TextUtils.isEmpty(str3)) {
-                lb3Var.a("request", str3);
-                lb3Var.a("request_total", String.valueOf(i));
-                lb3Var.a("request_fail", String.valueOf(i2));
-                lb3Var.a("request_slow", String.valueOf(i3));
-                lb3Var.a("error_duration", String.valueOf(j));
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (jSONObject = this.j) != null) {
+            try {
+                this.k = Color.parseColor(jSONObject.optString("bgColor"));
+            } catch (Exception unused) {
+                w52.b("Component-Model-View", "backgroundColor occurs exception");
+                this.k = 0;
             }
-            String str4 = "1";
-            if (o42.d().c()) {
-                obj = "1";
-            } else {
-                obj = "0";
+            this.l = this.j.optInt("borderWidth");
+            try {
+                this.m = Color.parseColor(this.j.optString("borderColor"));
+            } catch (Exception unused2) {
+                w52.b("Component-Model-View", "borderColor occurs exception");
+                this.m = 0;
             }
-            lb3Var.a("jserror", obj);
-            if (!j42.b()) {
-                str4 = "0";
-            }
-            lb3Var.a(UserSettingForceListListener.FORCE_LIST_ITEM_SHOW_KEY, str4);
-            cb3.x("1619", lb3Var);
+            this.n = nm3.g(this.j.optInt("borderRadius"));
+            this.p = wl3.b(this.j, NativeConstants.OPACITY, -1.0f);
+            this.o = this.j.optJSONArray(CriusAttrConstants.PADDING);
         }
     }
 }

@@ -18,9 +18,9 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ne7;
-import com.baidu.tieba.qe7;
+import com.baidu.tieba.bj7;
 import com.baidu.tieba.write.write.work.topic.adapter.VideoHotTopicSearchAdapter;
+import com.baidu.tieba.yi7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -63,10 +63,10 @@ public class VideoTopicListFragment extends BaseFragment {
         }
 
         @Override // com.baidu.tieba.write.write.work.topic.adapter.VideoHotTopicSearchAdapter.a
-        public void a(qe7 qe7Var) {
+        public void a(bj7 bj7Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, qe7Var) == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921633, qe7Var));
+            if (interceptable == null || interceptable.invokeL(1048576, this, bj7Var) == null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921633, bj7Var));
             }
         }
     }
@@ -129,11 +129,11 @@ public class VideoTopicListFragment extends BaseFragment {
         }
     }
 
-    public void F1(ne7 ne7Var) {
+    public void F1(yi7 yi7Var) {
         VideoHotTopicSearchAdapter videoHotTopicSearchAdapter;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ne7Var) == null) && (videoHotTopicSearchAdapter = this.d) != null && ne7Var != null) {
-            videoHotTopicSearchAdapter.d("", ne7Var.c());
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yi7Var) == null) && (videoHotTopicSearchAdapter = this.d) != null && yi7Var != null) {
+            videoHotTopicSearchAdapter.d("", yi7Var.c());
         }
     }
 

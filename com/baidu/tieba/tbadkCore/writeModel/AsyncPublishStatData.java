@@ -1,7 +1,6 @@
 package com.baidu.tieba.tbadkCore.writeModel;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -93,7 +92,7 @@ public class AsyncPublishStatData implements Serializable {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("id", this.id);
             jSONObject.put("parentId", this.parentId);
-            jSONObject.put(FetchLog.START_TIME, this.startTime);
+            jSONObject.put("startTime", this.startTime);
             jSONObject.put("isNewWritePage", this.isNewWritePage);
             return jSONObject;
         }
@@ -107,8 +106,8 @@ public class AsyncPublishStatData implements Serializable {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("id", this.id);
             jSONObject.put("parentId", this.parentId);
-            jSONObject.put(FetchLog.START_TIME, this.startTime);
-            jSONObject.put(FetchLog.END_TIME, this.endTime);
+            jSONObject.put("startTime", this.startTime);
+            jSONObject.put("endTime", this.endTime);
             jSONObject.put("errorCode", this.errorCode);
             jSONObject.put("errorMessage", this.errorMessage);
             jSONObject.put("bdNetType", TbadkCoreApplication.getInst().getBdNetType());

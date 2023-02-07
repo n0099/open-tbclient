@@ -1,69 +1,57 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
-import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.TextView;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.poly.widget.ChannelListView;
-import com.baidu.poly.widget.PopupWindow;
-import com.baidu.poly.widget.toast.ToastLoadingView;
-import com.baidu.tbadk.core.data.WorkPostNotifyFlutterData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.tieba.l51;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
 public class od1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile od1 e;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
-    public ToastLoadingView b;
-    public PopupWindow c;
-    public PopupWindow d;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948028301, "Lcom/baidu/tieba/od1;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948028301, "Lcom/baidu/tieba/od1;");
-        }
-    }
+    public long b;
+    public long c;
+    public long d;
+    public long e;
+    public Runnable f;
+    public final Handler g;
+    public final boolean h;
+    public final int i;
+    public boolean j;
+    public boolean k;
+    public l51.b l;
+    public boolean m;
+    public String n;
+    public String o;
 
     /* loaded from: classes5.dex */
-    public class a extends qb1<JSONObject> {
+    public class a implements l51.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ChannelListView a;
-        public final /* synthetic */ boolean b;
-        public final /* synthetic */ Context c;
-        public final /* synthetic */ Bundle d;
+        public int a;
+        public int b;
+        public final /* synthetic */ TelephonyManager c;
+        public final /* synthetic */ Context d;
         public final /* synthetic */ od1 e;
 
-        public a(od1 od1Var, ChannelListView channelListView, boolean z, Context context, Bundle bundle) {
+        public a(od1 od1Var, TelephonyManager telephonyManager, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {od1Var, channelListView, Boolean.valueOf(z), context, bundle};
+                Object[] objArr = {od1Var, telephonyManager, context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -74,94 +62,68 @@ public class od1 {
                 }
             }
             this.e = od1Var;
-            this.a = channelListView;
-            this.b = z;
-            this.c = context;
-            this.d = bundle;
+            this.c = telephonyManager;
+            this.d = context;
+            this.a = 0;
+            this.b = 0;
         }
 
-        @Override // com.baidu.tieba.qb1
-        public void b(Throwable th, String str) {
+        @Override // com.baidu.tieba.l51.a
+        public void a(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, th, str) == null) {
-                this.e.f("2", str);
-                this.a.S(this.c.getString(R.string.obfuscated_res_0x7f0f16b0), null);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qb1
-        /* renamed from: d */
-        public void c(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-                int optInt = jSONObject.optInt("payStatus", 3);
-                this.e.f("1", String.valueOf(optInt));
-                if (optInt == 2) {
-                    this.a.b0(0, fd1.a(0, jSONObject.optString("payOrderNo"), jSONObject.optString("msg")), "0");
-                } else if (!this.b) {
-                    this.e.k(this.c, this.a);
-                } else {
-                    this.e.j(this.c, this.d, this.a);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ChannelListView a;
-        public final /* synthetic */ od1 b;
-
-        public b(od1 od1Var, ChannelListView channelListView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {od1Var, channelListView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (i != 0) {
+                    if (i != 1) {
+                        if (i == 2) {
+                            nk0.a("NadPSLogger", "监听到通话状态：OFFHOOK");
+                            b(i);
+                            if (this.a == 0) {
+                                this.e.b = System.currentTimeMillis();
+                                return;
+                            }
+                            return;
+                        }
+                        return;
+                    }
+                    nk0.a("NadPSLogger", "监听到通话状态：RINGING");
+                    b(i);
+                    this.e.k = true;
                     return;
                 }
+                nk0.a("NadPSLogger", "监听到通话状态：IDLE");
+                b(i);
+                if (this.a == 2) {
+                    this.e.c = System.currentTimeMillis();
+                    od1 od1Var = this.e;
+                    od1Var.k(this.c, od1Var.l, this.d);
+                }
             }
-            this.b = od1Var;
-            this.a = channelListView;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        public final void b(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.b.c.n();
-                wc1 wc1Var = new wc1("103");
-                wc1Var.b("1");
-                zc1.e(wc1Var);
-                this.a.b0(3, "pay failed , click choose window", "0");
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                this.a = this.b;
+                this.b = i;
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class c implements View.OnClickListener {
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
-        public final /* synthetic */ Bundle b;
-        public final /* synthetic */ ChannelListView c;
+        public final /* synthetic */ TelephonyManager b;
+        public final /* synthetic */ l51.b c;
         public final /* synthetic */ od1 d;
 
-        public c(od1 od1Var, Context context, Bundle bundle, ChannelListView channelListView) {
+        public b(od1 od1Var, Context context, TelephonyManager telephonyManager, l51.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {od1Var, context, bundle, channelListView};
+                Object[] objArr = {od1Var, context, telephonyManager, bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -173,85 +135,23 @@ public class od1 {
             }
             this.d = od1Var;
             this.a = context;
-            this.b = bundle;
-            this.c = channelListView;
+            this.b = telephonyManager;
+            this.c = bVar;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.d.c.n();
-                wc1 wc1Var = new wc1("103");
-                wc1Var.b("2");
-                zc1.e(wc1Var);
-                this.d.i(this.a, this.b, this.c, false);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ od1 a;
-
-        public d(od1 od1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {od1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && l51.a(this.a)) {
+                if (this.b.getCallState() == 0) {
+                    if (this.d.m) {
+                        this.d.m = !l51.c(this.a, this.b, this.c);
+                    }
+                    this.d.e = System.currentTimeMillis();
+                    this.d.o();
                     return;
                 }
-            }
-            this.a = od1Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.d != null && this.a.d.r()) {
-                this.a.d.n();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class e implements PopupWindow.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ChannelListView a;
-
-        public e(od1 od1Var, ChannelListView channelListView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {od1Var, channelListView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = channelListView;
-        }
-
-        @Override // com.baidu.poly.widget.PopupWindow.b
-        public void onDismiss() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.b0(3, "pay failed , click error window", "0");
+                this.d.l(this.a, this.b, this.c);
             }
         }
     }
@@ -260,116 +160,171 @@ public class od1 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 0L;
+        this.b = 0L;
+        this.c = 0L;
+        this.d = 0L;
+        this.e = 0L;
+        this.g = new Handler(Looper.getMainLooper());
+        this.h = hn0.b().a().a("psl_switch", 1) == 1;
+        this.i = hn0.b().a().a("psl_time", 20);
+        this.j = false;
+        this.k = false;
+        this.m = false;
     }
 
-    public static od1 h() {
-        InterceptResult invokeV;
+    public final int m(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (e == null) {
-                synchronized (od1.class) {
-                    if (e == null) {
-                        e = new od1();
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+            if (j <= 0) {
+                return 0;
+            }
+            return (int) TimeUnit.MILLISECONDS.toSeconds(j);
+        }
+        return invokeJ.intValue;
+    }
+
+    public final void k(@NonNull TelephonyManager telephonyManager, @NonNull l51.b bVar, @NonNull Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, telephonyManager, bVar, context) == null) {
+            long j = this.b;
+            if (j != 0) {
+                long j2 = this.c;
+                if (j2 != 0 && j2 > j) {
+                    this.g.removeCallbacks(this.f);
+                    if (this.m) {
+                        this.m = !l51.c(context, telephonyManager, bVar);
                     }
-                }
-            }
-            return e;
-        }
-        return (od1) invokeV.objValue;
-    }
-
-    public final View g(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity)) == null) {
-            if (activity != null && activity.getWindow() != null) {
-                return activity.getWindow().getDecorView().findViewById(16908290);
-            }
-            return null;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    public final void f(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            fe1.b(this.b);
-            try {
-                if (this.a == 0) {
+                    this.e = System.currentTimeMillis();
+                    o();
                     return;
                 }
-                JSONObject jSONObject = new JSONObject();
-                if (!TextUtils.isEmpty(str)) {
-                    jSONObject.put("rt", str);
-                }
-                if (!TextUtils.isEmpty(str2)) {
-                    jSONObject.put("msg", str2);
-                }
-                Long valueOf = Long.valueOf(System.currentTimeMillis() - this.a);
-                if (valueOf.longValue() >= 0) {
-                    jSONObject.put("du", String.valueOf(valueOf));
-                }
-                wc1 wc1Var = new wc1("105");
-                wc1Var.c(jSONObject);
-                zc1.e(wc1Var);
-            } catch (JSONException e2) {
-                if (id1.d) {
-                    e2.printStackTrace();
-                }
-            } finally {
-                this.a = 0L;
             }
+            l(context, telephonyManager, bVar);
         }
     }
 
-    public final void k(Context context, ChannelListView channelListView) {
+    public final void l(@NonNull Context context, @NonNull TelephonyManager telephonyManager, @NonNull l51.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, context, channelListView) == null) {
-            View inflate = View.inflate(channelListView.getContext(), R.layout.obfuscated_res_0x7f0d0211, null);
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091af4)).setText(R.string.obfuscated_res_0x7f0f0e03);
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091af3)).setText(R.string.obfuscated_res_0x7f0f0e04);
-            PopupWindow popupWindow = new PopupWindow(inflate, -1, -1, true);
-            this.d = popupWindow;
-            popupWindow.w(false);
-            this.d.B(false);
-            this.d.v(new ColorDrawable(0));
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091aee)).setOnClickListener(new d(this));
-            this.d.A(new e(this, channelListView));
-            this.d.D(((Activity) context).getWindow().getDecorView(), 0, 0, 0);
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, telephonyManager, bVar) == null) {
+            Runnable runnable = this.f;
+            if (runnable != null) {
+                this.g.removeCallbacks(runnable);
+            } else {
+                this.f = new b(this, context, telephonyManager, bVar);
+            }
+            if (!this.m) {
+                this.m = l51.b(context, telephonyManager, bVar);
+            }
+            this.g.postDelayed(this.f, TimeUnit.SECONDS.toMillis(this.i));
         }
     }
 
-    public void i(Context context, Bundle bundle, ChannelListView channelListView, boolean z) {
+    public final boolean n() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, bundle, channelListView, Boolean.valueOf(z)}) == null) && context != null && bundle != null && channelListView != null) {
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-            layoutParams.gravity = 17;
-            this.b = fe1.c((ViewGroup) g((Activity) context), layoutParams, null, -1L);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            long j = this.c;
+            if (j != 0) {
+                long j2 = this.b;
+                if (j2 != 0 && j > j2) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void o() {
+        String str;
+        String str2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.j) {
+            return;
+        }
+        this.j = true;
+        if (TextUtils.isEmpty(this.n)) {
+            return;
+        }
+        String str3 = "1";
+        if (n()) {
+            str = "1";
+        } else {
+            str = "0";
+        }
+        String str4 = "-1";
+        if (!n()) {
+            str2 = "-1";
+        } else {
+            str2 = "" + m(this.c - this.b);
+        }
+        StringBuilder sb = new StringBuilder();
+        sb.append(PreferencesUtil.LEFT_MOUNT);
+        sb.append(this.i);
+        sb.append(",");
+        sb.append(m(this.e - this.d));
+        sb.append(",");
+        if (n()) {
+            str4 = "" + m(this.b - this.a);
+        }
+        sb.append(str4);
+        sb.append(",");
+        if (!this.k) {
+            str3 = "0";
+        }
+        sb.append(str3);
+        sb.append(PreferencesUtil.RIGHT_MOUNT);
+        String sb2 = sb.toString();
+        ClogBuilder m = new ClogBuilder().y(ClogBuilder.LogType.PHONE_STATE_LISTEN).p(this.n).k(str).l(str2).m(sb2);
+        if (!TextUtils.isEmpty(this.o)) {
+            m.n(this.o);
+        } else {
+            m.n("");
+        }
+        n21.b(m);
+        nk0.a("NadPSLogger", "==========结束监听并打点==========");
+        nk0.a("NadPSLogger", "log_type：" + ClogBuilder.LogType.PHONE_STATE_LISTEN.type);
+        nk0.a("NadPSLogger", "da_ext1 是否监听到主动呼出：" + str);
+        nk0.a("NadPSLogger", "da_ext2 主动呼出时长：" + str2);
+        nk0.a("NadPSLogger", "da_ext3 云控监听时长，实际监听时长，拨号前停留时长，期间有无呼入：" + sb2);
+    }
+
+    @Deprecated
+    public void p(@NonNull Context context, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, context, str, str2) == null) {
+            Context applicationContext = context.getApplicationContext();
+            if (!this.h || !l51.a(applicationContext)) {
+                return;
+            }
+            this.b = 0L;
+            this.c = 0L;
+            this.d = 0L;
+            this.e = 0L;
+            this.a = 0L;
             this.a = System.currentTimeMillis();
-            yb1.j().m(bundle, new a(this, channelListView, z, context, bundle));
-        }
-    }
-
-    public final void j(Context context, Bundle bundle, ChannelListView channelListView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, context, bundle, channelListView) == null) {
-            View inflate = View.inflate(channelListView.getContext(), R.layout.obfuscated_res_0x7f0d06c2, null);
-            PopupWindow popupWindow = new PopupWindow(inflate, -1, -1, true);
-            this.c = popupWindow;
-            popupWindow.w(false);
-            this.c.B(false);
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090427)).setOnClickListener(new b(this, channelListView));
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090426)).setOnClickListener(new c(this, context, bundle, channelListView));
-            this.c.D(((Activity) context).getWindow().getDecorView(), 0, 0, 0);
-            zc1.e(new wc1(WorkPostNotifyFlutterData.FAIL_POST));
+            this.j = false;
+            this.k = false;
+            this.n = str;
+            this.o = str2;
+            TelephonyManager telephonyManager = (TelephonyManager) applicationContext.getSystemService("phone");
+            l51.b bVar = new l51.b();
+            this.l = bVar;
+            bVar.b(new a(this, telephonyManager, applicationContext));
+            l(applicationContext, telephonyManager, this.l);
+            this.d = System.currentTimeMillis();
+            nk0.a("NadPSLogger", "==========开始监听==========");
         }
     }
 }

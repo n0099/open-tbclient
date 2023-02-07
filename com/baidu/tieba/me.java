@@ -1,27 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
+import java.io.IOException;
 /* loaded from: classes5.dex */
-public class me {
+public class me implements be {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Type[] a;
-    public Type b;
-    public Class<?> c;
+    public Short a;
 
-    public me(Type type) {
+    public me(short s) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {type};
+            Object[] objArr = {Short.valueOf(s)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,48 +27,59 @@ public class me {
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        if (type instanceof ParameterizedType) {
-            ParameterizedType parameterizedType = (ParameterizedType) type;
-            this.a = parameterizedType.getActualTypeArguments();
-            Type rawType = parameterizedType.getRawType();
-            this.b = rawType;
-            Type[] typeArr = this.a;
-            if (typeArr != null && typeArr.length > 0) {
-                try {
-                    this.c = (Class) rawType;
-                    return;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return;
+        this.a = Short.valueOf(s);
+    }
+
+    @Override // com.baidu.tieba.be
+    public Object a(re reVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, reVar)) == null) {
+            Class<?> a = reVar.a();
+            if (a != Byte.class && a != Byte.TYPE) {
+                if (a != Short.class && a != Short.TYPE) {
+                    if (a != Integer.class && a != Integer.TYPE) {
+                        if (a != Long.class && a != Long.TYPE) {
+                            if (a != Float.class && a != Float.TYPE) {
+                                if (a != Double.class && a != Double.TYPE) {
+                                    if (a != Character.class && a != Character.TYPE) {
+                                        boolean z = false;
+                                        if (a != Boolean.class && a != Boolean.TYPE) {
+                                            if (a == String.class) {
+                                                return String.valueOf(this.a);
+                                            }
+                                            if (a == char[].class) {
+                                                return String.valueOf(this.a).toCharArray();
+                                            }
+                                            if (a == byte[].class) {
+                                                try {
+                                                    return wi.e(String.valueOf(this.a), 0);
+                                                } catch (IOException e) {
+                                                    e.printStackTrace();
+                                                    return null;
+                                                }
+                                            }
+                                            return null;
+                                        }
+                                        if (this.a.byteValue() == 0) {
+                                            z = true;
+                                        }
+                                        return Boolean.valueOf(z);
+                                    }
+                                    return Character.valueOf((char) this.a.intValue());
+                                }
+                                return Double.valueOf(this.a.doubleValue());
+                            }
+                            return Float.valueOf(this.a.floatValue());
+                        }
+                        return Long.valueOf(this.a.longValue());
+                    }
+                    return Integer.valueOf(this.a.intValue());
                 }
+                return Short.valueOf(this.a.shortValue());
             }
-            return;
+            return Byte.valueOf(this.a.byteValue());
         }
-        try {
-            this.c = (Class) type;
-        } catch (Exception e2) {
-            e2.printStackTrace();
-        }
-    }
-
-    public Class<?> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (Class) invokeV.objValue;
-    }
-
-    public Type[] b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (Type[]) invokeV.objValue;
+        return invokeL.objValue;
     }
 }

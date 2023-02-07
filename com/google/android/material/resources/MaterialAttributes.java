@@ -122,7 +122,7 @@ public class MaterialAttributes {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            return resolveDimension(context, R.attr.obfuscated_res_0x7f0404d2, R.dimen.obfuscated_res_0x7f0704b9);
+            return resolveDimension(context, R.attr.obfuscated_res_0x7f0404d3, R.dimen.obfuscated_res_0x7f0704be);
         }
         return invokeL.intValue;
     }

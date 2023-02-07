@@ -41,7 +41,7 @@ public class AppCompatRatingBar extends RatingBar {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AppCompatRatingBar(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f0405a7);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0405aa);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

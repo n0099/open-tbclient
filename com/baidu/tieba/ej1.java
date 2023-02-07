@@ -1,137 +1,42 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Base64;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class ej1 {
-    public static /* synthetic */ Interceptable $ic;
-    public static String b;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "";
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
-    public ej1(Context context) {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947736157, "Lcom/baidu/tieba/ej1;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.a = ii1.a;
-    }
-
-    public static synchronized ej1 a(Context context) {
-        InterceptResult invokeL;
-        ej1 ej1Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            synchronized (ej1.class) {
-                ej1Var = new ej1(context);
-            }
-            return ej1Var;
-        }
-        return (ej1) invokeL.objValue;
-    }
-
-    public String b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            String str3 = gi1.b;
-            String str4 = gi1.c;
-            String str5 = "";
-            if (TextUtils.isEmpty(str3) || TextUtils.isEmpty(str4)) {
-                return "";
-            }
-            long currentTimeMillis = System.currentTimeMillis() / 1000;
-            StringBuilder sb = new StringBuilder();
-            try {
-                str5 = c(str3, str4, currentTimeMillis);
-            } catch (Throwable th) {
-                tj1.d(th);
-            }
-            sb.append(f());
-            sb.append(str);
-            sb.append("/");
-            sb.append("100");
-            sb.append("/");
-            sb.append(str3);
-            sb.append("/");
-            sb.append(currentTimeMillis);
-            sb.append("/");
-            sb.append(str5);
-            sb.append("?skey=");
-            sb.append(str2);
-            return sb.toString();
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public String c(String str, String str2, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Long.valueOf(j)})) == null) {
-            try {
-                return xj1.b(str + j + str2);
-            } catch (Throwable th) {
-                tj1.d(th);
-                return "";
-            }
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            try {
-                b = new String(vj1.e(Base64.decode(this.a, 0), "30212102dicudiab".getBytes(IMAudioTransRequest.CHARSET)));
-            } catch (Throwable th) {
-                tj1.d(th);
-            }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947736157, "Lcom/baidu/tieba/ej1;");
         }
     }
 
-    public final String f() {
-        InterceptResult invokeV;
+    public static void a(@NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (TextUtils.isEmpty(b)) {
-                d();
-            }
-            return b;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
         }
-        return (String) invokeV.objValue;
     }
 
-    public byte[] e(byte[] bArr, String str) {
-        InterceptResult invokeLL;
-        byte[] bArr2;
+    public static void b(@NonNull kj1 kj1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, bArr, str)) == null) {
-            try {
-                bArr2 = wj1.b(str.getBytes(IMAudioTransRequest.CHARSET));
-            } catch (Throwable th) {
-                tj1.d(th);
-                bArr2 = null;
-            }
-            return vj1.f(bArr2, bArr);
+        if (interceptable == null || interceptable.invokeL(65538, null, kj1Var) == null) {
+            a = kj1Var.d;
         }
-        return (byte[]) invokeLL.objValue;
     }
 }

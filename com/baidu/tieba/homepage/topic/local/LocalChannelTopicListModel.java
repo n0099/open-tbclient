@@ -6,9 +6,9 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.hg7;
 import com.baidu.tieba.homepage.topic.local.message.LocalChannelTopicListResponseMessage;
-import com.baidu.tieba.s9;
-import com.baidu.tieba.wb7;
+import com.baidu.tieba.x9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ public class LocalChannelTopicListModel extends BdBaseModel<LocalChannelTopicLis
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(wb7 wb7Var);
+        void a(hg7 hg7Var);
 
         void onFail(String str);
     }
@@ -79,26 +79,26 @@ public class LocalChannelTopicListModel extends BdBaseModel<LocalChannelTopicLis
                 }
                 return;
             }
-            wb7 wb7Var = ((LocalChannelTopicListResponseMessage) httpResponsedMessage).data;
+            hg7 hg7Var = ((LocalChannelTopicListResponseMessage) httpResponsedMessage).data;
             if (this.a.a != null) {
-                this.a.a.a(wb7Var);
+                this.a.a.a(hg7Var);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LocalChannelTopicListModel(s9 s9Var) {
-        super(s9Var);
+    public LocalChannelTopicListModel(x9 x9Var) {
+        super(x9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {s9Var};
+            Object[] objArr = {x9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((s9) newInitContext.callArgs[0]);
+                super((x9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

@@ -1,109 +1,257 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import androidx.annotation.NonNull;
+import android.annotation.SuppressLint;
+import android.app.Dialog;
+import android.content.Context;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.db.PackageTable;
-import com.baidu.swan.pms.utils.AbiType;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes5.dex */
-public class qc4 extends jc4<ld4> implements Object {
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes6.dex */
+public final class qc4 extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
 
-    public qc4() {
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a();
+
+        void b();
+
+        void c();
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class b implements View.OnTouchListener {
+        public static /* synthetic */ Interceptable $ic;
+        public static final b a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-494138647, "Lcom/baidu/tieba/qc4$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-494138647, "Lcom/baidu/tieba/qc4$b;");
+                    return;
+                }
+            }
+            a = new b();
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.view.View.OnTouchListener
+        public final boolean onTouch(View v, MotionEvent event) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, v, event)) == null) {
+                Intrinsics.checkNotNullExpressionValue(event, "event");
+                int action = event.getAction();
+                if (action != 0) {
+                    if (action == 1 || action == 3) {
+                        Intrinsics.checkNotNullExpressionValue(v, "v");
+                        v.setAlpha(1.0f);
+                        return false;
+                    }
+                    return false;
+                }
+                Intrinsics.checkNotNullExpressionValue(v, "v");
+                v.setAlpha(0.2f);
+                return false;
+            }
+            return invokeLL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qc4 a;
+
+        public c(qc4 qc4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qc4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qc4Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public final void onClick(View view2) {
+            a aVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (aVar = this.a.a) != null) {
+                aVar.c();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class d implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qc4 a;
+
+        public d(qc4 qc4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qc4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qc4Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public final void onClick(View view2) {
+            a aVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (aVar = this.a.a) != null) {
+                aVar.b();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class e implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qc4 a;
+
+        public e(qc4 qc4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qc4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qc4Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public final void onClick(View view2) {
+            a aVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (aVar = this.a.a) != null) {
+                aVar.a();
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qc4(Context context) {
+        super(context, R.style.obfuscated_res_0x7f1001af);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(context, "context");
+        c();
     }
 
-    public static int f(@NonNull Cursor cursor, @NonNull String str) {
-        InterceptResult invokeLL;
+    public final void e(a onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cursor, str)) == null) {
-            return cursor.getColumnIndex(str);
+        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
+            Intrinsics.checkNotNullParameter(onClickListener, "onClickListener");
+            this.a = onClickListener;
         }
-        return invokeLL.intValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jc4
-    /* renamed from: h */
-    public ld4 d(Cursor cursor) {
-        InterceptResult invokeL;
+    @SuppressLint({"ClickableViewAccessibility"})
+    public final View.OnTouchListener b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
-            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
-                return i(cursor);
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b.a;
         }
-        return (ld4) invokeL.objValue;
+        return (View.OnTouchListener) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.jc4
-    public List<ld4> e(Cursor cursor) {
-        InterceptResult invokeL;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
-                do {
-                    arrayList.add(i(cursor));
-                } while (cursor.moveToNext());
-                return arrayList;
-            }
-            return arrayList;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            setContentView(R.layout.obfuscated_res_0x7f0d00c0);
+            setCanceledOnTouchOutside(false);
+            d();
         }
-        return (List) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jc4
-    /* renamed from: g */
-    public ContentValues c(ld4 ld4Var) {
-        InterceptResult invokeL;
+    @SuppressLint({"ClickableViewAccessibility"})
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, ld4Var)) == null) {
-            ContentValues a = super.a(ld4Var);
-            a.put("max_age", Long.valueOf(ld4Var.o));
-            a.put(PackageTable.ABI, ld4Var.q.id);
-            a.put("lib_name", ld4Var.p);
-            return a;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ((Button) findViewById(R.id.obfuscated_res_0x7f0909bb)).setOnTouchListener(b());
+            ((Button) findViewById(R.id.obfuscated_res_0x7f0909bb)).setOnClickListener(new c(this));
+            ((ImageView) findViewById(R.id.obfuscated_res_0x7f090f6a)).setOnTouchListener(b());
+            ((ImageView) findViewById(R.id.obfuscated_res_0x7f090f6a)).setOnClickListener(new d(this));
+            ((Button) findViewById(R.id.obfuscated_res_0x7f09073a)).setOnTouchListener(b());
+            ((Button) findViewById(R.id.obfuscated_res_0x7f09073a)).setOnClickListener(new e(this));
         }
-        return (ContentValues) invokeL.objValue;
-    }
-
-    public final ld4 i(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cursor)) == null) {
-            if (cursor != null) {
-                ld4 ld4Var = new ld4();
-                if (b(cursor, ld4Var)) {
-                    ld4Var.o = cursor.getLong(f(cursor, "max_age"));
-                    ld4Var.q = AbiType.findById(cursor.getString(f(cursor, PackageTable.ABI)), null);
-                    ld4Var.p = cursor.getString(f(cursor, "lib_name"));
-                    return ld4Var;
-                }
-            }
-            return null;
-        }
-        return (ld4) invokeL.objValue;
     }
 }

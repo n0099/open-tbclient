@@ -10,14 +10,14 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.bh;
-import com.baidu.tieba.c18;
-import com.baidu.tieba.f18;
+import com.baidu.tieba.c68;
 import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.faceshop.MyEmotionGroupData;
+import com.baidu.tieba.gh;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.model.data.NativeManageEmotionModel;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.model.data.SingleThreadEmotionResponseMessage;
-import com.baidu.tieba.z18;
+import com.baidu.tieba.w68;
+import com.baidu.tieba.z58;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +31,7 @@ import org.json.JSONArray;
 public class SingleThreadEmotionModel extends NativeManageEmotionModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public z18 a;
+    public w68 a;
     public List<String> b;
     public final HttpMessageListener c;
 
@@ -118,7 +118,7 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.a.N();
-                List<MyEmotionGroupData> f = f18.i().f();
+                List<MyEmotionGroupData> f = c68.i().f();
                 JSONArray jSONArray = new JSONArray();
                 if (f != null && !f.isEmpty()) {
                     for (MyEmotionGroupData myEmotionGroupData : f) {
@@ -129,7 +129,7 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
                     }
                 }
                 SingleThreadEmotionModel singleThreadEmotionModel = this.a;
-                bh.a().post(new c(singleThreadEmotionModel, singleThreadEmotionModel));
+                gh.a().post(new c(singleThreadEmotionModel, singleThreadEmotionModel));
             }
         }
     }
@@ -189,10 +189,10 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
         registerListener(this.c);
     }
 
-    public void O(z18 z18Var) {
+    public void O(w68 w68Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, z18Var) == null) {
-            this.a = z18Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, w68Var) == null) {
+            this.a = w68Var;
         }
     }
 
@@ -261,7 +261,7 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            c18.b().a(new b(this));
+            z58.b().a(new b(this));
             return false;
         }
         return invokeV.booleanValue;

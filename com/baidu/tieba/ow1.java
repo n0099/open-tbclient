@@ -2,7 +2,6 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
@@ -13,67 +12,50 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ow1 extends g63 {
+public class ow1 extends ta3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public class a implements cj3<Map<String, j93>> {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ ow1 c;
 
-        public a(ow1 ow1Var, CallbackHandler callbackHandler, String str) {
+        public a(ow1 ow1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ow1Var, callbackHandler, str};
+                Object[] objArr = {ow1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.c = ow1Var;
-            this.a = callbackHandler;
-            this.b = str;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cj3
-        /* renamed from: b */
-        public void a(Map<String, j93> map) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map) == null) {
-                if (map != null) {
-                    this.c.l(this.b, this.a, map);
-                } else {
-                    this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
-                }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                k82.Y2();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ow1(g53 g53Var) {
-        super(g53Var, "/swanAPI/getLaunchAppInfo");
+    public ow1(t93 t93Var) {
+        super(t93Var, "/swanAPI/setSelectedAddressSync");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {g53Var};
+            Object[] objArr = {t93Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -87,66 +69,46 @@ public class ow1 extends g63 {
         }
     }
 
-    @Override // com.baidu.tieba.g63
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j43 j43Var) {
+    @Override // com.baidu.tieba.ta3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, w83 w83Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j43Var)) == null) {
-            if (j43Var == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, w83Var)) == null) {
+            if (w83Var == null) {
+                w52.i("SetSelectedAddressSync", "framework error");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
                 return false;
             }
-            String optString = jh3.d(unitedSchemeEntity.getParam("params")).optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo != null && optParamsAsJo.length() > 0) {
+                String optString = optParamsAsJo.optString("errno");
+                if (!TextUtils.equals(optString, "0")) {
+                    w52.i("SetSelectedAddressSync", "error no" + optString);
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "error no" + optString);
+                    return false;
+                }
+                JSONObject optJSONObject = optParamsAsJo.optJSONObject("data");
+                if (optJSONObject != null && optJSONObject.length() > 0) {
+                    j(optJSONObject);
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                    return true;
+                }
+                w52.i("SetSelectedAddressSync", "address data is empty");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "data is empty");
                 return false;
             }
-            k(optString, callbackHandler);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            return true;
+            w52.i("SetSelectedAddressSync", "empty params");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
+            return false;
         }
         return invokeLLLL.booleanValue;
     }
 
-    public final void k(String str, CallbackHandler callbackHandler) {
+    public final void j(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, callbackHandler) == null) {
-            hw2.h(new a(this, callbackHandler, str));
-        }
-    }
-
-    public final void l(String str, CallbackHandler callbackHandler, Map<String, j93> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, callbackHandler, map) == null) {
-            j93 j93Var = map.get("scope_open_app");
-            if (j93Var == null) {
-                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
-                return;
-            }
-            boolean z = j93Var.d;
-            int c = ci3.c();
-            long e = ci3.e();
-            List<String> list = j93Var.i;
-            JSONArray jSONArray = new JSONArray();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                for (String str2 : list) {
-                    jSONArray.put(str2);
-                }
-                jSONObject.put("launchCount", c);
-                jSONObject.put("visitDuration", e);
-                jSONObject.put("forbidden", z);
-                jSONObject.put("ext", jSONArray);
-                if (g63.b) {
-                    Log.i("GetBehaviorInfoAction", "launchCount:" + c + " visitDuration:" + e + " forbidden:" + z + " ext:" + jSONArray.toString());
-                }
-                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
-            } catch (JSONException e2) {
-                if (g63.b) {
-                    e2.printStackTrace();
-                }
-                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+            rw1.a().c(jSONObject);
+            qm3.a0(new a(this));
         }
     }
 }

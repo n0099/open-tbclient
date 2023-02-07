@@ -1,219 +1,127 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.content.Context;
-import android.os.IBinder;
-import android.view.View;
-import android.widget.PopupWindow;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public class dh {
+public abstract class dh {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final boolean a(Dialog dialog, Activity activity) {
-        InterceptResult invokeLL;
+    public static boolean a(@Nullable Object obj, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, dialog, activity)) == null) {
-            if (dialog == null || activity == null || activity.isFinishing() || activity.getWindow() == null || !h(activity.getWindow().getDecorView())) {
-                return false;
-            }
-            dialog.dismiss();
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static final boolean d(PopupWindow popupWindow, Activity activity) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, popupWindow, activity)) == null) {
-            if (popupWindow != null && activity != null) {
-                if (g(activity) || !h(activity.getWindow().getDecorView())) {
-                    return false;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65536, null, obj, z)) == null) {
+            try {
+                if (obj instanceof Boolean) {
+                    return ((Boolean) obj).booleanValue();
                 }
-                popupWindow.dismiss();
-                return true;
-            }
-            return c(popupWindow);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static final boolean b(Dialog dialog, s9<?> s9Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, dialog, s9Var)) == null) {
-            if (s9Var != null && s9Var.getPageActivity() != null) {
-                return a(dialog, s9Var.getPageActivity());
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static final boolean j(Dialog dialog, s9<?> s9Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, dialog, s9Var)) == null) {
-            if (s9Var != null && s9Var.getPageActivity() != null) {
-                return i(dialog, s9Var.getPageActivity());
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static final boolean k(PopupWindow popupWindow, View view2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, popupWindow, view2)) == null) {
-            if (popupWindow != null && view2 != null && !g(view2.getContext()) && h(view2)) {
-                try {
-                    popupWindow.showAsDropDown(view2);
-                    return true;
-                } catch (Exception unused) {
+                if (obj instanceof String) {
+                    return Boolean.parseBoolean((String) obj);
                 }
+                return z;
+            } catch (Exception unused) {
+                return z;
             }
-            return false;
         }
-        return invokeLL.booleanValue;
+        return invokeLZ.booleanValue;
     }
 
-    public static final boolean c(PopupWindow popupWindow) {
-        InterceptResult invokeL;
+    public static boolean b(String str, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, popupWindow)) == null) {
-            if (popupWindow == null || g(popupWindow.getContentView().getContext()) || !h(popupWindow.getContentView())) {
-                return false;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, str, z)) == null) {
+            if (str == null) {
+                return z;
             }
-            popupWindow.dismiss();
-            return true;
+            try {
+                return Boolean.parseBoolean(str);
+            } catch (Exception unused) {
+                return z;
+            }
         }
-        return invokeL.booleanValue;
+        return invokeLZ.booleanValue;
     }
 
-    public static final boolean e(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity)) == null) {
-            if (activity == null || g(activity)) {
-                return false;
-            }
-            if (!h(activity.getWindow().getDecorView()) && activity.getWindow().isActive()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static final boolean f(s9<?> s9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, s9Var)) == null) {
-            if (s9Var == null) {
-                return false;
-            }
-            return e(s9Var.getPageActivity());
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static final boolean g(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            if (context instanceof Activity) {
-                return ((Activity) context).isFinishing();
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static final boolean h(View view2) {
-        InterceptResult invokeL;
-        IBinder windowToken;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, view2)) == null) {
-            if (view2 != null && (windowToken = view2.getWindowToken()) != null) {
-                try {
-                    if (windowToken.isBinderAlive()) {
-                        if (windowToken.pingBinder()) {
-                            return true;
-                        }
-                        return false;
-                    }
-                    return false;
-                } catch (Exception unused) {
-                    return false;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static final boolean i(Dialog dialog, Activity activity) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, dialog, activity)) == null) {
-            if (dialog == null || activity == null || activity.isFinishing()) {
-                return false;
-            }
-            if (activity.getWindow() != null && !activity.getWindow().isActive()) {
-                try {
-                    dialog.show();
-                    return true;
-                } catch (Exception unused) {
-                }
-            }
-            if (activity.getWindow() != null && h(activity.getWindow().getDecorView())) {
-                try {
-                    dialog.show();
-                    return true;
-                } catch (Exception unused2) {
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static final boolean l(PopupWindow popupWindow, View view2, int i, int i2) {
-        InterceptResult invokeLLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65547, null, popupWindow, view2, i, i2)) == null) {
-            if (popupWindow != null && view2 != null && !g(view2.getContext()) && h(view2)) {
-                try {
-                    popupWindow.showAsDropDown(view2, i, i2);
-                    return true;
-                } catch (Exception unused) {
-                }
-            }
-            return false;
-        }
-        return invokeLLII.booleanValue;
-    }
-
-    public static final boolean m(PopupWindow popupWindow, View view2, int i, int i2, int i3) {
+    public static double c(String str, double d) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{popupWindow, view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            if (popupWindow != null && view2 != null && !g(view2.getContext()) && h(view2)) {
-                try {
-                    popupWindow.showAtLocation(view2, i, i2, i3);
-                    return true;
-                } catch (Exception unused) {
-                }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Double.valueOf(d)})) == null) {
+            if (str == null) {
+                return d;
             }
-            return false;
+            try {
+                return Double.parseDouble(str);
+            } catch (Exception unused) {
+                return d;
+            }
         }
-        return invokeCommon.booleanValue;
+        return invokeCommon.doubleValue;
+    }
+
+    public static float d(String str, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65539, null, str, f)) == null) {
+            if (str == null) {
+                return f;
+            }
+            try {
+                return Float.parseFloat(str);
+            } catch (Exception unused) {
+                return f;
+            }
+        }
+        return invokeLF.floatValue;
+    }
+
+    public static int e(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i)) == null) {
+            if (str == null) {
+                return i;
+            }
+            try {
+                return Integer.parseInt(str);
+            } catch (Exception unused) {
+                return i;
+            }
+        }
+        return invokeLI.intValue;
+    }
+
+    public static long g(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, str, j)) == null) {
+            if (str == null) {
+                return j;
+            }
+            try {
+                return Long.parseLong(str);
+            } catch (Exception unused) {
+                return j;
+            }
+        }
+        return invokeLJ.longValue;
+    }
+
+    public static int f(String str, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65541, null, str, i, i2)) == null) {
+            if (str == null) {
+                return i;
+            }
+            try {
+                return Integer.parseInt(str, i2);
+            } catch (Exception unused) {
+                return i;
+            }
+        }
+        return invokeLII.intValue;
     }
 }

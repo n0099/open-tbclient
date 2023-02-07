@@ -8,30 +8,30 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.ze7;
+import com.baidu.tieba.kj7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class MsgIceBreakItemAdapter extends MsgCommonItemAdapter<ze7> {
+public class MsgIceBreakItemAdapter extends MsgCommonItemAdapter<kj7> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public static class MsgIceBreakViewHolder extends MsgCommonItemAdapter.MsgViewHolder<ze7> {
+    public static class MsgIceBreakViewHolder extends MsgCommonItemAdapter.MsgViewHolder<kj7> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public MsgIceBreakViewHolder(View view2, ze7 ze7Var) {
-            super(view2, ze7Var);
+        public MsgIceBreakViewHolder(View view2, kj7 kj7Var) {
+            super(view2, kj7Var);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view2, ze7Var};
+                Object[] objArr = {view2, kj7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -68,35 +68,35 @@ public class MsgIceBreakItemAdapter extends MsgCommonItemAdapter<ze7> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
+    @Override // com.baidu.tieba.qn
     /* renamed from: E */
-    public MsgCommonItemAdapter.MsgViewHolder<ze7> onCreateViewHolder(ViewGroup viewGroup) {
+    public MsgCommonItemAdapter.MsgViewHolder<kj7> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            ze7 ze7Var = new ze7(this.a);
-            return new MsgIceBreakViewHolder(ze7Var.k(), ze7Var);
+            kj7 kj7Var = new kj7(this.a);
+            return new MsgIceBreakViewHolder(kj7Var.l(), kj7Var);
         }
         return (MsgCommonItemAdapter.MsgViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.tieba.ln
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.tieba.qn
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
         v(i, view2, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view2;
     }
 
     @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter
-    public View v(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<ze7> msgViewHolder) {
+    public View v(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<kj7> msgViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
             super.onFillViewHolder(i, view2, viewGroup, chatMessage, msgViewHolder);
-            ze7 a = msgViewHolder.a();
-            a.p(this.b);
-            a.q(chatMessage);
-            a.o(TbadkCoreApplication.getInst().getSkinType());
+            kj7 a = msgViewHolder.a();
+            a.q(this.b);
+            a.r(chatMessage);
+            a.p(TbadkCoreApplication.getInst().getSkinType());
             return view2;
         }
         return (View) invokeCommon.objValue;

@@ -1,40 +1,106 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import okhttp3.Interceptor;
-import okhttp3.Response;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class cw2 implements Interceptor {
+public class cw2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public CallbackHandler a;
+    public JSONObject b;
 
-    public cw2() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947689099, "Lcom/baidu/tieba/cw2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947689099, "Lcom/baidu/tieba/cw2;");
+                return;
+            }
+        }
+        c = gp1.a;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return UnitedSchemeUtility.isInvokedFromSwanGame(this.a);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public cw2(CallbackHandler callbackHandler, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {callbackHandler, jSONObject};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        this.a = callbackHandler;
+        this.b = jSONObject;
+    }
+
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            b(str, null);
         }
     }
 
-    @Override // okhttp3.Interceptor
-    public Response intercept(Interceptor.Chain chain) throws IOException {
-        InterceptResult invokeL;
+    public void b(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chain)) == null) {
-            return chain.proceed(chain.request().newBuilder().header("User-Agent", SwanAppNetworkUtils.g()).build());
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) != null) || this.b == null) {
+            return;
         }
-        return (Response) invokeL.objValue;
+        JSONObject wrapCallbackParamsWithEncode = UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0);
+        this.a.handleSchemeDispatchCallback(this.b.optString(str), wrapCallbackParamsWithEncode.toString());
+        if (c) {
+            Log.d("AudioStatusCallback", "Audio callback type is : " + str + " , data is : " + wrapCallbackParamsWithEncode.toString());
+        }
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            if (TextUtils.isEmpty(str)) {
+                if (c) {
+                    Log.d("AudioStatusCallback", "Audio Callback is Null");
+                    return;
+                }
+                return;
+            }
+            try {
+                this.b = new JSONObject(str);
+            } catch (JSONException e) {
+                cg3.b("audio", 2009, "update json exception", -1, "");
+                zv2.c("AudioStatusCallback", "#setCallbacks error", e);
+            }
+        }
     }
 }

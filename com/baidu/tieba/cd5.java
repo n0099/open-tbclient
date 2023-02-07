@@ -1,92 +1,54 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import com.baidu.tbadk.mutiprocess.DataType;
-import com.baidu.tbadk.mutiprocess.ParcelableEvent;
-import com.baidu.tbadk.mutiprocess.SerializableEvent;
-import com.baidu.tbadk.mutiprocess.StickyEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class cd5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final View a;
+    public View b;
 
-    /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-893993480, "Lcom/baidu/tieba/cd5$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-893993480, "Lcom/baidu/tieba/cd5$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[DataType.values().length];
-            a = iArr;
-            try {
-                iArr[DataType.ORM.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[DataType.PARCELABLE.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[DataType.SERIALIZABLE.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-        }
-    }
-
-    public cd5() {
+    public cd5(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = view2;
+    }
+
+    public void a(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            if (!z && this.a.getVisibility() == 4) {
+                this.a.setVisibility(8);
+            }
+            if (!z && this.b != null) {
+                b();
+                this.b = null;
             }
         }
     }
 
-    public tc5 a(Intent intent) {
-        InterceptResult invokeL;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
-            int intExtra = intent.getIntExtra("value_type", -1);
-            if (intExtra < 0) {
-                return null;
-            }
-            int i = a.a[DataType.values()[intExtra].ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        return null;
-                    }
-                    return (SerializableEvent) intent.getSerializableExtra("value");
-                }
-                return (ParcelableEvent) intent.getParcelableExtra("value");
-            }
-            return (StickyEvent) intent.getSerializableExtra("value");
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.setVisibility(4);
+            gd5.j(this.b);
         }
-        return (tc5) invokeL.objValue;
     }
 }

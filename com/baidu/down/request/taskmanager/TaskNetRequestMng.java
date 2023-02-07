@@ -2,6 +2,7 @@ package com.baidu.down.request.taskmanager;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.net.MailTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.down.common.BasicNameValuePair;
@@ -14,6 +15,7 @@ import com.baidu.down.utils.DeviceInfoUtils;
 import com.baidu.down.utils.DownPrefUtils;
 import com.baidu.down.utils.IdentityManager;
 import com.baidu.down.utils.Utils;
+import com.baidu.searchbox.retrieve.timer.bean.FetchTimer;
 import com.baidu.searchbox.util.BaiduIdentityManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -130,10 +132,10 @@ public final class TaskNetRequestMng {
                                         String host = new URL(optString).getHost();
                                         if (TextUtils.isEmpty(new URL(optString2).getHost()) || TextUtils.isEmpty(host)) {
                                             TaskNetRequestMng.restoreDefaultConfig(this.val$context);
-                                        } else if (!optJSONObject.has("frequency") || TextUtils.isEmpty(optJSONObject.optString("frequency"))) {
+                                        } else if (!optJSONObject.has(FetchTimer.FREQUENCY) || TextUtils.isEmpty(optJSONObject.optString(FetchTimer.FREQUENCY))) {
                                             TaskNetRequestMng.restoreDefaultConfig(this.val$context);
                                         } else {
-                                            long parseLong = Long.parseLong(optJSONObject.optString("frequency"));
+                                            long parseLong = Long.parseLong(optJSONObject.optString(FetchTimer.FREQUENCY));
                                             if (parseLong > 604800) {
                                                 DownPrefUtils.setLong(this.val$context, DownPrefUtils.PREF_CONFIG_REQUEST_INTERVAL, 604800L);
                                             } else {
@@ -267,7 +269,7 @@ public final class TaskNetRequestMng {
                 }
                 jSONObject.put("dyreq", jSONObject2);
                 jSONObject.put(BaiduIdentityManager.PARAM_CUT, DeviceInfoUtils.getCut());
-                jSONObject.put("cc", DeviceInfoUtils.getCpuCoresWithCache(context) + "");
+                jSONObject.put(MailTo.CC, DeviceInfoUtils.getCpuCoresWithCache(context) + "");
                 jSONObject.put("cf", DeviceInfoUtils.getCpuFreqWithCache(context) + "");
             } catch (JSONException e2) {
                 e2.printStackTrace();

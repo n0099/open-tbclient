@@ -1,46 +1,16 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import com.baidu.live.framework.usersecurity.LiveUserSecurityDeviceInfoManagerKt;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public final class gc0 {
+public class gc0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947788981, "Lcom/baidu/tieba/gc0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947788981, "Lcom/baidu/tieba/gc0;");
-        }
-    }
-
-    @JvmStatic
-    public static final String a() {
-        InterceptResult invokeV;
+    public static boolean a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (LiveUserSecurityDeviceInfoManagerKt.d()) {
-                return LiveUserSecurityDeviceInfoManagerKt.b(null, 1, null);
-            }
-            String str = Build.MANUFACTURER;
-            Intrinsics.checkExpressionValueIsNotNull(str, "Build.MANUFACTURER");
-            return str;
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? i == 1 || i == 2 || i == 3 || i == 4 : invokeI.booleanValue;
     }
 }

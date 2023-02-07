@@ -1,14 +1,20 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class fn3 {
     public static /* synthetic */ Interceptable $ic;
@@ -28,45 +34,70 @@ public class fn3 {
                 return;
             }
         }
-        a = tk1.a;
+        a = gp1.a;
     }
 
-    public fn3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            qn2.g0().getSwitch("game_bdtls_switcher", false);
-            if (a) {
-                j12.i("BDTLS", "isBdtlsSwitch=false");
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean b(String str) {
+    public static List<JSONObject> a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (!TextUtils.isEmpty(str) && (str.contains("ma/game/od/get_user_cloud_storage") || str.contains("ma/game/od/set_user_cloud_storage"))) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            String schemesDes = SchemeCollecter.getSchemesDes(str, 0);
+            ArrayList arrayList = new ArrayList();
+            try {
+                JSONObject jSONObject = new JSONObject(schemesDes);
+                arrayList.add(jSONObject);
+                int i = jSONObject.getInt("totalSlices");
+                for (int i2 = 1; i2 < i; i2++) {
+                    arrayList.add(new JSONObject(SchemeCollecter.getSchemesDes(str, i2)));
+                }
+                return arrayList;
+            } catch (JSONException e) {
+                if (a) {
+                    Log.e("SwanAppCompat", "getDescriptions", e);
+                    return null;
+                }
+                return null;
             }
-            return false;
         }
-        return invokeL.booleanValue;
+        return (List) invokeL.objValue;
+    }
+
+    @Nullable
+    public static List<JSONObject> b(@NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            List<JSONObject> a2 = a(str);
+            if (a2 != null && !a2.isEmpty()) {
+                for (JSONObject jSONObject : a2) {
+                    JSONArray optJSONArray = jSONObject.optJSONArray("descriptions");
+                    if (optJSONArray != null) {
+                        for (int i = 0; i < optJSONArray.length(); i++) {
+                            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                            if (optJSONObject != null) {
+                                Iterator<lt2> it = kt2.b().iterator();
+                                while (true) {
+                                    if (it.hasNext()) {
+                                        lt2 next = it.next();
+                                        String optString = optJSONObject.optString("name");
+                                        if (next.a(str, optString)) {
+                                            try {
+                                                optJSONArray.put(i, next.c(optString, optJSONObject));
+                                                break;
+                                            } catch (JSONException e) {
+                                                e.printStackTrace();
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                return a2;
+            }
+            return null;
+        }
+        return (List) invokeLL.objValue;
     }
 }

@@ -28,8 +28,8 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.SingleLineEllipsizeTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fv4;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.sz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -176,7 +176,7 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
             this.i = (TextView) findViewById(R.id.thread_extend_info);
             this.b.setShowOval(true);
             this.b.setAutoChangeStyle(true);
-            this.b.setStrokeWith(zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+            this.b.setStrokeWith(ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
             this.b.setStrokeColorResId(R.color.CAM_X0401);
             this.b.setScaleType(ImageView.ScaleType.CENTER_CROP);
             this.c.setOnClickListener(this);
@@ -235,10 +235,10 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
         }
         this.l = skinType;
         Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.icon_pure_ba16, SkinManager.getColor(R.color.CAM_X0105), null);
-        int g = zi.g(getContext(), R.dimen.tbds42);
+        int g = ej.g(getContext(), R.dimen.tbds42);
         pureDrawable.setBounds(0, 0, g, g);
         this.c.setCompoundDrawables(null, null, pureDrawable, null);
-        this.c.setCompoundDrawablePadding(zi.g(getContext(), R.dimen.M_W_X002));
+        this.c.setCompoundDrawablePadding(ej.g(getContext(), R.dimen.M_W_X002));
         SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
         SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0109);
@@ -278,7 +278,7 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (threadData = this.m) != null) {
             int indexTextColorRes = TagTextHelper.getIndexTextColorRes(threadData.position + 1);
-            this.g.setCompoundDrawablePadding(zi.g(getContext(), R.dimen.M_W_X002));
+            this.g.setCompoundDrawablePadding(ej.g(getContext(), R.dimen.M_W_X002));
             int color = SkinManager.getColor(indexTextColorRes);
             ThreadData threadData2 = this.m;
             if (threadData2.isFromLowFlowsPage) {
@@ -294,7 +294,7 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
             } else {
                 mutate = SkinManager.getDrawable(R.drawable.icon_pure_topic_hot).mutate();
             }
-            int g = zi.g(getContext(), R.dimen.tbds42);
+            int g = ej.g(getContext(), R.dimen.tbds42);
             if (mutate == null) {
                 return;
             }
@@ -337,7 +337,7 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
                     }
                     textView2.setText(str2);
                     h();
-                    fv4 forumData = threadData.getForumData();
+                    sz4 forumData = threadData.getForumData();
                     this.b.setPlaceHolder(1);
                     this.b.setVisibility(0);
                     this.b.K(forumData.a(), 10, false);
@@ -427,7 +427,7 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
             this.c.setText(String.format(getContext().getString(R.string.chosen_pb_original_bar), this.j));
             this.b.K(str2, 10, false);
             this.e.setText(String.format(getContext().getString(R.string.forum_thread_number), StringHelper.numberUniformFormatExtra(i)));
-            this.d.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f043f), StringHelper.numberUniformFormatExtra(i2)));
+            this.d.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f044c), StringHelper.numberUniformFormatExtra(i2)));
             HomeGroupUbsUIHelper.handleHeadSegmentTitleView(this.c);
         }
     }

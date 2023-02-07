@@ -1527,7 +1527,7 @@ public abstract class FragmentManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, view2)) == null) {
-            Object tag = view2.getTag(R.id.obfuscated_res_0x7f090b0d);
+            Object tag = view2.getTag(R.id.obfuscated_res_0x7f090b50);
             if (tag instanceof Fragment) {
                 return (Fragment) tag;
             }
@@ -1579,10 +1579,10 @@ public abstract class FragmentManager {
         ViewGroup fragmentContainer;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65570, this, fragment) == null) && (fragmentContainer = getFragmentContainer(fragment)) != null) {
-            if (fragmentContainer.getTag(R.id.obfuscated_res_0x7f0926ff) == null) {
-                fragmentContainer.setTag(R.id.obfuscated_res_0x7f0926ff, fragment);
+            if (fragmentContainer.getTag(R.id.obfuscated_res_0x7f092704) == null) {
+                fragmentContainer.setTag(R.id.obfuscated_res_0x7f092704, fragment);
             }
-            ((Fragment) fragmentContainer.getTag(R.id.obfuscated_res_0x7f0926ff)).setNextAnim(fragment.getNextAnim());
+            ((Fragment) fragmentContainer.getTag(R.id.obfuscated_res_0x7f092704)).setNextAnim(fragment.getNextAnim());
         }
     }
 

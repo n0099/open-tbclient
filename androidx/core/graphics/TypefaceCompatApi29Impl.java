@@ -51,44 +51,48 @@ public class TypefaceCompatApi29Impl extends TypefaceCompatBaseImpl {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048576, this, context, fontFamilyFilesResourceEntry, resources, i)) == null) {
-            FontResourcesParserCompat.FontFileResourceEntry[] entries = fontFamilyFilesResourceEntry.getEntries();
-            int length = entries.length;
-            int i3 = 0;
-            FontFamily.Builder builder = null;
-            int i4 = 0;
-            while (true) {
-                int i5 = 1;
-                if (i4 >= length) {
-                    break;
-                }
-                FontResourcesParserCompat.FontFileResourceEntry fontFileResourceEntry = entries[i4];
-                try {
-                    Font.Builder weight = new Font.Builder(resources, fontFileResourceEntry.getResourceId()).setWeight(fontFileResourceEntry.getWeight());
-                    if (!fontFileResourceEntry.isItalic()) {
-                        i5 = 0;
+            try {
+                FontResourcesParserCompat.FontFileResourceEntry[] entries = fontFamilyFilesResourceEntry.getEntries();
+                int length = entries.length;
+                int i3 = 0;
+                FontFamily.Builder builder = null;
+                int i4 = 0;
+                while (true) {
+                    int i5 = 1;
+                    if (i4 >= length) {
+                        break;
                     }
-                    Font build = weight.setSlant(i5).setTtcIndex(fontFileResourceEntry.getTtcIndex()).setFontVariationSettings(fontFileResourceEntry.getVariationSettings()).build();
-                    if (builder == null) {
-                        builder = new FontFamily.Builder(build);
-                    } else {
-                        builder.addFont(build);
+                    FontResourcesParserCompat.FontFileResourceEntry fontFileResourceEntry = entries[i4];
+                    try {
+                        Font.Builder weight = new Font.Builder(resources, fontFileResourceEntry.getResourceId()).setWeight(fontFileResourceEntry.getWeight());
+                        if (!fontFileResourceEntry.isItalic()) {
+                            i5 = 0;
+                        }
+                        Font build = weight.setSlant(i5).setTtcIndex(fontFileResourceEntry.getTtcIndex()).setFontVariationSettings(fontFileResourceEntry.getVariationSettings()).build();
+                        if (builder == null) {
+                            builder = new FontFamily.Builder(build);
+                        } else {
+                            builder.addFont(build);
+                        }
+                    } catch (IOException unused) {
                     }
-                } catch (IOException unused) {
+                    i4++;
                 }
-                i4++;
-            }
-            if (builder == null) {
+                if (builder == null) {
+                    return null;
+                }
+                if ((i & 1) != 0) {
+                    i2 = 700;
+                } else {
+                    i2 = 400;
+                }
+                if ((i & 2) != 0) {
+                    i3 = 1;
+                }
+                return new Typeface.CustomFallbackBuilder(builder.build()).setStyle(new FontStyle(i2, i3)).build();
+            } catch (Exception unused2) {
                 return null;
             }
-            if ((i & 1) != 0) {
-                i2 = 700;
-            } else {
-                i2 = 400;
-            }
-            if ((i & 2) != 0) {
-                i3 = 1;
-            }
-            return new Typeface.CustomFallbackBuilder(builder.build()).setStyle(new FontStyle(i2, i3)).build();
         }
         return (Typeface) invokeLLLI.objValue;
     }
@@ -102,56 +106,72 @@ public class TypefaceCompatApi29Impl extends TypefaceCompatBaseImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, cancellationSignal, fontInfoArr, i)) == null) {
             ContentResolver contentResolver = context.getContentResolver();
-            int length = fontInfoArr.length;
-            int i3 = 0;
-            FontFamily.Builder builder = null;
-            int i4 = 0;
-            while (true) {
-                int i5 = 1;
-                if (i4 >= length) {
-                    break;
-                }
-                FontsContractCompat.FontInfo fontInfo = fontInfoArr[i4];
-                try {
-                    openFileDescriptor = contentResolver.openFileDescriptor(fontInfo.getUri(), "r", cancellationSignal);
-                } catch (IOException unused) {
-                }
-                if (openFileDescriptor == null) {
-                    if (openFileDescriptor == null) {
+            try {
+                int length = fontInfoArr.length;
+                int i3 = 0;
+                FontFamily.Builder builder = null;
+                int i4 = 0;
+                while (true) {
+                    int i5 = 1;
+                    if (i4 < length) {
+                        FontsContractCompat.FontInfo fontInfo = fontInfoArr[i4];
+                        try {
+                            openFileDescriptor = contentResolver.openFileDescriptor(fontInfo.getUri(), "r", cancellationSignal);
+                        } catch (IOException unused) {
+                        }
+                        if (openFileDescriptor == null) {
+                            if (openFileDescriptor == null) {
+                                i4++;
+                            }
+                        } else {
+                            try {
+                                Font.Builder weight = new Font.Builder(openFileDescriptor).setWeight(fontInfo.getWeight());
+                                if (!fontInfo.isItalic()) {
+                                    i5 = 0;
+                                }
+                                Font build = weight.setSlant(i5).setTtcIndex(fontInfo.getTtcIndex()).build();
+                                if (builder == null) {
+                                    builder = new FontFamily.Builder(build);
+                                } else {
+                                    builder.addFont(build);
+                                }
+                                if (openFileDescriptor == null) {
+                                    i4++;
+                                }
+                            } catch (Throwable th) {
+                                if (openFileDescriptor != null) {
+                                    try {
+                                        openFileDescriptor.close();
+                                    } catch (Throwable th2) {
+                                        th.addSuppressed(th2);
+                                    }
+                                }
+                                throw th;
+                                break;
+                            }
+                        }
+                        openFileDescriptor.close();
                         i4++;
-                    }
-                } else {
-                    Font.Builder weight = new Font.Builder(openFileDescriptor).setWeight(fontInfo.getWeight());
-                    if (!fontInfo.isItalic()) {
-                        i5 = 0;
-                    }
-                    Font build = weight.setSlant(i5).setTtcIndex(fontInfo.getTtcIndex()).build();
-                    if (builder == null) {
-                        builder = new FontFamily.Builder(build);
+                    } else if (builder == null) {
+                        return null;
                     } else {
-                        builder.addFont(build);
-                    }
-                    if (openFileDescriptor == null) {
-                        i4++;
+                        if ((i & 1) != 0) {
+                            i2 = 700;
+                        } else {
+                            i2 = 400;
+                        }
+                        if ((i & 2) != 0) {
+                            i3 = 1;
+                        }
+                        return new Typeface.CustomFallbackBuilder(builder.build()).setStyle(new FontStyle(i2, i3)).build();
                     }
                 }
-                openFileDescriptor.close();
-                i4++;
-            }
-            if (builder == null) {
+            } catch (Exception unused2) {
                 return null;
             }
-            if ((i & 1) != 0) {
-                i2 = 700;
-            } else {
-                i2 = 400;
-            }
-            if ((i & 2) != 0) {
-                i3 = 1;
-            }
-            return new Typeface.CustomFallbackBuilder(builder.build()).setStyle(new FontStyle(i2, i3)).build();
+        } else {
+            return (Typeface) invokeLLLI.objValue;
         }
-        return (Typeface) invokeLLLI.objValue;
     }
 
     @Override // androidx.core.graphics.TypefaceCompatBaseImpl
@@ -183,7 +203,7 @@ public class TypefaceCompatApi29Impl extends TypefaceCompatBaseImpl {
             try {
                 Font build = new Font.Builder(resources, i).build();
                 return new Typeface.CustomFallbackBuilder(new FontFamily.Builder(build).build()).setStyle(build.getStyle()).build();
-            } catch (IOException unused) {
+            } catch (Exception unused) {
                 return null;
             }
         }

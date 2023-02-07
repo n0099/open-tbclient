@@ -1,85 +1,92 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.frs.FrsNoListItemViewHolder;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tieba.ac5;
+import com.baidu.tieba.faceshop.EmotionGroupData;
+import com.baidu.tieba.faceshop.MyEmotionGroupData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class wn6 extends pn6<xn6, FrsNoListItemViewHolder> {
+public class wn6 extends ac5 {
     public static /* synthetic */ Interceptable $ic;
+    public static wn6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int l;
+    public LinkedList<dc5> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wn6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext, bdUniqueId);
+    @Override // com.baidu.tieba.ac5
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 4;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.ac5
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    public wn6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.l = (zi.j(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070308);
+        this.a = new LinkedList<>();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: E */
-    public FrsNoListItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public static wn6 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.frs_no_list_item_view, viewGroup, false);
-            ViewGroup.LayoutParams generateLayoutParamsByParent = generateLayoutParamsByParent(viewGroup);
-            generateLayoutParamsByParent.width = -1;
-            generateLayoutParamsByParent.height = this.l;
-            inflate.setLayoutParams(generateLayoutParamsByParent);
-            return new FrsNoListItemViewHolder(inflate, viewGroup);
-        }
-        return (FrsNoListItemViewHolder) invokeL.objValue;
-    }
-
-    public View F(int i, View view2, ViewGroup viewGroup, xn6 xn6Var, FrsNoListItemViewHolder frsNoListItemViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, xn6Var, frsNoListItemViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) xn6Var, (xn6) frsNoListItemViewHolder);
-            if (xn6Var.a() == 6) {
-                frsNoListItemViewHolder.d.setText(R.string.obfuscated_res_0x7f0f02c5);
-            } else {
-                frsNoListItemViewHolder.d.setText(R.string.no_data_common_txt);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (wn6.class) {
+                    if (b == null) {
+                        b = new wn6();
+                    }
+                }
             }
-            SkinManager.setViewTextColor(frsNoListItemViewHolder.d, R.color.CAM_X0107, 1);
-            SkinManager.setImageResource(frsNoListItemViewHolder.e, R.drawable.new_pic_emotion_06);
-            return view2;
+            return b;
         }
-        return (View) invokeCommon.objValue;
+        return (wn6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pn6, com.baidu.tieba.ln
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        F(i, view2, viewGroup, (xn6) obj, (FrsNoListItemViewHolder) viewHolder);
-        return view2;
+    @Override // com.baidu.tieba.ac5
+    public void b(ac5.a aVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && FileHelper.checkSD()) {
+            List<MyEmotionGroupData> h = jn6.c().h(TbadkCoreApplication.getCurrentAccount());
+            this.a.clear();
+            for (MyEmotionGroupData myEmotionGroupData : h) {
+                EmotionGroupData n = rn6.o().n(myEmotionGroupData.getGroupId());
+                if (n != null) {
+                    ln6 ln6Var = new ln6(n);
+                    if (ln6Var.d() != null) {
+                        this.a.add(ln6Var);
+                        if (aVar != null) {
+                            aVar.a(ln6Var);
+                        }
+                    }
+                }
+            }
+        }
     }
 }

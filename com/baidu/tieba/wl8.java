@@ -1,217 +1,225 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewStub;
 import androidx.core.view.InputDeviceCompat;
-import androidx.viewpager.widget.ViewPager;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.tabHost.FragmentTabHost;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tieba.postsearch.PostSearchActivity;
-import com.baidu.tieba.postsearch.PostSearchListFragment;
+import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
+import com.baidu.tieba.personPolymeric.mode.PersonPolymericModel;
+import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class wl8 {
+public class wl8 extends ql8 implements p38, nl8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PostSearchActivity a;
-    public View b;
-    public FragmentTabHost c;
-    public ViewPager.OnPageChangeListener d;
-    public PostSearchListFragment e;
-    public PostSearchListFragment f;
-    public PostSearchListFragment g;
+    public TbPageContext b;
+    public long c;
+    public boolean d;
+    public BdUniqueId e;
+    public sl8 f;
+    public qn8 g;
+    public PersonPolymericModel h;
+    public rl8 i;
+    public BaseFragmentActivity j;
+    public View k;
+    public PersonPostModel l;
+    public int m;
+    public List<bi8> n;
 
-    public wl8(PostSearchActivity postSearchActivity, View view2) {
+    @Override // com.baidu.tieba.nl8
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wl8(BaseFragment baseFragment, sl8 sl8Var, BdUniqueId bdUniqueId, long j, boolean z) {
+        super(z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {postSearchActivity, view2};
+            Object[] objArr = {baseFragment, sl8Var, bdUniqueId, Long.valueOf(j), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Boolean) newInitContext.callArgs[0]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = postSearchActivity;
-        this.b = view2;
+        this.d = true;
+        this.m = 3;
+        BaseFragmentActivity baseFragmentActivity = baseFragment.getBaseFragmentActivity();
+        this.j = baseFragmentActivity;
+        this.b = baseFragmentActivity.getPageContext();
+        this.c = j;
+        this.f = sl8Var;
+        this.e = bdUniqueId;
+        this.k = sl8Var.e;
+        this.l = new PersonPostModel(this.b, bdUniqueId, null, this.a, 1);
+        qn8 qn8Var = new qn8(baseFragment, sl8Var, bdUniqueId, z, this.c);
+        this.g = qn8Var;
+        qn8Var.W(this);
+        resetData();
+        this.h = this.f.p();
+        this.i = this.f.k();
+        ArrayList arrayList = new ArrayList(2);
+        this.n = arrayList;
+        arrayList.add(new bi8());
+        this.n.add(new bi8());
     }
 
-    public final void a() {
+    @Override // com.baidu.tieba.p38
+    public void a() {
+        sl8 sl8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e.C1();
-            this.f.C1();
-            this.g.C1();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (sl8Var = this.f) != null) {
+            sl8Var.a();
         }
     }
 
-    public int d() {
+    @Override // com.baidu.tieba.p38
+    public void b() {
+        sl8 sl8Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (sl8Var = this.f) != null) {
+            sl8Var.b();
+        }
+    }
+
+    @Override // com.baidu.tieba.nl8
+    public qn8 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c.getCurrentTabType();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.g;
         }
-        return invokeV.intValue;
+        return (qn8) invokeV.objValue;
     }
 
-    public final void b() {
+    @Override // com.baidu.tieba.nl8
+    public void e() {
+        qn8 qn8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            FragmentTabHost.c cVar = new FragmentTabHost.c();
-            PostSearchListFragment postSearchListFragment = new PostSearchListFragment(1);
-            this.e = postSearchListFragment;
-            cVar.c = postSearchListFragment;
-            cVar.b = c(R.string.obfuscated_res_0x7f0f1167);
-            cVar.a = 1;
-            this.c.b(cVar);
-            FragmentTabHost.c cVar2 = new FragmentTabHost.c();
-            PostSearchListFragment postSearchListFragment2 = new PostSearchListFragment(2);
-            this.f = postSearchListFragment2;
-            cVar2.c = postSearchListFragment2;
-            cVar2.b = c(R.string.obfuscated_res_0x7f0f1166);
-            cVar2.a = 2;
-            this.c.b(cVar2);
-            FragmentTabHost.c cVar3 = new FragmentTabHost.c();
-            PostSearchListFragment postSearchListFragment3 = new PostSearchListFragment(3);
-            this.g = postSearchListFragment3;
-            cVar3.c = postSearchListFragment3;
-            cVar3.b = c(R.string.obfuscated_res_0x7f0f1165);
-            cVar3.a = 3;
-            this.c.b(cVar3);
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (qn8Var = this.g) != null) {
+            qn8Var.M();
         }
     }
 
-    public final FragmentTabIndicator c(int i) {
-        InterceptResult invokeI;
+    public void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
-            fragmentTabIndicator.setText(i);
-            fragmentTabIndicator.setTextSize(0, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207));
-            fragmentTabIndicator.h = R.color.s_actionbar_text_color;
-            fragmentTabIndicator.setContentTvTopMargin(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224));
-            fragmentTabIndicator.setWidth((zi.l(this.a.getPageContext().getContext()) - (this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f) * 2)) / 3);
-            return fragmentTabIndicator;
-        }
-        return (FragmentTabIndicator) invokeI.objValue;
-    }
-
-    public final void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            View inflate = ((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f091eef)).inflate();
-            inflate.setVisibility(0);
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) inflate.findViewById(R.id.obfuscated_res_0x7f091b11);
-            this.c = fragmentTabHost;
-            fragmentTabHost.setup(this.a.getSupportFragmentManager());
-            this.c.setTabWidgetViewHeight((int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070275));
-            this.c.setShouldDrawIndicatorLine(true);
-            b();
-            this.c.k(3);
-            this.c.setCurrentTabByType(i);
-            this.c.getFragmentTabWidget().setBackGroundDrawableResId(0);
-            this.c.r(TbadkCoreApplication.getInst().getSkinType());
-            SkinManager.setBackgroundColor(this.c.getFragmentTabWidget(), R.color.CAM_X0201);
-            this.c.setOnPageChangeListener(this.d);
-        }
-    }
-
-    public final PostSearchListFragment e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        return null;
-                    }
-                    return this.g;
-                }
-                return this.f;
-            }
-            return this.e;
-        }
-        return (PostSearchListFragment) invokeI.objValue;
-    }
-
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            FragmentTabHost fragmentTabHost = this.c;
-            if (fragmentTabHost != null) {
-                fragmentTabHost.r(i);
-            }
-            FragmentTabHost fragmentTabHost2 = this.c;
-            if (fragmentTabHost2 != null && fragmentTabHost2.getFragmentTabWidget() != null) {
-                SkinManager.setBackgroundColor(this.c.getFragmentTabWidget(), R.color.CAM_X0201);
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.e);
+            qn8 qn8Var = this.g;
+            if (qn8Var != null) {
+                qn8Var.U();
             }
         }
     }
 
-    public void i(ViewPager.OnPageChangeListener onPageChangeListener) {
+    @Override // com.baidu.tieba.p38
+    public void resetData() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onPageChangeListener) == null) {
-            this.d = onPageChangeListener;
-            FragmentTabHost fragmentTabHost = this.c;
-            if (fragmentTabHost != null) {
-                fragmentTabHost.setOnPageChangeListener(onPageChangeListener);
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.l.resetThreadPn();
+            PersonPolymericModel personPolymericModel = this.h;
+            if (personPolymericModel != null) {
+                personPolymericModel.U();
             }
         }
     }
 
-    public void j(boolean z) {
-        FragmentTabHost fragmentTabHost;
+    public void i(nd9 nd9Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048585, this, z) == null) && (fragmentTabHost = this.c) != null) {
-            if (z) {
-                fragmentTabHost.setVisibility(0);
-            } else {
-                fragmentTabHost.setVisibility(8);
-            }
+        if (interceptable == null || interceptable.invokeL(1048581, this, nd9Var) == null) {
+            this.g.X(nd9Var);
         }
     }
 
-    public void h(int i, sl8 sl8Var, boolean z) {
+    public void j(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), sl8Var, Boolean.valueOf(z)}) == null) {
-            j(true);
-            PostSearchListFragment e = e(i);
-            if (e != null) {
-                e.G1(sl8Var, z);
-            }
+        if ((interceptable != null && interceptable.invokeI(1048582, this, i) != null) || this.m == i) {
+            return;
         }
+        qn8 qn8Var = this.g;
+        if (qn8Var != null) {
+            qn8Var.T(i);
+        }
+        this.m = i;
     }
 
-    public void k(int i) {
+    public void l(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            if (this.c == null) {
-                f(1);
-                return;
-            }
+        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && z && this.d) {
             a();
-            if (this.c.getCurrentTabType() == i) {
-                PostSearchListFragment e = e(i);
-                if (e != null) {
-                    e.H1(true);
-                    return;
-                }
+        }
+    }
+
+    public void m() {
+        boolean isBigV;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && TbadkCoreApplication.isLogin() && !this.a && this.c == TbadkCoreApplication.getCurrentAccountId()) {
+            this.a = true;
+            if (TbadkCoreApplication.getCurrentAccountInfo() == null) {
+                isBigV = false;
+            } else {
+                isBigV = TbadkCoreApplication.getCurrentAccountInfo().isBigV();
+            }
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.b.getPageActivity()).createNormalConfig(dh.g(TbadkCoreApplication.getCurrentAccount(), 0L), true, isBigV)));
+            this.j.finish();
+        }
+    }
+
+    public void n(xl8 xl8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, xl8Var) == null) {
+            this.g.N();
+            this.j.hideLoadingView(this.k);
+            boolean z = true;
+            if (xl8Var == null) {
+                this.i.w(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0cfe), true);
+                this.i.l();
+                this.i.r(8);
                 return;
             }
-            this.c.setCurrentTabByType(i);
+            this.i.n();
+            if (xl8Var.e() != null && ((xl8Var.e().getHide_stat() == 1 && xl8Var.e().getBlock_stat() == 1) || (xl8Var.e().getHide_stat() == 1 && xl8Var.e().getBlock_stat() == 2))) {
+                this.i.t(this.a);
+                this.i.r(8);
+                return;
+            }
+            this.i.r(0);
+            xl8Var.b();
+            z = (xl8Var.f() == null || xl8Var.f().size() < 20) ? false : false;
+            if (xl8Var.j() != null) {
+                xl8Var.j().getSex();
+            }
+            this.d = false;
+            if (this.a && xl8Var.j() != null) {
+                xl8Var.j().setBimg_url(TbadkCoreApplication.getInst().getDefaultBubble());
+                xl8Var.j().setDynamicUrl(TbadkCoreApplication.getInst().getDefaultBubbleDynamicRes());
+                he5.d().i(xl8Var.j());
+            }
+            bi8 bi8Var = this.n.get(0);
+            bi8Var.a(xl8Var.f());
+            bi8Var.b(z);
+            this.g.Z(xl8Var, z, h(xl8Var));
         }
     }
 }

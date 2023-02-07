@@ -1,106 +1,113 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.media.ExifInterface;
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.SelectImageHelper;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class tl5 {
+public class tl5 extends vl5<zd6, CardViewHolder<vc6>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public NEGFeedBackView.b g;
+    public ld6<zd6> h;
 
-    public static Bitmap a(Context context, Uri uri, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, context, uri, i)) == null) {
-            try {
-                return BitmapHelper.subSampleBitmap(context, uri, i);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return null;
-            }
-        }
-        return (Bitmap) invokeLLI.objValue;
-    }
+    /* loaded from: classes6.dex */
+    public class a extends ld6<zd6> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ tl5 b;
 
-    public static Bitmap b(Context context, String str, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, context, str, i)) == null) {
-            try {
-                return BitmapHelper.loadResizedBitmap(str, i, i);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return null;
-            }
-        }
-        return (Bitmap) invokeLLI.objValue;
-    }
-
-    public static Bitmap c(int i, Context context, Uri uri, String str, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), context, uri, str, Integer.valueOf(i2)})) == null) {
-            if (i == 12001) {
-                return d(i2);
-            }
-            if (!TextUtils.isEmpty(str)) {
-                return b(context, str, i2);
-            }
-            return a(context, uri, i2);
-        }
-        return (Bitmap) invokeCommon.objValue;
-    }
-
-    public static Bitmap d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            try {
-                int e = e(FileHelper.getFileDireciory(SelectImageHelper.TMP_IMAGE_NAME));
-                Bitmap subSampleBitmap = BitmapHelper.subSampleBitmap(SelectImageHelper.TMP_IMAGE_NAME, i);
-                if (e != 0 && subSampleBitmap != null) {
-                    return BitmapHelper.rotateBitmapBydegree(subSampleBitmap, e);
+        public a(tl5 tl5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tl5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return subSampleBitmap;
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
-                return null;
+            }
+            this.b = tl5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ld6
+        /* renamed from: d */
+        public void a(View view2, zd6 zd6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, zd6Var) == null) {
+                this.b.u(view2, zd6Var);
             }
         }
-        return (Bitmap) invokeI.objValue;
     }
 
-    public static int e(String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tl5(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext, bdUniqueId);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.g = null;
+        this.h = new a(this);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: M */
+    public CardViewHolder<vc6> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            try {
-                int attributeInt = new ExifInterface(str).getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1);
-                if (attributeInt != 3) {
-                    if (attributeInt != 6) {
-                        if (attributeInt != 8) {
-                            return 0;
-                        }
-                        return 270;
-                    }
-                    return 90;
-                }
-                return 180;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return 0;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            vc6 vc6Var = new vc6(this.c, this.mPageId);
+            vc6Var.C(A());
+            vc6Var.X(this.mPageId);
+            return new CardViewHolder<>(vc6Var);
         }
-        return invokeL.intValue;
+        return (CardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: N */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, zd6 zd6Var, CardViewHolder<vc6> cardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, zd6Var, cardViewHolder})) == null) {
+            zd6Var.I(zd6Var.position + 1);
+            vc6 a2 = cardViewHolder.a();
+            a2.a0(i + 1);
+            a2.i(zd6Var);
+            a2.n(this.h);
+            a2.B(this.g);
+            L(cardViewHolder.getView(), zd6Var, i, i);
+            return cardViewHolder.getView();
+        }
+        return (View) invokeCommon.objValue;
     }
 }

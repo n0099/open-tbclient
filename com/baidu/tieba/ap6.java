@@ -1,7 +1,23 @@
 package com.baidu.tieba;
 
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import kotlin.jvm.internal.Intrinsics;
+import org.aspectj.runtime.reflect.SignatureImpl;
 /* loaded from: classes3.dex */
-public interface ap6 {
-    void a(int i, int i2, lp6 lp6Var, ArrayList<yn> arrayList);
+public final class ap6 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static final String a(String active, String task) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, active, task)) == null) {
+            Intrinsics.checkNotNullParameter(active, "active");
+            Intrinsics.checkNotNullParameter(task, "task");
+            return active + SignatureImpl.SEP + task;
+        }
+        return (String) invokeLL.objValue;
+    }
 }

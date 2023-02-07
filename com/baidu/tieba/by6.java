@@ -1,215 +1,70 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import androidx.annotation.CallSuper;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.shrinkhead.LogicField;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.frs.game.strategy.data.LabelDataList;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ThemeElement;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import tbclient.GameForumGuideTab.GameForumSubTab;
+import tbclient.ThreadInfo;
 /* loaded from: classes3.dex */
-public abstract class by6 implements dy6 {
+public class by6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsFragment a;
-    public Context b;
-    public View c;
-    public View.OnClickListener d;
-    public NavigationBar e;
-    public View f;
-    public ImageView g;
-    public boolean h;
 
-    @Override // com.baidu.tieba.dy6
-    @CallSuper
-    public void b(@NonNull ThemeElement themeElement) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, themeElement) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.dy6
-    public void d(int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.dy6
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-        }
-    }
-
-    public abstract void k();
-
-    @Override // com.baidu.tieba.dy6
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-903198899, "Lcom/baidu/tieba/by6$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-903198899, "Lcom/baidu/tieba/by6$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[LogicField.values().length];
-            a = iArr;
-            try {
-                iArr[LogicField.BACK_BTN.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[LogicField.BACK_IV.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-        }
-    }
-
-    public by6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.h = true;
-        nv8.b();
-    }
-
-    @Override // com.baidu.tieba.dy6
-    @NonNull
-    public NavigationBar e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            sk5.b(this.e);
-            return this.e;
-        }
-        return (NavigationBar) invokeV.objValue;
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            View addSystemImageButton = this.e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.f = addSystemImageButton;
-            addSystemImageButton.setOnClickListener(this.d);
-            this.g = (ImageView) this.f.findViewById(R.id.widget_navi_back_button);
-        }
-    }
-
-    @Override // com.baidu.tieba.dy6
-    @Nullable
-    public <T> T a(@NonNull LogicField logicField) {
+    public static List<iy6> a(List<GameForumSubTab> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, logicField)) == null) {
-            int i = a.a[logicField.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList(list.size());
+            for (GameForumSubTab gameForumSubTab : list) {
+                iy6 iy6Var = new iy6();
+                if (gameForumSubTab != null) {
+                    iy6Var.a = gameForumSubTab.id.intValue();
+                    iy6Var.b = gameForumSubTab.sub_tab_name;
+                    LabelDataList labelDataList = new LabelDataList();
+                    labelDataList.parseProtu(gameForumSubTab.sub_label_list);
+                    iy6Var.c = labelDataList;
+                    arrayList.add(iy6Var);
                 }
-                return (T) this.g;
             }
-            return (T) this.f;
+            return arrayList;
         }
-        return (T) invokeL.objValue;
+        return (List) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.dy6
-    @CallSuper
-    public void c(float f) {
+    public static List<Cdo> b(List<ThreadInfo> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f) == null) {
-            if (f < 0.5f) {
-                if (!this.h) {
-                    j(true);
-                    this.h = true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return null;
+            }
+            LinkedList linkedList = new LinkedList();
+            for (int i = 0; i < list.size(); i++) {
+                zx6 zx6Var = new zx6();
+                ThreadData threadData = new ThreadData();
+                zx6Var.c(threadData);
+                threadData.parserProtobuf(list.get(i));
+                threadData.parser_title();
+                if (!TextUtils.isEmpty(threadData.getLegoCard())) {
+                    iy4 iy4Var = new iy4();
+                    iy4Var.h(threadData.getLegoCard());
+                    linkedList.add(iy4Var);
+                } else {
+                    linkedList.add(zx6Var);
                 }
-            } else if (this.h) {
-                j(false);
-                this.h = false;
             }
+            return linkedList;
         }
-    }
-
-    @Override // com.baidu.tieba.dy6
-    @CallSuper
-    public void f(boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            FrameLayout contentLayout = this.e.getContentLayout();
-            if (z) {
-                i = R.color.CAM_X0201;
-            } else {
-                i = R.color.black_alpha0;
-            }
-            SkinManager.setBackgroundColor(contentLayout, i);
-        }
-    }
-
-    @Override // com.baidu.tieba.dy6
-    public void h(@NonNull FrsFragment frsFragment, @NonNull View view2, @NonNull View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048583, this, frsFragment, view2, onClickListener) != null) || this.c != null) {
-            return;
-        }
-        this.a = frsFragment;
-        this.b = view2.getContext();
-        this.c = view2;
-        this.d = onClickListener;
-        NavigationBar navigationBar = (NavigationBar) view2.findViewById(R.id.view_navigation_bar);
-        this.e = navigationBar;
-        navigationBar.getBarBgView().setAlpha(1.0f);
-        i();
-        k();
+        return (List) invokeL.objValue;
     }
 }

@@ -370,7 +370,7 @@ public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk
                         }
                     }
                     if (adTemplate != null) {
-                        AdWebViewActivityProxy.launch(this.rc.getContext(), new AdWebViewActivityProxy.a.C0600a().ao(bVar.title).ap(bVar.url).N(adTemplate).nx());
+                        AdWebViewActivityProxy.launch(this.rc.getContext(), new AdWebViewActivityProxy.a.C0604a().ao(bVar.title).ap(bVar.url).N(adTemplate).nx());
                     }
                 }
             }));
@@ -444,9 +444,9 @@ public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65552, this) == null) {
             SceneImpl sceneImpl = this.nM.mAdTemplate.mAdScene;
-            SceneImpl m89clone = sceneImpl != null ? sceneImpl.m89clone() : null;
-            if (m89clone != null) {
-                com.kwad.components.ad.reward.e.a(m89clone, this);
+            SceneImpl m91clone = sceneImpl != null ? sceneImpl.m91clone() : null;
+            if (m91clone != null) {
+                com.kwad.components.ad.reward.e.a(m91clone, this);
             }
         }
     }
@@ -613,7 +613,7 @@ public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onCreate();
-            KsRefluxView ksRefluxView = (KsRefluxView) findViewById(R.id.obfuscated_res_0x7f09125d);
+            KsRefluxView ksRefluxView = (KsRefluxView) findViewById(R.id.obfuscated_res_0x7f0912a0);
             this.qX = ksRefluxView;
             this.bF = ksRefluxView.getWebView();
             this.qX.setViewListener(this);

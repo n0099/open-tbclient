@@ -1,8 +1,8 @@
 package rx.subscriptions;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hda;
-import com.baidu.tieba.r8a;
+import com.baidu.tieba.ada;
+import com.baidu.tieba.qha;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,15 +13,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes9.dex */
-public final class RefCountSubscription implements r8a {
+public final class RefCountSubscription implements ada {
     public static /* synthetic */ Interceptable $ic;
     public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final r8a a;
+    public final ada a;
     public final AtomicReference<a> b;
 
     /* loaded from: classes9.dex */
-    public static final class InnerSubscription extends AtomicInteger implements r8a {
+    public static final class InnerSubscription extends AtomicInteger implements ada {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7005765588239987643L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public final class RefCountSubscription implements r8a {
             this.parent = refCountSubscription;
         }
 
-        @Override // com.baidu.tieba.r8a
+        @Override // com.baidu.tieba.ada
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -58,7 +58,7 @@ public final class RefCountSubscription implements r8a {
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.r8a
+        @Override // com.baidu.tieba.ada
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && compareAndSet(0, 1)) {
@@ -151,7 +151,7 @@ public final class RefCountSubscription implements r8a {
         }
     }
 
-    @Override // com.baidu.tieba.r8a
+    @Override // com.baidu.tieba.ada
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -161,7 +161,7 @@ public final class RefCountSubscription implements r8a {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.r8a
+    @Override // com.baidu.tieba.ada
     public void unsubscribe() {
         a aVar;
         a c2;
@@ -179,12 +179,12 @@ public final class RefCountSubscription implements r8a {
         }
     }
 
-    public RefCountSubscription(r8a r8aVar) {
+    public RefCountSubscription(ada adaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {r8aVar};
+            Object[] objArr = {adaVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -195,14 +195,14 @@ public final class RefCountSubscription implements r8a {
             }
         }
         this.b = new AtomicReference<>(c);
-        if (r8aVar != null) {
-            this.a = r8aVar;
+        if (adaVar != null) {
+            this.a = adaVar;
             return;
         }
         throw new IllegalArgumentException("s");
     }
 
-    public r8a a() {
+    public ada a() {
         InterceptResult invokeV;
         a aVar;
         Interceptable interceptable = $ic;
@@ -211,12 +211,12 @@ public final class RefCountSubscription implements r8a {
             do {
                 aVar = atomicReference.get();
                 if (aVar.a) {
-                    return hda.c();
+                    return qha.c();
                 }
             } while (!atomicReference.compareAndSet(aVar, aVar.a()));
             return new InnerSubscription(this);
         }
-        return (r8a) invokeV.objValue;
+        return (ada) invokeV.objValue;
     }
 
     public final void c(a aVar) {

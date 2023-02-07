@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.QRCodeScanActivityConfig;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jx8;
-import com.baidu.tieba.mm8;
-import com.baidu.tieba.nm8;
+import com.baidu.tieba.h19;
+import com.baidu.tieba.hq8;
+import com.baidu.tieba.iq8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,14 +54,14 @@ public class QRCodeStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                return new CustomResponsedMessage<>(2921388, nm8.b(customMessage.getData(), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds247)));
+                return new CustomResponsedMessage<>(2921388, iq8.b(customMessage.getData(), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds247)));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class b implements CustomMessageTask.CustomRunnable<jx8> {
+    public static class b implements CustomMessageTask.CustomRunnable<h19> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -80,20 +80,20 @@ public class QRCodeStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<jx8> customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<h19> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 String str = null;
-                if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof jx8)) {
+                if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof h19)) {
                     return null;
                 }
-                jx8 data = customMessage.getData();
+                h19 data = customMessage.getData();
                 int i = data.a;
                 if (i == 0) {
-                    str = mm8.b(data.c);
+                    str = hq8.b(data.c);
                 } else if (i == 1) {
-                    str = mm8.c(data.d);
+                    str = hq8.c(data.d);
                 }
                 if (TextUtils.isEmpty(str)) {
                     data.e = "qr_none";

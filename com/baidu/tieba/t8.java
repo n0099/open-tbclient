@@ -1,16 +1,28 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public class t8 {
+public final class t8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a() {
+    public static long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            Thread.yield();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return System.currentTimeMillis();
         }
+        return invokeV.longValue;
+    }
+
+    public static long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return System.nanoTime();
+        }
+        return invokeV.longValue;
     }
 }

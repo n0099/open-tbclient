@@ -1,210 +1,147 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.content.res.AssetManager;
-import android.content.res.Resources;
-import android.os.Build;
-import android.text.TextUtils;
-import android.util.Log;
+import android.content.Context;
+import android.content.Intent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.pm.BundleInfo;
-import com.baidu.nps.runtime.InitException;
-import com.baidu.nps.runtime.resources.ResourcesHookUtil;
-import com.baidu.nps.utils.Constant;
-import com.baidu.nps.utils.ContextHolder;
+import com.baidu.nadcore.webviewx.AdWebActivity;
+import com.baidu.nadcore.webviewx.AdWebActivityStandard;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tieba.sa1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+@Service
 /* loaded from: classes4.dex */
-public class ga1 {
+public class ga1 extends xi0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BundleInfo a;
-    public ha1 b;
-    public ia1 c;
 
-    public ga1(BundleInfo bundleInfo) {
+    @Override // com.baidu.tieba.xi0
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "easybrowse" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes4.dex */
+    public class a implements sa1.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ HashMap b;
+        public final /* synthetic */ fj0 c;
+        public final /* synthetic */ bj0 d;
+        public final /* synthetic */ ga1 e;
+
+        public a(ga1 ga1Var, Context context, HashMap hashMap, fj0 fj0Var, bj0 bj0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ga1Var, context, hashMap, fj0Var, bj0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = ga1Var;
+            this.a = context;
+            this.b = hashMap;
+            this.c = fj0Var;
+            this.d = bj0Var;
+        }
+
+        @Override // com.baidu.tieba.sa1.b
+        public void a() {
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                boolean g = ga1.g(this.a, this.b);
+                ga1 ga1Var = this.e;
+                fj0 fj0Var = this.c;
+                bj0 bj0Var = this.d;
+                if (g) {
+                    i = 0;
+                } else {
+                    i = 1001;
+                }
+                ga1Var.c(fj0Var, bj0Var, i, g);
+            }
+        }
+    }
+
+    public ga1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bundleInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = null;
-        if (a(bundleInfo)) {
-            this.a = bundleInfo;
-            return;
-        }
-        ba1.j().s(bundleInfo);
-        throw new InitException(22, "bad param bundleInfo:" + bundleInfo.toString());
     }
 
-    public static ga1 b(BundleInfo bundleInfo) {
-        InterceptResult invokeL;
+    public static boolean g(Context context, @NonNull HashMap<String, String> hashMap) {
+        InterceptResult invokeLL;
+        Class cls;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bundleInfo)) == null) {
-            ga1 ga1Var = new ga1(bundleInfo);
-            ga1Var.d();
-            return ga1Var;
-        }
-        return (ga1) invokeL.objValue;
-    }
-
-    public final boolean a(BundleInfo bundleInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundleInfo)) == null) {
-            if (bundleInfo == null || TextUtils.isEmpty(bundleInfo.getPackageName())) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, hashMap)) == null) {
+            if (yg0.a) {
+                g41.a().showToast(context, "启动SDK Webview");
+            }
+            if (!da1.a.a(hashMap, 0)) {
                 return false;
             }
-            Application applicationContext = ContextHolder.getApplicationContext();
-            if (!pa1.d(applicationContext, bundleInfo.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).exists()) {
-                return false;
+            if ("1".equals(hashMap.remove("newbrowser"))) {
+                cls = AdWebActivityStandard.class;
+            } else {
+                cls = AdWebActivity.class;
             }
-            return true;
+            Intent intent = new Intent(context, cls);
+            intent.putExtra("map", hashMap);
+            return u41.d(context, intent);
         }
-        return invokeL.booleanValue;
+        return invokeLL.booleanValue;
     }
 
-    public ClassLoader c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.xi0
+    public boolean b(@NonNull Context context, @NonNull bj0 bj0Var, @Nullable Map<String, Object> map, @Nullable fj0 fj0Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (ClassLoader) invokeV.objValue;
-    }
-
-    public final boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            this.b = fa1.d().b(this.a, ContextHolder.getApplicationContext());
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return super.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (e()) {
-                if (Build.VERSION.SDK_INT < 21) {
-                    if (!g()) {
-                        throw new InitException(20, "resources init error");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, bj0Var, map, fj0Var)) == null) {
+            super.b(context, bj0Var, map, fj0Var);
+            HashMap<String, String> d = bj0Var.d();
+            int b = ha1.b(context.getApplicationContext(), new a(this, context, d, fj0Var, bj0Var));
+            int i = 0;
+            if (4 != b && b != 0) {
+                if (2 != b && 1 != b) {
+                    boolean g = g(context, d);
+                    if (!g) {
+                        i = 1001;
                     }
-                    return;
-                } else if (f()) {
-                    return;
-                } else {
-                    throw new InitException(20, "resources init error");
+                    c(fj0Var, bj0Var, i, g);
                 }
+                return true;
             }
-            throw new InitException(16, "class loader init error");
-        }
-    }
-
-    public final synchronized boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this) {
-                try {
-                    Application applicationContext = ContextHolder.getApplicationContext();
-                    Resources a = q91.c().a();
-                    Resources b = q91.c().b();
-                    Resources[] d = q91.c().d();
-                    ka1.a().b(applicationContext);
-                    String absolutePath = pa1.d(applicationContext, this.a.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath();
-                    ResourcesHookUtil.hookResources(a, absolutePath, this.a.getGroupName());
-                    ResourcesHookUtil.hookResources(b, absolutePath, this.a.getGroupName());
-                    if (d != null) {
-                        for (Resources resources : d) {
-                            ResourcesHookUtil.hookResources(resources, absolutePath, this.a.getGroupName());
-                        }
-                    }
-                } catch (Exception unused) {
-                    return false;
-                }
+            c(fj0Var, bj0Var, 1001, false);
+            if (!yg0.a) {
+                return true;
             }
-            return true;
+            throw new IllegalStateException("web app init failed, state=" + b);
         }
-        return invokeV.booleanValue;
-    }
-
-    public final synchronized boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            synchronized (this) {
-                Application applicationContext = ContextHolder.getApplicationContext();
-                String absolutePath = pa1.d(applicationContext, this.a.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath();
-                String str = applicationContext.getApplicationInfo().sourceDir;
-                try {
-                    AssetManager assetManager = (AssetManager) AssetManager.class.newInstance();
-                    ResourcesHookUtil.hookAssets(assetManager, absolutePath, this.a.getGroupName());
-                    ResourcesHookUtil.hookAssets(assetManager, str, this.a.getGroupName());
-                    Resources a = q91.c().a();
-                    this.c = new ia1(assetManager, a.getDisplayMetrics(), a.getConfiguration(), a);
-                } catch (Exception e) {
-                    if (oa1.a()) {
-                        Log.e("Runtime", "resource", e);
-                        return false;
-                    }
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public synchronized Resources getResources(Resources resources) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, resources)) == null) {
-            synchronized (this) {
-                if (Build.VERSION.SDK_INT < 21) {
-                    return this.c;
-                }
-                Application applicationContext = ContextHolder.getApplicationContext();
-                String absolutePath = pa1.d(applicationContext, this.a.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath();
-                AssetManager assets = resources.getAssets();
-                if (ResourcesHookUtil.hookAssets(assets, absolutePath, this.a.getGroupName())) {
-                    if (this.c == null || this.c.getAssets().hashCode() != assets.hashCode()) {
-                        if (this.c != null) {
-                            if (Build.VERSION.SDK_INT >= 21) {
-                                ResourcesHookUtil.recoveryAssetsByGroup(assets, this.c.getAssets().hashCode(), this.a.getGroupName());
-                                this.c = new ia1(assets, resources.getDisplayMetrics(), resources.getConfiguration(), resources);
-                            }
-                        } else {
-                            this.c = new ia1(assets, resources.getDisplayMetrics(), resources.getConfiguration(), resources);
-                        }
-                    }
-                    return this.c;
-                }
-                throw new InitException(21, "resources hook error");
-            }
-        }
-        return (Resources) invokeL.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

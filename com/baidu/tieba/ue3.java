@@ -1,14 +1,11 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Build;
 import android.util.Log;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.searchbox.datacollector.growth.utils.UBCEncryptor;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.view.Choreographer;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.tieba.w62;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,14 +13,299 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.UUID;
-import org.json.JSONException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ue3 extends g63 {
+public class ue3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static final boolean a;
+    public static volatile boolean b;
+    public static volatile boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes6.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* loaded from: classes6.dex */
+        public class b extends TimerTask {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final ExecutorService a;
+            public final AtomicInteger b;
+            public final List<Float> c;
+            public final /* synthetic */ boolean d;
+            public final /* synthetic */ int e;
+            public final /* synthetic */ Timer f;
+            public final /* synthetic */ te3 g;
+            public final /* synthetic */ boolean h;
+            public final /* synthetic */ b i;
+
+            /* renamed from: com.baidu.tieba.ue3$a$b$a  reason: collision with other inner class name */
+            /* loaded from: classes6.dex */
+            public class RunnableC0442a implements Runnable {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ b a;
+
+                public RunnableC0442a(b bVar) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {bVar};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.a = bVar;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Float f;
+                    Interceptable interceptable = $ic;
+                    if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                        float b = v62.b();
+                        this.a.g.d.add(Long.valueOf(System.currentTimeMillis()));
+                        b bVar = this.a;
+                        bVar.g.e.add(Integer.valueOf(bVar.i.b.get()));
+                        this.a.g.f.add(Float.valueOf(b));
+                        w62.c i = w62.i();
+                        this.a.g.h.add(Float.valueOf(i.a));
+                        this.a.g.i.add(Float.valueOf(i.b));
+                        this.a.g.g.add(Float.valueOf(i.c));
+                        List<Float> list = this.a.c;
+                        if (nm3.D()) {
+                            f = Float.valueOf(b);
+                        } else {
+                            f = null;
+                        }
+                        list.add(f);
+                    }
+                }
+            }
+
+            public b(a aVar, boolean z, int i, Timer timer, te3 te3Var, boolean z2, b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, Boolean.valueOf(z), Integer.valueOf(i), timer, te3Var, Boolean.valueOf(z2), bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.d = z;
+                this.e = i;
+                this.f = timer;
+                this.g = te3Var;
+                this.h = z2;
+                this.i = bVar;
+                this.a = Executors.newCachedThreadPool();
+                this.b = new AtomicInteger(0);
+                this.c = new CopyOnWriteArrayList();
+            }
+
+            @Override // java.util.TimerTask, java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    if (this.d && this.b.getAndIncrement() >= this.e) {
+                        ue3.l(true);
+                    }
+                    if (!ue3.b) {
+                        this.f.cancel();
+                        this.a.shutdown();
+                        w52.b("SwanAppStabilityDataUtil", "采集静态数据");
+                        this.g.b = w62.e().floatValue();
+                        this.g.c = ge2.k().m(v83.K().getAppId(), true);
+                        this.g.a(this.c);
+                        w52.i("SwanAppStabilityDataUtil", "采集结果：" + this.g);
+                        if (ue3.c) {
+                            w52.b("SwanAppStabilityDataUtil", "发送JSMessage=" + this.g);
+                            ue3.i(this.g);
+                        }
+                        if (this.h) {
+                            t23.e(this.g.c());
+                            return;
+                        }
+                        return;
+                    }
+                    this.a.submit(new RunnableC0442a(this));
+                }
+            }
+        }
+
+        /* renamed from: com.baidu.tieba.ue3$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class RunnableC0441a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public RunnableC0441a(a aVar, b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    Choreographer.getInstance().postFrameCallback(this.a);
+                }
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                te3 te3Var = new te3();
+                te3Var.a = ve3.d(te3Var.a);
+                boolean f = ve3.f();
+                int c = ve3.c(0);
+                if (ve3.e(0) == 1) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                Timer timer = new Timer();
+                b bVar = new b(null);
+                qm3.e0(new RunnableC0441a(this, bVar));
+                timer.schedule(new b(this, f, c, timer, te3Var, z, bVar), 0L, te3Var.a);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b implements Choreographer.FrameCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+        public AtomicInteger b;
+
+        /* loaded from: classes6.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    Choreographer.getInstance().removeFrameCallback(this.a);
+                }
+            }
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = -1L;
+            this.b = new AtomicInteger(-1);
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        @Override // android.view.Choreographer.FrameCallback
+        public void doFrame(long j) {
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+                if (!ue3.b) {
+                    qm3.e0(new a(this));
+                    return;
+                }
+                long j2 = this.a;
+                if (j2 > 0 && this.b.get() != (i = (int) (1.0E9d / (j - j2)))) {
+                    this.b.set(i);
+                    w52.b("SwanAppStabilityDataUtil", "#doFrame fps=" + this.b);
+                }
+                this.a = j;
+                Choreographer.getInstance().postFrameCallback(this);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -38,100 +320,111 @@ public class ue3 extends g63 {
                 return;
             }
         }
-        c = tk1.a;
+        a = gp1.a;
+        b = false;
+        c = false;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ue3(g53 g53Var) {
-        super(g53Var, "/swanAPI/getSystemRiskInfo");
+    public static boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {g53Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (ve3.g() && e()) {
+                return true;
             }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.g63
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j43 j43Var) {
-        InterceptResult invokeLLLL;
-        String h;
-        String a;
-        String O;
+    public static boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j43Var)) == null) {
-            go1 h0 = qn2.h0();
-            JSONObject jSONObject = new JSONObject();
-            if (context == null) {
-                try {
-                    context = qn2.c();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (!pj2.a() && !a82.c()) {
+                return false;
             }
-            String str = "";
-            if (h0 == null) {
-                h = "";
-            } else {
-                h = h0.h(context);
-            }
-            jSONObject.put(DpStatConstants.KEY_USER_ID, h);
-            if (h0 == null) {
-                a = "";
-            } else {
-                a = qn2.G0().a(context);
-            }
-            jSONObject.put("zid", a);
-            jSONObject.put("idfa", "");
-            jSONObject.put("imei", di3.r());
-            if (j43Var == null) {
-                O = "";
-            } else {
-                O = j43Var.O();
-            }
-            jSONObject.put("appkey", O);
-            jSONObject.put("os", "android");
-            jSONObject.put("osVersion", Build.VERSION.RELEASE);
-            jSONObject.put("hostName", context.getPackageName());
-            jSONObject.put("hostVersion", di3.D());
-            jSONObject.put("model", Build.MODEL);
-            jSONObject.put("uuid", vk4.b(context).a());
-            jSONObject.put("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
-            if (h0 != null) {
-                str = h0.i(context);
-            }
-            jSONObject.put("cuid", str);
-            if (c) {
-                Log.d("GetSystemRiskInfoAction", jSONObject.toString());
-            }
-            String b = el4.b(UUID.randomUUID().toString().getBytes(), false);
-            String a2 = bh3.a(b, jSONObject.toString(), UBCEncryptor.TRANSFORMATION, "4c6579b50ff05adb");
-            String d = bh3.d("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCjP7b5s3ozPgXpS7d9k2dGaie8KLNmCbhybWPxVjLTmN4Jj3c7GnwdzyIQOix7t95Kipd75AXcnP2c4vUnmXPpZwh6ejNAmiGLkLE7fobPCZKfI3aTweSKxIav3QPHMaZrra1aiGtnZ+rTHXD3chBpNCGbuAEUqN+psHjvnHO72QIDAQAB", b, "RSA/ECB/PKCS1Padding");
-            if (c) {
-                Log.d("GetSystemRiskInfoAction", "aesKey=" + b + ", aesValue=" + a2 + ", rsaKey=" + d);
-            }
-            JSONObject jSONObject2 = new JSONObject();
-            JSONObject jSONObject3 = new JSONObject();
-            try {
-                jSONObject3.put("key", d);
-                jSONObject3.put("value", a2);
-                jSONObject2.put("content", jSONObject3);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0));
             return true;
         }
-        return invokeLLLL.booleanValue;
+        return invokeV.booleanValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (ve3.h() && e()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return ve3.f();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
+            if (b) {
+                w52.i("SwanAppStabilityDataUtil", "#startObtainData 正在采集中，退出");
+                return;
+            }
+            b = true;
+            w52.i("SwanAppStabilityDataUtil", "#startObtainData 开始采集数据");
+            ExecutorUtilsExt.postOnElastic(new a(), "稳定性工具链-设备数据采集", 3);
+        }
+    }
+
+    public static void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65548, null, z) == null) {
+            c = z;
+            b = false;
+            ve3.b();
+            w52.b("SwanAppStabilityDataUtil", "#stopObtainData 已停止采集数据");
+        }
+    }
+
+    public static synchronized void h(JSONObject jSONObject, @Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65544, null, jSONObject, str) == null) {
+            synchronized (ue3.class) {
+                se3.c(jSONObject, str);
+            }
+        }
+    }
+
+    public static void i(te3 te3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, null, te3Var) == null) {
+            Map<String, String> d = te3Var.d();
+            if (a) {
+                Log.d("SwanAppStabilityDataUtil", "#sendJsMessage data=" + JSONObject.wrap(d));
+            }
+            ju2.U().u(new xi2("sendStabilityData", d));
+        }
+    }
+
+    public static void j(boolean z) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65546, null, z) == null) {
+            HashMap hashMap = new HashMap();
+            if (z) {
+                str = "0";
+            } else {
+                str = "1";
+            }
+            hashMap.put("status", str);
+            ju2.U().u(new xi2("toggleStabilityTestStatus", hashMap));
+        }
     }
 }

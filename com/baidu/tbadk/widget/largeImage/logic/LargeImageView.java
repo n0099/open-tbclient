@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.widget.DragImageView;
-import com.baidu.tieba.bn5;
+import com.baidu.tieba.mr5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class LargeImageView extends DragImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bn5 v0;
+    public mr5 w0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LargeImageView(Context context) {
@@ -37,7 +37,7 @@ public class LargeImageView extends DragImageView {
                 return;
             }
         }
-        this.v0 = new bn5(this);
+        this.w0 = new mr5(this);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -59,7 +59,7 @@ public class LargeImageView extends DragImageView {
                 return;
             }
         }
-        this.v0 = new bn5(this);
+        this.w0 = new mr5(this);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -81,14 +81,14 @@ public class LargeImageView extends DragImageView {
                 return;
             }
         }
-        this.v0 = new bn5(this);
+        this.w0 = new mr5(this);
     }
 
     @Override // com.baidu.tbadk.widget.DragImageView
     public void T() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.v0.Q(getImageBitmap(), getImageData());
+            this.w0.Q(getImageBitmap(), getImageData());
         }
     }
 
@@ -96,7 +96,7 @@ public class LargeImageView extends DragImageView {
     public void computeScroll() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.v0.t();
+            this.w0.t();
         }
     }
 
@@ -105,7 +105,7 @@ public class LargeImageView extends DragImageView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.v0.z();
+            return this.w0.z();
         }
         return invokeV.floatValue;
     }
@@ -114,7 +114,7 @@ public class LargeImageView extends DragImageView {
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.v0.O();
+            this.w0.O();
             super.onDetachedFromWindow();
         }
     }
@@ -124,7 +124,7 @@ public class LargeImageView extends DragImageView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap)) == null) {
-            return this.v0.y();
+            return this.w0.y();
         }
         return invokeL.floatValue;
     }
@@ -134,7 +134,7 @@ public class LargeImageView extends DragImageView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bitmap)) == null) {
-            return this.v0.N();
+            return this.w0.N();
         }
         return invokeL.floatValue;
     }
@@ -142,7 +142,7 @@ public class LargeImageView extends DragImageView {
     @Override // com.baidu.tbadk.widget.DragImageView, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, canvas) != null) || this.v0.J(canvas)) {
+        if ((interceptable != null && interceptable.invokeL(1048582, this, canvas) != null) || this.w0.J(canvas)) {
             return;
         }
         super.onDraw(canvas);
@@ -153,7 +153,7 @@ public class LargeImageView extends DragImageView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, motionEvent)) == null) {
-            if (this.v0.M(motionEvent)) {
+            if (this.w0.M(motionEvent)) {
                 return true;
             }
             return super.onTouchEvent(motionEvent);

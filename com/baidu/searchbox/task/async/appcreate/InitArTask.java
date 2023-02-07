@@ -5,8 +5,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
-import com.baidu.tieba.t65;
-import com.baidu.tieba.ze0;
+import com.baidu.tieba.fb5;
+import com.baidu.tieba.ff0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,10 +59,10 @@ public class InitArTask extends LaunchTask {
     public static void initAR(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            ze0.r(BdUploadHandler.MEDIA_SOURCE_KEY);
-            ze0.j(context);
-            ze0.u(false);
-            t65.a();
+            ff0.r(BdUploadHandler.MEDIA_SOURCE_KEY);
+            ff0.j(context);
+            ff0.u(false);
+            fb5.a();
         }
     }
 }

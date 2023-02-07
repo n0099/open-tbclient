@@ -1,101 +1,102 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.webkit.JsPromptResult;
-import android.webkit.WebView;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.switchs.OpenJsSdkSwitch;
-import com.baidu.tieba.h5power.DescriptionTableInfo;
+import android.util.Log;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONArray;
+import java.text.DecimalFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class hq4 implements j76 {
+public class hq4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.j76
-    public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        i76.a(this, webView, str, jSONObject);
-    }
-
-    public hq4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947832350, "Lcom/baidu/tieba/hq4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947832350, "Lcom/baidu/tieba/hq4;");
+                return;
             }
         }
+        a = gp1.a;
     }
 
-    @Override // com.baidu.tieba.j76
-    public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLLLL;
+    public static void a(String str, String str2, String str3, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            if (TextUtils.equals(CommonTbJsBridge.GET_APIS, str2)) {
-                jsPromptResult.confirm(d());
-                return true;
-            }
-            return false;
-        }
-        return invokeLLLLL.booleanValue;
-    }
-
-    public zx8 c(WebView webView, HashMap<String, Object> hashMap) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, hashMap)) == null) {
-            zx8 zx8Var = new zx8();
-            if (hashMap == null) {
-                return zx8Var;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("skin", hashMap.get("skin"));
-                a(webView, CommonTbJsBridge.CHANGE_SKIN_TYPE, jSONObject);
-                zx8Var.o(jSONObject.toString());
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return zx8Var;
-        }
-        return (zx8) invokeLL.objValue;
-    }
-
-    public final String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("status", 0);
-                jSONObject.put("message", TbadkCoreApplication.getInst().getString(R.string.scheme_action_status_ok));
-                if (OpenJsSdkSwitch.isOn()) {
-                    jSONObject.put("data", new JSONArray(DescriptionTableInfo.getDescriptionTable()));
-                } else {
-                    jSONObject.put("data", new JSONArray());
+        if (interceptable == null || interceptable.invokeLLLL(65537, null, str, str2, str3, jSONObject) == null) {
+            if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
+                JSONObject jSONObject2 = new JSONObject();
+                try {
+                    jSONObject2.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, str2);
+                    jSONObject2.put("vtype", str3);
+                    jSONObject.putOpt("videoId", str);
+                    jSONObject2.put("data", jSONObject.toString());
+                } catch (JSONException e) {
+                    if (a) {
+                        e.printStackTrace();
+                    }
                 }
-                return jSONObject.toString();
-            } catch (JSONException e) {
-                BdLog.e(e);
-                return null;
+                w52.b("VideoStatusEventHelper", "Video dispatch Params : " + jSONObject2.toString());
+                do3.d(str2, str, "video", str3, jSONObject2);
+            } else if (a) {
+                Log.e("VideoStatusEventHelper", "dispatchNetStatusEvent failed slaveId: " + str2 + " ,videoId: " + str);
             }
         }
-        return (String) invokeV.objValue;
+    }
+
+    public static void b(String str, String str2, String str3, int i, int i2) {
+        String format;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            if (TextUtils.isEmpty(str3)) {
+                format = "0";
+            } else {
+                format = new DecimalFormat("#.###").format(Double.parseDouble(str3) / 1000.0d);
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.putOpt("duration", Float.valueOf(Float.parseFloat(format)));
+                jSONObject.putOpt("width", Integer.valueOf(nm3.O(i)));
+                jSONObject.putOpt("height", Integer.valueOf(nm3.O(i2)));
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            a(str, str2, "loadedmetadata", jSONObject);
+        }
+    }
+
+    public static void c(String str, String str2, boolean z) {
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(65539, null, str, str2, z) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (z) {
+                str3 = "1";
+            } else {
+                str3 = "0";
+            }
+            try {
+                jSONObject.putOpt("fullscreen", str3);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            a(str, str2, "fullscreenchange", jSONObject);
+        }
     }
 }

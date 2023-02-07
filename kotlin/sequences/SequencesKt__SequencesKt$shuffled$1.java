@@ -12,38 +12,42 @@ import kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsKt;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.RestrictedSuspendLambda;
 import kotlin.jvm.functions.Function2;
-import kotlin.jvm.internal.Intrinsics;
 import kotlin.random.Random;
 /* JADX INFO: Add missing generic type declarations: [T] */
-@Metadata(d1 = {"\u0000\u0010\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\b\u0012\u0004\u0012\u0002H\u00020\u0003H\u008a@¢\u0006\u0004\b\u0004\u0010\u0005"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, "Lkotlin/sequences/SequenceScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 5, 1})
-@DebugMetadata(c = "kotlin.sequences.SequencesKt__SequencesKt$shuffled$1", f = "Sequences.kt", i = {}, l = {Cea708Decoder.COMMAND_SPC}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(d1 = {"\u0000\f\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\b\u0012\u0004\u0012\u0002H\u00020\u0003H\u008a@"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, "Lkotlin/sequences/SequenceScope;"}, k = 3, mv = {1, 6, 0}, xi = 48)
+@DebugMetadata(c = "kotlin.sequences.SequencesKt__SequencesKt$shuffled$1", f = "Sequences.kt", i = {0, 0}, l = {Cea708Decoder.COMMAND_SPC}, m = "invokeSuspend", n = {"$this$sequence", "buffer"}, s = {"L$0", "L$1"})
 /* loaded from: classes9.dex */
 public final class SequencesKt__SequencesKt$shuffled$1<T> extends RestrictedSuspendLambda implements Function2<SequenceScope<? super T>, Continuation<? super Unit>, Object> {
     public final /* synthetic */ Random $random;
-    public final /* synthetic */ Sequence $this_shuffled;
+    public final /* synthetic */ Sequence<T> $this_shuffled;
     public /* synthetic */ Object L$0;
     public Object L$1;
     public int label;
 
+    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: kotlin.sequences.Sequence<? extends T> */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SequencesKt__SequencesKt$shuffled$1(Sequence sequence, Random random, Continuation continuation) {
+    /* JADX WARN: Multi-variable type inference failed */
+    public SequencesKt__SequencesKt$shuffled$1(Sequence<? extends T> sequence, Random random, Continuation<? super SequencesKt__SequencesKt$shuffled$1> continuation) {
         super(2, continuation);
         this.$this_shuffled = sequence;
         this.$random = random;
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
-    public final Continuation<Unit> create(Object obj, Continuation<?> completion) {
-        Intrinsics.checkNotNullParameter(completion, "completion");
-        SequencesKt__SequencesKt$shuffled$1 sequencesKt__SequencesKt$shuffled$1 = new SequencesKt__SequencesKt$shuffled$1(this.$this_shuffled, this.$random, completion);
+    public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
+        SequencesKt__SequencesKt$shuffled$1 sequencesKt__SequencesKt$shuffled$1 = new SequencesKt__SequencesKt$shuffled$1(this.$this_shuffled, this.$random, continuation);
         sequencesKt__SequencesKt$shuffled$1.L$0 = obj;
         return sequencesKt__SequencesKt$shuffled$1;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function2
-    public final Object invoke(Object obj, Continuation<? super Unit> continuation) {
-        return ((SequencesKt__SequencesKt$shuffled$1) create(obj, continuation)).invokeSuspend(Unit.INSTANCE);
+    public /* bridge */ /* synthetic */ Object invoke(Object obj, Continuation<? super Unit> continuation) {
+        return invoke((SequenceScope) ((SequenceScope) obj), continuation);
+    }
+
+    public final Object invoke(SequenceScope<? super T> sequenceScope, Continuation<? super Unit> continuation) {
+        return ((SequencesKt__SequencesKt$shuffled$1) create(sequenceScope, continuation)).invokeSuspend(Unit.INSTANCE);
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl

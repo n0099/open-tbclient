@@ -1,13 +1,39 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
+import android.content.Context;
+import android.hardware.SensorManager;
+import android.os.Build;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes3.dex */
-public interface a99 {
-    void F0();
+public class a99 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    long J0();
+    public static int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            try {
+                return Integer.valueOf(Build.VERSION.SDK).intValue();
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+                return 0;
+            }
+        }
+        return invokeV.intValue;
+    }
 
-    void h1(int i, int i2, Intent intent);
-
-    boolean s1();
+    public static boolean b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (((SensorManager) context.getSystemService("sensor")).getDefaultSensor(4) != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
 }

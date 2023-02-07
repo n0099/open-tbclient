@@ -58,6 +58,7 @@ import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.sapi2.views.logindialog.view.a;
 import com.baidu.searchbox.account.contants.LoginConstants;
 import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
+import com.baidu.searchbox.net.update.UpdateConstants;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -5672,7 +5673,7 @@ public class SapiJsInterpreters {
                         } else {
                             optString = jSONObject.optString("url");
                         }
-                        String optString4 = jSONObject.optString("trace_id");
+                        String optString4 = jSONObject.optString(UpdateConstants.TRACE_ID);
                         String optString5 = jSONObject.optString("session_id");
                         this.this$0.jsCallBacks.promptResult.confirm("finish");
                         ShareLoginStat.MakeShareLoginStat.sValueSence = "in";

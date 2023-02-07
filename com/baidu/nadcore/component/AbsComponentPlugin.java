@@ -12,7 +12,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.component.api.IComponentPlugin;
 import com.baidu.searchbox.live.frame.IntentData;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.cj0;
+import com.baidu.tieba.lj0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,14 +38,14 @@ public abstract class AbsComponentPlugin implements IComponentPlugin {
     }
 
     @Override // com.baidu.nadcore.component.api.IComponentPlugin
-    public void g() {
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
         }
     }
 
     @Override // com.baidu.nadcore.component.api.IComponentPlugin
-    public void o(cj0 event) {
+    public void o(lj0 event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, event) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
@@ -135,7 +135,7 @@ public abstract class AbsComponentPlugin implements IComponentPlugin {
     }
 
     @Override // com.baidu.nadcore.component.api.IComponentPlugin
-    public void v() {
+    public void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
         }
@@ -184,7 +184,7 @@ public abstract class AbsComponentPlugin implements IComponentPlugin {
     public final Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             Context context = this.a;
             if (context == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("context");

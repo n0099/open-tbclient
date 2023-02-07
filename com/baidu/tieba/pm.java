@@ -1,60 +1,97 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
+import com.baidu.searchbox.pms.callback.PackageCallback;
+import com.baidu.searchbox.pms.init.RequestParams;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class pm {
+public class pm extends RequestParams.Channel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        String str2;
-        String str3;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pm() {
+        super("137", true, (PackageCallback) new tm(null));
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return "";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], ((Boolean) objArr[1]).booleanValue(), (PackageCallback) objArr[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (str.contains(".so")) {
-                String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-                StringBuilder sb = new StringBuilder();
-                if (oi.a()) {
-                    str3 = "so_64_cache";
-                } else {
-                    str3 = "so_cache";
-                }
-                sb.append(str3);
-                sb.append(File.separator);
-                sb.append(split[0]);
-                str2 = sb.toString();
-            } else if (str.contains(".mp3")) {
-                str2 = "mp3_cache";
-            } else if (str.contains(DefaultHlsExtractorFactory.MP4_FILE_EXTENSION)) {
-                str2 = "mp4_cache";
-            } else {
-                str2 = "res_cache";
-            }
-            return BdBaseApplication.getInst().getFilesDir() + File.separator + str2;
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pm(String str, DefaultDownloadCallback defaultDownloadCallback) {
+        super("137", str, new tm(defaultDownloadCallback));
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return "";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, defaultDownloadCallback};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1], (PackageCallback) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return a(str) + File.separator + str;
         }
-        return (String) invokeL.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pm(String str, DefaultDownloadCallback defaultDownloadCallback, vm vmVar) {
+        super("137", str, new tm(defaultDownloadCallback, vmVar));
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, defaultDownloadCallback, vmVar};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1], (PackageCallback) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pm(List<String> list, DefaultDownloadCallback defaultDownloadCallback) {
+        super("137", list, new tm(defaultDownloadCallback));
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list, defaultDownloadCallback};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (List) objArr2[1], (PackageCallback) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
     }
 }

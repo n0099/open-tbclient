@@ -9,8 +9,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
 import com.baidu.tbadk.coreExtra.data.AccessState;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.mc9;
-import com.baidu.tieba.nc9;
+import com.baidu.tieba.mg9;
+import com.baidu.tieba.ng9;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -29,8 +29,8 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     public static final String j;
     public static final String k;
     public transient /* synthetic */ FieldHolder $fh;
-    public nc9 a;
-    public mc9 b;
+    public ng9 a;
+    public mg9 b;
     public NewWriteModel c;
     public AccessState d;
     public WriteData e;
@@ -117,7 +117,7 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new nc9(this);
+            this.a = new ng9(this);
             Intent intent = getIntent();
             if (intent == null) {
                 return;
@@ -136,11 +136,11 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
                     } else {
                         z = false;
                     }
-                    newWriteModel2.f0(z);
+                    newWriteModel2.c0(z);
                 }
-                mc9 mc9Var = new mc9(this.a, this.c);
-                this.b = mc9Var;
-                this.a.l(mc9Var);
+                mg9 mg9Var = new mg9(this.a, this.c);
+                this.b = mg9Var;
+                this.a.l(mg9Var);
                 this.b.h(w1());
                 return;
             }

@@ -26,7 +26,7 @@ public final class r {
         ValueAnimator a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, adTemplate, view2, detailVideoView)) == null) {
-            if (detailVideoView == null || (a = detailVideoView.a(adTemplate, (int) (detailVideoView.getHeight() - detailVideoView.getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f07038f)), (ValueAnimator.AnimatorUpdateListener) null)) == null) {
+            if (detailVideoView == null || (a = detailVideoView.a(adTemplate, (int) (detailVideoView.getHeight() - detailVideoView.getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070391)), (ValueAnimator.AnimatorUpdateListener) null)) == null) {
                 return null;
             }
             Animator q = q(view2);
@@ -69,7 +69,7 @@ public final class r {
             if (view2 == null || view2.getHeight() == 0) {
                 return null;
             }
-            return ObjectAnimator.ofFloat(view2, Key.TRANSLATION_Y, view2.getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f07038e));
+            return ObjectAnimator.ofFloat(view2, Key.TRANSLATION_Y, view2.getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070390));
         }
         return (Animator) invokeL.objValue;
     }

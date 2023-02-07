@@ -1,74 +1,37 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
-import android.content.Context;
-import android.content.ContextWrapper;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public final class d76 {
+public class d76 {
     public static /* synthetic */ Interceptable $ic;
-    public static Application a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Activity a(Context context) {
-        InterceptResult invokeL;
+    public d76() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (context instanceof Activity) {
-                return (Activity) context;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            while (context instanceof ContextWrapper) {
-                if (context instanceof Activity) {
-                    return (Activity) context;
-                }
-                context = ((ContextWrapper) context).getBaseContext();
-            }
-            return null;
-        }
-        return (Activity) invokeL.objValue;
-    }
-
-    public static void b(Application application) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, application) == null) {
-            a = application;
         }
     }
 
-    public static boolean c() {
-        InterceptResult invokeV;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            try {
-                ConnectivityManager connectivityManager = (ConnectivityManager) a.getSystemService("connectivity");
-                if (connectivityManager != null) {
-                    NetworkInfo[] allNetworkInfo = connectivityManager.getAllNetworkInfo();
-                    if (allNetworkInfo.length > 0) {
-                        for (NetworkInfo networkInfo : allNetworkInfo) {
-                            if (networkInfo.getState() == NetworkInfo.State.CONNECTED) {
-                                return true;
-                            }
-                        }
-                    }
-                }
-            } catch (Exception unused) {
-            }
-            return false;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return invokeV.booleanValue;
-    }
-
-    public static Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return a;
+        try {
+            jSONObject.optInt("video_count");
+        } catch (Exception unused) {
         }
-        return (Context) invokeV.objValue;
     }
 }

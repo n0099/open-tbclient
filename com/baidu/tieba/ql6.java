@@ -1,70 +1,139 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.forumMember.member.FrsEmpertyItemViewHolder;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import tbclient.GeneralResource;
+import tbclient.HotUserRankEntry;
+import tbclient.Tabfeedlist.DataRes;
+import tbclient.ThreadInfo;
 /* loaded from: classes6.dex */
-public class ql6 extends pn6<sn6, FrsEmpertyItemViewHolder> {
+public class ql6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<Cdo> a;
+    public ArrayList<nz4> b;
+    public hz4 c;
+    public sl6 d;
+    public boolean e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ql6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext, bdUniqueId);
+    public ql6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: E */
-    public FrsEmpertyItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    /* renamed from: a */
+    public ql6 clone() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            return new FrsEmpertyItemViewHolder(new View(this.mContext));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ql6 ql6Var = new ql6();
+            ql6Var.a = this.a;
+            ql6Var.b = this.b;
+            ql6Var.c = this.c;
+            ql6Var.d = this.d;
+            ql6Var.e = this.e;
+            return ql6Var;
         }
-        return (FrsEmpertyItemViewHolder) invokeL.objValue;
+        return (ql6) invokeV.objValue;
     }
 
-    public View F(int i, View view2, ViewGroup viewGroup, sn6 sn6Var, FrsEmpertyItemViewHolder frsEmpertyItemViewHolder) {
-        InterceptResult invokeCommon;
+    public sl6 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, sn6Var, frsEmpertyItemViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) sn6Var, (sn6) frsEmpertyItemViewHolder);
-            frsEmpertyItemViewHolder.b(sn6Var.b());
-            frsEmpertyItemViewHolder.a(sn6Var.a());
-            return view2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
         }
-        return (View) invokeCommon.objValue;
+        return (sl6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pn6, com.baidu.tieba.ln
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        F(i, view2, viewGroup, (sn6) obj, (FrsEmpertyItemViewHolder) viewHolder);
-        return view2;
+    public hz4 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (hz4) invokeV.objValue;
+    }
+
+    public ArrayList<nz4> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public ArrayList<Cdo> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void g(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, dataRes) != null) || dataRes == null) {
+            return;
+        }
+        this.a = new ArrayList<>(ListUtils.getCount(dataRes.thread_list));
+        for (ThreadInfo threadInfo : dataRes.thread_list) {
+            ThreadData threadData = new ThreadData();
+            threadData.parserProtobuf(threadInfo);
+            threadData.insertItemToTitleOrAbstractText();
+            this.a.add(threadData);
+        }
+        this.b = new ArrayList<>();
+        if (!ListUtils.isEmpty(dataRes.resource_list)) {
+            for (GeneralResource generalResource : dataRes.resource_list) {
+                nz4 nz4Var = new nz4();
+                nz4Var.c(generalResource);
+                this.b.add(nz4Var);
+            }
+        }
+        hz4 hz4Var = new hz4();
+        this.c = hz4Var;
+        hz4Var.i(dataRes.recommend_forum_info);
+        if (dataRes.hot_userrank_entry != null) {
+            sl6 sl6Var = new sl6();
+            this.d = sl6Var;
+            HotUserRankEntry hotUserRankEntry = dataRes.hot_userrank_entry;
+            sl6Var.a = hotUserRankEntry.hot_user;
+            sl6Var.b = hotUserRankEntry.module_name;
+            sl6Var.c = hotUserRankEntry.module_icon;
+        }
+        boolean z = true;
+        if (dataRes.is_new_url.intValue() != 1) {
+            z = false;
+        }
+        this.e = z;
     }
 }

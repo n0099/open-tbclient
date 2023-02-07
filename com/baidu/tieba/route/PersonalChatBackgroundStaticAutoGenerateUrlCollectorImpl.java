@@ -36,7 +36,7 @@ public final class PersonalChatBackgroundStaticAutoGenerateUrlCollectorImpl impl
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             HashMap hashMap = new HashMap();
             new ArrayList();
-            hashMap.put("2001011", "com.baidu.tieba.imMessageCenter.im.chat.PersonalChatBackgroundStatic");
+            hashMap.put("2001011", "com.baidu.tieba.immessagecenter.im.chat.PersonalChatBackgroundStatic");
             return hashMap;
         }
         return (Map) invokeV.objValue;
@@ -48,7 +48,7 @@ public final class PersonalChatBackgroundStaticAutoGenerateUrlCollectorImpl impl
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             HashMap hashMap = new HashMap();
-            hashMap.put("com.baidu.tieba.imMessageCenter.im.chat.PersonalChatBackgroundStatic", new ArrayList());
+            hashMap.put("com.baidu.tieba.immessagecenter.im.chat.PersonalChatBackgroundStatic", new ArrayList());
             return hashMap;
         }
         return (Map) invokeV.objValue;

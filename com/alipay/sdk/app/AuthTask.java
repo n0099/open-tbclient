@@ -168,7 +168,7 @@ public class AuthTask {
             bundle.putString("url", c2[0]);
             Intent intent = new Intent(this.a, H5AuthActivity.class);
             intent.putExtras(bundle);
-            a.C0013a.a(aVar, intent);
+            a.C0012a.a(aVar, intent);
             this.a.startActivity(intent);
             synchronized (c) {
                 try {

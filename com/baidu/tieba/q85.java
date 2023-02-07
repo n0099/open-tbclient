@@ -1,24 +1,83 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.coreExtra.data.ChannelIconConfigFinalData;
+import com.baidu.tbadk.coreExtra.message.ChannelConfigResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class q85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final View a;
-    public View b;
+    public w65 a;
+    public b b;
+    public int c;
+    public int d;
+    public ChannelIconConfigFinalData e;
+    public HttpMessageListener f;
 
-    public q85(View view2) {
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(boolean z, w65 w65Var);
+    }
+
+    /* loaded from: classes5.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ q85 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(q85 q85Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q85Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = q85Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof ChannelConfigResponseMessage)) {
+                ChannelConfigResponseMessage channelConfigResponseMessage = (ChannelConfigResponseMessage) httpResponsedMessage;
+                this.a.a = channelConfigResponseMessage.getData();
+                if (this.a.b != null) {
+                    this.a.b.a(channelConfigResponseMessage.isSuccess(), channelConfigResponseMessage.getData());
+                }
+                if (channelConfigResponseMessage.isSuccess()) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921493, null));
+                }
+            }
+        }
+    }
+
+    public q85() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,27 +87,49 @@ public class q85 {
                 return;
             }
         }
-        this.a = view2;
+        this.f = new a(this, CmdConfigHttp.CMD_GET_CHANNEL_CONFIG);
+        MessageManager.getInstance().registerListener(this.f);
+        this.c = p35.m().n("key_common_category_version", 0);
+        this.d = p35.m().n("key_special_category_version", 0);
     }
 
-    public void a(boolean z) {
+    public ChannelIconConfigFinalData c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            if (!z && this.a.getVisibility() == 4) {
-                this.a.setVisibility(8);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ChannelIconConfigFinalData channelIconConfigFinalData = this.e;
+            if (channelIconConfigFinalData != null) {
+                return channelIconConfigFinalData;
             }
-            if (!z && this.b != null) {
-                b();
-                this.b = null;
+            if (this.a == null) {
+                return null;
             }
+            ChannelIconConfigFinalData channelIconConfigFinalData2 = new ChannelIconConfigFinalData();
+            w65 w65Var = this.a;
+            if (w65Var != null && w65Var.b() != null && this.d < this.a.b().e()) {
+                channelIconConfigFinalData2.setIcon(this.a.b().a());
+                channelIconConfigFinalData2.setPopText(this.a.b().b());
+                channelIconConfigFinalData2.setTabCode(this.a.b().c());
+                channelIconConfigFinalData2.setTid(this.a.b().d());
+                channelIconConfigFinalData2.setChannelConfigDataType(ChannelIconConfigFinalData.FRAG_TIP_SPECIAL);
+            } else {
+                w65 w65Var2 = this.a;
+                if (w65Var2 != null && w65Var2.a() > 0 && this.c < this.a.a()) {
+                    channelIconConfigFinalData2.setChannelConfigDataType(ChannelIconConfigFinalData.FRAG_TIP_COMMON);
+                } else {
+                    channelIconConfigFinalData2.setChannelConfigDataType(ChannelIconConfigFinalData.FRAG_TIP_NONE);
+                }
+            }
+            this.e = channelIconConfigFinalData2;
+            return channelIconConfigFinalData2;
         }
+        return (ChannelIconConfigFinalData) invokeV.objValue;
     }
 
-    public final void b() {
+    public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.setVisibility(4);
-            u85.j(this.b);
+            MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_GET_CHANNEL_CONFIG));
         }
     }
 }

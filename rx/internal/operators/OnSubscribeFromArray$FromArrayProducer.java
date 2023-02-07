@@ -1,29 +1,29 @@
 package rx.internal.operators;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.f9a;
-import com.baidu.tieba.m8a;
-import com.baidu.tieba.q8a;
+import com.baidu.tieba.oda;
+import com.baidu.tieba.vca;
+import com.baidu.tieba.zca;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes9.dex */
-public final class OnSubscribeFromArray$FromArrayProducer<T> extends AtomicLong implements m8a {
+public final class OnSubscribeFromArray$FromArrayProducer<T> extends AtomicLong implements vca {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 3534218984725836979L;
     public transient /* synthetic */ FieldHolder $fh;
     public final T[] array;
-    public final q8a<? super T> child;
+    public final zca<? super T> child;
     public int index;
 
-    public OnSubscribeFromArray$FromArrayProducer(q8a<? super T> q8aVar, T[] tArr) {
+    public OnSubscribeFromArray$FromArrayProducer(zca<? super T> zcaVar, T[] tArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {q8aVar, tArr};
+            Object[] objArr = {zcaVar, tArr};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,41 +33,41 @@ public final class OnSubscribeFromArray$FromArrayProducer<T> extends AtomicLong 
                 return;
             }
         }
-        this.child = q8aVar;
+        this.child = zcaVar;
         this.array = tArr;
     }
 
     public void fastPath() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            q8a<? super T> q8aVar = this.child;
+            zca<? super T> zcaVar = this.child;
             for (T t : this.array) {
                 Object obj = (Object) t;
-                if (q8aVar.isUnsubscribed()) {
+                if (zcaVar.isUnsubscribed()) {
                     return;
                 }
-                q8aVar.onNext(obj);
+                zcaVar.onNext(obj);
             }
-            if (q8aVar.isUnsubscribed()) {
+            if (zcaVar.isUnsubscribed()) {
                 return;
             }
-            q8aVar.onCompleted();
+            zcaVar.onCompleted();
         }
     }
 
-    @Override // com.baidu.tieba.m8a
+    @Override // com.baidu.tieba.vca
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             if (i >= 0) {
                 if (j == Long.MAX_VALUE) {
-                    if (f9a.b(this, j) == 0) {
+                    if (oda.b(this, j) == 0) {
                         fastPath();
                         return;
                     }
                     return;
-                } else if (i != 0 && f9a.b(this, j) == 0) {
+                } else if (i != 0 && oda.b(this, j) == 0) {
                     slowPath(j);
                     return;
                 } else {
@@ -81,7 +81,7 @@ public final class OnSubscribeFromArray$FromArrayProducer<T> extends AtomicLong 
     public void slowPath(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            q8a<? super T> q8aVar = this.child;
+            zca<? super T> zcaVar = this.child;
             T[] tArr = this.array;
             int length = tArr.length;
             int i = this.index;
@@ -89,14 +89,14 @@ public final class OnSubscribeFromArray$FromArrayProducer<T> extends AtomicLong 
                 long j2 = 0;
                 while (true) {
                     if (j != 0 && i != length) {
-                        if (q8aVar.isUnsubscribed()) {
+                        if (zcaVar.isUnsubscribed()) {
                             return;
                         }
-                        q8aVar.onNext((Object) tArr[i]);
+                        zcaVar.onNext((Object) tArr[i]);
                         i++;
                         if (i == length) {
-                            if (!q8aVar.isUnsubscribed()) {
-                                q8aVar.onCompleted();
+                            if (!zcaVar.isUnsubscribed()) {
+                                zcaVar.onCompleted();
                                 return;
                             }
                             return;

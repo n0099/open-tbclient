@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.AsyncTask;
-import com.baidu.android.common.others.lang.StringUtil;
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,22 +11,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.lang.ref.WeakReference;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.IOException;
+import java.util.Objects;
 /* loaded from: classes6.dex */
-public class uf0 extends xf0 {
+public class uf0 {
     public static /* synthetic */ Interceptable $ic;
-    public static JSONObject h;
     public transient /* synthetic */ FieldHolder $fh;
-    public wf0 c;
-    public WeakReference<Context> d;
-    public String e;
-    public File f;
-    public boolean g;
+    public File a;
+    public File b;
+    public File c;
+    public volatile boolean d;
 
     /* loaded from: classes6.dex */
-    public class a extends AsyncTask<Void, Void, Boolean> {
+    public class a extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ uf0 a;
@@ -48,133 +46,230 @@ public class uf0 extends xf0 {
             this.a = uf0Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.AsyncTask
-        /* renamed from: b */
-        public void onPostExecute(Boolean bool) {
-            int i;
+        @Override // java.lang.Thread, java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
-                super.onPostExecute(bool);
-                uf0 uf0Var = this.a;
-                if (bool.booleanValue()) {
-                    i = 2;
-                } else {
-                    i = 3;
-                }
-                uf0Var.d(i);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.AsyncTask
-        /* renamed from: a */
-        public Boolean doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                if (uf0.h == null) {
-                    uf0.h = new JSONObject();
-                }
-                if (this.a.f == null) {
-                    try {
-                        uf0.h.put("sdcardPath", StringUtil.NULL_STRING);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                    return Boolean.FALSE;
-                } else if (!this.a.g && this.a.m()) {
-                    try {
-                        uf0.h.put("exist", true);
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
-                    }
-                    return Boolean.TRUE;
-                } else {
-                    if (!this.a.f.isDirectory()) {
-                        try {
-                            uf0.h.put("file-del", true);
-                        } catch (JSONException e3) {
-                            e3.printStackTrace();
-                        }
-                        this.a.f.delete();
-                    }
-                    File file = new File(this.a.f.getAbsoluteFile() + ".loading");
-                    boolean a = this.a.c.a(this.a.e, file);
-                    if (a) {
-                        try {
-                            uf0.h.put("assetsToSD", true);
-                        } catch (JSONException e4) {
-                            e4.printStackTrace();
-                        }
-                        a = file.renameTo(this.a.f);
-                    }
-                    if (!a) {
-                        try {
-                            uf0.h.put("renameTo-del", true);
-                        } catch (JSONException e5) {
-                            e5.printStackTrace();
-                        }
-                        yf0.b(file);
-                        if (this.a.f.exists()) {
-                            yf0.b(this.a.f);
-                        }
-                    }
-                    try {
-                        uf0.h.put("result", a);
-                    } catch (JSONException e6) {
-                        e6.printStackTrace();
-                    }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                super.run();
+                this.a.g();
+                synchronized (this.a) {
+                    this.a.d = false;
                     if (this.a.l()) {
-                        cg0.a("ARSourceCopyManager", "sdk exist + " + uf0.h.toString());
+                        this.a.j("cleanCacehAsync finish.");
                     }
-                    return Boolean.valueOf(a);
                 }
             }
-            return (Boolean) invokeL.objValue;
         }
     }
 
-    public uf0() {
+    @SuppressLint({"NewApi"})
+    public uf0(File file) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {file};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.d = false;
+        this.a = (File) Objects.requireNonNull(file);
+        if (l()) {
+            j("create " + file.getAbsolutePath());
+        }
+        this.b = new File(this.a, ".property/lockers");
+        this.c = new File(this.a, ".property/holders");
+    }
+
+    public String e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            String str2 = str + ".locker." + System.currentTimeMillis();
+            File file = new File(this.b, str2);
+            if (!file.exists()) {
+                if (!this.b.exists()) {
+                    this.b.mkdirs();
+                }
+                try {
+                    file.createNewFile();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (l()) {
+                j(file.exists() + " to addLocker , " + file.getAbsolutePath());
+            }
+            return str2;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void h(String str) {
+        String[] list;
+        File file;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (list = this.b.list()) != null && list.length != 0) {
+            String str2 = str + ".locker.";
+            for (String str3 : list) {
+                if (str3 != null && str3.startsWith(str2)) {
+                    eg0.e(new File(this.b, str3));
+                    if (l()) {
+                        j("cleanLockerTag , " + file.getAbsolutePath());
+                    }
+                }
             }
         }
     }
 
-    private Context getContext() {
-        InterceptResult invokeV;
+    public final void j(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            WeakReference<Context> weakReference = this.d;
-            if (weakReference != null) {
-                return weakReference.get();
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            Log.d("DuAr_sharedFM", str);
         }
-        return (Context) invokeV.objValue;
     }
 
-    public final void k() {
+    public void d(String str, File file) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = new wf0(getContext());
-            new a(this).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, null);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, file) == null) && !TextUtils.isEmpty(str) && file != null) {
+            File file2 = new File(this.c, file.getName());
+            if (!file2.exists()) {
+                file2.mkdirs();
+            }
+            File file3 = new File(file2, str + ".holder");
+            if (!file3.exists()) {
+                try {
+                    file3.createNewFile();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (l()) {
+                j(file3.exists() + " addChildHolder , " + file3.getAbsolutePath());
+            }
         }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (this.d) {
+                if (l()) {
+                    j("cleanCacehAsync isCleaning... ");
+                    return;
+                }
+                return;
+            }
+            synchronized (this) {
+                if (this.d) {
+                    if (l()) {
+                        j("cleanCacehAsync isCleaning... ");
+                    }
+                    return;
+                }
+                this.d = true;
+                new a(this).start();
+            }
+        }
+    }
+
+    public void g() {
+        File[] listFiles;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (listFiles = this.a.listFiles()) == null || listFiles.length == 0 || m()) {
+            return;
+        }
+        for (File file : listFiles) {
+            if (!TextUtils.equals(".property", file.getName()) && !k(file)) {
+                eg0.e(file);
+                if (l()) {
+                    j("cleanCache , " + file.getAbsolutePath());
+                }
+            }
+        }
+    }
+
+    public void i(String str, File file) {
+        String str2;
+        File file2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, file) == null) {
+            File[] listFiles = this.c.listFiles();
+            String str3 = str + ".holder";
+            if (file != null) {
+                str2 = file.getName();
+                d(str, file);
+            } else {
+                str2 = null;
+            }
+            if (listFiles != null && listFiles.length != 0) {
+                for (File file3 : listFiles) {
+                    if (file3 != null && !TextUtils.equals(file3.getName(), str2)) {
+                        if (!file3.isDirectory()) {
+                            if (file3.getName().endsWith(str3)) {
+                                eg0.e(file3);
+                            }
+                        } else {
+                            String[] list = file3.list();
+                            if (list != null && list.length != 0) {
+                                for (String str4 : list) {
+                                    if (str4 != null && str4.endsWith(str3)) {
+                                        eg0.e(new File(file3, str4));
+                                        if (l()) {
+                                            j("clearChildHolderTo , " + file2.getAbsolutePath());
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public boolean k(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, file)) == null) {
+            boolean z = false;
+            if (file == null || !file.exists()) {
+                return false;
+            }
+            File file2 = new File(this.c, file.getName());
+            if (!file2.exists()) {
+                return false;
+            }
+            if (file2.isDirectory()) {
+                String[] list = file2.list();
+                if (list != null && list.length > 0) {
+                    z = true;
+                }
+                if (!z) {
+                    eg0.e(file2);
+                    return z;
+                }
+                return z;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     public final boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return ze0.m();
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return ff0.m();
         }
         return invokeV.booleanValue;
     }
@@ -182,9 +277,9 @@ public class uf0 extends xf0 {
     public boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            File file = this.f;
-            if (file != null && file.isDirectory() && this.f.exists()) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            String[] list = this.b.list();
+            if (list != null && list.length > 0) {
                 return true;
             }
             return false;
@@ -192,41 +287,21 @@ public class uf0 extends xf0 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.xf0
-    public void b() {
-        String str;
+    public void n(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            boolean m = m();
-            JSONObject jSONObject = new JSONObject();
-            h = jSONObject;
-            if (m) {
-                try {
-                    if (af0.a) {
-                        str = "assets";
-                    } else {
-                        str = "soloader";
-                    }
-                    jSONObject.put("type", str);
-                    h.put("exist", m);
-                    h.put("path", this.f);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                if (l()) {
-                    cg0.a("ARSourceCopyManager", "sdk exist + " + h.toString());
-                }
-                d(2);
-            } else if (getContext() != null) {
-                try {
-                    if (l()) {
-                        cg0.a("ARSourceCopyManager", "sdk loading .. to " + this.f.getAbsoluteFile());
-                    }
-                    k();
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-            }
+        if ((interceptable != null && interceptable.invokeL(1048586, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        File file = new File(this.b, str);
+        if (file.exists()) {
+            eg0.e(file);
+        }
+        if (l()) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(!file.exists());
+            sb.append(" to removeLocker , ");
+            sb.append(file.getAbsolutePath());
+            j(sb.toString());
         }
     }
 }

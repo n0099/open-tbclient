@@ -920,7 +920,7 @@ public class e {
                 int i4 = bundle.getInt(com.alipay.sdk.data.a.O, 20);
                 BinderHolder binderHolder = (BinderHolder) bundle.getParcelable("binderHolder");
                 if (binderHolder != null && (iBinder = binderHolder.a) != null) {
-                    c cVar = new c(a.AbstractBinderC0177a.a(iBinder));
+                    c cVar = new c(a.AbstractBinderC0179a.a(iBinder));
                     synchronized (e.class) {
                         try {
                             if (d.e == null) {

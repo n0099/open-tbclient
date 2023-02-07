@@ -35,10 +35,10 @@ public class dp {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, bArr)) == null) {
-            byte[] m217a = bm.m217a(str);
+            byte[] m219a = bm.m219a(str);
             try {
-                a(m217a);
-                return i.a(m217a, bArr);
+                a(m219a);
+                return i.a(m219a, bArr);
             } catch (Exception unused) {
                 return null;
             }
@@ -50,10 +50,10 @@ public class dp {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, bArr)) == null) {
-            byte[] m217a = bm.m217a(str);
+            byte[] m219a = bm.m219a(str);
             try {
-                a(m217a);
-                return i.b(m217a, bArr);
+                a(m219a);
+                return i.b(m219a, bArr);
             } catch (Exception unused) {
                 return null;
             }

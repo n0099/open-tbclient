@@ -1,219 +1,147 @@
 package com.baidu.tieba;
 
-import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.guide.BuildException;
-import com.baidu.adp.lib.guide.Configuration;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.security.InvalidParameterException;
 /* loaded from: classes6.dex */
 public class rf {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Configuration a;
-    public boolean b;
-    public List<pf> c;
-    public a d;
+    public int a;
+    public String[] b;
+    public int c;
+    public String d;
+    public a e;
+    public int f;
+    public String[] g;
+    public boolean h;
 
     /* loaded from: classes6.dex */
     public interface a {
-        void onDismiss();
-
-        void onShown();
+        void a(String str, int i, boolean z);
     }
 
-    public rf() {
+    public rf(String str, int i, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), aVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new ArrayList();
-        this.a = new Configuration();
-    }
-
-    public rf a(pf pfVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pfVar)) == null) {
-            if (!this.b) {
-                this.c.add(pfVar);
-                return this;
-            }
-            throw new BuildException("Already created, rebuild a new one.");
+        this.a = 0;
+        this.b = null;
+        this.c = 0;
+        this.d = null;
+        this.e = null;
+        this.f = 0;
+        this.g = null;
+        this.h = false;
+        if (str != null) {
+            this.d = str;
+            this.e = aVar;
+            this.f = i;
+            return;
         }
-        return (rf) invokeL.objValue;
+        throw new InvalidParameterException("SwitchData name is null");
     }
 
-    public rf c(int i) {
-        InterceptResult invokeI;
+    public void a(int i, boolean z) {
+        a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            if (!this.b) {
-                if (i >= 0 && i <= 255) {
-                    this.a.mAlpha = i;
-                    return this;
-                }
-                throw new BuildException("Illegal alpha value, should between [0-255]");
-            }
-            throw new BuildException("Already created. rebuild a new one.");
+        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) && (aVar = this.e) != null) {
+            aVar.a(this.d, i, z);
         }
-        return (rf) invokeI.objValue;
     }
 
-    public rf d(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            if (!this.b) {
-                this.a.mAutoDismiss = z;
-                return this;
-            }
-            throw new BuildException("Already created, rebuild a new one.");
-        }
-        return (rf) invokeZ.objValue;
-    }
-
-    public rf e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            if (!this.b) {
-                if (i > 0) {
-                    this.a.mEnterAnimationId = i;
-                    return this;
-                }
-                throw new BuildException("Illegal animation resource id.");
-            }
-            throw new BuildException("Already created. rebuild a new one.");
-        }
-        return (rf) invokeI.objValue;
-    }
-
-    public rf f(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            if (!this.b) {
-                if (i > 0) {
-                    this.a.mExitAnimationId = i;
-                    return this;
-                }
-                throw new BuildException("Illegal animation resource id.");
-            }
-            throw new BuildException("Already created. rebuild a new one.");
-        }
-        return (rf) invokeI.objValue;
-    }
-
-    public rf g(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-            if (!this.b) {
-                this.a.mKeyBackEventDismiss = z;
-                return this;
-            }
-            throw new BuildException("Already created, rebuild a new one.");
-        }
-        return (rf) invokeZ.objValue;
-    }
-
-    public rf h(a aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, aVar)) == null) {
-            if (!this.b) {
-                this.d = aVar;
-                return this;
-            }
-            throw new BuildException("Already created, rebuild a new one.");
-        }
-        return (rf) invokeL.objValue;
-    }
-
-    public rf i(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
-            this.a.mOutsideTouchable = z;
-            return this;
-        }
-        return (rf) invokeZ.objValue;
-    }
-
-    public rf j(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
-            if (!this.b) {
-                this.a.mOverlayTarget = z;
-                return this;
-            }
-            throw new BuildException("Already created, rebuild a new one.");
-        }
-        return (rf) invokeZ.objValue;
-    }
-
-    public rf k(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, view2)) == null) {
-            if (!this.b) {
-                if (view2 != null) {
-                    this.a.mTargetView = view2;
-                    return this;
-                }
-                throw new BuildException("Illegal view.");
-            }
-            throw new BuildException("Already created. rebuild a new one.");
-        }
-        return (rf) invokeL.objValue;
-    }
-
-    public rf l(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
-            if (!this.b) {
-                if (i > 0) {
-                    this.a.mTargetViewId = i;
-                    return this;
-                }
-                throw new BuildException("Illegal view id.");
-            }
-            throw new BuildException("Already created. rebuild a new one.");
-        }
-        return (rf) invokeI.objValue;
-    }
-
-    public qf b() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            qf qfVar = new qf();
-            qfVar.i((pf[]) this.c.toArray(new pf[this.c.size()]));
-            qfVar.j(this.a);
-            qfVar.h(this.d);
-            this.c = null;
-            this.a = null;
-            this.d = null;
-            this.b = true;
-            return qfVar;
+            return this.f;
         }
-        return (qf) invokeV.objValue;
+        return invokeV.intValue;
+    }
+
+    public String[] c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (String[]) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public String[] g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.g;
+        }
+        return (String[]) invokeV.objValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.h;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void i(int i, String[] strArr, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), strArr, Integer.valueOf(i2)}) == null) {
+            this.a = i;
+            this.b = strArr;
+            this.c = i2;
+        }
+    }
+
+    public void j(String[] strArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, strArr) == null) {
+            this.g = strArr;
+        }
     }
 }

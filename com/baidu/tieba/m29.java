@@ -1,181 +1,109 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.DialogInterface;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
+import android.database.Cursor;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
-import com.baidu.tbadk.data.IconPopData;
-import com.baidu.tieba.mw4;
-import com.baidu.tieba.tblauncher.MainTabActivity;
-import com.baidu.tieba.yu8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Date;
 /* loaded from: classes5.dex */
-public class m29 extends mw4 {
+public class m29 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity c;
-    public final wz8 d;
-    public IconPopData e;
-    public xv4 f;
 
-    /* loaded from: classes5.dex */
-    public class a implements yu8.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m29 a;
+    public static void a() {
+        fa mainDBDatabaseManager;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65536, null) == null) && (mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager()) != null) {
+            mainDBDatabaseManager.d("CREATE TABLE IF NOT EXISTS video_block_upload_data('md5' text,'last_upload_id' text ,'last_upload_success_index' integer,'account' text,'time' long)");
+        }
+    }
 
-        public a(m29 m29Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m29Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            BdLog.e("deleteVieoChunkUploadData Called");
+            if (TbadkCoreApplication.getCurrentAccount() == null) {
+                return;
+            }
+            fa mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            if (str != null && mainDBDatabaseManager != null) {
+                mainDBDatabaseManager.e("delete from video_block_upload_data where md5=? and account=?", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
+            }
+        }
+    }
+
+    public static n29 c(String str) {
+        InterceptResult invokeL;
+        n29 n29Var;
+        Exception e;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            Cursor cursor2 = null;
+            n29 n29Var2 = null;
+            if (TbadkCoreApplication.getCurrentAccount() == null || StringUtils.isNull(str)) {
+                return null;
+            }
+            fa mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            try {
+                cursor = mainDBDatabaseManager.j("select * from video_block_upload_data where md5=? and account=? and strftime('%s','now') - time < 48 * 3600", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
+                try {
+                    try {
+                        if (cursor.moveToFirst()) {
+                            n29Var = new n29();
+                            try {
+                                n29Var.a = cursor.getString(cursor.getColumnIndex("last_upload_id"));
+                                n29Var.b = cursor.getInt(cursor.getColumnIndex("last_upload_success_index"));
+                                n29Var2 = n29Var;
+                            } catch (Exception e2) {
+                                e = e2;
+                                mainDBDatabaseManager.i(e, "getChunkUploadDataByMd5");
+                                ch.a(cursor);
+                                return n29Var;
+                            }
+                        }
+                        ch.a(cursor);
+                        return n29Var2;
+                    } catch (Exception e3) {
+                        n29Var = null;
+                        e = e3;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    cursor2 = cursor;
+                    ch.a(cursor2);
+                    throw th;
                 }
+            } catch (Exception e4) {
+                n29Var = null;
+                e = e4;
+                cursor = null;
+            } catch (Throwable th2) {
+                th = th2;
+                ch.a(cursor2);
+                throw th;
             }
-            this.a = m29Var;
-        }
-
-        @Override // com.baidu.tieba.yu8.c
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.c();
-            }
-        }
-
-        @Override // com.baidu.tieba.yu8.c
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.c();
-            }
-        }
-
-        @Override // com.baidu.tieba.yu8.c
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.a.c();
-            }
+        } else {
+            return (n29) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements DialogInterface.OnDismissListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m29 a;
-
-        public b(m29 m29Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m29Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = m29Var;
-        }
-
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                tw4.u("userIcon");
-                this.a.c();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public m29(MainTabActivity mainTabActivity, wz8 wz8Var) {
-        super(mainTabActivity);
+    public static boolean d(String str, String str2, int i) {
+        InterceptResult invokeLLI;
+        fa mainDBDatabaseManager;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, wz8Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Activity) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, str, str2, i)) == null) {
+            if (TbadkCoreApplication.getCurrentAccount() == null || (mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager()) == null) {
+                return false;
             }
+            Date date = new Date();
+            mainDBDatabaseManager.e("delete from video_block_upload_data where md5=? and account=?", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
+            return mainDBDatabaseManager.e("Insert into video_block_upload_data(md5,last_upload_id,last_upload_success_index,account,time) values(?,?,?,?,?)", new Object[]{str, str2, Integer.valueOf(i), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
         }
-        this.c = mainTabActivity;
-        this.d = wz8Var;
-    }
-
-    @Override // com.baidu.tieba.mw4
-    public void b() {
-        xv4 xv4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (xv4Var = this.f) != null) {
-            xv4Var.a();
-        }
-    }
-
-    @Override // com.baidu.tieba.mw4
-    public void d(mw4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            if (tw4.l() && aVar != null) {
-                aVar.a(false);
-                return;
-            }
-            wz8 wz8Var = this.d;
-            if ((wz8Var == null || wz8Var.y() == null || (this.d.y().getCurrentTabType() != 2 && this.d.y().getCurrentTabType() != 1 && this.d.y().getCurrentTabType() != 3)) && aVar != null) {
-                aVar.a(false);
-                return;
-            }
-            IconPopData iconPopData = TbSingleton.getInstance().getIconPopData();
-            this.e = iconPopData;
-            if (iconPopData != null && PollingModel.k0() && this.e.getPic160() != null && this.e.getTitle() != null && this.c.i1() && this.c.D && this.e.getUid().longValue() == TbadkCoreApplication.getCurrentAccountId() && aVar != null) {
-                aVar.a(true);
-            } else if (aVar != null) {
-                aVar.a(false);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.mw4
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.e == null) {
-                this.e = TbSingleton.getInstance().getIconPopData();
-            }
-            if (!PollingModel.k0()) {
-                c();
-                return;
-            }
-            yu8 yu8Var = new yu8();
-            yu8Var.e(new a(this));
-            yu8Var.f(new b(this));
-            this.f = yu8Var.d(this.e);
-            tw4.o("userIcon");
-        }
+        return invokeLLI.booleanValue;
     }
 }

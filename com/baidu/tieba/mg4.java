@@ -1,29 +1,41 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.fi4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
-import org.json.JSONArray;
+import java.util.HashMap;
+import java.util.Iterator;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class mg4 {
+public class mg4 implements fi4.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final Set<String> b;
+    public final lg4 a;
 
-    public mg4(String str, Set<String> set) {
+    @Override // com.baidu.tieba.fi4.a
+    public void b(String str, String str2, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, jSONObject) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.fi4.a
+    public void onStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    public mg4(@Nullable lg4 lg4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, set};
+            Object[] objArr = {lg4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,48 +45,41 @@ public class mg4 {
                 return;
             }
         }
-        this.a = str;
-        this.b = set;
+        this.a = lg4Var;
     }
 
-    public static mg4 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        JSONObject optJSONObject;
-        JSONArray optJSONArray;
+    @Override // com.baidu.tieba.fi4.a
+    public void onFail(Exception exc) {
+        lg4 lg4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null || (optJSONArray = optJSONObject.optJSONArray("appkeys")) == null) {
-                return null;
-            }
-            String optString = jSONObject.optString("version");
-            HashSet hashSet = new HashSet();
-            int length = optJSONArray.length();
-            for (int i = 0; i < length; i++) {
-                String optString2 = optJSONArray.optString(i);
-                if (!TextUtils.isEmpty(optString2)) {
-                    hashSet.add(optString2);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) && (lg4Var = this.a) != null) {
+            lg4Var.onFail(exc);
+        }
+    }
+
+    @Override // com.baidu.tieba.fi4.a
+    public void c(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i) == null) {
+            try {
+                HashMap hashMap = new HashMap();
+                JSONObject optJSONObject = new JSONObject(str).optJSONObject("data");
+                Iterator<String> keys = optJSONObject.keys();
+                while (keys.hasNext()) {
+                    JSONObject optJSONObject2 = optJSONObject.optJSONObject(keys.next());
+                    if (optJSONObject2 != null) {
+                        hashMap.put(optJSONObject2.optString("appkey"), optJSONObject2.optString("openbundleid"));
+                    }
+                }
+                if (this.a != null) {
+                    this.a.a(hashMap);
+                }
+            } catch (Exception e) {
+                lg4 lg4Var = this.a;
+                if (lg4Var != null) {
+                    lg4Var.onFail(e);
                 }
             }
-            return new mg4(optString, hashSet);
         }
-        return (mg4) invokeL.objValue;
-    }
-
-    public Set<String> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (Set) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
     }
 }

@@ -1,49 +1,49 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.NewHottopic.TimeLineInfo;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.MoreTreasureTrove.DataRes;
+import tbclient.MoreTreasureTrove.MoreTreasureTroveResIdl;
+import tbclient.ThreadInfo;
 /* loaded from: classes4.dex */
 public class fc7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public String c;
-    public String d;
-    public String e;
-    public int f;
 
-    public fc7() {
+    public static List<Cdo> a(List<ThreadInfo> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+            if (list == null) {
+                return null;
             }
+            ArrayList arrayList = new ArrayList(list.size());
+            for (ThreadInfo threadInfo : list) {
+                ThreadData threadData = new ThreadData();
+                threadData.parserProtobuf(threadInfo);
+                threadData.isFromLowFlowsPage = true;
+                arrayList.add(threadData);
+            }
+            return ta7.a(arrayList);
         }
+        return (List) invokeL.objValue;
     }
 
-    public void a(TimeLineInfo timeLineInfo) {
-        String str;
+    public static List<Cdo> b(MoreTreasureTroveResIdl moreTreasureTroveResIdl) {
+        InterceptResult invokeL;
+        DataRes dataRes;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, timeLineInfo) != null) || timeLineInfo == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, moreTreasureTroveResIdl)) == null) {
+            if (moreTreasureTroveResIdl != null && (dataRes = moreTreasureTroveResIdl.data) != null && !ListUtils.isEmpty(dataRes.hot_thread_info)) {
+                return a(moreTreasureTroveResIdl.data.hot_thread_info);
+            }
+            return null;
         }
-        this.b = timeLineInfo.tid.longValue();
-        this.c = timeLineInfo.title;
-        if (yi.isEmpty(timeLineInfo.small_title)) {
-            str = timeLineInfo.show_time;
-        } else {
-            str = timeLineInfo.small_title;
-        }
-        this.d = str;
-        this.e = timeLineInfo.bg_color;
+        return (List) invokeL.objValue;
     }
 }

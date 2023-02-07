@@ -1,32 +1,42 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import androidx.lifecycle.SavedStateHandle;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.searchbox.live.ubc.FlowInfoHelper;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class gy2 {
+public class gy2 extends m42 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final File b;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean A;
+    public fy2 B;
+    public boolean C;
+    public String j;
+    public boolean k;
+    public String l;
+    public String m;
+    public boolean n;
+    public boolean o;
+    public int p;
+    public boolean q;
+    public boolean r;
+    public String s;
+    public String t;
+    public boolean u;
+    public boolean v;
+    public boolean w;
+    public boolean x;
+    public int y;
+    public boolean z;
 
     static {
         InterceptResult invokeClinit;
@@ -41,110 +51,108 @@ public class gy2 {
                 return;
             }
         }
-        a = tk1.a;
-        b = AppRuntime.getAppContext().getExternalCacheDir();
+        boolean z = gp1.a;
     }
 
-    public static String b() {
+    @Override // com.baidu.tieba.m42, com.baidu.tieba.vy2
+    public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b + File.separator + "swan_perf";
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return !TextUtils.isEmpty(this.j);
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static JSONObject a() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gy2() {
+        super("vrvideo", "viewId");
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            JSONObject C = qn2.g0().C();
-            String k = qn2.g0().k();
-            try {
-                jSONObject.put(SetImageWatermarkTypeReqMsg.SWITCH, C);
-                JSONArray jSONArray = null;
-                if (!TextUtils.isEmpty(k)) {
-                    jSONArray = new JSONArray();
-                    for (String str : k.split("-")) {
-                        jSONArray.put(str);
-                    }
-                }
-                jSONObject.put("sid", jSONArray);
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], (String) objArr[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return jSONObject;
         }
-        return (JSONObject) invokeV.objValue;
+        this.j = "";
+        this.k = false;
+        this.l = "";
+        this.m = "0";
+        this.n = false;
+        this.o = false;
+        this.p = 0;
+        this.r = true;
+        this.s = "";
+        this.t = "";
+        this.u = true;
+        this.v = true;
+        this.w = true;
+        this.x = true;
+        this.y = -1;
+        this.z = true;
+        this.A = true;
+        this.B = new fy2();
+        this.C = true;
     }
 
-    public static JSONObject c(List<UbcFlowEvent> list, JSONObject jSONObject) {
+    public static gy2 h(JSONObject jSONObject, @NonNull gy2 gy2Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, list, jSONObject)) == null) {
-            JSONObject jSONObject2 = new JSONObject();
-            JSONArray jSONArray = new JSONArray();
-            for (UbcFlowEvent ubcFlowEvent : list) {
-                if (!ubcFlowEvent.b()) {
-                    try {
-                        JSONObject jSONObject3 = new JSONObject();
-                        jSONObject3.put("id", ubcFlowEvent.a);
-                        jSONObject3.put("time", ubcFlowEvent.g());
-                        jSONObject3.put("value", ubcFlowEvent.j());
-                        jSONArray.put(jSONObject3);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONObject, gy2Var)) == null) {
+            gy2 gy2Var2 = new gy2();
+            if (jSONObject != null) {
+                gy2Var2.e(jSONObject, gy2Var);
+                gy2Var2.j = jSONObject.optString("videoId", gy2Var.j);
+                gy2Var2.n = jSONObject.optBoolean("autoplay", gy2Var.n);
+                gy2Var2.k = jSONObject.optBoolean("muted", gy2Var.k);
+                gy2Var2.m = jSONObject.optString("initialTime", gy2Var.m);
+                gy2Var2.l = jSONObject.optString(NativeConstants.POSTER, gy2Var.l);
+                gy2Var2.p = jSONObject.optInt(CriusAttrConstants.POSITION, gy2Var.p);
+                gy2Var2.q = jSONObject.optBoolean("fullScreen", gy2Var.q);
+                gy2Var2.o = jSONObject.optBoolean("loop", gy2Var.o);
+                gy2Var2.r = jSONObject.optBoolean("controls", gy2Var.r);
+                gy2Var2.s = i(jSONObject.optString("src", gy2Var.s));
+                gy2Var2.A = !eg3.E(jSONObject.optString("src", gy2Var.s));
+                gy2Var2.u = jSONObject.optBoolean("showPlayBtn", gy2Var.u);
+                gy2Var2.v = jSONObject.optBoolean("showMuteBtn", gy2Var.v);
+                gy2Var2.w = jSONObject.optBoolean("showCenterPlayBtn", gy2Var.w);
+                gy2Var2.x = jSONObject.optBoolean("showProgress", gy2Var.x);
+                gy2Var2.z = jSONObject.optBoolean("showFullscreenBtn", gy2Var.z);
+                gy2Var2.t = jSONObject.optString("sanId", gy2Var.t);
+                gy2Var2.B = gy2Var2.B.a(jSONObject.optJSONObject("vrVideoMode"));
+                gy2Var2.C = jSONObject.optBoolean("showNoWifiTip", gy2Var.C);
             }
-            try {
-                jSONObject2.put(FlowInfoHelper.KEY_EVENTLIST, jSONArray);
-                jSONObject2.put(SavedStateHandle.VALUES, jSONObject);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            }
-            return jSONObject2;
+            return gy2Var2;
         }
-        return (JSONObject) invokeLL.objValue;
+        return (gy2) invokeLL.objValue;
     }
 
-    public static void d(List<UbcFlowEvent> list, JSONObject jSONObject) {
-        j43 b0;
-        Map<String, String> t;
+    public static String i(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, list, jSONObject) == null) {
-            if (a) {
-                ij4.b().f();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (eg3.E(str) && w83.M() != null) {
+                return eg3.H(str, w83.M());
             }
-            if (!i03.E() || (b0 = j43.b0()) == null || (t = bi3.t(bi3.o(b0.W().W()))) == null || !TextUtils.equals(t.get("_SwanStartupPerf_"), "1")) {
-                return;
-            }
-            ArrayList arrayList = new ArrayList(list);
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("670", c(arrayList, jSONObject));
-                jSONObject2.put(DI.AB_NAME, a());
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            File file = new File(b, "swan_perf");
-            if (!file.exists() && !file.mkdirs()) {
-                return;
-            }
-            nk4.N(jSONObject2.toString(), new File(file, String.format(Locale.getDefault(), "perf_%s.json", Long.valueOf(System.currentTimeMillis() / 1000))));
+            return str;
         }
+        return (String) invokeL.objValue;
     }
 
-    public static void e(String str) {
+    @Override // com.baidu.tieba.m42
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            File file = new File(b, "swan_stability");
-            if (!nk4.m(file)) {
-                j12.k("StartupPerf", "创建目录失败 path" + file);
-                return;
-            }
-            nk4.N(str, new File(file, String.format(Locale.getDefault(), "stability_%s.json", Long.valueOf(System.currentTimeMillis() / 1000))));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "VideoPlayerParams{mPlayerId='" + this.j + "', mMute=" + this.k + ", mPoster='" + this.l + "', mInitialTime=" + this.m + ", mAutoPlay=" + this.n + ", mShowNoWifiTip=" + this.C + ", mLoop=" + this.o + ", mPos=" + this.p + ", mFullScreen=" + this.q + ", mShowControlPanel=" + this.r + ", mSrc='" + this.s + "', mSanId='" + this.t + "', mShowPlayBtn=" + this.u + ", mShowMuteBtn=" + this.v + ", mShowCenterPlayBtn=" + this.w + ", mShowProgress=" + this.x + ", mDirection=" + this.y + ", mShowFullscreenBtn=" + this.z + ", mIsRemoteFile=" + this.A + ", mVrVideoMode=" + this.B.toString() + '}';
         }
+        return (String) invokeV.objValue;
     }
 }

@@ -13,10 +13,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ie0 extends de0 {
+public class ie0 extends je0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Surface l;
+    public long l;
 
     static {
         InterceptResult invokeClinit;
@@ -43,71 +43,76 @@ public class ie0 extends de0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.l = 0L;
     }
 
-    public Surface k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.l;
-        }
-        return (Surface) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.de0
+    @Override // com.baidu.tieba.je0
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (this.h == 0) {
                 this.h = this.e.presentationTimeUs;
-                de0.j = 0L;
             }
             MediaCodec.BufferInfo bufferInfo = this.e;
             long j = bufferInfo.presentationTimeUs - this.h;
             bufferInfo.presentationTimeUs = j;
-            de0.j = j;
-            yd0.x().V(de0.j / 1000);
+            long j2 = this.l;
+            if (j < j2) {
+                long j3 = j2 + 10000;
+                this.l = j3;
+                bufferInfo.presentationTimeUs = j3;
+            }
+            MediaCodec.BufferInfo bufferInfo2 = this.e;
+            long j4 = bufferInfo2.presentationTimeUs;
+            long j5 = je0.j;
+            if (j4 > j5 + 500000) {
+                long j6 = this.l;
+                if (j5 > j6) {
+                    bufferInfo2.presentationTimeUs = j5 + 5000;
+                } else {
+                    bufferInfo2.presentationTimeUs = j6 + 5000;
+                }
+            }
+            if (je0.j > this.e.presentationTimeUs + 500000) {
+                je0.k = 1200;
+            }
+            this.l = this.e.presentationTimeUs;
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:15:0x0060  */
-    /* JADX WARN: Removed duplicated region for block: B:22:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void l(fe0 fe0Var, ge0 ge0Var) {
-        ee0 ee0Var;
+    public void k(le0 le0Var, me0 me0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, fe0Var, ge0Var) == null) {
-            boolean z = true;
-            if (fe0Var != null && ge0Var != null) {
-                this.c = ge0Var;
-                MediaFormat createVideoFormat = MediaFormat.createVideoFormat(fe0Var.j(), fe0Var.n(), fe0Var.l());
-                createVideoFormat.setInteger("color-format", 2130708361);
-                createVideoFormat.setInteger("bitrate", fe0Var.i());
-                createVideoFormat.setInteger("frame-rate", fe0Var.k());
-                createVideoFormat.setInteger("i-frame-interval", fe0Var.m());
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, le0Var, me0Var) == null) {
+            boolean z = false;
+            if (le0Var != null && me0Var != null) {
+                this.c = me0Var;
+                MediaFormat mediaFormat = new MediaFormat();
+                mediaFormat.setString("mime", le0Var.c());
+                mediaFormat.setInteger("aac-profile", 2);
+                mediaFormat.setInteger("sample-rate", le0Var.e());
+                mediaFormat.setInteger("channel-count", le0Var.b());
+                mediaFormat.setInteger("bitrate", le0Var.a());
+                mediaFormat.setInteger("max-input-size", le0Var.d());
                 try {
-                    MediaCodec createEncoderByType = MediaCodec.createEncoderByType(fe0Var.j());
+                    MediaCodec createEncoderByType = MediaCodec.createEncoderByType(le0Var.c());
                     this.d = createEncoderByType;
-                    createEncoderByType.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
-                    this.l = this.d.createInputSurface();
-                    this.g = true;
+                    createEncoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
+                    if (!le0Var.p()) {
+                        this.g = true;
+                    } else {
+                        this.g = false;
+                    }
+                    z = true;
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                ee0Var = this.f;
-                if (ee0Var == null) {
-                    ee0Var.b(z);
-                    return;
-                }
-                return;
             }
-            z = false;
-            ee0Var = this.f;
-            if (ee0Var == null) {
+            ke0 ke0Var = this.f;
+            if (ke0Var != null) {
+                ke0Var.b(z);
             }
         }
     }

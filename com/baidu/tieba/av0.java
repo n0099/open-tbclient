@@ -1,30 +1,30 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.player.event.LayerEvent;
+import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class av0 implements xu0 {
+public class av0 extends wu0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    @NonNull
-    public yr0 b;
-    public ViewGroup c;
+    public View b;
+    public View c;
+    public View d;
+    public boolean e;
 
-    public av0(@NonNull yr0 yr0Var) {
+    public av0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {yr0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,63 +34,97 @@ public class av0 implements xu0 {
                 return;
             }
         }
-        this.a = -1;
-        this.b = yr0Var;
+        this.e = true;
     }
 
-    @SuppressLint({"SourceLockedOrientationActivity"})
-    public void b(@Nullable Activity activity) {
+    @Override // com.baidu.tieba.xu0
+    @NonNull
+    public View getContentView() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) && activity != null) {
-            a01.b("NormalSwitchHelper", "SCREEN_ORIENTATION_PORTRAIT ");
-            activity.setRequestedOrientation(1);
-            activity.getWindow().clearFlags(1024);
-            c01.l(activity);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.qu0
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.nad_bd_layer_control_bg, (ViewGroup) null);
+            this.b = inflate;
+            this.c = inflate.findViewById(R.id.full_top_shadow);
+            this.d = this.b.findViewById(R.id.full_bottom_shadow);
         }
     }
 
-    public void a(boolean z, @Nullable Activity activity) {
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    @Override // com.baidu.tieba.qu0
+    public void k(@NonNull vv0 vv0Var) {
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048576, this, z, activity) == null) {
-            if (z) {
-                int i = this.a;
-                if (i != -1) {
-                    f41.d(activity, i);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vv0Var) == null) {
+            String c2 = vv0Var.c();
+            switch (c2.hashCode()) {
+                case -1043170264:
+                    if (c2.equals(PlayerEvent.ACTION_PLAYER_ATTACH)) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -552621273:
+                    if (c2.equals(LayerEvent.ACTION_SWITCH_FULL)) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -552580917:
+                    if (c2.equals(LayerEvent.ACTION_SWITCH_HALF)) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -56310521:
+                    if (c2.equals(LayerEvent.ACTION_VIDEO_VIEW_CHANGED)) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
+            }
+            if (c != 0) {
+                if (c == 1 || c == 2 || c == 3) {
+                    this.b.setVisibility(8);
                     return;
                 }
                 return;
             }
-            f41.f(activity);
+            this.b.setVisibility(0);
         }
     }
 
-    @Override // com.baidu.tieba.xu0
-    public void switchToFullStyle() {
+    @Override // com.baidu.tieba.wu0
+    public void s(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.c = this.b.n();
-            this.b.Y0(true);
-            Activity activity = this.b.getActivity();
-            a(true, activity);
-            b01.b(activity, this.b.X0());
-            b01.c(activity, true);
-            c01.b(activity, this.b.v());
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            if (z) {
+                if (this.e) {
+                    this.b.setVisibility(0);
+                    this.c.setVisibility(0);
+                    this.d.setVisibility(0);
+                    return;
+                }
+                this.b.setVisibility(8);
+                return;
+            }
+            this.b.setVisibility(8);
         }
-    }
-
-    @Override // com.baidu.tieba.xu0
-    public void switchToNormalStyle() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.c == null) {
-            return;
-        }
-        this.c = this.b.n();
-        this.b.Y0(false);
-        Activity activity = this.b.getActivity();
-        a(false, activity);
-        b(activity);
-        c01.k(this.b.v());
-        c01.j(this.b.n());
-        c01.c(this.b.v(), this.c);
     }
 }

@@ -1,89 +1,56 @@
 package com.baidu.tieba;
 
-import android.content.res.Configuration;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.splashad.SplashAdView;
+import android.webkit.WebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
 /* loaded from: classes5.dex */
-public class la6 {
+public class la6 extends ka6 {
     public static /* synthetic */ Interceptable $ic;
-    public static la6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<SplashAdView> a;
 
-    public la6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public la6(WebView webView) {
+        super(webView);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {webView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((WebView) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static la6 a() {
-        InterceptResult invokeV;
+    public static void d(WebView webView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                b = new la6();
-            }
-            return b;
-        }
-        return (la6) invokeV.objValue;
-    }
-
-    public void c() {
-        WeakReference<SplashAdView> weakReference;
-        SplashAdView splashAdView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (weakReference = this.a) != null && (splashAdView = weakReference.get()) != null) {
-            splashAdView.a();
+        if (interceptable == null || interceptable.invokeL(65537, null, webView) == null) {
+            webView.setHorizontalScrollBarEnabled(false);
+            webView.setHorizontalScrollbarOverlay(false);
+            new la6(webView).a();
         }
     }
 
-    public void d() {
-        WeakReference<SplashAdView> weakReference;
-        SplashAdView splashAdView;
+    @Override // com.baidu.tieba.ka6
+    public void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (weakReference = this.a) != null && (splashAdView = weakReference.get()) != null) {
-            splashAdView.b();
-        }
-    }
-
-    public void b(Configuration configuration) {
-        WeakReference<SplashAdView> weakReference;
-        SplashAdView splashAdView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, configuration) == null) && (weakReference = this.a) != null && (splashAdView = weakReference.get()) != null) {
-            splashAdView.onConfigurationChanged(configuration);
-        }
-    }
-
-    public void e(BaseFragmentActivity baseFragmentActivity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, baseFragmentActivity) == null) && baseFragmentActivity != null) {
-            try {
-                SplashAdView splashAdView = new SplashAdView(baseFragmentActivity, 1);
-                this.a = new WeakReference<>(splashAdView);
-                ViewGroup viewGroup = (ViewGroup) baseFragmentActivity.findViewById(R.id.layout_root);
-                if (viewGroup != null) {
-                    viewGroup.addView(splashAdView);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.a();
+            c().setJavaScriptEnabled(true);
+            c().setJavaScriptCanOpenWindowsAutomatically(true);
+            c().setAllowFileAccess(true);
+            c().setDatabaseEnabled(true);
+            c().setDomStorageEnabled(true);
+            c().setTextZoom(100);
+            c().setDatabasePath(getContext().getApplicationContext().getDir("databases", 0).getAbsolutePath());
         }
     }
 }

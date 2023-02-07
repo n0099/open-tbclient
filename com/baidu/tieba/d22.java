@@ -1,132 +1,147 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import android.util.Log;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.text.TextPaint;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkItem;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.canvas.view.CanvasView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Stack;
 /* loaded from: classes4.dex */
-public class d22 {
+public class d22 implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean h;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public JSONArray g;
+    public Stack<d22> a;
+    public Paint b;
+    public Paint c;
+    public Paint d;
+    public TextPaint e;
+    public Path f;
+    public boolean g;
+    public CanvasView h;
+    public m32 i;
+    public int j;
+    public int k;
+    public int l;
+    public int m;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947652581, "Lcom/baidu/tieba/d22;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947652581, "Lcom/baidu/tieba/d22;");
-                return;
-            }
-        }
-        h = tk1.a;
-    }
-
-    public d22() {
+    public d22(CanvasView canvasView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {canvasView};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new Stack<>();
+        this.b = new Paint();
+        this.c = new Paint();
+        this.d = new Paint();
+        this.e = new TextPaint();
+        this.f = new Path();
+        this.g = false;
+        this.j = -1;
+        this.k = 0;
+        this.l = 0;
+        this.m = -16777216;
+        this.h = canvasView;
+        d();
     }
 
-    public boolean d() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(this.c)) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.l;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    public static d22 e(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            d22 d22Var = new d22();
-            try {
-                d22Var.a = jSONObject.getString("appKey");
-                d22Var.b = jSONObject.getString(DeepLinkItem.DEEPLINK_APPURL_KEY) + "?swanJsVersion=" + od3.h(0) + "&appVersion=" + di3.D();
-                d22Var.c = jSONObject.getString("wsUrl");
-                d22Var.d = jSONObject.optString("notInHistory", "1");
-                d22Var.e = jSONObject.optString(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD);
-                d22Var.f = jSONObject.optString("slavePreload");
-                d22Var.g = jSONObject.optJSONArray("hosts");
-                return d22Var;
-            } catch (JSONException unused) {
-                if (h) {
-                    Log.e("WirelessDebugModel", "DebuggerLaunchAction params is invalid");
-                    return null;
-                }
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.l = i;
         }
-        return (d22) invokeL.objValue;
     }
 
-    public String a(int i) {
-        InterceptResult invokeI;
+    public void c(Paint paint) {
+        m32 m32Var;
+        k22 k22Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return b(i, this.b);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, paint) != null) || paint == null) {
+            return;
         }
-        return (String) invokeI.objValue;
+        if (this.h != null && (m32Var = this.i) != null && (k22Var = m32Var.d) != null && !k22Var.c()) {
+            m32 m32Var2 = this.i;
+            paint.setShadowLayer(m32Var2.c, m32Var2.a, m32Var2.b, m32Var2.d.a());
+        }
+        int i = this.j;
+        if (i >= 0 && i <= 255) {
+            paint.setAlpha(Math.min((paint.getAlpha() * this.j) >> 8, 255));
+        }
     }
 
-    public String c(int i) {
-        InterceptResult invokeI;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            return b(i, this.c);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.m = -16777216;
+            this.c.setStyle(Paint.Style.STROKE);
+            this.b.setColor(-16777216);
+            this.c.setColor(-16777216);
+            this.d.setColor(-16777216);
+            this.e.setColor(-16777216);
+            this.c.setStrokeWidth(nm3.g(1.0f));
+            this.c.setAntiAlias(true);
+            this.e.setAntiAlias(true);
+            this.d.setAntiAlias(true);
+            this.f.reset();
         }
-        return (String) invokeI.objValue;
     }
 
-    public final String b(int i, String str) {
-        InterceptResult invokeIL;
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str)) == null) {
-            if (this.g != null && !TextUtils.isEmpty(str) && i >= 0 && i < this.g.length()) {
-                Uri parse = Uri.parse(str);
-                String optString = this.g.optString(i);
-                if (!TextUtils.isEmpty(optString) && parse.getHost() != null) {
-                    return str.replace(parse.getHost(), optString);
-                }
-            }
-            return str;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.a.empty()) {
+            return;
         }
-        return (String) invokeIL.objValue;
+        d22 pop = this.a.pop();
+        this.b = pop.b;
+        this.c = pop.c;
+        this.d = pop.d;
+        this.e = pop.e;
+        this.f = pop.f;
+        this.g = pop.g;
+        this.a = pop.a;
+        this.i = pop.i;
+        this.j = pop.j;
+        this.k = pop.k;
+        this.l = pop.l;
+        this.m = pop.m;
+    }
+
+    public void f() throws CloneNotSupportedException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            d22 d22Var = (d22) super.clone();
+            d22Var.b = new Paint(this.b);
+            d22Var.c = new Paint(this.c);
+            d22Var.d = new Paint(this.d);
+            d22Var.e = new TextPaint(this.e);
+            d22Var.f = new Path(this.f);
+            d22Var.k = this.k;
+            d22Var.l = this.l;
+            d22Var.m = this.m;
+            this.a.push(d22Var);
+        }
     }
 }

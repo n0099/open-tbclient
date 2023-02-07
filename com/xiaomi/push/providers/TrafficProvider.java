@@ -139,7 +139,7 @@ public class TrafficProvider extends ContentProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, uri, contentValues, str, strArr)) == null) {
             if (a.match(uri) == 2 && contentValues != null && contentValues.containsKey(BaseStatisContent.IMSI)) {
-                hb.m466a(contentValues.getAsString(BaseStatisContent.IMSI));
+                hb.m468a(contentValues.getAsString(BaseStatisContent.IMSI));
                 return 0;
             }
             return 0;

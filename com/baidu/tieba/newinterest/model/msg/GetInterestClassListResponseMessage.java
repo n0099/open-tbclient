@@ -3,7 +3,7 @@ package com.baidu.tieba.newinterest.model.msg;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.q28;
+import com.baidu.tieba.n78;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import org.json.JSONObject;
 public class GetInterestClassListResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<q28> interestSelectionInfoList;
+    public List<n78> interestSelectionInfoList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetInterestClassListResponseMessage(int i) {
@@ -49,19 +49,19 @@ public class GetInterestClassListResponseMessage extends JsonHttpResponsedMessag
             int error = getError();
             if (statusCode == 200 && error == 0 && jSONObject != null && (jSONArray = jSONObject.getJSONArray("class_list")) != null && jSONArray.length() > 0) {
                 for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    q28 q28Var = new q28();
-                    q28Var.i(jSONArray.getJSONObject(i2).optInt("class_id"));
-                    q28Var.g(jSONArray.getJSONObject(i2).optString(ForumSquareActivityConfig.FORUM_CLASS_NAME));
-                    q28Var.k(jSONArray.getJSONObject(i2).optString(ForumSquareActivityConfig.FORUM_CLASS_NAME));
-                    q28Var.f(jSONArray.getJSONObject(i2).optString("class_icon"));
-                    q28Var.h(jSONArray.getJSONObject(i2).optString("class_pic"));
-                    this.interestSelectionInfoList.add(q28Var);
+                    n78 n78Var = new n78();
+                    n78Var.i(jSONArray.getJSONObject(i2).optInt("class_id"));
+                    n78Var.g(jSONArray.getJSONObject(i2).optString(ForumSquareActivityConfig.FORUM_CLASS_NAME));
+                    n78Var.k(jSONArray.getJSONObject(i2).optString(ForumSquareActivityConfig.FORUM_CLASS_NAME));
+                    n78Var.f(jSONArray.getJSONObject(i2).optString("class_icon"));
+                    n78Var.h(jSONArray.getJSONObject(i2).optString("class_pic"));
+                    this.interestSelectionInfoList.add(n78Var);
                 }
             }
         }
     }
 
-    public List<q28> getInterestSelectionInfoList() {
+    public List<n78> getInterestSelectionInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

@@ -16,18 +16,18 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cx4;
+import com.baidu.tieba.ay;
+import com.baidu.tieba.ej;
 import com.baidu.tieba.homepage.concern.adapter.ContentCollectListAdapter;
-import com.baidu.tieba.vx;
-import com.baidu.tieba.y47;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.j97;
+import com.baidu.tieba.p15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes4.dex */
-public class RecommendCollectLayout extends RelativeLayout implements vx {
+public class RecommendCollectLayout extends RelativeLayout implements ay {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TbPageContext a;
@@ -63,28 +63,28 @@ public class RecommendCollectLayout extends RelativeLayout implements vx {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0796, (ViewGroup) this, true);
-            int g = zi.g(getContext(), R.dimen.M_W_X004);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d078f, (ViewGroup) this, true);
+            int g = ej.g(getContext(), R.dimen.M_W_X004);
             setPadding(g, 0, g, 0);
             setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            this.c = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f090696);
-            this.e = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09069c);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d06);
+            this.c = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f0906a8);
+            this.e = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0906ae);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d1b);
             this.b = new ContentCollectListAdapter(this.a);
             this.c.setLayoutManager(new LinearLayoutManager(this.a.getPageActivity()));
             this.c.setAdapter(this.b);
         }
     }
 
-    @Override // com.baidu.tieba.vx
+    @Override // com.baidu.tieba.ay
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
-            cx4 d = cx4.d(this.e);
+            p15 d = p15.d(this.e);
             d.A(R.string.F_X02);
             d.z(R.dimen.T_X07);
             d.v(R.color.CAM_X0105);
-            setBackground(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f08029b, (WebPManager.ResourceStateType) null));
+            setBackground(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080299, (WebPManager.ResourceStateType) null));
             ContentCollectListAdapter contentCollectListAdapter = this.b;
             if (contentCollectListAdapter != null) {
                 contentCollectListAdapter.notifyDataSetChanged();
@@ -92,27 +92,27 @@ public class RecommendCollectLayout extends RelativeLayout implements vx {
         }
     }
 
-    public void setData(y47 y47Var) {
+    public void setData(j97 j97Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, y47Var) != null) || y47Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, j97Var) != null) || j97Var == null) {
             return;
         }
         if (getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) getLayoutParams();
-            if (y47Var.c() > 0) {
-                marginLayoutParams.topMargin = zi.g(getContext(), R.dimen.M_H_X001);
+            if (j97Var.c() > 0) {
+                marginLayoutParams.topMargin = ej.g(getContext(), R.dimen.M_H_X001);
             } else {
                 marginLayoutParams.topMargin = 0;
             }
             setLayoutParams(marginLayoutParams);
         }
-        Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809b2, SkinManager.getColor(R.color.CAM_X0306), null);
-        pureDrawable.setBounds(0, 0, zi.g(getContext(), R.dimen.tbds96), zi.g(getContext(), R.dimen.T_X07));
+        Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809a6, SkinManager.getColor(R.color.CAM_X0306), null);
+        pureDrawable.setBounds(0, 0, ej.g(getContext(), R.dimen.tbds96), ej.g(getContext(), R.dimen.T_X07));
         this.e.setCompoundDrawables(pureDrawable, null, null, null);
-        this.e.setCompoundDrawablePadding(zi.g(getContext(), R.dimen.M_W_X001));
-        this.e.setText(y47Var.getTitle());
-        this.d.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080831, true));
-        this.b.i(y47Var.getDataList());
+        this.e.setCompoundDrawablePadding(ej.g(getContext(), R.dimen.M_W_X001));
+        this.e.setText(j97Var.getTitle());
+        this.d.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080826, true));
+        this.b.i(j97Var.getDataList());
         this.b.j(this.f);
         this.b.notifyDataSetChanged();
     }

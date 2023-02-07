@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
+import com.baidu.tieba.memberCenter.memberpay.MemberPayResult;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -48,7 +49,7 @@ public class FaceGroupInfoData implements Serializable {
                     return;
                 }
             }
-            NEW = new Status("NEW", 0);
+            NEW = new Status(MemberPayResult.VipPayPrivilegeData.NEW_TIP_TEXT, 0);
             DOWNLOADING = new Status("DOWNLOADING", 1);
             FINISH = new Status("FINISH", 2);
             Status status = new Status("FAIL", 3);

@@ -1,21 +1,25 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.tagextension.item.ElementItemViewHolder;
-import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.tagextension.item.SkillIconViewHolder;
-import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.tagextension.item.SkillTagItemViewHolder;
-import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.tagextension.item.TagItemViewHolder;
-import com.baidu.tieba.imMessageCenter.chatgroup.utility.tag.core.BaseTagItemViewHolder;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
-public class wl7 extends mm7 {
+public class wl7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ConcurrentHashMap<String, ImMessageCenterPojo> a;
+
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(Iterator<ImMessageCenterPojo> it);
+    }
 
     public wl7() {
         Interceptable interceptable = $ic;
@@ -27,29 +31,55 @@ public class wl7 extends mm7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = new ConcurrentHashMap<>();
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.clear();
         }
     }
 
-    @Override // com.baidu.tieba.mm7
-    public BaseTagItemViewHolder b(ViewGroup viewGroup, int i) {
-        InterceptResult invokeLI;
+    public void a(ImMessageCenterPojo imMessageCenterPojo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) {
-            if (i == bm7.b) {
-                return new TagItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0883, viewGroup, false), this.a);
-            }
-            if (i == am7.d) {
-                return new ElementItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0881, viewGroup, false), this.a);
-            }
-            if (i == zl7.c) {
-                return new SkillTagItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d07fc, viewGroup, false), this.a);
-            }
-            if (i == yl7.a) {
-                return new SkillIconViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d07fb, viewGroup, false), this.a);
-            }
-            return null;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, imMessageCenterPojo) != null) || imMessageCenterPojo == null) {
+            return;
         }
-        return (BaseTagItemViewHolder) invokeLI.objValue;
+        this.a.put(imMessageCenterPojo.getGid(), imMessageCenterPojo);
+    }
+
+    public ImMessageCenterPojo c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            return this.a.get(str);
+        }
+        return (ImMessageCenterPojo) invokeL.objValue;
+    }
+
+    public void d(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            aVar.a(this.a.values().iterator());
+        }
+    }
+
+    public boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (TextUtils.isEmpty(str) || this.a.remove(str) == null) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

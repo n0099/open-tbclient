@@ -1,36 +1,88 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.widget.DragImageView;
-import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public interface eo8 extends IAdBaseAsyncController {
-    View b(@NonNull String str, boolean z);
+public class eo8 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public boolean c;
+    public boolean d;
 
-    AdvertAppInfo d(@NonNull String str);
+    public eo8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = 0;
+        this.b = 0;
+        this.c = false;
+        this.d = true;
+    }
 
-    void e(@NonNull String str, @NonNull AdvertAppInfo advertAppInfo);
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
 
-    boolean f(@NonNull String str);
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
 
-    void g(@NonNull lj5 lj5Var);
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
 
-    int getAdCount();
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
 
-    void h(@NonNull TbPageContext tbPageContext, @NonNull DragImageView.h hVar, boolean z);
+    public void e(int i, int i2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+            this.a = i;
+            this.b = i2;
+            this.c = z;
+        }
+    }
 
-    void j(@NonNull String str);
-
-    void k(@NonNull AdvertAppInfo advertAppInfo);
-
-    void l();
-
-    boolean n();
-
-    void o(String str);
-
-    void onDestroy();
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.d = z;
+        }
+    }
 }

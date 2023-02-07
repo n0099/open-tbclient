@@ -67,11 +67,19 @@ public class IconCompat extends CustomVersionedParcelable {
     public static final float BLUR_FACTOR = 0.010416667f;
     public static final PorterDuff.Mode DEFAULT_TINT_MODE;
     public static final float DEFAULT_VIEW_PORT_SCALE = 0.6666667f;
+    @VisibleForTesting
     public static final String EXTRA_INT1 = "int1";
+    @VisibleForTesting
     public static final String EXTRA_INT2 = "int2";
+    @VisibleForTesting
     public static final String EXTRA_OBJ = "obj";
+    @VisibleForTesting
+    public static final String EXTRA_STRING1 = "string1";
+    @VisibleForTesting
     public static final String EXTRA_TINT_LIST = "tint_list";
+    @VisibleForTesting
     public static final String EXTRA_TINT_MODE = "tint_mode";
+    @VisibleForTesting
     public static final String EXTRA_TYPE = "type";
     public static final float ICON_DIAMETER_FACTOR = 0.9166667f;
     public static final int KEY_SHADOW_ALPHA = 61;
@@ -95,6 +103,8 @@ public class IconCompat extends CustomVersionedParcelable {
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public Parcelable mParcelable;
     @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public String mString1;
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public ColorStateList mTintList;
     public PorterDuff.Mode mTintMode;
     @RestrictTo({RestrictTo.Scope.LIBRARY})
@@ -111,7 +121,7 @@ public class IconCompat extends CustomVersionedParcelable {
     public static String typeToString(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65560, null, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65559, null, i)) == null) {
             switch (i) {
                 case 1:
                     return "BITMAP";
@@ -166,7 +176,7 @@ public class IconCompat extends CustomVersionedParcelable {
     public Icon toIcon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             return toIcon(null);
         }
         return (Icon) invokeV.objValue;
@@ -348,6 +358,7 @@ public class IconCompat extends CustomVersionedParcelable {
             IconCompat iconCompat = new IconCompat(i);
             iconCompat.mInt1 = bundle.getInt(EXTRA_INT1);
             iconCompat.mInt2 = bundle.getInt(EXTRA_INT2);
+            iconCompat.mString1 = bundle.getString(EXTRA_STRING1);
             if (bundle.containsKey(EXTRA_TINT_LIST)) {
                 iconCompat.mTintList = (ColorStateList) bundle.getParcelable(EXTRA_TINT_LIST);
             }
@@ -500,7 +511,7 @@ public class IconCompat extends CustomVersionedParcelable {
     public IconCompat setTint(@ColorInt int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
             return setTintList(ColorStateList.valueOf(i));
         }
         return (IconCompat) invokeI.objValue;
@@ -509,7 +520,7 @@ public class IconCompat extends CustomVersionedParcelable {
     public IconCompat setTintList(ColorStateList colorStateList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, colorStateList)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, colorStateList)) == null) {
             this.mTintList = colorStateList;
             return this;
         }
@@ -519,7 +530,7 @@ public class IconCompat extends CustomVersionedParcelable {
     public IconCompat setTintMode(PorterDuff.Mode mode) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, mode)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, mode)) == null) {
             this.mTintMode = mode;
             return this;
         }
@@ -636,6 +647,7 @@ public class IconCompat extends CustomVersionedParcelable {
                     } else {
                         iconCompat.mObj1 = str;
                     }
+                    iconCompat.mString1 = str;
                     return iconCompat;
                 }
                 throw new IllegalArgumentException("Drawable resource ID must not be 0");
@@ -669,10 +681,38 @@ public class IconCompat extends CustomVersionedParcelable {
         return invokeL.intValue;
     }
 
-    private InputStream getUriInputStream(Context context) {
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public void checkResource(@NonNull Context context) {
+        Object obj;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) && this.mType == 2 && (obj = this.mObj1) != null) {
+            String str = (String) obj;
+            if (!str.contains(":")) {
+                return;
+            }
+            String str2 = str.split(":", -1)[1];
+            String str3 = str2.split("/", -1)[0];
+            String str4 = str2.split("/", -1)[1];
+            String str5 = str.split(":", -1)[0];
+            if ("0_resource_name_obfuscated".equals(str4)) {
+                Log.i(TAG, "Found obfuscated resource, not trying to update resource id for it");
+                return;
+            }
+            String resPackage = getResPackage();
+            int identifier = getResources(context, resPackage).getIdentifier(str4, str3, str5);
+            if (this.mInt1 != identifier) {
+                Log.i(TAG, "Id has changed for " + resPackage + " " + str);
+                this.mInt1 = identifier;
+            }
+        }
+    }
+
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    public InputStream getUriInputStream(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65558, this, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
             Uri uri = getUri();
             String scheme = uri.getScheme();
             if (!"content".equals(scheme) && !"file".equals(scheme)) {
@@ -693,30 +733,10 @@ public class IconCompat extends CustomVersionedParcelable {
         return (InputStream) invokeL.objValue;
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void checkResource(@NonNull Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) && this.mType == 2) {
-            String str = (String) this.mObj1;
-            if (!str.contains(":")) {
-                return;
-            }
-            String str2 = str.split(":", -1)[1];
-            String str3 = str2.split("/", -1)[0];
-            String str4 = str2.split("/", -1)[1];
-            String str5 = str.split(":", -1)[0];
-            int identifier = getResources(context, str5).getIdentifier(str4, str3, str5);
-            if (this.mInt1 != identifier) {
-                Log.i(TAG, "Id has changed for " + str5 + "/" + str4);
-                this.mInt1 = identifier;
-            }
-        }
-    }
-
     @Override // androidx.versionedparcelable.CustomVersionedParcelable
     public void onPreParceling(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
             this.mTintModeStr = this.mTintMode.name();
             switch (this.mType) {
                 case -1:
@@ -755,7 +775,7 @@ public class IconCompat extends CustomVersionedParcelable {
     private Drawable loadDrawableInner(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65559, this, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65558, this, context)) == null) {
             switch (this.mType) {
                 case 1:
                     return new BitmapDrawable(context.getResources(), (Bitmap) this.mObj1);
@@ -801,7 +821,7 @@ public class IconCompat extends CustomVersionedParcelable {
         InterceptResult invokeL;
         Icon createWithBitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, context)) == null) {
             switch (this.mType) {
                 case -1:
                     return (Icon) this.mObj1;
@@ -829,7 +849,10 @@ public class IconCompat extends CustomVersionedParcelable {
                         break;
                     }
                 case 6:
-                    if (context != null) {
+                    if (Build.VERSION.SDK_INT >= 30) {
+                        createWithBitmap = Icon.createWithAdaptiveBitmapContentUri(getUri());
+                        break;
+                    } else if (context != null) {
                         InputStream uriInputStream = getUriInputStream(context);
                         if (uriInputStream != null) {
                             if (Build.VERSION.SDK_INT >= 26) {
@@ -944,7 +967,10 @@ public class IconCompat extends CustomVersionedParcelable {
                 return getResPackage((Icon) this.mObj1);
             }
             if (this.mType == 2) {
-                return ((String) this.mObj1).split(":", -1)[0];
+                if (TextUtils.isEmpty(this.mString1)) {
+                    return ((String) this.mObj1).split(":", -1)[0];
+                }
+                return this.mString1;
             }
             throw new IllegalStateException("called getResPackage() on " + this);
         }
@@ -972,7 +998,7 @@ public class IconCompat extends CustomVersionedParcelable {
     public Drawable loadDrawable(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) {
             checkResource(context);
             if (Build.VERSION.SDK_INT >= 23) {
                 return toIcon(context).loadDrawable(context);
@@ -991,7 +1017,7 @@ public class IconCompat extends CustomVersionedParcelable {
     @Override // androidx.versionedparcelable.CustomVersionedParcelable
     public void onPostParceling() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             this.mTintMode = PorterDuff.Mode.valueOf(this.mTintModeStr);
             switch (this.mType) {
                 case -1:
@@ -1020,7 +1046,12 @@ public class IconCompat extends CustomVersionedParcelable {
                 case 2:
                 case 4:
                 case 6:
-                    this.mObj1 = new String(this.mData, Charset.forName("UTF-16"));
+                    String str = new String(this.mData, Charset.forName("UTF-16"));
+                    this.mObj1 = str;
+                    if (this.mType == 2 && this.mString1 == null) {
+                        this.mString1 = str.split(":", -1)[0];
+                        return;
+                    }
                     return;
                 case 3:
                     this.mObj1 = this.mData;
@@ -1029,10 +1060,11 @@ public class IconCompat extends CustomVersionedParcelable {
         }
     }
 
+    @NonNull
     public Bundle toBundle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             Bundle bundle = new Bundle();
             switch (this.mType) {
                 case -1:
@@ -1057,6 +1089,7 @@ public class IconCompat extends CustomVersionedParcelable {
             bundle.putInt("type", this.mType);
             bundle.putInt(EXTRA_INT1, this.mInt1);
             bundle.putInt(EXTRA_INT2, this.mInt2);
+            bundle.putString(EXTRA_STRING1, this.mString1);
             ColorStateList colorStateList = this.mTintList;
             if (colorStateList != null) {
                 bundle.putParcelable(EXTRA_TINT_LIST, colorStateList);
@@ -1074,7 +1107,7 @@ public class IconCompat extends CustomVersionedParcelable {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
             if (this.mType == -1) {
                 return String.valueOf(this.mObj1);
             }
@@ -1090,7 +1123,7 @@ public class IconCompat extends CustomVersionedParcelable {
                     break;
                 case 2:
                     sb.append(" pkg=");
-                    sb.append(getResPackage());
+                    sb.append(this.mString1);
                     sb.append(" id=");
                     sb.append(String.format("0x%08x", Integer.valueOf(getResId())));
                     break;

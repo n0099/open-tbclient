@@ -4,8 +4,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
+import com.baidu.tieba.gy4;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
-import com.baidu.tieba.tt4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     public static final int recForumTitleType = 3;
     public static final long serialVersionUID = 3133087680118197014L;
     public transient /* synthetic */ FieldHolder $fh;
-    public tt4 atInfoData;
+    public gy4 atInfoData;
     public String avatar;
     public String cacheGroupMsgContent;
     public int dataType;
@@ -79,7 +79,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public ImMessageCenterShowItemData m43clone() {
+    public ImMessageCenterShowItemData m45clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -93,13 +93,13 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
         return (ImMessageCenterShowItemData) invokeV.objValue;
     }
 
-    public tt4 getAtInfoData() {
+    public gy4 getAtInfoData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.atInfoData;
         }
-        return (tt4) invokeV.objValue;
+        return (gy4) invokeV.objValue;
     }
 
     public String getAvatar() {
@@ -417,10 +417,10 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
         return invokeL.booleanValue;
     }
 
-    public void setAtInfoData(tt4 tt4Var) {
+    public void setAtInfoData(gy4 gy4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048613, this, tt4Var) == null) {
-            this.atInfoData = tt4Var;
+        if (interceptable == null || interceptable.invokeL(1048613, this, gy4Var) == null) {
+            this.atInfoData = gy4Var;
         }
     }
 

@@ -1,34 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import androidx.annotation.Nullable;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ik4 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ik4 {
+    @Nullable
+    JSONObject a(@Nullable gk4<JSONObject> gk4Var);
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947856375, "Lcom/baidu/tieba/ik4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947856375, "Lcom/baidu/tieba/ik4;");
-                return;
-            }
-        }
-        String str = pj4.g().t() + "/ma/log/token";
-    }
+    @Nullable
+    JSONArray b(@Nullable gk4<JSONArray> gk4Var);
 }

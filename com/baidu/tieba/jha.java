@@ -1,15 +1,13 @@
 package com.baidu.tieba;
 
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
+import rx.subjects.ReplaySubject$ReplayProducer;
 /* loaded from: classes5.dex */
-public interface jha extends hha {
+public interface jha<T> {
+    void a(ReplaySubject$ReplayProducer<T> replaySubject$ReplayProducer);
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a();
-    }
+    void complete();
 
-    void setCallback(a aVar);
+    void error(Throwable th);
 
-    void setGiftBagsInfo(GiftBagsInfo giftBagsInfo);
+    void next(T t);
 }

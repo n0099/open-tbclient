@@ -1,50 +1,29 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.chatmessage.messages.NetDiskFileMsg;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class zk4 implements xk4<String> {
+public class zk4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public final String a;
+    public final Set<String> b;
 
-    @Override // com.baidu.tieba.xk4
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xk4
-    /* renamed from: c */
-    public void put(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-        }
-    }
-
-    public zk4(Context context) {
+    public zk4(String str, Set<String> set) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {str, set};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -54,42 +33,47 @@ public class zk4 implements xk4<String> {
                 return;
             }
         }
-        this.a = context.getApplicationContext();
+        this.a = str;
+        this.b = set;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xk4
-    /* renamed from: b */
-    public String get() {
+    public static zk4 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        JSONObject optJSONObject;
+        JSONArray optJSONArray;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null || (optJSONArray = optJSONObject.optJSONArray("appkeys")) == null) {
+                return null;
+            }
+            String optString = jSONObject.optString("version");
+            HashSet hashSet = new HashSet();
+            int length = optJSONArray.length();
+            for (int i = 0; i < length; i++) {
+                String optString2 = optJSONArray.optString(i);
+                if (!TextUtils.isEmpty(optString2)) {
+                    hashSet.add(optString2);
+                }
+            }
+            return new zk4(optString, hashSet);
+        }
+        return (zk4) invokeL.objValue;
+    }
+
+    public Set<String> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return d();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<ResolveInfo> queryBroadcastReceivers = this.a.getPackageManager().queryBroadcastReceivers(new Intent("com.baidu.intent.action.UUID"), 0);
-            String str = null;
-            if (queryBroadcastReceivers != null && queryBroadcastReceivers.size() > 0) {
-                for (ResolveInfo resolveInfo : queryBroadcastReceivers) {
-                    ActivityInfo activityInfo = resolveInfo.activityInfo;
-                    if (activityInfo != null && activityInfo.applicationInfo != null && !this.a.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
-                        File file = new File(new File(resolveInfo.activityInfo.applicationInfo.dataDir, NetDiskFileMsg.JSON_KEY_FILES), "libuuid.so");
-                        if (file.exists()) {
-                            str = dl4.c(file);
-                        }
-                        if (!TextUtils.isEmpty(str)) {
-                            break;
-                        }
-                    }
-                }
-            }
-            return str;
+            return this.a;
         }
         return (String) invokeV.objValue;
     }

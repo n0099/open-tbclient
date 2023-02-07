@@ -1,121 +1,206 @@
 package com.baidu.tieba;
 
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.statistics.item.RecordType;
+import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 /* loaded from: classes5.dex */
 public class n92 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final RecordType a;
-    public final String b;
-    public final boolean c;
-    public final Object d;
+    public Timer a;
+    public volatile boolean b;
+    public final o92 c;
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
+    public class a extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ n92 a;
 
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public RecordType a;
-        public String b;
-        public boolean c;
-        public Object d;
-
-        public b() {
+        public a(n92 n92Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n92Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = n92Var;
         }
 
-        public n92 e() {
-            InterceptResult invokeV;
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new n92(this, null);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (n92.d) {
+                    Log.d("RequestMonitor", ">> finish collecting request info.");
+                }
+                this.a.b = false;
             }
-            return (n92) invokeV.objValue;
-        }
-
-        public b f(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.b = str;
-                return this;
-            }
-            return (b) invokeL.objValue;
-        }
-
-        public b g(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.c = z;
-                return this;
-            }
-            return (b) invokeZ.objValue;
-        }
-
-        public b h(RecordType recordType) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, recordType)) == null) {
-                this.a = recordType;
-                return this;
-            }
-            return (b) invokeL.objValue;
         }
     }
 
-    public n92(b bVar) {
+    /* loaded from: classes5.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final n92 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-618873564, "Lcom/baidu/tieba/n92$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-618873564, "Lcom/baidu/tieba/n92$b;");
+                    return;
+                }
+            }
+            a = new n92(null);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947957218, "Lcom/baidu/tieba/n92;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947957218, "Lcom/baidu/tieba/n92;");
+                return;
+            }
+        }
+        d = gp1.a;
+    }
+
+    public n92() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = bVar.a;
-        this.b = bVar.b;
-        this.c = bVar.c;
-        this.d = bVar.d;
+        this.b = true;
+        this.c = new o92();
     }
 
-    public /* synthetic */ n92(b bVar, a aVar) {
-        this(bVar);
-    }
-
-    public static b a() {
+    public static n92 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new b();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return b.a;
         }
-        return (b) invokeV.objValue;
+        return (n92) invokeV.objValue;
+    }
+
+    public List<m92> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c.a.d();
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b = true;
+            h();
+            this.c.h();
+        }
+    }
+
+    public final void h() {
+        Timer timer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (timer = this.a) != null) {
+            timer.cancel();
+            this.a = null;
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.b = false;
+            h();
+            if (d) {
+                Log.d("RequestMonitor", ">> stop to collect request info.");
+            }
+        }
+    }
+
+    public /* synthetic */ n92(a aVar) {
+        this();
+    }
+
+    public void e(m92 m92Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m92Var) == null) && this.b) {
+            if (d) {
+                Log.d("RequestMonitor", ">> add request " + m92Var.toString());
+            }
+            this.c.a(m92Var);
+        }
+    }
+
+    @NonNull
+    public p92 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            p92 g = this.c.g();
+            if (d) {
+                Log.d("RequestMonitor", ">> requestResult: " + g.d() + g.c());
+            }
+            return g;
+        }
+        return (p92) invokeV.objValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (d) {
+                Log.d("RequestMonitor", ">> start to collect request info. ");
+            }
+            this.c.i();
+            h();
+            Timer timer = new Timer();
+            this.a = timer;
+            timer.schedule(new a(this), LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION);
+        }
     }
 }

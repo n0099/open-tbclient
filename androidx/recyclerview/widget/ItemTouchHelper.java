@@ -334,7 +334,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, recyclerView)) == null) {
                 if (this.mCachedMaxScrollSpeed == -1) {
-                    this.mCachedMaxScrollSpeed = recyclerView.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070355);
+                    this.mCachedMaxScrollSpeed = recyclerView.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070357);
                 }
                 return this.mCachedMaxScrollSpeed;
             }
@@ -1489,8 +1489,8 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
         this.mRecyclerView = recyclerView;
         if (recyclerView != null) {
             Resources resources = recyclerView.getResources();
-            this.mSwipeEscapeVelocity = resources.getDimension(R.dimen.obfuscated_res_0x7f070357);
-            this.mMaxSwipeVelocity = resources.getDimension(R.dimen.obfuscated_res_0x7f070356);
+            this.mSwipeEscapeVelocity = resources.getDimension(R.dimen.obfuscated_res_0x7f070359);
+            this.mMaxSwipeVelocity = resources.getDimension(R.dimen.obfuscated_res_0x7f070358);
             setupCallbacks();
         }
     }

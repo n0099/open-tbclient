@@ -2,7 +2,7 @@ package com.badlogic.gdx.math;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.v7;
+import com.baidu.tieba.a8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -233,7 +233,7 @@ public class Ellipse implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return ((((((v7.b(this.height) + 53) * 53) + v7.b(this.width)) * 53) + v7.b(this.x)) * 53) + v7.b(this.y);
+            return ((((((a8.b(this.height) + 53) * 53) + a8.b(this.width)) * 53) + a8.b(this.x)) * 53) + a8.b(this.y);
         }
         return invokeV.intValue;
     }

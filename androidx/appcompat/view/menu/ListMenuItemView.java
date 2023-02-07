@@ -63,7 +63,7 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView,
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ListMenuItemView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f04043c);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f04043d);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -320,20 +320,20 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView,
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onFinishInflate();
             ViewCompat.setBackground(this, this.mBackground);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0922ff);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092314);
             this.mTitleView = textView;
             int i = this.mTextAppearance;
             if (i != -1) {
                 textView.setTextAppearance(this.mTextAppearanceContext, i);
             }
-            this.mShortcutView = (TextView) findViewById(R.id.obfuscated_res_0x7f091fa4);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f092099);
+            this.mShortcutView = (TextView) findViewById(R.id.obfuscated_res_0x7f091fb9);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0920aa);
             this.mSubMenuArrowView = imageView;
             if (imageView != null) {
                 imageView.setImageDrawable(this.mSubMenuArrow);
             }
-            this.mGroupDivider = (ImageView) findViewById(R.id.obfuscated_res_0x7f090d7d);
-            this.mContent = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09070b);
+            this.mGroupDivider = (ImageView) findViewById(R.id.obfuscated_res_0x7f090dc1);
+            this.mContent = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09071d);
         }
     }
 

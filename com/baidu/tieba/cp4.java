@@ -1,157 +1,112 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.album.MediaFileInfo;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.nio.channels.Channels;
+import java.nio.channels.ReadableByteChannel;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 /* loaded from: classes4.dex */
 public class cp4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String f;
-    public static final String g;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
-    public MediaFileInfo d;
-    public List<MediaFileInfo> e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947682434, "Lcom/baidu/tieba/cp4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static String a(byte[] bArr, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
+                if (z) {
+                    hexString = hexString.toUpperCase();
+                }
+                if (hexString.length() == 1) {
+                    sb.append("0");
+                }
+                sb.append(hexString);
+                sb.append(str);
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947682434, "Lcom/baidu/tieba/cp4;");
-                return;
+            return sb.toString();
+        }
+        return (String) invokeLLZ.objValue;
+    }
+
+    public static String b(File file, boolean z) {
+        InterceptResult invokeLZ;
+        ReadableByteChannel readableByteChannel;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, file, z)) == null) {
+            ReadableByteChannel readableByteChannel2 = null;
+            try {
+                readableByteChannel = Channels.newChannel(new FileInputStream(file));
+            } catch (IOException unused) {
+                readableByteChannel = null;
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                String c = c(z, readableByteChannel);
+                if (readableByteChannel != null && readableByteChannel.isOpen()) {
+                    ap4.d(readableByteChannel);
+                }
+                return c;
+            } catch (IOException unused2) {
+                if (readableByteChannel != null && readableByteChannel.isOpen()) {
+                    ap4.d(readableByteChannel);
+                }
+                return null;
+            } catch (Throwable th2) {
+                th = th2;
+                readableByteChannel2 = readableByteChannel;
+                if (readableByteChannel2 != null && readableByteChannel2.isOpen()) {
+                    ap4.d(readableByteChannel2);
+                }
+                throw th;
             }
         }
-        f = String.valueOf(Integer.MAX_VALUE);
-        g = String.valueOf(2147483646);
+        return (String) invokeLZ.objValue;
     }
 
-    public cp4() {
+    public static String c(boolean z, ReadableByteChannel readableByteChannel) throws IOException {
+        InterceptResult invokeZL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeZL = interceptable.invokeZL(65538, null, z, readableByteChannel)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.reset();
+                ByteBuffer allocate = ByteBuffer.allocate(8192);
+                while (readableByteChannel.read(allocate) != -1) {
+                    allocate.flip();
+                    messageDigest.update(allocate);
+                    allocate.clear();
+                }
+                return a(messageDigest.digest(), "", z);
+            } catch (NoSuchAlgorithmException unused) {
+                return null;
             }
         }
+        return (String) invokeZL.objValue;
     }
 
-    public void a() {
+    public static String d(byte[] bArr, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c++;
-        }
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public List<MediaFileInfo> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public ImageFileInfo e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            MediaFileInfo mediaFileInfo = this.d;
-            if (mediaFileInfo instanceof ImageFileInfo) {
-                return (ImageFileInfo) mediaFileInfo;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, bArr, z)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.reset();
+                messageDigest.update(bArr);
+                return a(messageDigest.digest(), "", z);
+            } catch (NoSuchAlgorithmException unused) {
+                return null;
             }
-            return null;
         }
-        return (ImageFileInfo) invokeV.objValue;
-    }
-
-    public MediaFileInfo f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.d;
-        }
-        return (MediaFileInfo) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.c = yg.e(str, 0);
-        }
-    }
-
-    public void j(List<MediaFileInfo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
-            this.e = list;
-        }
-    }
-
-    public void k(MediaFileInfo mediaFileInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, mediaFileInfo) == null) {
-            this.d = mediaFileInfo;
-        }
-    }
-
-    public void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.b = str;
-        }
+        return (String) invokeLZ.objValue;
     }
 }

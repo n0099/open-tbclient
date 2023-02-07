@@ -1,20 +1,19 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes5.dex */
 public class js4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile js4 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public float b;
-    public float c;
-    public boolean d;
+    public final ks4 a;
 
     public js4() {
         Interceptable interceptable = $ic;
@@ -26,69 +25,50 @@ public class js4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ks4();
     }
 
-    public static js4 a() {
-        InterceptResult invokeV;
+    public is4 a(String str) {
+        InterceptResult invokeL;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (e == null) {
-                synchronized (js4.class) {
-                    if (e == null) {
-                        e = new js4();
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            String str3 = null;
+            if (dj.isEmpty(str)) {
+                return null;
             }
-            return e;
+            Matcher matcher = Pattern.compile("\\$[0-9A-Za-z@_]{5,300}[#$]", 2).matcher(str);
+            if (!matcher.find()) {
+                return null;
+            }
+            String group = matcher.group();
+            Matcher matcher2 = Pattern.compile("\\$[0-9A-Za-z@_]{1,100}[!]", 2).matcher(str);
+            if (matcher2.find()) {
+                str2 = ms4.d(matcher2.group());
+            } else {
+                str2 = null;
+            }
+            if (str2 != null && str2.startsWith("Y")) {
+                ls4.a(str2);
+                str3 = b(group);
+            }
+            return new is4(group, str3, str2);
         }
-        return (js4) invokeV.objValue;
+        return (is4) invokeL.objValue;
     }
 
-    public float b() {
-        InterceptResult invokeV;
+    public final String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
+            }
+            return this.a.a(ms4.f(str.replaceAll("\\$", "")));
         }
-        return invokeV.floatValue;
-    }
-
-    public float c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return invokeV.floatValue;
-    }
-
-    public float d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return invokeV.floatValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void f(float f, float f2, float f3, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)}) == null) {
-            this.a = f;
-            this.b = f2;
-            this.c = f3;
-            this.d = z;
-        }
+        return (String) invokeL.objValue;
     }
 }

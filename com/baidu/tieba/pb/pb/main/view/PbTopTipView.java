@@ -10,15 +10,14 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bh;
-import com.baidu.tieba.ne6;
-import com.baidu.tieba.oe6;
+import com.baidu.tieba.gh;
+import com.baidu.tieba.yi6;
+import com.baidu.tieba.zi6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,8 +32,8 @@ public class PbTopTipView extends TextView {
     public Animation c;
     public Animation d;
     public Runnable e;
-    public oe6 f;
-    public ne6.b g;
+    public zi6 f;
+    public yi6.b g;
     public Runnable h;
 
     /* loaded from: classes5.dex */
@@ -72,26 +71,26 @@ public class PbTopTipView extends TextView {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements ne6.b {
+    public class b implements yi6.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbTopTipView a;
 
-        @Override // com.baidu.tieba.ne6.b
+        @Override // com.baidu.tieba.yi6.b
         public void b(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.ne6.b
+        @Override // com.baidu.tieba.yi6.b
         public void c(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.ne6.b
+        @Override // com.baidu.tieba.yi6.b
         public void d(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
@@ -128,7 +127,7 @@ public class PbTopTipView extends TextView {
             return invokeF.booleanValue;
         }
 
-        @Override // com.baidu.tieba.ne6.b
+        @Override // com.baidu.tieba.yi6.b
         public void a(int i, int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeII(1048576, this, i, i2) != null) || !e(i2) || !this.a.b) {
@@ -217,7 +216,7 @@ public class PbTopTipView extends TextView {
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
                 this.a.k();
                 this.a.setVisibility(8);
-                bh.a().postDelayed(this.a.h, 600L);
+                gh.a().postDelayed(this.a.h, 600L);
             }
         }
     }
@@ -398,13 +397,6 @@ public class PbTopTipView extends TextView {
         }
     }
 
-    public void setDuration(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.a = i;
-        }
-    }
-
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -434,21 +426,21 @@ public class PbTopTipView extends TextView {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             removeCallbacks(this.e);
             clearAnimation();
-            bh.a().removeCallbacks(this.h);
+            gh.a().removeCallbacks(this.h);
         }
     }
 
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            oe6 oe6Var = new oe6(getContext());
-            this.f = oe6Var;
-            oe6Var.d(this.g);
+            zi6 zi6Var = new zi6(getContext());
+            this.f = zi6Var;
+            zi6Var.d(this.g);
             setOnTouchListener(new c(this));
             setupPaddings();
             this.d = AnimationUtils.loadAnimation(getContext(), R.anim.push_top_in);
             this.c = AnimationUtils.loadAnimation(getContext(), R.anim.push_top_out);
-            setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07032e));
+            setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07032f));
             this.c.setAnimationListener(new d(this));
             this.d.setDuration(400L);
             this.d.setAnimationListener(new e(this));
@@ -475,7 +467,7 @@ public class PbTopTipView extends TextView {
     public void setupPaddings() {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             int dimensionPixelOffset = getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070201);
             if (UtilHelper.canUseStyleImmersiveSticky() && UtilHelper.getRealScreenOrientation(getContext()) == 1) {
                 i = UtilHelper.getStatusBarHeight() + dimensionPixelOffset;

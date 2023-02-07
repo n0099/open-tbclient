@@ -1,37 +1,42 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public interface h61 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "webViewInit");
-    public static final h61 b = new a();
+public abstract class h61 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final h61 a;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract void a(Context context, oz0 oz0Var, boolean z);
+
+    public abstract void b(@Nullable String str, @Nullable String str2);
 
     /* loaded from: classes4.dex */
-    public interface b {
-        void a();
-    }
-
-    int a(Context context, b bVar);
-
-    /* loaded from: classes4.dex */
-    public static class a implements h61 {
+    public static class a extends h61 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // com.baidu.tieba.h61
-        public int a(Context context, b bVar) {
-            InterceptResult invokeLL;
+        public void a(Context context, oz0 oz0Var, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, bVar)) == null) {
-                return 0;
+            if (interceptable == null || interceptable.invokeLLZ(1048576, this, context, oz0Var, z) == null) {
             }
-            return invokeLL.intValue;
+        }
+
+        @Override // com.baidu.tieba.h61
+        public void b(@Nullable String str, @Nullable String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            }
         }
 
         public a() {
@@ -45,6 +50,36 @@ public interface h61 {
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947775558, "Lcom/baidu/tieba/h61;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947775558, "Lcom/baidu/tieba/h61;");
+                return;
+            }
+        }
+        a = new a();
+    }
+
+    public h61() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }

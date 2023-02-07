@@ -1,22 +1,26 @@
 package com.baidu.tieba;
 
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Path;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
-import android.graphics.RectF;
-import android.graphics.drawable.Drawable;
+import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class kl extends jl {
+public class kl extends nl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Path v;
-    public boolean w;
-    public Rect x;
+    public final Rect A;
+    public final Paint x;
+    public final Paint y;
+    public final Rect z;
 
     public kl() {
         Interceptable interceptable = $ic;
@@ -28,52 +32,59 @@ public class kl extends jl {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.x = new Paint();
+        this.y = new Paint();
+        this.z = new Rect(0, 0, 0, 0);
+        this.A = new Rect(0, 0, 0, 0);
+        this.x.setColor(-16777216);
+        this.x.setStyle(Paint.Style.FILL);
+        this.x.setAntiAlias(true);
+        this.y.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
     }
 
-    @Override // com.baidu.tieba.zk
-    public void e(Canvas canvas, Drawable drawable) {
+    @Override // com.baidu.tieba.gl, com.baidu.tieba.el
+    public void h(Canvas canvas, hl hlVar, ImageView imageView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, canvas, drawable) == null) {
-            canvas.save();
-            t(drawable.getBounds());
-            try {
-                canvas.clipPath(this.v);
-            } catch (Exception unused) {
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, canvas, hlVar, imageView) == null) {
+            Matrix matrix = this.f;
+            if (matrix != null) {
+                canvas.concat(matrix);
             }
-            drawable.draw(canvas);
-            canvas.restore();
-        }
-    }
-
-    public final void t(Rect rect) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rect) != null) || rect == null) {
-            return;
-        }
-        boolean z2 = true;
-        if (this.v != null && this.w == this.l.b) {
-            z = false;
-        } else {
-            z = true;
-        }
-        Rect rect2 = this.x;
-        if (rect2 != null && rect2.contains(rect)) {
-            z2 = z;
-        }
-        this.w = this.l.b;
-        if (z2) {
-            this.x = rect;
-            Path path = new Path();
-            this.v = path;
-            if (this.w) {
-                this.v.addCircle((rect.right + rect.left) / 2.0f, (rect.top + rect.bottom) / 2.0f, Math.min(rect.width(), rect.height()) / 2.0f, Path.Direction.CCW);
+            if (hlVar.e()) {
+                Bitmap bitmap = hlVar.a.getBitmap();
+                if (this.w) {
+                    v(canvas, bitmap);
+                    return;
+                }
+                this.A.set(0, 0, hlVar.b(), hlVar.a());
+                hlVar.b.g(canvas, this.A, this.g, this.c);
+            } else if (hlVar.d()) {
+                if (this.w) {
+                    v(canvas, hlVar.b.p());
+                    return;
+                }
+                this.A.set(0, 0, hlVar.b(), hlVar.a());
+                hlVar.b.g(canvas, this.A, this.g, this.c);
             } else {
-                path.addRoundRect(new RectF(rect), this.l.a, Path.Direction.CW);
+                this.A.set(0, 0, hlVar.b(), hlVar.a());
+                hlVar.b.g(canvas, this.A, this.g, this.c);
             }
-            this.v.close();
+        }
+    }
+
+    public void v(Canvas canvas, Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, bitmap) == null) {
+            this.A.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
+            this.z.set(0, 0, (int) this.g.width(), (int) this.g.height());
+            canvas.save();
+            canvas.drawARGB(0, 0, 0, 0);
+            canvas.drawPath(this.t, this.x);
+            canvas.drawBitmap(bitmap, this.A, this.g, this.y);
+            canvas.restore();
         }
     }
 }

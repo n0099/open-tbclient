@@ -1,162 +1,276 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import android.os.Looper;
+import android.os.MessageQueue;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.searchbox.download.center.clearcache.DiskManagerSharedPrefsUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.PbListView;
-import com.baidu.tbadk.pageInfo.TbPageTag;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel;
+import com.baidu.tieba.n80;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import com.squareup.wire.Wire;
+import java.io.IOException;
+import tbclient.Personalized.DataRes;
 /* loaded from: classes5.dex */
 public class ke7 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ke7 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ie7 a;
-    public View b;
-    public BdTypeRecyclerView c;
-    public PbListView d;
+    public volatile DataRes a;
+    public volatile boolean b;
+    public volatile boolean c;
 
     /* loaded from: classes5.dex */
-    public interface a {
+    public class a implements n80.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Runnable a;
+
+        public a(ke7 ke7Var, Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ke7Var, runnable};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = runnable;
+        }
+
+        @Override // com.baidu.tieba.n80.b
+        public void a(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                RecPersonalizePageModel.e().l(responsedMessage);
+            }
+        }
+
+        @Override // com.baidu.tieba.n80.b
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                gh.a().post(this.a);
+            }
+        }
     }
 
-    public ke7(a aVar, View view2, TbPageContext tbPageContext) {
+    /* loaded from: classes5.dex */
+    public class b implements MessageQueue.IdleHandler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Runnable a;
+
+        public b(ke7 ke7Var, Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ke7Var, runnable};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = runnable;
+        }
+
+        @Override // android.os.MessageQueue.IdleHandler
+        public boolean queueIdle() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                try {
+                    this.a.run();
+                    return false;
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return false;
+                }
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947910284, "Lcom/baidu/tieba/ke7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947910284, "Lcom/baidu/tieba/ke7;");
+                return;
+            }
+        }
+        d = new ke7();
+    }
+
+    public ke7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, view2, tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = view2;
-        BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090ba5);
-        this.c = bdTypeRecyclerView;
-        bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(bdTypeRecyclerView.getContext()));
-        this.c.setFadingEdgeLength(0);
-        this.c.setOverScrollMode(2);
-        PbListView pbListView = new PbListView(tbPageContext.getPageActivity());
-        this.d = pbListView;
-        pbListView.a();
-        this.d.r(R.color.CAM_X0205);
-        this.d.v(zi.g(tbPageContext.getPageActivity(), R.dimen.tbds182));
-        this.d.A();
-        this.d.J(R.dimen.tbfontsize33);
-        this.d.D(R.color.CAM_X0110);
-        this.c.setNextPage(this.d);
-        this.d.O(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-        this.d.g();
-        this.d.F(tbPageContext.getResources().getString(R.string.list_no_more));
-        c();
-        this.a = new ie7(tbPageContext, this.c);
+        this.b = false;
+        this.c = false;
     }
 
-    public View a() {
+    public static synchronized ke7 c() {
         InterceptResult invokeV;
+        ke7 ke7Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (ke7.class) {
+                ke7Var = d;
+            }
+            return ke7Var;
+        }
+        return (ke7) invokeV.objValue;
+    }
+
+    public synchronized DataRes a() {
+        InterceptResult invokeV;
+        DataRes dataRes;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            synchronized (this) {
+                if (this.b) {
+                    f();
+                }
+                this.b = true;
+                dataRes = this.a;
+            }
+            return dataRes;
         }
-        return (View) invokeV.objValue;
+        return (DataRes) invokeV.objValue;
     }
 
-    public boolean b() {
+    public synchronized boolean e() {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            BdTypeRecyclerView bdTypeRecyclerView = this.c;
-            if (bdTypeRecyclerView == null) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this) {
+                z = this.c;
             }
-            return !ListUtils.isEmpty(bdTypeRecyclerView.getData());
+            return z;
         }
         return invokeV.booleanValue;
     }
 
-    public void d() {
+    public synchronized void b(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.c.scrollToPosition(0);
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new xn6());
-            this.c.setData(arrayList);
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            PbListView pbListView = this.d;
-            if (pbListView != null) {
-                pbListView.H(SkinManager.getColor(R.color.CAM_X0107));
-                this.d.e(skinType);
-            }
-            BdTypeRecyclerView bdTypeRecyclerView = this.c;
-            if (bdTypeRecyclerView != null && bdTypeRecyclerView.getAdapter() != null) {
-                this.c.getAdapter().notifyDataSetChanged();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) {
+            synchronized (this) {
+                n80.d(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, new a(this, runnable));
             }
         }
     }
 
-    public void e(List<yn> list) {
+    public synchronized void h(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, list) != null) || ListUtils.isEmpty(list)) {
-            return;
-        }
-        this.c.setData(list);
-    }
-
-    public void f(TbPageTag tbPageTag) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, tbPageTag) == null) {
-            this.a.a(tbPageTag);
-        }
-    }
-
-    public void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            if (z) {
-                this.c.setVisibility(0);
-            } else {
-                this.c.setVisibility(8);
+        if (interceptable == null || interceptable.invokeL(1048582, this, runnable) == null) {
+            synchronized (this) {
+                if (!d()) {
+                    this.c = false;
+                    return;
+                }
+                this.c = true;
+                Looper.myQueue().addIdleHandler(new b(this, runnable));
             }
         }
     }
 
-    public void h(boolean z) {
+    public synchronized boolean d() {
+        InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            zn6 zn6Var = new zn6();
-            zn6Var.a = 401;
-            zn6Var.b = z;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, zn6Var));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                long o = p35.m().o("recommend_frs_cache_time", DiskManagerSharedPrefsUtils.DISK_CHECK_DURATION_DEFAULT) * 1000;
+                p35 m = p35.m();
+                long o2 = m.o("recommend_frs_refresh_time" + TbadkCoreApplication.getCurrentAccount(), 0L);
+                if (o2 != 0) {
+                    if (Math.abs(System.currentTimeMillis() - o2) <= o) {
+                        z = false;
+                    }
+                }
+                z = true;
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void f() {
+        jf<byte[]> c;
+        byte[] bArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (TbadkCoreApplication.getCurrentAccount() == null) {
+                cw4.s().y();
+            }
+            if ((!m35.q().u() || m35.q().o() < m35.q().p()) && (c = i05.c("tb.rec_frs_update", TbadkCoreApplication.getCurrentAccount())) != null && (bArr = c.get("0")) != null && bArr.length != 0) {
+                try {
+                    DataRes dataRes = (DataRes) new Wire(new Class[0]).parseFrom(bArr, DataRes.class);
+                    if (dataRes != null && dataRes.thread_list != null && dataRes.thread_list.size() > 0) {
+                        this.a = dataRes;
+                    }
+                } catch (IOException e) {
+                    BdLog.e(e);
+                }
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921687, null));
+            }
+        }
+    }
+
+    public synchronized void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            synchronized (this) {
+                if (!PermissionUtil.isAgreePrivacyPolicy()) {
+                    return;
+                }
+                f();
+                if (this.a == null || d()) {
+                    wn5 wn5Var = new wn5();
+                    wn5Var.b = "";
+                    wn5Var.a = 0;
+                    RecPersonalizePageModel.e().m(1, 0, wn5Var, 1, 0);
+                }
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 package androidx.core.view.accessibility;
 
+import android.annotation.SuppressLint;
 import android.graphics.Rect;
 import android.graphics.Region;
 import android.os.Build;
@@ -16,6 +17,7 @@ import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
+import androidx.core.os.BuildCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.accessibility.AccessibilityViewCommand;
 import com.baidu.android.common.others.lang.StringUtil;
@@ -44,6 +46,8 @@ public class AccessibilityNodeInfoCompat {
     public static final String ACTION_ARGUMENT_MOVEMENT_GRANULARITY_INT = "ACTION_ARGUMENT_MOVEMENT_GRANULARITY_INT";
     public static final String ACTION_ARGUMENT_MOVE_WINDOW_X = "ACTION_ARGUMENT_MOVE_WINDOW_X";
     public static final String ACTION_ARGUMENT_MOVE_WINDOW_Y = "ACTION_ARGUMENT_MOVE_WINDOW_Y";
+    @SuppressLint({"ActionValue"})
+    public static final String ACTION_ARGUMENT_PRESS_AND_HOLD_DURATION_MILLIS_INT = "android.view.accessibility.action.ARGUMENT_PRESS_AND_HOLD_DURATION_MILLIS_INT";
     public static final String ACTION_ARGUMENT_PROGRESS_VALUE = "android.view.accessibility.action.ARGUMENT_PROGRESS_VALUE";
     public static final String ACTION_ARGUMENT_ROW_INT = "android.view.accessibility.action.ARGUMENT_ROW_INT";
     public static final String ACTION_ARGUMENT_SELECTION_END_INT = "ACTION_ARGUMENT_SELECTION_END_INT";
@@ -90,6 +94,7 @@ public class AccessibilityNodeInfoCompat {
     public static final String SPANS_FLAGS_KEY = "androidx.view.accessibility.AccessibilityNodeInfoCompat.SPANS_FLAGS_KEY";
     public static final String SPANS_ID_KEY = "androidx.view.accessibility.AccessibilityNodeInfoCompat.SPANS_ID_KEY";
     public static final String SPANS_START_KEY = "androidx.view.accessibility.AccessibilityNodeInfoCompat.SPANS_START_KEY";
+    public static final String STATE_DESCRIPTION_KEY = "androidx.view.accessibility.AccessibilityNodeInfoCompat.STATE_DESCRIPTION_KEY";
     public static final String TOOLTIP_TEXT_KEY = "androidx.view.accessibility.AccessibilityNodeInfoCompat.TOOLTIP_TEXT_KEY";
     public static int sClickableSpanId;
     public transient /* synthetic */ FieldHolder $fh;
@@ -160,6 +165,8 @@ public class AccessibilityNodeInfoCompat {
                             return "ACTION_SET_TEXT";
                         case 16908354:
                             return "ACTION_MOVE_WINDOW";
+                        case 16908372:
+                            return "ACTION_IME_ENTER";
                         default:
                             switch (i) {
                                 case 16908342:
@@ -192,6 +199,8 @@ public class AccessibilityNodeInfoCompat {
                                             return "ACTION_PAGE_LEFT";
                                         case 16908361:
                                             return "ACTION_PAGE_RIGHT";
+                                        case 16908362:
+                                            return "ACTION_PRESS_AND_HOLD";
                                         default:
                                             return "ACTION_UNKNOWN";
                                     }
@@ -221,6 +230,8 @@ public class AccessibilityNodeInfoCompat {
         public static final AccessibilityActionCompat ACTION_EXPAND;
         public static final AccessibilityActionCompat ACTION_FOCUS;
         public static final AccessibilityActionCompat ACTION_HIDE_TOOLTIP;
+        @NonNull
+        public static final AccessibilityActionCompat ACTION_IME_ENTER;
         public static final AccessibilityActionCompat ACTION_LONG_CLICK;
         public static final AccessibilityActionCompat ACTION_MOVE_WINDOW;
         public static final AccessibilityActionCompat ACTION_NEXT_AT_MOVEMENT_GRANULARITY;
@@ -234,6 +245,8 @@ public class AccessibilityNodeInfoCompat {
         @NonNull
         public static final AccessibilityActionCompat ACTION_PAGE_UP;
         public static final AccessibilityActionCompat ACTION_PASTE;
+        @NonNull
+        public static final AccessibilityActionCompat ACTION_PRESS_AND_HOLD;
         public static final AccessibilityActionCompat ACTION_PREVIOUS_AT_MOVEMENT_GRANULARITY;
         public static final AccessibilityActionCompat ACTION_PREVIOUS_HTML_ELEMENT;
         public static final AccessibilityActionCompat ACTION_SCROLL_BACKWARD;
@@ -273,6 +286,8 @@ public class AccessibilityNodeInfoCompat {
             AccessibilityNodeInfo.AccessibilityAction accessibilityAction12;
             AccessibilityNodeInfo.AccessibilityAction accessibilityAction13;
             AccessibilityNodeInfo.AccessibilityAction accessibilityAction14;
+            AccessibilityNodeInfo.AccessibilityAction accessibilityAction15;
+            AccessibilityNodeInfo.AccessibilityAction accessibilityAction16;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
             if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(943572462, "Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
@@ -284,7 +299,7 @@ public class AccessibilityNodeInfoCompat {
                     return;
                 }
             }
-            AccessibilityNodeInfo.AccessibilityAction accessibilityAction15 = null;
+            AccessibilityNodeInfo.AccessibilityAction accessibilityAction17 = null;
             ACTION_FOCUS = new AccessibilityActionCompat(1, null);
             ACTION_CLEAR_FOCUS = new AccessibilityActionCompat(2, null);
             ACTION_SELECT = new AccessibilityActionCompat(4, null);
@@ -393,8 +408,20 @@ public class AccessibilityNodeInfoCompat {
             ACTION_SHOW_TOOLTIP = new AccessibilityActionCompat(accessibilityAction14, 16908356, null, null, null);
             if (Build.VERSION.SDK_INT >= 28) {
                 accessibilityAction15 = AccessibilityNodeInfo.AccessibilityAction.ACTION_HIDE_TOOLTIP;
+            } else {
+                accessibilityAction15 = null;
             }
             ACTION_HIDE_TOOLTIP = new AccessibilityActionCompat(accessibilityAction15, 16908357, null, null, null);
+            if (Build.VERSION.SDK_INT >= 30) {
+                accessibilityAction16 = AccessibilityNodeInfo.AccessibilityAction.ACTION_PRESS_AND_HOLD;
+            } else {
+                accessibilityAction16 = null;
+            }
+            ACTION_PRESS_AND_HOLD = new AccessibilityActionCompat(accessibilityAction16, 16908362, null, null, null);
+            if (Build.VERSION.SDK_INT >= 30) {
+                accessibilityAction17 = AccessibilityNodeInfo.AccessibilityAction.ACTION_IME_ENTER;
+            }
+            ACTION_IME_ENTER = new AccessibilityActionCompat(accessibilityAction17, 16908372, null, null, null);
         }
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -1218,10 +1245,26 @@ public class AccessibilityNodeInfoCompat {
     }
 
     @Nullable
+    public CharSequence getStateDescription() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
+            if (BuildCompat.isAtLeastR()) {
+                return this.mInfo.getStateDescription();
+            }
+            if (Build.VERSION.SDK_INT >= 19) {
+                return this.mInfo.getExtras().getCharSequence(STATE_DESCRIPTION_KEY);
+            }
+            return null;
+        }
+        return (CharSequence) invokeV.objValue;
+    }
+
+    @Nullable
     public CharSequence getTooltipText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
             int i = Build.VERSION.SDK_INT;
             if (i >= 28) {
                 return this.mInfo.getTooltipText();
@@ -1237,7 +1280,7 @@ public class AccessibilityNodeInfoCompat {
     public boolean isHeading() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) {
             if (Build.VERSION.SDK_INT >= 28) {
                 return this.mInfo.isHeading();
             }
@@ -1286,7 +1329,7 @@ public class AccessibilityNodeInfoCompat {
             SparseArray<WeakReference<ClickableSpan>> spansFromViewTags = getSpansFromViewTags(view2);
             if (spansFromViewTags == null) {
                 SparseArray<WeakReference<ClickableSpan>> sparseArray = new SparseArray<>();
-                view2.setTag(R.id.obfuscated_res_0x7f092128, sparseArray);
+                view2.setTag(R.id.obfuscated_res_0x7f092139, sparseArray);
                 return sparseArray;
             }
             return spansFromViewTags;
@@ -1298,7 +1341,7 @@ public class AccessibilityNodeInfoCompat {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, this, view2)) == null) {
-            return (SparseArray) view2.getTag(R.id.obfuscated_res_0x7f092128);
+            return (SparseArray) view2.getTag(R.id.obfuscated_res_0x7f092139);
         }
         return (SparseArray) invokeL.objValue;
     }
@@ -1398,7 +1441,7 @@ public class AccessibilityNodeInfoCompat {
     public boolean performAction(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048646, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048647, this, i)) == null) {
             return this.mInfo.performAction(i);
         }
         return invokeI.booleanValue;
@@ -1407,7 +1450,7 @@ public class AccessibilityNodeInfoCompat {
     public boolean removeAction(AccessibilityActionCompat accessibilityActionCompat) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048650, this, accessibilityActionCompat)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048651, this, accessibilityActionCompat)) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
                 return this.mInfo.removeAction((AccessibilityNodeInfo.AccessibilityAction) accessibilityActionCompat.mAction);
             }
@@ -1419,7 +1462,7 @@ public class AccessibilityNodeInfoCompat {
     public boolean removeChild(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048651, this, view2)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048652, this, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
                 return this.mInfo.removeChild(view2);
             }
@@ -1430,7 +1473,7 @@ public class AccessibilityNodeInfoCompat {
 
     public void setAccessibilityFocused(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048653, this, z) == null) && Build.VERSION.SDK_INT >= 16) {
+        if ((interceptable == null || interceptable.invokeZ(1048654, this, z) == null) && Build.VERSION.SDK_INT >= 16) {
             this.mInfo.setAccessibilityFocused(z);
         }
     }
@@ -1438,49 +1481,49 @@ public class AccessibilityNodeInfoCompat {
     @Deprecated
     public void setBoundsInParent(Rect rect) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048654, this, rect) == null) {
+        if (interceptable == null || interceptable.invokeL(1048655, this, rect) == null) {
             this.mInfo.setBoundsInParent(rect);
         }
     }
 
     public void setBoundsInScreen(Rect rect) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048655, this, rect) == null) {
+        if (interceptable == null || interceptable.invokeL(1048656, this, rect) == null) {
             this.mInfo.setBoundsInScreen(rect);
         }
     }
 
     public void setCanOpenPopup(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048656, this, z) == null) && Build.VERSION.SDK_INT >= 19) {
+        if ((interceptable == null || interceptable.invokeZ(1048657, this, z) == null) && Build.VERSION.SDK_INT >= 19) {
             this.mInfo.setCanOpenPopup(z);
         }
     }
 
     public void setCheckable(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048657, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048658, this, z) == null) {
             this.mInfo.setCheckable(z);
         }
     }
 
     public void setChecked(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048658, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048659, this, z) == null) {
             this.mInfo.setChecked(z);
         }
     }
 
     public void setClassName(CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048659, this, charSequence) == null) {
+        if (interceptable == null || interceptable.invokeL(1048660, this, charSequence) == null) {
             this.mInfo.setClassName(charSequence);
         }
     }
 
     public void setClickable(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048660, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048661, this, z) == null) {
             this.mInfo.setClickable(z);
         }
     }
@@ -1488,7 +1531,7 @@ public class AccessibilityNodeInfoCompat {
     public void setCollectionInfo(Object obj) {
         AccessibilityNodeInfo.CollectionInfo collectionInfo;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048661, this, obj) == null) && Build.VERSION.SDK_INT >= 19) {
+        if ((interceptable == null || interceptable.invokeL(1048662, this, obj) == null) && Build.VERSION.SDK_INT >= 19) {
             AccessibilityNodeInfo accessibilityNodeInfo = this.mInfo;
             if (obj == null) {
                 collectionInfo = null;
@@ -1502,7 +1545,7 @@ public class AccessibilityNodeInfoCompat {
     public void setCollectionItemInfo(Object obj) {
         AccessibilityNodeInfo.CollectionItemInfo collectionItemInfo;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048662, this, obj) == null) && Build.VERSION.SDK_INT >= 19) {
+        if ((interceptable == null || interceptable.invokeL(1048663, this, obj) == null) && Build.VERSION.SDK_INT >= 19) {
             AccessibilityNodeInfo accessibilityNodeInfo = this.mInfo;
             if (obj == null) {
                 collectionItemInfo = null;
@@ -1515,77 +1558,77 @@ public class AccessibilityNodeInfoCompat {
 
     public void setContentDescription(CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048663, this, charSequence) == null) {
+        if (interceptable == null || interceptable.invokeL(1048664, this, charSequence) == null) {
             this.mInfo.setContentDescription(charSequence);
         }
     }
 
     public void setContentInvalid(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048664, this, z) == null) && Build.VERSION.SDK_INT >= 19) {
+        if ((interceptable == null || interceptable.invokeZ(1048665, this, z) == null) && Build.VERSION.SDK_INT >= 19) {
             this.mInfo.setContentInvalid(z);
         }
     }
 
     public void setContextClickable(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048665, this, z) == null) && Build.VERSION.SDK_INT >= 23) {
+        if ((interceptable == null || interceptable.invokeZ(1048666, this, z) == null) && Build.VERSION.SDK_INT >= 23) {
             this.mInfo.setContextClickable(z);
         }
     }
 
     public void setDismissable(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048666, this, z) == null) && Build.VERSION.SDK_INT >= 19) {
+        if ((interceptable == null || interceptable.invokeZ(1048667, this, z) == null) && Build.VERSION.SDK_INT >= 19) {
             this.mInfo.setDismissable(z);
         }
     }
 
     public void setDrawingOrder(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048667, this, i) == null) && Build.VERSION.SDK_INT >= 24) {
+        if ((interceptable == null || interceptable.invokeI(1048668, this, i) == null) && Build.VERSION.SDK_INT >= 24) {
             this.mInfo.setDrawingOrder(i);
         }
     }
 
     public void setEditable(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048668, this, z) == null) && Build.VERSION.SDK_INT >= 18) {
+        if ((interceptable == null || interceptable.invokeZ(1048669, this, z) == null) && Build.VERSION.SDK_INT >= 18) {
             this.mInfo.setEditable(z);
         }
     }
 
     public void setEnabled(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048669, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048670, this, z) == null) {
             this.mInfo.setEnabled(z);
         }
     }
 
     public void setError(CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048670, this, charSequence) == null) && Build.VERSION.SDK_INT >= 21) {
+        if ((interceptable == null || interceptable.invokeL(1048671, this, charSequence) == null) && Build.VERSION.SDK_INT >= 21) {
             this.mInfo.setError(charSequence);
         }
     }
 
     public void setFocusable(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048671, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048672, this, z) == null) {
             this.mInfo.setFocusable(z);
         }
     }
 
     public void setFocused(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048672, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048673, this, z) == null) {
             this.mInfo.setFocused(z);
         }
     }
 
     public void setHeading(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048673, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048674, this, z) == null) {
             if (Build.VERSION.SDK_INT >= 28) {
                 this.mInfo.setHeading(z);
             } else {
@@ -1596,7 +1639,7 @@ public class AccessibilityNodeInfoCompat {
 
     public void setHintText(@Nullable CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048674, this, charSequence) == null) {
+        if (interceptable == null || interceptable.invokeL(1048675, this, charSequence) == null) {
             int i = Build.VERSION.SDK_INT;
             if (i >= 26) {
                 this.mInfo.setHintText(charSequence);
@@ -1608,77 +1651,77 @@ public class AccessibilityNodeInfoCompat {
 
     public void setImportantForAccessibility(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048675, this, z) == null) && Build.VERSION.SDK_INT >= 24) {
+        if ((interceptable == null || interceptable.invokeZ(1048676, this, z) == null) && Build.VERSION.SDK_INT >= 24) {
             this.mInfo.setImportantForAccessibility(z);
         }
     }
 
     public void setInputType(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048676, this, i) == null) && Build.VERSION.SDK_INT >= 19) {
+        if ((interceptable == null || interceptable.invokeI(1048677, this, i) == null) && Build.VERSION.SDK_INT >= 19) {
             this.mInfo.setInputType(i);
         }
     }
 
     public void setLabelFor(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048677, this, view2) == null) && Build.VERSION.SDK_INT >= 17) {
+        if ((interceptable == null || interceptable.invokeL(1048678, this, view2) == null) && Build.VERSION.SDK_INT >= 17) {
             this.mInfo.setLabelFor(view2);
         }
     }
 
     public void setLabeledBy(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048679, this, view2) == null) && Build.VERSION.SDK_INT >= 17) {
+        if ((interceptable == null || interceptable.invokeL(1048680, this, view2) == null) && Build.VERSION.SDK_INT >= 17) {
             this.mInfo.setLabeledBy(view2);
         }
     }
 
     public void setLiveRegion(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048681, this, i) == null) && Build.VERSION.SDK_INT >= 19) {
+        if ((interceptable == null || interceptable.invokeI(1048682, this, i) == null) && Build.VERSION.SDK_INT >= 19) {
             this.mInfo.setLiveRegion(i);
         }
     }
 
     public void setLongClickable(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048682, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048683, this, z) == null) {
             this.mInfo.setLongClickable(z);
         }
     }
 
     public void setMaxTextLength(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048683, this, i) == null) && Build.VERSION.SDK_INT >= 21) {
+        if ((interceptable == null || interceptable.invokeI(1048684, this, i) == null) && Build.VERSION.SDK_INT >= 21) {
             this.mInfo.setMaxTextLength(i);
         }
     }
 
     public void setMovementGranularities(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048684, this, i) == null) && Build.VERSION.SDK_INT >= 16) {
+        if ((interceptable == null || interceptable.invokeI(1048685, this, i) == null) && Build.VERSION.SDK_INT >= 16) {
             this.mInfo.setMovementGranularities(i);
         }
     }
 
     public void setMultiLine(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048685, this, z) == null) && Build.VERSION.SDK_INT >= 19) {
+        if ((interceptable == null || interceptable.invokeZ(1048686, this, z) == null) && Build.VERSION.SDK_INT >= 19) {
             this.mInfo.setMultiLine(z);
         }
     }
 
     public void setPackageName(CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048686, this, charSequence) == null) {
+        if (interceptable == null || interceptable.invokeL(1048687, this, charSequence) == null) {
             this.mInfo.setPackageName(charSequence);
         }
     }
 
     public void setPaneTitle(@Nullable CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048687, this, charSequence) == null) {
+        if (interceptable == null || interceptable.invokeL(1048688, this, charSequence) == null) {
             int i = Build.VERSION.SDK_INT;
             if (i >= 28) {
                 this.mInfo.setPaneTitle(charSequence);
@@ -1690,7 +1733,7 @@ public class AccessibilityNodeInfoCompat {
 
     public void setParent(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048688, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048689, this, view2) == null) {
             this.mParentVirtualDescendantId = -1;
             this.mInfo.setParent(view2);
         }
@@ -1698,28 +1741,28 @@ public class AccessibilityNodeInfoCompat {
 
     public void setPassword(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048690, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048691, this, z) == null) {
             this.mInfo.setPassword(z);
         }
     }
 
     public void setRangeInfo(RangeInfoCompat rangeInfoCompat) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048691, this, rangeInfoCompat) == null) && Build.VERSION.SDK_INT >= 19) {
+        if ((interceptable == null || interceptable.invokeL(1048692, this, rangeInfoCompat) == null) && Build.VERSION.SDK_INT >= 19) {
             this.mInfo.setRangeInfo((AccessibilityNodeInfo.RangeInfo) rangeInfoCompat.mInfo);
         }
     }
 
     public void setRoleDescription(@Nullable CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048692, this, charSequence) == null) && Build.VERSION.SDK_INT >= 19) {
+        if ((interceptable == null || interceptable.invokeL(1048693, this, charSequence) == null) && Build.VERSION.SDK_INT >= 19) {
             this.mInfo.getExtras().putCharSequence(ROLE_DESCRIPTION_KEY, charSequence);
         }
     }
 
     public void setScreenReaderFocusable(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048693, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048694, this, z) == null) {
             if (Build.VERSION.SDK_INT >= 28) {
                 this.mInfo.setScreenReaderFocusable(z);
             } else {
@@ -1730,21 +1773,21 @@ public class AccessibilityNodeInfoCompat {
 
     public void setScrollable(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048694, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048695, this, z) == null) {
             this.mInfo.setScrollable(z);
         }
     }
 
     public void setSelected(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048695, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048696, this, z) == null) {
             this.mInfo.setSelected(z);
         }
     }
 
     public void setShowingHintText(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048696, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048697, this, z) == null) {
             if (Build.VERSION.SDK_INT >= 26) {
                 this.mInfo.setShowingHintText(z);
             } else {
@@ -1755,22 +1798,33 @@ public class AccessibilityNodeInfoCompat {
 
     public void setSource(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048697, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048698, this, view2) == null) {
             this.mVirtualDescendantId = -1;
             this.mInfo.setSource(view2);
         }
     }
 
+    public void setStateDescription(@Nullable CharSequence charSequence) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048700, this, charSequence) == null) {
+            if (BuildCompat.isAtLeastR()) {
+                this.mInfo.setStateDescription(charSequence);
+            } else if (Build.VERSION.SDK_INT >= 19) {
+                this.mInfo.getExtras().putCharSequence(STATE_DESCRIPTION_KEY, charSequence);
+            }
+        }
+    }
+
     public void setText(CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048699, this, charSequence) == null) {
+        if (interceptable == null || interceptable.invokeL(1048701, this, charSequence) == null) {
             this.mInfo.setText(charSequence);
         }
     }
 
     public void setTextEntryKey(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048700, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048702, this, z) == null) {
             if (Build.VERSION.SDK_INT >= 29) {
                 this.mInfo.setTextEntryKey(z);
             } else {
@@ -1781,7 +1835,7 @@ public class AccessibilityNodeInfoCompat {
 
     public void setTooltipText(@Nullable CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048702, this, charSequence) == null) {
+        if (interceptable == null || interceptable.invokeL(1048704, this, charSequence) == null) {
             int i = Build.VERSION.SDK_INT;
             if (i >= 28) {
                 this.mInfo.setTooltipText(charSequence);
@@ -1793,35 +1847,35 @@ public class AccessibilityNodeInfoCompat {
 
     public void setTouchDelegateInfo(@NonNull TouchDelegateInfoCompat touchDelegateInfoCompat) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048703, this, touchDelegateInfoCompat) == null) && Build.VERSION.SDK_INT >= 29) {
+        if ((interceptable == null || interceptable.invokeL(1048705, this, touchDelegateInfoCompat) == null) && Build.VERSION.SDK_INT >= 29) {
             this.mInfo.setTouchDelegateInfo(touchDelegateInfoCompat.mInfo);
         }
     }
 
     public void setTraversalAfter(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048704, this, view2) == null) && Build.VERSION.SDK_INT >= 22) {
+        if ((interceptable == null || interceptable.invokeL(1048706, this, view2) == null) && Build.VERSION.SDK_INT >= 22) {
             this.mInfo.setTraversalAfter(view2);
         }
     }
 
     public void setTraversalBefore(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048706, this, view2) == null) && Build.VERSION.SDK_INT >= 22) {
+        if ((interceptable == null || interceptable.invokeL(1048708, this, view2) == null) && Build.VERSION.SDK_INT >= 22) {
             this.mInfo.setTraversalBefore(view2);
         }
     }
 
     public void setViewIdResourceName(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048708, this, str) == null) && Build.VERSION.SDK_INT >= 18) {
+        if ((interceptable == null || interceptable.invokeL(1048710, this, str) == null) && Build.VERSION.SDK_INT >= 18) {
             this.mInfo.setViewIdResourceName(str);
         }
     }
 
     public void setVisibleToUser(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048709, this, z) == null) && Build.VERSION.SDK_INT >= 16) {
+        if ((interceptable == null || interceptable.invokeZ(1048711, this, z) == null) && Build.VERSION.SDK_INT >= 16) {
             this.mInfo.setVisibleToUser(z);
         }
     }
@@ -2083,7 +2137,7 @@ public class AccessibilityNodeInfoCompat {
     public int getTextSelectionEnd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
             if (Build.VERSION.SDK_INT >= 18) {
                 return this.mInfo.getTextSelectionEnd();
             }
@@ -2095,7 +2149,7 @@ public class AccessibilityNodeInfoCompat {
     public int getTextSelectionStart() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
             if (Build.VERSION.SDK_INT >= 18) {
                 return this.mInfo.getTextSelectionStart();
             }
@@ -2109,7 +2163,7 @@ public class AccessibilityNodeInfoCompat {
         InterceptResult invokeV;
         AccessibilityNodeInfo.TouchDelegateInfo touchDelegateInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
             if (Build.VERSION.SDK_INT >= 29 && (touchDelegateInfo = this.mInfo.getTouchDelegateInfo()) != null) {
                 return new TouchDelegateInfoCompat(touchDelegateInfo);
             }
@@ -2121,7 +2175,7 @@ public class AccessibilityNodeInfoCompat {
     public AccessibilityNodeInfoCompat getTraversalAfter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
             if (Build.VERSION.SDK_INT >= 22) {
                 return wrapNonNullInstance(this.mInfo.getTraversalAfter());
             }
@@ -2133,7 +2187,7 @@ public class AccessibilityNodeInfoCompat {
     public AccessibilityNodeInfoCompat getTraversalBefore() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
             if (Build.VERSION.SDK_INT >= 22) {
                 return wrapNonNullInstance(this.mInfo.getTraversalBefore());
             }
@@ -2145,7 +2199,7 @@ public class AccessibilityNodeInfoCompat {
     public String getViewIdResourceName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
             if (Build.VERSION.SDK_INT >= 18) {
                 return this.mInfo.getViewIdResourceName();
             }
@@ -2157,7 +2211,7 @@ public class AccessibilityNodeInfoCompat {
     public AccessibilityWindowInfoCompat getWindow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
                 return AccessibilityWindowInfoCompat.wrapNonNullInstance(this.mInfo.getWindow());
             }
@@ -2169,7 +2223,7 @@ public class AccessibilityNodeInfoCompat {
     public int getWindowId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
             return this.mInfo.getWindowId();
         }
         return invokeV.intValue;
@@ -2178,7 +2232,7 @@ public class AccessibilityNodeInfoCompat {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
             AccessibilityNodeInfo accessibilityNodeInfo = this.mInfo;
             if (accessibilityNodeInfo == null) {
                 return 0;
@@ -2191,7 +2245,7 @@ public class AccessibilityNodeInfoCompat {
     public boolean isAccessibilityFocused() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
                 return this.mInfo.isAccessibilityFocused();
             }
@@ -2203,7 +2257,7 @@ public class AccessibilityNodeInfoCompat {
     public boolean isCheckable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) {
             return this.mInfo.isCheckable();
         }
         return invokeV.booleanValue;
@@ -2212,7 +2266,7 @@ public class AccessibilityNodeInfoCompat {
     public boolean isChecked() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) {
             return this.mInfo.isChecked();
         }
         return invokeV.booleanValue;
@@ -2221,7 +2275,7 @@ public class AccessibilityNodeInfoCompat {
     public boolean isClickable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) {
             return this.mInfo.isClickable();
         }
         return invokeV.booleanValue;
@@ -2230,7 +2284,7 @@ public class AccessibilityNodeInfoCompat {
     public boolean isContentInvalid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) {
             if (Build.VERSION.SDK_INT >= 19) {
                 return this.mInfo.isContentInvalid();
             }
@@ -2242,7 +2296,7 @@ public class AccessibilityNodeInfoCompat {
     public boolean isContextClickable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) {
             if (Build.VERSION.SDK_INT >= 23) {
                 return this.mInfo.isContextClickable();
             }
@@ -2254,7 +2308,7 @@ public class AccessibilityNodeInfoCompat {
     public boolean isDismissable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) {
             if (Build.VERSION.SDK_INT >= 19) {
                 return this.mInfo.isDismissable();
             }
@@ -2266,7 +2320,7 @@ public class AccessibilityNodeInfoCompat {
     public boolean isEditable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) {
             if (Build.VERSION.SDK_INT >= 18) {
                 return this.mInfo.isEditable();
             }
@@ -2278,7 +2332,7 @@ public class AccessibilityNodeInfoCompat {
     public boolean isEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) {
             return this.mInfo.isEnabled();
         }
         return invokeV.booleanValue;
@@ -2287,7 +2341,7 @@ public class AccessibilityNodeInfoCompat {
     public boolean isFocusable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) {
             return this.mInfo.isFocusable();
         }
         return invokeV.booleanValue;
@@ -2296,7 +2350,7 @@ public class AccessibilityNodeInfoCompat {
     public boolean isFocused() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) {
             return this.mInfo.isFocused();
         }
         return invokeV.booleanValue;
@@ -2305,7 +2359,7 @@ public class AccessibilityNodeInfoCompat {
     public boolean isImportantForAccessibility() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) {
             if (Build.VERSION.SDK_INT >= 24) {
                 return this.mInfo.isImportantForAccessibility();
             }
@@ -2317,7 +2371,7 @@ public class AccessibilityNodeInfoCompat {
     public boolean isLongClickable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) {
             return this.mInfo.isLongClickable();
         }
         return invokeV.booleanValue;
@@ -2326,7 +2380,7 @@ public class AccessibilityNodeInfoCompat {
     public boolean isMultiLine() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) {
             if (Build.VERSION.SDK_INT >= 19) {
                 return this.mInfo.isMultiLine();
             }
@@ -2338,7 +2392,7 @@ public class AccessibilityNodeInfoCompat {
     public boolean isPassword() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) {
             return this.mInfo.isPassword();
         }
         return invokeV.booleanValue;
@@ -2347,7 +2401,7 @@ public class AccessibilityNodeInfoCompat {
     public boolean isScreenReaderFocusable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) {
             if (Build.VERSION.SDK_INT >= 28) {
                 return this.mInfo.isScreenReaderFocusable();
             }
@@ -2359,7 +2413,7 @@ public class AccessibilityNodeInfoCompat {
     public boolean isScrollable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048642, this)) == null) {
             return this.mInfo.isScrollable();
         }
         return invokeV.booleanValue;
@@ -2368,7 +2422,7 @@ public class AccessibilityNodeInfoCompat {
     public boolean isSelected() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048642, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048643, this)) == null) {
             return this.mInfo.isSelected();
         }
         return invokeV.booleanValue;
@@ -2377,7 +2431,7 @@ public class AccessibilityNodeInfoCompat {
     public boolean isShowingHintText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048643, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048644, this)) == null) {
             if (Build.VERSION.SDK_INT >= 26) {
                 return this.mInfo.isShowingHintText();
             }
@@ -2389,7 +2443,7 @@ public class AccessibilityNodeInfoCompat {
     public boolean isTextEntryKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048644, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048645, this)) == null) {
             if (Build.VERSION.SDK_INT >= 29) {
                 return this.mInfo.isTextEntryKey();
             }
@@ -2401,7 +2455,7 @@ public class AccessibilityNodeInfoCompat {
     public boolean isVisibleToUser() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048645, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048646, this)) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
                 return this.mInfo.isVisibleToUser();
             }
@@ -2412,7 +2466,7 @@ public class AccessibilityNodeInfoCompat {
 
     public void recycle() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048648, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048649, this) == null) {
             this.mInfo.recycle();
         }
     }
@@ -2420,7 +2474,7 @@ public class AccessibilityNodeInfoCompat {
     public boolean refresh() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048649, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048650, this)) == null) {
             if (Build.VERSION.SDK_INT >= 18) {
                 return this.mInfo.refresh();
             }
@@ -2432,7 +2486,7 @@ public class AccessibilityNodeInfoCompat {
     public AccessibilityNodeInfo unwrap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048711, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048713, this)) == null) {
             return this.mInfo;
         }
         return (AccessibilityNodeInfo) invokeV.objValue;
@@ -2490,7 +2544,7 @@ public class AccessibilityNodeInfoCompat {
     public boolean performAction(int i, Bundle bundle) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048647, this, i, bundle)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048648, this, i, bundle)) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
                 return this.mInfo.performAction(i, bundle);
             }
@@ -2502,7 +2556,7 @@ public class AccessibilityNodeInfoCompat {
     public boolean removeChild(View view2, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048652, this, view2, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048653, this, view2, i)) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
                 return this.mInfo.removeChild(view2, i);
             }
@@ -2513,21 +2567,21 @@ public class AccessibilityNodeInfoCompat {
 
     public void setLabelFor(View view2, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048678, this, view2, i) == null) && Build.VERSION.SDK_INT >= 17) {
+        if ((interceptable == null || interceptable.invokeLI(1048679, this, view2, i) == null) && Build.VERSION.SDK_INT >= 17) {
             this.mInfo.setLabelFor(view2, i);
         }
     }
 
     public void setLabeledBy(View view2, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048680, this, view2, i) == null) && Build.VERSION.SDK_INT >= 17) {
+        if ((interceptable == null || interceptable.invokeLI(1048681, this, view2, i) == null) && Build.VERSION.SDK_INT >= 17) {
             this.mInfo.setLabeledBy(view2, i);
         }
     }
 
     public void setParent(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048689, this, view2, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048690, this, view2, i) == null) {
             this.mParentVirtualDescendantId = i;
             if (Build.VERSION.SDK_INT >= 16) {
                 this.mInfo.setParent(view2, i);
@@ -2537,7 +2591,7 @@ public class AccessibilityNodeInfoCompat {
 
     public void setSource(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048698, this, view2, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048699, this, view2, i) == null) {
             this.mVirtualDescendantId = i;
             if (Build.VERSION.SDK_INT >= 16) {
                 this.mInfo.setSource(view2, i);
@@ -2547,21 +2601,21 @@ public class AccessibilityNodeInfoCompat {
 
     public void setTextSelection(int i, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(1048701, this, i, i2) == null) && Build.VERSION.SDK_INT >= 18) {
+        if ((interceptable == null || interceptable.invokeII(1048703, this, i, i2) == null) && Build.VERSION.SDK_INT >= 18) {
             this.mInfo.setTextSelection(i, i2);
         }
     }
 
     public void setTraversalAfter(View view2, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048705, this, view2, i) == null) && Build.VERSION.SDK_INT >= 22) {
+        if ((interceptable == null || interceptable.invokeLI(1048707, this, view2, i) == null) && Build.VERSION.SDK_INT >= 22) {
             this.mInfo.setTraversalAfter(view2, i);
         }
     }
 
     public void setTraversalBefore(View view2, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048707, this, view2, i) == null) && Build.VERSION.SDK_INT >= 22) {
+        if ((interceptable == null || interceptable.invokeLI(1048709, this, view2, i) == null) && Build.VERSION.SDK_INT >= 22) {
             this.mInfo.setTraversalBefore(view2, i);
         }
     }
@@ -2621,7 +2675,7 @@ public class AccessibilityNodeInfoCompat {
     public CharSequence getText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
             if (hasSpans()) {
                 List<Integer> extrasIntList = extrasIntList(SPANS_START_KEY);
                 List<Integer> extrasIntList2 = extrasIntList(SPANS_END_KEY);
@@ -2642,7 +2696,7 @@ public class AccessibilityNodeInfoCompat {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048710, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048712, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append(super.toString());
             Rect rect = new Rect();

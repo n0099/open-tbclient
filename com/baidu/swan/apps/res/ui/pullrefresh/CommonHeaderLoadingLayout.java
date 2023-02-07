@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ai3;
+import com.baidu.tieba.nm3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -139,14 +139,14 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
             }
         }
         this.e = 0;
-        this.j = (RefreshingAnimView) findViewById(R.id.obfuscated_res_0x7f091c8d);
-        int f = ai3.f(getContext(), 29.0f);
+        this.j = (RefreshingAnimView) findViewById(R.id.obfuscated_res_0x7f091ca1);
+        int f = nm3.f(getContext(), 29.0f);
         this.e = f;
         this.f = (int) (f * 2.4f);
         int i3 = (int) (f * 1.5f);
         this.h = i3;
         this.g = i3;
-        HeaderRefreshIndicator headerRefreshIndicator = (HeaderRefreshIndicator) findViewById(R.id.obfuscated_res_0x7f091c8b);
+        HeaderRefreshIndicator headerRefreshIndicator = (HeaderRefreshIndicator) findViewById(R.id.obfuscated_res_0x7f091c9f);
         this.k = headerRefreshIndicator;
         headerRefreshIndicator.i();
     }
@@ -179,7 +179,7 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, viewGroup, attributeSet)) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d009d, viewGroup, false);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d009c, viewGroup, false);
             this.i = inflate;
             return inflate;
         }
@@ -237,7 +237,7 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
             if (view2 != null) {
                 return view2.getHeight();
             }
-            return ai3.f(getContext(), 50.0f);
+            return nm3.f(getContext(), 50.0f);
         }
         return invokeV.intValue;
     }

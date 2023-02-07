@@ -75,7 +75,7 @@ public class as implements au {
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
                 try {
                     this.a.f135a = b.a(iBinder);
-                    this.a.f136b = b.m188a(iBinder);
+                    this.a.f136b = b.m190a(iBinder);
                     this.a.b();
                     this.a.f131a = 2;
                     synchronized (this.a.f134a) {
@@ -140,7 +140,7 @@ public class as implements au {
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public static boolean m188a(IBinder iBinder) {
+        public static boolean m190a(IBinder iBinder) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iBinder)) == null) {
@@ -205,7 +205,7 @@ public class as implements au {
         if ((interceptable == null || interceptable.invokeL(65542, this, str) == null) && this.f131a == 1 && Looper.myLooper() != Looper.getMainLooper()) {
             synchronized (this.f134a) {
                 try {
-                    com.xiaomi.channel.commonutils.logger.b.m103a("huawei's " + str + " wait...");
+                    com.xiaomi.channel.commonutils.logger.b.m105a("huawei's " + str + " wait...");
                     this.f134a.wait(3000L);
                 } catch (Exception unused) {
                 }
@@ -244,7 +244,7 @@ public class as implements au {
 
     @Override // com.xiaomi.push.au
     /* renamed from: a  reason: collision with other method in class */
-    public String mo186a() {
+    public String mo188a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -256,7 +256,7 @@ public class as implements au {
 
     @Override // com.xiaomi.push.au
     /* renamed from: a  reason: collision with other method in class */
-    public boolean mo187a() {
+    public boolean mo189a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? a : invokeV.booleanValue;

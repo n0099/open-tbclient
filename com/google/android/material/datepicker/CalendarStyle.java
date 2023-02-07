@@ -48,7 +48,7 @@ public final class CalendarStyle {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(MaterialAttributes.resolveOrThrow(context, R.attr.obfuscated_res_0x7f0404b5, MaterialCalendar.class.getCanonicalName()), com.google.android.material.R.styleable.MaterialCalendar);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(MaterialAttributes.resolveOrThrow(context, R.attr.obfuscated_res_0x7f0404b6, MaterialCalendar.class.getCanonicalName()), com.google.android.material.R.styleable.MaterialCalendar);
         this.day = CalendarItemStyle.create(context, obtainStyledAttributes.getResourceId(3, 0));
         this.invalidDay = CalendarItemStyle.create(context, obtainStyledAttributes.getResourceId(1, 0));
         this.selectedDay = CalendarItemStyle.create(context, obtainStyledAttributes.getResourceId(2, 0));

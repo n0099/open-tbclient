@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SpecHotTopicHelper;
-import com.baidu.tieba.dp8;
-import com.baidu.tieba.vt4;
-import com.baidu.tieba.yn;
+import com.baidu.tieba.Cdo;
+import com.baidu.tieba.iy4;
+import com.baidu.tieba.ys8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +32,7 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BannerListData bannerListData;
-    public ArrayList<yn> threadList;
+    public ArrayList<Cdo> threadList;
     public HashMap<String, MetaData> userMap;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -110,18 +110,18 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                             threadData.parser_title();
                             threadData.isFromBrandForum = z;
                             if (!TextUtils.isEmpty(threadData.getLegoCard())) {
-                                vt4 vt4Var = new vt4();
-                                vt4Var.g(threadData.getLegoCard());
-                                this.threadList.add(vt4Var);
+                                iy4 iy4Var = new iy4();
+                                iy4Var.h(threadData.getLegoCard());
+                                this.threadList.add(iy4Var);
                             } else {
                                 this.threadList.add(threadData);
-                                JSONObject b = dp8.b(threadInfo);
+                                JSONObject b = ys8.b(threadInfo);
                                 if (b != null) {
                                     arrayList.add(b);
                                 }
                             }
                         }
-                        dp8.f().h("FRS", arrayList);
+                        ys8.f().h("FRS", arrayList);
                     }
                 }
                 this.bannerListData = null;
@@ -146,7 +146,7 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
         return (BannerListData) invokeV.objValue;
     }
 
-    public ArrayList<yn> getThreadList() {
+    public ArrayList<Cdo> getThreadList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {

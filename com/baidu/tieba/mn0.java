@@ -10,33 +10,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public interface mn0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "ipdx");
+    public static final ServiceReference a = new ServiceReference("nad.core", "exp");
     public static final mn0 b = new a();
 
     @NonNull
-    String a();
+    ln0 a();
 
-    void request();
+    @NonNull
+    nn0 request();
 
     /* loaded from: classes5.dex */
     public static class a implements mn0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.mn0
-        @NonNull
-        public String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.mn0
-        public void request() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
 
         public a() {
             Interceptable interceptable = $ic;
@@ -50,6 +36,28 @@ public interface mn0 {
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
+        }
+
+        @Override // com.baidu.tieba.mn0
+        @NonNull
+        public ln0 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return ln0.a;
+            }
+            return (ln0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.mn0
+        @NonNull
+        public nn0 request() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return nn0.a;
+            }
+            return (nn0) invokeV.objValue;
         }
     }
 }

@@ -1,10 +1,5 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import android.util.LruCache;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,11 +8,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class x92 implements u92 {
+public abstract class x92<T, R> implements ba2<T, R> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LruCache<String, Long> a;
 
     static {
         InterceptResult invokeClinit;
@@ -32,60 +26,35 @@ public class x92 implements u92 {
                 return;
             }
         }
-        b = tk1.a;
+        a = w83.v;
     }
 
-    public x92(int i) {
+    public x92() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
-        }
-        i = i <= 0 ? 10 : i;
-        this.a = new LruCache<>(i);
-        if (b) {
-            Log.d("SwanPrelinkLocalRecorder", "lru size - " + i);
         }
     }
 
-    @Override // com.baidu.tieba.u92
-    public v92 a(String str, String str2) {
-        InterceptResult invokeLL;
+    public boolean b() {
+        InterceptResult invokeV;
+        e82 o;
+        cv1 o3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (b) {
-                Log.d("SwanPrelinkLocalRecorder", "prelink LRU size - " + this.a.size());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            f82 V = ju2.U().V();
+            if (V == null || (o = V.o()) == null || (o3 = o.o3()) == null) {
+                return false;
             }
-            Long l = this.a.get(str2);
-            if (l == null) {
-                return null;
-            }
-            v92 v92Var = new v92();
-            v92Var.a = ProcessUtils.getCurProcessName();
-            v92Var.b = l.longValue();
-            return v92Var;
+            return o3.i0();
         }
-        return (v92) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.u92
-    public void b(String str, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, z) != null) || TextUtils.isEmpty(str2)) {
-            return;
-        }
-        if (b) {
-            Log.d("SwanPrelinkLocalRecorder", "record : appId-" + str + ", url-" + str2);
-        }
-        this.a.put(str2, Long.valueOf(System.currentTimeMillis()));
+        return invokeV.booleanValue;
     }
 }

@@ -1,12 +1,18 @@
 package com.baidu.tieba;
 
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.aperf.param.IAperfOverlayContext;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.FrsPage.Group;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class mv8 {
+public class mv8 implements IAperfOverlayContext {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,12 +30,13 @@ public class mv8 {
         }
     }
 
-    public void a(Group group) {
+    @Override // com.baidu.searchbox.aperf.param.IAperfOverlayContext
+    public String getAppVersion() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, group) != null) || group == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return TbConfig.getVersion();
         }
-        group.group_count.intValue();
-        group.hide_recommend_group.intValue();
+        return (String) invokeV.objValue;
     }
 }

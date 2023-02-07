@@ -1,144 +1,123 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.Marker;
-import com.baidu.mapapi.map.TextureMapView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.tieba.tt2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class t94 extends yz1<TextureMapView, vq2> {
+public class t94 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String i;
-    public String j;
-    public boolean k;
-    @NonNull
-    public TextureMapView l;
-    public Context m;
-    public List<s94> n;
-    public List<r94> o;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t94(@NonNull Context context, @NonNull vq2 vq2Var) {
-        super(context, vq2Var);
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, vq2Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (zz1) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.n = new ArrayList();
-        this.o = new ArrayList();
-        this.i = vq2Var.c;
-        this.j = vq2Var.b;
-        String str = vq2Var.d;
-        this.m = context;
-        this.l = new TextureMapView(context);
-        this.k = vq2Var.r;
-    }
-
-    public static t94 K(Context context, vq2 vq2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, vq2Var)) == null) {
-            if (context != null && vq2Var != null && vq2Var.isValid()) {
-                return new t94(context, vq2Var);
-            }
-            return null;
-        }
-        return (t94) invokeLL.objValue;
-    }
-
-    public void F() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            for (s94 s94Var : this.n) {
-                this.l.removeView(s94Var.e);
-            }
-            this.n.clear();
-            for (r94 r94Var : this.o) {
-                this.l.removeView(r94Var.b);
-            }
-            this.o.clear();
-            this.l.getMap().clear();
+        if ((interceptable == null || interceptable.invokeL(65536, null, str) == null) && v83.K().k() == 1 && !d()) {
+            b23.p("startup").F(new UbcFlowEvent(str));
         }
     }
 
-    public r94 G(View view2) {
-        InterceptResult invokeL;
+    public static void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
-            for (r94 r94Var : this.o) {
-                if (r94Var.b == view2) {
-                    return r94Var;
+        if ((interceptable == null || interceptable.invokeL(65537, null, jSONArray) == null) && jSONArray != null && jSONArray.length() != 0) {
+            HybridUbcFlow p = b23.p("startup");
+            for (int i = 0; i < jSONArray.length(); i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                if (optJSONObject != null) {
+                    String optString = optJSONObject.optString("id");
+                    long optLong = optJSONObject.optLong("timestamp");
+                    if (!TextUtils.isEmpty(optString) && optJSONObject.has("timestamp")) {
+                        UbcFlowEvent ubcFlowEvent = new UbcFlowEvent(optString);
+                        ubcFlowEvent.d(UbcFlowEvent.RecordType.UPDATE_RECENT);
+                        ubcFlowEvent.h(optLong);
+                        p.F(ubcFlowEvent);
+                    }
                 }
             }
-            return null;
         }
-        return (r94) invokeL.objValue;
     }
 
-    @Nullable
-    public s94 H(Marker marker) {
-        InterceptResult invokeL;
+    public static long c() {
+        InterceptResult invokeV;
+        SwanAppActivity w;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, marker)) == null) {
-            for (s94 s94Var : this.n) {
-                if (marker == s94Var.b) {
-                    return s94Var;
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            w83 M = w83.M();
+            if (M == null || (w = M.w()) == null) {
+                return 0L;
             }
-            return null;
-        }
-        return (s94) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yz1
-    @NonNull
-    /* renamed from: J */
-    public TextureMapView v(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            return this.l;
-        }
-        return (TextureMapView) invokeL.objValue;
-    }
-
-    public List<s94> I(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            ArrayList arrayList = new ArrayList(1);
-            for (s94 s94Var : this.n) {
-                dr2 dr2Var = s94Var.a;
-                if (dr2Var != null && TextUtils.equals(str, dr2Var.a)) {
-                    arrayList.add(s94Var);
-                }
+            vl2 Q = w.Q();
+            if (!(Q instanceof x44)) {
+                return 0L;
             }
-            return arrayList;
+            return ((x44) Q).f1();
         }
-        return (List) invokeL.objValue;
+        return invokeV.longValue;
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        SwanAppActivity w;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            w83 M = w83.M();
+            if (M == null || (w = M.w()) == null) {
+                return false;
+            }
+            vl2 Q = w.Q();
+            if (!(Q instanceof x44)) {
+                return false;
+            }
+            return ((x44) Q).j1();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void e(String str, tt2.a aVar) {
+        Bundle P;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, aVar) == null) && aVar != null && !d() && (P = aVar.P()) != null && P.getLong("page_display_flag_for_statistic") > 0) {
+            long l = aVar.l("launch_time", 0L);
+            long currentTimeMillis = System.currentTimeMillis();
+            zf3 zf3Var = new zf3();
+            zf3Var.a = pf3.n(aVar.G());
+            zf3Var.f = aVar.H();
+            zf3Var.c = aVar.T();
+            zf3Var.b = "launch";
+            zf3Var.e = "realcancel";
+            zf3Var.q = String.valueOf(currentTimeMillis - l);
+            zf3Var.a("reason", str);
+            zf3Var.a("errorList", n94.c().d());
+            zf3Var.d(P.getString(UBCCloudControlProcessor.UBC_KEY));
+            pf3.onEvent(zf3Var);
+            P.remove("page_display_flag_for_statistic");
+        }
+    }
+
+    public static void f(tt2.a aVar) {
+        Bundle P;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65541, null, aVar) == null) && aVar != null && d() && (P = aVar.P()) != null && P.getLong("page_display_flag_for_statistic") > 0) {
+            long l = aVar.l("launch_time", 0L);
+            long currentTimeMillis = System.currentTimeMillis();
+            zf3 zf3Var = new zf3();
+            zf3Var.a = pf3.n(aVar.G());
+            zf3Var.f = aVar.H();
+            zf3Var.c = aVar.T();
+            zf3Var.b = "launch";
+            zf3Var.e = "realsuccess";
+            zf3Var.r = String.valueOf(currentTimeMillis - l);
+            zf3Var.d(P.getString(UBCCloudControlProcessor.UBC_KEY));
+            pf3.onEvent(zf3Var);
+            P.remove("page_display_flag_for_statistic");
+        }
     }
 }

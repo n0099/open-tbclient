@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JsFunction;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
+import com.baidu.swan.apps.binding.model.JSTypeMismatchException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,9 +12,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class q64 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public JsFunction a;
-    public JsFunction b;
-    public JsFunction c;
+    public String a;
+    public int b;
+    public boolean c;
+    public boolean d;
+    public int e;
+    public String f;
 
     public q64() {
         Interceptable interceptable = $ic;
@@ -25,59 +29,90 @@ public class q64 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = "";
+        this.b = Integer.MAX_VALUE;
+        this.c = false;
+        this.d = false;
     }
 
-    public void b() {
-        JsFunction jsFunction;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (jsFunction = this.c) != null) {
-            jsFunction.call();
-        }
-    }
-
-    public void c() {
-        JsFunction jsFunction;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (jsFunction = this.b) != null) {
-            jsFunction.call();
-        }
-    }
-
-    public static q64 d(qw1 qw1Var) {
+    public boolean a(d12 d12Var) throws JSTypeMismatchException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, qw1Var)) == null) {
-            if (qw1Var == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, d12Var)) == null) {
+            try {
+                this.a = d12Var.B("defaultValue");
+                this.b = d12Var.q("maxLength");
+                this.c = d12Var.l("multiple");
+                this.d = d12Var.l("confirmHold");
+                String B = d12Var.B("confirmType");
+                char c = 65535;
+                switch (B.hashCode()) {
+                    case -906336856:
+                        if (B.equals("search")) {
+                            c = 2;
+                            break;
+                        }
+                        break;
+                    case SpeedStatsStampTable.AD_LOAD_BEAR_END_STAMP_KEY /* 3304 */:
+                        if (B.equals("go")) {
+                            c = 3;
+                            break;
+                        }
+                        break;
+                    case 3089282:
+                        if (B.equals("done")) {
+                            c = 0;
+                            break;
+                        }
+                        break;
+                    case 3377907:
+                        if (B.equals(UnitedSchemeConstants.UNITED_SCHEME_NEXT)) {
+                            c = 1;
+                            break;
+                        }
+                        break;
+                    case 3526536:
+                        if (B.equals("send")) {
+                            c = 4;
+                            break;
+                        }
+                        break;
+                }
+                if (c != 0) {
+                    if (c != 1) {
+                        if (c != 2) {
+                            if (c != 3) {
+                                if (c != 4) {
+                                    this.e = 6;
+                                    this.f = "done";
+                                } else {
+                                    this.e = 4;
+                                    this.f = "send";
+                                }
+                            } else {
+                                this.e = 2;
+                                this.f = "go";
+                            }
+                        } else {
+                            this.e = 3;
+                            this.f = "search";
+                        }
+                    } else {
+                        this.e = 5;
+                        this.f = UnitedSchemeConstants.UNITED_SCHEME_NEXT;
+                    }
+                } else {
+                    this.e = 6;
+                    this.f = "done";
+                }
+                return true;
+            } catch (Exception unused) {
+                return false;
             }
-            q64 q64Var = new q64();
-            JsFunction u = qw1Var.u("onCheckForUpdate");
-            q64Var.a = u;
-            if (u != null) {
-                u.setReleaseMode(false);
-            }
-            JsFunction u2 = qw1Var.u("onUpdateReady");
-            q64Var.b = u2;
-            if (u2 != null) {
-                u2.setReleaseMode(false);
-            }
-            JsFunction u3 = qw1Var.u("onUpdateFailed");
-            q64Var.c = u3;
-            if (u3 != null) {
-                u3.setReleaseMode(false);
-            }
-            return q64Var;
         }
-        return (q64) invokeL.objValue;
-    }
-
-    public void a(r64 r64Var) {
-        JsFunction jsFunction;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, r64Var) == null) && (jsFunction = this.a) != null) {
-            jsFunction.call(r64Var);
-        }
+        return invokeL.booleanValue;
     }
 }

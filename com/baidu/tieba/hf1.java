@@ -1,55 +1,78 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.nps.pm.provider.BundleOpProvider;
+import com.baidu.nps.utils.ContextHolder;
+import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes4.dex */
-public abstract class hf1 {
+public class hf1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public void a(HashMap<String, String> hashMap) {
+    public static ef1 a(Uri uri) {
+        InterceptResult invokeL;
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
-        }
-    }
-
-    public abstract boolean c(Context context, jf1 jf1Var, df1 df1Var);
-
-    public hf1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, uri)) == null) {
+            ef1 ef1Var = new ef1();
+            if (uri != null) {
+                String queryParameter = uri.getQueryParameter("downloaded_size");
+                long j2 = 0;
+                if (!TextUtils.isEmpty(queryParameter)) {
+                    j = Long.valueOf(queryParameter).longValue();
+                } else {
+                    j = 0;
+                }
+                String queryParameter2 = uri.getQueryParameter(PackageTable.TOTAL_SIZE);
+                if (!TextUtils.isEmpty(queryParameter2)) {
+                    j2 = Long.valueOf(queryParameter2).longValue();
+                }
+                ef1Var.a = j;
+                ef1Var.b = j2;
             }
+            return ef1Var;
         }
+        return (ef1) invokeL.objValue;
     }
 
-    public boolean b(Context context, jf1 jf1Var, df1 df1Var) {
-        InterceptResult invokeLLL;
+    public static Uri b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jf1Var, df1Var)) == null) {
-            return d(context, jf1Var, df1Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new Uri.Builder().scheme("content").authority(BundleOpProvider.i(ContextHolder.getApplicationContext())).build();
         }
-        return invokeLLL.booleanValue;
+        return (Uri) invokeV.objValue;
     }
 
-    public final boolean d(Context context, jf1 jf1Var, df1 df1Var) {
-        InterceptResult invokeLLL;
+    public static Uri c(String str, long j, long j2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, context, jf1Var, df1Var)) == null) {
-            return c(context, jf1Var, df1Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            return new Uri.Builder().scheme("content").authority(BundleOpProvider.i(ContextHolder.getApplicationContext())).path(str).appendQueryParameter("downloaded_size", String.valueOf(j)).appendQueryParameter(PackageTable.TOTAL_SIZE, String.valueOf(j2)).build();
         }
-        return invokeLLL.booleanValue;
+        return (Uri) invokeCommon.objValue;
+    }
+
+    public static Uri d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return new Uri.Builder().scheme("content").authority(BundleOpProvider.i(ContextHolder.getApplicationContext())).path(str).build();
+        }
+        return (Uri) invokeL.objValue;
+    }
+
+    public static Uri e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return new Uri.Builder().scheme("content").authority(BundleOpProvider.i(ContextHolder.getApplicationContext())).path(str).build();
+        }
+        return (Uri) invokeL.objValue;
     }
 }

@@ -1,13 +1,7 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.storage.swankv.SwanKV;
-import com.baidu.swan.apps.so.SoLoader;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,46 +9,51 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes3.dex */
-public class ad3 extends pk1 implements lk4 {
+public class ad3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
+    public static final Map<String, Boolean> a;
+    public static final Map<String, Boolean> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static class a implements SwanKV.b {
+    public static class a implements pn3<wd3> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ pn3 b;
 
-        public a() {
+        public a(String str, pn3 pn3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, pn3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.storage.swankv.SwanKV.b
-        public void loadLibrary(@NonNull String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                if (!di3.G() && SwanKV.LIB_CPP_SHARED.equals(str)) {
-                    ma2.g(AppRuntime.getAppContext(), ad3.a);
-                    ma2.h(SwanKV.LIB_CPP_SHARED, ad3.a, false);
                     return;
                 }
-                SoLoader.load(qn2.c(), str);
+            }
+            this.a = str;
+            this.b = pn3Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.pn3
+        /* renamed from: b */
+        public void a(wd3 wd3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wd3Var) == null) {
+                boolean z = true;
+                z = (wd3Var == null || wd3Var.d || wd3Var.j != 1) ? false : false;
+                ad3.a.put(this.a, Boolean.valueOf(z));
+                this.b.a(Boolean.valueOf(z));
             }
         }
     }
@@ -72,155 +71,48 @@ public class ad3 extends pk1 implements lk4 {
                 return;
             }
         }
-        a = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + ZeusWebViewPreloadClass.ZEUS_FILE_DIR + File.separator + "libs";
-        f();
+        a = new ConcurrentHashMap();
+        b = new ConcurrentHashMap();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ad3(@Nullable Context context, @NonNull String str) {
-        super(context, str, 2, e());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), (String) objArr2[3]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ad3(@Nullable Context context, @NonNull String str, int i) {
-        super(context, str, i, e());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), (String) objArr2[3]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ad3(@NonNull String str) {
-        super(AppRuntime.getAppContext(), str, 2, e());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), (String) objArr2[3]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ad3(@NonNull String str, int i, @Nullable String str2) {
-        super(AppRuntime.getAppContext(), str, i, str2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), str2};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), (String) objArr2[3]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public static String e() {
+    public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return AppRuntime.getAppContext().getFilesDir() + File.separator + "swan_prefs";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            try {
-                SwanKV.initialize(qn2.c(), new a(), false);
-            } catch (NoClassDefFoundError e) {
-                j12.d("SwanKVImpl", "initializeSwanKV", e);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.lk4
-    public Set<String> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new HashSet(Arrays.asList(super.getAllKeys()));
-        }
-        return (Set) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.lk4
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (super.getMode() == 2) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            Boolean bool = b.get(v83.K().getAppId());
+            if (bool != null) {
+                return bool.booleanValue();
             }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.lk4
-    public long c() {
-        InterceptResult invokeV;
+    public static void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return super.contentSize();
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            b.clear();
+            a.clear();
         }
-        return invokeV.longValue;
     }
 
-    @Override // com.baidu.storage.swankv.SwanKV, com.baidu.tieba.lk4
-    @NonNull
-    public File getFile() {
-        InterceptResult invokeV;
+    public static void b(pn3<Boolean> pn3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return super.getFile();
+        if (interceptable == null || interceptable.invokeL(65538, null, pn3Var) == null) {
+            String appId = v83.K().getAppId();
+            Boolean bool = a.get(appId);
+            if (bool != null) {
+                pn3Var.a(bool);
+            } else {
+                v83.K().q().e0().e("mapp_custom_screenshot_image", new a(appId, pn3Var));
+            }
         }
-        return (File) invokeV.objValue;
+    }
+
+    public static void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65541, null, z) == null) {
+            b.put(v83.K().getAppId(), Boolean.valueOf(z));
+        }
     }
 }

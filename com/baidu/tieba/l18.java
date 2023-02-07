@@ -1,49 +1,79 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetVipInfo.VipDailyList;
+import tbclient.GetVipInfo.VipThemeItem;
 /* loaded from: classes5.dex */
-public class l18 {
+public class l18 implements Cdo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public AtomicBoolean a;
+    public i18 a;
+    public List<m18> b;
 
-    public l18(Boolean bool) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947890134, "Lcom/baidu/tieba/l18;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947890134, "Lcom/baidu/tieba/l18;");
+                return;
+            }
+        }
+        c = BdUniqueId.gen();
+    }
+
+    @Override // com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return c;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public l18(VipDailyList vipDailyList) {
+        List<VipThemeItem> list;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bool};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {vipDailyList};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new AtomicBoolean(bool.booleanValue());
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.get();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void setResult(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.a.set(z);
+        if (vipDailyList != null && (list = vipDailyList.item) != null && list.size() > 0) {
+            String str = vipDailyList.card_id;
+            i18 i18Var = new i18();
+            this.a = i18Var;
+            i18Var.e(1);
+            this.a.d(vipDailyList.class_name);
+            this.a.f(vipDailyList.class_url_name);
+            this.a.g(vipDailyList.class_url);
+            this.b = new ArrayList();
+            for (VipThemeItem vipThemeItem : vipDailyList.item) {
+                this.b.add(new m18(vipThemeItem));
+            }
         }
     }
 }

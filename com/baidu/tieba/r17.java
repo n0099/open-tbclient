@@ -1,23 +1,69 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.util.PriorityOrganizer;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.tg5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class r17 {
+public class r17 extends PriorityOrganizer.Task {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public FrsFragment m;
+    public FrsActivity n;
+    public tg5.b o;
 
-    public static void a(String str, long j, String str2, m17 m17Var, int i) {
+    public r17(FrsActivity frsActivity, FrsFragment frsFragment) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Long.valueOf(j), str2, m17Var, Integer.valueOf(i)}) == null) {
-            StatisticItem param = new StatisticItem(str).param("fid", j).param("fname", str2).param("obj_param1", UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE).param(TiebaStatic.Params.OBJ_PARAM2, i);
-            if (m17Var != null) {
-                param.param(TiebaStatic.Params.OBJ_PARAM3, m17Var.e);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsActivity, frsFragment};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            param.eventStat();
+        }
+        this.n = frsActivity;
+        this.m = frsFragment;
+    }
+
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean w() {
+        InterceptResult invokeV;
+        tg5.b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            FrsFragment frsFragment = this.m;
+            if (frsFragment != null) {
+                this.o = frsFragment.I3();
+            }
+            if (p35.m().i("key_chat_group_guide_show", false) || (bVar = this.o) == null || !bVar.j0()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            tg5.b bVar = this.o;
+            if (bVar != null) {
+                bVar.S0();
+            }
+            t();
         }
     }
 }

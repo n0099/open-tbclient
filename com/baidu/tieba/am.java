@@ -1,27 +1,18 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pyramid.runtime.service.ServiceManager;
+import android.content.pm.Signature;
+import android.util.Base64;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ubc.UBCManager;
-import java.util.AbstractMap;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 /* loaded from: classes3.dex */
-public class am {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "11446";
-    public static String b = "type";
-    public static String c = "value";
-    public static String d = "ext";
-    public static String e = "suc";
-    public static String f = "fail";
+public final class am {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,70 +30,75 @@ public class am {
         }
     }
 
-    public static String a(String str) {
+    public static byte[] a(Signature[] signatureArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "-";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, signatureArr)) == null) {
+            if (signatureArr != null) {
+                int i = 0;
+                for (Signature signature : signatureArr) {
+                    i += signature.toByteArray().length;
+                }
+                byte[] bArr = new byte[i];
+                int i2 = 0;
+                for (Signature signature2 : signatureArr) {
+                    byte[] byteArray = signature2.toByteArray();
+                    System.arraycopy(byteArray, 0, bArr, i2, byteArray.length);
+                    i2 += byteArray.length;
+                }
+                return bArr;
+            }
+            return null;
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static String b(byte[] bArr) {
+        InterceptResult invokeL;
+        NoSuchAlgorithmException e;
+        String str;
+        byte[] digest;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
+            if (bArr == null) {
+                return null;
+            }
+            try {
+                digest = MessageDigest.getInstance("MD5").digest(bArr);
+            } catch (NoSuchAlgorithmException e2) {
+                e = e2;
+                str = null;
+            }
+            if (digest == null) {
+                return null;
+            }
+            str = Base64.encodeToString(digest, 0);
+            if (str != null) {
+                try {
+                    str = str.replaceAll("\\s", "").replaceAll("\\\\", "rg").replaceAll("/", "lg");
+                } catch (NoSuchAlgorithmException e3) {
+                    e = e3;
+                    if (BdLog.isDebugMode()) {
+                        e.printStackTrace();
+                    }
+                    return str;
+                }
             }
             return str;
         }
         return (String) invokeL.objValue;
     }
 
-    public static void b(String str, List<AbstractMap.SimpleEntry<String, String>> list) {
+    public static String c(Signature[] signatureArr) {
+        InterceptResult invokeL;
+        byte[] a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, list) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(b, f);
-                jSONObject.put(c, str);
-                JSONObject jSONObject2 = new JSONObject();
-                if (list != null && !list.isEmpty()) {
-                    for (int i = 0; i < list.size(); i++) {
-                        AbstractMap.SimpleEntry<String, String> simpleEntry = list.get(i);
-                        if (simpleEntry != null && !TextUtils.isEmpty(simpleEntry.getKey())) {
-                            jSONObject2.put(simpleEntry.getKey(), a(simpleEntry.getValue()));
-                        }
-                    }
-                }
-                jSONObject.put(d, jSONObject2);
-                d(a, jSONObject);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, signatureArr)) == null) {
+            if (signatureArr != null && (a = a(signatureArr)) != null) {
+                return b(a);
             }
+            return null;
         }
-    }
-
-    public static void c(String str, List<AbstractMap.SimpleEntry<String, String>> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, str, list) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(b, e);
-                jSONObject.put(c, str);
-                JSONObject jSONObject2 = new JSONObject();
-                if (list != null && !list.isEmpty()) {
-                    for (int i = 0; i < list.size(); i++) {
-                        AbstractMap.SimpleEntry<String, String> simpleEntry = list.get(i);
-                        if (simpleEntry != null && !TextUtils.isEmpty(simpleEntry.getKey())) {
-                            jSONObject2.put(simpleEntry.getKey(), a(simpleEntry.getValue()));
-                        }
-                    }
-                }
-                jSONObject.put(d, jSONObject2);
-                d(a, jSONObject);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
-
-    public static void d(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, jSONObject) == null) {
-            ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(str, jSONObject);
-        }
+        return (String) invokeL.objValue;
     }
 }

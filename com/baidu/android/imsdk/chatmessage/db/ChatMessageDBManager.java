@@ -52,7 +52,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -1111,8 +1110,8 @@ public class ChatMessageDBManager extends DBBase {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Removed duplicated region for block: B:78:0x0274 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:80:0x0276  */
+    /* JADX WARN: Removed duplicated region for block: B:78:0x0273 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:80:0x0275  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1178,15 +1177,15 @@ public class ChatMessageDBManager extends DBBase {
                             try {
                                 if (optInt == 1) {
                                     JSONObject jSONObject4 = new JSONObject();
-                                    jSONObject4.put("text", jSONObject3.optString(TtmlNode.TAG_BODY));
+                                    jSONObject4.put("text", jSONObject3.optString("body"));
                                     jSONObject2 = jSONObject4.toString();
                                 } else if (optInt == 0) {
-                                    if (jSONObject3.has("content") && !jSONObject3.has(TtmlNode.TAG_BODY)) {
+                                    if (jSONObject3.has("content") && !jSONObject3.has("body")) {
                                         JSONObject jSONObject5 = new JSONObject();
                                         jSONObject5.put("text", new JSONObject(jSONObject3.optString("content")).optString("text"));
                                         jSONObject2 = jSONObject5.toString();
                                     } else {
-                                        JSONArray jSONArray = new JSONArray(jSONObject3.optString(TtmlNode.TAG_BODY));
+                                        JSONArray jSONArray = new JSONArray(jSONObject3.optString("body"));
                                         int length = jSONArray.length();
                                         str2 = string8;
                                         str = string6;

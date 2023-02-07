@@ -1,123 +1,127 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import android.webkit.JsPromptResult;
-import android.webkit.WebView;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.ala.atomdata.AlaLoveFamilyActivityConfig;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.browser.core.webview.offline.data.OfflineBridgeData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class p66 implements j76 {
+public class p66 extends qn<f76, CardViewHolder<e86>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final o66 a;
+    public TbPageContext a;
 
-    @Override // com.baidu.tieba.j76
-    public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        i76.a(this, webView, str, jSONObject);
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ f76 a;
+        public final /* synthetic */ p66 b;
+
+        public a(p66 p66Var, f76 f76Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p66Var, f76Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = p66Var;
+            this.a = f76Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.b.u(this.a);
+            }
+        }
     }
 
-    public p66() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public p66(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), f76.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new o66();
+        this.a = tbPageContext;
     }
 
-    @Override // com.baidu.tieba.j76
-    public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLLLL;
+    public final void u(f76 f76Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            if (TextUtils.equals("requestByNative", str2)) {
-                try {
-                    OfflineBridgeData offlineBridgeData = (OfflineBridgeData) OrmObject.objectWithJsonStr(str3, OfflineBridgeData.class);
-                    offlineBridgeData.begin = System.currentTimeMillis();
-                    this.a.j(webView, offlineBridgeData, offlineBridgeData.callBack);
-                    jsPromptResult.confirm();
-                    return true;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return false;
-                }
-            }
-            return false;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, f76Var) == null) && f76Var != null && f76Var.c() != null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLoveFamilyActivityConfig(this.mContext, f76Var.c().b().user_id)));
         }
-        return invokeLLLLL.booleanValue;
     }
 
-    public /* synthetic */ void c(WebView webView, OfflineBridgeData offlineBridgeData) {
-        this.a.k(webView, offlineBridgeData, offlineBridgeData.callBack, true);
-    }
-
-    public zx8 d(final WebView webView, String str, String str2, String str3, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: v */
+    public CardViewHolder<e86> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, webView, str, str2, str3, jSONObject)) == null) {
-            Log.e("lt-log", "requestByNative:" + str);
-            zx8 zx8Var = new zx8();
-            final OfflineBridgeData offlineBridgeData = new OfflineBridgeData();
-            offlineBridgeData.url = str;
-            offlineBridgeData.type = str2;
-            offlineBridgeData.module = str3;
-            if (jSONObject != null) {
-                HashMap hashMap = new HashMap();
-                Iterator<String> keys = jSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    hashMap.put(next, jSONObject.optString(next));
-                }
-                offlineBridgeData.data = hashMap;
-            }
-            offlineBridgeData.begin = System.currentTimeMillis();
-            bh.a().post(new Runnable() { // from class: com.baidu.tieba.m66
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        p66.this.c(webView, offlineBridgeData);
-                    }
-                }
-            });
-            zx8Var.w(str);
-            return zx8Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
+            return new CardViewHolder<>(new e86(this.a));
         }
-        return (zx8) invokeLLLLL.objValue;
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    public zx8 e(WebView webView, HashMap<String, String> hashMap) {
-        InterceptResult invokeLL;
+    public final void t(f76 f76Var, e86 e86Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, hashMap)) == null) {
-            zx8 zx8Var = new zx8();
-            if (hashMap != null && hashMap.get("result") != null) {
-                zx8Var.o(hashMap.get("result"));
-                zx8Var.w(hashMap.get("NotificationKey"));
-            }
-            zx8Var.z(true);
-            return zx8Var;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, f76Var, e86Var) != null) || f76Var.c() == null) {
+            return;
         }
-        return (zx8) invokeLL.objValue;
+        e86Var.w(8);
+        e86Var.x(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0244));
+        e86Var.j(this.a, TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: w */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, f76 f76Var, CardViewHolder<e86> cardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, f76Var, cardViewHolder})) == null) {
+            if (cardViewHolder.a() == null) {
+                return null;
+            }
+            t(f76Var, cardViewHolder.a());
+            cardViewHolder.a().h().setOnClickListener(new a(this, f76Var));
+            return cardViewHolder.a().h();
+        }
+        return (View) invokeCommon.objValue;
     }
 }

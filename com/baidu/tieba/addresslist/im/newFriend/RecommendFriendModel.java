@@ -9,11 +9,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.dk5;
-import com.baidu.tieba.dl5;
-import com.baidu.tieba.rt5;
-import com.baidu.tieba.s9;
-import com.baidu.tieba.zk5;
+import com.baidu.tieba.dy5;
+import com.baidu.tieba.kp5;
+import com.baidu.tieba.oo5;
+import com.baidu.tieba.op5;
+import com.baidu.tieba.x9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -66,12 +66,12 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
 
         /* renamed from: com.baidu.tieba.addresslist.im.newFriend.RecommendFriendModel$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0222a extends zk5<Void> {
+        public class C0223a extends kp5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ List a;
 
-            public C0222a(a aVar, List list) {
+            public C0223a(a aVar, List list) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -90,7 +90,7 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.zk5
+            @Override // com.baidu.tieba.kp5
             /* renamed from: a */
             public Void doInBackground() {
                 InterceptResult invokeV;
@@ -98,7 +98,7 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                     List list = this.a;
                     if (list != null && list.size() > 0) {
-                        rt5.f().m(this.a);
+                        dy5.f().m(this.a);
                         return null;
                     }
                     return null;
@@ -108,7 +108,7 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
         }
 
         /* loaded from: classes3.dex */
-        public class b implements dk5<Void> {
+        public class b implements oo5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
@@ -134,7 +134,7 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.dk5
+            @Override // com.baidu.tieba.oo5
             /* renamed from: a */
             public void onReturnDataInUI(Void r5) {
                 Interceptable interceptable = $ic;
@@ -174,7 +174,7 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
                     RecommendFriendResponseMessage recommendFriendResponseMessage = (RecommendFriendResponseMessage) httpResponsedMessage;
                     String errMsg = recommendFriendResponseMessage.getErrMsg();
                     if (recommendFriendResponseMessage.getError() == 0) {
-                        dl5.c(new C0222a(this, recommendFriendResponseMessage.getDatas()), new b(this, errMsg));
+                        op5.c(new C0223a(this, recommendFriendResponseMessage.getDatas()), new b(this, errMsg));
                     } else if (this.a.a != null) {
                         this.a.a.i(errMsg);
                     }
@@ -218,7 +218,7 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((s9) newInitContext.callArgs[0]);
+                super((x9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

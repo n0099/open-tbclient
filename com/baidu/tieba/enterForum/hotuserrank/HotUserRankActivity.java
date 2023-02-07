@@ -12,11 +12,11 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bh;
-import com.baidu.tieba.cg6;
-import com.baidu.tieba.dg6;
-import com.baidu.tieba.eg6;
-import com.baidu.tieba.yg;
+import com.baidu.tieba.dh;
+import com.baidu.tieba.gh;
+import com.baidu.tieba.nk6;
+import com.baidu.tieba.ok6;
+import com.baidu.tieba.pk6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,22 +30,22 @@ public class HotUserRankActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HotUserRankView a;
-    public eg6 b;
+    public pk6 b;
     public String c;
     public long d;
-    public List<dg6> e;
+    public List<ok6> e;
     public String f;
     public int g;
     public boolean h;
     public Runnable i;
     public Runnable j;
-    public eg6.b k;
+    public pk6.b k;
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.kf5
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.vj5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "a074" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "a074" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes4.dex */
@@ -115,7 +115,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
     }
 
     /* loaded from: classes4.dex */
-    public class c implements eg6.b {
+    public class c implements pk6.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HotUserRankActivity a;
@@ -138,42 +138,42 @@ public class HotUserRankActivity extends BaseFragmentActivity {
             this.a = hotUserRankActivity;
         }
 
-        @Override // com.baidu.tieba.eg6.b
-        public void a(cg6 cg6Var) {
+        @Override // com.baidu.tieba.pk6.b
+        public void a(nk6 nk6Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cg6Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, nk6Var) == null) {
                 HotUserRankActivity hotUserRankActivity = this.a;
                 hotUserRankActivity.hideLoadingView(hotUserRankActivity.a.i());
-                if (cg6Var != null && cg6Var.a != null) {
-                    this.a.f = cg6Var.d;
+                if (nk6Var != null && nk6Var.a != null) {
+                    this.a.f = nk6Var.d;
                     if (this.a.d > 0) {
-                        bh.a().post(this.a.i);
+                        gh.a().post(this.a.i);
                         return;
                     }
-                    TiebaFieldsInfo tiebaFieldsInfo = cg6Var.a.f;
+                    TiebaFieldsInfo tiebaFieldsInfo = nk6Var.a.f;
                     if (tiebaFieldsInfo != null && !ListUtils.isEmpty(tiebaFieldsInfo.tieba_fields)) {
-                        List<String> list = cg6Var.a.f.tieba_fields;
+                        List<String> list = nk6Var.a.f.tieba_fields;
                         this.a.e.clear();
                         for (int i = 0; i < list.size(); i++) {
                             String str = list.get(i);
                             if (str != null && str.equals(this.a.c)) {
                                 this.a.g = i;
                             }
-                            dg6 dg6Var = new dg6();
-                            dg6Var.b = str;
-                            dg6Var.a = str;
-                            this.a.e.add(dg6Var);
+                            ok6 ok6Var = new ok6();
+                            ok6Var.b = str;
+                            ok6Var.a = str;
+                            this.a.e.add(ok6Var);
                         }
-                        bh.a().post(this.a.i);
+                        gh.a().post(this.a.i);
                         return;
                     }
                     HotUserRankActivity hotUserRankActivity2 = this.a;
-                    hotUserRankActivity2.showNetRefreshView(hotUserRankActivity2.a.i(), this.a.getString(R.string.obfuscated_res_0x7f0f0cd1), true);
+                    hotUserRankActivity2.showNetRefreshView(hotUserRankActivity2.a.i(), this.a.getString(R.string.obfuscated_res_0x7f0f0cfe), true);
                 }
             }
         }
 
-        @Override // com.baidu.tieba.eg6.b
+        @Override // com.baidu.tieba.pk6.b
         public void onError(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -208,44 +208,27 @@ public class HotUserRankActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             this.a.j(i);
-        }
-    }
-
-    public final void b1() {
-        Uri uri;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && getIntent() != null) {
-            this.c = getIntent().getStringExtra("key_category");
-            this.d = getIntent().getLongExtra(HotUserRankActivityConfig.KEY_FORUM_ID, -1L);
-            if (TextUtils.isEmpty(this.c) && this.d == -1 && (uri = (Uri) getIntent().getParcelableExtra(IntentConfig.KEY_URI)) != null) {
-                String queryParameter = uri.getQueryParameter(Info.kBaiduModuleKey);
-                this.c = queryParameter;
-                if (TextUtils.isEmpty(queryParameter)) {
-                    this.d = yg.g(uri.getQueryParameter("fid"), -1L);
-                }
-            }
-            this.h = getIntent().getBooleanExtra(HotUserRankActivityConfig.KEY_IS_GOD, false);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
             HotUserRankView hotUserRankView = new HotUserRankView(this);
             this.a = hotUserRankView;
             setContentView(hotUserRankView.i());
-            eg6 eg6Var = new eg6(getUniqueId());
-            this.b = eg6Var;
-            eg6Var.n(this.k);
-            b1();
+            pk6 pk6Var = new pk6(getUniqueId());
+            this.b = pk6Var;
+            pk6Var.n(this.k);
+            y1();
             if (!TextUtils.isEmpty(this.c)) {
                 this.b.i(this.c);
             } else if (this.d > 0) {
-                this.a.n(getString(R.string.obfuscated_res_0x7f0f06b1));
+                this.a.n(getString(R.string.obfuscated_res_0x7f0f06d3));
                 this.b.h(this.d);
             }
             this.a.m(this.h);
@@ -259,10 +242,10 @@ public class HotUserRankActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
-            bh.a().removeCallbacks(this.i);
-            bh.a().removeCallbacks(this.j);
+            gh.a().removeCallbacks(this.i);
+            gh.a().removeCallbacks(this.j);
             this.b.k();
             this.a.k();
         }
@@ -271,7 +254,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onNetRefreshButtonClicked() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.b.i(this.c);
             showLoadingView(this.a.i());
             hideNetRefreshView(this.a.i());
@@ -281,13 +264,30 @@ public class HotUserRankActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onResume();
             if (this.d > 0) {
                 StatisticItem statisticItem = new StatisticItem("c13667");
                 statisticItem.param("fid", this.d);
                 TiebaStatic.log(statisticItem);
             }
+        }
+    }
+
+    public final void y1() {
+        Uri uri;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && getIntent() != null) {
+            this.c = getIntent().getStringExtra("key_category");
+            this.d = getIntent().getLongExtra(HotUserRankActivityConfig.KEY_FORUM_ID, -1L);
+            if (TextUtils.isEmpty(this.c) && this.d == -1 && (uri = (Uri) getIntent().getParcelableExtra(IntentConfig.KEY_URI)) != null) {
+                String queryParameter = uri.getQueryParameter(Info.kBaiduModuleKey);
+                this.c = queryParameter;
+                if (TextUtils.isEmpty(queryParameter)) {
+                    this.d = dh.g(uri.getQueryParameter("fid"), -1L);
+                }
+            }
+            this.h = getIntent().getBooleanExtra(HotUserRankActivityConfig.KEY_IS_GOD, false);
         }
     }
 }

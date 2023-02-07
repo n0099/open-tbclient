@@ -1,271 +1,178 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Pair;
-import androidx.annotation.NonNull;
+import android.graphics.Bitmap;
+import android.graphics.Rect;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebChromeClient;
-import com.bytedance.pangle.plugin.Plugin;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class rz2 extends ms1 {
+public class rz2 extends qz2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.ms1
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Plugin.TAG : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ms1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "SwanInvokeFunPageApi" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements v52<uz2> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rz2 a;
-
-        public a(rz2 rz2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rz2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rz2Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.v52
-        /* renamed from: b */
-        public void a(uz2 uz2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uz2Var) != null) {
-                return;
-            }
-            this.a.C(uz2Var);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements v52<uz2> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rz2 a;
-
-        public b(rz2 rz2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rz2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rz2Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.v52
-        /* renamed from: b */
-        public void a(uz2 uz2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uz2Var) != null) {
-                return;
-            }
-            this.a.C(uz2Var);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements v52<uz2> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rz2 a;
-
-        public c(rz2 rz2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rz2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rz2Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.v52
-        /* renamed from: b */
-        public void a(uz2 uz2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uz2Var) != null) {
-                return;
-            }
-            this.a.C(uz2Var);
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rz2(@NonNull ks1 ks1Var) {
-        super(ks1Var);
+    public rz2(double d) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ks1Var};
+            Object[] objArr = {Double.valueOf(d)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ks1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = d;
     }
 
-    public jw1 A(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.qz2
+    public boolean a(Bitmap bitmap, Rect rect) {
+        InterceptResult invokeLL;
+        Rect rect2;
+        int i;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            q("#invokePluginPayment", false);
-            tz2 B = B(str);
-            if (B.b()) {
-                b03.b(B.toString());
-                return B.i;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bitmap, rect)) == null) {
+            if (qz2.c) {
+                Log.d("ErrorPageParser", "GridErrorPageParser: start error page parse");
             }
-            return new zz2().l(B, new c(this));
-        }
-        return (jw1) invokeL.objValue;
-    }
-
-    public jw1 y(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            q("#invokePluginChooseAddress", false);
-            tz2 B = B(str);
-            if (B.b()) {
-                b03.b(B.toString());
-                return B.i;
+            if (bitmap == null) {
+                return false;
             }
-            return new yz2().l(B, new b(this));
-        }
-        return (jw1) invokeL.objValue;
-    }
-
-    public jw1 z(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            tz2 B = B(str);
-            if (B.b()) {
-                b03.b(B.toString());
-                return B.i;
+            if (!b(bitmap, rect)) {
+                rect2 = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
+            } else {
+                rect2 = rect;
             }
-            return new a03().l(B, new a(this));
-        }
-        return (jw1) invokeL.objValue;
-    }
-
-    public final tz2 B(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            tz2 tz2Var = new tz2();
-            Pair<jw1, JSONObject> s = s(str);
-            tz2Var.i = (jw1) s.first;
-            JSONObject jSONObject = (JSONObject) s.second;
-            if (jSONObject == null) {
-                return tz2Var;
-            }
-            String optString = jSONObject.optString("pluginProvider");
-            if (TextUtils.isEmpty(optString)) {
-                tz2Var.i = new jw1(201, "pluginProvider is empty");
-                return tz2Var;
-            }
-            kd4 g = h03.g(optString);
-            if (g != null) {
-                String str2 = g.r;
-                if (!TextUtils.isEmpty(str2)) {
-                    String optString2 = jSONObject.optString("providerRootPath");
-                    if (TextUtils.isEmpty(optString2)) {
-                        tz2Var.i = new jw1(201, "providerRootPath is empty");
-                        return tz2Var;
-                    }
-                    String optString3 = jSONObject.optString("slaveId");
-                    if (TextUtils.isEmpty(optString3)) {
-                        tz2Var.i = new jw1(201, "slaveId is empty");
-                        return tz2Var;
-                    }
-                    String optString4 = jSONObject.optString("componentId");
-                    if (TextUtils.isEmpty(optString4)) {
-                        tz2Var.i = new jw1(201, "componentId is empty");
-                        return tz2Var;
-                    }
-                    String str3 = "release";
-                    String optString5 = jSONObject.optString("pluginVersion", "release");
-                    if (!TextUtils.isEmpty(optString5)) {
-                        str3 = optString5;
-                    }
-                    JSONObject optJSONObject = jSONObject.optJSONObject(WebChromeClient.KEY_ARG_ARRAY);
-                    String optString6 = jSONObject.optString("cb");
-                    tz2Var.a = str2;
-                    tz2Var.b = optString;
-                    tz2Var.c = optString2;
-                    tz2Var.d = str3;
-                    tz2Var.e = optString3;
-                    tz2Var.f = optString4;
-                    tz2Var.g = optJSONObject;
-                    tz2Var.h = optString6;
-                    return tz2Var;
+            int width = rect2.width() - 2;
+            int height = rect2.height() - 2;
+            int i3 = width / 3;
+            int i4 = height / i3;
+            int ceil = (int) Math.ceil(i4 * 3 * this.a);
+            int i5 = 0;
+            int i6 = 0;
+            while (i6 < 3) {
+                int i7 = rect2.left;
+                int i8 = (i6 * i3) + 1 + i7;
+                if (i6 == 2) {
+                    i = width + 1;
+                } else {
+                    i = ((i6 + 1) * i3) + i7;
                 }
+                int i9 = i;
+                int i10 = i5;
+                int i11 = 0;
+                while (i11 < i4) {
+                    int i12 = rect2.top;
+                    int i13 = (i11 * i3) + 1 + i12;
+                    if (i11 == i4 - 1) {
+                        i2 = height + 1;
+                    } else {
+                        i2 = ((i11 + 1) * i3) + i12;
+                    }
+                    int i14 = i11;
+                    if (e(bitmap, i8, i13, i9, i2)) {
+                        int i15 = i10 + 1;
+                        if (i15 >= ceil) {
+                            return true;
+                        }
+                        i10 = i15;
+                    }
+                    i11 = i14 + 1;
+                }
+                i6++;
+                i5 = i10;
             }
-            tz2Var.i = new jw1(201, "pluginProvider exchange for truth app key，but empty");
-            return tz2Var;
+            return false;
         }
-        return (tz2) invokeL.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public final void C(uz2 uz2Var) {
+    public double d(Bitmap bitmap, Rect rect) {
+        InterceptResult invokeLL;
+        Rect rect2;
+        int i;
+        int i2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uz2Var) == null) && uz2Var != null) {
-            uz2Var.b();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, rect)) == null) {
+            if (qz2.c) {
+                Log.d("ErrorPageParser", "GridErrorPageParser: start error page parse");
+            }
+            if (bitmap == null) {
+                return 0.0d;
+            }
+            if (!b(bitmap, rect)) {
+                rect2 = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
+            } else {
+                rect2 = rect;
+            }
+            int width = rect2.width() - 2;
+            int height = rect2.height() - 2;
+            int i3 = width / 3;
+            if (i3 == 0) {
+                return 0.0d;
+            }
+            int i4 = height / i3;
+            int i5 = 0;
+            int i6 = 0;
+            while (i5 < 3) {
+                int i7 = rect2.left;
+                int i8 = (i5 * i3) + 1 + i7;
+                if (i5 == 2) {
+                    i = width + 1;
+                } else {
+                    i = ((i5 + 1) * i3) + i7;
+                }
+                int i9 = i;
+                int i10 = i6;
+                int i11 = 0;
+                while (i11 < i4) {
+                    int i12 = rect2.top;
+                    int i13 = (i11 * i3) + 1 + i12;
+                    if (i11 == i4 - 1) {
+                        i2 = height + 1;
+                    } else {
+                        i2 = ((i11 + 1) * i3) + i12;
+                    }
+                    int i14 = i11;
+                    if (e(bitmap, i8, i13, i9, i2)) {
+                        i10++;
+                    }
+                    i11 = i14 + 1;
+                }
+                i5++;
+                i6 = i10;
+            }
+            return i6 / (i4 * 3);
         }
+        return invokeLL.doubleValue;
+    }
+
+    public final boolean e(Bitmap bitmap, int i, int i2, int i3, int i4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+            if (i < 0 || i3 < i || i2 < 0 || i4 < i2) {
+                return false;
+            }
+            int pixel = bitmap.getPixel(i, i2);
+            while (i <= i3) {
+                for (int i5 = i2; i5 <= i4; i5++) {
+                    if (pixel != bitmap.getPixel(i, i5)) {
+                        return false;
+                    }
+                }
+                i++;
+            }
+            return true;
+        }
+        return invokeCommon.booleanValue;
     }
 }

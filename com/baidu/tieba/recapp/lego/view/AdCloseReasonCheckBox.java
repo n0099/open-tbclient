@@ -10,8 +10,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nv8;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.lz8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -50,9 +50,9 @@ public class AdCloseReasonCheckBox extends CheckBox {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            b(R.string.J_X07, zi.g(context, R.dimen.L_X01), R.color.CAM_X0902, R.color.CAM_X0304, true);
+            b(R.string.J_X07, ej.g(context, R.dimen.L_X01), R.color.CAM_X0902, R.color.CAM_X0304, true);
             SkinManager.setViewCheckedTextColorSelector(this, R.color.CAM_X0105, R.color.CAM_X0304, R.color.CAM_X0105);
-            int g = zi.g(context, R.dimen.obfuscated_res_0x7f0701e8);
+            int g = ej.g(context, R.dimen.obfuscated_res_0x7f0701e8);
             setPadding(g, 0, g, 0);
             setGravity(17);
             setButtonDrawable((Drawable) null);
@@ -119,7 +119,7 @@ public class AdCloseReasonCheckBox extends CheckBox {
             if (z) {
                 a = SkinManager.getColor(i3);
             } else {
-                a = nv8.a(SkinManager.getColor(i3), 0.5f);
+                a = lz8.a(SkinManager.getColor(i3), 0.5f);
             }
             this.b.setStroke(i2, a);
             GradientDrawable gradientDrawable2 = new GradientDrawable();
@@ -127,7 +127,7 @@ public class AdCloseReasonCheckBox extends CheckBox {
             gradientDrawable2.setShape(0);
             this.c.setCornerRadius(f);
             if (z) {
-                color = nv8.a(SkinManager.getColor(i4), 0.5f);
+                color = lz8.a(SkinManager.getColor(i4), 0.5f);
             } else {
                 color = SkinManager.getColor(i4);
             }

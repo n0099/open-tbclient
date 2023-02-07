@@ -1,43 +1,73 @@
 package com.baidu.tieba;
+
+import android.annotation.SuppressLint;
+import android.view.View;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface v14 {
-    String a();
+public class v14 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    String b();
+    public static boolean a(View view2, cz2 cz2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, view2, cz2Var)) == null) {
+            nq1 W = ju2.U().W();
+            if (W != null && W.c(view2, cz2Var)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
 
-    String c();
+    public static boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            nq1 W = ju2.U().W();
+            if (W == null || !W.b() || W.h()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
 
-    String d();
+    public static boolean c(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            nq1 W = ju2.U().W();
+            if (W != null && W.d(view2)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
 
-    String e();
-
-    String f();
-
-    String g();
-
-    String h();
-
-    String i();
-
-    String j();
-
-    String k();
-
-    String l();
-
-    String m();
-
-    String n();
-
-    String o();
-
-    String p();
-
-    String q();
-
-    String r();
-
-    String s();
-
-    String t();
+    @SuppressLint({"SourceLockedOrientationActivity"})
+    public static boolean d(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
+            nq1 W = ju2.U().W();
+            if (W == null) {
+                return false;
+            }
+            if (W.h()) {
+                SwanAppActivity activity = ju2.U().getActivity();
+                if (activity != null) {
+                    activity.setRequestedOrientation(0);
+                }
+                W.g(false);
+            }
+            return W.removeView(view2);
+        }
+        return invokeL.booleanValue;
+    }
 }

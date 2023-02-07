@@ -172,7 +172,7 @@ public final class n extends d implements View.OnClickListener {
         if (this.vM.getLayoutParams() != null) {
             ViewGroup.LayoutParams layoutParams = this.vM.getLayoutParams();
             if (cB) {
-                int dimensionPixelSize = this.vM.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070390);
+                int dimensionPixelSize = this.vM.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070392);
                 layoutParams.width = -1;
                 layoutParams.height = dimensionPixelSize;
             } else {
@@ -186,15 +186,15 @@ public final class n extends d implements View.OnClickListener {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            this.vM = (ViewGroup) this.pV.findViewById(R.id.obfuscated_res_0x7f0911b2);
-            this.bq = (KsLogoView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911b6);
-            this.nC = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911b5);
-            this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911b9);
-            this.vN = (KSRatingBar) this.pV.findViewById(R.id.obfuscated_res_0x7f0911b8);
-            this.vO = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911b3);
-            this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911b4);
-            this.vP = (KsStyledTextButton) this.pV.findViewById(R.id.obfuscated_res_0x7f0911b1);
-            this.vQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911b0);
+            this.vM = (ViewGroup) this.pV.findViewById(R.id.obfuscated_res_0x7f0911f5);
+            this.bq = (KsLogoView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911f9);
+            this.nC = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911f8);
+            this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911fc);
+            this.vN = (KSRatingBar) this.pV.findViewById(R.id.obfuscated_res_0x7f0911fb);
+            this.vO = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911f6);
+            this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911f7);
+            this.vP = (KsStyledTextButton) this.pV.findViewById(R.id.obfuscated_res_0x7f0911f4);
+            this.vQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911f3);
             this.vM.setOnClickListener(this);
             this.vQ.setOnClickListener(this);
             this.vP.setOnClickListener(this);
@@ -248,12 +248,12 @@ public final class n extends d implements View.OnClickListener {
             ViewGroup.LayoutParams layoutParams = this.nC.getLayoutParams();
             int i = 18;
             if (layoutParams != null) {
-                int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070391);
+                int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070393);
                 if (!cB) {
-                    dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070393);
+                    dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070395);
                     i = 14;
                 } else if (am) {
-                    dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070392);
+                    dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070394);
                     i = 24;
                 }
                 layoutParams.width = dimensionPixelSize;
@@ -292,7 +292,7 @@ public final class n extends d implements View.OnClickListener {
             ViewGroup.MarginLayoutParams marginLayoutParams = layoutParams instanceof ViewGroup.MarginLayoutParams ? (ViewGroup.MarginLayoutParams) layoutParams : null;
             if (z) {
                 if (marginLayoutParams != null) {
-                    marginLayoutParams.bottomMargin = fR().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07038e);
+                    marginLayoutParams.bottomMargin = fR().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070390);
                 }
                 this.vM.setBackgroundColor(-1);
                 this.eQ.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060781));

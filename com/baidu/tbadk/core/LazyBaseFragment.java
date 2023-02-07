@@ -12,7 +12,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.switchs.MainTabFragmentIdleSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ic;
+import com.baidu.tieba.nc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,12 +41,12 @@ public abstract class LazyBaseFragment extends BaseFragment {
 
         /* renamed from: com.baidu.tbadk.core.LazyBaseFragment$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0205a implements Runnable {
+        public class RunnableC0207a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0205a(a aVar) {
+            public RunnableC0207a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -102,10 +102,10 @@ public abstract class LazyBaseFragment extends BaseFragment {
                 LazyBaseFragment lazyBaseFragment = this.a;
                 if (lazyBaseFragment.d == null) {
                     lazyBaseFragment.c = true;
-                } else if (ic.b().c()) {
+                } else if (nc.b().c()) {
                     this.a.E1();
                 } else {
-                    this.a.a.post(new RunnableC0205a(this));
+                    this.a.a.post(new RunnableC0207a(this));
                 }
             }
         }

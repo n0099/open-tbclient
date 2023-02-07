@@ -1,39 +1,87 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.LoadingViewAdapter;
+import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.Rect;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewParent;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.GreyUtil;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.funad.view.FunAdAgreeView;
+import com.baidu.tieba.pb.ejection.EjectionAnimationView;
+import com.baidu.tieba.view.WaterRippleView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class r67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public List<ln> b;
-    public eo c;
-    public p67 d;
-    public u67 e;
-    public k67 f;
-    public m67 g;
-    public l67 h;
-    public n67 i;
-    public o67 j;
-    public q67 k;
+    public final Activity a;
+    public int b;
+    public FrameLayout c;
+    public WaterRippleView d;
+    public EjectionAnimationView e;
+    public PopupWindow f;
 
-    public r67(TbPageContext tbPageContext, eo eoVar) {
+    /* loaded from: classes6.dex */
+    public class a implements ra8 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ r67 a;
+
+        @Override // com.baidu.tieba.ra8
+        public /* synthetic */ void onStart() {
+            qa8.a(this);
+        }
+
+        public a(r67 r67Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {r67Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = r67Var;
+        }
+
+        @Override // com.baidu.tieba.ra8
+        public void onStop() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.e.setVisibility(8);
+                if (this.a.f != null && this.a.f.isShowing()) {
+                    ih.d(this.a.f, this.a.a);
+                }
+            }
+        }
+    }
+
+    public r67(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, eoVar};
+            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -43,97 +91,121 @@ public class r67 {
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.c = eoVar;
-        b();
+        this.b = 0;
+        this.a = activity;
+        e();
+        f();
     }
 
-    public List<yn> a() {
+    public void h(FunAdAgreeView funAdAgreeView) {
+        WaterRippleView waterRippleView;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, funAdAgreeView) != null) || funAdAgreeView == null || (waterRippleView = this.d) == null) {
+            return;
+        }
+        ViewParent parent = waterRippleView.getParent();
+        if (parent instanceof ViewGroup) {
+            ((ViewGroup) parent).removeView(this.d);
+        }
+    }
+
+    public void i(boolean z) {
+        PopupWindow popupWindow;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && (popupWindow = this.f) != null) {
+            popupWindow.setClippingEnabled(z);
+        }
+    }
+
+    public final int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c.getData();
+            return UtilHelper.getImmersiveStickyBarHeight() + UtilHelper.getScreenHeight(this.a);
         }
-        return (List) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public void c() {
-        eo eoVar;
+    public void l() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (eoVar = this.c) != null) {
-            eoVar.getListAdapter().notifyDataSetChanged();
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.e.l();
         }
     }
 
-    public final void b() {
+    public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ArrayList arrayList = new ArrayList();
-            this.b = arrayList;
-            arrayList.add(new t67(this.a));
-            this.b.add(new s67(this.a));
-            this.b.add(new LoadingViewAdapter(this.a));
-            p67 p67Var = new p67(this.a);
-            this.d = p67Var;
-            p67Var.v(this.c);
-            this.b.add(this.d);
-            u67 u67Var = new u67(this.a);
-            this.e = u67Var;
-            u67Var.v(this.c);
-            this.b.add(this.e);
-            k67 k67Var = new k67(this.a);
-            this.f = k67Var;
-            k67Var.v(this.c);
-            this.b.add(this.f);
-            m67 m67Var = new m67(this.a);
-            this.g = m67Var;
-            m67Var.v(this.c);
-            this.b.add(this.g);
-            l67 l67Var = new l67(this.a);
-            this.h = l67Var;
-            l67Var.v(this.c);
-            this.b.add(this.h);
-            n67 n67Var = new n67(this.a);
-            this.i = n67Var;
-            n67Var.v(this.c);
-            this.b.add(this.i);
-            o67 o67Var = new o67(this.a);
-            this.j = o67Var;
-            o67Var.v(this.c);
-            this.b.add(this.j);
-            TbPageContext tbPageContext = this.a;
-            q67 q67Var = new q67(tbPageContext, ThreadData.TYPE_RECOMMEND_INFO, tbPageContext.getUniqueId());
-            this.k = q67Var;
-            q67Var.v(this.c);
-            this.b.add(this.k);
-            this.c.a(this.b);
+            this.c = new FrameLayout(this.a);
+            this.e = new EjectionAnimationView(this.a);
+            this.c.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
+            this.e.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+            this.e.setEjectionAnimationViewCallback(new a(this));
+            this.c.addView(this.e);
         }
     }
 
-    public void d(List<yn> list) {
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.c.setData(list);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            PopupWindow popupWindow = new PopupWindow();
+            this.f = popupWindow;
+            popupWindow.setContentView(this.c);
+            this.f.setHeight(d());
+            this.f.setWidth(-1);
+            this.f.setOutsideTouchable(false);
+            this.f.setFocusable(false);
+            this.f.setTouchable(false);
+            GreyUtil.grey(this.f);
         }
     }
 
-    public void e(vq4 vq4Var) {
+    public final void g(View view2, Rect rect) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, vq4Var) == null) {
-            for (ln lnVar : this.b) {
-                if (lnVar instanceof j67) {
-                    ((j67) lnVar).u(vq4Var);
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, view2, rect) == null) && ih.m(this.f, view2, this.b, 0, 0)) {
+            this.e.setAnchorPosition((rect.right + rect.left) / 2, (rect.bottom + rect.top) / 2);
+            this.e.k();
+        }
+    }
+
+    public void j(View view2, List<Bitmap> list, Rect rect) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, view2, list, rect) == null) {
+            this.e.setVisibility(0);
+            this.e.setBitmaps(list);
+            g(view2, rect);
+        }
+    }
+
+    public void k(LinearLayout linearLayout, FunAdAgreeView funAdAgreeView) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048583, this, linearLayout, funAdAgreeView) == null) && linearLayout != null && funAdAgreeView != null) {
+            if (funAdAgreeView.getWidth() != 0 && funAdAgreeView.getHeight() != 0) {
+                WaterRippleView waterRippleView = this.d;
+                if (waterRippleView == null) {
+                    this.d = new WaterRippleView(this.a);
+                } else {
+                    ViewParent parent = waterRippleView.getParent();
+                    if (parent instanceof ViewGroup) {
+                        ((ViewGroup) parent).removeView(this.d);
+                    }
                 }
+                linearLayout.getGlobalVisibleRect(new Rect());
+                Rect rect = new Rect();
+                funAdAgreeView.getImgAgree().getGlobalVisibleRect(rect);
+                int centerX = rect.centerX();
+                int centerY = rect.centerY();
+                int g = ej.g(this.a, R.dimen.tbds166);
+                int i = centerX - g;
+                int i2 = centerY - g;
+                int i3 = g * 2;
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i3, i3);
+                layoutParams.addRule(13, -1);
+                layoutParams.setMargins(i, i2, 0, 0);
+                this.c.addView(this.d, layoutParams);
+                return;
             }
-        }
-    }
-
-    public void f(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
-            for (ln lnVar : this.b) {
-                lnVar.setPageId(bdUniqueId);
-            }
+            BdLog.e("FunAdAgreeView not measured");
         }
     }
 }

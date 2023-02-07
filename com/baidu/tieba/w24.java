@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
 import android.util.Log;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,16 +10,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class w24 {
+public class w24 implements v24 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<qw1> a;
+    public HashMap<String, x24> a;
+    public HashMap<String, ArrayList<v24>> b;
+    public String c;
+    public d74 d;
+    public final Object e;
 
     static {
         InterceptResult invokeClinit;
@@ -35,15 +35,15 @@ public class w24 {
                 return;
             }
         }
-        b = tk1.a;
+        f = gp1.a;
     }
 
-    public w24(JSONArray jSONArray) {
+    public w24(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jSONArray};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -53,85 +53,100 @@ public class w24 {
                 return;
             }
         }
-        this.a = new ArrayList();
-        if (jSONArray == null) {
-            return;
+        this.a = new HashMap<>();
+        this.b = new HashMap<>();
+        this.e = new Object();
+        this.c = str;
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (f) {
+                Log.d("AudioDownloadManager", "AudioDownloader SwanGamePreloadManager url:" + str);
+            }
+            if (this.d == null) {
+                this.d = d74.b();
+            }
+            x24 x24Var = new x24(this.d, this.c, str, this);
+            this.a.put(str, x24Var);
+            x24Var.e();
         }
-        if (b) {
-            Log.d("SwanGamePreloadConfig", "jsonArray:" + jSONArray);
-        }
-        int length = jSONArray.length();
-        int i3 = 0;
-        int i4 = 0;
-        for (int i5 = 0; i5 < length; i5++) {
-            JSONObject optJSONObject = jSONArray.optJSONObject(i5);
-            if (optJSONObject != null) {
-                String optString = optJSONObject.optString("type");
-                char c = 65535;
-                int hashCode = optString.hashCode();
-                if (hashCode != 1095692943) {
-                    if (hashCode == 1427818632 && optString.equals("download")) {
-                        c = 1;
+    }
+
+    @Override // com.baidu.tieba.v24
+    public void a(String str, String str2) {
+        ArrayList<v24> arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            synchronized (this.e) {
+                if (d(str) && (arrayList = this.b.get(str)) != null) {
+                    int size = arrayList.size();
+                    for (int i = 0; i < size; i++) {
+                        arrayList.get(i).a(str, str2);
+                        if (f) {
+                            Log.e("AudioDownloadManager", i + " load success url = " + str + " path = " + str2);
+                        }
                     }
-                } else if (optString.equals("request")) {
-                    c = 0;
+                    this.a.remove(str);
                 }
-                if (c != 0) {
-                    if (c == 1 && i4 < 10) {
-                        this.a.add(a(optJSONObject));
-                        i4++;
+            }
+        }
+    }
+
+    public void e(String str, v24 v24Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, v24Var) == null) {
+            synchronized (this.e) {
+                if (!d(str)) {
+                    if (f) {
+                        Log.e("AudioDownloadManager", "start load url = " + str);
                     }
-                } else if (i3 < 3) {
-                    this.a.add(b(optJSONObject));
-                    i3++;
+                    c(str);
+                } else if (f) {
+                    Log.e("AudioDownloadManager", "re load url = " + str);
+                }
+                b(str, v24Var);
+            }
+        }
+    }
+
+    public final void b(String str, v24 v24Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, v24Var) == null) {
+            if (this.b.containsKey(str)) {
+                this.b.get(str).add(v24Var);
+                return;
+            }
+            ArrayList<v24> arrayList = new ArrayList<>();
+            arrayList.add(v24Var);
+            this.b.put(str, arrayList);
+        }
+    }
+
+    public final boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return this.a.containsKey(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.v24
+    public void fail(int i, String str) {
+        ArrayList<v24> arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) {
+            synchronized (this.e) {
+                if (d(str) && (arrayList = this.b.get(str)) != null) {
+                    int size = arrayList.size();
+                    for (int i2 = 0; i2 < size; i2++) {
+                        arrayList.get(i2).fail(i, str);
+                    }
+                    this.a.remove(str);
                 }
             }
         }
-    }
-
-    public final qw1 a(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            qw1 qw1Var = new qw1();
-            qw1Var.G("type", jSONObject.optString("type"));
-            qw1Var.G("url", jSONObject.optString("url"));
-            qw1Var.G("filePath", jSONObject.optString("filePath"));
-            qw1Var.G("header", c(jSONObject.optJSONObject("header")));
-            return qw1Var;
-        }
-        return (qw1) invokeL.objValue;
-    }
-
-    public final qw1 b(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            qw1 qw1Var = new qw1();
-            qw1Var.G("type", jSONObject.optString("type"));
-            qw1Var.G("url", jSONObject.optString("url"));
-            qw1Var.G("responseType", jSONObject.optString("responseType"));
-            qw1Var.G("header", c(jSONObject.optJSONObject("header")));
-            return qw1Var;
-        }
-        return (qw1) invokeL.objValue;
-    }
-
-    public final qw1 c(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            qw1 qw1Var = new qw1();
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                qw1Var.G(next, jSONObject.optString(next));
-            }
-            return qw1Var;
-        }
-        return (qw1) invokeL.objValue;
     }
 }

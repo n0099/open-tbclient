@@ -1,137 +1,69 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import androidx.media2.session.SessionCommand;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.util.Log;
+import com.baidu.searchbox.v8engine.console.DebugConsole;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class d54 {
+public class d54 implements DebugConsole {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
 
-    public static void a(CallbackHandler callbackHandler, String str) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947655526, "Lcom/baidu/tieba/d54;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947655526, "Lcom/baidu/tieba/d54;");
+                return;
+            }
+        }
+        b = gp1.a;
+    }
+
+    public d54() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.searchbox.v8engine.console.DebugConsole
+    public void onReceiveInfo(int i, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeIL(1048576, this, i, str) != null) || !b || t94.d()) {
             return;
         }
-        k54 k54Var = new k54();
-        k54Var.a = str;
-        a54.c().a(new z44(50000, k54Var));
-    }
-
-    public static void b(CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
+        if (i != 0) {
+            if (i != 1) {
+                if (i == 2) {
+                    Log.d("arConsole", String.format("%s: %s %s", "run event end", Long.valueOf(System.currentTimeMillis() - this.a), str));
+                    return;
+                }
+                return;
+            }
+            this.a = System.currentTimeMillis();
+            Log.d("arConsole", String.format("%s: %s %s", "run event start", "", str));
             return;
         }
-        k54 k54Var = new k54();
-        k54Var.a = str;
-        a54.c().a(new z44(90000, k54Var));
-    }
-
-    public static void e(CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
-            return;
-        }
-        k54 k54Var = new k54();
-        k54Var.a = str;
-        a54.c().a(new z44(60000, k54Var));
-    }
-
-    public static void g(CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65542, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
-            return;
-        }
-        k54 k54Var = new k54();
-        k54Var.a = str;
-        a54.c().a(new z44(SessionCommand.COMMAND_CODE_SESSION_FAST_FORWARD, k54Var));
-    }
-
-    public static void i(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) {
-            i54 i54Var = new i54();
-            i54Var.b = str;
-            i54Var.a = str2;
-            a54.c().a(new z44(30000, i54Var));
-        }
-    }
-
-    public static void c(String str, int i, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
-            h54 h54Var = new h54();
-            h54Var.b = str;
-            h54Var.c = i;
-            h54Var.d = z ? 1 : 0;
-            h54Var.a = str2;
-            a54.c().a(new z44(100000, h54Var));
-        }
-    }
-
-    public static void h(String str, int i, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
-            h54 h54Var = new h54();
-            h54Var.b = str;
-            h54Var.c = i;
-            h54Var.d = z ? 1 : 0;
-            h54Var.a = str2;
-            a54.c().a(new z44(70000, h54Var));
-        }
-    }
-
-    public static void k(String str, int i, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
-            h54 h54Var = new h54();
-            h54Var.b = str;
-            h54Var.c = i;
-            h54Var.d = z ? 1 : 0;
-            h54Var.a = str2;
-            a54.c().a(new z44(110000, h54Var));
-        }
-    }
-
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            k54 k54Var = new k54();
-            k54Var.a = str;
-            a54.c().a(new z44(20000, k54Var));
-        }
-    }
-
-    public static void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            k54 k54Var = new k54();
-            k54Var.a = str;
-            a54.c().a(new z44(10000, k54Var));
-        }
-    }
-
-    public static void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65547, null, str) == null) {
-            k54 k54Var = new k54();
-            k54Var.a = str;
-            a54.c().a(new z44(120000, k54Var));
-        }
-    }
-
-    public static void j(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65545, null, str, i, str2) == null) {
-            j54 j54Var = new j54();
-            j54Var.b = str;
-            j54Var.c = i;
-            j54Var.a = str2;
-            a54.c().a(new z44(80000, j54Var));
-        }
+        Log.d("arConsole", String.format("%s: %s %s", "queue event", "", str));
     }
 }

@@ -1,153 +1,251 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewParent;
+import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.AbstractHttpManager;
-import com.baidu.searchbox.http.request.HttpCommonRequest;
-import com.baidu.searchbox.http.request.HttpCommonRequestBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import org.apache.http.client.methods.HttpTrace;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class rb4 extends HttpCommonRequest<a> {
+public class rb4 implements nq1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<vn3> a;
+    public FrameLayout b;
+    public boolean c;
+    public boolean d;
 
-    /* loaded from: classes6.dex */
-    public static class a extends HttpCommonRequestBuilder<a> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(AbstractHttpManager abstractHttpManager) {
-            super(abstractHttpManager);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {abstractHttpManager};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((AbstractHttpManager) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public a(rb4 rb4Var) {
-            this(rb4Var, null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rb4Var};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    this((rb4) objArr2[0], (AbstractHttpManager) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(rb4 rb4Var, AbstractHttpManager abstractHttpManager) {
-            super(rb4Var, abstractHttpManager);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rb4Var, abstractHttpManager};
-                interceptable.invokeUnInit(65538, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((HttpCommonRequest) objArr2[0], (AbstractHttpManager) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65538, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.request.HttpRequestBuilder
-        /* renamed from: a */
-        public rb4 build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new rb4(this);
-            }
-            return (rb4) invokeV.objValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rb4(a aVar) {
-        super(aVar);
+    public rb4(@NonNull FrameLayout frameLayout) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
+            Object[] objArr = {frameLayout};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((HttpCommonRequestBuilder) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new ArrayList<>();
+        this.d = false;
+        this.b = frameLayout;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.http.request.HttpRequest
-    /* renamed from: a */
-    public a newBuilder() {
+    @Override // com.baidu.tieba.nq1
+    public boolean a(View view2, cz2 cz2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, cz2Var)) == null) {
+            if (!d(view2)) {
+                return false;
+            }
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(cz2Var.f(), cz2Var.c());
+            layoutParams.leftMargin = cz2Var.d();
+            layoutParams.topMargin = cz2Var.e();
+            this.b.updateViewLayout(view2, layoutParams);
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.nq1
+    public boolean c(View view2, cz2 cz2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, cz2Var)) == null) {
+            if (view2 != null && cz2Var != null) {
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(cz2Var.f(), cz2Var.c());
+                layoutParams.leftMargin = cz2Var.d();
+                layoutParams.topMargin = cz2Var.e();
+                this.b.addView(view2, layoutParams);
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.nq1
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-        return (a) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.http.request.HttpRequest
-    /* renamed from: b */
-    public a newBuilder(AbstractHttpManager abstractHttpManager) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.nq1
+    public Context getContext() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, abstractHttpManager)) == null) {
-            return new a(this, abstractHttpManager);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.b.getContext();
         }
-        return (a) invokeL.objValue;
+        return (Context) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.http.request.HttpRequest
-    public Request buildOkRequest(RequestBody requestBody) {
+    @Override // com.baidu.tieba.nq1
+    public FrameLayout getRootView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.b;
+        }
+        return (FrameLayout) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.nq1
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final synchronized void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            synchronized (this) {
+                this.a.clear();
+            }
+        }
+    }
+
+    public final synchronized vn3[] j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            synchronized (this) {
+                if (this.a.isEmpty()) {
+                    return null;
+                }
+                vn3[] vn3VarArr = new vn3[this.a.size()];
+                this.a.toArray(vn3VarArr);
+                return vn3VarArr;
+            }
+        }
+        return (vn3[]) invokeV.objValue;
+    }
+
+    public void k() {
+        vn3[] j;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (j = j()) != null) {
+            for (vn3 vn3Var : j) {
+                vn3Var.e();
+            }
+        }
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            vn3[] j = j();
+            if (j != null) {
+                for (vn3 vn3Var : j) {
+                    vn3Var.onViewDestroy();
+                }
+            }
+            i();
+        }
+    }
+
+    public void m() {
+        vn3[] j;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (j = j()) != null) {
+            for (vn3 vn3Var : j) {
+                vn3Var.l();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.nq1
+    public boolean d(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, requestBody)) == null) {
-            return this.okRequestBuilder.method(HttpTrace.METHOD_NAME, requestBody).build();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) {
+            if (view2 == null) {
+                return false;
+            }
+            ViewParent parent = view2.getParent();
+            FrameLayout frameLayout = this.b;
+            if (parent != frameLayout || frameLayout.indexOfChild(view2) < 0) {
+                return false;
+            }
+            return true;
         }
-        return (Request) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.nq1
+    public synchronized void e(vn3 vn3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, vn3Var) == null) {
+            synchronized (this) {
+                if (vn3Var == null) {
+                    return;
+                }
+                if (!this.a.contains(vn3Var)) {
+                    this.a.add(vn3Var);
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.nq1
+    public synchronized void f(vn3 vn3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, vn3Var) == null) {
+            synchronized (this) {
+                if (vn3Var == null) {
+                    return;
+                }
+                this.a.remove(vn3Var);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.nq1
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.d = z;
+        }
+    }
+
+    public void n(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    @Override // com.baidu.tieba.nq1
+    public boolean removeView(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, view2)) == null) {
+            if (!d(view2)) {
+                return false;
+            }
+            this.b.removeView(view2);
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

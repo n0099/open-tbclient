@@ -1,123 +1,115 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Pair;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.tieba.om2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class py2 implements cj3<HybridUbcFlow> {
+public class py2 extends cz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public class a implements cj3<HybridUbcFlow> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(py2 py2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {py2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cj3
-        /* renamed from: b */
-        public void a(HybridUbcFlow hybridUbcFlow) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) != null) || py2.b(hybridUbcFlow)) {
-                return;
-            }
-            long f = hybridUbcFlow.f("na_first_meaningful_paint", "naStart");
-            if (f <= 0) {
-                f = hybridUbcFlow.f("na_first_paint", "naStart");
-            }
-            if (f <= 0) {
-                f = hybridUbcFlow.f("slave_first_rendered", "naStart");
-            }
-            if (f <= 0) {
-                f = hybridUbcFlow.f("fe_page_show", "naStart");
-            }
-            if (f <= 0) {
-                f = hybridUbcFlow.f("na_page_show", "naStart");
-            }
-            if (f <= 0) {
-                f = hybridUbcFlow.f("na_receive_intent", "naStart");
-            }
-            if (f <= 0) {
-                f = System.currentTimeMillis();
-            }
-            Bundle bundle = new Bundle();
-            bundle.putLong("property_launch_cost", f);
-            z03 e = z03.e();
-            b13 b13Var = new b13(20, bundle);
-            b13Var.f(true);
-            e.h(b13Var);
-            wx2.h().end(f);
-            my2.e().f();
-        }
+    @Override // com.baidu.tieba.zw1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "UpdateMenuStyleApi" : (String) invokeV.objValue;
     }
 
-    public py2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public py2(@NonNull xw1 xw1Var) {
+        super(xw1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {xw1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((xw1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static boolean b(HybridUbcFlow hybridUbcFlow) {
+    public final int y(String str) {
+        InterceptResult invokeL;
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            int hashCode = str.hashCode();
+            if (hashCode != -1866956286) {
+                if (hashCode == -838846263 && str.equals(StickerDataChangeType.UPDATE)) {
+                    c = 0;
+                }
+                c = 65535;
+            } else {
+                if (str.equals("webDegrade")) {
+                    c = 1;
+                }
+                c = 65535;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    return 12;
+                }
+                return 20;
+            }
+            return 19;
+        }
+        return invokeL.intValue;
+    }
+
+    public w02 x(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hybridUbcFlow)) == null) {
-            if (hybridUbcFlow.p("performanceEnd") && !hybridUbcFlow.p("na_first_meaningful_paint")) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            q("#changeMenuStyle", false);
+            Pair<w02, JSONObject> s = s(str);
+            JSONObject jSONObject = (JSONObject) s.second;
+            if (((w02) s.first).isSuccess() && jSONObject != null) {
+                String optString = jSONObject.optString("type");
+                if (TextUtils.isEmpty(optString)) {
+                    return new w02(202);
+                }
+                int y = y(optString);
+                ju2 U = ju2.U();
+                if (U == null) {
+                    return new w02(1001);
+                }
+                f82 V = U.V();
+                if (V == null) {
+                    return new w02(1001);
+                }
+                c82 m = V.m();
+                if (m == null) {
+                    return new w02(1001);
+                }
+                df4 O1 = m.O1();
+                if (O1 == null) {
+                    if (m instanceof j82) {
+                        ((j82) m).j3(y);
+                        return w02.f();
+                    }
+                    return new w02(1001);
+                }
+                O1.e(y);
+                O1.y();
+                return w02.f();
             }
-            return false;
+            return new w02(202);
         }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cj3
-    /* renamed from: c */
-    public void a(HybridUbcFlow hybridUbcFlow) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
-            hybridUbcFlow.J("670");
-            hybridUbcFlow.D("preload_scene", "1");
-            hybridUbcFlow.E("from", "swan");
-            hybridUbcFlow.H("component_reporter", new kx2());
-            hybridUbcFlow.H("component_reporter", new nw2());
-            hybridUbcFlow.H("component_reporter", new hx2());
-            hybridUbcFlow.H("component_reporter", new mx2());
-            hybridUbcFlow.H("callback_on_submit", new om2.a());
-            hybridUbcFlow.H("fmp_callback", new sy2("fmp_callback"));
-            hybridUbcFlow.H("fmp_callback", new gz2());
-            hybridUbcFlow.H("callback_on_submit", new sy2("callback_on_submit"));
-            hybridUbcFlow.H("callback_on_submit", new hg3());
-            hybridUbcFlow.H("callback_on_submit", new a(this));
-        }
+        return (w02) invokeL.objValue;
     }
 }

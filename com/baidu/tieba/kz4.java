@@ -1,38 +1,27 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.SchoolRecomUserInfo;
 /* loaded from: classes5.dex */
 public class kz4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public Activity a;
-    public AlertDialog b;
-    public boolean c;
-    public boolean d;
-    public String e;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public int e;
 
-    public kz4(@NonNull Activity activity) {
+    public kz4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,68 +31,67 @@ public class kz4 {
                 return;
             }
         }
-        this.c = true;
-        this.d = true;
-        this.a = activity;
+        this.a = "";
+        this.b = "";
+        this.c = "";
+        this.d = "";
+        this.e = -1;
     }
 
-    public final void a() {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            AlertDialog create = new AlertDialog.Builder(this.a).create();
-            this.b = create;
-            GreyUtil.grey(create);
-            dh.i(this.b, this.a);
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.small_blue_progress_dialog, (ViewGroup) null);
-            TextView textView = (TextView) inflate.findViewById(R.id.custom_loading_text);
-            if (!TextUtils.isEmpty(this.e)) {
-                textView.setText(this.e);
-            }
-            this.b.setCancelable(this.d);
-            this.b.setCanceledOnTouchOutside(this.d);
-            Window window = this.b.getWindow();
-            window.setContentView(inflate);
-            if (!this.c) {
-                window.setDimAmount(0.0f);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void b() {
-        AlertDialog alertDialog;
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (alertDialog = this.b) != null) {
-            alertDialog.dismiss();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
         }
+        return invokeV.intValue;
     }
 
-    public void e() {
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.b == null) {
-                a();
-            }
-            this.b.show();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
+        return (String) invokeV.objValue;
     }
 
-    public kz4 c(boolean z) {
-        InterceptResult invokeZ;
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            this.c = z;
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
         }
-        return (kz4) invokeZ.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public kz4 d(String str) {
-        InterceptResult invokeL;
+    public String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            this.e = str;
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
         }
-        return (kz4) invokeL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public void f(SchoolRecomUserInfo schoolRecomUserInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, schoolRecomUserInfo) != null) || schoolRecomUserInfo == null) {
+            return;
+        }
+        this.a = StringUtils.string(schoolRecomUserInfo.uid);
+        this.b = schoolRecomUserInfo.uname;
+        this.c = schoolRecomUserInfo.portrait;
+        this.d = schoolRecomUserInfo.institute;
+        this.e = schoolRecomUserInfo.is_liked.intValue();
     }
 }

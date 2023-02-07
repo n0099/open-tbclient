@@ -1,84 +1,240 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import android.app.Activity;
+import android.content.Context;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewParent;
+import android.widget.FrameLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.sd4;
+import com.baidu.swan.apps.core.SwanAppWebViewManager;
+import com.baidu.swan.apps.core.container.NgWebView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONObject;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public abstract class t72 extends r43 implements x72 {
+public class t72 extends SwanAppWebViewManager implements bv1<NgWebView> {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean y;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context w;
+    public boolean x;
+
+    public void G(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+        }
+    }
+
+    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
+    public void L0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.ev1
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "console" : (String) invokeV.objValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948134042, "Lcom/baidu/tieba/t72;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948134042, "Lcom/baidu/tieba/t72;");
+                return;
+            }
+        }
+        y = gp1.a;
+    }
+
+    public void E() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            w52.n(false);
+            ViewParent parent = r().getParent();
+            if (parent instanceof ViewGroup) {
+                ((ViewGroup) parent).removeView(r());
+            }
+            destroy();
+        }
+    }
+
+    public final void T() {
+        Context context;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (context = this.w) != null && (context instanceof Activity)) {
+            xl3.a(context, ((Activity) context).getWindow().getDecorView().getWindowToken());
+        }
+    }
+
+    @Override // com.baidu.tieba.bv1
+    public void V() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if (r().getVisibility() != 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            P(z);
+        }
+    }
+
+    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.ev1
+    public void destroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            T();
+            super.destroy();
+        }
+    }
+
+    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.ev1
+    public void e0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            super.e0();
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t72(i43 i43Var) {
-        super(i43Var);
+    public t72(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {i43Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((m43) newInitContext.callArgs[0]);
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.x = false;
+        this.w = context;
+        g1();
     }
 
-    public static final Map<String, String> I(Bundle bundle) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.bv1
+    public void F(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bundle)) == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) != null) || viewGroup == null) {
+            return;
+        }
+        j(viewGroup, r());
+    }
+
+    public void P(boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            NgWebView r = r();
+            if (z) {
+                i = 0;
+            } else {
+                i = 8;
+            }
+            r.setVisibility(i);
+        }
+    }
+
+    public final void e1(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            if (y) {
+                Log.d("SwanAppConsoleManager", "call downloadConsoleCore: " + z);
+            }
+            if (this.x && !z) {
+                return;
+            }
+            zj4 zj4Var = new zj4("sconsole-core", x52.c(), x52.b(), 2);
+            rg4 rg4Var = null;
+            fq1 h = es2.h();
+            if (h != null) {
+                rg4Var = h.d();
+            }
+            gg4.g(zj4Var, rg4Var);
+            this.x = true;
+        }
+    }
+
+    public final boolean f1(ViewGroup viewGroup, View view2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, viewGroup, view2)) == null) {
+            int childCount = viewGroup.getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                if (viewGroup.getChildAt(i) == view2) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final void j(ViewGroup viewGroup, View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048590, this, viewGroup, view2) != null) || viewGroup == null || view2 == null || f1(viewGroup, view2)) {
+            return;
+        }
+        viewGroup.addView(view2, new FrameLayout.LayoutParams(-1, -1));
+    }
+
+    public void g0(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) {
+            JSONArray jSONArray = new JSONArray();
+            if (!TextUtils.isEmpty(str2)) {
+                jSONArray.put(str2);
+            }
             HashMap hashMap = new HashMap();
-            if (bundle != null && !bundle.isEmpty()) {
-                for (String str : bundle.keySet()) {
-                    hashMap.put(str, bundle.getString(str));
-                }
+            hashMap.put("logType", str);
+            hashMap.put("logs", jSONArray.toString());
+            ju2.U().m("console", new xi2("searchboxSConsole", hashMap));
+        }
+    }
+
+    public void g1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            r().setVisibility(8);
+            r().setBackgroundColor(0);
+            File file = new File(x52.a(), "index.html");
+            if (file.exists() && file.isFile()) {
+                loadUrl(Uri.fromFile(file).toString());
+                e1(false);
+                return;
             }
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    public static final Bundle J(Map<String, String> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, map)) == null) {
-            Bundle bundle = new Bundle();
-            if (map != null && !map.isEmpty()) {
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    bundle.putString(entry.getKey(), entry.getValue());
-                }
-            }
-            return bundle;
-        }
-        return (Bundle) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.sd4
-    public void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, sd4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
-            qn2.r0().b(str, map, map2, jSONObject, aVar);
-        }
-    }
-
-    @Override // com.baidu.tieba.sd4
-    public void z(String str, Map<String, String> map, Map<String, String> map2, sd4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map, map2, aVar) == null) {
-            qn2.r0().z(str, map, map2, aVar);
+            loadUrl("file:///android_asset/aiapps/sConsole.html");
+            x52.d();
+            e1(true);
         }
     }
 }

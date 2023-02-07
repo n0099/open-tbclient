@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.k08;
-import com.baidu.tieba.l08;
+import com.baidu.tieba.h58;
+import com.baidu.tieba.i58;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int z;
+    public int A;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotTopicDetailSpecialLayout(Context context) {
@@ -38,7 +38,7 @@ public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
                 return;
             }
         }
-        this.z = 3;
+        this.A = 3;
         K();
     }
 
@@ -61,7 +61,7 @@ public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
                 return;
             }
         }
-        this.z = 3;
+        this.A = 3;
         K();
     }
 
@@ -84,7 +84,7 @@ public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
                 return;
             }
         }
-        this.z = 3;
+        this.A = 3;
         K();
     }
 
@@ -92,17 +92,17 @@ public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new k08(tbPageContext));
-            arrayList.add(new l08(tbPageContext));
+            arrayList.add(new h58(tbPageContext));
+            arrayList.add(new i58(tbPageContext));
             a(arrayList);
         }
     }
 
     public void L(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && this.z != i) {
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && this.A != i) {
             getListAdapter().notifyDataSetChanged();
-            this.z = i;
+            this.A = i;
         }
     }
 

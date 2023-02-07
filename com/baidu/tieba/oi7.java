@@ -6,12 +6,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.Hottopic.UserInfo;
 /* loaded from: classes5.dex */
 public class oi7 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile oi7 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public long a;
 
     public oi7() {
         Interceptable interceptable = $ic;
@@ -27,35 +27,37 @@ public class oi7 {
         }
     }
 
-    public static oi7 a() {
+    public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (oi7.class) {
-                    if (b == null) {
-                        b = new oi7();
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            long j = this.a;
+            return (int) (j ^ (j >>> 32));
+        }
+        return invokeV.intValue;
+    }
+
+    public void a(UserInfo userInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, userInfo) == null) {
+            this.a = userInfo.user_id.longValue();
+            String str = userInfo.user_name;
+            String str2 = userInfo.portrait;
+        }
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            return b;
+            if (obj != null && oi7.class == obj.getClass() && this.a == ((oi7) obj).a) {
+                return true;
+            }
+            return false;
         }
-        return (oi7) invokeV.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.a = z;
-        }
+        return invokeL.booleanValue;
     }
 }

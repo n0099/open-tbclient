@@ -1,124 +1,183 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.content.ActivityNotFoundException;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
-import android.os.Build;
 import android.text.TextUtils;
-import android.widget.Toast;
-import androidx.core.content.FileProvider;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public final class l31 {
+public class l31 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final List<a> a;
+    public final List<j31> b;
+    public String c;
+    public String d;
+    public h31 e;
+    public i31 f;
+    public k31 g;
+    public int h;
+    public int i;
 
-    public static boolean a(Context context, File file, Intent intent) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, file, intent)) == null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                try {
-                    if (TextUtils.isEmpty(ej0.a().u())) {
-                        return false;
-                    }
-                    Uri uriForFile = FileProvider.getUriForFile(context, ej0.a().u(), file);
-                    if (uriForFile == null) {
-                        return false;
-                    }
-                    intent.setDataAndType(uriForFile, intent.getType());
-                    List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
-                    if (queryIntentActivities == null) {
-                        return true;
-                    }
-                    for (ResolveInfo resolveInfo : queryIntentActivities) {
-                        ActivityInfo activityInfo = resolveInfo.activityInfo;
-                        if (activityInfo != null && !TextUtils.isEmpty(activityInfo.packageName)) {
-                            context.grantUriPermission(resolveInfo.activityInfo.packageName, uriForFile, 1);
-                        }
-                    }
-                } catch (IllegalArgumentException unused) {
-                    return false;
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+        public final x21[] b;
+
+        public a(String str, x21[] x21VarArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, x21VarArr};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return true;
+            this.a = str;
+            this.b = x21VarArr;
         }
-        return invokeLLL.booleanValue;
     }
 
-    public static void b(Dialog dialog) {
+    public l31() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, dialog) != null) || dialog == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        try {
-            dialog.show();
-        } catch (Exception unused) {
-        }
+        this.a = new ArrayList(4);
+        this.b = new ArrayList(2);
+        this.h = -1;
+        this.i = -1;
     }
 
-    public static void c(Activity activity, Intent intent) {
+    public static l31 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, activity, intent) == null) {
-            e(activity, intent, true);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new l31();
         }
+        return (l31) invokeV.objValue;
     }
 
-    public static boolean d(Context context, Intent intent) {
+    public String[] b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            h31 h31Var = this.e;
+            if (h31Var == null) {
+                return null;
+            }
+            return h31Var.e();
+        }
+        return (String[]) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return d(null).toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public l31 a(String str, x21... x21VarArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, intent)) == null) {
-            return e(context, intent, false);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, x21VarArr)) == null) {
+            this.a.add(new a(str, x21VarArr));
+            return this;
         }
-        return invokeLL.booleanValue;
+        return (l31) invokeLL.objValue;
     }
 
-    public static boolean e(Context context, Intent intent, boolean z) {
-        InterceptResult invokeLLZ;
+    public l31 c(String str, g31 g31Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, intent, z)) == null) {
-            return f(context, intent, z, false);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, g31Var)) == null) {
+            this.d = str;
+            this.c = g31Var.b().g();
+            return this;
         }
-        return invokeLLZ.booleanValue;
+        return (l31) invokeLL.objValue;
     }
 
-    public static boolean f(Context context, Intent intent, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
+    public final StringBuilder d(StringBuilder sb) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, intent, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (z || !(context instanceof Activity)) {
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, sb)) == null) {
+            if (sb == null) {
+                sb = new StringBuilder();
             }
-            try {
-                context.startActivity(intent);
-                return true;
-            } catch (ActivityNotFoundException unused) {
-                if (!z2) {
-                    return false;
+            sb.append("SELECT ");
+            int size = this.a.size();
+            String str = "";
+            for (int i = 0; i < size; i++) {
+                int i2 = 0;
+                while (i2 < this.a.get(i).b.length) {
+                    sb.append(str);
+                    String str2 = this.a.get(i).a;
+                    if (!TextUtils.isEmpty(str2)) {
+                        sb.append(str2);
+                        sb.append(".");
+                    }
+                    sb.append(this.a.get(i).b[i2].b);
+                    i2++;
+                    str = StringUtil.ARRAY_ELEMENT_SEPARATOR;
                 }
-                Toast.makeText(context, (int) R.string.nad_activity_not_found, 0).show();
-                return false;
-            } catch (SecurityException unused2) {
-                if (!z2) {
-                    return false;
-                }
-                Toast.makeText(context, (int) R.string.nad_activity_not_found, 0).show();
-                return false;
-            } catch (Exception unused3) {
-                return false;
             }
+            sb.append(" ");
+            sb.append("FROM ");
+            sb.append(this.c);
+            if (!TextUtils.isEmpty(this.d)) {
+                sb.append(" AS ");
+                sb.append(this.d);
+            }
+            for (j31 j31Var : this.b) {
+                sb.append(j31Var.c());
+            }
+            h31 h31Var = this.e;
+            if (h31Var != null) {
+                sb.append(h31Var.k());
+            }
+            i31 i31Var = this.f;
+            if (i31Var != null) {
+                sb.append(i31Var.a());
+            }
+            k31 k31Var = this.g;
+            if (k31Var != null) {
+                sb.append(k31Var.a());
+            }
+            if (this.h > -1) {
+                sb.append(" LIMIT ");
+                sb.append(this.h);
+            }
+            if (this.i > -1) {
+                sb.append(" OFFSET ");
+                sb.append(this.i);
+            }
+            return sb;
         }
-        return invokeCommon.booleanValue;
+        return (StringBuilder) invokeL.objValue;
     }
 }

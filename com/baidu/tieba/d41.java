@@ -1,43 +1,64 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.thread.executor.BaseExecutorCell;
+import com.baidu.nadcore.thread.task.ElasticTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.KeyFactory;
-import java.security.NoSuchAlgorithmException;
-import java.security.PublicKey;
-import java.security.spec.InvalidKeySpecException;
-import java.security.spec.X509EncodedKeySpec;
-import javax.crypto.Cipher;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public final class d41 {
+public class d41 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public y31 a;
+    public BaseExecutorCell b;
 
-    @Nullable
-    public static byte[] a(@NonNull byte[] bArr, PublicKey publicKey) {
-        InterceptResult invokeLL;
+    public d41() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, bArr, publicKey)) == null) {
-            try {
-                Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-                cipher.init(1, publicKey);
-                return cipher.doFinal(bArr);
-            } catch (Exception unused) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (byte[]) invokeLL.objValue;
+        this.a = new y31();
+        this.b = BaseExecutorCell.b(1, BaseExecutorCell.ExecutorType.SERIAL);
     }
 
-    public static PublicKey b(@NonNull byte[] bArr) throws NoSuchAlgorithmException, InvalidKeySpecException {
-        InterceptResult invokeL;
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            return KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(bArr));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return ((t31) this.b).j();
         }
-        return (PublicKey) invokeL.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ElasticTask b = this.a.b();
+            if (b == null || !this.b.c(b)) {
+                return false;
+            }
+            this.a.e(b);
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void b(Runnable runnable, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, str, i) == null) {
+            this.a.c(runnable, str, i);
+        }
     }
 }

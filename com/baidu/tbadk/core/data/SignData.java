@@ -1,8 +1,8 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ev4;
 import com.baidu.tieba.pb.data.ContriInfo;
+import com.baidu.tieba.rz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -29,7 +29,7 @@ public class SignData implements Serializable {
     public int is_signed;
     public int levelup_score;
     public ContriInfo mContriInfo;
-    public ev4 mSignStampInfoData;
+    public rz4 mSignStampInfoData;
     public int miss_sign_num;
     public int sign_bonus_point;
     public int sign_count;
@@ -60,7 +60,7 @@ public class SignData implements Serializable {
         this.errorCode = 0;
         this.errorMsg = "";
         this.mContriInfo = new ContriInfo();
-        this.mSignStampInfoData = new ev4();
+        this.mSignStampInfoData = new rz4();
     }
 
     public void parserJson(String str) {

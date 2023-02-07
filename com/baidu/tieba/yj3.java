@@ -1,95 +1,109 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.net.wifi.WifiConfiguration;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class yj3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
 
-    public yj3() {
+    public static int a(WifiConfiguration wifiConfiguration) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, wifiConfiguration)) == null) {
+            if (wifiConfiguration == null) {
+                return -1;
+            }
+            if (wifiConfiguration.allowedKeyManagement.get(1)) {
+                return 2;
+            }
+            if (wifiConfiguration.allowedKeyManagement.get(2) || wifiConfiguration.allowedKeyManagement.get(3)) {
+                return 3;
+            }
+            if (wifiConfiguration.wepKeys[0] != null) {
+                return 1;
+            }
+            if (!wifiConfiguration.allowedKeyManagement.get(0)) {
+                return -1;
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int b(uj3 uj3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, uj3Var)) == null) {
+            if (uj3Var == null) {
+                return -1;
+            }
+            if (TextUtils.isEmpty(uj3Var.c) && TextUtils.isEmpty(uj3Var.d)) {
+                return 0;
+            }
+            if (!TextUtils.isEmpty(uj3Var.c) && !TextUtils.isEmpty(uj3Var.d)) {
+                return 3;
+            }
+            if (TextUtils.isEmpty(uj3Var.d)) {
+                return -1;
+            }
+            return 2;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return 0;
+            }
+            if (str.contains("WEP")) {
+                return 1;
+            }
+            if (str.contains("PSK")) {
+                return 2;
+            }
+            if (str.contains("EAP")) {
+                return 3;
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public static void d(WifiConfiguration wifiConfiguration, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(65539, null, wifiConfiguration, i) != null) || wifiConfiguration == null) {
+            return;
+        }
+        wifiConfiguration.allowedKeyManagement.clear();
+        wifiConfiguration.allowedProtocols.clear();
+        wifiConfiguration.allowedAuthAlgorithms.clear();
+        wifiConfiguration.allowedPairwiseCiphers.clear();
+        wifiConfiguration.allowedGroupCiphers.clear();
+        if (i != 0) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i == 3) {
+                        wifiConfiguration.allowedKeyManagement.set(2);
+                        wifiConfiguration.allowedKeyManagement.set(3);
+                        return;
+                    }
+                    return;
+                }
+                wifiConfiguration.allowedKeyManagement.set(1);
                 return;
             }
+            wifiConfiguration.allowedKeyManagement.set(0);
+            wifiConfiguration.allowedAuthAlgorithms.set(0);
+            wifiConfiguration.allowedAuthAlgorithms.set(1);
+            return;
         }
-        this.a = 0;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if ((this.a & 1) == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @NonNull
-    public yj3 a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            this.a = i | this.a;
-            return this;
-        }
-        return (yj3) invokeI.objValue;
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.a = (~i) & this.a;
-        }
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.c = i;
-        }
+        wifiConfiguration.allowedKeyManagement.set(0);
     }
 }

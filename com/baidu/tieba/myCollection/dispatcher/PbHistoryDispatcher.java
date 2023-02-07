@@ -2,15 +2,15 @@ package com.baidu.tieba.myCollection.dispatcher;
 
 import android.content.Context;
 import android.content.Intent;
+import com.baidu.tieba.kt8;
 import com.baidu.tieba.myCollection.history.PbHistoryActivity;
-import com.baidu.tieba.pp8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class PbHistoryDispatcher implements pp8 {
+public class PbHistoryDispatcher implements kt8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,7 +28,7 @@ public class PbHistoryDispatcher implements pp8 {
         }
     }
 
-    @Override // com.baidu.tieba.pp8
+    @Override // com.baidu.tieba.kt8
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {

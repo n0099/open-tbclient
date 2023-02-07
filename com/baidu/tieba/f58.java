@@ -1,56 +1,55 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.view.View;
 /* loaded from: classes4.dex */
-public class f58 implements yn {
-    public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface f58 {
+    void a();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947715232, "Lcom/baidu/tieba/f58;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947715232, "Lcom/baidu/tieba/f58;");
-                return;
-            }
-        }
-        a = BdUniqueId.gen();
-    }
+    void b(boolean z);
 
-    public f58() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
+    void c(int i);
 
-    @Override // com.baidu.tieba.yn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return a;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
+    void d(ii7 ii7Var);
+
+    void destroy();
+
+    void e();
+
+    void f(boolean z);
+
+    void g(long j, long j2);
+
+    View getRootView();
+
+    ii7 h();
+
+    void i();
+
+    void j(boolean z, int i);
+
+    void k(int i);
+
+    int l();
+
+    void m();
+
+    void n(ii7 ii7Var);
+
+    void o(long j, long j2, int i);
+
+    hi7 p(int i);
+
+    void pause();
+
+    void q();
+
+    void r();
+
+    void resetView();
+
+    void resume();
+
+    void s(int i);
+
+    void t(hi7 hi7Var, boolean z, int i);
 }

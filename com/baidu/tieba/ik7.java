@@ -1,60 +1,90 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.tbadk.core.util.tbselector.utils.SelectorHelper;
-import com.baidu.tieba.imMessageCenter.chatgroup.chatbox.adapter.BaseItemViewHolder;
-import com.baidu.tieba.imMessageCenter.chatgroup.chatbox.adapter.ChatBannerViewHolder;
-import com.baidu.tieba.imMessageCenter.chatgroup.chatbox.adapter.ChatItemViewHolder;
-import com.baidu.tieba.imMessageCenter.chatgroup.chatbox.adapter.ChatNameViewHolder;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.tbadk.core.atomData.MissonDetailsActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ik7 implements nk7 {
+public class ik7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qk7 a;
 
-    public ik7(qk7 qk7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {qk7Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes4.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
+        public long d;
+        public String e;
+        public long f;
+        public String g;
+        public long h;
+        public int i;
+        public int j;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
+            this.a = null;
+            this.b = null;
+            this.c = null;
+            this.f = 0L;
+            this.g = null;
+            this.h = 0L;
+            this.i = 0;
+            this.j = 0;
         }
-        this.a = qk7Var;
     }
 
-    @Override // com.baidu.tieba.nk7
-    @Nullable
-    public BaseItemViewHolder a(@NonNull ViewGroup viewGroup, int i) {
-        InterceptResult invokeLI;
+    public static a a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) {
-            if (i == 2) {
-                return new ChatItemViewHolder(LayoutInflater.from(SelectorHelper.getContext()).inflate(R.layout.obfuscated_res_0x7f0d038d, (ViewGroup) null, false), this.a);
-            }
-            if (i == 1) {
-                return new ChatNameViewHolder(LayoutInflater.from(SelectorHelper.getContext()).inflate(R.layout.obfuscated_res_0x7f0d038e, (ViewGroup) null, false));
-            }
-            if (i != 3) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return new ChatBannerViewHolder(LayoutInflater.from(SelectorHelper.getContext()).inflate(R.layout.obfuscated_res_0x7f0d038b, (ViewGroup) null, false));
+            a aVar = new a();
+            try {
+                JSONArray jSONArray = new JSONArray(str);
+                if (jSONArray.length() > 0) {
+                    JSONObject optJSONObject = jSONArray.optJSONObject(0);
+                    aVar.a = optJSONObject.optString(TableDefine.UserInfoColumns.COLUMN_HEAD_URL);
+                    aVar.b = optJSONObject.optString("user_id");
+                    aVar.c = optJSONObject.optString("nick_name");
+                    aVar.d = optJSONObject.optLong("caller_time");
+                    aVar.e = optJSONObject.optString("caller_content");
+                    aVar.f = optJSONObject.optLong("thread_id");
+                    aVar.g = optJSONObject.optString(MissonDetailsActivityConfig.THREAD_TITLE);
+                    optJSONObject.optString("forum_name");
+                    aVar.h = optJSONObject.optLong("post_id");
+                    aVar.i = optJSONObject.optInt("msg_type");
+                    aVar.j = optJSONObject.optInt("remind_count");
+                }
+                return aVar;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return null;
+            }
         }
-        return (BaseItemViewHolder) invokeLI.objValue;
+        return (a) invokeL.objValue;
     }
 }

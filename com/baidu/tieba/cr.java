@@ -1,5 +1,9 @@
 package com.baidu.tieba;
+
+import com.baidu.bdtask.model.response.TaskResponseData;
 /* loaded from: classes4.dex */
 public interface cr {
-    void onEvent(ar arVar);
+    void a(TaskResponseData taskResponseData);
+
+    void onError(int i, String str);
 }

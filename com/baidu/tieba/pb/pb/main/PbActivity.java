@@ -14,14 +14,14 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.util.PriorityOrganizer;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bo;
-import com.baidu.tieba.c98;
-import com.baidu.tieba.cz4;
-import com.baidu.tieba.p88;
-import com.baidu.tieba.qx4;
-import com.baidu.tieba.rw4;
-import com.baidu.tieba.tw4;
-import com.baidu.tieba.tx4;
+import com.baidu.tieba.d25;
+import com.baidu.tieba.e15;
+import com.baidu.tieba.g15;
+import com.baidu.tieba.g25;
+import com.baidu.tieba.gd8;
+import com.baidu.tieba.go;
+import com.baidu.tieba.p35;
+import com.baidu.tieba.rd8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,34 +37,34 @@ public class PbActivity extends AbsPbActivity {
     public final PriorityOrganizer x;
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
-    public int h1() {
+    public int D1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? R.layout.obfuscated_res_0x7f0d06f6 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d06f9 : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
-    public int k1() {
+    public int G1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return 0;
         }
         return invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
-    public int m1() {
+    public int I1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return 4;
         }
         return invokeV.intValue;
     }
 
     /* loaded from: classes5.dex */
-    public class a implements bo {
+    public class a implements go {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -91,17 +91,17 @@ public class PbActivity extends AbsPbActivity {
             this.b = i2;
         }
 
-        @Override // com.baidu.tieba.bo
+        @Override // com.baidu.tieba.go
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.C1(this.a, this.b);
+                this.c.X1(this.a, this.b);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements bo {
+    public class b implements go {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -128,11 +128,11 @@ public class PbActivity extends AbsPbActivity {
             this.b = i2;
         }
 
-        @Override // com.baidu.tieba.bo
+        @Override // com.baidu.tieba.go
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.C1(this.a, this.b);
+                this.c.X1(this.a, this.b);
             }
         }
     }
@@ -152,26 +152,16 @@ public class PbActivity extends AbsPbActivity {
         }
         this.v = false;
         this.w = false;
-        this.x = PriorityOrganizer.h();
+        this.x = PriorityOrganizer.g();
     }
 
-    public boolean A1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.w;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @NonNull
-    public PriorityOrganizer e0() {
+    public boolean W1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.x;
+            return this.w;
         }
-        return (PriorityOrganizer) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
@@ -180,7 +170,7 @@ public class PbActivity extends AbsPbActivity {
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onPause();
             this.w = false;
-            tw4.p(rw4.o);
+            g15.p(e15.o);
         }
     }
 
@@ -191,85 +181,25 @@ public class PbActivity extends AbsPbActivity {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONRESUME_STAMP_KEY);
             super.onResume();
             this.w = true;
-            tw4.q(this, rw4.o);
+            g15.q(this, e15.o);
         }
     }
 
-    public final void C1(int i, int i2) {
+    @NonNull
+    public PriorityOrganizer p0() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            if (i2 != 3) {
-                SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_DRAW_DISPATCH_STAMP_KEY);
-                int i3 = -1;
-                if (tx4.a().c == 1) {
-                    i3 = 8;
-                }
-                if (tx4.a().c == 2) {
-                    i3 = 9;
-                }
-                SpeedStats.getInstance().onSchemeOrPushStatsEnd(this, i3, tx4.a().d);
-            }
-            long currentTimeMillis = System.currentTimeMillis() - i1();
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_PB_OPTIMIZE_LOAD_DURATION);
-            statisticItem.addParam("obj_type", i2).addParam("obj_locate", i).addParam("obj_param1", currentTimeMillis).addParam(TiebaStatic.Params.OBJ_PARAM2, qx4.e());
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.x;
         }
+        return (PriorityOrganizer) invokeV.objValue;
     }
 
-    public void D1(int i, BdTypeRecyclerView bdTypeRecyclerView) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bdTypeRecyclerView) == null) && !this.v && l1() != null) {
-            this.v = true;
-            if (l1() != null && l1().k1() == 7) {
-                i2 = 2;
-            } else if (l1() != null && l1().S1()) {
-                i2 = 1;
-            } else {
-                i2 = 3;
-            }
-            if (i2 != 3) {
-                SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_DATABACK_STAMP_KEY);
-            }
-            bdTypeRecyclerView.y = new a(this, i, i2);
-            bdTypeRecyclerView.w = true;
-        }
-    }
-
-    public void E1(int i, c98 c98Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048579, this, i, c98Var) == null) && !this.v && l1() != null) {
-            int i2 = 1;
-            this.v = true;
-            if (l1() != null && l1().k1() == 7) {
-                i2 = 2;
-            } else if (l1() == null || !l1().S1()) {
-                i2 = 3;
-            }
-            if (i2 != 3) {
-                SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_DATABACK_STAMP_KEY);
-            }
-            c98Var.r2(new b(this, i, i2));
-        }
-    }
-
-    @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
-            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONCREATE_START_STAMP_KEY);
-            super.onCreate(bundle);
-            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONCREATE_END_STAMP_KEY);
-            registerListener(new p88(this));
-            z1();
-        }
-    }
-
-    public final void z1() {
+    public final void V1() {
         boolean z;
         String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (getIntent() != null && !getIntent().getBooleanExtra(PbActivityConfig.KEY_IS_CUSTOM_FIGURE_THREAD, false)) {
                 return;
             }
@@ -278,9 +208,9 @@ public class PbActivity extends AbsPbActivity {
             } else {
                 z = false;
             }
-            String r = cz4.l().r(cz4.p("key_reaction_guide_show_pb_strategy"), "");
+            String s = p35.m().s(p35.q("key_reaction_guide_show_pb_strategy"), "");
             int i = 0;
-            for (String str : r.split(",")) {
+            for (String str : s.split(",")) {
                 if ("1".equals(str)) {
                     i = (int) (i + Math.pow(2.0d, 0.0d));
                 }
@@ -296,33 +226,103 @@ public class PbActivity extends AbsPbActivity {
             }
             if (i == 0) {
                 if (z) {
-                    cz4.l().x(cz4.p("key_reaction_guide_show_number_pb"), 3);
-                    cz4.l().z(cz4.p("key_reaction_guide_show_pb_strategy"), r + "3,");
+                    p35.m().z(p35.q("key_reaction_guide_show_number_pb"), 3);
+                    p35.m().B(p35.q("key_reaction_guide_show_pb_strategy"), s + "3,");
                     return;
                 }
-                cz4.l().x(cz4.p("key_reaction_guide_show_number_pb"), 1);
-                cz4.l().z(cz4.p("key_reaction_guide_show_pb_strategy"), r + "1,");
+                p35.m().z(p35.q("key_reaction_guide_show_number_pb"), 1);
+                p35.m().B(p35.q("key_reaction_guide_show_pb_strategy"), s + "1,");
             } else if (i == 1) {
                 if (z) {
-                    cz4.l().x(cz4.p("key_reaction_guide_show_number_pb"), 3);
-                    cz4.l().z(cz4.p("key_reaction_guide_show_pb_strategy"), r + "3,");
+                    p35.m().z(p35.q("key_reaction_guide_show_number_pb"), 3);
+                    p35.m().B(p35.q("key_reaction_guide_show_pb_strategy"), s + "3,");
                     return;
                 }
-                cz4.l().x(cz4.p("key_reaction_guide_show_number_pb"), 2);
-                cz4.l().z(cz4.p("key_reaction_guide_show_pb_strategy"), r + "2,");
+                p35.m().z(p35.q("key_reaction_guide_show_number_pb"), 2);
+                p35.m().B(p35.q("key_reaction_guide_show_pb_strategy"), s + "2,");
             } else if (i == 4) {
-                cz4.l().x(cz4.p("key_reaction_guide_show_number_pb"), 1);
-                cz4.l().z(cz4.p("key_reaction_guide_show_pb_strategy"), r + "1,");
+                p35.m().z(p35.q("key_reaction_guide_show_number_pb"), 1);
+                p35.m().B(p35.q("key_reaction_guide_show_pb_strategy"), s + "1,");
             } else if (i == 5) {
-                cz4.l().x(cz4.p("key_reaction_guide_show_number_pb"), 2);
-                cz4.l().z(cz4.p("key_reaction_guide_show_pb_strategy"), r + "2,");
+                p35.m().z(p35.q("key_reaction_guide_show_number_pb"), 2);
+                p35.m().B(p35.q("key_reaction_guide_show_pb_strategy"), s + "2,");
             } else if (i == 3) {
-                cz4.l().x(cz4.p("key_reaction_guide_show_number_pb"), 3);
-                cz4.l().z(cz4.p("key_reaction_guide_show_pb_strategy"), r + "3,");
+                p35.m().z(p35.q("key_reaction_guide_show_number_pb"), 3);
+                p35.m().B(p35.q("key_reaction_guide_show_pb_strategy"), s + "3,");
             } else if (i == 7) {
-                cz4.l().x(cz4.p("key_reaction_guide_show_number_pb"), 4);
-                cz4.l().z(cz4.p("key_reaction_guide_show_pb_strategy"), r + "4");
+                p35.m().z(p35.q("key_reaction_guide_show_number_pb"), 4);
+                p35.m().B(p35.q("key_reaction_guide_show_pb_strategy"), s + "4");
             }
+        }
+    }
+
+    public final void X1(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
+            if (i2 != 3) {
+                SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_DRAW_DISPATCH_STAMP_KEY);
+                int i3 = -1;
+                if (g25.a().c == 1) {
+                    i3 = 8;
+                }
+                if (g25.a().c == 2) {
+                    i3 = 9;
+                }
+                SpeedStats.getInstance().onSchemeOrPushStatsEnd(this, i3, g25.a().d);
+            }
+            long currentTimeMillis = System.currentTimeMillis() - E1();
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_PB_OPTIMIZE_LOAD_DURATION);
+            statisticItem.addParam("obj_type", i2).addParam("obj_locate", i).addParam("obj_param1", currentTimeMillis).addParam(TiebaStatic.Params.OBJ_PARAM2, d25.e());
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public void Y1(int i, BdTypeRecyclerView bdTypeRecyclerView) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(1048582, this, i, bdTypeRecyclerView) == null) && !this.v && H1() != null) {
+            this.v = true;
+            if (H1() != null && H1().j1() == 7) {
+                i2 = 2;
+            } else if (H1() != null && H1().S1()) {
+                i2 = 1;
+            } else {
+                i2 = 3;
+            }
+            if (i2 != 3) {
+                SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_DATABACK_STAMP_KEY);
+            }
+            bdTypeRecyclerView.z = new a(this, i, i2);
+            bdTypeRecyclerView.w = true;
+        }
+    }
+
+    public void Z1(int i, rd8 rd8Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(1048583, this, i, rd8Var) == null) && !this.v && H1() != null) {
+            int i2 = 1;
+            this.v = true;
+            if (H1() != null && H1().j1() == 7) {
+                i2 = 2;
+            } else if (H1() == null || !H1().S1()) {
+                i2 = 3;
+            }
+            if (i2 != 3) {
+                SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_DATABACK_STAMP_KEY);
+            }
+            rd8Var.h2(new b(this, i, i2));
+        }
+    }
+
+    @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
+            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONCREATE_START_STAMP_KEY);
+            super.onCreate(bundle);
+            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONCREATE_END_STAMP_KEY);
+            registerListener(new gd8(this));
+            V1();
         }
     }
 }

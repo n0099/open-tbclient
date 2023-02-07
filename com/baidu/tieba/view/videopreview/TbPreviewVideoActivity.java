@@ -230,16 +230,16 @@ public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity>
     public final void C1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091b36);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091b50);
             this.a = navigationBar;
-            ((ImageView) navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.f).findViewById(R.id.widget_navi_back_button)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a78));
-            this.b = (CustomVideoView) findViewById(R.id.obfuscated_res_0x7f091b38);
+            ((ImageView) navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.f).findViewById(R.id.widget_navi_back_button)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a6c));
+            this.b = (CustomVideoView) findViewById(R.id.obfuscated_res_0x7f091b52);
             if (!StringUtils.isNull(this.c.getVideoPath())) {
                 this.b.setVideoPath(this.c.getVideoPath());
             }
             this.b.setOnPreparedListener(new b(this));
             this.b.setOnCompletionListener(new c(this));
-            VideoControllerView videoControllerView = (VideoControllerView) findViewById(R.id.obfuscated_res_0x7f091b34);
+            VideoControllerView videoControllerView = (VideoControllerView) findViewById(R.id.obfuscated_res_0x7f091b4e);
             this.d = videoControllerView;
             videoControllerView.setPlayer(this.b);
         }

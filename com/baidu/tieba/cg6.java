@@ -1,162 +1,143 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
-import tbclient.GetInfluenceRank.DataRes;
-import tbclient.NewGodInfo;
-import tbclient.RankRuler;
-import tbclient.User;
+import kotlin.collections.CollectionsKt__MutableCollectionsJVMKt;
+import kotlin.collections.CollectionsKt__MutableCollectionsKt;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public class cg6 {
+public abstract class cg6 extends ag6 implements w0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ag6 a;
-    public List<bg6> b;
-    public bg6 c;
-    public String d;
-    public String e;
-    public long f;
-    public boolean g;
+    public final y0 e;
+    public final Comparator<v0> f;
+    public final List<v0> g;
+    public boolean h;
 
-    public cg6() {
+    @Override // com.baidu.tieba.ag6
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    public abstract void l(v0 v0Var, float f);
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cg6(xf6 context, y0 family, Comparator<v0> comparator) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, family, comparator};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((xf6) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new ArrayList();
-        this.g = true;
+        Intrinsics.checkNotNullParameter(context, "context");
+        Intrinsics.checkNotNullParameter(family, "family");
+        Intrinsics.checkNotNullParameter(comparator, "comparator");
+        this.e = family;
+        this.f = comparator;
+        this.g = new ArrayList();
     }
 
-    public final bg6 a(User user) {
-        InterceptResult invokeL;
-        NewGodInfo newGodInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, user)) == null) {
-            if (user == null) {
-                return null;
-            }
-            bg6 bg6Var = new bg6();
-            bg6Var.a = user.level_influence;
-            bg6Var.c = b(user);
-            boolean z = true;
-            if (!bg6Var.g && (newGodInfo = user.new_god_data) != null && newGodInfo.status.intValue() == 3) {
-                bg6Var.d = user.new_god_data.field_name + ml5.b(user.new_god_data);
-                bg6Var.h = true;
-            }
-            if (user.influence == null) {
-                bg6Var.e = "";
-            } else {
-                bg6Var.e = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f096a), StringHelper.numFormatOverWanNa(user.influence.intValue()));
-            }
-            MetaData metaData = new MetaData();
-            metaData.parserProtobuf(user);
-            Integer num = user.has_concerned;
-            metaData.setIsLike((num == null || num.intValue() == 0) ? false : false);
-            bg6Var.f = metaData;
-            if (metaData.getAvater() != null && metaData.getAvater().startsWith("http")) {
-                bg6Var.b = metaData.getAvater();
-            } else {
-                bg6Var.b = TbConfig.getPhotoSmallAddress() + metaData.getAvater();
-            }
-            return bg6Var;
-        }
-        return (bg6) invokeL.objValue;
+    public /* synthetic */ cg6(xf6 xf6Var, y0 y0Var, Comparator comparator, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(xf6Var, y0Var, (i & 4) != 0 ? new bg6() : comparator);
     }
 
-    public void c(DataRes dataRes) {
-        long longValue;
+    @Override // com.baidu.tieba.w0
+    public void a(v0 entity) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes) != null) || dataRes == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, entity) == null) {
+            Intrinsics.checkNotNullParameter(entity, "entity");
+            this.g.remove(entity);
+            this.h = true;
         }
-        this.a = new ag6();
-        boolean z = false;
-        if (!ListUtils.isEmpty(dataRes.user_rank) && dataRes.user_rank.get(0) != null) {
-            this.a.b = b(dataRes.user_rank.get(0));
-            MetaData metaData = new MetaData();
-            metaData.parserProtobuf(dataRes.user_rank.get(0));
-            this.a.c = metaData;
-            String avatarH = metaData.getAvatarH();
-            if (TextUtils.isEmpty(avatarH)) {
-                avatarH = metaData.getAvater();
-            }
-            if (avatarH != null && avatarH.startsWith("http")) {
-                this.a.e = avatarH;
-            } else {
-                this.a.e = "http://tb.himg.baidu.com/sys/portraith/item/" + avatarH;
-            }
-        }
-        ag6 ag6Var = this.a;
-        Long l = dataRes.timestamp;
-        long j = 0;
-        if (l == null) {
-            longValue = 0;
-        } else {
-            longValue = l.longValue();
-        }
-        ag6Var.d = longValue;
-        this.a.f = dataRes.field_info;
-        if (!ListUtils.isEmpty(dataRes.user_rank)) {
-            for (User user : dataRes.user_rank) {
-                if (user != null) {
-                    this.b.add(a(user));
-                }
-            }
-        }
-        this.c = a(dataRes.current_user);
-        RankRuler rankRuler = dataRes.rank_description;
-        if (rankRuler != null) {
-            this.d = rankRuler.top_link;
-            this.e = rankRuler.bottom_link;
-        }
-        Long l2 = dataRes.timestamp;
-        if (l2 != null) {
-            j = l2.longValue();
-        }
-        this.f = j;
-        Boolean bool = dataRes.has_more;
-        if (bool != null) {
-            z = bool.booleanValue();
-        }
-        this.g = z;
     }
 
-    public final String b(User user) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.w0
+    public void b(v0 entity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, user)) == null) {
-            String str = "";
-            if (user == null) {
-                return "";
-            }
-            if (TextUtils.isEmpty("")) {
-                str = user.name_show;
-            }
-            if (TextUtils.isEmpty(str)) {
-                return TbadkCoreApplication.getInst().getString(R.string.user_name_default_txt);
-            }
-            return str;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, entity) == null) {
+            Intrinsics.checkNotNullParameter(entity, "entity");
+            this.g.add(entity);
+            this.h = true;
         }
-        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ag6, com.baidu.tieba.x0
+    public void g(u0 engine) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, engine) == null) {
+            Intrinsics.checkNotNullParameter(engine, "engine");
+            super.g(engine);
+            engine.o(this);
+            this.g.clear();
+            this.h = false;
+        }
+    }
+
+    @Override // com.baidu.tieba.x0
+    public void update(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f) == null) {
+            m();
+            for (v0 v0Var : this.g) {
+                l(v0Var, f);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.x0
+    public void c(u0 engine) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, engine) == null) {
+            Intrinsics.checkNotNullParameter(engine, "engine");
+            this.g.clear();
+            f1<v0> newEntities = engine.j(this.e);
+            if (newEntities.size() > 0) {
+                List<v0> list = this.g;
+                Intrinsics.checkNotNullExpressionValue(newEntities, "newEntities");
+                CollectionsKt__MutableCollectionsKt.addAll(list, newEntities);
+            }
+            CollectionsKt__MutableCollectionsJVMKt.sortWith(this.g, this.f);
+            this.h = false;
+            engine.f(this.e, this);
+        }
+    }
+
+    public final List<v0> k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            m();
+            return this.g;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.h) {
+            CollectionsKt__MutableCollectionsJVMKt.sortWith(this.g, this.f);
+            this.h = false;
+        }
     }
 }

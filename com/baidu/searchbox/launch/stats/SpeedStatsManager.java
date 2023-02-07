@@ -114,10 +114,19 @@ public class SpeedStatsManager extends AbstractSpeedStats {
         return invokeV.longValue;
     }
 
-    public long getAppCreateEndTimeStamp() {
+    public long getAdViewEndTimeStamp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mAdSpeedStats.getAdViewEndTimeStamp();
+        }
+        return invokeV.longValue;
+    }
+
+    public long getAppCreateEndTimeStamp() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.mAppCreateSpeedStats.getStatsEndTimeStamp();
         }
         return invokeV.longValue;
@@ -126,7 +135,7 @@ public class SpeedStatsManager extends AbstractSpeedStats {
     public long getAppLaunchDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.mCodeStartTime;
         }
         return invokeV.longValue;
@@ -135,7 +144,7 @@ public class SpeedStatsManager extends AbstractSpeedStats {
     public long getAppLaunchEndTimeStamp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.mMainPageEndTimeStamp;
         }
         return invokeV.longValue;
@@ -144,7 +153,7 @@ public class SpeedStatsManager extends AbstractSpeedStats {
     public long getAppLaunchStartTimeStamp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return this.mAppCreateStartTimeStamp;
         }
         return invokeV.longValue;
@@ -153,7 +162,7 @@ public class SpeedStatsManager extends AbstractSpeedStats {
     public long getAppOnCreateDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return this.mAppOnCreateDuration;
         }
         return invokeV.longValue;
@@ -162,7 +171,7 @@ public class SpeedStatsManager extends AbstractSpeedStats {
     public long getAppUserPerceptionLaunchDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             return this.mZygoteSpeedStats.getAppUserPerceptionLaunchDuration();
         }
         return invokeV.longValue;
@@ -171,7 +180,7 @@ public class SpeedStatsManager extends AbstractSpeedStats {
     public long getAttachWindowEndTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return this.mAttachWindowSpeedStats.getStatsEndTimeStamp();
         }
         return invokeV.longValue;
@@ -180,7 +189,7 @@ public class SpeedStatsManager extends AbstractSpeedStats {
     public AttachWindowSpeedStats getAttachWindowSpeedStats() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             return this.mAttachWindowSpeedStats;
         }
         return (AttachWindowSpeedStats) invokeV.objValue;
@@ -189,7 +198,7 @@ public class SpeedStatsManager extends AbstractSpeedStats {
     public int getDrawCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             return this.mFirstFrameSpeedStats.getDrawCount();
         }
         return invokeV.intValue;
@@ -198,7 +207,7 @@ public class SpeedStatsManager extends AbstractSpeedStats {
     public long getExtraSecondCreateDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
             return this.mActivityCreateSpeedStats.getExtraSecondCreateDuration();
         }
         return invokeV.longValue;
@@ -207,7 +216,7 @@ public class SpeedStatsManager extends AbstractSpeedStats {
     public long getMainActivityCreateStartTimeStamp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             return this.mActivityCreateSpeedStats.getMainActivityCreateStartTimeStamp();
         }
         return invokeV.longValue;
@@ -216,7 +225,7 @@ public class SpeedStatsManager extends AbstractSpeedStats {
     public long getMainTabActivityEndDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             return this.mActivityCreateSpeedStats.getMainActivityOnResumeEndTimeStamp();
         }
         return invokeV.longValue;
@@ -225,7 +234,7 @@ public class SpeedStatsManager extends AbstractSpeedStats {
     public long getProcessLaunchDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
             return this.mZygoteSpeedStats.getProcessLaunchDuration();
         }
         return invokeV.longValue;
@@ -234,7 +243,7 @@ public class SpeedStatsManager extends AbstractSpeedStats {
     public int getStageStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
             return this.mStageStatus;
         }
         return invokeV.intValue;
@@ -243,7 +252,7 @@ public class SpeedStatsManager extends AbstractSpeedStats {
     public int getStatsFlag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
             return this.mIsInStatsPeriod;
         }
         return invokeV.intValue;
@@ -252,7 +261,7 @@ public class SpeedStatsManager extends AbstractSpeedStats {
     public boolean isAdLoadEnd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
             return this.mAdSpeedStats.isLoadEnd();
         }
         return invokeV.booleanValue;
@@ -289,7 +298,7 @@ public class SpeedStatsManager extends AbstractSpeedStats {
 
     public void setTaskRunTime(String str, long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLJ(1048614, this, str, j) == null) && this.mIsMainProcess) {
+        if ((interceptable == null || interceptable.invokeLJ(1048615, this, str, j) == null) && this.mIsMainProcess) {
             if (str != null && str.startsWith(SpeedStatsMainTable.IGNORE_FLAG)) {
                 return;
             }
@@ -313,91 +322,91 @@ public class SpeedStatsManager extends AbstractSpeedStats {
 
     public void setAdFailCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
             this.mAdSpeedStats.setAdFailCount(i);
         }
     }
 
     public void setAdLoadResult(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
             this.mAdSpeedStats.setAdLoadResult(i);
         }
     }
 
     public void setAdSource(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
             this.mAdSpeedStats.setAdSource(str);
         }
     }
 
     public void setBearLoadResult(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048605, this, z) == null) {
             this.mAdSpeedStats.setBearLoadResult(z);
         }
     }
 
     public void setIsNeedBear(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048605, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048606, this, z) == null) {
             this.mAdSpeedStats.setIsNeedBear(z);
         }
     }
 
     public void setIsNeedPlg(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048606, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
             this.mAdSpeedStats.setIsNeedPlg(z);
         }
     }
 
     public void setIsSwitchOn(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048608, this, z) == null) {
             this.mZygoteSpeedStats.setIsSwitchOn(z);
         }
     }
 
     public void setIsTimeout(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048608, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048609, this, z) == null) {
             this.mAdSpeedStats.setIsTimeout(z);
         }
     }
 
     public void setMainProcessFlag(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048609, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048610, this, z) == null) {
             this.mIsMainProcess = z;
         }
     }
 
     public void setPlgAdType(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048610, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048611, this, str) == null) {
             this.mAdSpeedStats.setPlgAdType(str);
         }
     }
 
     public void setPlgLoadResult(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048611, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048612, this, z) == null) {
             this.mAdSpeedStats.setPlgLoadResult(z);
         }
     }
 
     public void setStageStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048612, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048613, this, i) == null) {
             this.mStageStatus = i;
         }
     }
 
     public void setStatsFlag(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048613, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
             this.mIsInStatsPeriod = i;
         }
     }
@@ -489,7 +498,7 @@ public class SpeedStatsManager extends AbstractSpeedStats {
     public long getDurationWithoutAD(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
             return this.mAdSpeedStats.getDurationWithoutAD(j, j2);
         }
         return invokeCommon.longValue;
@@ -499,7 +508,7 @@ public class SpeedStatsManager extends AbstractSpeedStats {
     public boolean packData(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, jSONObject)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, jSONObject)) == null) {
             this.mAdSpeedStats.packData(jSONObject);
             this.mZygoteSpeedStats.packData(jSONObject);
             this.mAppBeforeCreateSpeedStats.packData(jSONObject);
@@ -518,7 +527,7 @@ public class SpeedStatsManager extends AbstractSpeedStats {
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
     public void reset() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             super.reset();
             this.mAppBeforeCreateSpeedStats.reset();
             this.mAppCreateSpeedStats.reset();

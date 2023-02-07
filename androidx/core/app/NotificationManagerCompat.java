@@ -40,6 +40,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -567,11 +569,33 @@ public final class NotificationManagerCompat {
         this.mNotificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
     }
 
+    public void createNotificationChannelGroupsCompat(@NonNull List<NotificationChannelGroupCompat> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, list) == null) && Build.VERSION.SDK_INT >= 26 && !list.isEmpty()) {
+            ArrayList arrayList = new ArrayList(list.size());
+            for (NotificationChannelGroupCompat notificationChannelGroupCompat : list) {
+                arrayList.add(notificationChannelGroupCompat.getNotificationChannelGroup());
+            }
+            this.mNotificationManager.createNotificationChannelGroups(arrayList);
+        }
+    }
+
+    public void createNotificationChannelsCompat(@NonNull List<NotificationChannelCompat> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, list) == null) && Build.VERSION.SDK_INT >= 26 && !list.isEmpty()) {
+            ArrayList arrayList = new ArrayList(list.size());
+            for (NotificationChannelCompat notificationChannelCompat : list) {
+                arrayList.add(notificationChannelCompat.getNotificationChannel());
+            }
+            this.mNotificationManager.createNotificationChannels(arrayList);
+        }
+    }
+
     @Nullable
     public NotificationChannelGroup getNotificationChannelGroup(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, str)) == null) {
             int i = Build.VERSION.SDK_INT;
             if (i >= 28) {
                 return this.mNotificationManager.getNotificationChannelGroup(str);
@@ -586,6 +610,28 @@ public final class NotificationManagerCompat {
             return null;
         }
         return (NotificationChannelGroup) invokeL.objValue;
+    }
+
+    @Nullable
+    public NotificationChannelGroupCompat getNotificationChannelGroupCompat(@NonNull String str) {
+        InterceptResult invokeL;
+        NotificationChannelGroup notificationChannelGroup;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 28) {
+                NotificationChannelGroup notificationChannelGroup2 = getNotificationChannelGroup(str);
+                if (notificationChannelGroup2 != null) {
+                    return new NotificationChannelGroupCompat(notificationChannelGroup2);
+                }
+                return null;
+            } else if (i >= 26 && (notificationChannelGroup = getNotificationChannelGroup(str)) != null) {
+                return new NotificationChannelGroupCompat(notificationChannelGroup, getNotificationChannels());
+            } else {
+                return null;
+            }
+        }
+        return (NotificationChannelGroupCompat) invokeL.objValue;
     }
 
     @NonNull
@@ -639,35 +685,35 @@ public final class NotificationManagerCompat {
 
     public void createNotificationChannelGroup(@NonNull NotificationChannelGroup notificationChannelGroup) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, notificationChannelGroup) == null) && Build.VERSION.SDK_INT >= 26) {
+        if ((interceptable == null || interceptable.invokeL(1048582, this, notificationChannelGroup) == null) && Build.VERSION.SDK_INT >= 26) {
             this.mNotificationManager.createNotificationChannelGroup(notificationChannelGroup);
         }
     }
 
     public void createNotificationChannelGroups(@NonNull List<NotificationChannelGroup> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, list) == null) && Build.VERSION.SDK_INT >= 26) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) && Build.VERSION.SDK_INT >= 26) {
             this.mNotificationManager.createNotificationChannelGroups(list);
         }
     }
 
     public void createNotificationChannels(@NonNull List<NotificationChannel> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, list) == null) && Build.VERSION.SDK_INT >= 26) {
+        if ((interceptable == null || interceptable.invokeL(1048586, this, list) == null) && Build.VERSION.SDK_INT >= 26) {
             this.mNotificationManager.createNotificationChannels(list);
         }
     }
 
     public void deleteNotificationChannel(@NonNull String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) && Build.VERSION.SDK_INT >= 26) {
+        if ((interceptable == null || interceptable.invokeL(1048588, this, str) == null) && Build.VERSION.SDK_INT >= 26) {
             this.mNotificationManager.deleteNotificationChannel(str);
         }
     }
 
     public void deleteNotificationChannelGroup(@NonNull String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, str) == null) && Build.VERSION.SDK_INT >= 26) {
+        if ((interceptable == null || interceptable.invokeL(1048589, this, str) == null) && Build.VERSION.SDK_INT >= 26) {
             this.mNotificationManager.deleteNotificationChannelGroup(str);
         }
     }
@@ -676,13 +722,27 @@ public final class NotificationManagerCompat {
     public NotificationChannel getNotificationChannel(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
             if (Build.VERSION.SDK_INT >= 26) {
                 return this.mNotificationManager.getNotificationChannel(str);
             }
             return null;
         }
         return (NotificationChannel) invokeL.objValue;
+    }
+
+    @Nullable
+    public NotificationChannelCompat getNotificationChannelCompat(@NonNull String str) {
+        InterceptResult invokeL;
+        NotificationChannel notificationChannel;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
+            if (Build.VERSION.SDK_INT >= 26 && (notificationChannel = getNotificationChannel(str)) != null) {
+                return new NotificationChannelCompat(notificationChannel);
+            }
+            return null;
+        }
+        return (NotificationChannelCompat) invokeL.objValue;
     }
 
     @NonNull
@@ -714,6 +774,17 @@ public final class NotificationManagerCompat {
         return (Set) invokeL.objValue;
     }
 
+    public void deleteUnlistedNotificationChannels(@NonNull Collection<String> collection) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048590, this, collection) == null) && Build.VERSION.SDK_INT >= 26) {
+            for (NotificationChannel notificationChannel : this.mNotificationManager.getNotificationChannels()) {
+                if (!collection.contains(notificationChannel.getId()) && (Build.VERSION.SDK_INT < 30 || !collection.contains(notificationChannel.getParentChannelId()))) {
+                    this.mNotificationManager.deleteNotificationChannel(notificationChannel.getId());
+                }
+            }
+        }
+    }
+
     public boolean areNotificationsEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -742,6 +813,36 @@ public final class NotificationManagerCompat {
         return invokeV.booleanValue;
     }
 
+    @NonNull
+    public List<NotificationChannelGroupCompat> getNotificationChannelGroupsCompat() {
+        InterceptResult invokeV;
+        List<NotificationChannel> notificationChannels;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            if (Build.VERSION.SDK_INT >= 26) {
+                List<NotificationChannelGroup> notificationChannelGroups = getNotificationChannelGroups();
+                if (!notificationChannelGroups.isEmpty()) {
+                    if (Build.VERSION.SDK_INT >= 28) {
+                        notificationChannels = Collections.emptyList();
+                    } else {
+                        notificationChannels = getNotificationChannels();
+                    }
+                    ArrayList arrayList = new ArrayList(notificationChannelGroups.size());
+                    for (NotificationChannelGroup notificationChannelGroup : notificationChannelGroups) {
+                        if (Build.VERSION.SDK_INT >= 28) {
+                            arrayList.add(new NotificationChannelGroupCompat(notificationChannelGroup));
+                        } else {
+                            arrayList.add(new NotificationChannelGroupCompat(notificationChannelGroup, notificationChannels));
+                        }
+                    }
+                    return arrayList;
+                }
+            }
+            return Collections.emptyList();
+        }
+        return (List) invokeV.objValue;
+    }
+
     public void cancel(@Nullable String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
@@ -752,9 +853,36 @@ public final class NotificationManagerCompat {
         }
     }
 
+    @Nullable
+    public NotificationChannel getNotificationChannel(@NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, str, str2)) == null) {
+            if (Build.VERSION.SDK_INT >= 30) {
+                return this.mNotificationManager.getNotificationChannel(str, str2);
+            }
+            return getNotificationChannel(str);
+        }
+        return (NotificationChannel) invokeLL.objValue;
+    }
+
+    @Nullable
+    public NotificationChannelCompat getNotificationChannelCompat(@NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLL;
+        NotificationChannel notificationChannel;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048595, this, str, str2)) == null) {
+            if (Build.VERSION.SDK_INT >= 26 && (notificationChannel = getNotificationChannel(str, str2)) != null) {
+                return new NotificationChannelCompat(notificationChannel);
+            }
+            return null;
+        }
+        return (NotificationChannelCompat) invokeLL.objValue;
+    }
+
     public void notify(int i, @NonNull Notification notification) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048591, this, i, notification) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048602, this, i, notification) == null) {
             notify(null, i, notification);
         }
     }
@@ -772,7 +900,7 @@ public final class NotificationManagerCompat {
     public int getImportance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             if (Build.VERSION.SDK_INT >= 24) {
                 return this.mNotificationManager.getImportance();
             }
@@ -785,7 +913,7 @@ public final class NotificationManagerCompat {
     public List<NotificationChannelGroup> getNotificationChannelGroups() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
             if (Build.VERSION.SDK_INT >= 26) {
                 return this.mNotificationManager.getNotificationChannelGroups();
             }
@@ -798,7 +926,7 @@ public final class NotificationManagerCompat {
     public List<NotificationChannel> getNotificationChannels() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
             if (Build.VERSION.SDK_INT >= 26) {
                 return this.mNotificationManager.getNotificationChannels();
             }
@@ -807,9 +935,43 @@ public final class NotificationManagerCompat {
         return (List) invokeV.objValue;
     }
 
+    public void createNotificationChannel(@NonNull NotificationChannelCompat notificationChannelCompat) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, notificationChannelCompat) == null) {
+            createNotificationChannel(notificationChannelCompat.getNotificationChannel());
+        }
+    }
+
+    public void createNotificationChannelGroup(@NonNull NotificationChannelGroupCompat notificationChannelGroupCompat) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, notificationChannelGroupCompat) == null) {
+            createNotificationChannelGroup(notificationChannelGroupCompat.getNotificationChannelGroup());
+        }
+    }
+
+    @NonNull
+    public List<NotificationChannelCompat> getNotificationChannelsCompat() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            if (Build.VERSION.SDK_INT >= 26) {
+                List<NotificationChannel> notificationChannels = getNotificationChannels();
+                if (!notificationChannels.isEmpty()) {
+                    ArrayList arrayList = new ArrayList(notificationChannels.size());
+                    for (NotificationChannel notificationChannel : notificationChannels) {
+                        arrayList.add(new NotificationChannelCompat(notificationChannel));
+                    }
+                    return arrayList;
+                }
+            }
+            return Collections.emptyList();
+        }
+        return (List) invokeV.objValue;
+    }
+
     public void notify(@Nullable String str, int i, @NonNull Notification notification) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048592, this, str, i, notification) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048603, this, str, i, notification) == null) {
             if (useSideChannelForNotification(notification)) {
                 pushSideChannelQueue(new NotifyTask(this.mContext.getPackageName(), i, str, notification));
                 this.mNotificationManager.cancel(str, i);

@@ -1,78 +1,117 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.baseEditMark.MarkData;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.content.Context;
+import android.os.Build;
+import android.system.Os;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileOutputStream;
 /* loaded from: classes5.dex */
-public abstract class np4 {
+public class np4 implements kp4<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(boolean z, boolean z2, String str);
-    }
-
-    public abstract void a();
-
-    public abstract void d();
-
-    public abstract boolean e();
-
-    public abstract MarkData f();
-
-    public abstract String g();
-
-    public abstract void h(boolean z);
-
-    public abstract void i(MarkData markData);
-
-    public abstract void j(a aVar);
-
-    public np4() {
+    public np4(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = context.getApplicationContext();
+    }
+
+    @Override // com.baidu.tieba.kp4
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return !new File(this.a.getFilesDir(), "libuuid.so").exists();
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.kp4
+    /* renamed from: b */
+    public String get() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return d();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            File file = new File(this.a.getFilesDir(), "libuuid.so");
+            if (!file.exists()) {
+                return null;
+            }
+            return qp4.c(file);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.kp4
+    /* renamed from: c */
+    public void put(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            e(str);
         }
     }
 
-    public static np4 b(BaseActivity baseActivity) {
-        InterceptResult invokeL;
+    @SuppressLint({"WorldReadableFiles"})
+    @TargetApi(21)
+    public final void e(String str) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, baseActivity)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001279, np4.class, baseActivity);
-            if (runTask != null && runTask.getData() != null) {
-                return (np4) runTask.getData();
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            File file = new File(this.a.getFilesDir(), "libuuid.so");
+            if (Build.VERSION.SDK_INT >= 24) {
+                i = 1;
+            } else {
+                i = 0;
             }
-            return null;
-        }
-        return (np4) invokeL.objValue;
-    }
-
-    public static np4 c(BaseFragmentActivity baseFragmentActivity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseFragmentActivity)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921318, np4.class, baseFragmentActivity);
-            if (runTask != null && runTask.getData() != null) {
-                return (np4) runTask.getData();
+            FileOutputStream fileOutputStream = null;
+            try {
+                try {
+                    fileOutputStream = this.a.openFileOutput("libuuid.so", i ^ 1);
+                    fileOutputStream.write(str.getBytes());
+                    fileOutputStream.flush();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                if (i != 0) {
+                    try {
+                        Os.chmod(file.getAbsolutePath(), 436);
+                    } catch (Exception unused) {
+                    }
+                }
+            } finally {
+                qp4.a(fileOutputStream);
             }
-            return null;
         }
-        return (np4) invokeL.objValue;
     }
 }

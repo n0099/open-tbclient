@@ -15,13 +15,13 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.data.VideoCategoryClassData;
 import com.baidu.tbadk.suspended.SuspendedActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cx4;
-import com.baidu.tieba.nv8;
-import com.baidu.tieba.qi9;
-import com.baidu.tieba.rb;
+import com.baidu.tieba.kl5;
+import com.baidu.tieba.lz8;
+import com.baidu.tieba.p15;
+import com.baidu.tieba.qm9;
+import com.baidu.tieba.wb;
 import com.baidu.tieba.write.write.work.classdialog.model.GetSelectClassHttpResMessage;
 import com.baidu.tieba.write.write.work.classdialog.model.GetSelectClassSocketResMessage;
-import com.baidu.tieba.zg5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,34 +34,34 @@ public class SelectTagActivity extends SuspendedActivity {
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout k;
     public SelectTagListView l;
-    public qi9 m;
+    public qm9 m;
     public List<String> n;
     public int o;
     public VideoCategoryClassData p;
     public boolean q;
-    public rb r;
+    public wb r;
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public void b1() {
+    public void y1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
         }
     }
 
     /* loaded from: classes6.dex */
-    public class a extends rb {
+    public class a extends wb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SelectTagActivity a;
 
         /* renamed from: com.baidu.tieba.write.write.work.selecttag.SelectTagActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0478a implements View.OnClickListener {
+        public class View$OnClickListenerC0484a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0478a(a aVar) {
+            public View$OnClickListenerC0484a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,7 +114,7 @@ public class SelectTagActivity extends SuspendedActivity {
             this.a = selectTagActivity;
         }
 
-        @Override // com.baidu.tieba.rb
+        @Override // com.baidu.tieba.wb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
@@ -122,7 +122,7 @@ public class SelectTagActivity extends SuspendedActivity {
             }
             if (responsedMessage.hasError()) {
                 SelectTagActivity selectTagActivity = this.a;
-                selectTagActivity.showNetRefreshView(selectTagActivity.k, null, this.a.getString(R.string.obfuscated_res_0x7f0f04a6), null, false, new View$OnClickListenerC0478a(this));
+                selectTagActivity.showNetRefreshView(selectTagActivity.k, null, this.a.getString(R.string.obfuscated_res_0x7f0f04b2), null, false, new View$OnClickListenerC0484a(this));
                 return;
             }
             if (responsedMessage instanceof GetSelectClassHttpResMessage) {
@@ -130,7 +130,7 @@ public class SelectTagActivity extends SuspendedActivity {
             } else if (responsedMessage instanceof GetSelectClassSocketResMessage) {
                 this.a.m.i(((GetSelectClassSocketResMessage) responsedMessage).getTags().get(0));
             }
-            this.a.l1();
+            this.a.H1();
             SelectTagActivity selectTagActivity2 = this.a;
             selectTagActivity2.hideLoadingView(selectTagActivity2.k);
         }
@@ -163,9 +163,9 @@ public class SelectTagActivity extends SuspendedActivity {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.l.w()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.l.v()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921604, this.a.l.getHadSelectTagList()));
-                this.a.N0();
+                this.a.p1();
             }
         }
     }
@@ -191,62 +191,47 @@ public class SelectTagActivity extends SuspendedActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onKeyboardVisibilityChanged(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             super.onKeyboardVisibilityChanged(z);
             this.q = z;
         }
     }
 
-    @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public zg5 P0(LinearLayout linearLayout, NavigationBar navigationBar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) {
-            this.k = linearLayout;
-            if (this.l == null) {
-                this.l = new SelectTagListView(getPageContext(), linearLayout, navigationBar);
-            }
-            this.l.c.setOnClickListener(new b(this));
-            return this.l;
-        }
-        return (zg5) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public int Q0() {
+    public boolean G1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return UtilHelper.getDimenPixelSize(R.dimen.tbds153);
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean k1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.q;
         }
         return invokeV.booleanValue;
     }
 
-    public final void l1() {
+    public final void H1() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.m.d() != null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.m.d() != null) {
             this.l.setRecommendTagList(this.m.d());
         }
+    }
+
+    @Override // com.baidu.tbadk.suspended.SuspendedActivity
+    public int r1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return UtilHelper.getDimenPixelSize(R.dimen.tbds153);
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            if (this.l.w()) {
-                cx4.d(this.l.c).x(R.color.CAM_X0302);
+            if (this.l.v()) {
+                p15.d(this.l.c).x(R.color.CAM_X0302);
             } else {
-                this.l.c.setTextColor(nv8.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
+                this.l.c.setTextColor(lz8.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
             }
         }
     }
@@ -254,11 +239,11 @@ public class SelectTagActivity extends SuspendedActivity {
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             addGlobalLayoutListener();
             adjustResizeForSoftInput();
-            this.m = new qi9(getUniqueId());
+            this.m = new qm9(getUniqueId());
             this.l.d = findViewById(R.id.suspend_root_view);
             this.l.l();
             this.r.getHttpMessageListener().setSelfListener(true);
@@ -280,5 +265,20 @@ public class SelectTagActivity extends SuspendedActivity {
             }
             this.l.setHadSelectTagList(this.n);
         }
+    }
+
+    @Override // com.baidu.tbadk.suspended.SuspendedActivity
+    public kl5 q1(LinearLayout linearLayout, NavigationBar navigationBar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, linearLayout, navigationBar)) == null) {
+            this.k = linearLayout;
+            if (this.l == null) {
+                this.l = new SelectTagListView(getPageContext(), linearLayout, navigationBar);
+            }
+            this.l.c.setOnClickListener(new b(this));
+            return this.l;
+        }
+        return (kl5) invokeLL.objValue;
     }
 }

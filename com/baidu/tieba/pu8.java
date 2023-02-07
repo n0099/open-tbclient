@@ -1,60 +1,139 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
+import android.util.Log;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 /* loaded from: classes5.dex */
-public class pu8 {
+public class pu8 extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public ArrayList<pu8> e;
+    public boolean a;
+    public final String b;
+    public Process c;
+    public BufferedReader d;
+    public FileOutputStream e;
+    public a f;
 
-    public pu8() {
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a();
+    }
+
+    public pu8(String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = true;
+        this.d = null;
+        this.e = null;
+        try {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss", Locale.ENGLISH);
+            this.e = new FileOutputStream(new File(str, str2 + "-" + simpleDateFormat.format(new Date()) + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION), true);
+        } catch (FileNotFoundException e) {
+            BdLog.e(Log.getStackTraceString(e));
+        }
+        if (z) {
+            this.b = "logcat -v threadtime *:v -d";
+        } else {
+            this.b = "logcat -v threadtime *:v";
+        }
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Process process = this.c;
+            if (process != null) {
+                process.destroy();
+                this.c = null;
+            }
+            BufferedReader bufferedReader = this.d;
+            if (bufferedReader != null) {
+                try {
+                    bufferedReader.close();
+                    this.d = null;
+                } catch (IOException e) {
+                    BdLog.e(Log.getStackTraceString(e));
+                }
+            }
+            FileOutputStream fileOutputStream = this.e;
+            if (fileOutputStream != null) {
+                try {
+                    fileOutputStream.close();
+                } catch (IOException e2) {
+                    BdLog.e(Log.getStackTraceString(e2));
+                }
+                this.e = null;
+            }
+            a aVar = this.f;
+            if (aVar != null) {
+                aVar.a();
             }
         }
     }
 
-    public void a(JSONObject jSONObject) throws JSONException {
+    public void b(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            this.a = jSONObject.optString(ForumListActivityConfig.KEY_MENU_TYPE);
-            this.b = jSONObject.optString("menu_name");
-            this.c = jSONObject.optString("menu_id");
-            String str = null;
-            String optString = jSONObject.optString("default_logo_url", null);
-            this.d = optString;
-            if (optString != null) {
-                str = this.d + "?v=2";
-            }
-            this.d = str;
-            if (jSONObject.has("child_menu_list")) {
-                ArrayList<pu8> arrayList = new ArrayList<>();
-                JSONArray optJSONArray = jSONObject.optJSONArray("child_menu_list");
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    pu8 pu8Var = new pu8();
-                    pu8Var.a(optJSONArray.getJSONObject(i));
-                    arrayList.add(pu8Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.f = aVar;
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a = false;
+            a();
+            interrupt();
+        }
+    }
+
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        String readLine;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            try {
+                try {
+                    this.c = Runtime.getRuntime().exec(this.b);
+                    this.d = new BufferedReader(new InputStreamReader(this.c.getInputStream()), 1024);
+                    while (this.a && (readLine = this.d.readLine()) != null && this.a) {
+                        if (readLine.length() != 0 && this.e != null) {
+                            FileOutputStream fileOutputStream = this.e;
+                            fileOutputStream.write((readLine + "\n").getBytes());
+                        }
+                    }
+                    BdLog.d("collector complete.");
+                } catch (IOException e) {
+                    BdLog.e(Log.getStackTraceString(e));
                 }
-                this.e = arrayList;
+            } finally {
+                a();
             }
         }
     }

@@ -8,8 +8,8 @@ import android.view.MotionEvent;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.MotionEventCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.m71;
-import com.baidu.tieba.o71;
+import com.baidu.tieba.xb1;
+import com.baidu.tieba.zb1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
     public double D;
     public SlideInterceptor E;
     public WeakReference<Activity> F;
-    public m71 G;
+    public xb1 G;
 
     public void setNightMode(boolean z) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
     }
 
     /* loaded from: classes2.dex */
-    public class a implements m71 {
+    public class a implements xb1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CustomSlidingPanelLayout a;
@@ -57,7 +57,7 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
             this.a = customSlidingPanelLayout;
         }
 
-        @Override // com.baidu.tieba.m71
+        @Override // com.baidu.tieba.xb1
         public void onTranslucent(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -70,7 +70,7 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
     }
 
     /* loaded from: classes2.dex */
-    public class b implements m71 {
+    public class b implements xb1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CustomSlidingPanelLayout a;
@@ -93,7 +93,7 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
             this.a = customSlidingPanelLayout;
         }
 
-        @Override // com.baidu.tieba.m71
+        @Override // com.baidu.tieba.xb1
         public void onTranslucent(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -225,10 +225,10 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
         }
     }
 
-    public void setOnTransparentListener(m71 m71Var) {
+    public void setOnTransparentListener(xb1 xb1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, m71Var) == null) {
-            this.G = m71Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, xb1Var) == null) {
+            this.G = xb1Var;
         }
     }
 
@@ -261,12 +261,12 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             WeakReference<Activity> weakReference = this.F;
             if (weakReference != null && weakReference.get() != null) {
-                o71.c(this.F.get(), new b(this));
+                zb1.c(this.F.get(), new b(this));
                 return;
             }
-            m71 m71Var = this.G;
-            if (m71Var != null) {
-                m71Var.onTranslucent(true);
+            xb1 xb1Var = this.G;
+            if (xb1Var != null) {
+                xb1Var.onTranslucent(true);
             }
         }
     }
@@ -277,12 +277,12 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             WeakReference<Activity> weakReference = this.F;
             if (weakReference != null && weakReference.get() != null) {
-                o71.d(this.F.get(), new a(this));
+                zb1.d(this.F.get(), new a(this));
                 return;
             }
-            m71 m71Var = this.G;
-            if (m71Var != null) {
-                m71Var.onTranslucent(false);
+            xb1 xb1Var = this.G;
+            if (xb1Var != null) {
+                xb1Var.onTranslucent(false);
             }
         }
     }

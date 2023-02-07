@@ -51,7 +51,7 @@ public class AppCompatRadioButton extends RadioButton implements TintableCompoun
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AppCompatRadioButton(Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f04059f);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0405a2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

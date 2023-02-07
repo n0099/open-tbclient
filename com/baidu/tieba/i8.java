@@ -1,204 +1,211 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Comparator;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.Reader;
 /* loaded from: classes4.dex */
-public class i8<T> extends c7<T> {
+public final class i8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public T[] e;
-    public T[] f;
-    public int g;
 
-    public i8() {
+    /* JADX WARN: Code restructure failed: missing block: B:114:0x0132, code lost:
+        if (r11 != 3) goto L56;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void a(d8<String, String> d8Var, Reader reader) throws IOException {
+        char c;
+        char c2;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.c7
-    public void clear() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            q();
-            super.clear();
-        }
-    }
-
-    @Override // com.baidu.tieba.c7
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            q();
-            super.l();
-        }
-    }
-
-    public T[] o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            q();
-            T[] tArr = this.a;
-            this.e = tArr;
-            this.g++;
-            return tArr;
-        }
-        return (T[]) ((Object[]) invokeV.objValue);
-    }
-
-    @Override // com.baidu.tieba.c7
-    public T pop() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            q();
-            return (T) super.pop();
-        }
-        return (T) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i8(Class cls) {
-        super(cls);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cls};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Class) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i8(boolean z, int i) {
-        super(z, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Boolean) objArr2[0]).booleanValue(), ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.c7
-    public T h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            q();
-            return (T) super.h(i);
-        }
-        return (T) invokeI.objValue;
-    }
-
-    @Override // com.baidu.tieba.c7
-    public void sort(Comparator<? super T> comparator) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, comparator) == null) {
-            q();
-            super.sort(comparator);
-        }
-    }
-
-    @Override // com.baidu.tieba.c7
-    public boolean i(T t, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, t, z)) == null) {
-            q();
-            return super.i(t, z);
-        }
-        return invokeLZ.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.c7
-    public void insert(int i, T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, t) == null) {
-            q();
-            super.insert(i, t);
-        }
-    }
-
-    @Override // com.baidu.tieba.c7
-    public void k(int i, T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i, t) == null) {
-            q();
-            super.k(i, t);
-        }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            int max = Math.max(0, this.g - 1);
-            this.g = max;
-            T[] tArr = this.e;
-            if (tArr == null) {
-                return;
-            }
-            if (tArr != this.a && max == 0) {
-                this.f = tArr;
-                int length = tArr.length;
-                for (int i = 0; i < length; i++) {
-                    this.f[i] = null;
+        if (interceptable == null || interceptable.invokeLL(65536, null, d8Var, reader) == null) {
+            if (d8Var != null) {
+                if (reader != null) {
+                    char[] cArr = new char[40];
+                    BufferedReader bufferedReader = new BufferedReader(reader);
+                    char c3 = 2;
+                    char c4 = 1;
+                    int i = 0;
+                    char c5 = 0;
+                    int i2 = 0;
+                    int i3 = 0;
+                    while (true) {
+                        int i4 = -1;
+                        boolean z = true;
+                        while (true) {
+                            int read = bufferedReader.read();
+                            if (read == -1) {
+                                if (c5 == c3 && i2 <= 4) {
+                                    throw new IllegalArgumentException("Invalid Unicode sequence: expected format \\uxxxx");
+                                }
+                                if (i4 == -1 && i > 0) {
+                                    i4 = i;
+                                }
+                                if (i4 >= 0) {
+                                    String str = new String(cArr, 0, i);
+                                    String substring = str.substring(0, i4);
+                                    String substring2 = str.substring(i4);
+                                    if (c5 == c4) {
+                                        substring2 = substring2 + "\u0000";
+                                    }
+                                    d8Var.i(substring, substring2);
+                                    return;
+                                }
+                                return;
+                            }
+                            char c6 = (char) read;
+                            if (i == cArr.length) {
+                                char[] cArr2 = new char[cArr.length * 2];
+                                System.arraycopy(cArr, 0, cArr2, 0, i);
+                                cArr = cArr2;
+                            }
+                            if (c5 == c3) {
+                                int digit = Character.digit(c6, 16);
+                                if (digit >= 0) {
+                                    i3 = (i3 << 4) + digit;
+                                    i2++;
+                                    if (i2 < 4) {
+                                        c3 = 2;
+                                    }
+                                } else if (i2 <= 4) {
+                                    throw new IllegalArgumentException("Invalid Unicode sequence: illegal character");
+                                }
+                                cArr[i] = (char) i3;
+                                i++;
+                                if (c6 != '\n') {
+                                    c3 = 2;
+                                    c5 = 0;
+                                } else {
+                                    c5 = 0;
+                                }
+                            }
+                            if (c5 == c4) {
+                                if (c6 != '\n') {
+                                    if (c6 != '\r') {
+                                        if (c6 != 'b') {
+                                            if (c6 != 'f') {
+                                                if (c6 != 'n') {
+                                                    if (c6 != 'r') {
+                                                        if (c6 != 't') {
+                                                            if (c6 == 'u') {
+                                                                c3 = 2;
+                                                                c5 = 2;
+                                                                i2 = 0;
+                                                                i3 = 0;
+                                                            }
+                                                        } else {
+                                                            c6 = '\t';
+                                                        }
+                                                    } else {
+                                                        c6 = '\r';
+                                                    }
+                                                } else {
+                                                    c6 = '\n';
+                                                }
+                                            } else {
+                                                c6 = '\f';
+                                            }
+                                        } else {
+                                            c6 = '\b';
+                                        }
+                                        c5 = 0;
+                                    } else {
+                                        c3 = 2;
+                                        c5 = 3;
+                                    }
+                                } else {
+                                    c3 = 2;
+                                    c5 = 5;
+                                }
+                            } else if (c6 != '\n') {
+                                if (c6 == '\r') {
+                                    break;
+                                }
+                                if (c6 != '!' && c6 != '#') {
+                                    if (c6 != ':' && c6 != '=') {
+                                        if (c6 == '\\') {
+                                            if (c5 == 4) {
+                                                i4 = i;
+                                            }
+                                            c3 = 2;
+                                            c4 = 1;
+                                            c5 = 1;
+                                        }
+                                    } else if (i4 == -1) {
+                                        i4 = i;
+                                        c3 = 2;
+                                        c4 = 1;
+                                        c5 = 0;
+                                    }
+                                } else if (z) {
+                                    do {
+                                        int read2 = bufferedReader.read();
+                                        if (read2 == -1 || (c = (char) read2) == '\r') {
+                                            break;
+                                        }
+                                    } while (c != '\n');
+                                    c3 = 2;
+                                    c4 = 1;
+                                }
+                                if (Character.isSpace(c6)) {
+                                    if (c5 == 3) {
+                                        c5 = 5;
+                                    }
+                                    if (i != 0 && i != i4) {
+                                        c2 = 5;
+                                        if (c5 != 5) {
+                                            if (i4 == -1) {
+                                                c3 = 2;
+                                                c4 = 1;
+                                                c5 = 4;
+                                            }
+                                        }
+                                    }
+                                    c3 = 2;
+                                    c4 = 1;
+                                } else {
+                                    c2 = 5;
+                                }
+                                if (c5 != c2) {
+                                }
+                                c5 = 0;
+                            } else if (c5 != 3) {
+                                break;
+                            } else {
+                                c3 = 2;
+                                c4 = 1;
+                                c5 = 5;
+                            }
+                            if (c5 == 4) {
+                                i4 = i;
+                                c5 = 0;
+                            }
+                            cArr[i] = c6;
+                            i++;
+                            c3 = 2;
+                            c4 = 1;
+                            z = false;
+                        }
+                        if (i > 0 || (i == 0 && i4 == 0)) {
+                            if (i4 == -1) {
+                                i4 = i;
+                            }
+                            String str2 = new String(cArr, 0, i);
+                            d8Var.i(str2.substring(0, i4), str2.substring(i4));
+                        }
+                        c3 = 2;
+                        c4 = 1;
+                        i = 0;
+                        c5 = 0;
+                    }
+                } else {
+                    throw new NullPointerException("reader cannot be null");
                 }
+            } else {
+                throw new NullPointerException("properties cannot be null");
             }
-            this.e = null;
-        }
-    }
-
-    public final void q() {
-        T[] tArr;
-        T[] tArr2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (tArr = this.e) != null && tArr == (tArr2 = this.a)) {
-            T[] tArr3 = this.f;
-            if (tArr3 != null) {
-                int length = tArr3.length;
-                int i = this.b;
-                if (length >= i) {
-                    System.arraycopy(tArr2, 0, tArr3, 0, i);
-                    this.a = this.f;
-                    this.f = null;
-                    return;
-                }
-            }
-            j(this.a.length);
         }
     }
 }

@@ -1,62 +1,60 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.storage.swankv.AshmemFileDescriptor;
+import com.baidu.storage.swankv.SwanKV;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public final class ph3 {
+public class ph3 {
     public static /* synthetic */ Interceptable $ic;
-    public static SharedPreferences a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final AshmemFileDescriptor a;
+    public volatile SwanKV b;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948061998, "Lcom/baidu/tieba/ph3;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948061998, "Lcom/baidu/tieba/ph3;");
-        }
-    }
-
-    public static Context a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return AppRuntime.getAppContext();
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public static SharedPreferences c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (a == null) {
-                a = PreferenceManager.getDefaultSharedPreferences(a());
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948061998, "Lcom/baidu/tieba/ph3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return a;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948061998, "Lcom/baidu/tieba/ph3;");
+                return;
+            }
         }
-        return (SharedPreferences) invokeV.objValue;
+        nh3.f();
     }
 
-    public static boolean b(String str, boolean z) {
-        InterceptResult invokeLZ;
+    public AshmemFileDescriptor a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, str, z)) == null) {
-            return c().getBoolean(str, z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return invokeLZ.booleanValue;
+        return (AshmemFileDescriptor) invokeV.objValue;
+    }
+
+    @NonNull
+    public SwanKV b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (SwanKV) invokeV.objValue;
+    }
+
+    public void c(@NonNull SwanKV swanKV) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, swanKV) == null) {
+            this.b = swanKV;
+        }
     }
 }

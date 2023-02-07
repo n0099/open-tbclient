@@ -1,126 +1,80 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.data.DialogStrategiesData;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class k15 {
+public final class k15 {
     public static /* synthetic */ Interceptable $ic;
+    public static final k15 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
-    public String d;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947860250, "Lcom/baidu/tieba/k15;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947860250, "Lcom/baidu/tieba/k15;");
+                return;
+            }
+        }
+        a = new k15();
+    }
 
     public k15() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = 0;
-        this.d = null;
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    public final void a(String json) {
+        boolean z;
+        List entityList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            switch (i) {
-                case 1:
-                    return rj.a(R.string.voice_cache_error_internal);
-                case 2:
-                    return rj.a(R.string.voice_cache_error_no_space);
-                case 3:
-                    return rj.a(R.string.obfuscated_res_0x7f0f0cd1);
-                case 4:
-                    return rj.a(R.string.voice_cache_error_no_file);
-                case 5:
-                    return rj.a(R.string.voice_cache_error_md5);
-                case 6:
-                    return rj.a(R.string.voice_cache_error_no_input);
-                case 7:
-                    return rj.a(R.string.voice_cache_error_no_dir);
-                default:
-                    return "";
+        if (interceptable == null || interceptable.invokeL(1048576, this, json) == null) {
+            Intrinsics.checkNotNullParameter(json, "json");
+            String g = f15.g();
+            jf<String> g2 = i05.g("tb.dialog_strategies_data", TbadkCoreApplication.getCurrentAccount(), g);
+            if (g2 != null) {
+                String str = g2.get(g);
+                if (str != null) {
+                    if (str.length() > 0) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    if (!z) {
+                        str = null;
+                    }
+                    if (str != null && (entityList = DataExt.toEntityList(str, DialogStrategiesData.class)) != null) {
+                        List entityList2 = DataExt.toEntityList(json, DialogStrategiesData.class);
+                        Intrinsics.checkNotNullExpressionValue(entityList2, "toEntityList(json, Dialo…rategiesData::class.java)");
+                        l15.b(entityList, entityList2);
+                    }
+                }
+                g2.a(g, json);
             }
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.d = str;
-        }
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.b = str;
         }
     }
 }

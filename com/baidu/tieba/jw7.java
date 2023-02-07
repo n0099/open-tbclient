@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,12 +11,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetVipInfo.DataRes;
-import tbclient.GetVipInfo.VipUpgrade;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
-public class jw7 implements yn {
+public class jw7 implements iw7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
+    public static final AtomicReference<iw7> a;
+    public static final iw7 b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,7 +32,8 @@ public class jw7 implements yn {
                 return;
             }
         }
-        a = BdUniqueId.gen();
+        a = new AtomicReference<>(null);
+        b = new jw7();
     }
 
     public jw7() {
@@ -47,29 +50,49 @@ public class jw7 implements yn {
         }
     }
 
-    @Override // com.baidu.tieba.yn
-    public BdUniqueId getType() {
+    public static iw7 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            iw7 iw7Var = a.get();
+            if (iw7Var == null) {
+                return b;
+            }
+            return iw7Var;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (iw7) invokeV.objValue;
     }
 
-    public void a(DataRes dataRes) {
-        VipUpgrade vipUpgrade;
+    @Override // com.baidu.tieba.iw7
+    public aw7 a(ew7 ew7Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) && dataRes != null && (vipUpgrade = dataRes.upgrade) != null) {
-            String str = vipUpgrade.svip;
-            String str2 = vipUpgrade.link;
-            String str3 = vipUpgrade.button;
-            String str4 = vipUpgrade.text;
-            vipUpgrade.pay.intValue();
-            dataRes.upgrade.normal.intValue();
-            VipUpgrade vipUpgrade2 = dataRes.upgrade;
-            String str5 = vipUpgrade2.card_id;
-            String str6 = vipUpgrade2.expire;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ew7Var)) == null) {
+            BdLog.e("Card project loaded failed.");
+            return null;
         }
+        return (aw7) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.iw7
+    public ev7 b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, bdUniqueId, i)) == null) {
+            BdLog.e("Card project loaded failed.");
+            return null;
+        }
+        return (ev7) invokeLLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.iw7
+    public kw7 c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, bdUniqueId)) == null) {
+            BdLog.e("Card project loaded failed.");
+            return null;
+        }
+        return (kw7) invokeLL.objValue;
     }
 }

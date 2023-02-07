@@ -1,170 +1,80 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class j45 {
+public class j45 implements k45 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public static Map<String, String> b;
-    public static boolean c;
-    public static boolean d;
-    public static int e;
-    public static int f;
-    public static boolean g;
-    public static String h;
-    public static Map<String, String> i;
-    public static int j;
-    public static int k;
-    public static boolean l;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ImageView a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947833342, "Lcom/baidu/tieba/j45;")) == null) {
-            return;
+    @Override // com.baidu.tieba.k45
+    public void onDismiss() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+    }
+
+    @Override // com.baidu.tieba.k45
+    public void onShow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    public j45(Context context) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947833342, "Lcom/baidu/tieba/j45;");
+        this.a = new ImageView(context);
+    }
+
+    @Override // com.baidu.tieba.k45
+    public void a(g45 g45Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, g45Var) == null) {
+            ImageView imageView = this.a;
+            int i = g45Var.c;
+            int i2 = -2;
+            if (i < 0) {
+                i = -2;
+            }
+            int i3 = g45Var.c;
+            if (i3 >= 0) {
+                i2 = i3;
+            }
+            imageView.setLayoutParams(new LinearLayout.LayoutParams(i, i2));
+            SkinManager.setImageResource(this.a, g45Var.b);
         }
     }
 
-    public static int a() {
+    @Override // com.baidu.tieba.k45
+    public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (!c) {
-                return cz4.l().m("video_report_config_upload_number", 5);
-            }
-            return f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return invokeV.intValue;
-    }
-
-    public static int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (!c) {
-                return cz4.l().m("video_report_config_upload_type", 0);
-            }
-            return e;
-        }
-        return invokeV.intValue;
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (!c) {
-                return cz4.l().i("video_report_config_switch", true);
-            }
-            return d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void d(JSONObject jSONObject) throws JSONException {
-        boolean z;
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        boolean z3 = true;
-        c = true;
-        if (jSONObject.optInt(SetImageWatermarkTypeReqMsg.SWITCH, 1) == 0) {
-            z = false;
-        } else {
-            z = true;
-        }
-        d = z;
-        cz4.l().v("video_report_config_switch", d);
-        e = jSONObject.optInt("upload_type", 0);
-        cz4.l().x("video_report_config_upload_type", e);
-        f = jSONObject.optInt("upload_number", 5);
-        cz4.l().x("video_report_config_upload_number", f);
-        j = jSONObject.optInt("prepare_max_wait_time", 10000);
-        cz4.l().x("video_report_prepare_max_wait_time", j);
-        k = jSONObject.optInt("prepare_max_loading_time", 3000);
-        cz4.l().x("video_report_prepare_max_loading_time", k);
-        if (jSONObject.optInt("is_open_prepare_time", 0) == 1) {
-            z2 = true;
-        } else {
-            z2 = false;
-        }
-        l = z2;
-        cz4.l().v("video_report_is_open_prepare_time", l);
-        if (jSONObject.optInt("moov_check", 0) == 0) {
-            z3 = false;
-        }
-        g = z3;
-        cz4.l().v("video_report_config_moov_check", g);
-        String optString = jSONObject.optString("android_debug_type");
-        h = optString;
-        if (!StringUtils.isNull(optString)) {
-            cz4.l().z("video_report_config_debug_type", h);
-            e(h);
-        }
-        String optString2 = jSONObject.optString("step_cache_strategy");
-        a = optString2;
-        if (!StringUtils.isNull(optString2)) {
-            cz4.l().z("video_report_config_step_cache_strategy", a);
-            f(a);
-        }
-    }
-
-    public static void e(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65541, null, str) != null) || StringUtils.isNull(str)) {
-            return;
-        }
-        if (i == null) {
-            i = new HashMap();
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            i.put("debug_avformat_open_input", jSONObject.optString("debug_avformat_open_input"));
-            i.put("debug_dns_strategy", jSONObject.optString("debug_dns_strategy"));
-            i.put("debug_url_null_strategy", jSONObject.optString("debug_url_null_strategy"));
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-        }
-    }
-
-    public static void f(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65542, null, str) != null) || StringUtils.isNull(str)) {
-            return;
-        }
-        if (b == null) {
-            b = new HashMap();
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            b.put("step_cache_force_use_proxy", jSONObject.optString("step_cache_force_use_proxy"));
-            b.put("step_cache_switch", jSONObject.optString("step_cache_switch"));
-            b.put("step_cache_rush_hour", jSONObject.optString("step_cache_rush_hour"));
-            b.put("step_cache_rush_hour_cache_duration", jSONObject.optString("step_cache_rush_hour_cache_duration"));
-            b.put("step_cache_normol_cache_duration", jSONObject.optString("step_cache_normol_cache_duration"));
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-        }
+        return (View) invokeV.objValue;
     }
 }

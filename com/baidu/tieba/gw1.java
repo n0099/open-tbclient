@@ -1,104 +1,50 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Bundle;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes4.dex */
-public class gw1 implements fw1 {
+public class gw1 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, rx2> a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947808232, "Lcom/baidu/tieba/gw1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947808232, "Lcom/baidu/tieba/gw1;");
-                return;
-            }
-        }
-        b = tk1.a;
-    }
 
     public gw1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = new ConcurrentHashMap();
     }
 
-    @Override // com.baidu.tieba.fw1
-    public void a(String str) {
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(Bundle bundle) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || this.a.containsKey(str)) {
-            return;
-        }
-        if (b) {
-            Log.d("Api-FirstRecorder", "markStart: " + str);
-        }
-        rx2 rx2Var = new rx2();
-        this.a.put(str, rx2Var);
-        rx2Var.i(System.currentTimeMillis());
-        rx2Var.f(str);
-    }
-
-    @Override // com.baidu.tieba.fw1
-    @SuppressLint({"BDThrowableCheck"})
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            rx2 rx2Var = this.a.get(str);
-            if (rx2Var == null) {
-                if (!b) {
-                    return;
-                }
-                throw new RuntimeException(str + " markEnd before markStart");
-            } else if (rx2Var.d() > 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            if (bundle == null) {
+                z = false;
             } else {
-                rx2Var.h(System.currentTimeMillis());
-                if (b) {
-                    Log.d("Api-FirstRecorder", str + " first called cost " + rx2Var.c());
-                }
-                if (TextUtils.equals(str, "request")) {
-                    if (b) {
-                        Log.d("Api-FirstRecorder", "record first request api called " + rx2Var.toString());
-                    }
-                    HybridUbcFlow p = ox2.p("startup");
-                    UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("first_request_api_call_start");
-                    ubcFlowEvent.h(rx2Var.e());
-                    p.F(ubcFlowEvent);
-                    UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("first_request_api_call_end");
-                    ubcFlowEvent2.h(rx2Var.d());
-                    p.F(ubcFlowEvent2);
+                z = bundle.getBoolean("status");
+            }
+            for (kp1 kp1Var : SwanAppAllianceLoginHelper.d.e()) {
+                if (kp1Var != null) {
+                    kp1Var.a(z);
                 }
             }
+            return null;
         }
+        return (Bundle) invokeL.objValue;
     }
 }

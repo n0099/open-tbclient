@@ -1,138 +1,120 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
-import android.util.SparseIntArray;
-import android.view.View;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.collection.LongSparseArray;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.im.data.GroupMsgData;
+import com.baidu.tieba.im.message.MessageSyncMessage;
+import com.baidu.tieba.im.message.ResponsePullMessage;
+import com.baidu.tieba.im.message.ResponseUnLoginMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class gm7 extends GridLayoutManager.SpanSizeLookup {
+public class gm7 extends ub {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final RecyclerView a;
-    public final int b;
-    public final SparseIntArray c;
-    public final int d;
 
-    public gm7(RecyclerView recyclerView, int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gm7() {
+        super(202003);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {recyclerView, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new SparseIntArray();
-        this.a = recyclerView;
-        this.b = Math.max(1, d());
-        this.d = i;
-        setSpanIndexCacheEnabled(true);
     }
 
-    public static int d() {
-        InterceptResult invokeV;
+    public final void c(GroupMsgData groupMsgData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return Math.max(Resources.getSystem().getDisplayMetrics().heightPixels, Resources.getSystem().getDisplayMetrics().widthPixels);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, groupMsgData) == null) && groupMsgData != null && groupMsgData.getGroupInfo() != null) {
+            MessageManager.getInstance().dispatchResponsedMessage(groupMsgData);
         }
-        return invokeV.intValue;
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rb
+    /* renamed from: d */
+    public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int measuredWidth = this.a.getMeasuredWidth();
-            if (measuredWidth == 0) {
-                measuredWidth = this.a.getWidth();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, socketResponsedMessage)) == null) {
+            MessageSyncMessage messageSyncMessage = null;
+            if (!(socketResponsedMessage instanceof ResponsePullMessage)) {
+                return null;
             }
-            return (measuredWidth - this.a.getPaddingLeft()) - this.a.getPaddingRight();
-        }
-        return invokeV.intValue;
-    }
-
-    public final int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public float c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return (a() * 1.0f) / this.b;
-        }
-        return invokeV.floatValue;
-    }
-
-    @Override // androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
-    public void invalidateSpanIndexCache() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.c.clear();
-            super.invalidateSpanIndexCache();
-        }
-    }
-
-    public final int e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            if (a() <= 0) {
-                return 1;
+            if (socketResponsedMessage.getOrginalMessage() != null && (socketResponsedMessage.getOrginalMessage() instanceof MessageSyncMessage)) {
+                messageSyncMessage = (MessageSyncMessage) socketResponsedMessage.getOrginalMessage();
             }
-            return ((int) Math.floor(f(i) / c())) + 1;
+            if (messageSyncMessage != null) {
+                e35.a("im", messageSyncMessage.getClientLogID(), messageSyncMessage.getCmd(), "ack", socketResponsedMessage.getError(), socketResponsedMessage.getErrorString(), new Object[0]);
+            }
+            if (socketResponsedMessage.getError() == 110000) {
+                MessageManager.getInstance().dispatchResponsedMessage(new ResponseUnLoginMessage());
+            }
+            ResponsePullMessage responsePullMessage = (ResponsePullMessage) socketResponsedMessage;
+            List<GroupMsgData> groupMsg = responsePullMessage.getGroupMsg();
+            if (groupMsg != null && groupMsg.size() > 0) {
+                for (GroupMsgData groupMsgData : groupMsg) {
+                    if (groupMsgData != null && groupMsgData.getGroupInfo() != null) {
+                        c(groupMsgData);
+                    }
+                }
+            }
+            if (!e(responsePullMessage)) {
+                em7.n().p();
+            }
+            return socketResponsedMessage;
         }
-        return invokeI.intValue;
+        return (SocketResponsedMessage) invokeL.objValue;
     }
 
-    @Override // androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
-    public int getSpanSize(int i) {
-        InterceptResult invokeI;
+    public final boolean e(ResponsePullMessage responsePullMessage) {
+        InterceptResult invokeL;
+        Long l;
+        Long l2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            return Math.min(this.b, e(i));
-        }
-        return invokeI.intValue;
-    }
-
-    public final int f(int i) {
-        InterceptResult invokeI;
-        RecyclerView.ViewHolder createViewHolder;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            RecyclerView.Adapter adapter = this.a.getAdapter();
-            int i2 = this.c.get(i, -1);
-            if (i2 != -1) {
-                return i2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, responsePullMessage)) == null) {
+            if (responsePullMessage != null && responsePullMessage.getGroupMsg() != null && responsePullMessage.getGroupMsg().size() != 0 && !responsePullMessage.hasError()) {
+                List<GroupMsgData> groupMsg = responsePullMessage.getGroupMsg();
+                if (!(responsePullMessage.getOrginalMessage() instanceof MessageSyncMessage)) {
+                    return false;
+                }
+                MessageSyncMessage messageSyncMessage = (MessageSyncMessage) responsePullMessage.getOrginalMessage();
+                if (messageSyncMessage.getGroupMids() != null && messageSyncMessage.getGroupMids().size() != 0) {
+                    LongSparseArray<Long> longSparseArray = new LongSparseArray<>();
+                    LongSparseArray<Long> q = xl7.n().q();
+                    boolean z = false;
+                    for (GroupMsgData groupMsgData : groupMsg) {
+                        if (groupMsgData != null && groupMsgData.getGroupInfo() != null && yl7.a(groupMsgData.getGroupInfo().getCustomType()) && (l = q.get(groupMsgData.getGroupInfo().getGroupId())) != null && (l2 = messageSyncMessage.getGroupMids().get(groupMsgData.getGroupInfo().getGroupId())) != null) {
+                            if (l.longValue() > l2.longValue()) {
+                                z = true;
+                            }
+                            if (groupMsgData.hasMore()) {
+                                longSparseArray.put(groupMsgData.getGroupInfo().getGroupId(), l);
+                            }
+                        }
+                    }
+                    if (z && longSparseArray.size() > 0) {
+                        em7.n().t(longSparseArray);
+                        return true;
+                    }
+                }
             }
-            if (adapter == null || (createViewHolder = adapter.createViewHolder(this.a, adapter.getItemViewType(i))) == null) {
-                return 0;
-            }
-            adapter.onBindViewHolder(createViewHolder, i);
-            createViewHolder.itemView.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
-            int measuredWidth = createViewHolder.itemView.getMeasuredWidth() + this.d;
-            adapter.onViewRecycled(createViewHolder);
-            this.c.put(i, measuredWidth);
-            return measuredWidth;
+            return false;
         }
-        return invokeI.intValue;
+        return invokeL.booleanValue;
     }
 }

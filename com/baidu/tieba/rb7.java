@@ -1,85 +1,154 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class rb7 {
+public abstract class rb7<T, V extends TypeAdapter.ViewHolder> extends qn<T, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<ThreadData> a;
+    public boolean a;
+    public TbPageContext<?> b;
+    public jo c;
+    public iv4 d;
 
-    public rb7() {
+    @Override // com.baidu.tieba.qn
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, T t, V v) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t, v})) == null) ? view2 : (View) invokeCommon.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rb7(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
+        BdUniqueId uniqueId;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-    }
-
-    public List<ThreadData> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        this.a = true;
+        TbPageContext pageContext = ((TbPageContextSupport) context).getPageContext();
+        this.b = pageContext;
+        if (pageContext == null) {
+            uniqueId = null;
+        } else {
+            uniqueId = pageContext.getUniqueId();
         }
-        return (List) invokeV.objValue;
+        m(pageContext, uniqueId);
     }
 
-    public boolean c() {
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public rb7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(r1, bdUniqueId);
+        Activity pageActivity;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        if (tbPageContext == null) {
+            pageActivity = null;
+        } else {
+            pageActivity = tbPageContext.getPageActivity();
+        }
+        this.a = true;
+        m(tbPageContext, tbPageContext != null ? tbPageContext.getUniqueId() : null);
+    }
+
+    public void m(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, tbPageContext, bdUniqueId) == null) && tbPageContext != null) {
+            this.mContext = tbPageContext.getPageActivity();
+            this.b = tbPageContext;
+            this.mPageId = bdUniqueId;
+        }
+    }
+
+    public void s(View view2, ThreadData threadData) {
+        iv4 iv4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, threadData) == null) && (iv4Var = this.d) != null) {
+            int i = threadData.position;
+            iv4Var.c(view2, threadData, i, i);
+        }
+    }
+
+    @Override // com.baidu.tieba.qn
+    public void setPageId(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
+            this.mPageId = bdUniqueId;
+        }
+    }
+
+    public void u(iv4 iv4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, iv4Var) == null) {
+            this.d = iv4Var;
+        }
+    }
+
+    public void v(jo joVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, joVar) == null) {
+            this.c = joVar;
+        }
+    }
+
+    public boolean t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<ThreadData> list = this.a;
-            if (list == null) {
-                return false;
-            }
-            return !ListUtils.isEmpty(list);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
         }
         return invokeV.booleanValue;
     }
 
-    public qb7 a(boolean z, ob7 ob7Var) {
-        InterceptResult invokeZL;
+    public void w(View view2, ThreadData threadData, int i, long j) {
+        iv4 iv4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZL = interceptable.invokeZL(1048576, this, z, ob7Var)) == null) {
-            qb7 qb7Var = new qb7();
-            qb7Var.c = ob7Var.i();
-            qb7Var.e = ob7Var.a();
-            qb7Var.f = ob7Var.c();
-            ArrayList<ThreadData> h = ob7Var.h();
-            if (z) {
-                if (!ListUtils.isEmpty(h)) {
-                    this.a.clear();
-                    this.a.addAll(h);
-                }
-            } else if (!ListUtils.isEmpty(h)) {
-                this.a.addAll(h);
-            }
-            ArrayList arrayList = new ArrayList();
-            arrayList.addAll(this.a);
-            na7.h(true, arrayList, ob7Var.e());
-            na7.h(true, arrayList, ob7Var.f());
-            na7.h(true, arrayList, ob7Var.d());
-            na7.h(true, arrayList, ob7Var.g());
-            qb7Var.a = na7.c(arrayList);
-            return qb7Var;
+        if ((interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{view2, threadData, Integer.valueOf(i), Long.valueOf(j)}) == null) && (iv4Var = this.d) != null) {
+            iv4Var.d(view2, threadData, i, j);
         }
-        return (qb7) invokeZL.objValue;
     }
 }

@@ -144,15 +144,15 @@ public class KsRefluxView extends FrameLayout implements View.OnClickListener, K
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
             FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0463, this);
-            this.kN = findViewById(R.id.obfuscated_res_0x7f0911ef);
-            this.kO = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911e2);
-            this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0911f0);
-            this.kM = (KsRefluxNativeView) findViewById(R.id.obfuscated_res_0x7f0911eb);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0911e9);
+            this.kN = findViewById(R.id.obfuscated_res_0x7f091232);
+            this.kO = (ImageView) findViewById(R.id.obfuscated_res_0x7f091225);
+            this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091233);
+            this.kM = (KsRefluxNativeView) findViewById(R.id.obfuscated_res_0x7f09122e);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f09122c);
             this.kP = findViewById;
             findViewById.setOnClickListener(this);
             this.kO.setOnClickListener(this);
-            ((KsRefluxContentView) findViewById(R.id.obfuscated_res_0x7f0911ea)).setContentViewListener(this);
+            ((KsRefluxContentView) findViewById(R.id.obfuscated_res_0x7f09122d)).setContentViewListener(this);
         }
     }
 
@@ -205,7 +205,7 @@ public class KsRefluxView extends FrameLayout implements View.OnClickListener, K
                         }
                     }
                 });
-                ValueAnimator ofFloat = ValueAnimator.ofFloat(getResources().getDimension(R.dimen.obfuscated_res_0x7f0703a0), 0.0f);
+                ValueAnimator ofFloat = ValueAnimator.ofFloat(getResources().getDimension(R.dimen.obfuscated_res_0x7f0703a2), 0.0f);
                 ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this, (GradientDrawable) background, view3) { // from class: com.kwad.components.ad.reflux.KsRefluxView.5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -325,7 +325,7 @@ public class KsRefluxView extends FrameLayout implements View.OnClickListener, K
             if (measuredHeight == 0) {
                 return null;
             }
-            ValueAnimator ofInt = ValueAnimator.ofInt(measuredHeight, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07039a));
+            ValueAnimator ofInt = ValueAnimator.ofInt(measuredHeight, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07039c));
             ofInt.setDuration(300L);
             ofInt.setInterpolator(PathInterpolatorCompat.create(0.25f, 0.1f, 0.25f, 1.0f));
             ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this, view2) { // from class: com.kwad.components.ad.reflux.KsRefluxView.3

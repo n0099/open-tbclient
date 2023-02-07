@@ -1,145 +1,77 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
-import androidx.annotation.CallSuper;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.shrinkhead.LogicField;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.frs.frsfeedforums.FrsFeedItemViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ThemeElement;
-/* loaded from: classes6.dex */
-public abstract class xx6 implements zx6 {
+/* loaded from: classes7.dex */
+public class xx6 extends as6<tz8, FrsFeedItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsFragment a;
-    public Context b;
-    public View c;
+    public vx6 l;
+    public boolean m;
 
-    @Override // com.baidu.tieba.zx6
-    @Nullable
-    @CallSuper
-    public <T> T a(@NonNull LogicField logicField) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, logicField)) == null) {
-            return null;
-        }
-        return (T) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.zx6
-    public void b(@NonNull ThemeElement themeElement) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, themeElement) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.fy6
-    public void d(int i, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.zx6
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.fy6
-    public void i(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.fy6
-    public void j(@Nullable String str, @NonNull String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.fy6
-    public void k(@NonNull LogicField logicField, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, logicField, i) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.zx6
-    public int l(@NonNull LogicField logicField) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, logicField)) == null) {
-            return 8;
-        }
-        return invokeL.intValue;
-    }
-
-    public abstract void m();
-
-    @Override // com.baidu.tieba.fy6
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-        }
-    }
-
-    public xx6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xx6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
+        super(tbPageContext, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        nv8.b();
+        this.m = z;
     }
 
-    @Override // com.baidu.tieba.zx6
-    @NonNull
-    public dy6 e() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: E */
+    public FrsFeedItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a.u1().j0();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d030a, (ViewGroup) null);
+            this.l = new vx6(this.c, inflate, 2, this.m, this.mPageId);
+            return new FrsFeedItemViewHolder(inflate);
         }
-        return (dy6) invokeV.objValue;
+        return (FrsFeedItemViewHolder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.fy6
-    public void onDestory() {
+    public View F(int i, View view2, ViewGroup viewGroup, tz8 tz8Var, FrsFeedItemViewHolder frsFeedItemViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.a != null) {
-            this.a = null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, tz8Var, frsFeedItemViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) tz8Var, (tz8) frsFeedItemViewHolder);
+            if (tz8Var != null) {
+                this.l.o(tz8Var.b(), tz8Var.a());
+            }
+            return view2;
         }
+        return (View) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.zx6
-    public void c(@NonNull FrsFragment frsFragment, @NonNull View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, frsFragment, view2) != null) || this.c != null) {
-            return;
-        }
-        this.a = frsFragment;
-        this.b = view2.getContext();
-        this.c = view2;
-        m();
+    @Override // com.baidu.tieba.as6, com.baidu.tieba.qn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        F(i, view2, viewGroup, (tz8) obj, (FrsFeedItemViewHolder) viewHolder);
+        return view2;
     }
 }

@@ -1,70 +1,130 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import android.content.SharedPreferences;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes6.dex */
 public class re0 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 1;
+    public static /* synthetic */ Interceptable $ic;
+    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
+    public SharedPreferences a;
+    public Set<String> b;
+
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static re0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-463781618, "Lcom/baidu/tieba/re0$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-463781618, "Lcom/baidu/tieba/re0$b;");
+                    return;
+                }
+            }
+            a = new re0(null);
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948118604, "Lcom/baidu/tieba/re0;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948118604, "Lcom/baidu/tieba/re0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948118604, "Lcom/baidu/tieba/re0;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+        c = p35.q("advert_hide_list");
+    }
+
+    public re0() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948118604, "Lcom/baidu/tieba/re0;");
-        }
+        this.a = TbadkCoreApplication.getInst().getSharedPreferences("mcn_advert_hide_list", 0);
     }
 
-    public static void a(String str, String str2) {
+    public static re0 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) || 7 - a > 3) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
         }
-        Log.i("cyber-" + str, str2);
+        return (re0) invokeV.objValue;
     }
 
-    public static void b(String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) || 7 - a > 6) {
-            return;
-        }
-        Log.e("cyber-" + str, str2, th);
+    public /* synthetic */ re0(a aVar) {
+        this();
     }
 
-    public static void c(String str, String str2) {
+    public boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || 7 - a > 4) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return false;
+            }
+            if (this.b == null) {
+                this.b = this.a.getStringSet(c, null);
+            }
+            Set<String> set = this.b;
+            if (set == null) {
+                return false;
+            }
+            return set.contains(str);
         }
-        Log.i("cyber-" + str, str2);
+        return invokeL.booleanValue;
     }
 
-    public static void d(String str, String str2) {
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) || 7 - a > 5) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || StringUtils.isNull(str)) {
             return;
         }
-        Log.w("cyber-" + str, str2);
-    }
-
-    public static void e(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) || 7 - a > 6) {
-            return;
+        Set<String> stringSet = this.a.getStringSet(c, null);
+        this.b = stringSet;
+        if (stringSet == null) {
+            this.b = new HashSet();
         }
-        Log.e("cyber-" + str, str2);
+        this.b.add(str);
+        this.a.edit().putStringSet(c, this.b).commit();
     }
 }

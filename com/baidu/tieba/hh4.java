@@ -1,162 +1,60 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.pms.utils.AbiType;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.database.sqlite.SQLiteDatabase;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 /* loaded from: classes4.dex */
-public class hh4 {
+public class hh4 implements eh4<th4> {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, hh4> d;
-    public static Map<String, Map<String, hh4>> e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final AbiType c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947823701, "Lcom/baidu/tieba/hh4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947823701, "Lcom/baidu/tieba/hh4;");
-                return;
-            }
-        }
-        d = new HashMap();
-        e = new HashMap();
-    }
-
-    @NonNull
-    public String toString() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "framework" : (String) invokeV.objValue;
     }
 
-    public hh4(@NonNull String str, @NonNull AbiType abiType) {
-        String str2;
+    @Override // com.baidu.tieba.eh4
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) {
+        }
+    }
+
+    public hh4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, abiType};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        if (TextUtils.isEmpty(str)) {
-            str2 = "";
-        } else {
-            str2 = str;
-        }
-        this.a = str2;
-        this.c = abiType;
-        this.b = a(str, abiType);
     }
 
-    @Nullable
-    public static synchronized hh4 e(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.eh4
+    public void a(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
-            synchronized (hh4.class) {
-                hh4 hh4Var = null;
-                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                    c(str);
-                    hh4 hh4Var2 = d.get(str2);
-                    if (hh4Var2 != null) {
-                        if (TextUtils.equals(str, hh4Var2.a)) {
-                            hh4Var = hh4Var2;
-                        }
-                    }
-                    return hh4Var;
-                }
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
+            sQLiteDatabase.execSQL(b());
         }
-        return (hh4) invokeLL.objValue;
     }
 
-    public static String a(String str, AbiType abiType) {
-        InterceptResult invokeLL;
+    public final String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, abiType)) == null) {
-            return "so_" + str + "_" + abiType.id;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "CREATE TABLE " + c() + "(_id INTEGER PRIMARY KEY AUTOINCREMENT,bundle_id TEXT UNIQUE,category INT NOT NULL,version_name TEXT NOT NULL,version_code INT DEFAULT 0,size LONG DEFAULT 0," + PackageTable.MD5 + " TEXT NOT NULL,sign TEXT NOT NULL," + TTDownloadField.TT_DOWNLOAD_URL + " TEXT NOT NULL," + PackageTable.FILE_PATH + " TEXT," + PackageTable.CURRENT_SIZE + " LONG DEFAULT 0,create_time LONG DEFAULT 0,update_time LONG DEFAULT 0,state INT DEFAULT 0);";
         }
-        return (String) invokeLL.objValue;
-    }
-
-    @Nullable
-    public static synchronized hh4 d(String str, AbiType abiType) {
-        InterceptResult invokeLL;
-        hh4 e2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, abiType)) == null) {
-            synchronized (hh4.class) {
-                e2 = e(str, a(str, abiType));
-            }
-            return e2;
-        }
-        return (hh4) invokeLL.objValue;
-    }
-
-    public static synchronized Map<String, hh4> b(@NonNull String str) {
-        InterceptResult invokeL;
-        HashMap hashMap;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            synchronized (hh4.class) {
-                hashMap = new HashMap(c(str));
-            }
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    public static synchronized Map<String, hh4> c(@NonNull String str) {
-        InterceptResult invokeL;
-        Map<String, hh4> map;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            synchronized (hh4.class) {
-                map = e.get(str);
-                if (map == null) {
-                    map = new HashMap<>();
-                    if (!TextUtils.isEmpty(str)) {
-                        for (AbiType abiType : AbiType.values()) {
-                            hh4 hh4Var = new hh4(str, abiType);
-                            map.put(hh4Var.b, hh4Var);
-                        }
-                        d.putAll(map);
-                        e.put(str, map);
-                    }
-                }
-            }
-            return map;
-        }
-        return (Map) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 }

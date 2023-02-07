@@ -1,6 +1,7 @@
 package kotlin.collections;
 
 import androidx.exifinterface.media.ExifInterface;
+import com.baidu.searchbox.v8engine.bean.PerformanceJsonBean;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -13,15 +14,14 @@ import kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsKt;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.RestrictedSuspendLambda;
 import kotlin.jvm.functions.Function2;
-import kotlin.jvm.internal.Intrinsics;
 import kotlin.ranges.RangesKt___RangesKt;
 import kotlin.sequences.SequenceScope;
 /* JADX INFO: Add missing generic type declarations: [T] */
-@Metadata(d1 = {"\u0000\u0014\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010 \n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u0002H\u00020\u00040\u0003H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, "Lkotlin/sequences/SequenceScope;", "", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 5, 1})
-@DebugMetadata(c = "kotlin.collections.SlidingWindowKt$windowedIterator$1", f = "SlidingWindow.kt", i = {}, l = {34, 40, 49, 55, 58}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(d1 = {"\u0000\u0010\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010 \u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u0002H\u00020\u00040\u0003H\u008a@"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, "Lkotlin/sequences/SequenceScope;", ""}, k = 3, mv = {1, 6, 0}, xi = 48)
+@DebugMetadata(c = "kotlin.collections.SlidingWindowKt$windowedIterator$1", f = "SlidingWindow.kt", i = {0, 0, 0, 2, 2, 3, 3}, l = {34, 40, 49, 55, 58}, m = "invokeSuspend", n = {"$this$iterator", "buffer", PerformanceJsonBean.KEY_GAP, "$this$iterator", "buffer", "$this$iterator", "buffer"}, s = {"L$0", "L$1", "I$0", "L$0", "L$1", "L$0", "L$1"})
 /* loaded from: classes9.dex */
 public final class SlidingWindowKt$windowedIterator$1<T> extends RestrictedSuspendLambda implements Function2<SequenceScope<? super List<? extends T>>, Continuation<? super Unit>, Object> {
-    public final /* synthetic */ Iterator $iterator;
+    public final /* synthetic */ Iterator<T> $iterator;
     public final /* synthetic */ boolean $partialWindows;
     public final /* synthetic */ boolean $reuseBuffer;
     public final /* synthetic */ int $size;
@@ -32,8 +32,10 @@ public final class SlidingWindowKt$windowedIterator$1<T> extends RestrictedSuspe
     public Object L$2;
     public int label;
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: java.util.Iterator<? extends T> */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SlidingWindowKt$windowedIterator$1(int i, int i2, Iterator it, boolean z, boolean z2, Continuation continuation) {
+    /* JADX WARN: Multi-variable type inference failed */
+    public SlidingWindowKt$windowedIterator$1(int i, int i2, Iterator<? extends T> it, boolean z, boolean z2, Continuation<? super SlidingWindowKt$windowedIterator$1> continuation) {
         super(2, continuation);
         this.$size = i;
         this.$step = i2;
@@ -43,30 +45,33 @@ public final class SlidingWindowKt$windowedIterator$1<T> extends RestrictedSuspe
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
-    public final Continuation<Unit> create(Object obj, Continuation<?> completion) {
-        Intrinsics.checkNotNullParameter(completion, "completion");
-        SlidingWindowKt$windowedIterator$1 slidingWindowKt$windowedIterator$1 = new SlidingWindowKt$windowedIterator$1(this.$size, this.$step, this.$iterator, this.$reuseBuffer, this.$partialWindows, completion);
+    public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
+        SlidingWindowKt$windowedIterator$1 slidingWindowKt$windowedIterator$1 = new SlidingWindowKt$windowedIterator$1(this.$size, this.$step, this.$iterator, this.$reuseBuffer, this.$partialWindows, continuation);
         slidingWindowKt$windowedIterator$1.L$0 = obj;
         return slidingWindowKt$windowedIterator$1;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function2
-    public final Object invoke(Object obj, Continuation<? super Unit> continuation) {
-        return ((SlidingWindowKt$windowedIterator$1) create(obj, continuation)).invokeSuspend(Unit.INSTANCE);
+    public /* bridge */ /* synthetic */ Object invoke(Object obj, Continuation<? super Unit> continuation) {
+        return invoke((SequenceScope) ((SequenceScope) obj), continuation);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0082  */
-    /* JADX WARN: Removed duplicated region for block: B:32:0x00ac  */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x00b0  */
-    /* JADX WARN: Removed duplicated region for block: B:43:0x00da A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x00ea  */
-    /* JADX WARN: Removed duplicated region for block: B:62:0x0128  */
-    /* JADX WARN: Removed duplicated region for block: B:65:0x0132  */
-    /* JADX WARN: Removed duplicated region for block: B:73:0x0152  */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:29:0x00a7 -> B:30:0x00a8). Please submit an issue!!! */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:57:0x011b -> B:59:0x011e). Please submit an issue!!! */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:70:0x0149 -> B:72:0x014c). Please submit an issue!!! */
+    public final Object invoke(SequenceScope<? super List<? extends T>> sequenceScope, Continuation<? super Unit> continuation) {
+        return ((SlidingWindowKt$windowedIterator$1) create(sequenceScope, continuation)).invokeSuspend(Unit.INSTANCE);
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0083  */
+    /* JADX WARN: Removed duplicated region for block: B:31:0x00ac  */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x00b0  */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x00db A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x00eb  */
+    /* JADX WARN: Removed duplicated region for block: B:61:0x0129  */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x0133  */
+    /* JADX WARN: Removed duplicated region for block: B:72:0x0153  */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:27:0x00a5 -> B:29:0x00a8). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:56:0x011c -> B:58:0x011f). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:69:0x014a -> B:71:0x014d). Please submit an issue!!! */
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -74,14 +79,14 @@ public final class SlidingWindowKt$windowedIterator$1<T> extends RestrictedSuspe
     public final Object invokeSuspend(Object obj) {
         int i;
         RingBuffer ringBuffer;
-        Iterator it;
+        Iterator<T> it;
         SequenceScope sequenceScope;
         SlidingWindowKt$windowedIterator$1<T> slidingWindowKt$windowedIterator$1;
         int i2;
         SequenceScope sequenceScope2;
         SlidingWindowKt$windowedIterator$1<T> slidingWindowKt$windowedIterator$12;
         ArrayList arrayList;
-        Iterator it2;
+        Iterator<T> it2;
         RingBuffer ringBuffer2;
         SequenceScope sequenceScope3;
         RandomAccess arrayList2;
@@ -175,20 +180,21 @@ public final class SlidingWindowKt$windowedIterator$1<T> extends RestrictedSuspe
                 ResultKt.throwOnFailure(obj);
                 return Unit.INSTANCE;
             }
-            i2 = this.I$0;
+            int i5 = this.I$0;
             it2 = (Iterator) this.L$2;
             arrayList = (ArrayList) this.L$1;
             sequenceScope2 = (SequenceScope) this.L$0;
             ResultKt.throwOnFailure(obj);
             slidingWindowKt$windowedIterator$12 = this;
+            i = i5;
             if (!slidingWindowKt$windowedIterator$12.$reuseBuffer) {
                 arrayList.clear();
             } else {
                 arrayList = new ArrayList(slidingWindowKt$windowedIterator$12.$size);
             }
-            i = i2;
+            i2 = i;
             while (it2.hasNext()) {
-                Object next = it2.next();
+                T next = it2.next();
                 if (i2 > 0) {
                     i2--;
                 } else {
@@ -202,10 +208,9 @@ public final class SlidingWindowKt$windowedIterator$1<T> extends RestrictedSuspe
                         if (sequenceScope2.yield(arrayList, slidingWindowKt$windowedIterator$12) == coroutine_suspended) {
                             return coroutine_suspended;
                         }
-                        i2 = i;
                         if (!slidingWindowKt$windowedIterator$12.$reuseBuffer) {
                         }
-                        i = i2;
+                        i2 = i;
                         while (it2.hasNext()) {
                         }
                     }

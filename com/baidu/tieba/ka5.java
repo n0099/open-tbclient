@@ -1,38 +1,37 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.cloudcontrol.request.CloudControlRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.gson.annotations.SerializedName;
+import java.util.Objects;
+import tbclient.Loop.FestivalInfo;
+import tbclient.ThemeColorInfo;
 /* loaded from: classes5.dex */
-public class ka5 extends la5 {
+public class ka5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.la5
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? CloudControlRequest.REQUEST_KEY_FILTER : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.la5
-    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, z)) == null) ? bitmap : (Bitmap) invokeLZ.objValue;
-    }
-
-    @Override // com.baidu.tieba.la5
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || str == null) {
-        }
-    }
+    @Nullable
+    @SerializedName("main_fname")
+    public String a;
+    @SerializedName("main_fid")
+    public long b;
+    @Nullable
+    @SerializedName("bless")
+    public String c;
+    @Nullable
+    @SerializedName("write_select_tips")
+    public String d;
+    @Nullable
+    @SerializedName("comment_tips")
+    public String e;
+    @Nullable
+    @SerializedName("tips_color")
+    public ThemeColorInfo f;
 
     public ka5() {
         Interceptable interceptable = $ic;
@@ -46,5 +45,46 @@ public class ka5 extends la5 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public void a(FestivalInfo festivalInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, festivalInfo) != null) || festivalInfo == null) {
+            return;
+        }
+        this.a = festivalInfo.main_fname;
+        this.b = festivalInfo.main_fid.longValue();
+        this.c = festivalInfo.bless;
+        this.d = festivalInfo.write_select_tips;
+        this.e = festivalInfo.comment_tips;
+        this.f = festivalInfo.tips_color;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || ka5.class != obj.getClass()) {
+                return false;
+            }
+            ka5 ka5Var = (ka5) obj;
+            if (Objects.equals(this.a, ka5Var.a) && this.b == ka5Var.b && Objects.equals(this.c, ka5Var.c) && Objects.equals(this.d, ka5Var.d) && Objects.equals(this.e, ka5Var.e)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return Objects.hash(this.a, Long.valueOf(this.b), this.c, this.d, this.e);
+        }
+        return invokeV.intValue;
     }
 }

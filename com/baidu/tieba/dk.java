@@ -1,41 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import org.apache.http.message.BasicNameValuePair;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class dk extends jk {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String[] e;
-    public List<BasicNameValuePair> f;
+public interface dk {
+    void a(String str);
 
-    public dk(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = str;
-        this.b = "/";
-        this.d = null;
-        this.e = null;
-        this.f = null;
-    }
+    void b(int i, String str);
+
+    void c(zj zjVar);
+
+    void d(byte[] bArr);
+
+    void e();
+
+    void f(hk hkVar);
+
+    void g(int i, zj zjVar);
+
+    void h(zj zjVar);
+
+    void i(zj zjVar);
+
+    void onOpen(Map<String, String> map);
 }

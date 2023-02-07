@@ -1,21 +1,32 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebChromeClient;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
+@Service
 /* loaded from: classes4.dex */
-public class fi0 {
+public class fi0 extends xi0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public JSONObject a;
-    public Map<String, String> b;
-    public Map<String, String> c;
+
+    @Override // com.baidu.tieba.xi0
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "loadCache" : (String) invokeV.objValue;
+    }
 
     public fi0() {
         Interceptable interceptable = $ic;
@@ -31,30 +42,28 @@ public class fi0 {
         }
     }
 
-    public static fi0 a(@NonNull HashMap<String, ?> hashMap) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.xi0
+    public boolean b(@NonNull Context context, @NonNull bj0 bj0Var, @Nullable Map<String, Object> map, @Nullable fj0 fj0Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hashMap)) == null) {
-            fi0 fi0Var = new fi0();
-            if (hashMap.get("cmd_map") instanceof String) {
-                JSONObject c = u01.c((String) hashMap.get("cmd_map"));
-                fi0Var.a = c;
-                fi0Var.b = u01.b(c);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, bj0Var, map, fj0Var)) == null) {
+            super.b(context, bj0Var, map, fj0Var);
+            HashMap<String, String> d = bj0Var.d();
+            String str = d.get("key");
+            String str2 = d.get(WebChromeClient.KEY_ARG_CALLBACK);
+            String str3 = d.get("ext");
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                String b = gi0.a().b(str);
+                JSONObject jSONObject = new JSONObject();
+                y11.f(jSONObject, "key", str);
+                y11.f(jSONObject, "message", b);
+                y11.f(jSONObject, "ext", str3);
+                d(fj0Var, bj0Var, jSONObject.toString(), 0, true);
+                return true;
             }
-            if (hashMap.get("area_cmd") instanceof String) {
-                fi0Var.c = u01.b(u01.c((String) hashMap.get("area_cmd")));
-            }
-            if (hashMap.get("charge_map") instanceof String) {
-                u01.b(u01.c((String) hashMap.get("charge_map")));
-            }
-            if (hashMap.get("parallel_charge_urls") instanceof JSONObject) {
-                u01.b((JSONObject) hashMap.get("parallel_charge_urls"));
-            }
-            if (hashMap.get("defer_charge_urls") instanceof JSONObject) {
-                u01.b((JSONObject) hashMap.get("defer_charge_urls"));
-            }
-            return fi0Var;
+            c(fj0Var, bj0Var, 202, false);
+            return true;
         }
-        return (fi0) invokeL.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

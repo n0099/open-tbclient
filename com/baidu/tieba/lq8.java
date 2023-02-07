@@ -1,123 +1,187 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.setting.more.AdSettingActivity;
-import com.baidu.tieba.setting.more.MsgSettingItemView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
-public class lq8 extends q9<AdSettingActivity> {
+public class lq8 {
     public static /* synthetic */ Interceptable $ic;
+    public static lq8 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public AdSettingActivity a;
-    public View b;
-    public NavigationBar c;
-    public MsgSettingItemView d;
-    public TextView e;
-    public ImageView f;
+    public HashMap<String, String> a;
+    public HashMap<String, String> b;
+    public ConcurrentHashMap<String, mq8> c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lq8(AdSettingActivity adSettingActivity) {
-        super(adSettingActivity.getPageContext());
+    public lq8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {adSettingActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((s9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = adSettingActivity;
-        k();
+        this.a = new HashMap<>();
+        this.b = new HashMap<>();
+        this.c = new ConcurrentHashMap<>();
     }
 
-    public final void i() {
-        int i;
+    public static lq8 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.d.setText(R.string.obfuscated_res_0x7f0f0b34);
-            this.d.setOnSwitchStateChangeListener(this.a);
-            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-            int i2 = 0;
-            if (currentAccountObj != null) {
-                i2 = currentAccountObj.getMemberCloseAdIsOpen();
-                i = currentAccountObj.getMemberCloseAdVipClose();
-            } else {
-                i = 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (d == null) {
+                synchronized (lq8.class) {
+                    if (d == null) {
+                        d = new lq8();
+                    }
+                }
             }
-            if (i2 == 0) {
-                this.d.setVisibility(8);
-                this.e.setVisibility(8);
-            } else if (i == 0) {
-                this.d.e();
-            } else {
-                this.d.g();
+            return d;
+        }
+        return (lq8) invokeV.objValue;
+    }
+
+    public ConcurrentHashMap<String, mq8> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (ConcurrentHashMap) invokeV.objValue;
+    }
+
+    public mq8 c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            HashMap<String, String> hashMap = this.a;
+            if (hashMap == null || this.c == null) {
+                return null;
+            }
+            String str2 = hashMap.get(str);
+            if (TextUtils.isEmpty(str2)) {
+                return null;
+            }
+            return this.c.get(str2);
+        }
+        return (mq8) invokeL.objValue;
+    }
+
+    public void f(String str) {
+        ConcurrentHashMap<String, mq8> concurrentHashMap;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && !TextUtils.isEmpty(str) && (concurrentHashMap = this.c) != null) {
+            Iterator<String> it = concurrentHashMap.keySet().iterator();
+            while (it.hasNext()) {
+                mq8 mq8Var = this.c.get(it.next());
+                if (mq8Var != null && str.equals(mq8Var.b)) {
+                    it.remove();
+                }
             }
         }
     }
 
-    public final void k() {
+    public void g(boolean z) {
+        ConcurrentHashMap<String, mq8> concurrentHashMap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.setContentView(R.layout.obfuscated_res_0x7f0d006e);
-            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.view_navigation_bar);
-            this.c = navigationBar;
-            navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.c.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f00ab));
-            this.d = (MsgSettingItemView) this.a.findViewById(R.id.obfuscated_res_0x7f09158c);
-            this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09158d);
-            this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0902c2);
-            this.b = this.a.findViewById(R.id.obfuscated_res_0x7f091844);
-            i();
+        if ((interceptable != null && interceptable.invokeZ(1048581, this, z) != null) || (concurrentHashMap = this.c) == null) {
+            return;
         }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.d.e();
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.d.g();
-        }
-    }
-
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            dr4 layoutMode = this.a.getLayoutMode();
-            boolean z = true;
-            if (i != 1) {
-                z = false;
+        for (String str : concurrentHashMap.keySet()) {
+            mq8 mq8Var = this.c.get(str);
+            if (mq8Var != null) {
+                mq8Var.e = z;
             }
-            layoutMode.l(z);
-            this.a.getLayoutMode().k(this.b);
-            this.c.onChangeSkinType(getPageContext(), i);
-            this.d.c(this.a.getPageContext(), i);
-            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0105);
-            SkinManager.setBackgroundColor(this.e, R.color.CAM_X0201);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+        }
+    }
+
+    public mq8 d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            ConcurrentHashMap<String, mq8> concurrentHashMap = this.c;
+            if (concurrentHashMap == null) {
+                return null;
+            }
+            return concurrentHashMap.get(str);
+        }
+        return (mq8) invokeL.objValue;
+    }
+
+    public String e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            HashMap<String, String> hashMap = this.b;
+            if (hashMap == null) {
+                return null;
+            }
+            return hashMap.get(str);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void i(HashMap<String, mq8> hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, hashMap) == null) {
+            this.c.clear();
+            if (hashMap == null) {
+                return;
+            }
+            this.c.putAll(hashMap);
+        }
+    }
+
+    public void h(boolean z, String str) {
+        ConcurrentHashMap<String, mq8> concurrentHashMap;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZL(1048582, this, z, str) == null) && !TextUtils.isEmpty(str) && (concurrentHashMap = this.c) != null) {
+            for (String str2 : concurrentHashMap.keySet()) {
+                mq8 mq8Var = this.c.get(str2);
+                if (mq8Var != null && str.equals(mq8Var.b)) {
+                    mq8Var.e = z;
+                }
+            }
+        }
+    }
+
+    public void j(String str, String str2) {
+        HashMap<String, String> hashMap;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && (hashMap = this.a) != null) {
+            hashMap.put(str, str2);
+        }
+    }
+
+    public void k(String str, String str2) {
+        HashMap<String, String> hashMap;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && (hashMap = this.b) != null) {
+            hashMap.put(str, str2);
+        }
+    }
+
+    public void l(String str, HashMap<String, mq8> hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, str, hashMap) == null) {
+            if (this.c == null) {
+                this.c = new ConcurrentHashMap<>();
+            }
+            f(str);
+            this.c.putAll(hashMap);
         }
     }
 }

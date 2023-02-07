@@ -1,14 +1,8 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupEditText;
-import com.baidu.tbadk.data.AtSelectData;
-import com.baidu.tbadk.editortools.RawLayout;
-import com.baidu.tbadk.editortools.inputtool.InputView;
+import com.baidu.searchbox.download.center.clearcache.DiskUpdateListener;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,14 +10,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class w75 extends k75 {
+public class w75 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int u;
-    public static final int[] v;
+    public static final Map<ShareDialogConfig.From, Integer> f;
     public transient /* synthetic */ FieldHolder $fh;
-    public InputView t;
+    public int a;
+    public int b;
+    public String c;
+    public int d;
+    public List<Integer> e;
 
     static {
         InterceptResult invokeClinit;
@@ -38,99 +39,102 @@ public class w75 extends k75 {
                 return;
             }
         }
-        u = zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds26);
-        v = new int[]{4, 17, 24, 3, 9, 6, 44};
+        HashMap hashMap = new HashMap();
+        f = hashMap;
+        hashMap.put(ShareDialogConfig.From.Recommend, 1);
+        f.put(ShareDialogConfig.From.Concern, 2);
+        f.put(ShareDialogConfig.From.PB, 3);
+        f.put(ShareDialogConfig.From.FRS, 4);
+        f.put(ShareDialogConfig.From.PersonPolymeric, 5);
+        f.put(ShareDialogConfig.From.VideoMiddlePageHorizontal, 6);
+        f.put(ShareDialogConfig.From.VideoMiddlePageVertical, 7);
+        f.put(ShareDialogConfig.From.HomeVideoTab, 8);
+        f.put(ShareDialogConfig.From.HomeGameTab, 9);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w75(Context context, boolean z) {
-        super(context, (String) null, 3);
+    public w75() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
-        }
-        i(context, z);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w75(Context context, boolean z, boolean z2) {
-        super(context, (String) null, 3);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        i(context, z);
-        InputView inputView = this.t;
-        if (inputView != null) {
-            inputView.setNeedFaceMaxCount(z2);
         }
     }
 
-    public SpanGroupEditText g() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.t;
+            return this.d;
         }
-        return (SpanGroupEditText) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public List<AtSelectData> h() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.t.getSpanGroupManager().t();
+            return this.c;
         }
-        return (List) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final void i(Context context, boolean z) {
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, context, z) == null) {
-            this.o = false;
-            this.n = 2;
-            this.p = v;
-            InputView inputView = new InputView(context, z);
-            this.t = inputView;
-            this.m = inputView;
-            RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(0, -1);
-            int i = u;
-            ((LinearLayout.LayoutParams) layoutParams).topMargin = i;
-            ((LinearLayout.LayoutParams) layoutParams).bottomMargin = i;
-            ((LinearLayout.LayoutParams) layoutParams).weight = 1.0f;
-            ((LinearLayout.LayoutParams) layoutParams).gravity = 80;
-            ((View) this.m).setLayoutParams(layoutParams);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (System.currentTimeMillis() / 1000 >= this.a && System.currentTimeMillis() / 1000 <= this.b) {
+                return true;
+            }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public void j(boolean z) {
+    public boolean d(ShareDialogConfig.From from) {
+        InterceptResult invokeL;
+        Integer num;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            ((InputView) this.m).setIsOnlyLocalEmotion(z);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, from)) == null) {
+            if (this.e == null || (num = f.get(from)) == null || !this.e.contains(num)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void e(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.a = jSONObject.optInt(DiskUpdateListener.BEGIN_TIME);
+        this.b = jSONObject.optInt("end_time");
+        this.c = jSONObject.optString("text");
+        this.d = jSONObject.optInt("icon_exp");
+        f(jSONObject.optString("page_list"));
+    }
+
+    public final void f(String str) {
+        String[] split;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || dj.isEmpty(str) || (split = str.split(",")) == null) {
+            return;
+        }
+        for (String str2 : split) {
+            int e = dh.e(str2, -1);
+            if (e != -1) {
+                if (this.e == null) {
+                    this.e = new ArrayList();
+                }
+                this.e.add(Integer.valueOf(e));
+            }
         }
     }
 }

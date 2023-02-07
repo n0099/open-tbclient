@@ -1,84 +1,34 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.immessagecenter.mention.FeedData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire.Message;
 import java.util.ArrayList;
 import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import tbclient.ReplyMe.DataRes;
+import tbclient.ReplyMe.ReplyList;
+import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes3.dex */
-public class bt7 extends BaseAdapter {
+public class bt7 implements ui5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<String> b;
-    public Context c;
+    public ArrayList<FeedData> a;
+    public ty4 b;
+    public zs7 c;
 
-    /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    /* loaded from: classes3.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public View b;
-        public TextView c;
-        public View d;
-
-        public b(bt7 bt7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bt7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = 3;
-        }
-
-        public /* synthetic */ b(bt7 bt7Var, a aVar) {
-            this(bt7Var);
-        }
-    }
-
-    public bt7(Context context, ArrayList<String> arrayList) {
+    public bt7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, arrayList};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -88,105 +38,77 @@ public class bt7 extends BaseAdapter {
                 return;
             }
         }
-        this.c = context;
-        this.b = arrayList;
+        this.a = new ArrayList<>();
+        this.b = new ty4();
+        this.c = new zs7();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public String getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            int count = getCount();
-            if (count > 0 && i < count) {
-                return this.b.get(i);
-            }
-            return null;
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public void c(List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.b = list;
-            if (list != null) {
-                notifyDataSetChanged();
-            }
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || StringUtils.isNull(str)) {
-            return;
-        }
-        this.a = str.trim();
-    }
-
-    public void b(TextView textView, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textView, str) == null) && textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.a)) {
-            String lowerCase = str.toLowerCase();
-            String lowerCase2 = this.a.toLowerCase();
-            if (!lowerCase.contains(lowerCase2)) {
-                textView.setText(str);
-                return;
-            }
-            int indexOf = lowerCase.indexOf(lowerCase2);
-            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301));
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.a.length() + indexOf, 33);
-            textView.setText(spannableStringBuilder);
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public ArrayList<FeedData> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<String> list = this.b;
-            if (list == null) {
-                return 0;
-            }
-            return list.size();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return invokeV.intValue;
+        return (ArrayList) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        b bVar;
+    public ty4 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d07cb, (ViewGroup) null);
-                bVar = new b(this, null);
-                bVar.b = view2.findViewById(R.id.obfuscated_res_0x7f091d61);
-                bVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091eba);
-                bVar.d = view2.findViewById(R.id.obfuscated_res_0x7f091eb9);
-                view2.setTag(bVar);
-            } else {
-                bVar = (b) view2.getTag();
-            }
-            String item = getItem(i);
-            if (StringUtils.isNull(item)) {
-                return view2;
-            }
-            b(bVar.c, item);
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (skinType != bVar.a) {
-                bVar.a = skinType;
-                SkinManager.setBackgroundResource(bVar.b, R.drawable.addresslist_item_bg);
-                SkinManager.setViewTextColor(bVar.c, (int) R.color.CAM_X0105);
-                SkinManager.setBackgroundColor(bVar.d, R.color.CAM_X0204);
-            }
-            return view2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return (View) invokeILL.objValue;
+        return (ty4) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ui5
+    public void initByJson(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            try {
+                JSONArray optJSONArray = jSONObject.optJSONArray("reply_list");
+                if (optJSONArray == null) {
+                    optJSONArray = jSONObject.optJSONArray("at_list");
+                }
+                if (optJSONArray != null) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        FeedData feedData = new FeedData();
+                        feedData.parserJson(optJSONArray.optJSONObject(i));
+                        this.a.add(feedData);
+                        if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && ListUtils.getCount(feedData.getPraiseList()) == 0) {
+                            this.a.remove(feedData);
+                        }
+                    }
+                }
+                this.c.f(jSONObject.optJSONObject("message"));
+                this.b.i(jSONObject.optJSONObject("page"));
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ui5
+    public void initByProtobuf(Message message) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, message) == null) && (message instanceof ReplyMeResIdl)) {
+            DataRes dataRes = ((ReplyMeResIdl) message).data;
+            try {
+                List<ReplyList> list = dataRes.reply_list;
+                if (list != null) {
+                    for (int i = 0; i < list.size(); i++) {
+                        FeedData feedData = new FeedData();
+                        feedData.parserProtoBuf(list.get(i));
+                        this.a.add(feedData);
+                        if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && ListUtils.getCount(feedData.getPraiseList()) == 0) {
+                            this.a.remove(feedData);
+                        }
+                    }
+                }
+                this.b.j(dataRes.page);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
     }
 }

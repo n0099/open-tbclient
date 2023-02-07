@@ -1,340 +1,383 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.util.Log;
+import android.webkit.JavascriptInterface;
+import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.pms.PMSConstants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.JSRuntime;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.searchbox.v8engine.event.EventTargetImpl;
+import com.baidu.swan.games.view.button.base.ApiButton;
+import com.baidu.tieba.sb4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class tb4 {
+public class tb4 extends EventTargetImpl implements sb4.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ApiButton a;
+    @V8JavascriptField
+    public String image;
+    @V8JavascriptField
+    public sb4 style;
+    @V8JavascriptField
+    public String text;
+    @V8JavascriptField
+    public String type;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948175427, "Lcom/baidu/tieba/tb4;")) == null) {
-            return;
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ tb4 a;
+
+        public a(tb4 tb4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tb4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tb4Var;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948175427, "Lcom/baidu/tieba/tb4;");
+
+        @Override // java.lang.Runnable
+        public void run() {
+            ApiButton apiButton;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (apiButton = this.a.a) != null) {
+                qb4.d(apiButton);
+                this.a.a = null;
+            }
         }
     }
 
-    public tb4() {
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ tb4 a;
+
+        public b(tb4 tb4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tb4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tb4Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            ApiButton apiButton;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (apiButton = this.a.a) != null) {
+                apiButton.hide();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ tb4 a;
+
+        public c(tb4 tb4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tb4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tb4Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            ApiButton apiButton;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (apiButton = this.a.a) != null) {
+                apiButton.show();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ tb4 b;
+
+        public d(tb4 tb4Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tb4Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = tb4Var;
+            this.a = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (gp1.a) {
+                    Log.d("BaseButtonProxy", "onFieldChangedCallback fieldName=" + this.a);
+                }
+                if (this.b.a == null) {
+                    return;
+                }
+                String str = this.a;
+                char c = 65535;
+                int hashCode = str.hashCode();
+                if (hashCode != 3556653) {
+                    if (hashCode == 100313435 && str.equals("image")) {
+                        c = 1;
+                    }
+                } else if (str.equals("text")) {
+                    c = 0;
+                }
+                if (c != 0) {
+                    if (c == 1) {
+                        tb4 tb4Var = this.b;
+                        tb4Var.a.setImageUrl(tb4Var.image);
+                        return;
+                    }
+                    return;
+                }
+                tb4 tb4Var2 = this.b;
+                tb4Var2.a.setButtonText(tb4Var2.text);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ tb4 a;
+
+        public e(tb4 tb4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tb4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tb4Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                tb4 tb4Var = this.a;
+                if (tb4Var.a != null && !tb4Var.B()) {
+                    this.a.a.h();
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tb4(JsObject jsObject, gg2 gg2Var) {
+        super(gg2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jsObject, gg2Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((JSRuntime) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.type = "text";
+        this.text = ds2.c().getString(R.string.obfuscated_res_0x7f0f0108);
+        A(jsObject);
+    }
+
+    @JavascriptInterface
+    public void onFieldChangedCallback(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            qm3.e0(new d(this, str));
         }
     }
 
-    public static void a(@NonNull JSONObject jSONObject, @Nullable Map<String, String> map) {
+    public final void A(JsObject jsObject) {
+        sb4 sb4Var;
+        String str;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65538, null, jSONObject, map) != null) || map == null) {
-            return;
-        }
-        try {
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                jSONObject.put(entry.getKey(), entry.getValue());
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static boolean b(pf4 pf4Var, ec4 ec4Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, pf4Var, ec4Var)) == null) {
-            if (ec4Var == null) {
-                return true;
-            }
-            if (pf4Var == null) {
-                ec4Var.C(new dd4(2100, "request对象为空"));
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static JSONObject i(@Nullable tf4<JSONArray> tf4Var, @Nullable tf4<JSONObject> tf4Var2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, tf4Var, tf4Var2)) == null) {
-            return wf4.a(tf4Var, tf4Var2);
-        }
-        return (JSONObject) invokeLL.objValue;
-    }
-
-    public static synchronized void l(qf4 qf4Var, ec4 ec4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65549, null, qf4Var, ec4Var) == null) {
-            synchronized (tb4.class) {
-                m(qf4Var, ec4Var, null);
-            }
-        }
-    }
-
-    public static synchronized void c(lf4 lf4Var, ec4 ec4Var) {
-        sd4 M;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, lf4Var, ec4Var) == null) {
-            synchronized (tb4.class) {
-                if (b(lf4Var, ec4Var)) {
-                    return;
-                }
-                if (TextUtils.isEmpty(lf4Var.g())) {
-                    ec4Var.C(new dd4(2100, "bundleId为空"));
-                    return;
-                }
-                HashMap<String, String> i = nd4.i(lf4Var);
-                if (ec4Var.B() != null) {
-                    i.putAll(ec4Var.B());
-                }
-                ec4Var.D();
-                if (lf4Var.n() == 1 && lf4Var.h() == 2101) {
-                    M = ub4.b().n();
+        if (interceptable == null || interceptable.invokeL(1048576, this, jsObject) == null) {
+            d12 F = d12.F(jsObject);
+            if (gp1.a) {
+                if (("parse jsObject = " + F) != null) {
+                    str = F.toString();
                 } else {
-                    M = ub4.b().M();
+                    str = null;
                 }
-                M.z(rd4.e(), i, ec4Var.t(), new ye4(lf4Var.g(), ec4Var, lf4Var));
+                Log.d("BaseButtonProxy", str);
             }
+            if (F == null) {
+                return;
+            }
+            this.type = F.C("type", this.type);
+            this.text = F.C("text", this.text);
+            this.image = F.C("image", this.image);
+            d12 x = F.x("style", null);
+            if (x == null) {
+                sb4Var = this.style;
+            } else {
+                sb4Var = new sb4(x);
+            }
+            this.style = sb4Var;
         }
     }
 
-    public static synchronized void d(if4 if4Var, ec4 ec4Var) {
+    public final boolean B() {
+        InterceptResult invokeV;
+        cz2 z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, if4Var, ec4Var) == null) {
-            synchronized (tb4.class) {
-                if (b(if4Var, ec4Var)) {
-                    return;
-                }
-                if (if4Var.f() != null && !if4Var.f().isEmpty()) {
-                    HashMap<String, String> f = nd4.f(if4Var);
-                    if (ec4Var.B() != null && f != null) {
-                        f.putAll(ec4Var.B());
-                    }
-                    JSONObject d = nd4.d(if4Var);
-                    if (d == null) {
-                        ec4Var.C(new dd4(2100, "构造请求body失败"));
-                        return;
-                    }
-                    a(d, ec4Var.y());
-                    ec4Var.D();
-                    ub4.b().M().b(rd4.d(), f, ec4Var.t(), d, new we4(ec4Var, if4Var));
-                    return;
-                }
-                ec4Var.C(new dd4(2100, "pkg List为空"));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.a == null || this.style == null || (z = z()) == null || !qb4.f(this.a, z)) {
+                return false;
             }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @JavascriptInterface
+    public void destroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            qm3.e0(new a(this));
         }
     }
 
-    public static synchronized void h(of4 of4Var, ec4 ec4Var) {
+    @JavascriptInterface
+    public void hide() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, of4Var, ec4Var) == null) {
-            synchronized (tb4.class) {
-                if (b(of4Var, ec4Var)) {
-                    return;
-                }
-                if (TextUtils.isEmpty(of4Var.f())) {
-                    ec4Var.C(new dd4(2100, "bundleId为空"));
-                } else if (TextUtils.isEmpty(of4Var.k())) {
-                    ec4Var.C(new dd4(2100, "分包名为空"));
-                } else {
-                    HashMap<String, String> k = nd4.k(of4Var);
-                    if (ec4Var.B() != null) {
-                        k.putAll(ec4Var.B());
-                    }
-                    ec4Var.D();
-                    ub4.b().M().z(rd4.e(), k, ec4Var.t(), new af4(of4Var.f(), ec4Var, of4Var));
-                }
-            }
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            qm3.e0(new b(this));
         }
     }
 
-    public static void e(List<String> list, @Nullable String str, @Nullable yb4 yb4Var) {
-        sb4 b;
+    @Override // com.baidu.tieba.sb4.a
+    public void r() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65542, null, list, str, yb4Var) != null) || (b = ub4.b()) == null) {
-            return;
-        }
-        if (PMSConstants.a(b)) {
-            yg4.e().f();
-        }
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("appkeys", new JSONArray((Collection) list));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        HashMap hashMap = new HashMap();
-        hashMap.put("src_app", str);
-        b.M().b(rd4.c(), hashMap, null, jSONObject, new zb4(yb4Var));
-    }
-
-    public static synchronized void f(kf4 kf4Var, ec4 ec4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, kf4Var, ec4Var) == null) {
-            synchronized (tb4.class) {
-                if (b(kf4Var, ec4Var)) {
-                    return;
-                }
-                if (kf4Var.f() != null && !kf4Var.f().isEmpty()) {
-                    HashMap<String, String> f = nd4.f(kf4Var);
-                    if (ec4Var.B() != null && f != null) {
-                        f.putAll(ec4Var.B());
-                    }
-                    JSONObject e = nd4.e(kf4Var);
-                    if (e == null) {
-                        ec4Var.C(new dd4(2100, "构造请求body失败"));
-                        return;
-                    }
-                    if (PMSConstants.a(ub4.b())) {
-                        yg4.e().f();
-                    }
-                    a(e, ec4Var.y());
-                    ec4Var.D();
-                    ub4.b().M().b(rd4.d(), f, ec4Var.t(), e, new xe4(ec4Var, kf4Var));
-                    return;
-                }
-                ec4Var.C(new dd4(2100, "pkg List为空"));
-            }
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            qm3.e0(new e(this));
         }
     }
 
-    public static synchronized void g(mf4 mf4Var, ec4 ec4Var) {
+    @JavascriptInterface
+    public void show() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, mf4Var, ec4Var) == null) {
-            synchronized (tb4.class) {
-                if (b(mf4Var, ec4Var)) {
-                    return;
-                }
-                HashMap<String, String> j = nd4.j(mf4Var);
-                if (ec4Var.B() != null) {
-                    j.putAll(ec4Var.B());
-                }
-                ec4Var.D();
-                ub4.b().M().z(rd4.f(), j, ec4Var.t(), new ze4(ec4Var, mf4Var));
-            }
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            qm3.e0(new c(this));
         }
     }
 
-    public static synchronized boolean j(String str) {
-        InterceptResult invokeL;
-        boolean c;
+    public boolean y() {
+        InterceptResult invokeV;
+        sb4 sb4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
-            synchronized (tb4.class) {
-                c = je4.b().c(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.a == null || (sb4Var = this.style) == null) {
+                return false;
             }
-            return c;
+            sb4Var.b(this);
+            cz2 z = z();
+            if (z == null || !qb4.a(this.a, z)) {
+                return false;
+            }
+            return true;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public static synchronized boolean k(String str) {
-        InterceptResult invokeL;
-        boolean d;
+    public final cz2 z() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
-            synchronized (tb4.class) {
-                d = je4.b().d(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            sb4 sb4Var = this.style;
+            if (sb4Var == null || this.a == null) {
+                return null;
             }
-            return d;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static synchronized void m(qf4 qf4Var, ec4 ec4Var, ec4 ec4Var2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65550, null, qf4Var, ec4Var, ec4Var2) == null) {
-            synchronized (tb4.class) {
-                n(qf4Var, ec4Var, ec4Var2, null);
+            int g = nm3.g(sb4Var.width);
+            int g2 = nm3.g(this.style.height);
+            int g3 = nm3.g(this.style.left);
+            int g4 = nm3.g(this.style.top);
+            int g5 = nm3.g(this.style.borderWidth) * 2;
+            if (g < g5) {
+                g = g5;
             }
-        }
-    }
-
-    public static synchronized void n(qf4 qf4Var, ec4 ec4Var, ec4 ec4Var2, @Nullable gh4 gh4Var) {
-        tf4<JSONArray> g;
-        ec4 callback;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65551, null, qf4Var, ec4Var, ec4Var2, gh4Var) == null) {
-            synchronized (tb4.class) {
-                if (b(qf4Var, ec4Var)) {
-                    return;
-                }
-                if (PMSConstants.a(ub4.b())) {
-                    yg4.e().f();
-                }
-                if (gh4Var == null) {
-                    g = null;
-                } else {
-                    g = gh4Var.g();
-                }
-                if (gh4Var == null) {
-                    callback = null;
-                } else {
-                    callback = gh4Var.getCallback();
-                }
-                HashMap hashMap = new HashMap();
-                if (ec4Var.B() != null) {
-                    hashMap.putAll(ec4Var.B());
-                }
-                ec4Var.D();
-                ub4.b().M().b(rd4.g(), hashMap, ec4Var.t(), i(g, null), new bf4(ec4Var, qf4Var, ec4Var2, callback));
+            if (g2 < g5) {
+                g2 = g5;
             }
-        }
-    }
-
-    public static synchronized void o(gh4 gh4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65552, null, gh4Var) == null) {
-            synchronized (tb4.class) {
-                if (gh4Var == null) {
-                    return;
-                }
-                ec4 callback = gh4Var.getCallback();
-                if (callback == null) {
-                    return;
-                }
-                pf4 request = gh4Var.getRequest();
-                if (request == null) {
-                    callback.C(new dd4(2100, "request对象为空"));
-                    return;
-                }
-                Map<String, String> B = callback.B();
-                if (callback.B() != null) {
-                    B = new HashMap(B);
-                }
-                callback.D();
-                ub4.b().M().b(rd4.g(), B, callback.t(), i(gh4Var.g(), null), new bf4(callback, request, null, callback));
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.a.getLayoutParams();
+            if (layoutParams != null && layoutParams.width == g && layoutParams.height == g2 && layoutParams.leftMargin == g3 && layoutParams.topMargin == g4) {
+                return null;
             }
+            return new cz2(g3, g4, g, g2);
         }
+        return (cz2) invokeV.objValue;
     }
 }

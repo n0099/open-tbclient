@@ -36,7 +36,7 @@ public final class UriCompat {
             String scheme = uri.getScheme();
             String schemeSpecificPart = uri.getSchemeSpecificPart();
             if (scheme != null) {
-                if (!scheme.equalsIgnoreCase("tel") && !scheme.equalsIgnoreCase("sip") && !scheme.equalsIgnoreCase(LoginConstants.SMS_LOGIN) && !scheme.equalsIgnoreCase("smsto") && !scheme.equalsIgnoreCase("mailto") && !scheme.equalsIgnoreCase("nfc")) {
+                if (!scheme.equalsIgnoreCase("tel") && !scheme.equalsIgnoreCase("sip") && !scheme.equalsIgnoreCase(LoginConstants.SMS_LOGIN) && !scheme.equalsIgnoreCase("smsto") && !scheme.equalsIgnoreCase(MailTo.MAILTO) && !scheme.equalsIgnoreCase("nfc")) {
                     if (scheme.equalsIgnoreCase("http") || scheme.equalsIgnoreCase("https") || scheme.equalsIgnoreCase("ftp") || scheme.equalsIgnoreCase("rtsp")) {
                         StringBuilder sb = new StringBuilder();
                         sb.append("//");

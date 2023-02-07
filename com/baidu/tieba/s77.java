@@ -1,21 +1,74 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.app.Application;
+import android.content.Context;
+import android.text.TextUtils;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.MtjConfig;
+import com.baidu.mobstat.StatService;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.p69;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class s77 {
+public class s77 implements p69.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, String str2, String str3) {
+    public s77() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, str, str2, str3) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("obj_name", str2);
-            statisticItem.param("obj_type", str3);
-            TiebaStatic.log(statisticItem);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        String version = TbConfig.getVersion();
+        if (!TextUtils.isEmpty(version)) {
+            StatService.setAppVersionName(TbadkCoreApplication.getInst(), version);
+        }
+    }
+
+    @Override // com.baidu.tieba.p69.a
+    public void a(Application application) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, application) == null) {
+            StatService.enableAppList(application, false);
+        }
+    }
+
+    @Override // com.baidu.tieba.p69.a
+    public void b(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            StatService.setFeedTrack(MtjConfig.FeedTrackStrategy.TRACK_NONE);
+            StatService.autoTrace(context);
+        }
+    }
+
+    @Override // com.baidu.tieba.p69.a
+    public void c(Context context, WebView webView, WebChromeClient webChromeClient) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, webView, webChromeClient) == null) {
+            StatService.trackWebView(context, webView, webChromeClient);
+        }
+    }
+
+    @Override // com.baidu.tieba.p69.a
+    public void d(Context context, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048579, this, context, str, z) == null) {
+            StatService.setAppChannel(context, str, z);
         }
     }
 }

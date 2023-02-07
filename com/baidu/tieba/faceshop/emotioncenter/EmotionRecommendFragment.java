@@ -20,14 +20,14 @@ import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ck6;
-import com.baidu.tieba.ek6;
+import com.baidu.tieba.ej;
 import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.faceshop.emotioncenter.data.EmotionCenterData;
 import com.baidu.tieba.faceshop.emotioncenter.model.EmotionCenterModel;
-import com.baidu.tieba.lz4;
-import com.baidu.tieba.p18;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.m68;
+import com.baidu.tieba.no6;
+import com.baidu.tieba.po6;
+import com.baidu.tieba.y35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,10 +35,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 /* loaded from: classes4.dex */
-public class EmotionRecommendFragment extends BaseFragment implements ck6 {
+public class EmotionRecommendFragment extends BaseFragment implements no6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ek6 a;
+    public po6 a;
     public EmotionCenterModel b;
     public boolean c;
     public boolean d;
@@ -47,11 +47,11 @@ public class EmotionRecommendFragment extends BaseFragment implements ck6 {
     public final CustomMessageListener g;
     public CustomMessageListener h;
     public CustomMessageListener i;
-    public lz4.g j;
+    public y35.g j;
     public BdListView.p k;
 
-    @Override // com.baidu.tieba.ck6
-    public void M0(EmotionCenterData emotionCenterData) {
+    @Override // com.baidu.tieba.no6
+    public void N0(EmotionCenterData emotionCenterData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, emotionCenterData) == null) {
         }
@@ -127,7 +127,7 @@ public class EmotionRecommendFragment extends BaseFragment implements ck6 {
             EmotionPackageData emotionPackageData;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof EmotionPackageData) && (emotionPackageData = (EmotionPackageData) customResponsedMessage.getData()) != null && this.a.a != null) {
-                this.a.a.x(emotionPackageData);
+                this.a.a.y(emotionPackageData);
             }
         }
     }
@@ -172,18 +172,18 @@ public class EmotionRecommendFragment extends BaseFragment implements ck6 {
                         }
                     } else if (hashMap.get("upload_result") != null && (hashMap.get("upload_result") instanceof Boolean)) {
                         if (((Boolean) hashMap.get("upload_result")).booleanValue()) {
-                            BdToast.b(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getPageActivity().getText(R.string.obfuscated_res_0x7f0f061f)).k();
+                            BdToast.b(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getPageActivity().getText(R.string.obfuscated_res_0x7f0f0641)).k();
                             if (this.a.a != null) {
                                 this.a.a.n();
                             }
                         } else if (this.a.a != null) {
                             String str = (String) hashMap.get("upload_msg");
                             if (!TextUtils.isEmpty(str)) {
-                                zi.N(this.a.getActivity(), str);
+                                ej.N(this.a.getActivity(), str);
                             } else {
-                                zi.N(this.a.getActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f057f));
+                                ej.N(this.a.getActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f0587));
                             }
-                            this.a.a.w();
+                            this.a.a.x();
                         }
                     } else if (this.a.a != null) {
                         this.a.a.n();
@@ -196,7 +196,7 @@ public class EmotionRecommendFragment extends BaseFragment implements ck6 {
     }
 
     /* loaded from: classes4.dex */
-    public class d implements lz4.g {
+    public class d implements y35.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EmotionRecommendFragment a;
@@ -219,7 +219,7 @@ public class EmotionRecommendFragment extends BaseFragment implements ck6 {
             this.a = emotionRecommendFragment;
         }
 
-        @Override // com.baidu.tieba.lz4.g
+        @Override // com.baidu.tieba.y35.g
         public void f(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -260,11 +260,11 @@ public class EmotionRecommendFragment extends BaseFragment implements ck6 {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b != null && !this.a.e) {
                 if (this.a.d) {
-                    this.a.a.s();
+                    this.a.a.t();
                     this.a.b.H(this.a);
                     return;
                 }
-                this.a.a.u();
+                this.a.a.v();
             }
         }
     }
@@ -294,8 +294,8 @@ public class EmotionRecommendFragment extends BaseFragment implements ck6 {
         this.k = new e(this);
     }
 
-    @Override // com.baidu.tieba.ck6
-    public void A0(EmotionCenterData emotionCenterData) {
+    @Override // com.baidu.tieba.no6
+    public void B0(EmotionCenterData emotionCenterData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, emotionCenterData) == null) {
             this.e = false;
@@ -320,9 +320,9 @@ public class EmotionRecommendFragment extends BaseFragment implements ck6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             super.onChangeSkinType(i);
-            ek6 ek6Var = this.a;
-            if (ek6Var != null) {
-                ek6Var.m(i);
+            po6 po6Var = this.a;
+            if (po6Var != null) {
+                po6Var.m(i);
             }
         }
     }
@@ -338,17 +338,17 @@ public class EmotionRecommendFragment extends BaseFragment implements ck6 {
     public final void G1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (p18.l().r()) {
-                ek6 ek6Var = this.a;
-                if (ek6Var != null) {
-                    ek6Var.r();
+            if (m68.l().r()) {
+                po6 po6Var = this.a;
+                if (po6Var != null) {
+                    po6Var.s();
                     return;
                 }
                 return;
             }
-            ek6 ek6Var2 = this.a;
-            if (ek6Var2 != null) {
-                ek6Var2.n();
+            po6 po6Var2 = this.a;
+            if (po6Var2 != null) {
+                po6Var2.n();
             }
         }
     }
@@ -357,9 +357,9 @@ public class EmotionRecommendFragment extends BaseFragment implements ck6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ek6 ek6Var = this.a;
-            if (ek6Var != null) {
-                return ek6Var.f();
+            po6 po6Var = this.a;
+            if (po6Var != null) {
+                return po6Var.f();
             }
             return 0;
         }
@@ -371,6 +371,7 @@ public class EmotionRecommendFragment extends BaseFragment implements ck6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onPrimary();
+            this.a.r(isPrimary());
         }
     }
 
@@ -383,8 +384,8 @@ public class EmotionRecommendFragment extends BaseFragment implements ck6 {
         }
     }
 
-    @Override // com.baidu.tieba.ck6
-    public void b1(EmotionCenterData emotionCenterData) {
+    @Override // com.baidu.tieba.no6
+    public void d1(EmotionCenterData emotionCenterData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, emotionCenterData) == null) {
             this.e = false;
@@ -412,9 +413,9 @@ public class EmotionRecommendFragment extends BaseFragment implements ck6 {
         EmotionCenterModel emotionCenterModel2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutInflater, viewGroup, bundle)) == null) {
-            ek6 ek6Var = new ek6(getPageContext(), getUniqueId());
-            this.a = ek6Var;
-            ek6Var.p(this.j);
+            po6 po6Var = new po6(getPageContext(), getUniqueId());
+            this.a = po6Var;
+            po6Var.p(this.j);
             this.a.q(this.k);
             registerListener(this.g);
             registerListener(this.h);

@@ -1,32 +1,170 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes4.dex */
-public class gn5 implements hn5 {
+public class gn5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public d a;
+    public a b;
+    public b c;
 
-    @Override // com.baidu.tieba.hn5
-    public int b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i < 4) {
-                return 1;
+    /* loaded from: classes4.dex */
+    public static class a extends e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public boolean b;
+        public int c;
+        public String d;
+        public String e;
+        public boolean f;
+        public int g;
+        public View.OnClickListener h;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return (i < 4 || i >= 7) ? 3 : 2;
+            this.b = true;
+            this.c = R.drawable.new_pic_emotion_05;
+            this.d = gn5.c(R.string.no_data_common_txt, new Object[0]);
+            this.e = gn5.c(R.string.refresh_view_button_text, new Object[0]);
+            this.f = false;
+            this.g = ej.g(gn5.b(), R.dimen.obfuscated_res_0x7f0702c0);
         }
-        return invokeI.intValue;
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b extends e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public boolean b;
+        public int c;
+        public int d;
+        public String e;
+        public String f;
+        public String g;
+        public View.OnClickListener h;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = true;
+            this.c = R.drawable.new_pic_emotion_08;
+            this.d = ej.g(gn5.b(), R.dimen.obfuscated_res_0x7f070293);
+            this.e = gn5.c(R.string.refresh_view_button_text, new Object[0]);
+            this.f = gn5.c(R.string.refresh_view_title_text, new Object[0]);
+            this.g = gn5.c(R.string.data_load_error, new Object[0]);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class c extends e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+        public String c;
+        public String d;
+        public String e;
+        public String f;
+        public boolean g;
+        public View.OnClickListener h;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ej.g(gn5.b(), R.dimen.tbds182);
+            this.b = TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
+            this.c = gn5.c(R.string.obfuscated_res_0x7f0f0ae6, new Object[0]);
+            this.d = gn5.c(R.string.pb_load_more, new Object[0]);
+            this.e = gn5.c(R.string.list_no_more, new Object[0]);
+            this.f = gn5.c(R.string.click_retry, new Object[0]);
+            this.g = false;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class d extends e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public int b;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gn5.c(R.string.loading_text, new Object[0]);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static abstract class e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public e() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
     public gn5() {
@@ -43,92 +181,25 @@ public class gn5 implements hn5 {
         }
     }
 
-    @Override // com.baidu.tieba.hn5
-    public int a(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i, int i2) {
-        InterceptResult invokeLLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, constrainImageLayout, list, i, i2)) == null) {
-            if (ListUtils.getCount(list) <= 0) {
-                return i2;
-            }
-            if (i == 0) {
-                return e(constrainImageLayout, list, i2);
-            }
-            if (i == 1) {
-                return d(constrainImageLayout, list, i2);
-            }
-            if (i == 2) {
-                return c(constrainImageLayout, list, i2);
-            }
-            return i2;
-        }
-        return invokeLLII.intValue;
+    public static /* synthetic */ Context b() {
+        return getContext();
     }
 
-    public final int c(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i) {
-        InterceptResult invokeLLI;
+    public static Context getContext() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, constrainImageLayout, list, i)) == null) {
-            if (constrainImageLayout != null && !ListUtils.isEmpty(list)) {
-                int count = ListUtils.getCount(list);
-                constrainImageLayout.setImageMaxChildCount(3);
-                int i2 = count - 9;
-                if (i2 > 0) {
-                    int i3 = i + 3;
-                    List<MediaData> subList = ListUtils.subList(list, i, i3);
-                    constrainImageLayout.setExtraCenterText(TbadkCoreApplication.getInst().getString(R.string.constrain_image_extra_text, new Object[]{Integer.valueOf(i2)}));
-                    constrainImageLayout.setUrls(subList, i, true);
-                    return i3;
-                }
-                constrainImageLayout.setUrls(ListUtils.subList(list, i, count), i);
-                constrainImageLayout.setExtraCenterText(null);
-                return count;
-            }
-            return i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return TbadkCoreApplication.getInst().getApplicationContext();
         }
-        return invokeLLI.intValue;
+        return (Context) invokeV.objValue;
     }
 
-    public final int d(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i) {
-        InterceptResult invokeLLI;
+    public static String c(int i, Object... objArr) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048579, this, constrainImageLayout, list, i)) == null) {
-            if (constrainImageLayout != null && !ListUtils.isEmpty(list)) {
-                if (ListUtils.getCount(list) == 4) {
-                    int i2 = i + 2;
-                    constrainImageLayout.setUrls(ListUtils.subList(list, i, i2), i);
-                    return i2;
-                }
-                int i3 = i + 3;
-                constrainImageLayout.setUrls(ListUtils.subList(list, i, i3), i);
-                return i3;
-            }
-            return i;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, objArr)) == null) {
+            return getContext().getString(i, objArr);
         }
-        return invokeLLI.intValue;
-    }
-
-    public final int e(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, constrainImageLayout, list, i)) == null) {
-            if (constrainImageLayout != null && !ListUtils.isEmpty(list)) {
-                int count = ListUtils.getCount(list);
-                if (count == 1) {
-                    constrainImageLayout.setUrls(list, i);
-                    return 0;
-                } else if (count != 2 && count != 4 && count != 5) {
-                    int i2 = i + 3;
-                    constrainImageLayout.setUrls(ListUtils.subList(list, i, i2), i);
-                    return i2;
-                } else {
-                    int i3 = i + 2;
-                    constrainImageLayout.setUrls(ListUtils.subList(list, i, i3), i);
-                    return i3;
-                }
-            }
-            return i;
-        }
-        return invokeLLI.intValue;
+        return (String) invokeIL.objValue;
     }
 }

@@ -1,113 +1,130 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Context;
-import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.NinePatch;
+import android.graphics.Rect;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.NinePatchDrawable;
 import android.os.Build;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.heytap.mcssdk.mode.CommandMessage;
-import java.util.Iterator;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
-import org.json.JSONObject;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 /* loaded from: classes7.dex */
-public final class zb1 {
+public class zb1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final String a() {
-        InterceptResult invokeV;
+    @SuppressLint({"DiscouragedPrivateApi"})
+    public static void a(Activity activity, xb1 xb1Var) {
+        Class<?>[] declaredClasses;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            Context a = md1.a();
-            Intrinsics.checkExpressionValueIsNotNull(a, "SdkRunTime.getAppContext()");
-            PackageManager packageManager = a.getPackageManager();
+        if (interceptable == null || interceptable.invokeLL(65536, null, activity, xb1Var) == null) {
             try {
-                Context a2 = md1.a();
-                Intrinsics.checkExpressionValueIsNotNull(a2, "SdkRunTime.getAppContext()");
-                String str = packageManager.getPackageInfo(a2.getPackageName(), 0).packageName;
-                Intrinsics.checkExpressionValueIsNotNull(str, "packageInfo.packageName");
-                return str;
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            Context a = md1.a();
-            Intrinsics.checkExpressionValueIsNotNull(a, "SdkRunTime.getAppContext()");
-            PackageManager packageManager = a.getPackageManager();
-            try {
-                Context a2 = md1.a();
-                Intrinsics.checkExpressionValueIsNotNull(a2, "SdkRunTime.getAppContext()");
-                String str = packageManager.getPackageInfo(a2.getPackageName(), 0).versionName;
-                Intrinsics.checkExpressionValueIsNotNull(str, "packageInfo.versionName");
-                return str;
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final void c(sb1 sb1Var, String str) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, sb1Var, str) == null) && sb1Var != null) {
-            boolean z2 = false;
-            if (str != null && !StringsKt__StringsJVMKt.isBlank(str)) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (!z) {
-                String a = sb1Var.a("Cookie");
-                String str2 = "BDUSS=" + str;
-                if ((a == null || StringsKt__StringsJVMKt.isBlank(a)) ? true : true) {
-                    sb1Var.d("Cookie", str2);
-                    return;
+                Method declaredMethod = Activity.class.getDeclaredMethod("getActivityOptions", new Class[0]);
+                declaredMethod.setAccessible(true);
+                Object invoke = declaredMethod.invoke(activity, new Object[0]);
+                Class<?> cls = null;
+                for (Class<?> cls2 : Activity.class.getDeclaredClasses()) {
+                    if (cls2.getSimpleName().contains("TranslucentConversionListener")) {
+                        cls = cls2;
+                    }
                 }
-                sb1Var.d("Cookie", a + "; " + str2);
-            }
-        }
-    }
-
-    public static final void d(sb1 sb1Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, sb1Var) == null) && sb1Var != null) {
-            sb1Var.d("channel", "cashiersdk");
-            sb1Var.d("deviceType", "ANDROID");
-            sb1Var.d("osVersion", Build.VERSION.RELEASE);
-            sb1Var.d(CommandMessage.SDK_VERSION, "2.8.7.9");
-            sb1Var.d("appVersion", b());
-            sb1Var.d("sdkPgName", a());
-            sb1Var.d("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
-        }
-    }
-
-    public static final rb1 e(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
-            rb1 rb1Var = new rb1();
-            if (jSONObject != null) {
-                Iterator<String> keys = jSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    rb1Var.d(next, jSONObject.optString(next));
+                Object newProxyInstance = Proxy.newProxyInstance(Activity.class.getClassLoader(), new Class[]{cls}, new ac1(xb1Var));
+                Method declaredMethod2 = Activity.class.getDeclaredMethod("convertToTranslucent", cls, ActivityOptions.class);
+                declaredMethod2.setAccessible(true);
+                declaredMethod2.invoke(activity, newProxyInstance, invoke);
+            } catch (Throwable unused) {
+                if (xb1Var != null) {
+                    xb1Var.onTranslucent(false);
                 }
             }
-            return rb1Var;
         }
-        return (rb1) invokeL.objValue;
+    }
+
+    public static void b(Activity activity, xb1 xb1Var) {
+        Class<?>[] declaredClasses;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, activity, xb1Var) == null) {
+            try {
+                Class<?> cls = null;
+                for (Class<?> cls2 : Activity.class.getDeclaredClasses()) {
+                    if (cls2.getSimpleName().contains("TranslucentConversionListener")) {
+                        cls = cls2;
+                    }
+                }
+                Method declaredMethod = Activity.class.getDeclaredMethod("convertToTranslucent", cls);
+                declaredMethod.setAccessible(true);
+                declaredMethod.invoke(activity, null);
+                if (xb1Var != null) {
+                    xb1Var.onTranslucent(true);
+                }
+            } catch (Throwable unused) {
+                if (xb1Var != null) {
+                    xb1Var.onTranslucent(false);
+                }
+            }
+        }
+    }
+
+    public static Drawable e(Context context, String str) {
+        InterceptResult invokeLL;
+        Bitmap decodeFile;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
+            if (context == null || TextUtils.isEmpty(str) || (decodeFile = BitmapFactory.decodeFile(str)) == null) {
+                return null;
+            }
+            byte[] ninePatchChunk = decodeFile.getNinePatchChunk();
+            if (NinePatch.isNinePatchChunk(ninePatchChunk)) {
+                return new NinePatchDrawable(context.getResources(), decodeFile, ninePatchChunk, new Rect(), null);
+            }
+            return new BitmapDrawable(context.getResources(), decodeFile);
+        }
+        return (Drawable) invokeLL.objValue;
+    }
+
+    public static void c(Activity activity, xb1 xb1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, activity, xb1Var) == null) {
+            try {
+                Method declaredMethod = Activity.class.getDeclaredMethod("convertFromTranslucent", new Class[0]);
+                declaredMethod.setAccessible(true);
+                declaredMethod.invoke(activity, new Object[0]);
+                if (xb1Var != null) {
+                    xb1Var.onTranslucent(false);
+                }
+            } catch (Throwable unused) {
+                if (xb1Var != null) {
+                    xb1Var.onTranslucent(true);
+                }
+            }
+        }
+    }
+
+    public static void d(Activity activity, xb1 xb1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, activity, xb1Var) == null) {
+            try {
+                if (Build.VERSION.SDK_INT >= 21) {
+                    a(activity, xb1Var);
+                } else {
+                    b(activity, xb1Var);
+                }
+            } catch (Throwable unused) {
+                if (xb1Var != null) {
+                    xb1Var.onTranslucent(false);
+                }
+            }
+        }
     }
 }

@@ -1,39 +1,34 @@
 package com.baidu.tieba;
 
-import android.webkit.WebView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class q61 {
+public class q61 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final a a;
-    public long b;
-    public final r61 c;
-    public boolean d;
-    public final n61 e;
+    public String a;
+    public String b;
+    @NonNull
+    public List<a> c;
 
     /* loaded from: classes5.dex */
-    public static final class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
+        @Nullable
+        public int[] a;
         public String b;
-        public String c;
-        public String d;
-        public String e;
-        public String f;
-        public String g;
-        public String h;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -45,162 +40,57 @@ public final class q61 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = "";
-            this.b = "";
-            this.c = "";
-            this.d = "";
-            this.e = "";
-            this.f = "";
-            this.g = "";
-            this.h = "";
         }
 
-        public final String a() {
-            InterceptResult invokeV;
+        @Nullable
+        public static a a(@Nullable JSONObject jSONObject) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.d;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return null;
+                }
+                a aVar = new a();
+                aVar.a = b(jSONObject.optString("range"));
+                aVar.b = jSONObject.optString("color");
+                return aVar;
             }
-            return (String) invokeV.objValue;
+            return (a) invokeL.objValue;
         }
 
-        public final String b() {
-            InterceptResult invokeV;
+        @Nullable
+        public static int[] b(String str) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.c;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                if (TextUtils.isEmpty(str)) {
+                    return null;
+                }
+                String[] split = str.split("_");
+                if (split.length != 2) {
+                    return null;
+                }
+                try {
+                    int parseInt = Integer.parseInt(split[0]);
+                    int parseInt2 = Integer.parseInt(split[1]);
+                    if (parseInt < 0 || parseInt >= parseInt2) {
+                        return null;
+                    }
+                    return new int[]{parseInt, parseInt2};
+                } catch (NumberFormatException unused) {
+                    return null;
+                }
             }
-            return (String) invokeV.objValue;
-        }
-
-        public final String c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.f;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final String d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.e;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final String e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return this.h;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final String f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                return this.b;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final String g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                return this.a;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final String h() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                return this.g;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final void i(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-                Intrinsics.checkNotNullParameter(str, "<set-?>");
-                this.d = str;
-            }
-        }
-
-        public final void j(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-                Intrinsics.checkNotNullParameter(str, "<set-?>");
-                this.c = str;
-            }
-        }
-
-        public final void k(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-                Intrinsics.checkNotNullParameter(str, "<set-?>");
-                this.f = str;
-            }
-        }
-
-        public final void l(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-                Intrinsics.checkNotNullParameter(str, "<set-?>");
-                this.e = str;
-            }
-        }
-
-        public final void m(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-                Intrinsics.checkNotNullParameter(str, "<set-?>");
-                this.h = str;
-            }
-        }
-
-        public final void n(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-                Intrinsics.checkNotNullParameter(str, "<set-?>");
-                this.b = str;
-            }
-        }
-
-        public final void o(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-                Intrinsics.checkNotNullParameter(str, "<set-?>");
-                this.a = str;
-            }
-        }
-
-        public final void p(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-                Intrinsics.checkNotNullParameter(str, "<set-?>");
-                this.g = str;
-            }
+            return (int[]) invokeL.objValue;
         }
     }
 
-    public q61(n61 n61Var) {
+    public q61() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {n61Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -210,149 +100,31 @@ public final class q61 {
                 return;
             }
         }
-        this.e = n61Var;
-        this.a = new a();
-        this.b = -1L;
-        this.c = new r61();
+        this.c = new ArrayList();
     }
 
-    public final void a() {
-        String str;
-        String str2;
-        String jSONObject;
+    @Nullable
+    public static q61 a(@Nullable JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            a aVar = this.a;
-            n61 n61Var = this.e;
-            if (n61Var == null || (str = n61Var.h) == null) {
-                n61 n61Var2 = this.e;
-                if (n61Var2 != null) {
-                    str = n61Var2.a;
-                } else {
-                    str = null;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            if (str == null) {
-                str = "";
-            }
-            aVar.o(str);
-            this.a.i(String.valueOf(this.b));
-            this.a.k(String.valueOf((((float) ((System.currentTimeMillis() - this.c.c()) + this.c.b())) * 1.0f) / ((float) 1000)));
-            a aVar2 = this.a;
-            if (!sr0.a()) {
-                str2 = "0";
-            } else {
-                str2 = "1";
-            }
-            aVar2.p(str2);
-            a aVar3 = this.a;
+            q61 q61Var = new q61();
             try {
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("Nairobi", "0");
-                Unit unit = Unit.INSTANCE;
-                jSONObject = jSONObject2.toString();
-                Intrinsics.checkNotNullExpressionValue(jSONObject, "JSONObject().apply {\n   …\n            }.toString()");
-            } catch (JSONException unused) {
-                jSONObject = new JSONObject().toString();
-                Intrinsics.checkNotNullExpressionValue(jSONObject, "JSONObject().toString()");
-            }
-            aVar3.m(jSONObject);
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            a();
-            l11 g = new l11().g("1029");
-            Intrinsics.checkNotNullExpressionValue(g, "PlogBuilder().setCID(Plo…lder.C_ID_LP_PERFORMANCE)");
-            g.b("f2", this.a.g());
-            g.b("f14", this.a.f());
-            g.b("ef2", this.a.b());
-            g.b("ef3", this.a.a());
-            g.b("ef4", this.a.d());
-            g.b("ef5", this.a.c());
-            g.b("ef12", this.a.h());
-            g.b("ef15", this.a.e());
-            e11.b(g);
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a aVar = this.a;
-            n61 n61Var = this.e;
-            aVar.n((n61Var == null || (r1 = n61Var.f) == null) ? "" : "");
-        }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.j(String.valueOf(System.currentTimeMillis()));
-            this.c.f(System.currentTimeMillis());
-            b();
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            i();
-            this.c.e();
-        }
-    }
-
-    public final void e(WebView webView) {
-        String obj;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, webView) == null) {
-            Intrinsics.checkNotNullParameter(webView, "webView");
-            this.b = System.currentTimeMillis();
-            Object tag = webView.getTag(R.id.nad_webcontent_error_code);
-            a aVar = this.a;
-            if (tag == null) {
-                obj = "0";
-            } else {
-                obj = tag.toString();
-            }
-            aVar.l(obj);
-        }
-    }
-
-    public final void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.a.l(String.valueOf(i));
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.c.h(System.currentTimeMillis());
-            long c = this.c.c() - this.c.d();
-            if (c < 0) {
-                c = 0;
-            }
-            r61 r61Var = this.c;
-            r61Var.g(r61Var.b() + c);
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.c.i(System.currentTimeMillis());
-            if (!this.d) {
-                long d = this.c.d() - this.c.a();
-                if (d < 0) {
-                    d = 0;
+                q61Var.a = jSONObject.optString("text");
+                q61Var.b = jSONObject.optString("color");
+                JSONArray optJSONArray = jSONObject.optJSONArray("highlight");
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        x11.b(q61Var.c, a.a(optJSONArray.getJSONObject(i)));
+                    }
                 }
-                this.c.g(d);
-                this.d = true;
+            } catch (JSONException unused) {
             }
+            return q61Var;
         }
+        return (q61) invokeL.objValue;
     }
 }

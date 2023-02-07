@@ -1,7 +1,7 @@
 package rx.internal.operators;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.h9a;
+import com.baidu.tieba.qda;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -10,10 +10,10 @@ import java.util.Collection;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes9.dex */
-public final class OnSubscribeAmb$Selection<T> extends AtomicReference<h9a<T>> {
+public final class OnSubscribeAmb$Selection<T> extends AtomicReference<qda<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Collection<h9a<T>> ambSubscribers;
+    public final Collection<qda<T>> ambSubscribers;
 
     public OnSubscribeAmb$Selection() {
         Interceptable interceptable = $ic;
@@ -32,19 +32,19 @@ public final class OnSubscribeAmb$Selection<T> extends AtomicReference<h9a<T>> {
     }
 
     public void unsubscribeLosers() {
-        h9a<T> h9aVar;
+        qda<T> qdaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (h9aVar = get()) != null) {
-            unsubscribeOthers(h9aVar);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (qdaVar = get()) != null) {
+            unsubscribeOthers(qdaVar);
         }
     }
 
-    public void unsubscribeOthers(h9a<T> h9aVar) {
+    public void unsubscribeOthers(qda<T> qdaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h9aVar) == null) {
-            for (h9a<T> h9aVar2 : this.ambSubscribers) {
-                if (h9aVar2 != h9aVar) {
-                    h9aVar2.unsubscribe();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qdaVar) == null) {
+            for (qda<T> qdaVar2 : this.ambSubscribers) {
+                if (qdaVar2 != qdaVar) {
+                    qdaVar2.unsubscribe();
                 }
             }
             this.ambSubscribers.clear();

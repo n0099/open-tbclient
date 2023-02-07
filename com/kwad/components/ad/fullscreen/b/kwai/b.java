@@ -139,7 +139,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
     public final void onClick(View view2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) && view2 == this.eA) {
-            com.kwad.components.core.c.a.a.a(new a.C0593a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(false).ae(1).a(new a.b(this) { // from class: com.kwad.components.ad.fullscreen.b.kwai.b.2
+            com.kwad.components.core.c.a.a.a(new a.C0597a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(false).ae(1).a(new a.b(this) { // from class: com.kwad.components.ad.fullscreen.b.kwai.b.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ b eD;
@@ -178,7 +178,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onCreate();
-            this.eA = (TextView) findViewById(R.id.obfuscated_res_0x7f091133);
+            this.eA = (TextView) findViewById(R.id.obfuscated_res_0x7f091176);
         }
     }
 

@@ -1,6 +1,8 @@
 package com.baidu.searchbox.retrieve.inter.upload;
 
-import com.baidu.tieba.nf1;
+import com.baidu.searchbox.retrieve.debug.provider.DebugActiveUploadResult;
+import com.baidu.tieba.kn9;
+import com.baidu.tieba.yj1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public class IActiveUploadResult_ActiveUploadObserver_ListProvider implements nf1 {
+public class IActiveUploadResult_ActiveUploadObserver_ListProvider implements yj1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,10 +28,16 @@ public class IActiveUploadResult_ActiveUploadObserver_ListProvider implements nf
         }
     }
 
-    @Override // com.baidu.tieba.nf1
+    @Override // com.baidu.tieba.yj1
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ArrayList() : invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new DebugActiveUploadResult());
+            arrayList.add(new kn9());
+            return arrayList;
+        }
+        return invokeV.objValue;
     }
 }

@@ -1,154 +1,107 @@
 package com.baidu.tieba;
 
-import android.graphics.Matrix;
-import android.graphics.PointF;
-import android.graphics.RectF;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b8;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public final class ed6 implements b8.a {
+public class ed6 {
     public static /* synthetic */ Interceptable $ic;
+    public static ed6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public hb6 a;
-    public db6 b;
-    public PointF c;
-    public RectF d;
-    public Matrix e;
-    public float f;
-    public boolean g;
+    public List<StatisticItem> a;
 
-    @Override // com.baidu.tieba.b8.a
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-        }
-    }
-
-    public ed6(hb6 item, db6 drawingCache, PointF position, RectF rect, Matrix transform) {
+    public ed6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {item, drawingCache, position, rect, transform};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        Intrinsics.checkNotNullParameter(item, "item");
-        Intrinsics.checkNotNullParameter(drawingCache, "drawingCache");
-        Intrinsics.checkNotNullParameter(position, "position");
-        Intrinsics.checkNotNullParameter(rect, "rect");
-        Intrinsics.checkNotNullParameter(transform, "transform");
-        this.a = item;
-        this.b = drawingCache;
-        this.c = position;
-        this.d = rect;
-        this.e = transform;
-        this.f = 1.0f;
     }
 
-    public final float a() {
+    public static ed6 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (ed6.class) {
+                    if (b == null) {
+                        b = new ed6();
+                    }
+                }
+            }
+            return b;
         }
-        return invokeV.floatValue;
+        return (ed6) invokeV.objValue;
     }
 
-    public final db6 b() {
-        InterceptResult invokeV;
+    public void a(StatisticItem statisticItem) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, statisticItem) != null) || statisticItem == null) {
+            return;
         }
-        return (db6) invokeV.objValue;
+        if (this.a == null) {
+            this.a = new ArrayList();
+        }
+        this.a.add(statisticItem);
     }
 
-    public final boolean c() {
-        InterceptResult invokeV;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.g;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || ListUtils.getCount(this.a) == 0) {
+            return;
         }
-        return invokeV.booleanValue;
+        for (StatisticItem statisticItem : this.a) {
+            if (statisticItem != null) {
+                TiebaStatic.log(statisticItem);
+            }
+        }
+        this.a.clear();
     }
 
-    public final hb6 d() {
-        InterceptResult invokeV;
+    public void d(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
+        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) || ListUtils.getCount(this.a) == 0) {
+            return;
         }
-        return (hb6) invokeV.objValue;
+        int i = -1;
+        for (StatisticItem statisticItem : this.a) {
+            if (statisticItem != null && i != statisticItem.getPosition()) {
+                i = statisticItem.getPosition();
+                statisticItem.delete(TiebaStatic.Params.OBJ_PARAM2);
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, z ? 1 : 0);
+                TiebaStatic.log(statisticItem);
+            }
+        }
+        this.a.clear();
     }
 
-    public final PointF e() {
-        InterceptResult invokeV;
+    public void e(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
+        if ((interceptable != null && interceptable.invokeZ(1048579, this, z) != null) || ListUtils.getCount(this.a) == 0) {
+            return;
         }
-        return (PointF) invokeV.objValue;
-    }
-
-    public final RectF f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.d;
+        for (StatisticItem statisticItem : this.a) {
+            if (statisticItem != null) {
+                if (statisticItem.getKey() != null && !statisticItem.getKey().equals("c13756") && !statisticItem.getKey().equals("c13750") && !statisticItem.getKey().equals("c13751")) {
+                    statisticItem.param("obj_type", z ? 1 : 0);
+                }
+                TiebaStatic.log(statisticItem);
+            }
         }
-        return (RectF) invokeV.objValue;
-    }
-
-    public final Matrix g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.e;
-        }
-        return (Matrix) invokeV.objValue;
-    }
-
-    public final void h(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048583, this, f) == null) {
-            this.f = f;
-        }
-    }
-
-    public final void i(db6 db6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, db6Var) == null) {
-            Intrinsics.checkNotNullParameter(db6Var, "<set-?>");
-            this.b = db6Var;
-        }
-    }
-
-    public final void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.g = z;
-        }
-    }
-
-    public final void k(hb6 hb6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, hb6Var) == null) {
-            Intrinsics.checkNotNullParameter(hb6Var, "<set-?>");
-            this.a = hb6Var;
-        }
+        this.a.clear();
     }
 }

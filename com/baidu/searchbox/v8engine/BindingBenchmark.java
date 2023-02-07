@@ -3,6 +3,7 @@ package com.baidu.searchbox.v8engine;
 import android.webkit.JavascriptInterface;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.debug.provider.DebugActiveUploadResult;
 import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -90,7 +91,7 @@ public class BindingBenchmark {
             this.mDouble = 123.456789d;
             this.mString = "123.456789ABCDEF";
             this.mObject = new Object();
-            this.mJSEvent = new JSEvent("test");
+            this.mJSEvent = new JSEvent(DebugActiveUploadResult.SOURCE);
             this.mInt = i;
         }
     }

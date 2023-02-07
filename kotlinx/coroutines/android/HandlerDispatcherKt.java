@@ -42,18 +42,18 @@ public final class HandlerDispatcherKt {
     }
 
     static {
-        Object m772constructorimpl;
+        Object m773constructorimpl;
         try {
             Result.Companion companion = Result.Companion;
-            m772constructorimpl = Result.m772constructorimpl(new HandlerContext(asHandler(Looper.getMainLooper(), true), "Main"));
+            m773constructorimpl = Result.m773constructorimpl(new HandlerContext(asHandler(Looper.getMainLooper(), true), "Main"));
         } catch (Throwable th) {
             Result.Companion companion2 = Result.Companion;
-            m772constructorimpl = Result.m772constructorimpl(ResultKt.createFailure(th));
+            m773constructorimpl = Result.m773constructorimpl(ResultKt.createFailure(th));
         }
-        if (Result.m778isFailureimpl(m772constructorimpl)) {
-            m772constructorimpl = null;
+        if (Result.m779isFailureimpl(m773constructorimpl)) {
+            m773constructorimpl = null;
         }
-        Main = (HandlerDispatcher) m772constructorimpl;
+        Main = (HandlerDispatcher) m773constructorimpl;
     }
 
     @JvmOverloads
@@ -115,7 +115,7 @@ public final class HandlerDispatcherKt {
             return result;
         }
         final CancellableContinuationImpl cancellableContinuationImpl2 = new CancellableContinuationImpl(IntrinsicsKt__IntrinsicsJvmKt.intercepted(continuation), 1);
-        Dispatchers.getMain().mo2188dispatch(EmptyCoroutineContext.INSTANCE, new Runnable() { // from class: kotlinx.coroutines.android.HandlerDispatcherKt$$special$$inlined$Runnable$1
+        Dispatchers.getMain().mo2228dispatch(EmptyCoroutineContext.INSTANCE, new Runnable() { // from class: kotlinx.coroutines.android.HandlerDispatcherKt$$special$$inlined$Runnable$1
             @Override // java.lang.Runnable
             public final void run() {
                 HandlerDispatcherKt.updateChoreographerAndPostFrameCallback(CancellableContinuation.this);

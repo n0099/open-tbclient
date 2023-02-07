@@ -1,16 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class r54 extends sy3 {
+public class r54 implements i64 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public Object data;
 
     public r54() {
         Interceptable interceptable = $ic;
@@ -24,5 +24,214 @@ public class r54 extends sy3 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.i64
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return s52.v(String.format("%s/api/user/addiction/gamevalid", q52.a()));
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.i64
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return s52.v(String.format("%s/api/minigame/get_game_tencent_ads", q52.a()));
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.i64
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return s52.v(String.format("%s/api/msgame/reservation/query", q52.a()));
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.i64
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return s52.v(String.format("%s/api/report/download", q52.a()));
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.i64
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return s52.v(String.format("%s/api/msgame/adblock", q52.a()));
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.i64
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return s52.v(String.format("%s/ma/game/rest/check_is_user_advised_to_rest", u()));
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.i64
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return s52.v(String.format("%s/api/exchange/transfer_report", q52.a()));
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.i64
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return s52.v(String.format("%s/api/user/addiction/polling", q52.a()));
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.i64
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return s52.v(String.format("%s/api/user/addiction/realname", q52.a()));
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.i64
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return s52.v(String.format("%s/api/user/rechargecheck", q52.a()));
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.i64
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return s52.v(String.format("%s/ma/game/od/get_friend_cloud_storage", u()));
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.i64
+    public String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return s52.v(String.format("%s/user/gamehistory/upload", q52.a()));
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.i64
+    public String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return s52.v(String.format("%s/ma/game/od/remove_user_cloud_storage", q52.c()));
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.i64
+    public String n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return s52.v(String.format("%s/api/msgame/reservation/auto_download/finish", q52.a()));
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.i64
+    public String o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return s52.v(String.format("%s/ma/game/od/set_user_cloud_storage", u()));
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.i64
+    public String p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return s52.v(String.format("%s/api/exchange/list", q52.a()));
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.i64
+    public String q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return s52.v(String.format("%s/api/user/addiction/behavior_report", q52.a()));
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.i64
+    public String r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return s52.v(String.format("%s/ma/game/od/get_user_info", u()));
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.i64
+    public String s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return s52.v(String.format("%s/ma/game/od/get_user_cloud_storage", u()));
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.i64
+    public String t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return s52.v(String.format("%s/api/minigame/get_return_guide_config", q52.a()));
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return s52.a;
+        }
+        return (String) invokeV.objValue;
     }
 }

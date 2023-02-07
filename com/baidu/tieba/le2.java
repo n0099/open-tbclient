@@ -1,83 +1,56 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes5.dex */
-public class le2 extends ke2 {
+public class le2 implements ne2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public ContentValues d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public le2(@NonNull ContentValues contentValues) {
-        super("lifecycle", null);
+    @Override // com.baidu.tieba.ne2
+    public he2 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (he2) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ne2
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ne2
+    public boolean c(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3)) == null) {
+            return true;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public le2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {contentValues};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (Map) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.d = contentValues;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public le2(@Nullable Map<String, String> map) {
-        super("lifecycle", map);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {map};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (Map) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ke2, com.baidu.tieba.je2
-    public void m(Map<String, Object> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            map.put("cuid", qn2.h0().i(qn2.c()));
-            map.put("mtjCuid", qn2.h0().i(qn2.c()));
-            ContentValues contentValues = this.d;
-            if (contentValues != null) {
-                for (String str : contentValues.keySet()) {
-                    Object obj = this.d.get(str);
-                    if (!(obj instanceof Number) && !(obj instanceof Boolean)) {
-                        map.put(str, String.valueOf(obj));
-                    } else {
-                        map.put(str, obj);
-                    }
-                }
-                return;
-            }
-            for (Map.Entry<String, String> entry : this.c.entrySet()) {
-                map.put(entry.getKey(), entry.getValue());
             }
         }
     }

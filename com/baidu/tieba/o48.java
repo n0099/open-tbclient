@@ -1,152 +1,124 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewStub;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.p48;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.baseEditMark.MarkData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.PbContent;
-import tbclient.Post;
-import tbclient.User;
 /* loaded from: classes5.dex */
 public class o48 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HeadImageView a;
-    public TextView b;
-    public TbRichTextView c;
-    public ViewStub d;
-    public View e;
-    public ImageView f;
-    public View g;
-    public p48.a h;
 
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Post a;
-        public final /* synthetic */ o48 b;
-
-        public a(o48 o48Var, Post post) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o48Var, post};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = o48Var;
-            this.a = post;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Post post;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (post = this.a) != null && post.id != null && this.b.h != null) {
-                this.b.h.a(String.valueOf(this.a.id));
-            }
+    public static void a(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65536, null, str) == null) && !StringUtils.isNull(str)) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    public o48(ViewStub viewStub, p48.a aVar) {
+    public static void b(String str, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {viewStub, aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if ((interceptable == null || interceptable.invokeLL(65537, null, str, obj) == null) && (obj instanceof MarkData)) {
+            MarkData markData = (MarkData) obj;
+            if (StringUtils.isNull(str)) {
                 return;
             }
-        }
-        this.d = viewStub;
-        this.h = aVar;
-    }
-
-    public void d(boolean z) {
-        View view2;
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && (view2 = this.e) != null) {
-            if (z) {
-                i = 0;
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("tid", markData.getId());
+            statisticItem.param("fname", markData.getForumName());
+            char c = 65535;
+            switch (str.hashCode()) {
+                case -1413831834:
+                    if (str.equals("c14062")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case -1413831833:
+                    if (str.equals("c14063")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case -1413831832:
+                    if (str.equals("c14064")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case -1413831831:
+                    if (str.equals("c14065")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case -1413831828:
+                    if (str.equals("c14068")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+                case -1413831827:
+                    if (str.equals("c14069")) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2 && c != 3) {
+                        if (c == 4) {
+                            d(markData, statisticItem);
+                            statisticItem.param("obj_source", "1");
+                        }
+                    } else {
+                        statisticItem.param("obj_id", markData.getUesrId());
+                    }
+                } else {
+                    d(markData, statisticItem);
+                    statisticItem.param("obj_id", markData.getUesrId());
+                }
             } else {
-                i = 8;
+                d(markData, statisticItem);
             }
-            view2.setVisibility(i);
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    public final void b() {
+    public static void c(String str, boolean z, MarkData markData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.e == null) {
-            View inflate = this.d.inflate();
-            this.e = inflate;
-            this.a = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09064e);
-            this.b = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f090650);
-            this.c = (TbRichTextView) this.e.findViewById(R.id.obfuscated_res_0x7f09064d);
-            this.f = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f090651);
-            this.g = this.e.findViewById(R.id.obfuscated_res_0x7f09064f);
-            this.c.setTextSize(TbConfig.getContentSize());
-            c();
+        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{str, Boolean.valueOf(z), markData}) != null) || markData == null || StringUtils.isNull(str)) {
+            return;
         }
+        StatisticItem statisticItem = new StatisticItem(str);
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+        statisticItem.param("tid", markData.getId());
+        statisticItem.param("fname", markData.getForumName());
+        if (z) {
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, "1");
+        } else {
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, "2");
+        }
+        TiebaStatic.log(statisticItem);
     }
 
-    public void c() {
+    public static void d(MarkData markData, StatisticItem statisticItem) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setViewTextColor(this.b, R.color.CAM_X0106, 1);
-            SkinManager.setImageResource(this.f, R.drawable.btn_comment_list);
-            SkinManager.setBackgroundColor(this.g, R.color.CAM_X0204);
-            TbRichTextView tbRichTextView = this.c;
-            if (tbRichTextView != null) {
-                tbRichTextView.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+        if (interceptable == null || interceptable.invokeLL(65539, null, markData, statisticItem) == null) {
+            if (markData.is_deleted()) {
+                statisticItem.param("obj_param1", "3");
+            } else if (markData.isRedTipShow() && !StringUtils.isNull(markData.getmState()) && markData.getNewCounts() > 0) {
+                statisticItem.param("obj_param1", "1");
+            } else {
+                statisticItem.param("obj_param1", "2");
             }
         }
-    }
-
-    public boolean update(Post post, User user) {
-        InterceptResult invokeLL;
-        List<PbContent> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, post, user)) == null) {
-            if (post != null && user != null && (list = post.content) != null && !list.isEmpty()) {
-                b();
-                d(true);
-                this.b.setText(user.name_show);
-                this.f.setOnClickListener(new a(this, post));
-                this.a.K(user.portrait, 12, false);
-                this.c.setVisibility(0);
-                this.c.setText(TbRichTextView.c0(post.content, false));
-                return true;
-            }
-            d(false);
-            return false;
-        }
-        return invokeLL.booleanValue;
     }
 }

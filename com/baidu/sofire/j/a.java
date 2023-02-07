@@ -529,18 +529,6 @@ public class a {
         return invokeV.intValue;
     }
 
-    public int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
-            if ("com.baidu.BaiduMap.meizu".equals(this.g.getPackageName())) {
-                return this.e.getInt("re_net_hr", 24);
-            }
-            return this.e.getInt("re_net_hr", 3);
-        }
-        return invokeV.intValue;
-    }
-
     public int m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -757,5 +745,17 @@ public class a {
             return arrayList;
         }
         return (List) invokeV.objValue;
+    }
+
+    public int l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+            if ("com.baidu.BaiduMap.meizu".equals(this.g.getPackageName())) {
+                return this.e.getInt("re_net_hr", 24);
+            }
+            return this.e.getInt("re_net_hr", 3);
+        }
+        return invokeV.intValue;
     }
 }

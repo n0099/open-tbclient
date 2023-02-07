@@ -1,45 +1,20 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public abstract class b04 implements sf2 {
+public class b04 extends c14 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.sf2
-    @NonNull
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "aigames/extcore/game-extension-core.zip" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.sf2
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.sf2
-    @NonNull
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "aigames/extcore/game-extension-config.json" : (String) invokeV.objValue;
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b04() {
+        super("getAvailableSpace");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,20 +22,28 @@ public abstract class b04 implements sf2 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.sf2
-    @NonNull
-    public File f() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.c14
+    public w02 a(@NonNull JSONObject jSONObject, @NonNull am2 am2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return new File(z04.d(), "extension_core");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, am2Var)) == null) {
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("data", km3.c());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            am2Var.a(jSONObject2);
+            return null;
         }
-        return (File) invokeV.objValue;
+        return (w02) invokeLL.objValue;
     }
 }

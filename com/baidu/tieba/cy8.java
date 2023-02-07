@@ -1,138 +1,156 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.webkit.WebView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.io.ActionJsonData;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.h5power.DescriptionTableInfo;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
+import tbclient.RecommendForumInfo;
 /* loaded from: classes4.dex */
-public class cy8 {
+public class cy8 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId h;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<xx8> a;
+    public long a;
+    public String b;
+    public String c;
+    public boolean d;
+    public int e;
+    public int f;
+    public String g;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947691207, "Lcom/baidu/tieba/cy8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947691207, "Lcom/baidu/tieba/cy8;");
+                return;
+            }
+        }
+        h = BdUniqueId.gen();
+    }
 
     public cy8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-        }
-        this.a = new ArrayList<>();
-    }
-
-    public void a(xx8 xx8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, xx8Var) == null) {
-            this.a.add(xx8Var);
         }
     }
 
-    public final void b(WebView webView, String str, String str2) {
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2) == null) && webView != null && !yi.isEmpty(str) && !yi.isEmpty(str2)) {
-            if (Build.VERSION.SDK_INT >= 19) {
-                webView.evaluateJavascript("javascript:" + str + "&&" + str + "('" + str2 + "')", null);
-                return;
-            }
-            webView.loadUrl("javascript:" + str + "&&" + str + "('" + str2 + "')");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
+        return (String) invokeV.objValue;
     }
 
-    public zx8 c(by8 by8Var, zx8 zx8Var) {
-        InterceptResult invokeLL;
+    public long f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, by8Var, zx8Var)) == null) {
-            if (zx8Var == null) {
-                zx8Var = new zx8();
-            }
-            if (ActionJsonData.TAG_NOTIFICATION.equals(by8Var.c()) && "addObserver".equals(by8Var.a())) {
-                Iterator<xx8> it = this.a.iterator();
-                while (it.hasNext()) {
-                    zx8Var = it.next().addObserver(by8Var.d(), zx8Var, true);
-                    if (zx8Var.j()) {
-                        return zx8Var;
-                    }
-                }
-                if (!zx8Var.j()) {
-                    zx8Var.y(202);
-                    zx8Var.u(TbadkCoreApplication.getInst().getString(R.string.can_find_notification_name));
-                }
-            } else {
-                String c = by8Var.c();
-                if (!yi.isEmpty(c) && DescriptionTableInfo.getModuleSet() != null && !DescriptionTableInfo.getModuleSet().contains(c)) {
-                    zx8Var.y(201);
-                    return zx8Var;
-                }
-                Iterator<xx8> it2 = this.a.iterator();
-                while (it2.hasNext()) {
-                    zx8Var = it2.next().dispatch(by8Var, zx8Var);
-                    if (zx8Var.i()) {
-                        return zx8Var;
-                    }
-                }
-                if (!zx8Var.i()) {
-                    zx8Var.y(202);
-                }
-            }
-            return zx8Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return (zx8) invokeLL.objValue;
+        return invokeV.longValue;
     }
 
-    public void d(WebView webView, zx8 zx8Var) {
+    public String getRecomReason() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048579, this, webView, zx8Var) != null) || webView == null || zx8Var == null || !zx8Var.k()) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return h;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void o(RecommendForumInfo recommendForumInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, recommendForumInfo) != null) || recommendForumInfo == null) {
             return;
         }
-        b(webView, zx8Var.c(), zx8Var.d());
+        this.a = recommendForumInfo.forum_id.longValue();
+        this.b = recommendForumInfo.forum_name;
+        this.c = recommendForumInfo.avatar;
+        this.e = recommendForumInfo.member_count.intValue();
+        this.f = recommendForumInfo.thread_count.intValue();
+        boolean z = true;
+        if (recommendForumInfo.is_like.intValue() != 1) {
+            z = false;
+        }
+        this.d = z;
+        this.g = recommendForumInfo.recom_reason;
+        String str = recommendForumInfo.extra;
     }
 
-    public void e(WebView webView, List<zx8> list) {
+    public void p(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, webView, list) == null) && webView != null && !ListUtils.isEmpty(list)) {
-            for (zx8 zx8Var : list) {
-                if (zx8Var != null && zx8Var.k()) {
-                    b(webView, zx8Var.c(), zx8Var.d());
-                }
-            }
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.d = z;
         }
-    }
-
-    public List<zx8> f(WebView webView, String str, HashMap hashMap) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, webView, str, hashMap)) == null) {
-            List<zx8> list = null;
-            if (yi.isEmpty(str)) {
-                return null;
-            }
-            Iterator<xx8> it = this.a.iterator();
-            while (it.hasNext()) {
-                list = it.next().processNotification(webView, str, hashMap);
-                if (!ListUtils.isEmpty(list)) {
-                    break;
-                }
-            }
-            return list;
-        }
-        return (List) invokeLLL.objValue;
     }
 }

@@ -1,28 +1,73 @@
 package com.baidu.tieba;
 
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.httpNet.WebClient;
+import com.baidu.tbadk.core.util.resourceLoaderProc.DiskCancelWorker;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class z55 {
+public class z55 implements ah<x55> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ah
+    /* renamed from: b */
+    public x55 getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
+            return null;
+        }
+        return (x55) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.ah
+    public BdAsyncTaskParallel getAsyncTaskParallel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (BdAsyncTaskParallel) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ah
+    public int getAsyncTaskPriority() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.ah
+    public boolean isNeedLoad() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ah
+    public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) {
+        }
+    }
 
     public z55() {
         Interceptable interceptable = $ic;
@@ -38,110 +83,113 @@ public class z55 {
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ah
+    /* renamed from: a */
+    public x55 getFromLocal(String str, String str2, int i, int i2, xg xgVar, Object... objArr) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static List<z55> i(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), xgVar, objArr})) == null) {
+            if (str.contains("https://")) {
+                str = Uri.parse(str).getLastPathSegment();
+            }
+            DiskFileOperate diskFileOperate = new DiskFileOperate("voice", str, DiskFileOperate.Action.INFO);
+            diskFileOperate.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+            diskFileOperate.setSubFolder(false);
+            diskFileOperate.setIsFormatData(false);
+            if (xgVar != null) {
+                DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
+                diskCancelWorker.setOperate(diskFileOperate);
+                xgVar.a = diskCancelWorker;
+            }
+            diskFileOperate.call();
+            if (!diskFileOperate.isSuccess()) {
                 return null;
             }
-            try {
-                JSONObject jSONObject2 = jSONObject.getJSONObject("alaTabColor");
-                Iterator<String> keys = jSONObject2.keys();
-                ArrayList arrayList = new ArrayList();
-                while (keys.hasNext()) {
-                    JSONObject jSONObject3 = jSONObject2.getJSONObject(keys.next());
-                    z55 z55Var = new z55();
-                    z55Var.h(jSONObject3);
-                    arrayList.add(z55Var);
+            String desPath = diskFileOperate.getDesPath();
+            x55 x55Var = new x55();
+            x55Var.h(str);
+            x55Var.i(desPath);
+            return x55Var;
+        }
+        return (x55) invokeCommon.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ah
+    /* renamed from: c */
+    public x55 getFromRemote(String str, String str2, int i, int i2, xg xgVar, Object... objArr) {
+        InterceptResult invokeCommon;
+        String str3;
+        String str4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), xgVar, objArr})) == null) {
+            int i3 = 1;
+            String str5 = null;
+            if (objArr.length == 1) {
+                str3 = String.valueOf(objArr[0]);
+            } else {
+                str3 = null;
+            }
+            x55 x55Var = new x55();
+            WebClient webClient = new WebClient();
+            if (xgVar != null) {
+                xgVar.a = webClient;
+            }
+            if (str.contains("https://")) {
+                str4 = Uri.parse(str).getLastPathSegment();
+            } else {
+                String str6 = TbConfig.SERVER_ADDRESS + TbConfig.VOICE_DATA + "?voice_md5=" + str;
+                if (!TextUtils.isEmpty(str3)) {
+                    str4 = str;
+                    str = str6 + "&play_from=" + str3;
+                } else {
+                    str4 = str;
+                    str = str6;
                 }
-                return arrayList;
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
+            }
+            byte[] downloadCommonBytes = webClient.downloadCommonBytes(str);
+            if (!webClient.IsRequestSuccess()) {
+                x55Var.f(3);
+                x55Var.g(wj.a(R.string.obfuscated_res_0x7f0f0cfe));
+                return x55Var;
+            } else if (downloadCommonBytes != null && downloadCommonBytes.length != 0) {
+                if (str4 == null) {
+                    i3 = 5;
+                } else if (downloadCommonBytes != null && downloadCommonBytes.length != 0) {
+                    DiskFileOperate diskFileOperate = new DiskFileOperate("voice", str4, DiskFileOperate.Action.WRITE);
+                    diskFileOperate.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+                    diskFileOperate.setSubFolder(false);
+                    diskFileOperate.setData(downloadCommonBytes);
+                    if (xgVar != null) {
+                        DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
+                        diskCancelWorker.setOperate(diskFileOperate);
+                        xgVar.a = diskCancelWorker;
+                    }
+                    diskFileOperate.call();
+                    if (diskFileOperate.isSuccess() && diskFileOperate.getFileInfo() != null) {
+                        str5 = diskFileOperate.getFileInfo().getAbsolutePath();
+                        i3 = 0;
+                    } else if (FileHelper.getAvailableSize() < downloadCommonBytes.length) {
+                        i3 = 2;
+                    }
+                } else {
+                    i3 = 6;
+                }
+                if (i3 == 0) {
+                    x55Var.i(str5);
+                    x55Var.h(str4);
+                } else {
+                    x55Var.f(i3);
+                    x55Var.g(x55.a(i3));
+                }
+                return x55Var;
+            } else {
+                x55Var.f(4);
+                x55Var.g(wj.a(R.string.voice_cache_error_no_file));
+                return x55Var;
             }
         }
-        return (List) invokeL.objValue;
-    }
-
-    public final void h(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        jSONObject.optInt("id");
-        this.a = jSONObject.optString("name");
-        this.e = jSONObject.optString("color");
-        this.f = jSONObject.optString("color_night");
-        this.g = jSONObject.optString("color_dark");
-        jSONObject.optLong("start_time");
-        jSONObject.optLong("end_time");
-        this.b = jSONObject.optString(BigdayActivityConfig.IMG_URL);
-        this.c = jSONObject.optString("img_url_night");
-        this.d = jSONObject.optString("img_url_dark");
-        jSONObject.optString(BigdayActivityConfig.JUMP_URL);
+        return (x55) invokeCommon.objValue;
     }
 }

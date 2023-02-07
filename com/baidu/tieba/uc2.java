@@ -1,201 +1,49 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.collection.ArraySet;
-import androidx.core.util.Pair;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Bundle;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class uc2 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface uc2 {
+    public static final uc2 a = new a();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948206117, "Lcom/baidu/tieba/uc2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    boolean a(PrefetchEvent prefetchEvent, PMSAppInfo pMSAppInfo, Bundle bundle);
+
+    /* loaded from: classes6.dex */
+    public static class a implements uc2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948206117, "Lcom/baidu/tieba/uc2;");
-                return;
-            }
-        }
-        a = tk1.a;
-    }
-
-    @Nullable
-    public static Set<String> a(int i, List<String> list) {
-        InterceptResult invokeIL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, list)) == null) {
-            if (list != null && !list.isEmpty()) {
-                HashSet hashSet = new HashSet();
-                for (i13 i13Var : k13.k().q()) {
-                    String appId = i13Var.getAppId();
-                    if (TextUtils.isEmpty(appId)) {
-                        appId = i13Var.N();
-                    }
-                    if (!i13Var.E() && !i13Var.Q()) {
-                        z = false;
-                    } else {
-                        z = true;
-                    }
-                    if (i13Var.T() && z && list.contains(appId)) {
-                        z03 e = z03.e();
-                        b13 b13Var = new b13(i);
-                        b13Var.b(i13Var.b);
-                        e.h(b13Var);
-                        hashSet.add(appId);
-                        if (a) {
-                            Log.i("PurgerUtils", "sent msg(" + i + ") to active swan(" + appId + SmallTailInfo.EMOTION_SUFFIX);
-                        }
-                    }
-                }
-                return hashSet;
-            }
-            return null;
-        }
-        return (Set) invokeIL.objValue;
-    }
-
-    public static void b(@NonNull File file, @NonNull String str, @NonNull String str2, Set<String> set, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{file, str, str2, set, Boolean.valueOf(z)}) == null) {
-            c(file, str, str2, set, z, null);
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:43:0x0077  */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x008f  */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00a6  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void c(@NonNull File file, @NonNull String str, @NonNull String str2, Set<String> set, boolean z, @Nullable so3<Pair<String, File>> so3Var) {
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{file, str, str2, set, Boolean.valueOf(z), so3Var}) == null) && file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null && listFiles.length != 0) {
-            for (File file2 : listFiles) {
-                String name = file2.getName();
-                if (!name.isEmpty() && file2.isFile() && name.startsWith(str) && name.endsWith(str2)) {
-                    int length = name.length();
-                    int length2 = str.length();
-                    int length3 = str2.length();
-                    if (length >= length2 + length3) {
-                        String substring = name.substring(length2, length - length3);
-                        if (set == null) {
-                            set = Collections.emptySet();
-                        }
-                        if (!TextUtils.isEmpty(substring)) {
-                            if (z) {
-                                if (set.contains(substring)) {
-                                }
-                                if (a) {
-                                    Log.i("PurgerUtils", "clearByDeleteFiles : " + substring);
-                                }
-                                if (so3Var == null) {
-                                    so3Var.run(Pair.create(str + substring, file2));
-                                } else {
-                                    nk4.L(file2);
-                                }
-                            } else {
-                                if (!set.contains(substring)) {
-                                }
-                                if (a) {
-                                }
-                                if (so3Var == null) {
-                                }
-                            }
-                        }
-                    }
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
-    }
 
-    @Nullable
-    public static Set<String> d(List<String> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
-            if (list != null && !list.isEmpty()) {
-                return a(106, list);
-            }
-            return null;
-        }
-        return (Set) invokeL.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:43:0x0080  */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00a8  */
-    /* JADX WARN: Removed duplicated region for block: B:58:0x00ab A[SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static ArraySet<String> e(@NonNull File file, @NonNull String str, @NonNull String str2, Set<String> set, boolean z) {
-        InterceptResult invokeCommon;
-        File[] listFiles;
-        String J;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{file, str, str2, set, Boolean.valueOf(z)})) == null) {
-            ArraySet<String> arraySet = new ArraySet<>();
-            if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null && listFiles.length != 0) {
-                for (File file2 : listFiles) {
-                    String name = file2.getName();
-                    if (!name.isEmpty() && file2.isFile() && name.startsWith(str) && name.endsWith(str2)) {
-                        int length = name.length();
-                        int length2 = str.length();
-                        int length3 = str2.length();
-                        if (length >= length2 + length3) {
-                            String substring = name.substring(length2, length - length3);
-                            if (set == null) {
-                                set = Collections.emptySet();
-                            }
-                            if (!TextUtils.isEmpty(substring)) {
-                                if (z) {
-                                    if (set.contains(substring)) {
-                                    }
-                                    J = nk4.J(file2);
-                                    if (a) {
-                                        Log.i("PurgerUtils", "originFile:" + file2.getAbsolutePath() + ", renameFile:" + J);
-                                    }
-                                    if (TextUtils.isEmpty(J)) {
-                                        arraySet.add(J);
-                                    }
-                                } else {
-                                    if (!set.contains(substring)) {
-                                    }
-                                    J = nk4.J(file2);
-                                    if (a) {
-                                    }
-                                    if (TextUtils.isEmpty(J)) {
-                                    }
-                                }
-                            }
-                        }
-                    }
+        @Override // com.baidu.tieba.uc2
+        public boolean a(PrefetchEvent prefetchEvent, PMSAppInfo pMSAppInfo, Bundle bundle) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, prefetchEvent, pMSAppInfo, bundle)) == null) {
+                if (pMSAppInfo != null && pMSAppInfo.appCategory == 0) {
+                    return true;
                 }
+                return false;
             }
-            return arraySet;
+            return invokeLLL.booleanValue;
         }
-        return (ArraySet) invokeCommon.objValue;
     }
 }

@@ -1,78 +1,85 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.tieba.sr2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.io.File;
 /* loaded from: classes5.dex */
 public class p62 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static AtomicInteger b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948013917, "Lcom/baidu/tieba/p62;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948013917, "Lcom/baidu/tieba/p62;");
-                return;
-            }
-        }
-        a = tk1.a;
-        b = new AtomicInteger(0);
-    }
-
-    public static boolean a(String str) {
+    public static sr2.g a(tt2 tt2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str != null && str.startsWith("master")) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tt2Var)) == null) {
+            File e = e();
+            sr2.M(b(), e, tt2Var);
+            sr2.g gVar = new sr2.g();
+            File file = new File(e, "app.json");
+            SwanAppConfigData b = i93.b(e.getAbsolutePath());
+            gVar.a = e.getPath() + File.separator;
+            gVar.b = b;
+            w52.k("WirelessDebugBundleHelper", "configFile path: " + file.getPath() + " exist: " + file.exists() + " info.mAppBundlePath path: " + gVar.a);
+            return gVar;
         }
-        return invokeL.booleanValue;
+        return (sr2.g) invokeL.objValue;
     }
 
-    public static String b() {
+    public static File b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new File(c(), "wireless_debug.aiapps");
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public static File c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String str = "master";
-            if (!j82.h()) {
-                return "master";
+            File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_wireless_debug_zip");
+            if (!file.exists()) {
+                file.mkdirs();
             }
-            int andIncrement = b.getAndIncrement();
-            if (andIncrement >= 1) {
-                str = "master" + andIncrement;
+            return file;
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public static File e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_wireless_debug");
+            if (!file.exists()) {
+                file.mkdirs();
             }
-            if (a) {
-                Log.i("MasterIdGenerator", "next master id - " + str);
-            }
-            return str;
+            return file;
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return AppRuntime.getAppContext().getFilesDir() + File.separator + "aiapps_wireless_debug_zip";
         }
         return (String) invokeV.objValue;
     }
 
-    public static int c() {
+    public static String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            int andSet = b.getAndSet(0);
-            if (a) {
-                Log.i("MasterIdGenerator", "last master id - " + andSet);
-            }
-            return andSet;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return AppRuntime.getAppContext().getFilesDir() + File.separator + "aiapps_wireless_debug";
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 }

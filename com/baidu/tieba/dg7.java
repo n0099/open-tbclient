@@ -1,153 +1,76 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkSettings;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.data.GroupMsgData;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.yf7;
+import com.baidu.tieba.homepage.topic.local.LocalChannelTopicHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
 /* loaded from: classes4.dex */
-public class dg7 {
+public class dg7 extends qn<gg7, LocalChannelTopicHolder> {
     public static /* synthetic */ Interceptable $ic;
-    public static dg7 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
 
-    /* loaded from: classes4.dex */
-    public static class a implements yf7.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.yf7.c
-        public boolean a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public dg7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dg7(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = tbPageContext;
     }
 
-    public static synchronized dg7 b() {
-        InterceptResult invokeV;
-        dg7 dg7Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (dg7.class) {
-                if (a == null) {
-                    a = new dg7();
-                }
-                dg7Var = a;
-            }
-            return dg7Var;
-        }
-        return (dg7) invokeV.objValue;
-    }
-
-    public static void d(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, yf7.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, groupMsgData, imMessageCenterPojo, bVar) == null) {
-            yf7.d(groupMsgData, imMessageCenterPojo, bVar, new a(), false);
-        }
-    }
-
-    public long[] a(GroupMsgData groupMsgData) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: s */
+    public LocalChannelTopicHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, groupMsgData)) == null) {
-            if (groupMsgData != null && groupMsgData.getGroupInfo() != null) {
-                long j = 0;
-                long groupId = groupMsgData.getGroupInfo().getGroupId();
-                Iterator<ChatMessage> it = groupMsgData.getListMessage().iterator();
-                while (it.hasNext()) {
-                    ChatMessage next = it.next();
-                    if (next.getMsgId() > j) {
-                        j = next.getMsgId();
-                    }
-                }
-                return new long[]{groupId, j};
-            }
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new LocalChannelTopicHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d04ca, viewGroup, false));
         }
-        return (long[]) invokeL.objValue;
+        return (LocalChannelTopicHolder) invokeL.objValue;
     }
 
-    public long c(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            TbadkSettings inst = TbadkSettings.getInst();
-            return inst.loadLong("tb_group_msg_" + j, -1L);
-        }
-        return invokeJ.longValue;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.qn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, gg7 gg7Var, LocalChannelTopicHolder localChannelTopicHolder) {
+        t(i, view2, viewGroup, gg7Var, localChannelTopicHolder);
+        return view2;
     }
 
-    public void e(GroupMsgData groupMsgData) {
+    public View t(int i, View view2, ViewGroup viewGroup, gg7 gg7Var, LocalChannelTopicHolder localChannelTopicHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, groupMsgData) == null) && groupMsgData != null && groupMsgData.getGroupInfo() != null) {
-            Iterator<ChatMessage> it = groupMsgData.getListMessage().iterator();
-            while (it.hasNext()) {
-                ChatMessage next = it.next();
-                if (!TextUtils.isEmpty(next.getStat())) {
-                    TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp().getApplicationContext(), "push_noti:" + next.getStat(), "taskId:" + next.getTaskId() + ";link:" + next.getLink() + ";uid:" + TbadkCoreApplication.getCurrentAccount());
-                }
-                if (!TextUtils.isEmpty(next.getLink()) && !TextUtils.isEmpty(next.getStat())) {
-                    TiebaStatic.pushMsg(next.getMsgId(), 1, next.getLink(), next.getStat());
-                }
-                CustomMessage customMessage = new CustomMessage(2012100);
-                customMessage.setData(new eu4(next.getMsgId(), next.getTaskId(), next.getLink(), next.getContent(), next.getStat(), next.getServiceId()));
-                MessageManager.getInstance().sendMessage(customMessage);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, gg7Var, localChannelTopicHolder})) == null) {
+            if (gg7Var != null && localChannelTopicHolder != null) {
+                localChannelTopicHolder.a(gg7Var);
+                localChannelTopicHolder.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
             }
-            if (groupMsgData.getListMessage().size() > 0) {
-                TiebaStatic.saveAndUploadMsg();
-            }
+            return view2;
         }
-    }
-
-    public void f(String str, long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLJ(1048579, this, str, j) == null) && !TextUtils.isEmpty(str) && j > 0) {
-            TbadkSettings inst = TbadkSettings.getInst();
-            inst.saveLong("tb_group_msg_" + str, j);
-        }
+        return (View) invokeCommon.objValue;
     }
 }

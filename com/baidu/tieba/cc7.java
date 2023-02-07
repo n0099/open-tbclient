@@ -1,68 +1,89 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.NewHottopic.PkModule;
-import tbclient.NewHottopic.TimeLine;
-import tbclient.NewHottopic.TopicDetail;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class cc7 {
+public class cc7 implements pb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
-    public String d;
-    public rc7 e;
-    public gc7 f;
+    public qb7 a;
+    public ob7 b;
 
-    public cc7() {
+    public cc7(qb7 qb7Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {qb7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = qb7Var;
+        this.b = new bc7(this);
     }
 
-    public void a(TopicDetail topicDetail) {
+    @Override // com.baidu.tieba.pb7
+    public boolean a(BdUniqueId bdUniqueId, String str, String str2, String str3) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, topicDetail) != null) || topicDetail == null) {
-            return;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, bdUniqueId, str, str2, str3)) == null) {
+            ob7 ob7Var = this.b;
+            if (ob7Var != null) {
+                return ob7Var.a(bdUniqueId, str, str2, str3);
+            }
+            return false;
         }
-        this.a = topicDetail.topic_id.longValue();
-        this.b = topicDetail.topic_desc;
-        topicDetail.discuss_num.longValue();
-        this.c = topicDetail.topic_image;
-        this.d = topicDetail.bg_image;
+        return invokeLLLL.booleanValue;
     }
 
-    public void b(PkModule pkModule) {
+    @Override // com.baidu.tieba.pb7
+    public boolean b(int i, ac7 ac7Var) {
+        InterceptResult invokeIL;
+        qb7 qb7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pkModule) == null) && pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
-            rc7 rc7Var = new rc7();
-            this.e = rc7Var;
-            rc7Var.a = this.a;
-            rc7Var.f = 2;
-            rc7Var.a(pkModule);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, ac7Var)) == null) {
+            if (ac7Var != null && (qb7Var = this.a) != null) {
+                qb7Var.setData(ac7Var.getDataList());
+                return true;
+            }
+            return false;
         }
+        return invokeIL.booleanValue;
     }
 
-    public void c(TimeLine timeLine) {
+    @Override // com.baidu.tieba.pb7
+    public boolean c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, timeLine) != null) || timeLine == null) {
-            return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            qb7 qb7Var = this.a;
+            if (qb7Var != null) {
+                qb7Var.b(i);
+                return true;
+            }
+            return false;
         }
-        gc7 gc7Var = new gc7();
-        this.f = gc7Var;
-        gc7Var.a(this.a, timeLine);
+        return invokeI.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.pb7
+    public void setData(List<Cdo> list) {
+        qb7 qb7Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && (qb7Var = this.a) != null) {
+            qb7Var.setData(list);
+        }
     }
 }

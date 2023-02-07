@@ -1,77 +1,75 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import android.util.SparseArray;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URLEncoder;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class ev5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ev5 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public SparseArray<dv5> a;
 
-    public static String a(String str, String str2, String str3, Integer num) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, str, str2, str3, num)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947747813, "Lcom/baidu/tieba/ev5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            StringBuilder sb = new StringBuilder();
-            sb.append("tiebaclient://");
-            if (num.intValue() > 0) {
-                sb.append("swangame/");
-            } else {
-                sb.append("swan/");
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947747813, "Lcom/baidu/tieba/ev5;");
+                return;
             }
-            sb.append(str);
-            if (!TextUtils.isEmpty(str2)) {
-                if (!str2.startsWith("/")) {
-                    sb.append("/");
-                }
-                sb.append(str2);
-            } else {
-                sb.append("/");
-            }
-            if (!TextUtils.isEmpty(Uri.parse(sb.toString()).getQuery())) {
-                sb.append("&");
-            } else {
-                if (!sb.toString().endsWith("/")) {
-                    sb.append("/");
-                }
-                sb.append("?");
-            }
-            sb.append("_baiduboxapp=");
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("from", str3);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            sb.append(URLEncoder.encode(jSONObject.toString()));
-            sb.append("&callback=_bdbox_js_275&upgrade=0");
-            return sb.toString();
         }
-        return (String) invokeLLLL.objValue;
+        b = new ev5();
     }
 
-    public static final boolean b(String str, String str2, String str3, Integer num) {
-        InterceptResult invokeLLLL;
-        String a;
+    public ev5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, str, str2, str3, num)) == null) {
-            if (TextUtils.isEmpty(str) || (a = a(str, str2, str3, num)) == null || !a.startsWith("tiebaclient://")) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2921361, a));
-            return true;
         }
-        return invokeLLLL.booleanValue;
+        this.a = new SparseArray<>();
+    }
+
+    public static ev5 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
+        }
+        return (ev5) invokeV.objValue;
+    }
+
+    public dv5 a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return this.a.get(i);
+        }
+        return (dv5) invokeI.objValue;
+    }
+
+    public void c(int i, dv5 dv5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, dv5Var) == null) {
+            this.a.put(i, dv5Var);
+        }
     }
 }

@@ -1,194 +1,166 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.BdLog;
+import android.graphics.Bitmap;
+import android.graphics.BitmapShader;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.PointF;
+import android.graphics.RectF;
+import android.graphics.Shader;
+import android.widget.ImageView;
+import com.baidu.adp.newwidget.ImageView.DrawerArgs;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.pm.BundleInfo;
-import com.baidu.nps.pm.BundleInfoGroup;
-import com.baidu.nps.pm.manager.NPSPackageManager;
-import com.baidu.nps.utils.SourceData;
-import com.baidu.searchbox.pms.init.RequestParams;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.Arrays;
 /* loaded from: classes5.dex */
-public class ol {
+public class ol extends el {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean b;
-    public static boolean c;
-    public static ol d;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile cm a;
-
-    /* loaded from: classes5.dex */
-    public static class a implements w91 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.w91
-        public void onProgress(long j, long j2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.w91
-        public void onResult(int i, String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) && BdBaseApplication.getInst().isDebugMode()) {
-                BdLog.e("Plug-in predownload status{\"code\": " + i + ", \"msg\": " + str + "}");
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448313200, "Lcom/baidu/tieba/ol;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448313200, "Lcom/baidu/tieba/ol;");
-                return;
-            }
-        }
-        d = new ol();
-    }
+    public Matrix s;
+    public BitmapShader t;
+    public RectF u;
 
     public ol() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.s = new Matrix();
+        this.u = new RectF();
     }
 
-    public static void a() {
+    @Override // com.baidu.tieba.el
+    public void a(hl hlVar, ImageView imageView) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && !c && cm.m()) {
-            c = true;
-            NPSPackageManager.getInstance().downloadAllBundles();
+        if (interceptable == null || interceptable.invokeLL(1048576, this, hlVar, imageView) == null) {
+            int b = hlVar.b();
+            int a = hlVar.a();
+            RectF rectF = this.g;
+            PointF b2 = b(rectF.left, rectF.top, this.f);
+            int i = (int) b2.x;
+            int i2 = (int) b2.y;
+            RectF rectF2 = this.g;
+            PointF b3 = b(rectF2.right, rectF2.bottom, this.f);
+            int i3 = (int) b3.x;
+            int i4 = (int) b3.y;
+            this.s.reset();
+            this.s.postScale((i3 - i) / b, (i4 - i2) / a);
+            this.s.postTranslate(i, i2);
+            if (hlVar.e()) {
+                Bitmap bitmap = hlVar.a.getBitmap();
+                Shader.TileMode tileMode = Shader.TileMode.CLAMP;
+                this.t = new BitmapShader(bitmap, tileMode, tileMode);
+            } else {
+                this.t = hlVar.b.d();
+            }
+            BitmapShader bitmapShader = this.t;
+            if (bitmapShader == null) {
+                return;
+            }
+            bitmapShader.setLocalMatrix(this.s);
+            this.c.setShader(this.t);
+            int width = (imageView.getWidth() - imageView.getPaddingLeft()) - imageView.getPaddingRight();
+            int height = (imageView.getHeight() - imageView.getPaddingTop()) - imageView.getPaddingBottom();
+            this.u.set(Math.max(i, 0), Math.max(i2, 0), Math.min(i3, width), Math.min(i4, height));
+            DrawerArgs drawerArgs = this.l;
+            if (!drawerArgs.c) {
+                return;
+            }
+            float f = drawerArgs.d / 2.0f;
+            if (!drawerArgs.g) {
+                this.h.set(f, f, imageView.getWidth() - f, imageView.getHeight() - f);
+                return;
+            }
+            RectF rectF3 = this.h;
+            RectF rectF4 = this.u;
+            rectF3.set(rectF4.left + f, rectF4.top + f, rectF4.right - f, rectF4.bottom - f);
         }
     }
 
-    public static void b() {
+    @Override // com.baidu.tieba.el
+    public void f(Canvas canvas, ImageView imageView) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65539, null) != null) || b) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, imageView) == null) {
+            DrawerArgs drawerArgs = this.l;
+            if (!drawerArgs.c) {
+                return;
+            }
+            if (!drawerArgs.b) {
+                canvas.drawPath(l(this.h, drawerArgs.a), this.d);
+                return;
+            }
+            RectF rectF = this.u;
+            float f = (rectF.right + rectF.left) / 2.0f;
+            float f2 = (rectF.top + rectF.bottom) / 2.0f;
+            float min = Math.min(rectF.width(), this.u.height()) / 2.0f;
+            if (min <= 0.0f) {
+                f = (imageView.getRight() + imageView.getLeft()) / 2.0f;
+                f2 = (imageView.getTop() + imageView.getBottom()) / 2.0f;
+                min = Math.min(imageView.getWidth(), imageView.getHeight()) / 2.0f;
+            }
+            canvas.drawCircle(f, f2, min - (this.l.d / 2.0f), this.d);
+        }
+    }
+
+    @Override // com.baidu.tieba.el
+    public void i(Canvas canvas, ImageView imageView) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, canvas, imageView) != null) || this.l.m == 0) {
             return;
         }
-        b = true;
-        NPSPackageManager.getInstance().fetchBundleInfo();
-    }
-
-    public static ol e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return d;
+        int scrollX = imageView.getScrollX();
+        int scrollY = imageView.getScrollY();
+        canvas.translate(scrollX, scrollY);
+        this.e.setColor(this.l.m);
+        if (!this.l.b) {
+            this.o.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
+            canvas.drawPath(l(this.o, this.l.a), this.e);
+        } else {
+            float width = imageView.getWidth() / 2.0f;
+            float height = imageView.getHeight() / 2.0f;
+            canvas.drawCircle(width, height, Math.min(width, height) - (this.l.d / 2.0f), this.e);
         }
-        return (ol) invokeV.objValue;
+        canvas.translate(-scrollX, -scrollY);
     }
 
-    public static void h() {
+    @Override // com.baidu.tieba.el
+    public void h(Canvas canvas, hl hlVar, ImageView imageView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            a();
-        }
-    }
-
-    public RequestParams.Channel d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            g();
-            return this.a.l();
-        }
-        return (RequestParams.Channel) invokeV.objValue;
-    }
-
-    public cm f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            g();
-            return this.a;
-        }
-        return (cm) invokeV.objValue;
-    }
-
-    public final synchronized void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                if (this.a == null) {
-                    this.a = new cm();
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, canvas, hlVar, imageView) == null) {
+            boolean d = hlVar.d();
+            if (d && hlVar.d()) {
+                hlVar.b.b(true);
+            }
+            DrawerArgs drawerArgs = this.l;
+            if (!drawerArgs.b) {
+                float[] fArr = drawerArgs.a;
+                float[] copyOf = Arrays.copyOf(fArr, fArr.length);
+                if (this.l.c) {
+                    for (int i = 0; i < copyOf.length; i++) {
+                        if (copyOf[i] != 0.0f) {
+                            copyOf[i] = copyOf[i] + 1.0f;
+                        }
+                    }
                 }
+                canvas.drawPath(l(this.u, copyOf), this.c);
+            } else {
+                RectF rectF = this.u;
+                canvas.drawCircle((rectF.right + rectF.left) / 2.0f, (rectF.top + rectF.bottom) / 2.0f, Math.min(rectF.width(), this.u.height()) / 2.0f, this.c);
+            }
+            if (d && hlVar.d()) {
+                hlVar.b.b(false);
             }
         }
-    }
-
-    public static void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
-            if (str != null && str.trim().length() != 0) {
-                SourceData sourceData = new SourceData();
-                sourceData.source = "";
-                NPSPackageManager.getInstance().preDownload(str, new a(), 1, sourceData);
-            } else if (BdBaseApplication.getInst().isDebugMode()) {
-                BdLog.e("PackageName of Plug-in is null.");
-            }
-        }
-    }
-
-    @NonNull
-    public List<BundleInfo> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (Map.Entry<String, BundleInfoGroup> entry : NPSPackageManager.getInstance().getAllBundleGroup().entrySet()) {
-                BundleInfoGroup value = entry.getValue();
-                BundleInfo bundleByType = value.getBundleByType(3);
-                if (bundleByType == null) {
-                    bundleByType = value.getBundleByType(2);
-                }
-                if (bundleByType != null) {
-                    arrayList.add(bundleByType);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
     }
 }

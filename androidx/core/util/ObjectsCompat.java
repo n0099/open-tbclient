@@ -1,7 +1,9 @@
 package androidx.core.util;
 
 import android.os.Build;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,6 +45,32 @@ public class ObjectsCompat {
         return invokeLL.booleanValue;
     }
 
+    @NonNull
+    public static <T> T requireNonNull(@Nullable T t, @NonNull String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, t, str)) == null) {
+            if (t != null) {
+                return t;
+            }
+            throw new NullPointerException(str);
+        }
+        return (T) invokeLL.objValue;
+    }
+
+    @Nullable
+    public static String toString(@Nullable Object obj, @Nullable String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, obj, str)) == null) {
+            if (obj != null) {
+                return obj.toString();
+            }
+            return str;
+        }
+        return (String) invokeLL.objValue;
+    }
+
     public static int hash(@Nullable Object... objArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -65,5 +93,18 @@ public class ObjectsCompat {
             return 0;
         }
         return invokeL.intValue;
+    }
+
+    @NonNull
+    public static <T> T requireNonNull(@Nullable T t) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, t)) == null) {
+            if (t != null) {
+                return t;
+            }
+            throw null;
+        }
+        return (T) invokeL.objValue;
     }
 }

@@ -1,114 +1,48 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.util.Pair;
-import android.view.View;
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.aop.annotation.DebugTrace;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.console.property.SwanAppPropertyWindow;
-import com.baidu.swan.apps.res.ui.FullScreenFloatView;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
-import com.baidu.tieba.vp2;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes6.dex */
-public interface up2 extends vp2.b {
-    rq1 A(String str);
+public class up2 extends qm2<sp2> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    View B(String str);
-
-    String C();
-
-    j43 D();
-
-    void E(gp2 gp2Var, dn2 dn2Var);
-
-    xl1 F();
-
+    @Override // com.baidu.tieba.qm2
     @NonNull
-    mc3 G();
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "release" : (String) invokeV.objValue;
+    }
 
-    r32 H();
+    public up2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void I();
-
-    SwanAppPropertyWindow J(Activity activity);
-
-    void K(String str);
-
-    am1 L();
-
-    SwanCoreVersion M();
-
-    boolean N();
-
-    void O();
-
-    am1 P();
-
-    void a();
-
-    String b();
-
-    void c();
-
-    void d(gp2 gp2Var, dn2 dn2Var);
-
-    @NonNull
-    y43 e(String str, SwanAppConfigData swanAppConfigData, String str2);
-
-    void exit();
-
-    @NonNull
-    y43 f(String str);
-
-    String g();
-
-    SwanAppActivity getActivity();
-
-    qq1 i();
-
-    @NonNull
-    y43 j(String str);
-
-    boolean k();
-
-    void l(SwanAppActivity swanAppActivity);
-
-    void m(String str, je2 je2Var);
-
-    FullScreenFloatView n(Activity activity);
-
-    void o();
-
-    void p();
-
-    @DebugTrace
-    oq1 q();
-
-    @NonNull
-    Pair<Integer, Integer> r();
-
-    void registerReceiver(Context context);
-
-    SwanAppConfigData s();
-
-    void t(Intent intent);
-
-    void u(je2 je2Var);
-
-    void unregisterReceiver(Context context);
-
-    void v();
-
-    void w();
-
-    @NonNull
-    Pair<Integer, Integer> x();
-
-    void y(me2 me2Var, boolean z);
-
-    String z();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qm2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull sp2 sp2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, sp2Var) == null) {
+            d(sp2Var, command.what, null, false);
+            sp2Var.release();
+        }
+    }
 }

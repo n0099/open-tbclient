@@ -1,138 +1,118 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Handler;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.GreyUtil;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.RecommendForumInfo;
 /* loaded from: classes4.dex */
-public class hz4 {
+public class hz4 extends qx4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public Context b;
-    public View c;
-    public TextView d;
-    public ImageView e;
-    public Toast f;
-    public Handler g;
-    public Runnable h;
+    public String d;
+    public int e;
+    public String f;
+    public ArrayList<gz4> g;
 
-    /* loaded from: classes4.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hz4 a;
+    @Override // com.baidu.tieba.qx4, com.baidu.tieba.sw4
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
 
-        public a(hz4 hz4Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947840999, "Lcom/baidu/tieba/hz4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hz4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = hz4Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.f != null) {
-                    this.a.f.cancel();
-                }
-                if (this.a.c != null && (this.a.c.getParent() instanceof ViewGroup)) {
-                    ((ViewGroup) this.a.c.getParent()).removeView(this.a.c);
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947840999, "Lcom/baidu/tieba/hz4;");
+                return;
             }
         }
+        BdUniqueId.gen();
     }
 
     public hz4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = 3000L;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.h = new a(this);
-        this.b = TbadkCoreApplication.getInst().getContext();
-        this.g = new Handler();
+        f(9);
+        this.g = new ArrayList<>();
     }
 
-    public void c(CharSequence charSequence) {
+    @Override // com.baidu.tieba.qx4, com.baidu.tieba.sw4
+    public py4 getNegFeedBackData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, charSequence) == null) {
-            View inflate = LayoutInflater.from(this.b).inflate(R.layout.image_toast_view, (ViewGroup) null);
-            this.c = inflate;
-            this.d = (TextView) inflate.findViewById(R.id.tip_text);
-            this.e = (ImageView) this.c.findViewById(R.id.tip_iamge);
-            this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(zi.g(this.b, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
-            this.d.setText(charSequence);
-            this.e.setImageResource(R.drawable.icon_toast_game_error);
-            e(this.c);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new py4();
         }
+        return (py4) invokeV.objValue;
     }
 
-    public void d(CharSequence charSequence) {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence) == null) {
-            View inflate = LayoutInflater.from(this.b).inflate(R.layout.image_toast_view, (ViewGroup) null);
-            this.c = inflate;
-            this.d = (TextView) inflate.findViewById(R.id.tip_text);
-            this.e = (ImageView) this.c.findViewById(R.id.tip_iamge);
-            this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(zi.g(this.b, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
-            this.d.setText(charSequence);
-            this.e.setImageResource(R.drawable.icon_toast_game_ok);
-            e(this.c);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return qx4.b;
         }
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public void e(View view2) {
+    public ArrayList<gz4> h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            this.g.removeCallbacks(this.h);
-            if (this.f == null) {
-                this.f = new Toast(this.b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.g;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public void i(List<RecommendForumInfo> list) {
+        Long l;
+        Integer num;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, list) == null) && list != null && list.size() > 0) {
+            ArrayList arrayList = new ArrayList();
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                RecommendForumInfo recommendForumInfo = list.get(i);
+                gz4 gz4Var = new gz4();
+                if (recommendForumInfo != null && (l = recommendForumInfo.forum_id) != null && l.longValue() != 0 && !StringUtils.isNull(recommendForumInfo.forum_name) && (num = recommendForumInfo.is_like) != null && num.intValue() != 1) {
+                    gz4Var.q(recommendForumInfo);
+                    arrayList.add(gz4Var);
+                }
             }
-            this.g.postDelayed(this.h, this.a);
-            this.f.setView(view2);
-            this.f.setDuration(1);
-            this.f.setGravity(17, 0, 0);
-            GreyUtil.grey(this.f);
-            this.f.show();
+            this.g.clear();
+            this.g.addAll(ListUtils.trimToSize(arrayList, 15));
         }
     }
 }

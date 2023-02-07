@@ -22,7 +22,7 @@ import com.google.android.material.elevation.ElevationOverlayProvider;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.internal.ViewUtils;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SwitchMaterial extends SwitchCompat {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEF_STYLE_RES = 2131755877;
@@ -59,7 +59,7 @@ public class SwitchMaterial extends SwitchCompat {
             if (this.materialThemeColorsThumbTintList == null) {
                 int color = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f04017e);
                 int color2 = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f04016e);
-                float dimension = getResources().getDimension(R.dimen.obfuscated_res_0x7f0704d3);
+                float dimension = getResources().getDimension(R.dimen.obfuscated_res_0x7f0704d8);
                 if (this.elevationOverlayProvider.isThemeElevationOverlayEnabled()) {
                     dimension += ViewUtils.getParentAbsoluteElevation(this);
                 }
@@ -99,7 +99,7 @@ public class SwitchMaterial extends SwitchCompat {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SwitchMaterial(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040678);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f04067c);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

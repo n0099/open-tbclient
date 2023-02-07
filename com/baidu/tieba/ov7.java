@@ -1,16 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.medialive.player.strategy.IVideoUpdateStrategy;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ov7 implements IVideoUpdateStrategy {
-    public static /* synthetic */ Interceptable $ic;
+public class ov7 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -25,20 +23,6 @@ public class ov7 implements IVideoUpdateStrategy {
         }
         if ((invokeClinit.flags & 1) != 0) {
             classClinitInterceptable.invokePostClinit(1948045785, "Lcom/baidu/tieba/ov7;");
-        }
-    }
-
-    public ov7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
         }
     }
 }

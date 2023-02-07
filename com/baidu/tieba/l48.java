@@ -1,79 +1,37 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.pb.chosen.PbChosenActivity;
-import com.baidu.tieba.pb.chosen.net.ChosenPbHttpResponse;
-import com.baidu.tieba.pb.chosen.net.ChosenPbNetMessage;
-import com.baidu.tieba.pb.chosen.net.ChosenPbSocketResponse;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AlaInfoData;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.TiebaStaticHelper;
+import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class l48 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public l48() {
+    public static void a(String str, UserData userData) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, str, userData) == null) && userData != null && userData.getUserId() != null && userData.getAlaUserData() != null && userData.getAlaInfo() != null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            AlaInfoData alaInfo = userData.getAlaInfo();
+            String str2 = null;
+            if (!StringUtils.isNull(alaInfo.appId)) {
+                str2 = alaInfo.appId;
             }
-        }
-        b();
-        a();
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            dh5 dh5Var = new dh5(309093);
-            dh5Var.setResponsedClass(ChosenPbSocketResponse.class);
-            dh5Var.g(true);
-            dh5Var.h(false);
-            MessageManager.getInstance().registerTask(dh5Var);
-        }
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_FINE_PB, qw8.a(TbConfig.FINE_PB_PAGE, 309093));
-            tbHttpMessageTask.setIsNeedLogin(false);
-            tbHttpMessageTask.setIsNeedTbs(false);
-            tbHttpMessageTask.setIsNeedAddCommenParam(false);
-            tbHttpMessageTask.setIsUseCurrentBDUSS(false);
-            tbHttpMessageTask.setResponsedClass(ChosenPbHttpResponse.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public void c(PbChosenActivity pbChosenActivity, long j, long j2, long j3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{pbChosenActivity, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            ChosenPbNetMessage chosenPbNetMessage = new ChosenPbNetMessage();
-            int l = zi.l(pbChosenActivity.getPageContext().getPageActivity());
-            int j4 = zi.j(pbChosenActivity.getPageContext().getPageActivity());
-            float i = zi.i(pbChosenActivity.getPageContext().getPageActivity());
-            chosenPbNetMessage.setQ_type(45L);
-            chosenPbNetMessage.setScrH(j4);
-            chosenPbNetMessage.setScrW(l);
-            chosenPbNetMessage.setScr_dip(i);
-            chosenPbNetMessage.setExcId(j);
-            chosenPbNetMessage.setTagCode(j2);
-            chosenPbNetMessage.setThreadId(j3);
-            pbChosenActivity.sendMessage(chosenPbNetMessage);
+            if (alaInfo.mYyExtData != null) {
+                str2 = TiebaStatic.YYValues.YY_LIVE;
+            }
+            statisticItem.param("obj_param1", YYLiveUtil.calculateLiveType(alaInfo));
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str2);
+            TiebaStaticHelper.addYYParam(statisticItem, alaInfo.mYyExtData);
+            TiebaStatic.log(statisticItem);
         }
     }
 }

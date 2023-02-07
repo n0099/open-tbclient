@@ -1,91 +1,81 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class kv2 {
+public class kv2 extends iv2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final List<iv2> b;
     public transient /* synthetic */ FieldHolder $fh;
+    public String A;
+    public ArrayList<String> B;
+    public String z;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947926466, "Lcom/baidu/tieba/kv2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947926466, "Lcom/baidu/tieba/kv2;");
+    public kv2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = j43.v;
-        b = Arrays.asList(new iv2());
+        this.z = "";
+        this.A = "";
     }
 
-    @NonNull
-    public static JSONObject b() {
-        JSONObject jSONObject;
+    @Override // com.baidu.tieba.m42, com.baidu.tieba.vy2
+    public boolean isValid() {
         InterceptResult invokeV;
+        pv2 pv2Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            try {
-                jSONObject = a();
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                    j12.k("SwanNaUseMapManager", ">>> NAUseMapException: " + e.getMessage());
-                }
-                jSONObject = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!TextUtils.isEmpty(this.c) && (pv2Var = this.j) != null && pv2Var.isValid()) {
+                return true;
             }
-            if (jSONObject == null) {
-                return new JSONObject();
-            }
-            return jSONObject;
+            return false;
         }
-        return (JSONObject) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static JSONObject a() throws JSONException {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.iv2, com.baidu.tieba.m42, com.baidu.tieba.vy2
+    public void a(JSONObject jSONObject) throws JSONException {
+        JSONArray optJSONArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            JSONObject jSONObject = new JSONObject("{\"pages\":{},\"window\":{\"navigationBarBackgroundColor\":{},\"navigationBarTextStyle\":{},\"navigationBarTitleText\":{},\"navigationStyle\":{},\"backgroundColor\":{},\"backgroundTextStyle\":{},\"enablePullDownRefresh\":{},\"onReachBottomDistance\":{}},\"networkTimeout\":{\"request\":{},\"connectSocket\":{},\"uploadFile\":{},\"downloadFile\":{}},\"tabBar\":{\"color\":{},\"backgroundColor\":{},\"borderStyle\":{},\"list\":{},\"selectedColor\":{}},\"swanCookie\":{}}");
-            if (a) {
-                j12.i("SwanNaUseMapManager", ">>> before intercept: " + jSONObject);
-            }
-            c(jSONObject);
-            if (a) {
-                j12.i("SwanNaUseMapManager", ">>> after intercept: " + jSONObject);
-            }
-            return jSONObject;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public static void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, jSONObject) == null) && jSONObject != null && jSONObject.length() != 0) {
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                for (iv2 iv2Var : b) {
-                    if (iv2Var.a(keys.next())) {
-                        keys.remove();
-                    }
-                }
+        super.a(jSONObject);
+        if (jSONObject.has("scale")) {
+            this.k = jSONObject.optDouble("scale", 18.0d);
+        }
+        if (jSONObject.has("name")) {
+            this.z = jSONObject.optString("name");
+        }
+        if (jSONObject.has("address")) {
+            this.A = jSONObject.optString("address");
+        }
+        if (jSONObject.has("ignoredApps") && (optJSONArray = jSONObject.optJSONArray("ignoredApps")) != null) {
+            int length = optJSONArray.length();
+            this.B = new ArrayList<>();
+            for (int i = 0; i < length; i++) {
+                this.B.add(optJSONArray.optString(i));
             }
+        }
+        if (jSONObject.has("naviPreference")) {
+            jSONObject.optInt("naviPreference", -1);
         }
     }
 }

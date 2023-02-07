@@ -1,39 +1,21 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import com.baidu.tieba.lha;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import tv.athena.revenue.api.pay.params.AppCustomExpand;
-import tv.athena.revenue.payui.view.IYYPayWayView;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
+import rx.internal.util.atomic.LinkedQueueNode;
 /* loaded from: classes5.dex */
-public class jfa implements lha.a {
+public final class jfa<E> extends gfa<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public Dialog b;
-    public lea c;
-    public gga d;
-    public dga e;
-    public Dialog f;
-    public IYYPayWayView g;
-    public AppCustomExpand h;
-    public IYYPayWayView.b i;
-    public IPayCallback<CurrencyChargeMessage> j;
 
-    public jfa(Activity activity, Dialog dialog, lea leaVar, dga dgaVar, gga ggaVar, Dialog dialog2, IYYPayWayView iYYPayWayView, AppCustomExpand appCustomExpand, IYYPayWayView.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback) {
+    public jfa() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, dialog, leaVar, dgaVar, ggaVar, dialog2, iYYPayWayView, appCustomExpand, bVar, iPayCallback};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -43,26 +25,55 @@ public class jfa implements lha.a {
                 return;
             }
         }
-        RLog.info("PaySignViewCallback", "create PayResultViewCallback");
-        this.a = activity;
-        this.b = dialog;
-        this.c = leaVar;
-        this.d = ggaVar;
-        this.e = dgaVar;
-        this.f = dialog2;
-        this.g = iYYPayWayView;
-        this.h = appCustomExpand;
-        this.i = bVar;
-        this.j = iPayCallback;
+        LinkedQueueNode<E> linkedQueueNode = new LinkedQueueNode<>();
+        f(linkedQueueNode);
+        e(linkedQueueNode);
+        linkedQueueNode.soNext(null);
     }
 
-    @Override // com.baidu.tieba.lha.a
-    public void b() {
+    @Override // java.util.Queue
+    public E peek() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            RLog.info("PaySignViewCallback", "onBtnConfirm");
-            this.c.f(this.a, this.d, this.e, this.f, this.g, this.h, this.i, this.j);
-            tga.a(this.b, PayDialogType.PAY_SIGN_DIALOG);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            LinkedQueueNode<E> lvNext = a().lvNext();
+            if (lvNext != null) {
+                return lvNext.lpValue();
+            }
+            return null;
         }
+        return (E) invokeV.objValue;
+    }
+
+    @Override // java.util.Queue
+    public E poll() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            LinkedQueueNode<E> lvNext = a().lvNext();
+            if (lvNext != null) {
+                E andNullValue = lvNext.getAndNullValue();
+                e(lvNext);
+                return andNullValue;
+            }
+            return null;
+        }
+        return (E) invokeV.objValue;
+    }
+
+    @Override // java.util.Queue
+    public boolean offer(E e) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e)) == null) {
+            if (e != null) {
+                LinkedQueueNode<E> linkedQueueNode = new LinkedQueueNode<>(e);
+                b().soNext(linkedQueueNode);
+                f(linkedQueueNode);
+                return true;
+            }
+            throw new NullPointerException("null elements not allowed");
+        }
+        return invokeL.booleanValue;
     }
 }

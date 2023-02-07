@@ -3,8 +3,8 @@ package com.baidu.nadcore.net.request;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.sg0;
-import com.baidu.tieba.t01;
+import com.baidu.tieba.x11;
+import com.baidu.tieba.yg0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -87,7 +87,7 @@ public final class Headers {
                     b(str, str2);
                     return this;
                 } catch (Exception e) {
-                    if (!sg0.a) {
+                    if (!yg0.a) {
                         return this;
                     }
                     throw new IllegalStateException(e);
@@ -100,8 +100,8 @@ public final class Headers {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-                t01.b(this.a, str);
-                t01.b(this.a, str2.trim());
+                x11.b(this.a, str);
+                x11.b(this.a, str2.trim());
                 return this;
             }
             return (a) invokeLL.objValue;
@@ -128,10 +128,10 @@ public final class Headers {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
                 int i = 0;
-                while (i < t01.l(this.a)) {
-                    if (str.equalsIgnoreCase((String) t01.d(this.a, i))) {
-                        t01.i(this.a, i);
-                        t01.i(this.a, i);
+                while (i < x11.l(this.a)) {
+                    if (str.equalsIgnoreCase((String) x11.d(this.a, i))) {
+                        x11.i(this.a, i);
+                        x11.i(this.a, i);
                         i -= 2;
                     }
                     i += 2;
@@ -158,7 +158,7 @@ public final class Headers {
             }
         }
         List<String> list = aVar.a;
-        this.a = (String[]) list.toArray(new String[t01.l(list)]);
+        this.a = (String[]) list.toArray(new String[x11.l(list)]);
     }
 
     public static void a(String str) throws IllegalUnicodeException {

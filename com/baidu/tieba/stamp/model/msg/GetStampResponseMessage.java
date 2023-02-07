@@ -2,7 +2,7 @@ package com.baidu.tieba.stamp.model.msg;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.xu8;
+import com.baidu.tieba.vy8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import org.json.JSONObject;
 public class GetStampResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<xu8> mFetchStampDataList;
+    public List<vy8> mFetchStampDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetStampResponseMessage(int i) {
@@ -48,16 +48,16 @@ public class GetStampResponseMessage extends JsonHttpResponsedMessage {
             int error = getError();
             if (statusCode == 200 && error == 0 && jSONObject != null && (jSONArray = jSONObject.getJSONArray("icon")) != null && jSONArray.length() > 0) {
                 for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    xu8 xu8Var = new xu8();
-                    xu8Var.d(jSONArray.getJSONObject(i2).optString("title"));
-                    xu8Var.c(jSONArray.getJSONObject(i2).optString("pic160"));
-                    this.mFetchStampDataList.add(xu8Var);
+                    vy8 vy8Var = new vy8();
+                    vy8Var.d(jSONArray.getJSONObject(i2).optString("title"));
+                    vy8Var.c(jSONArray.getJSONObject(i2).optString("pic160"));
+                    this.mFetchStampDataList.add(vy8Var);
                 }
             }
         }
     }
 
-    public List<xu8> getStampList() {
+    public List<vy8> getStampList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

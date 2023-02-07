@@ -1,25 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class du5 extends BdAsyncTask<Void, Void, Void> {
+public final class du5 extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vt5 a;
+    public final WheelView a;
 
-    public du5(vt5 vt5Var) {
+    public du5(WheelView wheelView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vt5Var};
+            Object[] objArr = {wheelView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,22 +28,26 @@ public class du5 extends BdAsyncTask<Void, Void, Void> {
                 return;
             }
         }
-        this.a = vt5Var;
+        this.a = wheelView;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Void doInBackground(Void... voidArr) {
-        InterceptResult invokeL;
+    @Override // android.os.Handler
+    public final void handleMessage(Message message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-            if (!au5.f().b(this.a)) {
-                cz4 l = cz4.l();
-                l.v("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true);
-                return null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+            int i = message.what;
+            if (i != 1000) {
+                if (i != 2000) {
+                    if (i == 3000) {
+                        this.a.n();
+                        return;
+                    }
+                    return;
+                }
+                this.a.r(WheelView.ACTION.FLING);
+                return;
             }
-            return null;
+            this.a.invalidate();
         }
-        return (Void) invokeL.objValue;
     }
 }

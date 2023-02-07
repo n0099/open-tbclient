@@ -1,17 +1,12 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import android.util.Log;
-import android.webkit.JavascriptInterface;
-import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.SchemeCollecter;
-import com.baidu.searchbox.v8engine.JSRuntime;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
-import com.baidu.searchbox.v8engine.event.EventTarget;
-import com.baidu.searchbox.v8engine.event.EventTargetImpl;
-import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
+import com.baidu.swan.apps.core.pms.PMSDownloadType;
+import com.baidu.swan.apps.core.pms.PkgDownloadError;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,172 +14,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class vb2 extends rb2 {
+public class vb2 extends wb2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean o;
-    public static final Object p;
-    public static String q;
+    public static final boolean D;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.tb2, com.baidu.searchbox.unitedscheme.TypedCallbackHandler
-    public int getInvokeSourceType() {
+    @Override // com.baidu.tieba.ac2
+    public int K() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return 3;
         }
         return invokeV.intValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public static class a extends EventTargetImpl {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public tb2 a;
-        public kg2 b;
-        @V8JavascriptField
-        public sb2 env;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(tb2 tb2Var, String str) {
-            super(tb2Var);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tb2Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((JSRuntime) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tb2Var;
-            sb2 sb2Var = new sb2();
-            this.env = sb2Var;
-            sb2Var.basePath = str;
-        }
-
-        @JavascriptInterface
-        @SuppressLint({"BDThrowableCheck"})
-        public String getAPIs(int i) {
-            InterceptResult invokeI;
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-                if (vb2.o) {
-                    if (i03.p()) {
-                        str = wg3.d(i, SchemeCollecter.CLASSIFY_SWAN_V8);
-                    } else {
-                        str = "";
-                    }
-                    j12.b("SwanAppV8Engine", "getAPIs res:" + str);
-                    return str;
-                }
-                String d = wg3.d(i, SchemeCollecter.CLASSIFY_SWAN_V8);
-                j12.b("SwanAppV8Engine", "getAPIs description:" + d);
-                if (TextUtils.isEmpty(d)) {
-                    if (!vb2.o) {
-                        ng3.c(wg3.b(String.format("index: %d, desc: %s, isV8: %b", Integer.valueOf(i), d, Boolean.TRUE)));
-                    } else {
-                        wg3.i();
-                        throw new RuntimeException(String.format("getAPIs cannot find index: %d, desc: %s", Integer.valueOf(i), d));
-                    }
-                } else {
-                    ng3.d();
-                }
-                return d;
-            }
-            return (String) invokeI.objValue;
-        }
-
-        @JavascriptInterface
-        public String getDevToolsResponse() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (vb2.o) {
-                    Log.d("SwanAppV8Engine", "getDevToolsResponse = " + vb2.q);
-                }
-                return vb2.q;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @JavascriptInterface
-        public String getEnvVariables() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return to2.a(this.a);
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @JavascriptInterface
-        public kg2 getFileSystemManager() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                if (this.b == null) {
-                    this.b = new kg2((rb2) this.a);
-                }
-                return this.b;
-            }
-            return (kg2) invokeV.objValue;
-        }
-
-        @JavascriptInterface
-        public JSONObject getNACanIUseMap() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                JSONObject b = kv2.b();
-                j12.k("SwanAppV8Engine", "getNACanIUseMap - " + b.toString());
-                return b;
-            }
-            return (JSONObject) invokeV.objValue;
-        }
-
-        @JavascriptInterface
-        public boolean lockMaster() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                j12.k("SwanAppV8Engine", "lockMaster");
-                synchronized (vb2.p) {
-                    try {
-                        try {
-                            vb2.p.wait();
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                            return false;
-                        }
-                    } catch (Throwable th) {
-                        throw th;
-                    }
-                }
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @JavascriptInterface
-        public void setDevToolsResponse(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-                if (vb2.o) {
-                    Log.d("SwanAppV8Engine", "setDevToolsResponse = " + str);
-                }
-                vb2.q = str;
-            }
-        }
     }
 
     static {
@@ -200,41 +43,144 @@ public class vb2 extends rb2 {
                 return;
             }
         }
-        o = tk1.a;
-        p = new Object();
-        q = "";
+        D = gp1.a;
     }
 
-    @Override // com.baidu.tieba.rb2
-    @NonNull
-    public EventTarget A() {
+    @Override // com.baidu.tieba.rg4
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.F();
+            if (this.n != null) {
+                u0();
+                H0("checkForUpdate", false);
+                mc2.c(this.o);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.wb2
+    public PMSDownloadType k0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            a aVar = new a(this, this.b.getInitBasePath());
-            aVar.env.config = pd3.b();
-            return aVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return PMSDownloadType.ASYNC;
         }
-        return (EventTarget) invokeV.objValue;
+        return (PMSDownloadType) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vb2(@NonNull String str, @NonNull oc2 oc2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
-        super(str, oc2Var, v8ThreadDelegatePolicy);
+    public vb2(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, oc2Var, v8ThreadDelegatePolicy};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (oc2) objArr2[1], (V8ThreadDelegatePolicy) objArr2[2]);
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.wb2, com.baidu.tieba.rg4
+    public void C(qh4 qh4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, qh4Var) == null) {
+            super.C(qh4Var);
+            if (D) {
+                Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: onFetchError: " + qh4Var.toString());
+            }
+            H0("checkForUpdate", false);
+            m0(qh4Var.a);
+            if (mc2.m(qh4Var)) {
+                mc2.c(this.o);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.wb2, com.baidu.tieba.rg4
+    public void G(em4 em4Var) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, em4Var) == null) {
+            super.G(em4Var);
+            if (em4Var != null && em4Var.f()) {
+                z = true;
+            } else {
+                z = false;
+            }
+            H0("checkForUpdate", z);
+        }
+    }
+
+    @Override // com.baidu.tieba.rg4
+    public void H(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
+            super.H(str, i);
+            bi4 a = bi4.a(str);
+            if (a == null) {
+                return;
+            }
+            boolean b = dm4.b(a.c());
+            w52.i("SwanAppPkgAsyncDownloadCallback", "resetCore: " + b + ";statusCode:" + i);
+            if (b) {
+                m53 e = m53.e();
+                o53 o53Var = new o53(129);
+                o53Var.f(true);
+                e.h(o53Var);
+            }
+        }
+    }
+
+    public final void H0(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(1048580, this, str, z) != null) || TextUtils.isEmpty(this.o)) {
+            return;
+        }
+        yb2.f(str, this.o, z);
+    }
+
+    @Override // com.baidu.tieba.wb2
+    public void v0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.v0();
+            this.p.add(new UbcFlowEvent("na_start_update_db"));
+            pk3 F0 = F0();
+            this.p.add(new UbcFlowEvent("na_end_update_db"));
+            if (F0 == null) {
+                if (D) {
+                    Log.d("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: 异步更新-> DB 存储成功");
+                }
+                H0("updateReady", true);
+                A0("main_async_download", "0");
+                mc2.c(this.o);
+            } else if (D) {
+                Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: 异步更新-> DB 存储失败");
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.wb2
+    public void w0(Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, th) == null) {
+            H0("updateFailed", false);
+            if (th instanceof PkgDownloadError) {
+                PkgDownloadError pkgDownloadError = (PkgDownloadError) th;
+                if (D) {
+                    Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: pkg:" + pkgDownloadError.getPackage() + ", message:" + pkgDownloadError.getMessage());
+                }
+            } else if (D) {
+                Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: 未知错误：" + th.getMessage());
             }
         }
     }

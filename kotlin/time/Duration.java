@@ -7,13 +7,15 @@ import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.meizu.cloud.pushsdk.notification.model.NotificationStyle;
-import java.util.concurrent.TimeUnit;
 import kotlin.Deprecated;
+import kotlin.DeprecatedSinceKotlin;
 import kotlin.Metadata;
 import kotlin.PublishedApi;
 import kotlin.ReplaceWith;
 import kotlin.SinceKotlin;
+import kotlin.WasExperimental;
 import kotlin.comparisons.ComparisonsKt___ComparisonsJvmKt;
+import kotlin.internal.InlineOnly;
 import kotlin.jvm.JvmInline;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.functions.Function3;
@@ -27,30 +29,30 @@ import kotlin.ranges.RangesKt___RangesKt;
 import kotlin.text.StringsKt__StringsKt;
 import kotlinx.coroutines.EventLoop_commonKt;
 import org.aspectj.runtime.reflect.SignatureImpl;
-@SinceKotlin(version = "1.3")
-@Metadata(d1 = {"\u0000v\n\u0002\u0018\u0002\n\u0002\u0010\u000f\n\u0000\n\u0002\u0010\t\n\u0002\b\u0005\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0010\u0006\n\u0002\b4\n\u0002\u0018\u0002\n\u0002\b\u0017\n\u0002\u0010\u000b\n\u0002\u0010\u0000\n\u0002\b\u001b\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u000e\n\u0002\b\u0010\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\b\b\u0087@\u0018\u0000 ¬\u00012\b\u0012\u0004\u0012\u00020\u00000\u0001:\u0002¬\u0001B\u0014\b\u0000\u0012\u0006\u0010\u0002\u001a\u00020\u0003ø\u0001\u0000¢\u0006\u0004\b\u0004\u0010\u0005J%\u0010K\u001a\u00020\u00002\u0006\u0010L\u001a\u00020\u00032\u0006\u0010M\u001a\u00020\u0003H\u0002ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\bN\u0010OJ\u001b\u0010P\u001a\u00020\t2\u0006\u0010Q\u001a\u00020\u0000H\u0096\u0002ø\u0001\u0000¢\u0006\u0004\bR\u0010SJ\u001e\u0010T\u001a\u00020\u00002\u0006\u0010U\u001a\u00020\u000fH\u0086\u0002ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\bV\u0010WJ\u001e\u0010T\u001a\u00020\u00002\u0006\u0010U\u001a\u00020\tH\u0086\u0002ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\bV\u0010XJ\u001b\u0010T\u001a\u00020\u000f2\u0006\u0010Q\u001a\u00020\u0000H\u0086\u0002ø\u0001\u0000¢\u0006\u0004\bY\u0010ZJ\u001a\u0010[\u001a\u00020\\2\b\u0010Q\u001a\u0004\u0018\u00010]HÖ\u0003¢\u0006\u0004\b^\u0010_J\u0010\u0010`\u001a\u00020\tHÖ\u0001¢\u0006\u0004\ba\u0010\rJ\r\u0010b\u001a\u00020\\¢\u0006\u0004\bc\u0010dJ\u000f\u0010e\u001a\u00020\\H\u0002¢\u0006\u0004\bf\u0010dJ\u000f\u0010g\u001a\u00020\\H\u0002¢\u0006\u0004\bh\u0010dJ\r\u0010i\u001a\u00020\\¢\u0006\u0004\bj\u0010dJ\r\u0010k\u001a\u00020\\¢\u0006\u0004\bl\u0010dJ\r\u0010m\u001a\u00020\\¢\u0006\u0004\bn\u0010dJ\u001b\u0010o\u001a\u00020\u00002\u0006\u0010Q\u001a\u00020\u0000H\u0086\u0002ø\u0001\u0000¢\u0006\u0004\bp\u0010qJ\u001b\u0010r\u001a\u00020\u00002\u0006\u0010Q\u001a\u00020\u0000H\u0086\u0002ø\u0001\u0000¢\u0006\u0004\bs\u0010qJ\u001e\u0010t\u001a\u00020\u00002\u0006\u0010U\u001a\u00020\u000fH\u0086\u0002ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\bu\u0010WJ\u001e\u0010t\u001a\u00020\u00002\u0006\u0010U\u001a\u00020\tH\u0086\u0002ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\bu\u0010XJ \u0001\u0010v\u001a\u0002Hw\"\u0004\b\u0000\u0010w2v\u0010x\u001ar\u0012\u0013\u0012\u00110\t¢\u0006\f\bz\u0012\b\b{\u0012\u0004\b\b(|\u0012\u0013\u0012\u00110\t¢\u0006\f\bz\u0012\b\b{\u0012\u0004\b\b(}\u0012\u0013\u0012\u00110\t¢\u0006\f\bz\u0012\b\b{\u0012\u0004\b\b(~\u0012\u0013\u0012\u00110\t¢\u0006\f\bz\u0012\b\b{\u0012\u0004\b\b(\u007f\u0012\u0014\u0012\u00120\t¢\u0006\r\bz\u0012\t\b{\u0012\u0005\b\b(\u0080\u0001\u0012\u0004\u0012\u0002Hw0yH\u0086\bø\u0001\u0002\u0082\u0002\n\n\b\b\u0001\u0012\u0002\u0010\u0001 \u0001¢\u0006\u0006\b\u0081\u0001\u0010\u0082\u0001J\u008c\u0001\u0010v\u001a\u0002Hw\"\u0004\b\u0000\u0010w2b\u0010x\u001a^\u0012\u0013\u0012\u00110\t¢\u0006\f\bz\u0012\b\b{\u0012\u0004\b\b(}\u0012\u0013\u0012\u00110\t¢\u0006\f\bz\u0012\b\b{\u0012\u0004\b\b(~\u0012\u0013\u0012\u00110\t¢\u0006\f\bz\u0012\b\b{\u0012\u0004\b\b(\u007f\u0012\u0014\u0012\u00120\t¢\u0006\r\bz\u0012\t\b{\u0012\u0005\b\b(\u0080\u0001\u0012\u0004\u0012\u0002Hw0\u0083\u0001H\u0086\bø\u0001\u0002\u0082\u0002\n\n\b\b\u0001\u0012\u0002\u0010\u0001 \u0001¢\u0006\u0006\b\u0081\u0001\u0010\u0084\u0001Jw\u0010v\u001a\u0002Hw\"\u0004\b\u0000\u0010w2M\u0010x\u001aI\u0012\u0013\u0012\u00110\t¢\u0006\f\bz\u0012\b\b{\u0012\u0004\b\b(~\u0012\u0013\u0012\u00110\t¢\u0006\f\bz\u0012\b\b{\u0012\u0004\b\b(\u007f\u0012\u0014\u0012\u00120\t¢\u0006\r\bz\u0012\t\b{\u0012\u0005\b\b(\u0080\u0001\u0012\u0004\u0012\u0002Hw0\u0085\u0001H\u0086\bø\u0001\u0002\u0082\u0002\n\n\b\b\u0001\u0012\u0002\u0010\u0001 \u0001¢\u0006\u0006\b\u0081\u0001\u0010\u0086\u0001Jb\u0010v\u001a\u0002Hw\"\u0004\b\u0000\u0010w28\u0010x\u001a4\u0012\u0013\u0012\u00110\u0003¢\u0006\f\bz\u0012\b\b{\u0012\u0004\b\b(\u007f\u0012\u0014\u0012\u00120\t¢\u0006\r\bz\u0012\t\b{\u0012\u0005\b\b(\u0080\u0001\u0012\u0004\u0012\u0002Hw0\u0087\u0001H\u0086\bø\u0001\u0002\u0082\u0002\n\n\b\b\u0001\u0012\u0002\u0010\u0001 \u0001¢\u0006\u0006\b\u0081\u0001\u0010\u0088\u0001J\u001e\u0010\u0089\u0001\u001a\u00020\u000f2\f\u0010\u008a\u0001\u001a\u00070Dj\u0003`\u008b\u0001¢\u0006\u0006\b\u008c\u0001\u0010\u008d\u0001J\u001e\u0010\u008e\u0001\u001a\u00020\t2\f\u0010\u008a\u0001\u001a\u00070Dj\u0003`\u008b\u0001¢\u0006\u0006\b\u008f\u0001\u0010\u0090\u0001J\u0011\u0010\u0091\u0001\u001a\u00030\u0092\u0001¢\u0006\u0006\b\u0093\u0001\u0010\u0094\u0001J\u001e\u0010\u0095\u0001\u001a\u00020\u00032\f\u0010\u008a\u0001\u001a\u00070Dj\u0003`\u008b\u0001¢\u0006\u0006\b\u0096\u0001\u0010\u0097\u0001J\u0011\u0010\u0098\u0001\u001a\u00020\u0003H\u0007¢\u0006\u0005\b\u0099\u0001\u0010\u0005J\u0011\u0010\u009a\u0001\u001a\u00020\u0003H\u0007¢\u0006\u0005\b\u009b\u0001\u0010\u0005J\u0013\u0010\u009c\u0001\u001a\u00030\u0092\u0001H\u0016¢\u0006\u0006\b\u009d\u0001\u0010\u0094\u0001J*\u0010\u009c\u0001\u001a\u00030\u0092\u00012\f\u0010\u008a\u0001\u001a\u00070Dj\u0003`\u008b\u00012\t\b\u0002\u0010\u009e\u0001\u001a\u00020\t¢\u0006\u0006\b\u009d\u0001\u0010\u009f\u0001J\u0018\u0010 \u0001\u001a\u00020\u0000H\u0086\u0002ø\u0001\u0000ø\u0001\u0001¢\u0006\u0005\b¡\u0001\u0010\u0005JK\u0010¢\u0001\u001a\u00030£\u0001*\b0¤\u0001j\u0003`¥\u00012\u0007\u0010¦\u0001\u001a\u00020\t2\u0007\u0010§\u0001\u001a\u00020\t2\u0007\u0010¨\u0001\u001a\u00020\t2\b\u0010\u008a\u0001\u001a\u00030\u0092\u00012\u0007\u0010©\u0001\u001a\u00020\\H\u0002¢\u0006\u0006\bª\u0001\u0010«\u0001R\u0017\u0010\u0006\u001a\u00020\u00008Fø\u0001\u0000ø\u0001\u0001¢\u0006\u0006\u001a\u0004\b\u0007\u0010\u0005R\u001a\u0010\b\u001a\u00020\t8@X\u0081\u0004¢\u0006\f\u0012\u0004\b\n\u0010\u000b\u001a\u0004\b\f\u0010\rR\u001a\u0010\u000e\u001a\u00020\u000f8FX\u0087\u0004¢\u0006\f\u0012\u0004\b\u0010\u0010\u000b\u001a\u0004\b\u0011\u0010\u0012R\u001a\u0010\u0013\u001a\u00020\u000f8FX\u0087\u0004¢\u0006\f\u0012\u0004\b\u0014\u0010\u000b\u001a\u0004\b\u0015\u0010\u0012R\u001a\u0010\u0016\u001a\u00020\u000f8FX\u0087\u0004¢\u0006\f\u0012\u0004\b\u0017\u0010\u000b\u001a\u0004\b\u0018\u0010\u0012R\u001a\u0010\u0019\u001a\u00020\u000f8FX\u0087\u0004¢\u0006\f\u0012\u0004\b\u001a\u0010\u000b\u001a\u0004\b\u001b\u0010\u0012R\u001a\u0010\u001c\u001a\u00020\u000f8FX\u0087\u0004¢\u0006\f\u0012\u0004\b\u001d\u0010\u000b\u001a\u0004\b\u001e\u0010\u0012R\u001a\u0010\u001f\u001a\u00020\u000f8FX\u0087\u0004¢\u0006\f\u0012\u0004\b \u0010\u000b\u001a\u0004\b!\u0010\u0012R\u001a\u0010\"\u001a\u00020\u000f8FX\u0087\u0004¢\u0006\f\u0012\u0004\b#\u0010\u000b\u001a\u0004\b$\u0010\u0012R\u001a\u0010%\u001a\u00020\u00038FX\u0087\u0004¢\u0006\f\u0012\u0004\b&\u0010\u000b\u001a\u0004\b'\u0010\u0005R\u001a\u0010(\u001a\u00020\u00038FX\u0087\u0004¢\u0006\f\u0012\u0004\b)\u0010\u000b\u001a\u0004\b*\u0010\u0005R\u001a\u0010+\u001a\u00020\u00038FX\u0087\u0004¢\u0006\f\u0012\u0004\b,\u0010\u000b\u001a\u0004\b-\u0010\u0005R\u001a\u0010.\u001a\u00020\u00038FX\u0087\u0004¢\u0006\f\u0012\u0004\b/\u0010\u000b\u001a\u0004\b0\u0010\u0005R\u001a\u00101\u001a\u00020\u00038FX\u0087\u0004¢\u0006\f\u0012\u0004\b2\u0010\u000b\u001a\u0004\b3\u0010\u0005R\u001a\u00104\u001a\u00020\u00038FX\u0087\u0004¢\u0006\f\u0012\u0004\b5\u0010\u000b\u001a\u0004\b6\u0010\u0005R\u001a\u00107\u001a\u00020\u00038FX\u0087\u0004¢\u0006\f\u0012\u0004\b8\u0010\u000b\u001a\u0004\b9\u0010\u0005R\u001a\u0010:\u001a\u00020\t8@X\u0081\u0004¢\u0006\f\u0012\u0004\b;\u0010\u000b\u001a\u0004\b<\u0010\rR\u001a\u0010=\u001a\u00020\t8@X\u0081\u0004¢\u0006\f\u0012\u0004\b>\u0010\u000b\u001a\u0004\b?\u0010\rR\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000R\u001a\u0010@\u001a\u00020\t8@X\u0081\u0004¢\u0006\f\u0012\u0004\bA\u0010\u000b\u001a\u0004\bB\u0010\rR\u0014\u0010C\u001a\u00020D8BX\u0082\u0004¢\u0006\u0006\u001a\u0004\bE\u0010FR\u0015\u0010G\u001a\u00020\t8Â\u0002X\u0082\u0004¢\u0006\u0006\u001a\u0004\bH\u0010\rR\u0014\u0010I\u001a\u00020\u00038BX\u0082\u0004¢\u0006\u0006\u001a\u0004\bJ\u0010\u0005\u0088\u0001\u0002\u0092\u0001\u00020\u0003ø\u0001\u0000\u0082\u0002\u000f\n\u0002\b\u0019\n\u0002\b!\n\u0005\b\u009920\u0001¨\u0006\u00ad\u0001"}, d2 = {"Lkotlin/time/Duration;", "", "rawValue", "", "constructor-impl", "(J)J", "absoluteValue", "getAbsoluteValue-UwyO8pc", "hoursComponent", "", "getHoursComponent$annotations", "()V", "getHoursComponent-impl", "(J)I", "inDays", "", "getInDays$annotations", "getInDays-impl", "(J)D", "inHours", "getInHours$annotations", "getInHours-impl", "inMicroseconds", "getInMicroseconds$annotations", "getInMicroseconds-impl", "inMilliseconds", "getInMilliseconds$annotations", "getInMilliseconds-impl", "inMinutes", "getInMinutes$annotations", "getInMinutes-impl", "inNanoseconds", "getInNanoseconds$annotations", "getInNanoseconds-impl", "inSeconds", "getInSeconds$annotations", "getInSeconds-impl", "inWholeDays", "getInWholeDays$annotations", "getInWholeDays-impl", "inWholeHours", "getInWholeHours$annotations", "getInWholeHours-impl", "inWholeMicroseconds", "getInWholeMicroseconds$annotations", "getInWholeMicroseconds-impl", "inWholeMilliseconds", "getInWholeMilliseconds$annotations", "getInWholeMilliseconds-impl", "inWholeMinutes", "getInWholeMinutes$annotations", "getInWholeMinutes-impl", "inWholeNanoseconds", "getInWholeNanoseconds$annotations", "getInWholeNanoseconds-impl", "inWholeSeconds", "getInWholeSeconds$annotations", "getInWholeSeconds-impl", "minutesComponent", "getMinutesComponent$annotations", "getMinutesComponent-impl", "nanosecondsComponent", "getNanosecondsComponent$annotations", "getNanosecondsComponent-impl", "secondsComponent", "getSecondsComponent$annotations", "getSecondsComponent-impl", "storageUnit", "Ljava/util/concurrent/TimeUnit;", "getStorageUnit-impl", "(J)Ljava/util/concurrent/TimeUnit;", "unitDiscriminator", "getUnitDiscriminator-impl", "value", "getValue-impl", "addValuesMixedRanges", "thisMillis", "otherNanos", "addValuesMixedRanges-UwyO8pc", "(JJJ)J", "compareTo", ImageViewerConfig.FROM_OTHER, "compareTo-LRDsOJo", "(JJ)I", TtmlNode.TAG_DIV, "scale", "div-UwyO8pc", "(JD)J", "(JI)J", "div-LRDsOJo", "(JJ)D", "equals", "", "", "equals-impl", "(JLjava/lang/Object;)Z", TTDownloadField.TT_HASHCODE, "hashCode-impl", "isFinite", "isFinite-impl", "(J)Z", "isInMillis", "isInMillis-impl", "isInNanos", "isInNanos-impl", "isInfinite", "isInfinite-impl", "isNegative", "isNegative-impl", "isPositive", "isPositive-impl", "minus", "minus-LRDsOJo", "(JJ)J", "plus", "plus-LRDsOJo", "times", "times-UwyO8pc", "toComponents", ExifInterface.GPS_DIRECTION_TRUE, "action", "Lkotlin/Function5;", "Lkotlin/ParameterName;", "name", "days", "hours", "minutes", "seconds", "nanoseconds", "toComponents-impl", "(JLkotlin/jvm/functions/Function5;)Ljava/lang/Object;", "Lkotlin/Function4;", "(JLkotlin/jvm/functions/Function4;)Ljava/lang/Object;", "Lkotlin/Function3;", "(JLkotlin/jvm/functions/Function3;)Ljava/lang/Object;", "Lkotlin/Function2;", "(JLkotlin/jvm/functions/Function2;)Ljava/lang/Object;", "toDouble", "unit", "Lkotlin/time/DurationUnit;", "toDouble-impl", "(JLjava/util/concurrent/TimeUnit;)D", "toInt", "toInt-impl", "(JLjava/util/concurrent/TimeUnit;)I", "toIsoString", "", "toIsoString-impl", "(J)Ljava/lang/String;", "toLong", "toLong-impl", "(JLjava/util/concurrent/TimeUnit;)J", "toLongMilliseconds", "toLongMilliseconds-impl", "toLongNanoseconds", "toLongNanoseconds-impl", "toString", "toString-impl", "decimals", "(JLjava/util/concurrent/TimeUnit;I)Ljava/lang/String;", "unaryMinus", "unaryMinus-UwyO8pc", "appendFractional", "", "Ljava/lang/StringBuilder;", "Lkotlin/text/StringBuilder;", "whole", "fractional", "fractionalSize", "isoZeroes", "appendFractional-impl", "(JLjava/lang/StringBuilder;IIILjava/lang/String;Z)V", "Companion", "kotlin-stdlib"}, k = 1, mv = {1, 5, 1})
+@SinceKotlin(version = "1.6")
+@Metadata(d1 = {"\u0000n\n\u0002\u0018\u0002\n\u0002\u0010\u000f\n\u0000\n\u0002\u0010\t\n\u0002\b\u0005\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0010\u0006\n\u0002\b-\n\u0002\u0018\u0002\n\u0002\b\u0017\n\u0002\u0010\u000b\n\u0002\u0010\u0000\n\u0002\b\u001b\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0010\u000e\n\u0002\b\u0010\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\b\b\u0087@\u0018\u0000 ¤\u00012\b\u0012\u0004\u0012\u00020\u00000\u0001:\u0002¤\u0001B\u0014\b\u0000\u0012\u0006\u0010\u0002\u001a\u00020\u0003ø\u0001\u0000¢\u0006\u0004\b\u0004\u0010\u0005J%\u0010D\u001a\u00020\u00002\u0006\u0010E\u001a\u00020\u00032\u0006\u0010F\u001a\u00020\u0003H\u0002ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\bG\u0010HJ\u001b\u0010I\u001a\u00020\t2\u0006\u0010J\u001a\u00020\u0000H\u0096\u0002ø\u0001\u0000¢\u0006\u0004\bK\u0010LJ\u001e\u0010M\u001a\u00020\u00002\u0006\u0010N\u001a\u00020\u000fH\u0086\u0002ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\bO\u0010PJ\u001e\u0010M\u001a\u00020\u00002\u0006\u0010N\u001a\u00020\tH\u0086\u0002ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\bO\u0010QJ\u001b\u0010M\u001a\u00020\u000f2\u0006\u0010J\u001a\u00020\u0000H\u0086\u0002ø\u0001\u0000¢\u0006\u0004\bR\u0010SJ\u001a\u0010T\u001a\u00020U2\b\u0010J\u001a\u0004\u0018\u00010VHÖ\u0003¢\u0006\u0004\bW\u0010XJ\u0010\u0010Y\u001a\u00020\tHÖ\u0001¢\u0006\u0004\bZ\u0010\rJ\r\u0010[\u001a\u00020U¢\u0006\u0004\b\\\u0010]J\u000f\u0010^\u001a\u00020UH\u0002¢\u0006\u0004\b_\u0010]J\u000f\u0010`\u001a\u00020UH\u0002¢\u0006\u0004\ba\u0010]J\r\u0010b\u001a\u00020U¢\u0006\u0004\bc\u0010]J\r\u0010d\u001a\u00020U¢\u0006\u0004\be\u0010]J\r\u0010f\u001a\u00020U¢\u0006\u0004\bg\u0010]J\u001b\u0010h\u001a\u00020\u00002\u0006\u0010J\u001a\u00020\u0000H\u0086\u0002ø\u0001\u0000¢\u0006\u0004\bi\u0010jJ\u001b\u0010k\u001a\u00020\u00002\u0006\u0010J\u001a\u00020\u0000H\u0086\u0002ø\u0001\u0000¢\u0006\u0004\bl\u0010jJ\u001e\u0010m\u001a\u00020\u00002\u0006\u0010N\u001a\u00020\u000fH\u0086\u0002ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\bn\u0010PJ\u001e\u0010m\u001a\u00020\u00002\u0006\u0010N\u001a\u00020\tH\u0086\u0002ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\bn\u0010QJ\u009d\u0001\u0010o\u001a\u0002Hp\"\u0004\b\u0000\u0010p2u\u0010q\u001aq\u0012\u0013\u0012\u00110\u0003¢\u0006\f\bs\u0012\b\bt\u0012\u0004\b\b(u\u0012\u0013\u0012\u00110\t¢\u0006\f\bs\u0012\b\bt\u0012\u0004\b\b(v\u0012\u0013\u0012\u00110\t¢\u0006\f\bs\u0012\b\bt\u0012\u0004\b\b(w\u0012\u0013\u0012\u00110\t¢\u0006\f\bs\u0012\b\bt\u0012\u0004\b\b(x\u0012\u0013\u0012\u00110\t¢\u0006\f\bs\u0012\b\bt\u0012\u0004\b\b(y\u0012\u0004\u0012\u0002Hp0rH\u0086\bø\u0001\u0002\u0082\u0002\n\n\b\b\u0001\u0012\u0002\u0010\u0001 \u0001¢\u0006\u0004\bz\u0010{J\u0088\u0001\u0010o\u001a\u0002Hp\"\u0004\b\u0000\u0010p2`\u0010q\u001a\\\u0012\u0013\u0012\u00110\u0003¢\u0006\f\bs\u0012\b\bt\u0012\u0004\b\b(v\u0012\u0013\u0012\u00110\t¢\u0006\f\bs\u0012\b\bt\u0012\u0004\b\b(w\u0012\u0013\u0012\u00110\t¢\u0006\f\bs\u0012\b\bt\u0012\u0004\b\b(x\u0012\u0013\u0012\u00110\t¢\u0006\f\bs\u0012\b\bt\u0012\u0004\b\b(y\u0012\u0004\u0012\u0002Hp0|H\u0086\bø\u0001\u0002\u0082\u0002\n\n\b\b\u0001\u0012\u0002\u0010\u0001 \u0001¢\u0006\u0004\bz\u0010}Js\u0010o\u001a\u0002Hp\"\u0004\b\u0000\u0010p2K\u0010q\u001aG\u0012\u0013\u0012\u00110\u0003¢\u0006\f\bs\u0012\b\bt\u0012\u0004\b\b(w\u0012\u0013\u0012\u00110\t¢\u0006\f\bs\u0012\b\bt\u0012\u0004\b\b(x\u0012\u0013\u0012\u00110\t¢\u0006\f\bs\u0012\b\bt\u0012\u0004\b\b(y\u0012\u0004\u0012\u0002Hp0~H\u0086\bø\u0001\u0002\u0082\u0002\n\n\b\b\u0001\u0012\u0002\u0010\u0001 \u0001¢\u0006\u0004\bz\u0010\u007fJ`\u0010o\u001a\u0002Hp\"\u0004\b\u0000\u0010p27\u0010q\u001a3\u0012\u0013\u0012\u00110\u0003¢\u0006\f\bs\u0012\b\bt\u0012\u0004\b\b(x\u0012\u0013\u0012\u00110\t¢\u0006\f\bs\u0012\b\bt\u0012\u0004\b\b(y\u0012\u0004\u0012\u0002Hp0\u0080\u0001H\u0086\bø\u0001\u0002\u0082\u0002\n\n\b\b\u0001\u0012\u0002\u0010\u0001 \u0001¢\u0006\u0005\bz\u0010\u0081\u0001J\u0019\u0010\u0082\u0001\u001a\u00020\u000f2\u0007\u0010\u0083\u0001\u001a\u00020=¢\u0006\u0006\b\u0084\u0001\u0010\u0085\u0001J\u0019\u0010\u0086\u0001\u001a\u00020\t2\u0007\u0010\u0083\u0001\u001a\u00020=¢\u0006\u0006\b\u0087\u0001\u0010\u0088\u0001J\u0011\u0010\u0089\u0001\u001a\u00030\u008a\u0001¢\u0006\u0006\b\u008b\u0001\u0010\u008c\u0001J\u0019\u0010\u008d\u0001\u001a\u00020\u00032\u0007\u0010\u0083\u0001\u001a\u00020=¢\u0006\u0006\b\u008e\u0001\u0010\u008f\u0001J\u0011\u0010\u0090\u0001\u001a\u00020\u0003H\u0007¢\u0006\u0005\b\u0091\u0001\u0010\u0005J\u0011\u0010\u0092\u0001\u001a\u00020\u0003H\u0007¢\u0006\u0005\b\u0093\u0001\u0010\u0005J\u0013\u0010\u0094\u0001\u001a\u00030\u008a\u0001H\u0016¢\u0006\u0006\b\u0095\u0001\u0010\u008c\u0001J%\u0010\u0094\u0001\u001a\u00030\u008a\u00012\u0007\u0010\u0083\u0001\u001a\u00020=2\t\b\u0002\u0010\u0096\u0001\u001a\u00020\t¢\u0006\u0006\b\u0095\u0001\u0010\u0097\u0001J\u0018\u0010\u0098\u0001\u001a\u00020\u0000H\u0086\u0002ø\u0001\u0000ø\u0001\u0001¢\u0006\u0005\b\u0099\u0001\u0010\u0005JK\u0010\u009a\u0001\u001a\u00030\u009b\u0001*\b0\u009c\u0001j\u0003`\u009d\u00012\u0007\u0010\u009e\u0001\u001a\u00020\t2\u0007\u0010\u009f\u0001\u001a\u00020\t2\u0007\u0010 \u0001\u001a\u00020\t2\b\u0010\u0083\u0001\u001a\u00030\u008a\u00012\u0007\u0010¡\u0001\u001a\u00020UH\u0002¢\u0006\u0006\b¢\u0001\u0010£\u0001R\u0017\u0010\u0006\u001a\u00020\u00008Fø\u0001\u0000ø\u0001\u0001¢\u0006\u0006\u001a\u0004\b\u0007\u0010\u0005R\u001a\u0010\b\u001a\u00020\t8@X\u0081\u0004¢\u0006\f\u0012\u0004\b\n\u0010\u000b\u001a\u0004\b\f\u0010\rR\u001a\u0010\u000e\u001a\u00020\u000f8FX\u0087\u0004¢\u0006\f\u0012\u0004\b\u0010\u0010\u000b\u001a\u0004\b\u0011\u0010\u0012R\u001a\u0010\u0013\u001a\u00020\u000f8FX\u0087\u0004¢\u0006\f\u0012\u0004\b\u0014\u0010\u000b\u001a\u0004\b\u0015\u0010\u0012R\u001a\u0010\u0016\u001a\u00020\u000f8FX\u0087\u0004¢\u0006\f\u0012\u0004\b\u0017\u0010\u000b\u001a\u0004\b\u0018\u0010\u0012R\u001a\u0010\u0019\u001a\u00020\u000f8FX\u0087\u0004¢\u0006\f\u0012\u0004\b\u001a\u0010\u000b\u001a\u0004\b\u001b\u0010\u0012R\u001a\u0010\u001c\u001a\u00020\u000f8FX\u0087\u0004¢\u0006\f\u0012\u0004\b\u001d\u0010\u000b\u001a\u0004\b\u001e\u0010\u0012R\u001a\u0010\u001f\u001a\u00020\u000f8FX\u0087\u0004¢\u0006\f\u0012\u0004\b \u0010\u000b\u001a\u0004\b!\u0010\u0012R\u001a\u0010\"\u001a\u00020\u000f8FX\u0087\u0004¢\u0006\f\u0012\u0004\b#\u0010\u000b\u001a\u0004\b$\u0010\u0012R\u0011\u0010%\u001a\u00020\u00038F¢\u0006\u0006\u001a\u0004\b&\u0010\u0005R\u0011\u0010'\u001a\u00020\u00038F¢\u0006\u0006\u001a\u0004\b(\u0010\u0005R\u0011\u0010)\u001a\u00020\u00038F¢\u0006\u0006\u001a\u0004\b*\u0010\u0005R\u0011\u0010+\u001a\u00020\u00038F¢\u0006\u0006\u001a\u0004\b,\u0010\u0005R\u0011\u0010-\u001a\u00020\u00038F¢\u0006\u0006\u001a\u0004\b.\u0010\u0005R\u0011\u0010/\u001a\u00020\u00038F¢\u0006\u0006\u001a\u0004\b0\u0010\u0005R\u0011\u00101\u001a\u00020\u00038F¢\u0006\u0006\u001a\u0004\b2\u0010\u0005R\u001a\u00103\u001a\u00020\t8@X\u0081\u0004¢\u0006\f\u0012\u0004\b4\u0010\u000b\u001a\u0004\b5\u0010\rR\u001a\u00106\u001a\u00020\t8@X\u0081\u0004¢\u0006\f\u0012\u0004\b7\u0010\u000b\u001a\u0004\b8\u0010\rR\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000R\u001a\u00109\u001a\u00020\t8@X\u0081\u0004¢\u0006\f\u0012\u0004\b:\u0010\u000b\u001a\u0004\b;\u0010\rR\u0014\u0010<\u001a\u00020=8BX\u0082\u0004¢\u0006\u0006\u001a\u0004\b>\u0010?R\u0015\u0010@\u001a\u00020\t8Â\u0002X\u0082\u0004¢\u0006\u0006\u001a\u0004\bA\u0010\rR\u0014\u0010B\u001a\u00020\u00038BX\u0082\u0004¢\u0006\u0006\u001a\u0004\bC\u0010\u0005\u0088\u0001\u0002\u0092\u0001\u00020\u0003ø\u0001\u0000\u0082\u0002\u000f\n\u0002\b\u0019\n\u0002\b!\n\u0005\b\u009920\u0001¨\u0006¥\u0001"}, d2 = {"Lkotlin/time/Duration;", "", "rawValue", "", "constructor-impl", "(J)J", "absoluteValue", "getAbsoluteValue-UwyO8pc", "hoursComponent", "", "getHoursComponent$annotations", "()V", "getHoursComponent-impl", "(J)I", "inDays", "", "getInDays$annotations", "getInDays-impl", "(J)D", "inHours", "getInHours$annotations", "getInHours-impl", "inMicroseconds", "getInMicroseconds$annotations", "getInMicroseconds-impl", "inMilliseconds", "getInMilliseconds$annotations", "getInMilliseconds-impl", "inMinutes", "getInMinutes$annotations", "getInMinutes-impl", "inNanoseconds", "getInNanoseconds$annotations", "getInNanoseconds-impl", "inSeconds", "getInSeconds$annotations", "getInSeconds-impl", "inWholeDays", "getInWholeDays-impl", "inWholeHours", "getInWholeHours-impl", "inWholeMicroseconds", "getInWholeMicroseconds-impl", "inWholeMilliseconds", "getInWholeMilliseconds-impl", "inWholeMinutes", "getInWholeMinutes-impl", "inWholeNanoseconds", "getInWholeNanoseconds-impl", "inWholeSeconds", "getInWholeSeconds-impl", "minutesComponent", "getMinutesComponent$annotations", "getMinutesComponent-impl", "nanosecondsComponent", "getNanosecondsComponent$annotations", "getNanosecondsComponent-impl", "secondsComponent", "getSecondsComponent$annotations", "getSecondsComponent-impl", "storageUnit", "Lkotlin/time/DurationUnit;", "getStorageUnit-impl", "(J)Lkotlin/time/DurationUnit;", "unitDiscriminator", "getUnitDiscriminator-impl", "value", "getValue-impl", "addValuesMixedRanges", "thisMillis", "otherNanos", "addValuesMixedRanges-UwyO8pc", "(JJJ)J", "compareTo", ImageViewerConfig.FROM_OTHER, "compareTo-LRDsOJo", "(JJ)I", TtmlNode.TAG_DIV, "scale", "div-UwyO8pc", "(JD)J", "(JI)J", "div-LRDsOJo", "(JJ)D", "equals", "", "", "equals-impl", "(JLjava/lang/Object;)Z", TTDownloadField.TT_HASHCODE, "hashCode-impl", "isFinite", "isFinite-impl", "(J)Z", "isInMillis", "isInMillis-impl", "isInNanos", "isInNanos-impl", "isInfinite", "isInfinite-impl", "isNegative", "isNegative-impl", "isPositive", "isPositive-impl", "minus", "minus-LRDsOJo", "(JJ)J", "plus", "plus-LRDsOJo", "times", "times-UwyO8pc", "toComponents", ExifInterface.GPS_DIRECTION_TRUE, "action", "Lkotlin/Function5;", "Lkotlin/ParameterName;", "name", "days", "hours", "minutes", "seconds", "nanoseconds", "toComponents-impl", "(JLkotlin/jvm/functions/Function5;)Ljava/lang/Object;", "Lkotlin/Function4;", "(JLkotlin/jvm/functions/Function4;)Ljava/lang/Object;", "Lkotlin/Function3;", "(JLkotlin/jvm/functions/Function3;)Ljava/lang/Object;", "Lkotlin/Function2;", "(JLkotlin/jvm/functions/Function2;)Ljava/lang/Object;", "toDouble", "unit", "toDouble-impl", "(JLkotlin/time/DurationUnit;)D", "toInt", "toInt-impl", "(JLkotlin/time/DurationUnit;)I", "toIsoString", "", "toIsoString-impl", "(J)Ljava/lang/String;", "toLong", "toLong-impl", "(JLkotlin/time/DurationUnit;)J", "toLongMilliseconds", "toLongMilliseconds-impl", "toLongNanoseconds", "toLongNanoseconds-impl", "toString", "toString-impl", "decimals", "(JLkotlin/time/DurationUnit;I)Ljava/lang/String;", "unaryMinus", "unaryMinus-UwyO8pc", "appendFractional", "", "Ljava/lang/StringBuilder;", "Lkotlin/text/StringBuilder;", "whole", "fractional", "fractionalSize", "isoZeroes", "appendFractional-impl", "(JLjava/lang/StringBuilder;IIILjava/lang/String;Z)V", "Companion", "kotlin-stdlib"}, k = 1, mv = {1, 6, 0}, xi = 48)
 @JvmInline
-@ExperimentalTime
+@WasExperimental(markerClass = {ExperimentalTime.class})
 /* loaded from: classes9.dex */
 public final class Duration implements Comparable<Duration> {
     public final long rawValue;
     public static final Companion Companion = new Companion(null);
-    public static final long ZERO = m2057constructorimpl(0);
+    public static final long ZERO = m2055constructorimpl(0);
     public static final long INFINITE = DurationKt.access$durationOfMillis(4611686018427387903L);
     public static final long NEG_INFINITE = DurationKt.access$durationOfMillis(-4611686018427387903L);
 
     /* renamed from: box-impl  reason: not valid java name */
-    public static final /* synthetic */ Duration m2055boximpl(long j) {
+    public static final /* synthetic */ Duration m2053boximpl(long j) {
         return new Duration(j);
     }
 
     /* renamed from: equals-impl  reason: not valid java name */
-    public static boolean m2061equalsimpl(long j, Object obj) {
-        return (obj instanceof Duration) && j == ((Duration) obj).m2111unboximpl();
+    public static boolean m2059equalsimpl(long j, Object obj) {
+        return (obj instanceof Duration) && j == ((Duration) obj).m2109unboximpl();
     }
 
     /* renamed from: equals-impl0  reason: not valid java name */
-    public static final boolean m2062equalsimpl0(long j, long j2) {
+    public static final boolean m2060equalsimpl0(long j, long j2) {
         return j == j2;
     }
 
@@ -59,59 +61,38 @@ public final class Duration implements Comparable<Duration> {
     }
 
     @Deprecated(message = "Use inWholeDays property instead or convert toDouble(DAYS) if a double value is required.", replaceWith = @ReplaceWith(expression = "toDouble(DurationUnit.DAYS)", imports = {}))
+    @ExperimentalTime
     public static /* synthetic */ void getInDays$annotations() {
     }
 
     @Deprecated(message = "Use inWholeHours property instead or convert toDouble(HOURS) if a double value is required.", replaceWith = @ReplaceWith(expression = "toDouble(DurationUnit.HOURS)", imports = {}))
+    @ExperimentalTime
     public static /* synthetic */ void getInHours$annotations() {
     }
 
     @Deprecated(message = "Use inWholeMicroseconds property instead or convert toDouble(MICROSECONDS) if a double value is required.", replaceWith = @ReplaceWith(expression = "toDouble(DurationUnit.MICROSECONDS)", imports = {}))
+    @ExperimentalTime
     public static /* synthetic */ void getInMicroseconds$annotations() {
     }
 
     @Deprecated(message = "Use inWholeMilliseconds property instead or convert toDouble(MILLISECONDS) if a double value is required.", replaceWith = @ReplaceWith(expression = "toDouble(DurationUnit.MILLISECONDS)", imports = {}))
+    @ExperimentalTime
     public static /* synthetic */ void getInMilliseconds$annotations() {
     }
 
     @Deprecated(message = "Use inWholeMinutes property instead or convert toDouble(MINUTES) if a double value is required.", replaceWith = @ReplaceWith(expression = "toDouble(DurationUnit.MINUTES)", imports = {}))
+    @ExperimentalTime
     public static /* synthetic */ void getInMinutes$annotations() {
     }
 
     @Deprecated(message = "Use inWholeNanoseconds property instead or convert toDouble(NANOSECONDS) if a double value is required.", replaceWith = @ReplaceWith(expression = "toDouble(DurationUnit.NANOSECONDS)", imports = {}))
+    @ExperimentalTime
     public static /* synthetic */ void getInNanoseconds$annotations() {
     }
 
     @Deprecated(message = "Use inWholeSeconds property instead or convert toDouble(SECONDS) if a double value is required.", replaceWith = @ReplaceWith(expression = "toDouble(DurationUnit.SECONDS)", imports = {}))
+    @ExperimentalTime
     public static /* synthetic */ void getInSeconds$annotations() {
-    }
-
-    @SinceKotlin(version = "1.5")
-    public static /* synthetic */ void getInWholeDays$annotations() {
-    }
-
-    @SinceKotlin(version = "1.5")
-    public static /* synthetic */ void getInWholeHours$annotations() {
-    }
-
-    @SinceKotlin(version = "1.5")
-    public static /* synthetic */ void getInWholeMicroseconds$annotations() {
-    }
-
-    @SinceKotlin(version = "1.5")
-    public static /* synthetic */ void getInWholeMilliseconds$annotations() {
-    }
-
-    @SinceKotlin(version = "1.5")
-    public static /* synthetic */ void getInWholeMinutes$annotations() {
-    }
-
-    @SinceKotlin(version = "1.5")
-    public static /* synthetic */ void getInWholeNanoseconds$annotations() {
-    }
-
-    @SinceKotlin(version = "1.5")
-    public static /* synthetic */ void getInWholeSeconds$annotations() {
     }
 
     @PublishedApi
@@ -127,109 +108,274 @@ public final class Duration implements Comparable<Duration> {
     }
 
     /* renamed from: getUnitDiscriminator-impl  reason: not valid java name */
-    public static final int m2083getUnitDiscriminatorimpl(long j) {
+    public static final int m2081getUnitDiscriminatorimpl(long j) {
         return ((int) j) & 1;
     }
 
     /* renamed from: getValue-impl  reason: not valid java name */
-    public static final long m2084getValueimpl(long j) {
+    public static final long m2082getValueimpl(long j) {
         return j >> 1;
     }
 
     /* renamed from: hashCode-impl  reason: not valid java name */
-    public static int m2085hashCodeimpl(long j) {
+    public static int m2083hashCodeimpl(long j) {
         return (int) (j ^ (j >>> 32));
     }
 
     /* renamed from: isInMillis-impl  reason: not valid java name */
-    public static final boolean m2087isInMillisimpl(long j) {
+    public static final boolean m2085isInMillisimpl(long j) {
         return (((int) j) & 1) == 1;
     }
 
     /* renamed from: isInNanos-impl  reason: not valid java name */
-    public static final boolean m2088isInNanosimpl(long j) {
+    public static final boolean m2086isInNanosimpl(long j) {
         return (((int) j) & 1) == 0;
     }
 
     /* renamed from: isNegative-impl  reason: not valid java name */
-    public static final boolean m2090isNegativeimpl(long j) {
+    public static final boolean m2088isNegativeimpl(long j) {
         return j < 0;
     }
 
     /* renamed from: isPositive-impl  reason: not valid java name */
-    public static final boolean m2091isPositiveimpl(long j) {
+    public static final boolean m2089isPositiveimpl(long j) {
         return j > 0;
     }
 
+    public boolean equals(Object obj) {
+        return m2059equalsimpl(this.rawValue, obj);
+    }
+
+    public int hashCode() {
+        return m2083hashCodeimpl(this.rawValue);
+    }
+
     /* renamed from: unbox-impl  reason: not valid java name */
-    public final /* synthetic */ long m2111unboximpl() {
+    public final /* synthetic */ long m2109unboximpl() {
         return this.rawValue;
     }
 
-    @Metadata(d1 = {"\u0000>\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0010\u0006\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0000\n\u0002\u0010\t\n\u0002\b\f\n\u0002\u0010\u000e\n\u0002\b\u000b\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J&\u0010\f\u001a\u00020\r2\u0006\u0010\u000e\u001a\u00020\r2\n\u0010\u000f\u001a\u00060\u0010j\u0002`\u00112\n\u0010\u0012\u001a\u00060\u0010j\u0002`\u0011J\u001d\u0010\u0013\u001a\u00020\u00042\u0006\u0010\u000e\u001a\u00020\rH\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b\u0014\u0010\u0015J\u001d\u0010\u0013\u001a\u00020\u00042\u0006\u0010\u000e\u001a\u00020\u0016H\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b\u0014\u0010\u0017J\u001d\u0010\u0013\u001a\u00020\u00042\u0006\u0010\u000e\u001a\u00020\u0018H\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b\u0014\u0010\u0019J\u001d\u0010\u001a\u001a\u00020\u00042\u0006\u0010\u000e\u001a\u00020\rH\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b\u001b\u0010\u0015J\u001d\u0010\u001a\u001a\u00020\u00042\u0006\u0010\u000e\u001a\u00020\u0016H\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b\u001b\u0010\u0017J\u001d\u0010\u001a\u001a\u00020\u00042\u0006\u0010\u000e\u001a\u00020\u0018H\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b\u001b\u0010\u0019J\u001d\u0010\u001c\u001a\u00020\u00042\u0006\u0010\u000e\u001a\u00020\rH\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b\u001d\u0010\u0015J\u001d\u0010\u001c\u001a\u00020\u00042\u0006\u0010\u000e\u001a\u00020\u0016H\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b\u001d\u0010\u0017J\u001d\u0010\u001c\u001a\u00020\u00042\u0006\u0010\u000e\u001a\u00020\u0018H\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b\u001d\u0010\u0019J\u001d\u0010\u001e\u001a\u00020\u00042\u0006\u0010\u000e\u001a\u00020\rH\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b\u001f\u0010\u0015J\u001d\u0010\u001e\u001a\u00020\u00042\u0006\u0010\u000e\u001a\u00020\u0016H\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b\u001f\u0010\u0017J\u001d\u0010\u001e\u001a\u00020\u00042\u0006\u0010\u000e\u001a\u00020\u0018H\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b\u001f\u0010\u0019J\u001d\u0010 \u001a\u00020\u00042\u0006\u0010\u000e\u001a\u00020\rH\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b!\u0010\u0015J\u001d\u0010 \u001a\u00020\u00042\u0006\u0010\u000e\u001a\u00020\u0016H\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b!\u0010\u0017J\u001d\u0010 \u001a\u00020\u00042\u0006\u0010\u000e\u001a\u00020\u0018H\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b!\u0010\u0019J\u001d\u0010\"\u001a\u00020\u00042\u0006\u0010\u000e\u001a\u00020\rH\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b#\u0010\u0015J\u001d\u0010\"\u001a\u00020\u00042\u0006\u0010\u000e\u001a\u00020\u0016H\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b#\u0010\u0017J\u001d\u0010\"\u001a\u00020\u00042\u0006\u0010\u000e\u001a\u00020\u0018H\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b#\u0010\u0019J\u001d\u0010$\u001a\u00020\u00042\u0006\u0010\u000e\u001a\u00020%H\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b&\u0010'J\u001d\u0010(\u001a\u00020\u00042\u0006\u0010\u000e\u001a\u00020%H\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b)\u0010'J\u001d\u0010*\u001a\u0004\u0018\u00010\u00042\u0006\u0010\u000e\u001a\u00020%H\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0002\b+J\u001d\u0010,\u001a\u0004\u0018\u00010\u00042\u0006\u0010\u000e\u001a\u00020%H\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0002\b-J\u001d\u0010.\u001a\u00020\u00042\u0006\u0010\u000e\u001a\u00020\rH\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b/\u0010\u0015J\u001d\u0010.\u001a\u00020\u00042\u0006\u0010\u000e\u001a\u00020\u0016H\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b/\u0010\u0017J\u001d\u0010.\u001a\u00020\u00042\u0006\u0010\u000e\u001a\u00020\u0018H\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b/\u0010\u0019R\u0019\u0010\u0003\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\b\u0005\u0010\u0006R\u001c\u0010\b\u001a\u00020\u0004X\u0080\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\b\t\u0010\u0006R\u0019\u0010\n\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\b\u000b\u0010\u0006\u0082\u0002\b\n\u0002\b\u0019\n\u0002\b!¨\u00060"}, d2 = {"Lkotlin/time/Duration$Companion;", "", "()V", "INFINITE", "Lkotlin/time/Duration;", "getINFINITE-UwyO8pc", "()J", "J", "NEG_INFINITE", "getNEG_INFINITE-UwyO8pc$kotlin_stdlib", "ZERO", "getZERO-UwyO8pc", "convert", "", "value", "sourceUnit", "Ljava/util/concurrent/TimeUnit;", "Lkotlin/time/DurationUnit;", "targetUnit", "days", "days-UwyO8pc", "(D)J", "", "(I)J", "", "(J)J", "hours", "hours-UwyO8pc", "microseconds", "microseconds-UwyO8pc", "milliseconds", "milliseconds-UwyO8pc", "minutes", "minutes-UwyO8pc", "nanoseconds", "nanoseconds-UwyO8pc", "parse", "", "parse-UwyO8pc", "(Ljava/lang/String;)J", "parseIsoString", "parseIsoString-UwyO8pc", "parseIsoStringOrNull", "parseIsoStringOrNull-FghU774", "parseOrNull", "parseOrNull-FghU774", "seconds", "seconds-UwyO8pc", "kotlin-stdlib"}, k = 1, mv = {1, 5, 1})
+    @Metadata(d1 = {"\u0000<\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0010\u0006\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\t\n\u0002\b\u0017\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0010\u000e\n\u0002\b\n\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J \u0010*\u001a\u00020\r2\u0006\u0010+\u001a\u00020\r2\u0006\u0010,\u001a\u00020-2\u0006\u0010.\u001a\u00020-H\u0007J\u001d\u0010\f\u001a\u00020\u00042\u0006\u0010+\u001a\u00020\rH\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b/\u0010\u0011J\u001d\u0010\f\u001a\u00020\u00042\u0006\u0010+\u001a\u00020\u0012H\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b/\u0010\u0014J\u001d\u0010\f\u001a\u00020\u00042\u0006\u0010+\u001a\u00020\u0015H\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b/\u0010\u0017J\u001d\u0010\u0018\u001a\u00020\u00042\u0006\u0010+\u001a\u00020\rH\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b0\u0010\u0011J\u001d\u0010\u0018\u001a\u00020\u00042\u0006\u0010+\u001a\u00020\u0012H\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b0\u0010\u0014J\u001d\u0010\u0018\u001a\u00020\u00042\u0006\u0010+\u001a\u00020\u0015H\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b0\u0010\u0017J\u001d\u0010\u001b\u001a\u00020\u00042\u0006\u0010+\u001a\u00020\rH\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b1\u0010\u0011J\u001d\u0010\u001b\u001a\u00020\u00042\u0006\u0010+\u001a\u00020\u0012H\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b1\u0010\u0014J\u001d\u0010\u001b\u001a\u00020\u00042\u0006\u0010+\u001a\u00020\u0015H\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b1\u0010\u0017J\u001d\u0010\u001e\u001a\u00020\u00042\u0006\u0010+\u001a\u00020\rH\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b2\u0010\u0011J\u001d\u0010\u001e\u001a\u00020\u00042\u0006\u0010+\u001a\u00020\u0012H\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b2\u0010\u0014J\u001d\u0010\u001e\u001a\u00020\u00042\u0006\u0010+\u001a\u00020\u0015H\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b2\u0010\u0017J\u001d\u0010!\u001a\u00020\u00042\u0006\u0010+\u001a\u00020\rH\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b3\u0010\u0011J\u001d\u0010!\u001a\u00020\u00042\u0006\u0010+\u001a\u00020\u0012H\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b3\u0010\u0014J\u001d\u0010!\u001a\u00020\u00042\u0006\u0010+\u001a\u00020\u0015H\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b3\u0010\u0017J\u001d\u0010$\u001a\u00020\u00042\u0006\u0010+\u001a\u00020\rH\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b4\u0010\u0011J\u001d\u0010$\u001a\u00020\u00042\u0006\u0010+\u001a\u00020\u0012H\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b4\u0010\u0014J\u001d\u0010$\u001a\u00020\u00042\u0006\u0010+\u001a\u00020\u0015H\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b4\u0010\u0017J\u001b\u00105\u001a\u00020\u00042\u0006\u0010+\u001a\u000206ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b7\u00108J\u001b\u00109\u001a\u00020\u00042\u0006\u0010+\u001a\u000206ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b:\u00108J\u001b\u0010;\u001a\u0004\u0018\u00010\u00042\u0006\u0010+\u001a\u000206ø\u0001\u0000ø\u0001\u0001¢\u0006\u0002\b<J\u001b\u0010=\u001a\u0004\u0018\u00010\u00042\u0006\u0010+\u001a\u000206ø\u0001\u0000ø\u0001\u0001¢\u0006\u0002\b>J\u001d\u0010'\u001a\u00020\u00042\u0006\u0010+\u001a\u00020\rH\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b?\u0010\u0011J\u001d\u0010'\u001a\u00020\u00042\u0006\u0010+\u001a\u00020\u0012H\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b?\u0010\u0014J\u001d\u0010'\u001a\u00020\u00042\u0006\u0010+\u001a\u00020\u0015H\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b?\u0010\u0017R\u0019\u0010\u0003\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\b\u0005\u0010\u0006R\u001c\u0010\b\u001a\u00020\u0004X\u0080\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\b\t\u0010\u0006R\u0019\u0010\n\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\b\u000b\u0010\u0006R%\u0010\f\u001a\u00020\u0004*\u00020\r8Æ\u0002X\u0087\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\f\u0012\u0004\b\u000e\u0010\u000f\u001a\u0004\b\u0010\u0010\u0011R%\u0010\f\u001a\u00020\u0004*\u00020\u00128Æ\u0002X\u0087\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\f\u0012\u0004\b\u000e\u0010\u0013\u001a\u0004\b\u0010\u0010\u0014R%\u0010\f\u001a\u00020\u0004*\u00020\u00158Æ\u0002X\u0087\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\f\u0012\u0004\b\u000e\u0010\u0016\u001a\u0004\b\u0010\u0010\u0017R%\u0010\u0018\u001a\u00020\u0004*\u00020\r8Æ\u0002X\u0087\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\f\u0012\u0004\b\u0019\u0010\u000f\u001a\u0004\b\u001a\u0010\u0011R%\u0010\u0018\u001a\u00020\u0004*\u00020\u00128Æ\u0002X\u0087\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\f\u0012\u0004\b\u0019\u0010\u0013\u001a\u0004\b\u001a\u0010\u0014R%\u0010\u0018\u001a\u00020\u0004*\u00020\u00158Æ\u0002X\u0087\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\f\u0012\u0004\b\u0019\u0010\u0016\u001a\u0004\b\u001a\u0010\u0017R%\u0010\u001b\u001a\u00020\u0004*\u00020\r8Æ\u0002X\u0087\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\f\u0012\u0004\b\u001c\u0010\u000f\u001a\u0004\b\u001d\u0010\u0011R%\u0010\u001b\u001a\u00020\u0004*\u00020\u00128Æ\u0002X\u0087\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\f\u0012\u0004\b\u001c\u0010\u0013\u001a\u0004\b\u001d\u0010\u0014R%\u0010\u001b\u001a\u00020\u0004*\u00020\u00158Æ\u0002X\u0087\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\f\u0012\u0004\b\u001c\u0010\u0016\u001a\u0004\b\u001d\u0010\u0017R%\u0010\u001e\u001a\u00020\u0004*\u00020\r8Æ\u0002X\u0087\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\f\u0012\u0004\b\u001f\u0010\u000f\u001a\u0004\b \u0010\u0011R%\u0010\u001e\u001a\u00020\u0004*\u00020\u00128Æ\u0002X\u0087\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\f\u0012\u0004\b\u001f\u0010\u0013\u001a\u0004\b \u0010\u0014R%\u0010\u001e\u001a\u00020\u0004*\u00020\u00158Æ\u0002X\u0087\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\f\u0012\u0004\b\u001f\u0010\u0016\u001a\u0004\b \u0010\u0017R%\u0010!\u001a\u00020\u0004*\u00020\r8Æ\u0002X\u0087\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\f\u0012\u0004\b\"\u0010\u000f\u001a\u0004\b#\u0010\u0011R%\u0010!\u001a\u00020\u0004*\u00020\u00128Æ\u0002X\u0087\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\f\u0012\u0004\b\"\u0010\u0013\u001a\u0004\b#\u0010\u0014R%\u0010!\u001a\u00020\u0004*\u00020\u00158Æ\u0002X\u0087\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\f\u0012\u0004\b\"\u0010\u0016\u001a\u0004\b#\u0010\u0017R%\u0010$\u001a\u00020\u0004*\u00020\r8Æ\u0002X\u0087\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\f\u0012\u0004\b%\u0010\u000f\u001a\u0004\b&\u0010\u0011R%\u0010$\u001a\u00020\u0004*\u00020\u00128Æ\u0002X\u0087\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\f\u0012\u0004\b%\u0010\u0013\u001a\u0004\b&\u0010\u0014R%\u0010$\u001a\u00020\u0004*\u00020\u00158Æ\u0002X\u0087\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\f\u0012\u0004\b%\u0010\u0016\u001a\u0004\b&\u0010\u0017R%\u0010'\u001a\u00020\u0004*\u00020\r8Æ\u0002X\u0087\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\f\u0012\u0004\b(\u0010\u000f\u001a\u0004\b)\u0010\u0011R%\u0010'\u001a\u00020\u0004*\u00020\u00128Æ\u0002X\u0087\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\f\u0012\u0004\b(\u0010\u0013\u001a\u0004\b)\u0010\u0014R%\u0010'\u001a\u00020\u0004*\u00020\u00158Æ\u0002X\u0087\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\f\u0012\u0004\b(\u0010\u0016\u001a\u0004\b)\u0010\u0017\u0082\u0002\b\n\u0002\b\u0019\n\u0002\b!¨\u0006@"}, d2 = {"Lkotlin/time/Duration$Companion;", "", "()V", "INFINITE", "Lkotlin/time/Duration;", "getINFINITE-UwyO8pc", "()J", "J", "NEG_INFINITE", "getNEG_INFINITE-UwyO8pc$kotlin_stdlib", "ZERO", "getZERO-UwyO8pc", "days", "", "getDays-UwyO8pc$annotations", "(D)V", "getDays-UwyO8pc", "(D)J", "", "(I)V", "(I)J", "", "(J)V", "(J)J", "hours", "getHours-UwyO8pc$annotations", "getHours-UwyO8pc", "microseconds", "getMicroseconds-UwyO8pc$annotations", "getMicroseconds-UwyO8pc", "milliseconds", "getMilliseconds-UwyO8pc$annotations", "getMilliseconds-UwyO8pc", "minutes", "getMinutes-UwyO8pc$annotations", "getMinutes-UwyO8pc", "nanoseconds", "getNanoseconds-UwyO8pc$annotations", "getNanoseconds-UwyO8pc", "seconds", "getSeconds-UwyO8pc$annotations", "getSeconds-UwyO8pc", "convert", "value", "sourceUnit", "Lkotlin/time/DurationUnit;", "targetUnit", "days-UwyO8pc", "hours-UwyO8pc", "microseconds-UwyO8pc", "milliseconds-UwyO8pc", "minutes-UwyO8pc", "nanoseconds-UwyO8pc", "parse", "", "parse-UwyO8pc", "(Ljava/lang/String;)J", "parseIsoString", "parseIsoString-UwyO8pc", "parseIsoStringOrNull", "parseIsoStringOrNull-FghU774", "parseOrNull", "parseOrNull-FghU774", "seconds-UwyO8pc", "kotlin-stdlib"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes9.dex */
     public static final class Companion {
-        public Companion() {
-        }
-
-        /* renamed from: getINFINITE-UwyO8pc  reason: not valid java name */
-        public final long m2115getINFINITEUwyO8pc() {
-            return Duration.INFINITE;
-        }
-
-        /* renamed from: getNEG_INFINITE-UwyO8pc$kotlin_stdlib  reason: not valid java name */
-        public final long m2116getNEG_INFINITEUwyO8pc$kotlin_stdlib() {
-            return Duration.NEG_INFINITE;
-        }
-
-        /* renamed from: getZERO-UwyO8pc  reason: not valid java name */
-        public final long m2117getZEROUwyO8pc() {
-            return Duration.ZERO;
-        }
-
         public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
 
+        @InlineOnly
+        /* renamed from: getDays-UwyO8pc$annotations  reason: not valid java name */
+        public static /* synthetic */ void m2113getDaysUwyO8pc$annotations(double d) {
+        }
+
+        @InlineOnly
+        /* renamed from: getDays-UwyO8pc$annotations  reason: not valid java name */
+        public static /* synthetic */ void m2114getDaysUwyO8pc$annotations(int i) {
+        }
+
+        @InlineOnly
+        /* renamed from: getDays-UwyO8pc$annotations  reason: not valid java name */
+        public static /* synthetic */ void m2115getDaysUwyO8pc$annotations(long j) {
+        }
+
+        @InlineOnly
+        /* renamed from: getHours-UwyO8pc$annotations  reason: not valid java name */
+        public static /* synthetic */ void m2119getHoursUwyO8pc$annotations(double d) {
+        }
+
+        @InlineOnly
+        /* renamed from: getHours-UwyO8pc$annotations  reason: not valid java name */
+        public static /* synthetic */ void m2120getHoursUwyO8pc$annotations(int i) {
+        }
+
+        @InlineOnly
+        /* renamed from: getHours-UwyO8pc$annotations  reason: not valid java name */
+        public static /* synthetic */ void m2121getHoursUwyO8pc$annotations(long j) {
+        }
+
+        @InlineOnly
+        /* renamed from: getMicroseconds-UwyO8pc$annotations  reason: not valid java name */
+        public static /* synthetic */ void m2125getMicrosecondsUwyO8pc$annotations(double d) {
+        }
+
+        @InlineOnly
+        /* renamed from: getMicroseconds-UwyO8pc$annotations  reason: not valid java name */
+        public static /* synthetic */ void m2126getMicrosecondsUwyO8pc$annotations(int i) {
+        }
+
+        @InlineOnly
+        /* renamed from: getMicroseconds-UwyO8pc$annotations  reason: not valid java name */
+        public static /* synthetic */ void m2127getMicrosecondsUwyO8pc$annotations(long j) {
+        }
+
+        @InlineOnly
+        /* renamed from: getMilliseconds-UwyO8pc$annotations  reason: not valid java name */
+        public static /* synthetic */ void m2131getMillisecondsUwyO8pc$annotations(double d) {
+        }
+
+        @InlineOnly
+        /* renamed from: getMilliseconds-UwyO8pc$annotations  reason: not valid java name */
+        public static /* synthetic */ void m2132getMillisecondsUwyO8pc$annotations(int i) {
+        }
+
+        @InlineOnly
+        /* renamed from: getMilliseconds-UwyO8pc$annotations  reason: not valid java name */
+        public static /* synthetic */ void m2133getMillisecondsUwyO8pc$annotations(long j) {
+        }
+
+        @InlineOnly
+        /* renamed from: getMinutes-UwyO8pc$annotations  reason: not valid java name */
+        public static /* synthetic */ void m2137getMinutesUwyO8pc$annotations(double d) {
+        }
+
+        @InlineOnly
+        /* renamed from: getMinutes-UwyO8pc$annotations  reason: not valid java name */
+        public static /* synthetic */ void m2138getMinutesUwyO8pc$annotations(int i) {
+        }
+
+        @InlineOnly
+        /* renamed from: getMinutes-UwyO8pc$annotations  reason: not valid java name */
+        public static /* synthetic */ void m2139getMinutesUwyO8pc$annotations(long j) {
+        }
+
+        @InlineOnly
+        /* renamed from: getNanoseconds-UwyO8pc$annotations  reason: not valid java name */
+        public static /* synthetic */ void m2143getNanosecondsUwyO8pc$annotations(double d) {
+        }
+
+        @InlineOnly
+        /* renamed from: getNanoseconds-UwyO8pc$annotations  reason: not valid java name */
+        public static /* synthetic */ void m2144getNanosecondsUwyO8pc$annotations(int i) {
+        }
+
+        @InlineOnly
+        /* renamed from: getNanoseconds-UwyO8pc$annotations  reason: not valid java name */
+        public static /* synthetic */ void m2145getNanosecondsUwyO8pc$annotations(long j) {
+        }
+
+        @InlineOnly
+        /* renamed from: getSeconds-UwyO8pc$annotations  reason: not valid java name */
+        public static /* synthetic */ void m2149getSecondsUwyO8pc$annotations(double d) {
+        }
+
+        @InlineOnly
+        /* renamed from: getSeconds-UwyO8pc$annotations  reason: not valid java name */
+        public static /* synthetic */ void m2150getSecondsUwyO8pc$annotations(int i) {
+        }
+
+        @InlineOnly
+        /* renamed from: getSeconds-UwyO8pc$annotations  reason: not valid java name */
+        public static /* synthetic */ void m2151getSecondsUwyO8pc$annotations(long j) {
+        }
+
+        public Companion() {
+        }
+
+        /* renamed from: getINFINITE-UwyO8pc  reason: not valid java name */
+        public final long m2155getINFINITEUwyO8pc() {
+            return Duration.INFINITE;
+        }
+
+        /* renamed from: getNEG_INFINITE-UwyO8pc$kotlin_stdlib  reason: not valid java name */
+        public final long m2156getNEG_INFINITEUwyO8pc$kotlin_stdlib() {
+            return Duration.NEG_INFINITE;
+        }
+
+        /* renamed from: getZERO-UwyO8pc  reason: not valid java name */
+        public final long m2157getZEROUwyO8pc() {
+            return Duration.ZERO;
+        }
+
+        /* renamed from: getDays-UwyO8pc  reason: not valid java name */
+        private final long m2110getDaysUwyO8pc(double d) {
+            return DurationKt.toDuration(d, DurationUnit.DAYS);
+        }
+
+        /* renamed from: getHours-UwyO8pc  reason: not valid java name */
+        private final long m2116getHoursUwyO8pc(double d) {
+            return DurationKt.toDuration(d, DurationUnit.HOURS);
+        }
+
+        /* renamed from: getMicroseconds-UwyO8pc  reason: not valid java name */
+        private final long m2122getMicrosecondsUwyO8pc(double d) {
+            return DurationKt.toDuration(d, DurationUnit.MICROSECONDS);
+        }
+
+        /* renamed from: getMilliseconds-UwyO8pc  reason: not valid java name */
+        private final long m2128getMillisecondsUwyO8pc(double d) {
+            return DurationKt.toDuration(d, DurationUnit.MILLISECONDS);
+        }
+
+        /* renamed from: getMinutes-UwyO8pc  reason: not valid java name */
+        private final long m2134getMinutesUwyO8pc(double d) {
+            return DurationKt.toDuration(d, DurationUnit.MINUTES);
+        }
+
+        /* renamed from: getNanoseconds-UwyO8pc  reason: not valid java name */
+        private final long m2140getNanosecondsUwyO8pc(double d) {
+            return DurationKt.toDuration(d, DurationUnit.NANOSECONDS);
+        }
+
+        /* renamed from: getSeconds-UwyO8pc  reason: not valid java name */
+        private final long m2146getSecondsUwyO8pc(double d) {
+            return DurationKt.toDuration(d, DurationUnit.SECONDS);
+        }
+
         @SinceKotlin(version = "1.5")
+        @Deprecated(message = "Use 'Double.days' extension property from Duration.Companion instead.", replaceWith = @ReplaceWith(expression = "value.days", imports = {"kotlin.time.Duration.Companion.days"}))
+        @DeprecatedSinceKotlin(warningSince = "1.6")
+        @ExperimentalTime
         /* renamed from: days-UwyO8pc  reason: not valid java name */
-        public final long m2112daysUwyO8pc(double d) {
-            return DurationKt.toDuration(d, TimeUnit.DAYS);
+        public final long m2152daysUwyO8pc(double d) {
+            return DurationKt.toDuration(d, DurationUnit.DAYS);
         }
 
         @SinceKotlin(version = "1.5")
+        @Deprecated(message = "Use 'Double.hours' extension property from Duration.Companion instead.", replaceWith = @ReplaceWith(expression = "value.hours", imports = {"kotlin.time.Duration.Companion.hours"}))
+        @DeprecatedSinceKotlin(warningSince = "1.6")
+        @ExperimentalTime
         /* renamed from: hours-UwyO8pc  reason: not valid java name */
-        public final long m2118hoursUwyO8pc(double d) {
-            return DurationKt.toDuration(d, TimeUnit.HOURS);
+        public final long m2158hoursUwyO8pc(double d) {
+            return DurationKt.toDuration(d, DurationUnit.HOURS);
         }
 
         @SinceKotlin(version = "1.5")
+        @Deprecated(message = "Use 'Double.microseconds' extension property from Duration.Companion instead.", replaceWith = @ReplaceWith(expression = "value.microseconds", imports = {"kotlin.time.Duration.Companion.microseconds"}))
+        @DeprecatedSinceKotlin(warningSince = "1.6")
+        @ExperimentalTime
         /* renamed from: microseconds-UwyO8pc  reason: not valid java name */
-        public final long m2121microsecondsUwyO8pc(double d) {
-            return DurationKt.toDuration(d, TimeUnit.MICROSECONDS);
+        public final long m2161microsecondsUwyO8pc(double d) {
+            return DurationKt.toDuration(d, DurationUnit.MICROSECONDS);
         }
 
         @SinceKotlin(version = "1.5")
+        @Deprecated(message = "Use 'Double.milliseconds' extension property from Duration.Companion instead.", replaceWith = @ReplaceWith(expression = "value.milliseconds", imports = {"kotlin.time.Duration.Companion.milliseconds"}))
+        @DeprecatedSinceKotlin(warningSince = "1.6")
+        @ExperimentalTime
         /* renamed from: milliseconds-UwyO8pc  reason: not valid java name */
-        public final long m2124millisecondsUwyO8pc(double d) {
-            return DurationKt.toDuration(d, TimeUnit.MILLISECONDS);
+        public final long m2164millisecondsUwyO8pc(double d) {
+            return DurationKt.toDuration(d, DurationUnit.MILLISECONDS);
         }
 
         @SinceKotlin(version = "1.5")
+        @Deprecated(message = "Use 'Double.minutes' extension property from Duration.Companion instead.", replaceWith = @ReplaceWith(expression = "value.minutes", imports = {"kotlin.time.Duration.Companion.minutes"}))
+        @DeprecatedSinceKotlin(warningSince = "1.6")
+        @ExperimentalTime
         /* renamed from: minutes-UwyO8pc  reason: not valid java name */
-        public final long m2127minutesUwyO8pc(double d) {
-            return DurationKt.toDuration(d, TimeUnit.MINUTES);
+        public final long m2167minutesUwyO8pc(double d) {
+            return DurationKt.toDuration(d, DurationUnit.MINUTES);
         }
 
         @SinceKotlin(version = "1.5")
+        @Deprecated(message = "Use 'Double.nanoseconds' extension property from Duration.Companion instead.", replaceWith = @ReplaceWith(expression = "value.nanoseconds", imports = {"kotlin.time.Duration.Companion.nanoseconds"}))
+        @DeprecatedSinceKotlin(warningSince = "1.6")
+        @ExperimentalTime
         /* renamed from: nanoseconds-UwyO8pc  reason: not valid java name */
-        public final long m2130nanosecondsUwyO8pc(double d) {
-            return DurationKt.toDuration(d, TimeUnit.NANOSECONDS);
+        public final long m2170nanosecondsUwyO8pc(double d) {
+            return DurationKt.toDuration(d, DurationUnit.NANOSECONDS);
         }
 
-        @SinceKotlin(version = "1.5")
         /* renamed from: parse-UwyO8pc  reason: not valid java name */
-        public final long m2133parseUwyO8pc(String value) {
+        public final long m2173parseUwyO8pc(String value) {
             Intrinsics.checkNotNullParameter(value, "value");
             try {
                 return DurationKt.access$parseDuration(value, false);
@@ -238,9 +384,8 @@ public final class Duration implements Comparable<Duration> {
             }
         }
 
-        @SinceKotlin(version = "1.5")
         /* renamed from: parseIsoString-UwyO8pc  reason: not valid java name */
-        public final long m2134parseIsoStringUwyO8pc(String value) {
+        public final long m2174parseIsoStringUwyO8pc(String value) {
             Intrinsics.checkNotNullParameter(value, "value");
             try {
                 return DurationKt.access$parseDuration(value, true);
@@ -249,131 +394,241 @@ public final class Duration implements Comparable<Duration> {
             }
         }
 
-        @SinceKotlin(version = "1.5")
         /* renamed from: parseIsoStringOrNull-FghU774  reason: not valid java name */
-        public final Duration m2135parseIsoStringOrNullFghU774(String value) {
+        public final Duration m2175parseIsoStringOrNullFghU774(String value) {
             Intrinsics.checkNotNullParameter(value, "value");
             try {
-                return Duration.m2055boximpl(DurationKt.access$parseDuration(value, true));
+                return Duration.m2053boximpl(DurationKt.access$parseDuration(value, true));
             } catch (IllegalArgumentException unused) {
                 return null;
             }
         }
 
-        @SinceKotlin(version = "1.5")
         /* renamed from: parseOrNull-FghU774  reason: not valid java name */
-        public final Duration m2136parseOrNullFghU774(String value) {
+        public final Duration m2176parseOrNullFghU774(String value) {
             Intrinsics.checkNotNullParameter(value, "value");
             try {
-                return Duration.m2055boximpl(DurationKt.access$parseDuration(value, false));
+                return Duration.m2053boximpl(DurationKt.access$parseDuration(value, false));
             } catch (IllegalArgumentException unused) {
                 return null;
             }
         }
 
         @SinceKotlin(version = "1.5")
+        @Deprecated(message = "Use 'Double.seconds' extension property from Duration.Companion instead.", replaceWith = @ReplaceWith(expression = "value.seconds", imports = {"kotlin.time.Duration.Companion.seconds"}))
+        @DeprecatedSinceKotlin(warningSince = "1.6")
+        @ExperimentalTime
         /* renamed from: seconds-UwyO8pc  reason: not valid java name */
-        public final long m2137secondsUwyO8pc(double d) {
-            return DurationKt.toDuration(d, TimeUnit.SECONDS);
+        public final long m2177secondsUwyO8pc(double d) {
+            return DurationKt.toDuration(d, DurationUnit.SECONDS);
         }
 
-        public final double convert(double d, TimeUnit sourceUnit, TimeUnit targetUnit) {
+        /* renamed from: getDays-UwyO8pc  reason: not valid java name */
+        private final long m2111getDaysUwyO8pc(int i) {
+            return DurationKt.toDuration(i, DurationUnit.DAYS);
+        }
+
+        /* renamed from: getHours-UwyO8pc  reason: not valid java name */
+        private final long m2117getHoursUwyO8pc(int i) {
+            return DurationKt.toDuration(i, DurationUnit.HOURS);
+        }
+
+        /* renamed from: getMicroseconds-UwyO8pc  reason: not valid java name */
+        private final long m2123getMicrosecondsUwyO8pc(int i) {
+            return DurationKt.toDuration(i, DurationUnit.MICROSECONDS);
+        }
+
+        /* renamed from: getMilliseconds-UwyO8pc  reason: not valid java name */
+        private final long m2129getMillisecondsUwyO8pc(int i) {
+            return DurationKt.toDuration(i, DurationUnit.MILLISECONDS);
+        }
+
+        /* renamed from: getMinutes-UwyO8pc  reason: not valid java name */
+        private final long m2135getMinutesUwyO8pc(int i) {
+            return DurationKt.toDuration(i, DurationUnit.MINUTES);
+        }
+
+        /* renamed from: getNanoseconds-UwyO8pc  reason: not valid java name */
+        private final long m2141getNanosecondsUwyO8pc(int i) {
+            return DurationKt.toDuration(i, DurationUnit.NANOSECONDS);
+        }
+
+        /* renamed from: getSeconds-UwyO8pc  reason: not valid java name */
+        private final long m2147getSecondsUwyO8pc(int i) {
+            return DurationKt.toDuration(i, DurationUnit.SECONDS);
+        }
+
+        @SinceKotlin(version = "1.5")
+        @Deprecated(message = "Use 'Int.days' extension property from Duration.Companion instead.", replaceWith = @ReplaceWith(expression = "value.days", imports = {"kotlin.time.Duration.Companion.days"}))
+        @DeprecatedSinceKotlin(warningSince = "1.6")
+        @ExperimentalTime
+        /* renamed from: days-UwyO8pc  reason: not valid java name */
+        public final long m2153daysUwyO8pc(int i) {
+            return DurationKt.toDuration(i, DurationUnit.DAYS);
+        }
+
+        @SinceKotlin(version = "1.5")
+        @Deprecated(message = "Use 'Int.hours' extension property from Duration.Companion instead.", replaceWith = @ReplaceWith(expression = "value.hours", imports = {"kotlin.time.Duration.Companion.hours"}))
+        @DeprecatedSinceKotlin(warningSince = "1.6")
+        @ExperimentalTime
+        /* renamed from: hours-UwyO8pc  reason: not valid java name */
+        public final long m2159hoursUwyO8pc(int i) {
+            return DurationKt.toDuration(i, DurationUnit.HOURS);
+        }
+
+        @SinceKotlin(version = "1.5")
+        @Deprecated(message = "Use 'Int.microseconds' extension property from Duration.Companion instead.", replaceWith = @ReplaceWith(expression = "value.microseconds", imports = {"kotlin.time.Duration.Companion.microseconds"}))
+        @DeprecatedSinceKotlin(warningSince = "1.6")
+        @ExperimentalTime
+        /* renamed from: microseconds-UwyO8pc  reason: not valid java name */
+        public final long m2162microsecondsUwyO8pc(int i) {
+            return DurationKt.toDuration(i, DurationUnit.MICROSECONDS);
+        }
+
+        @SinceKotlin(version = "1.5")
+        @Deprecated(message = "Use 'Int.milliseconds' extension property from Duration.Companion instead.", replaceWith = @ReplaceWith(expression = "value.milliseconds", imports = {"kotlin.time.Duration.Companion.milliseconds"}))
+        @DeprecatedSinceKotlin(warningSince = "1.6")
+        @ExperimentalTime
+        /* renamed from: milliseconds-UwyO8pc  reason: not valid java name */
+        public final long m2165millisecondsUwyO8pc(int i) {
+            return DurationKt.toDuration(i, DurationUnit.MILLISECONDS);
+        }
+
+        @SinceKotlin(version = "1.5")
+        @Deprecated(message = "Use 'Int.minutes' extension property from Duration.Companion instead.", replaceWith = @ReplaceWith(expression = "value.minutes", imports = {"kotlin.time.Duration.Companion.minutes"}))
+        @DeprecatedSinceKotlin(warningSince = "1.6")
+        @ExperimentalTime
+        /* renamed from: minutes-UwyO8pc  reason: not valid java name */
+        public final long m2168minutesUwyO8pc(int i) {
+            return DurationKt.toDuration(i, DurationUnit.MINUTES);
+        }
+
+        @SinceKotlin(version = "1.5")
+        @Deprecated(message = "Use 'Int.nanoseconds' extension property from Duration.Companion instead.", replaceWith = @ReplaceWith(expression = "value.nanoseconds", imports = {"kotlin.time.Duration.Companion.nanoseconds"}))
+        @DeprecatedSinceKotlin(warningSince = "1.6")
+        @ExperimentalTime
+        /* renamed from: nanoseconds-UwyO8pc  reason: not valid java name */
+        public final long m2171nanosecondsUwyO8pc(int i) {
+            return DurationKt.toDuration(i, DurationUnit.NANOSECONDS);
+        }
+
+        @SinceKotlin(version = "1.5")
+        @Deprecated(message = "Use 'Int.seconds' extension property from Duration.Companion instead.", replaceWith = @ReplaceWith(expression = "value.seconds", imports = {"kotlin.time.Duration.Companion.seconds"}))
+        @DeprecatedSinceKotlin(warningSince = "1.6")
+        @ExperimentalTime
+        /* renamed from: seconds-UwyO8pc  reason: not valid java name */
+        public final long m2178secondsUwyO8pc(int i) {
+            return DurationKt.toDuration(i, DurationUnit.SECONDS);
+        }
+
+        /* renamed from: getDays-UwyO8pc  reason: not valid java name */
+        private final long m2112getDaysUwyO8pc(long j) {
+            return DurationKt.toDuration(j, DurationUnit.DAYS);
+        }
+
+        /* renamed from: getHours-UwyO8pc  reason: not valid java name */
+        private final long m2118getHoursUwyO8pc(long j) {
+            return DurationKt.toDuration(j, DurationUnit.HOURS);
+        }
+
+        /* renamed from: getMicroseconds-UwyO8pc  reason: not valid java name */
+        private final long m2124getMicrosecondsUwyO8pc(long j) {
+            return DurationKt.toDuration(j, DurationUnit.MICROSECONDS);
+        }
+
+        /* renamed from: getMilliseconds-UwyO8pc  reason: not valid java name */
+        private final long m2130getMillisecondsUwyO8pc(long j) {
+            return DurationKt.toDuration(j, DurationUnit.MILLISECONDS);
+        }
+
+        /* renamed from: getMinutes-UwyO8pc  reason: not valid java name */
+        private final long m2136getMinutesUwyO8pc(long j) {
+            return DurationKt.toDuration(j, DurationUnit.MINUTES);
+        }
+
+        /* renamed from: getNanoseconds-UwyO8pc  reason: not valid java name */
+        private final long m2142getNanosecondsUwyO8pc(long j) {
+            return DurationKt.toDuration(j, DurationUnit.NANOSECONDS);
+        }
+
+        /* renamed from: getSeconds-UwyO8pc  reason: not valid java name */
+        private final long m2148getSecondsUwyO8pc(long j) {
+            return DurationKt.toDuration(j, DurationUnit.SECONDS);
+        }
+
+        @SinceKotlin(version = "1.5")
+        @Deprecated(message = "Use 'Long.days' extension property from Duration.Companion instead.", replaceWith = @ReplaceWith(expression = "value.days", imports = {"kotlin.time.Duration.Companion.days"}))
+        @DeprecatedSinceKotlin(warningSince = "1.6")
+        @ExperimentalTime
+        /* renamed from: days-UwyO8pc  reason: not valid java name */
+        public final long m2154daysUwyO8pc(long j) {
+            return DurationKt.toDuration(j, DurationUnit.DAYS);
+        }
+
+        @SinceKotlin(version = "1.5")
+        @Deprecated(message = "Use 'Long.hours' extension property from Duration.Companion instead.", replaceWith = @ReplaceWith(expression = "value.hours", imports = {"kotlin.time.Duration.Companion.hours"}))
+        @DeprecatedSinceKotlin(warningSince = "1.6")
+        @ExperimentalTime
+        /* renamed from: hours-UwyO8pc  reason: not valid java name */
+        public final long m2160hoursUwyO8pc(long j) {
+            return DurationKt.toDuration(j, DurationUnit.HOURS);
+        }
+
+        @SinceKotlin(version = "1.5")
+        @Deprecated(message = "Use 'Long.microseconds' extension property from Duration.Companion instead.", replaceWith = @ReplaceWith(expression = "value.microseconds", imports = {"kotlin.time.Duration.Companion.microseconds"}))
+        @DeprecatedSinceKotlin(warningSince = "1.6")
+        @ExperimentalTime
+        /* renamed from: microseconds-UwyO8pc  reason: not valid java name */
+        public final long m2163microsecondsUwyO8pc(long j) {
+            return DurationKt.toDuration(j, DurationUnit.MICROSECONDS);
+        }
+
+        @SinceKotlin(version = "1.5")
+        @Deprecated(message = "Use 'Long.milliseconds' extension property from Duration.Companion instead.", replaceWith = @ReplaceWith(expression = "value.milliseconds", imports = {"kotlin.time.Duration.Companion.milliseconds"}))
+        @DeprecatedSinceKotlin(warningSince = "1.6")
+        @ExperimentalTime
+        /* renamed from: milliseconds-UwyO8pc  reason: not valid java name */
+        public final long m2166millisecondsUwyO8pc(long j) {
+            return DurationKt.toDuration(j, DurationUnit.MILLISECONDS);
+        }
+
+        @SinceKotlin(version = "1.5")
+        @Deprecated(message = "Use 'Long.minutes' extension property from Duration.Companion instead.", replaceWith = @ReplaceWith(expression = "value.minutes", imports = {"kotlin.time.Duration.Companion.minutes"}))
+        @DeprecatedSinceKotlin(warningSince = "1.6")
+        @ExperimentalTime
+        /* renamed from: minutes-UwyO8pc  reason: not valid java name */
+        public final long m2169minutesUwyO8pc(long j) {
+            return DurationKt.toDuration(j, DurationUnit.MINUTES);
+        }
+
+        @SinceKotlin(version = "1.5")
+        @Deprecated(message = "Use 'Long.nanoseconds' extension property from Duration.Companion instead.", replaceWith = @ReplaceWith(expression = "value.nanoseconds", imports = {"kotlin.time.Duration.Companion.nanoseconds"}))
+        @DeprecatedSinceKotlin(warningSince = "1.6")
+        @ExperimentalTime
+        /* renamed from: nanoseconds-UwyO8pc  reason: not valid java name */
+        public final long m2172nanosecondsUwyO8pc(long j) {
+            return DurationKt.toDuration(j, DurationUnit.NANOSECONDS);
+        }
+
+        @SinceKotlin(version = "1.5")
+        @Deprecated(message = "Use 'Long.seconds' extension property from Duration.Companion instead.", replaceWith = @ReplaceWith(expression = "value.seconds", imports = {"kotlin.time.Duration.Companion.seconds"}))
+        @DeprecatedSinceKotlin(warningSince = "1.6")
+        @ExperimentalTime
+        /* renamed from: seconds-UwyO8pc  reason: not valid java name */
+        public final long m2179secondsUwyO8pc(long j) {
+            return DurationKt.toDuration(j, DurationUnit.SECONDS);
+        }
+
+        @ExperimentalTime
+        public final double convert(double d, DurationUnit sourceUnit, DurationUnit targetUnit) {
             Intrinsics.checkNotNullParameter(sourceUnit, "sourceUnit");
             Intrinsics.checkNotNullParameter(targetUnit, "targetUnit");
             return DurationUnitKt__DurationUnitJvmKt.convertDurationUnit(d, sourceUnit, targetUnit);
         }
-
-        @SinceKotlin(version = "1.5")
-        /* renamed from: days-UwyO8pc  reason: not valid java name */
-        public final long m2113daysUwyO8pc(int i) {
-            return DurationKt.toDuration(i, TimeUnit.DAYS);
-        }
-
-        @SinceKotlin(version = "1.5")
-        /* renamed from: hours-UwyO8pc  reason: not valid java name */
-        public final long m2119hoursUwyO8pc(int i) {
-            return DurationKt.toDuration(i, TimeUnit.HOURS);
-        }
-
-        @SinceKotlin(version = "1.5")
-        /* renamed from: microseconds-UwyO8pc  reason: not valid java name */
-        public final long m2122microsecondsUwyO8pc(int i) {
-            return DurationKt.toDuration(i, TimeUnit.MICROSECONDS);
-        }
-
-        @SinceKotlin(version = "1.5")
-        /* renamed from: milliseconds-UwyO8pc  reason: not valid java name */
-        public final long m2125millisecondsUwyO8pc(int i) {
-            return DurationKt.toDuration(i, TimeUnit.MILLISECONDS);
-        }
-
-        @SinceKotlin(version = "1.5")
-        /* renamed from: minutes-UwyO8pc  reason: not valid java name */
-        public final long m2128minutesUwyO8pc(int i) {
-            return DurationKt.toDuration(i, TimeUnit.MINUTES);
-        }
-
-        @SinceKotlin(version = "1.5")
-        /* renamed from: nanoseconds-UwyO8pc  reason: not valid java name */
-        public final long m2131nanosecondsUwyO8pc(int i) {
-            return DurationKt.toDuration(i, TimeUnit.NANOSECONDS);
-        }
-
-        @SinceKotlin(version = "1.5")
-        /* renamed from: seconds-UwyO8pc  reason: not valid java name */
-        public final long m2138secondsUwyO8pc(int i) {
-            return DurationKt.toDuration(i, TimeUnit.SECONDS);
-        }
-
-        @SinceKotlin(version = "1.5")
-        /* renamed from: days-UwyO8pc  reason: not valid java name */
-        public final long m2114daysUwyO8pc(long j) {
-            return DurationKt.toDuration(j, TimeUnit.DAYS);
-        }
-
-        @SinceKotlin(version = "1.5")
-        /* renamed from: hours-UwyO8pc  reason: not valid java name */
-        public final long m2120hoursUwyO8pc(long j) {
-            return DurationKt.toDuration(j, TimeUnit.HOURS);
-        }
-
-        @SinceKotlin(version = "1.5")
-        /* renamed from: microseconds-UwyO8pc  reason: not valid java name */
-        public final long m2123microsecondsUwyO8pc(long j) {
-            return DurationKt.toDuration(j, TimeUnit.MICROSECONDS);
-        }
-
-        @SinceKotlin(version = "1.5")
-        /* renamed from: milliseconds-UwyO8pc  reason: not valid java name */
-        public final long m2126millisecondsUwyO8pc(long j) {
-            return DurationKt.toDuration(j, TimeUnit.MILLISECONDS);
-        }
-
-        @SinceKotlin(version = "1.5")
-        /* renamed from: minutes-UwyO8pc  reason: not valid java name */
-        public final long m2129minutesUwyO8pc(long j) {
-            return DurationKt.toDuration(j, TimeUnit.MINUTES);
-        }
-
-        @SinceKotlin(version = "1.5")
-        /* renamed from: nanoseconds-UwyO8pc  reason: not valid java name */
-        public final long m2132nanosecondsUwyO8pc(long j) {
-            return DurationKt.toDuration(j, TimeUnit.NANOSECONDS);
-        }
-
-        @SinceKotlin(version = "1.5")
-        /* renamed from: seconds-UwyO8pc  reason: not valid java name */
-        public final long m2139secondsUwyO8pc(long j) {
-            return DurationKt.toDuration(j, TimeUnit.SECONDS);
-        }
-    }
-
-    public int hashCode() {
-        return m2085hashCodeimpl(this.rawValue);
     }
 
     public String toString() {
-        return m2106toStringimpl(this.rawValue);
+        return m2104toStringimpl(this.rawValue);
     }
 
     /* JADX DEBUG: Marked for inline */
@@ -383,149 +638,149 @@ public final class Duration implements Comparable<Duration> {
     }
 
     /* renamed from: getAbsoluteValue-UwyO8pc  reason: not valid java name */
-    public static final long m2063getAbsoluteValueUwyO8pc(long j) {
-        if (m2090isNegativeimpl(j)) {
-            return m2109unaryMinusUwyO8pc(j);
+    public static final long m2061getAbsoluteValueUwyO8pc(long j) {
+        if (m2088isNegativeimpl(j)) {
+            return m2107unaryMinusUwyO8pc(j);
         }
         return j;
     }
 
     /* renamed from: getHoursComponent-impl  reason: not valid java name */
-    public static final int m2064getHoursComponentimpl(long j) {
-        if (m2089isInfiniteimpl(j)) {
+    public static final int m2062getHoursComponentimpl(long j) {
+        if (m2087isInfiniteimpl(j)) {
             return 0;
         }
-        return (int) (m2073getInWholeHoursimpl(j) % 24);
+        return (int) (m2071getInWholeHoursimpl(j) % 24);
     }
 
     /* renamed from: getInDays-impl  reason: not valid java name */
-    public static final double m2065getInDaysimpl(long j) {
-        return m2100toDoubleimpl(j, TimeUnit.DAYS);
+    public static final double m2063getInDaysimpl(long j) {
+        return m2098toDoubleimpl(j, DurationUnit.DAYS);
     }
 
     /* renamed from: getInHours-impl  reason: not valid java name */
-    public static final double m2066getInHoursimpl(long j) {
-        return m2100toDoubleimpl(j, TimeUnit.HOURS);
+    public static final double m2064getInHoursimpl(long j) {
+        return m2098toDoubleimpl(j, DurationUnit.HOURS);
     }
 
     /* renamed from: getInMicroseconds-impl  reason: not valid java name */
-    public static final double m2067getInMicrosecondsimpl(long j) {
-        return m2100toDoubleimpl(j, TimeUnit.MICROSECONDS);
+    public static final double m2065getInMicrosecondsimpl(long j) {
+        return m2098toDoubleimpl(j, DurationUnit.MICROSECONDS);
     }
 
     /* renamed from: getInMilliseconds-impl  reason: not valid java name */
-    public static final double m2068getInMillisecondsimpl(long j) {
-        return m2100toDoubleimpl(j, TimeUnit.MILLISECONDS);
+    public static final double m2066getInMillisecondsimpl(long j) {
+        return m2098toDoubleimpl(j, DurationUnit.MILLISECONDS);
     }
 
     /* renamed from: getInMinutes-impl  reason: not valid java name */
-    public static final double m2069getInMinutesimpl(long j) {
-        return m2100toDoubleimpl(j, TimeUnit.MINUTES);
+    public static final double m2067getInMinutesimpl(long j) {
+        return m2098toDoubleimpl(j, DurationUnit.MINUTES);
     }
 
     /* renamed from: getInNanoseconds-impl  reason: not valid java name */
-    public static final double m2070getInNanosecondsimpl(long j) {
-        return m2100toDoubleimpl(j, TimeUnit.NANOSECONDS);
+    public static final double m2068getInNanosecondsimpl(long j) {
+        return m2098toDoubleimpl(j, DurationUnit.NANOSECONDS);
     }
 
     /* renamed from: getInSeconds-impl  reason: not valid java name */
-    public static final double m2071getInSecondsimpl(long j) {
-        return m2100toDoubleimpl(j, TimeUnit.SECONDS);
+    public static final double m2069getInSecondsimpl(long j) {
+        return m2098toDoubleimpl(j, DurationUnit.SECONDS);
     }
 
     /* renamed from: getInWholeDays-impl  reason: not valid java name */
-    public static final long m2072getInWholeDaysimpl(long j) {
-        return m2103toLongimpl(j, TimeUnit.DAYS);
+    public static final long m2070getInWholeDaysimpl(long j) {
+        return m2101toLongimpl(j, DurationUnit.DAYS);
     }
 
     /* renamed from: getInWholeHours-impl  reason: not valid java name */
-    public static final long m2073getInWholeHoursimpl(long j) {
-        return m2103toLongimpl(j, TimeUnit.HOURS);
+    public static final long m2071getInWholeHoursimpl(long j) {
+        return m2101toLongimpl(j, DurationUnit.HOURS);
     }
 
     /* renamed from: getInWholeMicroseconds-impl  reason: not valid java name */
-    public static final long m2074getInWholeMicrosecondsimpl(long j) {
-        return m2103toLongimpl(j, TimeUnit.MICROSECONDS);
+    public static final long m2072getInWholeMicrosecondsimpl(long j) {
+        return m2101toLongimpl(j, DurationUnit.MICROSECONDS);
     }
 
     /* renamed from: getInWholeMilliseconds-impl  reason: not valid java name */
-    public static final long m2075getInWholeMillisecondsimpl(long j) {
-        if (m2087isInMillisimpl(j) && m2086isFiniteimpl(j)) {
-            return m2084getValueimpl(j);
+    public static final long m2073getInWholeMillisecondsimpl(long j) {
+        if (m2085isInMillisimpl(j) && m2084isFiniteimpl(j)) {
+            return m2082getValueimpl(j);
         }
-        return m2103toLongimpl(j, TimeUnit.MILLISECONDS);
+        return m2101toLongimpl(j, DurationUnit.MILLISECONDS);
     }
 
     /* renamed from: getInWholeMinutes-impl  reason: not valid java name */
-    public static final long m2076getInWholeMinutesimpl(long j) {
-        return m2103toLongimpl(j, TimeUnit.MINUTES);
+    public static final long m2074getInWholeMinutesimpl(long j) {
+        return m2101toLongimpl(j, DurationUnit.MINUTES);
     }
 
     /* renamed from: getInWholeNanoseconds-impl  reason: not valid java name */
-    public static final long m2077getInWholeNanosecondsimpl(long j) {
-        long m2084getValueimpl = m2084getValueimpl(j);
-        if (!m2088isInNanosimpl(j)) {
-            if (m2084getValueimpl > EventLoop_commonKt.MAX_MS) {
+    public static final long m2075getInWholeNanosecondsimpl(long j) {
+        long m2082getValueimpl = m2082getValueimpl(j);
+        if (!m2086isInNanosimpl(j)) {
+            if (m2082getValueimpl > EventLoop_commonKt.MAX_MS) {
                 return Long.MAX_VALUE;
             }
-            if (m2084getValueimpl < -9223372036854L) {
+            if (m2082getValueimpl < -9223372036854L) {
                 return Long.MIN_VALUE;
             }
-            return DurationKt.access$millisToNanos(m2084getValueimpl);
+            return DurationKt.access$millisToNanos(m2082getValueimpl);
         }
-        return m2084getValueimpl;
+        return m2082getValueimpl;
     }
 
     /* renamed from: getInWholeSeconds-impl  reason: not valid java name */
-    public static final long m2078getInWholeSecondsimpl(long j) {
-        return m2103toLongimpl(j, TimeUnit.SECONDS);
+    public static final long m2076getInWholeSecondsimpl(long j) {
+        return m2101toLongimpl(j, DurationUnit.SECONDS);
     }
 
     /* renamed from: getMinutesComponent-impl  reason: not valid java name */
-    public static final int m2079getMinutesComponentimpl(long j) {
-        if (m2089isInfiniteimpl(j)) {
+    public static final int m2077getMinutesComponentimpl(long j) {
+        if (m2087isInfiniteimpl(j)) {
             return 0;
         }
-        return (int) (m2076getInWholeMinutesimpl(j) % 60);
+        return (int) (m2074getInWholeMinutesimpl(j) % 60);
     }
 
     /* renamed from: getNanosecondsComponent-impl  reason: not valid java name */
-    public static final int m2080getNanosecondsComponentimpl(long j) {
-        long m2084getValueimpl;
-        if (m2089isInfiniteimpl(j)) {
+    public static final int m2078getNanosecondsComponentimpl(long j) {
+        long m2082getValueimpl;
+        if (m2087isInfiniteimpl(j)) {
             return 0;
         }
-        if (m2087isInMillisimpl(j)) {
-            m2084getValueimpl = DurationKt.access$millisToNanos(m2084getValueimpl(j) % 1000);
+        if (m2085isInMillisimpl(j)) {
+            m2082getValueimpl = DurationKt.access$millisToNanos(m2082getValueimpl(j) % 1000);
         } else {
-            m2084getValueimpl = m2084getValueimpl(j) % 1000000000;
+            m2082getValueimpl = m2082getValueimpl(j) % 1000000000;
         }
-        return (int) m2084getValueimpl;
+        return (int) m2082getValueimpl;
     }
 
     /* renamed from: getSecondsComponent-impl  reason: not valid java name */
-    public static final int m2081getSecondsComponentimpl(long j) {
-        if (m2089isInfiniteimpl(j)) {
+    public static final int m2079getSecondsComponentimpl(long j) {
+        if (m2087isInfiniteimpl(j)) {
             return 0;
         }
-        return (int) (m2078getInWholeSecondsimpl(j) % 60);
+        return (int) (m2076getInWholeSecondsimpl(j) % 60);
     }
 
     /* renamed from: getStorageUnit-impl  reason: not valid java name */
-    public static final TimeUnit m2082getStorageUnitimpl(long j) {
-        if (m2088isInNanosimpl(j)) {
-            return TimeUnit.NANOSECONDS;
+    public static final DurationUnit m2080getStorageUnitimpl(long j) {
+        if (m2086isInNanosimpl(j)) {
+            return DurationUnit.NANOSECONDS;
         }
-        return TimeUnit.MILLISECONDS;
+        return DurationUnit.MILLISECONDS;
     }
 
     /* renamed from: isFinite-impl  reason: not valid java name */
-    public static final boolean m2086isFiniteimpl(long j) {
-        return !m2089isInfiniteimpl(j);
+    public static final boolean m2084isFiniteimpl(long j) {
+        return !m2087isInfiniteimpl(j);
     }
 
     /* renamed from: isInfinite-impl  reason: not valid java name */
-    public static final boolean m2089isInfiniteimpl(long j) {
+    public static final boolean m2087isInfiniteimpl(long j) {
         if (j != INFINITE && j != NEG_INFINITE) {
             return false;
         }
@@ -533,49 +788,51 @@ public final class Duration implements Comparable<Duration> {
     }
 
     @Deprecated(message = "Use inWholeMilliseconds property instead.", replaceWith = @ReplaceWith(expression = "this.inWholeMilliseconds", imports = {}))
+    @ExperimentalTime
     /* renamed from: toLongMilliseconds-impl  reason: not valid java name */
-    public static final long m2104toLongMillisecondsimpl(long j) {
-        return m2075getInWholeMillisecondsimpl(j);
+    public static final long m2102toLongMillisecondsimpl(long j) {
+        return m2073getInWholeMillisecondsimpl(j);
     }
 
     @Deprecated(message = "Use inWholeNanoseconds property instead.", replaceWith = @ReplaceWith(expression = "this.inWholeNanoseconds", imports = {}))
+    @ExperimentalTime
     /* renamed from: toLongNanoseconds-impl  reason: not valid java name */
-    public static final long m2105toLongNanosecondsimpl(long j) {
-        return m2077getInWholeNanosecondsimpl(j);
+    public static final long m2103toLongNanosecondsimpl(long j) {
+        return m2075getInWholeNanosecondsimpl(j);
     }
 
     /* renamed from: unaryMinus-UwyO8pc  reason: not valid java name */
-    public static final long m2109unaryMinusUwyO8pc(long j) {
-        return DurationKt.access$durationOf(-m2084getValueimpl(j), ((int) j) & 1);
+    public static final long m2107unaryMinusUwyO8pc(long j) {
+        return DurationKt.access$durationOf(-m2082getValueimpl(j), ((int) j) & 1);
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     @Override // java.lang.Comparable
     public /* bridge */ /* synthetic */ int compareTo(Duration duration) {
-        return m2110compareToLRDsOJo(duration.m2111unboximpl());
+        return m2108compareToLRDsOJo(duration.m2109unboximpl());
     }
 
     /* renamed from: compareTo-LRDsOJo  reason: not valid java name */
-    public int m2110compareToLRDsOJo(long j) {
-        return m2056compareToLRDsOJo(this.rawValue, j);
-    }
-
-    public boolean equals(Object obj) {
-        return m2061equalsimpl(this.rawValue, obj);
+    public int m2108compareToLRDsOJo(long j) {
+        return m2054compareToLRDsOJo(this.rawValue, j);
     }
 
     /* renamed from: addValuesMixedRanges-UwyO8pc  reason: not valid java name */
-    public static final long m2053addValuesMixedRangesUwyO8pc(long j, long j2, long j3) {
+    public static final long m2051addValuesMixedRangesUwyO8pc(long j, long j2, long j3) {
         long access$nanosToMillis = DurationKt.access$nanosToMillis(j3);
         long j4 = j2 + access$nanosToMillis;
-        if (-4611686018426L <= j4 && DurationKt.MAX_NANOS_IN_MILLIS >= j4) {
+        boolean z = false;
+        if (-4611686018426L <= j4 && j4 < 4611686018427L) {
+            z = true;
+        }
+        if (z) {
             return DurationKt.access$durationOfNanos(DurationKt.access$millisToNanos(j4) + (j3 - DurationKt.access$millisToNanos(access$nanosToMillis)));
         }
         return DurationKt.access$durationOfMillis(RangesKt___RangesKt.coerceIn(j4, -4611686018427387903L, 4611686018427387903L));
     }
 
     /* renamed from: appendFractional-impl  reason: not valid java name */
-    public static final void m2054appendFractionalimpl(long j, StringBuilder sb, int i, int i2, int i3, String str, boolean z) {
+    public static final void m2052appendFractionalimpl(long j, StringBuilder sb, int i, int i2, int i3, String str, boolean z) {
         boolean z2;
         sb.append(i);
         if (i2 != 0) {
@@ -583,27 +840,30 @@ public final class Duration implements Comparable<Duration> {
             String padStart = StringsKt__StringsKt.padStart(String.valueOf(i2), i3, '0');
             int i4 = -1;
             int length = padStart.length() - 1;
-            while (true) {
-                if (length < 0) {
-                    break;
+            if (length >= 0) {
+                while (true) {
+                    int i5 = length - 1;
+                    if (padStart.charAt(length) != '0') {
+                        z2 = true;
+                    } else {
+                        z2 = false;
+                    }
+                    if (z2) {
+                        i4 = length;
+                        break;
+                    } else if (i5 < 0) {
+                        break;
+                    } else {
+                        length = i5;
+                    }
                 }
-                if (padStart.charAt(length) != '0') {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                if (z2) {
-                    i4 = length;
-                    break;
-                }
-                length--;
             }
-            int i5 = i4 + 1;
-            if (!z && i5 < 3) {
-                sb.append((CharSequence) padStart, 0, i5);
+            int i6 = i4 + 1;
+            if (!z && i6 < 3) {
+                sb.append((CharSequence) padStart, 0, i6);
                 Intrinsics.checkNotNullExpressionValue(sb, "this.append(value, startIndex, endIndex)");
             } else {
-                sb.append((CharSequence) padStart, 0, ((i5 + 2) / 3) * 3);
+                sb.append((CharSequence) padStart, 0, ((i6 + 2) / 3) * 3);
                 Intrinsics.checkNotNullExpressionValue(sb, "this.append(value, startIndex, endIndex)");
             }
         }
@@ -611,57 +871,69 @@ public final class Duration implements Comparable<Duration> {
     }
 
     /* renamed from: compareTo-LRDsOJo  reason: not valid java name */
-    public static int m2056compareToLRDsOJo(long j, long j2) {
+    public static int m2054compareToLRDsOJo(long j, long j2) {
         long j3 = j ^ j2;
         if (j3 >= 0 && (((int) j3) & 1) != 0) {
             int i = (((int) j) & 1) - (((int) j2) & 1);
-            if (m2090isNegativeimpl(j)) {
+            if (m2088isNegativeimpl(j)) {
                 return -i;
             }
             return i;
         }
-        return (j > j2 ? 1 : (j == j2 ? 0 : -1));
+        return Intrinsics.compare(j, j2);
     }
 
     /* renamed from: div-LRDsOJo  reason: not valid java name */
-    public static final double m2058divLRDsOJo(long j, long j2) {
-        TimeUnit timeUnit = (TimeUnit) ComparisonsKt___ComparisonsJvmKt.maxOf(m2082getStorageUnitimpl(j), m2082getStorageUnitimpl(j2));
-        return m2100toDoubleimpl(j, timeUnit) / m2100toDoubleimpl(j2, timeUnit);
+    public static final double m2056divLRDsOJo(long j, long j2) {
+        DurationUnit durationUnit = (DurationUnit) ComparisonsKt___ComparisonsJvmKt.maxOf(m2080getStorageUnitimpl(j), m2080getStorageUnitimpl(j2));
+        return m2098toDoubleimpl(j, durationUnit) / m2098toDoubleimpl(j2, durationUnit);
     }
 
     /* renamed from: div-UwyO8pc  reason: not valid java name */
-    public static final long m2059divUwyO8pc(long j, double d) {
+    public static final long m2057divUwyO8pc(long j, double d) {
+        boolean z;
         int roundToInt = MathKt__MathJVMKt.roundToInt(d);
-        if (roundToInt == d && roundToInt != 0) {
-            return m2060divUwyO8pc(j, roundToInt);
+        if (roundToInt == d) {
+            z = true;
+        } else {
+            z = false;
         }
-        TimeUnit m2082getStorageUnitimpl = m2082getStorageUnitimpl(j);
-        return DurationKt.toDuration(m2100toDoubleimpl(j, m2082getStorageUnitimpl) / d, m2082getStorageUnitimpl);
+        if (z && roundToInt != 0) {
+            return m2058divUwyO8pc(j, roundToInt);
+        }
+        DurationUnit m2080getStorageUnitimpl = m2080getStorageUnitimpl(j);
+        return DurationKt.toDuration(m2098toDoubleimpl(j, m2080getStorageUnitimpl) / d, m2080getStorageUnitimpl);
     }
 
     /* renamed from: minus-LRDsOJo  reason: not valid java name */
-    public static final long m2092minusLRDsOJo(long j, long j2) {
-        return m2093plusLRDsOJo(j, m2109unaryMinusUwyO8pc(j2));
+    public static final long m2090minusLRDsOJo(long j, long j2) {
+        return m2091plusLRDsOJo(j, m2107unaryMinusUwyO8pc(j2));
     }
 
     /* renamed from: times-UwyO8pc  reason: not valid java name */
-    public static final long m2094timesUwyO8pc(long j, double d) {
+    public static final long m2092timesUwyO8pc(long j, double d) {
+        boolean z;
         int roundToInt = MathKt__MathJVMKt.roundToInt(d);
         if (roundToInt == d) {
-            return m2095timesUwyO8pc(j, roundToInt);
+            z = true;
+        } else {
+            z = false;
         }
-        TimeUnit m2082getStorageUnitimpl = m2082getStorageUnitimpl(j);
-        return DurationKt.toDuration(m2100toDoubleimpl(j, m2082getStorageUnitimpl) * d, m2082getStorageUnitimpl);
+        if (z) {
+            return m2093timesUwyO8pc(j, roundToInt);
+        }
+        DurationUnit m2080getStorageUnitimpl = m2080getStorageUnitimpl(j);
+        return DurationKt.toDuration(m2098toDoubleimpl(j, m2080getStorageUnitimpl) * d, m2080getStorageUnitimpl);
     }
 
     /* renamed from: toComponents-impl  reason: not valid java name */
-    public static final <T> T m2096toComponentsimpl(long j, Function2<? super Long, ? super Integer, ? extends T> action) {
+    public static final <T> T m2094toComponentsimpl(long j, Function2<? super Long, ? super Integer, ? extends T> action) {
         Intrinsics.checkNotNullParameter(action, "action");
-        return action.invoke(Long.valueOf(m2078getInWholeSecondsimpl(j)), Integer.valueOf(m2080getNanosecondsComponentimpl(j)));
+        return action.invoke(Long.valueOf(m2076getInWholeSecondsimpl(j)), Integer.valueOf(m2078getNanosecondsComponentimpl(j)));
     }
 
     /* renamed from: toDouble-impl  reason: not valid java name */
-    public static final double m2100toDoubleimpl(long j, TimeUnit unit) {
+    public static final double m2098toDoubleimpl(long j, DurationUnit unit) {
         Intrinsics.checkNotNullParameter(unit, "unit");
         if (j == INFINITE) {
             return Double.POSITIVE_INFINITY;
@@ -669,17 +941,17 @@ public final class Duration implements Comparable<Duration> {
         if (j == NEG_INFINITE) {
             return Double.NEGATIVE_INFINITY;
         }
-        return DurationUnitKt__DurationUnitJvmKt.convertDurationUnit(m2084getValueimpl(j), m2082getStorageUnitimpl(j), unit);
+        return DurationUnitKt__DurationUnitJvmKt.convertDurationUnit(m2082getValueimpl(j), m2080getStorageUnitimpl(j), unit);
     }
 
     /* renamed from: toInt-impl  reason: not valid java name */
-    public static final int m2101toIntimpl(long j, TimeUnit unit) {
+    public static final int m2099toIntimpl(long j, DurationUnit unit) {
         Intrinsics.checkNotNullParameter(unit, "unit");
-        return (int) RangesKt___RangesKt.coerceIn(m2103toLongimpl(j, unit), Integer.MIN_VALUE, Integer.MAX_VALUE);
+        return (int) RangesKt___RangesKt.coerceIn(m2101toLongimpl(j, unit), -2147483648L, 2147483647L);
     }
 
     /* renamed from: toLong-impl  reason: not valid java name */
-    public static final long m2103toLongimpl(long j, TimeUnit unit) {
+    public static final long m2101toLongimpl(long j, DurationUnit unit) {
         Intrinsics.checkNotNullParameter(unit, "unit");
         if (j == INFINITE) {
             return Long.MAX_VALUE;
@@ -687,85 +959,98 @@ public final class Duration implements Comparable<Duration> {
         if (j == NEG_INFINITE) {
             return Long.MIN_VALUE;
         }
-        return DurationUnitKt__DurationUnitJvmKt.convertDurationUnit(m2084getValueimpl(j), m2082getStorageUnitimpl(j), unit);
+        return DurationUnitKt__DurationUnitJvmKt.convertDurationUnit(m2082getValueimpl(j), m2080getStorageUnitimpl(j), unit);
     }
 
     /* renamed from: constructor-impl  reason: not valid java name */
-    public static long m2057constructorimpl(long j) {
-        if (m2088isInNanosimpl(j)) {
-            long m2084getValueimpl = m2084getValueimpl(j);
-            if (-4611686018426999999L > m2084getValueimpl || DurationKt.MAX_NANOS < m2084getValueimpl) {
-                throw new AssertionError(m2084getValueimpl(j) + " ns is out of nanoseconds range");
-            }
-        } else {
-            long m2084getValueimpl2 = m2084getValueimpl(j);
-            if (-4611686018427387903L <= m2084getValueimpl2 && 4611686018427387903L >= m2084getValueimpl2) {
-                long m2084getValueimpl3 = m2084getValueimpl(j);
-                if (-4611686018426L <= m2084getValueimpl3 && DurationKt.MAX_NANOS_IN_MILLIS >= m2084getValueimpl3) {
-                    throw new AssertionError(m2084getValueimpl(j) + " ms is denormalized");
+    public static long m2055constructorimpl(long j) {
+        boolean z;
+        if (DurationJvmKt.getDurationAssertionsEnabled()) {
+            boolean z2 = true;
+            if (m2086isInNanosimpl(j)) {
+                long m2082getValueimpl = m2082getValueimpl(j);
+                if (!((-4611686018426999999L > m2082getValueimpl || m2082getValueimpl >= 4611686018427000000L) ? false : false)) {
+                    throw new AssertionError(m2082getValueimpl(j) + " ns is out of nanoseconds range");
                 }
             } else {
-                throw new AssertionError(m2084getValueimpl(j) + " ms is out of milliseconds range");
+                long m2082getValueimpl2 = m2082getValueimpl(j);
+                if (-4611686018427387903L <= m2082getValueimpl2 && m2082getValueimpl2 < 4611686018427387904L) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
+                    long m2082getValueimpl3 = m2082getValueimpl(j);
+                    if ((-4611686018426L > m2082getValueimpl3 || m2082getValueimpl3 >= 4611686018427L) ? false : false) {
+                        throw new AssertionError(m2082getValueimpl(j) + " ms is denormalized");
+                    }
+                } else {
+                    throw new AssertionError(m2082getValueimpl(j) + " ms is out of milliseconds range");
+                }
             }
         }
         return j;
     }
 
     /* renamed from: div-UwyO8pc  reason: not valid java name */
-    public static final long m2060divUwyO8pc(long j, int i) {
+    public static final long m2058divUwyO8pc(long j, int i) {
         if (i == 0) {
-            if (m2091isPositiveimpl(j)) {
+            if (m2089isPositiveimpl(j)) {
                 return INFINITE;
             }
-            if (m2090isNegativeimpl(j)) {
+            if (m2088isNegativeimpl(j)) {
                 return NEG_INFINITE;
             }
             throw new IllegalArgumentException("Dividing zero duration by zero yields an undefined result.");
-        } else if (m2088isInNanosimpl(j)) {
-            return DurationKt.access$durationOfNanos(m2084getValueimpl(j) / i);
+        } else if (m2086isInNanosimpl(j)) {
+            return DurationKt.access$durationOfNanos(m2082getValueimpl(j) / i);
         } else {
-            if (m2089isInfiniteimpl(j)) {
-                return m2095timesUwyO8pc(j, MathKt__MathJVMKt.getSign(i));
+            if (m2087isInfiniteimpl(j)) {
+                return m2093timesUwyO8pc(j, MathKt__MathJVMKt.getSign(i));
             }
             long j2 = i;
-            long m2084getValueimpl = m2084getValueimpl(j) / j2;
-            if (-4611686018426L <= m2084getValueimpl && DurationKt.MAX_NANOS_IN_MILLIS >= m2084getValueimpl) {
-                return DurationKt.access$durationOfNanos(DurationKt.access$millisToNanos(m2084getValueimpl) + (DurationKt.access$millisToNanos(m2084getValueimpl(j) - (m2084getValueimpl * j2)) / j2));
+            long m2082getValueimpl = m2082getValueimpl(j) / j2;
+            boolean z = false;
+            if (-4611686018426L <= m2082getValueimpl && m2082getValueimpl < 4611686018427L) {
+                z = true;
             }
-            return DurationKt.access$durationOfMillis(m2084getValueimpl);
+            if (z) {
+                return DurationKt.access$durationOfNanos(DurationKt.access$millisToNanos(m2082getValueimpl) + (DurationKt.access$millisToNanos(m2082getValueimpl(j) - (m2082getValueimpl * j2)) / j2));
+            }
+            return DurationKt.access$durationOfMillis(m2082getValueimpl);
         }
     }
 
     /* renamed from: plus-LRDsOJo  reason: not valid java name */
-    public static final long m2093plusLRDsOJo(long j, long j2) {
-        if (m2089isInfiniteimpl(j)) {
-            if (!m2086isFiniteimpl(j2) && (j2 ^ j) < 0) {
+    public static final long m2091plusLRDsOJo(long j, long j2) {
+        if (m2087isInfiniteimpl(j)) {
+            if (!m2084isFiniteimpl(j2) && (j2 ^ j) < 0) {
                 throw new IllegalArgumentException("Summing infinite durations of different signs yields an undefined result.");
             }
             return j;
-        } else if (m2089isInfiniteimpl(j2)) {
+        } else if (m2087isInfiniteimpl(j2)) {
             return j2;
         } else {
             if ((((int) j) & 1) == (((int) j2) & 1)) {
-                long m2084getValueimpl = m2084getValueimpl(j) + m2084getValueimpl(j2);
-                if (m2088isInNanosimpl(j)) {
-                    return DurationKt.access$durationOfNanosNormalized(m2084getValueimpl);
+                long m2082getValueimpl = m2082getValueimpl(j) + m2082getValueimpl(j2);
+                if (m2086isInNanosimpl(j)) {
+                    return DurationKt.access$durationOfNanosNormalized(m2082getValueimpl);
                 }
-                return DurationKt.access$durationOfMillisNormalized(m2084getValueimpl);
-            } else if (m2087isInMillisimpl(j)) {
-                return m2053addValuesMixedRangesUwyO8pc(j, m2084getValueimpl(j), m2084getValueimpl(j2));
+                return DurationKt.access$durationOfMillisNormalized(m2082getValueimpl);
+            } else if (m2085isInMillisimpl(j)) {
+                return m2051addValuesMixedRangesUwyO8pc(j, m2082getValueimpl(j), m2082getValueimpl(j2));
             } else {
-                return m2053addValuesMixedRangesUwyO8pc(j, m2084getValueimpl(j2), m2084getValueimpl(j));
+                return m2051addValuesMixedRangesUwyO8pc(j, m2082getValueimpl(j2), m2082getValueimpl(j));
             }
         }
     }
 
     /* renamed from: times-UwyO8pc  reason: not valid java name */
-    public static final long m2095timesUwyO8pc(long j, int i) {
-        if (m2089isInfiniteimpl(j)) {
+    public static final long m2093timesUwyO8pc(long j, int i) {
+        if (m2087isInfiniteimpl(j)) {
             if (i != 0) {
                 if (i <= 0) {
-                    return m2109unaryMinusUwyO8pc(j);
+                    return m2107unaryMinusUwyO8pc(j);
                 }
                 return j;
             }
@@ -773,30 +1058,34 @@ public final class Duration implements Comparable<Duration> {
         } else if (i == 0) {
             return ZERO;
         } else {
-            long m2084getValueimpl = m2084getValueimpl(j);
+            long m2082getValueimpl = m2082getValueimpl(j);
             long j2 = i;
-            long j3 = m2084getValueimpl * j2;
-            if (m2088isInNanosimpl(j)) {
-                if (-2147483647L <= m2084getValueimpl && 2147483647L >= m2084getValueimpl) {
+            long j3 = m2082getValueimpl * j2;
+            if (m2086isInNanosimpl(j)) {
+                boolean z = false;
+                if (m2082getValueimpl <= 2147483647L && -2147483647L <= m2082getValueimpl) {
+                    z = true;
+                }
+                if (z) {
                     return DurationKt.access$durationOfNanos(j3);
                 }
-                if (j3 / j2 == m2084getValueimpl) {
+                if (j3 / j2 == m2082getValueimpl) {
                     return DurationKt.access$durationOfNanosNormalized(j3);
                 }
-                long access$nanosToMillis = DurationKt.access$nanosToMillis(m2084getValueimpl);
+                long access$nanosToMillis = DurationKt.access$nanosToMillis(m2082getValueimpl);
                 long j4 = access$nanosToMillis * j2;
-                long access$nanosToMillis2 = DurationKt.access$nanosToMillis((m2084getValueimpl - DurationKt.access$millisToNanos(access$nanosToMillis)) * j2) + j4;
+                long access$nanosToMillis2 = DurationKt.access$nanosToMillis((m2082getValueimpl - DurationKt.access$millisToNanos(access$nanosToMillis)) * j2) + j4;
                 if (j4 / j2 == access$nanosToMillis && (access$nanosToMillis2 ^ j4) >= 0) {
                     return DurationKt.access$durationOfMillis(RangesKt___RangesKt.coerceIn(access$nanosToMillis2, new LongRange(-4611686018427387903L, 4611686018427387903L)));
                 }
-                if (MathKt__MathJVMKt.getSign(m2084getValueimpl) * MathKt__MathJVMKt.getSign(i) > 0) {
+                if (MathKt__MathJVMKt.getSign(m2082getValueimpl) * MathKt__MathJVMKt.getSign(i) > 0) {
                     return INFINITE;
                 }
                 return NEG_INFINITE;
-            } else if (j3 / j2 == m2084getValueimpl) {
+            } else if (j3 / j2 == m2082getValueimpl) {
                 return DurationKt.access$durationOfMillis(RangesKt___RangesKt.coerceIn(j3, new LongRange(-4611686018427387903L, 4611686018427387903L)));
             } else {
-                if (MathKt__MathJVMKt.getSign(m2084getValueimpl) * MathKt__MathJVMKt.getSign(i) > 0) {
+                if (MathKt__MathJVMKt.getSign(m2082getValueimpl) * MathKt__MathJVMKt.getSign(i) > 0) {
                     return INFINITE;
                 }
                 return NEG_INFINITE;
@@ -805,65 +1094,64 @@ public final class Duration implements Comparable<Duration> {
     }
 
     /* renamed from: toComponents-impl  reason: not valid java name */
-    public static final <T> T m2097toComponentsimpl(long j, Function3<? super Integer, ? super Integer, ? super Integer, ? extends T> action) {
+    public static final <T> T m2095toComponentsimpl(long j, Function3<? super Long, ? super Integer, ? super Integer, ? extends T> action) {
         Intrinsics.checkNotNullParameter(action, "action");
-        return action.invoke(Integer.valueOf(m2101toIntimpl(j, TimeUnit.MINUTES)), Integer.valueOf(m2081getSecondsComponentimpl(j)), Integer.valueOf(m2080getNanosecondsComponentimpl(j)));
+        return action.invoke(Long.valueOf(m2074getInWholeMinutesimpl(j)), Integer.valueOf(m2079getSecondsComponentimpl(j)), Integer.valueOf(m2078getNanosecondsComponentimpl(j)));
     }
 
     /* renamed from: toComponents-impl  reason: not valid java name */
-    public static final <T> T m2098toComponentsimpl(long j, Function4<? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends T> action) {
+    public static final <T> T m2096toComponentsimpl(long j, Function4<? super Long, ? super Integer, ? super Integer, ? super Integer, ? extends T> action) {
         Intrinsics.checkNotNullParameter(action, "action");
-        return action.invoke(Integer.valueOf(m2101toIntimpl(j, TimeUnit.HOURS)), Integer.valueOf(m2079getMinutesComponentimpl(j)), Integer.valueOf(m2081getSecondsComponentimpl(j)), Integer.valueOf(m2080getNanosecondsComponentimpl(j)));
+        return action.invoke(Long.valueOf(m2071getInWholeHoursimpl(j)), Integer.valueOf(m2077getMinutesComponentimpl(j)), Integer.valueOf(m2079getSecondsComponentimpl(j)), Integer.valueOf(m2078getNanosecondsComponentimpl(j)));
     }
 
     /* renamed from: toComponents-impl  reason: not valid java name */
-    public static final <T> T m2099toComponentsimpl(long j, Function5<? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends T> action) {
+    public static final <T> T m2097toComponentsimpl(long j, Function5<? super Long, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends T> action) {
         Intrinsics.checkNotNullParameter(action, "action");
-        return action.invoke(Integer.valueOf(m2101toIntimpl(j, TimeUnit.DAYS)), Integer.valueOf(m2064getHoursComponentimpl(j)), Integer.valueOf(m2079getMinutesComponentimpl(j)), Integer.valueOf(m2081getSecondsComponentimpl(j)), Integer.valueOf(m2080getNanosecondsComponentimpl(j)));
+        return action.invoke(Long.valueOf(m2070getInWholeDaysimpl(j)), Integer.valueOf(m2062getHoursComponentimpl(j)), Integer.valueOf(m2077getMinutesComponentimpl(j)), Integer.valueOf(m2079getSecondsComponentimpl(j)), Integer.valueOf(m2078getNanosecondsComponentimpl(j)));
     }
 
     /* renamed from: toIsoString-impl  reason: not valid java name */
-    public static final String m2102toIsoStringimpl(long j) {
+    public static final String m2100toIsoStringimpl(long j) {
         boolean z;
         boolean z2;
         StringBuilder sb = new StringBuilder();
-        if (m2090isNegativeimpl(j)) {
+        if (m2088isNegativeimpl(j)) {
             sb.append(SignatureImpl.SEP);
         }
         sb.append("PT");
-        long m2063getAbsoluteValueUwyO8pc = m2063getAbsoluteValueUwyO8pc(j);
-        m2101toIntimpl(m2063getAbsoluteValueUwyO8pc, TimeUnit.HOURS);
-        int m2079getMinutesComponentimpl = m2079getMinutesComponentimpl(m2063getAbsoluteValueUwyO8pc);
-        int m2081getSecondsComponentimpl = m2081getSecondsComponentimpl(m2063getAbsoluteValueUwyO8pc);
-        int m2080getNanosecondsComponentimpl = m2080getNanosecondsComponentimpl(m2063getAbsoluteValueUwyO8pc);
-        long m2073getInWholeHoursimpl = m2073getInWholeHoursimpl(m2063getAbsoluteValueUwyO8pc);
-        if (m2089isInfiniteimpl(j)) {
-            m2073getInWholeHoursimpl = 9999999999999L;
+        long m2061getAbsoluteValueUwyO8pc = m2061getAbsoluteValueUwyO8pc(j);
+        long m2071getInWholeHoursimpl = m2071getInWholeHoursimpl(m2061getAbsoluteValueUwyO8pc);
+        int m2077getMinutesComponentimpl = m2077getMinutesComponentimpl(m2061getAbsoluteValueUwyO8pc);
+        int m2079getSecondsComponentimpl = m2079getSecondsComponentimpl(m2061getAbsoluteValueUwyO8pc);
+        int m2078getNanosecondsComponentimpl = m2078getNanosecondsComponentimpl(m2061getAbsoluteValueUwyO8pc);
+        if (m2087isInfiniteimpl(j)) {
+            m2071getInWholeHoursimpl = 9999999999999L;
         }
         boolean z3 = true;
-        if (m2073getInWholeHoursimpl != 0) {
+        if (m2071getInWholeHoursimpl != 0) {
             z = true;
         } else {
             z = false;
         }
-        if (m2081getSecondsComponentimpl == 0 && m2080getNanosecondsComponentimpl == 0) {
+        if (m2079getSecondsComponentimpl == 0 && m2078getNanosecondsComponentimpl == 0) {
             z2 = false;
         } else {
             z2 = true;
         }
-        if (m2079getMinutesComponentimpl == 0 && (!z2 || !z)) {
+        if (m2077getMinutesComponentimpl == 0 && (!z2 || !z)) {
             z3 = false;
         }
         if (z) {
-            sb.append(m2073getInWholeHoursimpl);
+            sb.append(m2071getInWholeHoursimpl);
             sb.append('H');
         }
         if (z3) {
-            sb.append(m2079getMinutesComponentimpl);
+            sb.append(m2077getMinutesComponentimpl);
             sb.append('M');
         }
         if (z2 || (!z && !z3)) {
-            m2054appendFractionalimpl(j, sb, m2081getSecondsComponentimpl, m2080getNanosecondsComponentimpl, 9, ExifInterface.LATITUDE_SOUTH, true);
+            m2052appendFractionalimpl(j, sb, m2079getSecondsComponentimpl, m2078getNanosecondsComponentimpl, 9, ExifInterface.LATITUDE_SOUTH, true);
         }
         String sb2 = sb.toString();
         Intrinsics.checkNotNullExpressionValue(sb2, "StringBuilder().apply(builderAction).toString()");
@@ -871,7 +1159,7 @@ public final class Duration implements Comparable<Duration> {
     }
 
     /* renamed from: toString-impl  reason: not valid java name */
-    public static String m2106toStringimpl(long j) {
+    public static String m2104toStringimpl(long j) {
         boolean z;
         boolean z2;
         boolean z3;
@@ -885,41 +1173,40 @@ public final class Duration implements Comparable<Duration> {
         if (j == NEG_INFINITE) {
             return "-Infinity";
         }
-        boolean m2090isNegativeimpl = m2090isNegativeimpl(j);
+        boolean m2088isNegativeimpl = m2088isNegativeimpl(j);
         StringBuilder sb = new StringBuilder();
-        if (m2090isNegativeimpl) {
+        if (m2088isNegativeimpl) {
             sb.append(SignatureImpl.SEP);
         }
-        long m2063getAbsoluteValueUwyO8pc = m2063getAbsoluteValueUwyO8pc(j);
-        m2101toIntimpl(m2063getAbsoluteValueUwyO8pc, TimeUnit.DAYS);
-        int m2064getHoursComponentimpl = m2064getHoursComponentimpl(m2063getAbsoluteValueUwyO8pc);
-        int m2079getMinutesComponentimpl = m2079getMinutesComponentimpl(m2063getAbsoluteValueUwyO8pc);
-        int m2081getSecondsComponentimpl = m2081getSecondsComponentimpl(m2063getAbsoluteValueUwyO8pc);
-        int m2080getNanosecondsComponentimpl = m2080getNanosecondsComponentimpl(m2063getAbsoluteValueUwyO8pc);
-        long m2072getInWholeDaysimpl = m2072getInWholeDaysimpl(m2063getAbsoluteValueUwyO8pc);
+        long m2061getAbsoluteValueUwyO8pc = m2061getAbsoluteValueUwyO8pc(j);
+        long m2070getInWholeDaysimpl = m2070getInWholeDaysimpl(m2061getAbsoluteValueUwyO8pc);
+        int m2062getHoursComponentimpl = m2062getHoursComponentimpl(m2061getAbsoluteValueUwyO8pc);
+        int m2077getMinutesComponentimpl = m2077getMinutesComponentimpl(m2061getAbsoluteValueUwyO8pc);
+        int m2079getSecondsComponentimpl = m2079getSecondsComponentimpl(m2061getAbsoluteValueUwyO8pc);
+        int m2078getNanosecondsComponentimpl = m2078getNanosecondsComponentimpl(m2061getAbsoluteValueUwyO8pc);
         int i = 0;
-        if (m2072getInWholeDaysimpl != 0) {
+        if (m2070getInWholeDaysimpl != 0) {
             z = true;
         } else {
             z = false;
         }
-        if (m2064getHoursComponentimpl != 0) {
+        if (m2062getHoursComponentimpl != 0) {
             z2 = true;
         } else {
             z2 = false;
         }
-        if (m2079getMinutesComponentimpl != 0) {
+        if (m2077getMinutesComponentimpl != 0) {
             z3 = true;
         } else {
             z3 = false;
         }
-        if (m2081getSecondsComponentimpl == 0 && m2080getNanosecondsComponentimpl == 0) {
+        if (m2079getSecondsComponentimpl == 0 && m2078getNanosecondsComponentimpl == 0) {
             z4 = false;
         } else {
             z4 = true;
         }
         if (z) {
-            sb.append(m2072getInWholeDaysimpl);
+            sb.append(m2070getInWholeDaysimpl);
             sb.append('d');
             i = 1;
         }
@@ -928,7 +1215,7 @@ public final class Duration implements Comparable<Duration> {
             if (i > 0) {
                 sb.append(WebvttCueParser.CHAR_SPACE);
             }
-            sb.append(m2064getHoursComponentimpl);
+            sb.append(m2062getHoursComponentimpl);
             sb.append('h');
             i = i2;
         }
@@ -937,7 +1224,7 @@ public final class Duration implements Comparable<Duration> {
             if (i > 0) {
                 sb.append(WebvttCueParser.CHAR_SPACE);
             }
-            sb.append(m2079getMinutesComponentimpl);
+            sb.append(m2077getMinutesComponentimpl);
             sb.append('m');
             i = i3;
         }
@@ -946,21 +1233,21 @@ public final class Duration implements Comparable<Duration> {
             if (i > 0) {
                 sb.append(WebvttCueParser.CHAR_SPACE);
             }
-            if (m2081getSecondsComponentimpl == 0 && !z && !z2 && !z3) {
-                if (m2080getNanosecondsComponentimpl >= 1000000) {
-                    m2054appendFractionalimpl(m2063getAbsoluteValueUwyO8pc, sb, m2080getNanosecondsComponentimpl / 1000000, m2080getNanosecondsComponentimpl % 1000000, 6, "ms", false);
-                } else if (m2080getNanosecondsComponentimpl >= 1000) {
-                    m2054appendFractionalimpl(m2063getAbsoluteValueUwyO8pc, sb, m2080getNanosecondsComponentimpl / 1000, m2080getNanosecondsComponentimpl % 1000, 3, "us", false);
+            if (m2079getSecondsComponentimpl == 0 && !z && !z2 && !z3) {
+                if (m2078getNanosecondsComponentimpl >= 1000000) {
+                    m2052appendFractionalimpl(j, sb, m2078getNanosecondsComponentimpl / 1000000, m2078getNanosecondsComponentimpl % 1000000, 6, "ms", false);
+                } else if (m2078getNanosecondsComponentimpl >= 1000) {
+                    m2052appendFractionalimpl(j, sb, m2078getNanosecondsComponentimpl / 1000, m2078getNanosecondsComponentimpl % 1000, 3, "us", false);
                 } else {
-                    sb.append(m2080getNanosecondsComponentimpl);
+                    sb.append(m2078getNanosecondsComponentimpl);
                     sb.append(NotificationStyle.NOTIFICATION_STYLE);
                 }
             } else {
-                m2054appendFractionalimpl(m2063getAbsoluteValueUwyO8pc, sb, m2081getSecondsComponentimpl, m2080getNanosecondsComponentimpl, 9, "s", false);
+                m2052appendFractionalimpl(j, sb, m2079getSecondsComponentimpl, m2078getNanosecondsComponentimpl, 9, "s", false);
             }
             i = i4;
         }
-        if (m2090isNegativeimpl && i > 1) {
+        if (m2088isNegativeimpl && i > 1) {
             sb.insert(1, '(').append(')');
         }
         String sb2 = sb.toString();
@@ -969,7 +1256,7 @@ public final class Duration implements Comparable<Duration> {
     }
 
     /* renamed from: toString-impl  reason: not valid java name */
-    public static final String m2107toStringimpl(long j, TimeUnit unit, int i) {
+    public static final String m2105toStringimpl(long j, DurationUnit unit, int i) {
         boolean z;
         Intrinsics.checkNotNullParameter(unit, "unit");
         if (i >= 0) {
@@ -978,20 +1265,20 @@ public final class Duration implements Comparable<Duration> {
             z = false;
         }
         if (z) {
-            double m2100toDoubleimpl = m2100toDoubleimpl(j, unit);
-            if (Double.isInfinite(m2100toDoubleimpl)) {
-                return String.valueOf(m2100toDoubleimpl);
+            double m2098toDoubleimpl = m2098toDoubleimpl(j, unit);
+            if (Double.isInfinite(m2098toDoubleimpl)) {
+                return String.valueOf(m2098toDoubleimpl);
             }
-            return FormatToDecimalsKt.formatToExactDecimals(m2100toDoubleimpl, RangesKt___RangesKt.coerceAtMost(i, 12)) + DurationUnitKt__DurationUnitKt.shortName(unit);
+            return DurationJvmKt.formatToExactDecimals(m2098toDoubleimpl, RangesKt___RangesKt.coerceAtMost(i, 12)) + DurationUnitKt__DurationUnitKt.shortName(unit);
         }
         throw new IllegalArgumentException(("decimals must be not negative, but was " + i).toString());
     }
 
     /* renamed from: toString-impl$default  reason: not valid java name */
-    public static /* synthetic */ String m2108toStringimpl$default(long j, TimeUnit timeUnit, int i, int i2, Object obj) {
+    public static /* synthetic */ String m2106toStringimpl$default(long j, DurationUnit durationUnit, int i, int i2, Object obj) {
         if ((i2 & 2) != 0) {
             i = 0;
         }
-        return m2107toStringimpl(j, timeUnit, i);
+        return m2105toStringimpl(j, durationUnit, i);
     }
 }

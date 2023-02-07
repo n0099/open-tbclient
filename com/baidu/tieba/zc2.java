@@ -1,53 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
+import java.io.InputStream;
 /* loaded from: classes7.dex */
-public class zc2 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface zc2 {
+    void a(String str, File file, ad2 ad2Var);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948355072, "Lcom/baidu/tieba/zc2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948355072, "Lcom/baidu/tieba/zc2;");
-                return;
-            }
-        }
-        boolean z = tk1.a;
-        a = b("swan_clean_pkg_opt", 0);
-    }
+    InputStream get(String str);
 
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean b(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
-            qn2.g0().getSwitch(str, i);
-            j12.k("CleanPkgSwitcher", str + " value from AB : " + i);
-            if (i == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLI.booleanValue;
-    }
+    boolean isClosed();
 }

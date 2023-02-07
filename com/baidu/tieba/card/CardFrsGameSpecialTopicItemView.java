@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.y9;
+import com.baidu.tieba.da;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -66,7 +66,7 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (view2.getTag() instanceof String)) {
                 TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 5).param("fid", this.a.h));
-                UrlManager.getInstance().dealOneLink((TbPageContext) y9.a(this.a.getContext()), new String[]{(String) view2.getTag()}, true);
+                UrlManager.getInstance().dealOneLink((TbPageContext) da.a(this.a.getContext()), new String[]{(String) view2.getTag()}, true);
             }
         }
     }
@@ -162,14 +162,14 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0191, (ViewGroup) this, true);
-            this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090538);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090537);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090539);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090536);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09053a);
-            this.f = findViewById(R.id.obfuscated_res_0x7f090842);
-            this.g = findViewById(R.id.obfuscated_res_0x7f090843);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0190, (ViewGroup) this, true);
+            this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090539);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090538);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09053a);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090537);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09053b);
+            this.f = findViewById(R.id.obfuscated_res_0x7f090856);
+            this.g = findViewById(R.id.obfuscated_res_0x7f090857);
             int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.tbds170) * 2;
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.a.getLayoutParams();
             layoutParams.width = (dimensionPixelSize * 21) / 9;

@@ -1,43 +1,27 @@
 package com.baidu.tieba;
-
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public class y38 {
-    public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface y38 {
+    void a(String str);
 
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (TextUtils.isEmpty(a)) {
-                a = cz4.l().r("nick_name_activity_link", "");
-            }
-            return a;
-        }
-        return (String) invokeV.objValue;
-    }
+    void b(String str, int i, int i2, String str2);
 
-    public static SpannableStringBuilder b(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            spannableStringBuilder.append((CharSequence) str);
-            int length = spannableStringBuilder.length();
-            Drawable drawable = context.getResources().getDrawable(R.drawable.icon_nichenghuodong);
-            drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-            spannableStringBuilder.append((CharSequence) "tag");
-            spannableStringBuilder.setSpan(new sz4(drawable), length, spannableStringBuilder.length(), 33);
-            return spannableStringBuilder;
-        }
-        return (SpannableStringBuilder) invokeLL.objValue;
-    }
+    void c(String str, int i, String str2);
+
+    boolean d(String str);
+
+    boolean e(String str);
+
+    void f(String str, int i, String str2);
+
+    void g(String str, int i, String str2);
+
+    void h(String str, String str2);
+
+    void i(String str, String str2);
+
+    void j(String str);
+
+    void k(String str);
+
+    void l(String str, int i, String str2);
 }

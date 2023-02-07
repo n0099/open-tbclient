@@ -1,59 +1,40 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.text.TextUtils;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
-import com.baidu.tbadk.ala.AlaLiveInfoListCoreData;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.ala.alasquare.subtablist.mvc.AlaNewSquareSubListModel;
-import com.baidu.tieba.lz4;
+import android.content.Context;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
+import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
+import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
+import com.baidu.tbadk.core.atomData.QRCodeScanActivityConfig;
+import com.baidu.tieba.aiapps.apps.barcode.ScanCodeDelegateActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes6.dex */
-public class xz5 {
+import java.nio.charset.Charset;
+@Singleton
+@Service
+/* loaded from: classes7.dex */
+public class xz5 implements at2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public TbPageContext b;
-    public a06 c;
-    public AlaNewSquareSubListModel d;
-    public boolean e;
-    public String f;
-    public BdListView.p g;
-    public AlaNewSquareSubListModel.b h;
-    public View.OnClickListener i;
-    public d06 j;
-    public lz4.g k;
 
-    /* loaded from: classes6.dex */
-    public class a implements BdListView.p {
+    /* loaded from: classes7.dex */
+    public class a implements DelegateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xz5 a;
+        public final /* synthetic */ z02 a;
 
-        public a(xz5 xz5Var) {
+        public a(xz5 xz5Var, z02 z02Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {xz5Var};
+                Object[] objArr = {xz5Var, z02Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -63,344 +44,38 @@ public class xz5 {
                     return;
                 }
             }
-            this.a = xz5Var;
+            this.a = z02Var;
         }
 
-        @Override // com.baidu.adp.widget.ListView.BdListView.p
-        public void onScrollToBottom() {
-            boolean z;
+        @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
+        public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.d != null) {
-                    z = this.a.d.Z();
-                } else {
-                    z = false;
-                }
-                if (this.a.c != null) {
-                    if (!z) {
-                        this.a.c.v();
-                        return;
-                    }
-                    this.a.d.b0();
-                    this.a.c.i();
-                }
+            if ((interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) && delegateResult.isOk()) {
+                this.a.a(delegateResult.mResult.getString(QRCodeScanActivityConfig.RESULT_SCAN_CODE, ""), "", Charset.defaultCharset().name());
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements AlaNewSquareSubListModel.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xz5 a;
-
-        public b(xz5 xz5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xz5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xz5Var;
-        }
-
-        @Override // com.baidu.tieba.ala.alasquare.subtablist.mvc.AlaNewSquareSubListModel.b
-        public void a(boolean z) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && this.a.b != null && this.a.c != null) {
-                this.a.c.d();
-                this.a.c.g();
-                this.a.c.p(this.a.d.U());
-                this.a.c.l(this.a.d.V());
-                this.a.c.m(this.a.d.Y());
-                if (this.a.d != null && this.a.d.getPn() == 0 && this.a.c.e() != null) {
-                    this.a.c.e().smoothScrollToPosition(0);
-                }
-                if (ListUtils.getCount(this.a.d.U()) == 0) {
-                    this.a.c.u(this.a.b.getString(R.string.no_data_text), this.a.i, true);
-                    this.a.c.o(8);
-                    return;
-                }
-                this.a.c.h();
-                this.a.c.o(0);
-            }
-        }
-
-        @Override // com.baidu.tieba.ala.alasquare.subtablist.mvc.AlaNewSquareSubListModel.b
-        public void onLoadError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) && this.a.b != null && this.a.c != null) {
-                this.a.c.d();
-                this.a.c.g();
-                a06 a06Var = this.a.c;
-                if (TextUtils.isEmpty(str)) {
-                    str = this.a.b.getString(R.string.no_data_text);
-                }
-                a06Var.u(str, this.a.i, true);
-                this.a.c.o(8);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xz5 a;
-
-        public c(xz5 xz5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xz5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xz5Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.k();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements d06 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xz5 a;
-
-        public d(xz5 xz5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xz5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xz5Var;
-        }
-
-        @Override // com.baidu.tieba.d06
-        public void a(int i, String str, ThreadData threadData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, threadData) == null) {
-                xz5 xz5Var = this.a;
-                xz5Var.g(xz5Var.b, threadData, str);
-            }
-        }
-
-        @Override // com.baidu.tieba.d06
-        public void b(wz5 wz5Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wz5Var) == null) && this.a.d != null && wz5Var != null && !StringUtils.isNull(wz5Var.a)) {
-                this.a.d.setSortType(wz5Var.a);
-                this.a.d.setLat(wz5Var.b);
-                this.a.d.setLng(wz5Var.c);
-                this.a.d.f0(wz5Var.d);
-                this.a.d.c0();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class e implements lz4.g {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xz5 a;
-
-        public e(xz5 xz5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xz5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xz5Var;
-        }
-
-        @Override // com.baidu.tieba.lz4.g
-        public void f(boolean z) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && this.a.d != null) {
-                this.a.d.c0();
-            }
-        }
-    }
-
-    public xz5(TbPageContext tbPageContext, boolean z) {
+    public xz5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = false;
-        this.g = new a(this);
-        this.h = new b(this);
-        this.i = new c(this);
-        this.j = new d(this);
-        this.k = new e(this);
-        this.b = tbPageContext;
-        this.a = z;
-        AlaNewSquareSubListModel alaNewSquareSubListModel = new AlaNewSquareSubListModel(this.b);
-        this.d = alaNewSquareSubListModel;
-        alaNewSquareSubListModel.d0(this.h);
-        a06 a06Var = new a06(this.b);
-        this.c = a06Var;
-        a06Var.n(this.j);
-        this.c.q(this.k);
-        this.c.r(this.g);
-        this.c.t();
-    }
-
-    public final AlaLiveInfoCoreData j(ThreadData threadData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, threadData)) == null) {
-            AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-            alaLiveInfoCoreData.fillWithInfoData(threadData.getThreadAlaInfo());
-            alaLiveInfoCoreData.userName = threadData.getAuthor().getUserName();
-            return alaLiveInfoCoreData;
-        }
-        return (AlaLiveInfoCoreData) invokeL.objValue;
-    }
-
-    public View f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c.f();
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            AlaNewSquareSubListModel alaNewSquareSubListModel = this.d;
-            if (alaNewSquareSubListModel != null) {
-                alaNewSquareSubListModel.onDestroy();
-                this.d = null;
-            }
-            a06 a06Var = this.c;
-            if (a06Var != null) {
-                a06Var.k();
-                this.c = null;
             }
         }
     }
 
-    public void k() {
+    @Override // com.baidu.tieba.at2
+    public void a(Context context, z02 z02Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.d.c0();
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, context, z02Var) != null) || !(context instanceof Activity)) {
+            return;
         }
-    }
-
-    public final void g(TbPageContext<?> tbPageContext, ThreadData threadData, String str) {
-        String str2;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, threadData, str) == null) && tbPageContext != null && threadData != null && threadData.getAuthor() != null && threadData.getThreadAlaInfo() != null) {
-            StatisticItem param = new StatisticItem("c12116").param("obj_id", threadData.getThreadAlaInfo().live_id);
-            if (!StringUtils.isNull(this.f)) {
-                param.param("locate_type", this.f);
-            }
-            TiebaStatic.log(param);
-            if (TbadkCoreApplication.getCurrentAccount() != null) {
-                String userId = threadData.getAuthor().getUserId();
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                z = TextUtils.equals(userId, currentAccount);
-                str2 = currentAccount;
-            } else {
-                str2 = "";
-                z = false;
-            }
-            AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-            alaLiveInfoCoreData.fillWithInfoData(threadData.getThreadAlaInfo());
-            AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
-            alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
-            for (ThreadData threadData2 : this.d.W()) {
-                alaLiveInfoListCoreData.mLiveInfoList.add(j(threadData2));
-            }
-            Activity pageActivity = tbPageContext.getPageActivity();
-            if (!"颜值".equals(str)) {
-                str = null;
-            }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(pageActivity, alaLiveInfoCoreData, alaLiveInfoListCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_SQUARE_CATOGORY, str2, z, str, null)));
-        }
-    }
-
-    public void h(TbPageContext tbPageContext, int i) {
-        a06 a06Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) && (a06Var = this.c) != null) {
-            a06Var.j(tbPageContext, i);
-        }
-    }
-
-    public void l(String str, String str2, String str3, List<String> list) {
-        String str4;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(1048582, this, str, str2, str3, list) == null) && !StringUtils.isNull(str2)) {
-            if (!StringUtils.isNull(str)) {
-                this.e = str.equals("16:9");
-            }
-            this.c.s(this.a, list, str2, str3, this.e, false);
-            this.d.setEntryName(str2);
-            this.d.setLabelName(str3);
-            AlaNewSquareSubListModel alaNewSquareSubListModel = this.d;
-            if (ListUtils.isEmpty(list)) {
-                str4 = "";
-            } else {
-                str4 = list.get(0);
-            }
-            alaNewSquareSubListModel.setSortType(str4);
-            this.d.e0(this.e);
-            this.f = str2;
-        }
+        DelegateUtils.callOnMainWithActivity((Activity) context, ScanCodeDelegateActivity.class, wz5.class, new Bundle(), new a(this, z02Var));
     }
 }

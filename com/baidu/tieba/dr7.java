@@ -1,28 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import androidx.annotation.Nullable;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BotsDTO;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.gson.annotations.SerializedName;
+import java.util.List;
 /* loaded from: classes4.dex */
-public interface dr7<T extends ICardInfo> {
-    void c(BdUniqueId bdUniqueId);
+public class dr7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    @SerializedName("skill")
+    public List<BotsDTO.BotListDTO.SkillDTO> a;
 
-    void e();
-
-    void f();
-
-    void g();
-
-    void h();
-
-    void setAfterClickSchemeListener(hq7 hq7Var);
-
-    void setBusinessType(int i);
-
-    void setFromCDN(boolean z);
-
-    void setMulDel(boolean z);
-
-    void setPosition(int i);
-
-    void update(Object obj);
+    public dr7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

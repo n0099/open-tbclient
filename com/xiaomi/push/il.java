@@ -106,11 +106,11 @@ public class il implements iu<il, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ilVar)) == null) {
             if (il.class.equals(ilVar.getClass())) {
-                int compareTo = Boolean.valueOf(m574a()).compareTo(Boolean.valueOf(ilVar.m574a()));
+                int compareTo = Boolean.valueOf(m576a()).compareTo(Boolean.valueOf(ilVar.m576a()));
                 if (compareTo != 0) {
                     return compareTo;
                 }
-                if (!m574a() || (a8 = iv.a(this.f735a, ilVar.f735a)) == 0) {
+                if (!m576a() || (a8 = iv.a(this.f735a, ilVar.f735a)) == 0) {
                     int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(ilVar.b()));
                     if (compareTo2 != 0) {
                         return compareTo2;
@@ -180,10 +180,10 @@ public class il implements iu<il, Object>, Serializable, Cloneable {
         if (interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jfVar) != null) {
             return;
         }
-        jfVar.mo622a();
+        jfVar.mo624a();
         while (true) {
-            jc mo618a = jfVar.mo618a();
-            byte b2 = mo618a.a;
+            jc mo620a = jfVar.mo620a();
+            byte b2 = mo620a.a;
             if (b2 == 0) {
                 jfVar.f();
                 if (e()) {
@@ -192,10 +192,10 @@ public class il implements iu<il, Object>, Serializable, Cloneable {
                 }
                 throw new jg("Required field 'errorCode' was not found in serialized data! Struct: " + toString());
             }
-            switch (mo618a.f833a) {
+            switch (mo620a.f833a) {
                 case 1:
                     if (b2 == 11) {
-                        this.f735a = jfVar.mo623a();
+                        this.f735a = jfVar.mo625a();
                         continue;
                         jfVar.g();
                     }
@@ -211,21 +211,21 @@ public class il implements iu<il, Object>, Serializable, Cloneable {
                     break;
                 case 3:
                     if (b2 == 11) {
-                        this.f737b = jfVar.mo623a();
+                        this.f737b = jfVar.mo625a();
                         continue;
                         jfVar.g();
                     }
                     break;
                 case 4:
                     if (b2 == 11) {
-                        this.f738c = jfVar.mo623a();
+                        this.f738c = jfVar.mo625a();
                         continue;
                         jfVar.g();
                     }
                     break;
                 case 6:
                     if (b2 == 10) {
-                        this.f733a = jfVar.mo617a();
+                        this.f733a = jfVar.mo619a();
                         a(true);
                         continue;
                         jfVar.g();
@@ -233,14 +233,14 @@ public class il implements iu<il, Object>, Serializable, Cloneable {
                     break;
                 case 7:
                     if (b2 == 11) {
-                        this.f739d = jfVar.mo623a();
+                        this.f739d = jfVar.mo625a();
                         continue;
                         jfVar.g();
                     }
                     break;
                 case 8:
                     if (b2 == 11) {
-                        this.f740e = jfVar.mo623a();
+                        this.f740e = jfVar.mo625a();
                         continue;
                         jfVar.g();
                     }
@@ -259,28 +259,28 @@ public class il implements iu<il, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m574a() {
+    public boolean m576a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f735a != null : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m575a(il ilVar) {
+    public boolean m577a(il ilVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, ilVar)) == null) {
             if (ilVar == null) {
                 return false;
             }
-            boolean m574a = m574a();
-            boolean m574a2 = ilVar.m574a();
-            if ((m574a || m574a2) && !(m574a && m574a2 && this.f735a.equals(ilVar.f735a))) {
+            boolean m576a = m576a();
+            boolean m576a2 = ilVar.m576a();
+            if ((m576a || m576a2) && !(m576a && m576a2 && this.f735a.equals(ilVar.f735a))) {
                 return false;
             }
             boolean b2 = b();
             boolean b3 = ilVar.b();
-            if ((b2 || b3) && !(b2 && b3 && this.f734a.m516a(ilVar.f734a))) {
+            if ((b2 || b3) && !(b2 && b3 && this.f734a.m518a(ilVar.f734a))) {
                 return false;
             }
             boolean c2 = c();
@@ -314,7 +314,7 @@ public class il implements iu<il, Object>, Serializable, Cloneable {
         if (interceptable == null || interceptable.invokeL(1048582, this, jfVar) == null) {
             a();
             jfVar.a(f732a);
-            if (this.f735a != null && m574a()) {
+            if (this.f735a != null && m576a()) {
                 jfVar.a(a);
                 jfVar.a(this.f735a);
                 jfVar.b();
@@ -348,7 +348,7 @@ public class il implements iu<il, Object>, Serializable, Cloneable {
                 jfVar.b();
             }
             jfVar.c();
-            jfVar.mo626a();
+            jfVar.mo628a();
         }
     }
 
@@ -381,7 +381,7 @@ public class il implements iu<il, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, obj)) == null) {
             if (obj != null && (obj instanceof il)) {
-                return m575a((il) obj);
+                return m577a((il) obj);
             }
             return false;
         }
@@ -416,7 +416,7 @@ public class il implements iu<il, Object>, Serializable, Cloneable {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             StringBuilder sb = new StringBuilder("XmPushActionSendFeedbackResult(");
             boolean z2 = false;
-            if (m574a()) {
+            if (m576a()) {
                 sb.append("debug:");
                 String str = this.f735a;
                 if (str == null) {

@@ -8,9 +8,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.switchs.FixNpsAnrSwitch;
-import com.baidu.tieba.bh;
-import com.baidu.tieba.pg5;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.al5;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.gh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,12 +45,12 @@ public class InitFlutterNpsPluginTask extends LaunchTask {
     public void initFlutterPlugin() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921674, new pg5(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitFlutterNpsPluginTask.2
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921674, new al5(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitFlutterNpsPluginTask.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ InitFlutterNpsPluginTask this$0;
 
-                @Override // com.baidu.tieba.pg5
+                @Override // com.baidu.tieba.al5
                 public void onFail() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -75,11 +75,11 @@ public class InitFlutterNpsPluginTask extends LaunchTask {
                     this.this$0 = this;
                 }
 
-                @Override // com.baidu.tieba.pg5
+                @Override // com.baidu.tieba.al5
                 public void onSuccess() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        bh.a().postDelayed(new Runnable(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitFlutterNpsPluginTask.2.1
+                        gh.a().postDelayed(new Runnable(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitFlutterNpsPluginTask.2.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ AnonymousClass2 this$1;
@@ -155,8 +155,8 @@ public class InitFlutterNpsPluginTask extends LaunchTask {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (PermissionUtil.isBrowseMode()) {
                 initFlutterPlugin();
-            } else if (FixNpsAnrSwitch.getIsOn() && zi.q() > 1) {
-                bh.a().postDelayed(new Runnable(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitFlutterNpsPluginTask.1
+            } else if (FixNpsAnrSwitch.getIsOn() && ej.q() > 1) {
+                gh.a().postDelayed(new Runnable(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitFlutterNpsPluginTask.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ InitFlutterNpsPluginTask this$0;

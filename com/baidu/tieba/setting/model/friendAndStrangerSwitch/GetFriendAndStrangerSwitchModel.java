@@ -8,8 +8,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.cz4;
-import com.baidu.tieba.s9;
+import com.baidu.tieba.p35;
+import com.baidu.tieba.x9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -86,14 +86,14 @@ public class GetFriendAndStrangerSwitchModel extends BdBaseModel {
             int i = getFriendAndStrangerSwitchResMsg.mMaskType;
             if (i > -1) {
                 GetFriendAndStrangerSwitchModel.FRIEND_AND_STRANGER_MASK_TYPE = i;
-                cz4 l = cz4.l();
-                l.x(TbadkCoreApplication.getCurrentAccount() + "key_friend_type", getFriendAndStrangerSwitchResMsg.mMaskType);
+                p35 m = p35.m();
+                m.z(TbadkCoreApplication.getCurrentAccount() + "key_friend_type", getFriendAndStrangerSwitchResMsg.mMaskType);
             }
             int i2 = getFriendAndStrangerSwitchResMsg.mPushType;
             if (i2 > -1) {
                 GetFriendAndStrangerSwitchModel.FRIEND_PRIVATE_MESSAGE_PUSH_TYPE = i2;
-                cz4 l2 = cz4.l();
-                l2.x(TbadkCoreApplication.getCurrentAccount() + "key_friend_private_message_type", getFriendAndStrangerSwitchResMsg.mPushType);
+                p35 m2 = p35.m();
+                m2.z(TbadkCoreApplication.getCurrentAccount() + "key_friend_private_message_type", getFriendAndStrangerSwitchResMsg.mPushType);
             }
         }
     }
@@ -110,7 +110,7 @@ public class GetFriendAndStrangerSwitchModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((s9) newInitContext.callArgs[0]);
+                super((x9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

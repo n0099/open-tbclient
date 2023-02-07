@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.personPolymeric.tab.data.PersonCenterDynamicTabHttpResMessage;
 import com.baidu.tieba.personPolymeric.tab.data.PersonCenterDynamicTabRequestMessage;
 import com.baidu.tieba.personPolymeric.tab.data.PersonCenterDynamicTabSocketResMessage;
-import com.baidu.tieba.rb;
+import com.baidu.tieba.wb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,7 +35,7 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
     public User f;
     public MetaData g;
     public BdUniqueId h;
-    public final rb i;
+    public final wb i;
 
     /* loaded from: classes5.dex */
     public interface b {
@@ -65,7 +65,7 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
     }
 
     /* loaded from: classes5.dex */
-    public class a extends rb {
+    public class a extends wb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonCenterDynamicTabModel a;
@@ -92,7 +92,7 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
             this.a = personCenterDynamicTabModel;
         }
 
-        @Override // com.baidu.tieba.rb
+        @Override // com.baidu.tieba.wb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             long j;
             boolean z;

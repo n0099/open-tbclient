@@ -1,103 +1,52 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes6.dex */
-public class ro2 {
+public class ro2 extends qm2<hp2> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean DEBUG;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Activity> mActivityRef;
-    public CallbackHandler mCallbackHandler;
-    public Context mContext;
-    public h32 mJsContainer;
-    public UnitedSchemeMainDispatcher mMainDispatcher;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948128276, "Lcom/baidu/tieba/ro2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948128276, "Lcom/baidu/tieba/ro2;");
-                return;
-            }
-        }
-        DEBUG = tk1.a;
-    }
-
-    public Context getDispatchContext() {
+    @Override // com.baidu.tieba.qm2
+    @NonNull
+    public String b() {
         InterceptResult invokeV;
-        Activity activity;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WeakReference<Activity> weakReference = this.mActivityRef;
-            if (weakReference != null) {
-                activity = weakReference.get();
-            } else {
-                activity = null;
-            }
-            if (activity == null) {
-                return this.mContext;
-            }
-            return activity;
-        }
-        return (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setBeautyWhite" : (String) invokeV.objValue;
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public ro2(Context context, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher, CallbackHandler callbackHandler, h32 h32Var) {
+    public ro2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, unitedSchemeMainDispatcher, callbackHandler, h32Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mContext = context;
-        this.mMainDispatcher = unitedSchemeMainDispatcher;
-        this.mCallbackHandler = callbackHandler;
-        this.mJsContainer = h32Var;
-        if (DEBUG) {
-            if (context == null || unitedSchemeMainDispatcher == null) {
-                throw new IllegalArgumentException("any of context, dispatcher objects can't be null.");
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public void setActivityRef(Activity activity) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qm2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull hp2 hp2Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) && activity != null) {
-            this.mActivityRef = new WeakReference<>(activity);
-        }
-    }
-
-    public void setCallbackHandler(CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, callbackHandler) == null) {
-            this.mCallbackHandler = callbackHandler;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, hp2Var) == null) {
+            String str = command.what;
+            d(hp2Var, str, "" + command.obj, true);
+            Object obj = command.obj;
+            if (obj instanceof Integer) {
+                hp2Var.I(((Integer) obj).intValue());
+            }
         }
     }
 }

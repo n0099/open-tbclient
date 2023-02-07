@@ -31,11 +31,11 @@ import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.tbadk.browser.TbChannelJsInterface;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cx4;
-import com.baidu.tieba.dh;
-import com.baidu.tieba.dq4;
-import com.baidu.tieba.ux8;
-import com.baidu.tieba.wx8;
+import com.baidu.tieba.ih;
+import com.baidu.tieba.p15;
+import com.baidu.tieba.qu4;
+import com.baidu.tieba.s19;
+import com.baidu.tieba.u19;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,11 +52,11 @@ public class BaseWebView extends WebView {
     public transient /* synthetic */ FieldHolder $fh;
     public long initFinishedTime;
     public final long initStartTime;
-    public wx8 jsCallback;
+    public u19 jsCallback;
     public CommonTbJsBridge mCommonJsBridge;
     public Context mContext;
     public boolean mIsLoaded;
-    public ux8 mJsBridge;
+    public s19 mJsBridge;
     public c mOnLoadUrlListener;
     public d mOnPageFinishedListener;
     public e mOnPageStartedListener;
@@ -112,7 +112,7 @@ public class BaseWebView extends WebView {
     }
 
     /* loaded from: classes3.dex */
-    public class a implements wx8 {
+    public class a implements u19 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BaseWebView a;
@@ -135,15 +135,15 @@ public class BaseWebView extends WebView {
             this.a = baseWebView;
         }
 
-        @Override // com.baidu.tieba.wx8
+        @Override // com.baidu.tieba.u19
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) {
                 BaseWebView baseWebView = this.a;
-                ux8 ux8Var = baseWebView.mJsBridge;
-                if (ux8Var != null) {
-                    return ux8Var.c(baseWebView.getWebView(), str, jsPromptResult);
+                s19 s19Var = baseWebView.mJsBridge;
+                if (s19Var != null) {
+                    return s19Var.c(baseWebView.getWebView(), str, jsPromptResult);
                 }
                 return false;
             }
@@ -200,7 +200,7 @@ public class BaseWebView extends WebView {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, renderProcessGoneDetail)) == null) {
-                dq4.a("BaseWebView", webView);
+                qu4.a("BaseWebView", webView);
                 return true;
             }
             return invokeLL.booleanValue;
@@ -310,7 +310,7 @@ public class BaseWebView extends WebView {
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, webView, str, str2, jsResult)) == null) {
-                if ((this.a.getContext() instanceof Activity) && dh.e((Activity) this.a.getContext())) {
+                if ((this.a.getContext() instanceof Activity) && ih.e((Activity) this.a.getContext())) {
                     return super.onJsAlert(webView, str, str2, jsResult);
                 }
                 return true;
@@ -323,7 +323,7 @@ public class BaseWebView extends WebView {
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, jsResult)) == null) {
-                if ((this.a.getContext() instanceof Activity) && dh.e((Activity) this.a.getContext())) {
+                if ((this.a.getContext() instanceof Activity) && ih.e((Activity) this.a.getContext())) {
                     return super.onJsBeforeUnload(webView, str, str2, jsResult);
                 }
                 return true;
@@ -336,7 +336,7 @@ public class BaseWebView extends WebView {
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2, jsResult)) == null) {
-                if ((this.a.getContext() instanceof Activity) && dh.e((Activity) this.a.getContext())) {
+                if ((this.a.getContext() instanceof Activity) && ih.e((Activity) this.a.getContext())) {
                     return super.onJsConfirm(webView, str, str2, jsResult);
                 }
                 return true;
@@ -512,10 +512,10 @@ public class BaseWebView extends WebView {
         }
     }
 
-    public void setOnJsPromptCallback(wx8 wx8Var) {
+    public void setOnJsPromptCallback(u19 u19Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, wx8Var) == null) {
-            this.jsCallback = wx8Var;
+        if (interceptable == null || interceptable.invokeL(1048587, this, u19Var) == null) {
+            this.jsCallback = u19Var;
         }
     }
 
@@ -608,10 +608,10 @@ public class BaseWebView extends WebView {
     }
 
     public void sendNotification(String str, HashMap hashMap) {
-        ux8 ux8Var;
+        s19 s19Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048585, this, str, hashMap) == null) && (ux8Var = this.mJsBridge) != null) {
-            ux8Var.i(getWebView(), str, hashMap);
+        if ((interceptable == null || interceptable.invokeLL(1048585, this, str, hashMap) == null) && (s19Var = this.mJsBridge) != null) {
+            s19Var.i(getWebView(), str, hashMap);
         }
     }
 
@@ -628,7 +628,7 @@ public class BaseWebView extends WebView {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65552, this) == null) && (view2 = this.skinOverlayView) != null) {
             view2.setVisibility(0);
-            cx4.d(this.skinOverlayView).f(R.color.CAM_X0503);
+            p15.d(this.skinOverlayView).f(R.color.CAM_X0503);
         }
     }
 
@@ -664,10 +664,10 @@ public class BaseWebView extends WebView {
     }
 
     public void reshow() {
-        ux8 ux8Var;
+        s19 s19Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (ux8Var = this.mJsBridge) != null) {
-            ux8Var.i(getWebView(), CommonTbJsBridge.RE_SHOW, null);
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (s19Var = this.mJsBridge) != null) {
+            s19Var.i(getWebView(), CommonTbJsBridge.RE_SHOW, null);
         }
     }
 
@@ -681,7 +681,7 @@ public class BaseWebView extends WebView {
             BrowserHelper.a(getSettings());
             this.mWebViewClient = new b(this);
             this.mWebChromeClient = new j(this, null);
-            this.mJsBridge = new ux8();
+            this.mJsBridge = new s19();
             setWebViewClient(this.mWebViewClient);
             setWebChromeClient(this.mWebChromeClient);
             if (Build.VERSION.SDK_INT >= 11) {
@@ -721,7 +721,7 @@ public class BaseWebView extends WebView {
             }
             View view2 = this.skinOverlayView;
             if (view2 != null) {
-                cx4.d(view2).f(R.color.CAM_X0503);
+                p15.d(view2).f(R.color.CAM_X0503);
             }
         }
     }

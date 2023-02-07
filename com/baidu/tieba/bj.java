@@ -1,295 +1,433 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Application;
-import android.telephony.TelephonyManager;
-import android.text.TextUtils;
-import android.util.DisplayMetrics;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.TbadkCore;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.behavior.record.api.IBehaviorApi;
-import com.baidu.mobstat.Config;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.common.security.CacheDeviceInfo;
-import com.baidu.searchbox.common.security.DeviceIdBag;
-import com.baidu.searchbox.common.security.DeviceInfoManager;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.android.imsdk.chatmessage.messages.NetDiskFileMsg;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.util.devices.IDevices;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 /* loaded from: classes3.dex */
 public class bj {
     public static /* synthetic */ Interceptable $ic;
-    public static final Application a;
-    public static final DeviceInfoManager b;
-    @NonNull
-    public static final Map<String, String> c;
-    public static ej d;
+    public static bj a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448300645, "Lcom/baidu/tieba/bj;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448300645, "Lcom/baidu/tieba/bj;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448300645, "Lcom/baidu/tieba/bj;");
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class a extends BdAsyncTask<Object, Object, Object> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public StringBuilder c;
+        public cj d;
+        public boolean e;
+        public final /* synthetic */ bj f;
+
+        public a(bj bjVar, String str, String str2, StringBuilder sb, cj cjVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448300645, "Lcom/baidu/tieba/bj;");
-                return;
-            }
-        }
-        a = BdBaseApplication.getInst();
-        b = DeviceInfoManager.INSTANCE;
-        c = new HashMap();
-    }
-
-    @NonNull
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return d(CacheDeviceInfo.JSON_KEY_ANDROID_ID);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return d("ie");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return d("isi");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return d("ma");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public static String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return d(CacheDeviceInfo.JSON_KEY_MANUFACTURER);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public static String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return d("md");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public static String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return d("oi");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public static String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return d("ci");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public static String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            return d("ov");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @SuppressLint({"HardwareIds"})
-    public static String d(@NonNull String str) {
-        InterceptResult invokeL;
-        DeviceIdBag androidId;
-        TelephonyManager telephonyManager;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            ej ejVar = d;
-            String str2 = "";
-            if (ejVar != null && ejVar.isBrowseMode()) {
-                return "";
-            }
-            String str3 = c.get(str);
-            if (str3 != null) {
-                return str3;
-            }
-            char c2 = 65535;
-            int hashCode = str.hashCode();
-            if (hashCode != 3112) {
-                if (hashCode != 3174) {
-                    if (hashCode != 3333) {
-                        if (hashCode != 3356) {
-                            if (hashCode != 3476) {
-                                if (hashCode != 3479) {
-                                    if (hashCode != 3489) {
-                                        if (hashCode != 3546) {
-                                            if (hashCode != 3559) {
-                                                if (hashCode == 104575 && str.equals("isi")) {
-                                                    c2 = '\t';
-                                                }
-                                            } else if (str.equals("ov")) {
-                                                c2 = '\b';
-                                            }
-                                        } else if (str.equals("oi")) {
-                                            c2 = 7;
-                                        }
-                                    } else if (str.equals(CacheDeviceInfo.JSON_KEY_MANUFACTURER)) {
-                                        c2 = 5;
-                                    }
-                                } else if (str.equals("md")) {
-                                    c2 = 6;
-                                }
-                            } else if (str.equals("ma")) {
-                                c2 = 2;
-                            }
-                        } else if (str.equals("ie")) {
-                            c2 = 1;
-                        }
-                    } else if (str.equals("hm")) {
-                        c2 = 4;
-                    }
-                } else if (str.equals("ci")) {
-                    c2 = 3;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bjVar, str, str2, sb, cjVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-            } else if (str.equals(CacheDeviceInfo.JSON_KEY_ANDROID_ID)) {
-                c2 = 0;
             }
-            switch (c2) {
-                case 0:
-                    androidId = b.getAndroidId(a, "初始化", "定位问题，安全保障，个性化展示");
-                    str2 = Config.NULL_DEVICE_ID;
-                    break;
-                case 1:
-                    androidId = b.getIMEI(a, "初始化", "定位问题，安全保障，个性化展示");
-                    str2 = Config.NULL_DEVICE_ID;
-                    break;
-                case 2:
-                    androidId = b.getMacAddress(a, "初始化", "定位问题，安全保障，个性化展示");
-                    break;
-                case 3:
-                    androidId = b.getOperator(a, "初始化", "定位问题，安全保障，个性化展示");
-                    break;
-                case 4:
-                    androidId = b.getHarmonyVersion(a, "初始化", "定位问题，安全保障，个性化展示");
-                    break;
-                case 5:
-                    androidId = b.getManufacturer("初始化", "定位问题，安全保障，个性化展示");
-                    break;
-                case 6:
-                    androidId = b.getModel("初始化", "定位问题，安全保障，个性化展示");
-                    break;
-                case 7:
-                    androidId = b.getOAID("初始化", "定位问题，安全保障，个性化展示");
-                    break;
-                case '\b':
-                    androidId = b.getOsVersion("初始化", "定位问题，安全保障，个性化展示");
-                    break;
-                case '\t':
-                    androidId = new DeviceIdBag();
-                    try {
-                        TbadkCore tbadkCore = (TbadkCore) ServiceManager.getService(TbadkCore.SERVICE_REFERENCE);
-                        if (tbadkCore.permissionUtilIsAgreePrivacyPolicy() && tbadkCore.permissionUtilCheckReadPhoneState(a) && (telephonyManager = (TelephonyManager) a.getSystemService("phone")) != null) {
-                            androidId.deviceId = ApiReplaceUtil.getSubscriberId(telephonyManager);
-                            ((IBehaviorApi) ServiceManager.getService(IBehaviorApi.SERVICE_REFERENCE)).addBehavior(1, "isi", "tieba", "tieba");
-                            break;
-                        }
-                    } catch (Exception e) {
-                        BdLog.e(e);
-                        break;
+            this.f = bjVar;
+            this.a = str;
+            this.b = str2;
+            this.c = sb;
+            this.d = cjVar;
+            this.e = false;
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Object doInBackground(Object... objArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
+                boolean g = this.f.g(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.a, this.c);
+                this.e = g;
+                if (!g) {
+                    this.f.c(this.b, "".getBytes(), this.c);
+                    return null;
+                }
+                return null;
+            }
+            return invokeL.objValue;
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+                super.onPostExecute(obj);
+                if (this.c.length() > 0) {
+                    BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
+                    bdStatisticsManager.error("so", "load_" + this.a + ".so", "", -9101, this.c.toString(), new Object[0]);
+                }
+                cj cjVar = this.d;
+                if (cjVar != null) {
+                    cjVar.a(this.e);
+                }
+            }
+        }
+    }
+
+    public bj() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static bj d() {
+        InterceptResult invokeV;
+        bj bjVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            bj bjVar2 = a;
+            if (bjVar2 == null) {
+                synchronized (bj.class) {
+                    if (a == null) {
+                        a = new bj();
                     }
-                    break;
-                default:
-                    throw new IllegalStateException("Unexpected value: " + str);
+                    bjVar = a;
+                }
+                return bjVar;
             }
-            String h = h(androidId, str2);
-            c.put(str, h);
-            return h;
+            return bjVar2;
+        }
+        return (bj) invokeV.objValue;
+    }
+
+    public final void c(String str, byte[] bArr, StringBuilder sb) {
+        FileOutputStream fileOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, bArr, sb) == null) {
+            FileOutputStream fileOutputStream2 = null;
+            try {
+                try {
+                    fileOutputStream = new FileOutputStream(new File(str));
+                } catch (Exception e) {
+                    e = e;
+                }
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                fileOutputStream.write(bArr);
+                ch.d(fileOutputStream);
+            } catch (Exception e2) {
+                e = e2;
+                fileOutputStream2 = fileOutputStream;
+                sb.append("-Error4:");
+                sb.append(e.getClass().getName() + "-" + e.getMessage());
+                sb.append("-");
+                ch.d(fileOutputStream2);
+            } catch (Throwable th2) {
+                th = th2;
+                fileOutputStream2 = fileOutputStream;
+                ch.d(fileOutputStream2);
+                throw th;
+            }
+        }
+    }
+
+    public final String e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + "lib" + File.separator + "lib" + str + ".so";
         }
         return (String) invokeL.objValue;
     }
 
-    public static String h(@NonNull DeviceIdBag deviceIdBag, @NonNull String str) {
+    public final String f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + NetDiskFileMsg.JSON_KEY_FILES + File.separator + "lib" + str + ".so";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x0125 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r4v3, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r4v4 */
+    /* JADX WARN: Type inference failed for: r4v6, types: [java.io.InputStream] */
+    public final boolean g(String str, String str2, StringBuilder sb) {
+        InterceptResult invokeLLL;
+        Throwable th;
+        ZipInputStream zipInputStream;
+        IOException e;
+        ByteArrayOutputStream byteArrayOutputStream;
+        Throwable th2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, str2, sb)) == null) {
+            ArrayList arrayList = new ArrayList();
+            StringBuilder sb2 = new StringBuilder();
+            sb2.append("lib");
+            sb2.append(File.separator);
+            sb2.append("x86");
+            sb2.append(File.separator);
+            sb2.append("lib");
+            sb2.append(str2);
+            ?? r4 = ".so";
+            sb2.append(".so");
+            arrayList.add(sb2.toString());
+            arrayList.add("lib" + File.separator + IDevices.ABI_MIPS + File.separator + "lib" + str2 + ".so");
+            arrayList.add("lib" + File.separator + "armeabi" + File.separator + "lib" + str2 + ".so");
+            File file = new File(str);
+            boolean z = false;
+            if (!file.exists()) {
+                return false;
+            }
+            try {
+                try {
+                    zipInputStream = new ZipInputStream(new FileInputStream(file));
+                    try {
+                        byte[] bArr = new byte[1024];
+                        while (true) {
+                            ZipEntry nextEntry = zipInputStream.getNextEntry();
+                            if (nextEntry == null) {
+                                break;
+                            } else if (arrayList.contains(nextEntry.getName())) {
+                                try {
+                                    byteArrayOutputStream = new ByteArrayOutputStream();
+                                    while (true) {
+                                        try {
+                                            int read = zipInputStream.read(bArr);
+                                            if (read == -1) {
+                                                break;
+                                            }
+                                            byteArrayOutputStream.write(bArr, 0, read);
+                                        } catch (Exception unused) {
+                                        } catch (Throwable th3) {
+                                            th2 = th3;
+                                            ch.d(byteArrayOutputStream);
+                                            throw th2;
+                                        }
+                                    }
+                                    byteArrayOutputStream.flush();
+                                    String f = f(str2);
+                                    c(f, byteArrayOutputStream.toByteArray(), sb);
+                                    if (k(f, sb)) {
+                                        sb.append("-Succ5-");
+                                        z = true;
+                                        ch.d(byteArrayOutputStream);
+                                        break;
+                                    }
+                                } catch (Exception unused2) {
+                                    byteArrayOutputStream = null;
+                                } catch (Throwable th4) {
+                                    byteArrayOutputStream = null;
+                                    th2 = th4;
+                                }
+                                ch.d(byteArrayOutputStream);
+                            }
+                        }
+                    } catch (IOException e2) {
+                        e = e2;
+                        sb.append("-Error5:");
+                        sb.append(e.getClass().getName() + "-" + e.getMessage());
+                        sb.append("-");
+                        ch.c(zipInputStream);
+                        return z;
+                    }
+                } catch (Throwable th5) {
+                    th = th5;
+                    ch.c(r4);
+                    throw th;
+                }
+            } catch (IOException e3) {
+                zipInputStream = null;
+                e = e3;
+            } catch (Throwable th6) {
+                r4 = 0;
+                th = th6;
+                ch.c(r4);
+                throw th;
+            }
+            ch.c(zipInputStream);
+            return z;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public boolean h(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, str, i)) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (BdBaseApplication.getInst().getApp() == null || BdBaseApplication.getInst().getApp().getApplicationInfo() == null) {
+                return false;
+            }
+            boolean z = false;
+            for (int i2 = 0; i2 < i; i2++) {
+                z = j(str, sb);
+                if (z) {
+                    break;
+                }
+            }
+            if (!z) {
+                String f = f(str);
+                File file = new File(f);
+                if (file.exists()) {
+                    if (file.length() > 0) {
+                        z = k(f, sb);
+                        if (z) {
+                            sb.append("-Succ2-");
+                        } else {
+                            sb.append("-Error7-");
+                        }
+                    } else {
+                        sb.append("-Error6:soSize1-");
+                    }
+                }
+            }
+            if (sb.length() > 0) {
+                BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
+                bdStatisticsManager.error("so", "load_" + str + ".so", "", -9101, sb.toString(), new Object[0]);
+            }
+            return z;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public boolean i(String str, int i, cj cjVar) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048581, this, str, i, cjVar)) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (BdBaseApplication.getInst().getApp() == null || BdBaseApplication.getInst().getApp().getApplicationInfo() == null) {
+                return false;
+            }
+            boolean z = false;
+            for (int i2 = 0; i2 < i; i2++) {
+                z = j(str, sb);
+                if (z) {
+                    break;
+                }
+            }
+            if (!z) {
+                String f = f(str);
+                File file = new File(f);
+                if (file.exists()) {
+                    if (file.length() > 0) {
+                        z = k(f, sb);
+                        if (z) {
+                            sb.append("-Succ2-");
+                        } else {
+                            sb.append("-Error7-");
+                        }
+                    } else {
+                        sb.append("-Error6:soSize1-");
+                    }
+                } else {
+                    a aVar = new a(this, str, f, sb, cjVar);
+                    aVar.setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen()));
+                    aVar.execute(new Object[0]);
+                    return false;
+                }
+            }
+            if (sb.length() > 0) {
+                BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
+                bdStatisticsManager.error("so", "load_" + str + ".so", "", -9101, sb.toString(), new Object[0]);
+            }
+            return z;
+        }
+        return invokeLIL.booleanValue;
+    }
+
+    public final boolean j(String str, StringBuilder sb) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, deviceIdBag, str)) == null) {
-            if (!TextUtils.isEmpty(deviceIdBag.deviceId)) {
-                return deviceIdBag.deviceId;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, sb)) == null) {
+            boolean k = k(e(str), sb);
+            if (!k) {
+                try {
+                    System.loadLibrary(str);
+                    sb.append("-Succ3-");
+                    return true;
+                } catch (Throwable th) {
+                    sb.append("-Error3:");
+                    sb.append(th.getClass().getName() + "-" + th.getMessage());
+                    sb.append("-");
+                    return k;
+                }
             }
-            return str;
+            return k;
         }
-        return (String) invokeLL.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public static String l() {
-        InterceptResult invokeV;
+    public final boolean k(String str, StringBuilder sb) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            DisplayMetrics displayMetrics = BdBaseApplication.getInst().getResources().getDisplayMetrics();
-            int i = 0;
-            String[] strArr = {String.valueOf(displayMetrics.widthPixels), String.valueOf(displayMetrics.heightPixels), "android", ((TbadkCore) ServiceManager.getService(TbadkCore.SERVICE_REFERENCE)).tbConfigGetVersion(), String.valueOf(displayMetrics.densityDpi)};
-            StringBuilder sb = new StringBuilder();
-            String str = "";
-            while (i < 5) {
-                String str2 = strArr[i];
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, sb)) == null) {
+            if (!new File(str).exists()) {
+                sb.append("-Error1:");
                 sb.append(str);
-                sb.append(str2);
-                i++;
-                str = "_";
+                sb.append("_FileNotFound-");
+            } else {
+                try {
+                    System.load(str);
+                    return true;
+                } catch (Throwable th) {
+                    sb.append("-Error2:");
+                    sb.append(th.getClass().getName() + "-" + th.getMessage());
+                    sb.append("-");
+                }
             }
-            return sb.toString();
+            return false;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static void m(ej ejVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65549, null, ejVar) == null) {
-            d = ejVar;
-        }
+        return invokeLL.booleanValue;
     }
 }

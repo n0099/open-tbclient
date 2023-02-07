@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PrivacyMarkActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cz4;
+import com.baidu.tieba.p35;
 import com.baidu.tieba.setting.im.more.PrivacySettingMessage;
-import com.baidu.tieba.xq8;
+import com.baidu.tieba.su8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xq8 a;
+    public su8 a;
     public HttpMessageListener b;
 
     /* loaded from: classes6.dex */
@@ -64,20 +64,20 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
                 int type = privacySettingMessage.getType();
                 if (httpResponsedMessage.getError() == 0 && !httpResponsedMessage.hasError()) {
                     String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                    cz4 l = cz4.l();
-                    l.x(operation + currentAccount, type);
+                    p35 m = p35.m();
+                    m.z(operation + currentAccount, type);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921499, null));
                     return;
                 }
                 if (PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE.equals(operation)) {
-                    this.a.a.r();
-                } else if ("bazhu_show_outside".equals(operation)) {
                     this.a.a.s();
+                } else if ("bazhu_show_outside".equals(operation)) {
+                    this.a.a.t();
                 }
                 if (httpResponsedMessage.getError() != -1 && BdNetTypeUtil.isNetWorkAvailable()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0fa0);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0fc3);
                 } else {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0cd1);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0cfe);
                 }
             }
         }
@@ -104,7 +104,7 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.onChangeSkinType(i);
-            this.a.q();
+            this.a.r();
         }
     }
 
@@ -121,9 +121,9 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
             if (intExtra2 != 1 && intExtra2 != 3) {
                 intExtra2 = 1;
             }
-            xq8 xq8Var = new xq8(getPageContext(), (intExtra << 2) | intExtra2);
-            this.a = xq8Var;
-            setContentView(xq8Var.o());
+            su8 su8Var = new su8(getPageContext(), (intExtra << 2) | intExtra2);
+            this.a = su8Var;
+            setContentView(su8Var.p());
             registerListener(this.b);
         }
     }

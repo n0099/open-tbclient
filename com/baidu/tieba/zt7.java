@@ -1,16 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.LiveRealAuthService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.GetTagList.ResponseTagInfo;
 /* loaded from: classes7.dex */
-public class zt7 extends dg1<LiveRealAuthService> {
+public class zt7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public boolean c;
 
     public zt7() {
         Interceptable interceptable = $ic;
@@ -26,15 +27,17 @@ public class zt7 extends dg1<LiveRealAuthService> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.dg1
-    /* renamed from: a */
-    public LiveRealAuthService createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    public void a(ResponseTagInfo responseTagInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new au7();
+        if ((interceptable != null && interceptable.invokeL(1048576, this, responseTagInfo) != null) || responseTagInfo == null) {
+            return;
         }
-        return (LiveRealAuthService) invokeV.objValue;
+        this.a = responseTagInfo.tag_id.intValue();
+        this.b = responseTagInfo.tag_name;
+        boolean z = true;
+        if (responseTagInfo.is_followed.intValue() != 1) {
+            z = false;
+        }
+        this.c = z;
     }
 }

@@ -1,31 +1,23 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.searchbox.retrieve.log.bean.FetchLog;
+import android.widget.EditText;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pass.face.platform.ConstPath;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tieba.f52;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class kr2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static f52.g b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public int d;
-    public boolean e;
-    public boolean f;
-    public boolean g;
-    public int h;
-    public float i;
-    public String j;
 
     static {
         InterceptResult invokeClinit;
@@ -40,70 +32,72 @@ public class kr2 {
                 return;
             }
         }
-        boolean z = tk1.a;
+        a = gp1.a;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public static void a(f52.g gVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return !TextUtils.isEmpty(this.a);
+        if (interceptable == null || interceptable.invokeL(65537, null, gVar) == null) {
+            b = gVar;
         }
-        return invokeV.booleanValue;
     }
 
-    public kr2() {
+    public static void b(EditText editText, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLI(65538, null, editText, i) == null) {
+            e(editText, ConstPath.KEY_BLUR, i);
+        }
+    }
+
+    public static void d(EditText editText, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, editText, i) == null) {
+            e(editText, "confirm", i);
+        }
+    }
+
+    public static void f(EditText editText, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65542, null, editText, i) == null) {
+            e(editText, AddFriendActivityConfig.TYPE_FOCUS, i);
+        }
+    }
+
+    public static void c(g52 g52Var, EditText editText, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLI(65539, null, g52Var, editText, i) == null) && editText != null && b != null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("value", editText.getText());
+                jSONObject.put("eventName", "change");
+                jSONObject.put("cursorOffset", editText.getSelectionStart());
+                jSONObject.put("keyCode", i);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
             }
+            g52Var.j(editText.getText().toString());
+            g52Var.l(editText.getSelectionStart(), editText.getSelectionEnd());
+            b.a(String.valueOf(editText.getTag()), jSONObject);
         }
-        this.a = "";
-        this.b = "";
-        this.c = "";
-        this.d = 0;
-        this.e = false;
-        this.f = false;
-        this.g = true;
-        this.h = 0;
-        this.i = 1.0f;
     }
 
-    public static kr2 a(JSONObject jSONObject, kr2 kr2Var) {
-        InterceptResult invokeLL;
+    public static void e(EditText editText, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONObject, kr2Var)) == null) {
-            kr2 kr2Var2 = new kr2();
-            if (jSONObject != null) {
-                kr2Var2.a = jSONObject.optString("audioId", kr2Var.a);
-                kr2Var2.b = jSONObject.optString("slaveId", kr2Var.b);
-                kr2Var2.e = jSONObject.optBoolean("autoplay", kr2Var.e);
-                kr2Var2.f = jSONObject.optBoolean("loop", kr2Var.f);
-                kr2Var2.c = jSONObject.optString("src", kr2Var.c);
-                kr2Var2.d = jSONObject.optInt(FetchLog.START_TIME, kr2Var.d);
-                kr2Var2.g = jSONObject.optBoolean("obeyMuteSwitch", kr2Var.g);
-                kr2Var2.h = jSONObject.optInt(CriusAttrConstants.POSITION, kr2Var.h);
-                kr2Var2.i = (float) jSONObject.optDouble("volume", kr2Var.i);
-                kr2Var2.j = jSONObject.optString("cb", kr2Var.j);
+        if ((interceptable == null || interceptable.invokeLLI(65541, null, editText, str, i) == null) && editText != null && b != null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("value", editText.getText());
+                jSONObject.put("eventName", str);
+                jSONObject.put("cursorOffset", editText.getText().length());
+                jSONObject.put("keyboardHeight", "" + nm3.O(i));
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
             }
-            return kr2Var2;
+            b.a(String.valueOf(editText.getTag()), jSONObject);
         }
-        return (kr2) invokeLL.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "playerId : " + this.a + "; slaveId : " + this.b + "; url : " + this.c + "; AutoPlay : " + this.e + "; Loop : " + this.f + "; startTime : " + this.d + "; ObeyMute : " + this.g + "; pos : " + this.h;
-        }
-        return (String) invokeV.objValue;
     }
 }

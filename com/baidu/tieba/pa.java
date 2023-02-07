@@ -1,13 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
 public interface pa {
-    void a();
-
-    boolean b(boolean z, String str);
-
-    int c();
-
-    void d(String str);
-
-    void e();
+    public static final int[] a = {30, 60, 300, 600, 1800, 3600, 7200, 14400};
 }

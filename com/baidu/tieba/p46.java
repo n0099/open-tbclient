@@ -1,30 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.tbadk.core.data.ThreadData;
 /* loaded from: classes5.dex */
-public class p46 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 0;
-    public static int b = 1;
-    public static int c = 2;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface p46 {
+    void a(int i, String str, ThreadData threadData);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948012119, "Lcom/baidu/tieba/p46;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948012119, "Lcom/baidu/tieba/p46;");
-        }
-    }
+    void b(i46 i46Var);
 }

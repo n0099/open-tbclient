@@ -3,10 +3,10 @@ package com.baidu.tieba.im.db;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.dk5;
-import com.baidu.tieba.dl5;
-import com.baidu.tieba.tg7;
-import com.baidu.tieba.zk5;
+import com.baidu.tieba.el7;
+import com.baidu.tieba.kp5;
+import com.baidu.tieba.oo5;
+import com.baidu.tieba.op5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,12 +26,12 @@ public class Static {
 
         /* renamed from: com.baidu.tieba.im.db.Static$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0316a extends zk5<Void> {
+        public class C0312a extends kp5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CustomResponsedMessage a;
 
-            public C0316a(a aVar, CustomResponsedMessage customResponsedMessage) {
+            public C0312a(a aVar, CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,14 +50,14 @@ public class Static {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.zk5
+            @Override // com.baidu.tieba.kp5
             /* renamed from: a */
             public Void doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                     if (this.a.getData() instanceof String) {
-                        tg7.a((String) this.a.getData());
+                        el7.a((String) this.a.getData());
                         return null;
                     }
                     return null;
@@ -67,7 +67,7 @@ public class Static {
         }
 
         /* loaded from: classes4.dex */
-        public class b implements dk5<Void> {
+        public class b implements oo5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -88,7 +88,7 @@ public class Static {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.dk5
+            @Override // com.baidu.tieba.oo5
             /* renamed from: a */
             public void onReturnDataInUI(Void r5) {
                 Interceptable interceptable = $ic;
@@ -125,7 +125,7 @@ public class Static {
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2008015 || customResponsedMessage.getData() == null) {
                 return;
             }
-            dl5.c(new C0316a(this, customResponsedMessage), new b(this));
+            op5.c(new C0312a(this, customResponsedMessage), new b(this));
         }
     }
 

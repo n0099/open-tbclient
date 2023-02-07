@@ -8,9 +8,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase;
-import com.baidu.tieba.cj4;
-import com.baidu.tieba.tk1;
-import com.baidu.tieba.v23;
+import com.baidu.tieba.gp1;
+import com.baidu.tieba.i73;
+import com.baidu.tieba.pn4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,7 +54,7 @@ public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<
                 return;
             }
         }
-        y = tk1.a;
+        y = gp1.a;
     }
 
     public boolean N() {
@@ -110,19 +110,19 @@ public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PullToRefreshBaseWebView(Context context, v23<T> v23Var, PullToRefreshBase.HEADERTYPE headertype) {
-        super(context, v23Var, headertype);
+    public PullToRefreshBaseWebView(Context context, i73<T> i73Var, PullToRefreshBase.HEADERTYPE headertype) {
+        super(context, i73Var, headertype);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, v23Var, headertype};
+            Object[] objArr = {context, i73Var, headertype};
             interceptable.invokeUnInit(65539, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (v23) objArr2[1], (PullToRefreshBase.HEADERTYPE) objArr2[2]);
+                super((Context) objArr2[0], (i73) objArr2[1], (PullToRefreshBase.HEADERTYPE) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -193,7 +193,7 @@ public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<
             if (getScrollYValue() == 0 && this.x) {
                 return false;
             }
-            boolean a2 = cj4.a(this.p, -1);
+            boolean a2 = pn4.a(this.p, -1);
             if (y) {
                 Log.d("PullToRefreshWebView", "isReadyForPullDown result: " + a2);
             }

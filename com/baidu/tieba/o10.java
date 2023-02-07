@@ -1,112 +1,39 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.util.Enumeration;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipFile;
+import java.text.DecimalFormat;
 /* loaded from: classes5.dex */
 public class o10 {
     public static /* synthetic */ Interceptable $ic;
+    public static final DecimalFormat a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, file)) == null) {
-            if (file.isDirectory()) {
-                for (String str : file.list()) {
-                    if (!a(new File(file, str))) {
-                        return false;
-                    }
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947979259, "Lcom/baidu/tieba/o10;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return file.delete();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947979259, "Lcom/baidu/tieba/o10;");
+                return;
+            }
         }
-        return invokeL.booleanValue;
+        a = new DecimalFormat("0.00");
     }
 
-    public static boolean b(String str) {
-        InterceptResult invokeL;
+    public static String a(long j, long j2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return true;
-            }
-            try {
-                File file = new File(str);
-                if (!file.exists()) {
-                    return true;
-                }
-                return file.delete();
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
-            }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            return a.format(((float) j) / 1048576.0f) + "M/" + a.format(((float) j2) / 1048576.0f) + "M";
         }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str) || !new File(str).exists()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void d(File file, File file2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, file, file2) == null) {
-            if (!file2.exists()) {
-                file2.mkdirs();
-            }
-            String absolutePath = file2.getAbsolutePath();
-            ZipFile zipFile = new ZipFile(file);
-            Enumeration<? extends ZipEntry> entries = zipFile.entries();
-            while (entries.hasMoreElements()) {
-                ZipEntry nextElement = entries.nextElement();
-                String name = nextElement.getName();
-                if (!"./".equals(name) && !".".equals(name) && !name.endsWith("/")) {
-                    InputStream inputStream = zipFile.getInputStream(nextElement);
-                    File file3 = new File(absolutePath + File.separator + name);
-                    if (!file3.exists()) {
-                        File parentFile = file3.getParentFile();
-                        if (!parentFile.exists()) {
-                            parentFile.mkdirs();
-                        }
-                        file3.createNewFile();
-                    }
-                    FileOutputStream fileOutputStream = new FileOutputStream(file3);
-                    byte[] bArr = new byte[10240];
-                    while (true) {
-                        int read = inputStream.read(bArr);
-                        if (read <= 0) {
-                            break;
-                        }
-                        fileOutputStream.write(bArr, 0, read);
-                    }
-                    inputStream.close();
-                    fileOutputStream.close();
-                }
-            }
-        }
-    }
-
-    public static void e(File file, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, file, str) == null) {
-            d(file, new File(str));
-        }
+        return (String) invokeCommon.objValue;
     }
 }

@@ -6,7 +6,7 @@ import com.baidu.bdtask.model.ITaskModelData;
 import com.baidu.bdtask.model.rule.TaskRuleData;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.yv;
+import com.baidu.tieba.dw;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -578,7 +578,7 @@ public final class TaskProcess implements ITaskModelData {
                         size = i;
                     }
                 }
-                this.duplicateIds.add(yv.a.b(str));
+                this.duplicateIds.add(dw.a.b(str));
             } finally {
                 reentrantLock.unlock();
             }
@@ -604,7 +604,7 @@ public final class TaskProcess implements ITaskModelData {
             ReentrantLock reentrantLock = this.fairLock;
             reentrantLock.lock();
             try {
-                return this.duplicateIds.contains(yv.a.b(str));
+                return this.duplicateIds.contains(dw.a.b(str));
             } finally {
                 reentrantLock.unlock();
             }

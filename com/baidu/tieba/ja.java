@@ -1,14 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.message.Message;
-import com.baidu.adp.framework.task.MessageTask;
-import java.util.LinkedList;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes5.dex */
-public interface ja<M extends Message<?>, T extends MessageTask> {
-    LinkedList<M> e(int i, BdUniqueId bdUniqueId);
+public interface ja {
+    @NonNull
+    public static final ServiceReference a;
+    @Nullable
+    public static final ja b;
 
-    void f(M m, T t);
+    void a(int i, @NonNull String str, @Nullable Object obj);
 
-    void h(int i, BdUniqueId bdUniqueId);
+    static {
+        ServiceReference serviceReference = new ServiceReference("DebugProcessor", "DebugService4Adp");
+        a = serviceReference;
+        b = (ja) ServiceManager.getService(serviceReference);
+    }
 }

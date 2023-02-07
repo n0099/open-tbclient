@@ -146,8 +146,8 @@ public class ChannelManager {
         return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:51:0x0084 A[Catch: Exception -> 0x0080, TRY_LEAVE, TryCatch #0 {Exception -> 0x0080, blocks: (B:47:0x007c, B:51:0x0084), top: B:61:0x007c }] */
-    /* JADX WARN: Removed duplicated region for block: B:61:0x007c A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x0085 A[Catch: Exception -> 0x0081, TRY_LEAVE, TryCatch #8 {Exception -> 0x0081, blocks: (B:47:0x007d, B:51:0x0085), top: B:67:0x007d }] */
+    /* JADX WARN: Removed duplicated region for block: B:67:0x007d A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -165,103 +165,104 @@ public class ChannelManager {
                 inputStream = AppRuntime.getAppContext().getAssets().open("file:///android_asset/channel");
                 try {
                     bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-                } catch (IOException e) {
-                    e = e;
-                    bufferedReader = null;
-                    inputStream2 = inputStream;
-                    str = null;
-                } catch (Throwable th2) {
-                    bufferedReader = null;
-                    th = th2;
-                }
-            } catch (IOException e2) {
-                e = e2;
-                str = null;
-                bufferedReader = null;
-            } catch (Throwable th3) {
-                bufferedReader = null;
-                th = th3;
-                inputStream = null;
-            }
-            try {
-                str2 = bufferedReader.readLine();
-                inputStream.close();
-                bufferedReader.close();
-                if (inputStream != null) {
                     try {
+                        str2 = bufferedReader.readLine();
                         inputStream.close();
-                    } catch (Exception e3) {
-                        if (DEBUG) {
-                            Log.e(TAG, "readLastChannelFromAssets", e3);
-                            return str2;
+                        bufferedReader.close();
+                        if (inputStream != null) {
+                            try {
+                                inputStream.close();
+                            } catch (Exception e) {
+                                if (DEBUG) {
+                                    Log.e(TAG, "readLastChannelFromAssets", e);
+                                    return str2;
+                                }
+                                return str2;
+                            }
                         }
+                        bufferedReader.close();
                         return str2;
-                    }
-                }
-                bufferedReader.close();
-                return str2;
-            } catch (IOException e4) {
-                e = e4;
-                String str3 = str2;
-                inputStream2 = inputStream;
-                str = str3;
-                try {
-                    if (DEBUG) {
-                        Log.e(TAG, "readLastChannelFromAssets", e);
-                    }
-                    if (inputStream2 != null) {
+                    } catch (IOException e2) {
+                        e = e2;
+                        String str3 = str2;
+                        inputStream2 = inputStream;
+                        str = str3;
                         try {
-                            inputStream2.close();
-                        } catch (Exception e5) {
                             if (DEBUG) {
-                                Log.e(TAG, "readLastChannelFromAssets", e5);
+                                Log.e(TAG, "readLastChannelFromAssets", e);
+                            }
+                            if (inputStream2 != null) {
+                                try {
+                                    inputStream2.close();
+                                } catch (Exception e3) {
+                                    if (DEBUG) {
+                                        Log.e(TAG, "readLastChannelFromAssets", e3);
+                                    }
+                                    return str;
+                                }
+                            }
+                            if (bufferedReader != null) {
+                                bufferedReader.close();
                             }
                             return str;
-                        }
-                    }
-                    if (bufferedReader != null) {
-                        bufferedReader.close();
-                    }
-                    return str;
-                } catch (Throwable th4) {
-                    InputStream inputStream3 = inputStream2;
-                    th = th4;
-                    inputStream = inputStream3;
-                    if (inputStream != null) {
-                        try {
-                            inputStream.close();
-                        } catch (Exception e6) {
-                            if (DEBUG) {
-                                Log.e(TAG, "readLastChannelFromAssets", e6);
+                        } catch (Throwable th2) {
+                            InputStream inputStream3 = inputStream2;
+                            th = th2;
+                            inputStream = inputStream3;
+                            if (inputStream != null) {
+                                try {
+                                    inputStream.close();
+                                } catch (Exception e4) {
+                                    if (DEBUG) {
+                                        Log.e(TAG, "readLastChannelFromAssets", e4);
+                                    }
+                                    throw th;
+                                }
+                            }
+                            if (bufferedReader != null) {
+                                bufferedReader.close();
                             }
                             throw th;
                         }
+                    } catch (Throwable th3) {
+                        th = th3;
+                        if (inputStream != null) {
+                        }
+                        if (bufferedReader != null) {
+                        }
+                        throw th;
                     }
-                    if (bufferedReader != null) {
-                        bufferedReader.close();
-                    }
-                    throw th;
+                } catch (IOException e5) {
+                    e = e5;
+                    bufferedReader = null;
+                    inputStream2 = inputStream;
+                    str = null;
+                } catch (Throwable th4) {
+                    bufferedReader = null;
+                    th = th4;
                 }
+            } catch (IOException e6) {
+                e = e6;
+                str = null;
+                bufferedReader = null;
             } catch (Throwable th5) {
+                bufferedReader = null;
                 th = th5;
-                if (inputStream != null) {
-                }
-                if (bufferedReader != null) {
-                }
-                throw th;
+                inputStream = null;
             }
+        } else {
+            return (String) invokeV.objValue;
         }
-        return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x0041, code lost:
-        if (com.baidu.searchbox.logsystem.basic.upload.identity.ChannelManager.DEBUG == false) goto L13;
+    /* JADX WARN: Code restructure failed: missing block: B:13:0x0043, code lost:
+        if (com.baidu.searchbox.logsystem.basic.upload.identity.ChannelManager.DEBUG == false) goto L12;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x0043, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x0045, code lost:
         android.util.Log.e(com.baidu.searchbox.logsystem.basic.upload.identity.ChannelManager.TAG, "readLastChannelFromRaw", r2);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x005b, code lost:
-        if (com.baidu.searchbox.logsystem.basic.upload.identity.ChannelManager.DEBUG == false) goto L13;
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x005d, code lost:
+        if (com.baidu.searchbox.logsystem.basic.upload.identity.ChannelManager.DEBUG == false) goto L12;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.

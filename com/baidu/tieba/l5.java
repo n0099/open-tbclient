@@ -1,36 +1,86 @@
 package com.baidu.tieba;
 
+import com.badlogic.gdx.math.Matrix3;
+import com.badlogic.gdx.math.Matrix4;
+import com.badlogic.gdx.math.Quaternion;
+import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.JsonValue;
-import com.baidu.tieba.q7;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.v7;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class l5 extends g5 implements q7.c {
+public abstract class l5 implements o7, v7.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.v7.c
+    public void a(v7 v7Var, JsonValue jsonValue) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, v7Var, jsonValue) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.o7
+    public void dispose() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    public void f(t1 t1Var, o5 o5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, t1Var, o5Var) == null) {
+        }
+    }
+
+    public void update() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448308612, "Lcom/baidu/tieba/l5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448308612, "Lcom/baidu/tieba/l5;");
+                return;
+            }
+        }
+        new Vector3();
+        new Vector3();
+        new Vector3();
+        new Vector3();
+        new Vector3();
+        new Vector3();
+        new Quaternion();
+        new Quaternion();
+        new Matrix3();
+        new Matrix4();
+    }
 
     public l5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.g5, com.baidu.tieba.q7.c
-    public void a(q7 q7Var, JsonValue jsonValue) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, q7Var, jsonValue) == null) {
-            ((Integer) q7Var.l("minParticleCount", Integer.TYPE, jsonValue)).intValue();
-            ((Integer) q7Var.l("maxParticleCount", Integer.TYPE, jsonValue)).intValue();
         }
     }
 }

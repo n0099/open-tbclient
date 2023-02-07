@@ -1,213 +1,223 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Bitmap;
+import android.net.http.SslError;
+import android.os.Message;
+import android.view.KeyEvent;
+import android.webkit.HttpAuthHandler;
+import android.webkit.SslErrorHandler;
+import android.webkit.WebResourceResponse;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.searchbox.pms.db.PackageTable;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.nadcore.webview.NadNativeBrowserView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.open.SocialOperation;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public class ca1 extends SQLiteOpenHelper {
+public final class ca1 extends WebViewClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public z91 b;
+    public NadNativeBrowserView c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ca1(Context context) {
-        super(context, "nps.db", (SQLiteDatabase.CursorFactory) null, 6);
+    public ca1(NadNativeBrowserView webView, z91 z91Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {webView, z91Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        Intrinsics.checkNotNullParameter(webView, "webView");
+        this.a = "NativeWebViewClient";
+        this.b = z91Var;
+        this.c = webView;
     }
 
-    public final void d(SQLiteDatabase sQLiteDatabase) {
+    @Override // android.webkit.WebViewClient
+    public void onPageFinished(WebView webView, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, sQLiteDatabase) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("ALTER TABLE ");
-            sb.append("bundleinfo");
-            sb.append(" ADD COLUMN ");
-            sb.append("patch_url");
-            sb.append(" TEXT;");
-            sQLiteDatabase.execSQL(sb.toString());
-            sb.delete(0, sb.length());
-            sb.append("ALTER TABLE ");
-            sb.append("bundleinfo");
-            sb.append(" ADD COLUMN ");
-            sb.append("patch_md5");
-            sb.append(" TEXT;");
-            sQLiteDatabase.execSQL(sb.toString());
-        }
-    }
-
-    public final void a(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("ALTER TABLE bundleinfo ADD network_strategy Text ");
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable == null || interceptable.invokeLL(1048579, this, webView, str) == null) {
+            String str2 = this.a;
+            n91.a(str2, "calling onPageFinished with browserView >>> " + this.c + " with kernel " + this.c.getWebView());
+            super.onPageFinished(webView, str);
+            z91 z91Var = this.b;
+            if (z91Var != null) {
+                z91Var.f(this.c, str);
             }
         }
     }
 
-    public final void b(SQLiteDatabase sQLiteDatabase) {
+    @Override // android.webkit.WebViewClient
+    public void doUpdateVisitedHistory(WebView webView, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("ALTER TABLE bundleinfo ADD silence INTEGER DEFAULT 1");
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable == null || interceptable.invokeLLZ(1048576, this, webView, str, z) == null) {
+            super.doUpdateVisitedHistory(webView, str, z);
+            hk0.a.a(str);
+            z91 z91Var = this.b;
+            if (z91Var != null) {
+                z91Var.m(this.c, str, z);
             }
         }
     }
 
-    public final void c(SQLiteDatabase sQLiteDatabase) {
+    @Override // android.webkit.WebViewClient
+    public void onFormResubmission(WebView webView, Message message, Message message2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("ALTER TABLE ");
-            sb.append("bundleinfo");
-            sb.append(" ADD COLUMN ");
-            sb.append("sub_bundle");
-            sb.append(" TEXT;");
-            sQLiteDatabase.execSQL(sb.toString());
-            sb.delete(0, sb.length());
-            sb.append("ALTER TABLE ");
-            sb.append("bundleinfo");
-            sb.append(" ADD COLUMN ");
-            sb.append("dependency");
-            sb.append(" TEXT;");
-            sQLiteDatabase.execSQL(sb.toString());
-            sb.delete(0, sb.length());
-            sb.append("ALTER TABLE ");
-            sb.append("bundleinfo");
-            sb.append(" ADD COLUMN ");
-            sb.append("main_bundle");
-            sb.append(" TEXT;");
-            sQLiteDatabase.execSQL(sb.toString());
-        }
-    }
-
-    public final void e(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, sQLiteDatabase) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("ALTER TABLE ");
-            sb.append("bundleinfo");
-            sb.append(" ADD COLUMN ");
-            sb.append("silence_update");
-            sb.append(" INTEGER DEFAULT ");
-            sb.append(1);
-            sb.append(";");
-            try {
-                sQLiteDatabase.execSQL(sb.toString());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            sb.delete(0, sb.length());
-            sb.append("ALTER TABLE ");
-            sb.append("bundleinfo");
-            sb.append(" ADD COLUMN ");
-            sb.append("wifionly");
-            sb.append(" INTEGER DEFAULT ");
-            sb.append(1);
-            sb.append(";");
-            try {
-                sQLiteDatabase.execSQL(sb.toString());
-            } catch (Exception e2) {
-                e2.printStackTrace();
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, message, message2) == null) {
+            super.onFormResubmission(webView, message, message2);
+            z91 z91Var = this.b;
+            if (z91Var != null) {
+                z91Var.a(this.c, message, message2);
             }
         }
     }
 
-    public final void f(SQLiteDatabase sQLiteDatabase) {
+    @Override // android.webkit.WebViewClient
+    public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, sQLiteDatabase) == null) {
-            sQLiteDatabase.execSQL(g());
-        }
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, sQLiteDatabase) == null) {
-            f(sQLiteDatabase);
-        }
-    }
-
-    public final String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "CREATE TABLE bundleinfo (_id INTEGER PRIMARY KEY," + EmotionResourceInfo.JSON_KEY_PKG_NAME + " TEXT NOT NULL,version_code INTEGER,path TEXT,min_version INTEGER,update_v LONG,type INTEGER DEFAULT 0,broken INTEGER DEFAULT 0,force_update INTEGER DEFAULT 0,forbidden INTEGER DEFAULT 0," + PackageTable.MD5 + " TEXT," + SocialOperation.GAME_SIGNATURE + " TEXT,name TEXT,description TEXT,download_url TEXT,icon_url TEXT,dependence TEXT," + MapBundleKey.MapObjKey.OBJ_SL_VISI + " INTEGER DEFAULT 0,removalbe INTEGER DEFAULT 0,size TEXT,need_remove INTEGER DEFAULT 0," + PackageTable.ABI + " INTEGER DEFAULT -1,ext TEXT,silence INTEGER DEFAULT 1,silence_update INTEGER DEFAULT 1,wifionly INTEGER DEFAULT 1,patch_url TEXT,patch_md5 TEXT, network_strategy TEXT, sub_bundle TEXT, dependency TEXT, main_bundle TEXT  );";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, sQLiteDatabase, i, i2) == null) {
-            sQLiteDatabase.execSQL("DROP TABLE IF EXISTS bundleinfo");
-            onCreate(sQLiteDatabase);
-        }
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048585, this, sQLiteDatabase, i, i2) == null) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            if (i == 5) {
-                                c(sQLiteDatabase);
-                                return;
-                            }
-                            return;
-                        }
-                        a(sQLiteDatabase);
-                        c(sQLiteDatabase);
-                        return;
-                    }
-                    d(sQLiteDatabase);
-                    a(sQLiteDatabase);
-                    c(sQLiteDatabase);
-                    return;
-                }
-                e(sQLiteDatabase);
-                d(sQLiteDatabase);
-                a(sQLiteDatabase);
-                c(sQLiteDatabase);
-                return;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, webView, str, bitmap) == null) {
+            super.onPageStarted(webView, str, bitmap);
+            z91 z91Var = this.b;
+            if (z91Var != null) {
+                z91Var.g(this.c, str, bitmap);
             }
-            b(sQLiteDatabase);
-            e(sQLiteDatabase);
-            d(sQLiteDatabase);
-            a(sQLiteDatabase);
-            c(sQLiteDatabase);
+        }
+    }
+
+    @Override // android.webkit.WebViewClient
+    public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048583, this, webView, sslErrorHandler, sslError) == null) {
+            super.onReceivedSslError(webView, sslErrorHandler, sslError);
+            z91 z91Var = this.b;
+            if (z91Var != null) {
+                z91Var.j(this.c, sslErrorHandler, sslError);
+            }
+        }
+    }
+
+    @Override // android.webkit.WebViewClient
+    public void onLoadResource(WebView webView, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str) == null) {
+            super.onLoadResource(webView, str);
+            z91 z91Var = this.b;
+            if (z91Var != null) {
+                z91Var.c(this.c, str);
+            }
+        }
+    }
+
+    @Override // android.webkit.WebViewClient
+    public void onUnhandledKeyEvent(WebView webView, KeyEvent keyEvent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, webView, keyEvent) == null) {
+            super.onUnhandledKeyEvent(webView, keyEvent);
+            z91 z91Var = this.b;
+            if (z91Var != null) {
+                z91Var.l(this.c, keyEvent);
+            }
+        }
+    }
+
+    @Override // android.webkit.WebViewClient
+    public WebResourceResponse shouldInterceptRequest(WebView webView, String str) {
+        InterceptResult invokeLL;
+        x91 b;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, webView, str)) == null) {
+            z91 z91Var = this.b;
+            Object obj = null;
+            if (z91Var != null && (b = z91Var.b(this.c, str)) != null) {
+                b.a();
+                throw null;
+            } else if (obj instanceof WebResourceResponse) {
+                return null;
+            } else {
+                return super.shouldInterceptRequest(webView, str);
+            }
+        }
+        return (WebResourceResponse) invokeLL.objValue;
+    }
+
+    @Override // android.webkit.WebViewClient
+    public boolean shouldOverrideKeyEvent(WebView webView, KeyEvent keyEvent) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, webView, keyEvent)) == null) {
+            z91 z91Var = this.b;
+            if (z91Var != null) {
+                return z91Var.d(this.c, keyEvent);
+            }
+            return super.shouldOverrideKeyEvent(webView, keyEvent);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebViewClient
+    public boolean shouldOverrideUrlLoading(WebView webView, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, webView, str)) == null) {
+            z91 z91Var = this.b;
+            if (z91Var != null) {
+                return z91Var.e(this.c, str);
+            }
+            return super.shouldOverrideUrlLoading(webView, str);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebViewClient
+    public void onReceivedError(WebView webView, int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(1048581, this, webView, i, str, str2) == null) {
+            super.onReceivedError(webView, i, str, str2);
+            z91 z91Var = this.b;
+            if (z91Var != null) {
+                z91Var.h(this.c, i, str, str2);
+            }
+        }
+    }
+
+    @Override // android.webkit.WebViewClient
+    public void onReceivedHttpAuthRequest(WebView webView, HttpAuthHandler httpAuthHandler, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048582, this, webView, httpAuthHandler, str, str2) == null) {
+            super.onReceivedHttpAuthRequest(webView, httpAuthHandler, str, str2);
+            z91 z91Var = this.b;
+            if (z91Var != null) {
+                NadNativeBrowserView nadNativeBrowserView = this.c;
+                aa1 aa1Var = new aa1();
+                aa1Var.b(httpAuthHandler);
+                z91Var.i(nadNativeBrowserView, aa1Var, str, str2);
+            }
+        }
+    }
+
+    @Override // android.webkit.WebViewClient
+    public void onScaleChanged(WebView webView, float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{webView, Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            super.onScaleChanged(webView, f, f2);
+            z91 z91Var = this.b;
+            if (z91Var != null) {
+                z91Var.k(this.c, f, f2);
+            }
         }
     }
 }

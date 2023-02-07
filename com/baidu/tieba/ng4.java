@@ -1,97 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.io.File;
+import java.io.IOException;
+import java.nio.channels.ReadableByteChannel;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class ng4 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile ng4 b;
-    public transient /* synthetic */ FieldHolder $fh;
-    public a a;
+public interface ng4<T> extends pg4 {
+    void a(T t);
 
-    /* loaded from: classes5.dex */
-    public static class a extends tk4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    void c(T t);
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a() {
-            super("swan_preload_package");
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((String) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-    }
+    String d(T t);
 
-    public ng4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new a();
-    }
+    void e(T t, qh4 qh4Var);
 
-    public static ng4 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (ng4.class) {
-                    if (b == null) {
-                        b = new ng4();
-                    }
-                }
-            }
-            return b;
-        }
-        return (ng4) invokeV.objValue;
-    }
+    void f(T t);
 
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.getString("version", "0");
-        }
-        return (String) invokeV.objValue;
-    }
+    qh4 h(T t, File file, long j, ReadableByteChannel readableByteChannel) throws IOException;
 
-    public void c(mg4 mg4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mg4Var) == null) && mg4Var != null) {
-            this.a.edit().putString("version", mg4Var.c()).apply();
-        }
-    }
+    void i(T t);
 
-    public void d(JSONObject jSONObject) {
-        mg4 a2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null || (a2 = mg4.a(jSONObject)) == null) {
-            return;
-        }
-        ub4.b().H(a2);
-    }
+    void j(T t);
+
+    Map<String, Object> k();
 }

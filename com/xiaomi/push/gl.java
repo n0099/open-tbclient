@@ -168,7 +168,7 @@ public class gl extends gn {
     /* JADX DEBUG: Possible override for method com.xiaomi.push.gn.a()Ljava/lang/String; */
     /* JADX DEBUG: Possible override for method com.xiaomi.push.gn.a()Ljava/util/Collection; */
     /* renamed from: a  reason: collision with other method in class */
-    public a m441a() {
+    public a m443a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (a) invokeV.objValue;
@@ -176,7 +176,7 @@ public class gl extends gn {
 
     @Override // com.xiaomi.push.gn
     /* renamed from: a  reason: collision with other method in class */
-    public String mo442a() {
+    public String mo444a() {
         InterceptResult invokeV;
         String str;
         Interceptable interceptable = $ic;
@@ -211,7 +211,7 @@ public class gl extends gn {
                 str = "type=\"get\">";
             } else {
                 sb.append("type=\"");
-                sb.append(m441a());
+                sb.append(m443a());
                 str = "\">";
             }
             sb.append(str);
@@ -220,9 +220,9 @@ public class gl extends gn {
                 sb.append(b);
             }
             sb.append(o());
-            gr m443a = m443a();
-            if (m443a != null) {
-                sb.append(m443a.m446a());
+            gr m445a = m445a();
+            if (m445a != null) {
+                sb.append(m445a.m448a());
             }
             sb.append("</iq>");
             return sb.toString();

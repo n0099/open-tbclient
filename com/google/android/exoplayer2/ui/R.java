@@ -23,26 +23,26 @@ public final class R {
         public static final int controller_layout_id = 0x7f04019c;
         public static final int default_artwork = 0x7f040208;
         public static final int fastforward_increment = 0x7f0402b2;
-        public static final int hide_on_touch = 0x7f040308;
-        public static final int played_ad_marker_color = 0x7f04055a;
-        public static final int played_color = 0x7f04055b;
-        public static final int player_layout_id = 0x7f04055c;
-        public static final int repeat_toggle_modes = 0x7f0405b9;
-        public static final int resize_mode = 0x7f0405bb;
-        public static final int rewind_increment = 0x7f0405be;
-        public static final int scrubber_color = 0x7f0405fb;
-        public static final int scrubber_disabled_size = 0x7f0405fc;
-        public static final int scrubber_dragged_size = 0x7f0405fd;
-        public static final int scrubber_drawable = 0x7f0405fe;
-        public static final int scrubber_enabled_size = 0x7f0405ff;
-        public static final int show_shuffle_button = 0x7f040624;
-        public static final int show_timeout = 0x7f040625;
-        public static final int shutter_background_color = 0x7f040628;
-        public static final int surface_type = 0x7f04066c;
-        public static final int touch_target_height = 0x7f04073a;
-        public static final int unplayed_color = 0x7f040763;
-        public static final int use_artwork = 0x7f040767;
-        public static final int use_controller = 0x7f040768;
+        public static final int hide_on_touch = 0x7f040309;
+        public static final int played_ad_marker_color = 0x7f04055c;
+        public static final int played_color = 0x7f04055d;
+        public static final int player_layout_id = 0x7f04055e;
+        public static final int repeat_toggle_modes = 0x7f0405bc;
+        public static final int resize_mode = 0x7f0405be;
+        public static final int rewind_increment = 0x7f0405c1;
+        public static final int scrubber_color = 0x7f0405fe;
+        public static final int scrubber_disabled_size = 0x7f0405ff;
+        public static final int scrubber_dragged_size = 0x7f040600;
+        public static final int scrubber_drawable = 0x7f040601;
+        public static final int scrubber_enabled_size = 0x7f040602;
+        public static final int show_shuffle_button = 0x7f040628;
+        public static final int show_timeout = 0x7f040629;
+        public static final int shutter_background_color = 0x7f04062c;
+        public static final int surface_type = 0x7f040670;
+        public static final int touch_target_height = 0x7f04073e;
+        public static final int unplayed_color = 0x7f040767;
+        public static final int use_artwork = 0x7f04076b;
+        public static final int use_controller = 0x7f04076c;
         public transient /* synthetic */ FieldHolder $fh;
 
         public attr() {
@@ -63,7 +63,7 @@ public final class R {
     /* loaded from: classes7.dex */
     public static final class color {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int exo_edit_mode_background_color = 0x7f06073a;
+        public static final int exo_edit_mode_background_color = 0x7f06073b;
         public transient /* synthetic */ FieldHolder $fh;
 
         public color() {
@@ -84,8 +84,8 @@ public final class R {
     /* loaded from: classes7.dex */
     public static final class dimen {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int exo_media_button_height = 0x7f07031e;
-        public static final int exo_media_button_width = 0x7f07031f;
+        public static final int exo_media_button_height = 0x7f07031f;
+        public static final int exo_media_button_width = 0x7f070320;
         public transient /* synthetic */ FieldHolder $fh;
 
         public dimen() {
@@ -106,17 +106,17 @@ public final class R {
     /* loaded from: classes7.dex */
     public static final class drawable {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int exo_controls_fastforward = 0x7f080503;
-        public static final int exo_controls_next = 0x7f080504;
-        public static final int exo_controls_pause = 0x7f080505;
-        public static final int exo_controls_play = 0x7f080506;
-        public static final int exo_controls_previous = 0x7f080507;
-        public static final int exo_controls_repeat_all = 0x7f080508;
-        public static final int exo_controls_repeat_off = 0x7f080509;
-        public static final int exo_controls_repeat_one = 0x7f08050a;
-        public static final int exo_controls_rewind = 0x7f08050b;
-        public static final int exo_controls_shuffle = 0x7f08050c;
-        public static final int exo_edit_mode_logo = 0x7f08050d;
+        public static final int exo_controls_fastforward = 0x7f0804ff;
+        public static final int exo_controls_next = 0x7f080500;
+        public static final int exo_controls_pause = 0x7f080501;
+        public static final int exo_controls_play = 0x7f080502;
+        public static final int exo_controls_previous = 0x7f080503;
+        public static final int exo_controls_repeat_all = 0x7f080504;
+        public static final int exo_controls_repeat_off = 0x7f080505;
+        public static final int exo_controls_repeat_one = 0x7f080506;
+        public static final int exo_controls_rewind = 0x7f080507;
+        public static final int exo_controls_shuffle = 0x7f080508;
+        public static final int exo_edit_mode_logo = 0x7f080509;
         public transient /* synthetic */ FieldHolder $fh;
 
         public drawable() {
@@ -137,31 +137,31 @@ public final class R {
     /* loaded from: classes7.dex */
     public static final class id {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int exo_artwork = 0x7f090978;
-        public static final int exo_content_frame = 0x7f090979;
-        public static final int exo_controller = 0x7f09097a;
-        public static final int exo_controller_placeholder = 0x7f09097b;
-        public static final int exo_duration = 0x7f09097c;
-        public static final int exo_ffwd = 0x7f09097d;
-        public static final int exo_next = 0x7f09097e;
-        public static final int exo_overlay = 0x7f09097f;
-        public static final int exo_pause = 0x7f090980;
-        public static final int exo_play = 0x7f090981;
-        public static final int exo_position = 0x7f090982;
-        public static final int exo_prev = 0x7f090983;
-        public static final int exo_progress = 0x7f090984;
-        public static final int exo_repeat_toggle = 0x7f090985;
-        public static final int exo_rew = 0x7f090986;
-        public static final int exo_shuffle = 0x7f090987;
-        public static final int exo_shutter = 0x7f090988;
-        public static final int exo_subtitles = 0x7f090989;
-        public static final int fill = 0x7f0909f1;
-        public static final int fit = 0x7f090a0e;
-        public static final int fixed_height = 0x7f090a1c;
-        public static final int fixed_width = 0x7f090a1d;
-        public static final int none = 0x7f09179a;
-        public static final int surface_view = 0x7f0920ab;
-        public static final int texture_view = 0x7f09224d;
+        public static final int exo_artwork = 0x7f0909bc;
+        public static final int exo_content_frame = 0x7f0909bd;
+        public static final int exo_controller = 0x7f0909be;
+        public static final int exo_controller_placeholder = 0x7f0909bf;
+        public static final int exo_duration = 0x7f0909c0;
+        public static final int exo_ffwd = 0x7f0909c1;
+        public static final int exo_next = 0x7f0909c2;
+        public static final int exo_overlay = 0x7f0909c3;
+        public static final int exo_pause = 0x7f0909c4;
+        public static final int exo_play = 0x7f0909c5;
+        public static final int exo_position = 0x7f0909c6;
+        public static final int exo_prev = 0x7f0909c7;
+        public static final int exo_progress = 0x7f0909c8;
+        public static final int exo_repeat_toggle = 0x7f0909c9;
+        public static final int exo_rew = 0x7f0909ca;
+        public static final int exo_shuffle = 0x7f0909cb;
+        public static final int exo_shutter = 0x7f0909cc;
+        public static final int exo_subtitles = 0x7f0909cd;
+        public static final int fill = 0x7f090a38;
+        public static final int fit = 0x7f090a55;
+        public static final int fixed_height = 0x7f090a63;
+        public static final int fixed_width = 0x7f090a64;
+        public static final int none = 0x7f0917db;
+        public static final int surface_view = 0x7f0920bc;
+        public static final int texture_view = 0x7f092263;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -204,17 +204,17 @@ public final class R {
     /* loaded from: classes7.dex */
     public static final class string {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int exo_controls_fastforward_description = 0x7f0f05f5;
-        public static final int exo_controls_next_description = 0x7f0f05f6;
-        public static final int exo_controls_pause_description = 0x7f0f05f7;
-        public static final int exo_controls_play_description = 0x7f0f05f8;
-        public static final int exo_controls_previous_description = 0x7f0f05f9;
-        public static final int exo_controls_repeat_all_description = 0x7f0f05fa;
-        public static final int exo_controls_repeat_off_description = 0x7f0f05fb;
-        public static final int exo_controls_repeat_one_description = 0x7f0f05fc;
-        public static final int exo_controls_rewind_description = 0x7f0f05fd;
-        public static final int exo_controls_shuffle_description = 0x7f0f05fe;
-        public static final int exo_controls_stop_description = 0x7f0f05ff;
+        public static final int exo_controls_fastforward_description = 0x7f0f0619;
+        public static final int exo_controls_next_description = 0x7f0f061a;
+        public static final int exo_controls_pause_description = 0x7f0f061b;
+        public static final int exo_controls_play_description = 0x7f0f061c;
+        public static final int exo_controls_previous_description = 0x7f0f061d;
+        public static final int exo_controls_repeat_all_description = 0x7f0f061e;
+        public static final int exo_controls_repeat_off_description = 0x7f0f061f;
+        public static final int exo_controls_repeat_one_description = 0x7f0f0620;
+        public static final int exo_controls_rewind_description = 0x7f0f0621;
+        public static final int exo_controls_shuffle_description = 0x7f0f0622;
+        public static final int exo_controls_stop_description = 0x7f0f0623;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {
@@ -315,10 +315,10 @@ public final class R {
                     return;
                 }
             }
-            AspectRatioFrameLayout = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f0405bb};
-            DefaultTimeBar = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f04007b, com.baidu.tieba.R.attr.obfuscated_res_0x7f04007c, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400ca, com.baidu.tieba.R.attr.obfuscated_res_0x7f04011a, com.baidu.tieba.R.attr.obfuscated_res_0x7f04055a, com.baidu.tieba.R.attr.obfuscated_res_0x7f04055b, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405fb, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405fc, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405fd, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405fe, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405ff, com.baidu.tieba.R.attr.obfuscated_res_0x7f04073a, com.baidu.tieba.R.attr.obfuscated_res_0x7f040763};
-            PlaybackControlView = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f04019c, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402b2, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405b9, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405be, com.baidu.tieba.R.attr.obfuscated_res_0x7f040624, com.baidu.tieba.R.attr.obfuscated_res_0x7f040625};
-            SimpleExoPlayerView = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f0400ae, com.baidu.tieba.R.attr.obfuscated_res_0x7f04019c, com.baidu.tieba.R.attr.obfuscated_res_0x7f040208, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402b2, com.baidu.tieba.R.attr.obfuscated_res_0x7f040308, com.baidu.tieba.R.attr.obfuscated_res_0x7f04055c, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405bb, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405be, com.baidu.tieba.R.attr.obfuscated_res_0x7f040625, com.baidu.tieba.R.attr.obfuscated_res_0x7f040628, com.baidu.tieba.R.attr.obfuscated_res_0x7f04066c, com.baidu.tieba.R.attr.obfuscated_res_0x7f040767, com.baidu.tieba.R.attr.obfuscated_res_0x7f040768};
+            AspectRatioFrameLayout = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f0405be};
+            DefaultTimeBar = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f04007b, com.baidu.tieba.R.attr.obfuscated_res_0x7f04007c, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400ca, com.baidu.tieba.R.attr.obfuscated_res_0x7f04011a, com.baidu.tieba.R.attr.obfuscated_res_0x7f04055c, com.baidu.tieba.R.attr.obfuscated_res_0x7f04055d, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405fe, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405ff, com.baidu.tieba.R.attr.obfuscated_res_0x7f040600, com.baidu.tieba.R.attr.obfuscated_res_0x7f040601, com.baidu.tieba.R.attr.obfuscated_res_0x7f040602, com.baidu.tieba.R.attr.obfuscated_res_0x7f04073e, com.baidu.tieba.R.attr.obfuscated_res_0x7f040767};
+            PlaybackControlView = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f04019c, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402b2, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405bc, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405c1, com.baidu.tieba.R.attr.obfuscated_res_0x7f040628, com.baidu.tieba.R.attr.obfuscated_res_0x7f040629};
+            SimpleExoPlayerView = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f0400ae, com.baidu.tieba.R.attr.obfuscated_res_0x7f04019c, com.baidu.tieba.R.attr.obfuscated_res_0x7f040208, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402b2, com.baidu.tieba.R.attr.obfuscated_res_0x7f040309, com.baidu.tieba.R.attr.obfuscated_res_0x7f04055e, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405be, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405c1, com.baidu.tieba.R.attr.obfuscated_res_0x7f040629, com.baidu.tieba.R.attr.obfuscated_res_0x7f04062c, com.baidu.tieba.R.attr.obfuscated_res_0x7f040670, com.baidu.tieba.R.attr.obfuscated_res_0x7f04076b, com.baidu.tieba.R.attr.obfuscated_res_0x7f04076c};
         }
 
         public styleable() {

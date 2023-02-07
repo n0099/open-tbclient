@@ -1,16 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class vq0 extends qq0 {
+public class vq0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ar0 b;
+    public String a;
+    public int b;
 
     public vq0() {
         Interceptable interceptable = $ic;
@@ -22,29 +28,40 @@ public class vq0 extends qq0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = b("okhttp");
     }
 
-    @Override // com.baidu.tieba.cr0
-    public ar0 a() {
-        InterceptResult invokeV;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            go0.b().a(this.a, this.b);
         }
-        return (ar0) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qq0
-    public ar0 b(String str) {
+    @Nullable
+    public static List<vq0> a(@Nullable JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return new nr0();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONArray)) == null) {
+            if (jSONArray == null) {
+                return null;
+            }
+            int length = jSONArray.length();
+            ArrayList arrayList = new ArrayList(length);
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                if (optJSONObject != null) {
+                    vq0 vq0Var = new vq0();
+                    vq0Var.a = optJSONObject.optString("url");
+                    vq0Var.b = optJSONObject.optInt("size");
+                    if (!TextUtils.isEmpty(vq0Var.a) && vq0Var.b > 0) {
+                        x11.b(arrayList, vq0Var);
+                    }
+                }
+            }
+            return arrayList;
         }
-        return (ar0) invokeL.objValue;
+        return (List) invokeL.objValue;
     }
 }

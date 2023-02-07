@@ -1,23 +1,19 @@
 package com.baidu.tieba;
 
+import android.os.Looper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedHashMap;
 /* loaded from: classes5.dex */
-public class k6a extends m6a implements o6a {
+public class k6a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String c;
-
-    @Override // com.baidu.tieba.o6a
-    public void h(short s) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Short.valueOf(s)}) == null) {
-        }
-    }
+    public final LinkedHashMap<Long, StackTraceElement[]> a;
+    public int b;
 
     public k6a() {
         Interceptable interceptable = $ic;
@@ -29,25 +25,32 @@ public class k6a extends m6a implements o6a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new LinkedHashMap<>();
+        this.b = 100;
     }
 
-    @Override // com.baidu.tieba.n6a
-    public String a() {
+    public LinkedHashMap<Long, StackTraceElement[]> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return (String) invokeV.objValue;
+        return (LinkedHashMap) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.o6a
-    public void c(String str) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.c = str;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            int size = this.a.size();
+            int i = this.b;
+            if (size == i && i > 0) {
+                LinkedHashMap<Long, StackTraceElement[]> linkedHashMap = this.a;
+                linkedHashMap.remove(linkedHashMap.keySet().iterator().next());
+            }
+            this.a.put(Long.valueOf(System.currentTimeMillis()), Looper.getMainLooper().getThread().getStackTrace());
         }
     }
 }

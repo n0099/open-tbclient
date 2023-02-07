@@ -1,146 +1,40 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.liveremind.LiveRemindConfig;
-import com.baidu.tbadk.data.LiveRemindRecommendData;
-import com.baidu.tieba.mw4;
-import com.baidu.tieba.tblauncher.MainTabActivity;
-import com.baidu.tieba.u35;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.common.others.url.UrlUtils;
+import com.baidu.tbadk.browser.BaseWebViewActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes5.dex */
-public class j29 extends mw4 {
+public class j29 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity c;
-    public LiveRemindRecommendData d;
-    public Map<String, Object> e;
-    public u35 f;
 
-    /* loaded from: classes5.dex */
-    public class a implements u35.h {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j29 a;
-
-        public a(j29 j29Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j29Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = j29Var;
-        }
-
-        @Override // com.baidu.tieba.u35.h
-        public void dismiss() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.c();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j29(MainTabActivity mainTabActivity, wz8 wz8Var) {
-        super(mainTabActivity);
+    public static String a(String str, String str2, String str3, String str4) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, wz8Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Activity) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, str, str2, str3, str4)) == null) {
+            if (!str.contains("pageType=")) {
+                str = UrlUtils.appendParam(str, "pageType", str2);
             }
-        }
-        this.c = mainTabActivity;
-    }
-
-    @Override // com.baidu.tieba.mw4
-    public void b() {
-        u35 u35Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (u35Var = this.f) != null) {
-            u35Var.t();
-        }
-    }
-
-    @Override // com.baidu.tieba.mw4
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f = v35.d(null, this.c.getPageContext(), this.e, 0L, 4000L, new a(this));
-            qy4.b().f(LiveRemindConfig.Scene.LIVE_FLOAT);
-        }
-    }
-
-    @Override // com.baidu.tieba.mw4
-    public void d(mw4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            if (tw4.l()) {
-                aVar.a(false);
-                return;
+            if (!str.contains("noshare=")) {
+                str = UrlUtils.appendParam(str, BaseWebViewActivity.KEY_NO_SHARE, "1");
             }
-            LiveRemindRecommendData c = py4.a().c(0);
-            this.d = c;
-            if (c != null && qy4.b().j(LiveRemindConfig.Scene.LIVE_FLOAT)) {
-                this.e = new HashMap();
-                int i = 3;
-                if (this.d.getRemindType() != 1) {
-                    if (this.d.getRemindType() == 2) {
-                        i = 4;
-                    } else if (this.d.getRemindType() == 3) {
-                        i = 2;
-                    } else {
-                        i = 0;
-                    }
-                }
-                this.e.put("view_top_params_key_image_url", this.d.getLiveIconSrc());
-                this.e.put("view_top_params_key_schema", this.d.getLiveIconScheme());
-                this.e.put("view_top_params_user_name", this.d.getUserName());
-                this.e.put("view_top_params_key_desc", this.d.getDesc());
-                this.e.put("view_top_params_room_id", this.d.getRoomId());
-                this.e.put("view_top_params_btn_text", this.d.getBtnText());
-                this.e.put("view_top_params_key_title", this.d.getTitle());
-                this.e.put("view_top_params_key_nid", this.d.getFeedId());
-                this.e.put("view_top_params_key_yyext", this.d.getYyExtData());
-                this.e.put("view_top_params_key_type", Integer.valueOf(i));
-                this.e.put("view_top_params_is_breathe", Boolean.FALSE);
-                if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW && !w45.d()) {
-                    if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW && !w45.d()) {
-                        aVar.a(true);
-                        return;
-                    } else {
-                        aVar.a(false);
-                        return;
-                    }
-                }
-                aVar.a(false);
-                return;
+            if (!str.contains("nonavigationbar=")) {
+                str = UrlUtils.appendParam(str, BaseWebViewActivity.KEY_NO_NAVIGATIONBAR, "1");
             }
-            aVar.a(false);
+            if (!str.contains(BaseWebViewActivity.CUSTOM_FULL_SCREEN_EQUAL)) {
+                str = UrlUtils.appendParam(str, BaseWebViewActivity.CUSTOM_FULL_SCREEN, "1");
+            }
+            if (!str.contains("themeId=") && !StringUtils.isNull(str3)) {
+                str = UrlUtils.appendParam(str, "themeId", str3);
+            }
+            if (!str.contains("decoratorId=") && !StringUtils.isNull(str4)) {
+                return UrlUtils.appendParam(str, "decoratorId", str4);
+            }
+            return str;
         }
+        return (String) invokeLLLL.objValue;
     }
 }

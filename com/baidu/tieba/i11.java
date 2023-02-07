@@ -1,72 +1,43 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.os.Process;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.Nullable;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.nadcore.player.remote.BDRemotePlayerService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class i11 extends h11 {
+public class i11 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public i11() {
+    public static void a(@Nullable String str, boolean z, int i, Map<String, String> map, CyberPlayerManager.InstallListener installListener, @Nullable CyberPlayerManager.GetNetHandleListener getNetHandleListener) {
+        Class<BDRemotePlayerService> cls;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if ((interceptable != null && interceptable.invokeCommon(65536, null, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i), map, installListener, getNetHandleListener}) != null) || CyberPlayerManager.isCoreLoaded(i)) {
+            return;
+        }
+        Context b = at0.b();
+        nk0.c("DumediaUtils", "initCyber, pid = " + Process.myPid());
+        try {
+            if (TextUtils.isEmpty(str)) {
+                str = nj0.a().g();
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.k11
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String sb = this.a.toString();
-            if (!TextUtils.isEmpty(sb) && sb.contains("ci") && sb.contains("ext")) {
-                return true;
+            String str2 = str;
+            if (z) {
+                cls = BDRemotePlayerService.class;
+            } else {
+                cls = null;
             }
-            return false;
+            CyberPlayerManager.install(b, str2, (String) null, i, cls, map, installListener);
+            if (getNetHandleListener != null) {
+                CyberPlayerManager.setNetHandleListener(getNetHandleListener);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        return invokeV.booleanValue;
-    }
-
-    public i11 e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            d("cr", str);
-            return this;
-        }
-        return (i11) invokeL.objValue;
-    }
-
-    public i11 f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            d("ci", str);
-            return this;
-        }
-        return (i11) invokeL.objValue;
-    }
-
-    public i11 g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            d("ext", str);
-            return this;
-        }
-        return (i11) invokeL.objValue;
     }
 }

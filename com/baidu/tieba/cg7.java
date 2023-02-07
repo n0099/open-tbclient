@@ -1,144 +1,85 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.im.data.GroupMsgData;
-import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.PushMessage;
-import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.yf7;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.LinkedList;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
 public class cg7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final List<ThreadData> a;
 
-    /* loaded from: classes4.dex */
-    public static class a implements yf7.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.yf7.c
-        public boolean a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public cg7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList();
     }
 
-    public static GroupNewsPojo a(ChatMessage chatMessage) {
-        InterceptResult invokeL;
+    public List<ThreadData> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, chatMessage)) == null) {
-            String content = chatMessage.getContent();
-            if (TextUtils.isEmpty(content)) {
-                return null;
-            }
-            try {
-                if (content.startsWith(PreferencesUtil.LEFT_MOUNT)) {
-                    return null;
-                }
-                String optString = new JSONObject(content).optString(TbEnum.SystemMessage.KEY_EVENT_ID);
-                if (TextUtils.isEmpty(optString)) {
-                    return null;
-                }
-                GroupNewsPojo groupNewsPojo = new GroupNewsPojo(chatMessage, optString);
-                groupNewsPojo.setOriginalPushMsg(chatMessage);
-                return groupNewsPojo;
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return (GroupNewsPojo) invokeL.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public static LinkedList<GroupNewsPojo> b(LinkedList<ChatMessage> linkedList) {
-        InterceptResult invokeL;
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, linkedList)) == null) {
-            if (linkedList != null && linkedList.size() != 0) {
-                LinkedList<GroupNewsPojo> linkedList2 = new LinkedList<>();
-                Iterator<ChatMessage> it = linkedList.iterator();
-                while (it.hasNext()) {
-                    GroupNewsPojo a2 = a(it.next());
-                    if (a2 != null) {
-                        linkedList2.add(a2);
-                    }
-                }
-                return linkedList2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            List<ThreadData> list = this.a;
+            if (list == null) {
+                return false;
             }
-            return null;
+            return !ListUtils.isEmpty(list);
         }
-        return (LinkedList) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static void c(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, yf7.b bVar) {
+    public bg7 a(boolean z, zf7 zf7Var) {
+        InterceptResult invokeZL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, groupMsgData, imMessageCenterPojo, bVar) == null) {
-            yf7.d(groupMsgData, imMessageCenterPojo, bVar, new a(), false);
-        }
-    }
-
-    public static void d(GroupMsgData groupMsgData) {
-        LinkedList<GroupNewsPojo> b;
-        PushMessage newInstance;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, groupMsgData) == null) && (b = b(groupMsgData.getListMessage())) != null && !b.isEmpty()) {
-            long j = 0;
-            LinkedList<GroupNewsPojo> linkedList = new LinkedList<>();
-            Iterator<GroupNewsPojo> it = b.iterator();
-            while (it.hasNext()) {
-                GroupNewsPojo next = it.next();
-                if (!TextUtils.isEmpty(next.getNotice_id())) {
-                    long parseLong = Long.parseLong(next.getNotice_id());
-                    if (parseLong > j) {
-                        j = parseLong;
-                    }
+        if (interceptable == null || (invokeZL = interceptable.invokeZL(1048576, this, z, zf7Var)) == null) {
+            bg7 bg7Var = new bg7();
+            bg7Var.c = zf7Var.i();
+            bg7Var.e = zf7Var.a();
+            bg7Var.f = zf7Var.c();
+            ArrayList<ThreadData> h = zf7Var.h();
+            if (z) {
+                if (!ListUtils.isEmpty(h)) {
+                    this.a.clear();
+                    this.a.addAll(h);
                 }
+            } else if (!ListUtils.isEmpty(h)) {
+                this.a.addAll(h);
             }
-            qg7.c().i(linkedList);
-            ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
-            imMessageCenterPojo.setGid(String.valueOf(groupMsgData.getGroupInfo().getGroupId()));
-            imMessageCenterPojo.setIs_hidden(1);
-            imMessageCenterPojo.setCustomGroupType(-2);
-            imMessageCenterPojo.setPulled_msgId(j);
-            wg7.f().k(imMessageCenterPojo);
-            Iterator<GroupNewsPojo> it2 = b.iterator();
-            while (it2.hasNext()) {
-                GroupNewsPojo next2 = it2.next();
-                if (next2 != null && (newInstance = PushMessage.newInstance(next2)) != null) {
-                    MessageManager.getInstance().dispatchResponsedMessageToUI(newInstance);
-                }
-            }
+            ArrayList arrayList = new ArrayList();
+            arrayList.addAll(this.a);
+            ye7.e(true, arrayList, zf7Var.e());
+            ye7.e(true, arrayList, zf7Var.f());
+            ye7.e(true, arrayList, zf7Var.d());
+            ye7.e(true, arrayList, zf7Var.g());
+            bg7Var.a = ye7.c(arrayList);
+            return bg7Var;
         }
+        return (bg7) invokeZL.objValue;
     }
 }

@@ -1,124 +1,80 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
-import android.text.SpannableString;
-import android.text.TextUtils;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.imageManager.TbFaceManager;
-import com.baidu.tbadk.widget.richText.TbRichTextData;
-import com.baidu.tieba.z95;
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class we7 {
+public class we7 extends hx<sw4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public eh7 f;
+    public int g;
 
-    public static SpannableString a(ArrayList<lo5> arrayList, String str) {
-        InterceptResult invokeLL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public we7(Context context, TbPageContext<?> tbPageContext) {
+        super(context);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, arrayList, str)) == null) {
-            if (TbFaceManager.i().p(str)) {
-                SpannableString spannableString = new SpannableString(str + " ");
-                lo5 d = TbFaceManager.i().d(str);
-                if (arrayList != null) {
-                    arrayList.add(d);
-                }
-                z95.a g = TbFaceManager.i().g(str);
-                if (g != null) {
-                    int a = (int) (g.a() * 0.5d);
-                    d.setBounds(new Rect(0, 0, a, a));
-                } else {
-                    d.setBounds(new Rect(0, 0, 0, 0));
-                }
-                spannableString.setSpan(new xi6(d, 1), 0, str.length(), 33);
-                return spannableString;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return null;
         }
-        return (SpannableString) invokeLL.objValue;
+        this.g = 3;
+        this.f = new eh7(tbPageContext);
     }
 
-    public static SpannableString b(String str) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.zx
+    /* renamed from: s */
+    public void a(sw4 sw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str == null) {
-                return null;
-            }
-            return UrlManager.findAllWebUrl(str);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, sw4Var) == null) && (sw4Var instanceof bh7)) {
+            this.f.i((bh7) sw4Var);
         }
-        return (SpannableString) invokeL.objValue;
     }
 
-    public static ArrayList<TbRichTextData> c(String str, int i) {
-        InterceptResult invokeLI;
-        int i2;
+    public void t(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
-            ArrayList<TbRichTextData> arrayList = new ArrayList<>();
-            if (TextUtils.isEmpty(str)) {
-                return arrayList;
-            }
-            TbRichTextData tbRichTextData = new TbRichTextData(1);
-            arrayList.add(tbRichTextData);
-            try {
-                int length = str.length();
-                int i3 = 0;
-                String str2 = "";
-                while (i3 < str.length()) {
-                    char charAt = str.charAt(i3);
-                    if (charAt == '#' && i3 < length - 1 && str.charAt(i3 + 1) == '(') {
-                        String str3 = SmallTailInfo.EMOTION_PREFIX;
-                        i3 += 2;
-                        while (i3 < length) {
-                            char charAt2 = str.charAt(i3);
-                            str3 = str3 + charAt2;
-                            if (charAt2 != ')' && ((i2 = i3 + 1) >= length || str.charAt(i2) != '#')) {
-                                i3 = i2;
-                            }
-                        }
-                        if (!TbFaceManager.i().p(str3)) {
-                            str2 = str2 + str3;
-                        } else {
-                            if (!TextUtils.isEmpty(str2)) {
-                                if (i == 1) {
-                                    tbRichTextData.H(str2);
-                                } else {
-                                    SpannableString b = b(str2);
-                                    if (b != null) {
-                                        tbRichTextData.H(b);
-                                    }
-                                }
-                                str2 = "";
-                            }
-                            SpannableString a = a(tbRichTextData.I(), str3);
-                            if (a != null) {
-                                tbRichTextData.H(a);
-                            }
-                        }
-                    } else {
-                        str2 = str2 + charAt;
-                    }
-                    i3++;
-                }
-                if (!TextUtils.isEmpty(str2)) {
-                    if (i == 1) {
-                        tbRichTextData.H(str2);
-                    } else {
-                        SpannableString b2 = b(str2);
-                        if (b2 != null) {
-                            tbRichTextData.H(b2);
-                        }
-                    }
-                }
-            } catch (Exception unused) {
-            }
-            return arrayList;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
+            this.f.o(bdUniqueId);
         }
-        return (ArrayList) invokeLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.hx
+    public View k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.f.r();
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ay
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            if (this.g != i) {
+                this.f.j(tbPageContext, i);
+                q(k(), 3);
+            }
+            this.g = i;
+        }
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
-import com.baidu.tieba.yg;
+import com.baidu.tieba.dh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -69,9 +69,9 @@ public class RequestSendOfficialBarMenuMessage extends TbSocketMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.rid = Integer.valueOf(yg.e(this.rid, 0));
+            builder.rid = Integer.valueOf(dh.e(this.rid, 0));
             builder.forum_id = getForum_id();
-            builder.user_id = Long.valueOf(yg.g(this.user_id, 0L));
+            builder.user_id = Long.valueOf(dh.g(this.user_id, 0L));
             SendMenuMsgReqIdl.Builder builder2 = new SendMenuMsgReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

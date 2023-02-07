@@ -56,7 +56,7 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public Excluder m82clone() {
+    public Excluder m84clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -73,9 +73,9 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Excluder m82clone = m82clone();
-            m82clone.serializeInnerClasses = false;
-            return m82clone;
+            Excluder m84clone = m84clone();
+            m84clone.serializeInnerClasses = false;
+            return m84clone;
         }
         return (Excluder) invokeV.objValue;
     }
@@ -84,9 +84,9 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            Excluder m82clone = m82clone();
-            m82clone.requireExpose = true;
-            return m82clone;
+            Excluder m84clone = m84clone();
+            m84clone.requireExpose = true;
+            return m84clone;
         }
         return (Excluder) invokeV.objValue;
     }
@@ -234,12 +234,12 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iArr)) == null) {
-            Excluder m82clone = m82clone();
-            m82clone.modifiers = 0;
+            Excluder m84clone = m84clone();
+            m84clone.modifiers = 0;
             for (int i : iArr) {
-                m82clone.modifiers = i | m82clone.modifiers;
+                m84clone.modifiers = i | m84clone.modifiers;
             }
-            return m82clone;
+            return m84clone;
         }
         return (Excluder) invokeL.objValue;
     }
@@ -248,9 +248,9 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Double.valueOf(d)})) == null) {
-            Excluder m82clone = m82clone();
-            m82clone.version = d;
-            return m82clone;
+            Excluder m84clone = m84clone();
+            m84clone.version = d;
+            return m84clone;
         }
         return (Excluder) invokeCommon.objValue;
     }
@@ -395,18 +395,18 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{exclusionStrategy, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            Excluder m82clone = m82clone();
+            Excluder m84clone = m84clone();
             if (z) {
                 ArrayList arrayList = new ArrayList(this.serializationStrategies);
-                m82clone.serializationStrategies = arrayList;
+                m84clone.serializationStrategies = arrayList;
                 arrayList.add(exclusionStrategy);
             }
             if (z2) {
                 ArrayList arrayList2 = new ArrayList(this.deserializationStrategies);
-                m82clone.deserializationStrategies = arrayList2;
+                m84clone.deserializationStrategies = arrayList2;
                 arrayList2.add(exclusionStrategy);
             }
-            return m82clone;
+            return m84clone;
         }
         return (Excluder) invokeCommon.objValue;
     }

@@ -1,55 +1,56 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class fa5 {
+public class fa5 implements Cdo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947757423, "Lcom/baidu/tieba/fa5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947757423, "Lcom/baidu/tieba/fa5;");
+                return;
+            }
+        }
+        a = BdUniqueId.gen();
+    }
 
     public fa5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static fa5 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            try {
-                fa5 fa5Var = new fa5();
-                fa5Var.a = jSONObject.optString(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY);
-                fa5Var.b = jSONObject.optInt("width");
-                fa5Var.c = jSONObject.optInt("height");
-                fa5Var.d = jSONObject.optString("pic_url");
-                fa5Var.e = jSONObject.optString("thumbnail");
-                fa5Var.g = jSONObject.optString("origin_url");
-                return fa5Var;
-            } catch (Exception unused) {
-                return null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return a;
         }
-        return (fa5) invokeL.objValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 }

@@ -1,7 +1,6 @@
 package com.baidu.searchbox.requestpriority;
 
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +9,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
@@ -26,6 +27,7 @@ public class RequestPriorityStrategy {
     public static int sRequestPrioritySwitchValue = -1;
     public static String sRequestPriorityWhiteList;
     public static volatile ScheduledExecutorService sScheduledExecutorService;
+    public static volatile Set<Integer> sTimeoutRequestSet;
     public static volatile List<Runnable> sWaitingList;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -44,6 +46,7 @@ public class RequestPriorityStrategy {
         }
         sWaitingList = new ArrayList();
         sCoreRequestNum = 0;
+        sTimeoutRequestSet = new HashSet();
     }
 
     public RequestPriorityStrategy() {
@@ -60,10 +63,16 @@ public class RequestPriorityStrategy {
         }
     }
 
+    public static /* synthetic */ int access$110() {
+        int i = sCoreRequestNum;
+        sCoreRequestNum = i - 1;
+        return i;
+    }
+
     public static ScheduledExecutorService scheduledExecutorService() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
             if (sScheduledExecutorService == null) {
                 synchronized (RequestPriorityStrategy.class) {
                     if (sScheduledExecutorService == null) {
@@ -76,21 +85,9 @@ public class RequestPriorityStrategy {
         return (ScheduledExecutorService) invokeV.objValue;
     }
 
-    public static void stopPriorityControlled() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65550, null) == null) {
-            synchronized (IRequestCall.class) {
-                sCoreRequestNum--;
-            }
-            if (sCoreRequestNum <= 0) {
-                promoteAndExecute();
-            }
-        }
-    }
-
     public static void addToWaitingList(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, null, runnable) == null) {
             synchronized (sWaitingList) {
                 sWaitingList.add(runnable);
             }
@@ -102,7 +99,7 @@ public class RequestPriorityStrategy {
 
     public static void scheduleWaitingRequestCalls(IRequestCall iRequestCall) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65547, null, iRequestCall) == null) {
+        if (interceptable == null || interceptable.invokeL(65549, null, iRequestCall) == null) {
             synchronized (IRequestCall.class) {
                 sCoreRequestNum++;
             }
@@ -133,6 +130,10 @@ public class RequestPriorityStrategy {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && !this.val$request.isFinished()) {
+                        synchronized (IRequestCall.class) {
+                            RequestPriorityStrategy.sTimeoutRequestSet.add(Integer.valueOf(this.val$request.hashCode()));
+                            RequestPriorityStrategy.access$110();
+                        }
                         RequestPriorityStrategy.promoteAndExecute();
                     }
                 }
@@ -142,7 +143,7 @@ public class RequestPriorityStrategy {
 
     public static void startPriorityControlled(IRequestCall iRequestCall) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65549, null, iRequestCall) == null) {
+        if (interceptable == null || interceptable.invokeL(65551, null, iRequestCall) == null) {
             synchronized (IRequestCall.class) {
                 sCoreRequestNum++;
             }
@@ -173,6 +174,10 @@ public class RequestPriorityStrategy {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && !this.val$request.isFinished()) {
+                        synchronized (IRequestCall.class) {
+                            RequestPriorityStrategy.sTimeoutRequestSet.add(Integer.valueOf(this.val$request.hashCode()));
+                            RequestPriorityStrategy.access$110();
+                        }
                         RequestPriorityStrategy.promoteAndExecute();
                     }
                 }
@@ -182,7 +187,7 @@ public class RequestPriorityStrategy {
 
     public static <T> void enqueueWithResponseCallback(IRequestCall iRequestCall, T t, T t2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, iRequestCall, t, t2) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65542, null, iRequestCall, t, t2) == null) {
             if (isCoreRequest(iRequestCall)) {
                 scheduleWaitingRequestCalls(iRequestCall);
                 iRequestCall.priorityEnqueueWithResponseCallback(t, t2);
@@ -230,7 +235,7 @@ public class RequestPriorityStrategy {
 
     public static <T> void enqueueWithStatResponseCallback(IRequestCall iRequestCall, T t, T t2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, null, iRequestCall, t, t2) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65543, null, iRequestCall, t, t2) == null) {
             if (isCoreRequest(iRequestCall)) {
                 scheduleWaitingRequestCalls(iRequestCall);
                 iRequestCall.priorityEnqueueWithStatResponseCallback(t, t2);
@@ -279,7 +284,7 @@ public class RequestPriorityStrategy {
     public static Object executeSync(IRequestCall iRequestCall) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, iRequestCall)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, iRequestCall)) == null) {
             if (isCoreRequest(iRequestCall)) {
                 scheduleWaitingRequestCalls(iRequestCall);
             } else if (sCoreRequestNum > 0) {
@@ -329,17 +334,21 @@ public class RequestPriorityStrategy {
     public static boolean isCoreRequest(IRequestCall iRequestCall) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, iRequestCall)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, iRequestCall)) == null) {
             return sRequestPriorityWhiteList.contains(iRequestCall.getRequestFrom() + "|" + iRequestCall.getRequestSubFrom());
         }
         return invokeL.booleanValue;
     }
 
-    public static void promoteAndExecuteIfNeeded(IRequestCall iRequestCall) {
+    public static void stopPriorityControlled(IRequestCall iRequestCall) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65546, null, iRequestCall) == null) && isRequestPriorityEnabled() && isCoreRequest(iRequestCall)) {
+        if (interceptable == null || interceptable.invokeL(65552, null, iRequestCall) == null) {
             synchronized (IRequestCall.class) {
-                sCoreRequestNum--;
+                if (sTimeoutRequestSet.contains(Integer.valueOf(iRequestCall.hashCode()))) {
+                    sTimeoutRequestSet.remove(Integer.valueOf(iRequestCall.hashCode()));
+                } else {
+                    sCoreRequestNum--;
+                }
             }
             if (sCoreRequestNum <= 0) {
                 promoteAndExecute();
@@ -351,7 +360,7 @@ public class RequestPriorityStrategy {
         InterceptResult invokeV;
         RequestPriorityParams requestPriorityParams;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
             if (sRequestPrioritySwitchValue == -1) {
                 sRequestPrioritySwitchValue = 1;
                 IRequestPriorityManager requestPriorityManager = RequestPriorityRuntime.getRequestPriorityManager();
@@ -370,13 +379,29 @@ public class RequestPriorityStrategy {
 
     public static void promoteAndExecute() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65545, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
             synchronized (sWaitingList) {
                 int size = sWaitingList.size();
                 for (int i = 0; i < size; i++) {
                     sWaitingList.get(i).run();
                 }
                 sWaitingList.clear();
+            }
+        }
+    }
+
+    public static void promoteAndExecuteIfNeeded(IRequestCall iRequestCall) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65548, null, iRequestCall) == null) && isRequestPriorityEnabled() && isCoreRequest(iRequestCall)) {
+            synchronized (IRequestCall.class) {
+                if (sTimeoutRequestSet.contains(Integer.valueOf(iRequestCall.hashCode()))) {
+                    sTimeoutRequestSet.remove(Integer.valueOf(iRequestCall.hashCode()));
+                } else {
+                    sCoreRequestNum--;
+                }
+            }
+            if (sCoreRequestNum <= 0) {
+                promoteAndExecute();
             }
         }
     }

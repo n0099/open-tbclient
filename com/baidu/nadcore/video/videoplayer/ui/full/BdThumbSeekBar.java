@@ -19,8 +19,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.widget.BdThumbSeekBarView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a51;
-import com.baidu.tieba.n71;
+import com.baidu.tieba.k61;
+import com.baidu.tieba.yb1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -311,7 +311,7 @@ public class BdThumbSeekBar extends View {
                 return;
             }
         }
-        y = a51.d(0.0f);
+        y = k61.d(0.0f);
         z = BdSeekBarStyle.LINE;
     }
 
@@ -450,7 +450,7 @@ public class BdThumbSeekBar extends View {
         this.x = true;
         this.c = context;
         setClickable(true);
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, n71.NadBdThumbSeekBar);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, yb1.NadBdThumbSeekBar);
         int i5 = obtainStyledAttributes.getInt(0, 0);
         obtainStyledAttributes.recycle();
         if (i5 != 1) {
@@ -481,7 +481,7 @@ public class BdThumbSeekBar extends View {
             if (this.k == null) {
                 this.k = BitmapFactory.decodeResource(context.getResources(), R.drawable.nad_videoplayer_new_player_seekbar_thumb);
             }
-            this.l = a51.a(0.0f);
+            this.l = k61.a(0.0f);
         }
         if (this.m == null) {
             f(1.5f);

@@ -1,105 +1,85 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.retrieve.util.FileMetaUtil;
+import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.AdSlot;
-import com.bytedance.sdk.openadsdk.TTAdNative;
-import com.bytedance.sdk.openadsdk.TTFeedAd;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.ad.sdk.internal.api.utils.NumberUtils;
-import java.util.ArrayList;
+import java.io.File;
 import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ny9 extends hx9 {
+public class ny9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public class a implements TTAdNative.FeedAdListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ny9 a;
-
-        public a(ny9 ny9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ny9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static JSONObject a(JSONObject jSONObject, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, jSONObject, str)) == null) {
+            try {
+                jSONObject.put("bosMessage", str);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            this.a = ny9Var;
+            return jSONObject;
         }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FeedAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
-        public void onError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                LogPrinter.e("CSJNative onError code: " + i + ", message: " + str, new Object[0]);
-                this.a.onError(i, str);
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FeedAdListener
-        public void onFeedAdLoad(List<TTFeedAd> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                LogPrinter.d();
-                if (list == null || list.isEmpty()) {
-                    LogPrinter.e("onFeedAdLoad error: adList is null or empty", new Object[0]);
-                    onError(0, "NoFill");
-                    return;
-                }
-                ArrayList arrayList = new ArrayList();
-                for (TTFeedAd tTFeedAd : list) {
-                    arrayList.add(new ux9(tTFeedAd));
-                }
-                this.a.onAdLoaded((List) arrayList);
-            }
-        }
+        return (JSONObject) invokeLL.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ny9(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.NATIVE), pid);
+    public static JSONObject b(File file, String str, String str2, String str3, boolean z) {
+        InterceptResult invokeCommon;
+        String str4;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{file, str, str2, str3, Boolean.valueOf(z)})) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("errno", str2);
+                jSONObject.put("errmsg", str3);
+                if (z) {
+                    str4 = "1";
+                } else {
+                    str4 = "0";
+                }
+                jSONObject.put(FileMetaUtil.IS_FILE, str4);
+                if (file != null && file.exists() && file.isFile()) {
+                    jSONObject.put(FileMetaUtil.ZIP_PATH, str);
+                    jSONObject.put("size", String.valueOf(file.length()));
+                    jSONObject.put(FileMetaUtil.CREATE_TIME, file.lastModified());
+                    jSONObject.put(FileMetaUtil.MODIFY_TIME, file.lastModified());
+                }
+            } catch (Exception e) {
+                if (AppConfig.isDebug()) {
+                    e.printStackTrace();
+                }
             }
+            return jSONObject;
         }
+        return (JSONObject) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.hx9
-    public void h(FunAdSlot funAdSlot) {
+    public static JSONObject c(List<String> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, funAdSlot) == null) {
-            AdSlot.Builder supportDeepLink = new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true);
-            Ssp.Pid pid = this.mPid;
-            this.e.loadFeedAd(supportDeepLink.setImageAcceptedSize(pid.width, pid.height).setAdCount(NumberUtils.adjustInt(funAdSlot.getAdCount(), 1, 3)).build(), new a(this));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (list != null) {
+                try {
+                    if (list.size() > 0) {
+                        StringBuilder sb = new StringBuilder();
+                        for (String str : list) {
+                            sb.append(str);
+                            sb.append("&");
+                        }
+                        jSONObject.put("space", sb.toString());
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject;
         }
+        return (JSONObject) invokeL.objValue;
     }
 }

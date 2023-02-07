@@ -1,50 +1,25 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.view.View;
-import androidx.annotation.NonNull;
-import com.baidu.swan.game.ad.downloader.model.DownloadParams;
-import java.io.File;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public interface dt3 {
-    String a();
+public class dt3 extends us3 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean b(Context context, Intent intent, String str, String str2, String str3);
-
-    String c();
-
-    boolean d(@NonNull Context context, @NonNull JSONObject jSONObject, @NonNull DownloadParams.SwanAppDownloadType swanAppDownloadType, @NonNull ks3 ks3Var);
-
-    String e();
-
-    String f(String str);
-
-    String g();
-
-    String getAppId();
-
-    String getAppKey();
-
-    String getScene();
-
-    String getSdkVersion();
-
-    int h();
-
-    String i(String str);
-
-    int j();
-
-    int k();
-
-    Uri l(@NonNull Context context, @NonNull File file);
-
-    String m();
-
-    JSONObject n();
-
-    boolean o(View view2);
+    public dt3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

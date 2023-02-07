@@ -1,72 +1,84 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.widget.Toast;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
+@Service
 /* loaded from: classes6.dex */
-public class qv3 extends pw3 {
+public class qv3 extends vq1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qv3() {
-        super("openSpaceCleanActivity");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948105243, "Lcom/baidu/tieba/qv3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948105243, "Lcom/baidu/tieba/qv3;");
                 return;
             }
         }
+        a = gp1.a;
     }
 
-    @Override // com.baidu.tieba.pw3
-    public jw1 a(@NonNull JSONObject jSONObject, @NonNull nh2 nh2Var) {
-        InterceptResult invokeLL;
-        boolean z;
+    public qv3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, nh2Var)) == null) {
-            if (sh3.m()) {
-                z = b("com.huawei.systemmanager", "com.huawei.systemmanager.appfeature.spacecleaner.SpaceCleanActivity");
-            } else if (sh3.n()) {
-                z = b("com.miui.cleanmaster", "com.miui.optimizecenter.MainActivity");
-            } else if (sh3.o()) {
-                z = b("com.coloros.phonemanager", "com.coloros.phonemanager.clear.ClearActivity");
-            } else if (sh3.r()) {
-                z = b("com.iqoo.secure", "com.iqoo.secure.clean.PhoneCleanActivity2");
-            } else {
-                z = false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            if (!z) {
-                Toast.makeText(qn2.c(), (int) R.string.obfuscated_res_0x7f0f0192, 0).show();
-            }
-            nh2Var.a(null);
-            return null;
         }
-        return (jw1) invokeLL.objValue;
     }
 
-    public final boolean b(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.ss1
+    public boolean x() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            Intent intent = new Intent();
-            intent.setClassName(str, str2);
-            return sg3.i(qn2.c(), intent, true, false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (a && v43.G().booleanValue()) {
+                return false;
+            }
+            return true;
         }
-        return invokeLL.booleanValue;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ss1
+    public JSONObject getRawSwitch() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                if (xq4.a()) {
+                    jSONObject.put("swanswitch_android_setdata", 1);
+                }
+                jSONObject.put("swanswitch_ab_inline_video", 1);
+                jSONObject.put("swanswitch_ab_inline_input", 1);
+                jSONObject.put("swanswitch_ab_inline_textarea", 1);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

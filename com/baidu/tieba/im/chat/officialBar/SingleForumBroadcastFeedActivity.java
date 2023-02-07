@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.live.message.MemoryClearUnreadCountMessage;
 import com.baidu.tbadk.mutiprocess.event.TopToastEvent;
-import com.baidu.tieba.bd5;
-import com.baidu.tieba.fh7;
-import com.baidu.tieba.rh7;
-import com.baidu.tieba.wf7;
+import com.baidu.tieba.cm7;
+import com.baidu.tieba.hk7;
+import com.baidu.tieba.mh5;
+import com.baidu.tieba.ql7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,15 +25,15 @@ import java.util.List;
 public class SingleForumBroadcastFeedActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wf7 a;
+    public hk7 a;
     public OfficialBarFeedMsglistView b;
     public String c;
     public byte d;
-    public bd5 e;
-    public wf7.d f;
+    public mh5 e;
+    public hk7.d f;
 
     /* loaded from: classes4.dex */
-    public class a extends bd5<TopToastEvent> {
+    public class a extends mh5<TopToastEvent> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SingleForumBroadcastFeedActivity c;
@@ -57,14 +57,14 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.uc5
+        @Override // com.baidu.tieba.fh5
         /* renamed from: a */
         public boolean onEvent(TopToastEvent topToastEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, topToastEvent)) == null) {
                 if (this.c.b != null) {
-                    this.c.b.u(topToastEvent.isSuccess(), topToastEvent.getContent());
+                    this.c.b.v(topToastEvent.isSuccess(), topToastEvent.getContent());
                     return false;
                 }
                 return false;
@@ -74,7 +74,7 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
     }
 
     /* loaded from: classes4.dex */
-    public class b implements wf7.d {
+    public class b implements hk7.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SingleForumBroadcastFeedActivity a;
@@ -97,19 +97,19 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
             this.a = singleForumBroadcastFeedActivity;
         }
 
-        @Override // com.baidu.tieba.wf7.d
-        public void a(List<rh7> list) {
+        @Override // com.baidu.tieba.hk7.d
+        public void a(List<cm7> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                this.a.b.r(list, null);
+                this.a.b.s(list, null);
             }
         }
 
-        @Override // com.baidu.tieba.wf7.d
-        public void onReadCountLoad(LongSparseArray<fh7> longSparseArray) {
+        @Override // com.baidu.tieba.hk7.d
+        public void onReadCountLoad(LongSparseArray<ql7> longSparseArray) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, longSparseArray) == null) {
-                this.a.b.s(longSparseArray);
+                this.a.b.t(longSparseArray);
             }
         }
     }
@@ -136,9 +136,9 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
-            wf7 wf7Var = this.a;
-            if (wf7Var != null) {
-                wf7Var.e();
+            hk7 hk7Var = this.a;
+            if (hk7Var != null) {
+                hk7Var.e();
             }
             unRegisterResponsedEventListener();
         }
@@ -158,15 +158,15 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            wf7 wf7Var = new wf7(getPageContext());
-            this.a = wf7Var;
-            wf7Var.i(this.f);
+            hk7 hk7Var = new hk7(getPageContext());
+            this.a = hk7Var;
+            hk7Var.i(this.f);
             this.b = new OfficialBarFeedMsglistView(this, true);
             if (getIntent() != null) {
                 this.c = getIntent().getStringExtra("key_uid");
                 this.d = getIntent().getByteExtra(SingleForumBroadcastFeedActivityConfig.KEY_SOURCE, (byte) 3);
                 this.a.f(this.c);
-                this.b.v(this.c, System.currentTimeMillis());
+                this.b.w(this.c, System.currentTimeMillis());
             }
             registerResponsedEventListener(TopToastEvent.class, this.e);
         }

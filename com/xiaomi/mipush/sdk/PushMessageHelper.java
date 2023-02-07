@@ -84,7 +84,7 @@ public class PushMessageHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, imVar, hwVar, z)) == null) {
             MiPushMessage miPushMessage = new MiPushMessage();
-            miPushMessage.setMessageId(imVar.m576a());
+            miPushMessage.setMessageId(imVar.m578a());
             if (!TextUtils.isEmpty(imVar.d())) {
                 miPushMessage.setMessageType(1);
                 miPushMessage.setAlias(imVar.d());
@@ -103,17 +103,17 @@ public class PushMessageHelper {
             }
             if (hwVar != null) {
                 if (TextUtils.isEmpty(miPushMessage.getMessageId())) {
-                    miPushMessage.setMessageId(hwVar.m504a());
+                    miPushMessage.setMessageId(hwVar.m506a());
                 }
                 if (TextUtils.isEmpty(miPushMessage.getTopic())) {
-                    miPushMessage.setTopic(hwVar.m509b());
+                    miPushMessage.setTopic(hwVar.m511b());
                 }
                 miPushMessage.setDescription(hwVar.d());
-                miPushMessage.setTitle(hwVar.m512c());
+                miPushMessage.setTitle(hwVar.m514c());
                 miPushMessage.setNotifyType(hwVar.a());
                 miPushMessage.setNotifyId(hwVar.c());
                 miPushMessage.setPassThrough(hwVar.b());
-                miPushMessage.setExtra(hwVar.m505a());
+                miPushMessage.setExtra(hwVar.m507a());
             }
             miPushMessage.setNotified(z);
             return miPushMessage;

@@ -38,7 +38,7 @@ public final class MissingMainCoroutineDispatcher extends MainCoroutineDispatche
     /* JADX DEBUG: Possible override for method kotlinx.coroutines.CoroutineDispatcher.dispatch(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Runnable;)V */
     @Override // kotlinx.coroutines.CoroutineDispatcher
     /* renamed from: dispatch */
-    public Void mo2188dispatch(CoroutineContext coroutineContext, Runnable runnable) {
+    public Void mo2228dispatch(CoroutineContext coroutineContext, Runnable runnable) {
         missing();
         throw null;
     }
@@ -84,7 +84,7 @@ public final class MissingMainCoroutineDispatcher extends MainCoroutineDispatche
 
     @Override // kotlinx.coroutines.Delay
     /* renamed from: scheduleResumeAfterDelay  reason: collision with other method in class */
-    public /* bridge */ /* synthetic */ void mo2189scheduleResumeAfterDelay(long j, CancellableContinuation cancellableContinuation) {
+    public /* bridge */ /* synthetic */ void mo2229scheduleResumeAfterDelay(long j, CancellableContinuation cancellableContinuation) {
         scheduleResumeAfterDelay(j, (CancellableContinuation<? super Unit>) cancellableContinuation);
     }
 

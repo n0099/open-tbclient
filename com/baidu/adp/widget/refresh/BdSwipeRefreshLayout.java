@@ -26,7 +26,7 @@ import androidx.core.view.NestedScrollingParentHelper;
 import androidx.core.view.ViewCompat;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qo;
+import com.baidu.tieba.vo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -120,7 +120,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public BdCircleImageView a;
-        public qo b;
+        public vo b;
         public Animation c;
         public Animation d;
         public final /* synthetic */ BdSwipeRefreshLayout e;
@@ -174,9 +174,9 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
             public void applyTransformation(float f, Transformation transformation) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), transformation}) == null) {
-                    qo qoVar = this.c.b;
+                    vo voVar = this.c.b;
                     int i = this.a;
-                    qoVar.setAlpha((int) (i + ((this.b - i) * f)));
+                    voVar.setAlpha((int) (i + ((this.b - i) * f)));
                 }
             }
         }
@@ -198,9 +198,9 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
             }
             this.e = bdSwipeRefreshLayout;
             this.a = new BdCircleImageView(bdSwipeRefreshLayout.getContext(), SwipeRefreshLayout.CIRCLE_BG_LIGHT);
-            qo qoVar = new qo(context, this.a);
-            this.b = qoVar;
-            qoVar.e(SwipeRefreshLayout.CIRCLE_BG_LIGHT);
+            vo voVar = new vo(context, this.a);
+            this.b = voVar;
+            voVar.e(SwipeRefreshLayout.CIRCLE_BG_LIGHT);
             this.a.setImageDrawable(this.b);
             this.a.setVisibility(8);
         }

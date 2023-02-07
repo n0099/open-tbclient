@@ -98,9 +98,9 @@ public class c1 extends Dialog implements View.OnClickListener, DialogInterface.
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, view2, z) == null) {
                 if (z) {
-                    this.a.setBackgroundResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804b5);
+                    this.a.setBackgroundResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804b2);
                 } else {
-                    this.a.setBackgroundResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804b0);
+                    this.a.setBackgroundResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804ad);
                 }
             }
         }
@@ -257,35 +257,35 @@ public class c1 extends Dialog implements View.OnClickListener, DialogInterface.
             setOnDismissListener(this);
             Window window = getWindow();
             window.setGravity(80);
-            window.setWindowAnimations(com.baidu.tieba.R.style.obfuscated_res_0x7f100422);
-            View inflate = View.inflate(this.a, com.baidu.tieba.R.layout.obfuscated_res_0x7f0d08d8, null);
-            inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090447).setOnClickListener(this);
-            inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090de2).setOnClickListener(this);
+            window.setWindowAnimations(com.baidu.tieba.R.style.obfuscated_res_0x7f100425);
+            View inflate = View.inflate(this.a, com.baidu.tieba.R.layout.obfuscated_res_0x7f0d08d0, null);
+            inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090441).setOnClickListener(this);
+            inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090e27).setOnClickListener(this);
             window.setContentView(inflate);
             this.j = p1.c(this.a, t1.a("25"));
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(13);
             this.j.setVisibility(8);
-            ((RelativeLayout) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091d34)).addView(this.j, layoutParams);
+            ((RelativeLayout) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091d49)).addView(this.j, layoutParams);
             window.setLayout(-1, -2);
-            Button button = (Button) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09046f);
+            Button button = (Button) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090471);
             this.l = button;
             button.setOnClickListener(this);
-            EditText editText = (EditText) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09096c);
+            EditText editText = (EditText) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09099c);
             this.k = editText;
             editText.setOnClickListener(this);
             JSONArray jSONArray = this.f;
             if (jSONArray != null && jSONArray.length() > 0) {
                 this.b = 0;
-                inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09148b).setVisibility(0);
+                inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0914cd).setVisibility(0);
                 int length = this.f.length();
                 if (length != 1) {
                     if (length != 2) {
                         if (length != 3) {
                             if (length != 4) {
                                 if (length == 5) {
-                                    inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09148e).setVisibility(0);
-                                    CheckBox checkBox = (CheckBox) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0905c3);
+                                    inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0914d0).setVisibility(0);
+                                    CheckBox checkBox = (CheckBox) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0905c4);
                                     this.u = checkBox;
                                     checkBox.setVisibility(0);
                                     this.u.setText(this.f.optString(4));
@@ -293,8 +293,8 @@ public class c1 extends Dialog implements View.OnClickListener, DialogInterface.
                                     this.u.setOnClickListener(this);
                                 }
                             } else {
-                                inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09148d).setVisibility(0);
-                                CheckBox checkBox2 = (CheckBox) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0905c2);
+                                inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0914cf).setVisibility(0);
+                                CheckBox checkBox2 = (CheckBox) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0905c3);
                                 this.t = checkBox2;
                                 checkBox2.setVisibility(0);
                                 this.t.setText(this.f.optString(3));
@@ -302,8 +302,8 @@ public class c1 extends Dialog implements View.OnClickListener, DialogInterface.
                                 this.t.setOnClickListener(this);
                             }
                         } else {
-                            inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09148d).setVisibility(0);
-                            CheckBox checkBox3 = (CheckBox) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0905c1);
+                            inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0914cf).setVisibility(0);
+                            CheckBox checkBox3 = (CheckBox) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0905c2);
                             this.s = checkBox3;
                             checkBox3.setVisibility(0);
                             this.s.setText(this.f.optString(2));
@@ -311,8 +311,8 @@ public class c1 extends Dialog implements View.OnClickListener, DialogInterface.
                             this.s.setOnClickListener(this);
                         }
                     } else {
-                        inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09148c).setVisibility(0);
-                        CheckBox checkBox4 = (CheckBox) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0905c0);
+                        inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0914ce).setVisibility(0);
+                        CheckBox checkBox4 = (CheckBox) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0905c1);
                         this.r = checkBox4;
                         checkBox4.setVisibility(0);
                         this.r.setText(this.f.optString(1));
@@ -320,8 +320,8 @@ public class c1 extends Dialog implements View.OnClickListener, DialogInterface.
                         this.r.setOnClickListener(this);
                     }
                 } else {
-                    inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09148c).setVisibility(0);
-                    CheckBox checkBox5 = (CheckBox) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0905bf);
+                    inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0914ce).setVisibility(0);
+                    CheckBox checkBox5 = (CheckBox) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0905c0);
                     this.q = checkBox5;
                     checkBox5.setVisibility(0);
                     this.q.setText(this.f.optString(0));
@@ -331,17 +331,17 @@ public class c1 extends Dialog implements View.OnClickListener, DialogInterface.
             }
             if (!TextUtils.isEmpty(this.d)) {
                 this.c = 0;
-                RelativeLayout relativeLayout = (RelativeLayout) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091d29);
+                RelativeLayout relativeLayout = (RelativeLayout) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091d3e);
                 relativeLayout.setVisibility(0);
                 this.k.setHint(this.d);
                 this.k.clearFocus();
                 this.k.setFocusable(false);
-                relativeLayout.setBackgroundResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804b0);
+                relativeLayout.setBackgroundResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804ad);
                 this.k.setOnClickListener(this);
                 this.k.addTextChangedListener(this);
                 this.k.setOnFocusChangeListener(new a(this, relativeLayout));
                 if (this.e == 0) {
-                    this.l.setBackgroundResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804af);
+                    this.l.setBackgroundResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804ac);
                     this.l.setTextColor(-1);
                     this.l.setClickable(true);
                 }
@@ -383,20 +383,20 @@ public class c1 extends Dialog implements View.OnClickListener, DialogInterface.
             }
             if (this.e == 1) {
                 if (this.c == 2) {
-                    this.l.setBackgroundResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804af);
+                    this.l.setBackgroundResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804ac);
                     this.l.setTextColor(-1);
                 } else {
-                    this.l.setBackgroundResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804ad);
+                    this.l.setBackgroundResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804aa);
                     this.l.setTextColor(872415231);
                 }
             }
             if (this.e == 3) {
                 if (this.c == 2 && this.b == 1) {
-                    this.l.setBackgroundResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804af);
+                    this.l.setBackgroundResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804ac);
                     this.l.setTextColor(-1);
                     return;
                 }
-                this.l.setBackgroundResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804ad);
+                this.l.setBackgroundResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804aa);
                 this.l.setTextColor(872415231);
             }
         }
@@ -407,7 +407,7 @@ public class c1 extends Dialog implements View.OnClickListener, DialogInterface.
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.j.setVisibility(0);
             this.j.bringToFront();
-            this.l.setBackgroundResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804ad);
+            this.l.setBackgroundResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804aa);
             this.l.setTextColor(872415231);
             this.l.setClickable(false);
             this.k.clearFocus();
@@ -432,20 +432,20 @@ public class c1 extends Dialog implements View.OnClickListener, DialogInterface.
             }
             if (this.e == 2) {
                 if (this.b == 1) {
-                    this.l.setBackgroundResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804af);
+                    this.l.setBackgroundResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804ac);
                     this.l.setTextColor(-1);
                 } else {
-                    this.l.setBackgroundResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804ad);
+                    this.l.setBackgroundResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804aa);
                     this.l.setTextColor(872415231);
                 }
             }
             if (this.e == 3) {
                 if (this.b == 1 && this.c == 2) {
-                    this.l.setBackgroundResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804af);
+                    this.l.setBackgroundResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804ac);
                     this.l.setTextColor(-1);
                     return;
                 }
-                this.l.setBackgroundResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804ad);
+                this.l.setBackgroundResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804aa);
                 this.l.setTextColor(872415231);
             }
         }
@@ -455,13 +455,13 @@ public class c1 extends Dialog implements View.OnClickListener, DialogInterface.
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
-            if (view2.getId() == com.baidu.tieba.R.id.obfuscated_res_0x7f090447) {
+            if (view2.getId() == com.baidu.tieba.R.id.obfuscated_res_0x7f090441) {
                 dismiss();
             }
-            if (view2.getId() == com.baidu.tieba.R.id.obfuscated_res_0x7f090de2) {
+            if (view2.getId() == com.baidu.tieba.R.id.obfuscated_res_0x7f090e27) {
                 dismiss();
             }
-            if (view2.getId() != com.baidu.tieba.R.id.obfuscated_res_0x7f09096c) {
+            if (view2.getId() != com.baidu.tieba.R.id.obfuscated_res_0x7f09099c) {
                 this.k.clearFocus();
                 this.k.setFocusable(false);
             } else {
@@ -470,7 +470,7 @@ public class c1 extends Dialog implements View.OnClickListener, DialogInterface.
                 this.k.setFocusableInTouchMode(true);
                 this.k.requestFocus();
             }
-            if (view2.getId() == com.baidu.tieba.R.id.obfuscated_res_0x7f09046f) {
+            if (view2.getId() == com.baidu.tieba.R.id.obfuscated_res_0x7f090471) {
                 int i = this.b;
                 if (i == -1) {
                     int i2 = this.c;

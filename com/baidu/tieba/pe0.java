@@ -1,47 +1,47 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
 /* loaded from: classes5.dex */
 public class pe0 {
     public static /* synthetic */ Interceptable $ic;
-    public static Context a;
-    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Context a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? a : (Context) invokeV.objValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948059022, "Lcom/baidu/tieba/pe0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948059022, "Lcom/baidu/tieba/pe0;");
+        }
     }
 
-    public static String b() {
-        InterceptResult invokeV;
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? b : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return new File(str).delete();
+        }
+        return invokeL.booleanValue;
     }
 
-    public static String c() {
-        InterceptResult invokeV;
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? "1.1.8.12" : (String) invokeV.objValue;
-    }
-
-    public static void d(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, context, str) == null) {
-            if (context == null) {
-                throw new NullPointerException("context is null");
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            File parentFile = new File(str).getParentFile();
+            if (!parentFile.exists()) {
+                parentFile.mkdirs();
             }
-            if (TextUtils.isEmpty(str)) {
-                throw new NullPointerException("clienID is null");
-            }
-            a = context.getApplicationContext();
-            b = str;
-            context.getPackageName();
         }
     }
 }

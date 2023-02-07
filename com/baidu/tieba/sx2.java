@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,70 +13,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class sx2 implements ux2 {
+public class sx2 extends yx2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean k;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public tx2 a;
-    public SimpleDateFormat b;
-    public HashMap<String, List<rx2>> c;
-    public final Object d;
-    public String e;
-    public boolean f;
-    public boolean g;
-    public long h;
-    public long i;
-    public volatile fy2 j;
-
-    /* loaded from: classes6.dex */
-    public class a implements tx2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sx2 a;
-
-        public a(sx2 sx2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sx2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = sx2Var;
-        }
-
-        @Override // com.baidu.tieba.tx2
-        public boolean a(rx2 rx2Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, rx2Var)) == null) {
-                if (rx2Var == null || rx2Var.c() < 0) {
-                    return false;
-                }
-                if (sx2.k || rx2Var.b() == 0) {
-                    return this.a.m(rx2Var.e());
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -89,333 +35,68 @@ public class sx2 implements ux2 {
                 return;
             }
         }
-        k = tk1.a;
+        b = gp1.a;
     }
 
-    public sx2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sx2(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.d = new Object();
     }
 
-    @Override // com.baidu.tieba.ux2
-    public void b(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || !wx2.h().k()) {
-            return;
-        }
-        n();
-        if (this.f) {
-            o("aiapp start finish");
-            return;
-        }
-        o("ubcReport enter");
-        if (jSONObject != null && jSONObject.length() > 0) {
-            String k2 = k(jSONObject);
-            o("Id " + k2);
-            if (!TextUtils.equals(k2, "786")) {
-                return;
-            }
-            if (k) {
-                Log.d("ApiCalledMarker", jSONObject.toString());
-            }
-            JSONObject j = j(jSONObject);
-            if (j != null && j.length() > 0) {
-                JSONObject optJSONObject = j.optJSONObject("ext");
-                if (optJSONObject != null && optJSONObject.length() > 0) {
-                    if (TextUtils.isEmpty(this.e)) {
-                        this.e = optJSONObject.optString("swan");
-                        o("current swan version " + this.e);
-                    }
-                    JSONArray optJSONArray = optJSONObject.optJSONArray("list");
-                    if (optJSONArray != null && optJSONArray.length() > 0) {
-                        q(optJSONArray);
-                        o("ubcReport over");
-                        t(i());
-                        return;
-                    }
-                    o("value-ext-list is empty");
-                    return;
-                }
-                o("value-ext is empty");
-                return;
-            }
-            o("value is empty");
-            return;
-        }
-        o("json data is empty");
-    }
-
-    @Override // com.baidu.tieba.vx2
-    public void end(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.g = true;
-            this.i = j;
-            t(i());
-            o("launch end time-" + (this.h + this.i));
-        }
-    }
-
-    public final void l(JSONObject jSONObject) {
-        fy2 dy2Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) && this.j == null) {
-            synchronized (this.d) {
-                if (this.j == null) {
-                    if (jSONObject.has("caller")) {
-                        dy2Var = new ey2();
-                    } else {
-                        dy2Var = new dy2();
-                    }
-                    this.j = dy2Var;
-                }
-            }
-        }
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        int i;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!this.g || this.b == null) {
-                return "";
-            }
-            StringBuilder sb = new StringBuilder();
-            sb.append("----- ");
-            sb.append("launch start time ");
-            sb.append(this.b.format(Long.valueOf(this.h)));
-            sb.append("\n");
-            sb.append("----- ");
-            sb.append("launch end time ");
-            sb.append(this.b.format(Long.valueOf(this.h + this.i)));
-            sb.append("\n");
-            sb.append("----- ");
-            sb.append("swan js version ");
-            sb.append(this.e);
-            sb.append("\n");
-            synchronized (this.d) {
-                i = 0;
-                i2 = 0;
-                for (Map.Entry<String, List<rx2>> entry : this.c.entrySet()) {
-                    List<rx2> value = entry.getValue();
-                    if (value != null && value.size() > 0) {
-                        StringBuilder sb2 = new StringBuilder();
-                        int i3 = 0;
-                        for (rx2 rx2Var : value) {
-                            if (this.a == null || this.a.a(rx2Var)) {
-                                sb2.append("----- start time ");
-                                sb2.append(this.b.format(Long.valueOf(rx2Var.e())));
-                                sb2.append("\n");
-                                sb2.append("----- end time ");
-                                sb2.append(this.b.format(Long.valueOf(rx2Var.d())));
-                                sb2.append("\n");
-                                sb2.append("----- cost time ");
-                                sb2.append(rx2Var.c());
-                                sb2.append("ms\n");
-                                sb2.append("----------------------------\n");
-                                i2++;
-                                i3++;
-                            }
-                        }
-                        if (i3 > 0) {
-                            sb.append("\n===== ");
-                            sb.append(entry.getKey());
-                            sb.append(" ");
-                            sb.append(i3);
-                            sb.append(" times\n");
-                            sb.append((CharSequence) sb2);
-                            i++;
-                        }
-                    }
-                }
-            }
-            sb.append("===== total: ");
-            sb.append(i);
-            sb.append(" apis, ");
-            sb.append(i2);
-            sb.append(" times");
-            String sb3 = sb.toString();
-            j12.b("ApiCalledMarker", sb3);
-            return sb3;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final JSONObject j(JSONObject jSONObject) {
+    public final int d(HashMap<String, String> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONObject)) == null) {
-            JSONObject optJSONObject = jSONObject.optJSONObject("content");
-            if (optJSONObject == null) {
-                return jSONObject.optJSONObject("value");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap)) == null) {
+            String str = hashMap.get("params");
+            if (TextUtils.isEmpty(str)) {
+                return -1;
             }
-            return optJSONObject;
+            try {
+                return new JSONObject(str).optInt("direction", -1);
+            } catch (JSONException e) {
+                if (!b) {
+                    return -1;
+                }
+                e.printStackTrace();
+                return -1;
+            }
         }
-        return (JSONObject) invokeL.objValue;
+        return invokeL.intValue;
     }
 
-    public final String k(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.yx2
+    public boolean a(ox2 ox2Var, qx2 qx2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, w83 w83Var) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONObject)) == null) {
-            String optString = jSONObject.optString("ubcId");
-            if (TextUtils.isEmpty(optString)) {
-                return jSONObject.optString("actionId");
-            }
-            return optString;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final boolean m(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
-            long j2 = this.h;
-            if (j >= j2 && j <= j2 + this.i) {
-                return true;
-            }
-            return false;
-        }
-        return invokeJ.booleanValue;
-    }
-
-    public final void o(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) && k) {
-            Log.d("ApiCalledMarker", str);
-        }
-    }
-
-    public final boolean p(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
-            if (!this.g || j <= this.h + this.i) {
-                return false;
-            }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{ox2Var, qx2Var, context, unitedSchemeEntity, callbackHandler, w83Var})) == null) {
+            w52.i("video", "fullscreen, video id:" + qx2Var.j + " slave id: " + qx2Var.c);
+            e(ox2Var, qx2Var.s, unitedSchemeEntity, callbackHandler);
             return true;
         }
-        return invokeJ.booleanValue;
+        return invokeCommon.booleanValue;
     }
 
-    @Override // com.baidu.tieba.vx2
-    public void start(long j) {
+    public final void e(ox2 ox2Var, boolean z, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        HashMap<String, String> params;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
-            n();
-            s();
-            this.h = j;
-            o("launch start time-" + j);
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{ox2Var, Boolean.valueOf(z), unitedSchemeEntity, callbackHandler}) == null) && (params = unitedSchemeEntity.getParams()) != null && !params.isEmpty()) {
+            ox2Var.u(z, d(params));
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
-    }
-
-    public final void t(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048590, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        fg3.j.update((eg3<String>) str);
-    }
-
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || this.c != null) {
-            return;
-        }
-        synchronized (this.d) {
-            if (this.c == null) {
-                this.c = new HashMap<>();
-                this.b = new SimpleDateFormat("HH:mm:ss:SSS", Locale.getDefault());
-                this.a = new a(this);
-            }
-        }
-    }
-
-    public final void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            if (this.c.size() > 0) {
-                synchronized (this.d) {
-                    this.c.clear();
-                }
-            }
-            this.f = false;
-            this.g = false;
-            this.i = 0L;
-            this.h = 0L;
-            this.e = null;
-            t("===== loading... =====");
-        }
-    }
-
-    public final void q(JSONArray jSONArray) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, jSONArray) == null) {
-            o("start parse api info");
-            int length = jSONArray.length();
-            if (length > 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                if (optJSONObject != null && optJSONObject.length() > 0 && optJSONObject.optInt("success") == 1) {
-                    z &= !r(optJSONObject);
-                }
-            }
-            this.f = z;
-            o("start done " + this.f);
-        }
-    }
-
-    public final boolean r(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        List<rx2> a2;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, jSONObject)) == null) {
-            l(jSONObject);
-            String optString = jSONObject.optString(com.alipay.sdk.cons.c.n);
-            if (TextUtils.isEmpty(optString) || (a2 = this.j.a(jSONObject)) == null || a2.size() <= 0) {
-                return true;
-            }
-            if (a2.size() > 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            synchronized (this.d) {
-                List<rx2> list = this.c.get(optString);
-                if (list == null) {
-                    list = new ArrayList<>();
-                    this.c.put(optString, list);
-                }
-                list.addAll(a2);
-                for (rx2 rx2Var : a2) {
-                    z &= p(rx2Var.e());
-                }
-            }
-            if (k) {
-                Log.d("ApiCalledMarker", "api - " + optString + ", all after fmp - " + z);
-            }
-            return !z;
-        }
-        return invokeL.booleanValue;
     }
 }

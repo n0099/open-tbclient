@@ -2,12 +2,17 @@ package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class qz0 extends ou0 {
+public class qz0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public boolean c;
+    public int d;
 
     public qz0() {
         Interceptable interceptable = $ic;
@@ -19,7 +24,18 @@ public final class qz0 extends ou0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.d = -1;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "VideoPrepareModel{videoUrl='" + this.a + "', interactUrl='" + this.b + "', isNeedPrepare=" + this.c + ", playerStageType=" + this.d + '}';
+        }
+        return (String) invokeV.objValue;
     }
 }

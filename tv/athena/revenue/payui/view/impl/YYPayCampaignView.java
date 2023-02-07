@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eha;
-import com.baidu.tieba.iha;
+import com.baidu.tieba.nla;
+import com.baidu.tieba.rla;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +30,7 @@ import tv.athena.revenue.payui.view.WindowParams;
 import tv.athena.revenue.payui.view.adapter.PayAmountCampaignListAdapter;
 import tv.athena.revenue.payui.view.adapter.PayCampaignListItemDecoration;
 /* loaded from: classes9.dex */
-public class YYPayCampaignView extends LinearLayout implements iha {
+public class YYPayCampaignView extends LinearLayout implements rla {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Activity a;
@@ -42,21 +42,21 @@ public class YYPayCampaignView extends LinearLayout implements iha {
     public PayAmountCampaignListAdapter g;
     public LinearLayoutManager h;
 
-    @Override // com.baidu.tieba.hha
+    @Override // com.baidu.tieba.qla
     public void attachWindow(Window window) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, window) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.hha
+    @Override // com.baidu.tieba.qla
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.hha
+    @Override // com.baidu.tieba.qla
     public void refreshWindow(WindowParams windowParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, windowParams) == null) {
@@ -90,7 +90,7 @@ public class YYPayCampaignView extends LinearLayout implements iha {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(new ContextThemeWrapper(context, eha.a.a(this.e))).inflate(R.layout.pay_ui_layout_pay_amount_campaign_view, (ViewGroup) this, true);
+            LayoutInflater.from(new ContextThemeWrapper(context, nla.a.a(this.e))).inflate(R.layout.pay_ui_layout_pay_amount_campaign_view, (ViewGroup) this, true);
             this.b = (RecyclerView) findViewById(R.id.rv_campaign);
             this.c = (RelativeLayout) findViewById(R.id.rl_content);
             this.h = new LinearLayoutManager(context, 0, false);
@@ -101,7 +101,7 @@ public class YYPayCampaignView extends LinearLayout implements iha {
         }
     }
 
-    @Override // com.baidu.tieba.hha
+    @Override // com.baidu.tieba.qla
     public void refreshView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -121,7 +121,7 @@ public class YYPayCampaignView extends LinearLayout implements iha {
         }
     }
 
-    @Override // com.baidu.tieba.iha
+    @Override // com.baidu.tieba.rla
     public void setGiftBagsInfo(GiftBagsInfo giftBagsInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, giftBagsInfo) == null) {

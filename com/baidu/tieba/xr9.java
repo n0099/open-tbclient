@@ -1,55 +1,69 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.SharedPreferences;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.text.DecimalFormat;
-/* loaded from: classes6.dex */
-public class xr9 {
+/* loaded from: classes7.dex */
+public final class xr9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final DecimalFormat a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948310122, "Lcom/baidu/tieba/xr9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948310122, "Lcom/baidu/tieba/xr9;");
-                return;
-            }
-        }
-        a = new DecimalFormat("0.00");
-    }
-
-    public static String a(long j, long j2) {
-        InterceptResult invokeCommon;
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            return a.format(((float) j) / 1048576.0f) + "M/" + a.format(((float) j2) / 1048576.0f) + "M";
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+            d().edit().putBoolean(str, true).apply();
         }
-        return (String) invokeCommon.objValue;
     }
 
-    public static int b(String str, String str2) {
+    public static boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return d().getBoolean(str, false);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static long c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return d().getLong(str, 0L);
+        }
+        return invokeL.longValue;
+    }
+
+    public static SharedPreferences d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return tq9.h().getContext().getSharedPreferences("baidu_ab_general_config", 0);
+        }
+        return (SharedPreferences) invokeV.objValue;
+    }
+
+    public static String e(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            try {
-                String hexString = Integer.toHexString((int) (Float.parseFloat(str2) * 255.0f));
-                return Color.parseColor("#" + hexString + str);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return 0;
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            return d().getString(str, str2);
         }
-        return invokeLL.intValue;
+        return (String) invokeLL.objValue;
+    }
+
+    public static void f(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
+            d().edit().putString(str, str2).apply();
+        }
+    }
+
+    public static void g(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(65542, null, str, j) == null) {
+            d().edit().putLong(str, j).apply();
+        }
     }
 }

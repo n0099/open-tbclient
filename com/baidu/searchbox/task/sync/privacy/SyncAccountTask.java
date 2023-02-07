@@ -6,8 +6,8 @@ import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.qr4;
-import com.baidu.tieba.ry4;
+import com.baidu.tieba.dw4;
+import com.baidu.tieba.e35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,10 +53,10 @@ public class SyncAccountTask extends LaunchTask {
     public void execute() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
-            ry4.a(DI.ACCOUNT, -1L, 0, "logo_activity_uninit_account", 0, "", new Object[0]);
+            e35.a(DI.ACCOUNT, -1L, 0, "logo_activity_uninit_account", 0, "", new Object[0]);
             if (!TbadkCoreApplication.getInst().getDatabasePath(TbConfig.PHONE_DATEBASE_NAME).exists()) {
-                ry4.a(DI.ACCOUNT, -1L, 0, "logo_activity_sync_account", 0, "", new Object[0]);
-                TbadkCoreApplication.setCurrentAccount(qr4.e(), TbadkCoreApplication.getInst());
+                e35.a(DI.ACCOUNT, -1L, 0, "logo_activity_sync_account", 0, "", new Object[0]);
+                TbadkCoreApplication.setCurrentAccount(dw4.e(), TbadkCoreApplication.getInst());
             }
         }
     }

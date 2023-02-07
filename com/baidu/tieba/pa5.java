@@ -1,25 +1,15 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class pa5 extends la5 {
+public class pa5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-
-    @Override // com.baidu.tieba.la5
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "round_corner" : (String) invokeV.objValue;
-    }
+    public String a;
 
     public pa5() {
         Interceptable interceptable = $ic;
@@ -35,29 +25,12 @@ public class pa5 extends la5 {
         }
     }
 
-    @Override // com.baidu.tieba.la5
-    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
-        InterceptResult invokeLZ;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, z)) == null) {
-            if (bitmap == null) {
-                return null;
-            }
-            if (this.a <= 0.0f) {
-                return bitmap;
-            }
-            ba5.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
-            return BitmapHelper.getRoundedCornerBitmap(bitmap, this.a, z);
-        }
-        return (Bitmap) invokeLZ.objValue;
-    }
-
-    @Override // com.baidu.tieba.la5
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || str == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        this.a = yg.d(str, 0.0f);
+        jSONObject.optString("favorite_forum_id");
+        this.a = jSONObject.optString("favorite_forum_name");
     }
 }

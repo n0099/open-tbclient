@@ -1,130 +1,61 @@
 package com.baidu.tieba;
 
-import android.text.SpannableString;
-import android.text.TextPaint;
-import android.text.style.ClickableSpan;
-import android.view.View;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes6.dex */
-public class ub8 implements vb8 {
+public class ub8 extends PbListView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SpannableString a;
-    public String b;
-    public TbPageContext<?> c;
+    public TbPageContext<?> C;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    @Override // com.baidu.tieba.vb8
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.wb8
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends ClickableSpan {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ub8 a;
-
-        public b(ub8 ub8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ub8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ub8Var;
-        }
-
-        @Override // android.text.style.ClickableSpan
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                UrlManager.getInstance().dealOneLink(this.a.c, new String[]{this.a.b});
-            }
-        }
-
-        @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-        public void updateDrawState(TextPaint textPaint) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
-                super.updateDrawState(textPaint);
-                textPaint.setUnderlineText(false);
-            }
-        }
-
-        public /* synthetic */ b(ub8 ub8Var, a aVar) {
-            this(ub8Var);
-        }
-    }
-
-    public ub8(TbPageContext<?> tbPageContext, ExcContent excContent) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ub8(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, excContent};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (excContent == null || excContent.type.longValue() != 1 || StringUtils.isNull(excContent.text)) {
-            return;
-        }
-        this.c = tbPageContext;
-        this.a = new SpannableString(excContent.text);
-        this.a.setSpan(new b(this, null), 0, excContent.text.length(), 17);
-        this.b = excContent.link;
+        this.C = tbPageContext;
+        c().setPadding(0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701be), 0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702fd));
+        C();
+        B();
+        y();
+        J(R.dimen.obfuscated_res_0x7f070201);
     }
 
-    @Override // com.baidu.tieba.vb8
-    public CharSequence b() {
-        InterceptResult invokeV;
+    public void T() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.g();
+            F(this.C.getResources().getString(R.string.load_more));
+            c().setVisibility(0);
         }
-        return (CharSequence) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.view.PbListView
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.g();
+            F(this.C.getResources().getString(R.string.list_no_more));
+            c().setVisibility(0);
+        }
     }
 }

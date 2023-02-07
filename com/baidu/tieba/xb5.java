@@ -1,11 +1,21 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.WorkerThread;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import java.util.TreeSet;
+import com.baidu.tbadk.editortools.EditorTools;
 /* loaded from: classes6.dex */
-public interface xb5 {
-    @WorkerThread
-    void a(int i, @NonNull String str, @NonNull TreeSet<ChatMsg> treeSet);
+public interface xb5 extends mb5 {
+    void J(lb5 lb5Var);
+
+    void display();
+
+    int getToolId();
+
+    void hide();
+
+    void init();
+
+    void onChangeSkinType(int i);
+
+    void setEditorTools(EditorTools editorTools);
+
+    void setToolId(int i);
 }

@@ -263,7 +263,7 @@ public class CheckableImageButton extends AppCompatImageButton implements Checka
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CheckableImageButton(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040337);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040338);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

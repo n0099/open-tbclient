@@ -1,303 +1,334 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
+import android.content.pm.ApplicationInfo;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.app.NotificationCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.net.request.Headers;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.pyramid.annotation.Service;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.minivideo.effect.core.vlogedit.MediaAEffect;
+import com.baidu.minivideo.effect.core.vlogedit.MediaOneAEffect;
+import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
+import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
+import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
+import com.baidu.minivideo.effect.core.vlogedit.MediaTransition;
+import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
+import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import com.sina.weibo.sdk.utils.ResourceManager;
+import java.io.File;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONObject;
-@Service
 /* loaded from: classes6.dex */
-public class xg0 extends oi0 {
-    public static /* synthetic */ Interceptable $ic;
+public class xg0 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "MediaTrackUtils";
+    public static String b = "FILTER_MATRIX";
+    public static String c = "FILTER_LUT";
+    public static String d = "FILTER_SUB_LUT";
+    public static String e = "FILTER_SUBTITLE";
+    public static String f = "FILTER_STICKER";
+    public static String g = "FILTER_GAUSSIAN_BLUR_H";
+    public static String h = "FILTER_GAUSSIAN_BLUR_V";
+    public static boolean i = false;
+    public static int j = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.oi0
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? NotificationCompat.CATEGORY_CALL : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public class a extends ir0<Map<String, String>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ i71 a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ Context c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ wi0 e;
-        public final /* synthetic */ si0 f;
-        public final /* synthetic */ HashMap g;
-        public final /* synthetic */ String h;
-        public final /* synthetic */ xg0 i;
-
-        public a(xg0 xg0Var, i71 i71Var, String str, Context context, String str2, wi0 wi0Var, si0 si0Var, HashMap hashMap, String str3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xg0Var, i71Var, str, context, str2, wi0Var, si0Var, hashMap, str3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.i = xg0Var;
-            this.a = i71Var;
-            this.b = str;
-            this.c = context;
-            this.d = str2;
-            this.e = wi0Var;
-            this.f = si0Var;
-            this.g = hashMap;
-            this.h = str3;
-        }
-
-        @Override // com.baidu.tieba.gr0
-        public void a(Exception exc, int i) {
-            int i2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) {
-                this.a.dismiss();
-                this.i.n("4", this.b);
-                boolean l = this.i.l(this.c, this.d, this.b);
-                xg0 xg0Var = this.i;
-                wi0 wi0Var = this.e;
-                si0 si0Var = this.f;
-                if (l) {
-                    i2 = 0;
-                } else {
-                    i2 = 1001;
-                }
-                xg0Var.c(wi0Var, si0Var, i2, l);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.hr0
-        @Nullable
-        /* renamed from: f */
-        public Map<String, String> d(Headers headers, String str, int i) {
-            InterceptResult invokeLLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, headers, str, i)) == null) {
-                return xg0.m(str);
-            }
-            return (Map) invokeLLI.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.hr0
-        /* renamed from: e */
-        public void b(Headers headers, @Nullable Map<String, String> map, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048579, this, headers, map, i) == null) {
-                this.a.dismiss();
-                int i2 = 0;
-                if (map == null) {
-                    this.i.n("8", this.b);
-                    boolean l = this.i.l(this.c, this.d, this.b);
-                    xg0 xg0Var = this.i;
-                    wi0 wi0Var = this.e;
-                    si0 si0Var = this.f;
-                    if (!l) {
-                        i2 = 1001;
-                    }
-                    xg0Var.c(wi0Var, si0Var, i2, l);
-                    return;
-                }
-                String str = (String) v01.b(map, "virtualPhone");
-                if (TextUtils.isEmpty(str)) {
-                    this.i.n("5", this.b);
-                    boolean l2 = this.i.l(this.c, this.d, this.b);
-                    xg0 xg0Var2 = this.i;
-                    wi0 wi0Var2 = this.e;
-                    si0 si0Var2 = this.f;
-                    if (!l2) {
-                        i2 = 1001;
-                    }
-                    xg0Var2.c(wi0Var2, si0Var2, i2, l2);
-                    return;
-                }
-                String str2 = (String) v01.b(map, "solutionId");
-                if (TextUtils.isEmpty(str2)) {
-                    this.i.n("6", this.b);
-                    boolean l3 = this.i.l(this.c, this.d, this.b);
-                    xg0 xg0Var3 = this.i;
-                    wi0 wi0Var3 = this.e;
-                    si0 si0Var3 = this.f;
-                    if (!l3) {
-                        i2 = 1001;
-                    }
-                    xg0Var3.c(wi0Var3, si0Var3, i2, l3);
-                    return;
-                }
-                String str3 = (String) v01.b(this.g, "log_url");
-                if (str3 == null) {
-                    str3 = "";
-                }
-                if (TextUtils.isEmpty(str3)) {
-                    this.i.n("3", this.b);
-                } else {
-                    this.i.n("7", this.b);
-                    String replaceAll = str3.replaceAll("\\__TIMESTAMP__", this.h).replaceAll("\\__VIRTUALPHONE__", str).replaceAll("\\__SOLUTIONID__", str2);
-                    pr0 pr0Var = new pr0();
-                    pr0Var.l(replaceAll);
-                    pr0Var.g(3000);
-                    pr0Var.c();
-                    wq0.b().a().a(pr0Var, null);
-                }
-                boolean l4 = this.i.l(this.c, str, this.b);
-                xg0 xg0Var4 = this.i;
-                wi0 wi0Var4 = this.e;
-                si0 si0Var4 = this.f;
-                if (!l4) {
-                    i2 = 1001;
-                }
-                xg0Var4.c(wi0Var4, si0Var4, i2, l4);
-            }
-        }
-    }
-
-    public xg0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Nullable
-    public static Map<String, String> m(String str) {
-        InterceptResult invokeL;
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            HashMap hashMap = new HashMap();
-            JSONArray optJSONArray = u01.c(str).optJSONArray("data");
-            if (optJSONArray == null || optJSONArray.length() <= 0 || (optJSONObject = optJSONArray.optJSONObject(0)) == null) {
-                return null;
-            }
-            hashMap.put("virtualPhone", optJSONObject.optString("virtualPhone"));
-            hashMap.put("solutionId", optJSONObject.optString("solutionId"));
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.oi0
-    public boolean b(@NonNull Context context, @NonNull si0 si0Var, @Nullable Map<String, Object> map, @Nullable wi0 wi0Var) {
-        InterceptResult invokeLLLL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, si0Var, map, wi0Var)) == null) {
-            super.b(context, si0Var, map, wi0Var);
-            HashMap<String, String> d = si0Var.d();
-            String valueOf = String.valueOf(System.currentTimeMillis());
-            String str2 = (String) v01.b(d, "ext_info");
-            String str3 = (String) v01.b(d, "phone");
-            int i = 0;
-            if (TextUtils.isEmpty(str3)) {
-                n("1", str2);
-                c(wi0Var, si0Var, 202, false);
-                return true;
-            }
-            if (d.containsKey("type")) {
-                str = (String) v01.b(d, "type");
-            } else {
-                str = "0";
-            }
-            if (TextUtils.equals(str, "1")) {
-                String str4 = (String) v01.b(d, "number_url");
-                if (str4 == null) {
-                    str4 = "";
-                }
-                String str5 = str4;
-                if (TextUtils.isEmpty(str5)) {
-                    n("2", str2);
-                    boolean l = l(context, str3, str2);
-                    if (!l) {
-                        i = 1001;
-                    }
-                    c(wi0Var, si0Var, i, l);
-                    return true;
-                }
-                i71 i71Var = new i71(context);
-                i71Var.e(context.getString(R.string.nad_ocpc_phone_call_toast_text));
-                i71Var.c(false);
-                i71Var.d(false);
-                l31.b(i71Var);
-                a aVar = new a(this, i71Var, str2, context, str3, wi0Var, si0Var, d, valueOf);
-                String replaceAll = str5.replaceAll("\\__TIMESTAMP__", valueOf);
-                pr0 pr0Var = new pr0();
-                pr0Var.l(replaceAll);
-                pr0Var.g(3000);
-                pr0Var.c();
-                wq0.b().a().a(pr0Var, aVar);
-            } else {
-                boolean l2 = l(context, str3, str2);
-                if (!l2) {
-                    i = 1001;
-                }
-                c(wi0Var, si0Var, i, l2);
-            }
-            return true;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final boolean l(@NonNull Context context, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, str2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            if (l31.d(context, new Intent("android.intent.action.DIAL", Uri.parse("tel:" + str)))) {
-                n("11", str2);
-                new d91().p(context, str2, "makePhoneCall");
-                return true;
-            }
-            n("9", str2);
-            return true;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public final void n(@NonNull String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048579, this, str, str2) != null) || TextUtils.isEmpty(str2)) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948299272, "Lcom/baidu/tieba/xg0;")) == null) {
             return;
         }
-        e11.b(new ClogBuilder().u(ClogBuilder.Page.AD_CALL).i(ClogBuilder.Area.AD_CALL).y(ClogBuilder.LogType.AD_CALL).k(str).p(str2));
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948299272, "Lcom/baidu/tieba/xg0;");
+        }
+    }
+
+    public static void a(MediaTrack mediaTrack, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(65537, null, mediaTrack, j2) == null) {
+            vg0.b(mediaTrack, j2);
+            n(mediaTrack);
+        }
+    }
+
+    public static void c(MediaTrack mediaTrack, MediaTrackConfig mediaTrackConfig) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, mediaTrack, mediaTrackConfig) == null) {
+            vg0.g(mediaTrack, mediaTrackConfig);
+        }
+    }
+
+    public static boolean k(List<MediaTrack> list, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, list, str)) == null) {
+            return vg0.x(list, str);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean m(MediaTrack mediaTrack, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, mediaTrack, str)) == null) {
+            return vg0.E(mediaTrack, str);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void b(MediaTrack mediaTrack, Map<String, ShaderConfig> map, MediaTrack mediaTrack2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, mediaTrack, map, mediaTrack2) == null) {
+            vg0.f(mediaTrack, map, mediaTrack2);
+        }
+    }
+
+    public static void d(MediaTrack mediaTrack, List<MediaSegment> list, MediaTrackConfig mediaTrackConfig) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, mediaTrack, list, mediaTrackConfig) == null) {
+            vg0.h(mediaTrack, list, mediaTrackConfig);
+        }
+    }
+
+    public static List<MediaTrack> e(MediaTrack mediaTrack, MediaTrackConfig mediaTrackConfig, Map<String, ShaderConfig> map) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, mediaTrack, mediaTrackConfig, map)) == null) {
+            List<MediaTrack> j2 = vg0.j(mediaTrack, mediaTrackConfig, map);
+            for (MediaTrack mediaTrack2 : j2) {
+                n(mediaTrack2);
+            }
+            return j2;
+        }
+        return (List) invokeLLL.objValue;
+    }
+
+    public static String j(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, null, context, str, str2)) == null) {
+            return vg0.v(context, str, str2);
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public static String f(Context context, String str, String str2, String str3) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65542, null, context, str, str2, str3)) == null) {
+            return vg0.o(context, str, str2, str3);
+        }
+        return (String) invokeLLLL.objValue;
+    }
+
+    public static Bitmap g(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            if (!str.contains(File.separator)) {
+                return BitmapFactory.decodeResource(context.getResources(), h(str, context));
+            }
+            return BitmapFactory.decodeFile(str);
+        }
+        return (Bitmap) invokeLL.objValue;
+    }
+
+    public static int h(String str, Context context) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, context)) == null) {
+            try {
+                ApplicationInfo applicationInfo = context.getApplicationInfo();
+                int identifier = context.getResources().getIdentifier(str, ResourceManager.DRAWABLE, applicationInfo.packageName);
+                if (identifier == 0) {
+                    return context.getResources().getIdentifier(str, "mipmap", applicationInfo.packageName);
+                }
+                return identifier;
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return 0;
+            }
+        }
+        return invokeLL.intValue;
+    }
+
+    public static MediaAEffect i(MediaTrack mediaTrack, MediaTrackConfig mediaTrackConfig, String str, int i2, int i3, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{mediaTrack, mediaTrackConfig, str, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2)})) == null) {
+            return vg0.t(mediaTrack, mediaTrackConfig, str, i2, i3, j2);
+        }
+        return (MediaAEffect) invokeCommon.objValue;
+    }
+
+    public static boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            return i;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void n(MediaTrack mediaTrack) {
+        String str;
+        String str2;
+        ShaderParams next;
+        Iterator<ShaderParams> it;
+        String str3;
+        MediaSegment mediaSegment;
+        String str4;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65550, null, mediaTrack) != null) || !i) {
+            return;
+        }
+        Log.d(a, "---------------------start----------------------------");
+        List<MediaSegment> list = mediaTrack.mediaSegments;
+        String str5 = PreferencesUtil.LEFT_MOUNT;
+        String str6 = ": ";
+        if (list != null) {
+            int i2 = 0;
+            while (i2 < mediaTrack.mediaSegments.size()) {
+                MediaSegment mediaSegment2 = mediaTrack.mediaSegments.get(i2);
+                Log.d(a, " --> segment : " + i2 + str6 + mediaSegment2.type + "--->" + mediaSegment2.start + "----" + mediaSegment2.end + "---> scaleType --->" + mediaSegment2.scaleType + " shaderConfigKey --->" + mediaSegment2.shaderConfigKey + " effectConfigKey --->" + mediaSegment2.effectConfigKey);
+                MediaAEffect mediaAEffect = mediaSegment2.mediaAEffect;
+                if (mediaAEffect != null && mediaAEffect.mediaOneAEffects != null) {
+                    int i3 = 0;
+                    while (i3 < mediaSegment2.mediaAEffect.mediaOneAEffects.size()) {
+                        MediaOneAEffect mediaOneAEffect = mediaSegment2.mediaAEffect.mediaOneAEffects.get(i3);
+                        String str7 = a;
+                        StringBuilder sb = new StringBuilder();
+                        sb.append("effect : ");
+                        sb.append(i2);
+                        sb.append("->");
+                        sb.append(i3);
+                        sb.append(str6);
+                        String str8 = str5;
+                        String str9 = str6;
+                        sb.append(mediaOneAEffect.start);
+                        sb.append("----");
+                        sb.append(mediaOneAEffect.end);
+                        sb.append(" shaderConfigKey --->");
+                        sb.append(mediaSegment2.mediaAEffect.shaderConfigKey);
+                        Log.d(str7, sb.toString());
+                        List<ShaderParams> list2 = mediaOneAEffect.aParams;
+                        if (list2 != null) {
+                            Iterator<ShaderParams> it2 = list2.iterator();
+                            while (it2.hasNext()) {
+                                float[] fArr = it2.next().values;
+                                if (fArr != null) {
+                                    int length = fArr.length;
+                                    it = it2;
+                                    str4 = str8;
+                                    int i4 = 0;
+                                    while (true) {
+                                        str3 = str8;
+                                        if (i4 >= length) {
+                                            break;
+                                        }
+                                        str4 = str4 + fArr[i4] + "---";
+                                        i4++;
+                                        str8 = str3;
+                                        mediaSegment2 = mediaSegment2;
+                                    }
+                                    mediaSegment = mediaSegment2;
+                                } else {
+                                    it = it2;
+                                    str3 = str8;
+                                    mediaSegment = mediaSegment2;
+                                    str4 = str3;
+                                }
+                                Log.d(a, "ShaderParams ------> type: " + next.type + " name: " + next.name + " values: " + (str4 + PreferencesUtil.RIGHT_MOUNT));
+                                it2 = it;
+                                str8 = str3;
+                                mediaSegment2 = mediaSegment;
+                            }
+                        }
+                        i3++;
+                        str6 = str9;
+                        str5 = str8;
+                        mediaSegment2 = mediaSegment2;
+                    }
+                }
+                i2++;
+                str6 = str6;
+                str5 = str5;
+            }
+        }
+        String str10 = str5;
+        String str11 = str6;
+        if (mediaTrack.mediaTransitions != null) {
+            for (int i5 = 0; i5 < mediaTrack.mediaTransitions.size(); i5++) {
+                MediaTransition mediaTransition = mediaTrack.mediaTransitions.get(i5);
+                Log.d(a, " --> transition : " + i5 + " ---> " + i5 + str11 + mediaTransition.start + "----" + mediaTransition.end + "---- duration : " + mediaTransition.duration);
+            }
+        }
+        if (mediaTrack.superpositionHeader != null) {
+            Log.d(a, " --> superposition header : " + mediaTrack.superpositionHeader.start + "----" + mediaTrack.superpositionHeader.end + "----" + mediaTrack.superpositionHeader.superpositionType);
+            MediaAEffect mediaAEffect2 = mediaTrack.superpositionHeader.mediaAEffect;
+            if (mediaAEffect2 != null && mediaAEffect2.mediaOneAEffects != null) {
+                for (int i6 = 0; i6 < mediaTrack.superpositionHeader.mediaAEffect.mediaOneAEffects.size(); i6++) {
+                    MediaOneAEffect mediaOneAEffect2 = mediaTrack.superpositionHeader.mediaAEffect.mediaOneAEffects.get(i6);
+                    Log.d(a, "superposition header effect : + ->" + i6 + str11 + mediaOneAEffect2.start + "----" + mediaOneAEffect2.end);
+                    List<ShaderParams> list3 = mediaOneAEffect2.aParams;
+                    if (list3 != null) {
+                        for (ShaderParams shaderParams : list3) {
+                            float[] fArr2 = shaderParams.values;
+                            if (fArr2 != null) {
+                                str2 = str10;
+                                for (float f2 : fArr2) {
+                                    str2 = str2 + f2 + "---";
+                                }
+                            } else {
+                                str2 = str10;
+                            }
+                            Log.d(a, "superposition header ShaderParams ------> type: " + shaderParams.type + " name: " + shaderParams.name + " values: " + (str2 + PreferencesUtil.RIGHT_MOUNT));
+                        }
+                    }
+                }
+            }
+        }
+        if (mediaTrack.superpositionFooter != null) {
+            Log.d(a, " --> superposition footer : " + mediaTrack.superpositionFooter.start + "----" + mediaTrack.superpositionFooter.end + "----" + mediaTrack.superpositionFooter.superpositionType);
+            MediaAEffect mediaAEffect3 = mediaTrack.superpositionFooter.mediaAEffect;
+            if (mediaAEffect3 != null && mediaAEffect3.mediaOneAEffects != null) {
+                for (int i7 = 0; i7 < mediaTrack.superpositionFooter.mediaAEffect.mediaOneAEffects.size(); i7++) {
+                    MediaOneAEffect mediaOneAEffect3 = mediaTrack.superpositionFooter.mediaAEffect.mediaOneAEffects.get(i7);
+                    Log.d(a, "superposition footer effect : + ->" + i7 + str11 + mediaOneAEffect3.start + "----" + mediaOneAEffect3.end);
+                    List<ShaderParams> list4 = mediaOneAEffect3.aParams;
+                    if (list4 != null) {
+                        for (ShaderParams shaderParams2 : list4) {
+                            float[] fArr3 = shaderParams2.values;
+                            if (fArr3 != null) {
+                                str = str10;
+                                for (float f3 : fArr3) {
+                                    str = str + f3 + "---";
+                                }
+                            } else {
+                                str = str10;
+                            }
+                            Log.d(a, "superposition footer ShaderParams ------> type: " + shaderParams2.type + " name: " + shaderParams2.name + " values: " + (str + PreferencesUtil.RIGHT_MOUNT));
+                        }
+                    }
+                }
+            }
+        }
+        Log.d(a, "--------------------end-----------------------------");
     }
 }

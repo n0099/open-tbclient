@@ -1,230 +1,85 @@
 package com.baidu.tieba;
 
-import android.graphics.Typeface;
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
-import com.baidu.searchbox.player.event.LayerEvent;
-import com.baidu.searchbox.player.event.PlayerEvent;
-import com.baidu.tieba.r31;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.URL;
+import java.util.List;
+import java.util.regex.Pattern;
+import kotlin.jvm.JvmName;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONArray;
+import org.json.JSONObject;
+@JvmName(name = "AuthStrategyHelper")
 /* loaded from: classes7.dex */
-public class yt0 extends st0 {
+public final class yt0 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile vt0 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView b;
 
-    public boolean x() {
+    public static final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public yt0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                JSONArray jSONArray = new JSONArray();
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("host", "vdept3.bdstatic.com");
+                jSONObject2.put("auth", "1_1_1_3");
+                jSONArray.put(jSONObject2);
+                jSONObject.put("hosts", jSONArray);
+            } catch (Exception e) {
+                nk0.c("AuthStrategyHelper", e.toString());
             }
+            String jSONObject3 = jSONObject.toString();
+            Intrinsics.checkNotNullExpressionValue(jSONObject3, "defaultHostAuthConfig.toString()");
+            return jSONObject3;
         }
+        return (String) invokeV.objValue;
     }
 
-    public final void A() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && x()) {
-            this.b.setVisibility(0);
-        }
-    }
-
-    @Override // com.baidu.tieba.tt0
-    @NonNull
-    public View getContentView() {
+    public static final List<ut0> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.st0
-    public void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.t();
-            w();
-        }
-    }
-
-    @Override // com.baidu.tieba.st0
-    public void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            super.u();
-            A();
-        }
-    }
-
-    public void v() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            w();
-            this.b.setText((CharSequence) null);
-        }
-    }
-
-    public final void w() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.b.setVisibility(8);
-        }
-    }
-
-    public final boolean y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            BdVideoSeries o1 = q().o1();
-            if (o1 != null && o1.getSelectedVideo() != null && o1.getSelectedVideo().getShowTitle()) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                a = xt0.a(p11.l().getString("host_auth_config", a()));
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.mt0
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TextView textView = new TextView(getContext());
-            this.b = textView;
-            textView.setEllipsize(TextUtils.TruncateAt.END);
-            this.b.setMaxLines(2);
-            this.b.setLineSpacing(a51.b(1.33f), 1.0f);
-            this.b.setTextColor(-1);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-            layoutParams.topMargin = r31.c.a(getContext(), 9.0f);
-            layoutParams.rightMargin = r31.c.a(getContext(), 15.0f);
-            layoutParams.leftMargin = r31.c.a(getContext(), 15.0f);
-            this.b.setLayoutParams(layoutParams);
-        }
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @Override // com.baidu.tieba.mt0
-    public void k(@NonNull ru0 ru0Var) {
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ru0Var) == null) {
-            String c2 = ru0Var.c();
-            switch (c2.hashCode()) {
-                case -882902390:
-                    if (c2.equals(PlayerEvent.ACTION_SET_DATA_SOURCE)) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -552621273:
-                    if (c2.equals(LayerEvent.ACTION_SWITCH_FULL)) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -552580917:
-                    if (c2.equals(LayerEvent.ACTION_SWITCH_HALF)) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1393368882:
-                    if (c2.equals(LayerEvent.ACTION_WAKE_UP_START)) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
+            vt0 vt0Var = a;
+            if (vt0Var != null) {
+                return vt0Var.a();
             }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        if (c == 3) {
-                            A();
-                            return;
+            return null;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public static final synchronized ut0 c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            synchronized (yt0.class) {
+                if (str == null) {
+                    return null;
+                }
+                List<ut0> b = b();
+                if (b == null) {
+                    return null;
+                }
+                try {
+                    String host = new URL(str).getHost();
+                    for (ut0 ut0Var : b) {
+                        if (Pattern.matches(ut0Var.b(), host)) {
+                            return ut0Var;
                         }
-                        return;
-                    } else if (y()) {
-                        A();
-                        return;
-                    } else {
-                        return;
                     }
+                } catch (Exception e) {
+                    nk0.a("AuthStrategyHelper", e.getMessage());
                 }
-                w();
-                return;
-            }
-            z();
-        }
-    }
-
-    @Override // com.baidu.tieba.st0
-    public void s(boolean z, boolean z2) {
-        boolean z3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            super.s(z, z2);
-            if (!q().V0() && z) {
-                z3 = false;
-            } else {
-                z3 = true;
-            }
-            if (z3) {
-                w();
-            } else {
-                A();
+                return null;
             }
         }
-    }
-
-    public final void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            BdVideoSeries o1 = q().o1();
-            if (o1 != null && o1.getSelectedVideo() != null) {
-                if (o1.getSelectedVideo().getShowTitle()) {
-                    A();
-                    this.b.setText(o1.getSelectedVideo().getTitle());
-                    this.b.setTextSize(0, o1.getTitleSizePx());
-                    this.b.setTypeface(Typeface.DEFAULT_BOLD);
-                    return;
-                }
-                v();
-                return;
-            }
-            w();
-        }
+        return (ut0) invokeL.objValue;
     }
 }

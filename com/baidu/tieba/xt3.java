@@ -1,9 +1,18 @@
 package com.baidu.tieba;
 
-import android.util.Pair;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.annotation.SuppressLint;
+import android.app.Application;
+import android.content.Context;
+import android.os.Build;
+import android.telephony.TelephonyManager;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.content.ContextCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,128 +20,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
-import rx.schedulers.Schedulers;
-import rx.subjects.PublishSubject;
-/* loaded from: classes6.dex */
-public final class xt3 {
+@Singleton
+@Service
+@SuppressLint({"MissingPermission", "HardwareIds"})
+/* loaded from: classes7.dex */
+public class xt3 implements zt3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile d a;
-    public static final y8a b;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface c extends Executor {
-        void execute(@NonNull Runnable runnable, @NonNull String str);
-    }
-
-    /* loaded from: classes6.dex */
-    public static class a implements y8a<Pair<Runnable, String>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.y8a
-        public void call(Pair<Runnable, String> pair) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, pair) == null) {
-                String name = Thread.currentThread().getName();
-                Thread currentThread = Thread.currentThread();
-                currentThread.setName(name + "-" + ((String) pair.second));
-                try {
-                    ((Runnable) pair.first).run();
-                } catch (Throwable unused) {
-                }
-                Thread.currentThread().setName(name);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements c9a<Pair<Runnable, String>, k8a<?>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.c9a
-        public k8a<?> call(Pair<Runnable, String> pair) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pair)) == null) {
-                return o8a.g(pair).h(Schedulers.io()).f(xt3.b).l();
-            }
-            return (k8a) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class d extends bda<Pair<Runnable, String>, Pair<Runnable, String>> implements c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(cda cdaVar) {
-            super(cdaVar);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cdaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((cda) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Override // java.util.concurrent.Executor
-        public void execute(@NonNull Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-                execute(runnable, "");
-            }
-        }
-
-        @Override // com.baidu.tieba.xt3.c
-        public void execute(@NonNull Runnable runnable, @NonNull String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, str) == null) {
-                onNext(Pair.create(runnable, xt3.c(str)));
-            }
-        }
+    @Override // com.baidu.tieba.zt3
+    public String b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? "" : (String) invokeL.objValue;
     }
 
     static {
@@ -148,7 +49,7 @@ public final class xt3 {
                 return;
             }
         }
-        b = new a();
+        a = gp1.a;
     }
 
     public xt3() {
@@ -165,49 +66,102 @@ public final class xt3 {
         }
     }
 
-    public static c b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (a == null) {
-                synchronized (xt3.class) {
-                    if (a == null) {
-                        a = new d(PublishSubject.D());
-                        a.n().d(new b()).s().t();
-                    }
-                }
-            }
-            return a;
-        }
-        return (c) invokeV.objValue;
-    }
-
-    public static String c(String str) {
+    @Override // com.baidu.tieba.zt3
+    public String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (str != null) {
-                if (!str.startsWith("SwanAppExecutorUtils_")) {
-                    str = "SwanAppExecutorUtils_" + str;
-                }
-            } else {
-                str = null;
-            }
-            if (str == null) {
-                str = "SwanAppExecutorUtils";
-            }
-            if (str.length() > 256) {
-                return str.substring(0, 255);
-            }
-            return str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            return ApiReplaceUtil.Overload.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
         }
         return (String) invokeL.objValue;
     }
 
-    public static void d(@NonNull Runnable runnable, @NonNull String str) {
+    @Override // com.baidu.tieba.zt3
+    public String c(Context context) {
+        InterceptResult invokeL;
+        String meid;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, runnable, str) == null) {
-            b().execute(runnable, str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            if (Build.VERSION.SDK_INT >= 26) {
+                try {
+                    TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
+                    if (telephonyManager == null) {
+                        meid = "";
+                    } else {
+                        meid = telephonyManager.getMeid();
+                    }
+                    if (TextUtils.isEmpty(meid)) {
+                        return "";
+                    }
+                    return meid;
+                } catch (Exception e) {
+                    w52.o("DeviceInfoImpl", "getMeid: catch " + e + "\n" + Log.getStackTraceString(e));
+                }
+            }
+            return "";
         }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.zt3
+    public String d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            try {
+                TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
+                if (telephonyManager != null) {
+                    String deviceId = ApiReplaceUtil.getDeviceId(telephonyManager);
+                    if (!TextUtils.isEmpty(deviceId)) {
+                        return deviceId;
+                    }
+                    if (Build.VERSION.SDK_INT >= 26) {
+                        deviceId = ApiReplaceUtil.getImei(telephonyManager);
+                    }
+                    if (TextUtils.isEmpty(deviceId)) {
+                        return "";
+                    }
+                    return deviceId;
+                }
+            } catch (Exception e) {
+                w52.o("DeviceInfoImpl", "getImei: catch " + e + "\n" + Log.getStackTraceString(e));
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.zt3
+    public String getDeviceId(Context context) {
+        InterceptResult invokeL;
+        String deviceId;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
+            if (Build.VERSION.SDK_INT >= 29) {
+                if (a) {
+                    Log.d("DeviceInfoImpl", "android 29 can not get imei");
+                }
+                return "";
+            }
+            Application c = ds2.c();
+            if (ContextCompat.checkSelfPermission(c, com.kuaishou.weapon.p0.h.c) != 0) {
+                return "";
+            }
+            try {
+                TelephonyManager telephonyManager = (TelephonyManager) c.getSystemService("phone");
+                if (telephonyManager == null) {
+                    deviceId = "";
+                } else {
+                    deviceId = ApiReplaceUtil.getDeviceId(telephonyManager);
+                }
+                if (TextUtils.isEmpty(deviceId)) {
+                    return "";
+                }
+                return deviceId;
+            } catch (Exception unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
     }
 }

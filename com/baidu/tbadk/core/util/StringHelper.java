@@ -15,8 +15,8 @@ import com.baidu.searchbox.config.AppConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yg;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.dh;
+import com.baidu.tieba.dj;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,7 +37,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 /* loaded from: classes3.dex */
-public class StringHelper extends yi {
+public class StringHelper extends dj {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALA_CARD_DAY_BEFORE;
     public static final String ALA_CARD_HOUR_BEFORE;
@@ -94,11 +94,11 @@ public class StringHelper extends yi {
         HOUR_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.time_hour_before);
         MIN_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.time_min_before);
         SEC_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.time_sec_before);
-        TIME_DAY = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f04a8);
+        TIME_DAY = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f04b4);
         TIME_HOUR = TbadkCoreApplication.getInst().getApp().getString(R.string.time_hour);
         TIME_MINUTE = TbadkCoreApplication.getInst().getApp().getString(R.string.time_minute);
         TIME_SECOND = TbadkCoreApplication.getInst().getApp().getString(R.string.time_second);
-        String string = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0b5d);
+        String string = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0b82);
         TIME_MINUTE_SINGLE = string;
         TIME_STR = new String[]{TIME_DAY, TIME_HOUR, string, TIME_SECOND};
         ALA_CARD_DAY_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.ala_card_create_day);
@@ -117,16 +117,16 @@ public class StringHelper extends yi {
         date = new Date();
         TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
         if (timeZone != null) {
-            yi.FORMATE_DATE_ALL.setTimeZone(timeZone);
-            yi.FORMATE_DATE_YEAR.setTimeZone(timeZone);
-            yi.FORMATE_DATE_TIME.setTimeZone(timeZone);
-            yi.FORMATE_DATE_MOUTH.setTimeZone(timeZone);
-            yi.FORMATE_DATE_MOUTH_TIME.setTimeZone(timeZone);
-            yi.FORMATE_DATE_DAY.setTimeZone(timeZone);
-            yi.FORMATE_DATE_DAY_WEEK.setTimeZone(timeZone);
-            yi.FORMATE_DATE_DAY_1.setTimeZone(timeZone);
-            yi.FORMATE_DATE_MS.setTimeZone(timeZone);
-            yi.FORMATE_DATE_DAY_NO_YEAR.setTimeZone(timeZone);
+            dj.FORMATE_DATE_ALL.setTimeZone(timeZone);
+            dj.FORMATE_DATE_YEAR.setTimeZone(timeZone);
+            dj.FORMATE_DATE_TIME.setTimeZone(timeZone);
+            dj.FORMATE_DATE_MOUTH.setTimeZone(timeZone);
+            dj.FORMATE_DATE_MOUTH_TIME.setTimeZone(timeZone);
+            dj.FORMATE_DATE_DAY.setTimeZone(timeZone);
+            dj.FORMATE_DATE_DAY_WEEK.setTimeZone(timeZone);
+            dj.FORMATE_DATE_DAY_1.setTimeZone(timeZone);
+            dj.FORMATE_DATE_MS.setTimeZone(timeZone);
+            dj.FORMATE_DATE_DAY_NO_YEAR.setTimeZone(timeZone);
         }
     }
 
@@ -150,8 +150,8 @@ public class StringHelper extends yi {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65574, null)) == null) {
             Date date2 = new Date();
-            synchronized (yi.FORMATE_DATE_MS) {
-                format = yi.FORMATE_DATE_MS.format(date2);
+            synchronized (dj.FORMATE_DATE_MS) {
+                format = dj.FORMATE_DATE_MS.format(date2);
             }
             return format;
         }
@@ -164,8 +164,8 @@ public class StringHelper extends yi {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65575, null)) == null) {
             Date date2 = new Date();
-            synchronized (yi.FORMATE_DATE_DAY) {
-                format = yi.FORMATE_DATE_DAY.format(date2);
+            synchronized (dj.FORMATE_DATE_DAY) {
+                format = dj.FORMATE_DATE_DAY.format(date2);
             }
             return format;
         }
@@ -226,7 +226,7 @@ public class StringHelper extends yi {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
-            if (yi.isEmpty(str)) {
+            if (dj.isEmpty(str)) {
                 return "";
             }
             return "\u202d" + str + "\u202c";
@@ -279,7 +279,7 @@ public class StringHelper extends yi {
             int length = str.length();
             int i = 0;
             for (int i2 = 0; i2 < length; i2++) {
-                if (yi.isChinese(str.charAt(i2))) {
+                if (dj.isChinese(str.charAt(i2))) {
                     i += 2;
                 } else {
                     i++;
@@ -457,7 +457,7 @@ public class StringHelper extends yi {
                 int i2 = 0;
                 for (int i3 = 0; i3 < length; i3++) {
                     char charAt = str.charAt(i3);
-                    if (yi.isChinese(charAt)) {
+                    if (dj.isChinese(charAt)) {
                         i2 += 2;
                     } else {
                         i2++;
@@ -485,7 +485,7 @@ public class StringHelper extends yi {
             int i2 = 0;
             int i3 = 0;
             while (i2 < length) {
-                if (yi.isChinese(str.charAt(i2))) {
+                if (dj.isChinese(str.charAt(i2))) {
                     i3 += 2;
                 } else {
                     i3++;
@@ -522,7 +522,7 @@ public class StringHelper extends yi {
             int i2 = 0;
             int i3 = 0;
             while (i2 < length) {
-                if (yi.isChinese(str.charAt(i2))) {
+                if (dj.isChinese(str.charAt(i2))) {
                     i3 += 2;
                 } else {
                     i3++;
@@ -560,7 +560,7 @@ public class StringHelper extends yi {
                 int i2 = 0;
                 int i3 = 0;
                 while (i2 < length) {
-                    if (yi.isChinese(replaceAll.charAt(i2))) {
+                    if (dj.isChinese(replaceAll.charAt(i2))) {
                         i3 += 2;
                     } else {
                         i3++;
@@ -638,7 +638,7 @@ public class StringHelper extends yi {
             int i2 = 0;
             int i3 = 0;
             while (i2 < length) {
-                if (yi.isChinese(charSequence.charAt(i2))) {
+                if (dj.isChinese(charSequence.charAt(i2))) {
                     i3 += 2;
                 } else {
                     i3++;
@@ -671,7 +671,7 @@ public class StringHelper extends yi {
             int i2 = 0;
             int i3 = 0;
             while (i2 < length) {
-                if (yi.isChinese(str.charAt(i2))) {
+                if (dj.isChinese(str.charAt(i2))) {
                     i3 += 2;
                 } else {
                     i3++;
@@ -752,7 +752,7 @@ public class StringHelper extends yi {
                 int i2 = 0;
                 int i3 = 0;
                 while (i2 < length) {
-                    if (yi.isChinese(str.charAt(i2))) {
+                    if (dj.isChinese(str.charAt(i2))) {
                         i3 += 2;
                     } else {
                         i3++;
@@ -794,7 +794,7 @@ public class StringHelper extends yi {
             } else if (z) {
                 return getDateStringDayNoYear(date2);
             } else {
-                return yi.getDateStringDay(date2);
+                return dj.getDateStringDay(date2);
             }
         }
         return (String) invokeLZ.objValue;
@@ -1275,7 +1275,7 @@ public class StringHelper extends yi {
             int length = charSequence.length();
             int i = 0;
             for (int i2 = 0; i2 < length; i2++) {
-                if (yi.isChinese(charSequence.charAt(i2))) {
+                if (dj.isChinese(charSequence.charAt(i2))) {
                     i += 2;
                 } else {
                     i++;
@@ -1327,8 +1327,8 @@ public class StringHelper extends yi {
         String format;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65579, null, date2)) == null) {
-            synchronized (yi.FORMATE_DATE_DAY_1) {
-                format = yi.FORMATE_DATE_DAY_1.format(date2);
+            synchronized (dj.FORMATE_DATE_DAY_1) {
+                format = dj.FORMATE_DATE_DAY_1.format(date2);
             }
             return format;
         }
@@ -1340,8 +1340,8 @@ public class StringHelper extends yi {
         String format;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65580, null, date2)) == null) {
-            synchronized (yi.FORMATE_DATE_DAY_NO_YEAR) {
-                format = yi.FORMATE_DATE_DAY_NO_YEAR.format(date2);
+            synchronized (dj.FORMATE_DATE_DAY_NO_YEAR) {
+                format = dj.FORMATE_DATE_DAY_NO_YEAR.format(date2);
             }
             return format;
         }
@@ -1464,8 +1464,8 @@ public class StringHelper extends yi {
         String format;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65589, null, date2)) == null) {
-            synchronized (yi.FORMATE_DATE_DAY_WEEK) {
-                format = yi.FORMATE_DATE_DAY_WEEK.format(date2);
+            synchronized (dj.FORMATE_DATE_DAY_WEEK) {
+                format = dj.FORMATE_DATE_DAY_WEEK.format(date2);
             }
             return format;
         }
@@ -1620,7 +1620,7 @@ public class StringHelper extends yi {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65624, null, str)) == null) {
-            if (!yi.isEmpty(str)) {
+            if (!dj.isEmpty(str)) {
                 String trim = str.trim();
                 if (trim.startsWith(PreferencesUtil.LEFT_MOUNT) && trim.endsWith(PreferencesUtil.RIGHT_MOUNT)) {
                     return true;
@@ -1635,7 +1635,7 @@ public class StringHelper extends yi {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65625, null, str)) == null) {
-            if (yi.isEmpty(str)) {
+            if (dj.isEmpty(str)) {
                 return false;
             }
             try {
@@ -1737,11 +1737,11 @@ public class StringHelper extends yi {
         if (interceptable == null || (invokeI = interceptable.invokeI(65615, null, i)) == null) {
             if (i != 1) {
                 if (i != 2) {
-                    return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f08ac);
+                    return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f08d2);
                 }
-                return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f1215);
+                return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f1236);
             }
-            return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f08ac);
+            return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f08d2);
         }
         return (String) invokeI.objValue;
     }
@@ -2083,7 +2083,7 @@ public class StringHelper extends yi {
                 if (format2.endsWith(".0")) {
                     format2 = format2.substring(0, format2.length() - 2);
                 }
-                float d = yg.d(format2, 1.0f);
+                float d = dh.d(format2, 1.0f);
                 if (d >= 9999.0f) {
                     return "9999KW+";
                 }
@@ -2160,7 +2160,7 @@ public class StringHelper extends yi {
             int length = str.length();
             int i = 0;
             for (int i2 = 0; i2 < length; i2++) {
-                if (yi.isChinese(str.charAt(i2))) {
+                if (dj.isChinese(str.charAt(i2))) {
                     i += 2;
                 } else {
                     i++;
@@ -2211,7 +2211,7 @@ public class StringHelper extends yi {
             if (TextUtils.isEmpty(str)) {
                 return String.format(TbadkCoreApplication.getInst().getString(R.string.ba_age_less_one_year), 1);
             }
-            float d = yg.d(str, 0.0f);
+            float d = dh.d(str, 0.0f);
             if (d > 1.0f) {
                 return String.format(TbadkCoreApplication.getInst().getString(R.string.ba_age_more_one_year), Integer.valueOf(Math.round(d)));
             }
@@ -2574,7 +2574,7 @@ public class StringHelper extends yi {
                 if (time > -120000) {
                     return "刚刚";
                 }
-                return yi.getDateStringDay(date3);
+                return dj.getDateStringDay(date3);
             } else if (time < 30000) {
                 return "刚刚";
             } else {
@@ -2585,7 +2585,7 @@ public class StringHelper extends yi {
                     return String.valueOf((time * 60) / 3600000) + "分钟前";
                 } else if (time < 86400000) {
                     if (day == 0) {
-                        return yi.getDateStringHm(date3);
+                        return dj.getDateStringHm(date3);
                     }
                     return "1天前";
                 } else if (time < 2678400000L) {
@@ -2594,13 +2594,13 @@ public class StringHelper extends yi {
                     return "1个月前";
                 } else {
                     if (date2.getYear() == date3.getYear()) {
-                        synchronized (yi.FORMATE_DATE_DAY_NO_YEAR) {
-                            format2 = yi.FORMATE_DATE_DAY_NO_YEAR.format(date3);
+                        synchronized (dj.FORMATE_DATE_DAY_NO_YEAR) {
+                            format2 = dj.FORMATE_DATE_DAY_NO_YEAR.format(date3);
                         }
                         return format2;
                     }
-                    synchronized (yi.FORMATE_DATE_DAY) {
-                        format = yi.FORMATE_DATE_DAY.format(date3);
+                    synchronized (dj.FORMATE_DATE_DAY) {
+                        format = dj.FORMATE_DATE_DAY.format(date3);
                     }
                     return format;
                 }
@@ -2632,7 +2632,7 @@ public class StringHelper extends yi {
             } else if (z) {
                 return getDateStringDayNoYear(date2);
             } else {
-                return yi.getDateStringDay(date2);
+                return dj.getDateStringDay(date2);
             }
         }
         return (String) invokeLZ.objValue;
@@ -2651,7 +2651,7 @@ public class StringHelper extends yi {
                 if (time > -120000) {
                     return "刚刚";
                 }
-                return yi.getDateStringDay(date3);
+                return dj.getDateStringDay(date3);
             } else if (time < 30000) {
                 return "刚刚";
             } else {
@@ -2662,7 +2662,7 @@ public class StringHelper extends yi {
                     return String.valueOf((time * 60) / 3600000) + "分钟前";
                 } else if (time < 86400000) {
                     if (day == 0) {
-                        return yi.getDateStringHm(date3);
+                        return dj.getDateStringHm(date3);
                     }
                     return "1天前";
                 } else if (time < 2678400000L) {
@@ -2670,7 +2670,7 @@ public class StringHelper extends yi {
                 } else if (time < 2764800000L) {
                     return "1个月前";
                 } else {
-                    return yi.getDateStringDay(date3);
+                    return dj.getDateStringDay(date3);
                 }
             }
         }

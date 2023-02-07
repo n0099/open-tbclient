@@ -1,16 +1,26 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b35 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile b35 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public long a;
+
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 600000L;
+        }
+        return invokeV.longValue;
+    }
 
     public b35() {
         Interceptable interceptable = $ic;
@@ -22,20 +32,41 @@ public class b35 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 300000L;
     }
 
-    public void a(JSONObject jSONObject) {
+    public static b35 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject != null) {
-            jSONObject.optInt("offline");
-            jSONObject.optString("title");
-            String optString = jSONObject.optString("link");
-            this.a = optString;
-            if (!TextUtils.isEmpty(optString)) {
-                this.a = this.a.replaceFirst("webview:", "http://");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (b35.class) {
+                    if (b == null) {
+                        b = new b35();
+                    }
+                }
             }
+            return b;
+        }
+        return (b35) invokeV.objValue;
+    }
+
+    public long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.longValue;
+    }
+
+    public void d(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.a = j;
         }
     }
 }

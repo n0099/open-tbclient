@@ -1,212 +1,177 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.net.Uri;
-import android.text.TextUtils;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tieba.wv4;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class n45 {
+public class n45 extends TBSpecificationButtonConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean u;
+    public boolean v;
 
-    /* loaded from: classes5.dex */
-    public static class a implements wv4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ DialogInterface.OnCancelListener c;
-
-        public a(int i, Context context, DialogInterface.OnCancelListener onCancelListener) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), context, onCancelListener};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-            this.b = context;
-            this.c = onCancelListener;
-        }
-
-        @Override // com.baidu.tieba.wv4.e
-        public void onClick(wv4 wv4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, wv4Var) == null) {
-                n45.d(this.a, this.b);
-                wv4Var.dismiss();
-                DialogInterface.OnCancelListener onCancelListener = this.c;
-                if (onCancelListener != null) {
-                    onCancelListener.onCancel(wv4Var.getDialog());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b implements wv4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ DialogInterface.OnCancelListener a;
-
-        public b(DialogInterface.OnCancelListener onCancelListener) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {onCancelListener};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = onCancelListener;
-        }
-
-        @Override // com.baidu.tieba.wv4.e
-        public void onClick(wv4 wv4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, wv4Var) == null) {
-                wv4Var.dismiss();
-                DialogInterface.OnCancelListener onCancelListener = this.a;
-                if (onCancelListener != null) {
-                    onCancelListener.onCancel(wv4Var.getDialog());
-                }
-            }
-        }
-    }
-
-    public static void e(int i, Context context) {
+    public n45() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, context) != null) || context == null) {
-            return;
-        }
-        d(i, context);
-    }
-
-    public static boolean b(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
-            if (i != 3 && i != 2) {
-                if (i != 8 && i != 4) {
-                    if (i == 6) {
-                        return mw8.b(context, "com.sina.weibo");
-                    }
-                    return true;
-                }
-                return mw8.b(context, "com.tencent.mobileqq");
-            }
-            return mw8.b(context, "com.tencent.mm");
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public static String c(int i, Context context) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, context)) == null) {
-            if (i != 3 && i != 2) {
-                if (i != 8 && i != 4) {
-                    if (i == 6) {
-                        return String.format(context.getString(R.string.command_share_paste), context.getString(R.string.obfuscated_res_0x7f0f1241));
-                    }
-                    return null;
-                }
-                return String.format(context.getString(R.string.command_share_paste), context.getString(R.string.obfuscated_res_0x7f0f0ffa));
-            }
-            return String.format(context.getString(R.string.command_share_paste), context.getString(R.string.obfuscated_res_0x7f0f164d));
-        }
-        return (String) invokeIL.objValue;
-    }
-
-    public static void d(int i, Context context) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65539, null, i, context) == null) {
-            if (i != 3 && i != 2) {
-                if (i != 8 && i != 4) {
-                    if (i == 6) {
-                        if (!b(context, i)) {
-                            BdToast.b(context.getApplicationContext(), context.getText(R.string.share_sina_weibo_not_install)).k();
-                            return;
-                        }
-                        intent = new Intent();
-                        intent.setAction("android.intent.action.VIEW");
-                        intent.addCategory("android.intent.category.DEFAULT");
-                        intent.setData(Uri.parse("sinaweibo://splash"));
-                        intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                    } else {
-                        intent = null;
-                    }
-                } else if (!b(context, i)) {
-                    BdToast.b(context.getApplicationContext(), context.getText(R.string.share_qq_not_install)).k();
-                    return;
-                } else {
-                    intent = context.getPackageManager().getLaunchIntentForPackage("com.tencent.mobileqq");
-                    intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                    context.startActivity(intent);
-                }
-            } else if (!b(context, i)) {
-                BdToast.b(context.getApplicationContext(), context.getText(R.string.share_wechat_not_install)).k();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
-            } else {
-                intent = new Intent("android.intent.action.MAIN");
-                ComponentName componentName = new ComponentName("com.tencent.mm", "com.tencent.mm.ui.LauncherUI");
-                intent.addCategory("android.intent.category.LAUNCHER");
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                intent.setComponent(componentName);
-                context.startActivity(intent);
             }
-            if (intent != null) {
-                context.startActivity(intent);
+        }
+        this.b = R.color.CAM_X0302;
+        this.u = true;
+    }
+
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b = R.color.CAM_X0101;
+            this.d = R.color.CAM_X0904;
+            this.u = false;
+            this.q = true;
+            TBSpecificationButtonConfig.a aVar = this.t;
+            if (aVar != null) {
+                aVar.c();
             }
         }
     }
 
-    public static void f(ShareItem shareItem, Context context, int i, DialogInterface.OnCancelListener onCancelListener) {
+    @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
+    public Drawable a(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLIL(65541, null, shareItem, context, i, onCancelListener) != null) || shareItem == null || TextUtils.isEmpty(shareItem.w) || TextUtils.isEmpty(shareItem.v) || !(context instanceof Activity)) {
-            return;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
+            return x(f);
         }
-        pi.a(shareItem.F0);
-        Activity activity = (Activity) context;
-        wv4 wv4Var = new wv4(activity);
-        wv4Var.setTitle(context.getString(R.string.command_share_tips));
-        wv4Var.setMessage(shareItem.F0);
-        wv4Var.setAutoNight(false);
-        wv4Var.setCancelable(true);
-        wv4Var.setTitleShowCenter(true);
-        wv4Var.setPositiveButton(c(i, context), new a(i, context, onCancelListener));
-        wv4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f037e, new b(onCancelListener)).create(y9.a(activity));
-        if (onCancelListener != null) {
-            wv4Var.setOnCalcelListener(onCancelListener);
+        return (Drawable) invokeF.objValue;
+    }
+
+    public void t(@ColorRes int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.b = i;
+            this.u = true;
+            this.q = true;
+            TBSpecificationButtonConfig.a aVar = this.t;
+            if (aVar != null) {
+                aVar.c();
+            }
         }
-        wv4Var.show();
+    }
+
+    public void u(@ColorInt int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.b = i;
+            this.u = true;
+            this.q = false;
+            TBSpecificationButtonConfig.a aVar = this.t;
+            if (aVar != null) {
+                aVar.c();
+            }
+        }
+    }
+
+    public void v(@ColorRes int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.b = i;
+            this.d = R.color.CAM_X0903;
+            this.u = false;
+            this.q = true;
+            TBSpecificationButtonConfig.a aVar = this.t;
+            if (aVar != null) {
+                aVar.c();
+            }
+        }
+    }
+
+    public void w(@ColorRes int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.b = i;
+            this.d = R.color.CAM_X0211;
+            this.u = false;
+            this.q = true;
+            TBSpecificationButtonConfig.a aVar = this.t;
+            if (aVar != null) {
+                aVar.c();
+            }
+        }
+    }
+
+    public void y(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.q = z;
+        }
+    }
+
+    public void q(@ColorInt int i, @ColorInt int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            this.d = i;
+            this.b = i2;
+            this.v = true;
+            this.q = false;
+            TBSpecificationButtonConfig.a aVar = this.t;
+            if (aVar != null) {
+                aVar.c();
+            }
+        }
+    }
+
+    public void r(@ColorRes int i, @ColorRes int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            this.d = i;
+            this.b = i2;
+            this.u = false;
+            this.q = true;
+            TBSpecificationButtonConfig.a aVar = this.t;
+            if (aVar != null) {
+                aVar.c();
+            }
+        }
+    }
+
+    public final Drawable x(float f) {
+        InterceptResult invokeF;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f)) == null) {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            if (this.v) {
+                gradientDrawable.setColor(this.d);
+            } else if (this.u) {
+                if (this.q) {
+                    i = SkinManager.getColor(this.r, this.b);
+                } else {
+                    i = this.b;
+                }
+                gradientDrawable.setColor(lz8.a(i, 0.08f));
+            } else {
+                gradientDrawable.setColor(SkinManager.getColor(this.r, this.d));
+            }
+            gradientDrawable.setShape(0);
+            gradientDrawable.setCornerRadius(f);
+            return gradientDrawable;
+        }
+        return (Drawable) invokeF.objValue;
     }
 }

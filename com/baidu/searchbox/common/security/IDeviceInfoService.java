@@ -466,11 +466,14 @@ public interface IDeviceInfoService extends IInterface {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iDeviceInfoService)) == null) {
-                if (Proxy.sDefaultImpl == null && iDeviceInfoService != null) {
-                    Proxy.sDefaultImpl = iDeviceInfoService;
-                    return true;
+                if (Proxy.sDefaultImpl == null) {
+                    if (iDeviceInfoService != null) {
+                        Proxy.sDefaultImpl = iDeviceInfoService;
+                        return true;
+                    }
+                    return false;
                 }
-                return false;
+                throw new IllegalStateException("setDefaultImpl() called twice");
             }
             return invokeL.booleanValue;
         }

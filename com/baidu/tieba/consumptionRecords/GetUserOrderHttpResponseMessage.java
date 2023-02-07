@@ -2,8 +2,8 @@ package com.baidu.tieba.consumptionRecords;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.fa6;
-import com.baidu.tieba.ga6;
+import com.baidu.tieba.re6;
+import com.baidu.tieba.se6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,8 +17,8 @@ public class GetUserOrderHttpResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
-    public ArrayList<fa6> orderList;
-    public ga6 recommendData;
+    public ArrayList<re6> orderList;
+    public se6 recommendData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetUserOrderHttpResponseMessage(int i) {
@@ -49,9 +49,9 @@ public class GetUserOrderHttpResponseMessage extends JsonHttpResponsedMessage {
         }
         for (int i = 0; i < jSONArray.length(); i++) {
             JSONObject optJSONObject = jSONArray.optJSONObject(i);
-            fa6 fa6Var = new fa6();
-            fa6Var.n(optJSONObject);
-            this.orderList.add(fa6Var);
+            re6 re6Var = new re6();
+            re6Var.n(optJSONObject);
+            this.orderList.add(re6Var);
         }
     }
 
@@ -87,7 +87,7 @@ public class GetUserOrderHttpResponseMessage extends JsonHttpResponsedMessage {
         return invokeV.booleanValue;
     }
 
-    public ArrayList<fa6> getOrderList() {
+    public ArrayList<re6> getOrderList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -96,12 +96,12 @@ public class GetUserOrderHttpResponseMessage extends JsonHttpResponsedMessage {
         return (ArrayList) invokeV.objValue;
     }
 
-    public ga6 getRecommendInfo() {
+    public se6 getRecommendInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.recommendData;
         }
-        return (ga6) invokeV.objValue;
+        return (se6) invokeV.objValue;
     }
 }

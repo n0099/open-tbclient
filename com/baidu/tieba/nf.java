@@ -1,227 +1,110 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseApplication;
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidParameterException;
 /* loaded from: classes5.dex */
 public class nf {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String d = "_crashtime";
-    public static String e = "_crashtype";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public mf c;
+    public final fa a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448312053, "Lcom/baidu/tieba/nf;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448312053, "Lcom/baidu/tieba/nf;");
-        }
-    }
-
-    public nf(mf mfVar) {
+    public nf(Context context, fa faVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mfVar};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {context, faVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0;
-        this.b = 0;
-        this.c = null;
-        if (mfVar != null) {
-            this.c = mfVar;
-            if (mfVar.d() > 0 && this.c.c() != null) {
-                int e2 = e();
-                this.a = e2;
-                if (e2 == -1) {
-                    g();
-                }
-            }
-            if (!mfVar.h()) {
-                this.b = f();
-            }
-            this.c.a(this.b, true);
-            return;
-        }
-        throw new InvalidParameterException("SwitchHolder data is null");
+        this.a = faVar;
     }
 
-    public boolean a(String str) {
+    public void a(ff ffVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ffVar) == null) {
+            try {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("nameSpace", ffVar.a);
+                contentValues.put("tableName", ffVar.b);
+                contentValues.put("maxSize", Integer.valueOf(ffVar.c));
+                contentValues.put("cacheVersion", Integer.valueOf(ffVar.e));
+                contentValues.put("cacheType", ffVar.d);
+                contentValues.put("lastActiveTime", Long.valueOf(ffVar.f));
+                SQLiteDatabase f = this.a.f();
+                if (f != null && f.update("cache_meta_info", contentValues, "nameSpace = ?", new String[]{ffVar.a}) == 0) {
+                    f.insert("cache_meta_info", null, contentValues);
+                }
+            } catch (Throwable th) {
+                this.a.i(th, "addOrUpdate");
+            }
+        }
+    }
+
+    public ff b(String str) {
         InterceptResult invokeL;
-        String[] g;
-        String[] c;
+        Cursor cursor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (str != null && this.c.d() > 0) {
-                if (this.c.c() != null) {
-                    for (String str2 : this.c.c()) {
-                        if (!TextUtils.isEmpty(str2) && str.indexOf(str2) != -1) {
-                            int i = this.a + 1;
-                            this.a = i;
-                            j(i);
-                            if (this.a >= this.c.d()) {
-                                k(this.c.f());
-                                this.b = this.c.f();
-                                mf mfVar = this.c;
-                                mfVar.a(mfVar.f(), false);
-                            }
-                            return true;
-                        }
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            try {
+                cursor = this.a.f().rawQuery("SELECT nameSpace, tableName, maxSize, cacheType, cacheVersion, lastActiveTime FROM cache_meta_info where nameSpace = ?", new String[]{str});
+            } catch (Throwable th) {
+                th = th;
+                cursor = null;
+            }
+            try {
+                if (cursor.moveToNext()) {
+                    ff ffVar = new ff();
+                    ffVar.a = cursor.getString(0);
+                    ffVar.b = cursor.getString(1);
+                    ffVar.c = cursor.getInt(2);
+                    ffVar.d = cursor.getString(3);
+                    ffVar.e = cursor.getInt(4);
+                    ffVar.f = cursor.getLong(5);
+                    return ffVar;
                 }
-                if (this.c.g() != null) {
-                    for (String str3 : this.c.g()) {
-                        if (!TextUtils.isEmpty(str3) && str.equals(str3)) {
-                            int i2 = this.a + 1;
-                            this.a = i2;
-                            j(i2);
-                            if (this.a >= this.c.d()) {
-                                k(this.c.f());
-                                this.b = this.c.f();
-                                mf mfVar2 = this.c;
-                                mfVar2.a(mfVar2.f(), false);
-                            }
-                            return true;
-                        }
-                    }
+            } catch (Throwable th2) {
+                th = th2;
+                try {
+                    this.a.i(th, "get");
+                    return null;
+                } finally {
+                    ch.a(cursor);
                 }
             }
-            return false;
+            return null;
         }
-        return invokeL.booleanValue;
+        return (ff) invokeL.objValue;
     }
 
-    public mf b() {
-        InterceptResult invokeV;
+    public int delete(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (mf) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c.b();
-        }
-        return invokeV.intValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c.e();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.a = 0;
-        }
-    }
-
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public final int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            SharedPreferences sharedPreferences = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0);
-            return sharedPreferences.getInt(this.c.e() + d, -1);
-        }
-        return invokeV.intValue;
-    }
-
-    public final int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            SharedPreferences sharedPreferences = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0);
-            return sharedPreferences.getInt(this.c.e() + e, this.c.b());
-        }
-        return invokeV.intValue;
-    }
-
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    public boolean i(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            if (this.c.d() >= 0 && this.a >= this.c.d() + 2) {
-                i = this.c.f();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            try {
+                if (b(str) == null) {
+                    return 0;
+                }
+                return this.a.f().delete("cache_meta_info", "nameSpace = ?", new String[]{str});
+            } catch (Throwable th) {
+                this.a.i(th, "delete");
+                return 0;
             }
-            if (i == this.b) {
-                return false;
-            }
-            this.b = i;
-            this.c.a(i, false);
-            k(i);
-            return true;
         }
-        return invokeI.booleanValue;
-    }
-
-    public final void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-            edit.putInt(this.c.e() + d, i);
-            edit.commit();
-        }
-    }
-
-    public final void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-            edit.putInt(this.c.e() + e, i);
-            edit.commit();
-        }
+        return invokeL.intValue;
     }
 }

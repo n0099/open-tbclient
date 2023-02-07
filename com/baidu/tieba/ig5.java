@@ -1,39 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import androidx.annotation.NonNull;
+import androidx.annotation.WorkerThread;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import java.util.TreeSet;
 /* loaded from: classes4.dex */
-public class ig5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-
-    public ig5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = null;
-    }
-
-    public static gh a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
-        }
-        return (gh) invokeV.objValue;
-    }
+public interface ig5 {
+    @WorkerThread
+    void a(int i, @NonNull String str, @NonNull TreeSet<ChatMsg> treeSet);
 }

@@ -1,43 +1,89 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class nl9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Matrix a;
+    public Bitmap b;
 
-    @Inject
-    public static sk9 a() {
-        InterceptResult invokeV;
+    public nl9(Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return vs8.a();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bitmap};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (sk9) invokeV.objValue;
+        this.b = bitmap;
+        this.a = new Matrix();
     }
 
-    @Inject
-    public static rk9 b() {
-        InterceptResult invokeV;
+    public void a(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return ts8.a();
+        if ((interceptable != null && interceptable.invokeL(1048576, this, canvas) != null) || canvas == null) {
+            return;
         }
-        return (rk9) invokeV.objValue;
+        canvas.drawBitmap(this.b, this.a, null);
     }
 
-    @Inject
-    public static vk9 c() {
+    public Matrix b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return jk9.a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return (vk9) invokeV.objValue;
+        return (Matrix) invokeV.objValue;
+    }
+
+    public Bitmap c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (Bitmap) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Bitmap bitmap = this.b;
+            if (bitmap == null) {
+                return 0;
+            }
+            return bitmap.getHeight();
+        }
+        return invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            Bitmap bitmap = this.b;
+            if (bitmap == null) {
+                return 0;
+            }
+            return bitmap.getWidth();
+        }
+        return invokeV.intValue;
     }
 }

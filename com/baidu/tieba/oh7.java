@@ -1,59 +1,63 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.MemoryChangedMessage;
+import android.util.SparseArray;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.List;
+import tbclient.RecomVideo.DislikeReason;
+import tbclient.RecomVideo.ThreadPersonalized;
 /* loaded from: classes5.dex */
-public class oh7 extends gb {
+public class oh7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public oh7() {
-        super(2016004);
+    public static void a(List<ThreadPersonalized> list, List<Cdo> list2) {
+        sd6 sd6Var;
+        ThreadData threadData;
+        ThreadPersonalized threadPersonalized;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, list, list2) == null) && list != null && list2 != null) {
+            HashMap hashMap = new HashMap();
+            for (ThreadPersonalized threadPersonalized2 : list) {
+                if (threadPersonalized2 != null) {
+                    hashMap.put(String.valueOf(threadPersonalized2.tid), threadPersonalized2);
+                }
+            }
+            int count = ListUtils.getCount(list2);
+            for (int i = 0; i < count; i++) {
+                Cdo cdo = (Cdo) ListUtils.getItem(list2, i);
+                if ((cdo instanceof sd6) && (threadData = (sd6Var = (sd6) cdo).getThreadData()) != null && (threadPersonalized = (ThreadPersonalized) hashMap.get(threadData.getTid())) != null) {
+                    sd6Var.J(threadPersonalized.source);
+                    sd6Var.M(threadPersonalized.weight);
+                    sd6Var.D(threadPersonalized.abtest_tag);
+                    threadData.mRecomAbTag = threadPersonalized.abtest_tag;
+                    threadData.mRecomSource = threadPersonalized.source;
+                    threadData.mRecomWeight = threadPersonalized.weight;
+                    if (threadData.getThreadVideoInfo() != null) {
+                        sd6Var.H(threadData.getThreadVideoInfo().is_vertical);
+                    }
+                    List<DislikeReason> list3 = threadPersonalized.dislike_resource;
+                    if (list3 != null) {
+                        SparseArray<String> sparseArray = new SparseArray<>();
+                        for (DislikeReason dislikeReason : list3) {
+                            int intValue = dislikeReason.dislike_id.intValue();
+                            sparseArray.put(intValue, dislikeReason.dislike_reason + "%" + dislikeReason.extra);
+                        }
+                        sd6Var.feedBackReasonMap = sparseArray;
+                        sd6Var.G(threadPersonalized.extra);
+                    }
+                }
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.mb
-    /* renamed from: c */
-    public CustomResponsedMessage a(CustomResponsedMessage customResponsedMessage) {
-        InterceptResult invokeL;
+    public static void b(List<ThreadPersonalized> list, List<Cdo> list2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage)) == null) {
-            if (customResponsedMessage == null) {
-                return null;
-            }
-            if (customResponsedMessage instanceof MemoryChangedMessage) {
-                MemoryChangedMessage memoryChangedMessage = (MemoryChangedMessage) customResponsedMessage;
-                ImMessageCenterPojo data = memoryChangedMessage.getData();
-                if (data != null && data.getCustomGroupType() == -8) {
-                    return new MemoryChangedMessage(ue7.a(data), memoryChangedMessage.isFromServer(), memoryChangedMessage.getType());
-                }
-                if (data != null && data.getCustomGroupType() == -7) {
-                    return new MemoryChangedMessage(ve7.a(data), memoryChangedMessage.isFromServer(), memoryChangedMessage.getType());
-                }
-            }
-            return customResponsedMessage;
+        if (interceptable == null || interceptable.invokeLL(65537, null, list, list2) == null) {
+            a(list, list2);
         }
-        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

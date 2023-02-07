@@ -1,18 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class i54 extends k54 {
+public class i54 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String b;
+    @V8JavascriptField
+    public double clientX;
+    @V8JavascriptField
+    public double clientY;
+    @V8JavascriptField
+    public int identifier;
 
     public i54() {
         Interceptable interceptable = $ic;
@@ -28,19 +32,37 @@ public class i54 extends k54 {
         }
     }
 
-    @Override // com.baidu.tieba.k54
-    public JSONObject a() {
+    public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("key", this.b);
-                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, this.a);
-            } catch (JSONException unused) {
-            }
-            return jSONObject;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return Double.valueOf(this.identifier + this.clientX + this.clientY).hashCode();
         }
-        return (JSONObject) invokeV.objValue;
+        return invokeV.intValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (!(obj instanceof i54)) {
+                return false;
+            }
+            i54 i54Var = (i54) obj;
+            if (this.identifier != i54Var.identifier || this.clientX != i54Var.clientX || this.clientY != i54Var.clientY) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "{identifier=" + this.identifier + ", clientX=" + this.clientX + ", clientY=" + this.clientY + '}';
+        }
+        return (String) invokeV.objValue;
     }
 }

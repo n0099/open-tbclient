@@ -14,10 +14,10 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cq7;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.il5;
 import com.baidu.tieba.lego.card.model.RankDetailTrendCard;
-import com.baidu.tieba.xg5;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.uu7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -71,7 +71,7 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !ViewHelper.checkUpIsLogin(this.b.getContext())) {
                 return;
             }
-            cq7 a = cq7.a();
+            uu7 a = uu7.a();
             RankDetailTrendCard rankDetailTrendCard = this.a;
             a.e(rankDetailTrendCard, rankDetailTrendCard.getPostUrl(), null, null);
         }
@@ -130,7 +130,7 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
                 return;
             }
         }
-        this.u = zi.l(tbPageContext.getPageActivity());
+        this.u = ej.l(tbPageContext.getPageActivity());
         this.v = tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701e8) * 2;
     }
 
@@ -147,7 +147,7 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
     public void t(RankDetailTrendCard rankDetailTrendCard, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, rankDetailTrendCard, i) == null) {
-            xg5.a(this.i, getRootView());
+            il5.a(this.i, getRootView());
             SkinManager.setBackgroundResource(this.m, R.drawable.addresslist_item_bg);
             SkinManager.setViewTextColor(this.o, (int) R.color.CAM_X0108);
             SkinManager.setViewTextColor(this.p, (int) R.color.CAM_X0105);
@@ -269,15 +269,15 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01b5, (ViewGroup) null);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01b4, (ViewGroup) null);
             this.m = linearLayout;
-            this.n = (TbImageView) l(linearLayout, R.id.obfuscated_res_0x7f091362);
-            this.o = (TextView) l(this.m, R.id.obfuscated_res_0x7f09102b);
-            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f092421);
-            this.q = (TbImageView) l(this.m, R.id.obfuscated_res_0x7f09241f);
-            this.r = (TextView) l(this.m, R.id.obfuscated_res_0x7f092420);
-            this.s = (TextView) l(this.m, R.id.obfuscated_res_0x7f090469);
-            HeadImageView headImageView = (HeadImageView) l(this.m, R.id.obfuscated_res_0x7f090dab);
+            this.n = (TbImageView) l(linearLayout, R.id.obfuscated_res_0x7f0913a4);
+            this.o = (TextView) l(this.m, R.id.obfuscated_res_0x7f091070);
+            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f092434);
+            this.q = (TbImageView) l(this.m, R.id.obfuscated_res_0x7f092432);
+            this.r = (TextView) l(this.m, R.id.obfuscated_res_0x7f092433);
+            this.s = (TextView) l(this.m, R.id.obfuscated_res_0x7f090465);
+            HeadImageView headImageView = (HeadImageView) l(this.m, R.id.obfuscated_res_0x7f090df0);
             this.t = headImageView;
             headImageView.setIsRound(true);
             return this.m;

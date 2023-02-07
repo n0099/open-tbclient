@@ -1,104 +1,82 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.util.DataExt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.gson.annotations.SerializedName;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class mk9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
-    public static String g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final int b;
-    public final int c;
-    public long d;
-    public int e;
+    @SerializedName("n")
+    public String a;
+    @SerializedName("t")
+    public String b;
+    @SerializedName("c")
+    public String c;
+    @SerializedName("cs")
+    public List<a> d;
+    @SerializedName("e")
+    public List<String> e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947975694, "Lcom/baidu/tieba/mk9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        @SerializedName("id")
+        public String a;
+        @SerializedName("ext")
+        public String b;
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947975694, "Lcom/baidu/tieba/mk9;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        f = lk9.a & true;
-        g = "ControlData";
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int i = this.e;
-            if (i != 0 && i == this.c) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public mk9(String str, int i, int i2) {
+    public mk9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = str;
-        this.b = i;
-        this.c = i2;
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    @Nullable
+    public static mk9 a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.b != 0 && this.c != 0) {
-                Long valueOf = Long.valueOf(System.currentTimeMillis());
-                if (f) {
-                    Log.d(g, "id " + this.a + " mLimitUnit " + this.b + " mLimitCnt " + this.c + "mCount =  " + this.e + " duration " + ((valueOf.longValue() - this.d) / 1000));
-                }
-                if (this.d != 0 && (valueOf.longValue() - this.d) / 1000 <= this.b && this.e >= this.c) {
-                    if (f) {
-                        Log.d(g, "control");
-                    }
-                    return true;
-                }
-                if (this.d == 0) {
-                    this.d = valueOf.longValue();
-                } else if ((valueOf.longValue() - this.d) / 1000 > this.b) {
-                    this.d = valueOf.longValue();
-                    this.e = 0;
-                    if (f) {
-                        Log.d(g, "reset");
-                    }
-                }
-                this.e++;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
             }
-            return false;
+            try {
+                return (mk9) DataExt.toEntity(str, mk9.class);
+            } catch (Exception unused) {
+                return null;
+            }
         }
-        return invokeV.booleanValue;
+        return (mk9) invokeL.objValue;
     }
 }

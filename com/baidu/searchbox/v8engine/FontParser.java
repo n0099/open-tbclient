@@ -1,6 +1,7 @@
 package com.baidu.searchbox.v8engine;
 
 import android.util.Xml;
+import androidx.core.net.MailTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -254,7 +255,7 @@ public class FontParser {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, xmlPullParser)) == null) {
             Alias alias = new Alias();
             alias.name = xmlPullParser.getAttributeValue(null, "name");
-            alias.toName = xmlPullParser.getAttributeValue(null, "to");
+            alias.toName = xmlPullParser.getAttributeValue(null, MailTo.TO);
             String attributeValue = xmlPullParser.getAttributeValue(null, "weight");
             if (attributeValue == null) {
                 alias.weight = 400;

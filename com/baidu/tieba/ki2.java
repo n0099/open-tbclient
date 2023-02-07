@@ -1,48 +1,81 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ji2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
+import com.facebook.common.internal.Sets;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class ki2 extends di2<ji2> {
+public class ki2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Set<String> a;
+    public static final Set<String> b;
+    public static final Set<String> c;
+    public static final Map<String, ji2> d;
+    public static boolean e;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.di2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "hidekeyboard" : (String) invokeV.objValue;
-    }
-
-    public ki2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947913973, "Lcom/baidu/tieba/ki2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947913973, "Lcom/baidu/tieba/ki2;");
+                return;
             }
         }
+        a = Sets.newHashSet(ZeusWebViewPreloadClass.ZEUS_FILE_DIR);
+        b = new HashSet(a);
+        c = new HashSet(b);
+        d = new HashMap();
+        e = false;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.di2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull ji2 ji2Var) {
+    public static ji2 a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, ji2Var) == null) {
-            d(ji2Var, command.what, null, false);
-            ji2Var.w0();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            c();
+            return d.get(str);
+        }
+        return (ji2) invokeL.objValue;
+    }
+
+    public static ji2 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            ji2.b bVar = new ji2.b();
+            bVar.d(ZeusWebViewPreloadClass.ZEUS_FILE_DIR);
+            bVar.e(ds2.w0().a());
+            bVar.b(ds2.w0().d());
+            return bVar.a();
+        }
+        return (ji2) invokeV.objValue;
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            if (!e) {
+                for (String str : c) {
+                    if (ZeusWebViewPreloadClass.ZEUS_FILE_DIR.equals(str)) {
+                        d.put(str, b());
+                    }
+                }
+            }
+            e = true;
         }
     }
 }

@@ -1,112 +1,52 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import kotlin.jvm.JvmName;
+@JvmName(name = "LayerUtils")
 /* loaded from: classes5.dex */
-public class j11 extends h11 {
+public final class j11 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String b;
 
-    public j11() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947830335, "Lcom/baidu/tieba/j11;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947830335, "Lcom/baidu/tieba/j11;");
                 return;
             }
         }
-        this.b = null;
+        k61.a(253.0f);
+        k61.a(9.0f);
     }
 
-    @Override // com.baidu.tieba.k11
-    public boolean isValid() {
-        InterceptResult invokeV;
+    public static final my0 a(ArrayList<iy0> arrayList) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (TextUtils.isEmpty(this.b)) {
-                return f();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, arrayList)) == null) {
+            if (arrayList != null) {
+                Iterator<iy0> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    iy0 next = it.next();
+                    if (next instanceof my0) {
+                        return (my0) next;
+                    }
+                }
+                return null;
             }
-            return true;
+            return null;
         }
-        return invokeV.booleanValue;
-    }
-
-    public final void e(StringBuilder sb, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, sb, str, str2) == null) {
-            if (sb.length() > 0) {
-                sb.append('&');
-            }
-            sb.append(str);
-            sb.append(com.alipay.sdk.encrypt.a.h);
-            sb.append(str2);
-        }
-    }
-
-    public final boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            mj0 d = ej0.d();
-            StringBuilder sb = new StringBuilder();
-            e(sb, "productId", d.r());
-            e(sb, HttpRequest.CLIENT_TYPE, "2");
-            e(sb, "_os_type", "2");
-            String h = uj0.c().h(false);
-            if (!TextUtils.isEmpty(h)) {
-                e(sb, "_os_version", h);
-            }
-            e(sb, "_client_version", d.v());
-            e(sb, "_sdk_version", "5.10.0.26");
-            String e = uj0.c().e(false);
-            if (!TextUtils.isEmpty(e)) {
-                e(sb, "model", e);
-            }
-            e(sb, "cuid", d.g());
-            e(sb, "net_type", String.valueOf(new er0().c()));
-            if (sg0.a) {
-                e(sb, "rd", d.w());
-                e(sb, "qa", d.x());
-                e(sb, "story_id", d.t());
-            }
-            String sb2 = sb.toString();
-            this.b = sb2;
-            return !TextUtils.isEmpty(sb2);
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.h11, com.baidu.tieba.k11
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TextUtils.isEmpty(this.b)) {
-                f();
-            }
-            if (this.a.toString().contains(this.b)) {
-                return this.a.toString();
-            }
-            if (this.a.length() > 0) {
-                this.a.append('&');
-            }
-            this.a.append(this.b);
-            return this.a.toString();
-        }
-        return (String) invokeV.objValue;
+        return (my0) invokeL.objValue;
     }
 }

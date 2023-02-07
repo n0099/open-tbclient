@@ -1,6 +1,6 @@
 package com.badlogic.gdx;
 
-import com.baidu.tieba.l3;
+import com.baidu.tieba.q3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,15 +10,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public interface Files {
-    l3 a(String str);
+    q3 a(String str);
 
     String b();
 
-    l3 d(String str, FileType fileType);
+    q3 d(String str, FileType fileType);
 
     String e();
 
-    l3 f(String str);
+    q3 f(String str);
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */

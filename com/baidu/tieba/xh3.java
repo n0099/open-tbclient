@@ -1,12 +1,11 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
-import android.os.StatFs;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.devices.StorageUtils;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,46 +13,57 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.StringTokenizer;
-/* loaded from: classes6.dex */
-public final class xh3 {
+/* loaded from: classes7.dex */
+public abstract class xh3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
+    public vh3 a;
+    public sh3 b;
+    public volatile boolean c;
+    public HandlerThread d;
+    public Handler e;
 
-    /* loaded from: classes6.dex */
-    public static class a {
+    public abstract void f();
+
+    /* loaded from: classes7.dex */
+    public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
+        public final /* synthetic */ xh3 a;
 
-        public a(String str, boolean z, boolean z2, int i) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(xh3 xh3Var, Looper looper) {
+            super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)};
+                Object[] objArr = {xh3Var, looper};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = str;
+            this.a = xh3Var;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(@NonNull Message message) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 101) {
+                this.a.f();
+                if (this.a.c) {
+                    this.a.a.c();
+                } else {
+                    this.a.e.removeMessages(101);
+                }
+            }
         }
     }
 
@@ -70,236 +80,75 @@ public final class xh3 {
                 return;
             }
         }
-        a = tk1.a;
+        f = gp1.a;
     }
 
-    public static int a() {
-        InterceptResult invokeV;
+    public synchronized void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b()) {
-                return (int) (new StatFs(Environment.getExternalStorageDirectory().getPath()).getTotalBytes() / 1024);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this) {
+                if (this.c) {
+                    return;
+                }
+                d();
+                this.e.sendMessage(this.e.obtainMessage(101));
             }
-            return -1;
         }
-        return invokeV.intValue;
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return Environment.getExternalStorageState().equals("mounted");
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.e == null) {
+            HandlerThread handlerThread = new HandlerThread("cookieSync");
+            this.d = handlerThread;
+            handlerThread.start();
+            this.e = new a(this, this.d.getLooper());
         }
-        return invokeV.booleanValue;
     }
 
-    public static long c() {
-        InterceptResult invokeV;
-        long blockSize;
-        long availableBlocks;
+    public synchronized void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b()) {
-                StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
-                if (qg3.d()) {
-                    blockSize = statFs.getBlockSizeLong();
-                    availableBlocks = statFs.getAvailableBlocksLong();
-                } else {
-                    blockSize = statFs.getBlockSize();
-                    availableBlocks = statFs.getAvailableBlocks();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                this.c = true;
+                if (this.d != null) {
+                    this.d.quitSafely();
                 }
-                return availableBlocks * blockSize;
+                this.e = null;
+                this.d = null;
             }
-            return -1L;
         }
-        return invokeV.longValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:108:0x01d3  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static List<a> d() {
-        InterceptResult invokeV;
-        String path;
-        boolean z;
-        HashSet hashSet;
-        BufferedReader bufferedReader;
-        String str;
-        int i;
+    public synchronized void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            HashMap hashMap = new HashMap();
-            ArrayList arrayList = new ArrayList();
-            BufferedReader bufferedReader2 = null;
-            File externalFilesDir = AppRuntime.getAppContext().getExternalFilesDir(null);
-            if (externalFilesDir == null) {
-                path = null;
-            } else {
-                path = externalFilesDir.getPath();
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                if (this.c) {
+                    return;
+                }
+                d();
+                this.e.sendMessageDelayed(this.e.obtainMessage(101), 5000L);
             }
-            int i2 = 1;
-            boolean z2 = false;
-            boolean z3 = qg3.b() ? !Environment.isExternalStorageRemovable() : false;
-            String externalStorageState = Environment.getExternalStorageState();
-            if (!externalStorageState.equals("mounted") && !externalStorageState.equals("mounted_ro")) {
-                z = false;
-            } else {
-                z = true;
-            }
-            boolean equals = Environment.getExternalStorageState().equals("mounted_ro");
-            try {
-                try {
-                    hashSet = new HashSet();
-                    bufferedReader = new BufferedReader(new FileReader("/proc/mounts"));
-                } catch (Throwable th) {
-                    th = th;
-                }
-            } catch (FileNotFoundException e) {
-                e = e;
-                bufferedReader2 = null;
-            } catch (IOException e2) {
-                e = e2;
-                bufferedReader2 = null;
-            } catch (Throwable th2) {
-                th = th2;
-                bufferedReader2 = null;
-            }
-            try {
-                if (a) {
-                    Log.d(StorageUtils.TAG, "/proc/mounts");
-                }
-                while (true) {
-                    String readLine = bufferedReader.readLine();
-                    if (readLine == null) {
-                        break;
-                    }
-                    if (a) {
-                        Log.d(StorageUtils.TAG, readLine);
-                    }
-                    StringTokenizer stringTokenizer = new StringTokenizer(readLine, " ");
-                    String nextToken = stringTokenizer.nextToken();
-                    String nextToken2 = stringTokenizer.nextToken();
-                    if (!hashSet.contains(nextToken2)) {
-                        stringTokenizer.nextToken();
-                        boolean contains = Arrays.asList(stringTokenizer.nextToken().split(",")).contains("ro");
-                        if (!readLine.contains("vfat") && !readLine.contains("/mnt")) {
-                            if (e(nextToken, nextToken2)) {
-                                hashSet.add(nextToken2);
-                                if (f(nextToken2)) {
-                                    i = i2 + 1;
-                                    arrayList.add(new a(nextToken2, z2, contains, i2));
-                                    i2 = i;
-                                }
-                            }
-                            z2 = false;
-                        }
-                        if (nextToken2.equals(path)) {
-                            hashSet.add(path);
-                            hashMap.put(nextToken, new a(path, z3, contains, -1));
-                        } else if (readLine.contains("/dev/block/vold")) {
-                            if (!readLine.contains("/mnt/secure") && !readLine.contains("/mnt/asec") && !readLine.contains("/mnt/obb") && !readLine.contains("/dev/mapper") && !readLine.contains("tmpfs")) {
-                                hashSet.add(nextToken2);
-                                if (!hashMap.containsKey(nextToken)) {
-                                    i = i2 + 1;
-                                    hashMap.put(nextToken, new a(nextToken2, z2, contains, i2));
-                                    i2 = i;
-                                }
-                            }
-                        } else if (hashSet.contains(nextToken)) {
-                            Iterator it = hashMap.keySet().iterator();
-                            while (true) {
-                                if (it.hasNext()) {
-                                    str = (String) it.next();
-                                    if (TextUtils.equals(((a) hashMap.get(str)).a, nextToken)) {
-                                        break;
-                                    }
-                                } else {
-                                    str = null;
-                                    break;
-                                }
-                            }
-                            hashMap.remove(str);
-                            hashSet.add(nextToken2);
-                            if (!hashMap.containsKey(nextToken)) {
-                                hashMap.put(nextToken, new a(nextToken2, false, contains, i2));
-                                i2++;
-                            }
-                        }
-                        z2 = false;
-                    }
-                }
-                for (a aVar : hashMap.values()) {
-                    if (f(aVar.a)) {
-                        arrayList.add(aVar);
-                    }
-                }
-                if (!hashSet.contains(path) && z) {
-                    arrayList.add(0, new a(path, z3, equals, -1));
-                }
-                nk4.d(bufferedReader);
-            } catch (FileNotFoundException e3) {
-                e = e3;
-                bufferedReader2 = bufferedReader;
-                if (a) {
-                    e.printStackTrace();
-                }
-                nk4.d(bufferedReader2);
-                if (arrayList.isEmpty()) {
-                }
-                return arrayList;
-            } catch (IOException e4) {
-                e = e4;
-                bufferedReader2 = bufferedReader;
-                if (a) {
-                    e.printStackTrace();
-                }
-                nk4.d(bufferedReader2);
-                if (arrayList.isEmpty()) {
-                }
-                return arrayList;
-            } catch (Throwable th3) {
-                th = th3;
-                bufferedReader2 = bufferedReader;
-                nk4.d(bufferedReader2);
-                throw th;
-            }
-            if (arrayList.isEmpty()) {
-                arrayList.add(new a(path, z3, equals, -1));
-            }
-            return arrayList;
         }
-        return (List) invokeV.objValue;
     }
 
-    public static boolean e(String str, String str2) {
-        InterceptResult invokeLL;
+    public xh3(sh3 sh3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            if (str == null || !str.contains("/dev/fuse") || str2 == null || str2.startsWith("/storage/emulated/legacy") || str2.contains("/Android/obb")) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {sh3Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            if (str2.startsWith("/storage/")) {
-                return true;
-            }
-            if (!qg3.e() || str2.startsWith("/mnt/") || str2.startsWith("/data/")) {
-                return false;
-            }
-            return true;
         }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                return new File(str).canRead();
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
+        this.a = new vh3();
+        this.b = sh3Var;
     }
 }

@@ -1,77 +1,38 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.WorkerThread;
-import com.baidu.swan.pms.model.PMSAppInfo;
+import android.content.res.Resources;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.Map;
 /* loaded from: classes4.dex */
-public abstract class gc4 {
+public class gc4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile gc4 a;
     public transient /* synthetic */ FieldHolder $fh;
+    @V8JavascriptField
+    public volatile float height;
+    @V8JavascriptField
+    public volatile float left;
+    @V8JavascriptField
+    public volatile float top;
+    @V8JavascriptField
+    public volatile float width;
 
-    public abstract boolean a(id4 id4Var, PMSAppInfo pMSAppInfo);
+    /* loaded from: classes4.dex */
+    public interface a {
+    }
 
-    public abstract boolean b(id4 id4Var, List<jd4> list, gd4 gd4Var, ed4 ed4Var, PMSAppInfo pMSAppInfo);
-
-    public abstract void c(String str);
-
-    public abstract void d(String str, String str2);
-
-    public abstract <T extends hd4> boolean e(Class<T> cls, String str);
-
-    public abstract boolean f(kd4 kd4Var);
-
-    public abstract boolean g(List<kd4> list);
-
-    public abstract boolean h(String str);
-
-    @WorkerThread
-    public abstract int j(@NonNull String str);
-
-    @NonNull
-    @WorkerThread
-    public abstract List<jd4> k(@NonNull String str, int i);
-
-    public abstract boolean l(PMSAppInfo pMSAppInfo);
-
-    public abstract <T extends hd4> boolean m(T t);
-
-    public abstract boolean n(String str, String str2, String str3);
-
-    public abstract <T extends hd4> T o(Class<T> cls, String str);
-
-    public abstract Map<String, id4> p();
-
-    public abstract kd4 q(String str, long j, long j2);
-
-    public abstract List<kd4> r(String str, String[] strArr);
-
-    public abstract List<kd4> s(String str, long j, long j2);
-
-    @Nullable
-    public abstract ld4 t(String str);
-
-    public abstract PMSAppInfo u(String str);
-
-    public abstract Map<String, PMSAppInfo> v();
-
-    public abstract List<kd4> w(String str);
-
-    public abstract boolean x(kd4 kd4Var);
-
-    public abstract boolean y(PMSAppInfo pMSAppInfo);
-
-    public abstract boolean z(String str, int i);
+    public void b(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+        }
+    }
 
     public gc4() {
+        Resources resources;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -81,23 +42,38 @@ public abstract class gc4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        if (ds2.c() != null) {
+            resources = ds2.c().getResources();
+        } else {
+            resources = null;
+        }
+        this.left = a(resources, R.dimen.obfuscated_res_0x7f07071c);
+        this.top = a(resources, R.dimen.obfuscated_res_0x7f07071d);
+        this.width = a(resources, R.dimen.obfuscated_res_0x7f07071e);
+        this.height = a(resources, R.dimen.obfuscated_res_0x7f07071b);
     }
 
-    public static gc4 i() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (gc4.class) {
-                    if (a == null) {
-                        a = new hc4();
-                    }
-                }
-            }
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "{left=" + this.left + ", top=" + this.top + ", width=" + this.width + ", height=" + this.height + "}";
         }
-        return (gc4) invokeV.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public final float a(Resources resources, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, resources, i)) == null) {
+            if (resources != null && i != 0) {
+                return mb4.b(resources.getDimension(i));
+            }
+            return 0.0f;
+        }
+        return invokeLI.floatValue;
     }
 }

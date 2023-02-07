@@ -14,25 +14,21 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.component.AbsComponentPlugin;
 import com.baidu.nadcore.max.event.WebEventTypeEnum;
 import com.baidu.nadcore.max.uicomponent.WebViewComponent$webviewService$2;
-import com.baidu.nadcore.webview.container.base.AbsContainer;
 import com.baidu.searchbox.live.frame.IntentData;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.cj0;
-import com.baidu.tieba.ep0;
-import com.baidu.tieba.jq0;
-import com.baidu.tieba.kp0;
-import com.baidu.tieba.l61;
-import com.baidu.tieba.q51;
-import com.baidu.tieba.r31;
-import com.baidu.tieba.ro0;
-import com.baidu.tieba.u01;
-import com.baidu.tieba.v51;
-import com.baidu.tieba.vm0;
-import com.baidu.tieba.w51;
-import com.baidu.tieba.x51;
-import com.baidu.tieba.xo0;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.b51;
+import com.baidu.tieba.bq0;
+import com.baidu.tieba.eq0;
+import com.baidu.tieba.fq0;
+import com.baidu.tieba.fr0;
+import com.baidu.tieba.gq0;
+import com.baidu.tieba.hq0;
+import com.baidu.tieba.ip0;
+import com.baidu.tieba.iq0;
+import com.baidu.tieba.lj0;
+import com.baidu.tieba.op0;
+import com.baidu.tieba.vp0;
+import com.baidu.tieba.y11;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,104 +41,94 @@ import kotlin.LazyKt__LazyJVMKt;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0084\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\u0018\u00002\u00020\u00012\u00020\u00022\u00020\u0003B\u0007¢\u0006\u0004\bS\u0010\nJ\u0019\u0010\u0007\u001a\u00020\u00062\b\u0010\u0005\u001a\u0004\u0018\u00010\u0004H\u0016¢\u0006\u0004\b\u0007\u0010\bJ\u000f\u0010\t\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\t\u0010\nJ\u000f\u0010\u000b\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\u000b\u0010\nJ\u000f\u0010\r\u001a\u00020\fH\u0016¢\u0006\u0004\b\r\u0010\u000eJ\u000f\u0010\u0010\u001a\u00020\u000fH\u0016¢\u0006\u0004\b\u0010\u0010\u0011J\u000f\u0010\u0012\u001a\u00020\u0004H\u0016¢\u0006\u0004\b\u0012\u0010\u0013J!\u0010\u0018\u001a\u00020\f2\u0006\u0010\u0015\u001a\u00020\u00142\b\u0010\u0017\u001a\u0004\u0018\u00010\u0016H\u0016¢\u0006\u0004\b\u0018\u0010\u0019J\u000f\u0010\u001a\u001a\u00020\fH\u0016¢\u0006\u0004\b\u001a\u0010\u000eJ\u0017\u0010\u001c\u001a\u00020\u00062\u0006\u0010\u0017\u001a\u00020\u001bH\u0002¢\u0006\u0004\b\u001c\u0010\u001dJ\u000f\u0010\u001e\u001a\u00020\fH\u0016¢\u0006\u0004\b\u001e\u0010\u000eJ\u0019\u0010!\u001a\u00020\f2\b\u0010 \u001a\u0004\u0018\u00010\u001fH\u0016¢\u0006\u0004\b!\u0010\"J\u0011\u0010$\u001a\u0004\u0018\u00010#H\u0016¢\u0006\u0004\b$\u0010%J\u000f\u0010&\u001a\u00020\u0006H\u0002¢\u0006\u0004\b&\u0010\nJ\u000f\u0010'\u001a\u00020\u0006H\u0016¢\u0006\u0004\b'\u0010\nJ\u000f\u0010(\u001a\u00020\fH\u0016¢\u0006\u0004\b(\u0010\u000eJ\u000f\u0010)\u001a\u00020\fH\u0016¢\u0006\u0004\b)\u0010\u000eJ\u000f\u0010*\u001a\u00020\u001fH\u0016¢\u0006\u0004\b*\u0010+J\u000f\u0010,\u001a\u00020\u001fH\u0016¢\u0006\u0004\b,\u0010+J\u000f\u0010-\u001a\u00020\u001fH\u0016¢\u0006\u0004\b-\u0010+J\u000f\u0010.\u001a\u00020\u001fH\u0016¢\u0006\u0004\b.\u0010+J\u000f\u00100\u001a\u00020/H\u0016¢\u0006\u0004\b0\u00101J\u001f\u00102\u001a\u00020\f2\u0006\u0010\u0015\u001a\u00020\u00142\u0006\u0010\u0017\u001a\u00020\u0016H\u0016¢\u0006\u0004\b2\u0010\u0019J\u0017\u00103\u001a\u00020\u00062\u0006\u0010\u0005\u001a\u00020\u0004H\u0016¢\u0006\u0004\b3\u0010\bJ\u000f\u00104\u001a\u00020\u0006H\u0016¢\u0006\u0004\b4\u0010\nJ\u000f\u00105\u001a\u00020\u0006H\u0016¢\u0006\u0004\b5\u0010\nJ\u000f\u00106\u001a\u00020\u0006H\u0016¢\u0006\u0004\b6\u0010\nJ\u000f\u00107\u001a\u00020\u0006H\u0016¢\u0006\u0004\b7\u0010\nJ\u000f\u00108\u001a\u00020\u0006H\u0016¢\u0006\u0004\b8\u0010\nJ\u0017\u00109\u001a\u00020\u00062\u0006\u0010\u0005\u001a\u00020\u0004H\u0002¢\u0006\u0004\b9\u0010\bJ\u0017\u0010;\u001a\u00020\u00062\u0006\u0010\u0017\u001a\u00020:H\u0016¢\u0006\u0004\b;\u0010<J\u0017\u0010>\u001a\u00020\u00062\u0006\u0010=\u001a\u00020\u0014H\u0002¢\u0006\u0004\b>\u0010?R\u001d\u0010E\u001a\u00020@8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bA\u0010B\u001a\u0004\bC\u0010DR\u001d\u0010J\u001a\u00020F8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bG\u0010B\u001a\u0004\bH\u0010IR\u0018\u0010L\u001a\u0004\u0018\u00010K8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bL\u0010MR\u001d\u0010R\u001a\u00020N8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bO\u0010B\u001a\u0004\bP\u0010Q¨\u0006T"}, d2 = {"Lcom/baidu/nadcore/max/uicomponent/WebViewComponent;", "Lcom/baidu/tieba/w51;", "Lcom/baidu/tieba/x51;", "Lcom/baidu/nadcore/component/AbsComponentPlugin;", "Landroid/content/Intent;", IntentData.KEY, "", "addSpeedLogOnCreateBegin", "(Landroid/content/Intent;)V", "addSpeedLogOnCreateEnd", "()V", "doFinish", "", "enableUpdateTitle", "()Z", "Landroid/app/Activity;", "getActivity", "()Landroid/app/Activity;", "getIntent", "()Landroid/content/Intent;", "", "keyCode", "Landroid/view/KeyEvent;", "event", "handleKeyDown", "(ILandroid/view/KeyEvent;)Z", "handleLoadUrl", "Lcom/baidu/nadcore/max/event/NestedScrollEvent;", "handleNestedScrollEvent", "(Lcom/baidu/nadcore/max/event/NestedScrollEvent;)V", "handleSetContentView", "", "favorData", "handleUpdateFavorUI", "(Ljava/lang/String;)Z", "Landroid/widget/LinearLayout;", "initBrowserLayout", "()Landroid/widget/LinearLayout;", "initWebView", "injectService", "needAddSpeedLogInBase", "needAppendPublicParam", "obtainDemoteFavorUrl", "()Ljava/lang/String;", "obtainHost", "obtainNid", "obtainPageTitle", "Lorg/json/JSONObject;", "obtainSuspensionBallData", "()Lorg/json/JSONObject;", "onKeyDown", "onNewIntent", MissionEvent.MESSAGE_PAUSE, "onRelease", "onResume", "onStart", MissionEvent.MESSAGE_STOP, "parseData", "Lcom/baidu/nadcore/component/api/IComponentEvent;", "receiveEvent", "(Lcom/baidu/nadcore/component/api/IComponentEvent;)V", "visibility", "setUIVisible", "(I)V", "Lcom/baidu/nadcore/webview/container/base/AbsContainer;", "baseBrowserContainer$delegate", "Lkotlin/Lazy;", "getBaseBrowserContainer", "()Lcom/baidu/nadcore/webview/container/base/AbsContainer;", "baseBrowserContainer", "Lcom/baidu/nadcore/webview/listener/BdPageDialogsHandler;", "bdPageDialogsHandler$delegate", "getBdPageDialogsHandler", "()Lcom/baidu/nadcore/webview/listener/BdPageDialogsHandler;", "bdPageDialogsHandler", "Lcom/baidu/nadcore/model/CmdPolicy;", "switchModel", "Lcom/baidu/nadcore/model/CmdPolicy;", "Lcom/baidu/nadcore/max/service/IWebViewService;", "webviewService$delegate", "getWebviewService", "()Lcom/baidu/nadcore/max/service/IWebViewService;", "webviewService", "<init>", "nadcore-lib-business"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u008c\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\u0018\u00002\u00020\u00012\u00020\u00022\u00020\u0003B\u0007¢\u0006\u0004\bV\u0010\nJ\u0019\u0010\u0007\u001a\u00020\u00062\b\u0010\u0005\u001a\u0004\u0018\u00010\u0004H\u0016¢\u0006\u0004\b\u0007\u0010\bJ\u000f\u0010\t\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\t\u0010\nJ\u000f\u0010\u000b\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\u000b\u0010\nJ\u000f\u0010\r\u001a\u00020\fH\u0016¢\u0006\u0004\b\r\u0010\u000eJ\u000f\u0010\u0010\u001a\u00020\u000fH\u0016¢\u0006\u0004\b\u0010\u0010\u0011J\u000f\u0010\u0012\u001a\u00020\u0004H\u0016¢\u0006\u0004\b\u0012\u0010\u0013J\u0019\u0010\u0016\u001a\u00020\f2\b\u0010\u0015\u001a\u0004\u0018\u00010\u0014H\u0016¢\u0006\u0004\b\u0016\u0010\u0017J!\u0010\u001b\u001a\u00020\f2\u0006\u0010\u0019\u001a\u00020\u00182\b\u0010\u0015\u001a\u0004\u0018\u00010\u001aH\u0016¢\u0006\u0004\b\u001b\u0010\u001cJ\u000f\u0010\u001d\u001a\u00020\fH\u0016¢\u0006\u0004\b\u001d\u0010\u000eJ\u0017\u0010\u001f\u001a\u00020\u00062\u0006\u0010\u0015\u001a\u00020\u001eH\u0002¢\u0006\u0004\b\u001f\u0010 J\u000f\u0010!\u001a\u00020\fH\u0016¢\u0006\u0004\b!\u0010\u000eJ\u0019\u0010$\u001a\u00020\f2\b\u0010#\u001a\u0004\u0018\u00010\"H\u0016¢\u0006\u0004\b$\u0010%J\u0011\u0010'\u001a\u0004\u0018\u00010&H\u0016¢\u0006\u0004\b'\u0010(J\u000f\u0010)\u001a\u00020\u0006H\u0002¢\u0006\u0004\b)\u0010\nJ\u000f\u0010*\u001a\u00020\u0006H\u0016¢\u0006\u0004\b*\u0010\nJ\u000f\u0010+\u001a\u00020\fH\u0016¢\u0006\u0004\b+\u0010\u000eJ\u000f\u0010,\u001a\u00020\fH\u0016¢\u0006\u0004\b,\u0010\u000eJ\u000f\u0010-\u001a\u00020\"H\u0016¢\u0006\u0004\b-\u0010.J\u000f\u0010/\u001a\u00020\"H\u0016¢\u0006\u0004\b/\u0010.J\u000f\u00100\u001a\u00020\"H\u0016¢\u0006\u0004\b0\u0010.J\u000f\u00101\u001a\u00020\"H\u0016¢\u0006\u0004\b1\u0010.J\u000f\u00103\u001a\u000202H\u0016¢\u0006\u0004\b3\u00104J\u001f\u00105\u001a\u00020\f2\u0006\u0010\u0019\u001a\u00020\u00182\u0006\u0010\u0015\u001a\u00020\u001aH\u0016¢\u0006\u0004\b5\u0010\u001cJ\u0017\u00106\u001a\u00020\u00062\u0006\u0010\u0005\u001a\u00020\u0004H\u0016¢\u0006\u0004\b6\u0010\bJ\u000f\u00107\u001a\u00020\u0006H\u0016¢\u0006\u0004\b7\u0010\nJ\u000f\u00108\u001a\u00020\u0006H\u0016¢\u0006\u0004\b8\u0010\nJ\u000f\u00109\u001a\u00020\u0006H\u0016¢\u0006\u0004\b9\u0010\nJ\u000f\u0010:\u001a\u00020\u0006H\u0016¢\u0006\u0004\b:\u0010\nJ\u000f\u0010;\u001a\u00020\u0006H\u0016¢\u0006\u0004\b;\u0010\nJ\u0017\u0010<\u001a\u00020\u00062\u0006\u0010\u0005\u001a\u00020\u0004H\u0002¢\u0006\u0004\b<\u0010\bJ\u0017\u0010>\u001a\u00020\u00062\u0006\u0010\u0015\u001a\u00020=H\u0016¢\u0006\u0004\b>\u0010?J\u0017\u0010A\u001a\u00020\u00062\u0006\u0010@\u001a\u00020\u0018H\u0002¢\u0006\u0004\bA\u0010BR\u001d\u0010H\u001a\u00020C8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bD\u0010E\u001a\u0004\bF\u0010GR\u001d\u0010M\u001a\u00020I8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bJ\u0010E\u001a\u0004\bK\u0010LR\u0018\u0010O\u001a\u0004\u0018\u00010N8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bO\u0010PR\u001d\u0010U\u001a\u00020Q8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bR\u0010E\u001a\u0004\bS\u0010T¨\u0006W"}, d2 = {"Lcom/baidu/nadcore/max/uicomponent/WebViewComponent;", "Lcom/baidu/tieba/eq0;", "Lcom/baidu/tieba/fq0;", "Lcom/baidu/nadcore/component/AbsComponentPlugin;", "Landroid/content/Intent;", IntentData.KEY, "", "addSpeedLogOnCreateBegin", "(Landroid/content/Intent;)V", "addSpeedLogOnCreateEnd", "()V", "doFinish", "", "enableUpdateTitle", "()Z", "Landroid/app/Activity;", "getActivity", "()Landroid/app/Activity;", "getIntent", "()Landroid/content/Intent;", "Lcom/baidu/nadcore/webview/extend/NadFontSizeChangeMessage;", "event", "handleFontSizeChange", "(Lcom/baidu/nadcore/webview/extend/NadFontSizeChangeMessage;)Z", "", "keyCode", "Landroid/view/KeyEvent;", "handleKeyDown", "(ILandroid/view/KeyEvent;)Z", "handleLoadUrl", "Lcom/baidu/nadcore/max/event/NestedScrollEvent;", "handleNestedScrollEvent", "(Lcom/baidu/nadcore/max/event/NestedScrollEvent;)V", "handleSetContentView", "", "favorData", "handleUpdateFavorUI", "(Ljava/lang/String;)Z", "Landroid/widget/LinearLayout;", "initBrowserLayout", "()Landroid/widget/LinearLayout;", "initWebView", "injectService", "needAddSpeedLogInBase", "needAppendPublicParam", "obtainDemoteFavorUrl", "()Ljava/lang/String;", "obtainHost", "obtainNid", "obtainPageTitle", "Lorg/json/JSONObject;", "obtainSuspensionBallData", "()Lorg/json/JSONObject;", "onKeyDown", "onNewIntent", MissionEvent.MESSAGE_PAUSE, "onRelease", "onResume", "onStart", MissionEvent.MESSAGE_STOP, "parseData", "Lcom/baidu/nadcore/component/api/IComponentEvent;", "receiveEvent", "(Lcom/baidu/nadcore/component/api/IComponentEvent;)V", "visibility", "setUIVisible", "(I)V", "Lcom/baidu/nadcore/max/webviewab/WrappedPageDialogsHandler;", "bdPageDialogsHandler$delegate", "Lkotlin/Lazy;", "getBdPageDialogsHandler", "()Lcom/baidu/nadcore/max/webviewab/WrappedPageDialogsHandler;", "bdPageDialogsHandler", "Lcom/baidu/nadcore/max/webviewab/WrappedContainer;", "browserContainer$delegate", "getBrowserContainer", "()Lcom/baidu/nadcore/max/webviewab/WrappedContainer;", "browserContainer", "Lcom/baidu/nadcore/model/CmdPolicy;", "switchModel", "Lcom/baidu/nadcore/model/CmdPolicy;", "Lcom/baidu/nadcore/max/service/IWebViewService;", "webviewService$delegate", "getWebviewService", "()Lcom/baidu/nadcore/max/service/IWebViewService;", "webviewService", "<init>", "nadcore-lib-business"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
-public final class WebViewComponent extends AbsComponentPlugin implements w51, x51 {
+public final class WebViewComponent extends AbsComponentPlugin implements eq0, fq0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Lazy d;
     public final Lazy e;
     public final Lazy f;
 
-    /* loaded from: classes2.dex */
-    public static final class a implements AbsContainer.b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final a a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-618036580, "Lcom/baidu/nadcore/max/uicomponent/WebViewComponent$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-618036580, "Lcom/baidu/nadcore/max/uicomponent/WebViewComponent$a;");
-                    return;
-                }
-            }
-            a = new a();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
+    @Override // com.baidu.tieba.x81, com.baidu.tieba.ia1
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.x51
-    public boolean G0() {
+    @Override // com.baidu.tieba.x81, com.baidu.tieba.ia1
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final AbsContainer f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (AbsContainer) this.d.getValue() : (AbsContainer) invokeV.objValue;
-    }
-
-    public final l61 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (l61) this.e.getValue() : (l61) invokeV.objValue;
-    }
-
-    public final ep0 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (ep0) this.f.getValue() : (ep0) invokeV.objValue;
-    }
-
-    public final void n(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.w51
-    public boolean u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return true;
         }
         return invokeV.booleanValue;
     }
 
+    @Override // com.baidu.tieba.y81, com.baidu.tieba.ja1
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.y81
+    public boolean h1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final iq0 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (iq0) this.e.getValue() : (iq0) invokeV.objValue;
+    }
+
+    public final hq0 k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? (hq0) this.d.getValue() : (hq0) invokeV.objValue;
+    }
+
+    public final vp0 l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (vp0) this.f.getValue() : (vp0) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.y81
+    public boolean s0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void t(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+        }
+    }
+
     /* loaded from: classes2.dex */
-    public static final class b extends ViewOutlineProvider {
+    public static final class a extends ViewOutlineProvider {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ WebViewComponent a;
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
-        public b(WebViewComponent webViewComponent) {
+        public a(WebViewComponent webViewComponent) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -162,16 +148,25 @@ public final class WebViewComponent extends AbsComponentPlugin implements w51, x
 
         @Override // android.view.ViewOutlineProvider
         public void getOutline(View view2, Outline outline) {
+            int i;
+            int i2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, view2, outline) == null) {
                 Intrinsics.checkNotNullParameter(view2, "view");
                 Intrinsics.checkNotNullParameter(outline, "outline");
-                View i = this.a.f().i();
-                Intrinsics.checkNotNullExpressionValue(i, "baseBrowserContainer.containerLayout");
-                int measuredWidth = i.getMeasuredWidth();
-                View i2 = this.a.f().i();
-                Intrinsics.checkNotNullExpressionValue(i2, "baseBrowserContainer.containerLayout");
-                outline.setRoundRect(new Rect(0, 0, measuredWidth, i2.getMeasuredHeight()), r31.c.a(this.a.getContext(), 18.0f));
+                View l = this.a.k().l();
+                if (l != null) {
+                    i = l.getMeasuredWidth();
+                } else {
+                    i = 0;
+                }
+                View l2 = this.a.k().l();
+                if (l2 != null) {
+                    i2 = l2.getMeasuredHeight();
+                } else {
+                    i2 = 0;
+                }
+                outline.setRoundRect(new Rect(0, 0, i, i2), b51.c.a(this.a.getContext(), 18.0f));
             }
         }
     }
@@ -189,7 +184,7 @@ public final class WebViewComponent extends AbsComponentPlugin implements w51, x
                 return;
             }
         }
-        this.d = LazyKt__LazyJVMKt.lazy(new Function0<AbsContainer>(this) { // from class: com.baidu.nadcore.max.uicomponent.WebViewComponent$baseBrowserContainer$2
+        this.d = LazyKt__LazyJVMKt.lazy(new Function0<hq0>(this) { // from class: com.baidu.nadcore.max.uicomponent.WebViewComponent$browserContainer$2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ WebViewComponent this$0;
@@ -218,18 +213,17 @@ public final class WebViewComponent extends AbsComponentPlugin implements w51, x
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
-            public final AbsContainer invoke() {
+            public final hq0 invoke() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    q51.a aVar = q51.a;
                     WebViewComponent webViewComponent = this.this$0;
-                    return aVar.a(webViewComponent, webViewComponent, vm0.b().a().a("key_webview_core_type", 0));
+                    return new hq0(webViewComponent, webViewComponent);
                 }
-                return (AbsContainer) invokeV.objValue;
+                return (hq0) invokeV.objValue;
             }
         });
-        this.e = LazyKt__LazyJVMKt.lazy(new Function0<l61>(this) { // from class: com.baidu.nadcore.max.uicomponent.WebViewComponent$bdPageDialogsHandler$2
+        this.e = LazyKt__LazyJVMKt.lazy(new Function0<iq0>(this) { // from class: com.baidu.nadcore.max.uicomponent.WebViewComponent$bdPageDialogsHandler$2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ WebViewComponent this$0;
@@ -258,13 +252,13 @@ public final class WebViewComponent extends AbsComponentPlugin implements w51, x
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
-            public final l61 invoke() {
+            public final iq0 invoke() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return new l61(this.this$0.getContext());
+                    return new iq0(this.this$0.k(), this.this$0.getContext());
                 }
-                return (l61) invokeV.objValue;
+                return (iq0) invokeV.objValue;
             }
         });
         this.f = LazyKt__LazyJVMKt.lazy(new Function0<WebViewComponent$webviewService$2.a>(this) { // from class: com.baidu.nadcore.max.uicomponent.WebViewComponent$webviewService$2
@@ -294,7 +288,7 @@ public final class WebViewComponent extends AbsComponentPlugin implements w51, x
             }
 
             /* loaded from: classes2.dex */
-            public static final class a implements ep0 {
+            public static final class a implements vp0 {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ WebViewComponent$webviewService$2 a;
@@ -318,23 +312,23 @@ public final class WebViewComponent extends AbsComponentPlugin implements w51, x
                     this.a = webViewComponent$webviewService$2;
                 }
 
-                @Override // com.baidu.tieba.ep0
+                @Override // com.baidu.tieba.vp0
                 public void e(int i) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) {
                         return;
                     }
-                    this.a.this$0.n(i);
+                    this.a.this$0.t(i);
                 }
 
-                @Override // com.baidu.tieba.ep0
-                public AbsContainer b() {
+                @Override // com.baidu.tieba.vp0
+                public hq0 b() {
                     InterceptResult invokeV;
                     Interceptable interceptable = $ic;
                     if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                        return this.a.this$0.f();
+                        return this.a.this$0.k();
                     }
-                    return (AbsContainer) invokeV.objValue;
+                    return (hq0) invokeV.objValue;
                 }
             }
 
@@ -353,14 +347,27 @@ public final class WebViewComponent extends AbsComponentPlugin implements w51, x
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
-    public void o(cj0 event) {
+    public void o(lj0 event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, event) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
             super.o(event);
-            if (Intrinsics.areEqual(event.a(), ro0.class.getSimpleName())) {
-                k((ro0) event);
+            if (Intrinsics.areEqual(event.a(), ip0.class.getSimpleName())) {
+                m((ip0) event);
             }
+        }
+    }
+
+    @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
+    public void onNewIntent(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, intent) == null) {
+            Intrinsics.checkNotNullParameter(intent, "intent");
+            q(intent);
+            if (!gq0.a.a(k(), getContext(), getIntent())) {
+                return;
+            }
+            n();
         }
     }
 
@@ -370,7 +377,7 @@ public final class WebViewComponent extends AbsComponentPlugin implements w51, x
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048588, this, i, event)) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
-            if (f().onKeyDown(i, event)) {
+            if (k().g(i, event)) {
                 return true;
             }
             return super.onKeyDown(i, event);
@@ -378,21 +385,21 @@ public final class WebViewComponent extends AbsComponentPlugin implements w51, x
         return invokeIL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.w51
+    @Override // com.baidu.tieba.x81, com.baidu.tieba.ia1
     public Activity getActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return a();
         }
         return (Activity) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.w51
+    @Override // com.baidu.tieba.x81, com.baidu.tieba.ia1
     public Intent getIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             Intent intent = a().getIntent();
             Intrinsics.checkNotNullExpressionValue(intent, "hostActivity.intent");
             return intent;
@@ -400,20 +407,12 @@ public final class WebViewComponent extends AbsComponentPlugin implements w51, x
         return (Intent) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.w51
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            f().f(a.a);
-        }
-    }
-
     @Override // com.baidu.nadcore.component.AbsComponentPlugin
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onPause();
-            f().r();
+            k().h();
         }
     }
 
@@ -421,10 +420,10 @@ public final class WebViewComponent extends AbsComponentPlugin implements w51, x
     public void onRelease() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            b().d(new xo0(WebEventTypeEnum.WEB_DESTROY));
+            b().d(new op0(WebEventTypeEnum.WEB_DESTROY));
             super.onRelease();
-            h().i();
-            f().q();
+            j().a();
+            k().f();
         }
     }
 
@@ -433,7 +432,7 @@ public final class WebViewComponent extends AbsComponentPlugin implements w51, x
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             super.onResume();
-            f().t();
+            k().i();
         }
     }
 
@@ -442,7 +441,7 @@ public final class WebViewComponent extends AbsComponentPlugin implements w51, x
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             super.onStart();
-            f().u();
+            k().j();
         }
     }
 
@@ -451,39 +450,39 @@ public final class WebViewComponent extends AbsComponentPlugin implements w51, x
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             super.onStop();
-            f().v();
+            k().k();
         }
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
     public void r() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             super.r();
-            b().m(ep0.class, j());
+            b().m(vp0.class, l());
         }
     }
 
-    public final void k(ro0 ro0Var) {
+    public final void m(ip0 ip0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, ro0Var) == null) {
-            int i = kp0.$EnumSwitchMapping$0[ro0Var.getType().ordinal()];
+        if (interceptable == null || interceptable.invokeL(1048585, this, ip0Var) == null) {
+            int i = bq0.$EnumSwitchMapping$0[ip0Var.getType().ordinal()];
             if (i != 1) {
                 if (i == 2) {
-                    n(0);
-                    h().l();
+                    t(0);
+                    j().b();
                     return;
                 }
                 return;
             }
-            n(8);
-            h().o(false);
+            t(8);
+            j().c(false);
         }
     }
 
-    public final void m(Intent intent) {
+    public final void q(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, intent) == null) {
+        if (interceptable == null || interceptable.invokeL(1048595, this, intent) == null) {
             Serializable serializableExtra = intent.getSerializableExtra("map");
             String str = null;
             if (!(serializableExtra instanceof HashMap)) {
@@ -497,43 +496,32 @@ public final class WebViewComponent extends AbsComponentPlugin implements w51, x
                 }
                 String str2 = str;
                 if (!TextUtils.isEmpty(str2)) {
-                    jq0.f.a(u01.c(str2));
+                    fr0.n.a(y11.c(str2));
                 }
             }
         }
     }
 
-    @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
-    public void onNewIntent(Intent intent) {
+    public final void n() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, intent) == null) {
-            Intrinsics.checkNotNullParameter(intent, "intent");
-            m(intent);
-            int b2 = v51.b(getContext().getApplicationContext(), null);
-            if (4 != b2 && b2 != 0 && 2 != b2 && 1 != b2) {
-                l();
-            }
-        }
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            f().y("1");
-            f().z(false);
-            f().p();
-            b().d(new xo0(WebEventTypeEnum.WEB_INIT_SUCCESS));
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            k().a();
+            k().e();
+            b().d(new op0(WebEventTypeEnum.WEB_INIT_SUCCESS));
             if (Build.VERSION.SDK_INT >= 21) {
-                View i = f().i();
-                Intrinsics.checkNotNullExpressionValue(i, "baseBrowserContainer.containerLayout");
-                i.setOutlineProvider(new b(this));
-                View i2 = f().i();
-                Intrinsics.checkNotNullExpressionValue(i2, "baseBrowserContainer.containerLayout");
-                i2.setClipToOutline(true);
+                View l = k().l();
+                if (l != null) {
+                    l.setOutlineProvider(new a(this));
+                }
+                View l2 = k().l();
+                if (l2 != null) {
+                    l2.setClipToOutline(true);
+                }
             }
-            View it = f().i();
-            Intrinsics.checkNotNullExpressionValue(it, "it");
-            it.setPadding(it.getPaddingLeft(), it.getPaddingTop(), it.getPaddingRight(), r31.c.a(getContext(), 49.0f));
+            View l3 = k().l();
+            if (l3 != null) {
+                l3.setPadding(l3.getPaddingLeft(), l3.getPaddingTop(), l3.getPaddingRight(), b51.c.a(getContext(), 49.0f));
+            }
         }
     }
 }

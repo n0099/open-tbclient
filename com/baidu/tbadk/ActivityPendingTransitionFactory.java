@@ -22,8 +22,8 @@ public class ActivityPendingTransitionFactory {
     public static int RES_NFADE_IN = 2130772067;
     public static int RES_NORMAL_IN_FROM_BOTTOM = 2130772112;
     public static int RES_NORMAL_IN_FROM_RIGHT = 2130772113;
-    public static int RES_NORMAL_OUT_TO_BOTTOM = 2130772157;
-    public static int RES_NORMAL_OUT_TO_RIGHT = 2130772159;
+    public static int RES_NORMAL_OUT_TO_BOTTOM = 2130772159;
+    public static int RES_NORMAL_OUT_TO_RIGHT = 2130772161;
     public static final int TYPE_BIG_IMAGE = 2;
     public static final int TYPE_BOTTOM = 4;
     public static final int TYPE_CUSTOM_FROM_THIRD_PARTY = 3;

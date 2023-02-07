@@ -41,13 +41,13 @@ public final class a extends com.kwad.components.ad.h.a implements com.kwad.comp
     public String uf;
     public boolean ug;
     public boolean uh;
-    public List<InterfaceC0571a> ui;
+    public List<InterfaceC0575a> ui;
     public final List<h.a> uj;
     public h.a uk;
 
     /* renamed from: com.kwad.components.ad.reward.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC0571a {
+    public interface InterfaceC0575a {
         boolean handledOnResume();
     }
 
@@ -237,10 +237,10 @@ public final class a extends com.kwad.components.ad.h.a implements com.kwad.comp
         }
     }
 
-    public final void a(InterfaceC0571a interfaceC0571a) {
+    public final void a(InterfaceC0575a interfaceC0575a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0571a) == null) {
-            this.ui.add(interfaceC0571a);
+        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0575a) == null) {
+            this.ui.add(interfaceC0575a);
         }
     }
 
@@ -260,10 +260,10 @@ public final class a extends com.kwad.components.ad.h.a implements com.kwad.comp
         }
     }
 
-    public final void b(InterfaceC0571a interfaceC0571a) {
+    public final void b(InterfaceC0575a interfaceC0575a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, interfaceC0571a) == null) {
-            this.ui.remove(interfaceC0571a);
+        if (interceptable == null || interceptable.invokeL(1048579, this, interfaceC0575a) == null) {
+            this.ui.remove(interfaceC0575a);
         }
     }
 
@@ -334,8 +334,8 @@ public final class a extends com.kwad.components.ad.h.a implements com.kwad.comp
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             loop0: while (true) {
-                for (InterfaceC0571a interfaceC0571a : this.ui) {
-                    z = z || interfaceC0571a.handledOnResume();
+                for (InterfaceC0575a interfaceC0575a : this.ui) {
+                    z = z || interfaceC0575a.handledOnResume();
                 }
             }
             if (!z && !this.hx) {

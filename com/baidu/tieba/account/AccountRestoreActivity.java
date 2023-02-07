@@ -17,10 +17,10 @@ import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tbadk.util.PageType;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ds5;
-import com.baidu.tieba.ux8;
-import com.baidu.tieba.vx8;
-import com.baidu.tieba.wx8;
+import com.baidu.tieba.ow5;
+import com.baidu.tieba.s19;
+import com.baidu.tieba.t19;
+import com.baidu.tieba.u19;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,15 +34,15 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
     public static final String JS_PROMPT_INTERFACE_NAME = "AccountJsBridge";
     public static final String PAGE_TYPE = "page_type";
     public transient /* synthetic */ FieldHolder $fh;
-    public ux8 jsBridge;
-    public wx8 jsCallback;
-    public vx8 jsPromptInterface;
+    public s19 jsBridge;
+    public u19 jsCallback;
+    public t19 jsPromptInterface;
     public NavigationBar mNavigationBar;
     public String mPageType;
     public BaseWebView mWebView;
 
     /* loaded from: classes3.dex */
-    public class a implements wx8 {
+    public class a implements u19 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AccountRestoreActivity a;
@@ -65,7 +65,7 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
             this.a = accountRestoreActivity;
         }
 
-        @Override // com.baidu.tieba.wx8
+        @Override // com.baidu.tieba.u19
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -92,7 +92,7 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
                 return;
             }
         }
-        this.jsPromptInterface = new vx8(this) { // from class: com.baidu.tieba.account.AccountRestoreActivity.1
+        this.jsPromptInterface = new t19(this) { // from class: com.baidu.tieba.account.AccountRestoreActivity.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ AccountRestoreActivity this$0;
@@ -115,7 +115,7 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
                 this.this$0 = this;
             }
 
-            @Override // com.baidu.tieba.vx8
+            @Override // com.baidu.tieba.t19
             public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
                 InterceptResult invokeLLLL;
                 Interceptable interceptable2 = $ic;
@@ -159,20 +159,20 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0024);
-            ux8 ux8Var = new ux8();
-            this.jsBridge = ux8Var;
-            ux8Var.a(this.jsPromptInterface);
+            s19 s19Var = new s19();
+            this.jsBridge = s19Var;
+            s19Var.a(this.jsPromptInterface);
             this.mPageType = getIntent().getStringExtra("page_type");
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mNavigationBar.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0291));
-            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f0923a0)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
-            BaseWebView baseWebView = (BaseWebView) findViewById(R.id.obfuscated_res_0x7f09274d);
+            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f0923b3)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+            BaseWebView baseWebView = (BaseWebView) findViewById(R.id.obfuscated_res_0x7f092752);
             this.mWebView = baseWebView;
             baseWebView.setOnJsPromptCallback(this.jsCallback);
             BaseWebView baseWebView2 = this.mWebView;
-            baseWebView2.loadUrl(ds5.a + "?_client_version=" + TbConfig.getVersion());
+            baseWebView2.loadUrl(ow5.a + "?_client_version=" + TbConfig.getVersion());
         }
     }
 }

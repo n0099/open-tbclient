@@ -1,114 +1,82 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.opensource.svgaplayer.entities.SVGAVideoShapeEntity;
-import com.opensource.svgaplayer.proto.FrameEntity;
-import com.opensource.svgaplayer.proto.SpriteEntity;
-import java.util.ArrayList;
-import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.collections.CollectionsKt__IterablesKt;
-import kotlin.collections.CollectionsKt___CollectionsKt;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
+import java.lang.reflect.Field;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class z3a {
+public class z3a extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final List<a4a> b;
 
-    public z3a(SpriteEntity spriteEntity) {
-        List<a4a> emptyList;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public z3a(Ssp.Pid pid) {
+        super(pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {spriteEntity};
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = spriteEntity.imageKey;
-        List<FrameEntity> list = spriteEntity.frames;
-        if (list != null) {
-            emptyList = new ArrayList<>(CollectionsKt__IterablesKt.collectionSizeOrDefault(list, 10));
-            a4a a4aVar = null;
-            for (FrameEntity it : list) {
-                Intrinsics.checkExpressionValueIsNotNull(it, "it");
-                a4a a4aVar2 = new a4a(it);
-                if ((!a4aVar2.d().isEmpty()) && ((SVGAVideoShapeEntity) CollectionsKt___CollectionsKt.first((List<? extends Object>) a4aVar2.d())).e() && a4aVar != null) {
-                    a4aVar2.f(a4aVar.d());
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
+    public RippedAd getRippedAdInternal(Object obj) {
+        InterceptResult invokeL;
+        Object findField;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (obj == null) {
+                return null;
+            }
+            try {
+                Field declaredField = obj.getClass().getSuperclass().getSuperclass().getDeclaredField("a");
+                declaredField.setAccessible(true);
+                Object obj2 = declaredField.get(obj);
+                if (obj2 == null) {
+                    return null;
                 }
-                emptyList.add(a4aVar2);
-                a4aVar = a4aVar2;
-            }
-        } else {
-            emptyList = CollectionsKt__CollectionsKt.emptyList();
-        }
-        this.b = emptyList;
-    }
-
-    public z3a(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = jSONObject.optString("imageKey");
-        ArrayList arrayList = new ArrayList();
-        JSONArray optJSONArray = jSONObject.optJSONArray("frames");
-        if (optJSONArray != null) {
-            int length = optJSONArray.length();
-            for (int i3 = 0; i3 < length; i3++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
-                if (optJSONObject != null) {
-                    a4a a4aVar = new a4a(optJSONObject);
-                    if ((!a4aVar.d().isEmpty()) && ((SVGAVideoShapeEntity) CollectionsKt___CollectionsKt.first((List<? extends Object>) a4aVar.d())).e() && arrayList.size() > 0) {
-                        a4aVar.f(((a4a) CollectionsKt___CollectionsKt.last((List<? extends Object>) arrayList)).d());
-                    }
-                    arrayList.add(a4aVar);
+                Field declaredField2 = obj2.getClass().getDeclaredField("b");
+                declaredField2.setAccessible(true);
+                Object obj3 = declaredField2.get(obj2);
+                if (obj3 == null || (findField = ReflectionUtils.findField("com.qq.e.comm.plugin.intersitial2.a", obj3)) == null) {
+                    return null;
                 }
+                Field declaredField3 = findField.getClass().getDeclaredField("e");
+                declaredField3.setAccessible(true);
+                Object obj4 = declaredField3.get(findField);
+                if (obj4 == null) {
+                    return null;
+                }
+                Field declaredField4 = obj4.getClass().getSuperclass().getDeclaredField("L");
+                declaredField4.setAccessible(true);
+                JSONObject jSONObject = (JSONObject) declaredField4.get(obj4);
+                if (jSONObject == null) {
+                    return null;
+                }
+                return c3a.a(jSONObject);
+            } catch (Exception e) {
+                LogPrinter.e(e);
+                return null;
             }
         }
-        this.b = CollectionsKt___CollectionsKt.toList(arrayList);
-    }
-
-    public final List<a4a> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
+        return (RippedAd) invokeL.objValue;
     }
 }

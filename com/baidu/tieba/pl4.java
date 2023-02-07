@@ -1,287 +1,200 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.o93;
-import com.baidu.tieba.rl4;
-import com.baidu.tieba.um2;
+import android.text.TextUtils;
+import com.baidu.swan.pms.model.PMSPkgStatus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
+import com.baidu.webkit.internal.ETAG;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class pl4 extends ol4 {
+public class pl4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile pl4 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int A;
-    public rl4 z;
 
-    @Override // com.baidu.tieba.ol4
-    public void B0(int i, int i2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, str) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ol4
-    public void C0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.um2
-    public void N(ZeusPluginFactory.Invoker invoker) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, invoker) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ol4, com.baidu.tieba.um2
-    public void T() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ol4, com.baidu.tieba.um2
-    public void a0(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.um2
-    public ZeusPluginFactory.Invoker e0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return null;
-        }
-        return (ZeusPluginFactory.Invoker) invokeV.objValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements rl4.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pl4 a;
-
-        public a(pl4 pl4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pl4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pl4Var;
-        }
-
-        @Override // com.baidu.tieba.rl4.b
-        public void a(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-                this.a.y0();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements cj3<Integer> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pl4 a;
-
-        public b(pl4 pl4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pl4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pl4Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cj3
-        /* renamed from: b */
-        public void a(Integer num) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, num) == null) {
-                if (num.intValue() == 2) {
-                    if (ol4.x) {
-                        Log.d("SwanInlineLiveWidget", this.a.f + "-" + hashCode() + " authorize deny => onError 0");
-                    }
-                    um2.a aVar = this.a.i;
-                    if (aVar != null) {
-                        aVar.onError(0);
-                        return;
-                    }
-                    return;
-                }
-                if (ol4.x) {
-                    Log.d("SwanInlineLiveWidget", this.a.f + "-" + hashCode() + " real do prepareAsync");
-                }
-                pl4.super.prepareAsync();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements cj3<m93<o93.e>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cj3 a;
-        public final /* synthetic */ pl4 b;
-
-        public c(pl4 pl4Var, cj3 cj3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pl4Var, cj3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = pl4Var;
-            this.a = cj3Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cj3
-        /* renamed from: b */
-        public void a(m93<o93.e> m93Var) {
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m93Var) == null) {
-                boolean h = h93.h(m93Var);
-                if (ol4.x) {
-                    Log.d("SwanInlineLiveWidget", this.b.f + "-" + hashCode() + " authorize: " + h);
-                }
-                pl4 pl4Var = this.b;
-                if (h) {
-                    i = 1;
-                } else {
-                    i = 2;
-                }
-                pl4Var.A = i;
-                this.a.a(Integer.valueOf(this.b.A));
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pl4(ZeusPluginFactory.Invoker invoker, String str) {
-        super(invoker, str);
+    public pl4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {invoker, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((ZeusPluginFactory.Invoker) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.A = 0;
-        rl4 rl4Var = new rl4();
-        this.z = rl4Var;
-        rl4Var.e(this.c);
-        this.z.f(new a(this));
-    }
-
-    public final void L0(@NonNull Context context, @NonNull cj3<Integer> cj3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, cj3Var) == null) {
-            if (ol4.x) {
-                Log.d("SwanInlineLiveWidget", this.f + "-" + hashCode() + " start authorize");
-            }
-            j43 b0 = j43.b0();
-            if (b0 == null) {
-                if (!ol4.x) {
-                    cj3Var.a(0);
-                    return;
-                }
-                throw new RuntimeException("inline live authorize: swan app is null");
-            } else if (i03.r()) {
-                this.A = 1;
-                if (ol4.x) {
-                    Log.d("SwanInlineLiveWidget", this.f + "-" + hashCode() + " authorize debug: true");
-                }
-                cj3Var.a(Integer.valueOf(this.A));
-            } else {
-                b0.e0().g(context, "mapp_i_live_player", new c(this, cj3Var));
             }
         }
     }
 
-    @Override // com.baidu.tieba.ol4, com.baidu.tieba.um2
-    public int a() {
+    public static pl4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.A;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (pl4.class) {
+                    if (a == null) {
+                        a = new pl4();
+                    }
+                }
+            }
+            return a;
         }
-        return invokeV.intValue;
+        return (pl4) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ol4, com.baidu.tieba.um2
-    public void release() {
+    public static void b(uh4 uh4Var, em4 em4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            super.release();
-            rl4 rl4Var = this.z;
-            if (rl4Var != null) {
-                rl4Var.g();
-                this.z = null;
-            }
+        if ((interceptable != null && interceptable.invokeLL(65538, null, uh4Var, em4Var) != null) || uh4Var == null) {
+            return;
         }
+        em4Var.a(uh4Var, PMSPkgStatus.WAIT);
     }
 
-    @Override // com.baidu.tieba.ol4, com.baidu.tieba.um2
-    public boolean prepareAsync() {
-        InterceptResult invokeV;
+    public void c(JSONArray jSONArray, rg4 rg4Var, rg4 rg4Var2, rg4 rg4Var3) {
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (ol4.x) {
-                Log.d("SwanInlineLiveWidget", this.f + "-" + hashCode() + " start prepareAsync");
+        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, jSONArray, rg4Var, rg4Var2, rg4Var3) == null) && jSONArray != null && jSONArray.length() != 0) {
+            ol4 ol4Var = new ol4();
+            ol4 ol4Var2 = new ol4();
+            ol4 ol4Var3 = new ol4();
+            em4 em4Var = new em4();
+            em4 em4Var2 = new em4();
+            em4 em4Var3 = new em4();
+            ql4 ql4Var = null;
+            if (rg4Var3 != null) {
+                ql4Var = rg4Var3.w("so");
             }
-            L0(this.c, new b(this));
-            return true;
+            for (int i = 0; i < jSONArray.length(); i++) {
+                try {
+                    JSONObject jSONObject = jSONArray.getJSONObject(i);
+                    String string = jSONObject.getString("type");
+                    if (!TextUtils.isEmpty(string)) {
+                        JSONObject jSONObject2 = jSONObject.getJSONObject("data");
+                        if (!TextUtils.isEmpty(jSONObject2.getString("version_name"))) {
+                            switch (string.hashCode()) {
+                                case -612557761:
+                                    if (string.equals(ETAG.KEY_EXTENSION)) {
+                                        c = 2;
+                                        break;
+                                    }
+                                    c = 65535;
+                                    break;
+                                case 3676:
+                                    if (string.equals("so")) {
+                                        c = 4;
+                                        break;
+                                    }
+                                    c = 65535;
+                                    break;
+                                case 99308:
+                                    if (string.equals("ddl")) {
+                                        c = 5;
+                                        break;
+                                    }
+                                    c = 65535;
+                                    break;
+                                case 54573042:
+                                    if (string.equals("extension_game")) {
+                                        c = 3;
+                                        break;
+                                    }
+                                    c = 65535;
+                                    break;
+                                case 714512640:
+                                    if (string.equals("bbasp_core")) {
+                                        c = 0;
+                                        break;
+                                    }
+                                    c = 65535;
+                                    break;
+                                case 714618195:
+                                    if (string.equals("bbasp_game")) {
+                                        c = 1;
+                                        break;
+                                    }
+                                    c = 65535;
+                                    break;
+                                default:
+                                    c = 65535;
+                                    break;
+                            }
+                            if (c != 0) {
+                                if (c != 1) {
+                                    if (c != 2) {
+                                        if (c != 3) {
+                                            if (c != 4) {
+                                                if (c == 5) {
+                                                    if (ol4Var3.e == null) {
+                                                        ol4Var3.e = new ArrayList();
+                                                    }
+                                                    xh4 xh4Var = (xh4) dm4.j(jSONObject2, new xh4());
+                                                    b(xh4Var, em4Var3);
+                                                    ol4Var3.e.add(xh4Var);
+                                                }
+                                            } else if (ql4Var != null) {
+                                                ql4Var.l(jSONObject2);
+                                            }
+                                        } else {
+                                            rh4 rh4Var = (rh4) dm4.j(jSONObject2, new rh4());
+                                            if (rh4Var != null) {
+                                                b(rh4Var, em4Var2);
+                                                ol4Var2.c = rh4Var;
+                                            }
+                                        }
+                                    } else {
+                                        rh4 rh4Var2 = (rh4) dm4.j(jSONObject2, new rh4());
+                                        if (rh4Var2 != null) {
+                                            b(rh4Var2, em4Var);
+                                            ol4Var.c = rh4Var2;
+                                        }
+                                    }
+                                } else {
+                                    th4 th4Var = (th4) dm4.j(jSONObject2, new th4());
+                                    if (th4Var != null) {
+                                        b(th4Var, em4Var2);
+                                        ol4Var2.a = th4Var;
+                                    }
+                                }
+                            } else {
+                                th4 th4Var2 = (th4) dm4.j(jSONObject2, new th4());
+                                if (th4Var2 != null) {
+                                    b(th4Var2, em4Var);
+                                    ol4Var.b = th4Var2;
+                                }
+                            }
+                        }
+                    }
+                } catch (JSONException unused) {
+                }
+            }
+            if (rg4Var != null) {
+                if (em4Var.n() == 0) {
+                    rg4Var.F();
+                } else {
+                    rg4Var.G(em4Var);
+                    hi4.e(ol4Var, rg4Var);
+                }
+            }
+            if (rg4Var2 != null) {
+                if (em4Var2.n() == 0) {
+                    rg4Var2.F();
+                } else {
+                    rg4Var2.G(em4Var2);
+                    hi4.e(ol4Var2, rg4Var2);
+                }
+            }
+            if (ql4Var != null) {
+                ql4Var.o();
+            }
+            if (em4Var3.n() > 0 && hg4.b() != null) {
+                hg4.b().t(ol4Var3, em4Var3);
+            }
         }
-        return invokeV.booleanValue;
     }
 }

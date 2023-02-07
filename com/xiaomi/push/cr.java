@@ -68,7 +68,7 @@ public class cr {
         }
         this.f204a = System.currentTimeMillis();
         this.f206a.add(new da(str, -1));
-        this.f205a = cv.m266a();
+        this.f205a = cv.m268a();
         this.f207b = str;
     }
 
@@ -132,7 +132,7 @@ public class cr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized ArrayList<String> m257a() {
+    public synchronized ArrayList<String> m259a() {
         InterceptResult invokeV;
         ArrayList<String> a;
         Interceptable interceptable = $ic;
@@ -158,7 +158,7 @@ public class cr {
                 Iterator<String> it = a(true).iterator();
                 while (it.hasNext()) {
                     ct a = ct.a(it.next(), url.getPort());
-                    arrayList.add(new URL(url.getProtocol(), a.m265a(), a.a(), url.getFile()).toString());
+                    arrayList.add(new URL(url.getProtocol(), a.m267a(), a.a(), url.getFile()).toString());
                 }
                 return arrayList;
             }
@@ -196,7 +196,7 @@ public class cr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized JSONObject m258a() {
+    public synchronized JSONObject m260a() {
         InterceptResult invokeV;
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
@@ -255,7 +255,7 @@ public class cr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m259a(String str) {
+    public synchronized void m261a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
             synchronized (this) {
@@ -355,10 +355,10 @@ public class cr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m260a() {
+    public boolean m262a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? TextUtils.equals(this.f205a, cv.m266a()) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? TextUtils.equals(this.f205a, cv.m268a()) : invokeV.booleanValue;
     }
 
     public boolean a(cr crVar) {

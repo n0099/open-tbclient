@@ -1,8 +1,11 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.ViewGroup;
-import com.baidu.poly.widget.toast.ToastLoadingView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nps.interfa.IThreadManager;
+import com.baidu.nps.interfa.IThreadManager_ThreadManager_Provider;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,77 +14,67 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class fe1 {
     public static /* synthetic */ Interceptable $ic;
+    public static fe1 b;
     public transient /* synthetic */ FieldHolder $fh;
+    @Inject
+    public bk1<IThreadManager> a;
 
-    /* loaded from: classes4.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ToastLoadingView a;
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            zj1 b2 = zj1.b();
+            this.a = b2;
+            b2.a(new IThreadManager_ThreadManager_Provider());
+        }
+    }
 
-        public a(ToastLoadingView toastLoadingView) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947761143, "Lcom/baidu/tieba/fe1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {toastLoadingView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = toastLoadingView;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                fe1.b(this.a);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947761143, "Lcom/baidu/tieba/fe1;");
+                return;
             }
         }
+        b = new fe1();
     }
 
-    public static void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, ToastLoadingView toastLoadingView, long j) {
+    public fe1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{viewGroup, layoutParams, toastLoadingView, Long.valueOf(j)}) == null) {
-            if (toastLoadingView.getParent() instanceof ViewGroup) {
-                ((ViewGroup) toastLoadingView.getParent()).removeView(toastLoadingView);
-            }
-            viewGroup.addView(toastLoadingView, layoutParams);
-            toastLoadingView.setLoading(true);
-            if (j != -1) {
-                viewGroup.postDelayed(new a(toastLoadingView), j);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        c();
     }
 
-    public static void b(ToastLoadingView toastLoadingView) {
+    public static fe1 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, toastLoadingView) == null) && toastLoadingView != null && (toastLoadingView.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) toastLoadingView.getParent()).removeView(toastLoadingView);
-            toastLoadingView.setLoading(false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
         }
+        return (fe1) invokeV.objValue;
     }
 
-    public static ToastLoadingView c(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, String str, long j) {
-        InterceptResult invokeCommon;
+    public IThreadManager b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{viewGroup, layoutParams, str, Long.valueOf(j)})) == null) {
-            if (viewGroup == null) {
-                return null;
-            }
-            ToastLoadingView toastLoadingView = new ToastLoadingView(viewGroup.getContext());
-            if (!TextUtils.isEmpty(str)) {
-                toastLoadingView.setText(str);
-            }
-            a(viewGroup, layoutParams, toastLoadingView, j);
-            return toastLoadingView;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.get();
         }
-        return (ToastLoadingView) invokeCommon.objValue;
+        return (IThreadManager) invokeV.objValue;
     }
 }

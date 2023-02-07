@@ -6,18 +6,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes4.dex */
 public class i68 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile i68 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final boolean a;
-    public final boolean b;
+    public AtomicBoolean a;
 
-    public i68() {
+    public i68(Boolean bool) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bool};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,41 +28,22 @@ public class i68 {
                 return;
             }
         }
-        this.b = true;
-        this.a = true;
+        this.a = new AtomicBoolean(bool.booleanValue());
     }
 
-    public static i68 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (i68.class) {
-                    if (c == null) {
-                        c = new i68();
-                    }
-                }
-            }
-            return c;
-        }
-        return (i68) invokeV.objValue;
-    }
-
-    public boolean b() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            return this.a.get();
         }
         return invokeV.booleanValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    public void setResult(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.a.set(z);
         }
-        return invokeV.booleanValue;
     }
 }

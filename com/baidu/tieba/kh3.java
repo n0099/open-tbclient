@@ -1,17 +1,18 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.IBinder;
-import android.view.inputmethod.InputMethodManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class kh3 {
+public final class kh3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final Map<String, eh3> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,34 +28,49 @@ public class kh3 {
                 return;
             }
         }
-        a = tk1.a;
+        boolean z = gp1.a;
+        a = new HashMap();
     }
 
-    public static void a(Context context, IBinder iBinder) {
-        InputMethodManager inputMethodManager;
+    public kh3() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, context, iBinder) == null) && (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) != null) {
-            try {
-                inputMethodManager.hideSoftInputFromWindow(iBinder, 0);
-            } catch (Exception e) {
-                if (a) {
-                    e.printStackTrace();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static eh3 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b("searchbox_webapps_sp");
+        }
+        return (eh3) invokeV.objValue;
+    }
+
+    public static eh3 b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            eh3 eh3Var = a.get(str);
+            if (eh3Var == null) {
+                synchronized (kh3.class) {
+                    eh3Var = a.get(str);
+                    if (eh3Var == null) {
+                        eh3Var = new eh3(str);
+                        a.put(str, eh3Var);
+                    }
                 }
             }
+            return eh3Var;
         }
-    }
-
-    public static void b(Context context, boolean z) {
-        InputMethodManager inputMethodManager;
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65538, null, context, z) == null) && (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) != null) {
-            if (z) {
-                i = 2;
-            } else {
-                i = 0;
-            }
-            inputMethodManager.toggleSoftInput(i, 2);
-        }
+        return (eh3) invokeL.objValue;
     }
 }

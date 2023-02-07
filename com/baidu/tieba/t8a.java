@@ -1,70 +1,127 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.v8a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire2.FieldEncoding;
+import com.squareup.wire2.ProtoAdapter;
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
-public class t8a {
+public final class t8a<E extends v8a> extends ProtoAdapter<E> {
     public static /* synthetic */ Interceptable $ic;
-    public static final t8a a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Class<E> a;
+    public Method b;
 
-    public n8a b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (n8a) invokeV.objValue;
-    }
-
-    public x8a c(x8a x8aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x8aVar)) == null) ? x8aVar : (x8a) invokeL.objValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948136460, "Lcom/baidu/tieba/t8a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948136460, "Lcom/baidu/tieba/t8a;");
-                return;
-            }
-        }
-        a = new t8a();
-    }
-
-    public t8a() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t8a(Class<E> cls) {
+        super(FieldEncoding.VARINT, cls);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cls};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FieldEncoding) objArr2[0], (Class) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = cls;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.squareup.wire2.ProtoAdapter
+    /* renamed from: a */
+    public E decode(r8a r8aVar) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, r8aVar)) == null) {
+            int l = r8aVar.l();
+            try {
+                E e = (E) d().invoke(null, Integer.valueOf(l));
+                if (e != null) {
+                    return e;
+                }
+                throw new ProtoAdapter.EnumConstantNotFoundException(l, this.a);
+            } catch (IllegalAccessException | InvocationTargetException e2) {
+                throw new AssertionError(e2);
+            }
+        }
+        return (E) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.squareup.wire2.ProtoAdapter
+    /* renamed from: b */
+    public void encode(s8a s8aVar, E e) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, s8aVar, e) == null) {
+            s8aVar.q(e.getValue());
         }
     }
 
-    public static t8a a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.squareup.wire2.ProtoAdapter
+    /* renamed from: c */
+    public int encodedSize(E e) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e)) == null) {
+            return s8a.i(e.getValue());
+        }
+        return invokeL.intValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) {
+            if ((obj instanceof t8a) && ((t8a) obj).a == this.a) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final Method d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Method method = this.b;
+            if (method != null) {
+                return method;
+            }
+            try {
+                Method method2 = this.a.getMethod("fromValue", Integer.TYPE);
+                this.b = method2;
+                return method2;
+            } catch (NoSuchMethodException e) {
+                throw new AssertionError(e);
+            }
         }
-        return (t8a) invokeV.objValue;
+        return (Method) invokeV.objValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.a.hashCode();
+        }
+        return invokeV.intValue;
     }
 }

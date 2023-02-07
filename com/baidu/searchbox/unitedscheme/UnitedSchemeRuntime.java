@@ -4,8 +4,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor;
 import com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor_UnitedSchemeRuntime_ListProvider;
-import com.baidu.tieba.pf1;
-import com.baidu.tieba.rf1;
+import com.baidu.tieba.ak1;
+import com.baidu.tieba.ck1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -15,14 +15,14 @@ public class UnitedSchemeRuntime {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject(force = false)
-    public rf1<UnitedSchemeBaseInterceptor> sInterceptChainList;
+    public ck1<UnitedSchemeBaseInterceptor> sInterceptChainList;
     @Inject(force = false)
-    public rf1<UnitedSchemeBaseDispatcher> sSubDispatchersList;
+    public ck1<UnitedSchemeBaseDispatcher> sSubDispatchersList;
 
     public void initsInterceptChainList() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            pf1 b = pf1.b();
+            ak1 b = ak1.b();
             this.sInterceptChainList = b;
             b.a(new UnitedSchemeBaseInterceptor_UnitedSchemeRuntime_ListProvider());
         }
@@ -31,7 +31,7 @@ public class UnitedSchemeRuntime {
     public void initsSubDispatchersList() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            pf1 b = pf1.b();
+            ak1 b = ak1.b();
             this.sSubDispatchersList = b;
             b.a(new UnitedSchemeBaseDispatcher_UnitedSchemeRuntime_ListProvider());
         }

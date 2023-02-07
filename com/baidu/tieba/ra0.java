@@ -1,188 +1,108 @@
 package com.baidu.tieba;
 
-import android.view.animation.AccelerateInterpolator;
-import android.view.animation.DecelerateInterpolator;
-import android.view.animation.Interpolator;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsKt;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class ra0 {
+public final class ra0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ra0 a;
-    public static final ra0 b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract float a(float f);
-
-    public abstract float b(float f);
-
-    public float c(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f)) == null) {
-            return 1.0f;
-        }
-        return invokeF.floatValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public static class a extends ra0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.ra0
-        public float a(float f) {
-            InterceptResult invokeF;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) ? f : invokeF.floatValue;
-        }
-
-        @Override // com.baidu.tieba.ra0
-        public float b(float f) {
-            InterceptResult invokeF;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) ? f : invokeF.floatValue;
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b extends ra0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Interpolator c;
-        public final Interpolator d;
-
-        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public b() {
-            this(0.8f);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    this(((Float) newInitContext.callArgs[0]).floatValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        public b(float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Float.valueOf(f)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.c = new AccelerateInterpolator(f);
-            this.d = new DecelerateInterpolator(f);
-        }
-
-        @Override // com.baidu.tieba.ra0
-        public float a(float f) {
-            InterceptResult invokeF;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
-                return this.c.getInterpolation(f);
-            }
-            return invokeF.floatValue;
-        }
-
-        @Override // com.baidu.tieba.ra0
-        public float b(float f) {
-            InterceptResult invokeF;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) {
-                return this.d.getInterpolation(f);
-            }
-            return invokeF.floatValue;
-        }
-
-        @Override // com.baidu.tieba.ra0
-        public float c(float f) {
-            InterceptResult invokeF;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f)) == null) {
-                return 1.0f / ((1.0f - a(f)) + b(f));
-            }
-            return invokeF.floatValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948114760, "Lcom/baidu/tieba/ra0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948114760, "Lcom/baidu/tieba/ra0;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948114760, "Lcom/baidu/tieba/ra0;")) == null) {
+            return;
         }
-        a = new b();
-        b = new a();
-    }
-
-    public ra0() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948114760, "Lcom/baidu/tieba/ra0;");
         }
     }
 
-    public static ra0 d(int i) {
-        InterceptResult invokeI;
+    @JvmStatic
+    public static final String a(LiveRoomEntity liveRoomEntity) {
+        InterceptResult invokeL;
+        String str;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    return a;
-                }
-                return b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, liveRoomEntity)) == null) {
+            String str2 = "";
+            String str3 = (liveRoomEntity == null || (str3 = liveRoomEntity.cmd) == null) ? "" : "";
+            String str4 = null;
+            if (liveRoomEntity != null) {
+                str = liveRoomEntity.beginTime;
+            } else {
+                str = null;
             }
-            return a;
+            if (!TextUtils.isEmpty(str)) {
+                String b = new va0(str3).b("params");
+                boolean z2 = false;
+                if (b != null && b.length() != 0) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (!z) {
+                    try {
+                        JSONObject jSONObject = new JSONObject(URLDecoder.decode(b, "UTF-8"));
+                        JSONObject optJSONObject = jSONObject.optJSONObject("extLog");
+                        if (optJSONObject == null) {
+                            optJSONObject = new JSONObject();
+                        }
+                        if (liveRoomEntity != null) {
+                            str4 = liveRoomEntity.beginTime;
+                        }
+                        optJSONObject.put("live_union_id", str4);
+                        optJSONObject.put("auto_play", "1");
+                        jSONObject.put("extLog", optJSONObject);
+                        String removedUrl = oa0.j(str3, "params");
+                        Intrinsics.checkExpressionValueIsNotNull(removedUrl, "removedUrl");
+                        int indexOf$default = StringsKt__StringsKt.indexOf$default((CharSequence) removedUrl, "?", 0, false, 6, (Object) null);
+                        if (removedUrl != null) {
+                            String substring = removedUrl.substring(0, indexOf$default);
+                            Intrinsics.checkNotNullExpressionValue(substring, "(this as java.lang.Strin…ing(startIndex, endIndex)");
+                            if (StringsKt__StringsKt.indexOf$default((CharSequence) removedUrl, "?", 0, false, 6, (Object) null) + 1 < removedUrl.length()) {
+                                str2 = removedUrl.substring(StringsKt__StringsKt.indexOf$default((CharSequence) removedUrl, "?", 0, false, 6, (Object) null) + 1, removedUrl.length());
+                                Intrinsics.checkNotNullExpressionValue(str2, "(this as java.lang.Strin…ing(startIndex, endIndex)");
+                            }
+                            String encode = URLEncoder.encode(jSONObject.toString());
+                            StringBuilder sb = new StringBuilder();
+                            sb.append(substring);
+                            sb.append("?params=" + encode);
+                            if (str2.length() > 0) {
+                                z2 = true;
+                            }
+                            if (z2) {
+                                sb.append(str2);
+                            }
+                            String sb2 = sb.toString();
+                            Intrinsics.checkExpressionValueIsNotNull(sb2, "newScheme.toString()");
+                            return sb2;
+                        }
+                        throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
+                    } catch (Throwable th) {
+                        th.printStackTrace();
+                        return str3;
+                    }
+                }
+                return str3;
+            }
+            return str3;
         }
-        return (ra0) invokeI.objValue;
+        return (String) invokeL.objValue;
     }
 }

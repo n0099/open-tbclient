@@ -8,7 +8,6 @@ import com.baidu.mapapi.search.busline.OnGetBusLineSearchResultListener;
 import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.platform.base.d;
 import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -106,8 +105,8 @@ public class a extends d {
                     JSONObject optJSONObject3 = optJSONArray.optJSONObject(0);
                     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
                     try {
-                        busLineResult.setStartTime(simpleDateFormat.parse(optJSONObject3.optString(FetchLog.START_TIME)));
-                        busLineResult.setEndTime(simpleDateFormat.parse(optJSONObject3.optString(FetchLog.END_TIME)));
+                        busLineResult.setStartTime(simpleDateFormat.parse(optJSONObject3.optString("startTime")));
+                        busLineResult.setEndTime(simpleDateFormat.parse(optJSONObject3.optString("endTime")));
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }

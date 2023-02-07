@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.OriginalForumInfo;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.ru4;
+import com.baidu.tieba.ez4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -395,11 +395,11 @@ public class PbCommentFloatActivityConfig extends IntentConfig {
         }
     }
 
-    public void setRecomData(ru4 ru4Var) {
+    public void setRecomData(ez4 ez4Var) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048620, this, ru4Var) == null) && (intent = getIntent()) != null && ru4Var != null) {
-            ru4Var.c(intent);
+        if ((interceptable == null || interceptable.invokeL(1048620, this, ez4Var) == null) && (intent = getIntent()) != null && ez4Var != null) {
+            ez4Var.c(intent);
         }
     }
 

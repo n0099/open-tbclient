@@ -5,19 +5,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ActBtn;
 /* loaded from: classes3.dex */
-public class ax8 {
+public class ax8 extends cx8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public String n;
 
-    public ax8(ActBtn actBtn) {
+    public ax8(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {actBtn};
+            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,21 +26,15 @@ public class ax8 {
                 return;
             }
         }
-        this.a = 0;
-        if (actBtn == null) {
-            return;
-        }
-        this.a = actBtn.type.intValue();
-        String str = actBtn.url;
-        String str2 = actBtn.text;
+        this.n = str;
     }
 
-    public int getType() {
+    public String x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return this.n;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 }

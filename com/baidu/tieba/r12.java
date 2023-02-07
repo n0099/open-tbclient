@@ -1,112 +1,47 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class r12 {
+public class r12 extends m42 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean i;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public JSONArray c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public long h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948068694, "Lcom/baidu/tieba/r12;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948068694, "Lcom/baidu/tieba/r12;");
-                return;
-            }
-        }
-        i = tk1.a;
-    }
-
-    public r12() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public r12(String str) {
+        super("camera", "cameraId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        try {
+            a(new JSONObject(str));
+        } catch (JSONException e) {
+            w52.d("Camera", "parsing CameraModel occurs exception", e);
         }
     }
 
-    @NonNull
-    public static r12 c(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.m42, com.baidu.tieba.vy2
+    public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            r12 r12Var = new r12();
-            try {
-                r12Var.c = jSONObject.getJSONArray("host");
-                r12Var.b = jSONObject.getString("appKey");
-                r12Var.a = jSONObject.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
-                r12Var.d = jSONObject.getString("serverPort");
-                r12Var.f = jSONObject.getString("wsServerPort");
-                Uri.decode(jSONObject.optString("url"));
-                r12Var.g = jSONObject.optString("notInHistory", "1");
-                r12Var.h = jSONObject.optLong("coreVersion");
-            } catch (JSONException unused) {
-                if (i) {
-                    Log.e("RemoteDebugModel", "DebuggerLaunchAction params: JSONException");
-                }
-            }
-            return r12Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            super.a(jSONObject);
         }
-        return (r12) invokeL.objValue;
-    }
-
-    public String a(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            JSONArray jSONArray = this.c;
-            if (jSONArray == null) {
-                return "";
-            }
-            return jSONArray.optString(i2);
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            return "http://" + str + ":" + this.d + "/app.zip";
-        }
-        return (String) invokeL.objValue;
     }
 }

@@ -1,104 +1,36 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import org.apache.http.client.methods.HttpPut;
 /* loaded from: classes5.dex */
-public class ps0 {
+public final class ps0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, lx0> a;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ps0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-508110626, "Lcom/baidu/tieba/ps0$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-508110626, "Lcom/baidu/tieba/ps0$b;");
-                    return;
-                }
-            }
-            a = new ps0(null);
-        }
-    }
-
-    public ps0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new HashMap<>(2);
-    }
-
-    public static ps0 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (ps0) invokeV.objValue;
-    }
-
-    public /* synthetic */ ps0(a aVar) {
-        this();
-    }
-
-    @Nullable
-    public lx0 b(@Nullable String str) {
+    public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return this.a.get(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (!TextUtils.equals(str, "GET") && !TextUtils.equals(str, "HEAD")) {
+                return true;
+            }
+            return false;
         }
-        return (lx0) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    @Nullable
-    public lx0 d(String str) {
+    public static boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return this.a.remove(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (!TextUtils.equals(str, "POST") && !TextUtils.equals(str, "PATCH") && !TextUtils.equals(str, HttpPut.METHOD_NAME) && !TextUtils.equals(str, "PROPPATCH") && !TextUtils.equals(str, "REPORT")) {
+                return false;
+            }
+            return true;
         }
-        return (lx0) invokeL.objValue;
-    }
-
-    public void c(@Nullable String str, @Nullable lx0 lx0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, lx0Var) == null) && lx0Var != null && !TextUtils.isEmpty(str)) {
-            this.a.put(str, lx0Var);
-        }
+        return invokeL.booleanValue;
     }
 }

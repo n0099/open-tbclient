@@ -1,38 +1,40 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.Intent;
-import android.os.Build;
+import android.graphics.Rect;
+import android.graphics.Typeface;
+import android.text.TextPaint;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class x12 extends g63 {
+public class x12 extends t12 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x12(g53 g53Var) {
-        super(g53Var, "/swanAPI/remoteDebug");
+    public x12(t93 t93Var) {
+        super(t93Var, "/swanAPI/canvas/measureTextSync");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {g53Var};
+            Object[] objArr = {t93Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                super((t93) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -40,61 +42,61 @@ public class x12 extends g63 {
         }
     }
 
-    @Override // com.baidu.tieba.g63
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j43 j43Var) {
+    @Override // com.baidu.tieba.ta3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, w83 w83Var) {
         InterceptResult invokeLLLL;
+        int i;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j43Var)) == null) {
-            j12.i("RemoteDebugAction", "handle entity: " + unitedSchemeEntity.toString());
-            return false;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, w83Var)) == null) {
+            unitedSchemeEntity.result = l(201);
+            w32 m = m(unitedSchemeEntity);
+            if (m == null) {
+                return false;
+            }
+            String str = m.k;
+            if (str != null && str.length() > 0) {
+                if (m.n && m.o) {
+                    i2 = 3;
+                } else if (m.n) {
+                    i2 = 1;
+                } else if (m.o) {
+                    i2 = 2;
+                } else {
+                    i2 = 0;
+                }
+                TextPaint textPaint = new TextPaint();
+                textPaint.setTypeface(Typeface.create(m.l, i2));
+                textPaint.setTextSize(m.m);
+                Rect rect = new Rect();
+                String str2 = m.k;
+                textPaint.getTextBounds(str2, 0, str2.length(), rect);
+                i = nm3.O(rect.width());
+            } else {
+                i = 0;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.putOpt("width", Integer.valueOf(i));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
+            return true;
         }
         return invokeLLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.g63
-    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, j43 j43Var) {
-        InterceptResult invokeLLLLL;
+    public w32 m(UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, j43Var)) == null) {
-            j12.i("RemoteDebugAction", "handleSubAction subAction: " + str);
-            if (!a22.d()) {
-                j12.c("RemoteDebugAction", "Can't invoke this action outside Remote Debug mode");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity)) == null) {
+            String str = unitedSchemeEntity.getParams().get("params");
+            if (!TextUtils.isEmpty(str)) {
+                return new w32(str);
             }
-            SwanAppActivity w = i43.K().w();
-            char c = 65535;
-            int hashCode = str.hashCode();
-            if (hashCode != -279631955) {
-                if (hashCode == 1013845168 && str.equals("/swanAPI/remoteDebug/reload")) {
-                    c = 0;
-                }
-            } else if (str.equals("/swanAPI/remoteDebug/shutdown")) {
-                c = 1;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    return super.i(context, unitedSchemeEntity, callbackHandler, str, j43Var);
-                }
-                if (w != null) {
-                    if (Build.VERSION.SDK_INT >= 21) {
-                        w.finishAndRemoveTask();
-                    } else {
-                        w.finish();
-                    }
-                    System.exit(0);
-                }
-                return true;
-            }
-            j12.i("RemoteDebugAction", "Remote Debug reload");
-            if (w != null) {
-                Intent intent = w.getIntent();
-                a22.f();
-                i43.K().n(new String[0]);
-                i43.K().l(intent.getExtras(), "update_tag_by_remote_debug");
-            }
-            return true;
+            return null;
         }
-        return invokeLLLLL.booleanValue;
+        return (w32) invokeL.objValue;
     }
 }

@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.nk5;
+import com.baidu.tieba.yo5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -65,7 +65,7 @@ public class BroadcastMajorHistoryRequestMessage extends NetMessage {
             builder.bcast_ids = this.bcastIds;
             builder.staff_id64 = Long.valueOf(this.lastId);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                nk5.a(builder, true);
+                yo5.a(builder, true);
             }
             GetForumBroadcastListReqIdl.Builder builder2 = new GetForumBroadcastListReqIdl.Builder();
             builder2.data = builder.build(false);

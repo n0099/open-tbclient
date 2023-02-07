@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.shadow.ShadowRenderer;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ShapePath {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float ANGLE_LEFT = 180.0f;
@@ -40,7 +40,7 @@ public class ShapePath {
     @Deprecated
     public float startY;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class ArcShadowOperation extends ShadowCompatOperation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +74,7 @@ public class ShapePath {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class LineShadowOperation extends ShadowCompatOperation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -124,7 +124,7 @@ public class ShapePath {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class PathArcOperation extends PathOperation {
         public static /* synthetic */ Interceptable $ic;
         public static final RectF rectF;
@@ -297,7 +297,7 @@ public class ShapePath {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class PathCubicOperation extends PathOperation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -440,7 +440,7 @@ public class ShapePath {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class PathLineOperation extends PathOperation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -474,7 +474,7 @@ public class ShapePath {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class PathOperation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -499,7 +499,7 @@ public class ShapePath {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class PathQuadOperation extends PathOperation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -607,7 +607,7 @@ public class ShapePath {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class ShadowCompatOperation {
         public static /* synthetic */ Interceptable $ic;
         public static final Matrix IDENTITY_MATRIX;

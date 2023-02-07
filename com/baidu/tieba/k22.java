@@ -1,160 +1,139 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.graphics.Color;
+import android.graphics.LinearGradient;
+import android.graphics.RadialGradient;
+import android.graphics.Shader;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.ar.gesture.GestureAR;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class k22 {
     public static /* synthetic */ Interceptable $ic;
-    public static int d;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public b b;
-    public c c;
+    public String a;
+    public int b;
+    public Shader c;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void onConnected();
-    }
-
-    /* loaded from: classes5.dex */
-    public interface c {
-        void start();
-
-        void stop();
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ k22 a;
-
-        public a(k22 k22Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {k22Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = k22Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!m12.e() && k22.e() == 0) {
-                    if (!m12.f()) {
-                        j12.c("V8Inspector", "Unknown inspect mode");
-                        return;
-                    }
-                    this.a.c = new n22(e22.e(), this.a.b);
-                } else {
-                    this.a.c = new o22(String.format("v8in%s_devtools_remote", this.a.a.getPackageName()), this.a.b);
-                }
-                this.a.c.start();
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947861118, "Lcom/baidu/tieba/k22;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947861118, "Lcom/baidu/tieba/k22;");
-                return;
-            }
-        }
-        int i = 0;
-        if (xc3.a().getBoolean("Inspector", false)) {
-            i = 2;
-        }
-        d = i;
-    }
-
-    public static int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return d;
-        }
-        return invokeV.intValue;
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ExecutorUtilsExt.postOnSerial(new a(this), "V8Inspector");
-        }
-    }
-
-    public void i() {
-        c cVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (cVar = this.c) != null) {
-            cVar.stop();
-            this.c = null;
-        }
-    }
-
-    public k22(Context context) {
+    public k22(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {jSONArray};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
+        this.a = "";
+        e(jSONArray);
     }
 
-    public static void g(int i) {
-        boolean z;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65543, null, i) == null) {
-            rc3 a2 = xc3.a();
-            if (i == 2) {
-                z = true;
-            } else {
-                z = false;
-            }
-            a2.putBoolean("Inspector", z);
-            d = i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
+        return invokeV.intValue;
     }
 
-    public void f(b bVar) {
+    public Shader b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.b = bVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (Shader) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!TextUtils.equals(this.a, "linearGradient") && !TextUtils.equals(this.a, "circularGradient")) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return !TextUtils.isEmpty(this.a);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void e(JSONArray jSONArray) {
+        float[] fArr;
+        int length;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, jSONArray) == null) {
+            int i = 0;
+            try {
+                String optString = jSONArray.optString(0);
+                int i2 = 4;
+                int i3 = 1;
+                if (TextUtils.equals(optString, "normal")) {
+                    JSONArray optJSONArray = jSONArray.optJSONArray(1);
+                    if (optJSONArray.length() == 4) {
+                        this.b = Color.argb(optJSONArray.optInt(3), optJSONArray.optInt(0), optJSONArray.optInt(1), optJSONArray.optInt(2));
+                        this.a = "normal";
+                    }
+                } else if (TextUtils.equals(optString, "linearGradient") || TextUtils.equals(optString, "circularGradient")) {
+                    JSONArray optJSONArray2 = jSONArray.optJSONArray(1);
+                    int[] iArr = null;
+                    if (optJSONArray2 != null && (length = optJSONArray2.length()) > 0) {
+                        iArr = new int[length];
+                        fArr = new float[length];
+                        int i4 = 0;
+                        while (i4 < length) {
+                            JSONObject optJSONObject = optJSONArray2.optJSONObject(i4);
+                            JSONArray optJSONArray3 = optJSONObject.optJSONArray("color");
+                            if (optJSONArray3.length() == i2) {
+                                iArr[i4] = Color.argb(optJSONArray3.optInt(3), optJSONArray3.optInt(i), optJSONArray3.optInt(i3), optJSONArray3.optInt(2));
+                            }
+                            fArr[i4] = (float) optJSONObject.optDouble("stop");
+                            i4++;
+                            i = 0;
+                            i2 = 4;
+                            i3 = 1;
+                        }
+                    } else {
+                        fArr = null;
+                    }
+                    if (iArr != null && fArr != null && iArr.length >= 2 && iArr.length == fArr.length) {
+                        JSONObject optJSONObject2 = jSONArray.optJSONObject(2);
+                        if (TextUtils.equals(optString, "linearGradient")) {
+                            this.c = new LinearGradient(nm3.g(optJSONObject2.optInt("x0")), nm3.g(optJSONObject2.optInt("y0")), nm3.g(optJSONObject2.optInt(GestureAR.SDK_TO_LUA_GESTURE_RESULT_X1)), nm3.g(optJSONObject2.optInt(GestureAR.SDK_TO_LUA_GESTURE_RESULT_Y1)), iArr, fArr, Shader.TileMode.CLAMP);
+                            this.a = "linearGradient";
+                            return;
+                        }
+                        this.c = new RadialGradient(nm3.g(optJSONObject2.optInt("x")), nm3.g(optJSONObject2.optInt("y")), nm3.g(optJSONObject2.optInt("r")), iArr, fArr, Shader.TileMode.CLAMP);
+                        this.a = "circularGradient";
+                    }
+                }
+            } catch (Exception e) {
+                if (gp1.a) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

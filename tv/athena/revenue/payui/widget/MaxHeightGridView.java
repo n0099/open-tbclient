@@ -5,8 +5,8 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.GridView;
-import com.baidu.tieba.oga;
-import com.baidu.tieba.uda;
+import com.baidu.tieba.dia;
+import com.baidu.tieba.xka;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -105,11 +105,11 @@ public final class MaxHeightGridView extends GridView {
             }
         }
         this.a = -1;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, uda.PayUi_NoScrollGridView);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, dia.PayUi_NoScrollGridView);
         int integer = obtainStyledAttributes.getInteger(0, 536870911);
         this.a = integer;
         if (integer != 536870911) {
-            this.a = oga.a(integer);
+            this.a = xka.a(integer);
         }
         obtainStyledAttributes.recycle();
     }

@@ -1,52 +1,15 @@
 package com.baidu.tieba;
 
-import androidx.annotation.MainThread;
-import androidx.annotation.Nullable;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.LinkedList;
+import tbclient.BackUser.DataRes;
 /* loaded from: classes4.dex */
 public class cs4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LinkedList<ds4> a;
-
-    /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes4.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final cs4 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-880170425, "Lcom/baidu/tieba/cs4$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-880170425, "Lcom/baidu/tieba/cs4$b;");
-                    return;
-                }
-            }
-            a = new cs4(null);
-        }
-    }
+    public boolean a;
 
     public cs4() {
         Interceptable interceptable = $ic;
@@ -61,54 +24,18 @@ public class cs4 {
                 return;
             }
         }
-        this.a = new LinkedList<>();
+        this.a = false;
     }
 
-    public static cs4 c() {
-        InterceptResult invokeV;
+    public void a(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) || dataRes == null) {
+            return;
         }
-        return (cs4) invokeV.objValue;
-    }
-
-    public /* synthetic */ cs4(a aVar) {
-        this();
-    }
-
-    public final ds4 a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            Iterator<ds4> it = this.a.iterator();
-            while (it.hasNext()) {
-                ds4 next = it.next();
-                if (next.b() == i) {
-                    return next;
-                }
-            }
-            return null;
+        boolean z = true;
+        if (dataRes.is_back_user.intValue() != 1) {
+            z = false;
         }
-        return (ds4) invokeI.objValue;
-    }
-
-    @MainThread
-    public void b(int i) {
-        ds4 a2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (a2 = a(i)) != null) {
-            a2.run();
-        }
-    }
-
-    public void d(@Nullable BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
-            Iterator<ds4> it = this.a.iterator();
-            while (it.hasNext()) {
-                it.next().a(bdUniqueId);
-            }
-        }
+        this.a = z;
     }
 }

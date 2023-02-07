@@ -1,45 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.Closeable;
 /* loaded from: classes6.dex */
-public interface qj0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "host.scheme");
-    public static final qj0 b = new a();
+public class qj0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    String a(String str);
-
-    /* loaded from: classes6.dex */
-    public static class a implements qj0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public static void a(@Nullable Closeable closeable) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65536, null, closeable) == null) && closeable != null) {
+            try {
+                closeable.close();
+            } catch (Throwable unused) {
             }
-        }
-
-        @Override // com.baidu.tieba.qj0
-        public String a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                return "nadcorevendor://vendor/ad/easybrowse?url=" + str + "&newbrowser=1";
-            }
-            return (String) invokeL.objValue;
         }
     }
 }

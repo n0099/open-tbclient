@@ -1,15 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.live.interfaces.service.ext.ExtLiveLogService;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class wu7 implements ExtLiveLogService {
+public class wu7 implements dt4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.dt4
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TbConfig.LIKE_ADDRESS : (String) invokeV.objValue;
+    }
 
     public wu7() {
         Interceptable interceptable = $ic;
@@ -25,11 +39,20 @@ public class wu7 implements ExtLiveLogService {
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.ext.ExtLiveLogService
-    public void onLivePluginEvent(String str, Map<String, ?> map) {
+    @Override // com.baidu.tieba.dt4
+    public void b(HashMap<String, String> hashMap, et4 et4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, map) == null) {
-            ks7.b(map);
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap, et4Var) == null) && et4Var != null && hashMap != null && !hashMap.isEmpty()) {
+            String str = hashMap.get("fid");
+            if (TextUtils.isEmpty(str)) {
+                return;
+            }
+            String str2 = hashMap.get(TiebaStatic.Params.H5_FORUM_NAME);
+            if (TextUtils.isEmpty(str2)) {
+                return;
+            }
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001335, Long.valueOf(dh.g(str, 0L))));
+            TbadkCoreApplication.getInst().addLikeForum(str2);
         }
     }
 }

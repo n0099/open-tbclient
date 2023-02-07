@@ -1,11 +1,16 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
+import android.app.Activity;
 import android.content.Context;
-import android.os.Process;
+import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.payment.PaymentManager;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.unitedscheme.SchemeConfig;
+import com.baidu.searchbox.unitedscheme.SchemeRouter;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,38 +18,36 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.List;
+import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class sf1 {
+public class sf1 implements uf1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile String a;
-    public static volatile int b;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.uf1
+    public void i(Activity activity, JSONObject jSONObject, pf1 pf1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048585, this, activity, jSONObject, pf1Var) == null) {
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948149387, "Lcom/baidu/tieba/sf1;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948149387, "Lcom/baidu/tieba/sf1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948149387, "Lcom/baidu/tieba/sf1;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948149387, "Lcom/baidu/tieba/sf1;");
-        }
-    }
-
-    public static void h(String str, Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, str, exc) == null) {
-        }
+        a = SchemeConfig.getSchemeHead() + "://swan/";
     }
 
     public sf1() {
@@ -61,180 +64,106 @@ public class sf1 {
         }
     }
 
-    public static boolean f() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.uf1
+    public void a(Activity activity, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if ((e() & 1) != 0) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, str2) == null) {
+            ds2.S().a(activity, str, str2);
         }
-        return invokeV.booleanValue;
     }
 
-    public static boolean g() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.uf1
+    public void aLiAuth(Activity activity, String str, bg1<JSONObject> bg1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if ((e() & 2) != 0) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, bg1Var) == null) {
+            ds2.S().f(activity, str, bg1Var);
         }
-        return invokeV.booleanValue;
     }
 
-    public static int a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.uf1
+    public void c(Activity activity, String str, pf1 pf1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            Context a2 = wf1.a();
-            int myPid = Process.myPid();
-            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) a2.getSystemService("activity")).getRunningAppProcesses();
-            if (runningAppProcesses == null) {
-                return -1;
-            }
-            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                if (runningAppProcessInfo.pid == myPid) {
-                    return runningAppProcessInfo.importance;
-                }
-            }
-            return 0;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, activity, str, pf1Var) == null) {
+            ds2.S().c(activity, str, pf1Var);
         }
-        return invokeV.intValue;
     }
 
-    public static String b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.uf1
+    public void d(Context context, JSONObject jSONObject, pf1 pf1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String str = a;
-            if (str == null) {
-                synchronized (sf1.class) {
-                    str = a;
-                    if (str == null) {
-                        Context a2 = wf1.a();
-                        String d = d();
-                        if (d == null && (d = c(a2)) == null) {
-                            d = a2.getPackageName();
-                        }
-                        a = d;
-                        str = d;
-                    }
-                }
-            }
-            return str;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, context, jSONObject, pf1Var) == null) {
+            ds2.S().d(context, jSONObject, pf1Var);
         }
-        return (String) invokeV.objValue;
     }
 
-    public static int e() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.uf1
+    public void e(Activity activity, String str, pf1 pf1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            int i = b;
-            if (i == 0) {
-                String b2 = b();
-                String packageName = wf1.a().getPackageName();
-                if (!TextUtils.equals(b2, packageName) && (!b2.startsWith(packageName) || b2.contains(":"))) {
-                    i |= 4;
-                } else {
-                    i = i | 1 | 2;
-                }
-                b = i;
-            }
-            return i;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, activity, str, pf1Var) == null) {
+            ds2.S().e(activity, str, pf1Var);
         }
-        return invokeV.intValue;
     }
 
-    public static String c(Context context) {
+    @Override // com.baidu.tieba.uf1
+    public boolean b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            int myPid = Process.myPid();
-            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
-            if (runningAppProcesses == null) {
-                return null;
-            }
-            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                if (runningAppProcessInfo.pid == myPid) {
-                    return runningAppProcessInfo.processName;
-                }
-            }
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            return ds2.S().b(context);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.uf1
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            k13.b().a = str;
+        }
+    }
+
+    @Override // com.baidu.tieba.uf1
+    public String j(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, context)) == null) {
+            return ds2.G0().a(context);
         }
         return (String) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x0036 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x000c */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v3 */
-    /* JADX WARN: Type inference failed for: r1v4 */
-    /* JADX WARN: Type inference failed for: r1v5, types: [java.io.BufferedReader] */
-    /* JADX WARN: Type inference failed for: r1v8, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r2v0 */
-    /* JADX WARN: Type inference failed for: r2v1 */
-    /* JADX WARN: Type inference failed for: r2v3 */
-    public static String d() {
-        InterceptResult invokeV;
-        ?? r2;
-        BufferedReader bufferedReader;
+    @Override // com.baidu.tieba.uf1
+    public void f(Context context, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            BufferedReader bufferedReader2 = 0;
-            BufferedReader bufferedReader3 = null;
-            try {
-                try {
-                    bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(new File(ProcessUtils.CMD_LINE_NAME))));
-                } catch (Throwable th) {
-                    th = th;
-                }
-            } catch (Exception e) {
-                e = e;
-                r2 = null;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, context, jSONObject) == null) {
+            if (jSONObject == null) {
+                PaymentManager.i(3, "支付信息不能为空");
+                return;
             }
-            try {
-                String readLine = bufferedReader.readLine();
-                if (readLine != null) {
-                    readLine = readLine.trim();
-                }
-                try {
-                    bufferedReader.close();
-                    return readLine;
-                } catch (IOException e2) {
-                    e2.printStackTrace();
-                    return readLine;
-                }
-            } catch (Exception e3) {
-                e = e3;
-                r2 = null;
-                bufferedReader3 = bufferedReader;
-                h("MultiProcess", e);
-                if (bufferedReader3 != null) {
-                    try {
-                        bufferedReader3.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
-                    }
-                }
-                bufferedReader2 = r2;
-                return bufferedReader2;
-            } catch (Throwable th2) {
-                th = th2;
-                bufferedReader2 = bufferedReader;
-                if (bufferedReader2 != 0) {
-                    try {
-                        bufferedReader2.close();
-                    } catch (IOException e5) {
-                        e5.printStackTrace();
-                    }
-                }
-                throw th;
+            String optString = jSONObject.optString("appKey");
+            String optString2 = jSONObject.optString("redirectUrl");
+            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
+                SchemeRouter.invoke(context, a + optString + optString2);
+                return;
             }
+            PaymentManager.i(3, "支付信息不能为空");
         }
-        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.uf1
+    public void g(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
+            String str = k13.b().a;
+            if (TextUtils.isEmpty(str)) {
+                mf1.a(bundle);
+                return;
+            }
+            m53 e = m53.e();
+            o53 o53Var = new o53(119, bundle);
+            o53Var.c(str);
+            o53Var.p(true);
+            e.h(o53Var);
+        }
     }
 }

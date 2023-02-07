@@ -129,7 +129,7 @@ public class gk implements go {
             }
             Parcelable[] parcelableArr = new Parcelable[gkVarArr.length];
             for (int i = 0; i < gkVarArr.length; i++) {
-                parcelableArr[i] = gkVarArr[i].m438a();
+                parcelableArr[i] = gkVarArr[i].m440a();
             }
             return parcelableArr;
         }
@@ -168,14 +168,14 @@ public class gk implements go {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Parcelable m438a() {
+    public Parcelable m440a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? a() : (Parcelable) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m439a() {
+    public String m441a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
@@ -220,7 +220,7 @@ public class gk implements go {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m440a(String str) {
+    public void m442a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             if (!TextUtils.isEmpty(str)) {

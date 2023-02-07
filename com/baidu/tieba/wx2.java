@@ -1,8 +1,11 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
+import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,13 +14,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class wx2 implements vx2 {
+public class wx2 extends yx2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static volatile wx2 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile ux2 a;
-    public volatile uy2 b;
 
     static {
         InterceptResult invokeClinit;
@@ -32,131 +31,50 @@ public class wx2 implements vx2 {
                 return;
             }
         }
-        c = tk1.a;
+        boolean z = gp1.a;
     }
 
-    public wx2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wx2(@NonNull String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        i();
     }
 
-    public static wx2 h() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.yx2
+    public boolean a(ox2 ox2Var, qx2 qx2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, w83 w83Var) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                synchronized (wx2.class) {
-                    if (d == null) {
-                        d = new wx2();
-                    }
-                }
-            }
-            return d;
-        }
-        return (wx2) invokeV.objValue;
-    }
-
-    public ux2 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (ux2) invokeV.objValue;
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.a == null) {
-                this.a = new sx2();
-            }
-            if (this.b == null) {
-                this.b = new wy2();
-            }
-        }
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return j();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public uy2 l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
-        }
-        return (uy2) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.vx2
-    public void end(long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeJ(1048576, this, j) != null) || !k()) {
-            return;
-        }
-        if (c) {
-            Log.d("StartUpInfoMarker", "aiapp start cost at - " + j);
-        }
-        this.a.end(j);
-        this.b.end(j);
-        m(j);
-    }
-
-    @Override // com.baidu.tieba.vx2
-    public void start(long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeJ(1048583, this, j) != null) || !k()) {
-            return;
-        }
-        if (c) {
-            Log.d("StartUpInfoMarker", "aiapp start at - " + j);
-        }
-        this.a.start(j);
-        this.b.start(j);
-    }
-
-    public final boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (c) {
-                return true;
-            }
-            j43 b0 = j43.b0();
-            if (b0 == null) {
-                return false;
-            }
-            String appId = b0.getAppId();
-            if (!TextUtils.isEmpty(appId) && lw1.b(appId) != 0) {
-                return true;
-            }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{ox2Var, qx2Var, context, unitedSchemeEntity, callbackHandler, w83Var})) == null) {
+            w52.i("video", "playBackRate, video id:" + qx2Var.j + " slave id: " + qx2Var.c);
+            d(ox2Var, qx2Var.W, unitedSchemeEntity, callbackHandler);
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeCommon.booleanValue;
     }
 
-    public final void m(long j) {
+    public final void d(ox2 ox2Var, String str, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            fg3.i.update((eg3<Long>) Long.valueOf(j));
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ox2Var, str, unitedSchemeEntity, callbackHandler) == null) {
+            int q = ox2Var.q(str);
+            if (q != 0 && q != 202) {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001));
+            } else {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(q));
+            }
         }
     }
 }

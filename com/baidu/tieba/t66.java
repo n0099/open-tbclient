@@ -1,189 +1,152 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.ala.atomdata.AlaPersonCenterRealAuthenConfig;
+import com.baidu.ala.data.AlaUserInfoData;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class t66 extends BdAsyncTask<Void, Void, x66> {
+public class t66 extends qn<j76, CardViewHolder<e86>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final s66 b;
-    public final String c;
-    public final String d;
-    public final String e;
-    public final boolean f;
-    public NetWork g;
+    public TbPageContext a;
+    public n76 b;
 
-    public t66(String str, s66 s66Var, boolean z) {
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ j76 a;
+        public final /* synthetic */ t66 b;
+
+        public a(t66 t66Var, j76 j76Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t66Var, j76Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = t66Var;
+            this.a = j76Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.b.u(this.a);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t66(TbPageContext tbPageContext, n76 n76Var) {
+        super(tbPageContext.getPageActivity(), j76.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, s66Var, Boolean.valueOf(z)};
+            Object[] objArr = {tbPageContext, n76Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.b = s66Var;
-        this.d = s66Var.c();
-        this.c = this.b.a();
-        this.e = this.b.b();
-        this.f = z;
-    }
-
-    public final void b(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        FileHelper.deleteFileOrDir(new File(n66.f + "bdtbWCacheTemp/" + str));
+        this.a = tbPageContext;
+        this.b = n76Var;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Removed duplicated region for block: B:31:0x0160  */
-    /* JADX WARN: Removed duplicated region for block: B:34:0x01b9  */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: c */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public x66 doInBackground(Void... voidArr) {
+    @Override // com.baidu.tieba.qn
+    /* renamed from: v */
+    public CardViewHolder<e86> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
-        x66 c;
-        HashMap<String, r66> hashMap;
-        InputStream inputStream;
-        FileInputStream fileInputStream;
-        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-            b(this.a);
-            u66.a(this.a);
-            if (this.f) {
-                if (!TextUtils.isEmpty(n66.h().i(this.a))) {
-                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_UPDATE_OFFLINE_PACK).param("obj_name", this.a).param("obj_id", this.d));
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
+            return new CardViewHolder<>(new e86(this.a));
+        }
+        return (CardViewHolder) invokeL.objValue;
+    }
+
+    public final void t(j76 j76Var, e86 e86Var) {
+        x66 c;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, j76Var, e86Var) == null) && (c = j76Var.c()) != null && c.b() != null) {
+            e86Var.w(0);
+            e86Var.x(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0246));
+            int i = c.b().certify_status;
+            if (i == 0) {
+                e86Var.u(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f024a));
+                e86Var.v(0);
+            } else if (1 == i) {
+                e86Var.u(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0249));
+                e86Var.v(4);
+            } else if (2 == i) {
+                e86Var.u(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0247));
+                e86Var.v(4);
+            } else if (3 == i) {
+                e86Var.u(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0248));
+                e86Var.v(0);
+            }
+            e86Var.j(this.a, TbadkCoreApplication.getInst().getSkinType());
+        }
+    }
+
+    public final void u(j76 j76Var) {
+        AlaUserInfoData b;
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, j76Var) == null) && j76Var != null && j76Var.c() != null && j76Var.c().b() != null && 1 != (i = (b = j76Var.c().b()).certify_status) && 2 != i) {
+            Context context = this.mContext;
+            String str = b.user_id;
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaPersonCenterRealAuthenConfig(context, str, b.certify_status + "")));
+            n76 n76Var = this.b;
+            if (n76Var != null) {
+                n76Var.a(1);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: w */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, j76 j76Var, CardViewHolder<e86> cardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, j76Var, cardViewHolder})) == null) {
+            if (cardViewHolder.a() == null) {
                 return null;
             }
-            NetWork netWork = new NetWork();
-            this.g = netWork;
-            netWork.setUrl(this.c);
-            new File(n66.f + "bdtbWCacheTemp/" + this.a + "/").mkdirs();
-            String str2 = n66.f + "bdtbWCacheTemp/" + this.a + "/bdtbNWCache.zip";
-            if (this.g.downloadFile(str2, null, 0, 3, 0, true)) {
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_H5_OFFLINE_PACKAGE_DOWNLOAD).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", "1"));
-                try {
-                    try {
-                        fileInputStream = new FileInputStream(str2);
-                        try {
-                            String b = gj.b(fileInputStream);
-                            if (StringUtils.isNull(b) || !b.toLowerCase().equals(this.e.toLowerCase())) {
-                                ry4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "md5 error");
-                                b(this.a);
-                                aj.e(fileInputStream);
-                                return null;
-                            }
-                        } catch (FileNotFoundException e) {
-                            e = e;
-                            e.printStackTrace();
-                            aj.e(fileInputStream);
-                            str = n66.f + "bdtbWCacheTemp/" + this.a + "/" + this.d + "/";
-                            new File(str).mkdirs();
-                            if (!ky4.b(str2, str)) {
-                            }
-                            b(this.a);
-                            c = u66.c(this.a, this.d);
-                            if (c == null) {
-                            }
-                            ry4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "bundle incomplete");
-                            u66.a(this.a);
-                            return null;
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        inputStream = "obj_type";
-                        aj.e(inputStream);
-                        throw th;
-                    }
-                } catch (FileNotFoundException e2) {
-                    e = e2;
-                    fileInputStream = null;
-                } catch (Throwable th2) {
-                    th = th2;
-                    inputStream = null;
-                    aj.e(inputStream);
-                    throw th;
-                }
-                aj.e(fileInputStream);
-                str = n66.f + "bdtbWCacheTemp/" + this.a + "/" + this.d + "/";
-                new File(str).mkdirs();
-                if (!ky4.b(str2, str)) {
-                    String str3 = n66.f + "bdtbNWCache/" + this.a + "/" + this.d + "/";
-                    new File(str3).mkdirs();
-                    if (!FileHelper.CopyDir(str, str3, true)) {
-                        ry4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "write error");
-                    }
-                } else {
-                    ry4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "unzip error");
-                }
-            } else {
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_H5_OFFLINE_PACKAGE_DOWNLOAD).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", "2"));
-                ry4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "download error");
-            }
-            b(this.a);
-            c = u66.c(this.a, this.d);
-            if (c == null && !TextUtils.isEmpty(c.a) && (hashMap = c.b) != null && hashMap.size() != 0) {
-                u66.b(c.c, this.a);
-                return c;
-            }
-            ry4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "bundle incomplete");
-            u66.a(this.a);
-            return null;
+            t(j76Var, cardViewHolder.a());
+            cardViewHolder.a().h().setOnClickListener(new a(this, j76Var));
+            return cardViewHolder.a().h();
         }
-        return (x66) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public void onPostExecute(x66 x66Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, x66Var) == null) {
-            super.onPostExecute(x66Var);
-            if (x66Var != null) {
-                n66.h().q(this.a, x66Var.c);
-                n66.h().o();
-                q66.a().j(this.a, x66Var.b);
-                q66.a().f(true, this.a);
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_UPDATE_OFFLINE_PACK).param("obj_name", this.a).param("obj_id", x66Var.c));
-                return;
-            }
-            n66.h().e(this.a);
-            n66.h().o();
-            q66.a().d(this.a);
-        }
+        return (View) invokeCommon.objValue;
     }
 }

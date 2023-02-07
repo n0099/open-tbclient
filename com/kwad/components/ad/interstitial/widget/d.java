@@ -86,12 +86,12 @@ public final class d extends com.kwad.components.core.i.e implements View.OnClic
     private void h(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, view2) == null) {
-            this.it = (KSCornerImageView) view2.findViewById(R.id.obfuscated_res_0x7f09116e);
-            this.eQ = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09116f);
-            this.iu = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091172);
-            this.iv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091173);
-            this.iw = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091170);
-            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091171);
+            this.it = (KSCornerImageView) view2.findViewById(R.id.obfuscated_res_0x7f0911b1);
+            this.eQ = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0911b2);
+            this.iu = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0911b5);
+            this.iv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0911b6);
+            this.iw = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0911b3);
+            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0911b4);
             this.ix = textView;
             com.kwad.sdk.b.kwai.a.a(this, this.it, this.eQ, this.iu, this.iv, this.iw, textView);
         }

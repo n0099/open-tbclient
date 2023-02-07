@@ -1,24 +1,135 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes4.dex */
-public class dz5 {
+public class dz5 extends ok1<w61> {
     public static /* synthetic */ Interceptable $ic;
-    public static dz5 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<StatisticItem> a;
+
+    /* loaded from: classes4.dex */
+    public class a implements w61 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.w61
+        public int[] b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new int[]{R.drawable.nad_web_back} : (int[]) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.w61
+        public int[] c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new int[]{R.drawable.nad_web_close} : (int[]) invokeV.objValue;
+        }
+
+        /* renamed from: com.baidu.tieba.dz5$a$a  reason: collision with other inner class name */
+        /* loaded from: classes4.dex */
+        public class View$OnClickListenerC0253a implements View.OnClickListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ x61 a;
+
+            public View$OnClickListenerC0253a(a aVar, x61 x61Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, x61Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = x61Var;
+            }
+
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                x61 x61Var;
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (x61Var = this.a) != null) {
+                    x61Var.g();
+                }
+            }
+        }
+
+        /* loaded from: classes4.dex */
+        public class b implements View.OnClickListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ x61 a;
+
+            public b(a aVar, x61 x61Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, x61Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = x61Var;
+            }
+
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                x61 x61Var;
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (x61Var = this.a) != null) {
+                    x61Var.k();
+                }
+            }
+        }
+
+        public a(dz5 dz5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dz5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.w61
+        public void a(View view2, x61 x61Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, x61Var) == null) {
+                int intValue = ((Integer) view2.getTag()).intValue();
+                if (intValue == R.drawable.nad_web_back) {
+                    view2.setOnClickListener(new View$OnClickListenerC0253a(this, x61Var));
+                } else if (intValue == R.drawable.nad_web_close) {
+                    view2.setOnClickListener(new b(this, x61Var));
+                }
+            }
+        }
+    }
 
     public dz5() {
         Interceptable interceptable = $ic;
@@ -34,84 +145,15 @@ public class dz5 {
         }
     }
 
-    public static dz5 b() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ok1
+    /* renamed from: a */
+    public w61 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (dz5.class) {
-                    if (b == null) {
-                        b = new dz5();
-                    }
-                }
-            }
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
         }
-        return (dz5) invokeV.objValue;
-    }
-
-    public void a(StatisticItem statisticItem) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, statisticItem) != null) || statisticItem == null) {
-            return;
-        }
-        if (this.a == null) {
-            this.a = new ArrayList();
-        }
-        List<StatisticItem> list = this.a;
-        if (list != null) {
-            list.add(statisticItem);
-        }
-    }
-
-    public final long c(ThreadData threadData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData)) == null) {
-            if (threadData != null && threadData.getThreadAlaInfo() != null) {
-                return threadData.getThreadAlaInfo().live_id;
-            }
-            return -1L;
-        }
-        return invokeL.longValue;
-    }
-
-    public StatisticItem d(int i, String str, int i2, String str2, ThreadData threadData) {
-        InterceptResult invokeCommon;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2, threadData})) == null) {
-            if (threadData == null) {
-                return null;
-            }
-            if (threadData.getThreadAlaInfo() != null && !StringUtils.isNull(threadData.getThreadAlaInfo().appId)) {
-                str3 = threadData.getThreadAlaInfo().appId;
-            } else {
-                str3 = "";
-            }
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("obj_type", 1);
-            statisticItem.param("obj_id", c(threadData));
-            statisticItem.param("tid", threadData.getId());
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, str3);
-            statisticItem.param("entryid", i2);
-            statisticItem.param("name", str2);
-            statisticItem.param("is_small_follow", i);
-            return statisticItem;
-        }
-        return (StatisticItem) invokeCommon.objValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || ListUtils.getCount(this.a) == 0) {
-            return;
-        }
-        for (StatisticItem statisticItem : this.a) {
-            if (statisticItem != null) {
-                TiebaStatic.log(statisticItem);
-            }
-        }
-        this.a.clear();
+        return (w61) invokeV.objValue;
     }
 }

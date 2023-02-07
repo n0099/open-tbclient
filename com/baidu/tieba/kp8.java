@@ -1,122 +1,48 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.lego.model.AdCard;
-import com.baidu.tieba.recapp.widget.CountDownTextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.personPolymeric.mode.message.UserPostPageHttpResponseMessage;
+import com.baidu.tieba.personPolymeric.mode.message.UserPostPageSocketResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class kp8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final View b;
-    public AdvertAppInfo c;
-    public oq7 d;
-    public TbPageContext e;
-    public AdCard f;
-    public View.OnClickListener g;
 
-    public void b() {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            c();
+            b();
         }
     }
 
-    public void c(uo8 uo8Var) {
+    public static void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uo8Var) == null) {
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            o09.h(303002, UserPostPageSocketResponsedMessage.class, false, false);
         }
     }
 
-    public void j(CountDownTextView.c cVar) {
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, cVar) == null) {
-        }
-    }
-
-    public kp8(View view2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = view2;
-        this.a = str;
-    }
-
-    public final <T> T a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return (T) this.b.findViewById(i);
-        }
-        return (T) invokeI.objValue;
-    }
-
-    public void f(AdvertAppInfo advertAppInfo) {
-        AdvertAppInfo.ILegoAdvert iLegoAdvert;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, advertAppInfo) == null) {
-            this.c = advertAppInfo;
-            if (advertAppInfo != null && (iLegoAdvert = advertAppInfo.h) != null && (iLegoAdvert instanceof AdCard)) {
-                this.f = (AdCard) iLegoAdvert;
-            }
-        }
-    }
-
-    public void g(oq7 oq7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, oq7Var) == null) {
-            this.d = oq7Var;
-        }
-    }
-
-    public void h(TbPageContext<?> tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, tbPageContext) == null) {
-            this.e = tbPageContext;
-        }
-    }
-
-    public void i(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onClickListener) == null) {
-            this.g = onClickListener;
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b.setVisibility(0);
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.v(this.c.j).q(String.valueOf(this.c.position + 1)).p(this.c.g).z(String.valueOf(303));
-            e11.b(clogBuilder);
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b.setVisibility(8);
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.USER_POST_HTTP_CMD, o09.a("c/u/feed/userpost", 303002));
+            tbHttpMessageTask.setIsNeedLogin(false);
+            tbHttpMessageTask.setIsNeedTbs(false);
+            tbHttpMessageTask.setIsNeedAddCommenParam(false);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(false);
+            tbHttpMessageTask.setResponsedClass(UserPostPageHttpResponseMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+            TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.SET_PRIVATE_CMD, TbConfig.SERVER_ADDRESS + TbConfig.SET_PRIVATE);
+            tbHttpMessageTask2.setIsNeedLogin(true);
+            tbHttpMessageTask2.setResponsedClass(JsonHttpResponsedMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask2);
         }
     }
 }

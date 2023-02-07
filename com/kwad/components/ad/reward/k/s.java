@@ -90,14 +90,14 @@ public final class s extends d implements View.OnClickListener {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.it = (KSCornerImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f09126c);
-            this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09126e);
-            this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09126a);
-            this.vg = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09126d);
-            this.iv = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09126b);
-            this.wk = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f09125e);
-            this.f1108vi = this.pV.findViewById(R.id.obfuscated_res_0x7f091269);
-            this.vj = this.pV.findViewById(R.id.obfuscated_res_0x7f091268);
+            this.it = (KSCornerImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0912af);
+            this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0912b1);
+            this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0912ad);
+            this.vg = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0912b0);
+            this.iv = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0912ae);
+            this.wk = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0912a1);
+            this.f1108vi = this.pV.findViewById(R.id.obfuscated_res_0x7f0912ac);
+            this.vj = this.pV.findViewById(R.id.obfuscated_res_0x7f0912ab);
             this.f1108vi.setOnClickListener(this);
             this.vj.setOnClickListener(this);
             this.it.setOnClickListener(this);

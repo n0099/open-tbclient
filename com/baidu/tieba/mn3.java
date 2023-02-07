@@ -1,31 +1,23 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.statistics.NetworkStatRecord;
-import com.baidu.tieba.sd4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.util.MimeTypes;
-import java.io.IOException;
-import okhttp3.Response;
-import org.json.JSONObject;
+import java.util.ArrayDeque;
+import java.util.Queue;
 /* loaded from: classes5.dex */
-public class mn3 extends qd4<String> {
+public class mn3 implements ln3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final sd4.a a;
+    public final Queue<kn3> a;
+    public kn3 b;
 
-    public mn3(sd4.a aVar) {
+    public mn3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,131 +27,75 @@ public class mn3 extends qd4<String> {
                 return;
             }
         }
-        this.a = aVar;
+        this.a = new ArrayDeque();
     }
 
-    public final boolean a() {
-        InterceptResult invokeV;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.sd4.a
-    public void onStart() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && a()) {
-            this.a.onStart();
-        }
-    }
-
-    @Override // com.baidu.tieba.sd4.a
-    public void b(String str, String str2, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, jSONObject) == null) && a()) {
-            this.a.b(str, str2, jSONObject);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.http.callback.StatResponseCallback
-    /* renamed from: c */
-    public void onSuccess(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
-            if (fn3.a) {
-                Log.d("BDTLS", "BdtlsPmsRequest onSuccess=" + str);
-            }
-            if (this.a == null) {
-                return;
-            }
-            ln3 l = ln3.l();
-            if (TextUtils.equals(str, "recovery")) {
-                if (l.m().b()) {
-                    l.m().a();
-                    l.d.i(true);
-                    zn3 zn3Var = l.d;
-                    if (zn3Var instanceof xn3) {
-                        ((xn3) zn3Var).j();
-                        return;
-                    }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this.a) {
+                if (this.b != null) {
                     return;
                 }
-                this.a.onFail(new Exception("Exceeded the limit of continuous downgrade"));
-                return;
-            }
-            l.m().k();
-            zn3 zn3Var2 = l.d;
-            if (zn3Var2 instanceof xn3) {
-                xn3 xn3Var = (xn3) zn3Var2;
-                if (l.k()) {
-                    if (l.d.b == 1) {
-                        kn3.a(MimeTypes.BASE_TYPE_APPLICATION);
-                        this.a.c(str, i);
-                        xn3Var.h = 0;
-                        return;
-                    }
-                    int i2 = xn3Var.h;
-                    xn3Var.h = i2 + 1;
-                    if (i2 < 3) {
-                        xn3Var.j();
-                        return;
-                    }
-                    sd4.a aVar = this.a;
-                    aVar.onFail(new IOException("request fail : " + str));
-                    xn3Var.h = 0;
-                    return;
-                }
-                this.a.c(str, i);
-                xn3Var.h = 0;
+                e();
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.http.callback.StatResponseCallback
-    /* renamed from: d */
-    public String parseResponse(Response response, int i, NetworkStatRecord networkStatRecord) throws Exception {
-        InterceptResult invokeLIL;
-        String string;
+    public synchronized void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, response, i, networkStatRecord)) == null) {
-            if (response != null && response.body() != null) {
-                ln3 l = ln3.l();
-                if (TextUtils.equals(response.headers().get("Bdtls"), "recovery")) {
-                    l.m().s(0);
-                    return "recovery";
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                if (this.b != null) {
+                    this.b.a();
+                    this.b = null;
                 }
-                if (l.k()) {
-                    string = l.d.g(response.body().bytes());
-                    if (fn3.a) {
-                        Log.d("BDTLS", "BdtlsPmsRequest parseResponse=" + string);
-                    }
+                this.a.clear();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ln3
+    public void a(kn3 kn3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, kn3Var) == null) {
+            synchronized (this.a) {
+                if (kn3Var == this.b) {
+                    e();
+                }
+            }
+        }
+    }
+
+    public void d(kn3 kn3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, kn3Var) == null) {
+            if (kn3Var != null) {
+                synchronized (this.a) {
+                    Queue<kn3> queue = this.a;
+                    kn3Var.b(this);
+                    queue.offer(kn3Var);
+                }
+            }
+            b();
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this.a) {
+                this.b = null;
+                if (this.a.isEmpty()) {
+                    return;
+                }
+                kn3 poll = this.a.poll();
+                this.b = poll;
+                if (poll == null) {
+                    e();
                 } else {
-                    string = response.body().string();
+                    qm3.a0(poll);
                 }
-                b(String.valueOf(response.request().url()), string, networkStatRecord.toUBCJson());
-                return string;
-            }
-            return "";
-        }
-        return (String) invokeLIL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.http.callback.StatResponseCallback, com.baidu.tieba.sd4.a
-    public void onFail(Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, exc) == null) {
-            if (fn3.a) {
-                Log.d("BDTLS", "BdtlsPmsRequest onFail = " + exc.getMessage());
-            }
-            if (a()) {
-                this.a.onFail(exc);
             }
         }
     }

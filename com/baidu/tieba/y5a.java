@@ -1,179 +1,305 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.view.ViewGroup;
+import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.y5a.a;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.ByteBuffer;
-import org.java_websocket.exceptions.InvalidDataException;
-import org.java_websocket.exceptions.InvalidFrameException;
-import org.java_websocket.framing.Framedata;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.FunAdLoadListener;
+import com.fun.ad.sdk.FunAdLoader;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunSplashAd;
+import com.fun.ad.sdk.internal.api.PidLoader;
+import com.fun.ad.sdk.internal.api.SidSessionMeta;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class y5a extends a6a {
+public abstract class y5a<S extends a> implements FunAdLoader {
     public static /* synthetic */ Interceptable $ic;
+    public static final /* synthetic */ boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int h;
-    public String i;
+    public final Object a;
+    public S b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948282532, "Lcom/baidu/tieba/y5a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948282532, "Lcom/baidu/tieba/y5a;");
+                return;
+            }
+        }
+        c = !y5a.class.desiredAssertionStatus();
+    }
+
     public y5a() {
-        super(Framedata.Opcode.CLOSING);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Framedata.Opcode) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        r("");
-        q(1000);
+        this.a = new Object();
     }
 
-    public final void s() {
+    public static /* synthetic */ int e(PidLoader pidLoader, PidLoader pidLoader2) {
+        return -Double.compare(pidLoader.getBiddingOrBasePrices(), pidLoader2.getBiddingOrBasePrices());
+    }
+
+    public final PidLoader a(PidLoader pidLoader, PidLoader pidLoader2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, pidLoader, pidLoader2)) == null) {
+            if (pidLoader == null && pidLoader2 == null) {
+                return null;
+            }
+            return (pidLoader != null && (pidLoader2 == null || pidLoader.getBiddingOrBasePrices() >= pidLoader2.getBiddingOrBasePrices())) ? pidLoader : pidLoader2;
+        }
+        return (PidLoader) invokeLL.objValue;
+    }
+
+    public final S b() {
+        InterceptResult invokeV;
+        S s;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this.a) {
+                s = this.b;
+                if (s == null) {
+                    s = f();
+                    if (!c && s == null) {
+                        throw new AssertionError();
+                    }
+                    this.b = s;
+                }
+            }
+            return s;
+        }
+        return (S) invokeV.objValue;
+    }
+
+    public final <N> N c(List<PidLoader> list, List<PidLoader> list2, k0a<N> k0aVar, String str) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, list, list2, k0aVar, str)) != null) {
+            return (N) invokeLLLL.objValue;
+        }
+        LinkedList<PidLoader> d = d(list);
+        Collections.sort(d, new Comparator() { // from class: com.baidu.tieba.rz9
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // java.util.Comparator
+            public final int compare(Object obj, Object obj2) {
+                InterceptResult invokeLL;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, obj, obj2)) == null) ? y5a.e((PidLoader) obj, (PidLoader) obj2) : invokeLL.intValue;
+            }
+        });
+        LinkedList<PidLoader> d2 = d(list2);
+        PidLoader poll = d.poll();
+        PidLoader poll2 = d2.poll();
+        while (true) {
+            if (poll == null && poll2 == null) {
+                return null;
+            }
+            PidLoader a2 = a(poll, poll2);
+            double biddingOrBasePrices = a2.getBiddingOrBasePrices();
+            if (a2 == poll) {
+                poll = d.poll();
+            } else {
+                poll2 = d2.poll();
+            }
+            PidLoader pidLoader = poll;
+            PidLoader pidLoader2 = poll2;
+            PidLoader a3 = a(pidLoader, pidLoader2);
+            a2.setBiddingResult(a2.getBiddingOrBasePrices(), a3 != null ? a3.getBiddingOrBasePrices() : biddingOrBasePrices, 1);
+            N a4 = k0aVar.a(a2, str);
+            if (a4 != null) {
+                return a4;
+            }
+            poll = pidLoader;
+            poll2 = pidLoader2;
+        }
+    }
+
+    public final LinkedList<PidLoader> d(List<PidLoader> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
+            LinkedList<PidLoader> linkedList = new LinkedList<>();
+            for (PidLoader pidLoader : list) {
+                if (pidLoader.isLoaded()) {
+                    linkedList.add(pidLoader);
+                }
+            }
+            return linkedList;
+        }
+        return (LinkedList) invokeL.objValue;
+    }
+
+    public abstract S f();
+
+    /* loaded from: classes7.dex */
+    public static abstract class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final SidSessionMeta a;
+        public final com.fun.h0 b;
+        public FunAdLoadListener c;
+
+        public a(String str, int i, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i), str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            SidSessionMeta sidSessionMeta = new SidSessionMeta(str, i);
+            this.a = sidSessionMeta;
+            this.b = new com.fun.h0(sidSessionMeta, str2);
+        }
+
+        public abstract void a(Context context, FunAdSlot funAdSlot, FunAdLoadListener funAdLoadListener);
+
+        public boolean c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c == null : invokeV.booleanValue;
+        }
+
+        public abstract boolean d(Activity activity, ViewGroup viewGroup, FunAdInteractionListener funAdInteractionListener);
+
+        public abstract FunSplashAd e(Activity activity, ViewGroup viewGroup, FunAdInteractionListener funAdInteractionListener);
+
+        public abstract void g();
+
+        public final void b(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                com.fun.h0 h0Var = this.b;
+                h0Var.getClass();
+                h0Var.b("ldr_ld_err", NotificationCompat.CATEGORY_ERROR, str);
+                this.c.onError(this.a.sid);
+                g();
+            }
+        }
+
+        public final void f() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                this.b.b("ldr_ld_succeed", new Object[0]);
+                this.c.onAdLoaded(this.a.sid);
+                g();
+            }
+        }
+    }
+
+    @Override // com.fun.ad.sdk.FunAdLoader
+    public void destroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this.a) {
+                S s = this.b;
+                if (s != null) {
+                    s.g();
+                }
+                this.b = null;
+            }
+        }
+    }
+
+    @Override // com.fun.ad.sdk.FunAdLoader
+    public void recycleListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            byte[] f = t6a.f(this.i);
-            ByteBuffer allocate = ByteBuffer.allocate(4);
-            allocate.putInt(this.h);
-            allocate.position(2);
-            ByteBuffer allocate2 = ByteBuffer.allocate(f.length + 2);
-            allocate2.put(allocate);
-            allocate2.put(f);
-            allocate2.rewind();
-            super.j(allocate2);
-        }
-    }
-
-    @Override // com.baidu.tieba.c6a, org.java_websocket.framing.Framedata
-    public ByteBuffer a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.h == 1005) {
-                return s6a.a();
+            synchronized (this.a) {
+                S s = this.b;
+                if (s != null) {
+                    s.g();
+                }
             }
-            return super.a();
         }
-        return (ByteBuffer) invokeV.objValue;
     }
 
-    public int o() {
-        InterceptResult invokeV;
+    @Override // com.fun.ad.sdk.FunAdLoader
+    public final void load(Context context, FunAdSlot funAdSlot, FunAdLoadListener funAdLoadListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.h;
-        }
-        return invokeV.intValue;
-    }
-
-    public String p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.i;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.c6a
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return super.toString() + "code: " + this.h;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.a6a, com.baidu.tieba.c6a
-    public void h() throws InvalidDataException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.h();
-            if (this.h == 1007 && this.i == null) {
-                throw new InvalidDataException(1007, "Received text is no valid utf8 string!");
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, context, funAdSlot, funAdLoadListener) == null) {
+            synchronized (this.a) {
+                S s = this.b;
+                if (s != null && !s.c()) {
+                    com.fun.h0 h0Var = s.b;
+                    h0Var.getClass();
+                    h0Var.b("ldr_ld_err", NotificationCompat.CATEGORY_ERROR, "irr");
+                    s.g();
+                }
+                this.b = null;
             }
-            if (this.h == 1005 && this.i.length() > 0) {
-                throw new InvalidDataException(1002, "A close frame must have a closecode if it has a reason");
-            }
-            int i = this.h;
-            if (i > 1015 && i < 3000) {
-                throw new InvalidDataException(1002, "Trying to send an illegal close code!");
-            }
-            int i2 = this.h;
-            if (i2 != 1006 && i2 != 1015 && i2 != 1005 && i2 <= 4999 && i2 >= 1000 && i2 != 1004) {
+            S b = b();
+            b.getClass();
+            if (funAdLoadListener != null) {
+                b.b.b("ldr_ld_start", new Object[0]);
+                b.c = funAdLoadListener;
+                b.a(context, funAdSlot, funAdLoadListener);
                 return;
             }
-            throw new InvalidFrameException("closecode must not be sent over the wire: " + this.h);
+            throw new IllegalArgumentException();
         }
     }
 
-    @Override // com.baidu.tieba.c6a
-    public void j(ByteBuffer byteBuffer) {
+    @Override // com.fun.ad.sdk.FunAdLoader
+    public final <T extends ViewGroup> boolean show(Activity activity, T t, String str, FunAdInteractionListener funAdInteractionListener) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteBuffer) == null) {
-            this.h = 1005;
-            this.i = "";
-            byteBuffer.mark();
-            if (byteBuffer.remaining() == 0) {
-                this.h = 1000;
-            } else if (byteBuffer.remaining() == 1) {
-                this.h = 1002;
-            } else {
-                if (byteBuffer.remaining() >= 2) {
-                    ByteBuffer allocate = ByteBuffer.allocate(4);
-                    allocate.position(2);
-                    allocate.putShort(byteBuffer.getShort());
-                    allocate.position(0);
-                    this.h = allocate.getInt();
-                }
-                byteBuffer.reset();
-                try {
-                    int position = byteBuffer.position();
-                    try {
-                        byteBuffer.position(byteBuffer.position() + 2);
-                        this.i = t6a.e(byteBuffer);
-                        byteBuffer.position(position);
-                    } catch (IllegalArgumentException unused) {
-                        throw new InvalidDataException(1007);
-                    }
-                } catch (InvalidDataException unused2) {
-                    this.h = 1007;
-                    this.i = null;
-                }
-            }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, t, str, funAdInteractionListener)) == null) {
+            S b = b();
+            b.b.b("ldr_sh_start", new Object[0]);
+            return b.d(activity, t, funAdInteractionListener);
         }
+        return invokeLLLL.booleanValue;
     }
 
-    public void q(int i) {
+    @Override // com.fun.ad.sdk.FunAdLoader
+    public final <T extends ViewGroup> FunSplashAd showSplash(Activity activity, T t, String str, FunAdInteractionListener funAdInteractionListener) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.h = i;
-            if (i == 1015) {
-                this.h = 1005;
-                this.i = "";
-            }
-            s();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048585, this, activity, t, str, funAdInteractionListener)) == null) {
+            S b = b();
+            b.b.b("ldr_sh_start", new Object[0]);
+            return b.e(activity, t, funAdInteractionListener);
         }
-    }
-
-    public void r(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            if (str == null) {
-                str = "";
-            }
-            this.i = str;
-            s();
-        }
+        return (FunSplashAd) invokeLLLL.objValue;
     }
 }

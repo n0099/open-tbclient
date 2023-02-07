@@ -2,41 +2,84 @@ package kotlin.time;
 
 import java.util.concurrent.TimeUnit;
 import kotlin.Metadata;
+import kotlin.NoWhenBranchMatchedException;
 import kotlin.SinceKotlin;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000*\n\u0000\n\u0002\u0010\u0006\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\u001a(\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u00012\n\u0010\u0003\u001a\u00060\u0004j\u0002`\u00052\n\u0010\u0006\u001a\u00060\u0004j\u0002`\u0005H\u0001\u001a(\u0010\u0000\u001a\u00020\u00072\u0006\u0010\u0002\u001a\u00020\u00072\n\u0010\u0003\u001a\u00060\u0004j\u0002`\u00052\n\u0010\u0006\u001a\u00060\u0004j\u0002`\u0005H\u0001\u001a(\u0010\b\u001a\u00020\u00072\u0006\u0010\u0002\u001a\u00020\u00072\n\u0010\u0003\u001a\u00060\u0004j\u0002`\u00052\n\u0010\u0006\u001a\u00060\u0004j\u0002`\u0005H\u0001*\u001e\b\u0007\u0010\t\"\u00020\u00042\u00020\u0004B\f\b\n\u0012\b\b\u000b\u0012\u0004\b\b(\fB\u0002\b\r¨\u0006\u000e"}, d2 = {"convertDurationUnit", "", "value", "sourceUnit", "Ljava/util/concurrent/TimeUnit;", "Lkotlin/time/DurationUnit;", "targetUnit", "", "convertDurationUnitOverflow", "DurationUnit", "Lkotlin/SinceKotlin;", "version", "1.3", "Lkotlin/time/ExperimentalTime;", "kotlin-stdlib"}, k = 5, mv = {1, 5, 1}, xi = 1, xs = "kotlin/time/DurationUnitKt")
+@Metadata(d1 = {"\u0000 \n\u0000\n\u0002\u0010\u0006\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u001a \u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0004H\u0001\u001a \u0010\u0000\u001a\u00020\u00062\u0006\u0010\u0002\u001a\u00020\u00062\u0006\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0004H\u0001\u001a \u0010\u0007\u001a\u00020\u00062\u0006\u0010\u0002\u001a\u00020\u00062\u0006\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0004H\u0001\u001a\f\u0010\b\u001a\u00020\u0004*\u00020\tH\u0007\u001a\f\u0010\n\u001a\u00020\t*\u00020\u0004H\u0007¨\u0006\u000b"}, d2 = {"convertDurationUnit", "", "value", "sourceUnit", "Lkotlin/time/DurationUnit;", "targetUnit", "", "convertDurationUnitOverflow", "toDurationUnit", "Ljava/util/concurrent/TimeUnit;", "toTimeUnit", "kotlin-stdlib"}, k = 5, mv = {1, 6, 0}, xi = 49, xs = "kotlin/time/DurationUnitKt")
 /* loaded from: classes9.dex */
 public class DurationUnitKt__DurationUnitJvmKt {
-    @SinceKotlin(version = "1.3")
-    @ExperimentalTime
-    public static /* synthetic */ void DurationUnit$annotations() {
+
+    @Metadata(k = 3, mv = {1, 6, 0}, xi = 48)
+    /* loaded from: classes9.dex */
+    public /* synthetic */ class WhenMappings {
+        public static final /* synthetic */ int[] $EnumSwitchMapping$0;
+
+        static {
+            int[] iArr = new int[TimeUnit.values().length];
+            iArr[TimeUnit.NANOSECONDS.ordinal()] = 1;
+            iArr[TimeUnit.MICROSECONDS.ordinal()] = 2;
+            iArr[TimeUnit.MILLISECONDS.ordinal()] = 3;
+            iArr[TimeUnit.SECONDS.ordinal()] = 4;
+            iArr[TimeUnit.MINUTES.ordinal()] = 5;
+            iArr[TimeUnit.HOURS.ordinal()] = 6;
+            iArr[TimeUnit.DAYS.ordinal()] = 7;
+            $EnumSwitchMapping$0 = iArr;
+        }
     }
 
     @SinceKotlin(version = "1.3")
-    @ExperimentalTime
-    public static final double convertDurationUnit(double d, TimeUnit sourceUnit, TimeUnit targetUnit) {
+    public static final double convertDurationUnit(double d, DurationUnit sourceUnit, DurationUnit targetUnit) {
         Intrinsics.checkNotNullParameter(sourceUnit, "sourceUnit");
         Intrinsics.checkNotNullParameter(targetUnit, "targetUnit");
-        long convert = targetUnit.convert(1L, sourceUnit);
+        long convert = targetUnit.getTimeUnit$kotlin_stdlib().convert(1L, sourceUnit.getTimeUnit$kotlin_stdlib());
         if (convert > 0) {
             return d * convert;
         }
-        return d / sourceUnit.convert(1L, targetUnit);
+        return d / sourceUnit.getTimeUnit$kotlin_stdlib().convert(1L, targetUnit.getTimeUnit$kotlin_stdlib());
     }
 
     @SinceKotlin(version = "1.5")
-    @ExperimentalTime
-    public static final long convertDurationUnitOverflow(long j, TimeUnit sourceUnit, TimeUnit targetUnit) {
+    public static final long convertDurationUnitOverflow(long j, DurationUnit sourceUnit, DurationUnit targetUnit) {
         Intrinsics.checkNotNullParameter(sourceUnit, "sourceUnit");
         Intrinsics.checkNotNullParameter(targetUnit, "targetUnit");
-        return targetUnit.convert(j, sourceUnit);
+        return targetUnit.getTimeUnit$kotlin_stdlib().convert(j, sourceUnit.getTimeUnit$kotlin_stdlib());
     }
 
     @SinceKotlin(version = "1.5")
-    @ExperimentalTime
-    public static final long convertDurationUnit(long j, TimeUnit sourceUnit, TimeUnit targetUnit) {
+    public static final long convertDurationUnit(long j, DurationUnit sourceUnit, DurationUnit targetUnit) {
         Intrinsics.checkNotNullParameter(sourceUnit, "sourceUnit");
         Intrinsics.checkNotNullParameter(targetUnit, "targetUnit");
-        return targetUnit.convert(j, sourceUnit);
+        return targetUnit.getTimeUnit$kotlin_stdlib().convert(j, sourceUnit.getTimeUnit$kotlin_stdlib());
+    }
+
+    @SinceKotlin(version = "1.6")
+    @ExperimentalTime
+    public static final DurationUnit toDurationUnit(TimeUnit timeUnit) {
+        Intrinsics.checkNotNullParameter(timeUnit, "<this>");
+        switch (WhenMappings.$EnumSwitchMapping$0[timeUnit.ordinal()]) {
+            case 1:
+                return DurationUnit.NANOSECONDS;
+            case 2:
+                return DurationUnit.MICROSECONDS;
+            case 3:
+                return DurationUnit.MILLISECONDS;
+            case 4:
+                return DurationUnit.SECONDS;
+            case 5:
+                return DurationUnit.MINUTES;
+            case 6:
+                return DurationUnit.HOURS;
+            case 7:
+                return DurationUnit.DAYS;
+            default:
+                throw new NoWhenBranchMatchedException();
+        }
+    }
+
+    @SinceKotlin(version = "1.6")
+    @ExperimentalTime
+    public static final TimeUnit toTimeUnit(DurationUnit durationUnit) {
+        Intrinsics.checkNotNullParameter(durationUnit, "<this>");
+        return durationUnit.getTimeUnit$kotlin_stdlib();
     }
 }

@@ -1,154 +1,31 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.dns.transmit.DnsTransmitter;
+import com.baidu.lcp.sdk.pb.LcmPb$Common;
+import com.baidu.lcp.sdk.pb.LcmPb$LcmNotify;
+import com.baidu.lcp.sdk.pb.LcmPb$LcmRequest;
+import com.baidu.lcp.sdk.pb.LcmPb$RpcData;
+import com.baidu.lcp.sdk.pb.RpcMetaPb$RpcMeta;
+import com.baidu.lcp.sdk.pb.RpcMetaPb$RpcRequestMeta;
+import com.baidu.lcp.sdk.pb.RpcMetaPb$event_timestamp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.net.InetAddress;
-import java.net.SocketException;
-import java.net.UnknownHostException;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Dns;
-import okhttp3.Headers;
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
+import java.io.ByteArrayOutputStream;
+import java.nio.ByteBuffer;
+import java.util.zip.GZIPOutputStream;
 /* loaded from: classes5.dex */
 public class l90 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile l90 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public OkHttpClient a;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        Map<String, String> getHeaders();
-
-        String getHost();
-
-        String getMediaType();
-
-        String getMethod();
-
-        byte[] getRequestParameter();
-    }
-
-    /* loaded from: classes5.dex */
-    public interface d {
-        void onFailure(int i, String str);
-
-        void onSuccess(byte[] bArr);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements Callback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d a;
-
-        public a(l90 l90Var, d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l90Var, dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dVar;
-        }
-
-        @Override // okhttp3.Callback
-        public void onFailure(@NonNull Call call, @NonNull IOException iOException) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
-                String str = "HttpRequest error :" + iOException.toString();
-                if (iOException instanceof SocketException) {
-                    str = "HttpRequest SocketException :" + iOException.toString();
-                }
-                l90.b(this.a, 10003, str);
-            }
-        }
-
-        @Override // okhttp3.Callback
-        public void onResponse(@NonNull Call call, @NonNull Response response) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
-                try {
-                    if (response.code() != 200) {
-                        l90.b(this.a, response.code(), response.message());
-                    } else if (response.body() == null) {
-                        l90.b(this.a, 10004, "response body empty");
-                    } else {
-                        byte[] bytes = response.body().bytes();
-                        q90.b("HttpExecutor", "onSuccess errorCode ：" + response.code() + ", errorMsg :" + new String(bytes));
-                        this.a.onSuccess(bytes);
-                    }
-                } catch (IOException e) {
-                    d dVar = this.a;
-                    l90.b(dVar, 10001, "parse response exception ：" + e);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements Dns {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c(l90 l90Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l90Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // okhttp3.Dns
-        public List<InetAddress> lookup(String str) throws UnknownHostException {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                q90.b("HttpExecutor", "LCPHttpDns lookup  hostName is " + str);
-                if (!TextUtils.isEmpty(str) && str.contains(DnsTransmitter.IDC_HOST)) {
-                    InetAddress[] allByName = InetAddress.getAllByName(DnsTransmitter.BGP_IP);
-                    q90.b("HttpExecutor", "LCPHttpDns lookup  hostName direct ip");
-                    return Arrays.asList(allByName);
-                }
-                q90.b("HttpExecutor", "LCPHttpDns lookup  hostName is by System");
-                return Dns.SYSTEM.lookup(str);
-            }
-            return (List) invokeL.objValue;
-        }
+    public final int d(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) ? z ? 1 : 0 : invokeZ.intValue;
     }
 
     public l90() {
@@ -161,91 +38,176 @@ public class l90 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new OkHttpClient.Builder().connectTimeout(10L, TimeUnit.SECONDS).readTimeout(10L, TimeUnit.SECONDS).writeTimeout(10L, TimeUnit.SECONDS).build();
     }
 
-    public static void b(@NonNull d dVar, int i, String str) {
+    public final byte[] a(byte[] bArr, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65538, null, dVar, i, str) == null) {
-            dVar.onFailure(i, str);
-            q90.b("HttpExecutor", "failedResponse errorCode ：" + i + ", errorMsg :" + str);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i)) == null) {
+            if (i == 1) {
+                return g(bArr);
+            }
+            return bArr;
         }
+        return (byte[]) invokeLI.objValue;
     }
 
-    public static Headers c(Map<String, String> map) {
+    public d90 b(d90 d90Var, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d90Var, z)) == null) {
+            d90Var.p = z;
+            h(d90Var, f(d90Var.i, d90Var.j, d90Var.o, d(false)), a(d90Var.a, d(false)));
+            return d90Var;
+        }
+        return (d90) invokeLZ.objValue;
+    }
+
+    public d90 c(Context context, long j) {
+        InterceptResult invokeLJ;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, context, j)) == null) {
+            long random = (long) ((Math.random() * 1000000.0d) + 10000.0d);
+            d90 d90Var = new d90();
+            d90Var.o = random;
+            boolean z2 = true;
+            d90Var.p = true;
+            d90Var.i = 1L;
+            d90Var.j = j;
+            if (j == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            d90Var.m = z;
+            if (j != 3) {
+                z2 = false;
+            }
+            d90Var.l = z2;
+            h(d90Var, f(1L, j, random, d(false)), a(e(context, random, j), d(false)));
+            return d90Var;
+        }
+        return (d90) invokeLJ.objValue;
+    }
+
+    public final byte[] e(Context context, long j, long j2) {
+        InterceptResult invokeCommon;
+        LcmPb$LcmRequest build;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{context, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            if (j2 == 4) {
+                LcmPb$LcmNotify.b newBuilder = LcmPb$LcmNotify.newBuilder();
+                newBuilder.w(j);
+                newBuilder.v(2);
+                LcmPb$LcmNotify build2 = newBuilder.build();
+                LcmPb$RpcData.b newBuilder2 = LcmPb$RpcData.newBuilder();
+                newBuilder2.D(build2);
+                return newBuilder2.build().toByteArray();
+            }
+            if (j2 == 1) {
+                try {
+                    LcmPb$Common lcmPb$Common = (LcmPb$Common) u90.c(context, false);
+                    LcmPb$LcmRequest.b newBuilder3 = LcmPb$LcmRequest.newBuilder();
+                    newBuilder3.z(j);
+                    newBuilder3.x(lcmPb$Common);
+                    newBuilder3.C(x90.j(context));
+                    newBuilder3.B(System.currentTimeMillis());
+                    newBuilder3.A(t80.c(context));
+                    newBuilder3.y(x90.d(context));
+                    build = newBuilder3.build();
+                    w90.a("PbProcessor", "cuid :" + lcmPb$Common.getCuid() + ", device :" + lcmPb$Common.getDeviceType() + ", os:" + lcmPb$Common.getOsVersion() + ", man :" + lcmPb$Common.getManufacture() + ", model :" + lcmPb$Common.getModelType() + ", appId :" + lcmPb$Common.getAppId() + ", app :" + lcmPb$Common.getAppVersion() + ", sdk :" + lcmPb$Common.getSdkVersion() + ", token :" + build.getToken() + ", net :" + lcmPb$Common.getNetwork() + ", rom :" + lcmPb$Common.getRomVersion() + ", start :" + build.getStartType() + "，connType :" + build.getConnType());
+                } catch (Exception unused) {
+                    LcmPb$LcmRequest.b newBuilder4 = LcmPb$LcmRequest.newBuilder();
+                    newBuilder4.z(j);
+                    newBuilder4.C(x90.j(context));
+                    newBuilder4.B(System.currentTimeMillis());
+                    newBuilder4.A(t80.c(context));
+                    newBuilder4.y(x90.d(context));
+                    build = newBuilder4.build();
+                }
+            } else if (j2 == 2) {
+                LcmPb$LcmRequest.b newBuilder5 = LcmPb$LcmRequest.newBuilder();
+                newBuilder5.z(j);
+                newBuilder5.B(System.currentTimeMillis());
+                build = newBuilder5.build();
+            } else {
+                LcmPb$LcmRequest.b newBuilder6 = LcmPb$LcmRequest.newBuilder();
+                newBuilder6.z(j);
+                newBuilder6.B(System.currentTimeMillis());
+                build = newBuilder6.build();
+            }
+            w90.f("PbProcessor", "logId :" + j + ", requestTime :" + build.getTimestamp() + "，methodId :" + j2);
+            LcmPb$RpcData.b newBuilder7 = LcmPb$RpcData.newBuilder();
+            newBuilder7.E(build);
+            return newBuilder7.build().toByteArray();
+        }
+        return (byte[]) invokeCommon.objValue;
+    }
+
+    public final byte[] f(long j, long j2, long j3, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i)})) == null) {
+            RpcMetaPb$event_timestamp.b newBuilder = RpcMetaPb$event_timestamp.newBuilder();
+            newBuilder.u(y80.a(true));
+            newBuilder.v(System.currentTimeMillis());
+            RpcMetaPb$event_timestamp build = newBuilder.build();
+            RpcMetaPb$RpcRequestMeta.b newBuilder2 = RpcMetaPb$RpcRequestMeta.newBuilder();
+            newBuilder2.w(j3);
+            newBuilder2.z(j);
+            newBuilder2.x(j2);
+            newBuilder2.y(1);
+            newBuilder2.m(build);
+            RpcMetaPb$RpcRequestMeta build2 = newBuilder2.build();
+            RpcMetaPb$RpcMeta.b newBuilder3 = RpcMetaPb$RpcMeta.newBuilder();
+            newBuilder3.F(build2);
+            newBuilder3.E(j3);
+            newBuilder3.D(i);
+            newBuilder3.A(1);
+            return newBuilder3.build().toByteArray();
+        }
+        return (byte[]) invokeCommon.objValue;
+    }
+
+    public final byte[] g(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bArr)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             try {
-                Headers.Builder builder = new Headers.Builder();
-                if (map != null && map.size() > 0) {
-                    for (String str : map.keySet()) {
-                        String str2 = str.toString();
-                        builder.add(str2, map.get(str2));
-                    }
-                }
-                return builder.build();
+                GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
+                gZIPOutputStream.write(bArr);
+                gZIPOutputStream.close();
             } catch (Exception e) {
                 e.printStackTrace();
-                return null;
             }
+            return byteArrayOutputStream.toByteArray();
         }
-        return (Headers) invokeL.objValue;
+        return (byte[]) invokeL.objValue;
     }
 
-    public static l90 d() {
-        InterceptResult invokeV;
+    public final d90 h(d90 d90Var, byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (b == null) {
-                synchronized (l90.class) {
-                    if (b == null) {
-                        b = new l90();
-                    }
-                }
-            }
-            return b;
-        }
-        return (l90) invokeV.objValue;
-    }
-
-    public void e(@NonNull b bVar, @NonNull d dVar) {
-        Request build;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, bVar, dVar) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, d90Var, bArr, bArr2)) == null) {
             try {
-                String host = bVar.getHost();
-                byte[] requestParameter = bVar.getRequestParameter();
-                if (requestParameter != null && requestParameter.length > 0) {
-                    if (bVar.getMethod().equals("POST")) {
-                        build = new Request.Builder().url(host).post(RequestBody.create(MediaType.parse(bVar.getMediaType()), requestParameter)).build();
-                    } else {
-                        if (requestParameter != null && requestParameter.length > 0) {
-                            host = host + "?" + new String(requestParameter);
-                        }
-                        build = new Request.Builder().url(host).build();
-                    }
-                    Map<String, String> headers = bVar.getHeaders();
-                    Headers c2 = c(headers);
-                    OkHttpClient okHttpClient = this.a;
-                    if (headers != null && c2 != null) {
-                        build = build.newBuilder().headers(c2).build();
-                        String str = headers.get("Host");
-                        if (!TextUtils.isEmpty(str) && str.contains(DnsTransmitter.IDC_HOST)) {
-                            okHttpClient = this.a.newBuilder().dns(new c(this)).build();
-                        }
-                    }
-                    q90.a("HttpExecutor", "request url :" + host + " , method :" + bVar.getMethod() + " , body :" + new String(bVar.getRequestParameter()));
-                    okHttpClient.newCall(build).enqueue(new a(this, dVar));
-                    return;
-                }
-                b(dVar, 10000, "request args exception");
-            } catch (Exception e) {
-                b(dVar, 10004, "request exception :" + e);
+                ByteBuffer allocate = ByteBuffer.allocate(bArr.length + 12 + bArr2.length);
+                allocate.put((byte) 108);
+                allocate.put((byte) 99);
+                allocate.put((byte) 112);
+                allocate.put((byte) 1);
+                allocate.putInt(bArr.length + bArr2.length);
+                allocate.putInt(bArr.length);
+                allocate.put(bArr);
+                allocate.put(bArr2);
+                d90Var.a = allocate.array();
+            } catch (Exception unused) {
             }
+            return d90Var;
         }
+        return (d90) invokeLLL.objValue;
     }
 }

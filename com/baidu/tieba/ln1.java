@@ -1,36 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import cn.com.chinatelecom.gateway.lib.PreCodeListener;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 /* loaded from: classes5.dex */
-public class ln1 implements zp1 {
+public abstract class ln1 implements PreCodeListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.zp1
-    public String[] a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (String[]) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.zp1
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
+    public final long a;
 
     public ln1() {
         Interceptable interceptable = $ic;
@@ -42,23 +22,18 @@ public class ln1 implements zp1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = System.currentTimeMillis();
     }
 
-    @Override // com.baidu.tieba.zp1
-    public String c() {
+    public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!qn2.w0().d()) {
-                if (ja2.b()) {
-                    return ja2.b + File.separator + "libcom.baidu.zeus.so";
-                }
-                return ja2.d + File.separator + "libcom.baidu.zeus.so";
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (String) invokeV.objValue;
+        return invokeV.longValue;
     }
 }

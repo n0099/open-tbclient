@@ -184,11 +184,14 @@ public interface INotificationSideChannel extends IInterface {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iNotificationSideChannel)) == null) {
-                if (Proxy.sDefaultImpl == null && iNotificationSideChannel != null) {
-                    Proxy.sDefaultImpl = iNotificationSideChannel;
-                    return true;
+                if (Proxy.sDefaultImpl == null) {
+                    if (iNotificationSideChannel != null) {
+                        Proxy.sDefaultImpl = iNotificationSideChannel;
+                        return true;
+                    }
+                    return false;
                 }
-                return false;
+                throw new IllegalStateException("setDefaultImpl() called twice");
             }
             return invokeL.booleanValue;
         }

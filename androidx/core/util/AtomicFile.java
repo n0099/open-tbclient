@@ -16,10 +16,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class AtomicFile {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String LOG_TAG = "AtomicFile";
     public transient /* synthetic */ FieldHolder $fh;
-    public final File mBackupName;
     public final File mBaseName;
+    public final File mLegacyBackupName;
+    public final File mNewName;
 
     public AtomicFile(@NonNull File file) {
         Interceptable interceptable = $ic;
@@ -37,13 +39,26 @@ public class AtomicFile {
             }
         }
         this.mBaseName = file;
-        this.mBackupName = new File(file.getPath() + ".bak");
+        this.mNewName = new File(file.getPath() + ".new");
+        this.mLegacyBackupName = new File(file.getPath() + ".bak");
+    }
+
+    public static void rename(@NonNull File file, @NonNull File file2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, file, file2) == null) {
+            if (file2.isDirectory() && !file2.delete()) {
+                Log.e("AtomicFile", "Failed to delete file which is a directory " + file2);
+            }
+            if (!file.renameTo(file2)) {
+                Log.e("AtomicFile", "Failed to rename " + file + " to " + file2);
+            }
+        }
     }
 
     public static boolean sync(@NonNull FileOutputStream fileOutputStream) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, fileOutputStream)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, fileOutputStream)) == null) {
             try {
                 fileOutputStream.getFD().sync();
                 return true;
@@ -54,38 +69,28 @@ public class AtomicFile {
         return invokeL.booleanValue;
     }
 
-    public void failWrite(@Nullable FileOutputStream fileOutputStream) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fileOutputStream) == null) && fileOutputStream != null) {
-            sync(fileOutputStream);
-            try {
-                fileOutputStream.close();
-                this.mBaseName.delete();
-                this.mBackupName.renameTo(this.mBaseName);
-            } catch (IOException e) {
-                Log.w(com.google.android.exoplayer2.util.AtomicFile.TAG, "failWrite: Got exception:", e);
-            }
-        }
-    }
-
     public void finishWrite(@Nullable FileOutputStream fileOutputStream) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fileOutputStream) == null) && fileOutputStream != null) {
-            sync(fileOutputStream);
-            try {
-                fileOutputStream.close();
-                this.mBackupName.delete();
-            } catch (IOException e) {
-                Log.w(com.google.android.exoplayer2.util.AtomicFile.TAG, "finishWrite: Got exception:", e);
-            }
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fileOutputStream) != null) || fileOutputStream == null) {
+            return;
         }
+        if (!sync(fileOutputStream)) {
+            Log.e("AtomicFile", "Failed to sync file output stream");
+        }
+        try {
+            fileOutputStream.close();
+        } catch (IOException e) {
+            Log.e("AtomicFile", "Failed to close file output stream", e);
+        }
+        rename(this.mNewName, this.mBaseName);
     }
 
     public void delete() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.mBaseName.delete();
-            this.mBackupName.delete();
+            this.mNewName.delete();
+            this.mLegacyBackupName.delete();
         }
     }
 
@@ -99,14 +104,34 @@ public class AtomicFile {
         return (File) invokeV.objValue;
     }
 
+    public void failWrite(@Nullable FileOutputStream fileOutputStream) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fileOutputStream) != null) || fileOutputStream == null) {
+            return;
+        }
+        if (!sync(fileOutputStream)) {
+            Log.e("AtomicFile", "Failed to sync file output stream");
+        }
+        try {
+            fileOutputStream.close();
+        } catch (IOException e) {
+            Log.e("AtomicFile", "Failed to close file output stream", e);
+        }
+        if (!this.mNewName.delete()) {
+            Log.e("AtomicFile", "Failed to delete new file " + this.mNewName);
+        }
+    }
+
     @NonNull
     public FileInputStream openRead() throws FileNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.mBackupName.exists()) {
-                this.mBaseName.delete();
-                this.mBackupName.renameTo(this.mBaseName);
+            if (this.mLegacyBackupName.exists()) {
+                rename(this.mLegacyBackupName, this.mBaseName);
+            }
+            if (this.mNewName.exists() && this.mBaseName.exists() && !this.mNewName.delete()) {
+                Log.e("AtomicFile", "Failed to delete outdated new file " + this.mNewName);
             }
             return new FileInputStream(this.mBaseName);
         }
@@ -148,26 +173,20 @@ public class AtomicFile {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.mBaseName.exists()) {
-                if (!this.mBackupName.exists()) {
-                    if (!this.mBaseName.renameTo(this.mBackupName)) {
-                        Log.w(com.google.android.exoplayer2.util.AtomicFile.TAG, "Couldn't rename file " + this.mBaseName + " to backup file " + this.mBackupName);
-                    }
-                } else {
-                    this.mBaseName.delete();
-                }
+            if (this.mLegacyBackupName.exists()) {
+                rename(this.mLegacyBackupName, this.mBaseName);
             }
             try {
-                return new FileOutputStream(this.mBaseName);
+                return new FileOutputStream(this.mNewName);
             } catch (FileNotFoundException unused) {
-                if (this.mBaseName.getParentFile().mkdirs()) {
+                if (this.mNewName.getParentFile().mkdirs()) {
                     try {
-                        return new FileOutputStream(this.mBaseName);
-                    } catch (FileNotFoundException unused2) {
-                        throw new IOException("Couldn't create " + this.mBaseName);
+                        return new FileOutputStream(this.mNewName);
+                    } catch (FileNotFoundException e) {
+                        throw new IOException("Failed to create new file " + this.mNewName, e);
                     }
                 }
-                throw new IOException("Couldn't create directory " + this.mBaseName);
+                throw new IOException("Failed to create directory for " + this.mNewName);
             }
         }
         return (FileOutputStream) invokeV.objValue;

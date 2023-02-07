@@ -1,165 +1,191 @@
 package com.baidu.tieba;
 
-import android.opengl.GLSurfaceView;
+import android.app.Activity;
+import android.content.Context;
+import android.content.res.AssetFileDescriptor;
+import android.media.AudioAttributes;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.media.SoundPool;
+import android.os.Build;
+import com.badlogic.gdx.Files;
+import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.monitor.MonitorType;
-import javax.microedition.khronos.egl.EGL10;
-import javax.microedition.khronos.egl.EGLConfig;
-import javax.microedition.khronos.egl.EGLDisplay;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class j3 implements GLSurfaceView.EGLConfigChooser {
+public class j3 implements q2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public final int[] h;
-    public int[] i;
+    public final SoundPool a;
+    public final AudioManager b;
+    public final List<c3> c;
 
-    public j3(int i, int i2, int i3, int i4, int i5, int i6, int i7) {
+    public j3(Context context, o2 o2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)};
+            Object[] objArr = {context, o2Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i8 = newInitContext.flag;
-            if ((i8 & 1) != 0) {
-                int i9 = i8 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = new int[1];
-        this.a = i;
-        this.b = i2;
-        this.c = i3;
-        this.d = i4;
-        this.e = i5;
-        this.f = i6;
-        this.g = i7;
-        this.h = new int[]{MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 4, MonitorType.MONITOR_TYPE_INIT_WEBKIT, 4, 12322, 4, 12352, 4, 12344};
+        this.c = new ArrayList();
+        if (!o2Var.p) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                this.a = new SoundPool.Builder().setAudioAttributes(new AudioAttributes.Builder().setUsage(14).setContentType(4).build()).setMaxStreams(o2Var.q).build();
+            } else {
+                this.a = new SoundPool(o2Var.q, 3, 0);
+            }
+            this.b = (AudioManager) context.getSystemService("audio");
+            if (context instanceof Activity) {
+                ((Activity) context).setVolumeControlStream(3);
+                return;
+            }
+            return;
+        }
+        this.a = null;
+        this.b = null;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:58:0x00e6, code lost:
-        if (r5 == r19.d) goto L50;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public EGLConfig a(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig[] eGLConfigArr) {
-        InterceptResult invokeLLL;
-        int i;
-        EGLConfig eGLConfig;
+    @Override // com.baidu.tieba.k1
+    public m2 a(q3 q3Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, egl10, eGLDisplay, eGLConfigArr)) == null) {
-            EGLConfig[] eGLConfigArr2 = eGLConfigArr;
-            int length = eGLConfigArr2.length;
-            EGLConfig eGLConfig2 = null;
-            EGLConfig eGLConfig3 = null;
-            EGLConfig eGLConfig4 = null;
-            int i2 = 0;
-            while (i2 < length) {
-                EGLConfig eGLConfig5 = eGLConfigArr2[i2];
-                int b = b(egl10, eGLDisplay, eGLConfig5, 12325, 0);
-                int b2 = b(egl10, eGLDisplay, eGLConfig5, 12326, 0);
-                if (b >= this.e && b2 >= this.f) {
-                    int b3 = b(egl10, eGLDisplay, eGLConfig5, MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 0);
-                    int b4 = b(egl10, eGLDisplay, eGLConfig5, MonitorType.MONITOR_TYPE_INIT_WEBKIT, 0);
-                    int b5 = b(egl10, eGLDisplay, eGLConfig5, 12322, 0);
-                    int b6 = b(egl10, eGLDisplay, eGLConfig5, 12321, 0);
-                    if (eGLConfig2 == null && b3 == 5 && b4 == 6 && b5 == 5 && b6 == 0) {
-                        eGLConfig2 = eGLConfig5;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, q3Var)) == null) {
+            if (this.a != null) {
+                t2 t2Var = (t2) q3Var;
+                if (t2Var.t() == Files.FileType.Internal) {
+                    try {
+                        AssetFileDescriptor u = t2Var.u();
+                        f3 f3Var = new f3(this.a, this.b, this.a.load(u, 1));
+                        u.close();
+                        return f3Var;
+                    } catch (IOException e) {
+                        throw new GdxRuntimeException("Error loading audio file: " + q3Var + "\nNote: Internal audio files must be placed in the assets directory.", e);
                     }
-                    if (eGLConfig3 == null && b3 == this.a && b4 == this.b && b5 == this.c && b6 == this.d) {
-                        eGLConfig3 = eGLConfig5;
-                        if (this.g == 0) {
-                            break;
-                        }
-                    }
-                    i = length;
-                    int b7 = b(egl10, eGLDisplay, eGLConfig5, 12338, 0);
-                    EGLConfig eGLConfig6 = eGLConfig2;
-                    int b8 = b(egl10, eGLDisplay, eGLConfig5, 12337, 0);
-                    if (eGLConfig4 == null && b7 == 1 && b8 >= this.g && b3 == this.a && b4 == this.b && b5 == this.c && b6 == this.d) {
-                        eGLConfig = eGLConfig3;
-                    } else {
-                        eGLConfig = eGLConfig3;
-                        int b9 = b(egl10, eGLDisplay, eGLConfig5, 12512, 0);
-                        int b10 = b(egl10, eGLDisplay, eGLConfig5, 12513, 0);
-                        if (eGLConfig4 == null) {
-                            if (b9 == 1) {
-                                if (b10 >= this.g) {
-                                    if (b3 == this.a) {
-                                        if (b4 == this.b) {
-                                            if (b5 == this.c) {
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        eGLConfig3 = eGLConfig;
-                        eGLConfig2 = eGLConfig6;
-                    }
-                    eGLConfig4 = eGLConfig5;
-                    eGLConfig3 = eGLConfig;
-                    eGLConfig2 = eGLConfig6;
-                } else {
-                    i = length;
                 }
-                i2++;
-                eGLConfigArr2 = eGLConfigArr;
-                length = i;
+                try {
+                    return new f3(this.a, this.b, this.a.load(t2Var.e().getPath(), 1));
+                } catch (Exception e2) {
+                    throw new GdxRuntimeException("Error loading audio file: " + q3Var, e2);
+                }
             }
-            if (eGLConfig4 != null) {
-                return eGLConfig4;
-            }
-            if (eGLConfig3 != null) {
-                return eGLConfig3;
-            }
-            return eGLConfig2;
+            throw new GdxRuntimeException("Android audio is not enabled by the application config.");
         }
-        return (EGLConfig) invokeLLL.objValue;
+        return (m2) invokeL.objValue;
     }
 
-    public final int b(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig, int i, int i2) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.q2
+    public void d(c3 c3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{egl10, eGLDisplay, eGLConfig, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            if (egl10.eglGetConfigAttrib(eGLDisplay, eGLConfig, i, this.i)) {
-                return this.i[0];
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c3Var) == null) {
+            synchronized (this.c) {
+                this.c.remove(this);
             }
-            return i2;
         }
-        return invokeCommon.intValue;
     }
 
-    @Override // android.opengl.GLSurfaceView.EGLConfigChooser
-    public EGLConfig chooseConfig(EGL10 egl10, EGLDisplay eGLDisplay) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.o7
+    public void dispose() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, egl10, eGLDisplay)) == null) {
-            int[] iArr = new int[1];
-            egl10.eglChooseConfig(eGLDisplay, this.h, null, 0, iArr);
-            int i = iArr[0];
-            if (i > 0) {
-                EGLConfig[] eGLConfigArr = new EGLConfig[i];
-                egl10.eglChooseConfig(eGLDisplay, this.h, eGLConfigArr, i, iArr);
-                return a(egl10, eGLDisplay, eGLConfigArr);
-            }
-            throw new IllegalArgumentException("No configs match configSpec");
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.a == null) {
+            return;
         }
-        return (EGLConfig) invokeLL.objValue;
+        synchronized (this.c) {
+            Iterator it = new ArrayList(this.c).iterator();
+            while (it.hasNext()) {
+                ((c3) it.next()).dispose();
+            }
+        }
+        this.a.release();
+    }
+
+    @Override // com.baidu.tieba.q2
+    public void pause() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.a == null) {
+            return;
+        }
+        synchronized (this.c) {
+            for (c3 c3Var : this.c) {
+                if (c3Var.a()) {
+                    c3Var.pause();
+                    c3Var.d = true;
+                } else {
+                    c3Var.d = false;
+                }
+            }
+        }
+        this.a.autoPause();
+    }
+
+    @Override // com.baidu.tieba.q2
+    public void resume() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || this.a == null) {
+            return;
+        }
+        synchronized (this.c) {
+            for (int i = 0; i < this.c.size(); i++) {
+                if (this.c.get(i).d) {
+                    this.c.get(i).f();
+                }
+            }
+        }
+        this.a.autoResume();
+    }
+
+    @Override // com.baidu.tieba.k1
+    public l2 f(q3 q3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, q3Var)) == null) {
+            if (this.a != null) {
+                t2 t2Var = (t2) q3Var;
+                MediaPlayer mediaPlayer = new MediaPlayer();
+                if (t2Var.t() == Files.FileType.Internal) {
+                    try {
+                        AssetFileDescriptor u = t2Var.u();
+                        mediaPlayer.setDataSource(u.getFileDescriptor(), u.getStartOffset(), u.getLength());
+                        u.close();
+                        mediaPlayer.prepare();
+                        c3 c3Var = new c3(this, mediaPlayer);
+                        synchronized (this.c) {
+                            this.c.add(c3Var);
+                        }
+                        return c3Var;
+                    } catch (Exception e) {
+                        throw new GdxRuntimeException("Error loading audio file: " + q3Var + "\nNote: Internal audio files must be placed in the assets directory.", e);
+                    }
+                }
+                try {
+                    mediaPlayer.setDataSource(t2Var.e().getPath());
+                    mediaPlayer.prepare();
+                    c3 c3Var2 = new c3(this, mediaPlayer);
+                    synchronized (this.c) {
+                        this.c.add(c3Var2);
+                    }
+                    return c3Var2;
+                } catch (Exception e2) {
+                    throw new GdxRuntimeException("Error loading audio file: " + q3Var, e2);
+                }
+            }
+            throw new GdxRuntimeException("Android audio is not enabled by the application config.");
+        }
+        return (l2) invokeL.objValue;
     }
 }

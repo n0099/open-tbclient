@@ -27,6 +27,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
+@Deprecated
 /* loaded from: classes.dex */
 public abstract class JobIntentService extends Service {
     public static /* synthetic */ Interceptable $ic = null;

@@ -1,108 +1,161 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.write.util.PhotoType;
+import android.text.Layout;
+import android.text.Selection;
+import android.text.Spannable;
+import android.text.method.LinkMovementMethod;
+import android.view.MotionEvent;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.nio.BufferUnderflowException;
-import java.nio.MappedByteBuffer;
-import java.nio.channels.FileChannel;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ld9 {
+public class ld9 extends LinkMovementMethod {
     public static /* synthetic */ Interceptable $ic;
+    public static ld9 f;
     public transient /* synthetic */ FieldHolder $fh;
+    public ys5 a;
+    public int b;
+    public int c;
+    public long d;
+    public int e;
 
-    /* JADX WARN: Not initialized variable reg: 1, insn: 0x0072: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r1 I:??[OBJECT, ARRAY]), block:B:47:0x0072 */
-    /* JADX WARN: Removed duplicated region for block: B:58:0x0075 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:19:0x0044 -> B:61:0x0070). Please submit an issue!!! */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static PhotoType a(String str) {
-        InterceptResult invokeL;
-        RandomAccessFile randomAccessFile;
-        RandomAccessFile randomAccessFile2;
+    public ld9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            PhotoType photoType = null;
-            photoType = null;
-            photoType = null;
-            photoType = null;
-            photoType = null;
-            photoType = null;
-            photoType = null;
-            photoType = null;
-            photoType = null;
-            photoType = null;
-            photoType = null;
-            RandomAccessFile randomAccessFile3 = null;
-            try {
-                try {
-                    try {
-                        randomAccessFile = new RandomAccessFile(str, "r");
-                        try {
-                            MappedByteBuffer map = randomAccessFile.getChannel().map(FileChannel.MapMode.READ_ONLY, 0L, randomAccessFile.length());
-                            if (map != null && map.getInt() == -1991225785 && map.getInt(4) == 218765834 && map.getInt(37) == 1633899596) {
-                                photoType = PhotoType.APNG;
-                            }
-                            randomAccessFile.close();
-                        } catch (FileNotFoundException e) {
-                            e = e;
-                            e.printStackTrace();
-                            if (randomAccessFile != null) {
-                                randomAccessFile.close();
-                            }
-                            return photoType;
-                        } catch (IOException e2) {
-                            e = e2;
-                            e.printStackTrace();
-                            if (randomAccessFile != null) {
-                                randomAccessFile.close();
-                            }
-                            return photoType;
-                        } catch (BufferUnderflowException e3) {
-                            e = e3;
-                            e.printStackTrace();
-                            if (randomAccessFile != null) {
-                                randomAccessFile.close();
-                            }
-                            return photoType;
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        randomAccessFile3 = randomAccessFile2;
-                        if (randomAccessFile3 != null) {
-                            try {
-                                randomAccessFile3.close();
-                            } catch (IOException e4) {
-                                e4.printStackTrace();
-                            }
-                        }
-                        throw th;
-                    }
-                } catch (FileNotFoundException e5) {
-                    e = e5;
-                    randomAccessFile = null;
-                } catch (IOException e6) {
-                    e = e6;
-                    randomAccessFile = null;
-                } catch (BufferUnderflowException e7) {
-                    e = e7;
-                    randomAccessFile = null;
-                } catch (Throwable th2) {
-                    th = th2;
-                    if (randomAccessFile3 != null) {
-                    }
-                    throw th;
-                }
-            } catch (IOException e8) {
-                e8.printStackTrace();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return photoType;
         }
-        return (PhotoType) invokeL.objValue;
+        this.e = -1;
+    }
+
+    public static ld9 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (f == null) {
+                f = new ld9();
+            }
+            return f;
+        }
+        return (ld9) invokeV.objValue;
+    }
+
+    public static boolean c(float f2, float f3, float f4, float f5, long j, long j2, long j3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+            float abs = Math.abs(f4 - f2);
+            float abs2 = Math.abs(f5 - f3);
+            long j4 = j2 - j;
+            if (abs <= 100.0f && abs2 <= 100.0f && j4 >= j3) {
+                return true;
+            }
+            return false;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public final ys5 b(TextView textView, Spannable spannable, MotionEvent motionEvent) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, textView, spannable, motionEvent)) == null) {
+            if (motionEvent != null && motionEvent.getAction() != 3) {
+                int x = ((int) motionEvent.getX()) - textView.getTotalPaddingLeft();
+                int y = ((int) motionEvent.getY()) - textView.getTotalPaddingTop();
+                int scrollX = x + textView.getScrollX();
+                int scrollY = y + textView.getScrollY();
+                try {
+                    Layout layout = textView.getLayout();
+                    int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical(scrollY), scrollX);
+                    ys5[] ys5VarArr = (ys5[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, ys5.class);
+                    if (ys5VarArr == null || ys5VarArr.length <= 0 || ys5VarArr[0] == null) {
+                        return null;
+                    }
+                    return ys5VarArr[0];
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return this.a;
+                }
+            }
+            return this.a;
+        }
+        return (ys5) invokeLLL.objValue;
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    @Override // android.text.method.LinkMovementMethod, android.text.method.ScrollingMovementMethod, android.text.method.BaseMovementMethod, android.text.method.MovementMethod
+    public boolean onTouchEvent(TextView textView, Spannable spannable, MotionEvent motionEvent) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, textView, spannable, motionEvent)) == null) {
+            ys5 b = b(textView, spannable, motionEvent);
+            if (b == null && motionEvent.getAction() == 0) {
+                try {
+                    return super.onTouchEvent(textView, spannable, motionEvent);
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return true;
+                }
+            }
+            if (b != null) {
+                this.a = b;
+            }
+            int i = this.e;
+            if (i > -1) {
+                this.a.g(i);
+            }
+            if (motionEvent.getAction() == 0) {
+                this.b = (int) motionEvent.getX();
+                this.c = (int) motionEvent.getY();
+                this.d = System.currentTimeMillis();
+                ys5 ys5Var = this.a;
+                if (ys5Var != null) {
+                    ys5Var.h(1);
+                    Selection.setSelection(spannable, spannable.getSpanStart(this.a), spannable.getSpanEnd(this.a));
+                }
+                textView.invalidate();
+            } else if (motionEvent.getAction() == 2) {
+                if (this.a != null && (Math.abs(this.b - motionEvent.getX()) > 20.0f || Math.abs(this.c - motionEvent.getY()) > 20.0f)) {
+                    this.a.h(2);
+                    textView.invalidate();
+                    Selection.removeSelection(spannable);
+                }
+            } else if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
+                ys5 ys5Var2 = this.a;
+                if (ys5Var2 != null) {
+                    ys5Var2.h(2);
+                    textView.invalidate();
+                    Selection.removeSelection(spannable);
+                }
+                if (c(this.b, this.c, motionEvent.getX(), motionEvent.getY(), this.d, System.currentTimeMillis(), 500L)) {
+                    return true;
+                }
+            }
+            try {
+                return super.onTouchEvent(textView, spannable, motionEvent);
+            } catch (Exception e2) {
+                BdLog.e(e2);
+                return true;
+            }
+        }
+        return invokeLLL.booleanValue;
     }
 }

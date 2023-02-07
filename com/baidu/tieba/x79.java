@@ -1,7 +1,17 @@
 package com.baidu.tieba;
+
+import android.view.View;
+import androidx.annotation.NonNull;
 /* loaded from: classes6.dex */
 public interface x79 {
-    void d(boolean z);
+    void a(int i);
 
-    void g(float f);
+    void b(int i, @NonNull View view2);
+
+    @NonNull
+    View getView();
+
+    void removeAllViews();
+
+    void setItemParams(int i, int i2);
 }

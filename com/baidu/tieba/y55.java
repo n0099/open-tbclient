@@ -1,89 +1,73 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.io.File;
 /* loaded from: classes7.dex */
 public class y55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
 
-    public y55() {
+    public static synchronized void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            synchronized (y55.class) {
+                File file = new File(FileHelper.getCacheDir() + "voice");
+                if (file.exists() && file.isDirectory()) {
+                    File[] listFiles = file.listFiles();
+                    if (listFiles == null) {
+                        return;
+                    }
+                    for (File file2 : listFiles) {
+                        file2.delete();
+                    }
+                }
             }
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public static boolean b(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            return FileHelper.renameTo(str, FileHelper.getFilePath(str2, 1, true));
         }
-        return (String) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    public static x55 c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.b)) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            x55 x55Var = new x55();
+            if (str == null) {
+                x55Var.f(6);
+                x55Var.g(x55.a(x55Var.b()));
+                return x55Var;
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (TextUtils.isEmpty(this.b)) {
-                return "";
+            if (!FileHelper.CheckTempDir(FileHelper.getCacheDir() + "voice")) {
+                x55Var.f(7);
+                x55Var.g(x55.a(x55Var.b()));
+                return x55Var;
             }
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (skinType == 1) {
-                str = "skin=night";
-            } else if (skinType == 4) {
-                str = "skin=dark";
+            String b = lj.b(FileHelper.GetStreamFromTmpFile(str));
+            if (b == null) {
+                x55Var.f(5);
+                x55Var.g(x55.a(x55Var.b()));
             } else {
-                str = "skin=default";
+                String filePath = FileHelper.getFilePath(b, 1, true);
+                if (FileHelper.renameTo(str, filePath)) {
+                    x55Var.i(filePath);
+                    x55Var.h(b);
+                } else {
+                    x55Var.f(1);
+                    x55Var.g(x55.a(x55Var.b()));
+                }
             }
-            if (this.b.contains("?")) {
-                this.b += "&customfullscreen=1&nonavigationbar=1&" + str;
-            } else {
-                this.b += "?customfullscreen=1&nonavigationbar=1&" + str;
-            }
-            return this.b;
+            return x55Var;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public void d(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("homepage_guide")) == null) {
-            return;
-        }
-        this.a = optJSONObject.optString("guide_picture");
-        this.b = optJSONObject.optString("guide_url");
+        return (x55) invokeL.objValue;
     }
 }

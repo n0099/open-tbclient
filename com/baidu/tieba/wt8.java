@@ -1,218 +1,149 @@
 package com.baidu.tieba;
 
-import android.content.res.Configuration;
-import android.util.Log;
-import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.stats.SpeedStatsManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.switchs.AdSdkSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class wt8 implements nt8 {
+public class wt8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ot8 a;
-    public final pt8 b;
-    public up4 c;
-    public ViewGroup d;
-    public boolean e;
-    public long f;
-    public boolean g;
-    public final Runnable h;
+    public int a;
+    public List<b> b;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wt8 a;
+        public long a;
+        public String b;
+        public int c;
+        public int d;
+        public String e;
+        public String f;
 
-        public a(wt8 wt8Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wt8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = wt8Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            int i;
+        public static a a(JSONObject jSONObject) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.a.e && this.a.d != null) {
-                SpeedStatsManager.getInstance().setIsTimeout(true);
-                CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921657, Boolean.class);
-                if (runTask != null && runTask.getData() != null && ((Boolean) runTask.getData()).booleanValue()) {
-                    return;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return null;
                 }
-                TiebaStatic.log(new StatisticItem("splash_timeout_go_maintab"));
-                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.CLOSE_AD_TIME).param("obj_source", 0).param("obj_type", "a064");
-                if (this.a.a.h()) {
-                    i = 2;
-                } else {
-                    i = 1;
-                }
-                param.param(TiebaStatic.Params.OBJ_PARAM2, i).param("obj_param1", 1).eventStat();
-                if (TbadkCoreApplication.getInst().isDebugMode()) {
-                    Log.d("IAdSdkSplash", "兜底time out and jump maintab");
-                }
-                this.a.a.getRootView().removeView(this.a.d);
-                this.a.b.a();
-                BdStatisticsManager.getInstance().newDebug("VideoSplashTimeOut", 0L, null, "splashTimeOut", "true");
+                a aVar = new a();
+                aVar.a = jSONObject.optLong("forum_id");
+                aVar.b = jSONObject.optString("forum_name");
+                aVar.c = jSONObject.optInt("member_count");
+                aVar.d = jSONObject.optInt("thread_count");
+                aVar.e = jSONObject.optString("avatar");
+                aVar.f = jSONObject.optString("slogan");
+                return aVar;
             }
+            return (a) invokeL.objValue;
         }
     }
 
-    public wt8(ot8 ot8Var, pt8 pt8Var) {
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public List<a> b;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public static b a(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return null;
+                }
+                b bVar = new b();
+                bVar.a = jSONObject.optString("name");
+                JSONArray optJSONArray = jSONObject.optJSONArray("forum_list");
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    ArrayList arrayList = new ArrayList();
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        a a = a.a(optJSONArray.optJSONObject(i));
+                        if (a != null) {
+                            arrayList.add(a);
+                        }
+                    }
+                    bVar.b = arrayList;
+                }
+                return bVar;
+            }
+            return (b) invokeL.objValue;
+        }
+    }
+
+    public wt8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ot8Var, pt8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = false;
-        this.f = -1L;
-        this.g = false;
-        this.h = new a(this);
-        this.a = ot8Var;
-        this.b = pt8Var;
-    }
-
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.e = z;
-        }
-    }
-
-    @Override // com.baidu.tieba.nt8
-    public void onConfigurationChanged(Configuration configuration) {
-        up4 up4Var;
-        sp4 sp4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, configuration) == null) && (up4Var = this.c) != null && (sp4Var = up4Var.c) != null) {
-            sp4Var.a();
-        }
-    }
-
-    @Override // com.baidu.tieba.nt8
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            j();
-            up4 up4Var = this.c;
-            if (up4Var != null) {
-                up4Var.f(null);
-                this.c.e(null);
             }
         }
     }
 
-    @Override // com.baidu.tieba.nt8
-    public boolean b() {
-        InterceptResult invokeV;
+    public static wt8 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            l();
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public long g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return invokeV.longValue;
-    }
-
-    public ViewGroup h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return (ViewGroup) invokeV.objValue;
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            bh.a().postDelayed(this.h, 500L);
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.g = true;
-            bh.a().removeCallbacks(this.h);
-        }
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (SwitchManager.getInstance().findType(AdSdkSwitch.KEY_AD_SDK_SWITCH) == 0) {
-                this.b.a();
-            } else if (MessageManager.getInstance().findTask(2016555) == null) {
-                this.b.a();
-            } else {
-                m();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-        }
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.g = false;
-            long currentTimeMillis = System.currentTimeMillis();
-            this.f = System.currentTimeMillis();
-            this.c = new up4(this.a.h(), this.a.i());
-            this.d = new RelativeLayout(this.a.getActivity());
-            this.d.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
-            this.a.getRootView().addView(this.d);
-            this.c.f(this.d);
-            this.c.e(new vt8(this.a, this.b, this));
-            MessageManager.getInstance().runTask(2016555, Long.class, this.c);
-            if (!this.g) {
-                jg5.b().j(System.currentTimeMillis() - currentTimeMillis);
-                bh.a().postDelayed(this.h, ij5.l() + 500);
+            wt8 wt8Var = new wt8();
+            wt8Var.a = jSONObject.optInt("showLocate");
+            JSONArray optJSONArray = jSONObject.optJSONArray("tabList");
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                ArrayList arrayList = new ArrayList();
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    b a2 = b.a(optJSONArray.optJSONObject(i));
+                    if (a2 != null) {
+                        arrayList.add(a2);
+                    }
+                }
+                wt8Var.b = arrayList;
             }
+            return wt8Var;
         }
+        return (wt8) invokeL.objValue;
     }
 }

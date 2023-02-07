@@ -5,8 +5,8 @@ import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.v8engine.event.EventTargetImpl;
 import com.baidu.swan.games.view.button.base.ApiButton;
-import com.baidu.tieba.i74;
-import com.baidu.tieba.k74;
+import com.baidu.tieba.vb4;
+import com.baidu.tieba.xb4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -18,7 +18,7 @@ public class UserInfoButton extends ApiButton {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public class a implements k74.b {
+    public class a implements xb4.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UserInfoButton a;
@@ -41,7 +41,7 @@ public class UserInfoButton extends ApiButton {
             this.a = userInfoButton;
         }
 
-        @Override // com.baidu.tieba.k74.b
+        @Override // com.baidu.tieba.xb4.b
         public void a(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
@@ -95,16 +95,16 @@ public class UserInfoButton extends ApiButton {
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            new k74().a(new a(this));
+            new xb4().a(new a(this));
         }
     }
 
     public void u(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            i74 i74Var = new i74();
-            i74Var.data = jSONObject;
-            k(i74Var);
+            vb4 vb4Var = new vb4();
+            vb4Var.data = jSONObject;
+            k(vb4Var);
         }
     }
 }

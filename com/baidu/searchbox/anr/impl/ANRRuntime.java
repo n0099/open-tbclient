@@ -7,8 +7,8 @@ import com.baidu.searchbox.anr.ioc.IANRRegister;
 import com.baidu.searchbox.anr.ioc.IANRRegister_ANRRuntime_ListProvider;
 import com.baidu.searchbox.block.impl.BlockMonitor;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.tieba.pf1;
-import com.baidu.tieba.rf1;
+import com.baidu.tieba.ak1;
+import com.baidu.tieba.ck1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,12 +20,12 @@ public class ANRRuntime {
     public static ANRRuntime sInstance;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject
-    public rf1<IANRRegister> mIANRMonitorList;
+    public ck1<IANRRegister> mIANRMonitorList;
 
     public void initmIANRMonitorList() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            pf1 b = pf1.b();
+            ak1 b = ak1.b();
             this.mIANRMonitorList = b;
             b.a(new IANRRegister_ANRRuntime_ListProvider());
         }
@@ -63,21 +63,21 @@ public class ANRRuntime {
         return (ANRRuntime) invokeV.objValue;
     }
 
-    public rf1<IANRRegister> getIANRUploadList() {
+    public ck1<IANRRegister> getIANRUploadList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mIANRMonitorList;
         }
-        return (rf1) invokeV.objValue;
+        return (ck1) invokeV.objValue;
     }
 
     public boolean enableANR() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            rf1<IANRRegister> rf1Var = this.mIANRMonitorList;
-            if (rf1Var != null && rf1Var.getList() != null) {
+            ck1<IANRRegister> ck1Var = this.mIANRMonitorList;
+            if (ck1Var != null && ck1Var.getList() != null) {
                 for (IANRRegister iANRRegister : this.mIANRMonitorList.getList()) {
                     if (iANRRegister != null && iANRRegister.checkEnable()) {
                         if (AppConfig.isDebug()) {

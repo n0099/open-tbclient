@@ -1,17 +1,23 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.io.File;
 /* loaded from: classes7.dex */
 public class z52 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static AtomicInteger b;
+    public static String b;
+    public static String c;
+    public static y52 d;
+    public static int e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,36 +33,120 @@ public class z52 {
                 return;
             }
         }
-        a = tk1.a;
-        b = new AtomicInteger(0);
+        a = gp1.a;
+        b = "";
+        c = "";
+        e = 0;
     }
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str != null && str.startsWith("localDebug")) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (e == 2) {
                 return true;
             }
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (e == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            int andIncrement = b.getAndIncrement();
-            String str = "localDebug";
-            if (andIncrement >= 1) {
-                str = "localDebug" + andIncrement;
+            if (d != null) {
+                return d.c() + File.separator + b;
             }
-            if (a) {
-                Log.i("DaemonIdGenerator", "next daemon id - " + str);
-            }
-            return str;
+            return "";
         }
         return (String) invokeV.objValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (d != null) {
+                return d.c() + File.separator + c;
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void g(Bundle bundle) {
+        y52 y52Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65543, null, bundle) == null) && (y52Var = d) != null) {
+            y52Var.b(bundle);
+        }
+    }
+
+    public static void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
+            b = str;
+        }
+    }
+
+    public static void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
+            c = str;
+        }
+    }
+
+    public static void h(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, bundle) == null) {
+            String i = vl3.i(bundle, "extraWSUrl");
+            String i2 = vl3.i(bundle, "adb_debug_path");
+            if (!TextUtils.isEmpty(i)) {
+                d = new r62();
+                e = 1;
+            } else if (!TextUtils.isEmpty(i2)) {
+                d = new b62();
+                e = 2;
+            } else {
+                if (a) {
+                    Log.d("UserDebugParams", "not debug mode");
+                }
+                e = 0;
+                d = null;
+                return;
+            }
+            d.a(bundle);
+        }
     }
 }

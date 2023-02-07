@@ -1,103 +1,56 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.webkit.WebResourceError;
-import android.webkit.WebResourceRequest;
-import android.webkit.WebResourceResponse;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import androidx.annotation.RequiresApi;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class a76 extends b66 {
+public class a76 extends w66 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final n56<n76> b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a76(n56<n76> n56Var) {
-        super(null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {n56Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((WebViewClient) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947568137, "Lcom/baidu/tieba/a76;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947568137, "Lcom/baidu/tieba/a76;");
                 return;
             }
         }
-        this.b = n56Var;
+        b = BdUniqueId.gen();
     }
 
-    @Override // com.baidu.tieba.b66, android.webkit.WebViewClient
-    public void onLoadResource(WebView webView, String str) {
+    public a76() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
-            super.onLoadResource(webView, str);
-            n76 call = this.b.call();
-            if (call != null) {
-                call.c(webView, str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.b66, android.webkit.WebViewClient
-    public void onPageFinished(WebView webView, String str) {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
-            super.onPageFinished(webView, str);
-            n76 call = this.b.call();
-            if (call != null) {
-                call.onPageFinished(webView, str);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b;
         }
-    }
-
-    @Override // com.baidu.tieba.b66, android.webkit.WebViewClient
-    public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, bitmap) == null) {
-            super.onPageStarted(webView, str, bitmap);
-            n76 call = this.b.call();
-            if (call != null) {
-                call.d(webView, str);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.b66, android.webkit.WebViewClient
-    @RequiresApi(23)
-    public void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, WebResourceError webResourceError) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, webView, webResourceRequest, webResourceError) == null) {
-            super.onReceivedError(webView, webResourceRequest, webResourceError);
-            n76 call = this.b.call();
-            if (call != null) {
-                call.b(webView, webResourceRequest, webResourceError.getErrorCode(), webResourceError.getDescription());
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.b66, android.webkit.WebViewClient
-    @RequiresApi(23)
-    public void onReceivedHttpError(WebView webView, WebResourceRequest webResourceRequest, WebResourceResponse webResourceResponse) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, webView, webResourceRequest, webResourceResponse) == null) {
-            super.onReceivedHttpError(webView, webResourceRequest, webResourceResponse);
-            n76 call = this.b.call();
-            if (call != null) {
-                call.b(webView, webResourceRequest, webResourceResponse.getStatusCode(), webResourceResponse.getReasonPhrase());
-            }
-        }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

@@ -1,23 +1,11 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.swan.apps.inlinewidget.rtcroom.model.RtcStatus;
 /* loaded from: classes5.dex */
-public final class ip2 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ip2 extends tm2 {
+    RtcStatus a();
 
-    public static boolean a(Intent intent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, intent)) == null) {
-            if ((intent.getFlags() & 1048576) == 1048576) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
+    void onRelease();
+
+    boolean q();
 }

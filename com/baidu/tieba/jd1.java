@@ -1,75 +1,173 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.os.Bundle;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.text.TextUtils;
-import android.util.ArrayMap;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.tieba.dr0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class jd1 {
+public class jd1 extends Dialog implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public final b a;
 
-    public static Bundle a(Map<String, String> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, map)) == null) {
-            Bundle bundle = new Bundle();
-            for (String str : map.keySet()) {
-                bundle.putString(str, map.get(str));
-            }
-            return bundle;
-        }
-        return (Bundle) invokeL.objValue;
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(boolean z);
     }
 
-    public static JSONObject b(Map<String, String> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, map)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            for (String str : map.keySet()) {
-                jSONObject.put(str, map.get(str));
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
+    /* loaded from: classes5.dex */
+    public class a implements DialogInterface.OnDismissListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jd1 a;
 
-    public static Map<String, String> d(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
-            Map<String, String> c = c();
-            if (jSONObject != null) {
-                Iterator<String> keys = jSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    if (!TextUtils.isEmpty(next)) {
-                        c.put(next, jSONObject.optString(next));
-                    }
+        public a(jd1 jd1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jd1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return c;
+            this.a = jd1Var;
         }
-        return (Map) invokeL.objValue;
+
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                this.a.a.a(false);
+            }
+        }
     }
 
-    public static <K, V> Map<K, V> c() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jd1(Context context, @NonNull AdBaseModel adBaseModel, @NonNull b bVar) {
+        super(context);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 19) {
-                return new ArrayMap();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, adBaseModel, bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return new HashMap();
         }
-        return (Map) invokeV.objValue;
+        c(adBaseModel);
+        this.a = bVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            if (view2.getId() == R.id.nad_reward_stay_continue) {
+                this.a.a(false);
+            } else if (view2.getId() == R.id.nad_reward_stay_cancel) {
+                this.a.a(true);
+            }
+        }
+    }
+
+    public final void b(AdBaseModel adBaseModel) {
+        dr0.b bVar;
+        String string;
+        String string2;
+        String string3;
+        dr0 dr0Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, adBaseModel) == null) {
+            if (adBaseModel != null && (dr0Var = adBaseModel.p) != null) {
+                bVar = dr0Var.f;
+            } else {
+                bVar = null;
+            }
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.nad_reward_stay_view, (ViewGroup) null);
+            if (bVar != null && !TextUtils.isEmpty(bVar.a)) {
+                string = bVar.a;
+            } else {
+                string = getContext().getResources().getString(R.string.nad_reward_stay_title);
+            }
+            if (bVar != null && !TextUtils.isEmpty(bVar.b)) {
+                string2 = bVar.b;
+            } else {
+                string2 = getContext().getResources().getString(R.string.nad_reward_stay_confirm);
+            }
+            if (bVar != null && !TextUtils.isEmpty(bVar.c)) {
+                string3 = bVar.c;
+            } else {
+                string3 = getContext().getResources().getString(R.string.nad_reward_stay_cancel);
+            }
+            ((TextView) inflate.findViewById(R.id.nad_reward_stay_content)).setText(string);
+            TextView textView = (TextView) inflate.findViewById(R.id.nad_reward_stay_continue);
+            textView.setText(string2);
+            textView.setOnClickListener(this);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.nad_reward_stay_cancel);
+            textView2.setText(string3);
+            textView2.setOnClickListener(this);
+            setContentView(inflate);
+            setOnDismissListener(new a(this));
+        }
+    }
+
+    public final void c(@NonNull AdBaseModel adBaseModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adBaseModel) == null) {
+            Window window = getWindow();
+            window.requestFeature(1);
+            b(adBaseModel);
+            window.getDecorView().setPadding(0, 0, 0, 0);
+            WindowManager.LayoutParams attributes = window.getAttributes();
+            attributes.width = -1;
+            attributes.height = -2;
+            attributes.windowAnimations = R.style.obfuscated_res_0x7f1003c4;
+            attributes.gravity = 17;
+            window.setAttributes(attributes);
+            window.setBackgroundDrawableResource(17170445);
+        }
+    }
+
+    @Override // android.app.Dialog
+    public void show() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            Window window = getWindow();
+            if (window == null) {
+                super.show();
+                return;
+            }
+            window.setFlags(8, 8);
+            super.show();
+            s51.a(window);
+            window.clearFlags(8);
+        }
     }
 }

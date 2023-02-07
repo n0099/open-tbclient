@@ -1,120 +1,177 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes5.dex */
-public abstract class ne5 {
-    public static /* synthetic */ Interceptable $ic;
+public class ne5 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "add_user_collect_emotoin";
+    public static String b = "image_url";
+    public static String c = "thumbnail_url";
+    public static String d = "pic_id";
+    public static String e = "package_id";
+    public static String f = "#(meme,setting)";
+    public static String g = "#(meme,collect_";
+    public static String h = "meme,collect_";
     public transient /* synthetic */ FieldHolder $fh;
-    public List<le5> eventDelegates;
-    public boolean isDispatchMvcEventing;
-    public BdUniqueId uniqueId;
 
-    public void onBeforeDispatchMvcEvent(me5 me5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, me5Var) == null) {
-        }
-    }
-
-    public ne5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.isDispatchMvcEventing = false;
-    }
-
-    public void addEventDelegate(le5 le5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, le5Var) == null) {
-            if (this.eventDelegates == null) {
-                this.eventDelegates = new ArrayList();
-            }
-            if (this.eventDelegates.contains(le5Var)) {
-                return;
-            }
-            if (this.isDispatchMvcEventing && TbadkCoreApplication.getInst().isDebugMode()) {
-                throw new RuntimeException("can not add event delegate on dispatch mvcevent");
-            }
-            this.eventDelegates.add(le5Var);
-        }
-    }
-
-    public void removeEventDelegate(le5 le5Var) {
-        List<le5> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, le5Var) != null) || (list = this.eventDelegates) == null || !list.contains(le5Var)) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947999595, "Lcom/baidu/tieba/ne5;")) == null) {
             return;
         }
-        if (this.isDispatchMvcEventing && TbadkCoreApplication.getInst().isDebugMode()) {
-            throw new RuntimeException("can not add event delegate on dispatch mvcevent");
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-        this.eventDelegates.remove(le5Var);
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947999595, "Lcom/baidu/tieba/ne5;");
+        }
     }
 
-    public boolean dispatchMvcEvent(me5 me5Var) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, me5Var)) == null) {
-            if (me5Var == null) {
-                return false;
-            }
-            if (me5Var.e() == null) {
-                me5Var.i(this.uniqueId);
-            }
-            if (this.eventDelegates == null) {
-                return false;
-            }
-            try {
-                this.isDispatchMvcEventing = true;
-                onBeforeDispatchMvcEvent(me5Var);
-                int size = this.eventDelegates.size();
-                z = false;
-                for (int i = 0; i < size; i++) {
-                    try {
-                        le5 le5Var = this.eventDelegates.get(i);
-                        if (le5Var != null && ((!le5Var.a1() || (le5Var.a1() && me5Var.e() == le5Var.getUniqueId())) && (z = le5Var.y0(me5Var)) && me5Var.f())) {
-                            return true;
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        try {
-                            BdLog.e(th);
-                            if (TbadkCoreApplication.getInst().isDebugMode()) {
-                                throw new RuntimeException(th);
-                            }
-                            this.isDispatchMvcEventing = false;
-                            return z;
-                        } finally {
-                            this.isDispatchMvcEventing = false;
-                        }
-                    }
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-            } catch (Throwable th2) {
-                th = th2;
-                z = false;
             }
-            this.isDispatchMvcEventing = false;
-            return z;
         }
-        return invokeL.booleanValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public static String a() {
+        InterceptResult invokeV;
+        String currentAccount;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("collect_");
+            if (TbadkCoreApplication.getCurrentAccount() == null) {
+                currentAccount = "";
+            } else {
+                currentAccount = TbadkCoreApplication.getCurrentAccount();
+            }
+            sb.append(currentAccount);
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        String currentAccount;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("diy_");
+            if (TbadkCoreApplication.getCurrentAccount() == null) {
+                currentAccount = "";
+            } else {
+                currentAccount = TbadkCoreApplication.getCurrentAccount();
+            }
+            sb.append(currentAccount);
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return Math.abs(b().hashCode()) + "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return Math.abs(a().hashCode()) + "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void e(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65541, null, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        Matcher matcher = Pattern.compile("#\\(meme,collect_[a-zA-Z0-9_,]+\\)").matcher(str);
+        int i = 0;
+        int i2 = 0;
+        while (matcher.find()) {
+            String[] split = matcher.group().split(",");
+            if (split != null && split.length == 5 && split[1] != null && split[1].startsWith("#\\(meme,collect_[a-zA-Z0-9_,]+\\)")) {
+                i2++;
+            }
+        }
+        Matcher matcher2 = Pattern.compile("#\\(meme,[a-zA-Z0-9_,]+\\)").matcher(str);
+        while (matcher2.find()) {
+            String[] split2 = matcher2.group().split(",");
+            if (split2 != null && split2.length == 5 && split2[1] != null && !split2[1].startsWith("#\\(meme,collect_[a-zA-Z0-9_,]+\\)") && split2[1].contains("_")) {
+                i++;
+            }
+        }
+        if (i2 > 0) {
+            StatisticItem statisticItem = new StatisticItem("c12223");
+            statisticItem.param("obj_param1", i2);
+            TiebaStatic.log(statisticItem);
+        }
+        if (i > 0) {
+            StatisticItem statisticItem2 = new StatisticItem(TbadkCoreStatisticKey.FACESHOP_USE_EMOTION);
+            statisticItem2.param("obj_param1", i);
+            TiebaStatic.log(statisticItem2);
+        }
     }
 }

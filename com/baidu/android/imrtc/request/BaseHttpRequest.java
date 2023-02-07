@@ -8,7 +8,6 @@ import com.baidu.android.imrtc.utils.BIMRtcEvent;
 import com.baidu.android.imrtc.utils.RtcUtility;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -70,7 +69,7 @@ public abstract class BaseHttpRequest implements HttpExecutor.HttpRequest, HttpE
                 jSONObject.put("uk", Utility.getUK(this.mContext));
                 jSONObject.put("cseq_id", -1);
                 jSONObject.put("sseq_id", -1);
-                jSONObject.put(ShaderParams.VALUE_TYPE_STEP, "c_client_response");
+                jSONObject.put("step", "c_client_response");
                 jSONObject.put("ext", "-1");
                 return jSONObject.toString();
             } catch (Exception unused) {

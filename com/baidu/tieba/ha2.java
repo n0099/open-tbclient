@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
+import android.net.Uri;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.account.contants.LoginConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,17 +11,49 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.nio.channels.Channels;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes4.dex */
-public class ha2 extends ea2 {
+public class ha2 implements ka2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static final boolean a;
+    public static final Set<String> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public File b;
+
+    @Override // com.baidu.tieba.ka2
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ka2
+    public void c(int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, str2) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ka2
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ka2
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ka2
+    public void goBack() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +68,13 @@ public class ha2 extends ea2 {
                 return;
             }
         }
-        c = tk1.a;
+        a = gp1.a;
+        HashSet hashSet = new HashSet();
+        b = hashSet;
+        hashSet.add("https");
+        b.add("http");
+        b.add(LoginConstants.SMS_LOGIN);
+        b.add("tel");
     }
 
     public ha2() {
@@ -48,91 +87,34 @@ public class ha2 extends ea2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.b = o();
     }
 
-    @Override // com.baidu.tieba.ea2
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!this.b.exists()) {
-                return null;
-            }
-            File file = new File(this.b, "preset_list.json");
-            if (!file.exists()) {
-                return null;
-            }
-            return nk4.E(file);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final File o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return new File(Environment.getExternalStorageDirectory().getPath(), "baidu/swan_preset/");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ea2
-    public boolean e(fa2 fa2Var) {
+    @Override // com.baidu.tieba.ka2
+    public boolean a(String str) {
         InterceptResult invokeL;
+        Uri parse;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fa2Var)) == null) {
-            if (fa2Var == null || !this.b.exists()) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (str == null || (parse = Uri.parse(str)) == null) {
+                return true;
             }
-            File file = this.b;
-            File file2 = new File(file, fa2Var.g + File.separator + fa2Var.q);
-            if (!file2.exists()) {
-                return false;
+            boolean contains = b.contains(parse.getScheme());
+            if (a) {
+                StringBuilder sb = new StringBuilder();
+                if (contains) {
+                    str2 = "legal schemes : ";
+                } else {
+                    str2 = "illegal schemes : ";
+                }
+                sb.append(str2);
+                sb.append(parse.getScheme());
+                Log.d("WebViewWidgetListener", sb.toString());
             }
-            try {
-                if (!d(Channels.newChannel(new FileInputStream(file2)), fa2Var.m)) {
-                    if (c) {
-                        Log.e("SdCardPresetController", "校验签名失败");
-                    }
-                    return false;
-                }
-                File j = j(fa2Var.h, fa2Var.g, fa2Var.i);
-                if (j == null) {
-                    if (c) {
-                        Log.e("SdCardPresetController", "获取解压路径失败");
-                    }
-                    return false;
-                }
-                return n(new BufferedInputStream(new FileInputStream(file2)), j);
-            } catch (IOException e) {
-                if (c) {
-                    e.printStackTrace();
-                }
-                return false;
-            }
+            return !contains;
         }
         return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ea2
-    public String f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (!this.b.exists()) {
-                return null;
-            }
-            File file = this.b;
-            File file2 = new File(file, str + File.separator + "app_info.json");
-            if (!file2.exists()) {
-                return null;
-            }
-            return nk4.E(file2);
-        }
-        return (String) invokeL.objValue;
     }
 }

@@ -9,8 +9,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.qw8;
-import com.baidu.tieba.rb;
+import com.baidu.tieba.o09;
+import com.baidu.tieba.wb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ public class UEGCancelModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
-    public final rb b;
+    public final wb b;
 
     /* loaded from: classes6.dex */
     public interface b {
@@ -49,7 +49,7 @@ public class UEGCancelModel extends BdBaseModel {
     }
 
     /* loaded from: classes6.dex */
-    public class a extends rb {
+    public class a extends wb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UEGCancelModel a;
@@ -76,7 +76,7 @@ public class UEGCancelModel extends BdBaseModel {
             this.a = uEGCancelModel;
         }
 
-        @Override // com.baidu.tieba.rb
+        @Override // com.baidu.tieba.wb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             UEGCancelResponsedMessage uEGCancelResponsedMessage;
             Interceptable interceptable = $ic;
@@ -111,8 +111,8 @@ public class UEGCancelModel extends BdBaseModel {
             }
         }
         this.b = new a(this, CmdConfigHttp.CMD_UEG_CANCEL, 309615);
-        qw8.h(309615, UEGCancelSocketResponseMessage.class, false, false);
-        qw8.c(309615, CmdConfigHttp.CMD_UEG_CANCEL, "c/f/forum/queryBlockAndAppealInfo", UEGCancelResponsedMessage.class, false, false, true, false);
+        o09.h(309615, UEGCancelSocketResponseMessage.class, false, false);
+        o09.c(309615, CmdConfigHttp.CMD_UEG_CANCEL, "c/f/forum/queryBlockAndAppealInfo", UEGCancelResponsedMessage.class, false, false, true, false);
         registerListener(this.b);
     }
 

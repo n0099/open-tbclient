@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b38;
-import com.baidu.tieba.cz4;
+import com.baidu.tieba.p35;
+import com.baidu.tieba.y78;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class InterestGuideActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b38 a;
+    public y78 a;
     public int b;
     public boolean c;
     public ArrayList<Integer> d;
@@ -44,46 +44,16 @@ public class InterestGuideActivity extends BaseFragmentActivity {
     @Override // androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.onBackPressed();
             this.a.h();
-        }
-    }
-
-    public final void N0() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && getIntent() != null) {
-            this.b = getIntent().getIntExtra(InterestGuideActivityConfig.KEY_INTEREST_GUID_SHOW_SCENE, 2);
-            this.c = getIntent().getBooleanExtra(InterestGuideActivityConfig.KEY_ONLY_SHOW_INTERESTED_FORUM, false);
-            this.d = getIntent().getIntegerArrayListExtra(InterestGuideActivityConfig.KEY_CLASS_ID_WHEN_ONLY_SHOW_INTERESTED_FORUM);
-            this.e = getIntent().getStringArrayExtra(InterestGuideActivityConfig.KEY_CUSTOM_TITLE);
-            this.f = getIntent().getBooleanExtra(InterestGuideActivityConfig.KEY_INTEREST_BACK_TO_MAINTAB, true);
-        }
-    }
-
-    public final void P0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            TbSingleton.getInstance().setShowedInterestGuide(true);
-            String str = "";
-            String r = cz4.l().r("key_interest_guide_show", "");
-            StringBuilder sb = new StringBuilder();
-            sb.append(r);
-            if (!StringUtils.isNull(r)) {
-                str = ",";
-            }
-            sb.append(str);
-            String sb2 = sb.toString();
-            cz4 l = cz4.l();
-            l.z("key_interest_guide_show", sb2 + System.currentTimeMillis());
-            cz4.l().y("key_interest_panel_show_time", System.currentTimeMillis());
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             UtilHelper.setNavigationBarBg(getActivity(), SkinManager.getColor(R.color.CAM_X0201));
             this.a.i();
         }
@@ -92,14 +62,44 @@ public class InterestGuideActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            N0();
-            b38 b38Var = new b38(this, this.b, this.c, this.d, this.e, this.f);
-            this.a = b38Var;
-            setContentView(b38Var.d());
-            P0();
+            p1();
+            y78 y78Var = new y78(this, this.b, this.c, this.d, this.e, this.f);
+            this.a = y78Var;
+            setContentView(y78Var.d());
+            q1();
+        }
+    }
+
+    public final void p1() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && getIntent() != null) {
+            this.b = getIntent().getIntExtra(InterestGuideActivityConfig.KEY_INTEREST_GUID_SHOW_SCENE, 2);
+            this.c = getIntent().getBooleanExtra(InterestGuideActivityConfig.KEY_ONLY_SHOW_INTERESTED_FORUM, false);
+            this.d = getIntent().getIntegerArrayListExtra(InterestGuideActivityConfig.KEY_CLASS_ID_WHEN_ONLY_SHOW_INTERESTED_FORUM);
+            this.e = getIntent().getStringArrayExtra(InterestGuideActivityConfig.KEY_CUSTOM_TITLE);
+            this.f = getIntent().getBooleanExtra(InterestGuideActivityConfig.KEY_INTEREST_BACK_TO_MAINTAB, true);
+        }
+    }
+
+    public final void q1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            TbSingleton.getInstance().setShowedInterestGuide(true);
+            String str = "";
+            String s = p35.m().s("key_interest_guide_show", "");
+            StringBuilder sb = new StringBuilder();
+            sb.append(s);
+            if (!StringUtils.isNull(s)) {
+                str = ",";
+            }
+            sb.append(str);
+            String sb2 = sb.toString();
+            p35 m = p35.m();
+            m.B("key_interest_guide_show", sb2 + System.currentTimeMillis());
+            p35.m().A("key_interest_panel_show_time", System.currentTimeMillis());
         }
     }
 }

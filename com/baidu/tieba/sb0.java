@@ -1,26 +1,32 @@
 package com.baidu.tieba;
 
-import android.animation.AnimatorInflater;
-import android.animation.ObjectAnimator;
-import android.animation.StateListAnimator;
-import android.content.Context;
-import android.content.res.TypedArray;
-import android.util.AttributeSet;
-import android.view.View;
-import android.view.ViewOutlineProvider;
-import androidx.annotation.RequiresApi;
-import androidx.constraintlayout.motion.widget.Key;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@RequiresApi(21)
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.JvmStatic;
 /* loaded from: classes6.dex */
-public class sb0 {
+public final class sb0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int[] a;
+    public static final ConcurrentHashMap<String, List<rb0>> a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @JvmStatic
+    @JvmOverloads
+    public static final rb0 a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? c(null, str, 1, null) : (rb0) invokeL.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -35,44 +41,66 @@ public class sb0 {
                 return;
             }
         }
-        a = new int[]{16843848};
+        a = new ConcurrentHashMap<>();
     }
 
-    public static void a(View view2) {
+    @JvmStatic
+    @JvmOverloads
+    public static final rb0 b(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, view2) == null) {
-            view2.setOutlineProvider(ViewOutlineProvider.BOUNDS);
-        }
-    }
-
-    public static void b(View view2, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(65538, null, view2, f) == null) {
-            int integer = view2.getResources().getInteger(R.integer.obfuscated_res_0x7f0a0011);
-            StateListAnimator stateListAnimator = new StateListAnimator();
-            long j = integer;
-            stateListAnimator.addState(new int[]{16842766, R.attr.obfuscated_res_0x7f040491, -2130969746}, ObjectAnimator.ofFloat(view2, Key.ELEVATION, 0.0f).setDuration(j));
-            stateListAnimator.addState(new int[]{16842766}, ObjectAnimator.ofFloat(view2, Key.ELEVATION, f).setDuration(j));
-            stateListAnimator.addState(new int[0], ObjectAnimator.ofFloat(view2, Key.ELEVATION, 0.0f).setDuration(0L));
-            view2.setStateListAnimator(stateListAnimator);
-        }
-    }
-
-    public static void c(View view2, AttributeSet attributeSet, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(65539, null, view2, attributeSet, i, i2) == null) {
-            Context context = view2.getContext();
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a, i, i2);
-            try {
-                if (obtainStyledAttributes.hasValue(0)) {
-                    view2.setStateListAnimator(AnimatorInflater.loadStateListAnimator(context, obtainStyledAttributes.getResourceId(0, 0)));
-                }
-            } catch (Exception unused) {
-            } catch (Throwable th) {
-                obtainStyledAttributes.recycle();
-                throw th;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            LiveFeedPageSdk.liveLog("LiveFeedPlayerPool", "getPlayer pageId= " + str2 + WebvttCueParser.CHAR_SPACE + a.size());
+            List<rb0> list = a.get(str2);
+            if (list == null) {
+                list = new ArrayList<>();
             }
-            obtainStyledAttributes.recycle();
+            if (!list.isEmpty() && list.size() >= 2) {
+                rb0 rb0Var = list.get(0);
+                Collections.swap(list, 0, 1);
+                if (rb0Var.isPlaying()) {
+                    rb0Var.detachFromContainer();
+                    rb0Var.stop();
+                }
+                LiveFeedPageSdk.liveLog("LiveFeedPlayerPool", "getPlayer " + rb0Var);
+                return rb0Var;
+            }
+            rb0 rb0Var2 = new rb0(new tb0(str, 0, null, null, 14, null));
+            list.add(rb0Var2);
+            a.put(str2, list);
+            return rb0Var2;
+        }
+        return (rb0) invokeLL.objValue;
+    }
+
+    public static /* synthetic */ rb0 c(String str, String str2, int i, Object obj) {
+        if ((i & 1) != 0) {
+            str = "";
+        }
+        return b(str, str2);
+    }
+
+    @JvmStatic
+    public static final void d(String str) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
+            LiveFeedPageSdk.liveLog("LiveFeedPlayerPool", "release playerMap= " + a.size());
+            List<rb0> list = a.get(str);
+            if (list != null && !list.isEmpty()) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
+                return;
+            }
+            for (rb0 rb0Var : list) {
+                rb0Var.detachFromContainer();
+                rb0Var.release();
+            }
+            list.clear();
+            a.remove(str);
         }
     }
 }

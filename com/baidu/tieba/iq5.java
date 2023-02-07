@@ -1,13 +1,144 @@
 package com.baidu.tieba;
+
+import android.content.Context;
+import android.os.Looper;
+import android.os.MessageQueue;
+import android.text.TextUtils;
+import android.webkit.WebView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.gq5;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public interface iq5<T> {
-    void a();
+public class iq5 {
+    public static /* synthetic */ Interceptable $ic;
+    public static List<String> a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(String str);
+    /* loaded from: classes5.dex */
+    public static class a implements MessageQueue.IdleHandler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ gq5.b c;
 
-    void c(T t);
+        public a(Context context, String str, gq5.b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, str, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+            this.b = str;
+            this.c = bVar;
+        }
 
-    String getTitle();
+        @Override // android.os.MessageQueue.IdleHandler
+        public boolean queueIdle() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                gq5 a = hq5.b().a(this.a.getApplicationContext(), this.b);
+                if (a != null) {
+                    a.b(this.c);
+                    return false;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+    }
 
-    void onDestroy();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947862172, "Lcom/baidu/tieba/iq5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947862172, "Lcom/baidu/tieba/iq5;");
+                return;
+            }
+        }
+        a = new ArrayList();
+    }
+
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            for (String str2 : a) {
+                if (str2 != null && str != null && str.startsWith(str2)) {
+                    return str2;
+                }
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void c(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65539, null, jSONArray) != null) || jSONArray == null) {
+            return;
+        }
+        a.clear();
+        for (int i = 0; i < jSONArray.length(); i++) {
+            try {
+                a.add((String) jSONArray.get(i));
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return;
+            }
+        }
+    }
+
+    public static void b(WebView webView) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65538, null, webView) != null) || webView == null) {
+            return;
+        }
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
+        webView.getSettings().setAllowFileAccess(true);
+        webView.getSettings().setDatabaseEnabled(true);
+        webView.getSettings().setDomStorageEnabled(true);
+        webView.getSettings().setTextZoom(100);
+        webView.getSettings().setDatabasePath(webView.getContext().getApplicationContext().getDir("databases", 0).getAbsolutePath());
+        webView.setHorizontalScrollBarEnabled(false);
+        webView.setHorizontalScrollbarOverlay(false);
+    }
+
+    public static boolean d(Context context, String str, gq5.b bVar) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, bVar)) == null) {
+            if (!TextUtils.isEmpty(str) && !hq5.b().d(str)) {
+                Looper.myQueue().addIdleHandler(new a(context, str, bVar));
+                return true;
+            }
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
 }

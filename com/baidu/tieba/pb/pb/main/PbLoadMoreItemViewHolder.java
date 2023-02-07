@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -98,9 +98,9 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
         this.b = (LinearLayout) view2.findViewById(R.id.pb_more_view);
         this.c = (TextView) view2.findViewById(R.id.pb_more_text);
         this.e = (ImageView) this.a.findViewById(R.id.no_data_image);
-        this.h = zi.g(this.a.getContext(), R.dimen.tbds156);
+        this.h = ej.g(this.a.getContext(), R.dimen.tbds156);
         this.f = this.a.findViewById(R.id.empty_view);
-        this.d = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091b80);
+        this.d = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091b9a);
         this.b.setVisibility(0);
         this.i.setTag(bdUniqueId);
         MessageManager.getInstance().registerListener(this.i);
@@ -132,7 +132,7 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.d.setVisibility(0);
-            this.c.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.obfuscated_res_0x7f0f0ac1));
+            this.c.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.obfuscated_res_0x7f0f0ae6));
         }
     }
 
@@ -162,7 +162,7 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             this.c.setText(str);
             this.e.setVisibility(0);
-            this.e.setImageResource(PbListView.D);
+            this.e.setImageResource(PbListView.B);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.e.getLayoutParams();
             layoutParams.topMargin = this.h;
             this.e.setLayoutParams(layoutParams);

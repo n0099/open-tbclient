@@ -1,62 +1,124 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.internal.api.PidLoader;
+import com.fun.ad.sdk.internal.api.PidLoaderCreator;
+import com.fun.ad.sdk.internal.api.config.Ssp;
 /* loaded from: classes4.dex */
-public final class f3a extends BroadcastReceiver {
+public class f3a implements PidLoaderCreator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ c3a a;
-    public final /* synthetic */ b3a b;
 
-    public f3a(b3a b3aVar, c3a c3aVar) {
+    public f3a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {b3aVar, c3aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = b3aVar;
-        this.a = c3aVar;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public final void onReceive(Context context, Intent intent) {
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    @Override // com.fun.ad.sdk.internal.api.PidLoaderCreator
+    public PidLoader create(Ssp.Pid pid) {
+        InterceptResult invokeL;
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-            String action = intent.getAction();
-            Bundle extras = intent.getExtras();
-            if (!"com.google.android.play.core.install.ACTION_INSTALL_STATUS".equals(action) || extras == null || !extras.containsKey("install.status")) {
-                return;
-            }
-            this.b.p();
-            int i = extras.getInt("install.status");
-            if (i != 1 && i != 2 && i != 3) {
-                if (i != 4) {
-                    if (i == 6) {
-                        this.a.a(com.google.ar.core.p.b);
-                        return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
+            String str = pid.type;
+            str.hashCode();
+            switch (str.hashCode()) {
+                case -1303381232:
+                    if (str.equals(FunAdType.GDT_NATIVE_EXPRESS2)) {
+                        c = 0;
+                        break;
                     }
-                    return;
-                }
-                this.a.a(com.google.ar.core.p.c);
-                return;
+                    c = 65535;
+                    break;
+                case -942661506:
+                    if (str.equals(FunAdType.GDT_SPLASH)) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -596233886:
+                    if (str.equals(FunAdType.GDT_NATIVE_EXPRESS)) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 114133351:
+                    if (str.equals(FunAdType.GDT_UNIFIED_BANNER)) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 125016359:
+                    if (str.equals(FunAdType.GDT_UNIFIED_INTERSTITIAL)) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 425812868:
+                    if (str.equals(FunAdType.GDT_NATIVE_UNIFIED)) {
+                        c = 5;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 543046357:
+                    if (str.equals(FunAdType.GDT_REWARD_VIDEO)) {
+                        c = 6;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1990506825:
+                    if (str.equals(FunAdType.GDT_FULLSCREEN_VIDEO)) {
+                        c = 7;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
             }
-            this.a.a(com.google.ar.core.p.a);
+            switch (c) {
+                case 0:
+                    return new k3a(pid);
+                case 1:
+                    return new t3a(pid);
+                case 2:
+                    return new n3a(pid);
+                case 3:
+                    return new u3a(pid);
+                case 4:
+                    return new v3a(pid);
+                case 5:
+                    return new p3a(pid);
+                case 6:
+                    return new s3a(pid);
+                case 7:
+                    return new j3a(pid);
+                default:
+                    return null;
+            }
         }
+        return (PidLoader) invokeL.objValue;
     }
 }

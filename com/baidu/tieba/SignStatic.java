@@ -103,7 +103,7 @@ public class SignStatic {
                                     signData.parserJson(postNetData);
                                     signData.forumId = id;
                                     signData.forumName = name;
-                                } else if (!yi.isEmpty(postNetData)) {
+                                } else if (!dj.isEmpty(postNetData)) {
                                     JSONObject jSONObject = new JSONObject(postNetData);
                                     signMessage.parserJson(netWork, jSONObject);
                                     if (AntiHelper.l(netWork.getServerErrorCode()) || "199901".equals(jSONObject.optString("error_code"))) {
@@ -232,7 +232,7 @@ public class SignStatic {
         if (interceptable == null || interceptable.invokeL(65538, null, netWork) == null) {
             String locationLng = TbadkCoreApplication.getInst().getLocationLng();
             String locationLat = TbadkCoreApplication.getInst().getLocationLat();
-            if ((TextUtils.isEmpty(locationLat) || TextUtils.isEmpty(locationLng)) && (j = uf.n().j(false)) != null) {
+            if ((TextUtils.isEmpty(locationLat) || TextUtils.isEmpty(locationLng)) && (j = zf.n().j(false)) != null) {
                 locationLng = String.valueOf(j.getLongitude());
                 locationLat = String.valueOf(j.getLatitude());
             }

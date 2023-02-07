@@ -1,157 +1,165 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.lib.util.NetWorkChangedMessage;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TbImageHelper;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.mobstat.Config;
+import com.baidu.searchbox.fluency.tracer.FpsTracer;
+import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ok5 {
+public class ok5 extends vk5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final byte[] b;
-    public static ok5 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public CustomMessageListener a;
-
-    /* loaded from: classes5.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ok5 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ok5 ok5Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ok5Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ok5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
-                this.a.d();
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948035152, "Lcom/baidu/tieba/ok5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948035152, "Lcom/baidu/tieba/ok5;");
-                return;
-            }
-        }
-        b = new byte[1];
-    }
 
     public ok5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.vk5
+    public void b(rk5 rk5Var) {
+        String str;
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, rk5Var) != null) || !PerformanceLoggerHelper.getInstance().isSmallFlow()) {
+            return;
+        }
+        lh a = tk5.a();
+        a.b("action", "time_t");
+        f(a, rk5Var);
+        String str2 = "1";
+        if (rk5Var.s) {
+            str = "1";
+        } else {
+            str = "0";
+        }
+        a.b("ishttp", str);
+        if (!rk5Var.b) {
+            str2 = "0";
+        }
+        a.b("issuccess", str2);
+        a.b(FpsTracer.UBC_KEY_NET_TYPE, PerformanceLoggerHelper.getInstance().getNetType());
+        a.b(Config.EXCEPTION_CRASH_TYPE, String.valueOf(rk5Var.e));
+        a.b("wt", String.valueOf(rk5Var.p));
+        a.b("qt", String.valueOf(rk5Var.f));
+        a.b("connt", String.valueOf(rk5Var.g));
+        a.b("rwt", String.valueOf(rk5Var.h));
+        a.b("dect", String.valueOf(rk5Var.k));
+        a.b("parset", String.valueOf(rk5Var.l));
+        a.b("rendert", String.valueOf(rk5Var.o));
+        a.b("ss", String.valueOf(rk5Var.q));
+        a.b("hs", String.valueOf(rk5Var.r));
+        if (rk5Var.s && (i = rk5Var.t) != 0) {
+            a.b("salno", String.valueOf(i));
+            long j = rk5Var.u;
+            if (j != 0) {
+                a.b("scosttime", String.valueOf(j));
+            }
+        }
+        int i2 = rk5Var.v;
+        if (i2 != 0) {
+            a.c("errcode", Integer.valueOf(i2));
+        }
+        if (rk5Var.s) {
+            a.b("c_logid", String.valueOf(rk5Var.A));
+        } else {
+            a.b("seq_id", String.valueOf(rk5Var.z & 4294967295L));
+        }
+        BdStatisticsManager.getInstance().performance(this.a, a);
+    }
+
+    @Override // com.baidu.tieba.vk5
+    public void c(rk5 rk5Var, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rk5Var, i) != null) || !PerformanceLoggerHelper.getInstance().isSmallFlow() || rk5Var.D <= 0) {
+            return;
+        }
+        lh a = tk5.a();
+        a.b("action", "time_t");
+        f(a, rk5Var);
+        a.b("pct", String.valueOf(rk5Var.D));
+        if (i != 0) {
+            if (i != 40) {
                 return;
             }
+            a.b("pct_type", String.valueOf(101));
+        } else {
+            a.b("pct_type", String.valueOf(100));
         }
-        BdNetTypeUtil.init();
+        BdStatisticsManager.getInstance().performance(this.a, a);
     }
 
-    public static ok5 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.vk5
+    public void d(rk5 rk5Var, boolean z) {
+        String str;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (c == null) {
-                synchronized (b) {
-                    if (c == null) {
-                        c = new ok5();
-                    }
+        if ((interceptable != null && interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, rk5Var, z) != null) || !PerformanceLoggerHelper.getInstance().isSmallFlow()) {
+            return;
+        }
+        if (!z || rk5Var.B > 0) {
+            if (!z && rk5Var.C <= 0) {
+                return;
+            }
+            lh a = tk5.a();
+            a.b("action", "time_t");
+            f(a, rk5Var);
+            if (z) {
+                a.b("put", String.valueOf(rk5Var.B));
+            } else {
+                a.b("pdt", String.valueOf(rk5Var.C));
+            }
+            String str2 = "1";
+            if (rk5Var.s) {
+                str = "1";
+            } else {
+                str = "0";
+            }
+            a.b("ishttp", str);
+            if (!rk5Var.b) {
+                str2 = "0";
+            }
+            a.b("issuccess", str2);
+            a.b(FpsTracer.UBC_KEY_NET_TYPE, PerformanceLoggerHelper.getInstance().getNetType());
+            a.b("qt", String.valueOf(rk5Var.f));
+            a.b("connt", String.valueOf(rk5Var.g));
+            a.b("rwt", String.valueOf(rk5Var.h));
+            a.b("dect", String.valueOf(rk5Var.k));
+            a.b("parset", String.valueOf(rk5Var.l));
+            a.b("rendert", String.valueOf(rk5Var.o));
+            a.b("ss", String.valueOf(rk5Var.q));
+            a.b("hs", String.valueOf(rk5Var.r));
+            if (rk5Var.s && (i = rk5Var.t) != 0) {
+                a.b("salno", String.valueOf(i));
+                long j = rk5Var.u;
+                if (j != 0) {
+                    a.b("scosttime", String.valueOf(j));
                 }
             }
-            return c;
-        }
-        return (ok5) invokeV.objValue;
-    }
-
-    public final CustomMessageListener c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this, 2000994);
-        }
-        return (CustomMessageListener) invokeV.objValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            try {
-                if (this.a == null) {
-                    this.a = c();
-                    MessageManager.getInstance().registerListener(this.a);
-                }
-            } catch (Exception e) {
-                this.a = null;
-                BdLog.e(e.getMessage());
+            int i2 = rk5Var.v;
+            if (i2 != 0) {
+                a.c("errcode", Integer.valueOf(i2));
             }
+            BdStatisticsManager.getInstance().performance(this.a, a);
         }
     }
 
-    public final void d() {
+    public final void f(lh lhVar, rk5 rk5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            try {
-                boolean isNetWorkAvailable = BdNetTypeUtil.isNetWorkAvailable();
-                if (isNetWorkAvailable) {
-                    if (BdNetTypeUtil.isWifiNet()) {
-                        TbImageHelper.getInstance().setNetworkIsWifi(true);
-                        ap8.e().f();
-                    } else if (BdNetTypeUtil.isMobileNet()) {
-                        TbImageHelper.getInstance().setNetworkIsWifi(false);
-                    }
-                }
-                NoNetworkView.setIsHasNetwork(isNetWorkAvailable);
-                CompatibleUtile.dealWebView(null);
-            } catch (Throwable th) {
-                BdLog.e(th.getMessage());
-            }
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, lhVar, rk5Var) == null) && (rk5Var instanceof nk5)) {
+            lhVar.c("ptype", Integer.valueOf(((nk5) rk5Var).F));
         }
     }
 }

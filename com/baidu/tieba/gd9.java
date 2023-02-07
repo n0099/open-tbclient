@@ -1,5 +1,11 @@
 package com.baidu.tieba;
+
+import com.baidu.tieba.video.VideoItemModel;
 /* loaded from: classes4.dex */
 public interface gd9 {
-    void a(fd9 fd9Var);
+    VideoItemModel J0();
+
+    void r0(int i);
+
+    int s();
 }

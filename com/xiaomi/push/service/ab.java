@@ -43,7 +43,7 @@ public final class ab extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public String mo673a() {
+    public String mo675a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "send ack message for obsleted message." : (String) invokeV.objValue;
@@ -51,12 +51,12 @@ public final class ab extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public void mo394a() {
+    public void mo396a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
                 Cif a = y.a((Context) this.f902a, this.a);
-                a.m538a().a("message_obsleted", "1");
+                a.m540a().a("message_obsleted", "1");
                 ah.a(this.f902a, a);
             } catch (gh e) {
                 com.xiaomi.channel.commonutils.logger.b.a(e);

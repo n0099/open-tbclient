@@ -1,13 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.bdtask.framework.ui.dialog.TaskDialogData;
-import com.baidu.tieba.ys;
+import com.baidu.bdtask.framework.ui.buoy.BuoyViewData;
+import com.baidu.tieba.at;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class zs<VM extends ys<? extends TaskDialogData>> implements at<TaskDialogData, VM> {
+public abstract class zs<D extends BuoyViewData, VM extends at<D>> implements bt, ft<D, VM> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 

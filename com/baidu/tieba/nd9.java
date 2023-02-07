@@ -1,22 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.view.View;
 /* loaded from: classes5.dex */
-public class nd9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public static void a(TbPageContext tbPageContext) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65536, null, tbPageContext) != null) || tbPageContext == null) {
-            return;
-        }
-        BdStatisticsManager.getInstance().forceUploadAllLogIgnoreSwitch();
-        UrlManager.getInstance().dealOneLink((TbPageContext<?>) tbPageContext, new String[]{TbConfig.getFeedBackUrl()}, true);
-    }
+public interface nd9 {
+    void a(View view2, jm6 jm6Var);
 }

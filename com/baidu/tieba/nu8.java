@@ -1,67 +1,123 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Activity;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tieba.j05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class nu8 extends du8 {
+public class nu8 extends j05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<pu8> c;
+    public LinearLayout a;
+    public EditText b;
 
-    public nu8() {
+    /* loaded from: classes5.dex */
+    public class a implements j05.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Activity a;
+        public final /* synthetic */ nu8 b;
+
+        public a(nu8 nu8Var, Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nu8Var, activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = nu8Var;
+            this.a = activity;
+        }
+
+        @Override // com.baidu.tieba.j05.e
+        public void onClick(j05 j05Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, j05Var) == null) {
+                if (!dj.isEmpty(this.b.b.getText().toString())) {
+                    TbSingleton.getInstance().setVisitPreviewServer(true);
+                    String obj = this.b.b.getText().toString();
+                    TbSingleton.getInstance().setPubEnvValue(obj);
+                    ej.P(this.a, R.string.obfuscated_res_0x7f0f03b1);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921508, obj));
+                }
+                this.b.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements j05.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nu8 a;
+
+        public b(nu8 nu8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nu8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = nu8Var;
+        }
+
+        @Override // com.baidu.tieba.j05.e
+        public void onClick(j05 j05Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, j05Var) == null) {
+                this.a.dismiss();
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nu8(Activity activity) {
+        super(activity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new ArrayList<>();
-    }
-
-    public ArrayList<pu8> h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.du8
-    public void d(JSONObject jSONObject) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            ArrayList<pu8> arrayList = new ArrayList<>();
-            JSONArray optJSONArray = jSONObject.optJSONArray("forum_dir");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    pu8 pu8Var = new pu8();
-                    pu8Var.a(optJSONArray.getJSONObject(i));
-                    arrayList.add(pu8Var);
-                }
-            }
-            i(arrayList);
-        }
-    }
-
-    public void i(ArrayList<pu8> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
-            this.c = arrayList;
-            g(null);
-        }
+        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.mActivity).inflate(R.layout.obfuscated_res_0x7f0d0238, (ViewGroup) null);
+        this.a = linearLayout;
+        setContentView(linearLayout);
+        this.b = (EditText) this.a.findViewById(R.id.obfuscated_res_0x7f0909a8);
+        setPositiveButton(R.string.obfuscated_res_0x7f0f0459, new a(this, activity));
+        setNegativeButton(R.string.obfuscated_res_0x7f0f038b, new b(this));
     }
 }

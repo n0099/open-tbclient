@@ -32,7 +32,7 @@ public class UTDevice {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             a b = b.b(context);
-            if (b != null && !g.m93a(b.f())) {
+            if (b != null && !g.m95a(b.f())) {
                 return b.f();
             }
             return "ffffffffffffffffffffffff";
@@ -45,7 +45,7 @@ public class UTDevice {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             String h = c.a(context).h();
-            if (h == null || g.m93a(h)) {
+            if (h == null || g.m95a(h)) {
                 return "ffffffffffffffffffffffff";
             }
             return h;

@@ -1,135 +1,37 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
-import android.util.DisplayMetrics;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import com.baidu.adp.framework.MessageManager;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.util.Pair;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ForumBroadcastHelper;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.frs.broadcast.ForumManagerRightsResMsg;
-import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.tieba.view.ScreenTopToast;
-import com.baidu.tieba.wv4;
+import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
+import com.baidu.tbadk.core.data.ErrorData;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.forumSquare.model.ForumSquareModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class qq6 {
+public class qq6 implements tq6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public int b;
-    public String c;
-    public String d;
-    public String e;
-    public wv4 f;
+    public final TbPageContext a;
+    public final Context b;
+    public ForumSquareModel c;
+    public rq6 d;
+    public sq6 e;
+    public String f;
     public CustomMessageListener g;
-    public DialogInterface.OnDismissListener h;
-    public HttpMessageListener i;
-
-    /* loaded from: classes6.dex */
-    public class c implements wv4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ qq6 b;
-
-        /* loaded from: classes6.dex */
-        public class a implements View.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ c a;
-
-            public a(c cVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = cVar;
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                    HashMap hashMap = new HashMap();
-                    hashMap.put("_forumId", this.a.b.c);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.a.b.a.getPageActivity(), "ForumGradePage", hashMap)));
-                }
-            }
-        }
-
-        public c(qq6 qq6Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qq6Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = qq6Var;
-            this.a = i;
-        }
-
-        @Override // com.baidu.tieba.wv4.e
-        public void onClick(wv4 wv4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, wv4Var) == null) {
-                cz4.l().v("key_forum_broadcast_no_tip_again", this.b.f.isNoTipAgainChecked());
-                this.b.f.dismiss();
-                if (this.a == 0) {
-                    ScreenTopToast screenTopToast = new ScreenTopToast(this.b.a.getPageActivity());
-                    screenTopToast.m(this.b.a.getPageActivity().getString(R.string.frs_forum_bawu_send_broadcast_none_tip));
-                    screenTopToast.k(this.b.a.getString(R.string.frs_recommend_fail_tip_btn));
-                    screenTopToast.j(new a(this));
-                    screenTopToast.n((ViewGroup) this.b.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f090b1e));
-                    return;
-                }
-                ForumBroadcastHelper forumBroadcastHelper = new ForumBroadcastHelper(this.b.a.getPageActivity());
-                if (this.b.b == 1) {
-                    forumBroadcastHelper.jumpFlutterEditGenear(this.b.c, this.b.d, "3");
-                } else if (this.b.b == 2) {
-                    forumBroadcastHelper.jumpFlutterEditGenear(this.b.c, this.b.d, "4");
-                } else {
-                    forumBroadcastHelper.jumpFlutterEditGenear(this.b.c, this.b.d, "0");
-                }
-                forumBroadcastHelper.clipCopy(this.b.e);
-                forumBroadcastHelper.start();
-            }
-        }
-    }
 
     /* loaded from: classes6.dex */
     public class a extends CustomMessageListener {
@@ -162,136 +64,24 @@ public class qq6 {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921745) {
-                this.a.l();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements DialogInterface.OnDismissListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qq6 a;
-
-        public b(qq6 qq6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qq6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                qq6 qq6Var = this.a;
+                if (qq6Var.d == null || qq6Var.c == null) {
                     return;
                 }
-            }
-            this.a = qq6Var;
-        }
-
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                MessageManager.getInstance().unRegisterListener(this.a.g);
+                this.a.f = "推荐";
+                this.a.c.clearData();
+                this.a.m();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class d implements wv4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qq6 a;
-
-        public d(qq6 qq6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qq6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qq6Var;
-        }
-
-        @Override // com.baidu.tieba.wv4.e
-        public void onClick(wv4 wv4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, wv4Var) == null) {
-                cz4.l().v("key_call_fans_no_tip_again", false);
-                this.a.f.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class e extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qq6 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(qq6 qq6Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qq6Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qq6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof ForumManagerRightsResMsg)) {
-                ForumManagerRightsResMsg forumManagerRightsResMsg = (ForumManagerRightsResMsg) httpResponsedMessage;
-                boolean i = cz4.l().i("key_forum_broadcast_no_tip_again", false);
-                int i2 = forumManagerRightsResMsg.broadcastTotalCount - forumManagerRightsResMsg.broadcastUsedCount;
-                if (i) {
-                    if (this.a.b == 1) {
-                        this.a.a.showToast(R.string.top_success);
-                        return;
-                    } else if (this.a.b == 2) {
-                        this.a.a.showToast(R.string.set_good_success);
-                        return;
-                    } else {
-                        return;
-                    }
-                }
-                this.a.n(i2);
-            }
-        }
-    }
-
-    public qq6(TbPageContext tbPageContext) {
+    public qq6(Context context, TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {context, tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -301,78 +91,223 @@ public class qq6 {
                 return;
             }
         }
-        this.g = new a(this, 2921745);
-        this.h = new b(this);
-        this.i = new e(this, CmdConfigHttp.CMD_GET_FORUM_MANAGER_RIGHTS);
+        this.f = "推荐";
+        this.g = new a(this, 2921589);
         this.a = tbPageContext;
-        m();
-        tbPageContext.registerListener(this.i);
+        this.b = context;
+        this.c = new ForumSquareModel(context, this);
+        this.d = new rq6(context, this.a);
+        this.a.registerListener(this.g);
     }
 
-    public final void k(String str) {
+    @Override // com.baidu.tieba.tq6
+    public void onError(String str, ErrorData errorData) {
+        rq6 rq6Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_FORUM_MANAGER_RIGHTS);
-            httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
-            httpMessage.addParam("forum_id", str);
-            this.a.sendMessage(httpMessage);
-        }
-    }
-
-    public void j(int i, String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, str2, str3}) == null) {
-            this.b = i;
-            this.c = str;
-            this.d = str2;
-            this.e = str3;
-            k(str);
-        }
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f != null) {
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            this.a.getPageActivity().getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            WindowManager.LayoutParams attributes = this.f.getWindow().getAttributes();
-            attributes.width = displayMetrics.widthPixels - (this.f.getDialogMargin() * 2);
-            this.f.getWindow().setAttributes(attributes);
-        }
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager messageManager = MessageManager.getInstance();
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_FORUM_MANAGER_RIGHTS, TbConfig.SERVER_ADDRESS + "c/f/forum/getForumMangerRights");
-            tbHttpMessageTask.setResponsedClass(ForumManagerRightsResMsg.class);
-            tbHttpMessageTask.setIsNeedTbs(true);
-            tbHttpMessageTask.setIsNeedAddCommenParam(true);
-            messageManager.registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public final void n(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            wv4 wv4Var = new wv4(this.a.getPageActivity());
-            this.f = wv4Var;
-            wv4Var.setUseNoTipAgainStyle(true);
-            this.f.setNegativeTextColor(R.color.CAM_X0105);
-            int i2 = this.b;
-            if (i2 == 1) {
-                this.f.setTitle(R.string.top_success);
-            } else if (i2 == 2) {
-                this.f.setTitle(R.string.set_good_success);
+        if ((interceptable == null || interceptable.invokeLL(1048588, this, str, errorData) == null) && (rq6Var = this.d) != null && this.c != null) {
+            rq6Var.K();
+            xq6 V = this.c.V(str);
+            if (V != null && (!V.d || !ListUtils.isEmpty(V.a()))) {
+                this.d.t(V.a());
+                c(str, V.a());
+                return;
             }
-            this.f.setMessage(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0690), Integer.valueOf(i)));
-            this.f.setContentViewSize(1);
-            this.f.setPositiveButton(this.a.getString(R.string.obfuscated_res_0x7f0f11a3), new c(this, i));
-            this.f.setNegativeButton(this.a.getString(R.string.next_time), new d(this));
-            this.f.setOnDismissListener(this.h);
-            this.f.create(this.a).show();
-            MessageManager.getInstance().registerListener(this.g);
+            this.d.g();
+            this.d.v();
+        }
+    }
+
+    public void j(String str) {
+        ForumSquareModel forumSquareModel;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && (forumSquareModel = this.c) != null && this.d != null && forumSquareModel.U(str)) {
+            this.d.C(str);
+            i(str);
+        }
+    }
+
+    @Override // com.baidu.tieba.tq6
+    public void onNoData(ErrorData errorData) {
+        rq6 rq6Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048589, this, errorData) == null) && (rq6Var = this.d) != null) {
+            rq6Var.J();
+        }
+    }
+
+    public final void c(String str, List<Cdo> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, list) == null) && this.d != null && this.c != null) {
+            if (ListUtils.isEmpty(list)) {
+                this.d.g();
+            } else if (ListUtils.getCount(list) < 10) {
+                this.d.o();
+            } else {
+                this.d.F(this.c.W(str));
+            }
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.d.c();
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.d.b();
+        }
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            rq6 rq6Var = this.d;
+            if (rq6Var != null) {
+                rq6Var.G();
+            }
+            ForumSquareModel forumSquareModel = this.c;
+            if (forumSquareModel != null) {
+                forumSquareModel.Y(f());
+            }
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            sq6 sq6Var = new sq6(this.b, this, this.d);
+            this.e = sq6Var;
+            sq6Var.e();
+            n();
+        }
+    }
+
+    public final void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.d.G();
+            this.c.Y(this.f);
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            String f = f();
+            ForumSquareModel forumSquareModel = this.c;
+            if (forumSquareModel != null && this.d != null) {
+                boolean X = forumSquareModel.X();
+                boolean F = this.d.F(this.c.W(f));
+                if (!X && F) {
+                    this.c.Y(f);
+                }
+            }
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            l(this.f);
+            this.f = str;
+            ForumSquareModel forumSquareModel = this.c;
+            if (forumSquareModel != null && this.d != null) {
+                xq6 V = forumSquareModel.V(str);
+                if (V != null && (!V.d || !ListUtils.isEmpty(V.a()))) {
+                    this.d.K();
+                    c(str, V.a());
+                    this.d.t(V.a());
+                    this.d.r(V.f, V.g);
+                    return;
+                }
+                this.d.E();
+                c(str, null);
+                this.c.Y(str);
+                this.d.r(0, 0);
+            }
+        }
+    }
+
+    public void k(Intent intent) {
+        Uri uri;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, intent) == null) && intent != null) {
+            String stringExtra = intent.getStringExtra(ForumSquareActivityConfig.FORUM_CLASS_NAME);
+            this.f = stringExtra;
+            if (TextUtils.isEmpty(stringExtra) && (uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI)) != null) {
+                this.f = uri.getQueryParameter("tab_name");
+            }
+            boolean z = false;
+            int intExtra = intent.getIntExtra(ForumSquareActivityConfig.SHOW_CREATE_BAR, 0);
+            rq6 rq6Var = this.d;
+            if (intExtra == 0) {
+                z = true;
+            }
+            rq6Var.D(z);
+        }
+    }
+
+    public void l(String str) {
+        xq6 V;
+        Pair<Integer, Integer> d;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048585, this, str) != null) || this.d == null || this.c == null || TextUtils.isEmpty(str) || (V = this.c.V(str)) == null || (d = this.d.d()) == null) {
+            return;
+        }
+        V.f = ((Integer) d.first).intValue();
+        V.g = ((Integer) d.second).intValue();
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x002f, code lost:
+        if (r5.equals(r1) == false) goto L11;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x003c  */
+    @Override // com.baidu.tieba.tq6
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void onSucc(String str, List<String> list, List<Cdo> list2) {
+        boolean isEmpty;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048590, this, str, list, list2) == null) && this.c != null && this.d != null) {
+            boolean z = false;
+            if (TextUtils.isEmpty(str) || str.equals(this.f)) {
+                String f = this.d.f();
+                if (!TextUtils.isEmpty(str)) {
+                }
+                isEmpty = TextUtils.isEmpty(this.f);
+                this.f = str;
+                if (isEmpty) {
+                    this.d.G();
+                    this.c.Y(this.f);
+                }
+                this.d.K();
+                this.d.s(str, list, z);
+                this.d.u(list2, this.c.b0(list2, 300));
+                c(str, list2);
+            }
+            z = true;
+            isEmpty = TextUtils.isEmpty(this.f);
+            this.f = str;
+            if (isEmpty) {
+            }
+            this.d.K();
+            this.d.s(str, list, z);
+            this.d.u(list2, this.c.b0(list2, 300));
+            c(str, list2);
         }
     }
 }

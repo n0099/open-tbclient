@@ -298,18 +298,14 @@ public final class ContentUtil {
             if (file.exists()) {
                 int i = 0;
                 RandomAccessFile randomAccessFile2 = null;
-                r3 = null;
-                r3 = null;
-                RandomAccessFile randomAccessFile3 = null;
-                RandomAccessFile randomAccessFile4 = null;
                 try {
                     try {
                         randomAccessFile = new RandomAccessFile(file, "r");
-                    } catch (Throwable th) {
-                        th = th;
+                    } catch (IOException e) {
+                        e = e;
                     }
-                } catch (IOException e) {
-                    e = e;
+                } catch (Throwable th) {
+                    th = th;
                 }
                 try {
                     long length = randomAccessFile.length();
@@ -341,23 +337,18 @@ public final class ContentUtil {
                             if (parse2 != null) {
                                 jsonWriter.beginObject();
                                 jsonWriter.name("time").value(parse2[1]);
-                                JsonWriter name = jsonWriter.name("page");
-                                String str2 = parse2[2];
-                                name.value(str2);
+                                jsonWriter.name("page").value(parse2[2]);
                                 jsonWriter.name("event").value(parse2[3]);
                                 jsonWriter.endObject();
-                                randomAccessFile3 = str2;
                             }
                         }
                     }
                     Closeables.closeSafely(randomAccessFile);
-                    randomAccessFile2 = randomAccessFile3;
                 } catch (IOException e2) {
                     e = e2;
-                    randomAccessFile4 = randomAccessFile;
+                    randomAccessFile2 = randomAccessFile;
                     e.printStackTrace();
-                    Closeables.closeSafely(randomAccessFile4);
-                    randomAccessFile2 = randomAccessFile4;
+                    Closeables.closeSafely(randomAccessFile2);
                 } catch (Throwable th2) {
                     th = th2;
                     randomAccessFile2 = randomAccessFile;

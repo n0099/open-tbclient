@@ -1,30 +1,94 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import com.baidu.tieba.rs1;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes4.dex */
-public interface co1 {
-    @NonNull
-    n93 a(Activity activity, boolean z, String str, String str2);
+public class co1 implements ThreadFactory {
+    public static /* synthetic */ Interceptable $ic;
+    public static final AtomicInteger d;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final AtomicInteger a;
+    public String b;
+    public int c;
 
-    @NonNull
-    s93 b(Activity activity, rs1.d dVar, Bundle bundle);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947681380, "Lcom/baidu/tieba/co1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947681380, "Lcom/baidu/tieba/co1;");
+                return;
+            }
+        }
+        d = new AtomicInteger(1);
+    }
 
-    @NonNull
-    t93 c(Activity activity, String str, String str2, boolean z, boolean z2);
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public co1() {
+        this(5);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                this(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
 
-    @NonNull
-    o93 d(Context context, boolean z, boolean z2, String[] strArr, String str, boolean z3);
+    public co1(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = new AtomicInteger(1);
+        this.b = "sso-" + d.getAndIncrement() + "-thread-";
+        this.c = i;
+    }
 
-    @NonNull
-    r93 e(Context context);
-
-    @NonNull
-    q93 f(Context context);
-
-    @NonNull
-    p93 g(Context context, String str);
+    @Override // java.util.concurrent.ThreadFactory
+    public Thread newThread(Runnable runnable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+            Thread thread = new Thread(runnable, this.b + this.a.getAndIncrement());
+            if (thread.isDaemon()) {
+                thread.setDaemon(false);
+            }
+            int i = this.c;
+            if (i != 5) {
+                thread.setPriority(i);
+            } else {
+                thread.setPriority(5);
+            }
+            return thread;
+        }
+        return (Thread) invokeL.objValue;
+    }
 }

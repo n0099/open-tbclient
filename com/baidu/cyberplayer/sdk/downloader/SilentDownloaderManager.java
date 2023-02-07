@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes2.dex */
-public class SilentDownloaderManager implements a.InterfaceC0105a {
+public class SilentDownloaderManager implements a.InterfaceC0104a {
     public static /* synthetic */ Interceptable $ic;
     public static volatile SilentDownloaderManager a;
     public static volatile boolean d;
@@ -388,14 +388,14 @@ public class SilentDownloaderManager implements a.InterfaceC0105a {
         return (SilentDownloaderManager) invokeV.objValue;
     }
 
-    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC0105a
+    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC0104a
     public void a(String str, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
         }
     }
 
-    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC0105a
+    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC0104a
     public void a(String str, long j, int i, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Long.valueOf(j), Integer.valueOf(i), str2}) == null) {
@@ -411,14 +411,14 @@ public class SilentDownloaderManager implements a.InterfaceC0105a {
         }
     }
 
-    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC0105a
+    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC0104a
     public void a(String str, long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)}) == null) {
         }
     }
 
-    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC0105a
+    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC0104a
     public void a(String str, long j, ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Long.valueOf(j), arrayList}) == null) {

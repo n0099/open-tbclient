@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.switchs.ComplianceParmasSwitch;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -57,7 +57,7 @@ public class ComplianceParmasHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             if (!TextUtils.isEmpty(str)) {
-                return ri.j(str.getBytes());
+                return wi.j(str.getBytes());
             }
             return str;
         }

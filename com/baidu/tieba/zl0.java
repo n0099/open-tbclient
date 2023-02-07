@@ -1,78 +1,163 @@
 package com.baidu.tieba;
 
-import android.os.CountDownTimer;
+import android.app.Application;
+import android.content.Context;
+import android.text.TextUtils;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bm0;
+import com.baidu.nadcore.download.proxy.IAdDownloader;
+import com.baidu.nps.utils.Constant;
+import com.baidu.searchbox.bddownload.DownloadTask;
+import com.baidu.searchbox.bddownload.SpeedCalculator;
+import com.baidu.searchbox.bddownload.StatusUtil;
+import com.baidu.searchbox.bddownload.core.Util;
+import com.baidu.searchbox.bddownload.core.breakpoint.BlockInfo;
+import com.baidu.searchbox.bddownload.core.breakpoint.BreakpointInfo;
+import com.baidu.searchbox.bddownload.core.cause.EndCause;
+import com.baidu.searchbox.bddownload.core.listener.DownloadSpeedListener;
+import com.baidu.searchbox.bddownload.core.listener.assist.ListenerSpeedAssistExtend;
+import com.baidu.searchbox.common.runtime.AppRuntimeInit;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import java.io.File;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class zl0<VIEW extends bm0> {
+public class zl0 implements IAdDownloader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CountDownTimer a;
-    public long b;
-    public long c;
-    public WeakReference<VIEW> d;
+    public final HashMap<Integer, DownloadTask> a;
+
+    @Override // com.baidu.nadcore.download.proxy.IAdDownloader
+    public void b(@NonNull cl0 cl0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cl0Var) == null) {
+        }
+    }
 
     /* loaded from: classes7.dex */
-    public static class a extends CountDownTimer {
+    public static class a extends DownloadSpeedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<zl0> a;
+        public long a;
+        public String b;
+        public long c;
+        public yl0 d;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(@NonNull zl0 zl0Var, long j, long j2) {
-            super(j, j2);
+        @Override // com.baidu.searchbox.bddownload.core.listener.assist.ListenerSpeedAssistExtend.Listener4SpeedCallback
+        public void blockEnd(@NonNull DownloadTask downloadTask, int i, BlockInfo blockInfo, @NonNull SpeedCalculator speedCalculator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLILL(1048576, this, downloadTask, i, blockInfo, speedCalculator) == null) {
+            }
+        }
+
+        @Override // com.baidu.searchbox.bddownload.core.listener.assist.ListenerSpeedAssistExtend.Listener4SpeedCallback
+        public void progressBlock(@NonNull DownloadTask downloadTask, int i, long j, @NonNull SpeedCalculator speedCalculator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{downloadTask, Integer.valueOf(i), Long.valueOf(j), speedCalculator}) == null) {
+            }
+        }
+
+        @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
+        public void taskStart(@NonNull DownloadTask downloadTask) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, downloadTask) == null) {
+            }
+        }
+
+        public a(yl0 yl0Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zl0Var, Long.valueOf(j), Long.valueOf(j2)};
+                Object[] objArr = {yl0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Long) objArr2[0]).longValue(), ((Long) objArr2[1]).longValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = new WeakReference<>(zl0Var);
+            this.d = yl0Var;
         }
 
-        @Override // android.os.CountDownTimer
-        public void onFinish() {
-            zl0 zl0Var;
+        @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
+        public void connectEnd(@NonNull DownloadTask downloadTask, int i, int i2, @NonNull Map<String, List<String>> map) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (zl0Var = this.a.get()) != null) {
-                zl0Var.f(zl0Var.j());
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{downloadTask, Integer.valueOf(i), Integer.valueOf(i2), map}) == null) {
+                String str = "Connect End " + i;
             }
         }
 
-        @Override // android.os.CountDownTimer
-        public void onTick(long j) {
-            zl0 zl0Var;
+        @Override // com.baidu.searchbox.bddownload.core.listener.assist.ListenerSpeedAssistExtend.Listener4SpeedCallback
+        public void infoReady(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, boolean z, @NonNull ListenerSpeedAssistExtend.Listener4SpeedModel listener4SpeedModel) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && (zl0Var = this.a.get()) != null) {
-                zl0Var.c = zl0Var.b - j;
-                zl0Var.g(zl0Var.e(), zl0Var.j());
+            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{downloadTask, breakpointInfo, Boolean.valueOf(z), listener4SpeedModel}) == null) {
+                long totalLength = breakpointInfo.getTotalLength();
+                this.a = totalLength;
+                this.b = Util.humanReadableBytes(totalLength, true);
+                this.d.b(this.a, downloadTask.getFile());
+            }
+        }
+
+        @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
+        public void connectStart(@NonNull DownloadTask downloadTask, int i, @NonNull Map<String, List<String>> map) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, downloadTask, i, map) == null) {
+                String str = "Connect Start " + i;
+            }
+        }
+
+        @Override // com.baidu.searchbox.bddownload.core.listener.assist.ListenerSpeedAssistExtend.Listener4SpeedCallback
+        public void progress(@NonNull DownloadTask downloadTask, long j, @NonNull SpeedCalculator speedCalculator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{downloadTask, Long.valueOf(j), speedCalculator}) == null) {
+                String str = (Util.humanReadableBytes(j, true) + "/" + this.b) + "(" + speedCalculator.speed() + SmallTailInfo.EMOTION_SUFFIX;
+                this.c = j;
+                this.d.a(downloadTask.getId(), j, this.a);
+            }
+        }
+
+        @Override // com.baidu.searchbox.bddownload.core.listener.assist.ListenerSpeedAssistExtend.Listener4SpeedCallback
+        public void taskEnd(@NonNull DownloadTask downloadTask, @NonNull EndCause endCause, @Nullable Exception exc, @NonNull SpeedCalculator speedCalculator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLL(1048582, this, downloadTask, endCause, exc, speedCalculator) == null) {
+                downloadTask.removeTag();
+                if (endCause == EndCause.COMPLETED) {
+                    this.d.onSuccess(downloadTask.getId());
+                } else if (endCause == EndCause.CANCELED) {
+                    this.d.c(downloadTask.getId(), (int) ((this.c / this.a) * 100.0d));
+                } else if (endCause == EndCause.ERROR) {
+                    kl0 kl0Var = new kl0();
+                    kl0Var.a = exc;
+                    kl0Var.c = true;
+                    this.d.d(kl0Var);
+                } else {
+                    kl0 kl0Var2 = new kl0();
+                    kl0Var2.a = exc;
+                    this.d.d(kl0Var2);
+                }
+                if (yg0.a && exc != null) {
+                    Context b = nj0.b();
+                    Toast.makeText(b, "下载失败！原因：" + exc, 0).show();
+                }
             }
         }
     }
 
-    public zl0(@NonNull VIEW view2) {
+    public zl0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -82,79 +167,82 @@ public class zl0<VIEW extends bm0> {
                 return;
             }
         }
-        this.d = new WeakReference<>(view2);
+        this.a = new HashMap<>();
+        AppRuntimeInit.onApplicationattachBaseContext((Application) nj0.b());
     }
 
-    public void h(long j) {
+    @Override // com.baidu.nadcore.download.proxy.IAdDownloader
+    public int a(@NonNull cl0 cl0Var, @NonNull yl0 yl0Var) {
+        InterceptResult invokeLL;
+        DownloadTask build;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            i();
-            this.b = j;
-            this.c = 0L;
-            a aVar = new a(this, this.b, 1000L);
-            this.a = aVar;
-            aVar.start();
-            VIEW k = k();
-            if (k != null) {
-                long j2 = this.b;
-                k.b(j2, j2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, cl0Var, yl0Var)) == null) {
+            File a2 = im0.a(nj0.b());
+            String e = e(cl0Var);
+            if (!TextUtils.isEmpty(e)) {
+                build = new DownloadTask.Builder(cl0Var.g, a2).setPassIfAlreadyCompleted(false).setFilename(e + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).build();
+            } else {
+                build = new DownloadTask.Builder(cl0Var.g, a2).setPassIfAlreadyCompleted(false).build();
+            }
+            a aVar = new a(yl0Var);
+            if (build.getTag() != null) {
+                build.cancel();
+            }
+            build.enqueue(aVar);
+            build.setTag("mark-task-started");
+            z11.e(this.a, Integer.valueOf(build.getId()), build);
+            return build.getId();
+        }
+        return invokeLL.intValue;
+    }
+
+    @Override // com.baidu.nadcore.download.proxy.IAdDownloader
+    public void c(@NonNull cl0 cl0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cl0Var) == null) {
+            DownloadTask downloadTask = (DownloadTask) z11.b(this.a, Integer.valueOf(cl0Var.b));
+            if (downloadTask != null && downloadTask.getTag() != null) {
+                downloadTask.cancel();
             }
         }
     }
 
-    public final void g(long j, long j2) {
-        VIEW k;
+    @Override // com.baidu.nadcore.download.proxy.IAdDownloader
+    public void d(@NonNull cl0 cl0Var, @NonNull yl0 yl0Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) && (k = k()) != null) {
-            k.onProgress(j, j2);
+        if (interceptable == null || interceptable.invokeLL(1048579, this, cl0Var, yl0Var) == null) {
+            DownloadTask downloadTask = (DownloadTask) z11.b(this.a, Integer.valueOf(cl0Var.b));
+            if (downloadTask != null && StatusUtil.getStatus(downloadTask) == StatusUtil.Status.IDLE) {
+                downloadTask.setTag("mark-task-started");
+                downloadTask.enqueue(new a(yl0Var));
+                return;
+            }
+            a(cl0Var, yl0Var);
         }
     }
 
-    public final void f(long j) {
-        VIEW k;
+    public final String e(cl0 cl0Var) {
+        InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && (k = k()) != null) {
-            k.a(j);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cl0Var)) == null) {
+            if (cl0Var != null && hn0.b().a().a("uad_set_filename_switch", 0) == 1) {
+                gl0 gl0Var = cl0Var.p;
+                if (gl0Var != null && !TextUtils.isEmpty(gl0Var.h)) {
+                    str = cl0Var.p.h;
+                } else {
+                    str = "";
+                }
+                if (TextUtils.isEmpty(str) && !TextUtils.isEmpty(cl0Var.g)) {
+                    str = c51.a("MD5", cl0Var.g.getBytes(), false);
+                }
+                if (str.length() > 250) {
+                    return str.substring(0, 250);
+                }
+                return str;
+            }
+            return null;
         }
-    }
-
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return invokeV.longValue;
-    }
-
-    public void i() {
-        CountDownTimer countDownTimer;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || (countDownTimer = this.a) == null) {
-            return;
-        }
-        countDownTimer.cancel();
-        VIEW k = k();
-        if (k != null) {
-            k.c(this.c, this.b);
-        }
-    }
-
-    public long j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
-        }
-        return invokeV.longValue;
-    }
-
-    public final VIEW k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.d.get();
-        }
-        return (VIEW) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 }

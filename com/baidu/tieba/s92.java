@@ -1,12 +1,10 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.swan.apps.core.prefetch.statistics.item.RecordType;
-import com.baidu.tieba.n92;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
+import com.baidu.swan.apps.core.launchtips.scene.SceneType;
+import com.baidu.tieba.e92;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,28 +12,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Set;
 /* loaded from: classes6.dex */
 public class s92 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final aa2 b;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
+    public final e92 a;
+    public final n92 b;
+    public final b92 c;
 
     /* loaded from: classes6.dex */
-    public static class a implements Runnable {
+    public class a implements e92.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ boolean b;
-        public final /* synthetic */ String c;
+        public final /* synthetic */ p92 a;
+        public final /* synthetic */ d92 b;
+        public final /* synthetic */ s92 c;
 
-        public a(String str, boolean z, String str2) {
+        public a(s92 s92Var, p92 p92Var, d92 d92Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Boolean.valueOf(z), str2};
+                Object[] objArr = {s92Var, p92Var, d92Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -45,45 +44,59 @@ public class s92 {
                     return;
                 }
             }
-            this.a = str;
-            this.b = z;
-            this.c = str2;
+            this.c = s92Var;
+            this.a = p92Var;
+            this.b = d92Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            long j;
+        @Override // com.baidu.tieba.e92.b
+        public void a(NetworkStatus networkStatus) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (s92.a) {
-                    j = System.currentTimeMillis();
-                } else {
-                    j = 0;
+            if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
+                x82.e(SceneType.SCENE_INIT_DATA_ERROR.getType(), networkStatus.getStatus(), this.a.e().getStatus(), this.a.g(), this.a.b(), this.a.f(), this.a.a());
+                StringBuilder sb = new StringBuilder();
+                sb.append(SceneType.SCENE_INIT_DATA_ERROR.getScene());
+                sb.append(this.b.a());
+                sb.append(this.a.d());
+                sb.append(networkStatus.getDesc());
+                sb.append(this.a.c());
+                if (s92.d) {
+                    Log.d("SceneInitDataTips", ">> " + sb.toString());
                 }
-                Set<String> m = t92.k().m(this.a, true);
-                if (m != null && m.size() > 0) {
-                    if (s92.a) {
-                        Log.d("SwanPreLinkWhenPreload", "start prelink, swan is already launched - " + this.b);
-                    }
-                    for (String str : m) {
-                        boolean b = s92.b(this.c, this.a, str);
-                        m92 d = m92.d();
-                        String str2 = this.c;
-                        n92.b a = n92.a();
-                        a.h(RecordType.PREFETCH_PRELINK);
-                        a.f(str);
-                        a.g(b);
-                        d.f(str2, a.e());
-                        if (b) {
-                            t92.k().s(this.a, str);
-                            s92.d(this.a, str);
-                        }
-                    }
-                    if (s92.a) {
-                        long currentTimeMillis = System.currentTimeMillis();
-                        Log.d("SwanPreLinkWhenPreload", " prelink - " + this.a + ", cost - " + (currentTimeMillis - j) + "ms");
-                    }
+                y82.g(sb.toString());
+                this.c.d(networkStatus);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-475727809, "Lcom/baidu/tieba/s92$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
                 }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-475727809, "Lcom/baidu/tieba/s92$b;");
+                    return;
+                }
+            }
+            int[] iArr = new int[NetworkStatus.values().length];
+            a = iArr;
+            try {
+                iArr[NetworkStatus.NETWORK_BAD.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[NetworkStatus.NETWORK_OFFLINE.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
             }
         }
     }
@@ -101,57 +114,49 @@ public class s92 {
                 return;
             }
         }
-        a = tk1.a;
-        b = ca2.a();
+        d = gp1.a;
     }
 
-    public static boolean b(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
+    public s92() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
-            if (TextUtils.isEmpty(str3)) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return b.c(str, str2, str3);
         }
-        return invokeLLL.booleanValue;
+        this.c = b92.d();
+        this.a = new e92();
+        this.b = n92.d();
     }
 
-    public static void e(String str, @NonNull String str2, boolean z) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65541, null, str, str2, z) == null) {
-            ExecutorUtilsExt.postOnSerial(new a(str2, z, str), "SwanPreLinkWhenPreload");
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (d) {
+                Log.d("SceneInitDataTips", ">> trigger init data error event.");
+            }
+            n92.d().j();
+            b92.d().j();
+            d92 f = this.c.f();
+            this.a.a(new a(this, this.b.f(), f));
         }
     }
 
-    public static void c(String str, String str2) {
+    public final void d(NetworkStatus networkStatus) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
-            if (!b.b()) {
-                if (a) {
-                    Log.d("SwanPreLinkWhenPreload", "prelink by preload ab is off");
-                }
-            } else if (TextUtils.isEmpty(str2)) {
-                if (a) {
-                    Log.d("SwanPreLinkWhenPreload", "prelink by preload appId is empty");
-                }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, networkStatus) == null) {
+            int i = b.a[networkStatus.ordinal()];
+            if (i != 1 && i != 2) {
+                w82.f(R.string.obfuscated_res_0x7f0f13df);
             } else {
-                j43 q = i43.K().q();
-                if (q == null) {
-                    if (a) {
-                        Log.d("SwanPreLinkWhenPreload", "prelink by preload swanApp is null");
-                    }
-                } else if (TextUtils.equals(q.b, str2)) {
-                    e(str, str2, q.I());
-                }
+                w82.f(R.string.obfuscated_res_0x7f0f13d5);
             }
-        }
-    }
-
-    public static void d(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && b.a() != null) {
-            b.a().b(str, str2, true);
         }
     }
 }

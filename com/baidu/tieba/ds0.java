@@ -1,17 +1,15 @@
 package com.baidu.tieba;
+
+import androidx.annotation.Nullable;
 /* loaded from: classes4.dex */
 public interface ds0 {
-    void mute(boolean z);
+    @Nullable
+    String a();
 
-    void pause();
+    @Nullable
+    String b();
 
-    void resume();
+    long c();
 
-    void setLooping(boolean z);
-
-    void setVideoScalingMode(int i);
-
-    void start();
-
-    void stop();
+    boolean isSuccess();
 }

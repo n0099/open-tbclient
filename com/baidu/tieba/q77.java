@@ -1,108 +1,31 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.homepage.lowFlows.message.MoreTreasureTroveReqMsg;
+import com.baidu.tieba.v97;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.List;
+import com.squareup.wire.Message;
 /* loaded from: classes5.dex */
-public class q77 implements d77 {
+public class q77 implements lw7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public BdUniqueId b;
-    public rb c;
-    public boolean d;
-    public e77 e;
-    public final HashMap<String, List<yn>> f;
+    public v97.d a;
 
-    public void h(String str) {
+    @Override // com.baidu.tieba.lw7
+    public void c(long j, String str, Message message, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), str, message, Boolean.valueOf(z)}) == null) {
         }
     }
 
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends rb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q77 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(q77 q77Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q77Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = q77Var;
-        }
-
-        @Override // com.baidu.tieba.rb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.a.d = false;
-                if (this.a.e == null) {
-                    return;
-                }
-                if (!(responsedMessage instanceof p77)) {
-                    this.a.e.c(-1);
-                } else if (responsedMessage.getOrginalMessage() != null && this.a.b == responsedMessage.getOrginalMessage().getTag()) {
-                    if (responsedMessage.hasError() && responsedMessage.getError() == 0) {
-                        this.a.e.c(responsedMessage.getError());
-                        return;
-                    }
-                    p77 p77Var = (p77) responsedMessage;
-                    if (p77Var.getDataList() != null && p77Var.getDataList().size() > 0) {
-                        if (!StringUtils.isNull(this.a.a)) {
-                            this.a.f.put(this.a.a, p77Var.getDataList());
-                        }
-                        this.a.e.b(responsedMessage.getError(), p77Var);
-                        return;
-                    }
-                    this.a.e.c(-1);
-                } else {
-                    this.a.e.c(-1);
-                }
-            }
-        }
-    }
-
-    public q77(e77 e77Var) {
+    public q77(v97.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {e77Var};
+            Object[] objArr = {dVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -112,67 +35,35 @@ public class q77 implements d77 {
                 return;
             }
         }
-        this.b = null;
-        this.f = new HashMap<>();
-        this.e = e77Var;
-        g();
+        this.a = dVar;
     }
 
-    public void i(String str) {
+    @Override // com.baidu.tieba.lw7
+    public void a(boolean z, Message message, boolean z2, long j, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void k(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
-            this.b = bdUniqueId;
-        }
-    }
-
-    @Override // com.baidu.tieba.d77
-    public boolean a(BdUniqueId bdUniqueId, String str, String str2, String str3) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, bdUniqueId, str, str2, str3)) == null) {
-            if (BdNetTypeUtil.isNetworkAvailableForImmediately() && bdUniqueId != null && !StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-                if (this.d) {
-                    return false;
-                }
-                String str4 = this.a;
-                if (str4 != null && str4.equals(str) && this.f.size() > 0) {
-                    this.e.setData(this.f.get(str));
-                    return true;
-                }
-                k(bdUniqueId);
-                i(str);
-                h(str2);
-                j(str3);
-                MoreTreasureTroveReqMsg moreTreasureTroveReqMsg = new MoreTreasureTroveReqMsg();
-                moreTreasureTroveReqMsg.setTag(bdUniqueId);
-                moreTreasureTroveReqMsg.setTabCode(str);
-                moreTreasureTroveReqMsg.setLfUser(str2);
-                moreTreasureTroveReqMsg.setTaskId(str3);
-                boolean sendMessage = MessageManager.getInstance().sendMessage(moreTreasureTroveReqMsg);
-                this.d = sendMessage;
-                return sendMessage;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), message, Boolean.valueOf(z2), Long.valueOf(j), str, Integer.valueOf(i)}) == null) {
+            r77 r77Var = new r77();
+            ew7 ew7Var = new ew7();
+            ew7Var.a = j;
+            ew7Var.b = str;
+            aw7 a = jw7.d().a(ew7Var);
+            if (a != null) {
+                a.c(z, message, z2, i);
             }
-            e77 e77Var = this.e;
-            if (e77Var != null) {
-                e77Var.c(-1);
+            r77Var.b(a);
+            v97.d dVar = this.a;
+            if (dVar != null) {
+                dVar.e(z, r77Var, z2, "", str, true);
             }
-            return false;
         }
-        return invokeLLLL.booleanValue;
     }
 
-    public final void g() {
+    @Override // com.baidu.tieba.lw7
+    public void b(long j, String str, String str2, int i) {
+        v97.d dVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = new a(this, CmdConfigHttp.CMD_LOW_FLOWS_PAGE, 309691);
-            MessageManager.getInstance().registerListener(this.c);
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), str, str2, Integer.valueOf(i)}) == null) && (dVar = this.a) != null) {
+            dVar.c(str, str2, i, true, 1);
         }
     }
 }

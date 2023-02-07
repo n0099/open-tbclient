@@ -1,15 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public final class ou implements js {
+public final class ou implements rs {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.rs
+    public Map<String, String> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (Map) invokeV.objValue;
+    }
 
     public ou() {
         Interceptable interceptable = $ic;
@@ -22,28 +32,6 @@ public final class ou implements js {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.js
-    public String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            Object b = com.baidu.bdtask.service.cache.storage.c.i.a().b(str);
-            if (!(b instanceof String)) {
-                b = null;
-            }
-            return (String) b;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.js
-    public void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            com.baidu.bdtask.service.cache.storage.c.i.a().d(str2, str);
         }
     }
 }

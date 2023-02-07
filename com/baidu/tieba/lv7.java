@@ -1,92 +1,101 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.searchbox.live.interfaces.player.BuildParams;
-import com.baidu.searchbox.live.interfaces.player.LivePlayer;
-import com.baidu.searchbox.live.interfaces.service.ILivePlayerService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class lv7 implements ILivePlayerService {
+public class lv7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final int b;
+    public final int c;
+    public final String d;
 
-    @Override // com.baidu.searchbox.live.interfaces.service.ILivePlayerService
-    public boolean isAuthError(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i == -2403 || i == -33403 : invokeI.booleanValue;
-    }
-
-    public lv7() {
+    public lv7(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        if (jSONObject != null) {
+            this.a = jSONObject.optString("moreText");
+            this.b = nv7.b(jSONObject.optString("moreColor", ""));
+            this.c = nv7.b(jSONObject.optString("moreColorNight", ""));
+            this.d = jSONObject.optString("moreScheme");
+            return;
+        }
+        this.a = "";
+        this.b = Integer.MAX_VALUE;
+        this.c = Integer.MAX_VALUE;
+        this.d = "";
     }
 
-    public final LivePlayer a(BuildParams buildParams) {
+    public static lv7 a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, buildParams)) == null) {
-            return new nv7(buildParams);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            return new lv7(jSONObject);
         }
-        return (LivePlayer) invokeL.objValue;
+        return (lv7) invokeL.objValue;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.ILivePlayerService
-    public LivePlayer createBackPlayer(String str) {
-        InterceptResult invokeL;
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return new hv7(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (LivePlayer) invokeL.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.ILivePlayerService
-    public LivePlayer createPlayer(String str) {
-        InterceptResult invokeL;
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return new iv7(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-        return (LivePlayer) invokeL.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.ILivePlayerService
-    public LivePlayer createPlayer(BuildParams buildParams) {
-        InterceptResult invokeL;
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, buildParams)) == null) {
-            int playerType = buildParams.getPlayerType();
-            if (playerType != 1) {
-                if (playerType != 2) {
-                    return createPlayer(buildParams.getRoomId());
-                }
-                return a(buildParams);
-            }
-            return createBackPlayer(buildParams.getRoomId());
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
         }
-        return (LivePlayer) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.ILivePlayerService
-    public void initPlayerEvn(CyberPlayerManager.InstallListener installListener, int i) {
+    public String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, installListener, i) == null) {
-            jv7.e().h(installListener, i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
         }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return !TextUtils.isEmpty(this.a);
+        }
+        return invokeV.booleanValue;
     }
 }

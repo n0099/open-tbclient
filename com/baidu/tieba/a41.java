@@ -1,79 +1,63 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Build;
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.nadcore.thread.executor.BaseExecutorCell;
+import com.baidu.nadcore.thread.task.ElasticTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class a41 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static boolean a = false;
-    public static boolean b = false;
-    public static boolean c = false;
-    public static boolean d = true;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public BaseExecutorCell a;
+    @NonNull
+    public BaseExecutorCell b;
+    @NonNull
+    public BaseExecutorCell c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947565099, "Lcom/baidu/tieba/a41;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947565099, "Lcom/baidu/tieba/a41;");
-        }
-    }
-
-    public static boolean a(Context context, String str) {
-        InterceptResult invokeLL;
+    public a41() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            try {
-                if (Build.VERSION.SDK_INT >= 23) {
-                    if (context.checkSelfPermission(str) != 0) {
-                        return false;
-                    }
-                    return true;
-                } else if (context.checkCallingOrSelfPermission(str) != 0) {
-                    return false;
-                } else {
-                    return true;
-                }
-            } catch (Throwable unused) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeLL.booleanValue;
+        this.a = BaseExecutorCell.b(n31.d, BaseExecutorCell.ExecutorType.ARTERY);
+        this.b = BaseExecutorCell.b(n31.e, BaseExecutorCell.ExecutorType.ARTERY);
+        this.c = BaseExecutorCell.b(n31.f, BaseExecutorCell.ExecutorType.ARTERY);
     }
 
-    public static boolean b(String str) {
+    public boolean a(ElasticTask elasticTask) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                if ("permission_location".equalsIgnoreCase(str)) {
-                    return b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, elasticTask)) == null) {
+            int b = elasticTask.b();
+            if (b != 0 && b != 1) {
+                if (b == 2) {
+                    if (this.b.c(elasticTask)) {
+                        return true;
+                    }
+                    return this.c.c(elasticTask);
+                } else if (b == 3) {
+                    return this.c.c(elasticTask);
+                } else {
+                    return false;
                 }
-                if ("permission_storage".equalsIgnoreCase(str)) {
-                    return c;
-                }
-                if ("permission_app_list".equalsIgnoreCase(str)) {
-                    return d;
-                }
-                if ("permission_read_phone_state".equalsIgnoreCase(str)) {
-                    return a;
-                }
-                return false;
+            } else if (this.a.c(elasticTask) || this.b.c(elasticTask)) {
+                return true;
+            } else {
+                return this.c.c(elasticTask);
             }
-            return false;
         }
         return invokeL.booleanValue;
     }

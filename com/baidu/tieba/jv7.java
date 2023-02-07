@@ -1,156 +1,36 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.HashMap;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class jv7 {
     public static /* synthetic */ Interceptable $ic;
-    public static jv7 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
+    public final String a;
+    public final String b;
+    public final int c;
+    public final String d;
+    public final String e;
+    public final int f;
+    public final String g;
+    public final String h;
+    public final String i;
+    public boolean j;
+    public boolean k;
 
-    /* loaded from: classes5.dex */
-    public class a implements CyberPlayerManager.InstallListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CyberPlayerManager.InstallListener a;
-        public final /* synthetic */ jv7 b;
-
-        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
-        public void onInstallProgress(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            }
-        }
-
-        public a(jv7 jv7Var, CyberPlayerManager.InstallListener installListener) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jv7Var, installListener};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = jv7Var;
-            this.a = installListener;
-        }
-
-        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
-        public void onInstallError(int i, int i2, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, str) == null) {
-                if (this.b.b < 3) {
-                    jv7.c(this.b);
-                    this.b.g(this.a);
-                    return;
-                }
-                this.b.b = 0;
-                CyberPlayerManager.InstallListener installListener = this.a;
-                if (installListener != null) {
-                    installListener.onInstallError(i, i2, str);
-                }
-            }
-        }
-
-        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
-        public void onInstallSuccess(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
-                this.b.b = 0;
-                this.b.a = true;
-                CyberPlayerManager.InstallListener installListener = this.a;
-                if (installListener != null) {
-                    installListener.onInstallSuccess(i, str);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements CyberPlayerManager.InstallListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CyberPlayerManager.InstallListener a;
-        public final /* synthetic */ jv7 b;
-
-        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
-        public void onInstallProgress(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            }
-        }
-
-        public b(jv7 jv7Var, CyberPlayerManager.InstallListener installListener) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jv7Var, installListener};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = jv7Var;
-            this.a = installListener;
-        }
-
-        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
-        public void onInstallError(int i, int i2, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, str) == null) {
-                if (this.b.b < 3) {
-                    jv7.c(this.b);
-                    this.b.g(this.a);
-                    return;
-                }
-                this.b.b = 0;
-                CyberPlayerManager.InstallListener installListener = this.a;
-                if (installListener != null) {
-                    installListener.onInstallError(i, i2, str);
-                }
-            }
-        }
-
-        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
-        public void onInstallSuccess(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
-                this.b.b = 0;
-                this.b.a = true;
-                CyberPlayerManager.InstallListener installListener = this.a;
-                if (installListener != null) {
-                    installListener.onInstallSuccess(i, str);
-                }
-            }
-        }
-    }
-
-    public jv7() {
+    public jv7(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -160,90 +40,147 @@ public class jv7 {
                 return;
             }
         }
-        this.a = true;
+        this.j = false;
+        this.k = false;
+        this.a = jSONObject.optString("bIcon");
+        this.b = jSONObject.optString("bIconN");
+        this.c = jSONObject.optInt("bIconType");
+        this.d = jSONObject.optString("bSelIcon");
+        this.e = jSONObject.optString("bSelIconN");
+        this.f = jSONObject.optInt("bSelIconType");
+        this.g = jSONObject.optString("clickAction");
+        this.h = jSONObject.optString("preAction");
+        this.i = jSONObject.optString("statKey");
     }
 
-    public static jv7 e() {
-        InterceptResult invokeV;
+    public static int g(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (c == null) {
-                i();
-            }
-            return c;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            return dv7.a(i);
         }
-        return (jv7) invokeV.objValue;
+        return invokeI.intValue;
     }
 
-    public static synchronized void i() {
+    public void l(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            synchronized (jv7.class) {
-                if (c == null) {
-                    c = new jv7();
-                }
-            }
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.j = z;
         }
     }
 
-    public boolean f() {
+    public void m(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.k = z;
+        }
+    }
+
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            boolean isCoreLoaded = CyberPlayerManager.isCoreLoaded(3);
-            if (isCoreLoaded && !this.a) {
-                this.a = true;
+            if (f() > 0) {
+                return true;
             }
-            return isCoreLoaded;
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public static /* synthetic */ int c(jv7 jv7Var) {
-        int i = jv7Var.b;
-        jv7Var.b = i + 1;
-        return i;
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.g;
+        }
+        return (String) invokeV.objValue;
     }
 
-    public void g(CyberPlayerManager.InstallListener installListener) {
-        String absolutePath;
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, installListener) == null) && !CyberPlayerManager.isCoreLoaded(3)) {
-            this.a = false;
-            String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
-            File cacheDir = TbadkCoreApplication.getInst().getCacheDir();
-            if (cacheDir != null) {
-                absolutePath = cacheDir.getAbsolutePath();
-            } else {
-                absolutePath = Environment.getDownloadCacheDirectory().getAbsolutePath();
-            }
-            HashMap hashMap = new HashMap();
-            hashMap.put("cache-path", absolutePath);
-            try {
-                CyberPlayerManager.install(TbadkCoreApplication.getInst(), cuidGalaxy2, (String) null, 3, (Class<?>) null, hashMap, new a(this, installListener));
-            } catch (Exception unused) {
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.j;
         }
+        return invokeV.booleanValue;
     }
 
-    public void h(CyberPlayerManager.InstallListener installListener, int i) {
-        String absolutePath;
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, installListener, i) == null) && !CyberPlayerManager.isCoreLoaded(i)) {
-            this.a = false;
-            String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
-            File cacheDir = TbadkCoreApplication.getInst().getCacheDir();
-            if (cacheDir != null) {
-                absolutePath = cacheDir.getAbsolutePath();
-            } else {
-                absolutePath = Environment.getDownloadCacheDirectory().getAbsolutePath();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.j) {
+                return this.d;
             }
-            HashMap hashMap = new HashMap();
-            hashMap.put("cache-path", absolutePath);
-            try {
-                CyberPlayerManager.install(TbadkCoreApplication.getInst(), cuidGalaxy2, (String) null, i, (Class<?>) null, hashMap, new b(this, installListener));
-            } catch (Exception unused) {
-            }
+            return this.a;
         }
+        return (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.j) {
+                return this.e;
+            }
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.j) {
+                i = this.f;
+            } else {
+                i = this.c;
+            }
+            return g(i);
+        }
+        return invokeV.intValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.h;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.i;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.k;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (TextUtils.isEmpty(this.a) && TextUtils.isEmpty(this.b) && TextUtils.isEmpty(this.d) && TextUtils.isEmpty(this.e) && TextUtils.isEmpty(this.g) && TextUtils.isEmpty(this.h) && TextUtils.isEmpty(this.i) && this.c == 0 && this.f == 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

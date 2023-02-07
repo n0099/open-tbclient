@@ -1,49 +1,44 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.mobstat.Config;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class nk9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public int c;
-    public boolean d;
-    public int e;
-    public String f;
 
-    public nk9() {
+    public static void a(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull mb5 mb5Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLLLL(65536, null, tbPageContext, editorTools, mb5Var, str) == null) {
+            if ("e1".equals(str)) {
+                vk9.h(tbPageContext, editorTools, mb5Var);
+            } else if (Config.SESSTION_TRACK_END_TIME.equals(str)) {
+                vk9.j(tbPageContext, editorTools, mb5Var);
+            } else if ("e3".equals(str)) {
+                vk9.k(tbPageContext, editorTools, mb5Var);
+            } else if ("e4".equals(str)) {
+                vk9.g(tbPageContext, editorTools, mb5Var);
+            } else if ("e5".equals(str)) {
+                vk9.d(editorTools, mb5Var);
+            } else if ("e6".equals(str)) {
+                vk9.a(tbPageContext, editorTools, mb5Var);
+            } else if ("e7".equals(str)) {
+                vk9.l(tbPageContext, editorTools, mb5Var);
+            } else if ("e8".equals(str)) {
+                vk9.b(tbPageContext, editorTools, mb5Var);
+            } else if ("e9".equals(str)) {
+                vk9.i(tbPageContext, editorTools);
+            } else if ("e10".equals(str)) {
+                vk9.c(tbPageContext, editorTools, mb5Var);
+            } else if ("e11".equals(str)) {
+                vk9.f(tbPageContext, editorTools, mb5Var);
+            } else if ("e12".equals(str)) {
+                vk9.e(tbPageContext, editorTools, mb5Var);
             }
         }
-        this.a = true;
-        this.b = false;
-        this.c = 60;
-        this.d = true;
-        this.e = 0;
-        this.f = "99999";
-    }
-
-    public static boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return TextUtils.equals(str, "99999");
-        }
-        return invokeL.booleanValue;
     }
 }

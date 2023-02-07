@@ -1,87 +1,123 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.apps.res.ui.wheelview3d.WheelView3d;
+import android.os.Bundle;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.tieba.br2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.TimerTask;
 /* loaded from: classes4.dex */
-public final class c33 extends TimerTask {
+public class c33 implements pn3<HybridUbcFlow> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public final float b;
-    public final WheelView3d c;
 
-    public c33(WheelView3d wheelView3d, float f) {
+    /* loaded from: classes4.dex */
+    public class a implements pn3<HybridUbcFlow> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(c33 c33Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c33Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.pn3
+        /* renamed from: b */
+        public void a(HybridUbcFlow hybridUbcFlow) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) != null) || c33.b(hybridUbcFlow)) {
+                return;
+            }
+            long f = hybridUbcFlow.f("na_first_meaningful_paint", "naStart");
+            if (f <= 0) {
+                f = hybridUbcFlow.f("na_first_paint", "naStart");
+            }
+            if (f <= 0) {
+                f = hybridUbcFlow.f("slave_first_rendered", "naStart");
+            }
+            if (f <= 0) {
+                f = hybridUbcFlow.f("fe_page_show", "naStart");
+            }
+            if (f <= 0) {
+                f = hybridUbcFlow.f("na_page_show", "naStart");
+            }
+            if (f <= 0) {
+                f = hybridUbcFlow.f("na_receive_intent", "naStart");
+            }
+            if (f <= 0) {
+                f = System.currentTimeMillis();
+            }
+            Bundle bundle = new Bundle();
+            bundle.putLong("property_launch_cost", f);
+            m53 e = m53.e();
+            o53 o53Var = new o53(20, bundle);
+            o53Var.f(true);
+            e.h(o53Var);
+            j23.h().end(f);
+            z23.e().f();
+        }
+    }
+
+    public c33() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wheelView3d, Float.valueOf(f)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = wheelView3d;
-        this.b = f;
-        this.a = 2.1474836E9f;
     }
 
-    @Override // java.util.TimerTask, java.lang.Runnable
-    public final void run() {
+    public static boolean b(HybridUbcFlow hybridUbcFlow) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.a == 2.1474836E9f) {
-                float f = 2000.0f;
-                if (Math.abs(this.b) > 2000.0f) {
-                    if (this.b <= 0.0f) {
-                        f = -2000.0f;
-                    }
-                    this.a = f;
-                } else {
-                    this.a = this.b;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hybridUbcFlow)) == null) {
+            if (hybridUbcFlow.p("performanceEnd") && !hybridUbcFlow.p("na_first_meaningful_paint")) {
+                return true;
             }
-            if (Math.abs(this.a) >= 0.0f && Math.abs(this.a) <= 20.0f) {
-                this.c.b();
-                this.c.getHandler().sendEmptyMessage(2000);
-                return;
-            }
-            WheelView3d wheelView3d = this.c;
-            float f2 = (int) (this.a / 100.0f);
-            wheelView3d.setTotalScrollY(wheelView3d.getTotalScrollY() - f2);
-            if (!this.c.i()) {
-                float itemHeight = this.c.getItemHeight();
-                float f3 = (-this.c.getInitPosition()) * itemHeight;
-                float itemsCount = ((this.c.getItemsCount() - 1) - this.c.getInitPosition()) * itemHeight;
-                double d = itemHeight * 0.25d;
-                if (this.c.getTotalScrollY() - d < f3) {
-                    f3 = this.c.getTotalScrollY() + f2;
-                } else if (this.c.getTotalScrollY() + d > itemsCount) {
-                    itemsCount = this.c.getTotalScrollY() + f2;
-                }
-                if (this.c.getTotalScrollY() <= f3) {
-                    this.a = 40.0f;
-                    this.c.setTotalScrollY((int) f3);
-                } else if (this.c.getTotalScrollY() >= itemsCount) {
-                    this.c.setTotalScrollY((int) itemsCount);
-                    this.a = -40.0f;
-                }
-            }
-            float f4 = this.a;
-            if (f4 < 0.0f) {
-                this.a = f4 + 20.0f;
-            } else {
-                this.a = f4 - 20.0f;
-            }
-            this.c.getHandler().sendEmptyMessage(1000);
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.pn3
+    /* renamed from: c */
+    public void a(HybridUbcFlow hybridUbcFlow) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
+            hybridUbcFlow.J("670");
+            hybridUbcFlow.D("preload_scene", "1");
+            hybridUbcFlow.E("from", "swan");
+            hybridUbcFlow.H("component_reporter", new x13());
+            hybridUbcFlow.H("component_reporter", new a13());
+            hybridUbcFlow.H("component_reporter", new u13());
+            hybridUbcFlow.H("component_reporter", new z13());
+            hybridUbcFlow.H("callback_on_submit", new br2.a());
+            hybridUbcFlow.H("fmp_callback", new f33("fmp_callback"));
+            hybridUbcFlow.H("fmp_callback", new t33());
+            hybridUbcFlow.H("callback_on_submit", new f33("callback_on_submit"));
+            hybridUbcFlow.H("callback_on_submit", new uk3());
+            hybridUbcFlow.H("callback_on_submit", new a(this));
         }
     }
 }

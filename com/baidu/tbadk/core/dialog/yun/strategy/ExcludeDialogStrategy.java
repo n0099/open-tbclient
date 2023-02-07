@@ -2,12 +2,12 @@ package com.baidu.tbadk.core.dialog.yun.strategy;
 
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.data.DialogStrategiesData;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.b;
-import com.baidu.tieba.vw4;
+import com.baidu.tieba.i15;
+import com.baidu.tieba.log.TbLogManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 /* loaded from: classes3.dex */
-public class ExcludeDialogStrategy implements vw4 {
+public class ExcludeDialogStrategy implements i15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -61,7 +61,7 @@ public class ExcludeDialogStrategy implements vw4 {
         }
     }
 
-    @Override // com.baidu.tieba.vw4
+    @Override // com.baidu.tieba.i15
     @NonNull
     public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
         InterceptResult invokeLLL;
@@ -74,7 +74,7 @@ public class ExcludeDialogStrategy implements vw4 {
         return (Map) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.vw4
+    @Override // com.baidu.tieba.i15
     public boolean b(@NonNull Map<String, Object> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -82,7 +82,7 @@ public class ExcludeDialogStrategy implements vw4 {
             Data data = (Data) DataExt.toEntity(map, Data.class);
             for (String str : data.dialogNameList) {
                 if (data.alreadyShownDialogs.contains(str)) {
-                    BdLog.printExceptionLog("YunDialogManager", "ExcludeDialogStrategy:alreadyShownDialogs:" + str + " " + b.a(",", data.dialogNameList) + " " + b.a(",", data.alreadyShownDialogs));
+                    TbLogManager.logI("5001", "YunDialogManager", "ExcludeDialogStrategy:alreadyShownDialogs:" + str + " " + b.a(",", data.dialogNameList) + " " + b.a(",", data.alreadyShownDialogs));
                     return false;
                 }
             }

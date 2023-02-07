@@ -1,53 +1,64 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class qp0 {
+public class qp0 {
     public static /* synthetic */ Interceptable $ic;
+    public static pp0 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final int b;
 
-    public qp0(JSONObject jSONObject) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948099384, "Lcom/baidu/tieba/qp0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948099384, "Lcom/baidu/tieba/qp0;");
+        }
+    }
+
+    public qp0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = jSONObject.optString("url");
-        jSONObject.optInt("width");
-        this.b = jSONObject.optInt("height");
     }
 
-    public static qp0 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public static pp0 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            return new qp0(jSONObject);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (qp0.class) {
+                    if (a == null) {
+                        a = (pp0) ServiceManager.getService(pp0.a);
+                    }
+                    if (a == null) {
+                        a = pp0.b;
+                    }
+                }
+            }
+            return a;
         }
-        return (qp0) invokeL.objValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || TextUtils.isEmpty(this.a)) {
-            return;
-        }
-        un0.a().d(this.a);
+        return (pp0) invokeV.objValue;
     }
 }

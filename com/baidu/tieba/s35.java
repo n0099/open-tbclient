@@ -1,134 +1,232 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.YYLiveUtil;
-import com.baidu.tbadk.core.util.schemeaction.SchemeActionHelper;
-import com.baidu.tbadk.data.LiveRemindRecommendData;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class s35 {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
-    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext<?> a;
+    public Activity b;
+    public AlertDialog c;
+    public String d;
+    public TextView e;
+    public DialogInterface.OnCancelListener f;
+    public boolean g;
 
-    public static String a(String str, int i) {
-        InterceptResult invokeLI;
-        String str2;
+    public s35(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
-            if (i == 1) {
-                str2 = "index";
-            } else if (i == 2) {
-                str2 = "pb_live";
-            } else if (i == 3) {
-                int i2 = a;
-                if (i2 == 1) {
-                    str2 = "video_bar_live";
-                } else {
-                    if (i2 == 2) {
-                        str2 = "video_immer_live";
-                    }
-                    str2 = "";
-                }
-            } else {
-                if (i == 4) {
-                    str2 = YYLiveUtil.SOURCE_PB_DATU_EOF;
-                }
-                str2 = "";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return str + "?source=" + str2;
         }
-        return (String) invokeLI.objValue;
+        this.a = null;
+        this.b = null;
+        this.d = null;
+        this.e = null;
+        this.g = true;
+        this.b = activity;
     }
 
-    public static String b(LiveRemindRecommendData liveRemindRecommendData) {
+    public s35(TbPageContext<?> tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+        this.b = null;
+        this.d = null;
+        this.e = null;
+        this.g = true;
+        this.a = tbPageContext;
+        if (tbPageContext != null && tbPageContext.getPageActivity() != null) {
+            this.b = this.a.getPageActivity();
+        }
+    }
+
+    public final s35 a(DialogInterface.OnCancelListener onCancelListener) {
         InterceptResult invokeL;
+        TextView textView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, liveRemindRecommendData)) == null) {
-            if (liveRemindRecommendData != null && !StringUtils.isNull(liveRemindRecommendData.getLiveIconScheme())) {
-                b = liveRemindRecommendData.getShowPage();
-                String liveIconScheme = liveRemindRecommendData.getLiveIconScheme();
-                if (liveRemindRecommendData.getShowPage() == 3) {
-                    String c = c();
-                    if (liveIconScheme.contains("closeLink")) {
-                        return SchemeActionHelper.replaceUrlParameter(liveIconScheme.replace("VIDEOICONBACK", c + "_back"), "source", c);
-                    }
-                    return SchemeActionHelper.replaceUrlParameter(liveIconScheme, "source", c);
-                }
-                return liveIconScheme;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, onCancelListener)) == null) {
+            if (this.b == null) {
+                return this;
             }
-            return null;
+            AlertDialog create = new AlertDialog.Builder(this.b).create();
+            this.c = create;
+            GreyUtil.grey(create);
+            ih.i(this.c, this.b);
+            View inflate = LayoutInflater.from(this.b).inflate(R.layout.custom_loading_toast, (ViewGroup) null);
+            this.e = (TextView) inflate.findViewById(R.id.custom_loading_text);
+            if (!StringUtils.isNull(this.d) && (textView = this.e) != null) {
+                textView.setText(this.d);
+            }
+            AlertDialog alertDialog = this.c;
+            if (alertDialog != null && alertDialog.getWindow() != null) {
+                this.c.getWindow().setContentView(inflate);
+                if (onCancelListener != null) {
+                    this.c.setCancelable(true);
+                    this.c.setCanceledOnTouchOutside(true);
+                    this.c.setOnCancelListener(onCancelListener);
+                } else {
+                    this.c.setCanceledOnTouchOutside(false);
+                    this.c.setCancelable(false);
+                }
+            }
+            return this;
         }
-        return (String) invokeL.objValue;
+        return (s35) invokeL.objValue;
     }
 
-    public static String c() {
+    public final s35 b(DialogInterface.OnCancelListener onCancelListener) {
+        InterceptResult invokeL;
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onCancelListener)) == null) {
+            if (this.b == null) {
+                return this;
+            }
+            AlertDialog create = new AlertDialog.Builder(this.b).create();
+            this.c = create;
+            GreyUtil.grey(create);
+            ih.i(this.c, this.b);
+            View inflate = LayoutInflater.from(this.b).inflate(R.layout.custom_loading_toast, (ViewGroup) null);
+            this.e = (TextView) inflate.findViewById(R.id.custom_loading_text);
+            if (!StringUtils.isNull(this.d) && (textView = this.e) != null) {
+                textView.setText(this.d);
+            }
+            AlertDialog alertDialog = this.c;
+            if (alertDialog != null && alertDialog.getWindow() != null) {
+                this.c.getWindow().setContentView(inflate);
+                if (onCancelListener != null) {
+                    this.c.setOnCancelListener(onCancelListener);
+                }
+            }
+            return this;
+        }
+        return (s35) invokeL.objValue;
+    }
+
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            int i = a;
-            if (i == 1) {
-                return YYLiveUtil.SOURCE_HOMEPAGE_VIDEO_CHANNEL;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            AlertDialog alertDialog = this.c;
+            if (alertDialog == null || !alertDialog.isShowing()) {
+                return false;
             }
-            if (i == 2) {
-                return YYLiveUtil.SOURCE_HOMEPAGE_VIDEO_MIDDLE;
-            }
-            int i2 = b;
-            if (i2 == 1) {
-                return "index_gz";
-            }
-            if (i2 == 2) {
-                return AddFriendActivityConfig.TYPE_PB_HEAD;
-            }
-            return YYLiveUtil.SOURCE_NOT_DEFINE;
+            return true;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static void e() {
+    @Nullable
+    public Activity getActivity() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            new StatisticItem(TbadkCoreStatisticKey.KEY_HOME_LIVE_ICON_CLICK).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_type", 1).eventStat();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.b;
         }
+        return (Activity) invokeV.objValue;
     }
 
-    public static void f() {
+    public void d(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            new StatisticItem(TbadkCoreStatisticKey.KEY_HOME_LIVE_ICON_SHOW).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_type", 1).eventStat();
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.g = z;
         }
     }
 
-    public static String d(String str) {
-        InterceptResult invokeL;
+    public void e(DialogInterface.OnCancelListener onCancelListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            Uri parse = Uri.parse(str);
-            if (parse == null) {
-                return "";
-            }
-            String queryParameter = parse.getQueryParameter("source");
-            if (StringUtils.isNull(queryParameter)) {
-                return "";
-            }
-            return queryParameter;
+        if (interceptable == null || interceptable.invokeL(1048580, this, onCancelListener) == null) {
+            this.f = onCancelListener;
         }
-        return (String) invokeL.objValue;
     }
 
-    public static void g(int i) {
+    public void f(boolean z) {
+        AlertDialog alertDialog;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65542, null, i) == null) {
-            a = i;
+        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && (alertDialog = this.c) != null) {
+            alertDialog.setCancelable(z);
+        }
+    }
+
+    public void g(boolean z) {
+        AlertDialog alertDialog;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048582, this, z) == null) && (alertDialog = this.c) != null) {
+            alertDialog.setCanceledOnTouchOutside(z);
+        }
+    }
+
+    public void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            if (z) {
+                if (this.g) {
+                    a(this.f);
+                    return;
+                } else {
+                    b(this.f);
+                    return;
+                }
+            }
+            ih.a(this.c, this.b);
+        }
+    }
+
+    public void i(int i) {
+        Activity activity;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048585, this, i) == null) && (activity = this.b) != null) {
+            this.d = activity.getString(i);
+        }
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.d = str;
+            TextView textView = this.e;
+            if (textView != null) {
+                textView.setText(str);
+            }
         }
     }
 }

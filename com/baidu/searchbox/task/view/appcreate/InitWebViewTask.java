@@ -6,8 +6,8 @@ import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.b9a;
-import com.baidu.tieba.g56;
+import com.baidu.tieba.kda;
+import com.baidu.tieba.s96;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -54,9 +54,9 @@ public class InitWebViewTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                g56 g56Var = new g56();
-                g56Var.i(TbadkCoreApplication.getInst().isDebugMode());
-                g56.d(new b9a<String>(this) { // from class: com.baidu.searchbox.task.view.appcreate.InitWebViewTask.1
+                s96 s96Var = new s96();
+                s96Var.i(TbadkCoreApplication.getInst().isDebugMode());
+                s96.d(new kda<String>(this) { // from class: com.baidu.searchbox.task.view.appcreate.InitWebViewTask.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ InitWebViewTask this$0;
@@ -80,7 +80,7 @@ public class InitWebViewTask extends LaunchTask {
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.baidu.tieba.b9a
+                    @Override // com.baidu.tieba.kda
                     public String call() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
@@ -95,7 +95,7 @@ public class InitWebViewTask extends LaunchTask {
                         return (String) invokeV.objValue;
                     }
                 });
-                g56.c(TbadkCoreApplication.getInst(), g56Var);
+                s96.c(TbadkCoreApplication.getInst(), s96Var);
             } catch (Exception e) {
                 BdLog.e(e);
             }

@@ -1,194 +1,143 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.lha;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
-import com.yy.mobile.framework.revenuesdk.baseapi.PurchaseStatus;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.PayType;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import tv.athena.revenue.api.MiddleRevenueConfig;
-import tv.athena.revenue.api.pay.params.AppCustomExpand;
-import tv.athena.revenue.api.pay.params.PayFlowType;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
-import tv.athena.revenue.payui.view.IYYPayWayView;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes6.dex */
-public class ufa implements nea {
+public final class ufa<E> extends yfa<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public mea b;
-    public PayUIKitConfig c;
-    public PayFlowType d;
-    public lea e;
-    public int f;
-    public int g;
-    public long h;
 
-    /* loaded from: classes6.dex */
-    public class a implements IPayCallback<CurrencyChargeMessage> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ IPayCallback a;
-        public final /* synthetic */ gga b;
-        public final /* synthetic */ Activity c;
-        public final /* synthetic */ dga d;
-        public final /* synthetic */ Dialog e;
-        public final /* synthetic */ IYYPayWayView f;
-        public final /* synthetic */ AppCustomExpand g;
-        public final /* synthetic */ IYYPayWayView.b h;
-        public final /* synthetic */ ufa i;
-
-        public a(ufa ufaVar, IPayCallback iPayCallback, gga ggaVar, Activity activity, dga dgaVar, Dialog dialog, IYYPayWayView iYYPayWayView, AppCustomExpand appCustomExpand, IYYPayWayView.b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ufaVar, iPayCallback, ggaVar, activity, dgaVar, dialog, iYYPayWayView, appCustomExpand, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.i = ufaVar;
-            this.a = iPayCallback;
-            this.b = ggaVar;
-            this.c = activity;
-            this.d = dgaVar;
-            this.e = dialog;
-            this.f = iYYPayWayView;
-            this.g = appCustomExpand;
-            this.h = bVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
-        /* renamed from: a */
-        public void onSuccess(CurrencyChargeMessage currencyChargeMessage, PayCallBackBean payCallBackBean) {
-            IPayCallback iPayCallback;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, currencyChargeMessage, payCallBackBean) == null) && (iPayCallback = this.a) != null) {
-                iPayCallback.onSuccess(currencyChargeMessage, payCallBackBean);
-            }
-        }
-
-        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
-        public void onFail(int i, String str, PayCallBackBean payCallBackBean) {
-            IPayCallback iPayCallback;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, payCallBackBean) == null) && (iPayCallback = this.a) != null) {
-                iPayCallback.onFail(i, str, payCallBackBean);
-            }
-        }
-
-        @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
-        public void onPayStart() {
-            IPayCallback iPayCallback;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (iPayCallback = this.a) != null) {
-                iPayCallback.onPayStart();
-            }
-        }
-
-        @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
-        public void onPayStatus(PurchaseStatus purchaseStatus, PayCallBackBean payCallBackBean) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048579, this, purchaseStatus, payCallBackBean) == null) {
-                if (purchaseStatus == PurchaseStatus.ORDER_FAIL && this.b.a == PayType.ALI_PAY_SIGN) {
-                    RLog.info(this.i.a, "prepareShowPaySignDialog onPayStatus ORDER_FAIL, payWay.payType=PayType.ALI_PAY_SIGN");
-                    gga ggaVar = this.b;
-                    ggaVar.a = PayType.ALI_PAY;
-                    this.i.e(this.c, this.d, ggaVar, this.e, this.f, this.g, this.h, this.a);
-                    return;
-                }
-                IPayCallback iPayCallback = this.a;
-                if (iPayCallback != null) {
-                    iPayCallback.onPayStatus(purchaseStatus, payCallBackBean);
-                }
-            }
-        }
-    }
-
-    public ufa(int i, int i2, mea meaVar, PayUIKitConfig payUIKitConfig, PayFlowType payFlowType, lea leaVar) {
-        MiddleRevenueConfig middleRevenueConfig;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ufa(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), meaVar, payUIKitConfig, payFlowType, leaVar};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = "PaySignManager";
-        this.h = 0L;
-        RLog.info("PaySignManager", "create PaySignManager:" + this);
-        this.f = i;
-        this.g = i2;
-        this.b = meaVar;
-        this.c = payUIKitConfig;
-        this.d = payFlowType;
-        this.e = leaVar;
-        if (payUIKitConfig != null && (middleRevenueConfig = payUIKitConfig.revenueConfig) != null) {
-            this.h = middleRevenueConfig.getUid();
-        }
     }
 
-    @Override // com.baidu.tieba.nea
-    public void a(Activity activity, dga dgaVar, gga ggaVar, Dialog dialog, IYYPayWayView iYYPayWayView, AppCustomExpand appCustomExpand, IYYPayWayView.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback) {
+    @Override // java.util.AbstractCollection, java.util.Collection
+    public boolean isEmpty() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{activity, dgaVar, ggaVar, dialog, iYYPayWayView, appCustomExpand, bVar, iPayCallback}) == null) {
-            String str = this.a;
-            RLog.info(str, "prepareShowPaySignDialog:" + this);
-            a aVar = new a(this, iPayCallback, ggaVar, activity, dgaVar, dialog, iYYPayWayView, appCustomExpand, bVar);
-            boolean a2 = zga.b(activity, this.h + "").a("pay_sp_key_sign_pay_skip_remind", false);
-            String str2 = this.a;
-            RLog.info(str2, "prepareShowPaySignDialog, isSkipShowSignDialog=" + a2);
-            if (a2) {
-                e(activity, dgaVar, ggaVar, dialog, iYYPayWayView, appCustomExpand, bVar, aVar);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (k() == h()) {
+                return true;
             }
-            lha.b bVar2 = new lha.b();
-            bVar2.a = dgaVar;
-            bVar2.b = bVar.g;
-            lha f = this.b.f(activity, bVar2, this.c);
-            f.setCallback(new jfa(activity, d(activity, f, bVar2), this.e, dgaVar, ggaVar, dialog, iYYPayWayView, appCustomExpand, bVar, aVar));
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // java.util.AbstractCollection, java.util.Collection
+    public int size() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            long k = k();
+            while (true) {
+                long h = h();
+                long k2 = k();
+                if (k == k2) {
+                    return (int) (h - k2);
+                }
+                k = k2;
+            }
+        } else {
+            return invokeV.intValue;
         }
     }
 
-    public final Dialog d(Activity activity, lha lhaVar, lha.b bVar) {
-        InterceptResult invokeLLL;
+    @Override // java.util.Queue
+    public boolean offer(E e) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, lhaVar, bVar)) == null) {
-            return uha.b.e(activity, "title", lhaVar.getContentView(), new ifa(this.f, this.g), bVar.b, PayDialogType.PAY_SIGN_DIALOG, this.d);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e)) == null) {
+            if (e != null) {
+                E[] eArr = this.b;
+                long j = this.a;
+                long h = h();
+                long a = a(h);
+                if (e(eArr, a) != null) {
+                    if (h - k() > j) {
+                        return false;
+                    }
+                    do {
+                    } while (e(eArr, a) != null);
+                    g(eArr, a, e);
+                    i(h + 1);
+                    return true;
+                }
+                g(eArr, a, e);
+                i(h + 1);
+                return true;
+            }
+            throw new NullPointerException("Null is not a valid element");
         }
-        return (Dialog) invokeLLL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public final void e(Activity activity, dga dgaVar, gga ggaVar, Dialog dialog, IYYPayWayView iYYPayWayView, AppCustomExpand appCustomExpand, IYYPayWayView.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback) {
+    @Override // java.util.Queue
+    public E peek() {
+        InterceptResult invokeV;
+        E d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, dgaVar, ggaVar, dialog, iYYPayWayView, appCustomExpand, bVar, iPayCallback}) == null) {
-            String str = this.a;
-            RLog.info(str, "prepareShowPaySignDialog startPay payType=" + ggaVar.a);
-            this.e.f(activity, ggaVar, dgaVar, dialog, iYYPayWayView, appCustomExpand, bVar, iPayCallback);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            long l = l();
+            do {
+                long k = k();
+                if (k >= l) {
+                    long h = h();
+                    if (k >= h) {
+                        return null;
+                    }
+                    m(h);
+                }
+                d = d(a(k));
+            } while (d == null);
+            return d;
         }
+        return (E) invokeV.objValue;
+    }
+
+    @Override // java.util.Queue, com.baidu.tieba.sfa
+    public E poll() {
+        InterceptResult invokeV;
+        long k;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            long l = l();
+            do {
+                k = k();
+                if (k >= l) {
+                    long h = h();
+                    if (k >= h) {
+                        return null;
+                    }
+                    m(h);
+                }
+            } while (!j(k, 1 + k));
+            long a = a(k);
+            E[] eArr = this.b;
+            E c = c(eArr, a);
+            f(eArr, a, null);
+            return c;
+        }
+        return (E) invokeV.objValue;
     }
 }

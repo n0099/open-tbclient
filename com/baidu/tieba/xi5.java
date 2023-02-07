@@ -1,186 +1,117 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.ThreadInfo;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
 public class xi5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public boolean b;
+    public BdUniqueId c;
+    public ni5 d;
+    public zi5 e;
+    public Object f;
 
-    public static List<yn> a(List<? extends yn> list) {
-        InterceptResult invokeL;
+    public xi5(int i, ni5 ni5Var, zi5 zi5Var, mi5 mi5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), ni5Var, zi5Var, mi5Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            ArrayList arrayList = new ArrayList();
-            int i = 0;
-            for (yn ynVar : list) {
-                if (ynVar instanceof ThreadData) {
-                    ThreadData threadData = (ThreadData) ynVar;
-                    int[] imageWidthAndHeight = threadData.getImageWidthAndHeight();
-                    if (threadData.getType() == ThreadData.TYPE_NORMAL) {
-                        jv4 jv4Var = new jv4();
-                        jv4Var.t = threadData;
-                        jv4Var.position = i;
-                        jv4Var.a = true;
-                        jv4Var.setSupportType(BaseCardInfo.SupportType.TOP);
-                        arrayList.add(jv4Var);
-                        jv4 jv4Var2 = new jv4();
-                        jv4Var2.t = threadData;
-                        jv4Var2.position = i;
-                        if (threadData.isBJHNormalThreadType()) {
-                            jv4Var2.f = true;
-                        } else if (threadData.picCount() == 1) {
-                            jv4Var2.d = true;
-                            jv4Var2.u = imageWidthAndHeight[0];
-                            jv4Var2.v = imageWidthAndHeight[1];
-                        } else if (threadData.picCount() >= 2) {
-                            jv4Var2.e = true;
-                        } else {
-                            jv4Var2.b = true;
-                        }
-                        jv4Var2.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                        arrayList.add(jv4Var2);
-                        if (threadData.getItem() != null) {
-                            jv4 jv4Var3 = new jv4();
-                            jv4Var3.n = true;
-                            jv4Var3.t = threadData;
-                            jv4Var3.position = i;
-                            jv4Var3.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                            arrayList.add(jv4Var3);
-                        }
-                        if (!ListUtils.isEmpty(threadData.getLinkDataList())) {
-                            jv4 jv4Var4 = new jv4();
-                            jv4Var4.t = threadData;
-                            jv4Var4.position = i;
-                            if (ListUtils.getCount(threadData.getLinkDataList()) == 1) {
-                                jv4Var4.p = true;
-                            } else {
-                                jv4Var4.q = true;
-                            }
-                            jv4Var4.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                            arrayList.add(jv4Var4);
-                        }
-                        jv4 jv4Var5 = new jv4();
-                        jv4Var5.m = true;
-                        jv4Var5.t = threadData;
-                        jv4Var5.position = i;
-                        jv4Var5.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                        arrayList.add(jv4Var5);
-                        jv4 jv4Var6 = new jv4();
-                        jv4Var6.g = true;
-                        jv4Var6.t = threadData;
-                        jv4Var6.position = i;
-                        jv4Var6.setSupportType(BaseCardInfo.SupportType.BOTTOM);
-                        arrayList.add(jv4Var6);
-                    } else if (threadData.getType() == ThreadData.TYPE_VIDEO) {
-                        jv4 jv4Var7 = new jv4();
-                        jv4Var7.t = threadData;
-                        jv4Var7.position = i;
-                        jv4Var7.a = true;
-                        jv4Var7.setSupportType(BaseCardInfo.SupportType.TOP);
-                        arrayList.add(jv4Var7);
-                        jv4 jv4Var8 = new jv4();
-                        jv4Var8.t = threadData;
-                        jv4Var8.position = i;
-                        jv4Var8.i = true;
-                        jv4Var8.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                        arrayList.add(jv4Var8);
-                        if (threadData.getItem() != null) {
-                            jv4 jv4Var9 = new jv4();
-                            jv4Var9.n = true;
-                            jv4Var9.t = threadData;
-                            jv4Var9.position = i;
-                            jv4Var9.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                            arrayList.add(jv4Var9);
-                        }
-                        jv4 jv4Var10 = new jv4();
-                        jv4Var10.m = true;
-                        jv4Var10.t = threadData;
-                        jv4Var10.position = i;
-                        jv4Var10.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                        arrayList.add(jv4Var10);
-                        jv4 jv4Var11 = new jv4();
-                        jv4Var11.g = true;
-                        jv4Var11.t = threadData;
-                        jv4Var11.position = i;
-                        jv4Var11.setSupportType(BaseCardInfo.SupportType.BOTTOM);
-                        arrayList.add(jv4Var11);
-                    } else if (threadData.getType() == ThreadData.TYPE_ARTICLE && threadData.isBJHArticleThreadType()) {
-                        jv4 jv4Var12 = new jv4();
-                        jv4Var12.t = threadData;
-                        jv4Var12.position = i;
-                        arrayList.add(jv4Var12);
-                    } else if (n96.W(threadData)) {
-                        n96 n96Var = new n96(threadData);
-                        n96Var.g = threadData.getTid();
-                        arrayList.add(n96Var);
-                    } else {
-                        jv4 jv4Var13 = new jv4();
-                        jv4Var13.t = threadData;
-                        jv4Var13.position = i;
-                        arrayList.add(jv4Var13);
-                    }
-                } else if (ynVar instanceof BaseCardInfo) {
-                    ((BaseCardInfo) ynVar).position = i;
-                    arrayList.add(ynVar);
-                } else {
-                    arrayList.add(ynVar);
-                }
-                i++;
-            }
-            return arrayList;
         }
-        return (List) invokeL.objValue;
+        this.b = true;
+        this.a = i;
+        this.d = ni5Var;
+        this.e = zi5Var;
     }
 
-    public static void b(List<yn> list, fs4 fs4Var) {
-        int i;
+    public ni5 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, list, fs4Var) != null) || fs4Var == null || list == null || (i = fs4Var.floorPosition) <= 0) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
         }
-        int size = list.size();
-        int i2 = 0;
-        for (int i3 = 0; i3 < size; i3++) {
-            if (list.get(i3) instanceof ThreadData) {
-                if (i == i2) {
-                    wi5.b("insertFloorPosition-> floorPosition = " + i);
-                    ListUtils.add(list, i3, fs4Var);
-                    return;
-                }
-                i2++;
-            }
+        return (ni5) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public Object c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
+        }
+        return invokeV.objValue;
+    }
+
+    public zi5 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return (zi5) invokeV.objValue;
+    }
+
+    public BdUniqueId e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void g(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
+            this.f = obj;
         }
     }
 
-    public static List<ThreadData> c(List<ThreadInfo> list) {
-        InterceptResult invokeL;
+    public void h(zi5 zi5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList(list.size());
-            for (ThreadInfo threadInfo : list) {
-                ThreadData threadData = new ThreadData();
-                threadData.parserProtobuf(threadInfo);
-                threadData.insertItemToTitleOrAbstractText();
-                arrayList.add(threadData);
-            }
-            Log.i("Template", "parserThreadList-> size = " + arrayList.size());
-            return arrayList;
+        if (interceptable == null || interceptable.invokeL(1048583, this, zi5Var) == null) {
+            this.e = zi5Var;
         }
-        return (List) invokeL.objValue;
+    }
+
+    public void i(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdUniqueId) == null) {
+            this.c = bdUniqueId;
+        }
     }
 }

@@ -1,96 +1,76 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Rect;
-import android.util.Log;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.Set;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class fv2 extends dv2 {
+public class fv2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public UnitedSchemeEntity a;
+    public CallbackHandler b;
 
-    public fv2() {
+    public fv2(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {unitedSchemeEntity, callbackHandler};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = unitedSchemeEntity;
+        this.b = callbackHandler;
+    }
+
+    public static fv2 a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, unitedSchemeEntity, callbackHandler)) == null) {
+            return new fv2(unitedSchemeEntity, callbackHandler);
+        }
+        return (fv2) invokeLL.objValue;
+    }
+
+    public void c(String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) {
+            UnitedSchemeUtility.safeCallback(this.b, this.a, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
         }
     }
 
-    @Override // com.baidu.tieba.dv2
-    public boolean a(Bitmap bitmap, Rect rect) {
-        InterceptResult invokeLL;
-        boolean z;
-        Set<Integer> set;
+    public void b(String str, int i, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bitmap, rect)) == null) {
-            if (dv2.c) {
-                Log.d("SimpleErrorPageParser", "SimpleErrorPageParser: start error page parse");
-            }
-            if (bitmap == null) {
-                return false;
-            }
-            if (!b(bitmap, rect)) {
-                rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
-            }
-            try {
-                int pixel = bitmap.getPixel(rect.left + 1, rect.top + 1);
-                if (pixel != -1 && pixel != -657931) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                if (!z && (set = this.b) != null) {
-                    Iterator<Integer> it = set.iterator();
-                    while (true) {
-                        if (it.hasNext()) {
-                            if (it.next().intValue() == pixel) {
-                                z = true;
-                                break;
-                            }
-                        } else {
-                            break;
-                        }
-                    }
-                }
-                if (!z) {
-                    return false;
-                }
-                for (int i = rect.left + 1; i < rect.right - 1; i++) {
-                    for (int i2 = rect.top + 1; i2 < rect.bottom - 1; i2++) {
-                        if (pixel != bitmap.getPixel(i, i2)) {
-                            if (tk1.a) {
-                                Log.d("SimpleErrorPageParser", "非白屏, 图片大小 " + bitmap.getWidth() + " x " + bitmap.getHeight() + "; rect + " + rect.toShortString() + "; (" + i + "," + i2 + SmallTailInfo.EMOTION_SUFFIX);
-                            }
-                            return false;
-                        }
-                    }
-                }
-                if (dv2.c) {
-                    Log.d("SimpleErrorPageParser", "白屏, 图片大小 " + rect.width() + " x " + rect.height());
-                }
-                return true;
-            } catch (IllegalArgumentException e) {
-                if (dv2.c) {
-                    Log.d("SimpleErrorPageParser", "W:" + bitmap.getWidth() + "; H:" + bitmap.getHeight());
-                    e.printStackTrace();
-                }
-                return false;
-            }
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
+            UnitedSchemeUtility.safeCallback(this.b, this.a, UnitedSchemeUtility.wrapCallbackParams(i, str2).toString(), str);
         }
-        return invokeLL.booleanValue;
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.a.result = UnitedSchemeUtility.wrapCallbackParams(i);
+        }
+    }
+
+    public void e(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
+            UnitedSchemeEntity unitedSchemeEntity = this.a;
+            unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(this.b, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+        }
     }
 }

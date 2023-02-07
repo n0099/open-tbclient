@@ -1,332 +1,40 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.utils.ThirdPartyUtil;
-import com.baidu.searchbox.account.contants.LoginConstants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.o93;
-import com.baidu.tieba.rs1;
-import com.baidu.tieba.s93;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.env.launch.SwanLauncher;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class em3 extends g63 {
+public class em3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public class a implements cj3<m93<o93.e>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ Context c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ j43 e;
-        public final /* synthetic */ rs1.d f;
-        public final /* synthetic */ Bundle g;
-        public final /* synthetic */ em3 h;
-
-        public a(em3 em3Var, CallbackHandler callbackHandler, String str, Context context, String str2, j43 j43Var, rs1.d dVar, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {em3Var, callbackHandler, str, context, str2, j43Var, dVar, bundle};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.h = em3Var;
-            this.a = callbackHandler;
-            this.b = str;
-            this.c = context;
-            this.d = str2;
-            this.e = j43Var;
-            this.f = dVar;
-            this.g = bundle;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cj3
-        /* renamed from: b */
-        public void a(m93<o93.e> m93Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m93Var) == null) {
-                if (!h93.h(m93Var)) {
-                    h93.q(m93Var, this.a, this.b);
-                } else if (this.h.o(this.c, this.d)) {
-                    this.h.m(this.e, (Activity) this.c, this.f, this.a, this.b, this.g);
-                } else {
-                    this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(10008, "app not installed").toString());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements cj3<m93<s93.d>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rs1.d a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ String c;
-
-        public b(em3 em3Var, rs1.d dVar, CallbackHandler callbackHandler, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {em3Var, dVar, callbackHandler, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dVar;
-            this.b = callbackHandler;
-            this.c = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cj3
-        /* renamed from: b */
-        public void a(m93<s93.d> m93Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m93Var) == null) {
-                if (!m93Var.c()) {
-                    j12.o("ThirdPartyLoginAction", m93Var.b() + " " + this.a.toString());
-                    String f = h93.f(m93Var.b());
-                    if (!TextUtils.isEmpty(f)) {
-                        this.b.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(m93Var.b(), f).toString());
-                    } else {
-                        this.b.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(m93Var.b()).toString());
-                    }
-                } else if (TextUtils.isEmpty(m93Var.a.a)) {
-                    this.b.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(1001, "empty code").toString());
-                } else {
-                    JSONObject jSONObject = new JSONObject();
-                    try {
-                        jSONObject.put("code", m93Var.a.a);
-                        this.b.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(jSONObject, m93Var.b()).toString());
-                    } catch (JSONException e) {
-                        if (g63.b) {
-                            e.printStackTrace();
-                        }
-                        this.b.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(1001, e.getMessage()).toString());
-                    }
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public em3(g53 g53Var) {
-        super(g53Var, "/swanAPI/thirdPartyLogin");
+    public static void a(SwanAppActivity swanAppActivity) {
+        Intent intent;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {g53Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if ((interceptable != null && interceptable.invokeL(65536, null, swanAppActivity) != null) || swanAppActivity == null || (intent = swanAppActivity.getIntent()) == null) {
+            return;
         }
-    }
-
-    @Override // com.baidu.tieba.g63
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j43 j43Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j43Var)) == null) {
-            if (j43Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
-                return false;
-            }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
-                return false;
-            }
-            String optString = optParamsAsJo.optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
-                return false;
-            }
-            String optString2 = optParamsAsJo.optString("type", "");
-            int n = n(optString2);
-            rs1.d dVar = new rs1.d(optParamsAsJo);
-            Bundle bundle = new Bundle();
-            bundle.putInt("key_login_mode", n);
-            j43Var.e0().g(context, "mapp_i_login", new a(this, callbackHandler, optString, context, optString2, j43Var, dVar, bundle));
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            return true;
+        if (v43.D()) {
+            h62.k().s();
         }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final void m(j43 j43Var, Activity activity, rs1.d dVar, CallbackHandler callbackHandler, String str, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{j43Var, activity, dVar, callbackHandler, str, bundle}) == null) {
-            j43Var.e0().r(activity, dVar, bundle, new b(this, dVar, callbackHandler, str), "SwanThirdPartLogin");
+        Bundle bundle = new Bundle();
+        bundle.putAll(intent.getExtras());
+        bundle.putBoolean("should_ignore_launch_time", true);
+        Bundle bundle2 = bundle.getBundle("mExtraData");
+        if (bundle2 == null) {
+            bundle2 = new Bundle();
+            bundle.putBundle("mExtraData", bundle2);
         }
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public final int n(String str) {
-        InterceptResult invokeL;
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            switch (str.hashCode()) {
-                case -791575966:
-                    if (str.equals(ThirdPartyUtil.TYPE_WEIXIN)) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -265713450:
-                    if (str.equals("username")) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 3616:
-                    if (str.equals(LoginConstants.QQ_LOGIN)) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 114009:
-                    if (str.equals(LoginConstants.SMS_LOGIN)) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 113011944:
-                    if (str.equals("weibo")) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
-            }
-            if (c == 0) {
-                return 0;
-            }
-            if (c != 1) {
-                if (c != 2) {
-                    if (c != 3) {
-                        if (c == 4) {
-                            return 4;
-                        }
-                    } else {
-                        return 3;
-                    }
-                } else {
-                    return 2;
-                }
-            }
-            return 1;
-        }
-        return invokeL.intValue;
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public final boolean o(Context context, String str) {
-        InterceptResult invokeLL;
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, str)) == null) {
-            switch (str.hashCode()) {
-                case -791575966:
-                    if (str.equals(ThirdPartyUtil.TYPE_WEIXIN)) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -265713450:
-                    if (str.equals("username")) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 3616:
-                    if (str.equals(LoginConstants.QQ_LOGIN)) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 114009:
-                    if (str.equals(LoginConstants.SMS_LOGIN)) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 113011944:
-                    if (str.equals("weibo")) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        if (c != 3 && c != 4) {
-                            return false;
-                        }
-                        return true;
-                    }
-                    return di3.F(context, "com.sina.weibo");
-                }
-                return di3.F(context, "com.tencent.mobileqq");
-            }
-            return di3.F(context, "com.tencent.mm");
-        }
-        return invokeLL.booleanValue;
+        bundle2.putLong("launch_flag_for_statistic", System.currentTimeMillis());
+        bundle2.putLong("page_display_flag_for_statistic", System.currentTimeMillis());
+        v83.K().n(new String[0]);
+        bundle.remove("pms_db_info_onload");
+        bundle.remove("pms_db_info_updated");
+        bundle.remove("mPage");
+        bundle.putString("launch_id", SwanLauncher.h());
+        v83.K().l(bundle, "update_tag_by_activity_on_relaunch");
     }
 }

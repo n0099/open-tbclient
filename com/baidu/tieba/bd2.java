@@ -2,18 +2,11 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.AnyThread;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.WorkerThread;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.clientupdate.download.DownloadManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.favordata.SwanFavorDataManager;
-import com.baidu.swan.apps.favordata.SwanFavorItemData;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tieba.de2;
+import com.baidu.swan.apps.core.prefetch.image.config.image.SystemStrategyImpl;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,122 +14,34 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.io.File;
 /* loaded from: classes3.dex */
 public class bd2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final int b;
-    public static final int c;
     public transient /* synthetic */ FieldHolder $fh;
+    public dd2 a;
+    public cd2 b;
+    public File c;
+    public long d;
+    public int e;
+    public int f;
 
     /* loaded from: classes3.dex */
-    public class a implements Runnable {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Set a;
-        public final /* synthetic */ boolean b;
-        public final /* synthetic */ cg4 c;
-        public final /* synthetic */ long d;
-        public final /* synthetic */ de2.b e;
-        public final /* synthetic */ bd2 f;
-
-        public a(bd2 bd2Var, Set set, boolean z, cg4 cg4Var, long j, de2.b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bd2Var, set, Boolean.valueOf(z), cg4Var, Long.valueOf(j), bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = bd2Var;
-            this.a = set;
-            this.b = z;
-            this.c = cg4Var;
-            this.d = j;
-            this.e = bVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            int i;
-            int i2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                HashSet hashSet = new HashSet();
-                Set set = this.a;
-                if (set != null) {
-                    hashSet.addAll(set);
-                }
-                Set<String> f = fn2.f();
-                hashSet.addAll(f);
-                j12.k("SwanAppDiskCleaner", "排除正在活动的小程：" + f);
-                Set<String> b = yc2.b();
-                hashSet.addAll(b);
-                j12.k("SwanAppDiskCleaner", "排除正在下载中的小程：" + b);
-                Map<String, PMSAppInfo> v = gc4.i().v();
-                if (!vc2.c().d().n(v)) {
-                    j12.k("SwanAppDiskCleaner", "PMS数据库没有文件，不需要清理");
-                    return;
-                }
-                if (bd2.a) {
-                    Log.d("SwanAppDiskCleaner", "删除所有小程序包下的历史版本包");
-                }
-                fn2.d(hashSet, v);
-                Map m = this.f.m(86400000L, v);
-                if (m.isEmpty()) {
-                    return;
-                }
-                ArrayList arrayList = new ArrayList(m.keySet());
-                bd2.k(hashSet, arrayList);
-                ArrayList arrayList2 = new ArrayList();
-                ArrayList arrayList3 = new ArrayList();
-                bd2.l(arrayList, arrayList2, arrayList3);
-                ArrayList arrayList4 = new ArrayList();
-                if (this.b) {
-                    i = bd2.b;
-                } else {
-                    i = this.c.d;
-                }
-                int max = Math.max(10, i);
-                bd2.r(arrayList3, max, arrayList4);
-                long j = this.c.e;
-                bd2.q(arrayList3, j * 3600000, arrayList4, m);
-                if (this.b) {
-                    i2 = bd2.c;
-                } else {
-                    i2 = this.c.b;
-                }
-                int max2 = Math.max(40, i2);
-                bd2.r(arrayList2, max2, arrayList4);
-                long j2 = this.c.c;
-                bd2.q(arrayList2, 3600000 * j2, arrayList4, m);
-                j12.k("SwanAppDiskCleaner", "clean_internal_hour=" + this.d + " pre_hold_count=" + max + " pre_force_clean_hour=" + j + " used_hold_count=" + max2 + " used_force_clean_hour=" + j2 + "\n appIdList(" + arrayList.size() + ")=" + arrayList + "\n historyList(" + arrayList2.size() + ")=" + arrayList2 + "\n preloadList(" + arrayList3.size() + ")=" + arrayList3 + "\n cleanList(" + arrayList4.size() + ")=" + arrayList4 + "\n");
-                vc2.c().d().g(arrayList4, false, false, this.e);
-                b82.c();
-            }
-        }
     }
 
     /* loaded from: classes3.dex */
-    public static class b implements Comparator<PMSAppInfo> {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public dd2 a;
+        public cd2 b;
+        public File c;
+        public long d;
+        public int e;
+        public int f;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -148,217 +53,202 @@ public class bd2 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.e = 0;
+            this.f = 0;
         }
 
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(PMSAppInfo pMSAppInfo, PMSAppInfo pMSAppInfo2) {
-            InterceptResult invokeLL;
+        public b g(dd2 dd2Var) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, pMSAppInfo, pMSAppInfo2)) == null) {
-                return Long.compare(pMSAppInfo2.createTime, pMSAppInfo.createTime);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dd2Var)) == null) {
+                this.a = dd2Var;
+                return this;
             }
-            return invokeLL.intValue;
+            return (b) invokeL.objValue;
+        }
+
+        public b h(cd2 cd2Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cd2Var)) == null) {
+                this.b = cd2Var;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b i(long j) {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+                this.d = j;
+                return this;
+            }
+            return (b) invokeJ.objValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947641049, "Lcom/baidu/tieba/bd2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes3.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public static final bd2 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-922711942, "Lcom/baidu/tieba/bd2$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-922711942, "Lcom/baidu/tieba/bd2$c;");
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947641049, "Lcom/baidu/tieba/bd2;");
-                return;
-            }
+            a = new bd2(null);
         }
-        a = tk1.a;
-        qn2.g0().getSwitch("swan_disk_level_pkg_hold_used", 0);
-        b = 0;
-        qn2.g0().getSwitch("swan_disk_level_pkg_hold_predownload", 0);
-        c = 0;
     }
 
     public bd2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static boolean n() {
+    public static bd2 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            return xc3.a().getBoolean("key_disk_force_clean", false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return c.a;
         }
-        return invokeV.booleanValue;
+        return (bd2) invokeV.objValue;
     }
 
-    @AnyThread
-    public synchronized void i(@Nullable Set<String> set, boolean z, de2.b bVar) {
+    public File b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{set, Boolean.valueOf(z), bVar}) == null) {
-            synchronized (this) {
-                j(set, z, bVar);
-            }
-        }
-    }
-
-    public static void k(Set<String> set, List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, set, list) == null) {
-            if (set != null) {
-                Iterator<String> it = list.iterator();
-                while (it.hasNext()) {
-                    if (set.contains(it.next())) {
-                        it.remove();
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.c == null) {
+                String o = ap4.o();
+                if (TextUtils.isEmpty(o)) {
+                    return null;
                 }
+                this.c = new File(o, "swan_hybrid");
             }
-            list.remove("sc9Tq1iKawTnj5GhG6i77vzeIt4Crt5u");
+            return this.c;
         }
+        return (File) invokeV.objValue;
     }
 
-    public static void l(@NonNull List<String> list, @NonNull List<String> list2, @NonNull List<String> list3) {
+    public dd2 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65547, null, list, list2, list3) == null) {
-            Set<String> i = mb2.i(AppRuntime.getAppContext().getContentResolver());
-            List<SwanFavorItemData> i2 = SwanFavorDataManager.h().i();
-            HashSet hashSet = new HashSet();
-            for (SwanFavorItemData swanFavorItemData : i2) {
-                hashSet.add(swanFavorItemData.getAppKey());
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.a == null) {
+                this.a = new ed2();
             }
-            for (String str : list) {
-                if (!i.contains(str) && !hashSet.contains(str)) {
-                    list3.add(str);
-                } else {
-                    list2.add(str);
-                }
-            }
+            return this.a;
         }
+        return (dd2) invokeV.objValue;
     }
 
-    @AnyThread
-    public synchronized void j(@Nullable Set<String> set, boolean z, de2.b bVar) {
-        boolean z2;
+    public int e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{set, Boolean.valueOf(z), bVar}) == null) {
-            synchronized (this) {
-                if (!ProcessUtils.isMainProcess()) {
-                    if (a) {
-                        Log.w("SwanAppDiskCleaner", "非主进程调用，不执行操作");
-                    }
-                    return;
-                }
-                j12.k("SwanAppDiskCleaner", "是否为强制自动清理：" + z);
-                cg4 a2 = dg4.b().a();
-                if (z && zc2.a()) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                long j = a2.a;
-                if (!z2 && o(3600000 * j)) {
-                    return;
-                }
-                xc3.a().putLong("clean_disk_check_time", System.currentTimeMillis());
-                ExecutorUtilsExt.postOnSerial(new a(this, set, z, a2, j, bVar), "cleanDiskSpaceOptimized");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.e <= 0) {
+                this.e = 60000;
             }
+            return this.e;
         }
+        return invokeV.intValue;
     }
 
-    public static boolean o(long j) {
-        InterceptResult invokeJ;
+    public cd2 f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65549, null, j)) == null) {
-            if (System.currentTimeMillis() - xc3.a().getLong("clean_disk_check_time", 0L) < j) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.b == null) {
+                this.b = new SystemStrategyImpl();
             }
-            return false;
+            return this.b;
         }
-        return invokeJ.booleanValue;
+        return (cd2) invokeV.objValue;
     }
 
-    public static void p(boolean z) {
+    public long g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65550, null, z) == null) {
-            xc3.a().putBoolean("key_disk_force_clean", z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.d <= 0) {
+                this.d = DownloadManager.MIN_LEFT_SIZE;
+            }
+            return this.d;
         }
+        return invokeV.longValue;
     }
 
-    public static void q(List<String> list, long j, List<String> list2, Map<String, Long> map) {
-        Long l;
+    public int h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65551, null, new Object[]{list, Long.valueOf(j), list2, map}) == null) {
-            Iterator<String> it = list.iterator();
-            while (it.hasNext()) {
-                String next = it.next();
-                if (!TextUtils.isEmpty(next) && (l = map.get(next)) != null && j < System.currentTimeMillis() - l.longValue()) {
-                    list2.add(next);
-                    it.remove();
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.f <= 0) {
+                this.f = 60000;
             }
+            return this.f;
         }
+        return invokeV.intValue;
     }
 
-    public static void r(List<String> list, int i, List<String> list2) {
+    public /* synthetic */ bd2(a aVar) {
+        this();
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIL(65552, null, list, i, list2) == null) && list != null && !list.isEmpty() && i >= 0 && i < list.size()) {
-            Iterator<String> it = list.iterator();
-            int i2 = 0;
-            while (it.hasNext()) {
-                String next = it.next();
-                if (!TextUtils.isEmpty(next)) {
-                    int i3 = i2 + 1;
-                    if (i2 >= i) {
-                        list2.add(next);
-                        it.remove();
-                    }
-                    i2 = i3;
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return AppRuntime.getAppContext().getExternalCacheDir() + File.separator + "swan_hybrid";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void i(b bVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, bVar) != null) || bVar == null) {
+            return;
+        }
+        this.a = bVar.a;
+        this.b = bVar.b;
+        this.c = bVar.c;
+        this.d = bVar.d;
+        this.e = bVar.e;
+        this.f = bVar.f;
+        if (fd2.a) {
+            Log.d("HybridIntercept", toString());
         }
     }
 
     @NonNull
-    @WorkerThread
-    public final Map<String, Long> m(long j, Map<String, PMSAppInfo> map) {
-        InterceptResult invokeJL;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, map)) == null) {
-            if (map != null && !map.isEmpty()) {
-                ArrayList<PMSAppInfo> arrayList = new ArrayList(map.values());
-                Collections.sort(arrayList, new b(null));
-                LinkedHashMap linkedHashMap = new LinkedHashMap();
-                for (PMSAppInfo pMSAppInfo : arrayList) {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    long j2 = pMSAppInfo.createTime;
-                    if (currentTimeMillis - j2 > j) {
-                        linkedHashMap.put(pMSAppInfo.appId, Long.valueOf(j2));
-                    }
-                }
-                return linkedHashMap;
-            }
-            return Collections.emptyMap();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return "SwanHybridInterceptConfig{CacheKeyProvider=" + this.a + ", InterceptStrategy=" + this.b + ", CacheFolder=" + this.c + ", MaxCacheSize=" + (this.d / 1048576) + "MB, ConnectTimeout=" + this.e + ", ReadTimeout=" + this.f + '}';
         }
-        return (Map) invokeJL.objValue;
+        return (String) invokeV.objValue;
     }
 }

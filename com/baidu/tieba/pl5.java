@@ -1,106 +1,94 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.person.ProfileVirtualImageInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.template.model.LoadType;
+import com.baidu.tieba.rm5;
+import com.baidu.tieba.sm5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class pl5 {
+public class pl5<Q extends rm5, P extends sm5> implements ql5<Q, P> {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public int b;
+    public int c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948065904, "Lcom/baidu/tieba/pl5;")) == null) {
+    public pl5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = true;
+        this.b = 1;
+        this.c = 1;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ql5
+    public void a(Q q, P p) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, q, p) != null) || p == null) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+        if (p.getPageInfo() != null) {
+            mm5 pageInfo = p.getPageInfo();
+            this.c = pageInfo.a;
+            this.a = pageInfo.b;
+            if (q != null && q.c() != null) {
+                q.c().d = pageInfo.c;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948065904, "Lcom/baidu/tieba/pl5;");
+        if (this.c <= 0 && q != null && q.c() != null && q.c().c > 0) {
+            this.c = q.c().c;
+            this.a = true;
         }
+        hn5.b("onResp--->pn=" + this.c + ",hasMore=" + this.a);
     }
 
-    public static void a(int i, int i2) {
-        boolean z;
+    @Override // com.baidu.tieba.ql5
+    public void b(Q q, boolean z) {
+        LoadType loadType;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65537, null, i, i2) == null) {
-            int i3 = 1;
-            if (ProfileVirtualImageInfo.getInstance().isDisplayVirtual() && ProfileVirtualImageInfo.getInstance().getIsSetVirtualImage() == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            StatisticItem statisticItem = new StatisticItem("c10605");
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            if (!z) {
-                i3 = 2;
-            }
-            statisticItem.param("obj_id", i3);
+        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q, z) == null) && q != null && q.c() != null) {
+            lm5 c = q.c();
             if (z) {
-                statisticItem.param("obj_locate", i);
+                if (!c.a()) {
+                    this.c = this.b;
+                }
+                if (c.a()) {
+                    loadType = LoadType.PREPEND;
+                } else {
+                    loadType = LoadType.REFRESH;
+                }
+                c.b = loadType;
+                c.c = this.c;
             } else {
-                statisticItem.param("obj_param1", i2);
+                int i = this.c + 1;
+                this.c = i;
+                c.b = LoadType.APPEND;
+                c.c = i;
             }
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && !a) {
-            int i = 1;
-            a = true;
-            StatisticItem statisticItem = new StatisticItem("c14994");
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            if (!ProfileVirtualImageInfo.getInstance().isDisplayVirtual() || (TextUtils.isEmpty(ProfileVirtualImageInfo.getInstance().getVirtualImageUrl()) && TextUtils.isEmpty(ProfileVirtualImageInfo.getInstance().getDynamicVirtualImageUrl()))) {
-                i = 2;
-            }
-            statisticItem.param("obj_type", i);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14998");
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("obj_source", 2);
-            statisticItem.param("obj_locate", 2);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14998");
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("obj_source", 1);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14998");
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("obj_source", 2);
-            statisticItem.param("obj_locate", 1);
-            TiebaStatic.log(statisticItem);
+            hn5.b("onReq--->pn=" + this.c + ",hasMore=" + this.a + ",isPullRefresh=" + z + ",loadType=" + c.b);
         }
     }
 }

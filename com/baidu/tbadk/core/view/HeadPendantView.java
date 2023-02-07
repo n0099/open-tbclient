@@ -18,9 +18,9 @@ import com.baidu.tbadk.data.MetaData;
 import com.baidu.tbadk.data.UserPendantData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.s9;
-import com.baidu.tieba.y9;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.da;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.x9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -115,8 +115,8 @@ public class HeadPendantView extends RelativeLayout {
         this.f = false;
         this.g = false;
         this.h = false;
-        this.i = zi.g(TbadkApplication.getInst(), R.dimen.tbds36);
-        this.j = zi.g(TbadkApplication.getInst(), R.dimen.tbds5);
+        this.i = ej.g(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.j = ej.g(TbadkApplication.getInst(), R.dimen.tbds5);
         this.l = true;
         this.m = false;
         this.a = context;
@@ -187,8 +187,8 @@ public class HeadPendantView extends RelativeLayout {
         this.f = false;
         this.g = false;
         this.h = false;
-        this.i = zi.g(TbadkApplication.getInst(), R.dimen.tbds36);
-        this.j = zi.g(TbadkApplication.getInst(), R.dimen.tbds5);
+        this.i = ej.g(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.j = ej.g(TbadkApplication.getInst(), R.dimen.tbds5);
         this.l = true;
         this.m = false;
         this.a = context;
@@ -217,8 +217,8 @@ public class HeadPendantView extends RelativeLayout {
         this.f = false;
         this.g = false;
         this.h = false;
-        this.i = zi.g(TbadkApplication.getInst(), R.dimen.tbds36);
-        this.j = zi.g(TbadkApplication.getInst(), R.dimen.tbds5);
+        this.i = ej.g(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.j = ej.g(TbadkApplication.getInst(), R.dimen.tbds5);
         this.l = true;
         this.m = false;
         this.a = context;
@@ -261,7 +261,7 @@ public class HeadPendantView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.b = new TbImageView(this.a);
-            s9<?> a2 = y9.a(this.a);
+            x9<?> a2 = da.a(this.a);
             if (a2 != null) {
                 this.b.setPageId(a2.getUniqueId());
             }
@@ -285,7 +285,7 @@ public class HeadPendantView extends RelativeLayout {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.i = zi.g(getContext(), R.dimen.tbds42);
+            this.i = ej.g(getContext(), R.dimen.tbds42);
             b();
             c();
             a();
@@ -373,7 +373,7 @@ public class HeadPendantView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
             if (i > 0) {
-                this.i = zi.g(getContext(), i);
+                this.i = ej.g(getContext(), i);
             }
             f();
         }

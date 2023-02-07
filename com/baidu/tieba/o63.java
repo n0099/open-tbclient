@@ -1,101 +1,38 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class o63 extends n63 {
+public class o63 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final View a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o63(g53 g53Var) {
-        super(g53Var, "/swanAPI/isFavor");
+    public o63(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {g53Var};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((g53) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = view2;
     }
 
-    @Override // com.baidu.tieba.n63
-    public boolean j(j43 j43Var, UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeLL;
-        String optString;
+    public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, j43Var, unitedSchemeEntity)) == null) {
-            String param = unitedSchemeEntity.getParam("params");
-            if (TextUtils.isEmpty(param)) {
-                return false;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(param);
-                if (this.d) {
-                    optString = j43Var.O();
-                } else {
-                    optString = jSONObject.optString("appid");
-                }
-                this.c = optString;
-                return !TextUtils.isEmpty(optString);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return false;
-            }
+        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && !z && this.a.getVisibility() == 4) {
+            this.a.setVisibility(8);
         }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.n63
-    public void k(j43 j43Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j43Var, unitedSchemeEntity, callbackHandler, str) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                if (hb2.n(this.c)) {
-                    i = 1;
-                } else {
-                    i = 0;
-                }
-                jSONObject.put("isFavor", i);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
-        }
-    }
-
-    @Override // com.baidu.tieba.n63
-    public boolean o(UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, unitedSchemeEntity)) == null) {
-            String optString = jh3.d(unitedSchemeEntity.getParam("params")).optString("invokeFrom");
-            if (TextUtils.isEmpty(optString)) {
-                return false;
-            }
-            return TextUtils.equals(optString, "boxjs");
-        }
-        return invokeL.booleanValue;
     }
 }

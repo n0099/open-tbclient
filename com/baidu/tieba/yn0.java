@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,11 +10,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public interface yn0 {
-    public static final ServiceReference a = new ServiceReference("nad.business", "rewardLpBDTaskCenter");
+    public static final ServiceReference a = new ServiceReference("nad.core", "ipdx");
     public static final yn0 b = new a();
 
     @NonNull
     String a();
+
+    void request();
 
     /* loaded from: classes7.dex */
     public static class a implements yn0 {
@@ -26,6 +29,13 @@ public interface yn0 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.yn0
+        public void request() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
         }
 
         public a() {

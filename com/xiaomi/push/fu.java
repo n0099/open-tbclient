@@ -88,7 +88,7 @@ public class fu implements gi {
                     sb.append(this.a.f424a.format(new Date()));
                     sb.append(this.f425a);
                     sb.append(" Blob [");
-                    sb.append(flVar.m404a());
+                    sb.append(flVar.m406a());
                     sb.append(",");
                     sb.append(flVar.a());
                     sb.append(",");
@@ -100,18 +100,18 @@ public class fu implements gi {
                 if (flVar == null || flVar.a() != 99999) {
                     return;
                 }
-                String m404a = flVar.m404a();
+                String m406a = flVar.m406a();
                 fl flVar2 = null;
                 if (!this.f426a) {
-                    if ("BIND".equals(m404a)) {
-                        com.xiaomi.channel.commonutils.logger.b.m103a("build binded result for loopback.");
+                    if ("BIND".equals(m406a)) {
+                        com.xiaomi.channel.commonutils.logger.b.m105a("build binded result for loopback.");
                         dx.d dVar = new dx.d();
                         dVar.a(true);
                         dVar.c("login success.");
                         dVar.b("success");
                         dVar.a("success");
                         fl flVar3 = new fl();
-                        flVar3.a(dVar.m368a(), (String) null);
+                        flVar3.a(dVar.m370a(), (String) null);
                         flVar3.a((short) 2);
                         flVar3.a(VideoItemModel.TYPE_LOADING);
                         flVar3.a("BIND", (String) null);
@@ -119,20 +119,20 @@ public class fu implements gi {
                         flVar3.b((String) null);
                         flVar3.c(flVar.g());
                         flVar2 = flVar3;
-                    } else if (!"UBND".equals(m404a) && "SECMSG".equals(m404a)) {
+                    } else if (!"UBND".equals(m406a) && "SECMSG".equals(m406a)) {
                         fl flVar4 = new fl();
                         flVar4.a(VideoItemModel.TYPE_LOADING);
                         flVar4.a("SECMSG", (String) null);
                         flVar4.c(flVar.g());
                         flVar4.a(flVar.e());
-                        flVar4.a(flVar.m406a());
+                        flVar4.a(flVar.m408a());
                         flVar4.b(flVar.f());
-                        flVar4.a(flVar.m409a(com.xiaomi.push.service.bg.a().a(String.valueOf((int) VideoItemModel.TYPE_LOADING), flVar.g()).h), (String) null);
+                        flVar4.a(flVar.m411a(com.xiaomi.push.service.bg.a().a(String.valueOf((int) VideoItemModel.TYPE_LOADING), flVar.g()).h), (String) null);
                         flVar2 = flVar4;
                     }
                 }
                 if (flVar2 != null) {
-                    for (Map.Entry<gb, fw.a> entry : this.a.f421a.m427a().entrySet()) {
+                    for (Map.Entry<gb, fw.a> entry : this.a.f421a.m429a().entrySet()) {
                         if (this.a.f420a != entry.getKey()) {
                             entry.getValue().a(flVar2);
                         }
@@ -154,7 +154,7 @@ public class fu implements gi {
                     sb.append(this.a.f424a.format(new Date()));
                     sb.append(this.f425a);
                     sb.append(" PKT ");
-                    str = gnVar.mo442a();
+                    str = gnVar.mo444a();
                 } else {
                     sb = new StringBuilder();
                     sb.append("[Slim] ");
@@ -174,7 +174,7 @@ public class fu implements gi {
         /* JADX DEBUG: Possible override for method com.xiaomi.push.gb.a(Lcom/xiaomi/push/gn;)V */
         @Override // com.xiaomi.push.gj
         /* renamed from: a  reason: collision with other method in class */
-        public boolean mo422a(gn gnVar) {
+        public boolean mo424a(gn gnVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gnVar)) == null) {

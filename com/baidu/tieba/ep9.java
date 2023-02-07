@@ -1,392 +1,331 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.media.MediaCodec;
-import android.media.MediaCrypto;
-import android.media.MediaExtractor;
-import android.media.MediaFormat;
 import android.text.TextUtils;
-import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.logsystem.basic.upload.Constant;
+import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.nio.ByteBuffer;
-@SuppressLint({"NewApi"})
+import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ep9 implements so9 {
+public class ep9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean n;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public volatile long b;
-    public MediaCodec.BufferInfo c;
-    public MediaCodec d;
-    public MediaExtractor e;
-    public MediaFormat f;
-    public ByteBuffer[] g;
-    public ByteBuffer[] h;
-    public byte[] i;
-    public volatile boolean j;
-    public long k;
-    public volatile boolean l;
-    public fp9 m;
+    public int a;
+    public int b;
+    public JSONObject c;
+    public JSONObject d;
+    public JSONObject e;
+    public String f;
+    public int g;
+    public int h;
+    public int i;
+    public int j;
+    public int k;
+    public int l;
+    public List<ro9> m;
 
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0050  */
-    /* JADX WARN: Removed duplicated region for block: B:30:0x0077  */
-    /* JADX WARN: Removed duplicated region for block: B:32:0x00ae  */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x0073 A[EDGE_INSN: B:46:0x0073->B:28:0x0073 ?: BREAK  , SYNTHETIC] */
-    @SuppressLint({"NewApi"})
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public ep9(String str) throws Exception {
-        int i;
-        MediaFormat mediaFormat;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947742171, "Lcom/baidu/tieba/ep9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947742171, "Lcom/baidu/tieba/ep9;");
+                return;
+            }
+        }
+        n = jp9.m();
+    }
+
+    public JSONObject a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public List<ro9> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.m;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.j;
+        }
+        return invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.i;
+        }
+        return invokeV.intValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.h;
+        }
+        return invokeV.intValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.k;
+        }
+        return invokeV.intValue;
+    }
+
+    public int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.l;
+        }
+        return invokeV.intValue;
+    }
+
+    public ep9(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {str, jSONObject};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.k = -1L;
-        this.e = new MediaExtractor();
-        try {
-            MediaExtractor mediaExtractor = new MediaExtractor();
-            this.e = mediaExtractor;
-            mediaExtractor.setDataSource(str);
-        } catch (IOException unused) {
+        this.m = new ArrayList();
+        this.c = jSONObject;
+    }
+
+    public ep9(List<ro9> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.m = new ArrayList();
+        if (list != null && list.size() > 0) {
+            this.m.addAll(list);
+        }
+    }
+
+    public boolean l() {
+        InterceptResult invokeV;
+        JSONObject optJSONObject;
+        boolean z;
+        boolean z2;
+        boolean z3;
+        boolean z4;
+        boolean z5;
+        boolean z6;
+        boolean z7;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             try {
-                Thread.sleep(25L);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            try {
-                try {
-                    MediaExtractor mediaExtractor2 = new MediaExtractor();
-                    this.e = mediaExtractor2;
-                    mediaExtractor2.setDataSource(str);
-                } catch (InterruptedException e2) {
-                    e2.printStackTrace();
-                    MediaExtractor mediaExtractor3 = new MediaExtractor();
-                    this.e = mediaExtractor3;
-                    mediaExtractor3.setDataSource(str);
-                    i = 0;
-                    while (true) {
-                        if (i >= this.e.getTrackCount()) {
+                if (this.c != null && this.c.length() != 0) {
+                    JSONObject jSONObject = this.c;
+                    this.d = jSONObject.optJSONObject("set");
+                    this.a = jSONObject.optInt("threshold", 10000);
+                    this.b = jSONObject.optInt("timeup", 604800000);
+                    this.f = jSONObject.optString("step");
+                    jSONObject.optString(StickerDataChangeType.REPLACE);
+                    this.e = jSONObject.optJSONObject("del");
+                    this.g = jSONObject.optInt("all_size", 614400);
+                    this.h = jSONObject.optInt("single_size", 153600);
+                    this.i = jSONObject.optInt("real_size", 614400);
+                    this.j = jSONObject.optInt("non_real_size", 614400);
+                    this.k = jSONObject.optInt("trigger_number", 100);
+                    this.l = jSONObject.optInt("trigger_interval", 180);
+                    int i = 1;
+                    if (this.d != null) {
+                        Iterator<String> keys = this.d.keys();
+                        while (keys.hasNext()) {
+                            String next = keys.next();
+                            if (!TextUtils.isEmpty(next) && (optJSONObject = this.d.optJSONObject(next)) != null && optJSONObject.length() != 0) {
+                                JSONObject optJSONObject2 = optJSONObject.optJSONObject("data");
+                                String optString = optJSONObject.optString("version");
+                                if (optJSONObject2 != null && !TextUtils.isEmpty(optString)) {
+                                    if (optJSONObject2.optInt(SetImageWatermarkTypeReqMsg.SWITCH, i) != 0) {
+                                        z = true;
+                                    } else {
+                                        z = false;
+                                    }
+                                    if (optJSONObject2.optInt(Constant.IS_REAL, 0) == 1) {
+                                        z2 = true;
+                                    } else {
+                                        z2 = false;
+                                    }
+                                    if (optJSONObject2.optInt("isAbtest", 0) == 1) {
+                                        z3 = true;
+                                    } else {
+                                        z3 = false;
+                                    }
+                                    Iterator<String> it = keys;
+                                    ro9 ro9Var = new ro9(next, z, z2, optJSONObject2.optInt(com.alipay.sdk.data.a.O, 60), optJSONObject2.optInt("type", 0), z3);
+                                    if (uo9.a(next)) {
+                                        if (optJSONObject2.optInt("isSend", 1) == 1) {
+                                            z7 = true;
+                                        } else {
+                                            z7 = false;
+                                        }
+                                        ro9Var.y(z7);
+                                    }
+                                    if (optJSONObject2.has("rate")) {
+                                        ro9Var.D(optJSONObject2.getInt("rate"));
+                                    }
+                                    if (optJSONObject2.has("c")) {
+                                        ro9Var.u(optJSONObject2.getString("c"));
+                                    }
+                                    if (optJSONObject2.has("limitUnit")) {
+                                        ro9Var.A(optJSONObject2.getInt("limitUnit"));
+                                    }
+                                    if (optJSONObject2.has("limitCnt")) {
+                                        ro9Var.z(optJSONObject2.getInt("limitCnt"));
+                                    }
+                                    if (optJSONObject2.has(Constant.ID_TYPE)) {
+                                        ro9Var.w(optJSONObject2.getInt(Constant.ID_TYPE));
+                                    }
+                                    if (optJSONObject2.optInt("ch", 0) == 1) {
+                                        z4 = true;
+                                    } else {
+                                        z4 = false;
+                                    }
+                                    ro9Var.C(z4);
+                                    if (optJSONObject2.has("dfc")) {
+                                        if (optJSONObject2.getInt("dfc") == 1) {
+                                            z6 = true;
+                                        } else {
+                                            z6 = false;
+                                        }
+                                        ro9Var.x(z6);
+                                    }
+                                    if (optJSONObject2.has("reallog")) {
+                                        if (optJSONObject2.getInt("reallog") == 1) {
+                                            z5 = true;
+                                        } else {
+                                            z5 = false;
+                                        }
+                                        ro9Var.E(z5);
+                                    }
+                                    if (optJSONObject2.has("gflow")) {
+                                        ro9Var.v(optJSONObject2.getInt("gflow"));
+                                    }
+                                    if (optJSONObject2.has("uploadType")) {
+                                        ro9Var.F(optJSONObject2.optInt("uploadType", -1));
+                                    }
+                                    int optInt = optJSONObject2.optInt("lcache", 2);
+                                    if (optInt == 1 || optInt == 0) {
+                                        ro9Var.B(optInt);
+                                    }
+                                    ro9Var.G(optString);
+                                    this.m.add(ro9Var);
+                                    keys = it;
+                                    i = 1;
+                                }
+                            }
                         }
-                        i++;
+                        return true;
                     }
-                    mediaFormat = this.f;
-                    if (mediaFormat == null) {
-                    }
+                    return true;
                 }
-            } catch (IOException unused2) {
-                Thread.sleep(25L);
-                MediaExtractor mediaExtractor32 = new MediaExtractor();
-                this.e = mediaExtractor32;
-                mediaExtractor32.setDataSource(str);
-                i = 0;
-                while (true) {
-                    if (i >= this.e.getTrackCount()) {
-                    }
-                    i++;
+                return false;
+            } catch (JSONException e) {
+                if (n) {
+                    e.printStackTrace();
                 }
-                mediaFormat = this.f;
-                if (mediaFormat == null) {
-                }
-            }
-        }
-        i = 0;
-        while (true) {
-            if (i >= this.e.getTrackCount()) {
-                break;
-            }
-            MediaFormat trackFormat = this.e.getTrackFormat(i);
-            String string = trackFormat.getString("mime");
-            if (!TextUtils.isEmpty(string) && string.startsWith("audio/")) {
-                this.e.selectTrack(i);
-                this.f = trackFormat;
-                break;
-            }
-            i++;
-        }
-        mediaFormat = this.f;
-        if (mediaFormat == null) {
-            throw new NullPointerException("format is null");
-        }
-        String string2 = mediaFormat.getString("mime");
-        this.a = this.f.getLong("durationUs");
-        MediaCodec createDecoderByType = MediaCodec.createDecoderByType(string2);
-        this.d = createDecoderByType;
-        createDecoderByType.configure(this.f, (Surface) null, (MediaCrypto) null, 0);
-        this.d.start();
-        this.g = this.d.getInputBuffers();
-        this.h = this.d.getOutputBuffers();
-        this.c = new MediaCodec.BufferInfo();
-    }
-
-    @Override // com.baidu.tieba.so9
-    public int a() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (this.f.containsKey("bit-width") ? this.f.getInteger("bit-width") : 16) / 8;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.so9
-    public int b() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f.containsKey("sample-rate")) {
-                return this.f.getInteger("sample-rate");
-            }
-            throw new IOException("Not a valid audio file");
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.so9
-    public boolean c() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            i();
-            int dequeueOutputBuffer = this.d.dequeueOutputBuffer(this.c, 10000L);
-            if (dequeueOutputBuffer < 0) {
-                if (dequeueOutputBuffer != -1) {
-                    if (dequeueOutputBuffer == -2) {
-                        MediaFormat outputFormat = this.d.getOutputFormat();
-                        this.f = outputFormat;
-                        fp9 fp9Var = this.m;
-                        if (fp9Var != null) {
-                            fp9Var.a(outputFormat);
-                        }
-                    } else if (dequeueOutputBuffer == -3) {
-                        this.h = this.d.getOutputBuffers();
-                    } else {
-                        str = "decodeChunk,res=" + dequeueOutputBuffer;
-                    }
-                    return false;
-                }
-                str = "decodeChunk:INFO_TRY_AGAIN_LATER";
-                vr9.j("VideoMuxer", str);
                 return false;
             }
-            MediaCodec.BufferInfo bufferInfo = this.c;
-            if ((bufferInfo.flags & 2) != 0) {
-                this.d.releaseOutputBuffer(dequeueOutputBuffer, false);
-                return false;
-            }
-            int i = bufferInfo.size;
-            if (i - bufferInfo.offset < 0) {
-                ByteBuffer byteBuffer = this.h[dequeueOutputBuffer];
-                byte[] bArr = this.i;
-                if (bArr == null || bArr.length != i) {
-                    this.i = new byte[this.c.size];
-                }
-                byteBuffer.get(this.i);
-                byteBuffer.clear();
-                this.d.releaseOutputBuffer(dequeueOutputBuffer, false);
-            } else {
-                j(dequeueOutputBuffer);
-            }
-            if ((this.c.flags & 4) != 0) {
-                long j = this.k;
-                if (j <= 0) {
-                    j = this.a;
-                }
-                this.b = j;
-                this.j = true;
-                return true;
-            }
-            return true;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.so9
-    public void close() {
+    public void m(List<ro9> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            try {
-                this.d.stop();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            try {
-                this.d.release();
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-            this.d = null;
-            try {
-                this.e.release();
-            } catch (Exception e3) {
-                e3.printStackTrace();
-            }
-            this.e = null;
-        }
-    }
-
-    @Override // com.baidu.tieba.so9
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.l = false;
-            this.j = false;
-            this.c.flags = 0;
-        }
-    }
-
-    @Override // com.baidu.tieba.so9
-    public int e() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f.containsKey("channel-count")) {
-                return this.f.getInteger("channel-count");
-            }
-            throw new IOException("Not a valid audio file");
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.so9
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.j : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.so9
-    public byte[] g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.i : (byte[]) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.so9
-    public long getCurrentPosition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.b : invokeV.longValue;
-    }
-
-    @Override // com.baidu.tieba.so9
-    public long getDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.a : invokeV.longValue;
-    }
-
-    @Override // com.baidu.tieba.so9
-    public void h(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
-            this.k = j;
-        }
-    }
-
-    public final void i() {
-        int dequeueInputBuffer;
-        long sampleTime;
-        int sampleFlags;
-        int i;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.l || (dequeueInputBuffer = this.d.dequeueInputBuffer(10000L)) < 0) {
-            return;
-        }
-        int readSampleData = this.e.readSampleData(this.g[dequeueInputBuffer], 0);
-        if (readSampleData < 0) {
-            this.l = true;
-            vr9.j("VideoMuxer", "extractor to end, audioEndTimeUs" + this.k);
-            sampleTime = 0L;
-            readSampleData = 0;
-        } else {
-            sampleTime = this.e.getSampleTime();
-        }
-        long j = this.k;
-        if (j > 0 && sampleTime > j) {
-            vr9.j("VideoMuxer", "extractor audioEndTimeUs:" + this.k + ",presentationTimeUs:" + sampleTime);
-            this.l = true;
-        }
-        boolean z = this.l;
-        MediaCodec mediaCodec = this.d;
-        if (z) {
-            i = 0;
-            sampleTime = 0;
-            sampleFlags = 4;
-        } else {
-            sampleFlags = this.e.getSampleFlags();
-            i = readSampleData;
-        }
-        mediaCodec.queueInputBuffer(dequeueInputBuffer, 0, i, sampleTime, sampleFlags);
-        if (this.l) {
-            return;
-        }
-        this.e.advance();
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:7:0x0014, code lost:
-        if (r1 != (r2.size - r2.offset)) goto L13;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            ByteBuffer byteBuffer = this.h[i];
-            byte[] bArr = this.i;
-            if (bArr != null) {
-                int length = bArr.length;
-                MediaCodec.BufferInfo bufferInfo = this.c;
-            }
-            MediaCodec.BufferInfo bufferInfo2 = this.c;
-            this.i = new byte[bufferInfo2.size - bufferInfo2.offset];
-            MediaCodec.BufferInfo bufferInfo3 = this.c;
-            if (bufferInfo3.size > 0) {
-                this.b = bufferInfo3.presentationTimeUs;
-            }
-            byteBuffer.position(this.c.offset);
-            byteBuffer.get(this.i);
-            byteBuffer.clear();
-            this.d.releaseOutputBuffer(i, false);
-        }
-    }
-
-    public void k(fp9 fp9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, fp9Var) == null) {
-            this.m = fp9Var;
-        }
-    }
-
-    @Override // com.baidu.tieba.so9
-    public void seek(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
-            d();
-            this.e.seekTo(j, 2);
-            this.b = j;
-            this.c = new MediaCodec.BufferInfo();
-            this.d.flush();
+        if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
+            this.m = list;
         }
     }
 }

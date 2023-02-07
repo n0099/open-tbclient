@@ -53,7 +53,7 @@ public class w extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public String mo673a() {
+    public String mo675a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "register app" : (String) invokeV.objValue;
@@ -61,33 +61,33 @@ public class w extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public void mo394a() {
+    public void mo396a() {
         bg.b next;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            t m754a = u.m754a((Context) this.a);
-            if (m754a == null) {
+            t m756a = u.m756a((Context) this.a);
+            if (m756a == null) {
                 try {
-                    m754a = u.a(this.a, this.f1032a, this.b, this.c);
+                    m756a = u.a(this.a, this.f1032a, this.b, this.c);
                 } catch (Exception e) {
                     com.xiaomi.channel.commonutils.logger.b.d("fail to register push account. " + e);
                 }
             }
-            if (m754a == null) {
+            if (m756a == null) {
                 com.xiaomi.channel.commonutils.logger.b.d("no account for registration.");
                 x.a(this.a, ErrorCode.ERROR_AUTHERICATION_ERROR, "no account.");
                 return;
             }
-            com.xiaomi.channel.commonutils.logger.b.m103a("do registration now.");
-            Collection<bg.b> m711a = bg.a().m711a("5");
-            if (m711a.isEmpty()) {
-                next = m754a.a(this.a);
+            com.xiaomi.channel.commonutils.logger.b.m105a("do registration now.");
+            Collection<bg.b> m713a = bg.a().m713a("5");
+            if (m713a.isEmpty()) {
+                next = m756a.a(this.a);
                 ah.a(this.a, next);
                 bg.a().a(next);
             } else {
-                next = m711a.iterator().next();
+                next = m713a.iterator().next();
             }
-            if (!this.a.m671c()) {
+            if (!this.a.m673c()) {
                 x.a(this.f1032a, this.f1033a);
                 this.a.a(true);
                 return;

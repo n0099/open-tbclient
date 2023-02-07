@@ -27,7 +27,7 @@ public abstract class WebBackForwardList implements Serializable, Cloneable {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // 
     /* renamed from: clone */
-    public abstract WebBackForwardList mo75clone();
+    public abstract WebBackForwardList mo77clone();
 
     public abstract int getCurrentIndex();
 

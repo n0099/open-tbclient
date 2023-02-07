@@ -1,5 +1,10 @@
 package com.baidu.tieba;
 
+import android.content.SharedPreferences;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,12 +12,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.reporter.Reporter;
+import java.util.Calendar;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes4.dex */
 public class i1a {
     public static /* synthetic */ Interceptable $ic;
-    public static final q1a<Reporter> a;
-    public static final q1a<Reporter> b;
+    public static final Handler a;
+    public static final Set<String> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,89 +35,64 @@ public class i1a {
                 return;
             }
         }
-        a = new a();
-        b = new b();
+        b = new HashSet();
+        a = new a(Looper.getMainLooper());
     }
 
-    /* loaded from: classes4.dex */
-    public static class a extends q1a<Reporter> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        /* JADX WARN: Type inference failed for: r1v0, types: [com.fun.ad.sdk.internal.api.reporter.Reporter, java.lang.Object] */
-        @Override // com.baidu.tieba.q1a
-        public Reporter a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new n1a("https://rpe.xdplt.com/evt/", true);
-            }
-            return invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b extends q1a<Reporter> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        /* JADX WARN: Type inference failed for: r1v0, types: [com.fun.ad.sdk.internal.api.reporter.Reporter, java.lang.Object] */
-        @Override // com.baidu.tieba.q1a
-        public Reporter a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new l1a("https://rpd.xdplt.com/evt/");
-            }
-            return invokeV.objValue;
-        }
-    }
-
-    /* JADX WARN: Type inference failed for: r1v7, types: [T, java.lang.Object] */
-    public static Reporter a() {
+    public static long a() {
         InterceptResult invokeV;
-        Reporter reporter;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            q1a<Reporter> q1aVar = a;
-            synchronized (q1aVar) {
-                if (q1aVar.a == null) {
-                    q1aVar.a = q1aVar.a();
-                }
-                reporter = q1aVar.a;
+            Calendar calendar = Calendar.getInstance();
+            long timeInMillis = calendar.getTimeInMillis();
+            calendar.add(6, 1);
+            calendar.set(11, 0);
+            calendar.set(12, 0);
+            calendar.set(13, 0);
+            long timeInMillis2 = calendar.getTimeInMillis() - timeInMillis;
+            if (timeInMillis2 < 0) {
+                return 0L;
             }
-            return reporter;
+            return timeInMillis2;
         }
-        return (Reporter) invokeV.objValue;
+        return invokeV.longValue;
+    }
+
+    /* loaded from: classes4.dex */
+    public static class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(@NonNull Message message) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 101) {
+                SharedPreferences sharedPreferences = s2a.a;
+                sharedPreferences.edit().clear().apply();
+                sharedPreferences.edit().putLong("req_id_update_time", System.currentTimeMillis()).apply();
+                i1a.b.clear();
+                sendEmptyMessageDelayed(101, i1a.a());
+            }
+        }
     }
 }

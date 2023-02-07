@@ -1,36 +1,51 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.im.message.MemoryModifyLastMsgMessage;
+import com.baidu.tieba.im.model.IMUserListModel;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public final class e59 {
+public class e59 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public IMUserListModel a;
 
-    public static final int a() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e59(MainTabActivity mainTabActivity) {
+        super(2016003);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            try {
-                String e = h59.e();
-                Object systemService = TbadkCoreApplication.getInst().getContext().getSystemService("activity");
-                if (systemService != null) {
-                    for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) systemService).getRunningAppProcesses()) {
-                        if (Intrinsics.areEqual(runningAppProcessInfo.processName, e)) {
-                            return runningAppProcessInfo.pid;
-                        }
-                    }
-                    return -1;
-                }
-                throw new NullPointerException("null cannot be cast to non-null type android.app.ActivityManager");
-            } catch (Exception unused) {
-                return -1;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeV.intValue;
+        this.a = new IMUserListModel(mainTabActivity.getPageContext(), mainTabActivity.getUniqueId());
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        MemoryModifyLastMsgMessage.a data;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016003 && (data = ((MemoryModifyLastMsgMessage) customResponsedMessage).getData()) != null && hl7.f().g(data.a, 2) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(data.a);
+            this.a.request(false, arrayList);
+        }
     }
 }

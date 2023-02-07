@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.nk5;
+import com.baidu.tieba.yo5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,7 +50,7 @@ public class BackgroundSetRequestMessage extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.props_id = Integer.valueOf(this.propId);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                nk5.a(builder, true);
+                yo5.a(builder, true);
             }
             SetBackgroundReqIdl.Builder builder2 = new SetBackgroundReqIdl.Builder();
             builder2.data = builder.build(false);

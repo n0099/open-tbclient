@@ -1,149 +1,53 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
 /* loaded from: classes3.dex */
-public final class ac1 {
+public class ac1 implements InvocationHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public xb1 a;
 
-    public static final String a() {
-        InterceptResult invokeV;
+    public ac1(xb1 xb1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return h() + "/cps/user/recordBatch/sapp";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return h() + "/cashier/calcMoney";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return h() + "/cashier/channelAllInfo";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return h() + "/cashier/order/orderInfo";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return h() + "/cps/user/record/sapp";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return h() + "/cashier/drmb/drmbPay";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (xb1.a() != 1) {
-                return "https://trade.baidu-int.com/sandbox/tradegateway";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {xb1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return "https://etrade-api.baidu.com";
         }
-        return (String) invokeV.objValue;
+        this.a = xb1Var;
     }
 
-    public static final String j() {
-        InterceptResult invokeV;
+    @Override // java.lang.reflect.InvocationHandler
+    public Object invoke(Object obj, Method method, Object[] objArr) throws Throwable {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return h() + "/cashier/launchpayment";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            return h() + "/cashier/pay";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            return h() + "/cashier/sdkAdaptH5QueryPay";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            return h() + "/cashier/drmb/reqCode";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (xb1.a() != 2) {
-                return h() + "/cashier/innerChannelAllInfo";
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, obj, method, objArr)) == null) {
+            if (this.a != null) {
+                try {
+                    this.a.onTranslucent(((Boolean) objArr[0]).booleanValue());
+                    return null;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    this.a.onTranslucent(false);
+                    return null;
+                }
             }
-            return h() + "/cashier/innerChannelAllInfo";
+            return null;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (xb1.a() != 1) {
-                return h() + "/cashier/agreement/judgeGuideSign";
-            }
-            return h() + "/cashier/agreement/judgeGuideSign";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            if (xb1.a() != 1) {
-                return h() + "/cashier/agreement/guideApplySign";
-            }
-            return h() + "/cashier/agreement/guideApplySign";
-        }
-        return (String) invokeV.objValue;
+        return invokeLLL.objValue;
     }
 }

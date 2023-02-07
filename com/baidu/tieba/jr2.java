@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
+import android.content.Context;
+import android.text.TextWatcher;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.searchbox.retrieve.log.bean.FetchLog;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.swan.apps.component.components.textarea.SwanEditText;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,34 +11,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class jr2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean v;
+    public static volatile jr2 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public boolean i;
-    public String j;
-    public int k;
-    public int l;
-    public String m;
-    public int n;
-    public int o;
-    public String p;
-    public boolean q;
-    public boolean r;
-    public String s;
-    public String t;
-    public String u;
+    public TextWatcher a;
+    public SwanEditText b;
 
     static {
         InterceptResult invokeClinit;
@@ -55,16 +32,7 @@ public class jr2 {
                 return;
             }
         }
-        v = tk1.a;
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.r;
-        }
-        return invokeV.booleanValue;
+        boolean z = gp1.a;
     }
 
     public jr2() {
@@ -77,107 +45,66 @@ public class jr2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = "";
-        this.b = "";
-        this.c = "";
-        this.d = "";
-        this.e = "";
-        this.f = "";
-        this.g = "";
-        this.h = "";
-        this.i = false;
-        this.j = "";
-        this.k = 0;
-        this.l = 0;
-        this.m = "";
-        this.q = false;
     }
 
-    public static jr2 b(JSONObject jSONObject, jr2 jr2Var) {
-        InterceptResult invokeLL;
-        boolean z;
+    public static jr2 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONObject, jr2Var)) == null) {
-            jr2 jr2Var2 = new jr2();
-            if (jSONObject != null) {
-                jr2Var2.a = jSONObject.optString("audioId", jr2Var.a);
-                jr2Var2.b = jSONObject.optString("slaveId", jr2Var.b);
-                jr2Var2.c = jSONObject.optString("src", jr2Var.c);
-                if (j43.M() != null && rb3.E(jr2Var2.c)) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                jr2Var2.q = z;
-                jr2Var2.d = jSONObject.optString("title", jr2Var.d);
-                jr2Var2.e = jSONObject.optString("epname", jr2Var.e);
-                jr2Var2.f = jSONObject.optString("singer", jr2Var.f);
-                jr2Var2.g = jSONObject.optString("coverImgUrl", jr2Var.g);
-                jr2Var2.h = jSONObject.optString("lrcURL", jr2Var.h);
-                jr2Var2.i = jSONObject.optBoolean("showFloatView", jr2Var.i);
-                jr2Var2.j = jSONObject.optString("floatPosition", jr2Var.j);
-                jr2Var2.k = jSONObject.optInt(FetchLog.START_TIME, jr2Var.k);
-                jr2Var2.l = jSONObject.optInt(CriusAttrConstants.POSITION, jr2Var.l);
-                jr2Var2.p = jSONObject.optString("cb", jr2Var.p);
-                jr2Var2.m = jSONObject.optString(Constants.EXTRA_PARAM, jr2Var.m);
-                jr2Var2.r = TextUtils.isEmpty(jSONObject.optString("src"));
-                String g0 = db2.U().g0();
-                if (!TextUtils.isEmpty(g0)) {
-                    jr2Var2.s = g0;
-                }
-                String b = qh3.b();
-                if (!TextUtils.isEmpty(b) && qh3.c(jr2Var2.c)) {
-                    jr2Var2.t = b;
-                }
-                String j = fd3.l().j(jr2Var2.c);
-                if (!TextUtils.isEmpty(j)) {
-                    jr2Var2.u = j;
-                    if (v) {
-                        Log.d("AudioPlayerParams", "addCookiesToHeader cookie: " + j);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (jr2.class) {
+                    if (c == null) {
+                        c = new jr2();
                     }
                 }
             }
-            return jr2Var2;
+            return c;
         }
-        return (jr2) invokeLL.objValue;
+        return (jr2) invokeV.objValue;
     }
 
-    public String c(String str) {
-        InterceptResult invokeL;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.putOpt("src", str);
-                jSONObject.putOpt("title", this.d);
-                jSONObject.putOpt("epname", this.e);
-                jSONObject.putOpt("singer", this.f);
-                jSONObject.putOpt("coverImgUrl", this.g);
-                jSONObject.putOpt("lrcURL", this.h);
-                jSONObject.putOpt("isLocal", Boolean.valueOf(this.q));
-                jSONObject.putOpt("appid", j43.g0());
-                jSONObject.putOpt("user-agent", this.s);
-                jSONObject.putOpt(TiebaStatic.Params.REFER, this.t);
-                jSONObject.putOpt("Cookie", this.u);
-            } catch (JSONException e) {
-                if (v) {
-                    e.printStackTrace();
-                }
-            }
-            return jSONObject.toString();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b = null;
         }
-        return (String) invokeL.objValue;
     }
 
-    public String toString() {
+    public SwanEditText c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "AudioBGPlayerParams{ playerId=" + this.a + " slaveId=" + this.b + " url=" + this.c + " startTime=" + this.k + " pos=" + this.l + " canPlay=" + this.r + " }";
+            return this.b;
         }
-        return (String) invokeV.objValue;
+        return (SwanEditText) invokeV.objValue;
+    }
+
+    public TextWatcher e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return (TextWatcher) invokeV.objValue;
+    }
+
+    public SwanEditText a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            SwanEditText swanEditText = new SwanEditText(context);
+            this.b = swanEditText;
+            return swanEditText;
+        }
+        return (SwanEditText) invokeL.objValue;
+    }
+
+    public void f(TextWatcher textWatcher) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, textWatcher) == null) {
+            this.a = textWatcher;
+        }
     }
 }

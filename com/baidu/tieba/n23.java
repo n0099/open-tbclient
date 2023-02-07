@@ -1,9 +1,9 @@
 package com.baidu.tieba;
-
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public interface n23 {
-    void a(JSONObject jSONObject);
+    public static final Object b = new Object();
 
-    void onFail(String str);
+    void b(int i);
+
+    void c();
 }

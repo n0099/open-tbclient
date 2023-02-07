@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Rect;
 import android.net.Uri;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
@@ -86,6 +87,8 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
         @NonNull
         @SerializedName("pageId")
         public String flutterPageId;
+        @SerializedName("from_comment")
+        public String fromComment;
         public boolean hasMore;
         @SerializedName("is_share")
         public boolean isShareThread;
@@ -200,10 +203,19 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
             return invokeV.booleanValue;
         }
 
-        public boolean isVideoTab() {
+        public boolean isShowComment() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                return "1".equals(this.fromComment);
+            }
+            return invokeV.booleanValue;
+        }
+
+        public boolean isVideoTab() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
                 return this.isVideoTab;
             }
             return invokeV.booleanValue;
@@ -211,7 +223,7 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
 
         public void setCurrentPn(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
                 this.currentPn = i;
             }
         }
@@ -241,13 +253,13 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoRecommentPlayActivityConfig(Context context, List<VideoItemData> list, int i) {
+    public VideoRecommentPlayActivityConfig(@NonNull Context context, int i, String str, String str2, boolean z) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, list, Integer.valueOf(i)};
+            Object[] objArr = {context, Integer.valueOf(i), str, str2, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -255,6 +267,30 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        getIntent().putExtra("video_show_index", i);
+        getIntent().putExtra("page_from", str);
+        getIntent().putExtra("from", str);
+        TbSingleton.getInstance().setIsNeedShowPbCommentThreadId((!z || TextUtils.isEmpty(str2)) ? null : null);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public VideoRecommentPlayActivityConfig(Context context, List<VideoItemData> list, int i) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, list, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
@@ -270,13 +306,13 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, list, Integer.valueOf(i), rect, str};
-            interceptable.invokeUnInit(65538, newInitContext);
+            interceptable.invokeUnInit(65539, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+                interceptable.invokeInitBody(65539, newInitContext);
                 return;
             }
         }
@@ -294,13 +330,13 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, list, Integer.valueOf(i), rect, str, str2, str3, str4};
-            interceptable.invokeUnInit(65539, newInitContext);
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
             }
         }
@@ -321,13 +357,13 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, list, Integer.valueOf(i), rect, str, str2, str3, str4, str5};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+            interceptable.invokeUnInit(65541, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                interceptable.invokeInitBody(65541, newInitContext);
                 return;
             }
         }
@@ -349,13 +385,13 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, list, str, str2};
-            interceptable.invokeUnInit(65541, newInitContext);
+            interceptable.invokeUnInit(65542, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65541, newInitContext);
+                interceptable.invokeInitBody(65542, newInitContext);
                 return;
             }
         }
@@ -373,13 +409,13 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, list, str, str2, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65542, newInitContext);
+            interceptable.invokeUnInit(65543, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65542, newInitContext);
+                interceptable.invokeInitBody(65543, newInitContext);
                 return;
             }
         }
@@ -409,10 +445,18 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
         }
     }
 
+    public void setStartFrom(int i) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (intent = getIntent()) != null) {
+            intent.putExtra("key_start_from", i);
+        }
+    }
+
     public VideoRecommentPlayActivityConfig setUri(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uri)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, uri)) == null) {
             Intent intent = getIntent();
             if (intent != null) {
                 intent.putExtra(IntentConfig.KEY_URI, uri);
@@ -424,7 +468,7 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
 
     public void setVideoShowIndex(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             getIntent().putExtra("video_show_index", i);
         }
     }

@@ -15,16 +15,16 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.widget.tiejia.TiePlusEventController;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cx4;
-import com.baidu.tieba.fs4;
-import com.baidu.tieba.ux;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.p15;
+import com.baidu.tieba.sw4;
+import com.baidu.tieba.zx;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class RichTextLayout extends LinearLayout implements ux<fs4>, View.OnClickListener {
+public class RichTextLayout extends LinearLayout implements zx<sw4>, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
@@ -125,7 +125,7 @@ public class RichTextLayout extends LinearLayout implements ux<fs4>, View.OnClic
                 return;
             }
         }
-        this.a = zi.l(TbadkCoreApplication.getInst()) - ((zi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + zi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
+        this.a = ej.l(TbadkCoreApplication.getInst()) - ((ej.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + ej.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
         this.e = false;
         this.g = false;
         this.d = context;
@@ -176,19 +176,19 @@ public class RichTextLayout extends LinearLayout implements ux<fs4>, View.OnClic
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ux
+    @Override // com.baidu.tieba.zx
     /* renamed from: d */
-    public void a(fs4 fs4Var) {
+    public void a(sw4 sw4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fs4Var) == null) && fs4Var != null && fs4Var.getThreadData() != null) {
-            ThreadData threadData = fs4Var.getThreadData();
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sw4Var) == null) && sw4Var != null && sw4Var.getThreadData() != null) {
+            ThreadData threadData = sw4Var.getThreadData();
             OriginalThreadInfo originalThreadInfo = threadData.originalThreadData;
             if (originalThreadInfo != null && this.e) {
                 this.b.setVisibility(8);
-                cx4 d = cx4.d(this.c);
+                p15 d = p15.d(this.c);
                 d.A(R.string.F_X01);
                 d.z(R.dimen.T_X07);
-                if (!originalThreadInfo.m && !fs4Var.getThreadData().shouldShowBlockedState()) {
+                if (!originalThreadInfo.m && !sw4Var.getThreadData().shouldShowBlockedState()) {
                     SpannableString c = originalThreadInfo.c();
                     ThreadCardUtils.setAbstract(this.c, this.b, c, threadData, this.a, this.e, this.g);
                     if (c != null) {

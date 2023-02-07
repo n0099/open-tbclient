@@ -1,141 +1,131 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Bundle;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.config.QuickPersistConfigConst;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.core.container.NgWebView;
+import com.baidu.swan.apps.core.slave.SwanWebModeWidget;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class sy2 implements cj3<HybridUbcFlow> {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static boolean b = true;
-    public static int c = -1;
+public class sy2 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948167677, "Lcom/baidu/tieba/sy2;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948167677, "Lcom/baidu/tieba/sy2;");
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(sy2 sy2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sy2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                di3.Y();
-            }
-        }
-    }
-
-    public sy2(String str) {
+    public static int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = str;
-    }
-
-    public final void b(@NonNull HybridUbcFlow hybridUbcFlow) {
-        UbcFlowEvent g;
-        UbcFlowEvent a2;
-        UbcFlowEvent a3;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) != null) || (g = hybridUbcFlow.g("na_first_meaningful_paint")) == null) {
-            return;
-        }
-        wa2 wa2Var = (wa2) hybridUbcFlow.k("fmp_data_record");
-        if ("fmp_callback".equals(this.a)) {
-            String name = sy2.class.getName();
-            Log.d(name, "Current Record FMP - " + g.a + ":" + g.g());
-            if (wa2Var != null && (a3 = wa2Var.a()) != null) {
-                String name2 = sy2.class.getName();
-                Log.d(name2, "First Page Record FMP - " + a3.a + ":" + a3.g());
-            }
-        } else if ("callback_on_submit".equals(this.a)) {
-            String name3 = sy2.class.getName();
-            Log.d(name3, "Real Report FMP - " + g.a + ":" + g.g());
-            if (wa2Var != null && (a2 = wa2Var.a()) != null) {
-                String name4 = sy2.class.getName();
-                Log.d(name4, "First Page Report FMP - " + a2.a + ":" + a2.g());
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cj3
-    /* renamed from: c */
-    public synchronized void a(HybridUbcFlow hybridUbcFlow) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hybridUbcFlow) == null) {
-            synchronized (this) {
-                if (b) {
-                    if (c == -1) {
-                        qn2.g0().getSwitch("swan_next_env_delay", 600);
-                        c = 600;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        return i != 3 ? 100 : 118;
                     }
-                    di3.b0(new a(this), c);
+                    return 112;
                 }
-                if (tk1.a) {
-                    String name = getClass().getName();
-                    Log.d(name, "enable=" + b + ", delay=" + c);
-                }
-                if ("fmp_callback".equals(this.a)) {
-                    b = false;
-                } else if ("callback_on_submit".equals(this.a)) {
-                    b = true;
-                }
-                if (tk1.a && hybridUbcFlow != null) {
-                    b(hybridUbcFlow);
-                }
+                return 100;
             }
+            return 82;
+        }
+        return invokeI.intValue;
+    }
+
+    public static int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            Bundle b = j53.b(ty2.class, null);
+            if (b == null) {
+                return 1;
+            }
+            return b.getInt("font_size_level", 1);
+        }
+        return invokeV.intValue;
+    }
+
+    public static int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b() + 1;
+        }
+        return invokeV.intValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return lm3.f("3.200.101");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            SwanAppConfigData s = ju2.U().s();
+            if (s == null) {
+                return false;
+            }
+            return TextUtils.equals("none", s.e.q);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static NgWebView c(c82 c82Var) {
+        InterceptResult invokeL;
+        HashMap<String, ev1> V;
+        ev1 ev1Var;
+        dv1 r;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, c82Var)) == null) {
+            if (c82Var instanceof e82) {
+                cv1 o3 = ((e82) c82Var).o3();
+                if (o3 != null && o3.k() != null) {
+                    return (NgWebView) o3.k().r();
+                }
+                if (o3 == null) {
+                    return null;
+                }
+                return (NgWebView) o3.r();
+            } else if (!(c82Var instanceof j82) || (V = qf2.U().V()) == null || V.size() <= 0 || (ev1Var = V.get(oo3.c().h())) == null || !(ev1Var instanceof SwanWebModeWidget) || (r = ev1Var.r()) == null || !(r instanceof NgWebView)) {
+                return null;
+            } else {
+                return (NgWebView) r;
+            }
+        }
+        return (NgWebView) invokeL.objValue;
+    }
+
+    public static void g(int i, int i2) {
+        SwanAppActivity w;
+        f82 X;
+        c82 m;
+        NgWebView c;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeII(65542, null, i, i2) != null) || (w = v83.K().w()) == null || (X = w.X()) == null || (m = X.m()) == null || (c = c(m)) == null) {
+            return;
+        }
+        if (!f()) {
+            c.getSettings().setTextZoom(a(i));
+            ry2.a(Integer.valueOf(i + 1), String.valueOf(i2));
+        }
+        h(i);
+    }
+
+    public static void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65543, null, i) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putInt(QuickPersistConfigConst.KEY_TEXT_SIZE, i);
+            m53.e().h(new o53(22, bundle));
         }
     }
 }

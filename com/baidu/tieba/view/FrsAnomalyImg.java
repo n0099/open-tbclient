@@ -12,8 +12,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.jn;
-import com.baidu.tieba.tg;
+import com.baidu.tieba.on;
+import com.baidu.tieba.yg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,7 +52,7 @@ public class FrsAnomalyImg extends AppCompatImageView {
     }
 
     /* loaded from: classes6.dex */
-    public class a extends tg<jn> {
+    public class a extends yg<on> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsAnomalyImg a;
@@ -75,7 +75,7 @@ public class FrsAnomalyImg extends AppCompatImageView {
             this.a = frsAnomalyImg;
         }
 
-        @Override // com.baidu.tieba.tg
+        @Override // com.baidu.tieba.yg
         public void onCancelled(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -83,7 +83,7 @@ public class FrsAnomalyImg extends AppCompatImageView {
             }
         }
 
-        @Override // com.baidu.tieba.tg
+        @Override // com.baidu.tieba.yg
         public void onProgressUpdate(Object... objArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, objArr) == null) {
@@ -92,13 +92,13 @@ public class FrsAnomalyImg extends AppCompatImageView {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.tg
-        public void onLoaded(jn jnVar, String str, int i) {
+        @Override // com.baidu.tieba.yg
+        public void onLoaded(on onVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jnVar, str, i) == null) && jnVar != null) {
-                this.a.m = jnVar.r();
-                this.a.n = jnVar.m();
-                this.a.o = jnVar.d();
+            if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onVar, str, i) == null) && onVar != null) {
+                this.a.m = onVar.r();
+                this.a.n = onVar.m();
+                this.a.o = onVar.d();
                 this.a.invalidate();
             }
         }

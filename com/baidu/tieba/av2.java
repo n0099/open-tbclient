@@ -1,137 +1,106 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes3.dex */
 public class av2 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile av2 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public long c;
-    public boolean d;
+    public final nh3 a;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public av2(int i) {
-        this(i, null);
+    public av2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this(((Integer) objArr2[0]).intValue(), (String) objArr2[1]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-    }
-
-    public av2(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        this.a = new nh3("swan_local_ab_data");
+        if (ProcessUtils.isMainProcess()) {
+            this.a.clear();
         }
-        this.d = false;
-        this.a = i;
-        this.b = str;
+        c();
     }
 
-    public av2(int i, String str, long j) {
+    public static av2 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, Long.valueOf(j)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (av2.class) {
+                    if (b == null) {
+                        b = new av2();
+                    }
+                }
             }
+            return b;
         }
-        this.d = false;
-        this.a = i;
-        this.b = str;
-        this.c = j;
+        return (av2) invokeV.objValue;
     }
 
-    public av2(int i, String str, long j, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, Long.valueOf(j), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.d = false;
-        this.a = i;
-        this.b = str;
-        this.c = j;
-        this.d = z;
-    }
-
-    public boolean a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return invokeV.longValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
+            return this.a.getString(Config.SID, "");
         }
         return (String) invokeV.objValue;
+    }
+
+    public final void c() {
+        String substring;
+        Object e;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && ProcessUtils.isMainProcess()) {
+            List<bv2> c = new zu2().c();
+            for (bv2 bv2Var : c) {
+                cv2 b2 = bv2Var.b();
+                dv2 c2 = bv2Var.c();
+                if (b2 == null) {
+                    e = c2.d();
+                } else {
+                    e = b2.e();
+                }
+                if (e instanceof Boolean) {
+                    this.a.writeBool(c2.e(), ((Boolean) e).booleanValue());
+                } else if (e instanceof Double) {
+                    this.a.writeDouble(c2.e(), ((Double) e).doubleValue());
+                } else if (e instanceof Integer) {
+                    this.a.writeInt(c2.e(), ((Integer) e).intValue());
+                } else if (e instanceof Long) {
+                    this.a.writeLong(c2.e(), ((Long) e).longValue());
+                } else if (e instanceof String) {
+                    this.a.writeString(c2.e(), (String) e);
+                }
+            }
+            StringBuilder sb = new StringBuilder();
+            for (bv2 bv2Var2 : c) {
+                cv2 b3 = bv2Var2.b();
+                if (b3 != null) {
+                    sb.append(b3.d());
+                    sb.append("-");
+                }
+            }
+            if (sb.length() == 0) {
+                substring = "";
+            } else {
+                substring = sb.substring(0, sb.length() - 1);
+            }
+            this.a.writeString(Config.SID, substring);
+        }
     }
 }

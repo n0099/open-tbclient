@@ -1,270 +1,253 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.ar.statistic.StatisticConstants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
-/* loaded from: classes5.dex */
-public class qc3 extends rc3 {
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public class qc3 extends ta3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<String> f;
+    public String c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948086984, "Lcom/baidu/tieba/qc3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ UnitedSchemeEntity a;
+        public final /* synthetic */ CallbackHandler b;
+        public final /* synthetic */ w83 c;
+        public final /* synthetic */ qc3 d;
+
+        /* renamed from: com.baidu.tieba.qc3$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class RunnableC0404a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ Bitmap a;
+            public final /* synthetic */ a b;
+
+            public RunnableC0404a(a aVar, Bitmap bitmap) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, bitmap};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = bitmap;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948086984, "Lcom/baidu/tieba/qc3;");
-                return;
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    a aVar = this.b;
+                    aVar.d.o(this.a, aVar.a, aVar.b, aVar.c);
+                }
             }
         }
-        g = tk1.a;
-    }
 
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && g) {
-            IllegalAccessException illegalAccessException = new IllegalAccessException("read only allowed");
-            Log.i("IpcReadOnlySP", illegalAccessException.toString());
-            illegalAccessException.printStackTrace();
+        public a(qc3 qc3Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, w83 w83Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qc3Var, unitedSchemeEntity, callbackHandler, w83Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = qc3Var;
+            this.a = unitedSchemeEntity;
+            this.b = callbackHandler;
+            this.c = w83Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Bitmap y = nm3.y();
+                if (y == null) {
+                    this.d.n(this.a, this.b, "can't get screenshot");
+                } else {
+                    ql3.k(new RunnableC0404a(this, y), "savescreenshot");
+                }
+            }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qc3(String str) {
-        super(str);
+    public qc3(t93 t93Var) {
+        super(t93Var, "/swanAPI/getScreenshot");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {t93Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = new HashSet();
     }
 
-    @Override // com.baidu.tieba.rc3, com.baidu.tieba.wc3, android.content.SharedPreferences
-    public boolean getBoolean(String str, boolean z) {
-        InterceptResult invokeLZ;
+    @Override // com.baidu.tieba.ta3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, w83 w83Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
-            if (k(str)) {
-                return super.getBoolean(str, z);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, w83Var)) == null) {
+            if (w83Var == null) {
+                w52.c("Screenshot", "illegal swanApp");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
+                return false;
             }
-            return d(str, z);
-        }
-        return invokeLZ.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.rc3, com.baidu.tieba.wc3, android.content.SharedPreferences
-    public float getFloat(String str, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, f)) == null) {
-            if (k(str)) {
-                return super.getFloat(str, f);
+            String optString = wl3.d(unitedSchemeEntity.getParam("params")).optString("name");
+            this.c = optString;
+            if (TextUtils.isEmpty(optString)) {
+                w52.c("Screenshot", "invalid params");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
             }
-            return e(str, f);
+            m(unitedSchemeEntity, callbackHandler, w83Var);
+            return true;
         }
-        return invokeLF.floatValue;
+        return invokeLLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.rc3, com.baidu.tieba.wc3, android.content.SharedPreferences
-    public int getInt(String str, int i) {
-        InterceptResult invokeLI;
+    public final JSONObject l(boolean z, String str, String str2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
-            if (k(str)) {
-                return super.getInt(str, i);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, str2})) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("name", this.c);
+                if (!TextUtils.isEmpty(str2)) {
+                    jSONObject.put("message", str2);
+                }
+                if (z) {
+                    jSONObject.put("path", str);
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            return f(str, i);
+            return jSONObject;
         }
-        return invokeLI.intValue;
+        return (JSONObject) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.rc3, com.baidu.tieba.wc3, android.content.SharedPreferences
-    public long getLong(String str, long j) {
-        InterceptResult invokeLJ;
+    public final void m(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, @NonNull w83 w83Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j)) == null) {
-            if (k(str)) {
-                return super.getLong(str, j);
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, unitedSchemeEntity, callbackHandler, w83Var) == null) {
+            qm3.e0(new a(this, unitedSchemeEntity, callbackHandler, w83Var));
+        }
+    }
+
+    public final void n(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, unitedSchemeEntity, callbackHandler, str) == null) {
+            w52.c("Screenshot", str);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(l(false, null, str), 0));
+        }
+    }
+
+    public final void o(@NonNull Bitmap bitmap, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, @NonNull w83 w83Var) {
+        String x;
+        FileOutputStream fileOutputStream;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(1048580, this, bitmap, unitedSchemeEntity, callbackHandler, w83Var) == null) && (x = eg3.x(w83Var.b)) != null) {
+            String str = x + File.separator + StatisticConstants.SCREENSHOT;
+            File file = new File(str);
+            if (!file.exists() || !file.isDirectory()) {
+                file.delete();
+                if (!file.mkdir()) {
+                    n(unitedSchemeEntity, callbackHandler, "mkdir fail");
+                    return;
+                }
             }
-            return g(str, j);
-        }
-        return invokeLJ.longValue;
-    }
-
-    @Override // com.baidu.tieba.rc3, com.baidu.tieba.wc3, android.content.SharedPreferences
-    public String getString(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            if (k(str)) {
-                return super.getString(str, str2);
-            }
-            return i(str, str2);
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.rc3, com.baidu.tieba.wc3, android.content.SharedPreferences.Editor
-    public SharedPreferences.Editor putBoolean(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048583, this, str, z)) == null) {
-            if (!j() && !k(str)) {
-                l();
-            } else {
-                super.putBoolean(str, z);
-            }
-            return this;
-        }
-        return (SharedPreferences.Editor) invokeLZ.objValue;
-    }
-
-    @Override // com.baidu.tieba.rc3, com.baidu.tieba.wc3, android.content.SharedPreferences.Editor
-    public SharedPreferences.Editor putFloat(String str, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, f)) == null) {
-            if (!j() && !k(str)) {
-                l();
-            } else {
-                super.putFloat(str, f);
-            }
-            return this;
-        }
-        return (SharedPreferences.Editor) invokeLF.objValue;
-    }
-
-    @Override // com.baidu.tieba.rc3, com.baidu.tieba.wc3, android.content.SharedPreferences.Editor
-    public SharedPreferences.Editor putInt(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, str, i)) == null) {
-            if (!j() && !k(str)) {
-                l();
-            } else {
-                super.putInt(str, i);
-            }
-            return this;
-        }
-        return (SharedPreferences.Editor) invokeLI.objValue;
-    }
-
-    @Override // com.baidu.tieba.rc3, com.baidu.tieba.wc3, android.content.SharedPreferences.Editor
-    public SharedPreferences.Editor putLong(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048586, this, str, j)) == null) {
-            if (!j() && !k(str)) {
-                l();
-            } else {
-                super.putLong(str, j);
-            }
-            return this;
-        }
-        return (SharedPreferences.Editor) invokeLJ.objValue;
-    }
-
-    @Override // com.baidu.tieba.rc3, com.baidu.tieba.wc3, android.content.SharedPreferences.Editor
-    public SharedPreferences.Editor putString(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) {
-            if (!j() && !k(str)) {
-                l();
-            } else {
-                super.putString(str, str2);
-            }
-            return this;
-        }
-        return (SharedPreferences.Editor) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.wc3, android.content.SharedPreferences.Editor
-    public SharedPreferences.Editor putStringSet(String str, Set<String> set) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, str, set)) == null) {
-            if (!j() && !k(str)) {
-                l();
-            } else {
-                super.putStringSet(str, set);
-            }
-            return this;
-        }
-        return (SharedPreferences.Editor) invokeLL.objValue;
-    }
-
-    public boolean k(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            return this.f.contains(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.wc3, com.baidu.tieba.lk4, android.content.SharedPreferences
-    public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, onSharedPreferenceChangeListener) == null) {
-            if (j()) {
-                super.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
-            } else {
-                l();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.rc3, com.baidu.tieba.wc3, android.content.SharedPreferences.Editor
-    public SharedPreferences.Editor remove(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            if (!j() && !k(str)) {
-                l();
-            } else {
-                super.remove(str);
-            }
-            return this;
-        }
-        return (SharedPreferences.Editor) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.wc3, com.baidu.tieba.lk4, android.content.SharedPreferences
-    public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, onSharedPreferenceChangeListener) == null) {
-            if (j()) {
-                super.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
-            } else {
-                l();
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMddHHmmss", Locale.getDefault());
+            String str2 = str + File.separator + simpleDateFormat.format(new Date()) + this.c + EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX;
+            FileOutputStream fileOutputStream2 = null;
+            try {
+                try {
+                    try {
+                        fileOutputStream = new FileOutputStream(str2);
+                    } catch (FileNotFoundException e) {
+                        e = e;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                }
+                try {
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream);
+                    w52.i("Screenshot", "save screenshot to " + str2);
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(l(true, eg3.J(str2, w83Var.b), "success"), 0));
+                    fileOutputStream.close();
+                } catch (FileNotFoundException e2) {
+                    e = e2;
+                    fileOutputStream2 = fileOutputStream;
+                    e.printStackTrace();
+                    n(unitedSchemeEntity, callbackHandler, "save screenshot fail");
+                    if (fileOutputStream2 != null) {
+                        fileOutputStream2.close();
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileOutputStream2 = fileOutputStream;
+                    if (fileOutputStream2 != null) {
+                        try {
+                            fileOutputStream2.close();
+                        } catch (IOException e3) {
+                            e3.printStackTrace();
+                            n(unitedSchemeEntity, callbackHandler, "save screenshot fail");
+                        }
+                    }
+                    throw th;
+                }
+            } catch (IOException e4) {
+                e4.printStackTrace();
+                n(unitedSchemeEntity, callbackHandler, "save screenshot fail");
             }
         }
     }

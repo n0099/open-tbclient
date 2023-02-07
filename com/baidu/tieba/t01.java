@@ -1,208 +1,208 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.player.strategy.IVideoUpdateStrategy;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class t01 {
+public class t01 implements IVideoUpdateStrategy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
+    public boolean c;
+    public boolean d;
+    public int e;
+    public boolean f;
+    public boolean g;
+    public boolean h;
 
-    public static boolean f(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, obj)) == null) ? obj == null : invokeL.booleanValue;
-    }
-
-    public static void n(Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65549, null, exc) == null) {
-        }
-    }
-
-    public static <T> void a(List<T> list, T t, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLI(65536, null, list, t, i) != null) || f(list) || !e(list, i)) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948127284, "Lcom/baidu/tieba/t01;")) == null) {
             return;
         }
-        try {
-            list.add(i, t);
-        } catch (Exception e) {
-            n(e);
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948127284, "Lcom/baidu/tieba/t01;");
         }
     }
 
-    public static <T> boolean b(List<T> list, T t) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.nadcore.player.strategy.IVideoUpdateStrategy
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, list, t)) == null) {
-            if (f(list)) {
-                return false;
-            }
-            try {
-                return list.add(t);
-            } catch (Exception e) {
-                n(e);
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: java.util.Collection<T> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public static <T> void c(Collection<T> collection, Collection<T> collection2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, collection, collection2) == null) && collection2 != 0 && collection != null) {
-            collection.addAll(collection2);
-        }
-    }
-
-    @Nullable
-    public static <T> T d(List<T> list, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, list, i)) == null) {
-            if (g(list) || !e(list, i)) {
-                return null;
-            }
-            try {
-                return list.get(i);
-            } catch (Exception e) {
-                n(e);
-                return null;
-            }
-        }
-        return (T) invokeLI.objValue;
-    }
-
-    public static <T> boolean e(List<T> list, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, list, i)) == null) {
-            if (f(list) || i < 0) {
-                return false;
-            }
-            try {
-                if (i >= list.size()) {
-                    return false;
-                }
-                return true;
-            } catch (Exception e) {
-                n(e);
-                return false;
-            }
-        }
-        return invokeLI.booleanValue;
-    }
-
-    @Nullable
-    public static <T> T i(List<T> list, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, list, i)) == null) {
-            if (g(list) || !e(list, i)) {
-                return null;
-            }
-            try {
-                return list.remove(i);
-            } catch (Exception e) {
-                n(e);
-                return null;
-            }
-        }
-        return (T) invokeLI.objValue;
-    }
-
-    public static <T> boolean j(List<T> list, T t) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, list, t)) == null) {
-            if (g(list)) {
-                return false;
-            }
-            try {
-                return list.remove(t);
-            } catch (Exception e) {
-                n(e);
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static <T> boolean k(List<T> list, Collection<?> collection) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, list, collection)) == null) {
-            if (f(list)) {
-                return false;
-            }
-            try {
-                return list.removeAll(collection);
-            } catch (Exception e) {
-                Log.e("CollectionUtils", "throw exception when List removeAll");
-                n(e);
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static <T> void m(List<T> list, Comparator<? super T> comparator) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65548, null, list, comparator) != null) || f(list)) {
-            return;
-        }
-        try {
-            Collections.sort(list, comparator);
-        } catch (Exception e) {
-            Log.e("CollectionUtils", "throw exception when List sort");
-            n(e);
-        }
-    }
-
-    public static <T> boolean g(List<T> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, list)) == null) {
-            if (!f(list) && !list.isEmpty()) {
-                return false;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return true;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public static <K, V> boolean h(Map<K, V> map) {
-        InterceptResult invokeL;
+    public void p(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, map)) == null) {
-            if (!f(map) && !map.isEmpty()) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
         }
-        return invokeL.booleanValue;
     }
 
-    public static <T> int l(List<T> list) {
-        InterceptResult invokeL;
+    public t01() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, list)) == null) {
-            if (!f(list) && !list.isEmpty()) {
-                return list.size();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return 0;
         }
-        return invokeL.intValue;
+        this.a = true;
+        this.b = true;
+        this.c = true;
+        this.d = true;
+        this.e = 1;
+        this.f = false;
+        this.g = false;
+        this.h = true;
+    }
+
+    @Override // com.baidu.nadcore.player.strategy.IVideoUpdateStrategy
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.nadcore.player.strategy.IVideoUpdateStrategy
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.h;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.nadcore.player.strategy.IVideoUpdateStrategy
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.nadcore.player.strategy.IVideoUpdateStrategy
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.g;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.nadcore.player.strategy.IVideoUpdateStrategy
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.nadcore.player.strategy.IVideoUpdateStrategy
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.nadcore.player.strategy.IVideoUpdateStrategy
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.f;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.nadcore.player.strategy.IVideoUpdateStrategy
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public void j(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    public void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.d = z;
+        }
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.a = z;
+        }
+    }
+
+    public void m(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            this.g = z;
+        }
+    }
+
+    public void n(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            this.f = z;
+        }
+    }
+
+    public void o(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+            this.h = z;
+        }
+    }
+
+    public void q(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+            this.c = z;
+        }
     }
 }

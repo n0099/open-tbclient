@@ -1,16 +1,25 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.os.SystemClock;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.titan.TitanDownloadService;
+import com.baidu.android.common.others.url.UrlUtil;
+import com.baidu.android.common.util.CommonParam;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.io.Closeables;
-import com.baidu.nps.utils.Constant;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.pms.bean.PackageInfo;
-import com.baidu.searchbox.pms.db.PackageTable;
-import com.baidu.tieba.wm;
+import com.baidu.android.util.devices.DeviceUtil;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.http.ConnectManager;
+import com.baidu.searchbox.logsystem.basic.upload.identity.NetworkParam;
+import com.baidu.searchbox.util.BaiduIdentityManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,210 +27,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import com.baidu.util.Base64Encoder;
 import java.io.UnsupportedEncodingException;
-import java.security.MessageDigest;
+import java.net.URLEncoder;
 import java.util.HashMap;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class cn {
+public final class cn {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static volatile boolean b;
+    public static final boolean q;
+    public static cn r;
+    public static HashMap<String, Integer> s;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes4.dex */
-    public static class a extends wm.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zm a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ Context c;
-
-        public a(zm zmVar, String str, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zmVar, str, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zmVar;
-            this.b = str;
-            this.c = context;
-        }
-
-        /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wm.b
-        /* renamed from: d */
-        public void b(int i, String str, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, jSONObject) == null) {
-                this.a.onResult(this.b, -1, null);
-                try {
-                    try {
-                        if (jSONObject == null) {
-                            Log.d(TitanDownloadService.TAG, "response parse fail");
-                            this.a.onResult(this.b, -1, null);
-                            synchronized (cn.class) {
-                                boolean unused = cn.b = false;
-                            }
-                            return;
-                        }
-                        if (cn.a) {
-                            Log.d(TitanDownloadService.TAG, "onResponse " + jSONObject);
-                        }
-                        PackageInfo k = cn.k(this.c, jSONObject);
-                        if (k.errNo != 0) {
-                            if (cn.a) {
-                                Log.d(TitanDownloadService.TAG, "return fail result");
-                            }
-                            if (k.errNo != -2) {
-                                Log.d(TitanDownloadService.TAG, "patch data errno = " + k.errNo);
-                            }
-                            this.a.onResult(this.b, -1, null);
-                            synchronized (cn.class) {
-                                boolean unused2 = cn.b = false;
-                            }
-                            return;
-                        }
-                        Log.d(TitanDownloadService.TAG, "start install patch");
-                        dn.b(this.c, this.a, k, true);
-                        synchronized (cn.class) {
-                            boolean unused3 = cn.b = false;
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        this.a.onResult(this.b, -1, null);
-                        synchronized (cn.class) {
-                            boolean unused4 = cn.b = false;
-                        }
-                    }
-                } catch (Throwable th) {
-                    synchronized (cn.class) {
-                        boolean unused5 = cn.b = false;
-                        throw th;
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b implements wm.b<InputStream> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ File a;
-        public final /* synthetic */ String b;
-
-        public InputStream d(int i, String str, InputStream inputStream) {
-            InterceptResult invokeILL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, str, inputStream)) == null) ? inputStream : (InputStream) invokeILL.objValue;
-        }
-
-        public b(File file, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {file, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = file;
-            this.b = str;
-        }
-
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.wm.b
-        public /* bridge */ /* synthetic */ InputStream a(int i, String str, InputStream inputStream) throws IOException {
-            d(i, str, inputStream);
-            return inputStream;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wm.b
-        /* renamed from: c */
-        public void b(int i, String str, InputStream inputStream) {
-            MessageDigest messageDigest;
-            FileOutputStream fileOutputStream;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, inputStream) == null) {
-                if (inputStream == null) {
-                    if (cn.a) {
-                        Log.d(TitanDownloadService.TAG, "download patch inputstream is null");
-                        return;
-                    }
-                    return;
-                }
-                FileOutputStream fileOutputStream2 = null;
-                try {
-                    try {
-                        messageDigest = MessageDigest.getInstance("MD5");
-                        fileOutputStream = new FileOutputStream(this.a);
-                    } catch (Exception e) {
-                        e = e;
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                }
-                try {
-                    byte[] bArr = new byte[1024];
-                    while (true) {
-                        int read = inputStream.read(bArr, 0, 1024);
-                        if (read <= 0) {
-                            break;
-                        }
-                        fileOutputStream.write(bArr, 0, read);
-                        messageDigest.update(bArr, 0, read);
-                    }
-                    String e2 = cn.e(messageDigest.digest());
-                    if (cn.a) {
-                        Log.d(TitanDownloadService.TAG, "download file md5 = " + e2);
-                    }
-                    if (!TextUtils.equals(this.b, e2)) {
-                        Log.d(TitanDownloadService.TAG, "patch md5 not match");
-                        fileOutputStream.close();
-                        this.a.delete();
-                    }
-                    Closeables.closeSafely(inputStream);
-                    Closeables.closeSafely(fileOutputStream);
-                } catch (Exception e3) {
-                    e = e3;
-                    fileOutputStream2 = fileOutputStream;
-                    this.a.delete();
-                    e.printStackTrace();
-                    Closeables.closeSafely(inputStream);
-                    Closeables.closeSafely(fileOutputStream2);
-                } catch (Throwable th2) {
-                    th = th2;
-                    fileOutputStream2 = fileOutputStream;
-                    Closeables.closeSafely(inputStream);
-                    Closeables.closeSafely(fileOutputStream2);
-                    throw th;
-                }
-            }
-        }
-    }
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public String j;
+    public String k;
+    public SharedPreferences l;
+    public String m;
+    public Context n;
+    public String o;
+    public boolean p;
 
     static {
         InterceptResult invokeClinit;
@@ -236,204 +68,461 @@ public class cn {
                 return;
             }
         }
-        a = tm.a;
-        b = false;
+        q = ym.a;
+        HashMap<String, Integer> hashMap = new HashMap<>();
+        s = hashMap;
+        hashMap.put("WIFI", 1);
+        s.put("3GNET", 21);
+        s.put("3GWAP", 22);
+        s.put("CMNET", 31);
+        s.put("UNINET", 32);
+        s.put("CTNET", 33);
+        s.put("CMWAP", 41);
+        s.put("UNIWAP", 42);
+        s.put("CTWAP", 43);
     }
 
-    public cn() {
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return "BaiduIdentityManager [mUid=" + this.a + ", mEnUid=" + this.b + ", mUa=" + this.c + ", mEnUa=" + this.d + ", mTn=" + s() + ", mLastTn=" + q() + ", mModel=" + this.g + ", mManufacturer=" + this.h + ", mOSVersion=" + this.i + ", mDeviceInfo=" + this.j + ", mEnDeviceInfo=" + this.k + ", mSettings=" + this.l + ", mVersionName=" + this.m + ", mCtv=" + this.o + ", mProcessedUa=" + PreferencesUtil.RIGHT_MOUNT;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public cn(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.p = false;
+        this.n = context;
     }
 
-    public static String i() {
-        InterceptResult invokeV;
+    public final void i(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return um.a() + "?runtype=aps_132&appname=tieba";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static File j(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
-            File file = new File(new File(context.getCacheDir(), "titan_sandbox_cache"), "patch_cache");
-            file.mkdirs();
-            return file;
-        }
-        return (File) invokeL.objValue;
-    }
-
-    public static String e(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bArr)) == null) {
-            StringBuilder sb = new StringBuilder("");
-            if (bArr != null && bArr.length > 0) {
-                for (byte b2 : bArr) {
-                    String hexString = Integer.toHexString(b2 & 255);
-                    if (hexString.length() < 2) {
-                        sb.append(0);
-                    }
-                    sb.append(hexString);
-                }
-                return sb.toString();
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            String string = this.l.getString(BaiduIdentityManager.KEY_TN_TRACE, "");
+            if (!TextUtils.isEmpty(string)) {
+                str = string + "_" + str;
             }
-            return null;
+            SharedPreferences.Editor edit = this.l.edit();
+            edit.putString(BaiduIdentityManager.KEY_TN_TRACE, str);
+            edit.apply();
+        }
+    }
+
+    public final String l(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, context)) == null) {
+            if (q) {
+                Log.d(TitanDownloadService.TAG, "load tn from R.raw.tnconfig, tn = ");
+            }
+            if (!TextUtils.isEmpty("")) {
+                return "";
+            }
+            return "757b";
         }
         return (String) invokeL.objValue;
     }
 
-    public static void f(Context context, String str, zm zmVar) {
+    public static synchronized cn p() {
+        InterceptResult invokeV;
+        cn cnVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65543, null, context, str, zmVar) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (cn.class) {
-                if (b) {
-                    if (a) {
-                        Log.d(TitanDownloadService.TAG, "doInstall is installing");
-                    }
-                    return;
+                if (r == null) {
+                    r = new cn(AppRuntime.getAppContext());
                 }
-                b = true;
-                String z = xm.p().z(i());
-                if (a) {
-                    Log.d(TitanDownloadService.TAG, "url = " + z);
-                }
-                Log.d(TitanDownloadService.TAG, "start require patch data");
-                HashMap hashMap = new HashMap();
-                hashMap.put("Content-Type", "application/json");
-                wm.d(context, z, "POST", h(), hashMap, new a(zmVar, str, context));
+                cnVar = r;
             }
+            return cnVar;
         }
+        return (cn) invokeV.objValue;
     }
 
-    public static String g(Context context, String str, String str2, String str3) {
-        InterceptResult invokeLLLL;
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65544, null, context, str, str2, str3)) == null) {
-            File j = j(context);
-            for (File file : j.listFiles()) {
-                if (file.isFile()) {
-                    file.delete();
-                }
-            }
-            File file2 = new File(j, str3);
-            Log.d(TitanDownloadService.TAG, "start download patch");
-            wm.d(context, str, "GET", null, null, new b(file2, str2));
-            if (file2.exists()) {
-                return file2.getAbsolutePath();
-            }
-            return null;
-        }
-        return (String) invokeLLLL.objValue;
-    }
-
-    public static byte[] h() {
+    public final String q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
-            JSONObject jSONObject3 = new JSONObject();
-            JSONObject jSONObject4 = new JSONObject();
-            bn d = bn.d();
-            d.g();
-            JSONObject jSONObject5 = new JSONObject();
-            try {
-                jSONObject4.put("com.baidu.titan.patch", String.valueOf(d.b()));
-                jSONObject3.put("132", jSONObject4);
-                jSONObject2.put("aps", jSONObject3);
-                jSONObject.put("versions", jSONObject2);
-                jSONObject5.put("bd_version", AppConfig.AppInfo.getVersionName());
-                jSONObject5.put("device_ua", "android");
-                jSONObject.put("pubparam", jSONObject5);
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            if (this.f == null) {
+                this.f = r(this.n);
             }
-            try {
-                String jSONObject6 = jSONObject.toString();
-                if (tm.a) {
-                    Log.d(TitanDownloadService.TAG, "getCcsContent = " + jSONObject6);
-                }
-                return jSONObject6.getBytes("UTF-8");
-            } catch (UnsupportedEncodingException e2) {
-                e2.printStackTrace();
-                return null;
-            }
+            return this.f;
         }
-        return (byte[]) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static PackageInfo k(Context context, JSONObject jSONObject) throws JSONException {
+    public String s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            if (this.e == null) {
+                this.e = t(this.n);
+            }
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final synchronized void y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+            synchronized (this) {
+                this.c = u(this.n);
+                this.d = new String(Base64Encoder.B64Encode(this.c.getBytes()));
+            }
+        }
+    }
+
+    public final String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return g(str, "cfrom", "tieba");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return g(str, "from", s());
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            return g(str, "pkgname", this.n.getPackageName());
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String k(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, context)) == null) {
+            return CommonParam.getCUID(context);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String o(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
+            try {
+                return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                return str;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String w(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, context)) == null) {
+            try {
+                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+                return "0.8";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String b(String str) {
+        InterceptResult invokeL;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            String g = g(g(h(str, BaiduIdentityManager.PARAM_SERVICE), "uid", new String(Base64Encoder.B64Encode("0".getBytes()))), "from", "757b");
+            String d = d(d(d(null, "uid"), "ua"), "ut");
+            String g2 = g(g(g(g(g(g, "ua", o(new String(Base64Encoder.B64Encode("320_480_android_0.8_1".getBytes())))), "ut", o(new String(Base64Encoder.B64Encode((j(gj.g(), null) + "_" + j(gj.k(), "0.0") + "_" + Build.VERSION.SDK_INT + "_" + j(gj.f(), null)).getBytes())))), BaiduIdentityManager.PARAM_OSNAME, BaiduIdentityManager.VALUE_OSNAME), BaiduIdentityManager.PARAM_OSBRANCH, "a0"), "pkgname", this.n.getPackageName());
+            int B64GetVersion = Base64Encoder.B64GetVersion();
+            if (B64GetVersion == 0) {
+                str2 = "1";
+            } else {
+                str2 = B64GetVersion + "";
+            }
+            if (!TextUtils.isEmpty(d) && !TextUtils.equals(str2, "1")) {
+                g2 = g(g2, BaiduIdentityManager.PARAM_CEN, d);
+            }
+            g(str, "network", NetworkParam.NET_TYPE_ID_DISCONNECT);
+            g(g2, "cfrom", "757b");
+            g(g2, "typeid", "0");
+            return g2;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String d(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, context, jSONObject)) == null) {
-            PackageInfo packageInfo = new PackageInfo();
-            int optInt = jSONObject.optInt("errno", -1);
-            packageInfo.errNo = optInt;
-            if (optInt != 0) {
-                if (a) {
-                    Log.d(TitanDownloadService.TAG, "response errno = " + optInt);
-                }
-                return packageInfo;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str2.replace("_", "-");
             }
-            JSONObject jSONObject2 = jSONObject.getJSONObject("data");
-            if (!jSONObject2.has("service")) {
-                packageInfo.errNo = -2;
-                return packageInfo;
-            }
-            JSONObject jSONObject3 = jSONObject2.getJSONObject("service");
-            if (!jSONObject3.has("aps")) {
-                packageInfo.errNo = -2;
-                return packageInfo;
-            }
-            JSONObject jSONObject4 = jSONObject3.getJSONObject("aps");
-            if (!jSONObject4.has("132")) {
-                packageInfo.errNo = -2;
-                return packageInfo;
-            }
-            JSONObject jSONObject5 = jSONObject4.getJSONObject("132");
-            if (!jSONObject5.has("com.baidu.titan.patch")) {
-                packageInfo.errNo = -2;
-                return packageInfo;
-            }
-            JSONObject jSONObject6 = jSONObject5.getJSONObject("com.baidu.titan.patch");
-            String string = jSONObject6.getString("version");
-            JSONObject jSONObject7 = jSONObject6.getJSONObject("data").getJSONObject("pkg_info");
-            String string2 = jSONObject7.getString("version");
-            String string3 = jSONObject7.getString("name");
-            String string4 = jSONObject7.getString(PackageTable.MD5);
-            String string5 = jSONObject7.getString("maxv");
-            String string6 = jSONObject7.getString("minv");
-            String string7 = jSONObject7.getString("download_url");
-            if (!TextUtils.isEmpty(string3) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string4) && !TextUtils.isEmpty(string) && !TextUtils.isEmpty(string7)) {
-                String g = g(context, string7, string4, "com.baidu.titan.patch_" + string4 + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
-                if (g == null) {
-                    packageInfo.errNo = -4;
-                    return packageInfo;
-                }
-                packageInfo.filePath = g;
-                packageInfo.packageName = "com.baidu.titan.patch";
-                packageInfo.version = Long.valueOf(string2).longValue();
-                packageInfo.maxHostVersion = string5;
-                packageInfo.minHostVersion = string6;
-                packageInfo.updateVersion = Long.valueOf(string).longValue();
-                return packageInfo;
-            }
-            packageInfo.errNo = -3;
-            return packageInfo;
+            return str + "_" + str2.replace("_", "-");
         }
-        return (PackageInfo) invokeLL.objValue;
+        return (String) invokeLL.objValue;
+    }
+
+    public final String e(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048580, this, str, z)) == null) {
+            if (z) {
+                String m = m();
+                if (TextUtils.equals(m, NetworkParam.NET_TYPE_ID_DISCONNECT)) {
+                    return g(str, "network", PreferenceManager.getDefaultSharedPreferences(this.n.getApplicationContext()).getString(NetworkParam.LAST_NETWORK_TYPE, NetworkParam.NET_TYPE_ID_DISCONNECT));
+                }
+                if (!TextUtils.isEmpty(m)) {
+                    if (!TextUtils.equals(m, NetworkParam.NET_TYPE_ID_DISCONNECT)) {
+                        SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(this.n.getApplicationContext()).edit();
+                        edit.putString(NetworkParam.LAST_NETWORK_TYPE, m);
+                        edit.apply();
+                    }
+                    return g(str, "network", m);
+                }
+                return str;
+            }
+            return g(str, "network", m());
+        }
+        return (String) invokeLZ.objValue;
+    }
+
+    public String g(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, str, str2, str3)) == null) {
+            return UrlUtil.addParam(str, str2, str3);
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public final String h(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) {
+            return g(str, "service", str2);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public final String j(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, str, str2)) == null) {
+            if (TextUtils.isEmpty(str2)) {
+                str2 = "NUL";
+            }
+            if (!TextUtils.isEmpty(str)) {
+                return str.replace("_", "-");
+            }
+            return str2;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public final String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if (q) {
+                SystemClock.uptimeMillis();
+            }
+            ConnectManager connectManager = new ConnectManager(this.n);
+            String netType = connectManager.getNetType();
+            int subType = connectManager.getSubType();
+            if (!TextUtils.isEmpty(netType)) {
+                Integer num = s.get(netType.toUpperCase());
+                if (num == null) {
+                    num = 5;
+                }
+                return num + "_" + subType;
+            }
+            return ((Object) 5) + "_" + subType;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            String str = this.g + "_" + this.i + "_" + Build.VERSION.SDK_INT + "_" + this.h;
+            if (q) {
+                Log.d(TitanDownloadService.TAG, "device info : " + str);
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String r(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, context)) == null) {
+            String string = this.l.getString(BaiduIdentityManager.KEY_LAST_TN, "");
+            String l = l(context);
+            if (!(!TextUtils.equals(string, l)) && !TextUtils.isEmpty(string)) {
+                if (q) {
+                    Log.d(TitanDownloadService.TAG, "load tn from local, lastTn = " + string);
+                    return string;
+                }
+                return string;
+            }
+            SharedPreferences.Editor edit = this.l.edit();
+            edit.putString(BaiduIdentityManager.KEY_LAST_TN, l);
+            edit.apply();
+            i(l);
+            if (q) {
+                Log.d(TitanDownloadService.TAG, "load tn from apk, lastTn = " + l);
+            }
+            return l;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String u(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, context)) == null) {
+            int displayWidth = DeviceUtil.ScreenInfo.getDisplayWidth(context);
+            String str = String.valueOf(displayWidth) + "_" + DeviceUtil.ScreenInfo.getDisplayHeight(context) + "_android_" + this.m + "_" + DeviceUtil.ScreenInfo.getDensityDpi(context);
+            if (q) {
+                Log.d(TitanDownloadService.TAG, "ua = " + str);
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String v(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, context)) == null) {
+            String string = this.l.getString("uid_v3", "");
+            if (TextUtils.isEmpty(string)) {
+                string = k(context);
+                if (q) {
+                    Log.d(TitanDownloadService.TAG, "new generated uid " + string);
+                }
+                SharedPreferences.Editor edit = this.l.edit();
+                edit.putString("uid_v3", string);
+                edit.apply();
+            } else if (q) {
+                Log.d(TitanDownloadService.TAG, "load uid from local " + string);
+            }
+            return string;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String t(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, context)) == null) {
+            String str = "";
+            String string = this.l.getString("tnconfig", "");
+            if (TextUtils.isEmpty(string)) {
+                if (TextUtils.isEmpty("")) {
+                    str = q();
+                }
+                SharedPreferences.Editor edit = this.l.edit();
+                edit.putString("tnconfig", str);
+                edit.apply();
+                string = str;
+            } else if (q) {
+                Log.d(TitanDownloadService.TAG, "load tn from local, tn = " + string);
+            }
+            if (TextUtils.isEmpty(string)) {
+                return "757b";
+            }
+            return string;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String z(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, str)) == null) {
+            try {
+                if (!this.p) {
+                    x();
+                }
+                return g(a(e(f(g(g(c(g(str, "uid", o(this.b))), "ua", o(this.c)), "ut", o(this.j))), false)), "typeid", "0");
+            } catch (Throwable unused) {
+                return b(str);
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+            this.l = this.n.getSharedPreferences("identity", 0);
+            String v = v(this.n);
+            this.a = v;
+            if (!TextUtils.isEmpty(v)) {
+                this.b = new String(Base64Encoder.B64Encode(this.a.getBytes()));
+            }
+            String g = gj.g();
+            this.g = g;
+            if (TextUtils.isEmpty(g)) {
+                this.g = "NUL";
+            } else {
+                this.g = this.g.replace("_", "-");
+            }
+            String f = gj.f();
+            this.h = f;
+            if (TextUtils.isEmpty(f)) {
+                this.h = "NUL";
+            } else {
+                this.h = this.h.replace("_", "-");
+            }
+            String k = gj.k();
+            this.i = k;
+            if (TextUtils.isEmpty(k)) {
+                this.i = "0.0";
+            } else {
+                this.i = this.i.replace("_", "-");
+            }
+            this.j = n();
+            this.k = new String(Base64Encoder.B64Encode(this.j.getBytes()));
+            this.m = w(this.n);
+            y();
+            int B64GetVersion = Base64Encoder.B64GetVersion();
+            if (B64GetVersion == 0) {
+                this.o = "1";
+            } else {
+                this.o = B64GetVersion + "";
+            }
+            this.p = true;
+        }
     }
 }

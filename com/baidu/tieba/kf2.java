@@ -1,125 +1,123 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.o93;
+import android.text.TextUtils;
+import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.Map;
+import java.util.TreeMap;
 /* loaded from: classes5.dex */
-public class kf2 extends g63 {
+public class kf2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public boolean h;
+    public String i;
+    public boolean j;
+    public String k;
+    public boolean l;
+    public String m;
 
-    /* loaded from: classes5.dex */
-    public class a implements cj3<m93<o93.e>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ UnitedSchemeEntity b;
-        public final /* synthetic */ JSONObject c;
-        public final /* synthetic */ Context d;
-
-        public a(kf2 kf2Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, JSONObject jSONObject, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kf2Var, callbackHandler, unitedSchemeEntity, jSONObject, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = callbackHandler;
-            this.b = unitedSchemeEntity;
-            this.c = jSONObject;
-            this.d = context;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cj3
-        /* renamed from: b */
-        public void a(m93<o93.e> m93Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m93Var) == null) {
-                if (!h93.h(m93Var)) {
-                    h93.p(m93Var, this.a, this.b);
-                    return;
-                }
-                if (xe2.b(this.c.optInt("emitReplaceDependency"))) {
-                    if (ye2.l().isEmpty()) {
-                        Context context = this.d;
-                        if (context == null) {
-                            context = qn2.c();
-                        }
-                        String string = context.getResources().getString(R.string.obfuscated_res_0x7f0f0143);
-                        b43.g(context, string).G();
-                        this.b.result = UnitedSchemeUtility.wrapCallbackParams(1001, string);
-                        return;
-                    }
-                    ye2.n(true);
-                } else {
-                    ye2.n(false);
-                    ye2.c();
-                }
-                UnitedSchemeUtility.callCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(0));
-                i03.Z();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kf2(g53 g53Var) {
-        super(g53Var, "/swanAPI/debug/setReplaceDependencyConfig");
+    public kf2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {g53Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.g63
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j43 j43Var) {
-        InterceptResult invokeLLLL;
+    public static Map<String, String> a(kf2 kf2Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j43Var)) == null) {
-            JSONObject a2 = g63.a(unitedSchemeEntity, "params");
-            if (a2 == null) {
-                j12.c("setReplaceDependencyConfig", "params is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else if (!a2.has("emitReplaceDependency")) {
-                j12.c("setReplaceDependencyConfig", "emitReplaceDependency is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else {
-                j43Var.e0().g(context, "mapp_cts_debug", new a(this, callbackHandler, unitedSchemeEntity, a2, context));
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, kf2Var)) == null) {
+            TreeMap treeMap = new TreeMap();
+            if (kf2Var == null) {
+                return treeMap;
             }
+            treeMap.put(PrefetchEvent.EVENT_KEY_APP_CONFIG, kf2Var.a);
+            treeMap.put(PrefetchEvent.EVENT_KEY_APP_PATH, kf2Var.b);
+            treeMap.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, kf2Var.c);
+            treeMap.put(PrefetchEvent.EVENT_KEY_PAGE_URL, kf2Var.d);
+            treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_SCONSOLE, kf2Var.f);
+            treeMap.put("root", kf2Var.g);
+            if (!TextUtils.isEmpty(kf2Var.e)) {
+                treeMap.put(PrefetchEvent.EVENT_DATA_EXTRA_DATA, kf2Var.e);
+            }
+            treeMap.put(PrefetchEvent.EVENT_DATA_SHOW_PERFORMANCE_PANEL, String.valueOf(kf2Var.h));
+            treeMap.put("pageType", kf2Var.i);
+            treeMap.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, String.valueOf(kf2Var.j));
+            if (!TextUtils.isEmpty(kf2Var.k)) {
+                treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD, kf2Var.k);
+            }
+            u43.a(treeMap, "app ready event");
+            oc3.a(kf2Var.d, treeMap);
+            if (a82.c()) {
+                treeMap.put("offlinePerfTool", String.valueOf(1));
+            }
+            if (ue3.d()) {
+                treeMap.put("performanceType", CloudStabilityUBCUtils.VALUE_TYPE);
+            }
+            if (ue3.f()) {
+                treeMap.put("performanceType", "stabilityProfile");
+            }
+            treeMap.put("slaveReady", String.valueOf(kf2Var.l));
+            if (!TextUtils.isEmpty(kf2Var.m)) {
+                treeMap.put(PrefetchEvent.EVENT_USER_ACTION_APIS, kf2Var.m);
+            }
+            return treeMap;
         }
-        return invokeLLLL.booleanValue;
+        return (Map) invokeL.objValue;
+    }
+
+    public static xi2 b(kf2 kf2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, kf2Var)) == null) {
+            Map<String, String> a = a(kf2Var);
+            xi2 xi2Var = new xi2("AppReady", a);
+            PrefetchEvent.c createFromAppReadyEvent = PrefetchEvent.createFromAppReadyEvent(a);
+            if (createFromAppReadyEvent == null) {
+                return xi2Var;
+            }
+            mf2 mf2Var = new mf2();
+            mf2Var.t(createFromAppReadyEvent);
+            mf2Var.t(xi2Var);
+            return mf2Var;
+        }
+        return (xi2) invokeL.objValue;
+    }
+
+    public static String c(w83 w83Var, String str) {
+        InterceptResult invokeLL;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, w83Var, str)) == null) {
+            if (w83Var != null) {
+                str2 = w83Var.c0(om3.f(str));
+            } else {
+                str2 = null;
+            }
+            if (str2 == null) {
+                return "";
+            }
+            return str2;
+        }
+        return (String) invokeLL.objValue;
     }
 }

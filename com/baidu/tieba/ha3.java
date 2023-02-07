@@ -1,275 +1,106 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.net.Uri;
+import android.text.TextUtils;
 import android.util.Log;
-import android.view.Choreographer;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.tieba.j22;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.searchbox.util.BaiduIdentityManager;
+import com.baidu.tieba.qm3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.atomic.AtomicInteger;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ha3 {
+public class ha3 extends ta3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static volatile boolean b;
-    public static volatile boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public static class a implements Runnable {
+    public class a implements pn3<wd3> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ Context d;
+        public final /* synthetic */ JSONObject e;
+        public final /* synthetic */ String f;
+        public final /* synthetic */ ha3 g;
 
-        /* loaded from: classes4.dex */
-        public class b extends TimerTask {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final ExecutorService a;
-            public final AtomicInteger b;
-            public final List<Float> c;
-            public final /* synthetic */ boolean d;
-            public final /* synthetic */ int e;
-            public final /* synthetic */ Timer f;
-            public final /* synthetic */ ga3 g;
-            public final /* synthetic */ boolean h;
-            public final /* synthetic */ b i;
-
-            /* renamed from: com.baidu.tieba.ha3$a$b$a  reason: collision with other inner class name */
-            /* loaded from: classes4.dex */
-            public class RunnableC0296a implements Runnable {
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ b a;
-
-                public RunnableC0296a(b bVar) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {bVar};
-                        interceptable.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = bVar;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Float f;
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                        float b = i22.b();
-                        this.a.g.d.add(Long.valueOf(System.currentTimeMillis()));
-                        b bVar = this.a;
-                        bVar.g.e.add(Integer.valueOf(bVar.i.b.get()));
-                        this.a.g.f.add(Float.valueOf(b));
-                        j22.c i = j22.i();
-                        this.a.g.h.add(Float.valueOf(i.a));
-                        this.a.g.i.add(Float.valueOf(i.b));
-                        this.a.g.g.add(Float.valueOf(i.c));
-                        List<Float> list = this.a.c;
-                        if (ai3.D()) {
-                            f = Float.valueOf(b);
-                        } else {
-                            f = null;
-                        }
-                        list.add(f);
-                    }
-                }
-            }
-
-            public b(a aVar, boolean z, int i, Timer timer, ga3 ga3Var, boolean z2, b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, Boolean.valueOf(z), Integer.valueOf(i), timer, ga3Var, Boolean.valueOf(z2), bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.d = z;
-                this.e = i;
-                this.f = timer;
-                this.g = ga3Var;
-                this.h = z2;
-                this.i = bVar;
-                this.a = Executors.newCachedThreadPool();
-                this.b = new AtomicInteger(0);
-                this.c = new CopyOnWriteArrayList();
-            }
-
-            @Override // java.util.TimerTask, java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (this.d && this.b.getAndIncrement() >= this.e) {
-                        ha3.l(true);
-                    }
-                    if (!ha3.b) {
-                        this.f.cancel();
-                        this.a.shutdown();
-                        j12.b("SwanAppStabilityDataUtil", "采集静态数据");
-                        this.g.b = j22.e().floatValue();
-                        this.g.c = t92.k().m(i43.K().getAppId(), true);
-                        this.g.a(this.c);
-                        j12.i("SwanAppStabilityDataUtil", "采集结果：" + this.g);
-                        if (ha3.c) {
-                            j12.b("SwanAppStabilityDataUtil", "发送JSMessage=" + this.g);
-                            ha3.i(this.g);
-                        }
-                        if (this.h) {
-                            gy2.e(this.g.c());
-                            return;
-                        }
-                        return;
-                    }
-                    this.a.submit(new RunnableC0296a(this));
-                }
-            }
-        }
-
-        /* renamed from: com.baidu.tieba.ha3$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class RunnableC0295a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public RunnableC0295a(a aVar, b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    Choreographer.getInstance().postFrameCallback(this.a);
-                }
-            }
-        }
-
-        public a() {
+        public a(ha3 ha3Var, CallbackHandler callbackHandler, String str, String str2, Context context, JSONObject jSONObject, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ha3Var, callbackHandler, str, str2, context, jSONObject, str3};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.g = ha3Var;
+            this.a = callbackHandler;
+            this.b = str;
+            this.c = str2;
+            this.d = context;
+            this.e = jSONObject;
+            this.f = str3;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            boolean z;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.pn3
+        /* renamed from: b */
+        public void a(wd3 wd3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ga3 ga3Var = new ga3();
-                ga3Var.a = ia3.d(ga3Var.a);
-                boolean f = ia3.f();
-                int c = ia3.c(0);
-                if (ia3.e(0) == 1) {
-                    z = true;
-                } else {
-                    z = false;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wd3Var) == null) {
+                if (wd3Var != null && !wd3Var.d) {
+                    if (this.g.m(wd3Var, this.c)) {
+                        this.g.l(this.d, this.e, this.a, this.b, this.f);
+                        return;
+                    } else {
+                        this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1003, "打开APP失败，打开App条件未满足").toString());
+                        return;
+                    }
                 }
-                Timer timer = new Timer();
-                b bVar = new b(null);
-                di3.e0(new RunnableC0295a(this, bVar));
-                timer.schedule(new b(this, f, c, timer, ga3Var, z, bVar), 0L, ga3Var.a);
+                if (ta3.b) {
+                    Log.i("OpenAppAction", "no configuration of authority");
+                }
+                ud3.o(10005, this.a, this.b);
+                pf3.r(10005, wd3Var);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public static class b implements Choreographer.FrameCallback {
+    public class b implements qm3.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public AtomicInteger b;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
 
-        /* loaded from: classes4.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    Choreographer.getInstance().removeFrameCallback(this.a);
-                }
-            }
-        }
-
-        public b() {
+        public b(ha3 ha3Var, CallbackHandler callbackHandler, String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ha3Var, callbackHandler, str, str2, str3};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -279,152 +110,273 @@ public class ha3 {
                     return;
                 }
             }
-            this.a = -1L;
-            this.b = new AtomicInteger(-1);
+            this.a = callbackHandler;
+            this.b = str;
+            this.c = str2;
+            this.d = str3;
         }
 
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        @Override // android.view.Choreographer.FrameCallback
-        public void doFrame(long j) {
+        @Override // com.baidu.tieba.qm3.g
+        public void a(boolean z) {
             int i;
+            String str;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-                if (!ha3.b) {
-                    di3.e0(new a(this));
-                    return;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                if (z) {
+                    i = 0;
+                } else {
+                    i = 1001;
                 }
-                long j2 = this.a;
-                if (j2 > 0 && this.b.get() != (i = (int) (1.0E9d / (j - j2)))) {
-                    this.b.set(i);
-                    j12.b("SwanAppStabilityDataUtil", "#doFrame fps=" + this.b);
+                if (z) {
+                    str = "打开APP成功";
+                } else {
+                    str = "打开APP失败，本地没有安装";
                 }
-                this.a = j;
-                Choreographer.getInstance().postFrameCallback(this);
+                this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(i, str).toString());
+                c.a("open", this.c, "confirm", this.d);
+            }
+        }
+
+        @Override // com.baidu.tieba.qm3.g
+        public void onCancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1004, "取消打开APP").toString());
+                c.a("open", this.c, "cancel", this.d);
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947816943, "Lcom/baidu/tieba/ha3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes4.dex */
+    public static final class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static void a(String str, String str2, String str3, String str4) {
+            String str5;
+            String str6;
+            String str7;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLL(65536, null, str, str2, str3, str4) == null) {
+                yf3 yf3Var = new yf3();
+                w83 b0 = w83.b0();
+                String str8 = "";
+                if (b0 == null) {
+                    str5 = "";
+                    str6 = str5;
+                    str7 = str6;
+                } else {
+                    str8 = pf3.n(b0.k());
+                    str6 = b0.getAppId();
+                    str7 = b0.Z();
+                    str5 = b0.W().T();
+                }
+                String a = ds2.n().a();
+                yf3Var.a = str8;
+                yf3Var.b = str;
+                yf3Var.e = str2;
+                yf3Var.f = str6;
+                yf3Var.c = str5;
+                yf3Var.a("appName", str7);
+                yf3Var.a("hostName", a);
+                yf3Var.a("hostVersion", qm3.D());
+                yf3Var.a(PushConstants.CLICK_TYPE, str3);
+                try {
+                    str4 = URLDecoder.decode(str4, "UTF-8");
+                } catch (UnsupportedEncodingException unused) {
+                }
+                yf3Var.a("scheme", str4);
+                df3.i("2572", "90", yf3Var.f());
+                if (ta3.b) {
+                    Log.d("OpenAppAction", String.format("ubcId=%s && ceresId=%s , content:%s ", "2572", "90", yf3Var.f()));
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947816943, "Lcom/baidu/tieba/ha3;");
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ha3(t93 t93Var) {
+        super(t93Var, "/swanAPI/openApp");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {t93Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = tk1.a;
-        b = false;
-        c = false;
     }
 
-    public static boolean d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ta3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, w83 w83Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (ia3.g() && e()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (!cf2.a() && !n32.c()) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, w83Var)) == null) {
+            if (!ds2.a().d()) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "runtime exception");
                 return false;
+            } else if (w83Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "runtime exception");
+                return false;
+            } else {
+                JSONObject a2 = ta3.a(unitedSchemeEntity, "params");
+                if (a2 == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "invalid params");
+                    return false;
+                }
+                String optString = a2.optString("cb");
+                if (ta3.b) {
+                    Log.i("OpenAppAction", "params is " + a2.toString());
+                }
+                String optString2 = a2.optString("open", "");
+                String optString3 = a2.optString("invokeFrom", "");
+                c.a("invoke", optString3, null, optString2);
+                if (optString2.startsWith(BaiduIdentityManager.VALUE_OSNAME)) {
+                    if (!ds2.a().c()) {
+                        o83.f(context, R.string.obfuscated_res_0x7f0f12f9).G();
+                        return false;
+                    }
+                    l(context, a2, callbackHandler, optString, optString3);
+                } else {
+                    w83Var.e0().e("scope_open_app", new a(this, callbackHandler, optString, optString2, context, a2, optString3));
+                }
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                return true;
             }
-            return true;
         }
-        return invokeV.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 
-    public static boolean f() {
-        InterceptResult invokeV;
+    public final void l(Context context, JSONObject jSONObject, CallbackHandler callbackHandler, String str, String str2) {
+        boolean z;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (ia3.h() && e()) {
-                return true;
+        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, callbackHandler, str, str2) == null) {
+            String optString = jSONObject.optString("open");
+            int i = 0;
+            if (!TextUtils.isEmpty(optString)) {
+                optString = Uri.decode(optString);
+                ds2.P().a(optString, jSONObject.optJSONObject("extraParams"));
+                if (ta3.b) {
+                    Log.i("OpenAppAction", "openUrl:" + optString);
+                }
+                z = o(context, optString, callbackHandler, str, str2);
+            } else {
+                z = false;
+            }
+            boolean optBoolean = jSONObject.optBoolean("isNeedDownload", true);
+            if (ta3.b) {
+                Log.i("OpenAppAction", "open app result=" + z + "\nisNeedDownload=" + optBoolean);
+            }
+            if (!optBoolean) {
+                if (!z) {
+                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1002, "打开APP失败，本地没有安装").toString());
+                }
+            } else if (!z) {
+                boolean e = qm3.e(context, jSONObject.optString("download"));
+                if (!e) {
+                    i = 1001;
+                }
+                if (e) {
+                    str3 = "下载APP成功";
+                } else {
+                    str3 = "下载APP失败";
+                }
+                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(i, str3).toString());
+                c.a("download", str2, null, optString);
+            }
+        }
+    }
+
+    public final boolean m(wd3 wd3Var, String str) {
+        InterceptResult invokeLL;
+        int length;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, wd3Var, str)) == null) {
+            if (wd3Var != null && !TextUtils.isEmpty(str)) {
+                String T = v83.K().q().W().T();
+                if (TextUtils.isEmpty(T)) {
+                    T = "NA";
+                }
+                JSONObject jSONObject = wd3Var.o;
+                if (jSONObject != null && jSONObject.keys() != null) {
+                    if (ta3.b) {
+                        Log.i("OpenAppAction", "source: " + T + " openUrl:" + str + " 配置数据:" + jSONObject);
+                    }
+                    JSONArray optJSONArray = jSONObject.optJSONArray("scene");
+                    JSONArray optJSONArray2 = jSONObject.optJSONArray("package_name");
+                    if (optJSONArray == null) {
+                        length = 0;
+                    } else {
+                        length = optJSONArray.length();
+                    }
+                    if (length > 0) {
+                        boolean z = false;
+                        for (int i = 0; i < length; i++) {
+                            if (T.equals(optJSONArray.optString(i))) {
+                                z = true;
+                            }
+                        }
+                        if (!z || !n(str, optJSONArray2)) {
+                            return false;
+                        }
+                        return true;
+                    }
+                    return n(str, optJSONArray2);
+                }
             }
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeLL.booleanValue;
     }
 
-    public static boolean g() {
-        InterceptResult invokeV;
+    public final boolean n(String str, JSONArray jSONArray) {
+        InterceptResult invokeLL;
+        int length;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return ia3.f();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
-            if (b) {
-                j12.i("SwanAppStabilityDataUtil", "#startObtainData 正在采集中，退出");
-                return;
-            }
-            b = true;
-            j12.i("SwanAppStabilityDataUtil", "#startObtainData 开始采集数据");
-            ExecutorUtilsExt.postOnElastic(new a(), "稳定性工具链-设备数据采集", 3);
-        }
-    }
-
-    public static void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65548, null, z) == null) {
-            c = z;
-            b = false;
-            ia3.b();
-            j12.b("SwanAppStabilityDataUtil", "#stopObtainData 已停止采集数据");
-        }
-    }
-
-    public static synchronized void h(JSONObject jSONObject, @Nullable String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, jSONObject, str) == null) {
-            synchronized (ha3.class) {
-                fa3.c(jSONObject, str);
-            }
-        }
-    }
-
-    public static void i(ga3 ga3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, ga3Var) == null) {
-            Map<String, String> d = ga3Var.d();
-            if (a) {
-                Log.d("SwanAppStabilityDataUtil", "#sendJsMessage data=" + JSONObject.wrap(d));
-            }
-            wp2.U().u(new ke2("sendStabilityData", d));
-        }
-    }
-
-    public static void j(boolean z) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65546, null, z) == null) {
-            HashMap hashMap = new HashMap();
-            if (z) {
-                str = "0";
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, jSONArray)) == null) {
+            if (jSONArray == null) {
+                length = 0;
             } else {
-                str = "1";
+                length = jSONArray.length();
             }
-            hashMap.put("status", str);
-            wp2.U().u(new ke2("toggleStabilityTestStatus", hashMap));
+            if (length > 0 && !TextUtils.isEmpty(str)) {
+                for (int i = 0; i < length; i++) {
+                    String optString = jSONArray.optString(i);
+                    if (!TextUtils.isEmpty(optString)) {
+                        String decode = Uri.decode(optString);
+                        int indexOf = decode.indexOf(":");
+                        if (indexOf > 0) {
+                            decode = decode.substring(0, indexOf);
+                        }
+                        if (str.startsWith(decode)) {
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
         }
+        return invokeLL.booleanValue;
+    }
+
+    public final boolean o(Context context, String str, CallbackHandler callbackHandler, String str2, String str3) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048580, this, context, str, callbackHandler, str2, str3)) == null) {
+            if (context != null && !TextUtils.isEmpty(str)) {
+                return qm3.Z(context, str, new b(this, callbackHandler, str2, str3, str));
+            }
+            return false;
+        }
+        return invokeLLLLL.booleanValue;
     }
 }

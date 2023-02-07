@@ -470,7 +470,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 if (i != 0) {
                     newTheme.applyStyle(i, true);
                 }
-                newTheme.resolveAttribute(R.attr.obfuscated_res_0x7f040524, typedValue, true);
+                newTheme.resolveAttribute(R.attr.obfuscated_res_0x7f040526, typedValue, true);
                 int i2 = typedValue.resourceId;
                 if (i2 != 0) {
                     newTheme.applyStyle(i2, true);
@@ -536,7 +536,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(getActionBarThemedContext(), (AttributeSet) null, new int[]{R.attr.obfuscated_res_0x7f040323});
+                TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(getActionBarThemedContext(), (AttributeSet) null, new int[]{R.attr.obfuscated_res_0x7f040324});
                 Drawable drawable = obtainStyledAttributes.getDrawable(0);
                 obtainStyledAttributes.recycle();
                 return drawable;
@@ -2513,7 +2513,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                             context = this.mContext;
                         }
                         viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0017, (ViewGroup) null);
-                        DecorContentParent decorContentParent = (DecorContentParent) viewGroup.findViewById(R.id.obfuscated_res_0x7f0907ae);
+                        DecorContentParent decorContentParent = (DecorContentParent) viewGroup.findViewById(R.id.obfuscated_res_0x7f0907c0);
                         this.mDecorContentParent = decorContentParent;
                         decorContentParent.setWindowCallback(getWindowCallback());
                         if (this.mOverlayActionBar) {
@@ -2605,7 +2605,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                         });
                     }
                     if (this.mDecorContentParent == null) {
-                        this.mTitleView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0922ff);
+                        this.mTitleView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092314);
                     }
                     ViewUtils.makeOptionalFitsSystemWindows(viewGroup);
                     ContentFrameLayout contentFrameLayout = (ContentFrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09005c);

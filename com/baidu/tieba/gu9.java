@@ -1,184 +1,100 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.xt9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.List;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipOutputStream;
+import java.io.RandomAccessFile;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class gu9 {
+public class gu9 extends du9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        @NonNull
-        public File a;
-        @NonNull
-        public String b;
-
-        public a(@NonNull File file, @NonNull String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {file, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = file;
-            if (TextUtils.isEmpty(str)) {
-                this.b = this.a.getName();
-            } else {
-                this.b = str;
-            }
+    @Override // com.baidu.tieba.du9
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 206;
         }
+        return invokeV.intValue;
+    }
 
-        public a(@NonNull File file, @NonNull String str, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {file, str, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.a = file;
-            if (TextUtils.isEmpty(str)) {
-                this.b = this.a.getName();
-            } else {
-                this.b = str;
+    @Override // com.baidu.tieba.du9
+    public void j(iu9 iu9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, iu9Var) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.du9
+    public void n(iu9 iu9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, iu9Var) == null) {
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gu9(au9 au9Var, iu9 iu9Var, xt9.a aVar) {
+        super(au9Var, iu9Var, aVar);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {au9Var, iu9Var, aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((au9) objArr2[0], (iu9) objArr2[1], (xt9.a) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:38:0x007d */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:56:0x009c */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r2v0, types: [com.baidu.titan.sdk.runtime.Interceptable] */
-    /* JADX WARN: Type inference failed for: r2v2, types: [java.util.zip.ZipOutputStream] */
-    /* JADX WARN: Type inference failed for: r2v3 */
-    /* JADX WARN: Type inference failed for: r2v4 */
-    /* JADX WARN: Type inference failed for: r2v5, types: [java.util.zip.ZipOutputStream] */
-    /* JADX WARN: Type inference failed for: r2v6, types: [java.util.zip.ZipOutputStream] */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:54:0x0098 -> B:72:0x009b). Please submit an issue!!! */
-    public static void a(File file, List<a> list) throws IOException {
-        ?? r2;
+    @Override // com.baidu.tieba.du9
+    public RandomAccessFile e(File file, String str, long j) throws IOException {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            r2 = interceptable;
-            if (r2.invokeLL(65536, null, file, list) != null) {
-                return;
-            }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{file, str, Long.valueOf(j)})) == null) {
+            RandomAccessFile randomAccessFile = new RandomAccessFile(new File(file, str), "rwd");
+            randomAccessFile.seek(j);
+            return randomAccessFile;
         }
-        if (file != null && file.exists() && list != null && list.size() != 0) {
-            FileInputStream fileInputStream = null;
-            try {
-                try {
-                    try {
-                        byte[] bArr = new byte[8192];
-                        r2 = new ZipOutputStream(new FileOutputStream(file));
-                        try {
-                            r2.setComment(file.getName());
-                            for (a aVar : list) {
-                                File file2 = aVar.a;
-                                if (file2.canRead()) {
-                                    FileInputStream fileInputStream2 = new FileInputStream(file2);
-                                    try {
-                                        r2.putNextEntry(new ZipEntry(aVar.b));
-                                        while (true) {
-                                            int read = fileInputStream2.read(bArr);
-                                            if (read == -1) {
-                                                break;
-                                            }
-                                            r2.write(bArr, 0, read);
-                                        }
-                                        fileInputStream2.close();
-                                        fileInputStream = fileInputStream2;
-                                    } catch (FileNotFoundException e) {
-                                        e = e;
-                                        fileInputStream = fileInputStream2;
-                                        e.printStackTrace();
-                                        if (fileInputStream != null) {
-                                            try {
-                                                fileInputStream.close();
-                                            } catch (IOException e2) {
-                                                e2.printStackTrace();
-                                            }
-                                        }
-                                        if (r2 != 0) {
-                                            r2.close();
-                                        }
-                                        return;
-                                    } catch (Throwable th) {
-                                        th = th;
-                                        fileInputStream = fileInputStream2;
-                                        if (fileInputStream != null) {
-                                            try {
-                                                fileInputStream.close();
-                                            } catch (IOException e3) {
-                                                e3.printStackTrace();
-                                            }
-                                        }
-                                        if (r2 != 0) {
-                                            try {
-                                                r2.close();
-                                            } catch (IOException e4) {
-                                                e4.printStackTrace();
-                                            }
-                                        }
-                                        throw th;
-                                    }
-                                }
-                            }
-                            r2.flush();
-                            if (fileInputStream != null) {
-                                try {
-                                    fileInputStream.close();
-                                } catch (IOException e5) {
-                                    e5.printStackTrace();
-                                }
-                            }
-                            r2.close();
-                        } catch (FileNotFoundException e6) {
-                            e = e6;
-                        }
-                    } catch (IOException e7) {
-                        e7.printStackTrace();
-                    }
-                } catch (FileNotFoundException e8) {
-                    e = e8;
-                    r2 = 0;
-                } catch (Throwable th2) {
-                    th = th2;
-                    r2 = 0;
-                }
-            } catch (Throwable th3) {
-                th = th3;
-            }
+        return (RandomAccessFile) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.du9
+    public Map<String, String> f(iu9 iu9Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iu9Var)) == null) {
+            HashMap hashMap = new HashMap();
+            long c = iu9Var.c() + iu9Var.b();
+            long a = iu9Var.a();
+            hashMap.put("Range", "bytes=" + c + "-" + a);
+            return hashMap;
         }
+        return (Map) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.du9
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return gu9.class.getSimpleName();
+        }
+        return (String) invokeV.objValue;
     }
 }

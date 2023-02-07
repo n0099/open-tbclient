@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.AgreeView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nz4;
+import com.baidu.tieba.a45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPraiseInfoLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AgreeView.h s0;
+    public AgreeView.h t0;
 
     /* loaded from: classes3.dex */
     public class a implements AgreeView.h {
@@ -73,7 +73,7 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
                 return;
             }
         }
-        this.s0 = new a(this);
+        this.t0 = new a(this);
     }
 
     public final void P(boolean z) {
@@ -113,7 +113,7 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
                 return;
             }
         }
-        this.s0 = new a(this);
+        this.t0 = new a(this);
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
@@ -121,9 +121,9 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.G();
-            this.e.setVisibilityListener(this.s0);
+            this.e.setVisibilityListener(this.t0);
             this.e.A(true);
-            nz4.b(this);
+            a45.b(this);
         }
     }
 

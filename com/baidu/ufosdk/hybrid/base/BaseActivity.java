@@ -53,7 +53,7 @@ public abstract class BaseActivity extends Activity {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.finish();
             if (this.a) {
-                overridePendingTransition(R.anim.obfuscated_res_0x7f010147, R.anim.obfuscated_res_0x7f01014b);
+                overridePendingTransition(R.anim.obfuscated_res_0x7f010149, R.anim.obfuscated_res_0x7f01014d);
             }
         }
     }
@@ -116,7 +116,7 @@ public abstract class BaseActivity extends Activity {
                         i = 0;
                     }
                     Log.d(com.sina.weibo.sdk.share.BaseActivity.TAG, "onSetDefaultStatusBarColor: " + i);
-                    ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09274b);
+                    ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f092750);
                     if (viewGroup != null && i > 0) {
                         if (!getSharedPreferences("feedback_switch_prefs", 0).getBoolean("f_stu_b", false)) {
                             ((ViewGroup) viewGroup.getParent()).setPadding(0, i, 0, 0);

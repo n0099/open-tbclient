@@ -1,440 +1,262 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.BitmapFactory;
-import android.os.Bundle;
-import android.os.Parcelable;
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.sapi2.utils.enums.ShareDirectionType;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatcher;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatcherHolder;
-import com.baidu.swan.apps.media.chooser.activity.SwanAppAlbumActivity;
-import com.baidu.swan.apps.media.chooser.activity.SwanAppAlbumPreviewActivity;
-import com.baidu.swan.apps.media.chooser.model.ImageModel;
-import com.baidu.swan.apps.media.chooser.model.MediaModel;
-import com.baidu.swan.apps.media.chooser.model.VideoModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.nio.ByteBuffer;
+import java.nio.channels.Channels;
+import java.nio.channels.FileChannel;
+import java.nio.channels.FileLock;
+import java.nio.charset.Charset;
 /* loaded from: classes7.dex */
 public class zr2 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static ArrayList<MediaModel> a = null;
-    public static String b = "album";
-    public static int c = 9;
-    public static String d = "single";
-    public static boolean e = false;
-    public static String f = null;
-    public static int g = 0;
-    public static boolean h = true;
-    public static boolean i;
-    public static String j;
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948369487, "Lcom/baidu/tieba/zr2;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948369487, "Lcom/baidu/tieba/zr2;");
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class a implements ActivityResultConsumer {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ es2 a;
-
-        public a(es2 es2Var) {
-            Interceptable interceptable = $ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948369487, "Lcom/baidu/tieba/zr2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {es2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = es2Var;
-        }
-
-        @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
-        public boolean consume(ActivityResultDispatcher activityResultDispatcher, int i, Intent intent) {
-            InterceptResult invokeLIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, activityResultDispatcher, i, intent)) == null) {
-                wp2.U().c();
-                if (i == -1) {
-                    if (intent == null) {
-                        this.a.f("choose: Selected data is null");
-                        return true;
-                    }
-                    this.a.g(intent.getParcelableArrayListExtra("mediaModels"));
-                    return true;
-                } else if (i == 0) {
-                    this.a.f("选择文件失败：用户取消操作");
-                    return true;
-                } else {
-                    return true;
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948369487, "Lcom/baidu/tieba/zr2;");
+                return;
             }
-            return invokeLIL.booleanValue;
         }
+        a = gp1.a;
     }
 
-    /* loaded from: classes7.dex */
-    public static class b implements fs2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-
-        public b(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = activity;
-        }
-
-        @Override // com.baidu.tieba.fs2
-        public void a(boolean z, String str, Object obj) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, obj}) == null) && z && (obj instanceof ArrayList)) {
-                ArrayList<? extends Parcelable> arrayList = (ArrayList) obj;
-                if (yr2.a) {
-                    Iterator<? extends Parcelable> it = arrayList.iterator();
-                    while (it.hasNext()) {
-                        Log.d("SwanAppChooseHelper", "tempPath = " + ((MediaModel) it.next()).getTempPath());
-                    }
-                }
-                Intent intent = new Intent();
-                intent.putParcelableArrayListExtra("mediaModels", arrayList);
-                this.a.setResult(-1, intent);
-                this.a.finish();
-            }
-        }
-    }
-
-    public static void a() {
-        ArrayList<MediaModel> arrayList;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && (arrayList = a) != null) {
-            arrayList.clear();
-            a = null;
-        }
-    }
-
-    public static ArrayList<MediaModel> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return a;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public static String b(Context context, String str) {
-        InterceptResult invokeLL;
-        char c2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            int hashCode = str.hashCode();
-            if (hashCode != 70760763) {
-                if (hashCode != 92896879) {
-                    if (hashCode == 112202875 && str.equals("video")) {
-                        c2 = 1;
-                    }
-                    c2 = 65535;
-                } else {
-                    if (str.equals("album")) {
-                        c2 = 2;
-                    }
-                    c2 = 65535;
-                }
-            } else {
-                if (str.equals("Image")) {
-                    c2 = 0;
-                }
-                c2 = 65535;
-            }
-            int i2 = R.string.obfuscated_res_0x7f0f1332;
-            if (c2 != 0) {
-                if (c2 == 1) {
-                    i2 = R.string.obfuscated_res_0x7f0f1333;
-                }
-            } else {
-                i2 = R.string.obfuscated_res_0x7f0f1331;
-            }
-            return context.getResources().getString(i2);
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static boolean d(String str) {
+    /* JADX WARN: Removed duplicated region for block: B:53:0x00bd A[Catch: all -> 0x00f4, TryCatch #2 {, blocks: (B:6:0x0007, B:8:0x0012, B:10:0x0016, B:13:0x001f, B:23:0x0078, B:24:0x007b, B:51:0x00b5, B:53:0x00bd, B:54:0x00d9, B:27:0x0080, B:28:0x0086, B:59:0x00e2, B:60:0x00e5, B:64:0x00f3, B:63:0x00ea, B:46:0x00a6, B:47:0x00a9, B:50:0x00ae), top: B:74:0x0007, inners: #0, #5, #7 }] */
+    /* JADX WARN: Removed duplicated region for block: B:72:0x00e2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    @SuppressLint({"SwanDebugLog"})
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static synchronized String a(String str) {
         InterceptResult invokeL;
+        BufferedReader bufferedReader;
+        String str2;
+        String stackTraceString;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inJustDecodeBounds = true;
-            BitmapFactory.decodeFile(str, options);
-            String str2 = options.outMimeType;
-            if (!TextUtils.isEmpty(str2) && str2.equalsIgnoreCase("image/gif")) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void i(ArrayList<MediaModel> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, arrayList) == null) {
-            if (a == null) {
-                a = new ArrayList<>();
-            }
-            a.clear();
-            a.addAll(arrayList);
-        }
-    }
-
-    public static boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inJustDecodeBounds = true;
-            BitmapFactory.decodeFile(str, options);
-            float f2 = options.outWidth;
-            float f3 = options.outHeight;
-            if (!d(str)) {
-                float f4 = yr2.c;
-                if (f2 > f4 && f3 > f4) {
-                    float f5 = f2 / f3;
-                    float f6 = yr2.b;
-                    if (f5 > f6 || 1.0f / f5 > f6) {
-                        return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            synchronized (zr2.class) {
+                long currentTimeMillis = System.currentTimeMillis();
+                FileLock fileLock = null;
+                if (TextUtils.isEmpty(str) && a) {
+                    Log.w("SwanAppFile", "path name is empty");
+                    return null;
+                }
+                StringBuffer stringBuffer = new StringBuffer();
+                try {
+                    FileChannel channel = new RandomAccessFile(str, "rw").getChannel();
+                    FileLock lock = channel.lock(0L, Long.MAX_VALUE, true);
+                    try {
+                        bufferedReader = new BufferedReader(Channels.newReader(channel, Charset.defaultCharset().name()));
+                        while (true) {
+                            try {
+                                String readLine = bufferedReader.readLine();
+                                if (readLine == null) {
+                                    break;
+                                }
+                                stringBuffer.append(readLine);
+                            } catch (IOException e) {
+                                e = e;
+                                fileLock = lock;
+                                try {
+                                    Log.e("SwanAppFile", Log.getStackTraceString(e));
+                                    if (fileLock != null) {
+                                        try {
+                                            fileLock.release();
+                                        } catch (IOException e2) {
+                                            str2 = "SwanAppFile";
+                                            stackTraceString = Log.getStackTraceString(e2);
+                                            Log.e(str2, stackTraceString);
+                                            long currentTimeMillis2 = System.currentTimeMillis();
+                                            if (a) {
+                                            }
+                                            return stringBuffer.toString();
+                                        }
+                                    }
+                                    ap4.d(bufferedReader);
+                                    long currentTimeMillis22 = System.currentTimeMillis();
+                                    if (a) {
+                                    }
+                                    return stringBuffer.toString();
+                                } catch (Throwable th) {
+                                    th = th;
+                                    if (fileLock != null) {
+                                        try {
+                                            fileLock.release();
+                                        } catch (IOException e3) {
+                                            Log.e("SwanAppFile", Log.getStackTraceString(e3));
+                                            throw th;
+                                        }
+                                    }
+                                    ap4.d(bufferedReader);
+                                    throw th;
+                                }
+                            } catch (Throwable th2) {
+                                th = th2;
+                                fileLock = lock;
+                                if (fileLock != null) {
+                                }
+                                ap4.d(bufferedReader);
+                                throw th;
+                            }
+                        }
+                        if (a) {
+                            Log.d("SwanAppFile", "Read file: " + stringBuffer.toString());
+                        }
+                        if (lock != null) {
+                            try {
+                                lock.release();
+                            } catch (IOException e4) {
+                                str2 = "SwanAppFile";
+                                stackTraceString = Log.getStackTraceString(e4);
+                                Log.e(str2, stackTraceString);
+                                long currentTimeMillis222 = System.currentTimeMillis();
+                                if (a) {
+                                }
+                                return stringBuffer.toString();
+                            }
+                        }
+                        ap4.d(bufferedReader);
+                    } catch (IOException e5) {
+                        e = e5;
+                        bufferedReader = null;
+                    } catch (Throwable th3) {
+                        th = th3;
+                        bufferedReader = null;
                     }
+                } catch (IOException e6) {
+                    e = e6;
+                    bufferedReader = null;
+                } catch (Throwable th4) {
+                    th = th4;
+                    bufferedReader = null;
+                }
+                long currentTimeMillis2222 = System.currentTimeMillis();
+                if (a) {
+                    Log.d("SwanAppFile", "Read file done: cost time = " + (currentTimeMillis2222 - currentTimeMillis) + "ms");
+                }
+                return stringBuffer.toString();
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:51:0x00c2 A[Catch: all -> 0x00f5, TRY_LEAVE, TryCatch #2 {, blocks: (B:6:0x0007, B:8:0x0012, B:10:0x0016, B:28:0x007d, B:32:0x008b, B:49:0x00ba, B:51:0x00c2, B:31:0x0082, B:56:0x00e3, B:60:0x00f1, B:61:0x00f4, B:59:0x00e8, B:44:0x00a9, B:48:0x00b7, B:47:0x00ae), top: B:73:0x0007, inners: #1, #4, #6 }] */
+    /* JADX WARN: Removed duplicated region for block: B:71:0x00e3 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    @SuppressLint({"SwanDebugLog"})
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static synchronized boolean b(String str, String str2, boolean z) {
+        InterceptResult invokeLLZ;
+        FileChannel fileChannel;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, str, str2, z)) == null) {
+            synchronized (zr2.class) {
+                long currentTimeMillis = System.currentTimeMillis();
+                boolean z2 = false;
+                if (TextUtils.isEmpty(str) && a) {
+                    Log.w("SwanAppFile", "path name is null");
                     return false;
                 }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean f(String str, MediaModel mediaModel) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, mediaModel)) == null) {
-            if (as2.d() >= c && !as2.g(mediaModel)) {
-                return true;
-            }
-            if (TextUtils.equals(str, "single") && as2.d() > 0 && !TextUtils.equals(as2.b(), mediaModel.getType())) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static void g(Activity activity, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, activity, bundle) == null) {
-            if (yr2.a) {
-                Log.d("SwanAppChooseHelper", "selectCompleted");
-            }
-            if (as2.d() <= 0) {
-                return;
-            }
-            qn2.k().a(activity, bundle, new b(activity));
-        }
-    }
-
-    public static void k(Activity activity, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, null, activity, bundle) == null) {
-            Intent intent = new Intent(activity, SwanAppAlbumPreviewActivity.class);
-            intent.putExtra("launchParams", bundle);
-            activity.startActivityForResult(intent, 32770);
-            activity.overridePendingTransition(R.anim.obfuscated_res_0x7f01013c, R.anim.obfuscated_res_0x7f01001c);
-        }
-    }
-
-    public static void h(Activity activity, Bundle bundle, fs2 fs2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65544, null, activity, bundle, fs2Var) == null) {
-            if (yr2.a) {
-                Log.d("SwanAppChooseHelper", "selectCompleted");
-            }
-            if (as2.d() <= 0) {
-                return;
-            }
-            qn2.k().a(activity, bundle, fs2Var);
-        }
-    }
-
-    public static void j(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65546, null, str) != null) || as2.d() == 0) {
-            return;
-        }
-        Context appContext = AppRuntime.getAppContext();
-        String string = appContext.getString(R.string.obfuscated_res_0x7f0f133f, Integer.valueOf(c));
-        if (TextUtils.equals(str, "single")) {
-            if (as2.e().get(0) instanceof ImageModel) {
-                string = appContext.getString(R.string.obfuscated_res_0x7f0f1340, Integer.valueOf(c));
-            } else {
-                string = appContext.getString(R.string.obfuscated_res_0x7f0f1341, Integer.valueOf(c));
-            }
-        } else if (TextUtils.equals(str, ShareDirectionType.BOTH)) {
-            string = appContext.getString(R.string.obfuscated_res_0x7f0f133f, Integer.valueOf(c));
-        }
-        b43.g(appContext, string).G();
-    }
-
-    public static void l(Context context, Bundle bundle, es2 es2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65548, null, context, bundle, es2Var) == null) {
-            Intent intent = new Intent(context, SwanAppAlbumActivity.class);
-            intent.putExtra("launchParams", bundle);
-            if (!(context instanceof ActivityResultDispatcherHolder)) {
-                es2Var.f("choose: context error");
-                return;
-            }
-            ActivityResultDispatcher resultDispatcher = ((ActivityResultDispatcherHolder) context).getResultDispatcher();
-            if (resultDispatcher == null) {
-                es2Var.f("choose: ActivityResultDispatcher null");
-                return;
-            }
-            resultDispatcher.addConsumer(new a(es2Var));
-            wp2.U().p();
-            resultDispatcher.startActivityForResult(intent);
-            ((Activity) context).overridePendingTransition(R.anim.obfuscated_res_0x7f010141, 0);
-        }
-    }
-
-    public static JSONObject m(List<MediaModel> list, j43 j43Var, String str) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65549, null, list, j43Var, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                JSONArray jSONArray = new JSONArray();
-                JSONArray jSONArray2 = new JSONArray();
-                for (MediaModel mediaModel : list) {
-                    if (mediaModel != null) {
-                        String str2 = null;
-                        if (j43Var.w0()) {
-                            yl1 m = rn2.m();
-                            if (m != null) {
-                                str2 = m.h(mediaModel.getTempPath());
-                            }
-                        } else {
-                            str2 = rb3.J(mediaModel.getTempPath(), j43Var.b);
-                        }
-                        jSONArray.put(str2);
-                        JSONObject jSONObject2 = new JSONObject();
-                        jSONObject2.put("path", str2);
-                        if (TextUtils.equals("album", str)) {
-                            jSONObject2.put("type", mediaModel.getType());
-                        }
-                        jSONObject2.put("size", mediaModel.getSize());
-                        if (mediaModel instanceof VideoModel) {
-                            VideoModel videoModel = (VideoModel) mediaModel;
-                            jSONObject2.put("duration", videoModel.getDuration());
-                            jSONObject2.put("height", videoModel.getHeight());
-                            jSONObject2.put("width", videoModel.getWidth());
-                        }
-                        jSONArray2.put(jSONObject2);
+                FileLock fileLock = null;
+                try {
+                    File file = new File(str);
+                    File file2 = new File(file.getParent());
+                    if (!file2.exists()) {
+                        file2.mkdirs();
                     }
+                    if (!file.exists()) {
+                        file.createNewFile();
+                    }
+                    FileChannel channel = new FileOutputStream(file, z).getChannel();
+                    try {
+                        fileLock = channel.lock();
+                        if (TextUtils.isEmpty(str2)) {
+                            str2 = "";
+                        }
+                        channel.write(ByteBuffer.wrap(str2.getBytes()));
+                        z2 = true;
+                        if (a) {
+                            Log.d("SwanAppFile", "Write file：" + str2);
+                        }
+                        if (fileLock != null) {
+                            try {
+                                fileLock.release();
+                            } catch (IOException e) {
+                                Log.e("SwanAppFile", Log.getStackTraceString(e));
+                            }
+                        }
+                        ap4.d(channel);
+                    } catch (IOException e2) {
+                        fileChannel = channel;
+                        e = e2;
+                        try {
+                            Log.e("SwanAppFile", Log.getStackTraceString(e));
+                            if (fileLock != null) {
+                                try {
+                                    fileLock.release();
+                                } catch (IOException e3) {
+                                    Log.e("SwanAppFile", Log.getStackTraceString(e3));
+                                }
+                            }
+                            ap4.d(fileChannel);
+                            long currentTimeMillis2 = System.currentTimeMillis();
+                            if (a) {
+                            }
+                            return z2;
+                        } catch (Throwable th) {
+                            th = th;
+                            if (fileLock != null) {
+                                try {
+                                    fileLock.release();
+                                } catch (IOException e4) {
+                                    Log.e("SwanAppFile", Log.getStackTraceString(e4));
+                                }
+                            }
+                            ap4.d(fileChannel);
+                            throw th;
+                        }
+                    } catch (Throwable th2) {
+                        fileChannel = channel;
+                        th = th2;
+                        if (fileLock != null) {
+                        }
+                        ap4.d(fileChannel);
+                        throw th;
+                    }
+                } catch (IOException e5) {
+                    e = e5;
+                    fileChannel = null;
+                } catch (Throwable th3) {
+                    th = th3;
+                    fileChannel = null;
                 }
-                jSONObject.put("tempFilePaths", jSONArray);
-                jSONObject.put("tempFiles", jSONArray2);
-            } catch (JSONException e2) {
-                if (yr2.a) {
-                    e2.printStackTrace();
+                long currentTimeMillis22 = System.currentTimeMillis();
+                if (a) {
+                    Log.d("SwanAppFile", "Write file done: cost time =" + (currentTimeMillis22 - currentTimeMillis) + "ms");
                 }
+                return z2;
             }
-            if (yr2.a) {
-                Log.d("SwanAppChooseHelper", jSONObject.toString());
-            }
-            return jSONObject;
         }
-        return (JSONObject) invokeLLL.objValue;
-    }
-
-    public static JSONObject n(List<MediaModel> list, j43 j43Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, list, j43Var)) == null) {
-            String str = null;
-            if (list == null || !(list.get(0) instanceof VideoModel)) {
-                return null;
-            }
-            VideoModel videoModel = (VideoModel) list.get(0);
-            if (j43Var.w0()) {
-                yl1 m = rn2.m();
-                if (m != null) {
-                    str = m.h(videoModel.getTempPath());
-                }
-            } else {
-                str = rb3.J(videoModel.getTempPath(), j43Var.b);
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("tempFilePath", str);
-                jSONObject.put("duration", videoModel.getDuration() / 1000);
-                jSONObject.put("height", videoModel.getHeight());
-                jSONObject.put("width", videoModel.getWidth());
-                jSONObject.put("size", videoModel.getSize());
-            } catch (JSONException e2) {
-                if (yr2.a) {
-                    e2.printStackTrace();
-                }
-            }
-            if (yr2.a) {
-                Log.d("SwanAppChooseHelper", jSONObject.toString());
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeLL.objValue;
+        return invokeLLZ.booleanValue;
     }
 }

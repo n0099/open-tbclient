@@ -1,79 +1,139 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageView;
+import androidx.viewpager.widget.ViewPager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.publisher.emoji.adapter.NoHorizontalScrollerVPAdapter;
+import com.baidu.swan.apps.publisher.emoji.view.EmojiBagLayout;
+import com.baidu.swan.apps.publisher.view.SPSwitchPanelLinearLayout;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.io.File;
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class l63 extends g63 {
+public class l63 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
+    public static l63 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public WeakReference<Activity> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l63(g53 g53Var) {
-        super(g53Var, "/swanAPI/setBackgroundTextStyle");
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947894784, "Lcom/baidu/tieba/l63;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947894784, "Lcom/baidu/tieba/l63;");
+                return;
+            }
+        }
+        b = gp1.a;
+    }
+
+    public l63() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {g53Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.g63
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j43 j43Var) {
-        InterceptResult invokeLLLL;
+    public static l63 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j43Var)) == null) {
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                j12.c("setBackgroundTextStyle", "paramsJson is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (l63.class) {
+                    if (c == null) {
+                        c = new l63();
+                    }
+                }
             }
-            if (g63.b) {
-                Log.d("setBackgroundTextStyle", optParamsAsJo.toString());
+            return c;
+        }
+        return (l63) invokeV.objValue;
+    }
+
+    public final View a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            EmojiBagLayout emojiBagLayout = new EmojiBagLayout(context);
+            emojiBagLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070138)));
+            emojiBagLayout.setEmotionList(j63.c().b());
+            return emojiBagLayout;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    public boolean c(Activity activity, ViewGroup viewGroup, View view2, String str, String str2, String str3) {
+        InterceptResult invokeCommon;
+        IllegalArgumentException illegalArgumentException;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, viewGroup, view2, str, str2, str3})) == null) {
+            if (!(viewGroup instanceof SPSwitchPanelLinearLayout)) {
+                illegalArgumentException = new IllegalArgumentException("panelLayout must be SPSwitchLinearLayout");
+            } else {
+                illegalArgumentException = null;
             }
-            s32 V = wp2.U().V();
-            if (V == null) {
-                j12.c("setBackgroundTextStyle", "manager is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
+            if (!(view2 instanceof EditText)) {
+                illegalArgumentException = new IllegalArgumentException("focus view must be EditText");
             }
-            String optString = optParamsAsJo.optString("textStyle");
-            if (TextUtils.isEmpty(optString)) {
-                j12.c("setBackgroundTextStyle", "text style is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            } else if (!V.o().o3().s(SwanAppConfigData.t(optString))) {
-                j12.c("setBackgroundTextStyle", "set window background fail");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            if (illegalArgumentException != null) {
+                if (!b) {
+                    return false;
+                }
+                throw illegalArgumentException;
+            } else if (TextUtils.isEmpty(str)) {
                 return false;
             } else {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                return true;
+                if (b) {
+                    Log.d("EmojiPanelManager", "start loading emoji " + str);
+                }
+                this.a = new WeakReference<>(activity);
+                if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
+                    File v = sr2.v(str2, str3, false, null, null);
+                    j63.c().f(v.getAbsolutePath() + File.separator + str);
+                    ViewPager viewPager = (ViewPager) viewGroup.findViewById(R.id.obfuscated_res_0x7f0908da);
+                    ImageView imageView = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0908d9);
+                    if (imageView != null) {
+                        imageView.setImageBitmap(j63.c().d());
+                    }
+                    ArrayList arrayList = new ArrayList();
+                    arrayList.add(a(activity.getApplicationContext()));
+                    viewPager.setAdapter(new NoHorizontalScrollerVPAdapter(arrayList));
+                    EditText editText = (EditText) view2;
+                    if (this.a.get() != null) {
+                        i63.g(this.a.get().getApplicationContext()).f(editText);
+                        return true;
+                    }
+                }
+                return false;
             }
         }
-        return invokeLLLL.booleanValue;
+        return invokeCommon.booleanValue;
     }
 }

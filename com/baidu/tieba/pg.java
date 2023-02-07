@@ -1,168 +1,251 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.network.outback.statistics.DoRecordManager;
+import com.baidu.searchbox.network.outback.statistics.NetworkStatRecord;
+import com.baidu.searchbox.network.outback.statistics.RecordObserver;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidParameterException;
-import java.util.LinkedList;
+import com.baidu.ubc.UBCManager;
+import java.util.Random;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class pg<T> {
+public final class pg {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public LinkedList<T> c;
-    public qg<T> d;
+    public volatile boolean a;
+    public final e b;
+    public final c c;
+    public final d d;
 
-    public pg(qg<T> qgVar, int i, int i2) {
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final pg a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(260336856, "Lcom/baidu/tieba/pg$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(260336856, "Lcom/baidu/tieba/pg$b;");
+                    return;
+                }
+            }
+            a = new pg(null);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class c implements RecordObserver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ c(a aVar) {
+            this();
+        }
+
+        public final void a(NetworkStatRecord networkStatRecord) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, networkStatRecord) == null) && networkStatRecord != null && networkStatRecord.subFrom == 8927) {
+                networkStatRecord.from = qg.a(networkStatRecord.url);
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("ext", networkStatRecord.toUBCJson());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+                if (uBCManager != null) {
+                    uBCManager.onEvent("1625", jSONObject);
+                }
+            }
+        }
+
+        @Override // com.baidu.searchbox.network.outback.statistics.RecordObserver
+        public void doRecord(NetworkStatRecord networkStatRecord, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, networkStatRecord, i) == null) {
+                a(networkStatRecord);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class d implements RecordObserver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ d(a aVar) {
+            this();
+        }
+
+        public final void a(NetworkStatRecord networkStatRecord, int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLI(1048576, this, networkStatRecord, i) == null) && networkStatRecord != null && i == DoRecordManager.FAILED_MSG && networkStatRecord.subFrom == 8927) {
+                networkStatRecord.from = qg.a(networkStatRecord.url);
+                JSONObject uBCJson = networkStatRecord.toUBCJson();
+                UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+                if (uBCManager != null) {
+                    uBCManager.onEvent("850", uBCJson.toString());
+                }
+            }
+        }
+
+        @Override // com.baidu.searchbox.network.outback.statistics.RecordObserver
+        public void doRecord(NetworkStatRecord networkStatRecord, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, networkStatRecord, i) == null) {
+                a(networkStatRecord, i);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class e implements RecordObserver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public e() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ e(a aVar) {
+            this();
+        }
+
+        public final boolean b(NetworkStatRecord networkStatRecord) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, networkStatRecord)) == null) {
+                if (networkStatRecord.from == 3 || networkStatRecord.subFrom != 8927 || new Random().nextInt(100) >= 20) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public final void a(NetworkStatRecord networkStatRecord) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, networkStatRecord) == null) && networkStatRecord != null && b(networkStatRecord)) {
+                networkStatRecord.from = qg.a(networkStatRecord.url);
+                JSONObject uBCJson = networkStatRecord.toUBCJson();
+                UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+                if (uBCManager != null) {
+                    uBCManager.onEvent("94", uBCJson.toString());
+                }
+            }
+        }
+
+        @Override // com.baidu.searchbox.network.outback.statistics.RecordObserver
+        public void doRecord(NetworkStatRecord networkStatRecord, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, networkStatRecord, i) == null) {
+                a(networkStatRecord);
+            }
+        }
+    }
+
+    public pg() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {qgVar, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 10;
-        this.b = 0;
-        this.c = null;
-        this.d = null;
-        if (qgVar != null && i > 0 && i2 <= i) {
-            this.d = qgVar;
-            this.a = i;
-            this.b = i2;
-            this.c = new LinkedList<>();
-            a(this.b);
-            return;
-        }
-        throw new InvalidParameterException("invalid params");
+        this.a = false;
+        this.b = new e(null);
+        this.c = new c(null);
+        this.d = new d(null);
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r2v3, resolved type: java.util.LinkedList<T> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public final void a(int i) {
+    public synchronized void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this) {
-                for (int i2 = 0; i2 < i; i2++) {
-                    Object obj = null;
-                    try {
-                        obj = this.d.a(this.d.d());
-                    } catch (Exception e) {
-                        BdLog.e(e.getMessage());
-                    }
-                    if (obj != null) {
-                        this.c.offer(obj);
-                    }
+                if (!this.a) {
+                    this.a = true;
+                    DoRecordManager.getInstance().attach(this.b);
+                    DoRecordManager.getInstance().attach(this.c);
+                    DoRecordManager.getInstance().attach(this.d);
                 }
             }
         }
     }
 
-    public void e(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
-            synchronized (this) {
-                if (this.c.size() < this.a) {
-                    T t2 = null;
-                    try {
-                        t2 = this.d.c(t);
-                    } catch (Exception e) {
-                        BdLog.e(e.getMessage());
-                    }
-                    if (t2 != null) {
-                        this.c.offer(t2);
-                    }
-                } else {
-                    this.d.b(t);
-                }
-            }
-        }
+    public /* synthetic */ pg(a aVar) {
+        this();
     }
 
-    public T b() {
+    public static pg a() {
         InterceptResult invokeV;
-        T t;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this) {
-                t = null;
-                try {
-                    if (this.c.size() > 0) {
-                        t = this.d.a(this.c.poll());
-                    } else {
-                        t = this.d.a(this.d.d());
-                    }
-                    a(this.b - this.c.size());
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                }
-            }
-            return t;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
         }
-        return (T) invokeV.objValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                this.c.clear();
-            }
-        }
-    }
-
-    public final void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            synchronized (this) {
-                for (int i2 = 0; i2 < i; i2++) {
-                    try {
-                        this.d.b(this.c.poll());
-                    } catch (Exception e) {
-                        BdLog.e(e.getMessage());
-                    }
-                }
-            }
-        }
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            synchronized (this) {
-                if (i < this.b) {
-                    i = this.b;
-                }
-                if (i <= 0) {
-                    i = 1;
-                }
-                this.a = i;
-                d(this.c.size() - this.a);
-            }
-        }
-    }
-
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            synchronized (this) {
-                if (i > this.a) {
-                    i = this.a;
-                }
-                this.b = i;
-                a(i - this.c.size());
-            }
-        }
+        return (pg) invokeV.objValue;
     }
 }

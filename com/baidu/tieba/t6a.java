@@ -1,26 +1,22 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.zxing.common.StringUtils;
-import java.io.UnsupportedEncodingException;
-import java.nio.ByteBuffer;
-import java.nio.charset.CharacterCodingException;
-import java.nio.charset.Charset;
-import java.nio.charset.CharsetDecoder;
-import java.nio.charset.CodingErrorAction;
-import org.apache.http.protocol.HTTP;
-import org.java_websocket.exceptions.InvalidDataException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 /* loaded from: classes6.dex */
-public class t6a {
+public class t6a extends l6a {
     public static /* synthetic */ Interceptable $ic;
-    public static CodingErrorAction a;
-    public static final int[] b;
+    public static final LinkedHashMap<Long, String> f;
     public transient /* synthetic */ FieldHolder $fh;
+    public int d;
+    public Thread e;
 
     static {
         InterceptResult invokeClinit;
@@ -35,96 +31,85 @@ public class t6a {
                 return;
             }
         }
-        a = CodingErrorAction.REPORT;
-        b = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8, 8, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 10, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 3, 3, 11, 6, 6, 6, 5, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 0, 1, 2, 3, 5, 8, 7, 1, 1, 1, 4, 6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+        f = new LinkedHashMap<>();
     }
 
-    public static byte[] a(String str) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t6a(Thread thread, int i, long j) {
+        super(j);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            try {
-                return str.getBytes(HTTP.ASCII);
-            } catch (UnsupportedEncodingException e) {
-                throw new RuntimeException(e);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {thread, Integer.valueOf(i), Long.valueOf(j)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Long) newInitContext.callArgs[0]).longValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return (byte[]) invokeL.objValue;
+        this.d = 100;
+        this.e = thread;
+        this.d = i;
     }
 
-    public static boolean b(ByteBuffer byteBuffer) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public t6a(Thread thread, long j) {
+        this(thread, 100, j);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, byteBuffer)) == null) {
-            return c(byteBuffer, 0);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static byte[] f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            try {
-                return str.getBytes(StringUtils.UTF8);
-            } catch (UnsupportedEncodingException e) {
-                throw new RuntimeException(e);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {thread, Long.valueOf(j)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Thread) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Long) objArr2[2]).longValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
         }
-        return (byte[]) invokeL.objValue;
     }
 
-    public static boolean c(ByteBuffer byteBuffer, int i) {
-        InterceptResult invokeLI;
+    @Override // com.baidu.tieba.l6a
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, byteBuffer, i)) == null) {
-            int remaining = byteBuffer.remaining();
-            if (remaining < i) {
-                return false;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (StackTraceElement stackTraceElement : this.e.getStackTrace()) {
+                sb.append(stackTraceElement.toString());
+                sb.append("\r\n");
             }
-            int i2 = 0;
-            while (i < remaining) {
-                int[] iArr = b;
-                i2 = iArr[(i2 << 4) + 256 + iArr[byteBuffer.get(i) & 255]];
-                if (i2 == 1) {
-                    return false;
+            synchronized (f) {
+                if (f.size() == this.d && this.d > 0) {
+                    f.remove(f.keySet().iterator().next());
                 }
-                i++;
+                f.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
             }
-            return true;
         }
-        return invokeLI.booleanValue;
     }
 
-    public static String d(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
+    public ArrayList<String> e(long j, long j2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i, i2)) == null) {
-            try {
-                return new String(bArr, i, i2, HTTP.ASCII);
-            } catch (UnsupportedEncodingException e) {
-                throw new RuntimeException(e);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            ArrayList<String> arrayList = new ArrayList<>();
+            synchronized (f) {
+                for (Long l : f.keySet()) {
+                    if (j < l.longValue() && l.longValue() < j2) {
+                        arrayList.add(u6a.x.format(l) + "\r\n\r\n" + f.get(l));
+                    }
+                }
             }
+            return arrayList;
         }
-        return (String) invokeLII.objValue;
-    }
-
-    public static String e(ByteBuffer byteBuffer) throws InvalidDataException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, byteBuffer)) == null) {
-            CharsetDecoder newDecoder = Charset.forName(StringUtils.UTF8).newDecoder();
-            newDecoder.onMalformedInput(a);
-            newDecoder.onUnmappableCharacter(a);
-            try {
-                byteBuffer.mark();
-                String charBuffer = newDecoder.decode(byteBuffer).toString();
-                byteBuffer.reset();
-                return charBuffer;
-            } catch (CharacterCodingException e) {
-                throw new InvalidDataException(1007, e);
-            }
-        }
-        return (String) invokeL.objValue;
+        return (ArrayList) invokeCommon.objValue;
     }
 }

@@ -657,7 +657,7 @@ public class ActionMenuItem implements SupportMenuItem {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.view.MenuItem
+    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
     public SupportMenuItem setContentDescription(CharSequence charSequence) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -704,7 +704,7 @@ public class ActionMenuItem implements SupportMenuItem {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.view.MenuItem
+    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
     public SupportMenuItem setTooltipText(CharSequence charSequence) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

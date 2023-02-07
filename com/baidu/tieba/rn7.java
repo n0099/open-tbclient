@@ -1,67 +1,26 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.imMessageCenter.mention.FeedData;
+import com.baidu.tieba.im.message.LoadHistoryResponsedMessage;
+import com.baidu.tieba.im.message.OfficialFeedHeadResponsedMessage;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-import tbclient.ReplyMe.DataReq;
-import tbclient.ReplyMe.ReplyMeReqIdl;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class rn7 implements ie5, fe5 {
+public class rn7 implements CustomMessageTask.CustomRunnable<OfficialFeedHeadResponsedMessage.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public int b;
-    public String c;
-
-    @Override // com.baidu.tieba.he5
-    public HashMap<String, String> E() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public String F() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "tb_user_replyme" : (String) invokeV.objValue;
-    }
-
-    public String getCacheKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "replyme_cache" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.fe5
-    public boolean isNeedUid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
+    public jl7 b;
 
     public rn7() {
         Interceptable interceptable = $ic;
@@ -76,86 +35,52 @@ public class rn7 implements ie5, fe5 {
                 return;
             }
         }
-        this.b = 1;
+        this.a = 2001154;
+        this.b = jl7.w();
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public final LoadHistoryResponsedMessage a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(i);
+            loadHistoryResponsedMessage.setError(-18);
+            return loadHistoryResponsedMessage;
         }
-        return invokeV.intValue;
+        return (LoadHistoryResponsedMessage) invokeI.objValue;
     }
 
-    public void b() {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<OfficialFeedHeadResponsedMessage.a> customMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b = 1;
-            this.a = 1;
-            this.c = null;
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.b++;
-            this.a = 4;
-        }
-    }
-
-    @Override // com.baidu.tieba.he5
-    public HashMap<String, Object> B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put("uid", TbadkCoreApplication.getCurrentAccount());
-            hashMap.put("pn", String.valueOf(this.b));
-            hashMap.put("q_type", Integer.valueOf(nr4.c().e()));
-            hashMap.put("scr_dip", Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density));
-            hashMap.put("scr_h", Integer.valueOf(zi.j(TbadkCoreApplication.getInst().getApp())));
-            hashMap.put("scr_w", Integer.valueOf(zi.l(TbadkCoreApplication.getInst().getApp())));
-            if (this.a == 4 && !TextUtils.isEmpty(this.c)) {
-                hashMap.put("ids", this.c);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customMessage)) == null) {
+            if (this.b == null) {
+                return a(this.a);
             }
-            return hashMap;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public void c(FeedData feedData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, feedData) != null) || feedData == null) {
-            return;
-        }
-        this.c = String.format("%s,%s", feedData.getThread_id(), feedData.getPost_id());
-    }
-
-    @Override // com.baidu.tieba.ke5
-    public Object h(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
-            try {
-                DataReq.Builder builder = new DataReq.Builder();
-                builder.pn = Integer.valueOf(this.b);
-                builder.ids = this.c;
-                builder.q_type = Integer.valueOf(nr4.c().e());
-                builder.scr_dip = Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
-                builder.scr_h = Integer.valueOf(zi.j(TbadkCoreApplication.getInst().getApp()));
-                builder.scr_w = Integer.valueOf(zi.l(TbadkCoreApplication.getInst().getApp()));
-                if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    nk5.a(builder, true);
+            List<nl7> x = jl7.x();
+            if (x != null && x.size() > 0) {
+                HashMap hashMap = new HashMap(x.size());
+                for (nl7 nl7Var : x) {
+                    hashMap.put(nl7Var.b(), nl7Var);
                 }
-                ReplyMeReqIdl.Builder builder2 = new ReplyMeReqIdl.Builder();
-                builder2.data = builder.build(false);
-                return builder2.build(false);
-            } catch (Exception unused) {
-                return null;
+                LinkedList<ChatMessage> l = this.b.l(hashMap, 80);
+                if (l == null) {
+                    return a(this.a);
+                }
+                OfficialFeedHeadResponsedMessage.a aVar = new OfficialFeedHeadResponsedMessage.a();
+                OfficialFeedHeadResponsedMessage officialFeedHeadResponsedMessage = new OfficialFeedHeadResponsedMessage(this.a);
+                aVar.b = l;
+                aVar.a = x;
+                try {
+                    officialFeedHeadResponsedMessage.decodeInBackGround(2001105, aVar);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return officialFeedHeadResponsedMessage;
             }
+            return a(this.a);
         }
-        return invokeZ.objValue;
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

@@ -3,14 +3,14 @@ package com.baidu.swan.config.core;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.jo3;
-import com.baidu.tieba.ko3;
-import com.baidu.tieba.lo3;
-import com.baidu.tieba.mo3;
-import com.baidu.tieba.no3;
-import com.baidu.tieba.oo3;
-import com.baidu.tieba.qo3;
-import com.baidu.tieba.ro3;
+import com.baidu.tieba.at3;
+import com.baidu.tieba.bt3;
+import com.baidu.tieba.dt3;
+import com.baidu.tieba.et3;
+import com.baidu.tieba.ws3;
+import com.baidu.tieba.xs3;
+import com.baidu.tieba.ys3;
+import com.baidu.tieba.zs3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,10 +46,10 @@ public final class ConfigNode {
                 return;
             }
         }
-        HOST_INFO = new ConfigNode("HOST_INFO", 0, "host_info", no3.class, oo3.class);
-        FRAMEWORK = new ConfigNode("FRAMEWORK", 1, "framework", lo3.class, mo3.class);
-        EXTENSION = new ConfigNode("EXTENSION", 2, ETAG.KEY_EXTENSION, jo3.class, ko3.class);
-        ConfigNode configNode = new ConfigNode("TIP_MSG", 3, "tipmsgs", qo3.class, ro3.class);
+        HOST_INFO = new ConfigNode("HOST_INFO", 0, "host_info", at3.class, bt3.class);
+        FRAMEWORK = new ConfigNode("FRAMEWORK", 1, "framework", ys3.class, zs3.class);
+        EXTENSION = new ConfigNode("EXTENSION", 2, ETAG.KEY_EXTENSION, ws3.class, xs3.class);
+        ConfigNode configNode = new ConfigNode("TIP_MSG", 3, "tipmsgs", dt3.class, et3.class);
         TIP_MSG = configNode;
         $VALUES = new ConfigNode[]{HOST_INFO, FRAMEWORK, EXTENSION, configNode};
     }

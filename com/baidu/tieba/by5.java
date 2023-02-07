@@ -1,90 +1,171 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernRecommendLineHolder;
+import com.baidu.tieba.addresslist.relationship.ContactComparator;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class by5 extends ln<fy5, LiveTabConcernRecommendLineHolder> {
+public class by5 {
     public static /* synthetic */ Interceptable $ic;
+    public static by5 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public py5 b;
-    public qy5 c;
+    public List<a> a;
+    public List<x85> b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public by5(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), fy5.d);
+    /* loaded from: classes3.dex */
+    public interface a {
+        void q(List<x85> list);
+    }
+
+    public by5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        this.a = new ArrayList();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: s */
-    public LiveTabConcernRecommendLineHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public static synchronized by5 d() {
+        InterceptResult invokeV;
+        by5 by5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            py5 py5Var = new py5(this.a, viewGroup);
-            this.b = py5Var;
-            qy5 qy5Var = this.c;
-            if (qy5Var != null) {
-                py5Var.s(qy5Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (by5.class) {
+                if (c == null) {
+                    c = new by5();
+                }
+                by5Var = c;
             }
-            return new LiveTabConcernRecommendLineHolder(this.b);
+            return by5Var;
         }
-        return (LiveTabConcernRecommendLineHolder) invokeL.objValue;
+        return (by5) invokeV.objValue;
     }
 
-    public void u(qy5 qy5Var) {
+    public List<x85> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, qy5Var) == null) {
-            this.c = qy5Var;
-            py5 py5Var = this.b;
-            if (py5Var != null) {
-                py5Var.s(qy5Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            for (a aVar : this.a) {
+                aVar.q(this.b);
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, fy5 fy5Var, LiveTabConcernRecommendLineHolder liveTabConcernRecommendLineHolder) {
-        InterceptResult invokeCommon;
-        py5 py5Var;
+    public void a(x85 x85Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, fy5Var, liveTabConcernRecommendLineHolder})) == null) {
-            if (liveTabConcernRecommendLineHolder != null && (py5Var = liveTabConcernRecommendLineHolder.a) != null) {
-                py5Var.i(fy5Var);
-                return liveTabConcernRecommendLineHolder.getView();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, x85Var) == null) && this.b != null && x85Var != null) {
+            String a2 = x85Var.a();
+            if (TextUtils.isEmpty(a2)) {
+                a2 = "#";
+                x85Var.j("#");
             }
-            return null;
+            String e = x85Var.e();
+            if (e == null) {
+                e = "";
+            }
+            boolean z = false;
+            boolean z2 = false;
+            for (x85 x85Var2 : this.b) {
+                if (e.equals(x85Var2.e())) {
+                    z = true;
+                }
+                if (a2.equals(x85Var2.a())) {
+                    z2 = true;
+                }
+            }
+            if (z) {
+                return;
+            }
+            if (!z2) {
+                x85 x85Var3 = new x85();
+                x85Var3.j(a2);
+                this.b.add(x85Var3);
+            }
+            this.b.add(x85Var);
+            Collections.sort(this.b, new ContactComparator());
+            e();
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public void b(long j) {
+        List<x85> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) != null) || (list = this.b) == null) {
+            return;
+        }
+        String str = null;
+        Iterator<x85> it = list.iterator();
+        while (true) {
+            if (!it.hasNext()) {
+                break;
+            }
+            x85 next = it.next();
+            if (next.d() == j) {
+                str = next.a();
+                this.b.remove(next);
+                break;
+            }
+        }
+        if (str != null) {
+            ArrayList arrayList = new ArrayList();
+            for (x85 x85Var : this.b) {
+                if (str.equals(x85Var.a())) {
+                    arrayList.add(x85Var);
+                }
+            }
+            if (arrayList.size() <= 1) {
+                this.b.removeAll(arrayList);
+            }
+        }
+        e();
+    }
+
+    public void f(a aVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) && aVar != null && !this.a.contains(aVar)) {
+            this.a.add(aVar);
+        }
+    }
+
+    public void g(List<x85> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
+            this.b = list;
+            if (list != null) {
+                Collections.sort(list, new ContactComparator());
+            }
+            e();
+        }
+    }
+
+    public void h(a aVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) && aVar != null) {
+            this.a.remove(aVar);
+        }
     }
 }

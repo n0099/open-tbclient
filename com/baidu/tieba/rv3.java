@@ -1,7 +1,12 @@
 package com.baidu.tieba;
 
-import android.content.IntentFilter;
-import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
+import android.graphics.Bitmap;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.facade.init.SwanAppInitHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,65 +14,93 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+@Autowired
 /* loaded from: classes6.dex */
-public class rv3 extends pw3 {
+public final class rv3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AppDownloadNetworkStateReceiver c;
+
+    /* loaded from: classes6.dex */
+    public interface b {
+        vl4 a();
+
+        void b(boolean z, ye2 ye2Var);
+
+        boolean c();
+
+        Bitmap d();
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948135034, "Lcom/baidu/tieba/rv3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948135034, "Lcom/baidu/tieba/rv3;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948135034, "Lcom/baidu/tieba/rv3;")) == null) {
+            return;
         }
-        boolean z = tk1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rv3() {
-        super("resumeAllDownloadWhileWifi");
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948135034, "Lcom/baidu/tieba/rv3;");
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class a implements ye2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.ye2
+        public void onFail() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.ye2
+        public void onSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.pw3
-    public jw1 a(JSONObject jSONObject, nh2 nh2Var) {
-        InterceptResult invokeLL;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, nh2Var)) == null) {
-            if (jSONObject == null) {
-                nh2Var.onFail(202, "params may be error");
-                return null;
+        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && ProcessUtils.isMainProcess() && !ds2.w0().d()) {
+            synchronized (SwanAppInitHelper.class) {
+                if (SwanAppInitHelper.isDelayInit()) {
+                    SwanAppInitHelper.initModules(AppRuntime.getApplication(), false);
+                }
             }
-            if (this.c == null) {
-                this.c = new AppDownloadNetworkStateReceiver();
-            }
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-            qn2.c().registerReceiver(this.c, intentFilter);
-            nh2Var.a(null);
-            return null;
+            af2 af2Var = new af2();
+            af2Var.a = "by_silent";
+            ds2.w0().b(af2Var, new a());
         }
-        return (jw1) invokeLL.objValue;
+    }
+
+    @Inject(force = false)
+    public static b b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return d16.a();
+        }
+        return (b) invokeV.objValue;
     }
 }

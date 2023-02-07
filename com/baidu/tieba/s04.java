@@ -1,78 +1,170 @@
 package com.baidu.tieba;
 
-import android.view.MotionEvent;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.down.manage.Download;
+import com.baidu.down.request.task.ProgressInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collection;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class s04 {
+public class s04 extends r04 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public rb2 a;
 
-    public s04() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948097586, "Lcom/baidu/tieba/s04;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948097586, "Lcom/baidu/tieba/s04;");
+                return;
+            }
+        }
+        d = gp1.a;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public s04(Download download) {
+        super("onSuccess", 0, g(f(download), ""));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {download};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    public boolean a(MotionEvent motionEvent) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public s04(String str) {
+        super("onSuccess", 0, g(null, str));
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public s04(Collection<Download> collection) {
+        super("onSuccess", 0, g(e(collection), ""));
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {collection};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public static JSONArray e(Collection<Download> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            rb2 rb2Var = this.a;
-            boolean z = false;
-            if (rb2Var == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, collection)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            if (collection == null) {
+                return jSONArray;
             }
-            boolean f = t04.f(rb2Var.n());
-            boolean f2 = t04.f(this.a.x());
-            JSEvent jSEvent = null;
-            if (f || f2) {
-                jSEvent = t04.j(motionEvent);
+            for (Download download : collection) {
+                if (download != null) {
+                    jSONArray.put(f(download));
+                }
             }
-            if (f) {
-                z = this.a.dispatchEvent(jSEvent);
-            }
-            if (f2 && this.a.u0()) {
-                this.a.x().dispatchEvent(jSEvent);
-            }
-            t04.g(true);
-            return z;
+            return jSONArray;
         }
-        return invokeL.booleanValue;
+        return (JSONArray) invokeL.objValue;
     }
 
-    public void b(int i, int i2) {
+    public static JSONObject f(Download download) {
+        InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            t04.m(i, i2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, download)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (download == null) {
+                return jSONObject;
+            }
+            try {
+                jSONObject.put("apkId", new f04(download).c());
+                jSONObject.put("downloadId", download.getId());
+                jSONObject.put("packageName", download.getKeyByUser());
+                jSONObject.put("url", download.getUrl());
+                jSONObject.put("status", download.getState().ordinal());
+                jSONObject.put(ProgressInfo.JSON_KEY_CURRENT, download.getCurrentbytes());
+                jSONObject.put("total", download.getTotalbytes());
+                if (h04.j(download)) {
+                    str = "1";
+                } else {
+                    str = "0";
+                }
+                jSONObject.put("fileExist", str);
+            } catch (JSONException e) {
+                if (d) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject;
         }
+        return (JSONObject) invokeL.objValue;
     }
 
-    public void d(int i, int i2) {
+    public static String g(Object obj, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            t04.l(i, i2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, obj, str)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("data", obj);
+                jSONObject.put("message", str);
+            } catch (JSONException e) {
+                if (d) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject.toString();
         }
-    }
-
-    public void c(rb2 rb2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rb2Var) == null) {
-            this.a = rb2Var;
-        }
+        return (String) invokeLL.objValue;
     }
 }

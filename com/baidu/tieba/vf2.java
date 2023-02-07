@@ -1,14 +1,18 @@
 package com.baidu.tieba;
 
 import android.annotation.SuppressLint;
-import android.text.TextUtils;
-import android.util.Log;
+import android.content.ContentUris;
+import android.content.ContentValues;
+import android.content.UriMatcher;
+import android.database.ContentObserver;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
-import com.baidu.tieba.sf2;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.database.SwanAppDbControl;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,89 +20,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.Iterator;
-import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes6.dex */
-public abstract class vf2<T extends sf2> extends ue2<T> {
+public class vf2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static final String b;
+    public static final Uri c;
     public transient /* synthetic */ FieldHolder $fh;
-    public CopyOnWriteArrayList<cj3<Exception>> b;
+    public UriMatcher a;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vf2 a;
-
-        public a(vf2 vf2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vf2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = vf2Var;
+    @Nullable
+    public String getType(@NonNull Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uri)) == null) {
+            return null;
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                j12.k("ExtCore-PresetControl", "run: tryUpdateAsync start doUpdate");
-                uf2 b = uf2.b(this.a.a);
-                pf2 pf2Var = new pf2();
-                pf2Var.a = b.a;
-                pf2Var.b = b.b;
-                pf2Var.c = this.a.a.a();
-                vf2 vf2Var = this.a;
-                vf2Var.l(vf2Var.g(pf2Var));
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cj3 a;
-        public final /* synthetic */ Exception b;
-
-        public b(vf2 vf2Var, cj3 cj3Var, Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vf2Var, cj3Var, exc};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cj3Var;
-            this.b = exc;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a(this.b);
-            }
-        }
+        return (String) invokeL.objValue;
     }
 
     static {
@@ -114,204 +51,192 @@ public abstract class vf2<T extends sf2> extends ue2<T> {
                 return;
             }
         }
-        c = tk1.a;
+        b = AppRuntime.getApplication().getPackageName() + ".swan.favorite";
+        c = Uri.parse("content://" + b);
     }
 
-    @Override // com.baidu.tieba.ue2
-    public File a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new File(super.a(), "preset");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            o("0");
-            n(0L);
-        }
-    }
-
-    @NonNull
-    public ExtensionCore h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ExtensionCore extensionCore = new ExtensionCore();
-            long i = i();
-            extensionCore.extensionCoreVersionCode = i;
-            extensionCore.extensionCoreVersionName = j();
-            extensionCore.extensionCorePath = b(i).getPath();
-            extensionCore.extensionCoreType = 0;
-            return extensionCore;
-        }
-        return (ExtensionCore) invokeV.objValue;
-    }
-
-    public long i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return xc3.a().getLong(this.a.b(), 0L);
-        }
-        return invokeV.longValue;
-    }
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return xc3.a().getString(this.a.e(), "");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vf2(@NonNull T t) {
-        super(t);
+    public vf2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {t};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((sf2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = new CopyOnWriteArrayList<>();
+        UriMatcher uriMatcher = new UriMatcher(-1);
+        this.a = uriMatcher;
+        uriMatcher.addURI(b, "favorite", 0);
+        this.a.addURI(b, "favorite_and_aps", 1);
+        this.a.addURI(b, "history", 2);
+        this.a.addURI(b, "history_with_app", 3);
+        this.a.addURI(b, "favorite_with_aps_pms", 4);
+        this.a.addURI(b, "history_with_aps_pms", 5);
+        this.a.addURI(b, "user_behavior", 6);
     }
 
-    public final void l(Exception exc) {
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, exc) == null) {
-            Iterator<cj3<Exception>> it = this.b.iterator();
-            while (it.hasNext()) {
-                m(it.next(), exc);
-            }
-            this.b.clear();
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            AppRuntime.getAppContext().getContentResolver().notifyChange(yf2.b(), (ContentObserver) null, false);
+            AppRuntime.getAppContext().getContentResolver().notifyChange(yf2.c(), (ContentObserver) null, false);
+            AppRuntime.getAppContext().getContentResolver().notifyChange(yf2.a(), (ContentObserver) null, false);
         }
     }
 
-    public void n(long j) {
+    @NonNull
+    @SuppressLint({"BDThrowableCheck"})
+    public final String a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            xc3.a().putLong(this.a.b(), j);
-        }
-    }
-
-    public void o(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            xc3.a().putString(this.a.e(), str);
-        }
-    }
-
-    public final void m(@Nullable cj3<Exception> cj3Var, Exception exc) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cj3Var, exc) == null) && cj3Var != null) {
-            di3.e0(new b(this, cj3Var, exc));
-        }
-    }
-
-    /* JADX WARN: Incorrect types in method signature: <T:Lcom/baidu/tieba/pf2;>(TT;)Ljava/lang/Exception; */
-    public Exception g(@NonNull pf2 pf2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pf2Var)) == null) {
-            if (c) {
-                Log.d("ExtCore-PresetControl", "doUpdate: preset");
-            }
-            if (TextUtils.isEmpty(pf2Var.c)) {
-                if (c) {
-                    Log.e("ExtCore-PresetControl", "doUpdate: preset with null coreFilePath");
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i != 6) {
+                if (!gp1.a) {
+                    return "";
                 }
-                return new IllegalStateException("ExtCore-PresetControl doUpdate: failed by updateInfo.coreFilePath is empty");
+                throw new NullPointerException("tableName must not Null");
             }
-            long j = pf2Var.b;
-            if (nk4.V(pf2Var.c, b(j).getPath())) {
-                ag2.b(a(), j);
-                n(j);
-                o(pf2Var.a);
-                ag2.i(this.a.c(), false);
+            return "user_behavior";
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
+        InterceptResult invokeLLL;
+        SQLiteDatabase e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, str, strArr)) == null) {
+            int match = this.a.match(uri);
+            if (match != 0) {
+                if (match != 2) {
+                    if (match != 6 || (e = SwanAppDbControl.f(AppRuntime.getAppContext()).e()) == null) {
+                        return 0;
+                    }
+                    return e.delete(a(match), str, strArr);
+                }
+                int c2 = SwanAppDbControl.f(AppRuntime.getAppContext()).c(str, strArr);
+                if (c2 > 0) {
+                    b();
+                }
+                return c2;
+            }
+            return SwanAppDbControl.f(AppRuntime.getAppContext()).b(str, strArr);
+        }
+        return invokeLLL.intValue;
+    }
+
+    @Nullable
+    public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
+        InterceptResult invokeLL;
+        SQLiteDatabase e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, uri, contentValues)) == null) {
+            int match = this.a.match(uri);
+            if (match != 0) {
+                if (match != 2) {
+                    if (match != 6 || (e = SwanAppDbControl.f(AppRuntime.getAppContext()).e()) == null) {
+                        return null;
+                    }
+                    e.insertWithOnConflict(a(match), null, contentValues, 5);
+                    return uri;
+                }
+                long j = SwanAppDbControl.f(AppRuntime.getAppContext()).j(contentValues);
+                if (j < 0) {
+                    return null;
+                }
+                b();
+                return ContentUris.withAppendedId(c.buildUpon().build(), j);
+            }
+            long i = SwanAppDbControl.f(AppRuntime.getAppContext()).i(contentValues);
+            if (i < 0) {
                 return null;
             }
-            Exception exc = new Exception("ExtCore-PresetControl doUpdate: failed by can not unzip coreFile = " + pf2Var.c);
-            if (c) {
-                Log.e("ExtCore-PresetControl", "doUpdate preset unzip failed: " + Log.getStackTraceString(exc));
-            }
-            return exc;
+            return ContentUris.withAppendedId(c.buildUpon().build(), i);
         }
-        return (Exception) invokeL.objValue;
+        return (Uri) invokeLL.objValue;
     }
 
-    public boolean k() {
-        InterceptResult invokeV;
+    @Nullable
+    public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (!h().isAvailable()) {
-                if (c) {
-                    Log.d("ExtCore-PresetControl", "isNeedUpdate: true, getCurExtensionCore not available.");
-                }
-                return true;
-            } else if (!ag2.h(this.a.c())) {
-                if (c) {
-                    Log.d("ExtCore-PresetControl", "isNeedUpdate: false");
-                }
-                return false;
-            } else {
-                uf2 b2 = uf2.b(this.a);
-                long i = i();
-                long j = b2.b;
-                if (c) {
-                    Log.d("ExtCore-PresetControl", "isNeedUpdate curVer: " + i + " newVer: " + j);
-                }
-                if (i < j) {
-                    return true;
-                }
-                return false;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048580, this, uri, strArr, str, strArr2, str2)) == null) {
+            int match = this.a.match(uri);
+            switch (match) {
+                case 0:
+                    Cursor l = SwanAppDbControl.f(AppRuntime.getAppContext()).l(strArr, str, strArr2, str2);
+                    l.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
+                    return l;
+                case 1:
+                    Cursor k = SwanAppDbControl.f(AppRuntime.getAppContext()).k(strArr, str, strArr2, str2);
+                    k.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
+                    return k;
+                case 2:
+                    Cursor n = SwanAppDbControl.f(AppRuntime.getAppContext()).n(strArr, str, strArr2, str2);
+                    n.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
+                    return n;
+                case 3:
+                    Cursor m = SwanAppDbControl.f(AppRuntime.getAppContext()).m(strArr, str, strArr2, str2);
+                    m.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
+                    return m;
+                case 4:
+                    Cursor s = uf2.s();
+                    s.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
+                    return s;
+                case 5:
+                    int i = -1;
+                    try {
+                        i = Integer.valueOf(uri.getQueryParameter("query_limit")).intValue();
+                    } catch (Exception e) {
+                        if (gp1.a) {
+                            e.printStackTrace();
+                        }
+                    }
+                    String queryParameter = uri.getQueryParameter("query_word");
+                    if (queryParameter == null) {
+                        queryParameter = "";
+                    }
+                    Cursor o = zf2.o(queryParameter, i);
+                    o.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
+                    return o;
+                case 6:
+                    SQLiteDatabase e2 = SwanAppDbControl.f(AppRuntime.getAppContext()).e();
+                    if (e2 == null) {
+                        return null;
+                    }
+                    return e2.query(a(match), strArr, str, strArr2, null, null, str2);
+                default:
+                    return null;
             }
         }
-        return invokeV.booleanValue;
+        return (Cursor) invokeLLLLL.objValue;
     }
 
-    @SuppressLint({"SwanNewThread"})
-    public void p(@Nullable cj3<Exception> cj3Var) {
+    public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
+        InterceptResult invokeLLLL;
+        SQLiteDatabase e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, cj3Var) == null) {
-            j12.k("ExtCore-PresetControl", "tryUpdateAsync: start");
-            if (!k()) {
-                j12.k("ExtCore-PresetControl", "tryUpdateAsync: isNeedUpdate = false");
-                m(cj3Var, null);
-                return;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, uri, contentValues, str, strArr)) == null) {
+            int match = this.a.match(uri);
+            if (match != 0) {
+                if (match != 2) {
+                    if (match != 6 || (e = SwanAppDbControl.f(AppRuntime.getAppContext()).e()) == null) {
+                        return 0;
+                    }
+                    return e.update(a(match), contentValues, str, strArr);
+                }
+                int r = SwanAppDbControl.f(AppRuntime.getAppContext()).r(contentValues, str, strArr);
+                if (r > 0) {
+                    b();
+                }
+                return r;
             }
-            if (this.b.isEmpty()) {
-                new Thread(new a(this), "updateExtensionCoreAsync").start();
-            }
-            if (cj3Var != null) {
-                this.b.add(cj3Var);
-            }
+            return SwanAppDbControl.f(AppRuntime.getAppContext()).q(contentValues, str, strArr);
         }
-    }
-
-    public void q() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || !k()) {
-            return;
-        }
-        uf2 b2 = uf2.b(this.a);
-        pf2 pf2Var = new pf2();
-        pf2Var.a = b2.a;
-        pf2Var.b = b2.b;
-        pf2Var.c = this.a.a();
-        l(g(pf2Var));
+        return invokeLLLL.intValue;
     }
 }

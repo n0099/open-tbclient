@@ -1,75 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ef;
-import com.baidu.tieba.im.pushNotify.ChatSetting;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.hottopic.data.PostForumData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
+import tbclient.Hottopic.DataRes;
+import tbclient.Hottopic.HotThread;
+import tbclient.Hottopic.PkModule;
+import tbclient.Hottopic.RelateForum;
+import tbclient.Hottopic.SpecialTopic;
+import tbclient.RecomTopicList;
+import tbclient.ThreadInfo;
 /* loaded from: classes4.dex */
-public abstract class ii7 {
+public class ii7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, ChatSetting> a;
-
-    public abstract ChatSetting a(String str, String str2);
-
-    public abstract ef<String> b();
-
-    public abstract void h(ChatSetting chatSetting);
-
-    public abstract void i(ChatSetting chatSetting, dk5<Void> dk5Var);
-
-    /* loaded from: classes4.dex */
-    public class a extends zk5<Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ ii7 c;
-
-        public a(ii7 ii7Var, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ii7Var, str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = ii7Var;
-            this.a = str;
-            this.b = str2;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.zk5
-        public Boolean doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                ChatSetting a = this.c.a(this.a, this.b);
-                if (a == null) {
-                    return Boolean.FALSE;
-                }
-                return Boolean.valueOf(a.isAcceptNotify());
-            }
-            return (Boolean) invokeV.objValue;
-        }
-    }
+    public ArrayList<Cdo> a;
+    public ji7 b;
+    public pi7 c;
+    public hz4 d;
+    public PostForumData e;
+    public mi7 f;
+    public ei7 g;
+    public ei7 h;
+    public ei7 i;
+    public ki7 j;
+    public hi7 k;
+    public ki7 l;
+    public List<sd6> m;
+    public List<Cdo> n;
+    public ty4 o;
+    public int p;
+    public RecomTopicList q;
 
     public ii7() {
         Interceptable interceptable = $ic;
@@ -84,75 +57,277 @@ public abstract class ii7 {
                 return;
             }
         }
-        this.a = new HashMap<>();
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.e = null;
+        this.f = null;
+        this.g = null;
+        this.h = null;
+        this.i = null;
+        this.j = null;
+        this.k = null;
+        this.l = null;
+        this.m = null;
+        this.n = null;
+        this.o = null;
+        this.a = new ArrayList<>();
     }
 
-    public boolean c(String str, String str2) {
-        InterceptResult invokeLL;
+    public ei7 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            ChatSetting a2 = a(str, str2);
-            if (a2 == null) {
-                return false;
-            }
-            return a2.isAcceptNotify();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.g;
         }
-        return invokeLL.booleanValue;
+        return (ei7) invokeV.objValue;
     }
 
-    public void d(String str, String str2, dk5<Boolean> dk5Var) {
+    public ei7 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, dk5Var) == null) {
-            dl5.c(new a(this, str, str2), dk5Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.h;
         }
+        return (ei7) invokeV.objValue;
     }
 
-    public void f(String str, String str2, boolean z) {
-        ChatSetting a2;
+    public hz4 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLZ(1048581, this, str, str2, z) != null) || (a2 = a(str, str2)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return (hz4) invokeV.objValue;
+    }
+
+    public mi7 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.f;
+        }
+        return (mi7) invokeV.objValue;
+    }
+
+    public ji7 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return (ji7) invokeV.objValue;
+    }
+
+    public List<Cdo> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.n;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public ei7 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.i;
+        }
+        return (ei7) invokeV.objValue;
+    }
+
+    public void h(DataRes dataRes) {
+        boolean z;
+        boolean z2;
+        boolean z3;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, dataRes) != null) || dataRes == null) {
             return;
         }
-        a2.setAcceptNotify(z);
-        h(a2);
-    }
-
-    public void e(Class<? extends ChatSetting> cls) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, cls) == null) {
-            synchronized (this.a) {
-                this.a.clear();
+        dataRes.is_new_url.intValue();
+        if (dataRes.topic_info != null) {
+            ji7 ji7Var = new ji7();
+            this.b = ji7Var;
+            ji7Var.a(dataRes.topic_info);
+        }
+        HotThread hotThread = dataRes.good_threads;
+        if (hotThread != null && !StringUtils.isNull(hotThread.hot_title) && ListUtils.getCount(dataRes.good_threads.thread_list) != 0) {
+            ki7 ki7Var = new ki7();
+            this.l = ki7Var;
+            ki7Var.a(dataRes.good_threads);
+            this.m = new ArrayList();
+            for (ThreadInfo threadInfo : dataRes.good_threads.thread_list) {
+                ThreadData threadData = new ThreadData();
+                threadData.setResource(5);
+                threadData.parserProtobuf(threadInfo);
+                sd6 sd6Var = null;
+                if (threadData.isShareThread) {
+                    sd6Var = new ae6();
+                    sd6Var.a = threadData;
+                } else if (be6.R(threadData)) {
+                    sd6Var = new be6(threadData);
+                    sd6Var.s = true;
+                } else if (ae6.W(threadData)) {
+                    sd6Var = new ae6();
+                    sd6Var.a = threadData;
+                }
+                if (sd6Var != null && sd6Var.isValid()) {
+                    sd6Var.L("c10814");
+                    this.m.add(sd6Var);
+                }
             }
-            String str2 = "";
-            if (TbadkCoreApplication.getCurrentAccountObj() != null) {
-                str2 = TbadkCoreApplication.getCurrentAccountObj().getID();
+        }
+        List<RelateForum> list = dataRes.relate_forum;
+        if (list != null && list.size() != 0) {
+            pi7 pi7Var = new pi7();
+            this.c = pi7Var;
+            pi7Var.parserProtobuf(dataRes.relate_forum);
+            hz4 hz4Var = new hz4();
+            this.d = hz4Var;
+            hz4Var.floorPosition = 2;
+            if (TextUtils.isEmpty(dataRes.relate_forum_title)) {
+                this.d.d = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0914);
+            } else {
+                this.d.d = dataRes.relate_forum_title;
             }
-            if (str2 != null && str2.length() != 0) {
-                String str3 = str2 + "@";
-                synchronized (this.a) {
-                    ef<String> b = b();
-                    List<ef.b<String>> b2 = fj.b(b);
-                    if (b2 != null) {
-                        for (ef.b<String> bVar : b2) {
-                            String str4 = bVar.a;
-                            if (str4 != null && str4.startsWith(str3) && (str = b.get(str4)) != null) {
-                                this.a.put(str4, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
-                            }
+            hz4 hz4Var2 = this.d;
+            hz4Var2.e = R.color.CAM_X0108;
+            ArrayList<gz4> h = hz4Var2.h();
+            for (RelateForum relateForum : dataRes.relate_forum) {
+                if (!StringUtils.isNull(relateForum.forum_name)) {
+                    gz4 gz4Var = new gz4();
+                    gz4Var.z(relateForum.forum_id.intValue());
+                    gz4Var.C(relateForum.forum_name);
+                    gz4Var.y(relateForum.avatar);
+                    gz4Var.u(relateForum.desc);
+                    gz4Var.x(relateForum.thread_num.intValue());
+                    gz4Var.s(relateForum.member_num.intValue());
+                    if (relateForum.is_liked.intValue() != 0) {
+                        z3 = true;
+                    } else {
+                        z3 = false;
+                    }
+                    gz4Var.r(z3);
+                    h.add(gz4Var);
+                }
+            }
+        }
+        List<RelateForum> list2 = dataRes.post_forum;
+        if (list2 != null && list2.size() != 0) {
+            PostForumData postForumData = new PostForumData();
+            this.e = postForumData;
+            postForumData.parserProtobuf(dataRes.post_forum);
+        }
+        PkModule pkModule = dataRes.pk_module;
+        if (pkModule != null && !StringUtils.isNull(pkModule.ques_desc)) {
+            mi7 mi7Var = new mi7();
+            this.f = mi7Var;
+            mi7Var.a(dataRes.pk_module);
+        }
+        if (dataRes.bless_module != null) {
+            ei7 ei7Var = new ei7();
+            this.g = ei7Var;
+            ei7Var.a(dataRes.bless_module);
+        }
+        if (dataRes.candle_module != null) {
+            ei7 ei7Var2 = new ei7();
+            this.h = ei7Var2;
+            ei7Var2.a(dataRes.candle_module);
+        }
+        if (dataRes.weiguan_module != null) {
+            ei7 ei7Var3 = new ei7();
+            this.i = ei7Var3;
+            ei7Var3.a(dataRes.weiguan_module);
+        }
+        HotThread hotThread2 = dataRes.hot_thread;
+        if (hotThread2 != null && ListUtils.getCount(hotThread2.thread_list) != 0) {
+            ki7 ki7Var2 = new ki7();
+            this.j = ki7Var2;
+            ki7Var2.a(dataRes.hot_thread);
+            hi7 hi7Var = new hi7();
+            this.k = hi7Var;
+            hi7Var.o(dataRes.hot_thread);
+            if (dataRes.hot_thread.page != null) {
+                ty4 ty4Var = new ty4();
+                this.o = ty4Var;
+                ty4Var.j(dataRes.hot_thread.page);
+                this.o.b();
+            }
+            dataRes.is_global_block.intValue();
+        }
+        this.q = dataRes.next_topic;
+        if (!ListUtils.isEmpty(dataRes.special_topic)) {
+            this.n = new ArrayList();
+            if (this.f != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            for (SpecialTopic specialTopic : dataRes.special_topic) {
+                if (!ListUtils.isEmpty(specialTopic.thread_list)) {
+                    if (!TextUtils.isEmpty(specialTopic.title)) {
+                        y58 y58Var = new y58(specialTopic.title);
+                        if (!z) {
+                            y58Var.b = false;
+                            z = true;
                         }
+                        this.n.add(y58Var);
+                    }
+                    int size = specialTopic.thread_list.size();
+                    int i = 0;
+                    while (i < size) {
+                        ThreadInfo threadInfo2 = specialTopic.thread_list.get(i);
+                        i++;
+                        if (i == size) {
+                            z2 = true;
+                        } else {
+                            z2 = false;
+                        }
+                        x58 x58Var = new x58(threadInfo2, z2);
+                        x58Var.c(i);
+                        this.n.add(x58Var);
                     }
                 }
             }
         }
+        i();
     }
 
-    public void g(String str, String str2, boolean z, dk5<Void> dk5Var) {
-        ChatSetting a2;
+    public final ArrayList<Cdo> i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Boolean.valueOf(z), dk5Var}) != null) || (a2 = a(str, str2)) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            mi7 mi7Var = this.f;
+            if (mi7Var != null) {
+                this.a.add(mi7Var);
+            }
+            if (ListUtils.getCount(this.m) > 0) {
+                this.a.add(this.l);
+                if (this.m.size() > 5) {
+                    this.m = this.m.subList(0, 5);
+                }
+                for (sd6 sd6Var : this.m) {
+                    this.a.add(sd6Var);
+                }
+            }
+            pi7 pi7Var = this.c;
+            if (pi7Var != null && pi7Var.getCount() > 0 && this.p == 1) {
+                this.a.add(this.c);
+            }
+            hi7 hi7Var = this.k;
+            if (hi7Var != null && !ListUtils.isEmpty(hi7Var.a)) {
+                this.a.add(this.j);
+                for (int i = 0; i < this.k.a.size(); i++) {
+                    this.a.add((sd6) ListUtils.getItem(this.k.a, i));
+                    pi7 pi7Var2 = this.c;
+                    if (pi7Var2 != null && pi7Var2.getCount() > 0 && i == 2 && this.p == 0) {
+                        this.a.add(this.c);
+                    }
+                }
+            }
+            return this.a;
         }
-        a2.setAcceptNotify(z);
-        i(a2, dk5Var);
+        return (ArrayList) invokeV.objValue;
     }
 }

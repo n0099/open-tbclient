@@ -1,94 +1,73 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tbadk.core.atomData.SelectForumActivityConfig;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.HashMap;
 /* loaded from: classes4.dex */
-public class hw5 extends g63 {
+public class hw5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<String, iw5> a;
+    public ArrayList<Integer> b;
+    public jw5 c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hw5(g53 g53Var) {
-        super(g53Var, "/swan/publishThread");
+    public hw5(jw5 jw5Var, ArrayList<Integer> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {g53Var};
+            Object[] objArr = {jw5Var, arrayList};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = arrayList;
+        this.c = jw5Var;
+        this.a = new HashMap<>();
     }
 
-    public static boolean j(Context context, String str) {
-        InterceptResult invokeLL;
+    public int a(String str, int i) {
+        InterceptResult invokeLI;
+        ArrayList<Integer> arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return false;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
+            if (this.a == null || dj.isEmpty(str) || (arrayList = this.b) == null || !arrayList.contains(Integer.valueOf(i))) {
+                return 0;
             }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                String optString = jSONObject.optString("path");
-                if (StringUtils.isNull(optString)) {
-                    String optString2 = jSONObject.optString("appid");
-                    if (StringUtils.isNull(optString2)) {
-                        return false;
-                    }
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2921361, ev5.a(optString2, "", "", 0)));
-                    return true;
-                }
-                String substring = optString.substring(39);
-                if (StringUtils.isNull(substring)) {
-                    return false;
-                }
-                JSONObject jSONObject2 = new JSONObject(yi.getUrlDecode(substring));
-                String optString3 = jSONObject2.optString("third_app_id");
-                String optString4 = jSONObject2.optString("third_app_name");
-                String optString5 = jSONObject2.optString("third_app_pic");
-                String optString6 = jSONObject2.optString("third_app_link");
-                SelectForumActivityConfig selectForumActivityConfig = new SelectForumActivityConfig(context, 10086);
-                selectForumActivityConfig.setAiAppsParams(optString3, optString4, optString5, null, null, optString6);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, selectForumActivityConfig));
-                return true;
-            } catch (JSONException unused) {
-                return false;
+            if (!this.a.containsKey(str)) {
+                b(str);
             }
+            iw5 iw5Var = this.a.get(str);
+            if (iw5Var == null) {
+                return 0;
+            }
+            return iw5Var.a(i);
         }
-        return invokeLL.booleanValue;
+        return invokeLI.intValue;
     }
 
-    @Override // com.baidu.tieba.g63
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j43 j43Var) {
-        InterceptResult invokeLLLL;
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j43Var)) == null) {
-            j(context, unitedSchemeEntity.getParam("params"));
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            return true;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && this.a != null && !dj.isEmpty(str) && this.c != null) {
+            if (this.a.containsKey(str)) {
+                iw5 iw5Var = this.a.get(str);
+                this.c.b(this.b, iw5Var);
+                this.a.put(str, iw5Var);
+                return;
+            }
+            iw5 iw5Var2 = new iw5();
+            this.c.b(this.b, iw5Var2);
+            this.a.put(str, iw5Var2);
         }
-        return invokeLLLL.booleanValue;
     }
 }

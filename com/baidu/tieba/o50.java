@@ -1,61 +1,50 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.pm.PackageInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
+import java.io.CharArrayWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
 /* loaded from: classes5.dex */
-public final class o50 {
+public class o50 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String[] b;
-    public int c;
-    public String d;
-    public long e;
-    public long f;
 
-    public o50(Context context, String str) {
+    public static void a(InputStream inputStream, OutputStream outputStream, int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLLI(65536, null, inputStream, outputStream, i) == null) {
+            byte[] bArr = new byte[i];
+            while (true) {
+                int read = inputStream.read(bArr);
+                if (read > 0) {
+                    outputStream.write(bArr, 0, read);
+                } else {
+                    return;
+                }
             }
-        }
-        this.a = str;
-        try {
-            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 64);
-            this.d = packageInfo.versionName;
-            this.c = packageInfo.versionCode;
-            this.e = packageInfo.firstInstallTime;
-            this.f = packageInfo.lastUpdateTime;
-            this.b = new String[packageInfo.signatures.length];
-            for (int i3 = 0; i3 < this.b.length; i3++) {
-                this.b[i3] = k50.c(packageInfo.signatures[i3].toByteArray());
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public static String b(InputStream inputStream, String str) throws IOException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SappInfo{pkg='" + this.a + "', sigs=" + Arrays.toString(this.b) + ", vc=" + this.c + ", va=" + this.d + ", installts=" + this.e + ", lstupdatets=" + this.f + '}';
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, inputStream, str)) == null) {
+            CharArrayWriter charArrayWriter = new CharArrayWriter();
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, str);
+            char[] cArr = new char[8192];
+            while (true) {
+                int read = inputStreamReader.read(cArr);
+                if (read > 0) {
+                    charArrayWriter.write(cArr, 0, read);
+                } else {
+                    return charArrayWriter.toString();
+                }
+            }
+        } else {
+            return (String) invokeLL.objValue;
         }
-        return (String) invokeV.objValue;
     }
 }

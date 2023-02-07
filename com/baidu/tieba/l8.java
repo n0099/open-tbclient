@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
+import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,20 +9,34 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.slider.BasicLabelFormatter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Arrays;
-import org.aspectj.runtime.reflect.SignatureImpl;
+import java.io.InputStream;
+import java.util.HashSet;
+import java.util.zip.CRC32;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
 /* loaded from: classes5.dex */
-public class l8 implements Appendable, CharSequence {
+public class l8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final char[] c;
+    public static boolean b;
+    public static boolean c;
+    public static boolean d;
+    public static boolean e;
+    public static boolean f;
+    public static boolean g;
+    public static boolean h;
+    public static final HashSet<String> i;
     public transient /* synthetic */ FieldHolder $fh;
-    public char[] a;
-    public int b;
+    public String a;
 
     static {
         InterceptResult invokeClinit;
+        boolean z;
+        boolean z2;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
         if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448308705, "Lcom/baidu/tieba/l8;")) != null) {
             Interceptable interceptable = invokeClinit.interceptor;
@@ -35,30 +48,40 @@ public class l8 implements Appendable, CharSequence {
                 return;
             }
         }
-        c = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
-    }
-
-    public final void v() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048627, this) == null) {
-            int i = this.b + 4;
-            if (i > this.a.length) {
-                x(i);
-            }
-            char[] cArr = this.a;
-            int i2 = this.b;
-            int i3 = i2 + 1;
-            this.b = i3;
-            cArr[i2] = 'n';
-            int i4 = i3 + 1;
-            this.b = i4;
-            cArr[i3] = 'u';
-            int i5 = i4 + 1;
-            this.b = i5;
-            cArr[i4] = 'l';
-            this.b = i5 + 1;
-            cArr[i5] = 'l';
+        b = System.getProperty("os.name").contains("Windows");
+        c = System.getProperty("os.name").contains("Linux");
+        d = System.getProperty("os.name").contains("Mac");
+        e = false;
+        f = false;
+        if (!System.getProperty("os.arch").startsWith("arm") && !System.getProperty("os.arch").startsWith("aarch64")) {
+            z = false;
+        } else {
+            z = true;
         }
+        g = z;
+        if (!System.getProperty("os.arch").contains("64") && !System.getProperty("os.arch").startsWith("armv8")) {
+            z2 = false;
+        } else {
+            z2 = true;
+        }
+        h = z2;
+        String property = System.getProperty("java.runtime.name");
+        if (property != null && property.contains("Android Runtime")) {
+            f = true;
+            b = false;
+            c = false;
+            d = false;
+            h = false;
+        }
+        if (!f && !b && !c && !d) {
+            e = true;
+            f = false;
+            b = false;
+            c = false;
+            d = false;
+            h = false;
+        }
+        i = new HashSet<>();
     }
 
     public l8() {
@@ -66,949 +89,306 @@ public class l8 implements Appendable, CharSequence {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new char[16];
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            int i = this.b + 31;
-            for (int i2 = 0; i2 < this.b; i2++) {
-                i = (i * 31) + this.a[i2];
-            }
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // java.lang.CharSequence
-    public int length() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // java.lang.CharSequence
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
-            if (this.b == 0) {
-                return "";
-            }
-            return new String(this.a, 0, this.b);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public l8(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        if (i >= 0) {
-            this.a = new char[i];
-            return;
-        }
-        throw new NegativeArraySizeException();
     }
 
-    public boolean equals(Object obj) {
+    public static synchronized boolean c(String str) {
         InterceptResult invokeL;
+        boolean contains;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            synchronized (l8.class) {
+                contains = i.contains(str);
             }
-            if (obj == null || l8.class != obj.getClass()) {
-                return false;
-            }
-            l8 l8Var = (l8) obj;
-            int i = this.b;
-            if (i != l8Var.b) {
-                return false;
-            }
-            char[] cArr = this.a;
-            char[] cArr2 = l8Var.a;
-            for (int i2 = 0; i2 < i; i2++) {
-                if (cArr[i2] != cArr2[i2]) {
-                    return false;
-                }
-            }
-            return true;
+            return contains;
         }
         return invokeL.booleanValue;
     }
 
-    public l8(String str) {
+    public static synchronized void i(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            synchronized (l8.class) {
+                i.add(str);
             }
         }
-        int length = str.length();
-        this.b = length;
-        char[] cArr = new char[length + 16];
-        this.a = cArr;
-        str.getChars(0, length, cArr, 0);
     }
 
-    public static int E(int i, int i2) {
-        InterceptResult invokeII;
-        int i3;
+    public String a(InputStream inputStream) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2)) == null) {
-            if (i < 0) {
-                i3 = 2;
-            } else {
-                i3 = 1;
-            }
-            while (true) {
-                i /= i2;
-                if (i != 0) {
-                    i3++;
-                } else {
-                    return i3;
-                }
-            }
-        } else {
-            return invokeII.intValue;
-        }
-    }
-
-    public final void B(int i, char[] cArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, cArr) == null) {
-            if (i >= 0 && i <= this.b) {
-                if (cArr.length != 0) {
-                    D(cArr.length, i);
-                    System.arraycopy(cArr, 0, cArr, i, cArr.length);
-                    this.b += cArr.length;
-                    return;
-                }
-                return;
-            }
-            throw new StringIndexOutOfBoundsException(i);
-        }
-    }
-
-    public String J(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048583, this, i, i2)) == null) {
-            if (i >= 0 && i <= i2 && i2 <= this.b) {
-                if (i == i2) {
-                    return "";
-                }
-                return new String(this.a, i, i2 - i);
-            }
-            throw new StringIndexOutOfBoundsException();
-        }
-        return (String) invokeII.objValue;
-    }
-
-    public l8 delete(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048592, this, i, i2)) == null) {
-            w(i, i2);
-            return this;
-        }
-        return (l8) invokeII.objValue;
-    }
-
-    public l8 e(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048593, this, i, i2)) == null) {
-            f(i, i2, '0');
-            return this;
-        }
-        return (l8) invokeII.objValue;
-    }
-
-    public l8 h(long j, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048597, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) {
-            i(j, i, '0');
-            return this;
-        }
-        return (l8) invokeCommon.objValue;
-    }
-
-    public l8 insert(int i, char c2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{Integer.valueOf(i), Character.valueOf(c2)})) == null) {
-            y(i, c2);
-            return this;
-        }
-        return (l8) invokeCommon.objValue;
-    }
-
-    @Override // java.lang.CharSequence
-    public CharSequence subSequence(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048623, this, i, i2)) == null) {
-            return J(i, i2);
-        }
-        return (CharSequence) invokeII.objValue;
-    }
-
-    public final void w(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048628, this, i, i2) == null) {
-            if (i >= 0) {
-                int i3 = this.b;
-                if (i2 > i3) {
-                    i2 = i3;
-                }
-                if (i2 == i) {
-                    return;
-                }
-                if (i2 > i) {
-                    int i4 = this.b - i2;
-                    if (i4 >= 0) {
-                        char[] cArr = this.a;
-                        System.arraycopy(cArr, i2, cArr, i, i4);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, inputStream)) == null) {
+            if (inputStream != null) {
+                CRC32 crc32 = new CRC32();
+                byte[] bArr = new byte[4096];
+                while (true) {
+                    try {
+                        int read = inputStream.read(bArr);
+                        if (read == -1) {
+                            break;
+                        }
+                        crc32.update(bArr, 0, read);
+                    } catch (Exception unused) {
+                    } catch (Throwable th) {
+                        p8.a(inputStream);
+                        throw th;
                     }
-                    this.b -= i2 - i;
-                    return;
                 }
+                p8.a(inputStream);
+                return Long.toString(crc32.getValue(), 16);
             }
-            throw new StringIndexOutOfBoundsException();
+            throw new IllegalArgumentException("input cannot be null.");
         }
+        return (String) invokeL.objValue;
     }
 
-    public static int F(long j, int i) {
-        InterceptResult invokeCommon;
-        int i2;
+    /* JADX WARN: Can't wrap try/catch for region: R(6:3|(9:(4:44|45|(9:11|12|14|15|16|17|18|(3:19|20|(1:24)(2:22|23))|25)|9)|14|15|16|17|18|(4:19|20|(0)(0)|23)|25|9)|5|(1:7)|11|12) */
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x0050, code lost:
+        r7 = th;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x0051, code lost:
+        r0 = null;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x0053, code lost:
+        r8 = move-exception;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x0054, code lost:
+        r0 = null;
+        r1 = r8;
+        r8 = null;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0040  */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x0039 A[EDGE_INSN: B:55:0x0039->B:19:0x0039 ?: BREAK  , SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final File b(String str, String str2, File file) throws IOException {
+        InterceptResult invokeLLL;
+        String a;
+        FileOutputStream fileOutputStream;
+        IOException e2;
+        InputStream inputStream;
+        byte[] bArr;
+        int read;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) {
-            if (j < 0) {
-                i2 = 2;
-            } else {
-                i2 = 1;
-            }
-            while (true) {
-                j /= i;
-                if (j != 0) {
-                    i2++;
-                } else {
-                    return i2;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, file)) == null) {
+            InputStream inputStream2 = null;
+            try {
+                try {
+                    try {
+                        if (file.exists()) {
+                            try {
+                                a = a(new FileInputStream(file));
+                            } catch (FileNotFoundException unused) {
+                            }
+                            if (a != null || !a.equals(str2)) {
+                                inputStream = h(str);
+                                file.getParentFile().mkdirs();
+                                fileOutputStream = new FileOutputStream(file);
+                                bArr = new byte[4096];
+                                while (true) {
+                                    read = inputStream.read(bArr);
+                                    if (read != -1) {
+                                        break;
+                                    }
+                                    fileOutputStream.write(bArr, 0, read);
+                                }
+                                p8.a(inputStream);
+                                p8.a(fileOutputStream);
+                            }
+                            return file;
+                        }
+                        bArr = new byte[4096];
+                        while (true) {
+                            read = inputStream.read(bArr);
+                            if (read != -1) {
+                            }
+                            fileOutputStream.write(bArr, 0, read);
+                        }
+                        p8.a(inputStream);
+                        p8.a(fileOutputStream);
+                        return file;
+                    } catch (IOException e3) {
+                        e2 = e3;
+                        throw new GdxRuntimeException("Error extracting file: " + str + "\nTo: " + file.getAbsolutePath(), e2);
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    inputStream2 = inputStream;
+                    p8.a(inputStream2);
+                    p8.a(fileOutputStream);
+                    throw th;
                 }
+                file.getParentFile().mkdirs();
+                fileOutputStream = new FileOutputStream(file);
+            } catch (IOException e4) {
+                e2 = e4;
+                fileOutputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+                fileOutputStream = null;
+                inputStream2 = inputStream;
+                p8.a(inputStream2);
+                p8.a(fileOutputStream);
+                throw th;
             }
+            a = null;
+            if (a != null) {
+            }
+            inputStream = h(str);
         } else {
-            return invokeCommon.intValue;
+            return (File) invokeLLL.objValue;
         }
     }
 
-    public final void A(int i, String str) {
+    public void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-            if (i >= 0 && i <= this.b) {
-                if (str == null) {
-                    str = StringUtil.NULL_STRING;
-                }
-                int length = str.length();
-                if (length != 0) {
-                    D(length, i);
-                    str.getChars(0, length, this.a, i);
-                    this.b += length;
-                    return;
-                }
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || e) {
+            return;
+        }
+        synchronized (l8.class) {
+            if (c(str)) {
                 return;
             }
-            throw new StringIndexOutOfBoundsException(i);
+            String g2 = g(str);
+            if (f) {
+                System.loadLibrary(g2);
+            } else {
+                f(g2);
+            }
+            i(str);
         }
     }
 
-    public final void D(int i, int i2) {
+    public String g(String str) {
+        InterceptResult invokeL;
+        String str2;
+        String str3;
+        String str4;
+        String str5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            char[] cArr = this.a;
-            int length = cArr.length;
-            int i3 = this.b;
-            if (length - i3 >= i) {
-                System.arraycopy(cArr, i2, cArr, i + i2, i3 - i2);
-                return;
-            }
-            int i4 = i3 + i;
-            int length2 = (cArr.length << 1) + 2;
-            if (i4 <= length2) {
-                i4 = length2;
-            }
-            char[] cArr2 = new char[i4];
-            System.arraycopy(this.a, 0, cArr2, 0, i2);
-            System.arraycopy(this.a, i2, cArr2, i + i2, this.b - i2);
-            this.a = cArr2;
-        }
-    }
-
-    public l8 G(char c2, String str) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Character.valueOf(c2), str})) == null) {
-            int length = str.length();
-            int i = 0;
-            while (i != this.b) {
-                if (this.a[i] == c2) {
-                    H(i, i + 1, str);
-                    i += length;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (b) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(str);
+                if (h) {
+                    str5 = "64.dll";
                 } else {
-                    i++;
+                    str5 = ".dll";
                 }
+                sb.append(str5);
+                return sb.toString();
+            } else if (c) {
+                StringBuilder sb2 = new StringBuilder();
+                sb2.append("lib");
+                sb2.append(str);
+                if (g) {
+                    str3 = "arm";
+                } else {
+                    str3 = "";
+                }
+                sb2.append(str3);
+                if (h) {
+                    str4 = "64.so";
+                } else {
+                    str4 = ".so";
+                }
+                sb2.append(str4);
+                return sb2.toString();
+            } else if (d) {
+                StringBuilder sb3 = new StringBuilder();
+                sb3.append("lib");
+                sb3.append(str);
+                if (h) {
+                    str2 = "64.dylib";
+                } else {
+                    str2 = ".dylib";
+                }
+                sb3.append(str2);
+                return sb3.toString();
+            } else {
+                return str;
             }
-            return this;
         }
-        return (l8) invokeCommon.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public final void y(int i, char c2) {
+    public final Throwable e(String str, String str2, File file) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048630, this, new Object[]{Integer.valueOf(i), Character.valueOf(c2)}) == null) {
-            if (i >= 0 && i <= this.b) {
-                D(1, i);
-                this.a[i] = c2;
-                this.b++;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, str2, file)) == null) {
+            try {
+                b(str, str2, file);
+                System.load(file.getAbsolutePath());
+                return null;
+            } catch (Throwable th) {
+                return th;
+            }
+        }
+        return (Throwable) invokeLLL.objValue;
+    }
+
+    public final void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            String a = a(h(str));
+            String name = new File(str).getName();
+            Throwable e2 = e(str, a, new File(System.getProperty("java.io.tmpdir") + "/libgdx" + System.getProperty("user.name") + "/" + a, name));
+            if (e2 == null) {
                 return;
             }
-            throw new ArrayIndexOutOfBoundsException(i);
-        }
-    }
-
-    public final void C(int i, char[] cArr, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), cArr, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            if (i >= 0 && i <= i3) {
-                if (i2 >= 0 && i3 >= 0 && i3 <= cArr.length - i2) {
-                    if (i3 != 0) {
-                        D(i3, i);
-                        System.arraycopy(cArr, i2, this.a, i, i3);
-                        this.b += i3;
+            try {
+                File createTempFile = File.createTempFile(a, null);
+                if (createTempFile.delete()) {
+                    if (e(str, a, createTempFile) == null) {
                         return;
                     }
-                    return;
                 }
-                throw new StringIndexOutOfBoundsException("offset " + i2 + ", length " + i3 + ", char[].length " + cArr.length);
+            } catch (Throwable unused) {
             }
-            throw new StringIndexOutOfBoundsException(i);
-        }
-    }
-
-    public final void H(int i, int i2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, str) == null) {
-            if (i >= 0) {
-                int i3 = this.b;
-                if (i2 > i3) {
-                    i2 = i3;
-                }
-                if (i2 > i) {
-                    int length = str.length();
-                    int i4 = (i2 - i) - length;
-                    if (i4 > 0) {
-                        char[] cArr = this.a;
-                        System.arraycopy(cArr, i2, cArr, i + length, this.b - i2);
-                    } else if (i4 < 0) {
-                        D(-i4, i2);
-                    }
-                    str.getChars(0, length, this.a, i);
-                    this.b -= i4;
-                    return;
-                } else if (i == i2) {
-                    if (str != null) {
-                        A(i, str);
-                        return;
-                    }
-                    throw null;
-                }
-            }
-            throw new StringIndexOutOfBoundsException();
-        }
-    }
-
-    public final void u(char[] cArr, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048626, this, cArr, i, i2) == null) {
-            if (i <= cArr.length && i >= 0) {
-                if (i2 >= 0 && cArr.length - i >= i2) {
-                    int i3 = this.b + i2;
-                    if (i3 > this.a.length) {
-                        x(i3);
-                    }
-                    System.arraycopy(cArr, i, this.a, this.b, i2);
-                    this.b = i3;
-                    return;
-                }
-                throw new ArrayIndexOutOfBoundsException("Length out of bounds: " + i2);
-            }
-            throw new ArrayIndexOutOfBoundsException("Offset out of bounds: " + i);
-        }
-    }
-
-    public void I(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            if (i >= 0) {
-                char[] cArr = this.a;
-                if (i > cArr.length) {
-                    x(i);
-                } else {
-                    int i2 = this.b;
-                    if (i2 < i) {
-                        Arrays.fill(cArr, i2, i, (char) 0);
-                    }
-                }
-                this.b = i;
+            if (e(str, a, new File(System.getProperty("user.home") + "/.libgdx/" + a, name)) == null) {
                 return;
             }
-            throw new StringIndexOutOfBoundsException(i);
-        }
-    }
-
-    public l8 a(char c2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Character.valueOf(c2)})) == null) {
-            q(c2);
-            return this;
-        }
-        return (l8) invokeCommon.objValue;
-    }
-
-    @Override // java.lang.Appendable
-    public /* bridge */ /* synthetic */ Appendable append(char c2) throws IOException {
-        a(c2);
-        return this;
-    }
-
-    public l8 b(double d) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Double.valueOf(d)})) == null) {
-            s(Double.toString(d));
-            return this;
-        }
-        return (l8) invokeCommon.objValue;
-    }
-
-    public l8 c(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048589, this, f)) == null) {
-            s(Float.toString(f));
-            return this;
-        }
-        return (l8) invokeF.objValue;
-    }
-
-    @Override // java.lang.CharSequence
-    public char charAt(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
-            if (i >= 0 && i < this.b) {
-                return this.a[i];
-            }
-            throw new StringIndexOutOfBoundsException(i);
-        }
-        return invokeI.charValue;
-    }
-
-    public l8 d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) {
-            e(i, 0);
-            return this;
-        }
-        return (l8) invokeI.objValue;
-    }
-
-    public l8 g(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048596, this, j)) == null) {
-            h(j, 0);
-            return this;
-        }
-        return (l8) invokeJ.objValue;
-    }
-
-    public l8 j(l8 l8Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, l8Var)) == null) {
-            if (l8Var == null) {
-                v();
-            } else {
-                u(l8Var.a, 0, l8Var.b);
-            }
-            return this;
-        }
-        return (l8) invokeL.objValue;
-    }
-
-    public l8 k(CharSequence charSequence) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, charSequence)) == null) {
-            if (charSequence == null) {
-                v();
-            } else if (charSequence instanceof l8) {
-                l8 l8Var = (l8) charSequence;
-                u(l8Var.a, 0, l8Var.b);
-            } else {
-                s(charSequence.toString());
-            }
-            return this;
-        }
-        return (l8) invokeL.objValue;
-    }
-
-    public l8 m(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048616, this, obj)) == null) {
-            if (obj == null) {
-                v();
-            } else {
-                s(obj.toString());
-            }
-            return this;
-        }
-        return (l8) invokeL.objValue;
-    }
-
-    public l8 n(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048617, this, str)) == null) {
-            s(str);
-            return this;
-        }
-        return (l8) invokeL.objValue;
-    }
-
-    public l8 o(boolean z) {
-        InterceptResult invokeZ;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048618, this, z)) == null) {
-            if (z) {
-                str = "true";
-            } else {
-                str = "false";
-            }
-            s(str);
-            return this;
-        }
-        return (l8) invokeZ.objValue;
-    }
-
-    public l8 p(char[] cArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048619, this, cArr)) == null) {
-            t(cArr);
-            return this;
-        }
-        return (l8) invokeL.objValue;
-    }
-
-    public final void q(char c2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048620, this, new Object[]{Character.valueOf(c2)}) == null) {
-            int i = this.b;
-            if (i == this.a.length) {
-                x(i + 1);
-            }
-            char[] cArr = this.a;
-            int i2 = this.b;
-            this.b = i2 + 1;
-            cArr[i2] = c2;
-        }
-    }
-
-    public final void s(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048622, this, str) == null) {
-            if (str == null) {
-                v();
+            if (e(str, a, new File(".temp/" + a, name)) == null) {
                 return;
             }
-            int length = str.length();
-            int i = this.b + length;
-            if (i > this.a.length) {
-                x(i);
-            }
-            str.getChars(0, length, this.a, this.b);
-            this.b = i;
-        }
-    }
-
-    public final void t(char[] cArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048624, this, cArr) == null) {
-            int length = this.b + cArr.length;
-            if (length > this.a.length) {
-                x(length);
-            }
-            System.arraycopy(cArr, 0, this.a, this.b, cArr.length);
-            this.b = length;
-        }
-    }
-
-    public final void x(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048629, this, i) == null) {
-            char[] cArr = this.a;
-            int length = (cArr.length >> 1) + cArr.length + 2;
-            if (i <= length) {
-                i = length;
-            }
-            char[] cArr2 = new char[i];
-            System.arraycopy(this.a, 0, cArr2, 0, this.b);
-            this.a = cArr2;
-        }
-    }
-
-    @Override // java.lang.Appendable
-    public /* bridge */ /* synthetic */ Appendable append(CharSequence charSequence) throws IOException {
-        k(charSequence);
-        return this;
-    }
-
-    @Override // java.lang.Appendable
-    public /* bridge */ /* synthetic */ Appendable append(CharSequence charSequence, int i, int i2) throws IOException {
-        l(charSequence, i, i2);
-        return this;
-    }
-
-    public l8 l(CharSequence charSequence, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048614, this, charSequence, i, i2)) == null) {
-            r(charSequence, i, i2);
-            return this;
-        }
-        return (l8) invokeLII.objValue;
-    }
-
-    public final void r(CharSequence charSequence, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048621, this, charSequence, i, i2) == null) {
-            if (charSequence == null) {
-                charSequence = StringUtil.NULL_STRING;
-            }
-            if (i >= 0 && i2 >= 0 && i <= i2 && i2 <= charSequence.length()) {
-                s(charSequence.subSequence(i, i2).toString());
+            File file = new File(System.getProperty("java.library.path"), str);
+            if (file.exists()) {
+                System.load(file.getAbsolutePath());
                 return;
             }
-            throw new IndexOutOfBoundsException();
+            throw new GdxRuntimeException(e2);
         }
     }
 
-    public l8 f(int i, int i2, char c2) {
-        InterceptResult invokeCommon;
+    public final InputStream h(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Character.valueOf(c2)})) == null) {
-            if (i == Integer.MIN_VALUE) {
-                s("-2147483648");
-                return this;
-            }
-            if (i < 0) {
-                q(SignatureImpl.SEP);
-                i = -i;
-            }
-            if (i2 > 1) {
-                for (int E = i2 - E(i, 10); E > 0; E--) {
-                    a(c2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            if (this.a == null) {
+                InputStream resourceAsStream = l8.class.getResourceAsStream("/" + str);
+                if (resourceAsStream != null) {
+                    return resourceAsStream;
                 }
+                throw new GdxRuntimeException("Unable to read file for extraction: " + str);
             }
-            if (i >= 10000) {
-                if (i >= 1000000000) {
-                    q(c[(int) ((i % 10000000000L) / 1000000000)]);
+            try {
+                ZipFile zipFile = new ZipFile(this.a);
+                ZipEntry entry = zipFile.getEntry(str);
+                if (entry != null) {
+                    return zipFile.getInputStream(entry);
                 }
-                if (i >= 100000000) {
-                    q(c[(i % 1000000000) / 100000000]);
-                }
-                if (i >= 10000000) {
-                    q(c[(i % 100000000) / 10000000]);
-                }
-                if (i >= 1000000) {
-                    q(c[(i % 10000000) / 1000000]);
-                }
-                if (i >= 100000) {
-                    q(c[(i % 1000000) / 100000]);
-                }
-                q(c[(i % 100000) / 10000]);
+                throw new GdxRuntimeException("Couldn't find '" + str + "' in JAR: " + this.a);
+            } catch (IOException e2) {
+                throw new GdxRuntimeException("Error reading '" + str + "' in JAR: " + this.a, e2);
             }
-            if (i >= 1000) {
-                q(c[(i % 10000) / 1000]);
-            }
-            if (i >= 100) {
-                q(c[(i % 1000) / 100]);
-            }
-            if (i >= 10) {
-                q(c[(i % 100) / 10]);
-            }
-            q(c[i % 10]);
-            return this;
         }
-        return (l8) invokeCommon.objValue;
-    }
-
-    public l8 i(long j, int i, char c2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048599, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Character.valueOf(c2)})) == null) {
-            if (j == Long.MIN_VALUE) {
-                s("-9223372036854775808");
-                return this;
-            }
-            if (j < 0) {
-                q(SignatureImpl.SEP);
-                j = -j;
-            }
-            if (i > 1) {
-                for (int F = i - F(j, 10); F > 0; F--) {
-                    a(c2);
-                }
-            }
-            if (j >= 10000) {
-                if (j >= 1000000000000000000L) {
-                    q(c[(int) ((j % 1.0E19d) / 1.0E18d)]);
-                }
-                if (j >= 100000000000000000L) {
-                    q(c[(int) ((j % 1000000000000000000L) / 100000000000000000L)]);
-                }
-                if (j >= 10000000000000000L) {
-                    q(c[(int) ((j % 100000000000000000L) / 10000000000000000L)]);
-                }
-                if (j >= 1000000000000000L) {
-                    q(c[(int) ((j % 10000000000000000L) / 1000000000000000L)]);
-                }
-                if (j >= 100000000000000L) {
-                    q(c[(int) ((j % 1000000000000000L) / 100000000000000L)]);
-                }
-                if (j >= 10000000000000L) {
-                    q(c[(int) ((j % 100000000000000L) / 10000000000000L)]);
-                }
-                if (j >= BasicLabelFormatter.TRILLION) {
-                    q(c[(int) ((j % 10000000000000L) / BasicLabelFormatter.TRILLION)]);
-                }
-                if (j >= 100000000000L) {
-                    q(c[(int) ((j % BasicLabelFormatter.TRILLION) / 100000000000L)]);
-                }
-                if (j >= 10000000000L) {
-                    q(c[(int) ((j % 100000000000L) / 10000000000L)]);
-                }
-                if (j >= 1000000000) {
-                    q(c[(int) ((j % 10000000000L) / 1000000000)]);
-                }
-                if (j >= 100000000) {
-                    q(c[(int) ((j % 1000000000) / 100000000)]);
-                }
-                if (j >= 10000000) {
-                    q(c[(int) ((j % 100000000) / 10000000)]);
-                }
-                if (j >= 1000000) {
-                    q(c[(int) ((j % 10000000) / 1000000)]);
-                }
-                if (j >= 100000) {
-                    q(c[(int) ((j % 1000000) / 100000)]);
-                }
-                q(c[(int) ((j % 100000) / 10000)]);
-            }
-            if (j >= 1000) {
-                q(c[(int) ((j % 10000) / 1000)]);
-            }
-            if (j >= 100) {
-                q(c[(int) ((j % 1000) / 100)]);
-            }
-            if (j >= 10) {
-                q(c[(int) ((j % 100) / 10)]);
-            }
-            q(c[(int) (j % 10)]);
-            return this;
-        }
-        return (l8) invokeCommon.objValue;
-    }
-
-    public l8 insert(int i, double d) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{Integer.valueOf(i), Double.valueOf(d)})) == null) {
-            A(i, Double.toString(d));
-            return this;
-        }
-        return (l8) invokeCommon.objValue;
-    }
-
-    public l8 insert(int i, float f) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048602, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) {
-            A(i, Float.toString(f));
-            return this;
-        }
-        return (l8) invokeCommon.objValue;
-    }
-
-    public l8 insert(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048603, this, i, i2)) == null) {
-            A(i, Integer.toString(i2));
-            return this;
-        }
-        return (l8) invokeII.objValue;
-    }
-
-    public l8 insert(int i, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048604, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
-            A(i, Long.toString(j));
-            return this;
-        }
-        return (l8) invokeCommon.objValue;
-    }
-
-    public l8 insert(int i, CharSequence charSequence) {
-        InterceptResult invokeIL;
-        String charSequence2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048605, this, i, charSequence)) == null) {
-            if (charSequence == null) {
-                charSequence2 = StringUtil.NULL_STRING;
-            } else {
-                charSequence2 = charSequence.toString();
-            }
-            A(i, charSequence2);
-            return this;
-        }
-        return (l8) invokeIL.objValue;
-    }
-
-    public l8 insert(int i, CharSequence charSequence, int i2, int i3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048606, this, new Object[]{Integer.valueOf(i), charSequence, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            z(i, charSequence, i2, i3);
-            return this;
-        }
-        return (l8) invokeCommon.objValue;
-    }
-
-    public l8 insert(int i, Object obj) {
-        InterceptResult invokeIL;
-        String obj2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048607, this, i, obj)) == null) {
-            if (obj == null) {
-                obj2 = StringUtil.NULL_STRING;
-            } else {
-                obj2 = obj.toString();
-            }
-            A(i, obj2);
-            return this;
-        }
-        return (l8) invokeIL.objValue;
-    }
-
-    public l8 insert(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048608, this, i, str)) == null) {
-            A(i, str);
-            return this;
-        }
-        return (l8) invokeIL.objValue;
-    }
-
-    public l8 insert(int i, boolean z) {
-        InterceptResult invokeCommon;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048609, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            if (z) {
-                str = "true";
-            } else {
-                str = "false";
-            }
-            A(i, str);
-            return this;
-        }
-        return (l8) invokeCommon.objValue;
-    }
-
-    public l8 insert(int i, char[] cArr) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048610, this, i, cArr)) == null) {
-            B(i, cArr);
-            return this;
-        }
-        return (l8) invokeIL.objValue;
-    }
-
-    public l8 insert(int i, char[] cArr, int i2, int i3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048611, this, new Object[]{Integer.valueOf(i), cArr, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            C(i, cArr, i2, i3);
-            return this;
-        }
-        return (l8) invokeCommon.objValue;
-    }
-
-    public final void z(int i, CharSequence charSequence, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048631, this, new Object[]{Integer.valueOf(i), charSequence, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            if (charSequence == null) {
-                charSequence = StringUtil.NULL_STRING;
-            }
-            if (i >= 0 && i <= this.b && i2 >= 0 && i3 >= 0 && i2 <= i3 && i3 <= charSequence.length()) {
-                A(i, charSequence.subSequence(i2, i3).toString());
-                return;
-            }
-            throw new IndexOutOfBoundsException();
-        }
+        return (InputStream) invokeL.objValue;
     }
 }

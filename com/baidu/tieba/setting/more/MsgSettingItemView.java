@@ -13,7 +13,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -74,12 +74,12 @@ public class MsgSettingItemView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05c6, (ViewGroup) this, true);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091f50);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091f51);
-            BdSwitchView bdSwitchView = (BdSwitchView) findViewById(R.id.obfuscated_res_0x7f091f4f);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05c3, (ViewGroup) this, true);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091f64);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091f65);
+            BdSwitchView bdSwitchView = (BdSwitchView) findViewById(R.id.obfuscated_res_0x7f091f63);
             this.c = bdSwitchView;
-            zi.b(context, bdSwitchView, 10, 10, 10, 10);
+            ej.b(context, bdSwitchView, 10, 10, 10, 10);
         }
     }
 

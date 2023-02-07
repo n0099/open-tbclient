@@ -1,35 +1,39 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class nd8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public HeadImageView b;
-    public TextView c;
-    public TextView d;
-    public ImageView e;
+    public final int a;
+    public BdTypeListView b;
+    public boolean c;
+    public int d;
+    public int e;
+    public a f;
 
-    public nd8(Context context) {
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a();
+    }
+
+    public nd8(BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,50 +43,72 @@ public class nd8 {
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0971, (ViewGroup) null);
-        this.a = inflate;
-        this.b = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0927ea);
-        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0927ec);
-        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0927ed);
-        ImageView imageView = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0927eb);
-        this.e = imageView;
-        imageView.setVisibility(0);
-        this.a.setTag(this);
+        this.a = UtilHelper.getDimenPixelSize(R.dimen.tbds144);
+        this.d = -1;
+        this.e = -1;
+        this.b = bdTypeListView;
     }
 
-    public static nd8 b(Context context, View view2) {
-        InterceptResult invokeLL;
+    public final int a(List<Cdo> list, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, view2)) == null) {
-            if (view2 != null && view2.getTag() != null && (view2.getTag() instanceof nd8)) {
-                return (nd8) view2.getTag();
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, list, z)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return -1;
             }
-            return new nd8(context);
+            int i = 0;
+            for (int i2 = 0; i2 < list.size(); i2++) {
+                if ((list.get(i2) instanceof PostData) && ((PostData) list.get(i2)).getType() == PostData.Q0 && (i = i + 1) == 5) {
+                    return i2;
+                }
+            }
+            if (z) {
+                return -1;
+            }
+            return list.size() - 1;
         }
-        return (nd8) invokeLL.objValue;
+        return invokeLZ.intValue;
     }
 
-    public View a() {
-        InterceptResult invokeV;
+    public void c(int i, int i2) {
+        BdTypeListView bdTypeListView;
+        View childAt;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if ((interceptable != null && interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) != null) || (bdTypeListView = this.b) == null || this.c || this.e < 0 || (childAt = bdTypeListView.getChildAt(i2 - 1)) == null) {
+            return;
         }
-        return (View) invokeV.objValue;
+        if (this.d <= 0) {
+            this.d = this.b.getHeight() - this.a;
+        }
+        if (this.d <= 0) {
+            return;
+        }
+        int headerViewsCount = this.e + this.b.getHeaderViewsCount();
+        int i3 = (i + i2) - 1;
+        if (i3 > headerViewsCount) {
+            if (i3 - 1 == headerViewsCount && childAt.getTop() > this.d) {
+                return;
+            }
+            a aVar = this.f;
+            if (aVar != null) {
+                aVar.a();
+            }
+            this.c = true;
+        }
     }
 
-    public void c(String str, String str2, long j, boolean z) {
+    public void b(boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            this.c.setText(str);
-            this.b.setImageDrawable(null);
-            this.d.setText(StringHelper.getFormatTime(j));
-            this.b.K(str2, 28, false);
+        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) != null) || i == 3) {
+            return;
+        }
+        this.e = a(this.b.getData(), z);
+    }
+
+    public void d(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            this.f = aVar;
         }
     }
 }

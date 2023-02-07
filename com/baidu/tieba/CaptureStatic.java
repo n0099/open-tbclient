@@ -50,24 +50,24 @@ public class CaptureStatic {
 
         /* renamed from: com.baidu.tieba.CaptureStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0214a implements d59 {
+        public class C0216a implements c99 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CustomResponsedMessage a;
 
             /* renamed from: com.baidu.tieba.CaptureStatic$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes3.dex */
-            public class C0215a extends DefaultDownloadCallback {
+            public class C0217a extends DefaultDownloadCallback {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ C0214a a;
+                public final /* synthetic */ C0216a a;
 
-                public C0215a(C0214a c0214a) {
+                public C0217a(C0216a c0216a) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0214a};
+                        Object[] objArr = {c0216a};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -77,16 +77,16 @@ public class CaptureStatic {
                             return;
                         }
                     }
-                    this.a = c0214a;
+                    this.a = c0216a;
                 }
 
                 @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
                 public void onDownloadCancel(PackageInfo packageInfo) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(1048576, this, packageInfo) == null) {
-                        ry4.a(AlbumActivityConfig.FROM_WRITE, 100L, 0, "CaptureStatic_onArDownloadSuccess_nonSo_onDownloadCancel", 0, "", new Object[0]);
+                        e35.a(AlbumActivityConfig.FROM_WRITE, 100L, 0, "CaptureStatic_onArDownloadSuccess_nonSo_onDownloadCancel", 0, "", new Object[0]);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.FALSE));
-                        zi.P(TbadkCoreApplication.getInst(), R.string.libso_load_faild);
+                        ej.P(TbadkCoreApplication.getInst(), R.string.libso_load_faild);
                     }
                 }
 
@@ -94,9 +94,9 @@ public class CaptureStatic {
                 public void onDownloadError(PackageInfo packageInfo, ErrorInfo errorInfo) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo, errorInfo) == null) {
-                        ry4.a(AlbumActivityConfig.FROM_WRITE, 100L, 0, "CaptureStatic_onArDownloadSuccess_nonSo_onDownloadError", 0, "", new Object[0]);
+                        e35.a(AlbumActivityConfig.FROM_WRITE, 100L, 0, "CaptureStatic_onArDownloadSuccess_nonSo_onDownloadError", 0, "", new Object[0]);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.FALSE));
-                        zi.P(TbadkCoreApplication.getInst(), R.string.libso_load_faild);
+                        ej.P(TbadkCoreApplication.getInst(), R.string.libso_load_faild);
                     }
                 }
 
@@ -104,7 +104,7 @@ public class CaptureStatic {
                 public void onDownloadSuccess(PackageInfo packageInfo, ErrorInfo errorInfo) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, packageInfo, errorInfo) == null) {
-                        ry4.a(AlbumActivityConfig.FROM_WRITE, 100L, 0, "CaptureStatic_onArDownloadSuccess_nonSo_onDownloadSuccess", 0, "", new Object[0]);
+                        e35.a(AlbumActivityConfig.FROM_WRITE, 100L, 0, "CaptureStatic_onArDownloadSuccess_nonSo_onDownloadSuccess", 0, "", new Object[0]);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.TRUE));
                         if (packageInfo != null && "libcbffmpeg.so".equals(packageInfo.name)) {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) this.a.a.getData()));
@@ -113,7 +113,7 @@ public class CaptureStatic {
                 }
             }
 
-            public C0214a(a aVar, CustomResponsedMessage customResponsedMessage) {
+            public C0216a(a aVar, CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -131,31 +131,31 @@ public class CaptureStatic {
                 this.a = customResponsedMessage;
             }
 
-            @Override // com.baidu.tieba.d59
+            @Override // com.baidu.tieba.c99
             public void a() {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (this.a.getData() instanceof IntentConfig)) {
-                    ry4.a(AlbumActivityConfig.FROM_WRITE, 100L, 0, "CaptureStatic_onArDownloadSuccess_start", 0, "", new Object[0]);
+                    e35.a(AlbumActivityConfig.FROM_WRITE, 100L, 0, "CaptureStatic_onArDownloadSuccess_start", 0, "", new Object[0]);
                     if (!StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get("libcbffmpeg.so"))) {
-                        ry4.a(AlbumActivityConfig.FROM_WRITE, 100L, 0, "CaptureStatic_onArDownloadSuccess_hasSo", 0, "", new Object[0]);
+                        e35.a(AlbumActivityConfig.FROM_WRITE, 100L, 0, "CaptureStatic_onArDownloadSuccess_hasSo", 0, "", new Object[0]);
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) this.a.getData()));
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.TRUE));
                         return;
                     }
-                    ry4.a(AlbumActivityConfig.FROM_WRITE, 100L, 0, "CaptureStatic_onArDownloadSuccess_nonSo", 0, "", new Object[0]);
+                    e35.a(AlbumActivityConfig.FROM_WRITE, 100L, 0, "CaptureStatic_onArDownloadSuccess_nonSo", 0, "", new Object[0]);
                     RequestParams requestParams = new RequestParams();
-                    requestParams.setRunType(lm.a);
+                    requestParams.setRunType(qm.a);
                     requestParams.setRunNode("aps");
-                    requestParams.addChannel(new km("com.baidu.tieba.soloader.libcbffmpeg", new C0215a(this)));
+                    requestParams.addChannel(new pm("com.baidu.tieba.soloader.libcbffmpeg", new C0217a(this)));
                     PmsManager.getInstance().execute(requestParams);
                 }
             }
 
-            @Override // com.baidu.tieba.d59
+            @Override // com.baidu.tieba.c99
             public void b() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    ry4.a(AlbumActivityConfig.FROM_WRITE, 100L, 0, "CaptureStatic_onArDownloadFail", 0, "", new Object[0]);
+                    e35.a(AlbumActivityConfig.FROM_WRITE, 100L, 0, "CaptureStatic_onArDownloadFail", 0, "", new Object[0]);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.FALSE));
                 }
             }
@@ -186,7 +186,7 @@ public class CaptureStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921582) {
-                w49.b(TbadkCoreApplication.getInst(), new C0214a(this, customResponsedMessage));
+                v89.b(TbadkCoreApplication.getInst(), new C0216a(this, customResponsedMessage));
             }
         }
     }

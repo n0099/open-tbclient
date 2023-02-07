@@ -13,6 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
+@Deprecated
 /* loaded from: classes.dex */
 public final class TraceCompat {
     public static /* synthetic */ Interceptable $ic = null;

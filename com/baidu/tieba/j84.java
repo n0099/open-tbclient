@@ -1,51 +1,80 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.UnsupportedEncodingException;
 /* loaded from: classes5.dex */
-public class j84 extends i84 {
+public class j84 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @V8JavascriptField
-    public String errCode;
+    public String key;
     @V8JavascriptField
-    public String errMsg;
+    public String value;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j84(String str, String str2, String str3) {
-        super(str);
+    public j84() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.errCode = str2;
-        this.errMsg = str3;
     }
 
-    @Override // com.baidu.tieba.i84
-    @NonNull
-    public String toString() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "GameWebViewErrorResult{url=" + this.url + ", errMsg='" + this.errMsg + "'}";
+            try {
+                if (this.key != null) {
+                    if (this.key.getBytes("UTF-8").length <= 128) {
+                        return true;
+                    }
+                }
+                return false;
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                return true;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.key + ":" + this.value;
         }
         return (String) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            try {
+                if (this.key != null && this.value != null) {
+                    if (this.key.getBytes("UTF-8").length + this.value.getBytes("UTF-8").length <= 1024) {
+                        return true;
+                    }
+                }
+                return false;
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                return true;
+            }
+        }
+        return invokeV.booleanValue;
     }
 }

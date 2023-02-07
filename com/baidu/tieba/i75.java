@@ -1,74 +1,75 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.editortools.MoreDeskView;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class i75 extends k75 {
+public class i75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public List<kg> b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i75(Context context, int i) {
-        super(context, null, 2, 0);
+    public i75() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = TbadkCoreApplication.getInst().getString(R.string.more_function);
-        this.d = i == -1 ? R.drawable.icon_pure_post_more24 : i;
-        this.e = R.drawable.icon_mask_post_keyboard24_selection;
-        this.i = false;
-        this.j = true;
-        this.m = new MoreDeskView(context);
-        this.o = true;
-        this.n = 6;
-        this.p = new int[]{1};
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i75(Context context, boolean z) {
-        super(context, null, 2, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.b = TbadkCoreApplication.getInst().getString(R.string.more_function);
-        this.d = R.drawable.icon_pure_post_more24;
-        this.e = R.drawable.icon_mask_post_keyboard24_selection;
-        this.i = false;
-        this.j = true;
-        this.m = new MoreDeskView(context, !z);
-        this.o = true;
-        this.n = 6;
-        this.p = new int[]{1};
+    }
+
+    public List<kg> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.a == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void c(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.a = jSONObject.optInt("https_switch");
+        JSONObject optJSONObject = jSONObject.optJSONObject("https_whitelist_url");
+        if (optJSONObject != null) {
+            this.b = new ArrayList();
+            Iterator<String> keys = optJSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                if (!TextUtils.isEmpty(next)) {
+                    optJSONObject.optInt(next, 1);
+                    this.b.add(new kg());
+                }
+            }
+        }
     }
 }

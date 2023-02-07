@@ -43,19 +43,19 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tbadk.switchs.LoginDefaultTypeSmsSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cs4;
-import com.baidu.tieba.cz4;
-import com.baidu.tieba.dh;
-import com.baidu.tieba.eh;
-import com.baidu.tieba.fz4;
-import com.baidu.tieba.g55;
+import com.baidu.tieba.dj;
+import com.baidu.tieba.dw4;
+import com.baidu.tieba.e35;
+import com.baidu.tieba.fw4;
+import com.baidu.tieba.ih;
+import com.baidu.tieba.jh;
+import com.baidu.tieba.k35;
+import com.baidu.tieba.p35;
 import com.baidu.tieba.passaccount.framework.PassManagerStatic;
-import com.baidu.tieba.qr4;
-import com.baidu.tieba.ry4;
-import com.baidu.tieba.sr4;
+import com.baidu.tieba.pw4;
+import com.baidu.tieba.s35;
+import com.baidu.tieba.t95;
 import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
-import com.baidu.tieba.xy4;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -72,7 +72,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     public int b;
     public WebAuthResult c;
     public Activity d;
-    public g55 e;
+    public t95 e;
     public String f;
     public int g;
     public boolean h;
@@ -92,10 +92,10 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     public String v;
     public String w;
     public String x;
-    public sr4.a y;
+    public fw4.a y;
 
     /* loaded from: classes5.dex */
-    public class d implements sr4.a {
+    public class d implements fw4.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LoginActivity a;
@@ -151,11 +151,11 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             this.a = loginActivity;
         }
 
-        @Override // com.baidu.tieba.sr4.a
+        @Override // com.baidu.tieba.fw4.a
         public void a(String str, int i, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
-                ry4.a(DI.ACCOUNT, -1L, 0, "login_pass_cslogin_fail", i, str2, new Object[0]);
+                e35.a(DI.ACCOUNT, -1L, 0, "login_pass_cslogin_fail", i, str2, new Object[0]);
                 this.a.closeLoadingDialog();
                 this.a.showToast(str2);
                 if (this.a.d instanceof BaseSSOLoginActivity) {
@@ -165,7 +165,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             }
         }
 
-        @Override // com.baidu.tieba.sr4.a
+        @Override // com.baidu.tieba.fw4.a
         public void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -177,15 +177,15 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             }
         }
 
-        @Override // com.baidu.tieba.sr4.a
+        @Override // com.baidu.tieba.fw4.a
         public void c(AccountData accountData) {
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
-                ry4.a(DI.ACCOUNT, -1L, 0, "login_pass_cslogin_success", 0, "", new Object[0]);
+                e35.a(DI.ACCOUNT, -1L, 0, "login_pass_cslogin_success", 0, "", new Object[0]);
                 if (this.a.c != null) {
                     str = this.a.c.getLoginType();
-                    if (yi.isEmpty(str) && this.a.c.activity != null) {
+                    if (dj.isEmpty(str) && this.a.c.activity != null) {
                         str = this.a.c.activity.getClass().getSimpleName();
                     }
                 } else {
@@ -194,7 +194,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
                 TiebaStatic.log(new StatisticItem("c12948").param("obj_type", this.a.b).param(TiebaStatic.Params.OBJ_URL, this.a.i).param("obj_param1", this.a.v).param(TiebaStatic.Params.OBJ_PARAM2, this.a.w).param(TiebaStatic.Params.OBJ_PARAM3, str));
                 this.a.closeLoadingDialog();
                 TbadkCoreApplication.getInst().onDeviceFirstLoginChanged(accountData);
-                cs4.c().b(1);
+                pw4.c().b(1);
                 if (!TbadkCoreApplication.getInst().shouldNeedCheckUserNameDialog() || !TextUtils.isEmpty(accountData.getAccount())) {
                     this.a.P1(accountData);
                 } else {
@@ -240,7 +240,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         public void onFailure(WebAuthResult webAuthResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webAuthResult) == null) {
-                ry4.a(DI.ACCOUNT, -1L, 0, "login_pass_fail", webAuthResult.getResultCode(), webAuthResult.getResultMsg(), new Object[0]);
+                e35.a(DI.ACCOUNT, -1L, 0, "login_pass_fail", webAuthResult.getResultCode(), webAuthResult.getResultMsg(), new Object[0]);
                 this.a.g = -1;
                 this.a.O1(0);
             }
@@ -261,7 +261,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             if (interceptable == null || interceptable.invokeL(1048581, this, webAuthResult) == null) {
                 this.a.c = webAuthResult;
                 this.a.d = webAuthResult.activity;
-                ry4.a(DI.ACCOUNT, -1L, 0, "login_pass_success", 0, "", new Object[0]);
+                e35.a(DI.ACCOUNT, -1L, 0, "login_pass_success", 0, "", new Object[0]);
                 this.a.V1();
                 this.a.g = 0;
             }
@@ -304,7 +304,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         public void onFailure(WebAuthResult webAuthResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webAuthResult) == null) {
-                ry4.a(DI.ACCOUNT, -1L, 0, "login_pass_fail", webAuthResult.getResultCode(), webAuthResult.getResultMsg(), new Object[0]);
+                e35.a(DI.ACCOUNT, -1L, 0, "login_pass_fail", webAuthResult.getResultCode(), webAuthResult.getResultMsg(), new Object[0]);
                 this.a.g = -1;
                 this.a.O1(0);
             }
@@ -325,7 +325,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             if (interceptable == null || interceptable.invokeL(1048581, this, webAuthResult) == null) {
                 this.a.c = webAuthResult;
                 this.a.d = webAuthResult.activity;
-                ry4.a(DI.ACCOUNT, -1L, 0, "login_pass_success", 0, "", new Object[0]);
+                e35.a(DI.ACCOUNT, -1L, 0, "login_pass_success", 0, "", new Object[0]);
                 this.a.V1();
                 this.a.g = 0;
                 this.a.W1();
@@ -425,14 +425,14 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                qr4.g(this.a);
-                ry4.a(DI.ACCOUNT, -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
+                dw4.g(this.a);
+                e35.a(DI.ACCOUNT, -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class f implements g55.e {
+    public class f implements t95.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LoginActivity a;
@@ -455,7 +455,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             this.a = loginActivity;
         }
 
-        @Override // com.baidu.tieba.g55.e
+        @Override // com.baidu.tieba.t95.e
         public void a(AccountData accountData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, accountData) == null) {
@@ -503,7 +503,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
                 if (bdAsyncTask != null) {
                     bdAsyncTask.cancel();
                 }
-                this.a = sr4.b().a(session.username, session.bduss, "", null, this.y);
+                this.a = fw4.b().a(session.username, session.bduss, "", null, this.y);
                 return;
             }
             finish();
@@ -552,9 +552,9 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!yi.isEmpty(this.l)) {
+            if (!dj.isEmpty(this.l)) {
                 String customLoginCssStoragePath = FileHelper.getCustomLoginCssStoragePath(this.l);
-                if (!yi.isEmpty(customLoginCssStoragePath) && FileHelper.checkIsCssFile(customLoginCssStoragePath)) {
+                if (!dj.isEmpty(customLoginCssStoragePath) && FileHelper.checkIsCssFile(customLoginCssStoragePath)) {
                     if (SapiAccountManager.getInstance().getConfignation() != null) {
                         SapiAccountManager.getInstance().getConfignation().skin = customLoginCssStoragePath;
                         return true;
@@ -599,8 +599,8 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     public final void X1(AccountData accountData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, accountData) == null) {
-            eh.a().c(new e(this, accountData));
-            ry4.a(DI.ACCOUNT, -1L, 0, "login_activity_save_account_to_application", 0, "", new Object[0]);
+            jh.a().c(new e(this, accountData));
+            e35.a(DI.ACCOUNT, -1L, 0, "login_activity_save_account_to_application", 0, "", new Object[0]);
             TbadkCoreApplication.setCurrentAccount(accountData, getPageContext().getPageActivity());
             BrowserHelper.h(TbadkCoreApplication.getInst());
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921024, Boolean.TRUE));
@@ -611,7 +611,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, accountData) == null) {
             X1(accountData);
-            ry4.a(DI.ACCOUNT, -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
+            e35.a(DI.ACCOUNT, -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
             TbadkCoreApplication.getInst().onUserChanged(getIntent());
             if (this.h) {
                 WebAuthResult webAuthResult = this.c;
@@ -624,17 +624,17 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             int intExtra = getIntent().getIntExtra("locate_type", -1);
             this.r = intExtra;
             if (intExtra == -1) {
-                cz4 l = cz4.l();
-                if (l.i("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), true)) {
+                p35 m = p35.m();
+                if (m.i("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), true)) {
                     this.r = 2;
-                    cz4 l2 = cz4.l();
-                    l2.v("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), false);
+                    p35 m2 = p35.m();
+                    m2.w("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), false);
                 } else {
                     this.r = 2;
                 }
             }
-            if (xy4.b() != null) {
-                xy4.g(getPageContext().getPageActivity(), this.r, false);
+            if (k35.b() != null) {
+                k35.g(getPageContext().getPageActivity(), this.r, false);
             } else {
                 sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(getPageContext().getPageActivity()).createNormalCfg(this.r)));
             }
@@ -701,7 +701,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             this.u = intent.getStringExtra(LoginDialogActivityConfig.MINE_PAGE_LOGIN_DIALOG_DATA_LOCATE);
             String stringExtra = intent.getStringExtra("from");
             this.v = stringExtra;
-            if (yi.isEmpty(stringExtra)) {
+            if (dj.isEmpty(stringExtra)) {
                 this.v = getPreExtraPageKey();
             }
             this.w = intent.getStringExtra("fromDialog");
@@ -794,9 +794,9 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         if (interceptable == null || interceptable.invokeL(1048588, this, accountData) == null) {
             this.f = TbadkCoreApplication.getCurrentTbs();
             if (this.e == null) {
-                g55 g55Var = new g55(this.d);
-                this.e = g55Var;
-                g55Var.x(this.y);
+                t95 t95Var = new t95(this.d);
+                this.e = t95Var;
+                t95Var.x(this.y);
                 this.e.v(new f(this));
             }
             this.e.p();
@@ -827,7 +827,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
                     i = 2;
                 }
                 this.r = i;
-                xy4.g(getPageContext().getPageActivity(), this.r, false);
+                k35.g(getPageContext().getPageActivity(), this.r, false);
             }
             if (this.j == 2 && this.g == 0 && !TextUtils.isEmpty(this.k)) {
                 Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(this.k));
@@ -839,9 +839,9 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             if (bdAsyncTask != null) {
                 bdAsyncTask.cancel();
             }
-            g55 g55Var = this.e;
-            if (g55Var != null) {
-                g55Var.s();
+            t95 t95Var = this.e;
+            if (t95Var != null) {
+                t95Var.s();
             }
             this.y = null;
             this.c = null;
@@ -853,15 +853,15 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void showLoadingDialog(String str, DialogInterface.OnCancelListener onCancelListener) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048594, this, str, onCancelListener) != null) || !dh.e(this.d)) {
+        if ((interceptable != null && interceptable.invokeLL(1048594, this, str, onCancelListener) != null) || !ih.e(this.d)) {
             return;
         }
         if (str == null) {
             str = getString(R.string.obfuscated_res_0x7f0f003a);
         }
-        fz4 fz4Var = new fz4(this.d);
-        this.mWaitingDialog = fz4Var;
-        fz4Var.j(str);
+        s35 s35Var = new s35(this.d);
+        this.mWaitingDialog = s35Var;
+        s35Var.j(str);
         this.mWaitingDialog.e(onCancelListener);
         this.mWaitingDialog.d(false);
         this.mWaitingDialog.f(true);

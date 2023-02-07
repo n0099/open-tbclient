@@ -1,26 +1,24 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes4.dex */
-public class fq2 implements gq2 {
+public class fq2 extends qm2<hr2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
 
-    @Override // com.baidu.tieba.gq2
-    public boolean b() {
+    @Override // com.baidu.tieba.qm2
+    @NonNull
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getDuration" : (String) invokeV.objValue;
     }
 
     public fq2() {
@@ -33,71 +31,19 @@ public class fq2 implements gq2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = -2;
-        this.b = -2;
     }
 
-    @Override // com.baidu.tieba.gq2
-    public int a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qm2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull hr2 hr2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, hr2Var) == null) {
+            command.ret = hr2Var.getDuration();
+            String str = command.what;
+            d(hr2Var, str, "Duration: " + command.ret, false);
         }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.gq2
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.b == -2) {
-                qn2.g0().getSwitch("swan_webview_pause_control", 3);
-                this.b = 3;
-            }
-            if ((this.b & 2) == 2) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.gq2
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.b == -2) {
-                qn2.g0().getSwitch("swan_webview_pause_control", 3);
-                this.b = 3;
-            }
-            if ((this.b & 1) == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.gq2
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.a == -2) {
-                qn2.g0().getSwitch("swan_webview_backstage_optimize", -1);
-                this.a = -1;
-            }
-            if (this.a > -1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

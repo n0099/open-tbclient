@@ -1,190 +1,452 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.http.request.HttpRequest;
-import com.baidu.swan.apps.statistic.interfacestability.SwanInterfaceType;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.facebook.common.internal.Sets;
+import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.List;
+import java.util.Set;
+import okhttp3.CertificatePinner;
 /* loaded from: classes5.dex */
-public class n93 extends u93<b> {
+public final class n93 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final Set<String> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String m;
-    public final Activity n;
-    public final boolean o;
-    public final String p;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-        public final boolean b;
-        public final JSONObject c;
-
-        public b(boolean z, String str, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947957249, "Lcom/baidu/tieba/n93;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Boolean.valueOf(z), str, jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = str == null ? "" : str;
-            this.b = z;
-            this.c = jSONObject;
-        }
-
-        public /* synthetic */ b(boolean z, String str, JSONObject jSONObject, a aVar) {
-            this(z, str, jSONObject);
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return String.format("Result(%b):%s", Boolean.valueOf(this.b), this.a);
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    public n93(Activity activity, boolean z, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, Boolean.valueOf(z), str, str2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947957249, "Lcom/baidu/tieba/n93;");
                 return;
             }
         }
-        this.n = activity;
-        this.m = str;
-        this.o = z;
-        this.p = str2;
+        a = gp1.a;
+        b = Sets.newHashSet("https", "wss");
     }
 
-    @Override // com.baidu.tieba.u93
-    public void I() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.I();
-            hw2.f();
-        }
-    }
-
-    @Override // com.baidu.tieba.u93
-    public SwanInterfaceType z() {
+    public static boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return SwanInterfaceType.ACCREDIT_DATA;
-        }
-        return (SwanInterfaceType) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.g93
-    @SuppressLint({"BDThrowableCheck"})
-    /* renamed from: P */
-    public b m(JSONObject jSONObject) throws JSONException {
-        InterceptResult invokeL;
-        JSONObject jSONObject2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            JSONObject c = h93.c(jSONObject);
-            int optInt = c.optInt("errno", 10001);
-            if (optInt != 0) {
-                if (11001 == optInt) {
-                    h93.m(c);
-                    h93.t("Accredit", c.toString());
-                }
-                if (g93.f) {
-                    throw new JSONException("Illegal errno=" + optInt + " errms=" + c.optString("errms"));
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            if (v83.K().k() != 0 || !SwanAppConfigData.j.d()) {
+                return true;
             }
-            JSONObject jSONObject3 = c.getJSONObject("data");
-            String str = "";
-            if (jSONObject3 != null) {
-                str = jSONObject3.optString("code", "");
-                jSONObject2 = jSONObject3.optJSONObject("opendata");
-            } else {
-                jSONObject2 = null;
+            if (a) {
+                Log.d("WebSafeCheckers", "授权跳过url校验");
+                return false;
             }
-            return new b(this.o, str, jSONObject2, null);
-        }
-        return (b) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.g93
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("ma_id", M().O());
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("app_key", M().O());
-                jSONObject2.put("host_pkgname", AppRuntime.getApplication().getPackageName());
-                jSONObject2.put("host_key_hash", h93.g());
-                String l = qn2.o().l();
-                if (!TextUtils.isEmpty(l)) {
-                    jSONObject2.put("host_api_key", l);
-                }
-                jSONObject.put("open", jSONObject2);
-                JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.put("permit", Boolean.toString(this.o));
-                JSONObject jSONObject4 = new JSONObject();
-                jSONObject4.put(this.m, jSONObject3);
-                jSONObject.put("accredits", jSONObject4);
-                if (!TextUtils.isEmpty(this.p)) {
-                    jSONObject.put("provider_appkey", this.p);
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            v("data", jSONObject.toString());
-            return true;
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.u93
-    public HttpRequest w(u93 u93Var) {
+    public static boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            if (w83.M() == null) {
+                return false;
+            }
+            return bz2.g().j(v83.K().q().W().f0());
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, u93Var)) == null) {
-            return qn2.o().o(this.n, u93Var.B());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (a && !v43.A()) {
+                Log.w("WebSafeCheckers", "checkWebAction: Debug下鉴权未开启");
+                return true;
+            } else if (TextUtils.isEmpty(str)) {
+                w52.i("WebSafeCheckers", "action is not in white list: action=" + str);
+                return false;
+            } else {
+                w83 M = w83.M();
+                if (M == null) {
+                    w52.o("WebSafeCheckers", "get swanApp Null " + str);
+                    return false;
+                }
+                List<String> b2 = M.l0().b();
+                if (b2 != null && b2.contains(str)) {
+                    if (a) {
+                        Log.d("WebSafeCheckers", "Action in white list: " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + b2);
+                    }
+                    return true;
+                }
+                w52.i("WebSafeCheckers", "action is not in adLanding white list: action=" + str);
+                return false;
+            }
         }
-        return (HttpRequest) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public static boolean g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (a && !v43.A()) {
+                Log.w("WebSafeCheckers", "checkWebAction: Debug下鉴权未开启");
+                return true;
+            } else if (TextUtils.isEmpty(str)) {
+                w52.o("WebSafeCheckers", "action is not in white list: action=" + str);
+                return false;
+            } else {
+                w83 M = w83.M();
+                if (M == null) {
+                    w52.o("WebSafeCheckers", "get swanApp Null " + str);
+                    return false;
+                }
+                List<String> d = M.l0().d(false);
+                if (d != null && d.contains(str)) {
+                    if (a) {
+                        Log.d("WebSafeCheckers", "Action in white list: " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + d);
+                    }
+                    return true;
+                }
+                w52.b("WebSafeCheckers", "Action not in white list: action=" + str + ", whitelist=", d);
+                StringBuilder sb = new StringBuilder();
+                sb.append("action is not in white list: action=");
+                sb.append(str);
+                w52.i("WebSafeCheckers", sb.toString());
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean b(String str, List<String> list) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, list)) == null) {
+            if (!TextUtils.isEmpty(str) && list != null && list.size() != 0) {
+                for (String str2 : list) {
+                    if (!TextUtils.isEmpty(str2)) {
+                        if (TextUtils.equals(str, str2)) {
+                            return true;
+                        }
+                        if (str2.startsWith(CertificatePinner.Pin.WILDCARD) && str.endsWith(str2.substring(2))) {
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:61:0x014f  */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x015c  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static int c(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        boolean z;
+        String host;
+        List<String> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, str3)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                if (a) {
+                    Log.i("WebSafeCheckers", "requestName : " + str);
+                    Log.i("WebSafeCheckers", "requestUrl : " + str2);
+                }
+                boolean z2 = !v43.w();
+                boolean z3 = false;
+                if (z2) {
+                    if (a) {
+                        Log.d("WebSafeCheckers", "debug包serverDomains鉴权关闭： " + z2);
+                    }
+                    return 0;
+                }
+                boolean i = i();
+                if (!i) {
+                    if (a) {
+                        Log.d("WebSafeCheckers", "开发包serverDomains鉴权关闭： " + i);
+                    }
+                    return 0;
+                } else if (!d(str2)) {
+                    return 2;
+                } else {
+                    boolean r = ds2.g0().r();
+                    if (!r) {
+                        if (a) {
+                            Log.d("WebSafeCheckers", "AB实验serverDomains鉴权关闭： " + r);
+                        }
+                        return 0;
+                    }
+                    w83 M = w83.M();
+                    if (M == null) {
+                        return 1;
+                    }
+                    String str4 = M.b;
+                    if (TextUtils.isEmpty(str4)) {
+                        return 1;
+                    }
+                    if (!TextUtils.isEmpty(str3)) {
+                        return !t43.c(str, str2, u43.h(str3)) ? 1 : 0;
+                    }
+                    if (!new File(o93.i(str4)).exists()) {
+                        if (a) {
+                            Log.w("WebSafeCheckers", "服务器域名配置文件未下发放行");
+                        }
+                        return 0;
+                    }
+                    long currentTimeMillis = System.currentTimeMillis();
+                    try {
+                        host = new URI(str2).getHost();
+                        list = M.l0().c(w83.g0(), str, false).b;
+                        z = b(host, list);
+                    } catch (URISyntaxException e) {
+                        e = e;
+                    }
+                    try {
+                        w52.b("WebSafeCheckers", "serverDomain: " + host + ", ServerDomains: ", list);
+                        StringBuilder sb = new StringBuilder();
+                        sb.append("domain: ");
+                        sb.append(host);
+                        w52.i("WebSafeCheckers", sb.toString());
+                    } catch (URISyntaxException e2) {
+                        e = e2;
+                        z3 = z;
+                        if (a) {
+                            Log.e("WebSafeCheckers", Log.getStackTraceString(e));
+                        }
+                        z = z3;
+                        if (!z) {
+                        }
+                        long currentTimeMillis2 = System.currentTimeMillis();
+                        if (a) {
+                        }
+                        return !z;
+                    }
+                    if (!z) {
+                        w52.i("WebSafeCheckers", "domain is not in white list");
+                    }
+                    long currentTimeMillis22 = System.currentTimeMillis();
+                    if (a) {
+                        Log.d("WebSafeCheckers", "serverDomain: cost time = " + (currentTimeMillis22 - currentTimeMillis) + "ms");
+                        if (z != 0) {
+                            Log.d("WebSafeCheckers", "serverDomain in white list");
+                        } else {
+                            Log.d("WebSafeCheckers", "serverDomain not in white list");
+                        }
+                    }
+                    return !z;
+                }
+            }
+            if (a) {
+                Log.d("WebSafeCheckers", "server domains: requestName or requestUrl is empty");
+            }
+            return 1;
+        }
+        return invokeLLL.intValue;
+    }
+
+    public static boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            for (String str2 : b) {
+                if (str.startsWith(str2)) {
+                    return true;
+                }
+            }
+            if (v43.o()) {
+                return true;
+            }
+            boolean p = ds2.g0().p();
+            if (a) {
+                Log.d("WebSafeCheckers", "abTestHttpsProtocolSwitch=" + p);
+            }
+            if (!p && str.startsWith("http")) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (!TextUtils.isEmpty(str) && str.toLowerCase().startsWith("weixin://wap/pay")) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            if (!TextUtils.isEmpty(str) && str.toLowerCase().startsWith("alipays://platformapi/startapp")) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            String lowerCase = str.toLowerCase();
+            if (!lowerCase.startsWith("weixin://wap/pay") && !lowerCase.startsWith("alipays://platformapi/startapp")) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:81:0x0184  */
+    /* JADX WARN: Removed duplicated region for block: B:84:0x019c  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean h(String str) {
+        InterceptResult invokeL;
+        long j;
+        boolean z;
+        String str2;
+        String host;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            w83 b0 = w83.b0();
+            boolean z2 = false;
+            if (b0 == null) {
+                return false;
+            }
+            String lowerCase = str.toLowerCase();
+            if (!v43.A()) {
+                if (a) {
+                    Log.w("WebSafeCheckers", "checkWebHost: Debug下鉴权未开启");
+                }
+                return true;
+            }
+            boolean z3 = ds2.g0().z();
+            if (!z3) {
+                if (a) {
+                    Log.w("WebSafeCheckers", "ABTest : webDomains switch " + z3);
+                }
+                return true;
+            } else if (!i()) {
+                if (a) {
+                    Log.d("WebSafeCheckers", "checkWebDomains: 线下环境开发者授权跳过域名校验");
+                }
+                return true;
+            } else {
+                String g0 = w83.g0();
+                if (!o93.n(g0)) {
+                    return true;
+                }
+                List<String> e = b0.l0().e(g0, false);
+                if (lowerCase.startsWith("weixin://wap/pay") && e.contains("wx.tenpay.com")) {
+                    w52.k("WebSafeCheckers", "url is weixin pay, Domain in white list url: " + str + " name: " + b0.Z());
+                    pf3.K("wechatH5", "intoPayment", 0);
+                    pf3.G("wechatH5", str, e);
+                    return true;
+                } else if (lowerCase.startsWith("alipays://platformapi/startapp") && (e.contains("*.alipay.com") || e.contains("*.alipayobjects.com"))) {
+                    w52.k("WebSafeCheckers", "url is ali pay, Domain in white list url: " + str + " whiteDomains: " + e + " name: " + b0.Z());
+                    pf3.K("alipayH5", "intoPayment", 0);
+                    pf3.G("alipayH5", str, e);
+                    return true;
+                } else {
+                    if (a) {
+                        j = System.nanoTime();
+                    } else {
+                        j = 0;
+                    }
+                    if (TextUtils.isEmpty(str)) {
+                        if (a) {
+                            Log.w("WebSafeCheckers", "checkWebDomain: url is empty");
+                        }
+                        return false;
+                    }
+                    try {
+                        host = new URL(str).getHost();
+                        if (!TextUtils.isEmpty(host) && e != null) {
+                            for (String str3 : e) {
+                                if (str3 != null) {
+                                    if (str3.startsWith(CertificatePinner.Pin.WILDCARD)) {
+                                        if (host.endsWith(str3.substring(2))) {
+                                            z = true;
+                                            break;
+                                        }
+                                    } else if (TextUtils.equals(str3, host)) {
+                                        z = true;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                        z = false;
+                    } catch (MalformedURLException e2) {
+                        e = e2;
+                    }
+                    try {
+                        w52.b("WebSafeCheckers", "domain: ", host, ", domains: ", e);
+                        w52.i("WebSafeCheckers", "domain: " + host);
+                    } catch (MalformedURLException e3) {
+                        e = e3;
+                        z2 = z;
+                        if (a) {
+                            Log.e("WebSafeCheckers", Log.getStackTraceString(e));
+                        }
+                        z = z2;
+                        if (!z) {
+                        }
+                        if (a) {
+                        }
+                        return z;
+                    }
+                    if (!z) {
+                        w52.i("WebSafeCheckers", "domain is not in white list：" + e);
+                    }
+                    if (a) {
+                        long nanoTime = System.nanoTime();
+                        if (z) {
+                            str2 = "Domain in white list";
+                        } else {
+                            str2 = "Domain not in white list";
+                        }
+                        Log.d("WebSafeCheckers", str2);
+                        Log.d("WebSafeCheckers", "checkWebDomain耗时(ms): " + (((float) (nanoTime - j)) / 1000000.0f));
+                    }
+                    return z;
+                }
+            }
+        }
+        return invokeL.booleanValue;
     }
 }

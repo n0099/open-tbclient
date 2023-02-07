@@ -1,47 +1,55 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.mutiprocess.live.ImageViewLiveEvent;
-import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ThemeColorInfo;
 /* loaded from: classes5.dex */
-public class md5 implements uc5<ImageViewLiveEvent> {
+public final class md5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public md5() {
+    public static final boolean a() {
+        InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if (be5.b.a().a("show_write_tip")) {
+                ka5 a = ae5.b.a().a();
+                if (a == null || a.b != 0) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (!z) {
+                    return true;
+                }
             }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.uc5
-    /* renamed from: a */
-    public boolean onEvent(ImageViewLiveEvent imageViewLiveEvent) {
-        InterceptResult invokeL;
+    public static final int b(boolean z) {
+        InterceptResult invokeZ;
+        ThemeColorInfo themeColorInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageViewLiveEvent)) == null) {
-            if (imageViewLiveEvent == null) {
-                return false;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65537, null, z)) == null) {
+            if (!z) {
+                return SkinManager.getColor(R.color.CAM_X0110);
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921752, new YyLiveRoomConfig(TbadkApplication.getInst().getContext(), imageViewLiveEvent.sid, imageViewLiveEvent.ssid, imageViewLiveEvent.templateId, imageViewLiveEvent.roomId, imageViewLiveEvent.streamInfo, imageViewLiveEvent.from)));
-            return true;
+            ka5 a = ae5.b.a().a();
+            if (a == null) {
+                themeColorInfo = null;
+            } else {
+                themeColorInfo = a.f;
+            }
+            if (a() && themeColorInfo != null) {
+                return SkinManager.getColorFromServerColor(themeColorInfo, R.color.CAM_X0301);
+            }
+            return SkinManager.getColor(R.color.CAM_X0302);
         }
-        return invokeL.booleanValue;
+        return invokeZ.intValue;
     }
 }

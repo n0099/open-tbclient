@@ -1,200 +1,181 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.smallgame.sdk.permission.PermissionListener;
-import com.baidu.smallgame.sdk.permission.PermissionProxy;
-import com.baidu.tieba.o93;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.core.pms.PMSDownloadType;
+import com.baidu.swan.apps.core.pms.PkgDownloadError;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.PermissionRequest;
 /* loaded from: classes5.dex */
-public class lc2 implements PermissionProxy {
+public class lc2 extends wb2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public b D;
 
     /* loaded from: classes5.dex */
-    public class a implements cj3<m93<o93.e>> {
+    public interface b {
+        void a();
+
+        void b(pk3 pk3Var);
+
+        void onSuccess();
+    }
+
+    @Override // com.baidu.tieba.ac2
+    public int K() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.wb2
+    public PMSDownloadType k0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return null;
+        }
+        return (PMSDownloadType) invokeV.objValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ PermissionListener c;
-        public final /* synthetic */ lc2 d;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ pk3 b;
+        public final /* synthetic */ lc2 c;
 
-        public a(lc2 lc2Var, String str, String str2, PermissionListener permissionListener) {
+        public a(lc2 lc2Var, int i, pk3 pk3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lc2Var, str, str2, permissionListener};
+                Object[] objArr = {lc2Var, Integer.valueOf(i), pk3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.d = lc2Var;
-            this.a = str;
-            this.b = str2;
-            this.c = permissionListener;
+            this.c = lc2Var;
+            this.a = i;
+            this.b = pk3Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cj3
-        /* renamed from: b */
-        public void a(m93<o93.e> m93Var) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m93Var) == null) {
-                if (h93.h(m93Var)) {
-                    this.d.b(this.a, this.b, this.c);
-                } else {
-                    this.c.onPermissionResult(this.a, 2);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements mz2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PermissionListener a;
-        public final /* synthetic */ String b;
-
-        public b(lc2 lc2Var, PermissionListener permissionListener, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lc2Var, permissionListener, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c.D != null) {
+                int i = this.a;
+                if (i != -1) {
+                    if (i != 0) {
+                        if (i == 1) {
+                            this.c.D.onSuccess();
+                            return;
+                        }
+                        return;
+                    }
+                    this.c.D.a();
                     return;
                 }
-            }
-            this.a = permissionListener;
-            this.b = str;
-        }
-
-        @Override // com.baidu.tieba.mz2
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.a.onPermissionResult(this.b, 0);
-            }
-        }
-
-        @Override // com.baidu.tieba.mz2
-        public void b(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                this.a.onPermissionResult(this.b, 1);
+                this.c.D.b(this.b);
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947937998, "Lcom/baidu/tieba/lc2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947937998, "Lcom/baidu/tieba/lc2;");
-                return;
-            }
-        }
-        a = tk1.a;
-    }
-
-    public lc2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lc2(String str, b bVar) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public final void b(@NonNull String str, @NonNull String str2, @NonNull PermissionListener permissionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, permissionListener) == null) {
-            b bVar = new b(this, permissionListener, str);
-            lz2.e(str2, new String[]{str2}, 2, i43.K().w(), bVar);
-        }
-    }
-
-    public final String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (str == null) {
-                return null;
-            }
-            char c = 65535;
-            int hashCode = str.hashCode();
-            if (hashCode != -1785599184) {
-                if (hashCode == -1352756132 && str.equals(PermissionProxy.SCOPE_ID_RECORD)) {
-                    c = 1;
-                }
-            } else if (str.equals(PermissionProxy.SCOPE_ID_CAMERA)) {
-                c = 0;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    return null;
-                }
-                return PermissionRequest.RESOURCE_AUDIO_CAPTURE;
-            }
-            return PermissionRequest.RESOURCE_VIDEO_CAPTURE;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.smallgame.sdk.permission.PermissionProxy
-    public void requestPermission(String str, PermissionListener permissionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, permissionListener) == null) {
-            if (a) {
-                Log.d("V8PermissionDelegate", "requestPermission : " + str);
-            }
-            if (permissionListener == null) {
-                if (a) {
-                    Log.e("V8PermissionDelegate", "PermissionListener can not be null.");
-                    return;
-                }
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            String c = c(str);
-            j43 M = j43.M();
-            if (!TextUtils.isEmpty(c) && M != null && M.w() != null) {
-                M.e0().g(M.w(), str, new a(this, str, c, permissionListener));
+        }
+        this.D = bVar;
+    }
+
+    @Override // com.baidu.tieba.wb2, com.baidu.tieba.rg4
+    public void C(qh4 qh4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, qh4Var) == null) {
+            super.C(qh4Var);
+            pk3 pk3Var = new pk3();
+            pk3Var.k(10L);
+            pk3Var.c(qh4Var);
+            J0(-1, pk3Var);
+        }
+    }
+
+    public final void I0(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            J0(i, null);
+        }
+    }
+
+    @Override // com.baidu.tieba.wb2
+    public void w0(Throwable th) {
+        pk3 pk3Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, th) == null) {
+            if (th instanceof PkgDownloadError) {
+                pk3Var = ((PkgDownloadError) th).getErrCode();
             } else {
-                permissionListener.onPermissionResult(str, 2);
+                pk3Var = new pk3();
+                pk3Var.k(10L);
+                pk3Var.i(0L);
             }
+            J0(-1, pk3Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.rg4
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.F();
+            I0(0);
+        }
+    }
+
+    @Override // com.baidu.tieba.wb2
+    public void v0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.v0();
+            pk3 F0 = F0();
+            if (F0 == null) {
+                I0(1);
+                A0("page_route_download", "0");
+                return;
+            }
+            J0(-1, F0);
+        }
+    }
+
+    public final void J0(int i, pk3 pk3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, pk3Var) == null) {
+            qm3.a0(new a(this, i, pk3Var));
         }
     }
 }

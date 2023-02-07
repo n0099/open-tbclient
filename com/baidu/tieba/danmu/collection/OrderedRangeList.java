@@ -274,23 +274,16 @@ public final class OrderedRangeList<T> {
                         this.$key = valueOf;
                     }
 
-                    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
-                    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-                    /* JADX WARN: Multi-variable type inference failed */
+                    /* JADX DEBUG: Method merged with bridge method */
+                    /* JADX WARN: Can't rename method to resolve collision */
                     @Override // kotlin.jvm.functions.Function1
-                    public /* bridge */ /* synthetic */ Integer invoke(Object obj) {
-                        return Integer.valueOf(invoke2(obj));
-                    }
-
-                    /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function1.invoke(Ljava/lang/Object;)Ljava/lang/Object; */
-                    /* renamed from: invoke  reason: avoid collision after fix types in other method */
-                    public final int invoke2(OrderedRangeList.a<T> aVar) {
+                    public final Integer invoke(OrderedRangeList.a<T> aVar) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, aVar)) == null) {
-                            return ComparisonsKt__ComparisonsKt.compareValues(Integer.valueOf(aVar.d()), this.$key);
+                            return Integer.valueOf(ComparisonsKt__ComparisonsKt.compareValues(Integer.valueOf(aVar.d()), this.$key));
                         }
-                        return invokeL.intValue;
+                        return (Integer) invokeL.objValue;
                     }
                 });
                 if (binarySearch < 0) {
@@ -580,23 +573,16 @@ public final class OrderedRangeList<T> {
                     this.$key = valueOf;
                 }
 
-                /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
-                /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-                /* JADX WARN: Multi-variable type inference failed */
+                /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // kotlin.jvm.functions.Function1
-                public /* bridge */ /* synthetic */ Integer invoke(Object obj) {
-                    return Integer.valueOf(invoke2(obj));
-                }
-
-                /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function1.invoke(Ljava/lang/Object;)Ljava/lang/Object; */
-                /* renamed from: invoke  reason: avoid collision after fix types in other method */
-                public final int invoke2(OrderedRangeList.a<T> aVar) {
+                public final Integer invoke(OrderedRangeList.a<T> aVar) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, aVar)) == null) {
-                        return ComparisonsKt__ComparisonsKt.compareValues(Integer.valueOf(aVar.d()), this.$key);
+                        return Integer.valueOf(ComparisonsKt__ComparisonsKt.compareValues(Integer.valueOf(aVar.d()), this.$key));
                     }
-                    return invokeL.intValue;
+                    return (Integer) invokeL.objValue;
                 }
             });
             if (binarySearch < 0) {

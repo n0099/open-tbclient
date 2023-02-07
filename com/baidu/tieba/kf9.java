@@ -1,188 +1,130 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.data.MultiMediaData;
+import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUtil;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class kf9 extends lf9<kg9> {
+public class kf9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RelativeLayout g;
-    public TbImageView h;
-    public View i;
-    public EMTextView j;
-    public ImageView k;
-    public b l;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void onClick();
-    }
-
-    @Override // com.baidu.tieba.qf9
-    public void a(@NonNull WriteData writeData) {
+    public static long[] a(int i, long j) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            if (i < 0) {
+                i = 0;
+            }
+            float[] fArr = new float[i];
+            if (i > 1) {
+                float f = 1.0f / i;
+                int i2 = 0;
+                while (i2 < i) {
+                    int i3 = i2 + 1;
+                    if (i3 == i) {
+                        int i4 = i2 - 1;
+                        fArr[i2] = fArr[i4] + ((1.0f - fArr[i4]) / 2.0f);
+                    } else {
+                        fArr[i2] = i3 * f;
+                    }
+                    i2 = i3;
+                }
+            } else if (i == 1) {
+                fArr[0] = 0.5f;
+            }
+            long[] jArr = new long[i];
+            for (int i5 = 0; i5 < i; i5++) {
+                jArr[i5] = fArr[i5] * ((float) j) * 1000.0f;
+            }
+            return jArr;
         }
+        return (long[]) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.qf9
-    public void c(WriteData writeData) {
+    public static nf9 b(pf9 pf9Var, ff9 ff9Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, writeData) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, pf9Var, ff9Var)) == null) {
+            if (pf9Var == null || ff9Var == null || pf9Var.e == null) {
+                return null;
+            }
+            long[] a = a(pf9Var.b, pf9Var.a);
+            MultiMediaData multiMediaData = pf9Var.e;
+            nf9 nf9Var = new nf9();
+            nf9Var.e = new ArrayList();
+            nf9Var.a = multiMediaData.path;
+            nf9Var.c = pf9Var.c;
+            nf9Var.d = pf9Var.d;
+            nf9Var.b = multiMediaData.rotation;
+            for (int i = 0; i < pf9Var.b; i++) {
+                long j = multiMediaData.start + a[i];
+                hf9 hf9Var = new hf9();
+                hf9Var.a = af9.b(multiMediaData.path, j, multiMediaData.type);
+                hf9Var.b = multiMediaData.path;
+                hf9Var.f = i;
+                hf9Var.g = multiMediaData.type;
+                hf9Var.h = pf9Var.c;
+                hf9Var.i = pf9Var.d;
+                hf9Var.j = ff9Var;
+                hf9Var.d = j;
+                hf9Var.c = multiMediaData.rotation;
+                nf9Var.e.add(hf9Var);
+            }
+            return nf9Var;
         }
+        return (nf9) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.qf9
-    public void e(@NonNull WriteData writeData) {
+    public static List<nf9> c(of9 of9Var, ff9 ff9Var) {
+        InterceptResult invokeLL;
+        List<hf9> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, writeData) == null) {
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kf9 a;
-
-        public a(kf9 kf9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kf9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, of9Var, ff9Var)) == null) {
+            MultiMediaData multiMediaData = null;
+            if (of9Var == null || ff9Var == null || of9Var.b <= 0 || hw9.e(of9Var.e) || hw9.e(of9Var.f)) {
+                return null;
+            }
+            long[] a = a(of9Var.b, of9Var.a);
+            ArrayList arrayList = new ArrayList();
+            nf9 nf9Var = null;
+            for (int i = 0; i < of9Var.b; i++) {
+                long j = ((float) a[i]) / 1000.0f;
+                int findInputIndexInSegments = MultiDataSourceUtil.findInputIndexInSegments(of9Var.e, j);
+                MultiMediaData multiMediaData2 = (MultiMediaData) hw9.c(of9Var.f, findInputIndexInSegments);
+                if (multiMediaData2 != null) {
+                    if (multiMediaData2 != multiMediaData) {
+                        nf9Var = new nf9();
+                        nf9Var.e = new ArrayList();
+                        nf9Var.a = multiMediaData2.path;
+                        nf9Var.c = of9Var.c;
+                        nf9Var.d = of9Var.d;
+                        nf9Var.b = multiMediaData2.rotation;
+                        arrayList.add(nf9Var);
+                    }
+                    long multiMediaDataSeekTime = MultiDataSourceUtil.getMultiMediaDataSeekTime(multiMediaData2, (MediaSegment) hw9.c(of9Var.e, findInputIndexInSegments), j) * 1000;
+                    hf9 hf9Var = new hf9();
+                    hf9Var.a = af9.b(multiMediaData2.path, multiMediaDataSeekTime, multiMediaData2.type);
+                    hf9Var.b = multiMediaData2.path;
+                    hf9Var.f = i;
+                    hf9Var.g = multiMediaData2.type;
+                    hf9Var.h = of9Var.c;
+                    hf9Var.i = of9Var.d;
+                    hf9Var.d = multiMediaDataSeekTime;
+                    hf9Var.j = ff9Var;
+                    hf9Var.c = multiMediaData2.rotation;
+                    if (nf9Var != null && (list = nf9Var.e) != null) {
+                        list.add(hf9Var);
+                    }
+                    multiMediaData = multiMediaData2;
                 }
             }
-            this.a = kf9Var;
+            return arrayList;
         }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.l != null) {
-                this.a.l.onClick();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kf9(@NonNull TbPageContext<?> tbPageContext) {
-        super(tbPageContext, kg9.class);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public void A(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.l = bVar;
-        }
-    }
-
-    public void B(int i) {
-        RelativeLayout relativeLayout;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (relativeLayout = this.g) != null) {
-            relativeLayout.setVisibility(i);
-        }
-    }
-
-    @Override // com.baidu.tieba.qf9
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            cx4 d = cx4.d(this.g);
-            d.n(R.string.J_X05);
-            d.l(R.dimen.L_X01);
-            d.k(R.color.CAM_X0112);
-            d.f(R.color.CAM_X0212);
-            cx4.d(this.i).f(R.color.CAM_X0203);
-            cx4 d2 = cx4.d(this.j);
-            d2.v(R.color.CAM_X0107);
-            d2.z(R.dimen.T_X08);
-            WebPManager.setPureDrawable(this.k, R.drawable.obfuscated_res_0x7f080a56, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS);
-            WebPManager.setMaskDrawable(this.h, R.drawable.obfuscated_res_0x7f080892, WebPManager.ResourceStateType.NORMAL);
-        }
-    }
-
-    @Override // com.baidu.tieba.qf9
-    public View s(@NonNull ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, viewGroup)) == null) {
-            this.g = new RelativeLayout(this.a.getPageActivity());
-            ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, zi.g(this.a.getPageActivity(), R.dimen.tbds117));
-            marginLayoutParams.setMargins(zi.g(this.a.getPageActivity(), R.dimen.M_W_X007), 0, zi.g(this.a.getPageActivity(), R.dimen.M_W_X007), zi.g(this.a.getPageActivity(), R.dimen.M_H_X004));
-            this.g.setLayoutParams(marginLayoutParams);
-            LinearLayout linearLayout = new LinearLayout(this.a.getPageActivity());
-            linearLayout.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
-            linearLayout.setOrientation(0);
-            linearLayout.setGravity(16);
-            this.h = new TbImageView(this.a.getPageActivity());
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(zi.g(this.a.getPageActivity(), R.dimen.tbds104), zi.g(this.a.getPageActivity(), R.dimen.tbds75));
-            layoutParams.setMargins(zi.g(this.a.getPageActivity(), R.dimen.tbds39), 0, 0, 0);
-            this.h.setLayoutParams(layoutParams);
-            linearLayout.addView(this.h);
-            this.i = new View(this.a.getPageActivity());
-            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(zi.g(this.a.getPageActivity(), R.dimen.L_X01), zi.g(this.a.getPageActivity(), R.dimen.tbds69));
-            layoutParams2.setMargins(zi.g(this.a.getPageActivity(), R.dimen.M_W_X004), 0, zi.g(this.a.getPageActivity(), R.dimen.M_W_X004), 0);
-            this.i.setLayoutParams(layoutParams2);
-            linearLayout.addView(this.i);
-            EMTextView eMTextView = new EMTextView(this.a.getPageActivity());
-            this.j = eMTextView;
-            eMTextView.setText(R.string.obfuscated_res_0x7f0f03cd);
-            LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams3.setMargins(0, 0, zi.g(this.a.getPageActivity(), R.dimen.tbds55), 0);
-            layoutParams3.weight = 1.0f;
-            this.j.setLayoutParams(layoutParams3);
-            linearLayout.addView(this.j);
-            ImageView imageView = new ImageView(this.a.getPageActivity());
-            this.k = imageView;
-            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            LinearLayout.LayoutParams layoutParams4 = new LinearLayout.LayoutParams(zi.g(this.a.getPageActivity(), R.dimen.tbds42), zi.g(this.a.getPageActivity(), R.dimen.tbds42));
-            layoutParams4.setMargins(0, 0, zi.g(this.a.getPageActivity(), R.dimen.M_W_X004), 0);
-            this.k.setLayoutParams(layoutParams4);
-            linearLayout.addView(this.k);
-            this.k.setOnClickListener(new a(this));
-            this.g.addView(linearLayout);
-            return this.g;
-        }
-        return (View) invokeL.objValue;
+        return (List) invokeLL.objValue;
     }
 }

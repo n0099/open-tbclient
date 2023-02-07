@@ -335,7 +335,7 @@ public class ListPopupWindow implements ShowableListMenu {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ListPopupWindow(@NonNull Context context) {
-        this(context, null, R.attr.obfuscated_res_0x7f04043d);
+        this(context, null, R.attr.obfuscated_res_0x7f04043e);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -356,7 +356,7 @@ public class ListPopupWindow implements ShowableListMenu {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ListPopupWindow(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f04043d);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f04043e);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

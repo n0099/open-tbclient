@@ -1,47 +1,83 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.BaseAdapter;
+import android.graphics.Bitmap;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.util.EmotionUtil;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import com.baidu.tbadk.imageManager.TbImageMemoryCache;
+import com.baidu.tieba.ac5;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class jj6 extends BaseAdapter {
+public class jj6 {
     public static /* synthetic */ Interceptable $ic;
+    public static jj6 c;
+    public static BdAsyncTaskParallel d;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public ArrayList<String> b;
+    public ArrayList<dc5> a;
+    public final List<ac5> b;
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
+    public class a extends BdAsyncTask<Void, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final ArrayList<dc5> a;
+        public final ac5.a b;
+        public final /* synthetic */ jj6 c;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? i : invokeI.longValue;
-    }
+        /* renamed from: com.baidu.tieba.jj6$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class C0323a implements ac5.a {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
 
-    /* loaded from: classes5.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TbImageView a;
+            public C0323a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
 
-        public b(jj6 jj6Var) {
+            @Override // com.baidu.tieba.ac5.a
+            public void a(dc5 dc5Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, dc5Var) == null) {
+                    this.a.a.add(dc5Var);
+                }
+            }
+        }
+
+        public a(jj6 jj6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,92 +89,400 @@ public class jj6 extends BaseAdapter {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.c = jj6Var;
+            this.a = new ArrayList<>();
+            this.b = new C0323a(this);
+            setPriority(4);
+            setParallel(jj6.d);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public void onPostExecute(Void r5) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, r5) == null) {
+                super.onPostExecute(r5);
+                this.c.a = this.a;
+                MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001117));
             }
         }
 
-        public /* synthetic */ b(jj6 jj6Var, a aVar) {
-            this(jj6Var);
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Void doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, voidArr)) == null) {
+                for (int i = 0; i < this.c.b.size(); i++) {
+                    ((ac5) this.c.b.get(i)).b(this.b);
+                }
+                return null;
+            }
+            return (Void) invokeL.objValue;
         }
     }
 
-    public jj6(Context context, ArrayList<String> arrayList) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947885267, "Lcom/baidu/tieba/jj6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947885267, "Lcom/baidu/tieba/jj6;");
+                return;
+            }
+        }
+        c = new jj6();
+        d = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b.isEmpty()) {
+            try {
+                Class.forName("com.baidu.tieba.faceshop.FaceshopStatic");
+            } catch (Throwable th) {
+                BdLog.e(th);
+            }
+            try {
+                Class.forName("com.baidu.tieba.emotion.editortool.EmotionIntefaceStatic");
+            } catch (Throwable th2) {
+                BdLog.e(th2);
+            }
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004602, new ArrayList()));
+        }
+    }
+
+    public jj6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, arrayList};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = context;
-        this.b = arrayList;
+        this.a = new ArrayList<>();
+        this.b = new ArrayList();
     }
 
-    public void a(ArrayList<String> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) {
-            this.b = arrayList;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            ArrayList<String> arrayList = this.b;
-            if (arrayList == null || arrayList.size() <= 0 || i < 0 || i >= this.b.size()) {
-                return null;
-            }
-            return this.b.get(i);
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public static jj6 k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<String> arrayList = this.b;
-            if (arrayList == null) {
-                return 0;
-            }
-            return arrayList.size();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return c;
         }
-        return invokeV.intValue;
+        return (jj6) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
+    public ArrayList<dc5> i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
-            int l = (zi.l(this.a) - zi.g(this.a, R.dimen.obfuscated_res_0x7f070279)) / 4;
-            if (view2 == null) {
-                b bVar = new b(this, null);
-                View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0286, (ViewGroup) null);
-                bVar.a = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090f20);
-                inflate.setTag(bVar);
-                inflate.setLayoutParams(new AbsListView.LayoutParams(l, l));
-                view2 = inflate;
-            }
-            b bVar2 = (b) view2.getTag();
-            String obj = getItem(i).toString();
-            SkinManager.setBackgroundResource(bVar2.a, R.drawable.btn_choose_face_selector);
-            bVar2.a.G(obj, 10, l, l, false);
-            if (i == getCount() - 1) {
-                viewGroup.invalidate();
-            }
-            return view2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            e();
+            return this.a;
         }
-        return (View) invokeILL.objValue;
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            new a(this).execute(new Void[0]);
+        }
+    }
+
+    public boolean l(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            e();
+            Iterator<dc5> it = this.a.iterator();
+            while (it.hasNext()) {
+                if (it.next().m(str)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean m(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            if (p(str)) {
+                return false;
+            }
+            return str.startsWith(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean p(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            if (!ne5.f.equals(str) && !"#(meme,diysetting)".equals(str)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean q(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            if (ne5.f.equals(str) || str.startsWith(ne5.g)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean r(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            if ("#(meme,diysetting)".equals(str) || str.startsWith("#(meme,diy_")) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void u(ac5 ac5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, ac5Var) == null) {
+            synchronized (this.b) {
+                if (!this.b.contains(ac5Var)) {
+                    this.b.add(ac5Var);
+                    Collections.sort(this.b);
+                }
+            }
+        }
+    }
+
+    public Bitmap t(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, str, str2)) == null) {
+            return FileHelper.getImage(".emotions/" + str, str2);
+        }
+        return (Bitmap) invokeLL.objValue;
+    }
+
+    public void d(String str, on onVar, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLZ(1048576, this, str, onVar, z) != null) || onVar == null) {
+            return;
+        }
+        if (z) {
+            TbImageMemoryCache.n().f(f(str, z), onVar);
+            return;
+        }
+        TbImageMemoryCache.n().f(str, onVar);
+    }
+
+    public String f(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z)) == null) {
+            if (ij6.e().g()) {
+                return str;
+            }
+            e();
+            if (!z) {
+                return str;
+            }
+            if (ij6.e().f(str)) {
+                return str;
+            }
+            return "#@" + str;
+        }
+        return (String) invokeLZ.objValue;
+    }
+
+    public String g(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, str, z)) == null) {
+            if (str == null) {
+                return null;
+            }
+            String str2 = "d_";
+            if (str.startsWith(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX)) {
+                if (p(str)) {
+                    return null;
+                }
+                String replace = str.replace(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX, "");
+                String substring = replace.substring(0, replace.indexOf(","));
+                if (substring.contains("collect_")) {
+                    if (substring.contains("_")) {
+                        substring = substring.substring(substring.lastIndexOf("_") + 1);
+                    }
+                    String str3 = mg5.b.c() + "/" + ne5.d() + "/" + substring;
+                    if (z) {
+                        return str3 + "_b.gif";
+                    }
+                    return str3 + "_s.jpg";
+                } else if (substring.contains("diy_")) {
+                    if (substring.contains("_")) {
+                        substring = substring.substring(substring.lastIndexOf("_") + 1);
+                    }
+                    String str4 = mg5.b.c() + "/" + ne5.c() + "/" + substring;
+                    if (z) {
+                        return str4 + "_b.gif";
+                    }
+                    return str4 + "_s.jpg";
+                } else {
+                    long hashCode = str.hashCode();
+                    if (hashCode < 0) {
+                        hashCode *= -1;
+                    }
+                    StringBuilder sb = new StringBuilder();
+                    if (!z) {
+                        str2 = "s_";
+                    }
+                    sb.append(str2);
+                    sb.append(hashCode);
+                    String sb2 = sb.toString();
+                    if (z) {
+                        return sb2 + ".gif";
+                    }
+                    return sb2 + ".jpg";
+                }
+            }
+            long hashCode2 = str.hashCode();
+            if (hashCode2 < 0) {
+                hashCode2 *= -1;
+            }
+            StringBuilder sb3 = new StringBuilder();
+            if (!z) {
+                str2 = "s_";
+            }
+            sb3.append(str2);
+            sb3.append(hashCode2);
+            return sb3.toString();
+        }
+        return (String) invokeLZ.objValue;
+    }
+
+    public String h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (str.startsWith(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX)) {
+                String replace = str.replace(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX, "");
+                String substring = replace.substring(0, replace.indexOf(","));
+                if (substring.contains("_")) {
+                    return substring.substring(0, substring.indexOf("_"));
+                }
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @NonNull
+    public String j(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            if (str.startsWith(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX)) {
+                String replace = str.replace(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX, "");
+                String substring = replace.substring(0, replace.indexOf(","));
+                if (substring.contains("_")) {
+                    return substring.substring(substring.lastIndexOf("_") + 1);
+                }
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public boolean n(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            if (str == null || !l(str)) {
+                return false;
+            }
+            e();
+            Iterator<dc5> it = this.a.iterator();
+            while (it.hasNext()) {
+                dc5 next = it.next();
+                if (next.m(str)) {
+                    if (next.h() != EmotionGroupType.LOCAL) {
+                        return false;
+                    }
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean o(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            if (!p(str) && str.startsWith(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX)) {
+                String replace = str.replace(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX, "");
+                String substring = replace.substring(0, replace.indexOf(","));
+                if (substring.contains("_") && !substring.contains("collect_") && !substring.contains("diy_")) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public on s(String str, String str2) {
+        InterceptResult invokeLL;
+        Bitmap t;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, str, str2)) == null) {
+            on t2 = TbImageMemoryCache.n().t(str2);
+            if (t2 != null) {
+                return t2;
+            }
+            e();
+            Iterator<dc5> it = this.a.iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                dc5 next = it.next();
+                if (next.m(str2)) {
+                    t2 = next.o(str2);
+                    break;
+                }
+            }
+            if (t2 == null && str != null && (t = t(str, g(str2, false))) != null) {
+                t2 = new on(t, false, str2);
+            }
+            d(str2, t2, false);
+            return t2;
+        }
+        return (on) invokeLL.objValue;
     }
 }

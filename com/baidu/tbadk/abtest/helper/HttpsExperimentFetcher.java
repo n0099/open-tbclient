@@ -5,10 +5,10 @@ import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.switchs.HttpsTestSwitch;
 import com.baidu.tbadk.switchs.Ipv6TestSwitch;
-import com.baidu.tieba.dg1;
-import com.baidu.tieba.fg;
-import com.baidu.tieba.v25;
-import com.baidu.tieba.wf;
+import com.baidu.tieba.bg;
+import com.baidu.tieba.i75;
+import com.baidu.tieba.kg;
+import com.baidu.tieba.ok1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class HttpsExperimentFetcher extends dg1<wf> {
+public class HttpsExperimentFetcher extends ok1<bg> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,7 +28,7 @@ public class HttpsExperimentFetcher extends dg1<wf> {
     }
 
     /* loaded from: classes3.dex */
-    public static final class HttpsExperimentImpl implements wf {
+    public static final class HttpsExperimentImpl implements bg {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -46,11 +46,11 @@ public class HttpsExperimentFetcher extends dg1<wf> {
             }
         }
 
-        public List<fg> getHttpsWhileList() {
+        public List<kg> getHttpsWhileList() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                v25 httpsWhileData = TbadkCoreApplication.getInst().getHttpsWhileData();
+                i75 httpsWhileData = TbadkCoreApplication.getInst().getHttpsWhileData();
                 if (httpsWhileData == null) {
                     return null;
                 }
@@ -63,7 +63,7 @@ public class HttpsExperimentFetcher extends dg1<wf> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                v25 httpsWhileData = TbadkCoreApplication.getInst().getHttpsWhileData();
+                i75 httpsWhileData = TbadkCoreApplication.getInst().getHttpsWhileData();
                 if (httpsWhileData == null) {
                     return false;
                 }
@@ -72,7 +72,7 @@ public class HttpsExperimentFetcher extends dg1<wf> {
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.wf
+        @Override // com.baidu.tieba.bg
         public boolean isIpv6() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -82,7 +82,7 @@ public class HttpsExperimentFetcher extends dg1<wf> {
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.wf
+        @Override // com.baidu.tieba.bg
         public boolean isSwitchOn() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -113,13 +113,13 @@ public class HttpsExperimentFetcher extends dg1<wf> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.dg1
-    public wf createService() throws ServiceNotFoundException {
+    @Override // com.baidu.tieba.ok1
+    public bg createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return new HttpsExperimentImpl(null);
         }
-        return (wf) invokeV.objValue;
+        return (bg) invokeV.objValue;
     }
 }

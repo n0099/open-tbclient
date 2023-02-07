@@ -19,9 +19,9 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bj;
-import com.baidu.tieba.yi;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.dj;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.gj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -116,7 +116,7 @@ public class MessageRedDotView extends View {
                 if (this.s && this.w) {
                     int intrinsicWidth = drawable.getIntrinsicWidth();
                     int intrinsicHeight = this.a.getIntrinsicHeight();
-                    int g = zi.g(getContext(), R.dimen.tbds4);
+                    int g = ej.g(getContext(), R.dimen.tbds4);
                     setMeasuredDimension(intrinsicWidth + g, intrinsicHeight + g);
                     return;
                 }
@@ -163,7 +163,7 @@ public class MessageRedDotView extends View {
 
     public final void a(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) && !yi.isEmpty(this.d) && this.a != null) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) && !dj.isEmpty(this.d) && this.a != null) {
             Paint paint = this.f;
             String str = this.d;
             paint.getTextBounds(str, 0, str.length(), this.g);
@@ -215,9 +215,9 @@ public class MessageRedDotView extends View {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            String g = bj.g();
+            String g = gj.g();
             if (g.contains("vivo") && g.contains("X20")) {
-                zi.g(getContext(), R.dimen.tbds2);
+                ej.g(getContext(), R.dimen.tbds2);
             }
         }
     }
@@ -240,30 +240,30 @@ public class MessageRedDotView extends View {
             this.f = paint;
             paint.setColor(SkinManager.getColor(R.color.CAM_X0101));
             if (!this.s && this.t) {
-                this.f.setTextSize(zi.g(getContext(), R.dimen.tbfontsize26));
+                this.f.setTextSize(ej.g(getContext(), R.dimen.tbfontsize26));
                 this.f.setTypeface(Typeface.MONOSPACE);
             } else {
-                this.f.setTextSize(zi.g(getContext(), R.dimen.tbfontsize28));
+                this.f.setTextSize(ej.g(getContext(), R.dimen.tbfontsize28));
                 this.f.setTypeface(Typeface.DEFAULT_BOLD);
             }
             this.f.setTextAlign(Paint.Align.CENTER);
             this.g = new Rect();
-            zi.g(getContext(), R.dimen.tbds13);
-            zi.g(getContext(), R.dimen.tbds42);
+            ej.g(getContext(), R.dimen.tbds13);
+            ej.g(getContext(), R.dimen.tbds42);
             Paint paint2 = new Paint();
             this.h = paint2;
             paint2.setAntiAlias(true);
             this.h.setStyle(Paint.Style.FILL);
             this.h.setColor(SkinManager.getColor(R.color.transparent));
             this.i = 0;
-            this.k = zi.g(getContext(), R.dimen.tbds8);
-            int g = zi.g(getContext(), R.dimen.tbds3);
+            this.k = ej.g(getContext(), R.dimen.tbds8);
+            int g = ej.g(getContext(), R.dimen.tbds3);
             this.j = g;
             this.h.setShadowLayer(this.k, this.i, g, SkinManager.getColor(R.color.cp_cont_h_alpha66));
             this.l = new RectF();
-            this.n = zi.g(getContext(), R.dimen.tbds21);
-            this.o = zi.g(getContext(), R.dimen.tbds8);
-            this.p = zi.g(getContext(), R.dimen.tbds6);
+            this.n = ej.g(getContext(), R.dimen.tbds21);
+            this.o = ej.g(getContext(), R.dimen.tbds8);
+            this.p = ej.g(getContext(), R.dimen.tbds6);
             Paint paint3 = new Paint();
             this.q = paint3;
             paint3.setAntiAlias(true);
@@ -346,7 +346,7 @@ public class MessageRedDotView extends View {
                 int intrinsicWidth = drawable.getIntrinsicWidth();
                 int intrinsicHeight = this.a.getIntrinsicHeight();
                 if (this.s) {
-                    this.a.setBounds(0, this.u, zi.g(getContext(), R.dimen.tbds4) + intrinsicWidth, zi.g(getContext(), R.dimen.tbds4) + intrinsicHeight + this.u);
+                    this.a.setBounds(0, this.u, ej.g(getContext(), R.dimen.tbds4) + intrinsicWidth, ej.g(getContext(), R.dimen.tbds4) + intrinsicHeight + this.u);
                 } else {
                     Drawable drawable2 = this.a;
                     int i = this.m;
@@ -366,7 +366,7 @@ public class MessageRedDotView extends View {
                         canvas.drawOval(this.l, this.h);
                     }
                 }
-                if (!yi.isEmpty(this.d)) {
+                if (!dj.isEmpty(this.d)) {
                     if (this.d.equals(StringHelper.STRING_MORE)) {
                         b(canvas);
                     } else {
@@ -422,7 +422,7 @@ public class MessageRedDotView extends View {
     public void setTextSize(@IdRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.f.setTextSize(zi.g(getContext(), i));
+            this.f.setTextSize(ej.g(getContext(), i));
         }
     }
 

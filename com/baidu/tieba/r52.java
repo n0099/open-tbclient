@@ -1,101 +1,93 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.launchtips.scene.SceneType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+import java.util.zip.CRC32;
 /* loaded from: classes6.dex */
-public class r52 extends k52<JSONObject, jw1> {
+public class r52 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final long a;
+    public final long b;
+    public final String c;
+    public final Map<String, String> d;
 
-    /* loaded from: classes6.dex */
-    public static class a implements l52 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.l52
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                i52 i52Var = new i52();
-                i52Var.g(this.a);
-                i52Var.f(SceneType.SCENE_SKELETON_DEV_TIMEOUT);
-            }
-        }
-
-        public static l52 b(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-                a aVar = new a();
-                aVar.a = str;
-                return aVar;
-            }
-            return (l52) invokeL.objValue;
-        }
-    }
-
-    public r52() {
+    public r52(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.d = new HashMap();
+        this.b = TimeUnit.MILLISECONDS.toSeconds(j);
+        this.a = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - j);
+        this.c = Long.toHexString(a(this.a + "#" + this.b));
+        this.d.put("timestamp", Long.toString(this.a));
+        this.d.put("delta", Long.toString(this.b));
+        this.d.put("rasign", this.c);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.o52
-    @NonNull
-    /* renamed from: c */
-    public jw1 a(@NonNull JSONObject jSONObject) {
+    public static r52 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new r52(0L);
+        }
+        return (r52) invokeV.objValue;
+    }
+
+    public final long a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return new jw1(202);
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject("data");
-            if (optJSONObject == null) {
-                return new jw1(202, "data is required");
-            }
-            String optString = optJSONObject.optString("path");
-            if (TextUtils.isEmpty(optString)) {
-                return new jw1(202, "path is required");
-            }
-            y42 b = y42.b();
-            if (!b.d()) {
-                b.g(a.b(optString));
-            }
-            return new jw1(0);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            CRC32 crc32 = new CRC32();
+            crc32.reset();
+            crc32.update(str.getBytes());
+            return crc32.getValue();
         }
-        return (jw1) invokeL.objValue;
+        return invokeL.longValue;
+    }
+
+    public String c(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            return Long.toHexString(a(j + "#smartapp_formid"));
+        }
+        return (String) invokeJ.objValue;
+    }
+
+    public String d(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+            return Long.toHexString(a(j + "#payid"));
+        }
+        return (String) invokeJ.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return super.toString() + " serverTime:" + this.a + " delta:" + this.b + " rasign:" + this.c;
+        }
+        return (String) invokeV.objValue;
     }
 }

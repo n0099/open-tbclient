@@ -1,68 +1,49 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import kotlin.jvm.JvmField;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class wa4<T> {
+public final class wa4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<T> a;
-    public final int b;
+    @V8JavascriptField
+    @JvmField
+    public final String address;
+    @V8JavascriptField
+    @JvmField
+    public final String family;
+    @V8JavascriptField
+    @JvmField
+    public final int port;
+    @V8JavascriptField
+    @JvmField
+    public final int size;
 
-    public wa4(int i) {
+    public wa4(String address, int i, int i2, String family) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {address, Integer.valueOf(i), Integer.valueOf(i2), family};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList<>();
-        this.b = i;
-    }
-
-    public synchronized void b(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            synchronized (this) {
-                if (t != null) {
-                    if (this.a.size() >= this.b) {
-                        this.a.remove(this.a.size() - 1);
-                    }
-                    this.a.add(t);
-                }
-            }
-        }
-    }
-
-    public synchronized T a() {
-        InterceptResult invokeV;
-        T remove;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                do {
-                    if (this.a.size() > 0) {
-                        remove = this.a.remove(this.a.size() - 1);
-                    } else {
-                        return null;
-                    }
-                } while (remove == null);
-                return remove;
-            }
-        }
-        return (T) invokeV.objValue;
+        Intrinsics.checkNotNullParameter(address, "address");
+        Intrinsics.checkNotNullParameter(family, "family");
+        this.address = address;
+        this.size = i;
+        this.port = i2;
+        this.family = family;
     }
 }

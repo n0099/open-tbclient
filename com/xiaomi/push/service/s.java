@@ -55,7 +55,7 @@ public class s extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public String mo673a() {
+    public String mo675a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Send tiny data." : (String) invokeV.objValue;
@@ -63,7 +63,7 @@ public class s extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public void mo394a() {
+    public void mo396a() {
         String a;
         XMPushService xMPushService;
         Interceptable interceptable = $ic;
@@ -80,12 +80,12 @@ public class s extends XMPushService.j {
                 next.a("uploadWay", "longXMPushService");
                 Cif a3 = ah.a(this.f1026a, a, next, hj.i);
                 if (!TextUtils.isEmpty(this.b) && !TextUtils.equals(this.f1026a, this.b)) {
-                    if (a3.m538a() == null) {
+                    if (a3.m540a() == null) {
                         hw hwVar = new hw();
                         hwVar.a("-1");
                         a3.a(hwVar);
                     }
-                    a3.m538a().b("ext_traffic_source_pkg", this.b);
+                    a3.m540a().b("ext_traffic_source_pkg", this.b);
                 }
                 byte[] a4 = it.a(a3);
                 xMPushService = this.a.a;

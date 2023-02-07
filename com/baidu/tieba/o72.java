@@ -1,243 +1,228 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.constants.ErrorConstant;
-import com.baidu.swan.apps.core.pms.PMSDownloadType;
-import com.baidu.tieba.f72;
-import com.baidu.tieba.fn2;
-import com.baidu.tieba.n72;
+import com.baidu.searchbox.v8engine.V8EngineConfiguration;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.Set;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public abstract class o72<T extends n72> extends xb4<kd4> {
+public final class o72 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final T a;
 
-    public abstract void r(@NonNull kd4 kd4Var);
-
-    public abstract void u(kd4 kd4Var, cg3 cg3Var);
+    public static int b(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (z && z2) {
+                return 3;
+            }
+            if (z) {
+                return 1;
+            }
+            return z2 ? 2 : 0;
+        }
+        return invokeCommon.intValue;
+    }
 
     /* loaded from: classes5.dex */
-    public class a implements f72.c {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kd4 a;
-        public final /* synthetic */ o72 b;
+        public int a;
+        public int b;
+        public long c;
 
-        public a(o72 o72Var, kd4 kd4Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o72Var, kd4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
-            }
-            this.b = o72Var;
-            this.a = kd4Var;
-        }
-
-        @Override // com.baidu.tieba.f72.c
-        public void a(PMSDownloadType pMSDownloadType) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, pMSDownloadType) == null) {
-                this.b.r(this.a);
-            }
-        }
-
-        @Override // com.baidu.tieba.f72.c
-        public void b(PMSDownloadType pMSDownloadType, cg3 cg3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSDownloadType, cg3Var) == null) {
-                this.b.u(this.a, cg3Var);
             }
         }
     }
 
-    public o72(@NonNull T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {t};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final boolean a;
+        public static int b;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static long e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+                return 31457280L;
+            }
+            return invokeV.longValue;
+        }
+
+        public static int f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+                return 20;
+            }
+            return invokeV.intValue;
+        }
+
+        public static int g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+                return 102400;
+            }
+            return invokeV.intValue;
+        }
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-592091455, "Lcom/baidu/tieba/o72$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-592091455, "Lcom/baidu/tieba/o72$b;");
+                    return;
+                }
+            }
+            a = gp1.a;
+            b = -1;
+        }
+
+        public static boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                if ((h() & 255) == 1) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public static int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+                int h = h();
+                if (h == 0) {
+                    return h;
+                }
+                return (h >> 16) & 255;
+            }
+            return invokeV.intValue;
+        }
+
+        public static int c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                int h = h();
+                if (h == 0) {
+                    return h;
+                }
+                return (h >> 8) & 255;
+            }
+            return invokeV.intValue;
+        }
+
+        public static int h() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+                if (b == -1) {
+                    ds2.g0().getSwitch("swan_custom_code_cache", 0);
+                    b = 0;
+                }
+                return b;
+            }
+            return invokeV.intValue;
+        }
+
+        public static a d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                a aVar = new a();
+                aVar.a = f();
+                aVar.b = g();
+                aVar.c = e();
+                if (a) {
+                    Log.d("CodeCacheSwitcher", "getCodeCacheConfig() maxCount: " + aVar.a + " ,sizeLimit: " + aVar.b + " ,diskSizeThreshold: " + aVar.c);
+                }
+                return aVar;
+            }
+            return (a) invokeV.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947985087, "Lcom/baidu/tieba/o72;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947985087, "Lcom/baidu/tieba/o72;");
                 return;
             }
         }
-        this.a = t;
+        a = gp1.a;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ac4
-    /* renamed from: l */
-    public String d(kd4 kd4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, kd4Var)) == null) {
-            return fn2.e.h().getAbsolutePath();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final void q(@NonNull kd4 kd4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, kd4Var) == null) {
-            r(kd4Var);
-            f72.c().b(kd4Var, o());
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xb4, com.baidu.tieba.ac4
-    /* renamed from: v */
-    public void c(kd4 kd4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, kd4Var) == null) {
-            super.c(kd4Var);
-            if (kd4Var != null) {
-                b03.b("plugin download start: bundleId = " + kd4Var.g);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xb4, com.baidu.tieba.ac4
-    /* renamed from: w */
-    public void f(kd4 kd4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, kd4Var) == null) {
-            super.f(kd4Var);
-            if (kd4Var != null) {
-                b03.b("plugin on downloading: bundleId = " + kd4Var.g);
-            }
-            x(kd4Var);
-        }
-    }
-
-    public final void x(kd4 kd4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, kd4Var) == null) {
-            f72.c().d(kd4Var, new a(this, kd4Var));
-        }
-    }
-
-    @Override // com.baidu.tieba.cc4
     @NonNull
-    public Bundle m(@NonNull Bundle bundle, Set<String> set) {
+    public static V8EngineConfiguration.CodeCacheSetting a(String str, @NonNull String str2) {
         InterceptResult invokeLL;
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, bundle, set)) == null) {
-            return this.a.m(bundle, set);
-        }
-        return (Bundle) invokeLL.objValue;
-    }
-
-    public final void p(kd4 kd4Var, cg3 cg3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, kd4Var, cg3Var) == null) {
-            u(kd4Var, cg3Var);
-            f72.c().a(kd4Var, o(), cg3Var);
-        }
-    }
-
-    public PMSDownloadType o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return PMSDownloadType.PLUGIN;
-        }
-        return (PMSDownloadType) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xb4, com.baidu.tieba.ac4
-    /* renamed from: s */
-    public void e(kd4 kd4Var, dd4 dd4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, kd4Var, dd4Var) == null) {
-            super.e(kd4Var, dd4Var);
-            b03.b("plugin download error: " + dd4Var);
-            cg3 cg3Var = new cg3();
-            cg3Var.k(17L);
-            cg3Var.i((long) dd4Var.a);
-            cg3Var.d(dd4Var.b);
-            cg3Var.f(dd4Var.toString());
-            p(kd4Var, cg3Var);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xb4, com.baidu.tieba.ac4
-    /* renamed from: t */
-    public void i(kd4 kd4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, kd4Var) == null) {
-            super.i(kd4Var);
-            if (kd4Var == null) {
-                b03.b("download finish, plugin is null");
-                cg3 cg3Var = new cg3();
-                cg3Var.k(17L);
-                cg3Var.i(2201L);
-                cg3Var.d(ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_NETWORK);
-                p(null, cg3Var);
-            } else if (!wh3.a(new File(kd4Var.a), kd4Var.m)) {
-                nk4.M(kd4Var.a);
-                b03.b("download finish, check zip sign failure");
-                cg3 cg3Var2 = new cg3();
-                cg3Var2.k(17L);
-                cg3Var2.i(2202L);
-                cg3Var2.d(ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_MD5);
-                p(kd4Var, cg3Var2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            V8EngineConfiguration.CodeCacheSetting codeCacheSetting = new V8EngineConfiguration.CodeCacheSetting();
+            codeCacheSetting.id = str;
+            ArrayList<String> arrayList = new ArrayList<>();
+            codeCacheSetting.pathList = arrayList;
+            arrayList.add(str2);
+            if (str.hashCode() == 93029162 && str.equals("appjs")) {
+                c = 0;
             } else {
-                File t = fn2.t(kd4Var.g, String.valueOf(kd4Var.i));
-                nk4.l(t);
-                if (t != null && t.exists()) {
-                    boolean U = nk4.U(kd4Var.a, t.getAbsolutePath());
-                    nk4.M(kd4Var.a);
-                    b03.b("download finish, unZipSuccess = " + U);
-                    if (!U) {
-                        cg3 cg3Var3 = new cg3();
-                        cg3Var3.k(17L);
-                        cg3Var3.i(2320L);
-                        cg3Var3.d("plugin unzip fail.");
-                        p(kd4Var, cg3Var3);
-                        return;
-                    }
-                    kd4Var.c = kd4Var.b();
-                    kd4Var.d = kd4Var.b();
-                    gc4.i().m(kd4Var);
-                    q(kd4Var);
-                    return;
-                }
-                nk4.M(kd4Var.a);
-                b03.b("download finish, create file failure, name = " + kd4Var.g + " ; version = " + kd4Var.i);
-                cg3 cg3Var4 = new cg3();
-                cg3Var4.k(17L);
-                cg3Var4.i(2203L);
-                cg3Var4.d(ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_PATH);
-                p(kd4Var, cg3Var4);
+                c = 65535;
             }
+            if (c != 0) {
+                codeCacheSetting.maxCount = 20;
+                codeCacheSetting.sizeLimit = 102400;
+            } else {
+                a d = b.d();
+                codeCacheSetting.maxCount = d.a;
+                codeCacheSetting.sizeLimit = d.b;
+                codeCacheSetting.diskCodeCacheSizeThreshold = d.c;
+            }
+            if (a) {
+                Log.d("V8CodeCacheHelper", "buildCacheSetting cacheType: " + str);
+                Log.d("V8CodeCacheHelper", "buildCacheSetting maxCount: " + codeCacheSetting.maxCount);
+                Log.d("V8CodeCacheHelper", "buildCacheSetting sizeLimit: " + codeCacheSetting.sizeLimit);
+            }
+            return codeCacheSetting;
         }
+        return (V8EngineConfiguration.CodeCacheSetting) invokeLL.objValue;
     }
 }

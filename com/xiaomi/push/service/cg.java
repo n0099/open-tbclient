@@ -134,7 +134,7 @@ public class cg implements XMPushService.n {
 
     @Override // com.xiaomi.push.service.XMPushService.n
     /* renamed from: a */
-    public void mo467a() {
+    public void mo469a() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || f993a.size() <= 0) {
             return;

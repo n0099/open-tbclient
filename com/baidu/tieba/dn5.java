@@ -1,100 +1,58 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.template.state.ViewType;
+import com.baidu.tieba.gn5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class dn5 implements qg<ym5> {
+public class dn5 extends cn5<zm5, gn5.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public TbPageContext<?> e;
 
-    public ym5 e(ym5 ym5Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, ym5Var)) == null) ? ym5Var : (ym5) invokeL.objValue;
-    }
-
-    public ym5 i(ym5 ym5Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ym5Var)) == null) ? ym5Var : (ym5) invokeL.objValue;
-    }
-
-    public dn5(int i) {
+    public dn5(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.qg
-    public /* bridge */ /* synthetic */ ym5 a(ym5 ym5Var) {
-        ym5 ym5Var2 = ym5Var;
-        e(ym5Var2);
-        return ym5Var2;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.qg
-    public /* bridge */ /* synthetic */ ym5 c(ym5 ym5Var) {
-        ym5 ym5Var2 = ym5Var;
-        i(ym5Var2);
-        return ym5Var2;
+        this.e = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qg
-    /* renamed from: f */
-    public void b(ym5 ym5Var) {
+    @Override // com.baidu.tieba.cn5
+    /* renamed from: g */
+    public void d(ViewType viewType, zm5 zm5Var, gn5.a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, ym5Var) == null) && ym5Var != null && ym5Var.b() != null) {
-            ym5Var.b().recycle();
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewType, zm5Var, aVar) == null) {
+            zm5Var.b(aVar);
         }
-    }
-
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qg
+    @Override // com.baidu.tieba.cn5
     /* renamed from: h */
-    public ym5 d() {
-        InterceptResult invokeV;
+    public zm5 f(ViewType viewType, ViewGroup viewGroup) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return new ym5(this.a);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, viewType, viewGroup)) == null) {
+            return new zm5(this.e.getPageActivity());
         }
-        return (ym5) invokeV.objValue;
+        return (zm5) invokeLL.objValue;
     }
 }

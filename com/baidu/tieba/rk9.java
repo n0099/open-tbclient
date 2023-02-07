@@ -1,39 +1,5 @@
 package com.baidu.tieba;
-
-import java.util.List;
 /* loaded from: classes6.dex */
 public interface rk9 {
-    boolean a();
-
-    int b();
-
-    boolean c(String str);
-
-    boolean d();
-
-    int e();
-
-    int f();
-
-    boolean g();
-
-    String h();
-
-    List<String> i();
-
-    boolean isPeakTime();
-
-    boolean j();
-
-    boolean k();
-
-    boolean l();
-
-    boolean m();
-
-    boolean n();
-
-    boolean o();
-
-    boolean p();
+    boolean a(int i);
 }

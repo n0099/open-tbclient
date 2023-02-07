@@ -13,7 +13,7 @@ public class hi {
     public static boolean a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) ? !com.xiaomi.push.service.ca.f988a.isEmpty() && bj.e(context) && j.m611b(context) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) ? !com.xiaomi.push.service.ca.f988a.isEmpty() && bj.e(context) && j.m613b(context) : invokeL.booleanValue;
     }
 
     public static boolean a(Context context, int i) {
@@ -21,10 +21,10 @@ public class hi {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
             if (context != null && i > 0) {
-                String m755a = com.xiaomi.push.service.u.m755a(context);
-                if (!TextUtils.isEmpty(m755a)) {
+                String m757a = com.xiaomi.push.service.u.m757a(context);
+                if (!TextUtils.isEmpty(m757a)) {
                     for (int i2 = 1; i2 <= i; i2++) {
-                        if (g.a(10) == w.a(m755a.substring(m755a.length() - 1, m755a.length()), -1)) {
+                        if (g.a(10) == w.a(m757a.substring(m757a.length() - 1, m757a.length()), -1)) {
                             return true;
                         }
                     }

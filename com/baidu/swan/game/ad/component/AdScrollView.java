@@ -90,7 +90,7 @@ public class AdScrollView extends ScrollView {
             if (2 == getContext().getResources().getConfiguration().orientation) {
                 i = getContext().getResources().getDisplayMetrics().widthPixels;
             }
-            return ((i - (getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070651) * 2)) - getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070653)) - getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07064f);
+            return ((i - (getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070661) * 2)) - getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070663)) - getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07065f);
         }
         return invokeV.intValue;
     }

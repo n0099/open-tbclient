@@ -11,11 +11,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 /* loaded from: classes6.dex */
-public final class qq extends uq {
+public final class qq extends zq {
     public static /* synthetic */ Interceptable $ic;
-    public static final a e;
+    public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
     public final String d;
+    public final String e;
 
     static {
         InterceptResult invokeClinit;
@@ -30,14 +31,23 @@ public final class qq extends uq {
                 return;
             }
         }
-        e = new a(null);
+        f = new a(null);
     }
 
-    @Override // com.baidu.tieba.ir
+    @Override // com.baidu.tieba.nr
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "CleanTaskNoClickTimesAction" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TaskUnRegisterAction" : (String) invokeV.objValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 4;
+        }
+        return invokeV.intValue;
     }
 
     /* loaded from: classes6.dex */
@@ -63,28 +73,28 @@ public final class qq extends uq {
             this();
         }
 
-        public final qq a(TaskInfo taskInfo, int i) {
-            InterceptResult invokeLI;
+        public final qq a(TaskInfo taskInfo, String str) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, taskInfo, i)) == null) {
-                return new qq(taskInfo, null, i, null, null, 26, null);
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, taskInfo, str)) == null) {
+                return new qq(taskInfo, null, str, null, null, 26, null);
             }
-            return (qq) invokeLI.objValue;
+            return (qq) invokeLL.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qq(TaskInfo taskInfo, String str, int i, Integer num, String str2) {
-        super(str, num, str2);
+    public qq(TaskInfo taskInfo, String str, String str2, Integer num, String str3) {
+        super(str, num, str3);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {taskInfo, str, Integer.valueOf(i), num, str2};
+            Object[] objArr = {taskInfo, str, str2, num, str3};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((String) objArr2[0], (Integer) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -93,41 +103,46 @@ public final class qq extends uq {
             }
         }
         this.d = str;
+        this.e = str2;
     }
 
     /* JADX WARN: Illegal instructions before constructor call */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public /* synthetic */ qq(TaskInfo taskInfo, String str, int i, Integer num, String str2, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+    public /* synthetic */ qq(TaskInfo taskInfo, String str, String str2, Integer num, String str3, int i, DefaultConstructorMarker defaultConstructorMarker) {
         this(taskInfo, r2, r3, r4, r5);
-        int i3;
         Integer num2;
-        String str3;
-        String singleKey = (i2 & 2) != 0 ? taskInfo.getSingleKey() : str;
-        if ((i2 & 4) != 0) {
-            i3 = 8;
-        } else {
-            i3 = i;
-        }
-        if ((i2 & 8) != 0) {
+        String str4;
+        String singleKey = (i & 2) != 0 ? taskInfo.getSingleKey() : str;
+        String str5 = (i & 4) != 0 ? "common unregister" : str2;
+        if ((i & 8) != 0) {
             num2 = null;
         } else {
             num2 = num;
         }
-        if ((i2 & 16) != 0) {
-            str3 = null;
+        if ((i & 16) != 0) {
+            str4 = null;
         } else {
-            str3 = str2;
+            str4 = str3;
         }
     }
 
-    @Override // com.baidu.tieba.uq
+    @Override // com.baidu.tieba.zq
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
         }
         return (String) invokeV.objValue;
     }

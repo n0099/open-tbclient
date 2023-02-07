@@ -51,7 +51,9 @@ public class GsonTool implements ICommandStatistics<ActionData> {
     public JSONArray mArrayInfo;
     public int mCommandFrom;
     public CommandListenerRegistry mCommandListenerRegistry;
+    public JSONArray mDispatcherTimeArray;
     public String mErrorCode;
+    public JSONArray mRawDyeInfo;
     public String mReceiveTimeStamp;
     public int mSuccessCount;
     public String mTimeStamp;
@@ -115,6 +117,38 @@ public class GsonTool implements ICommandStatistics<ActionData> {
         }
     }
 
+    public JSONObject getDispatcherTimeReportInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.putOpt("count", Integer.valueOf(this.mSuccessCount));
+                jSONObject.putOpt("business", this.mDispatcherTimeArray);
+                return jSONObject;
+            } catch (Exception unused) {
+                return null;
+            }
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public JSONArray getRawDyeInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mRawDyeInfo;
+        }
+        return (JSONArray) invokeV.objValue;
+    }
+
+    public void prepareDispatcherTimeArray() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.mDispatcherTimeArray = new JSONArray();
+        }
+    }
+
     public GsonTool(CommandListenerRegistry commandListenerRegistry) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -131,6 +165,7 @@ public class GsonTool implements ICommandStatistics<ActionData> {
             }
         }
         this.mArrayInfo = new JSONArray();
+        this.mRawDyeInfo = new JSONArray();
         if (commandListenerRegistry == null) {
             this.mCommandListenerRegistry = new CommandListenerRegistry();
         } else {
@@ -138,10 +173,73 @@ public class GsonTool implements ICommandStatistics<ActionData> {
         }
     }
 
+    private void collectInfo(String str, ActionData actionData, boolean z, long j) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{str, actionData, Boolean.valueOf(z), Long.valueOf(j)}) == null) && !TextUtils.isEmpty(str)) {
+            collectInfo(str, actionData, z);
+            collectRawDyeInfo(str, actionData);
+            if (this.mDispatcherTimeArray == null) {
+                return;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.putOpt("item", str);
+                if (z) {
+                    str2 = "1";
+                } else {
+                    str2 = "0";
+                }
+                jSONObject.putOpt("state", str2);
+                jSONObject.putOpt(UpdateConstants.UBC_SPEND_KEY, Long.valueOf(j));
+                this.mDispatcherTimeArray.put(jSONObject);
+            } catch (Exception unused) {
+            }
+        }
+    }
+
+    private void collectRawDyeInfo(String str, ActionData actionData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65539, this, str, actionData) == null) && !TextUtils.isEmpty(str) && actionData != null) {
+            try {
+                if (!TextUtils.isEmpty(actionData.traceId)) {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("product", str);
+                    jSONObject.put(UpdateConstants.TRACE_ID, actionData.traceId);
+                    this.mRawDyeInfo.put(jSONObject);
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void skipErrorAction(JsonReader jsonReader, String str) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65546, this, jsonReader, str) == null) {
+            if (jsonReader.getPath().equals(str)) {
+                jsonReader.skipValue();
+                return;
+            }
+            do {
+                int i = AnonymousClass1.$SwitchMap$com$google$gson$stream$JsonToken[jsonReader.peek().ordinal()];
+                if (i != 1) {
+                    if (i != 2) {
+                        jsonReader.skipValue();
+                    } else {
+                        jsonReader.endArray();
+                    }
+                } else {
+                    jsonReader.endObject();
+                }
+            } while (!jsonReader.getPath().equals(str));
+        }
+    }
+
     private long convertStringToLong(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, str2)) == null) {
             long j = 0;
             if (TextUtils.isEmpty(str2)) {
                 return 0L;
@@ -164,7 +262,7 @@ public class GsonTool implements ICommandStatistics<ActionData> {
     private boolean dispatchCheck(Context context, String str, String str2, AbstractCommandListener abstractCommandListener, ActionData actionData, JSONObject jSONObject) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{context, str, str2, abstractCommandListener, actionData, jSONObject})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, this, new Object[]{context, str, str2, abstractCommandListener, actionData, jSONObject})) == null) {
             if (!isNeedVersionVerify(jSONObject) || convertStringToLong(str2, actionData.version) > convertStringToLong(str2, abstractCommandListener.getLocalVersion(context, str, str2))) {
                 return true;
             }
@@ -176,7 +274,7 @@ public class GsonTool implements ICommandStatistics<ActionData> {
     private boolean isNeedVersionVerify(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, jSONObject)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, jSONObject)) == null) {
             if (jSONObject != null && TextUtils.equals(jSONObject.optString("version_asc"), "1")) {
                 return true;
             }
@@ -187,7 +285,7 @@ public class GsonTool implements ICommandStatistics<ActionData> {
 
     public static void setDeltaTimeAndPostEvent(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
             long delta = DateTimeUtil.getDelta();
             DateTimeUtil.setDeltaTime(str);
             if (delta != DateTimeUtil.getDelta()) {
@@ -200,16 +298,18 @@ public class GsonTool implements ICommandStatistics<ActionData> {
     private boolean readAction(JsonReader jsonReader, ActionData actionData, TypeAdapter typeAdapter) throws IOException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, this, jsonReader, actionData, typeAdapter)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, this, jsonReader, actionData, typeAdapter)) == null) {
             String path = jsonReader.getPath();
             try {
                 jsonReader.beginObject();
                 while (jsonReader.hasNext()) {
                     String nextName = jsonReader.nextName();
-                    if (nextName.equals("data")) {
+                    if ("data".equals(nextName)) {
                         actionData.data = typeAdapter.read(jsonReader);
-                    } else if (nextName.equals("version")) {
+                    } else if ("version".equals(nextName)) {
                         actionData.version = jsonReader.nextString();
+                    } else if (UpdateConstants.TRACE_ID.equals(nextName)) {
+                        actionData.traceId = jsonReader.nextString();
                     } else {
                         jsonReader.skipValue();
                     }
@@ -258,8 +358,10 @@ public class GsonTool implements ICommandStatistics<ActionData> {
 
     private void readData(JsonReader jsonReader, JSONObject jSONObject) throws IOException {
         boolean z;
+        long j;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, this, jsonReader, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeLL(65544, this, jsonReader, jSONObject) == null) {
             jsonReader.beginObject();
             Gson gson = new Gson();
             while (jsonReader.hasNext()) {
@@ -267,13 +369,12 @@ public class GsonTool implements ICommandStatistics<ActionData> {
                 jsonReader.beginObject();
                 while (jsonReader.hasNext()) {
                     String nextName2 = jsonReader.nextName();
-                    boolean z2 = true;
                     this.mTotalCount++;
                     if (DEBUG) {
                         Log.d(TAG, "read action " + nextName + " " + nextName2);
                     }
                     AbstractCommandListener commandListener = this.mCommandListenerRegistry.getCommandListener(nextName, nextName2);
-                    if (commandListener == null) {
+                    if (commandListener == null && (commandListener = DynamicCommandRegistry.getInstance().getDynamicCommandListener(nextName, nextName2)) == null) {
                         commandListener = new NoneCommandListener();
                         z = false;
                     } else {
@@ -285,7 +386,7 @@ public class GsonTool implements ICommandStatistics<ActionData> {
                             typeAdapter = gson.getAdapter(TypeToken.get(commandListener.getDataType()));
                         } catch (Exception e) {
                             e.printStackTrace();
-                            collectInfo(nextName + "/" + nextName2, (ActionData) null, false);
+                            collectInfo(nextName + "/" + nextName2, null, false, 0L);
                         }
                     }
                     ActionData createDataObject = commandListener.createDataObject();
@@ -296,20 +397,27 @@ public class GsonTool implements ICommandStatistics<ActionData> {
                                 if (DEBUG) {
                                     Log.d(TAG, "data from imsdk is not newest");
                                 }
-                                collectInfo(nextName + "/" + nextName2, createDataObject, false);
+                                collectInfo(nextName + "/" + nextName2, createDataObject, false, 0L);
                                 this.mVersionFilterCount = this.mVersionFilterCount + 1;
                             } else {
+                                long currentTimeMillis = System.currentTimeMillis();
                                 commandListener.executeCommand(AppRuntime.getAppContext(), nextName, nextName2, createDataObject);
+                                j = System.currentTimeMillis() - currentTimeMillis;
                             }
                         }
-                    } else if (DEBUG) {
-                        Log.d(TAG, "read action " + nextName + " " + nextName2 + " fail");
+                    } else {
+                        if (DEBUG) {
+                            Log.d(TAG, "read action " + nextName + " " + nextName2 + " fail");
+                        }
+                        j = 0;
                     }
                     String str = nextName + "/" + nextName2;
-                    if (!z || !readAction) {
+                    if (z && readAction) {
+                        z2 = true;
+                    } else {
                         z2 = false;
                     }
-                    collectInfo(str, createDataObject, z2);
+                    collectInfo(str, createDataObject, z2, j);
                 }
                 jsonReader.endObject();
             }
@@ -317,38 +425,16 @@ public class GsonTool implements ICommandStatistics<ActionData> {
         }
     }
 
-    private void skipErrorAction(JsonReader jsonReader, String str) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, this, jsonReader, str) == null) {
-            if (jsonReader.getPath().equals(str)) {
-                jsonReader.skipValue();
-                return;
-            }
-            do {
-                int i = AnonymousClass1.$SwitchMap$com$google$gson$stream$JsonToken[jsonReader.peek().ordinal()];
-                if (i != 1) {
-                    if (i != 2) {
-                        jsonReader.skipValue();
-                    } else {
-                        jsonReader.endArray();
-                    }
-                } else {
-                    jsonReader.endObject();
-                }
-            } while (!jsonReader.getPath().equals(str));
-        }
-    }
-
     public void read(InputStream inputStream, int i, JSONObject jSONObject) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, inputStream, i, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048583, this, inputStream, i, jSONObject) == null) {
             read(new InputStreamReader(inputStream), i, jSONObject);
         }
     }
 
     public void readData(JsonReader jsonReader, JSONObject jSONObject, int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048582, this, jsonReader, jSONObject, i) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1048585, this, jsonReader, jSONObject, i) == null) {
             this.mReceiveTimeStamp = String.valueOf(System.currentTimeMillis());
             this.mCommandFrom = i;
             readData(jsonReader, jSONObject);
@@ -359,7 +445,7 @@ public class GsonTool implements ICommandStatistics<ActionData> {
     public JSONObject getReportInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(UpdateConstants.RECEIVE_TS_KEY, this.mReceiveTimeStamp);
@@ -379,7 +465,7 @@ public class GsonTool implements ICommandStatistics<ActionData> {
     @SuppressLint({"BDThrowableCheck"})
     public void read(Reader reader, int i, JSONObject jSONObject) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048581, this, reader, i, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, reader, i, jSONObject) == null) {
             this.mReceiveTimeStamp = String.valueOf(System.currentTimeMillis());
             this.mCommandFrom = i;
             JsonReader jsonReader = new JsonReader(reader);
@@ -411,7 +497,7 @@ public class GsonTool implements ICommandStatistics<ActionData> {
 
     public void readData(Reader reader, int i, JSONObject jSONObject) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048583, this, reader, i, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048586, this, reader, i, jSONObject) == null) {
             this.mReceiveTimeStamp = String.valueOf(System.currentTimeMillis());
             this.mCommandFrom = i;
             readData(new JsonReader(reader), jSONObject);

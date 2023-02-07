@@ -1,51 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmField;
+import android.view.MotionEvent;
+import com.baidu.nadcore.max.uiwidget.basic.WebViewContainer;
 /* loaded from: classes6.dex */
-public final class sp0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    @JvmField
-    public String a;
-    @JvmField
-    public String b;
-    @JvmField
-    public String c;
-    @JvmField
-    public String d;
-    @JvmField
-    public String e;
-    @JvmField
-    public String f;
-    @JvmField
-    public String g;
+public interface sp0 extends mj0 {
+    WebViewContainer b();
 
-    public sp0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void f(boolean z, boolean z2, boolean z3, int i);
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b = null;
-            this.c = null;
-            this.e = null;
-            this.f = null;
-            this.g = null;
-        }
-    }
+    boolean g();
+
+    void i(MotionEvent motionEvent);
+
+    void j(boolean z, boolean z2, boolean z3);
 }

@@ -1,134 +1,123 @@
 package com.baidu.tieba;
 
-import android.text.SpannableStringBuilder;
-import android.text.style.ForegroundColorSpan;
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.BarImageView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.util.EmotionUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes4.dex */
-public class en6 extends a86<zm6> {
+public class en6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Pattern a;
+    public static final Pattern b;
     public transient /* synthetic */ FieldHolder $fh;
-    public BarImageView i;
-    public TextView j;
-    public TextView k;
-    public TextView l;
-    public int m;
-    public zm6 n;
-    public View.OnClickListener o;
 
-    @Override // com.baidu.tieba.a86
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d02cd : invokeV.intValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public en6(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947740156, "Lcom/baidu/tieba/en6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947740156, "Lcom/baidu/tieba/en6;");
                 return;
             }
         }
-        this.m = 3;
-        this.i = (BarImageView) h().findViewById(R.id.forum_avatar);
-        this.j = (TextView) h().findViewById(R.id.forum_name);
-        this.k = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090a89);
-        this.l = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090af6);
-        h().setOnClickListener(this);
-        j(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+        a = Pattern.compile("#\\([a-zA-Z0-9_~！\\-\\u4E00-\\u9FA5]+\\)");
+        b = Pattern.compile("#\\([^#\\)\\(]+\\)$");
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.a86
-    /* renamed from: r */
-    public void i(zm6 zm6Var) {
+    public static int a(CharSequence charSequence) {
+        InterceptResult invokeL;
+        CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, zm6Var) != null) || zm6Var == null) {
-            return;
-        }
-        this.n = zm6Var;
-        this.i.K(zm6Var.c(), 10, false);
-        this.j.setText(s(zm6Var.i(), zm6Var.o()));
-        this.k.setText(String.format(this.b.getString(R.string.obfuscated_res_0x7f0f043f), zm6Var.f()));
-        this.l.setText(String.format(this.b.getString(R.string.obfuscated_res_0x7f0f1153), zm6Var.m()));
-        j(this.b, TbadkCoreApplication.getInst().getSkinType());
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, view2) != null) || this.n == null) {
-            return;
-        }
-        TiebaStatic.log("c12261");
-        xm6.d(this.n.o());
-        view2.setTag(this.n);
-        View.OnClickListener onClickListener = this.o;
-        if (onClickListener != null) {
-            onClickListener.onClick(view2);
-        }
-    }
-
-    public void t(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, onClickListener) == null) {
-            this.o = onClickListener;
-        }
-    }
-
-    @Override // com.baidu.tieba.a86
-    public void j(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) != null) || this.m == i) {
-            return;
-        }
-        SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0105);
-        SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0109);
-        SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0109);
-        SkinManager.setBackgroundResource(h(), R.drawable.square_search_item_bg);
-        this.m = i;
-    }
-
-    public SpannableStringBuilder s(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-                String trim = str2.trim();
-                ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301));
-                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-                int indexOf = str.indexOf(trim);
-                if (indexOf != -1) {
-                    spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, trim.length() + indexOf, 33);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, charSequence)) == null) {
+            int i = 0;
+            if (charSequence != null && charSequence.length() != 0) {
+                Matcher matcher = a.matcher(charSequence);
+                while (matcher.find()) {
+                    String group = matcher.group();
+                    if (MessageManager.getInstance().findTask(2004608) != null && (runTask = MessageManager.getInstance().runTask(2004608, Boolean.class, group)) != null && (runTask.getData() instanceof Boolean) && ((Boolean) runTask.getData()).booleanValue()) {
+                        i++;
+                    }
                 }
-                return spannableStringBuilder;
+                Matcher matcher2 = Pattern.compile("#\\(meme,[collect_]?[a-zA-Z0-9_,]+\\)").matcher(charSequence);
+                while (matcher2.find()) {
+                    String[] split = matcher2.group().split(",");
+                    if (split != null && split.length == 5) {
+                        i++;
+                    }
+                }
+                Matcher matcher3 = Pattern.compile("#\\(meme,net_[a-zA-Z0-9_\\-\\.\\%,]+\\)").matcher(charSequence);
+                while (matcher3.find()) {
+                    String[] split2 = matcher3.group().split(",");
+                    if (split2 != null && split2.length == 6) {
+                        i++;
+                    }
+                }
             }
-            return null;
+            return i;
         }
-        return (SpannableStringBuilder) invokeLL.objValue;
+        return invokeL.intValue;
+    }
+
+    public static int b(CharSequence charSequence) {
+        InterceptResult invokeL;
+        CustomResponsedMessage runTask;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, charSequence)) == null) {
+            int i = 0;
+            if (charSequence != null && charSequence.length() != 0) {
+                Matcher matcher = a.matcher(charSequence);
+                while (matcher.find()) {
+                    String group = matcher.group();
+                    if (MessageManager.getInstance().findTask(2004608) != null && (runTask = MessageManager.getInstance().runTask(2004608, Boolean.class, group)) != null && (runTask.getData() instanceof Boolean) && ((Boolean) runTask.getData()).booleanValue()) {
+                        i++;
+                    }
+                }
+            }
+            return i;
+        }
+        return invokeL.intValue;
+    }
+
+    public static String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            String replaceAll = str.replaceAll(ne5.h, EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX_SHORT).replaceAll("meme,diy_", EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX_SHORT);
+            Matcher matcher = Pattern.compile("#\\(meme,net_[a-zA-Z0-9_\\-\\.\\%,]+\\)").matcher(replaceAll);
+            StringBuilder sb = new StringBuilder(replaceAll);
+            int i = 0;
+            while (matcher.find()) {
+                String[] split = matcher.group().split(",");
+                if (split != null && split.length == 6) {
+                    StringBuilder sb2 = new StringBuilder();
+                    int start = matcher.start() - i;
+                    int end = matcher.end() - i;
+                    for (int i2 = 0; i2 < split.length; i2++) {
+                        if (i2 != 1) {
+                            sb2.append(split[i2]);
+                            if (i2 < split.length - 1) {
+                                sb2.append(",");
+                            }
+                        }
+                    }
+                    i += (end - start) - sb2.toString().length();
+                    if (start >= 0 && end <= sb.length()) {
+                        sb.replace(start, end, sb2.toString());
+                    }
+                }
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
     }
 }

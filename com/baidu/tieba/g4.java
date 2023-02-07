@@ -1,241 +1,160 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Comparator;
-import java.util.Iterator;
+import java.io.BufferedReader;
+import java.io.IOException;
 /* loaded from: classes4.dex */
-public class g4 implements Iterable<f4>, Comparator<f4>, Comparable<g4> {
+public class g4 extends h2<f4, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public final c7<f4> b;
-    public boolean c;
+    public a b;
+    public com.badlogic.gdx.math.a c;
 
-    public g4() {
+    /* loaded from: classes4.dex */
+    public static class a extends r1<f4> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String b;
+        public int c;
+        public String[] d;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = "i ";
+            this.c = 1024;
+            this.d = new String[]{"png", "PNG", "jpeg", "JPEG", "jpg", "JPG", "cim", "CIM", "etc1", "ETC1", "ktx", "KTX", "zktx", "ZKTX"};
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g4(y1 y1Var) {
+        super(y1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {y1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((y1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new c7<>();
-        this.c = true;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return a();
-        }
-        return invokeV.intValue;
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && !this.c) {
-            this.b.sort(this);
-            this.c = true;
-        }
-    }
-
-    @Override // java.lang.Iterable
-    public final Iterator<f4> iterator() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.b.iterator();
-        }
-        return (Iterator) invokeV.objValue;
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            i();
-            int i = this.b.b;
-            long j = this.a + 71;
-            int i2 = 1;
-            for (int i3 = 0; i3 < i; i3++) {
-                i2 = (i2 * 7) & 65535;
-                j += this.a * this.b.get(i3).hashCode() * i2;
-            }
-            return (int) (j ^ (j >> 32));
-        }
-        return invokeV.intValue;
+        this.b = new a();
+        this.c = new com.badlogic.gdx.math.a();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.Comparator
-    /* renamed from: b */
-    public final int compare(f4 f4Var, f4 f4Var2) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.h2
+    /* renamed from: e */
+    public f4 c(t1 t1Var, String str, q3 q3Var, a aVar) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f4Var, f4Var2)) == null) {
-            return (int) (f4Var.a - f4Var2.a);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, t1Var, str, q3Var, aVar)) == null) {
+            return f(new j4((Texture) t1Var.i(t1Var.n(str).first())), q3Var);
         }
-        return invokeLL.intValue;
+        return (f4) invokeLLLL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: c */
-    public int compareTo(g4 g4Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.u1
+    /* renamed from: d */
+    public h7<p1> a(String str, q3 q3Var, a aVar) {
+        InterceptResult invokeLLL;
+        String str2;
+        String[] strArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, g4Var)) == null) {
-            if (g4Var == this) {
-                return 0;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, q3Var, aVar)) == null) {
+            if (aVar == null) {
+                aVar = this.b;
             }
-            long j = this.a;
-            long j2 = g4Var.a;
-            if (j != j2) {
-                if (j < j2) {
-                    return -1;
-                }
-                return 1;
-            }
-            i();
-            g4Var.i();
-            int i = 0;
-            while (true) {
-                c7<f4> c7Var = this.b;
-                if (i >= c7Var.b) {
-                    return 0;
-                }
-                int compareTo = c7Var.get(i).compareTo(g4Var.b.get(i));
-                if (compareTo != 0) {
-                    if (compareTo < 0) {
-                        return -1;
-                    }
-                    if (compareTo <= 0) {
-                        return 0;
-                    }
-                    return 1;
-                }
-                i++;
-            }
-        } else {
-            return invokeL.intValue;
-        }
-    }
-
-    public final void d(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.a = j | this.a;
-        }
-    }
-
-    public final boolean e(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
-            if (j != 0 && (this.a & j) == j) {
-                return true;
-            }
-            return false;
-        }
-        return invokeJ.booleanValue;
-    }
-
-    @Override // java.util.Comparator
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) {
-            if (!(obj instanceof g4)) {
-                return false;
-            }
-            if (obj == this) {
-                return true;
-            }
-            return g((g4) obj, true);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int f(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j)) == null) {
-            if (e(j)) {
-                int i = 0;
+            try {
+                BufferedReader q = q3Var.q(aVar.c);
                 while (true) {
-                    c7<f4> c7Var = this.b;
-                    if (i < c7Var.b) {
-                        if (c7Var.get(i).a == j) {
-                            return i;
+                    String readLine = q.readLine();
+                    if (readLine != null) {
+                        if (readLine.startsWith(aVar.b)) {
+                            str2 = readLine.substring(aVar.b.length());
+                            break;
                         }
-                        i++;
                     } else {
-                        return -1;
+                        str2 = null;
+                        break;
                     }
                 }
-            } else {
-                return -1;
+                q.close();
+                if (str2 == null && (strArr = aVar.d) != null) {
+                    for (String str3 : strArr) {
+                        q3 s = q3Var.s(q3Var.h().concat("." + str3));
+                        if (s.c()) {
+                            str2 = s.g();
+                        }
+                    }
+                }
+                if (str2 == null) {
+                    return null;
+                }
+                h7<p1> h7Var = new h7<>(1);
+                h7Var.a(new p1(q3Var.s(str2), Texture.class));
+                return h7Var;
+            } catch (IOException e) {
+                throw new GdxRuntimeException("Error reading " + str, e);
             }
-        } else {
-            return invokeJ.intValue;
         }
+        return (h7) invokeLLL.objValue;
     }
 
-    public final void h(f4 f4Var) {
+    public f4 f(j4 j4Var, q3 q3Var) {
+        InterceptResult invokeLL;
+        String readLine;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, f4Var) == null) {
-            int f = f(f4Var.a);
-            if (f < 0) {
-                d(f4Var.a);
-                this.b.a(f4Var);
-                this.c = false;
-            } else {
-                this.b.k(f, f4Var);
-            }
-            i();
-        }
-    }
-
-    public final boolean g(g4 g4Var, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048585, this, g4Var, z)) == null) {
-            if (g4Var == this) {
-                return true;
-            }
-            if (g4Var == null || this.a != g4Var.a) {
-                return false;
-            }
-            if (!z) {
-                return true;
-            }
-            i();
-            g4Var.i();
-            int i = 0;
-            while (true) {
-                c7<f4> c7Var = this.b;
-                if (i >= c7Var.b) {
-                    return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, j4Var, q3Var)) == null) {
+            BufferedReader q = q3Var.q(256);
+            do {
+                try {
+                    try {
+                        readLine = q.readLine();
+                        if (readLine == null) {
+                            p8.a(q);
+                            throw new GdxRuntimeException("Polygon shape not found: " + q3Var);
+                        }
+                    } catch (IOException e) {
+                        throw new GdxRuntimeException("Error reading polygon shape file: " + q3Var, e);
+                    }
+                } finally {
+                    p8.a(q);
                 }
-                if (!c7Var.get(i).a(g4Var.b.get(i))) {
-                    return false;
-                }
-                i++;
+            } while (!readLine.startsWith("s"));
+            String[] split = readLine.substring(1).trim().split(",");
+            int length = split.length;
+            float[] fArr = new float[length];
+            for (int i = 0; i < length; i++) {
+                fArr[i] = Float.parseFloat(split[i]);
             }
-        } else {
-            return invokeLZ.booleanValue;
+            return new f4(j4Var, fArr, this.c.c(fArr).f());
         }
+        return (f4) invokeLL.objValue;
     }
 }

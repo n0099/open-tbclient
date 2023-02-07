@@ -5,6 +5,7 @@ import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
 import androidx.annotation.Nullable;
 import androidx.collection.SparseArrayCompat;
+import androidx.core.net.MailTo;
 import androidx.core.view.animation.PathInterpolatorCompat;
 import com.airbnb.lottie.LottieComposition;
 import com.airbnb.lottie.parser.moshi.JsonReader;
@@ -19,7 +20,7 @@ public class KeyframeParser {
     public static final float MAX_CP_VALUE = 100.0f;
     public static SparseArrayCompat<WeakReference<Interpolator>> pathInterpolatorCache;
     public static final Interpolator LINEAR_INTERPOLATOR = new LinearInterpolator();
-    public static JsonReader.Options NAMES = JsonReader.Options.of("t", "s", "e", "o", "i", "h", "to", Config.FEED_LIST_PART);
+    public static JsonReader.Options NAMES = JsonReader.Options.of("t", "s", "e", "o", "i", "h", MailTo.TO, Config.FEED_LIST_PART);
 
     public static SparseArrayCompat<WeakReference<Interpolator>> pathInterpolatorCache() {
         if (pathInterpolatorCache == null) {

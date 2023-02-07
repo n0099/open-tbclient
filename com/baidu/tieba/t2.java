@@ -1,225 +1,221 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.opengl.GLSurfaceView;
-import android.util.Log;
-import android.view.SurfaceHolder;
-import com.badlogic.gdx.backends.android.AndroidLiveWallpaperService;
-import com.badlogic.gdx.backends.android.surfaceview.GLSurfaceView20;
+import android.content.res.AssetFileDescriptor;
+import android.content.res.AssetManager;
+import com.badlogic.gdx.Files;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import javax.microedition.khronos.opengles.GL10;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes6.dex */
-public final class t2 extends s2 {
+public class t2 extends q3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public class a extends GLSurfaceView20 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ t2 e;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(t2 t2Var, Context context, k3 k3Var) {
-            super(context, k3Var);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {t2Var, context, k3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], (k3) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = t2Var;
-        }
-
-        @Override // android.view.SurfaceView
-        public SurfaceHolder getHolder() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.e.y();
-            }
-            return (SurfaceHolder) invokeV.objValue;
-        }
-    }
+    public final AssetManager c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t2(v2 v2Var, j2 j2Var, k3 k3Var) {
-        super(v2Var, j2Var, k3Var, false);
+    public t2(AssetManager assetManager, File file, Files.FileType fileType) {
+        super(file, fileType);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {v2Var, j2Var, k3Var};
+            Object[] objArr = {assetManager, file, fileType};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((i2) objArr2[0], (j2) objArr2[1], (k3) objArr2[2], ((Boolean) objArr2[3]).booleanValue());
+                super((File) objArr2[0], (Files.FileType) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.c = assetManager;
     }
 
-    @Override // com.baidu.tieba.s2
-    public GLSurfaceView20 i(i2 i2Var, k3 k3Var) {
-        InterceptResult invokeLL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t2(AssetManager assetManager, String str, Files.FileType fileType) {
+        super(str.replace('\\', WebvttCueParser.CHAR_SLASH), fileType);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, i2Var, k3Var)) == null) {
-            if (g()) {
-                GLSurfaceView.EGLConfigChooser l = l();
-                a aVar = new a(this, i2Var.getContext(), k3Var);
-                if (l != null) {
-                    aVar.setEGLConfigChooser(l);
-                } else {
-                    j2 j2Var = this.s;
-                    aVar.setEGLConfigChooser(j2Var.a, j2Var.b, j2Var.c, j2Var.d, j2Var.e, j2Var.f);
-                }
-                aVar.setRenderer(this);
-                return aVar;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {assetManager, str, fileType};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (Files.FileType) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            throw new GdxRuntimeException("Libgdx requires OpenGL ES 2.0");
         }
-        return (GLSurfaceView20) invokeLL.objValue;
+        this.c = assetManager;
     }
 
-    @Override // com.baidu.tieba.s2
-    public void o() {
+    @Override // com.baidu.tieba.q3
+    public q3 a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && AndroidLiveWallpaperService.DEBUG) {
-            super.o();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            String replace = str.replace('\\', WebvttCueParser.CHAR_SLASH);
+            if (this.a.getPath().length() == 0) {
+                return new t2(this.c, new File(replace), this.b);
+            }
+            return new t2(this.c, new File(this.a, replace), this.b);
         }
+        return (q3) invokeL.objValue;
     }
 
-    public SurfaceHolder y() {
+    @Override // com.baidu.tieba.q3
+    public boolean c() {
         InterceptResult invokeV;
-        SurfaceHolder surfaceHolder;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.b == Files.FileType.Internal) {
+                String path = this.a.getPath();
+                try {
+                    this.c.open(path).close();
+                    return true;
+                } catch (Exception unused) {
+                    try {
+                        if (this.c.list(path).length > 0) {
+                            return true;
+                        }
+                        return false;
+                    } catch (Exception unused2) {
+                        return false;
+                    }
+                }
+            }
+            return super.c();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.q3
+    public long f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.b == Files.FileType.Internal) {
+                AssetFileDescriptor assetFileDescriptor = null;
+                try {
+                    assetFileDescriptor = this.c.openFd(this.a.getPath());
+                    long length = assetFileDescriptor.getLength();
+                    if (assetFileDescriptor != null) {
+                        try {
+                            assetFileDescriptor.close();
+                        } catch (IOException unused) {
+                        }
+                    }
+                    return length;
+                } catch (IOException unused2) {
+                    if (assetFileDescriptor != null) {
+                        try {
+                            assetFileDescriptor.close();
+                        } catch (IOException unused3) {
+                        }
+                    }
+                } catch (Throwable th) {
+                    if (assetFileDescriptor != null) {
+                        try {
+                            assetFileDescriptor.close();
+                        } catch (IOException unused4) {
+                        }
+                    }
+                    throw th;
+                }
+            }
+            return super.f();
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.baidu.tieba.q3
+    public q3 i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (((v2) this.d).a.sync) {
-                surfaceHolder = ((v2) this.d).a.getSurfaceHolder();
+            File parentFile = this.a.getParentFile();
+            if (parentFile == null) {
+                if (this.b == Files.FileType.Absolute) {
+                    parentFile = new File("/");
+                } else {
+                    parentFile = new File("");
+                }
             }
-            return surfaceHolder;
+            return new t2(this.c, parentFile, this.b);
         }
-        return (SurfaceHolder) invokeV.objValue;
+        return (q3) invokeV.objValue;
     }
 
-    public void z() {
-        GLSurfaceView20 gLSurfaceView20;
+    @Override // com.baidu.tieba.q3
+    public File e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (gLSurfaceView20 = this.a) != null) {
-            try {
-                gLSurfaceView20.onDetachedFromWindow();
-                if (AndroidLiveWallpaperService.DEBUG) {
-                    Log.d(AndroidLiveWallpaperService.TAG, " > AndroidLiveWallpaper - onDestroy() stopped GLThread managed by GLSurfaceView");
-                }
-            } catch (Throwable th) {
-                Log.e(AndroidLiveWallpaperService.TAG, "failed to destroy GLSurfaceView's thread! GLSurfaceView.onDetachedFromWindow impl changed since API lvl 16!");
-                th.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.b == Files.FileType.Local) {
+                return new File(l1.d.b(), this.a.getPath());
             }
+            return super.e();
         }
+        return (File) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.s2, android.opengl.GLSurfaceView.Renderer
-    public void onDrawFrame(GL10 gl10) {
-        boolean z;
-        boolean z2;
-        boolean z3;
-        boolean z4;
+    public AssetFileDescriptor u() throws IOException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gl10) == null) {
-            long nanoTime = System.nanoTime();
-            if (!this.q) {
-                this.j = ((float) (nanoTime - this.i)) / 1.0E9f;
-            } else {
-                this.j = 0.0f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            AssetManager assetManager = this.c;
+            if (assetManager != null) {
+                return assetManager.openFd(j());
             }
-            this.i = nanoTime;
-            synchronized (this.v) {
-                z = this.o;
-                z2 = this.p;
-                z3 = this.r;
-                z4 = this.q;
-                if (this.q) {
-                    this.q = false;
-                    this.v.notifyAll();
-                }
-                if (this.p) {
-                    this.p = false;
-                    this.v.notifyAll();
-                }
-                if (this.r) {
-                    this.r = false;
-                    this.v.notifyAll();
-                }
-            }
-            if (z4) {
-                this.d.getApplicationListener().resume();
-                g1.a.log("AndroidGraphics", "resumed");
-            }
-            if (z) {
-                synchronized (this.d.getRunnables()) {
-                    this.d.getExecutedRunnables().clear();
-                    this.d.getExecutedRunnables().b(this.d.getRunnables());
-                    this.d.getRunnables().clear();
-                    for (int i = 0; i < this.d.getExecutedRunnables().b; i++) {
-                        this.d.getExecutedRunnables().get(i).run();
-                    }
-                }
-                this.d.mo6getInput().Z0();
-                this.l++;
-                this.d.getApplicationListener().render();
-            }
-            if (z2) {
-                this.d.getApplicationListener().pause();
-                g1.a.log("AndroidGraphics", "paused");
-            }
-            if (z3) {
-                this.d.getApplicationListener().dispose();
-                g1.a.log("AndroidGraphics", "destroyed");
-            }
-            if (nanoTime - this.k > 1000000000) {
-                this.m = 0;
-                this.k = nanoTime;
-            }
-            this.m++;
+            return null;
         }
+        return (AssetFileDescriptor) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.s2
-    public void t() {
+    @Override // com.baidu.tieba.q3
+    public InputStream m() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this.v) {
-                this.o = true;
-                this.q = true;
-                while (this.q) {
-                    try {
-                        c();
-                        this.v.wait();
-                    } catch (InterruptedException unused) {
-                        g1.a.log("AndroidGraphics", "waiting for resume synchronization failed!");
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.b == Files.FileType.Internal) {
+                try {
+                    return this.c.open(this.a.getPath());
+                } catch (IOException e) {
+                    throw new GdxRuntimeException("Error reading file: " + this.a + " (" + this.b + SmallTailInfo.EMOTION_SUFFIX, e);
                 }
             }
+            return super.m();
         }
+        return (InputStream) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.q3
+    public q3 s(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            String replace = str.replace('\\', WebvttCueParser.CHAR_SLASH);
+            if (this.a.getPath().length() != 0) {
+                return l1.d.d(new File(this.a.getParent(), replace).getPath(), this.b);
+            }
+            throw new GdxRuntimeException("Cannot get the sibling of the root.");
+        }
+        return (q3) invokeL.objValue;
     }
 }

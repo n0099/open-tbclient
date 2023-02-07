@@ -1,171 +1,160 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.download.consts.AdDownloadAction;
-import com.baidu.nadcore.download.consts.AdDownloadStatus;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteKey;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.text.DecimalFormat;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class dl0 extends al0 {
+public class dl0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<jl0<?>> e;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public long e;
+    public boolean f;
+    public int g;
+    public int h;
+    public int i;
+    public String j;
+    public int k;
+    public int l;
+    public String m;
+    public String n;
+    public String o;
+    public long p;
+    public long q;
+    public boolean r;
+    public boolean s;
+    public int t;
+    public boolean u;
 
-    /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-858125116, "Lcom/baidu/tieba/dl0$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-858125116, "Lcom/baidu/tieba/dl0$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[AdDownloadStatus.values().length];
-            a = iArr;
-            try {
-                iArr[AdDownloadStatus.NONE.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[AdDownloadStatus.DOWNLOADING.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[AdDownloadStatus.PAUSE.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[AdDownloadStatus.COMPLETED.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-            try {
-                a[AdDownloadStatus.INSTALLED.ordinal()] = 5;
-            } catch (NoSuchFieldError unused5) {
-            }
-            try {
-                a[AdDownloadStatus.FAILED.ordinal()] = 6;
-            } catch (NoSuchFieldError unused6) {
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dl0(@NonNull qk0 qk0Var) {
-        super(qk0Var);
+    public dl0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {qk0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((qk0) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = null;
+        this.d = "";
+        this.e = 0L;
+        this.f = false;
+        this.g = 0;
+        this.h = 0;
+        this.i = 0;
+        this.p = -1L;
+        this.q = -1L;
+        this.s = false;
+        this.t = 0;
+        this.u = true;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dl0(@NonNull qk0 qk0Var, @NonNull jl0<?> jl0Var) {
-        super(qk0Var);
+    @NonNull
+    public static dl0 a(String str) {
+        InterceptResult invokeL;
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {qk0Var, jl0Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((qk0) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            dl0 dl0Var = new dl0();
+            JSONObject c = y11.c(str);
+            dl0Var.a = c.optString("page");
+            dl0Var.b = c.optString("business");
+            dl0Var.d = c.optString("content_type");
+            dl0Var.e = c.optLong(BreakpointSQLiteKey.CONTENT_LENGTH);
+            boolean z3 = false;
+            if (c.optInt("is_dirty", 0) == 1) {
+                z = true;
+            } else {
+                z = false;
             }
-        }
-        this.e = null;
-        t(jl0Var);
-    }
-
-    @Override // com.baidu.tieba.al0, com.baidu.tieba.il0
-    public void a(@NonNull AdDownloadAction adDownloadAction, @NonNull qk0 qk0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, adDownloadAction, qk0Var) == null) {
-            super.a(adDownloadAction, qk0Var);
-            u();
-        }
-    }
-
-    public void t(jl0<?> jl0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jl0Var) == null) {
-            this.e = new WeakReference<>(jl0Var);
-            u();
-        }
-    }
-
-    public void u() {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.e == null) {
-            return;
-        }
-        Resources resources = ej0.b().getResources();
-        String string = resources.getString(R.string.nad_download_start);
-        switch (a.a[this.a.c.ordinal()]) {
-            case 1:
-                if (TextUtils.isEmpty(this.a.p.d)) {
-                    str = resources.getString(R.string.nad_download_start);
-                } else {
-                    str = this.a.p.d;
+            dl0Var.f = z;
+            dl0Var.g = c.optInt("close_v_download", 0);
+            dl0Var.h = c.optInt("no_click_opt");
+            dl0Var.i = c.optInt("open_after_install");
+            dl0Var.j = c.optString("action_area");
+            dl0Var.k = c.optInt("notification_show_count");
+            dl0Var.l = c.optInt("tips_show_count");
+            dl0Var.p = c.optLong("als_app_save_day");
+            dl0Var.q = c.optLong("finished_install_time", -1L);
+            if (c.optInt("lazy_launch_switch", 0) == 1) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            dl0Var.s = z2;
+            dl0Var.t = c.optInt("lazy_launch_internal", 0);
+            int optInt = c.optInt("package_launch_switch", Integer.MIN_VALUE);
+            if (optInt == Integer.MIN_VALUE) {
+                if (hn0.b().a().a("package_launch_switch", 1) == 1) {
+                    z3 = true;
                 }
-                string = str;
-                break;
-            case 2:
-                string = new DecimalFormat("#.#%").format(this.a.i);
-                break;
-            case 3:
-                string = resources.getString(R.string.nad_download_continue);
-                break;
-            case 4:
-                string = resources.getString(R.string.nad_download_install);
-                break;
-            case 5:
-                string = resources.getString(R.string.nad_download_open);
-                break;
-            case 6:
-                string = resources.getString(R.string.nad_download_failed_retry);
-                break;
+                dl0Var.u = z3;
+            } else {
+                if (optInt == 1) {
+                    z3 = true;
+                }
+                dl0Var.u = z3;
+            }
+            return dl0Var;
         }
-        jl0<?> jl0Var = this.e.get();
-        if (jl0Var == null) {
-            return;
+        return (dl0) invokeL.objValue;
+    }
+
+    public static String b(@NonNull dl0 dl0Var) {
+        InterceptResult invokeL;
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, dl0Var)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("page", dl0Var.a);
+                jSONObject.put("business", dl0Var.b);
+                jSONObject.put("content_type", dl0Var.d);
+                jSONObject.put(BreakpointSQLiteKey.CONTENT_LENGTH, dl0Var.e);
+                int i3 = 1;
+                if (dl0Var.f) {
+                    i = 1;
+                } else {
+                    i = 0;
+                }
+                jSONObject.put("is_dirty", i);
+                jSONObject.put("close_v_download", dl0Var.g);
+                jSONObject.put("no_click_opt", dl0Var.h);
+                jSONObject.put("open_after_install", dl0Var.i);
+                jSONObject.put("action_area", dl0Var.j);
+                jSONObject.put("notification_show_count", dl0Var.k);
+                jSONObject.put("tips_show_count", dl0Var.l);
+                jSONObject.put("als_app_save_day", dl0Var.p);
+                jSONObject.put("finished_install_time", dl0Var.q);
+                if (dl0Var.s) {
+                    i2 = 1;
+                } else {
+                    i2 = 0;
+                }
+                jSONObject.put("lazy_launch_switch", i2);
+                jSONObject.put("lazy_launch_internal", dl0Var.t);
+                if (!dl0Var.u) {
+                    i3 = 0;
+                }
+                jSONObject.put("package_launch_switch", i3);
+            } catch (JSONException unused) {
+            }
+            return jSONObject.toString();
         }
-        jl0Var.update(string, this.a);
+        return (String) invokeL.objValue;
     }
 }

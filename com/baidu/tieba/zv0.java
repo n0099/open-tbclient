@@ -1,125 +1,58 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.MotionEvent;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.WriteActivityConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.player.helper.BdVideoGesture;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes7.dex */
-public abstract class zv0 implements jv0 {
+public class zv0 extends BdVideoGesture {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ix0 a;
 
-    public abstract void f(ru0 ru0Var);
-
-    public abstract void g(ru0 ru0Var);
-
-    public abstract void h(ru0 ru0Var);
-
-    public abstract void i(ru0 ru0Var);
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948373269, "Lcom/baidu/tieba/zv0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948373269, "Lcom/baidu/tieba/zv0;");
-                return;
-            }
+    @Override // com.baidu.nadcore.player.helper.BdVideoGesture
+    public void f(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
         }
-        wr0.f();
     }
 
-    public zv0(Map<String, String> map) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zv0(Context context, @NonNull sw0 sw0Var) {
+        super(context, sw0Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {map};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {context, sw0Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (sw0) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        j(map);
     }
 
-    @Override // com.baidu.tieba.jv0
-    public final <T extends ex0> void d(T t) {
+    @Override // com.baidu.nadcore.player.helper.BdVideoGesture
+    public boolean c(MotionEvent motionEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            this.a = (ix0) t;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            if (motionEvent.getPointerCount() >= 2 && p11.l().getBoolean("player_shrink_switch", true)) {
+                return true;
+            }
+            return false;
         }
-    }
-
-    @Override // com.baidu.tieba.kv0
-    public final void c(ru0 ru0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, ru0Var) == null) && ru0Var != null && this.a != null) {
-            int type = ru0Var.getType();
-            if (type != 1) {
-                if (type != 2) {
-                    if (type != 3) {
-                        if (type == 4) {
-                            h(ru0Var);
-                            return;
-                        }
-                        return;
-                    }
-                    g(ru0Var);
-                    return;
-                }
-                f(ru0Var);
-                return;
-            }
-            i(ru0Var);
-        }
-    }
-
-    public void j(Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, map) == null) && map != null && map.size() > 0) {
-            if (map.containsKey(WriteActivityConfig.VIDEO_INFO)) {
-                String str = (String) v01.b(map, WriteActivityConfig.VIDEO_INFO);
-            }
-            if (map.containsKey("channel_id")) {
-                String str2 = (String) v01.b(map, "channel_id");
-            }
-            if (map.containsKey("channel_title")) {
-                String str3 = (String) v01.b(map, "channel_title");
-            }
-            if (map.containsKey("type")) {
-                String str4 = (String) v01.b(map, "type");
-            }
-            if (map.containsKey("source")) {
-                String str5 = (String) v01.b(map, "source");
-            }
-            if (map.containsKey("from")) {
-                String str6 = (String) v01.b(map, "from");
-            }
-            if (map.containsKey("pd")) {
-                String str7 = (String) v01.b(map, "pd");
-            }
-            if (map.containsKey("tpl")) {
-                String str8 = (String) v01.b(map, "tpl");
-            }
-            if (map.containsKey("ext_request")) {
-                String str9 = (String) v01.b(map, "ext_request");
-            }
-        }
+        return invokeL.booleanValue;
     }
 }

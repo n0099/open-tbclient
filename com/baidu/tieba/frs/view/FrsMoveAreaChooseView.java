@@ -14,11 +14,11 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cx4;
-import com.baidu.tieba.cz4;
-import com.baidu.tieba.d17;
-import com.baidu.tieba.fn6;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.o57;
+import com.baidu.tieba.p15;
+import com.baidu.tieba.p35;
+import com.baidu.tieba.qr6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -65,15 +65,15 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setOrientation(1);
             setGravity(80);
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0341, this);
-            this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090bfa);
-            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090bfe);
-            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090bfc);
-            this.g = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090bfb);
-            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f090bfd);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0340, this);
+            this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090c3d);
+            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090c41);
+            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090c3f);
+            this.g = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090c3e);
+            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f090c40);
             this.e = recyclerView;
             recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 3));
-            this.e.addItemDecoration(new GridSpacingItemDecoration(3, zi.g(getContext(), R.dimen.M_W_X004), zi.g(getContext(), R.dimen.M_H_X003), false));
+            this.e.addItemDecoration(new GridSpacingItemDecoration(3, ej.g(getContext(), R.dimen.M_W_X004), ej.g(getContext(), R.dimen.M_H_X003), false));
             FrsMoveAreaChooseAdapter frsMoveAreaChooseAdapter = new FrsMoveAreaChooseAdapter(this);
             this.f = frsMoveAreaChooseAdapter;
             this.e.setAdapter(frsMoveAreaChooseAdapter);
@@ -99,7 +99,7 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             SkinManager.setBackgroundColor(this, R.color.CAM_X0605);
-            cx4 d = cx4.d(this.b);
+            p15 d = p15.d(this.b);
             d.n(R.string.J_X14);
             d.f(R.color.CAM_X0204);
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0108);
@@ -118,15 +118,15 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
                 b();
             } else if (view2 == this.d) {
                 if (this.a != null && getParent() != null && this.f.e() >= 0) {
-                    boolean i = cz4.l().i("key_frs_move_area_tip", true);
-                    List<FrsTabInfo> g = fn6.h().g();
+                    boolean i = p35.m().i("key_frs_move_area_tip", true);
+                    List<FrsTabInfo> g = qr6.h().g();
                     FrsTabInfo frsTabInfo = (FrsTabInfo) ListUtils.getItem(g, this.f.d());
                     FrsTabInfo frsTabInfo2 = (FrsTabInfo) ListUtils.getItem(g, this.f.e());
                     if (frsTabInfo != null && frsTabInfo2 != null) {
                         if (i) {
-                            d17.a(this.a, frsTabInfo, frsTabInfo2);
+                            o57.a(this.a, frsTabInfo, frsTabInfo2);
                         } else {
-                            fn6.h().m(frsTabInfo.tab_id.intValue(), frsTabInfo2.tab_id.intValue());
+                            qr6.h().m(frsTabInfo.tab_id.intValue(), frsTabInfo2.tab_id.intValue());
                         }
                         if (this.h != null) {
                             view2.setTag("choose_done");

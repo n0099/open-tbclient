@@ -1,127 +1,44 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class yg {
+public abstract class yg<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(@Nullable Object obj, boolean z) {
-        InterceptResult invokeLZ;
+    public void onCancelled(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65536, null, obj, z)) == null) {
-            try {
-                if (obj instanceof Boolean) {
-                    return ((Boolean) obj).booleanValue();
-                }
-                if (obj instanceof String) {
-                    return Boolean.parseBoolean((String) obj);
-                }
-                return z;
-            } catch (Exception unused) {
-                return z;
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
         }
-        return invokeLZ.booleanValue;
     }
 
-    public static boolean b(String str, boolean z) {
-        InterceptResult invokeLZ;
+    public void onLoaded(T t, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, str, z)) == null) {
-            if (str == null) {
-                return z;
-            }
-            try {
-                return Boolean.parseBoolean(str);
-            } catch (Exception unused) {
-                return z;
-            }
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t, str, i) == null) {
         }
-        return invokeLZ.booleanValue;
     }
 
-    public static double c(String str, double d) {
-        InterceptResult invokeCommon;
+    public void onProgressUpdate(Object... objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Double.valueOf(d)})) == null) {
-            if (str == null) {
-                return d;
-            }
-            try {
-                return Double.parseDouble(str);
-            } catch (Exception unused) {
-                return d;
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, objArr) == null) {
         }
-        return invokeCommon.doubleValue;
     }
 
-    public static float d(String str, float f) {
-        InterceptResult invokeLF;
+    public yg() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65539, null, str, f)) == null) {
-            if (str == null) {
-                return f;
-            }
-            try {
-                return Float.parseFloat(str);
-            } catch (Exception unused) {
-                return f;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return invokeLF.floatValue;
-    }
-
-    public static int e(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i)) == null) {
-            if (str == null) {
-                return i;
-            }
-            try {
-                return Integer.parseInt(str);
-            } catch (Exception unused) {
-                return i;
-            }
-        }
-        return invokeLI.intValue;
-    }
-
-    public static long g(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, str, j)) == null) {
-            if (str == null) {
-                return j;
-            }
-            try {
-                return Long.parseLong(str);
-            } catch (Exception unused) {
-                return j;
-            }
-        }
-        return invokeLJ.longValue;
-    }
-
-    public static int f(String str, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65541, null, str, i, i2)) == null) {
-            if (str == null) {
-                return i;
-            }
-            try {
-                return Integer.parseInt(str, i2);
-            } catch (Exception unused) {
-                return i;
-            }
-        }
-        return invokeLII.intValue;
     }
 }

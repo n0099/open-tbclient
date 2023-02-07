@@ -1,19 +1,107 @@
 package com.baidu.tieba;
+
+import android.content.Context;
+import android.view.Surface;
+import androidx.annotation.NonNull;
+import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public interface hr2 {
-    String b();
+public interface hr2 extends tm2 {
+
+    /* loaded from: classes4.dex */
+    public interface a {
+        void a(int i);
+
+        void b(String str);
+
+        void c(@NonNull String str);
+
+        void d(String str);
+
+        void e(int i);
+
+        void f();
+
+        void onEnded();
+
+        void onError(int i);
+
+        void onPrepared();
+
+        void onRelease(String str);
+    }
+
+    void B(boolean z);
+
+    void C();
+
+    void G(int i);
+
+    void H();
+
+    void L(int i, int i2, int i3, int i4);
+
+    void N(ZeusPluginFactory.Invoker invoker);
+
+    boolean O(String str, String str2, String str3, boolean z);
+
+    boolean P();
+
+    a Q();
+
+    void S(Map map);
+
+    void T();
+
+    void V();
+
+    int a();
+
+    void a0(String str);
+
+    void b0();
 
     String c();
 
-    String f();
+    ZeusPluginFactory.Invoker e0();
 
-    Object i();
+    void f0(int i);
 
-    void j(boolean z);
+    void g0(@NonNull a aVar);
 
-    void k(boolean z);
+    Context getContext();
 
-    boolean onBackPressed();
+    int getCurrentPosition();
 
-    void onDestroy();
+    int getDuration();
+
+    int getVideoHeight();
+
+    int getVideoSarDen();
+
+    int getVideoSarNum();
+
+    int getVideoWidth();
+
+    boolean i0();
+
+    boolean isPlaying();
+
+    void l(boolean z);
+
+    void m0();
+
+    void pause();
+
+    boolean prepareAsync();
+
+    void release();
+
+    void seekTo(int i);
+
+    void setSpeed(float f);
+
+    void setSurface(Surface surface);
+
+    void start();
 }

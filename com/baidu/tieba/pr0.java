@@ -1,37 +1,28 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.net.exception.RequestError;
-import com.baidu.nadcore.net.request.Headers;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.MalformedURLException;
-import java.net.URL;
-import org.apache.http.client.methods.HttpDelete;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 /* loaded from: classes5.dex */
-public class pr0 {
+public final class pr0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public URL a;
-    public String b;
-    public Headers.a c;
-    @Nullable
-    public or0 d;
-    public Object e;
-    @NonNull
-    public final uq0 f;
-    public boolean g;
-    public boolean h;
+    public boolean a;
+    public boolean b;
+    public int c;
+    public boolean d;
+    public boolean e;
+    public boolean f;
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public pr0() {
+        this(false, false, 0, false, false, false, 63, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -39,191 +30,223 @@ public class pr0 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                this(((Boolean) objArr[0]).booleanValue(), ((Boolean) objArr[1]).booleanValue(), ((Integer) objArr[2]).intValue(), ((Boolean) objArr[3]).booleanValue(), ((Boolean) objArr[4]).booleanValue(), ((Boolean) objArr[5]).booleanValue(), ((Integer) objArr[6]).intValue(), (DefaultConstructorMarker) objArr[7]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = true;
-        this.h = false;
-        this.b = "GET";
-        this.c = new Headers.a();
-        new Headers.a();
-        this.f = new uq0();
     }
 
-    public pr0 a(String str, String str2) {
-        InterceptResult invokeLL;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            this.c.a(str, str2);
-            return this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this != obj) {
+                if (obj instanceof pr0) {
+                    pr0 pr0Var = (pr0) obj;
+                    return this.a == pr0Var.a && this.b == pr0Var.b && this.c == pr0Var.c && this.d == pr0Var.d && this.e == pr0Var.e && this.f == pr0Var.f;
+                }
+                return false;
+            }
+            return true;
         }
-        return (pr0) invokeLL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public pr0 d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            this.c.e(str, str2);
-            return this;
-        }
-        return (pr0) invokeLL.objValue;
-    }
-
-    public pr0 e(String str, @Nullable or0 or0Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, or0Var)) == null) {
-            this.b = str;
-            this.d = or0Var;
-            return this;
-        }
-        return (pr0) invokeLL.objValue;
-    }
-
-    public RequestError b() {
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v14 */
+    /* JADX WARN: Type inference failed for: r0v15 */
+    /* JADX WARN: Type inference failed for: r0v3, types: [int] */
+    /* JADX WARN: Type inference failed for: r2v1, types: [boolean] */
+    /* JADX WARN: Type inference failed for: r2v4, types: [boolean] */
+    /* JADX WARN: Type inference failed for: r2v6, types: [boolean] */
+    public int hashCode() {
         InterceptResult invokeV;
-        RequestError requestError;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            boolean z = this.a;
+            ?? r0 = z;
+            if (z) {
+                r0 = 1;
+            }
+            int i = r0 * 31;
+            ?? r2 = this.b;
+            int i2 = r2;
+            if (r2 != 0) {
+                i2 = 1;
+            }
+            int i3 = (((i + i2) * 31) + this.c) * 31;
+            ?? r22 = this.d;
+            int i4 = r22;
+            if (r22 != 0) {
+                i4 = 1;
+            }
+            int i5 = (i3 + i4) * 31;
+            ?? r23 = this.e;
+            int i6 = r23;
+            if (r23 != 0) {
+                i6 = 1;
+            }
+            int i7 = (i5 + i6) * 31;
+            boolean z2 = this.f;
+            return i7 + (z2 ? 1 : z2 ? 1 : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return "RewardRuntimeData(isPanelPopShown=" + this.a + ", isTailFrameShown=" + this.b + ", rewardShownIndex=" + this.c + ", clickUserInfoContainer=" + this.d + ", upperLimit=" + this.e + ", lottieDialogBtnClick=" + this.f + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public pr0(boolean z, boolean z2, int i, boolean z3, boolean z4, boolean z5) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i), Boolean.valueOf(z3), Boolean.valueOf(z4), Boolean.valueOf(z5)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = z;
+        this.b = z2;
+        this.c = i;
+        this.d = z3;
+        this.e = z4;
+        this.f = z5;
+    }
+
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public /* synthetic */ pr0(boolean z, boolean z2, int i, boolean z3, boolean z4, boolean z5, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this(r13, r1, r2, r3, r4, r12);
+        boolean z6;
+        boolean z7;
+        int i3;
+        boolean z8;
+        boolean z9;
+        boolean z10;
+        if ((i2 & 1) != 0) {
+            z6 = false;
+        } else {
+            z6 = z;
+        }
+        if ((i2 & 2) != 0) {
+            z7 = false;
+        } else {
+            z7 = z2;
+        }
+        if ((i2 & 4) != 0) {
+            i3 = 1;
+        } else {
+            i3 = i;
+        }
+        if ((i2 & 8) != 0) {
+            z8 = false;
+        } else {
+            z8 = z3;
+        }
+        if ((i2 & 16) != 0) {
+            z9 = false;
+        } else {
+            z9 = z4;
+        }
+        if ((i2 & 32) != 0) {
+            z10 = false;
+        } else {
+            z10 = z5;
+        }
+    }
+
+    public final boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.a == null) {
-                requestError = new RequestError("url is null");
-            } else {
-                requestError = null;
-            }
-            if (this.d != null && !lr0.a(this.b)) {
-                requestError = new RequestError("method " + this.b + " must not have a request body.");
-            }
-            if (this.d == null && lr0.b(this.b)) {
-                return new RequestError("method " + this.b + " must have a request body.");
-            }
-            return requestError;
+            return this.f;
         }
-        return (RequestError) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public pr0 c() {
+    public final int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            e("GET", null);
-            return this;
+            return this.c;
         }
-        return (pr0) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public pr0 delete() {
+    public final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return delete(or0.h);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
         }
-        return (pr0) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public pr0 delete(@Nullable or0 or0Var) {
-        InterceptResult invokeL;
+    public final void e(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, or0Var)) == null) {
-            e(HttpDelete.METHOD_NAME, or0Var);
-            return this;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.d = z;
         }
-        return (pr0) invokeL.objValue;
     }
 
-    public pr0 f(or0 or0Var) {
-        InterceptResult invokeL;
+    public final void f(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, or0Var)) == null) {
-            e("POST", or0Var);
-            return this;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.f = z;
         }
-        return (pr0) invokeL.objValue;
     }
 
-    public pr0 g(int i) {
-        InterceptResult invokeI;
+    public final void g(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            this.f.a(i);
-            return this;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.a = z;
         }
-        return (pr0) invokeI.objValue;
     }
 
-    public pr0 h(kr0 kr0Var) {
-        InterceptResult invokeL;
+    public final void h(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, kr0Var)) == null) {
-            this.f.b(kr0Var);
-            return this;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.c = i;
         }
-        return (pr0) invokeL.objValue;
     }
 
-    public pr0 i(boolean z) {
-        InterceptResult invokeZ;
+    public final void i(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
-            this.g = z;
-            return this;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.b = z;
         }
-        return (pr0) invokeZ.objValue;
     }
 
-    public pr0 j(int i) {
-        InterceptResult invokeI;
+    public final void j(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
-            this.f.c(i);
-            return this;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.e = z;
         }
-        return (pr0) invokeI.objValue;
-    }
-
-    public pr0 k(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
-            this.f.d(i);
-            return this;
-        }
-        return (pr0) invokeI.objValue;
-    }
-
-    public pr0 m(URL url) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, url)) == null) {
-            this.a = url;
-            return this;
-        }
-        return (pr0) invokeL.objValue;
-    }
-
-    public pr0 l(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                this.a = null;
-                return this;
-            }
-            if (str.regionMatches(true, 0, "ws:", 0, 3)) {
-                str = UrlSchemaHelper.SCHEMA_TYPE_HTTP + str.substring(3);
-            } else if (str.regionMatches(true, 0, "wss:", 0, 4)) {
-                str = UrlSchemaHelper.SCHEMA_TYPE_HTTPS + str.substring(4);
-            }
-            try {
-                m(new URL(str));
-                return this;
-            } catch (MalformedURLException | Exception unused) {
-                m(null);
-                return this;
-            }
-        }
-        return (pr0) invokeL.objValue;
     }
 }

@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.e06;
-import com.baidu.tieba.f06;
+import com.baidu.tieba.q46;
+import com.baidu.tieba.r46;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,14 +21,14 @@ public class AlaBannerRecyclerAdapter<T> extends RecyclerView.Adapter<AlaBannerV
     public transient /* synthetic */ FieldHolder $fh;
     public List<T> a;
     public Context b;
-    public e06 c;
-    public f06 d;
+    public q46 c;
+    public r46 d;
     public boolean e;
     public View.OnClickListener f;
 
-    public void j(e06 e06Var) {
+    public void j(q46 q46Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, e06Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, q46Var) == null) {
         }
     }
 
@@ -65,12 +65,12 @@ public class AlaBannerRecyclerAdapter<T> extends RecyclerView.Adapter<AlaBannerV
         }
     }
 
-    public AlaBannerRecyclerAdapter(Context context, e06 e06Var, boolean z) {
+    public AlaBannerRecyclerAdapter(Context context, q46 q46Var, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, e06Var, Boolean.valueOf(z)};
+            Object[] objArr = {context, q46Var, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -82,7 +82,7 @@ public class AlaBannerRecyclerAdapter<T> extends RecyclerView.Adapter<AlaBannerV
         }
         this.f = new a(this);
         this.b = context;
-        this.c = e06Var;
+        this.c = q46Var;
         this.e = z;
     }
 
@@ -98,10 +98,10 @@ public class AlaBannerRecyclerAdapter<T> extends RecyclerView.Adapter<AlaBannerV
         return invokeI.intValue;
     }
 
-    public void i(f06 f06Var) {
+    public void i(r46 r46Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, f06Var) == null) {
-            this.d = f06Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, r46Var) == null) {
+            this.d = r46Var;
         }
     }
 
@@ -162,9 +162,9 @@ public class AlaBannerRecyclerAdapter<T> extends RecyclerView.Adapter<AlaBannerV
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) {
-            e06 e06Var = this.c;
-            if (e06Var != null) {
-                return e06Var.a(viewGroup, i);
+            q46 q46Var = this.c;
+            if (q46Var != null) {
+                return q46Var.a(viewGroup, i);
             }
             return null;
         }

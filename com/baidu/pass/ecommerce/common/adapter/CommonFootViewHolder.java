@@ -35,12 +35,12 @@ public class CommonFootViewHolder extends BaseRecyclerViewHolder<Boolean> {
                 return;
             }
         }
-        this.mFooterIc = view2.findViewById(R.id.obfuscated_res_0x7f091e32);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e33);
+        this.mFooterIc = view2.findViewById(R.id.obfuscated_res_0x7f091e47);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e48);
         this.mFootTv = textView;
         this.isDarkMode = z;
         if (z) {
-            textView.setTextColor(view2.getContext().getResources().getColor(R.color.obfuscated_res_0x7f0609be));
+            textView.setTextColor(view2.getContext().getResources().getColor(R.color.obfuscated_res_0x7f0609ce));
         }
     }
 

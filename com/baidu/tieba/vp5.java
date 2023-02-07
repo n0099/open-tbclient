@@ -1,53 +1,47 @@
 package com.baidu.tieba;
 
-import android.view.MotionEvent;
-import android.view.VelocityTracker;
-import android.view.View;
-import android.view.ViewConfiguration;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.core.util.schemeaction.UriBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tencent.mm.opensdk.modelmsg.SendMessageToWX;
+import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
+import com.tencent.mm.opensdk.modelmsg.WXWebpageObject;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
+import java.io.ByteArrayOutputStream;
+import tbclient.TiebaPlusInfo;
 /* loaded from: classes6.dex */
 public class vp5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public b b;
-    public VelocityTracker c;
-    public float d;
-    public float e;
-    public long f;
-    public long g;
-    public boolean h;
-    public boolean i;
-    public int j;
-    public int k;
-    public int l;
 
     /* loaded from: classes6.dex */
-    public interface b {
-        void onViewClick();
-
-        void onViewDragToRight();
-
-        void p0(float f, float f2);
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public static class a extends yg<on> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vp5 a;
+        public final /* synthetic */ WXMediaMessage a;
+        public final /* synthetic */ IWXAPI b;
+        public final /* synthetic */ SendMessageToWX.Req c;
 
-        public a(vp5 vp5Var) {
+        public a(WXMediaMessage wXMediaMessage, IWXAPI iwxapi, SendMessageToWX.Req req) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {vp5Var};
+                Object[] objArr = {wXMediaMessage, iwxapi, req};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -57,109 +51,97 @@ public class vp5 {
                     return;
                 }
             }
-            this.a = vp5Var;
+            this.a = wXMediaMessage;
+            this.b = iwxapi;
+            this.c = req;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.yg
+        public void onLoaded(on onVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.a.i && this.a.h && this.a.b != null) {
-                this.a.b.onViewClick();
-            }
-        }
-    }
-
-    public vp5(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = view2;
-        ViewConfiguration viewConfiguration = ViewConfiguration.get(view2.getContext());
-        if (viewConfiguration != null) {
-            this.l = viewConfiguration.getScaledPagingTouchSlop();
-        }
-        this.k = ViewConfiguration.getMaximumFlingVelocity();
-        this.j = ViewConfiguration.getMinimumFlingVelocity();
-    }
-
-    public void f(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.b = bVar;
-        }
-    }
-
-    public boolean d(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            if (this.c == null) {
-                this.c = VelocityTracker.obtain();
-            }
-            this.c.addMovement(motionEvent);
-            int action = motionEvent.getAction();
-            if (action != 0) {
-                if (action != 1) {
-                    if (action == 3) {
-                        e();
-                    }
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, onVar, str, i) == null) {
+                super.onLoaded((a) onVar, str, i);
+                if (onVar != null) {
+                    Bitmap p = onVar.p();
+                    this.a.thumbData = vp5.a(p);
                 } else {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    if (currentTimeMillis - this.f < 100 && currentTimeMillis - this.g < 500) {
-                        this.i = true;
-                    } else {
-                        this.i = false;
-                    }
-                    VelocityTracker velocityTracker = this.c;
-                    velocityTracker.computeCurrentVelocity(1000, this.k);
-                    if (Math.abs(velocityTracker.getYVelocity()) > this.j && Math.abs(this.e - motionEvent.getY()) > 50.0f) {
-                        this.i = false;
-                        this.h = false;
-                    }
-                    if (this.i) {
-                        b bVar2 = this.b;
-                        if (bVar2 != null) {
-                            bVar2.p0(motionEvent.getRawX(), motionEvent.getRawY());
-                        }
-                    } else if (Math.abs(this.d - motionEvent.getX()) > this.l && (this.d - motionEvent.getX()) - 50.0f > Math.abs(this.e - motionEvent.getY()) && (bVar = this.b) != null) {
-                        bVar.onViewDragToRight();
-                    }
-                    if (!this.i && this.h && Math.abs(this.d - motionEvent.getX()) < 30.0f && Math.abs(this.e - motionEvent.getY()) < 30.0f) {
-                        this.a.postDelayed(new a(this), 300L);
-                    }
-                    this.g = currentTimeMillis;
-                    e();
+                    Bitmap cashBitmap = BitmapHelper.getCashBitmap(R.drawable.pic_wechatguide_head);
+                    this.a.thumbData = vp5.a(cashBitmap);
                 }
-            } else {
-                this.d = motionEvent.getX();
-                this.e = motionEvent.getY();
-                this.f = System.currentTimeMillis();
-                this.h = true;
+                this.b.sendReq(this.c);
             }
-            return true;
         }
-        return invokeL.booleanValue;
     }
 
-    public final void e() {
-        VelocityTracker velocityTracker;
+    public static byte[] a(Bitmap bitmap) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (velocityTracker = this.c) != null) {
-            velocityTracker.clear();
-            this.c.recycle();
-            this.c = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bitmap)) == null) {
+            if (bitmap == null) {
+                try {
+                    bitmap = BitmapHelper.getCashBitmap(R.drawable.pic_wechatguide_head);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return null;
+                }
+            }
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+            byte[] byteArray = byteArrayOutputStream.toByteArray();
+            byteArrayOutputStream.close();
+            return byteArray;
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (str == null) {
+                return String.valueOf(System.currentTimeMillis());
+            }
+            return str + System.currentTimeMillis();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void c(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
+            try {
+                Intent intent = new Intent("android.intent.action.MAIN");
+                ComponentName componentName = new ComponentName("com.tencent.mm", "com.tencent.mm.ui.LauncherUI");
+                intent.addCategory("android.intent.category.LAUNCHER");
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+                intent.setComponent(componentName);
+                context.startActivity(intent);
+            } catch (Exception e) {
+                BdLog.e(e);
+            }
+        }
+    }
+
+    public static void d(TiebaPlusInfo tiebaPlusInfo, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, tiebaPlusInfo, str) == null) {
+            UriBuilder uriBuilder = new UriBuilder(tiebaPlusInfo.h5_jump_param);
+            if (uriBuilder.getParamsObject() != null) {
+                WXWebpageObject wXWebpageObject = new WXWebpageObject();
+                String string = uriBuilder.getParamsObject().getString("url");
+                if (TextUtils.isEmpty(string)) {
+                    return;
+                }
+                wXWebpageObject.webpageUrl = string;
+                WXMediaMessage wXMediaMessage = new WXMediaMessage(wXWebpageObject);
+                wXMediaMessage.title = str;
+                SendMessageToWX.Req req = new SendMessageToWX.Req();
+                req.transaction = b("webpage");
+                req.message = wXMediaMessage;
+                req.scene = 1;
+                zg.h().k(tiebaPlusInfo.wx_thumbnail, 10, new a(wXMediaMessage, WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), TbConfig.WEIXIN_APP_ID), req), 0, 0, null, new Object[0]);
+            }
         }
     }
 }

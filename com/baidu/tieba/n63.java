@@ -2,210 +2,265 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
-import com.baidu.tieba.gp2;
-import com.baidu.tieba.o93;
+import com.baidu.swan.apps.publisher.view.PhotoChooseView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.facebook.imagepipeline.common.ImageDecodeOptions;
+import com.facebook.imagepipeline.common.ResizeOptions;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public abstract class n63 extends g63 {
+public class n63 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String c;
-    public boolean d;
+    public int a;
+    public int b;
+    public int c;
+    public List<String> d;
+    public Context e;
+    public PhotoChooseView.b f;
 
-    public abstract boolean j(j43 j43Var, UnitedSchemeEntity unitedSchemeEntity);
-
-    public abstract void k(j43 j43Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str);
-
-    public void l(j43 j43Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048579, this, j43Var, unitedSchemeEntity, callbackHandler, str) == null) {
-        }
-    }
-
-    public boolean o(UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, unitedSchemeEntity)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i : invokeI.longValue;
     }
 
     /* loaded from: classes5.dex */
-    public class a implements cj3<m93<o93.e>> {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ j43 c;
-        public final /* synthetic */ UnitedSchemeEntity d;
-        public final /* synthetic */ n63 e;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ n63 b;
 
-        public a(n63 n63Var, CallbackHandler callbackHandler, String str, j43 j43Var, UnitedSchemeEntity unitedSchemeEntity) {
+        public a(n63 n63Var, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {n63Var, callbackHandler, str, j43Var, unitedSchemeEntity};
+                Object[] objArr = {n63Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = n63Var;
+            this.a = i;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.b.d.remove(this.a);
+                this.b.notifyDataSetChanged();
+                if (this.b.f != null) {
+                    this.b.f.a(this.b.d.size());
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public SimpleDraweeView a;
+        public ImageView b;
+        public RelativeLayout c;
+        public TextView d;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
-            }
-            this.e = n63Var;
-            this.a = callbackHandler;
-            this.b = str;
-            this.c = j43Var;
-            this.d = unitedSchemeEntity;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cj3
-        /* renamed from: b */
-        public void a(m93<o93.e> m93Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m93Var) == null) {
-                if (!h93.h(m93Var)) {
-                    h93.q(m93Var, this.a, this.b);
-                    this.e.l(this.c, this.d, this.a, this.b);
-                    return;
-                }
-                this.e.k(this.c, this.d, this.a, this.b);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n63(g53 g53Var, String str) {
-        super(g53Var, str);
+    public n63(Context context, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {g53Var, str};
+            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = null;
-        this.d = false;
+        this.c = 9;
+        this.d = new ArrayList(0);
+        this.e = context;
+        this.a = i;
+        this.b = i2;
     }
 
-    public static void m(String str, String str2, String str3) {
-        j43 b0;
-        String str4;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: d */
+    public String getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65537, null, str, str2, str3) != null) || (b0 = j43.b0()) == null) {
-            return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i < this.d.size()) {
+                return this.d.get(i);
+            }
+            return "more_option";
         }
-        lb3 lb3Var = new lb3();
-        gp2.a W = b0.W();
-        lb3Var.a = cb3.n(W.G());
-        lb3Var.e = str3;
-        lb3Var.b = DI.BD.FAVOR;
-        lb3Var.f = b0.O();
-        SwanCoreVersion j0 = W.j0();
-        String Z = b0.Z();
-        if (j0 != null) {
-            str4 = j0.swanCoreVersionName;
-        } else {
-            str4 = "";
-        }
-        lb3Var.a("appName", Z);
-        lb3Var.a("isFavor", str);
-        lb3Var.a("favorBy", str2);
-        lb3Var.a("swan", str4);
-        qa3.i("2571", "89", lb3Var.f());
+        return (String) invokeI.objValue;
     }
 
-    @Override // com.baidu.tieba.g63
-    public final boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j43 j43Var) {
-        InterceptResult invokeLLLL;
-        String str;
+    public boolean e(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j43Var)) == null) {
-            if (j43Var == null) {
-                j12.c("favorite", "none swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-                if (g63.b) {
-                    Log.d("SwanAppAction", "getSwanHistory --- illegal swanApp");
-                }
-                return false;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            if (i == getCount() - 1 && this.d.size() < this.c) {
+                return true;
             }
-            JSONObject d = jh3.d(unitedSchemeEntity.getParam("params"));
-            String optString = d.optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                j12.c("favorite", "none cb");
-                if (g63.b) {
-                    Log.d("SwanAppAction", "getSwanHistory --- cb is empty");
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void f(List<String> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && list != null) {
+            for (String str : list) {
+                if (!this.d.contains(str)) {
+                    this.d.add(str);
                 }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
             }
-            this.d = d.optBoolean("isFavorButton", false);
-            if (!j(j43Var, unitedSchemeEntity)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, IActiveUploadListener.PARAM_ERR_MSG);
-                return false;
+        }
+    }
+
+    public void g(PhotoChooseView.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
+            this.f = bVar;
+        }
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public List<String> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            int size = this.d.size();
+            int i = this.c;
+            if (size < i) {
+                return size + 1;
             }
-            String optString2 = d.optString("slaveId");
-            String T = wp2.U().T();
-            if (TextUtils.equals(optString2, wp2.U().C()) && (TextUtils.equals(T, "pages/swan-news-showcase/index") || TextUtils.equals(T, "pages/swan-operate-news/index"))) {
-                k(j43Var, unitedSchemeEntity, callbackHandler, optString);
-            } else if (!o(unitedSchemeEntity)) {
-                s83 e0 = j43Var.e0();
-                if (this.d) {
-                    str = "scope_favorite_button";
-                } else {
-                    str = "mapp_favorite";
-                }
-                e0.g(context, str, new a(this, callbackHandler, optString, j43Var, unitedSchemeEntity));
+            return i;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        View view3;
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                bVar = new b();
+                view3 = LayoutInflater.from(this.e).inflate(R.layout.obfuscated_res_0x7f0d0855, viewGroup, false);
+                bVar.a = (SimpleDraweeView) view3.findViewById(R.id.obfuscated_res_0x7f091bbe);
+                bVar.b = (ImageView) view3.findViewById(R.id.obfuscated_res_0x7f091bbd);
+                bVar.c = (RelativeLayout) view3.findViewById(R.id.obfuscated_res_0x7f091bc2);
+                bVar.d = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091bc3);
+                bVar.a.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                int o = nm3.o(this.e) - nm3.g(30.0f);
+                int i2 = this.a;
+                int i3 = this.b;
+                int i4 = (o - (i2 * (i3 - 1))) / i3;
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) bVar.a.getLayoutParams();
+                layoutParams.width = i4;
+                layoutParams.height = i4;
+                bVar.a.setLayoutParams(layoutParams);
+                bVar.a.setBackground(ContextCompat.getDrawable(this.e, R.drawable.obfuscated_res_0x7f08123a));
+                view3.setTag(bVar);
             } else {
-                k(j43Var, unitedSchemeEntity, callbackHandler, optString);
+                view3 = view2;
+                bVar = (b) view2.getTag();
             }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            return true;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public void n(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, unitedSchemeEntity, callbackHandler, str) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("success", "0");
-            } catch (JSONException e) {
-                if (tk1.a) {
-                    e.printStackTrace();
+            int o2 = nm3.o(this.e) / 3;
+            int o3 = nm3.o(this.e) / 3;
+            bVar.b.setImageResource(R.drawable.obfuscated_res_0x7f081239);
+            bVar.b.setVisibility(8);
+            if (e(i)) {
+                bVar.c.setVisibility(8);
+                bVar.a.setBackground(ContextCompat.getDrawable(this.e, R.drawable.obfuscated_res_0x7f081236));
+                bVar.a.setImageResource(R.drawable.obfuscated_res_0x7f081234);
+            } else {
+                bVar.b.setVisibility(0);
+                String item = getItem(i);
+                if (!TextUtils.isEmpty(item)) {
+                    if (hm3.c(item)) {
+                        bVar.c.setVisibility(0);
+                        bVar.d.setText(this.e.getString(R.string.obfuscated_res_0x7f0f1359));
+                    } else if (hm3.f(item)) {
+                        bVar.c.setVisibility(0);
+                        bVar.d.setText(this.e.getString(R.string.obfuscated_res_0x7f0f135a));
+                    } else {
+                        bVar.c.setVisibility(8);
+                    }
+                    Fresco.getImagePipeline().evictFromCache(om3.p(item));
+                    bVar.a.setController(Fresco.newDraweeControllerBuilder().setAutoPlayAnimations(false).setOldController(bVar.a.getController()).setImageRequest(ImageRequestBuilder.newBuilderWithSource(om3.p(item)).setResizeOptions(new ResizeOptions((int) (o2 / 2.0f), (int) (o3 / 2.0f))).setImageDecodeOptions(ImageDecodeOptions.newBuilder().setForceStaticImage(true).build()).build()).build());
                 }
             }
-            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
+            bVar.b.setOnClickListener(new a(this, i));
+            return view3;
         }
+        return (View) invokeILL.objValue;
     }
 }

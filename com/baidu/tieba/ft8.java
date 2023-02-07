@@ -1,12 +1,13 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.recapp.lego.model.AdCard;
+import com.baidu.tieba.recapp.widget.CountDownTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,120 +16,107 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class ft8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public NetWork b;
+    public final String a;
+    public final View b;
+    public AdvertAppInfo c;
+    public gv7 d;
+    public TbPageContext e;
+    public AdCard f;
+    public View.OnClickListener g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947775775, "Lcom/baidu/tieba/ft8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947775775, "Lcom/baidu/tieba/ft8;");
-                return;
-            }
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
-        c = TbConfig.SERVER_ADDRESS + "c/c/forum/msign";
     }
 
-    public ft8() {
+    public void c(ps8 ps8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ps8Var) == null) {
+        }
+    }
+
+    public void j(CountDownTextView.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, cVar) == null) {
+        }
+    }
+
+    public ft8(View view2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2, str};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = null;
+        this.b = view2;
+        this.a = str;
     }
 
-    public void a() {
-        NetWork netWork;
+    public final <T> T a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (netWork = this.b) != null) {
-            netWork.cancelNetConnect();
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return (T) this.b.findViewById(i);
         }
+        return (T) invokeI.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public void f(AdvertAppInfo advertAppInfo) {
+        AdvertAppInfo.ILegoAdvert iLegoAdvert;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            NetWork netWork = this.b;
-            if (netWork != null) {
-                return netWork.getErrorString();
+        if (interceptable == null || interceptable.invokeL(1048581, this, advertAppInfo) == null) {
+            this.c = advertAppInfo;
+            if (advertAppInfo != null && (iLegoAdvert = advertAppInfo.h) != null && (iLegoAdvert instanceof AdCard)) {
+                this.f = (AdCard) iLegoAdvert;
             }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            NetWork netWork = this.b;
-            if (netWork != null) {
-                return netWork.getNetContext().getResponse().isRequestSuccess();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.a = str;
         }
     }
 
-    public String e(String str) {
-        InterceptResult invokeL;
-        String str2;
+    public void g(gv7 gv7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-            if (currentAccountObj != null) {
-                str2 = currentAccountObj.getID();
-            } else {
-                str2 = null;
-            }
-            NetWork netWork = new NetWork(c);
-            this.b = netWork;
-            netWork.addPostData("user_id", str2);
-            this.b.addPostData("forum_ids", str);
-            this.b.addPostData("authsid", this.a);
-            this.b.getNetContext().getRequest().mNeedBackgroundLogin = true;
-            this.b.getNetContext().getRequest().mIsNeedTbs = true;
-            this.b.setNeedSig(true);
-            return this.b.postNetData();
+        if (interceptable == null || interceptable.invokeL(1048582, this, gv7Var) == null) {
+            this.d = gv7Var;
         }
-        return (String) invokeL.objValue;
     }
 
-    public String f() {
-        InterceptResult invokeV;
+    public void h(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            NetWork netWork = new NetWork(c);
-            this.b = netWork;
-            netWork.addPostData("authsid", this.a);
-            this.b.getNetContext().getRequest().mNeedBackgroundLogin = true;
-            this.b.getNetContext().getRequest().mIsNeedTbs = true;
-            this.b.setNeedSig(true);
-            return this.b.postNetData();
+        if (interceptable == null || interceptable.invokeL(1048583, this, tbPageContext) == null) {
+            this.e = tbPageContext;
         }
-        return (String) invokeV.objValue;
+    }
+
+    public void i(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onClickListener) == null) {
+            this.g = onClickListener;
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b.setVisibility(0);
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.v(this.c.j).q(String.valueOf(this.c.position + 1)).p(this.c.g).z(String.valueOf(303));
+            n21.b(clogBuilder);
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b.setVisibility(8);
+        }
     }
 }

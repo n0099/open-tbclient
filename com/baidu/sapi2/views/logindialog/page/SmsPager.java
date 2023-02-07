@@ -425,6 +425,15 @@ public class SmsPager extends LinearLayout implements a.c {
         }
     }
 
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("sdk_situation", "pop_login");
+            SapiAccountManager.getInstance().getAccountService().dynamicPwdLogin(new d(this, System.currentTimeMillis()), this.b, str, hashMap);
+        }
+    }
+
     private void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
@@ -469,15 +478,6 @@ public class SmsPager extends LinearLayout implements a.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             b(str);
-        }
-    }
-
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("sdk_situation", "pop_login");
-            SapiAccountManager.getInstance().getAccountService().dynamicPwdLogin(new d(this, System.currentTimeMillis()), this.b, str, hashMap);
         }
     }
 

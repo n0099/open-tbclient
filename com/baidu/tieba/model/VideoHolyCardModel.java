@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.ic;
 import com.baidu.tieba.message.VideoHolyCardResponseMessage;
+import com.baidu.tieba.nc;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -66,12 +66,12 @@ public class VideoHolyCardModel extends BdBaseModel {
 
         /* renamed from: com.baidu.tieba.model.VideoHolyCardModel$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0359a implements Runnable {
+        public class RunnableC0351a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ HttpMessage a;
 
-            public RunnableC0359a(a aVar, HttpMessage httpMessage) {
+            public RunnableC0351a(a aVar, HttpMessage httpMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,7 +120,7 @@ public class VideoHolyCardModel extends BdBaseModel {
                 httpMessage.addParam("localip", VideoHolyCardModel.d);
                 httpMessage.addParam("network", VideoHolyCardModel.e);
                 if (Looper.myLooper() != Looper.getMainLooper()) {
-                    new Handler(Looper.getMainLooper()).post(new RunnableC0359a(this, httpMessage));
+                    new Handler(Looper.getMainLooper()).post(new RunnableC0351a(this, httpMessage));
                 } else {
                     MessageManager.getInstance().sendMessage(httpMessage);
                 }
@@ -224,7 +224,7 @@ public class VideoHolyCardModel extends BdBaseModel {
             this.a.onResult(false);
             return;
         }
-        ic.b().a("VideoHolyCard", f);
+        nc.b().a("VideoHolyCard", f);
         this.b = System.currentTimeMillis();
     }
 

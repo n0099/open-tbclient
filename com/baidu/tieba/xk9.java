@@ -1,332 +1,155 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Intent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
-import com.baidu.searchbox.logsystem.basic.upload.Constant;
-import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AtListActivityConfig;
+import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class xk9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean n;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public JSONObject c;
-    public JSONObject d;
-    public JSONObject e;
-    public String f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
-    public int k;
-    public int l;
-    public List<kk9> m;
+    @NonNull
+    public final TbPageContext<?> a;
+    @NonNull
+    public final sj9 b;
+    @Nullable
+    public WriteData c;
+    public boolean d;
+    @Nullable
+    public String e;
+    @Nullable
+    public ArrayList<AtSelectData> f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948303395, "Lcom/baidu/tieba/xk9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948303395, "Lcom/baidu/tieba/xk9;");
+    public xk9(@NonNull TbPageContext<?> tbPageContext, @NonNull sj9 sj9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, sj9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        n = cl9.m();
+        this.a = tbPageContext;
+        this.b = sj9Var;
     }
 
-    public JSONObject a() {
+    @Nullable
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.e;
         }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public List<kk9> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.m;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.g;
-        }
-        return invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.j;
-        }
-        return invokeV.intValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.i;
-        }
-        return invokeV.intValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.h;
-        }
-        return invokeV.intValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.f;
-        }
         return (String) invokeV.objValue;
     }
 
-    public int h() {
-        InterceptResult invokeV;
+    public void b(CharSequence charSequence, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a;
+        if ((interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2) == null) && charSequence != null && i2 == 1 && i < charSequence.length() && i >= 0 && charSequence.charAt(i) == '@') {
+            i();
         }
-        return invokeV.intValue;
     }
 
-    public int i() {
-        InterceptResult invokeV;
+    public void c(CharSequence charSequence, int i, int i2, String str) {
+        WriteData writeData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.k;
-        }
-        return invokeV.intValue;
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.l;
-        }
-        return invokeV.intValue;
-    }
-
-    public xk9(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, jSONObject};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), str}) == null) && (writeData = this.c) != null && 14 != writeData.getType() && charSequence != null && i2 == 1 && i < charSequence.length() && i >= 0) {
+            this.d = false;
+            this.e = "";
+            if ("from_content".equals(str)) {
+                this.e = "from_content";
+            } else if ("from_title".equals(str)) {
+                this.e = "from_title";
+            }
+            if (no5.f(String.valueOf(charSequence.charAt(i)))) {
+                this.b.m();
             }
         }
-        this.m = new ArrayList();
-        this.c = jSONObject;
     }
 
-    public xk9(List<kk9> list) {
+    public String d(Intent intent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, intent)) == null) {
+            if (intent == null) {
+                return null;
             }
-        }
-        this.m = new ArrayList();
-        if (list != null && list.size() > 0) {
-            this.m.addAll(list);
-        }
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        JSONObject optJSONObject;
-        boolean z;
-        boolean z2;
-        boolean z3;
-        boolean z4;
-        boolean z5;
-        boolean z6;
-        boolean z7;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            try {
-                if (this.c != null && this.c.length() != 0) {
-                    JSONObject jSONObject = this.c;
-                    this.d = jSONObject.optJSONObject("set");
-                    this.a = jSONObject.optInt("threshold", 10000);
-                    this.b = jSONObject.optInt("timeup", 604800000);
-                    this.f = jSONObject.optString(ShaderParams.VALUE_TYPE_STEP);
-                    jSONObject.optString(StickerDataChangeType.REPLACE);
-                    this.e = jSONObject.optJSONObject("del");
-                    this.g = jSONObject.optInt("all_size", 614400);
-                    this.h = jSONObject.optInt("single_size", 153600);
-                    this.i = jSONObject.optInt("real_size", 614400);
-                    this.j = jSONObject.optInt("non_real_size", 614400);
-                    this.k = jSONObject.optInt("trigger_number", 100);
-                    this.l = jSONObject.optInt("trigger_interval", 180);
-                    int i = 1;
-                    if (this.d != null) {
-                        Iterator<String> keys = this.d.keys();
-                        while (keys.hasNext()) {
-                            String next = keys.next();
-                            if (!TextUtils.isEmpty(next) && (optJSONObject = this.d.optJSONObject(next)) != null && optJSONObject.length() != 0) {
-                                JSONObject optJSONObject2 = optJSONObject.optJSONObject("data");
-                                String optString = optJSONObject.optString("version");
-                                if (optJSONObject2 != null && !TextUtils.isEmpty(optString)) {
-                                    if (optJSONObject2.optInt(SetImageWatermarkTypeReqMsg.SWITCH, i) != 0) {
-                                        z = true;
-                                    } else {
-                                        z = false;
-                                    }
-                                    if (optJSONObject2.optInt(Constant.IS_REAL, 0) == 1) {
-                                        z2 = true;
-                                    } else {
-                                        z2 = false;
-                                    }
-                                    if (optJSONObject2.optInt("isAbtest", 0) == 1) {
-                                        z3 = true;
-                                    } else {
-                                        z3 = false;
-                                    }
-                                    Iterator<String> it = keys;
-                                    kk9 kk9Var = new kk9(next, z, z2, optJSONObject2.optInt(com.alipay.sdk.data.a.O, 60), optJSONObject2.optInt("type", 0), z3);
-                                    if (nk9.a(next)) {
-                                        if (optJSONObject2.optInt("isSend", 1) == 1) {
-                                            z7 = true;
-                                        } else {
-                                            z7 = false;
-                                        }
-                                        kk9Var.y(z7);
-                                    }
-                                    if (optJSONObject2.has("rate")) {
-                                        kk9Var.D(optJSONObject2.getInt("rate"));
-                                    }
-                                    if (optJSONObject2.has("c")) {
-                                        kk9Var.u(optJSONObject2.getString("c"));
-                                    }
-                                    if (optJSONObject2.has("limitUnit")) {
-                                        kk9Var.A(optJSONObject2.getInt("limitUnit"));
-                                    }
-                                    if (optJSONObject2.has("limitCnt")) {
-                                        kk9Var.z(optJSONObject2.getInt("limitCnt"));
-                                    }
-                                    if (optJSONObject2.has(Constant.ID_TYPE)) {
-                                        kk9Var.w(optJSONObject2.getInt(Constant.ID_TYPE));
-                                    }
-                                    if (optJSONObject2.optInt("ch", 0) == 1) {
-                                        z4 = true;
-                                    } else {
-                                        z4 = false;
-                                    }
-                                    kk9Var.C(z4);
-                                    if (optJSONObject2.has("dfc")) {
-                                        if (optJSONObject2.getInt("dfc") == 1) {
-                                            z6 = true;
-                                        } else {
-                                            z6 = false;
-                                        }
-                                        kk9Var.x(z6);
-                                    }
-                                    if (optJSONObject2.has("reallog")) {
-                                        if (optJSONObject2.getInt("reallog") == 1) {
-                                            z5 = true;
-                                        } else {
-                                            z5 = false;
-                                        }
-                                        kk9Var.E(z5);
-                                    }
-                                    if (optJSONObject2.has("gflow")) {
-                                        kk9Var.v(optJSONObject2.getInt("gflow"));
-                                    }
-                                    if (optJSONObject2.has("uploadType")) {
-                                        kk9Var.F(optJSONObject2.optInt("uploadType", -1));
-                                    }
-                                    int optInt = optJSONObject2.optInt("lcache", 2);
-                                    if (optInt == 1 || optInt == 0) {
-                                        kk9Var.B(optInt);
-                                    }
-                                    kk9Var.G(optString);
-                                    this.m.add(kk9Var);
-                                    keys = it;
-                                    i = 1;
-                                }
-                            }
-                        }
-                        return true;
-                    }
-                    return true;
-                }
-                return false;
-            } catch (JSONException e) {
-                if (n) {
-                    e.printStackTrace();
-                }
-                return false;
+            String stringExtra = intent.getStringExtra(HotTopicActivityConfig.HOT_TOPIC_SELECT_STRING);
+            if (StringUtils.isNull(stringExtra)) {
+                return null;
             }
+            StringBuilder sb = new StringBuilder();
+            if (this.d) {
+                sb.append("#");
+                this.d = false;
+            }
+            sb.append(stringExtra);
+            return sb.toString();
         }
-        return invokeV.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public void m(List<kk9> list) {
+    public void e(ArrayList<AtSelectData> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
-            this.m = list;
+        if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
+            this.f = arrayList;
+        }
+    }
+
+    public void f(@Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.d = z;
+        }
+    }
+
+    public void h(WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, writeData) == null) {
+            this.c = writeData;
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            AtListActivityConfig atListActivityConfig = new AtListActivityConfig(this.a.getPageActivity(), 12004, true);
+            atListActivityConfig.setSelectedAtList(this.f);
+            this.a.sendMessage(new CustomMessage(2002001, atListActivityConfig));
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_AT_PANEL_SHOW);
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            TiebaStatic.log(statisticItem);
         }
     }
 }

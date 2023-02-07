@@ -1,9 +1,15 @@
 package com.baidu.tieba;
 
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface qo4 {
-    String a();
+public class qo4 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(HashMap<String, String> hashMap, ro4 ro4Var);
+    public static void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+        }
+    }
 }

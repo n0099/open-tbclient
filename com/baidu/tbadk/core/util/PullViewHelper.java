@@ -15,8 +15,8 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cz4;
-import com.baidu.tieba.eh;
+import com.baidu.tieba.jh;
+import com.baidu.tieba.p35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -84,7 +84,7 @@ public class PullViewHelper {
         this.pullview_backgroundColor_night = PULLVIEW_BGCOLOR_NIGHT_DEFAULT;
         this.nightColorSkin = new PorterDuffColorFilter(IMAGE_COLORFILTER_NIGHT, PorterDuff.Mode.MULTIPLY);
         this.defaultResources = new int[]{R.drawable.listview_pull_refresh01, R.drawable.listview_pull_refresh02};
-        setShouldShowLoadingView(cz4.l().i("pullview_should_show_3d_loading", this.defaultShouldShowLoadingView));
+        setShouldShowLoadingView(p35.m().i("pullview_should_show_3d_loading", this.defaultShouldShowLoadingView));
     }
 
     private File createFileDir(File file) {
@@ -179,18 +179,18 @@ public class PullViewHelper {
     public void buildDrawables() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            String r = cz4.l().r("pull_image_url", "");
+            String s = p35.m().s("pull_image_url", "");
             boolean z = false;
-            int m = cz4.l().m("pull_image_num", 0);
-            this.pullview_backgroundColor_day = cz4.l().m("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
-            this.pullview_backgroundColor_night = cz4.l().m("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
-            if (!TextUtils.isEmpty(r)) {
-                if (m > 0 && isImagesExist(m)) {
-                    this.drawables = new Drawable[m];
+            int n = p35.m().n("pull_image_num", 0);
+            this.pullview_backgroundColor_day = p35.m().n("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
+            this.pullview_backgroundColor_night = p35.m().n("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
+            if (!TextUtils.isEmpty(s)) {
+                if (n > 0 && isImagesExist(n)) {
+                    this.drawables = new Drawable[n];
                     File imageFileDir = getImageFileDir();
                     if (imageFileDir != null) {
                         File[] listFiles = imageFileDir.listFiles();
-                        for (int i = 1; i <= m; i++) {
+                        for (int i = 1; i <= n; i++) {
                             this.drawables[i - 1] = buildDrawable(listFiles, i + ".");
                         }
                     }
@@ -382,8 +382,8 @@ public class PullViewHelper {
             int i = PULLVIEW_BGCOLOR_NIGHT_DEFAULT;
             int i2 = PULLVIEW_BGCOLOR_DAY_DEFAULT;
             if (!isEmpty && !TextUtils.isEmpty(str5)) {
-                int m = cz4.l().m("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
-                int m2 = cz4.l().m("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
+                int n = p35.m().n("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
+                int n2 = p35.m().n("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
                 try {
                     i2 = Color.parseColor(str4);
                 } catch (Exception unused) {
@@ -392,20 +392,20 @@ public class PullViewHelper {
                     i = Color.parseColor(str5);
                 } catch (Exception unused2) {
                 }
-                if (m != i2 || i != m2) {
-                    cz4.l().x("pullview_background_color_day", i2);
-                    cz4.l().x("pullview_background_color_night", i);
+                if (n != i2 || i != n2) {
+                    p35.m().z("pullview_background_color_day", i2);
+                    p35.m().z("pullview_background_color_night", i);
                     this.pullview_backgroundColor_day = i2;
                     this.pullview_backgroundColor_night = i;
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2016204));
                 }
             } else {
-                cz4.l().x("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
-                cz4.l().x("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
+                p35.m().z("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
+                p35.m().z("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
             }
-            cz4.l().v("pullview_should_show_3d_loading", true);
+            p35.m().w("pullview_should_show_3d_loading", true);
             setShouldShowLoadingView(true);
-            eh.a().c(new Runnable(this) { // from class: com.baidu.tbadk.core.util.PullViewHelper.1
+            jh.a().c(new Runnable(this) { // from class: com.baidu.tbadk.core.util.PullViewHelper.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ PullViewHelper this$0;
@@ -432,10 +432,10 @@ public class PullViewHelper {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        cz4.l().E("pull_image_url");
-                        cz4.l().E("pull_image_num");
-                        cz4.l().E("pullview_background_color_day");
-                        cz4.l().E("pullview_background_color_night");
+                        p35.m().H("pull_image_url");
+                        p35.m().H("pull_image_num");
+                        p35.m().H("pullview_background_color_day");
+                        p35.m().H("pullview_background_color_night");
                         this.this$0.deletePullDir();
                         this.this$0.buildDrawables();
                     }

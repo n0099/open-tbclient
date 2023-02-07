@@ -1,118 +1,94 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsLiveFragment;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tbadk.core.atomData.SelectForumActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class t06 extends fb5 {
+public class t06 extends ta3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlaFrsLiveFragment c;
 
-    @Override // com.baidu.tieba.fb5
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public t06(boolean z) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t06(t93 t93Var) {
+        super(t93Var, "/swan/publishThread");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
+            Object[] objArr = {t93Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        AlaFrsLiveFragment alaFrsLiveFragment = new AlaFrsLiveFragment();
-        this.c = alaFrsLiveFragment;
-        alaFrsLiveFragment.Q1(z);
-        b().a = this.c;
     }
 
-    @Override // com.baidu.tieba.fb5
-    public gb5 a() {
-        InterceptResult invokeV;
+    public static boolean j(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            gb5 gb5Var = new gb5();
-            gb5Var.e = 2;
-            gb5Var.b = R.string.ala_live;
-            gb5Var.i = gb5.k;
-            return gb5Var;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return false;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                String optString = jSONObject.optString("path");
+                if (StringUtils.isNull(optString)) {
+                    String optString2 = jSONObject.optString("appid");
+                    if (StringUtils.isNull(optString2)) {
+                        return false;
+                    }
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2921361, qz5.a(optString2, "", "", 0)));
+                    return true;
+                }
+                String substring = optString.substring(39);
+                if (StringUtils.isNull(substring)) {
+                    return false;
+                }
+                JSONObject jSONObject2 = new JSONObject(dj.getUrlDecode(substring));
+                String optString3 = jSONObject2.optString("third_app_id");
+                String optString4 = jSONObject2.optString("third_app_name");
+                String optString5 = jSONObject2.optString("third_app_pic");
+                String optString6 = jSONObject2.optString("third_app_link");
+                SelectForumActivityConfig selectForumActivityConfig = new SelectForumActivityConfig(context, 10086);
+                selectForumActivityConfig.setAiAppsParams(optString3, optString4, optString5, null, null, optString6);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, selectForumActivityConfig));
+                return true;
+            } catch (JSONException unused) {
+                return false;
+            }
         }
-        return (gb5) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.fb5
-    public TbFragmentTabIndicator c(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ta3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, w83 w83Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
-            this.b = fragmentTabIndicator;
-            fragmentTabIndicator.setTextSize(2.0f);
-            return this.b;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, w83Var)) == null) {
+            j(context, unitedSchemeEntity.getParam("params"));
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            return true;
         }
-        return (TbFragmentTabIndicator) invokeL.objValue;
-    }
-
-    public void g(String str) {
-        AlaFrsLiveFragment alaFrsLiveFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (alaFrsLiveFragment = this.c) != null) {
-            alaFrsLiveFragment.M1(str);
-        }
-    }
-
-    public void h(String str) {
-        AlaFrsLiveFragment alaFrsLiveFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (alaFrsLiveFragment = this.c) != null) {
-            alaFrsLiveFragment.N1(str);
-        }
-    }
-
-    public void i(String str) {
-        AlaFrsLiveFragment alaFrsLiveFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && (alaFrsLiveFragment = this.c) != null) {
-            alaFrsLiveFragment.O1(str);
-        }
-    }
-
-    public void j(int i) {
-        AlaFrsLiveFragment alaFrsLiveFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048582, this, i) == null) && (alaFrsLiveFragment = this.c) != null) {
-            alaFrsLiveFragment.P1(i);
-        }
-    }
-
-    public void k(boolean z) {
-        AlaFrsLiveFragment alaFrsLiveFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048583, this, z) == null) && (alaFrsLiveFragment = this.c) != null) {
-            alaFrsLiveFragment.R1(z);
-        }
+        return invokeLLLL.booleanValue;
     }
 }

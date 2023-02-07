@@ -1,81 +1,60 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.tbadk.mutiprocess.soloader.SoLoaderEvent;
+import android.content.Context;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.editortools.RawLayout;
+import com.baidu.tbadk.editortools.sendtool.SendView;
+import com.baidu.tbadk.editortools.sendtool.SendViewBtnStyle;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class wd5 extends dg1<hm> {
+public class wd5 extends wb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class b implements hm {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        @Override // com.baidu.tieba.hm
-        public void a(@NonNull String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                SoLoaderEvent soLoaderEvent = new SoLoaderEvent();
-                soLoaderEvent.name = str;
-                ad5.i(soLoaderEvent);
-            }
-        }
-    }
-
-    public wd5() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wd5(Context context, boolean z) {
+        super(context, (String) null, 4);
+        xb5 sendView;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.o = false;
+        this.n = 2;
+        this.p = new int[]{4, 12, 10, 13, 11, 28, 29, 39, 9};
+        if (z) {
+            sendView = new SendViewBtnStyle(context);
+        } else {
+            sendView = new SendView(context);
+        }
+        this.m = sendView;
+        RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(-2, -2);
+        ((LinearLayout.LayoutParams) layoutParams).gravity = 80;
+        ((View) this.m).setLayoutParams(layoutParams);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.dg1
-    /* renamed from: a */
-    public hm createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    public void g(int i) {
+        xb5 xb5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new b(null);
+        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (xb5Var = this.m) != null && (xb5Var instanceof TextView)) {
+            ((TextView) xb5Var).setText(i);
         }
-        return (hm) invokeV.objValue;
     }
 }

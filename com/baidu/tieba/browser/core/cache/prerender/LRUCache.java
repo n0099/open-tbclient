@@ -1,7 +1,7 @@
 package com.baidu.tieba.browser.core.cache.prerender;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.g66;
+import com.baidu.tieba.sa6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedHashMap;
 import java.util.Map;
 /* loaded from: classes3.dex */
-public class LRUCache<Key, Value extends g66> {
+public class LRUCache<Key, Value extends sa6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final LinkedHashMap<Key, Value> a;

@@ -2,6 +2,7 @@ package com.baidu.android.pushservice.b;
 
 import android.content.Context;
 import android.util.Log;
+import androidx.core.net.MailTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.h.a.b;
@@ -186,7 +187,7 @@ public class c {
                 String str8 = str2;
                 if (jSONObject.has(str8)) {
                     JSONObject jSONObject4 = jSONObject.getJSONObject(str8);
-                    a(jSONObject4.optInt("from"), jSONObject4.optInt("to"));
+                    a(jSONObject4.optInt("from"), jSONObject4.optInt(MailTo.TO));
                 }
                 if (arrayList.size() > 0) {
                     a(arrayList);

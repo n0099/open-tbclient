@@ -1,55 +1,56 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.coreExtra.data.NewGodData;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import tbclient.NewGodInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class ml5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    public static String a(NewGodData newGodData) {
-        InterceptResult invokeL;
-        boolean z;
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, newGodData)) == null) {
-            if (newGodData != null && newGodData.getType() == 2) {
-                z = true;
-            } else {
-                z = false;
-            }
-            return c(z);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String b(NewGodInfo newGodInfo) {
-        InterceptResult invokeL;
-        boolean z;
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, newGodInfo)) == null) {
-            if (newGodInfo != null && newGodInfo.type.intValue() == 2) {
-                z = true;
-            } else {
-                z = false;
-            }
-            return c(z);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String c(boolean z) {
-        InterceptResult invokeZ;
+    public ml5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            if (z) {
-                return TbadkCoreApplication.getInst().getApp().getString(R.string.field_new_video_god);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return TbadkCoreApplication.getInst().getApp().getString(R.string.field_new_god);
         }
-        return (String) invokeZ.objValue;
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.a = str;
+        }
     }
 }

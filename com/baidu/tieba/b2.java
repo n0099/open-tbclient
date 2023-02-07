@@ -6,25 +6,25 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class b2 extends q1<h2, a> {
+public class b2 extends v1<l2, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public h2 b;
+    public l2 b;
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.p1
+    @Override // com.baidu.tieba.u1
     /* renamed from: f */
-    public c7<k1> a(String str, l3 l3Var, a aVar) {
+    public h7<p1> a(String str, q3 q3Var, a aVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, l3Var, aVar)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, q3Var, aVar)) == null) {
             return null;
         }
-        return (c7) invokeLLL.objValue;
+        return (h7) invokeLLL.objValue;
     }
 
     /* loaded from: classes3.dex */
-    public static class a extends m1<h2> {
+    public static class a extends r1<l2> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -44,18 +44,18 @@ public class b2 extends q1<h2, a> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b2(t1 t1Var) {
-        super(t1Var);
+    public b2(y1 y1Var) {
+        super(y1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t1Var};
+            Object[] objArr = {y1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((t1) newInitContext.callArgs[0]);
+                super((y1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -64,26 +64,26 @@ public class b2 extends q1<h2, a> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.q1
+    @Override // com.baidu.tieba.v1
     /* renamed from: g */
-    public void c(o1 o1Var, String str, l3 l3Var, a aVar) {
+    public void c(t1 t1Var, String str, q3 q3Var, a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048580, this, o1Var, str, l3Var, aVar) == null) {
-            this.b = g1.c.a(l3Var);
+        if (interceptable == null || interceptable.invokeLLLL(1048580, this, t1Var, str, q3Var, aVar) == null) {
+            this.b = l1.c.f(q3Var);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.q1
+    @Override // com.baidu.tieba.v1
     /* renamed from: h */
-    public h2 d(o1 o1Var, String str, l3 l3Var, a aVar) {
+    public l2 d(t1 t1Var, String str, q3 q3Var, a aVar) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, o1Var, str, l3Var, aVar)) == null) {
-            h2 h2Var = this.b;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, t1Var, str, q3Var, aVar)) == null) {
+            l2 l2Var = this.b;
             this.b = null;
-            return h2Var;
+            return l2Var;
         }
-        return (h2) invokeLLLL.objValue;
+        return (l2) invokeLLLL.objValue;
     }
 }

@@ -123,31 +123,31 @@ public class FunAdNativePicView extends FrameLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0364, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0363, (ViewGroup) this, true);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-            this.a = findViewById(R.id.obfuscated_res_0x7f090c82);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090c83);
+            this.a = findViewById(R.id.obfuscated_res_0x7f090cc5);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090cc6);
             this.b = tbImageView;
             tbImageView.setDrawCorner(true);
             this.b.setPlaceHolder(2);
             this.b.setRadiusById(R.string.J_X12);
             this.b.setConrers(15);
             a(this.b);
-            TbImageView tbImageView2 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090c85);
+            TbImageView tbImageView2 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090cc8);
             this.c = tbImageView2;
             tbImageView2.setDrawCorner(false);
             this.c.setPlaceHolder(2);
             this.c.setRadiusById(R.string.J_X02);
             this.c.setConrers(15);
             a(this.c);
-            TbImageView tbImageView3 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090c84);
+            TbImageView tbImageView3 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090cc7);
             this.d = tbImageView3;
             tbImageView3.setDrawCorner(true);
             this.d.setPlaceHolder(2);
             this.d.setRadiusById(R.string.J_X11);
             this.d.setConrers(15);
             a(this.d);
-            TbImageView tbImageView4 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090c81);
+            TbImageView tbImageView4 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090cc4);
             this.e = tbImageView4;
             tbImageView4.setDrawCorner(true);
             this.e.setPlaceHolder(3);

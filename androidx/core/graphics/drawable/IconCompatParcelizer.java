@@ -41,6 +41,7 @@ public class IconCompatParcelizer {
             iconCompat.mInt2 = versionedParcel.readInt(iconCompat.mInt2, 5);
             iconCompat.mTintList = (ColorStateList) versionedParcel.readParcelable(iconCompat.mTintList, 6);
             iconCompat.mTintModeStr = versionedParcel.readString(iconCompat.mTintModeStr, 7);
+            iconCompat.mString1 = versionedParcel.readString(iconCompat.mString1, 8);
             iconCompat.onPostParceling();
             return iconCompat;
         }
@@ -79,6 +80,10 @@ public class IconCompatParcelizer {
             String str = iconCompat.mTintModeStr;
             if (str != null) {
                 versionedParcel.writeString(str, 7);
+            }
+            String str2 = iconCompat.mString1;
+            if (str2 != null) {
+                versionedParcel.writeString(str2, 8);
             }
         }
     }

@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.IDataResponseMessage;
-import com.baidu.tieba.px7;
+import com.baidu.tieba.m28;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,10 +15,10 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetTails.GetTailsResIdl;
 /* loaded from: classes5.dex */
-public class GetTailsSocketResponseMessage extends SocketResponsedMessage implements IDataResponseMessage<px7> {
+public class GetTailsSocketResponseMessage extends SocketResponsedMessage implements IDataResponseMessage<m28> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public px7 resultData;
+    public m28 resultData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetTailsSocketResponseMessage() {
@@ -40,16 +40,16 @@ public class GetTailsSocketResponseMessage extends SocketResponsedMessage implem
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public px7 getResultData() {
+    public m28 getResultData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.resultData;
         }
-        return (px7) invokeV.objValue;
+        return (m28) invokeV.objValue;
     }
 
-    public static px7 getResult(ResponsedMessage<?> responsedMessage, int i, byte[] bArr) throws Exception {
+    public static m28 getResult(ResponsedMessage<?> responsedMessage, int i, byte[] bArr) throws Exception {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, responsedMessage, i, bArr)) == null) {
@@ -65,11 +65,11 @@ public class GetTailsSocketResponseMessage extends SocketResponsedMessage implem
             if (getTailsResIdl.data == null) {
                 return null;
             }
-            px7 px7Var = new px7();
-            px7Var.d(getTailsResIdl.data);
-            return px7Var;
+            m28 m28Var = new m28();
+            m28Var.d(getTailsResIdl.data);
+            return m28Var;
         }
-        return (px7) invokeLIL.objValue;
+        return (m28) invokeLIL.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -78,7 +78,7 @@ public class GetTailsSocketResponseMessage extends SocketResponsedMessage implem
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
-            px7 result = getResult(this, i, bArr);
+            m28 result = getResult(this, i, bArr);
             this.resultData = result;
             return result;
         }

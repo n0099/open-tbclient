@@ -12,8 +12,8 @@ import android.util.AttributeSet;
 import android.widget.ListView;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ai3;
-import com.baidu.tieba.tk1;
+import com.baidu.tieba.gp1;
+import com.baidu.tieba.nm3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,8 +46,8 @@ public class SwanAppRoundCornerListView extends ListView {
                 return;
             }
         }
-        f = tk1.a;
-        g = ai3.h(11.0f);
+        f = gp1.a;
+        g = nm3.h(11.0f);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -141,23 +141,6 @@ public class SwanAppRoundCornerListView extends ListView {
         }
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public void setListViewRadius(@NonNull float[] fArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, fArr) == null) {
-            if (fArr.length < 8) {
-                if (!f) {
-                    return;
-                }
-                throw new IllegalStateException("radii[] needs 8 values");
-            }
-            this.d = new float[8];
-            for (int i = 0; i < 8; i++) {
-                this.d[i] = fArr[i];
-            }
-        }
-    }
-
     @Override // android.widget.ListView, android.widget.AbsListView, android.view.View
     public void onSizeChanged(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
@@ -174,6 +157,23 @@ public class SwanAppRoundCornerListView extends ListView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
             setListViewRadius(new float[]{f2, f2, f3, f3, f4, f4, f5, f5});
+        }
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public void setListViewRadius(@NonNull float[] fArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, fArr) == null) {
+            if (fArr.length < 8) {
+                if (!f) {
+                    return;
+                }
+                throw new IllegalStateException("radii[] needs 8 values");
+            }
+            this.d = new float[8];
+            for (int i = 0; i < 8; i++) {
+                this.d[i] = fArr[i];
+            }
         }
     }
 }

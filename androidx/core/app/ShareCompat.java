@@ -1,8 +1,10 @@
 package androidx.core.app;
 
 import android.app.Activity;
+import android.content.ClipData;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
@@ -18,6 +20,7 @@ import android.widget.ShareActionProvider;
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.annotation.StringRes;
 import androidx.core.content.IntentCompat;
 import androidx.core.util.Preconditions;
@@ -40,6 +43,48 @@ public final class ShareCompat {
     public static final String HISTORY_FILENAME_PREFIX = ".sharecompat_";
     public transient /* synthetic */ FieldHolder $fh;
 
+    @RequiresApi(16)
+    /* loaded from: classes.dex */
+    public static class Api16Impl {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public Api16Impl() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public static void migrateExtraStreamToClipData(@NonNull Intent intent, @NonNull ArrayList<Uri> arrayList) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(65537, null, intent, arrayList) == null) {
+                ClipData clipData = new ClipData(null, new String[]{intent.getType()}, new ClipData.Item(intent.getCharSequenceExtra("android.intent.extra.TEXT"), intent.getStringExtra(IntentCompat.EXTRA_HTML_TEXT), null, arrayList.get(0)));
+                int size = arrayList.size();
+                for (int i = 1; i < size; i++) {
+                    clipData.addItem(new ClipData.Item(arrayList.get(i)));
+                }
+                intent.setClipData(clipData);
+                intent.addFlags(1);
+            }
+        }
+
+        public static void removeClipData(@NonNull Intent intent) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(65538, null, intent) == null) {
+                intent.setClipData(null);
+                intent.setFlags(intent.getFlags() & (-2));
+            }
+        }
+    }
+
     /* loaded from: classes.dex */
     public static class IntentBuilder {
         public static /* synthetic */ Interceptable $ic;
@@ -59,12 +104,13 @@ public final class ShareCompat {
         @Nullable
         public ArrayList<String> mToAddresses;
 
-        public IntentBuilder(@NonNull Context context, @Nullable ComponentName componentName) {
+        public IntentBuilder(@NonNull Context context) {
+            Activity activity;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, componentName};
+                Object[] objArr = {context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -79,9 +125,24 @@ public final class ShareCompat {
             this.mIntent = action;
             action.putExtra(ShareCompat.EXTRA_CALLING_PACKAGE, context.getPackageName());
             this.mIntent.putExtra(ShareCompat.EXTRA_CALLING_PACKAGE_INTEROP, context.getPackageName());
-            this.mIntent.putExtra(ShareCompat.EXTRA_CALLING_ACTIVITY, componentName);
-            this.mIntent.putExtra(ShareCompat.EXTRA_CALLING_ACTIVITY_INTEROP, componentName);
             this.mIntent.addFlags(524288);
+            while (true) {
+                if (context instanceof ContextWrapper) {
+                    if (context instanceof Activity) {
+                        activity = (Activity) context;
+                        break;
+                    }
+                    context = ((ContextWrapper) context).getBaseContext();
+                } else {
+                    activity = null;
+                    break;
+                }
+            }
+            if (activity != null) {
+                ComponentName componentName = activity.getComponentName();
+                this.mIntent.putExtra(ShareCompat.EXTRA_CALLING_ACTIVITY, componentName);
+                this.mIntent.putExtra(ShareCompat.EXTRA_CALLING_ACTIVITY_INTEROP, componentName);
+            }
         }
 
         private void combineArrayExtra(String str, ArrayList<String> arrayList) {
@@ -124,21 +185,12 @@ public final class ShareCompat {
         }
 
         @NonNull
-        public static IntentBuilder from(@NonNull Context context, @Nullable ComponentName componentName) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, componentName)) == null) {
-                return new IntentBuilder(context, componentName);
-            }
-            return (IntentBuilder) invokeLL.objValue;
-        }
-
-        @NonNull
+        @Deprecated
         public static IntentBuilder from(@NonNull Activity activity) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, activity)) == null) {
-                return from((Context) Preconditions.checkNotNull(activity), activity.getComponentName());
+                return new IntentBuilder(activity);
             }
             return (IntentBuilder) invokeL.objValue;
         }
@@ -180,6 +232,20 @@ public final class ShareCompat {
                     this.mToAddresses = new ArrayList<>();
                 }
                 this.mToAddresses.add(str);
+                return this;
+            }
+            return (IntentBuilder) invokeL.objValue;
+        }
+
+        @NonNull
+        public IntentBuilder addStream(@NonNull Uri uri) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, uri)) == null) {
+                if (this.mStreams == null) {
+                    this.mStreams = new ArrayList<>();
+                }
+                this.mStreams.add(uri);
                 return this;
             }
             return (IntentBuilder) invokeL.objValue;
@@ -250,11 +316,10 @@ public final class ShareCompat {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, uri)) == null) {
-                if (!"android.intent.action.SEND".equals(this.mIntent.getAction())) {
-                    this.mIntent.setAction("android.intent.action.SEND");
-                }
                 this.mStreams = null;
-                this.mIntent.putExtra("android.intent.extra.STREAM", uri);
+                if (uri != null) {
+                    addStream(uri);
+                }
                 return this;
             }
             return (IntentBuilder) invokeL.objValue;
@@ -338,28 +403,6 @@ public final class ShareCompat {
         }
 
         @NonNull
-        public IntentBuilder addStream(@NonNull Uri uri) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, uri)) == null) {
-                Uri uri2 = (Uri) this.mIntent.getParcelableExtra("android.intent.extra.STREAM");
-                if (this.mStreams == null && uri2 == null) {
-                    return setStream(uri);
-                }
-                if (this.mStreams == null) {
-                    this.mStreams = new ArrayList<>();
-                }
-                if (uri2 != null) {
-                    this.mIntent.removeExtra("android.intent.extra.STREAM");
-                    this.mStreams.add(uri2);
-                }
-                this.mStreams.add(uri);
-                return this;
-            }
-            return (IntentBuilder) invokeL.objValue;
-        }
-
-        @NonNull
         public Intent createChooserIntent() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -408,25 +451,25 @@ public final class ShareCompat {
                 }
                 ArrayList<Uri> arrayList4 = this.mStreams;
                 boolean z = true;
-                z = (arrayList4 == null || arrayList4.size() <= 1) ? false : false;
-                boolean equals = "android.intent.action.SEND_MULTIPLE".equals(this.mIntent.getAction());
-                if (!z && equals) {
+                if (!((arrayList4 == null || arrayList4.size() <= 1) ? false : false)) {
                     this.mIntent.setAction("android.intent.action.SEND");
                     ArrayList<Uri> arrayList5 = this.mStreams;
                     if (arrayList5 != null && !arrayList5.isEmpty()) {
                         this.mIntent.putExtra("android.intent.extra.STREAM", this.mStreams.get(0));
+                        if (Build.VERSION.SDK_INT >= 16) {
+                            Api16Impl.migrateExtraStreamToClipData(this.mIntent, this.mStreams);
+                        }
                     } else {
                         this.mIntent.removeExtra("android.intent.extra.STREAM");
+                        if (Build.VERSION.SDK_INT >= 16) {
+                            Api16Impl.removeClipData(this.mIntent);
+                        }
                     }
-                    this.mStreams = null;
-                }
-                if (z && !equals) {
+                } else {
                     this.mIntent.setAction("android.intent.action.SEND_MULTIPLE");
-                    ArrayList<Uri> arrayList6 = this.mStreams;
-                    if (arrayList6 != null && !arrayList6.isEmpty()) {
-                        this.mIntent.putParcelableArrayListExtra("android.intent.extra.STREAM", this.mStreams);
-                    } else {
-                        this.mIntent.removeExtra("android.intent.extra.STREAM");
+                    this.mIntent.putParcelableArrayListExtra("android.intent.extra.STREAM", this.mStreams);
+                    if (Build.VERSION.SDK_INT >= 16) {
+                        Api16Impl.migrateExtraStreamToClipData(this.mIntent, this.mStreams);
                     }
                 }
                 return this.mIntent;
@@ -451,18 +494,39 @@ public final class ShareCompat {
         @Nullable
         public ArrayList<Uri> mStreams;
 
+        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+        public IntentReader(@NonNull Activity activity) {
+            this((Context) Preconditions.checkNotNull(activity), activity.getIntent());
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    this((Context) objArr2[0], (Intent) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
         public IntentReader(@NonNull Context context, @NonNull Intent intent) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context, intent};
-                interceptable.invokeUnInit(65536, newInitContext);
+                interceptable.invokeUnInit(65537, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                    interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
@@ -473,23 +537,14 @@ public final class ShareCompat {
         }
 
         @NonNull
+        @Deprecated
         public static IntentReader from(@NonNull Activity activity) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
-                return from((Context) Preconditions.checkNotNull(activity), activity.getIntent());
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
+                return new IntentReader(activity);
             }
             return (IntentReader) invokeL.objValue;
-        }
-
-        @NonNull
-        public static IntentReader from(@NonNull Context context, @NonNull Intent intent) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, intent)) == null) {
-                return new IntentReader(context, intent);
-            }
-            return (IntentReader) invokeLL.objValue;
         }
 
         public static void withinStyle(StringBuilder sb, CharSequence charSequence, int i, int i2) {
@@ -780,6 +835,7 @@ public final class ShareCompat {
         }
     }
 
+    @Deprecated
     public static void configureMenuItem(@NonNull Menu menu, @IdRes int i, @NonNull IntentBuilder intentBuilder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65537, null, menu, i, intentBuilder) == null) {
@@ -792,6 +848,7 @@ public final class ShareCompat {
         }
     }
 
+    @Deprecated
     public static void configureMenuItem(@NonNull MenuItem menuItem, @NonNull IntentBuilder intentBuilder) {
         ShareActionProvider shareActionProvider;
         Interceptable interceptable = $ic;

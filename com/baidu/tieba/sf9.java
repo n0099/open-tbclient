@@ -1,91 +1,94 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
-import com.baidu.tbadk.data.AtSelectData;
-import java.util.ArrayList;
-import java.util.LinkedList;
+import android.graphics.Bitmap;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 /* loaded from: classes6.dex */
-public interface sf9 {
-    void B();
+public class sf9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void C();
+    public static String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return n99.d;
+        }
+        return (String) invokeV.objValue;
+    }
 
-    void D(z65 z65Var);
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return n99.c;
+        }
+        return (String) invokeV.objValue;
+    }
 
-    void E();
-
-    LinkedList<u05> F();
-
-    void b(boolean z);
-
-    void c();
-
-    void d(String str);
-
-    void e(int i, boolean z);
-
-    void f();
-
-    int g();
-
-    void h();
-
-    boolean i();
-
-    void j();
-
-    void k(boolean z);
-
-    void m();
-
-    void n(@Nullable ArrayList<AtSelectData> arrayList);
-
-    void o(boolean z);
-
-    void onActivityResult(int i, int i2, Intent intent);
-
-    boolean onBackPressed();
-
-    void onChangeSkinType(int i);
-
-    void onCreate(Bundle bundle);
-
-    void onDestroy();
-
-    void onNewIntent(Intent intent);
-
-    void onPause();
-
-    void onResume();
-
-    void onSaveInstanceState(Bundle bundle);
-
-    void onStart();
-
-    void onStop();
-
-    void p(boolean z);
-
-    void r();
-
-    void s();
-
-    @NonNull
-    PermissionJudgePolicy t();
-
-    void u();
-
-    void v();
-
-    void w();
-
-    void x(int[] iArr);
-
-    void y(boolean z);
-
-    void z(z65 z65Var);
+    public static String c(String str, Bitmap bitmap, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, bitmap, str2)) == null) {
+            String str3 = "";
+            FileOutputStream fileOutputStream = null;
+            try {
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            try {
+                try {
+                } catch (Exception e2) {
+                    e = e2;
+                }
+                if (TextUtils.isEmpty(str)) {
+                    return "";
+                }
+                File file = new File(str);
+                if (!file.exists()) {
+                    file.mkdirs();
+                }
+                File file2 = new File(file, str2);
+                if (!file2.exists()) {
+                    file2.createNewFile();
+                }
+                FileOutputStream fileOutputStream2 = new FileOutputStream(file2);
+                try {
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream2);
+                    fileOutputStream2.flush();
+                    str3 = file2.getAbsolutePath();
+                    fileOutputStream2.close();
+                } catch (Exception e3) {
+                    e = e3;
+                    fileOutputStream = fileOutputStream2;
+                    e.printStackTrace();
+                    if (fileOutputStream != null) {
+                        fileOutputStream.close();
+                    }
+                    return str3;
+                } catch (Throwable th) {
+                    th = th;
+                    fileOutputStream = fileOutputStream2;
+                    if (fileOutputStream != null) {
+                        try {
+                            fileOutputStream.close();
+                        } catch (IOException e4) {
+                            e4.printStackTrace();
+                        }
+                    }
+                    throw th;
+                }
+                return str3;
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        } else {
+            return (String) invokeLLL.objValue;
+        }
+    }
 }

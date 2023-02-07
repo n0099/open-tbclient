@@ -1,19 +1,16 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
-import android.os.Binder;
+import android.annotation.TargetApi;
+import android.app.Activity;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.WindowManager;
-import android.widget.Toast;
-import androidx.annotation.StyleRes;
+import android.util.SparseArray;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.devices.RomUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,57 +18,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.util.regex.Pattern;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes3.dex */
-public class a43 {
+public final class a43 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static String b;
-    public static String c;
+    public static final boolean c;
+    public static volatile a43 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public SparseArray<a> a;
+    public Set<String> b;
 
     /* loaded from: classes3.dex */
-    public static class a implements View.OnTouchListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.view.View.OnTouchListener
-        public boolean onTouch(View view2, MotionEvent motionEvent) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                int action = motionEvent.getAction();
-                if (action != 0) {
-                    if (action != 2) {
-                        view2.setAlpha(1.0f);
-                        return false;
-                    }
-                    return false;
-                }
-                view2.setAlpha(0.2f);
-                return false;
-            }
-            return invokeLL.booleanValue;
-        }
+    public interface a {
+        void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr);
     }
 
     static {
@@ -87,161 +48,113 @@ public class a43 {
                 return;
             }
         }
-        a = tk1.a;
-        String str = ri3.c;
-        b = null;
-        c = null;
+        c = gp1.a;
     }
 
-    public static boolean d() {
-        InterceptResult invokeV;
+    public a43() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 25) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeV.booleanValue;
+        this.a = new SparseArray<>();
+        this.b = new HashSet();
     }
 
-    public static boolean a() {
+    public static a43 c() {
         InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (!Build.FINGERPRINT.contains("Flyme") && !Pattern.compile("Flyme", 2).matcher(Build.DISPLAY).find()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                b = f("ro.miui.ui.version.name");
-            }
-            if (a) {
-                Log.d("ToastUtils", "OsName = " + b);
-            }
-            return !TextUtils.isEmpty(b);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        String[] split;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (c == null) {
-                c = f(RomUtils.PROP_RO_BUILD_VERSION_INCREMENTAL);
-            }
-            if (a) {
-                Log.d("ToastUtils", "sMiuiVersion = " + c);
-            }
-            if (!TextUtils.isEmpty(c) && (split = c.split(".")) != null && split.length >= 1 && split[0].length() >= 2) {
-                String substring = split[0].substring(1);
-                if (!TextUtils.isEmpty(substring)) {
-                    try {
-                        if (Integer.parseInt(substring) < 9) {
-                            return true;
-                        }
-                    } catch (NumberFormatException unused) {
+            if (d == null) {
+                synchronized (a43.class) {
+                    if (d == null) {
+                        d = new a43();
                     }
                 }
             }
-            return false;
+            return d;
         }
-        return invokeV.booleanValue;
+        return (a43) invokeV.objValue;
     }
 
-    public static Object e(Object obj, String str) throws NoSuchFieldException, IllegalAccessException {
+    @NonNull
+    public static int[] b(@NonNull Activity activity, @Nullable String[] strArr) {
         InterceptResult invokeLL;
-        Field declaredField;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, obj, str)) == null) {
-            if (obj == null || (declaredField = obj.getClass().getDeclaredField(str)) == null) {
-                return null;
-            }
-            declaredField.setAccessible(true);
-            return declaredField.get(obj);
-        }
-        return invokeLL.objValue;
-    }
-
-    public static void k(Toast toast, @StyleRes int i) {
-        Object e;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65547, null, toast, i) == null) {
-            try {
-                Object e2 = e(toast, "mTN");
-                if (e2 != null && (e = e(e2, "mParams")) != null && (e instanceof WindowManager.LayoutParams)) {
-                    ((WindowManager.LayoutParams) e).windowAnimations = i;
-                }
-            } catch (Exception e3) {
-                e3.printStackTrace();
-            }
-        }
-    }
-
-    public static String f(String str) {
-        InterceptResult invokeL;
-        BufferedReader bufferedReader;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            BufferedReader bufferedReader2 = null;
-            try {
-                try {
-                    Runtime runtime = Runtime.getRuntime();
-                    bufferedReader = new BufferedReader(new InputStreamReader(runtime.exec("getprop " + str).getInputStream()), 1024);
-                } catch (Throwable th) {
-                    th = th;
-                }
-            } catch (IOException unused) {
-            }
-            try {
-                String readLine = bufferedReader.readLine();
-                nk4.d(bufferedReader);
-                if (readLine == null) {
-                    return "";
-                }
-                return readLine;
-            } catch (IOException unused2) {
-                bufferedReader2 = bufferedReader;
-                nk4.d(bufferedReader2);
-                nk4.d(bufferedReader2);
-                return "";
-            } catch (Throwable th2) {
-                th = th2;
-                bufferedReader2 = bufferedReader;
-                nk4.d(bufferedReader2);
-                throw th;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean g(Context context) {
-        InterceptResult invokeL;
-        Method method;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            if (context != null && Build.VERSION.SDK_INT >= 19) {
-                try {
-                    Object systemService = context.getSystemService("appops");
-                    if (systemService == null || (method = systemService.getClass().getMethod("checkOp", Integer.TYPE, Integer.TYPE, String.class)) == null) {
-                        return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, activity, strArr)) == null) {
+            if (strArr != null && strArr.length != 0) {
+                int[] iArr = new int[strArr.length];
+                for (int i2 = 0; i2 < strArr.length; i2++) {
+                    if (sp4.a(activity, strArr[i2])) {
+                        i = 0;
+                    } else {
+                        i = -1;
                     }
-                    if (((Integer) method.invoke(systemService, 24, Integer.valueOf(Binder.getCallingUid()), context.getPackageName())).intValue() != 0) {
-                        return false;
+                    iArr[i2] = i;
+                }
+                return iArr;
+            }
+            return new int[0];
+        }
+        return (int[]) invokeLL.objValue;
+    }
+
+    @Nullable
+    public static String d(@NonNull Activity activity, @NonNull String[] strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, strArr)) == null) {
+            for (String str : strArr) {
+                if (!sp4.a(activity, str)) {
+                    if (gm4.f(activity, str)) {
+                        return str;
                     }
+                    if (!e(str)) {
+                        return str;
+                    }
+                }
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            eh3 a2 = kh3.a();
+            return a2.getBoolean("first#" + str, false);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
+            eh3 a2 = kh3.a();
+            a2.putBoolean("first#" + str, true);
+        }
+    }
+
+    public final boolean a(String[] strArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+            if (strArr == null || strArr.length <= 0) {
+                return true;
+            }
+            for (String str : strArr) {
+                if (!TextUtils.isEmpty(str) && this.b.contains(str)) {
                     return true;
-                } catch (Throwable th) {
-                    th.printStackTrace();
                 }
             }
             return false;
@@ -249,70 +162,61 @@ public class a43 {
         return invokeL.booleanValue;
     }
 
-    public static void h(String str) {
+    public void f(Activity activity, int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65544, null, str) == null) && a) {
-            Log.d("ToastUtils", Log.getStackTraceString(new Throwable(str)));
-        }
-    }
-
-    public static void i(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65545, null, view2) == null) && view2 != null) {
-            view2.setOnTouchListener(new a());
-        }
-    }
-
-    public static void j(Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65546, null, drawable) != null) || drawable == null) {
-            return;
-        }
-        drawable.setColorFilter(qn2.c().getResources().getColor(R.color.obfuscated_res_0x7f0603fe), PorterDuff.Mode.SRC_ATOP);
-    }
-
-    public static boolean l(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
-            if (!a() || g(context) || Build.VERSION.SDK_INT < 23) {
-                return false;
+        if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, i, strArr, iArr) == null) {
+            boolean z = !a(strArr);
+            if (Build.VERSION.SDK_INT >= 23) {
+                h(activity, strArr, iArr);
             }
-            return true;
+            a aVar = this.a.get(i);
+            if (aVar != null) {
+                this.a.remove(i);
+                if ((aVar instanceof v33) && z) {
+                    aVar = ((v33) aVar).s();
+                }
+                aVar.onRequestPermissionsResult(i, strArr, iArr);
+            }
+            if (c) {
+                Log.d("SwanAppPermission", "onRequestPermissionsResult requestCode: " + i + " permissions: " + Arrays.toString(strArr));
+                StringBuilder sb = new StringBuilder();
+                sb.append("onRequestPermissionsResult grantResults: ");
+                sb.append(Arrays.toString(iArr));
+                Log.d("SwanAppPermission", sb.toString());
+            }
         }
-        return invokeL.booleanValue;
     }
 
-    public static boolean m(Context context) {
-        InterceptResult invokeL;
+    @RequiresApi(api = 23)
+    public final void h(Activity activity, @NonNull String[] strArr, @NonNull int[] iArr) {
+        int length;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
-            if (!b()) {
-                return false;
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, strArr, iArr) == null) && Build.VERSION.SDK_INT >= 23 && activity != null && (length = strArr.length) == iArr.length && length > 0) {
+            for (int i = 0; i < length; i++) {
+                int i2 = iArr[i];
+                String str = strArr[i];
+                if (!TextUtils.isEmpty(str) && i2 == -1 && !activity.shouldShowRequestPermissionRationale(str)) {
+                    this.b.add(str);
+                }
             }
-            if (c() && g(context)) {
-                return false;
-            }
-            return true;
         }
-        return invokeL.booleanValue;
     }
 
-    public static boolean n(Context context) {
-        InterceptResult invokeL;
-        boolean z;
+    @TargetApi(23)
+    public void requestPermissions(Activity activity, int i, @NonNull String[] strArr, a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
-            if (!m(context) && !d()) {
-                z = false;
+        if ((interceptable == null || interceptable.invokeLILL(1048579, this, activity, i, strArr, aVar) == null) && aVar != null && activity != null) {
+            String d2 = d(activity, strArr);
+            if (d2 != null) {
+                this.a.put(i, aVar);
+                activity.requestPermissions(strArr, i);
+                g(d2);
             } else {
-                z = true;
+                aVar.onRequestPermissionsResult(i, strArr, b(activity, strArr));
             }
-            if (!z && !l(context)) {
-                return false;
+            if (c) {
+                Log.d("SwanAppPermission", "requestPermissions activity: " + activity + " requestCode: " + i + " permissions: " + Arrays.toString(strArr));
             }
-            return true;
         }
-        return invokeL.booleanValue;
     }
 }

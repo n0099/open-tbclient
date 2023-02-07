@@ -1,88 +1,44 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.stats.upload.BdUploadingLogInfo;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.searchbox.fluency.tracer.FpsTracer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class ai {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static ArrayList<sh> a(ph phVar) {
-        InterceptResult invokeL;
+    public static void a(String str, int i, String str2, boolean z, boolean z2, long j, long j2, long j3, long j4, long j5, int i2) {
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, phVar)) == null) {
-            ArrayList arrayList = new ArrayList();
-            File[] b = rh.b(phVar.C());
-            if (b != null) {
-                for (File file : b) {
-                    if (file.isFile()) {
-                        String name = file.getName();
-                        if (!TextUtils.isEmpty(name) && name.startsWith(phVar.h()) && name.contains("Uploading")) {
-                            arrayList.add(new sh(name, file.length(), file.lastModified()));
-                        }
-                    }
-                }
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            ArrayList<sh> arrayList2 = new ArrayList<>();
-            ArrayList arrayList3 = new ArrayList();
-            Iterator it = arrayList.iterator();
-            while (it.hasNext()) {
-                sh shVar = (sh) it.next();
-                if (shVar != null) {
-                    long j = shVar.c;
-                    if (j != 0 && j + 604800000 < currentTimeMillis) {
-                        arrayList3.add(shVar.b);
-                    } else {
-                        arrayList2.add(shVar);
-                    }
-                }
-            }
-            if (arrayList3.size() > 0) {
-                rh.a(arrayList3, phVar.C());
-            }
-            return arrayList2;
+        if ((interceptable != null && interceptable.invokeCommon(65536, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z), Boolean.valueOf(z2), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Integer.valueOf(i2)}) != null) || !BdBaseApplication.getInst().isSmallFlow()) {
+            return;
         }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    public static BdUploadingLogInfo b(ph phVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, phVar)) == null) {
-            ArrayList<sh> a = a(phVar);
-            BdUploadingLogInfo bdUploadingLogInfo = new BdUploadingLogInfo(BdStatisticsManager.getInstance().getTrackLogWriteDir(), phVar.C(), phVar.A());
-            if (a != null && a.size() > 0) {
-                if (a.size() > 1) {
-                    Collections.sort(a, new th());
-                }
-                ArrayList arrayList = new ArrayList();
-                int size = a.size();
-                long j = 0;
-                for (int i = 0; i < size; i++) {
-                    sh shVar = a.get(i);
-                    j += shVar.a;
-                    arrayList.add(shVar);
-                    if (j >= 20480) {
-                        bdUploadingLogInfo.add(arrayList);
-                        arrayList = new ArrayList();
-                        j = 0;
-                    }
-                }
-                if (arrayList.size() > 0) {
-                    bdUploadingLogInfo.add(arrayList);
-                }
-            }
-            return bdUploadingLogInfo;
+        lh statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
+        statsItem.b("action", "network_monitor_a");
+        statsItem.b("cmd", String.valueOf(i));
+        statsItem.b("url", str2);
+        String str4 = "1";
+        if (z) {
+            str3 = "1";
+        } else {
+            str3 = "0";
         }
-        return (BdUploadingLogInfo) invokeL.objValue;
+        statsItem.b("issuccess", str3);
+        if (!z2) {
+            str4 = "0";
+        }
+        statsItem.b("ishttp", str4);
+        statsItem.b(FpsTracer.UBC_KEY_NET_TYPE, BdNetTypeUtil.getNetType());
+        statsItem.b("connt", String.valueOf(j));
+        statsItem.b("rwt", String.valueOf(j2));
+        statsItem.b("parset", String.valueOf(j3));
+        statsItem.b("fbt", String.valueOf(j4));
+        statsItem.b("abt", String.valueOf(j5));
+        statsItem.b("salno", String.valueOf(i2));
+        BdStatisticsManager.getInstance().performance(str, statsItem);
     }
 }

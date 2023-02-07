@@ -1,157 +1,161 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.coreExtra.view.BaseWebView;
-import com.baidu.tieba.payment.PayVcodeActivity;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.personExtra.RecommendGodHttpResponseMessage;
+import com.baidu.tieba.personExtra.RecommendGodReqMsg;
+import com.baidu.tieba.personExtra.RecommendGodSocketResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"ResourceAsColor"})
 /* loaded from: classes6.dex */
-public class r38 extends q9<PayVcodeActivity> {
+public class r38 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PayVcodeActivity a;
-    public ViewGroup b;
-    public View c;
-    public ViewGroup d;
-    public TextView e;
-    public BaseWebView f;
-    public TextView g;
-    public ProgressBar h;
+    public BdUniqueId a;
+    public nm8 b;
+    public b c;
+    public int d;
+    public boolean e;
+    public wb f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r38(PayVcodeActivity payVcodeActivity) {
-        super(payVcodeActivity.getPageContext());
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(nm8 nm8Var, int i);
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends wb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ r38 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(r38 r38Var, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {r38Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = r38Var;
+        }
+
+        @Override // com.baidu.tieba.wb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) {
+                return;
+            }
+            this.a.b = null;
+            if (responsedMessage == null) {
+                return;
+            }
+            if (responsedMessage.getOrginalMessage() != null && responsedMessage.getOrginalMessage().getTag() != this.a.a) {
+                return;
+            }
+            if (responsedMessage instanceof RecommendGodSocketResponseMessage) {
+                this.a.b = ((RecommendGodSocketResponseMessage) responsedMessage).recommendGodData;
+            } else if (responsedMessage instanceof RecommendGodHttpResponseMessage) {
+                this.a.b = ((RecommendGodHttpResponseMessage) responsedMessage).recommendGodData;
+            }
+            if (this.a.b != null) {
+                r38 r38Var = this.a;
+                r38Var.d = r38Var.b.a;
+            }
+            int error = responsedMessage.getError();
+            if (error == 0 && this.a.b != null) {
+                if (ListUtils.isEmpty(this.a.b.b)) {
+                    if (this.a.e) {
+                        error = 3;
+                    } else {
+                        error = 2;
+                    }
+                }
+            } else {
+                error = 1;
+            }
+            if (this.a.c != null) {
+                this.a.c.a(this.a.b, error);
+            }
+        }
+    }
+
+    public r38(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {payVcodeActivity};
+            Object[] objArr = {bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((s9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = payVcodeActivity;
-        payVcodeActivity.setContentView(R.layout.obfuscated_res_0x7f0d06dd);
-        o(payVcodeActivity);
+        this.d = 0;
+        a aVar = new a(this, CmdConfigHttp.CMD_GET_RECOMMEND_GOD_LIST, 309684);
+        this.f = aVar;
+        this.a = bdUniqueId;
+        aVar.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.f);
     }
 
-    public View i() {
-        InterceptResult invokeV;
+    public void j(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public TextView k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
-        }
-        return (TextView) invokeV.objValue;
-    }
-
-    public TextView l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
-        }
-        return (TextView) invokeV.objValue;
-    }
-
-    public ViewGroup m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return (ViewGroup) invokeV.objValue;
-    }
-
-    public BaseWebView n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.f;
-        }
-        return (BaseWebView) invokeV.objValue;
-    }
-
-    public final void o(PayVcodeActivity payVcodeActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, payVcodeActivity) == null) {
-            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f091882);
-            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09187c);
-            this.e = textView;
-            SkinManager.setBackgroundResource(textView, R.drawable.s_navbar_button_bg);
-            SkinManager.setViewTextColor(this.e, R.color.CAM_X0101, 1);
-            this.f = (BaseWebView) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0925de);
-            this.g = (TextView) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f092753);
-            this.c = payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f091880);
-            this.d = (ViewGroup) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f091881);
-            this.h = (ProgressBar) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f091883);
-            this.f.setHorizontalScrollBarEnabled(false);
-            this.f.setHorizontalScrollbarOverlay(false);
-            this.f.setScrollBarStyle(33554432);
-            this.f.getSettings().setJavaScriptEnabled(true);
+        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
+            this.c = bVar;
         }
     }
 
-    public void onChangeSkinType(int i) {
+    public void i(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            xg5.a(this.a.getPageContext(), this.b);
-            SkinManager.setBgColor(this.g, i);
-            SkinManager.setBackgroundResource(this.e, R.drawable.s_navbar_button_bg);
-            SkinManager.setViewTextColor(this.e, R.color.CAM_X0101, 1);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
+            this.d = i;
+            h(str);
         }
     }
 
-    public void p(boolean z) {
-        int i;
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            TextView textView = this.g;
-            if (z) {
-                i = 0;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            MessageManager.getInstance().removeMessage(this.a);
+            MessageManager.getInstance().unRegisterListener(this.a);
+        }
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            RecommendGodReqMsg recommendGodReqMsg = new RecommendGodReqMsg();
+            recommendGodReqMsg.portrait = str;
+            if (this.d == 0) {
+                this.e = false;
             } else {
-                i = 8;
+                this.e = true;
             }
-            textView.setVisibility(i);
-        }
-    }
-
-    public void q(boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            ProgressBar progressBar = this.h;
-            if (z) {
-                i = 0;
-            } else {
-                i = 8;
-            }
-            progressBar.setVisibility(i);
+            recommendGodReqMsg.pageNum = this.d + 1;
+            recommendGodReqMsg.setTag(this.a);
+            MessageManager.getInstance().sendMessage(recommendGodReqMsg);
         }
     }
 }

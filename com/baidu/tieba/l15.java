@@ -1,73 +1,128 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.data.DialogStrategiesData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+import kotlin.collections.CollectionsKt__IterablesKt;
+import kotlin.collections.CollectionsKt___CollectionsKt;
+import kotlin.collections.SetsKt___SetsKt;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class l15 {
+public final class l15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized void a() {
+    /* JADX WARN: Code restructure failed: missing block: B:43:0x00cb, code lost:
+        if (d(r3, r4) == true) goto L34;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static final void b(List<? extends DialogStrategiesData> list, List<? extends DialogStrategiesData> list2) {
+        DialogStrategiesData.StrategiesConfigData strategiesConfigData;
+        Object obj;
+        Object obj2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            synchronized (l15.class) {
-                File file = new File(FileHelper.getCacheDir() + "voice");
-                if (file.exists() && file.isDirectory()) {
-                    File[] listFiles = file.listFiles();
-                    if (listFiles == null) {
-                        return;
+        if (interceptable == null || interceptable.invokeLL(65537, null, list, list2) == null) {
+            ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(list, 10));
+            for (DialogStrategiesData dialogStrategiesData : list) {
+                arrayList.add(dialogStrategiesData.getDialogName());
+            }
+            Set set = CollectionsKt___CollectionsKt.toSet(arrayList);
+            ArrayList arrayList2 = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(list2, 10));
+            for (DialogStrategiesData dialogStrategiesData2 : list2) {
+                arrayList2.add(dialogStrategiesData2.getDialogName());
+            }
+            for (String name : SetsKt___SetsKt.plus(set, (Iterable) CollectionsKt___CollectionsKt.toSet(arrayList2))) {
+                Iterator<T> it = list.iterator();
+                while (true) {
+                    strategiesConfigData = null;
+                    if (it.hasNext()) {
+                        obj = it.next();
+                        if (Intrinsics.areEqual(((DialogStrategiesData) obj).getDialogName(), name)) {
+                            break;
+                        }
+                    } else {
+                        obj = null;
+                        break;
                     }
-                    for (File file2 : listFiles) {
-                        file2.delete();
+                }
+                DialogStrategiesData dialogStrategiesData3 = (DialogStrategiesData) obj;
+                Iterator<T> it2 = list2.iterator();
+                while (true) {
+                    if (it2.hasNext()) {
+                        obj2 = it2.next();
+                        if (Intrinsics.areEqual(((DialogStrategiesData) obj2).getDialogName(), name)) {
+                            break;
+                        }
+                    } else {
+                        obj2 = null;
+                        break;
                     }
+                }
+                DialogStrategiesData dialogStrategiesData4 = (DialogStrategiesData) obj2;
+                if (dialogStrategiesData3 == null || dialogStrategiesData4 == null) {
+                    j15 j15Var = j15.a;
+                    Intrinsics.checkNotNullExpressionValue(name, "name");
+                    j15Var.b(name);
+                }
+                boolean z = true;
+                if (dialogStrategiesData3 != null && (r3 = c(dialogStrategiesData3, "FREQUENCE_STRATEGY")) != null) {
+                    if (dialogStrategiesData4 != null) {
+                        strategiesConfigData = c(dialogStrategiesData4, "FREQUENCE_STRATEGY");
+                    }
+                }
+                z = false;
+                if (z) {
+                    j15 j15Var2 = j15.a;
+                    Intrinsics.checkNotNullExpressionValue(name, "name");
+                    j15Var2.b(name);
                 }
             }
         }
     }
 
-    public static boolean b(String str, String str2) {
+    public static final DialogStrategiesData.StrategiesConfigData c(DialogStrategiesData dialogStrategiesData, String str) {
+        InterceptResult invokeLL;
+        Object obj;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, dialogStrategiesData, str)) == null) {
+            List<DialogStrategiesData.StrategiesConfigData> dialogStrategy = dialogStrategiesData.getDialogStrategy();
+            Intrinsics.checkNotNullExpressionValue(dialogStrategy, "dialogStrategy");
+            Iterator<T> it = dialogStrategy.iterator();
+            while (true) {
+                if (it.hasNext()) {
+                    obj = it.next();
+                    if (Intrinsics.areEqual(str, ((DialogStrategiesData.StrategiesConfigData) obj).getType())) {
+                        break;
+                    }
+                } else {
+                    obj = null;
+                    break;
+                }
+            }
+            return (DialogStrategiesData.StrategiesConfigData) obj;
+        }
+        return (DialogStrategiesData.StrategiesConfigData) invokeLL.objValue;
+    }
+
+    public static final boolean d(DialogStrategiesData.StrategiesConfigData strategiesConfigData, DialogStrategiesData.StrategiesConfigData strategiesConfigData2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            return FileHelper.renameTo(str, FileHelper.getFilePath(str2, 1, true));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, strategiesConfigData, strategiesConfigData2)) == null) {
+            if (strategiesConfigData2 != null) {
+                if (Intrinsics.areEqual(strategiesConfigData.H().get("startTimestamp"), strategiesConfigData2.H().get("startTimestamp")) && Intrinsics.areEqual(strategiesConfigData.H().get("endTimestamp"), strategiesConfigData2.H().get("endTimestamp")) && Intrinsics.areEqual(strategiesConfigData.H().get("frequence"), strategiesConfigData2.H().get("frequence"))) {
+                    return false;
+                }
+                return true;
+            }
+            return false;
         }
         return invokeLL.booleanValue;
-    }
-
-    public static k15 c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            k15 k15Var = new k15();
-            if (str == null) {
-                k15Var.f(6);
-                k15Var.g(k15.a(k15Var.b()));
-                return k15Var;
-            }
-            if (!FileHelper.CheckTempDir(FileHelper.getCacheDir() + "voice")) {
-                k15Var.f(7);
-                k15Var.g(k15.a(k15Var.b()));
-                return k15Var;
-            }
-            String b = gj.b(FileHelper.GetStreamFromTmpFile(str));
-            if (b == null) {
-                k15Var.f(5);
-                k15Var.g(k15.a(k15Var.b()));
-            } else {
-                String filePath = FileHelper.getFilePath(b, 1, true);
-                if (FileHelper.renameTo(str, filePath)) {
-                    k15Var.i(filePath);
-                    k15Var.h(b);
-                } else {
-                    k15Var.f(1);
-                    k15Var.g(k15.a(k15Var.b()));
-                }
-            }
-            return k15Var;
-        }
-        return (k15) invokeL.objValue;
     }
 }

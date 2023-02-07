@@ -1,121 +1,29 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.Vector;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.ByteBuffer;
 /* loaded from: classes4.dex */
-public class fo9 {
+public class fo9 extends InputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ho9 a;
-    public Timer b;
-    public TimerTask c;
-    public int d;
-    public Vector<Integer> e;
-    public long f;
-    public boolean g;
-    public boolean h;
-    public go9 i;
-    public int j;
-    public float k;
-    public long l;
-    public Vector<Integer> m;
+    public final eo9 a;
+    public boolean b;
+    public ByteBuffer c;
+    public IOException d;
 
-    /* loaded from: classes4.dex */
-    public class a extends TimerTask {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fo9 a;
-
-        public a(fo9 fo9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fo9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fo9Var;
-        }
-
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.h) {
-                    this.a.j();
-                } else {
-                    this.a.q();
-                }
-                fo9 fo9Var = this.a;
-                fo9Var.h = fo9Var.l(fo9Var.j);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fo9 a;
-
-        public b(fo9 fo9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fo9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fo9Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            this.a.g = false;
-            if (this.a.c != null) {
-                this.a.c.cancel();
-            }
-            if (this.a.b != null) {
-                this.a.b.purge();
-            }
-        }
-    }
-
-    public fo9() {
+    public fo9(eo9 eo9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {eo9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -125,164 +33,93 @@ public class fo9 {
                 return;
             }
         }
-        this.d = 0;
-        this.e = new Vector<>();
-        this.g = false;
-        this.h = false;
-        this.i = new go9();
-        this.j = 0;
-        this.k = 0.0f;
-        this.l = 0L;
-        this.m = new Vector<>();
-        this.b = new Timer();
+        this.a = eo9Var;
     }
 
-    public final boolean l(int i) {
-        InterceptResult invokeI;
+    public void d(IOException iOException) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            int nextInt = new Random().nextInt(100);
-            if (i <= 0 || i > 100 || nextInt > i) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iOException) == null) {
+            this.d = iOException;
+            this.b = true;
+            this.c = null;
         }
-        return invokeI.booleanValue;
     }
 
-    public final void j() {
+    public final void a() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.d++;
-            this.i.a = k(this.m);
-            this.i.b = k(this.e);
-            this.i.c = this.m.size() + "";
-            this.i.f = Float.toString(hs9.a());
-            this.i.d = this.k;
-            vr9.b("report ar frame data");
-            do9.a(String.valueOf(this.d), this.a, this.i);
-            q();
-        }
-    }
-
-    public final String k(List<Integer> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
-            if (as9.e(list)) {
-                return "";
-            }
-            JSONObject jSONObject = new JSONObject();
-            JSONArray jSONArray = new JSONArray();
-            float f = 0.0f;
-            float f2 = 0.0f;
-            for (int i = 0; i < list.size(); i++) {
-                Integer num = list.get(i);
-                if (num != null) {
-                    f2 += num.intValue();
-                    jSONArray.put(num);
+            if (this.b) {
+                IOException iOException = this.d;
+                if (iOException == null) {
+                    return;
                 }
-            }
-            float size = f2 / list.size();
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                Integer num2 = list.get(i2);
-                if (num2 != null) {
-                    f = (float) (f + Math.pow(num2.intValue() - size, 2.0d));
+                throw iOException;
+            } else if (!c()) {
+                if (this.c == null) {
+                    this.c = ByteBuffer.allocateDirect(32768);
                 }
-            }
-            float size2 = f / list.size();
-            try {
-                jSONObject.put("avg", size);
-                jSONObject.put("vari", size2);
-                jSONObject.put("val", jSONArray.toString());
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.g = false;
-            Timer timer = this.b;
-            if (timer != null) {
-                timer.cancel();
-                this.b = null;
-            }
-            TimerTask timerTask = this.c;
-            if (timerTask != null) {
-                timerTask.cancel();
-                this.c = null;
+                this.c.clear();
+                this.a.u(this.c);
+                IOException iOException2 = this.d;
+                if (iOException2 == null) {
+                    ByteBuffer byteBuffer = this.c;
+                    if (byteBuffer != null) {
+                        byteBuffer.flip();
+                        return;
+                    }
+                    return;
+                }
+                throw iOException2;
             }
         }
     }
 
-    public void p() {
+    public final boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.l = System.currentTimeMillis();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ByteBuffer byteBuffer = this.c;
+            if (byteBuffer != null && byteBuffer.hasRemaining()) {
+                return true;
+            }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public final void q() {
+    @Override // java.io.InputStream
+    public int read() throws IOException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f = 0L;
-            this.l = 0L;
-            this.e.clear();
-            this.m.clear();
-            this.i.a();
-            this.k = 0.0f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            a();
+            if (c()) {
+                return this.c.get() & 255;
+            }
+            return -1;
         }
+        return invokeV.intValue;
     }
 
-    public void s() {
+    @Override // java.io.InputStream
+    public int read(byte[] bArr, int i, int i2) throws IOException {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            vr9.b("stopTimer");
-            ns9.a().postDelayed(new b(this), 1000L);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, bArr, i, i2)) == null) {
+            if (i >= 0 && i2 >= 0 && i + i2 <= bArr.length) {
+                if (i2 == 0) {
+                    return 0;
+                }
+                a();
+                if (c()) {
+                    int min = Math.min(this.c.limit() - this.c.position(), i2);
+                    this.c.get(bArr, i, min);
+                    return min;
+                }
+                return -1;
+            }
+            throw new IndexOutOfBoundsException();
         }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || !this.h || !this.g) {
-            return;
-        }
-        if (this.f <= 0) {
-            this.f = System.currentTimeMillis();
-            return;
-        }
-        long currentTimeMillis = System.currentTimeMillis();
-        int i = (int) (currentTimeMillis - this.f);
-        if (i < 0) {
-            return;
-        }
-        this.e.add(Integer.valueOf(i));
-        this.f = currentTimeMillis;
-    }
-
-    public void o() {
-        int currentTimeMillis;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || !this.h || !this.g || this.l <= 0 || (currentTimeMillis = (int) (System.currentTimeMillis() - this.l)) < 0) {
-            return;
-        }
-        this.m.add(Integer.valueOf(currentTimeMillis));
-    }
-
-    public void r() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || this.g || this.b == null) {
-            return;
-        }
-        vr9.b("startTimer");
-        this.g = true;
-        this.c = new a(this);
-        this.b.purge();
-        this.b.schedule(this.c, 0L, 1000L);
+        return invokeLII.intValue;
     }
 }

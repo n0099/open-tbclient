@@ -7,8 +7,10 @@ import android.graphics.Color;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.StateSet;
+import android.util.TypedValue;
 import android.util.Xml;
 import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
 import androidx.annotation.FloatRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,6 +18,8 @@ import androidx.annotation.RestrictTo;
 import androidx.annotation.XmlRes;
 import androidx.core.R;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,20 +32,53 @@ import org.xmlpull.v1.XmlPullParserException;
 /* loaded from: classes.dex */
 public final class ColorStateListInflaterCompat {
     public static /* synthetic */ Interceptable $ic;
+    public static final ThreadLocal<TypedValue> sTempTypedValue;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1967403481, "Landroidx/core/content/res/ColorStateListInflaterCompat;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1967403481, "Landroidx/core/content/res/ColorStateListInflaterCompat;");
+                return;
+            }
+        }
+        sTempTypedValue = new ThreadLocal<>();
+    }
 
     public ColorStateListInflaterCompat() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    @NonNull
+    public static TypedValue getTypedValue() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            TypedValue typedValue = sTempTypedValue.get();
+            if (typedValue == null) {
+                TypedValue typedValue2 = new TypedValue();
+                sTempTypedValue.set(typedValue2);
+                return typedValue2;
+            }
+            return typedValue;
+        }
+        return (TypedValue) invokeV.objValue;
     }
 
     @NonNull
@@ -49,7 +86,7 @@ public final class ColorStateListInflaterCompat {
         InterceptResult invokeLLL;
         int next;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, resources, xmlPullParser, theme)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, resources, xmlPullParser, theme)) == null) {
             AttributeSet asAttributeSet = Xml.asAttributeSet(xmlPullParser);
             do {
                 next = xmlPullParser.next();
@@ -69,7 +106,7 @@ public final class ColorStateListInflaterCompat {
     public static ColorStateList createFromXmlInner(@NonNull Resources resources, @NonNull XmlPullParser xmlPullParser, @NonNull AttributeSet attributeSet, @Nullable Resources.Theme theme) throws XmlPullParserException, IOException {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, resources, xmlPullParser, attributeSet, theme)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, resources, xmlPullParser, attributeSet, theme)) == null) {
             String name = xmlPullParser.getName();
             if (name.equals("selector")) {
                 return inflate(resources, xmlPullParser, attributeSet, theme);
@@ -83,7 +120,7 @@ public final class ColorStateListInflaterCompat {
     public static ColorStateList inflate(@NonNull Resources resources, @XmlRes int i, @Nullable Resources.Theme theme) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65539, null, resources, i, theme)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65541, null, resources, i, theme)) == null) {
             try {
                 return createFromXml(resources, resources.getXml(i), theme);
             } catch (Exception e) {
@@ -97,8 +134,9 @@ public final class ColorStateListInflaterCompat {
     public static ColorStateList inflate(@NonNull Resources resources, @NonNull XmlPullParser xmlPullParser, @NonNull AttributeSet attributeSet, @Nullable Resources.Theme theme) throws XmlPullParserException, IOException {
         InterceptResult invokeLLLL;
         int depth;
+        int color;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, resources, xmlPullParser, attributeSet, theme)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65542, null, resources, xmlPullParser, attributeSet, theme)) == null) {
             int i = 1;
             int depth2 = xmlPullParser.getDepth() + 1;
             int[][] iArr = new int[20];
@@ -111,7 +149,16 @@ public final class ColorStateListInflaterCompat {
                 }
                 if (next == 2 && depth <= depth2 && xmlPullParser.getName().equals("item")) {
                     TypedArray obtainAttributes = obtainAttributes(resources, theme, attributeSet, R.styleable.ColorStateListItem);
-                    int color = obtainAttributes.getColor(0, -65281);
+                    int resourceId = obtainAttributes.getResourceId(0, -1);
+                    if (resourceId != -1 && !isColorInt(resources, resourceId)) {
+                        try {
+                            color = createFromXml(resources, resources.getXml(resourceId), theme).getDefaultColor();
+                        } catch (Exception unused) {
+                            color = obtainAttributes.getColor(0, -65281);
+                        }
+                    } else {
+                        color = obtainAttributes.getColor(0, -65281);
+                    }
                     float f = 1.0f;
                     if (obtainAttributes.hasValue(i)) {
                         f = obtainAttributes.getFloat(i, 1.0f);
@@ -149,11 +196,26 @@ public final class ColorStateListInflaterCompat {
         return (ColorStateList) invokeLLLL.objValue;
     }
 
+    public static boolean isColorInt(@NonNull Resources resources, @ColorRes int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, resources, i)) == null) {
+            TypedValue typedValue = getTypedValue();
+            resources.getValue(i, typedValue, true);
+            int i2 = typedValue.type;
+            if (i2 >= 28 && i2 <= 31) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLI.booleanValue;
+    }
+
     @ColorInt
     public static int modulateColorAlpha(@ColorInt int i, @FloatRange(from = 0.0d, to = 1.0d) float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) {
             return (i & 16777215) | (Math.round(Color.alpha(i) * f) << 24);
         }
         return invokeCommon.intValue;
@@ -162,7 +224,7 @@ public final class ColorStateListInflaterCompat {
     public static TypedArray obtainAttributes(Resources resources, Resources.Theme theme, AttributeSet attributeSet, int[] iArr) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65542, null, resources, theme, attributeSet, iArr)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65545, null, resources, theme, attributeSet, iArr)) == null) {
             if (theme == null) {
                 return resources.obtainAttributes(attributeSet, iArr);
             }

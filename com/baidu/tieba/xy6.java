@@ -1,22 +1,32 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.data.FeatureCardGod;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardCompetition;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardGame;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardHot;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardTopic;
+import com.baidu.tieba.frs.gamerecommend.data.ScoreCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.TabPic;
-/* loaded from: classes6.dex */
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes7.dex */
 public class xy6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public boolean a;
     public int b;
-    public op6 c;
-    public String d;
-    public int e;
-    public TabPic f;
-    public boolean g;
+    public List<ThreadData> c;
+    public ScoreCardInfo d;
+    public List<FeatureCardHot> e;
+    public List<FeatureCardTopic> f;
+    public List<yy6> g;
+    public List<FeatureCardCompetition> h;
+    public List<FeatureCardGod> i;
+    public List<FeatureCardGame> j;
 
     public xy6() {
         Interceptable interceptable = $ic;
@@ -28,24 +38,15 @@ public class xy6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj != null && (obj instanceof xy6)) {
-                xy6 xy6Var = (xy6) obj;
-                if (this.b == xy6Var.b && (str = this.a) != null && str.equals(xy6Var.a)) {
-                    return true;
-                }
-                return super.equals(obj);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
+        this.c = new ArrayList();
+        this.e = new ArrayList();
+        this.f = new ArrayList();
+        this.g = new ArrayList();
+        this.h = new ArrayList();
+        this.i = new ArrayList();
+        this.j = new ArrayList();
     }
 }

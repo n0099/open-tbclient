@@ -1,170 +1,178 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.res.Configuration;
+import android.graphics.Point;
+import android.graphics.Rect;
+import android.os.Build;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.location.BDLocation;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
+import com.xiaomi.mipush.sdk.Constants;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class g02 extends i53 {
+public class g02 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static JSONObject b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.i53
-    @NonNull
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "/swanAPI/button" : (String) invokeV.objValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947740032, "Lcom/baidu/tieba/g02;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947740032, "Lcom/baidu/tieba/g02;");
+                return;
+            }
+        }
+        a = gp1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g02(g53 g53Var) {
-        super(g53Var, "/swanAPI/button");
+    public static synchronized void f() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {g53Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((g53) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            synchronized (g02.class) {
+                if (a) {
+                    Log.d("SystemInfoCacheHelper", "release cache system info");
+                }
+                b = null;
+            }
+        }
+    }
+
+    public static JSONObject a(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (a) {
+                Log.d("SystemInfoCacheHelper", "start create System Info");
+            }
+            WindowManager windowManager = (WindowManager) context.getSystemService("window");
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            windowManager.getDefaultDisplay().getMetrics(displayMetrics);
+            windowManager.getDefaultDisplay().getSize(new Point());
+            windowManager.getDefaultDisplay().getRectSize(new Rect());
+            Configuration configuration = context.getResources().getConfiguration();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(Constants.PHONE_BRAND, Build.BRAND);
+                jSONObject.put("model", Build.MODEL);
+                jSONObject.put("pixelRatio", displayMetrics.density);
+                jSONObject.put("devicePixelRatio", displayMetrics.density);
+                jSONObject.put("language", c(configuration));
+                jSONObject.put("version", qm3.D());
+                jSONObject.put(BDLocation.BDLOCATION_GNSS_PROVIDER_FROM_SYSTEM, "Android " + Build.VERSION.RELEASE);
+                jSONObject.put(com.tencent.connect.common.Constants.PARAM_PLATFORM, "android");
+                jSONObject.put("fontSizeSetting", ds2.o().r());
+                jSONObject.put("swanNativeVersion", hp1.a());
+                jSONObject.put("host", ds2.n().a());
+                jSONObject.put("statusBarHeight", nm3.O(nm3.t()));
+                jSONObject.put("navigationBarHeight", nm3.O(nm3.j()));
+                if (a) {
+                    Log.d("SystemInfoCacheHelper", "end create System Info");
+                }
+                return jSONObject;
+            } catch (JSONException e) {
+                if (a) {
+                    Log.d("SystemInfoCacheHelper", "crate system info error : ");
+                    e.printStackTrace();
+                    return null;
+                }
+                return null;
+            }
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    @Nullable
+    public static synchronized JSONObject b(Context context) {
+        InterceptResult invokeL;
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            synchronized (g02.class) {
+                if (b == null && context != null) {
+                    if (a) {
+                        Log.d("SystemInfoCacheHelper", "need create system info");
+                    }
+                    b = a(context);
+                }
+                if (a) {
+                    Log.d("SystemInfoCacheHelper", "return cache system info");
+                }
+                jSONObject = b;
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    @SuppressLint({"ObsoleteSdkInt"})
+    public static String c(Configuration configuration) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, configuration)) == null) {
+            int i = Build.VERSION.SDK_INT;
+            if (i < 21) {
+                return configuration.locale.toString();
+            }
+            if (i < 24) {
+                return configuration.locale.toLanguageTag();
+            }
+            return configuration.getLocales().toLanguageTags();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void d(int i) {
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) && (jSONObject = b) != null) {
+            try {
+                jSONObject.put("fontSizeSetting", i);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }
 
     @Nullable
-    public final h02 q(UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeL;
+    public static synchronized void e(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, unitedSchemeEntity)) == null) {
-            if (unitedSchemeEntity == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(65541, null, context) == null) {
+            synchronized (g02.class) {
+                if (a) {
+                    Log.d("SystemInfoCacheHelper", "start pre cache system info");
+                }
+                if (!ds2.g0().s()) {
+                    return;
+                }
+                if (b == null && context != null) {
+                    if (a) {
+                        Log.d("SystemInfoCacheHelper", "need create system info");
+                    }
+                    b = a(context);
+                }
+                if (a) {
+                    Log.d("SystemInfoCacheHelper", "end pre cache system info");
+                }
             }
-            JSONObject k = k(unitedSchemeEntity);
-            if (k == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                j12.c("Component-Action-Button", "params is null");
-                return null;
-            }
-            h02 h02Var = new h02();
-            try {
-                h02Var.a(k);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                j12.d("Component-Action-Button", "model parse exception:", e);
-            }
-            return h02Var;
         }
-        return (h02) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.i53
-    public boolean m(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, j43 j43Var) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, j43Var)) == null) {
-            if (g63.b) {
-                Log.d("Component-Action-Button", "insert");
-            }
-            h02 q = q(unitedSchemeEntity);
-            if (q == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                j12.c("Component-Action-Button", "model is null");
-                return false;
-            }
-            a02 insert = new f02(context, q).insert();
-            boolean a = insert.a();
-            if (a) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, insert.b);
-            }
-            return a;
-        }
-        return invokeLLLLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.i53
-    public boolean o(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, j43 j43Var) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, str, j43Var)) == null) {
-            if (g63.b) {
-                Log.d("Component-Action-Button", "remove");
-            }
-            h02 q = q(unitedSchemeEntity);
-            if (q == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                j12.c("Component-Action-Button", "model is null");
-                return false;
-            }
-            f02 f02Var = (f02) w02.a(q);
-            if (f02Var == null) {
-                String str2 = "can't find button component:#" + q.b;
-                j12.c("Component-Action-Button", str2);
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
-                return false;
-            }
-            a02 B = f02Var.B();
-            boolean a = B.a();
-            if (a) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, B.b);
-            }
-            return a;
-        }
-        return invokeLLLLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.i53
-    public boolean p(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, j43 j43Var) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, context, unitedSchemeEntity, callbackHandler, str, j43Var)) == null) {
-            if (g63.b) {
-                Log.d("Component-Action-Button", StickerDataChangeType.UPDATE);
-            }
-            h02 q = q(unitedSchemeEntity);
-            if (q == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                j12.c("Component-Action-Button", "model is null");
-                return false;
-            }
-            f02 f02Var = (f02) w02.a(q);
-            if (f02Var == null) {
-                String str2 = "can't find button component:#" + q.b;
-                j12.c("Component-Action-Button", str2);
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
-                return false;
-            }
-            a02 update = f02Var.update((f02) q);
-            boolean a = update.a();
-            if (a) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, update.b);
-            }
-            return a;
-        }
-        return invokeLLLLL.booleanValue;
     }
 }

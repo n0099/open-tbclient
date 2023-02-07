@@ -5,19 +5,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Queue;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class fe implements wd {
+public class fe implements be {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Queue<Object> a;
+    public List<Object> a;
 
-    public fe(Queue<Object> queue) {
+    public fe(List<Object> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {queue};
+            Object[] objArr = {list};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,15 +27,15 @@ public class fe implements wd {
                 return;
             }
         }
-        this.a = queue;
+        this.a = list;
     }
 
-    @Override // com.baidu.tieba.wd
-    public Object a(me meVar) {
+    @Override // com.baidu.tieba.be
+    public Object a(re reVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, meVar)) == null) {
-            return le.d(this.a, meVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, reVar)) == null) {
+            return qe.c(this.a, reVar);
         }
         return invokeL.objValue;
     }

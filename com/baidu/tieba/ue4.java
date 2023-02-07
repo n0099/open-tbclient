@@ -1,61 +1,69 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
-import com.baidu.searchbox.http.request.HttpRequestBuilder;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.mapapi.search.route.DrivingRoutePlanOption;
+import com.baidu.mapapi.search.route.OnGetRoutePlanResultListener;
+import com.baidu.mapapi.search.route.PlanNode;
+import com.baidu.mapapi.search.route.RoutePlanSearch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidubce.AbstractBceClient;
-import java.util.Map;
-import okhttp3.MediaType;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ue4 extends md4 {
+public class ue4 {
     public static /* synthetic */ Interceptable $ic;
+    public static ue4 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public RoutePlanSearch a;
 
-    public static void a(String str, Map<String, String> map, Map<String, String> map2, qd4<String> qd4Var) {
+    public ue4() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLL(65536, null, str, map, map2, qd4Var) != null) || d(str, qd4Var)) {
-            return;
-        }
-        c(nb4.g().getRequest(), str, map, map2, qd4Var);
-    }
-
-    public static void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, qd4<String> qd4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLLL(65537, null, str, map, map2, jSONObject, qd4Var) != null) || d(str, qd4Var)) {
-            return;
-        }
-        jb4 postStringRequest = nb4.g().postStringRequest();
-        vb4.a(postStringRequest, map);
-        postStringRequest.content(jSONObject.toString()).mediaType(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE)).requestFrom(6);
-        c(postStringRequest, str, map, map2, qd4Var);
-    }
-
-    /* JADX WARN: Type inference failed for: r4v1, types: [com.baidu.searchbox.http.request.HttpRequestBuilder] */
-    public static void c(HttpRequestBuilder<?> httpRequestBuilder, String str, Map<String, String> map, Map<String, String> map2, qd4<String> qd4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65538, null, httpRequestBuilder, str, map, map2, qd4Var) == null) {
-            httpRequestBuilder.url(rd4.j(str, map)).requestSubFrom(10).addHeaders(map2).userAgent(md4.b).cookieManager(md4.a).enableStat(true).build().executeStat(qd4Var);
-        }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static boolean d(String str, qd4<String> qd4Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, qd4Var)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if (qd4Var != null) {
-                qd4Var.onStart();
-                return false;
-            }
-            return false;
         }
-        return invokeLL.booleanValue;
+    }
+
+    public static ue4 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (ue4.class) {
+                    if (b == null) {
+                        b = new ue4();
+                    }
+                }
+            }
+            return b;
+        }
+        return (ue4) invokeV.objValue;
+    }
+
+    public void a() {
+        RoutePlanSearch routePlanSearch;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (routePlanSearch = this.a) != null) {
+            routePlanSearch.destroy();
+        }
+    }
+
+    public void c(LatLng latLng, LatLng latLng2, OnGetRoutePlanResultListener onGetRoutePlanResultListener) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, latLng, latLng2, onGetRoutePlanResultListener) == null) && latLng != null && latLng2 != null && onGetRoutePlanResultListener != null) {
+            RoutePlanSearch newInstance = RoutePlanSearch.newInstance();
+            this.a = newInstance;
+            newInstance.setOnGetRoutePlanResultListener(onGetRoutePlanResultListener);
+            PlanNode withLocation = PlanNode.withLocation(latLng);
+            this.a.drivingSearch(new DrivingRoutePlanOption().from(withLocation).to(PlanNode.withLocation(latLng2)));
+        }
     }
 }

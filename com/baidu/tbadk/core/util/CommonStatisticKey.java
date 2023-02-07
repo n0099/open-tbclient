@@ -259,6 +259,7 @@ public class CommonStatisticKey {
     public static final String PERSON_INFO_CENTER_LOTTIE_SHOW = "c13248";
     public static final String REF_TYPE_FRS_AD = "4000601";
     public static final String SEARCH_BAR_CLICK = "c10378";
+    public static final String TAIL_TOOL_SHOW = "c15165";
     public static final String UBS_TEST_PUBLISH_BUTTON_CLICK = "c13702";
     public static final String USER_ICON_VISIT = "c10134";
     public static final String WINDOW_CLICK = "c14076";

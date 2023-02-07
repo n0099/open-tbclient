@@ -1,22 +1,47 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class ax5 {
     public static /* synthetic */ Interceptable $ic;
     public static ax5 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<StatisticItem> a;
+    public volatile HashMap<String, List<a>> a;
+
+    /* loaded from: classes3.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public HashMap<String, Object> b;
+
+        public a(String str, HashMap<String, Object> hashMap) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, hashMap};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = hashMap;
+        }
+    }
 
     public ax5() {
         Interceptable interceptable = $ic;
@@ -28,11 +53,13 @@ public class ax5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new HashMap<>();
     }
 
-    public static ax5 b() {
+    public static ax5 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
@@ -48,30 +75,34 @@ public class ax5 {
         return (ax5) invokeV.objValue;
     }
 
-    public void a(StatisticItem statisticItem) {
+    public void a(String str, String str2, HashMap<String, Object> hashMap) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, statisticItem) != null) || statisticItem == null) {
-            return;
-        }
-        if (this.a == null) {
-            this.a = new ArrayList();
-        }
-        List<StatisticItem> list = this.a;
-        if (list != null) {
-            list.add(statisticItem);
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, hashMap) == null) {
+            List<a> list = this.a.get(str);
+            if (list == null) {
+                list = new ArrayList<>();
+                this.a.put(str, list);
+            }
+            list.add(new a(str2, hashMap));
         }
     }
 
-    public void c() {
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || ListUtils.getCount(this.a) == 0) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.a.remove(str);
         }
-        for (StatisticItem statisticItem : this.a) {
-            if (statisticItem != null) {
-                TiebaStatic.log(statisticItem);
+    }
+
+    public List<a> d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (this.a.containsKey(str)) {
+                return this.a.get(str);
             }
+            return new ArrayList();
         }
-        this.a.clear();
+        return (List) invokeL.objValue;
     }
 }

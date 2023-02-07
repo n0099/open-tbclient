@@ -1,12 +1,8 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tieba.s32;
+import com.baidu.sapi2.stat.ShareLoginStat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,109 +10,151 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class fx3 implements zs3 {
+public class fx3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public String j;
 
-    public fx3() {
+    public fx3(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        if (str == null) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject(str).getJSONObject("data");
+            this.a = jSONObject.optString("download_state", "");
+            this.j = jSONObject.optString("download_hint", "");
+            JSONObject optJSONObject = jSONObject.optJSONObject("app_info");
+            if (optJSONObject != null) {
+                this.b = optJSONObject.optString("app_name", "");
+                this.c = optJSONObject.optString("developer_name", "");
+                this.d = optJSONObject.optString("app_icon", "");
+                JSONObject optJSONObject2 = optJSONObject.optJSONObject("privacy");
+                if (optJSONObject2 != null) {
+                    this.f = optJSONObject2.optString("cmd", "");
+                }
+                JSONObject optJSONObject3 = optJSONObject.optJSONObject(ShareLoginStat.GetShareListStat.KEY_PERMISSION);
+                if (optJSONObject3 != null) {
+                    this.g = optJSONObject3.optString("cmd", "");
+                }
+                this.h = optJSONObject.optString("apk_url", "");
+                this.e = optJSONObject.optString("version", "");
+                this.i = optJSONObject.optString("apk_size", "");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
-    @Override // com.baidu.tieba.zs3
-    public boolean b() {
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.i;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return ix3.b();
+            return this.h;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.zs3
-    @SuppressLint({"SourceLockedOrientationActivity"})
-    public void e() {
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && b()) {
-            SwanAppActivity activity = wp2.U().getActivity();
-            if (activity != null) {
-                activity.setRequestedOrientation(1);
-            }
-            wp2.U().W().g(true);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.zs3
-    public void a(String str, JSONObject jSONObject) {
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
-            s32 V = wp2.U().V();
-            Context appContext = AppRuntime.getAppContext();
-            if (V == null) {
-                if (appContext != null) {
-                    b43.f(appContext, R.string.obfuscated_res_0x7f0f01a8).G();
-                    return;
-                }
-                return;
-            }
-            ju2 d = ju2.d(str, str);
-            d.h(jSONObject.toString());
-            s32.b i = V.i("adLanding");
-            i.n(s32.g, s32.i);
-            i.k("adLanding", d).b();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.zs3
-    public boolean c(View view2) {
-        InterceptResult invokeL;
+    public String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) {
-            return ix3.c(view2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.j;
         }
-        return invokeL.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.zs3
-    public boolean removeView(View view2) {
-        InterceptResult invokeL;
+    public String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, view2)) == null) {
-            return ix3.d(view2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
         }
-        return invokeL.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.zs3
-    public boolean d(View view2, tr3 tr3Var) {
-        InterceptResult invokeLL;
+    public String g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view2, tr3Var)) == null) {
-            return ix3.a(view2, new pu2(tr3Var.c(), tr3Var.d(), tr3Var.e(), tr3Var.b()));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.d;
         }
-        return invokeLL.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.zs3
-    public boolean f(View view2, tr3 tr3Var) {
-        InterceptResult invokeLL;
+    public String h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, view2, tr3Var)) == null) {
-            am1 W = wp2.U().W();
-            if (W != null && W.a(view2, new pu2(tr3Var.c(), tr3Var.d(), tr3Var.e(), tr3Var.b()))) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.g;
         }
-        return invokeLL.booleanValue;
+        return (String) invokeV.objValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
     }
 }

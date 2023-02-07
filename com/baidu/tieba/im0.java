@@ -1,17 +1,25 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import android.content.Context;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
 /* loaded from: classes4.dex */
-public interface im0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "eventbus");
+public class im0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    <T extends hm0> void a(@Nullable T t);
-
-    <T extends hm0> void b(@NonNull Object obj, @NonNull km0<T> km0Var);
-
-    <T extends hm0> void c(@NonNull Object obj, int i, @NonNull km0<T> km0Var);
-
-    void unregister(@NonNull Object obj);
+    public static File a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            File externalCacheDir = context.getExternalCacheDir();
+            if (externalCacheDir == null) {
+                return context.getCacheDir();
+            }
+            return externalCacheDir;
+        }
+        return (File) invokeL.objValue;
+    }
 }

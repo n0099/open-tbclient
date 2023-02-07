@@ -1,257 +1,64 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.util.Log;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import okhttp3.Interceptor;
+import okhttp3.Request;
+import okhttp3.Response;
 /* loaded from: classes5.dex */
-public class n03 {
+public class n03 implements Interceptor {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
-    public static volatile n03 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap<String, o03<m03>> a;
-    public ConcurrentHashMap<String, Runnable> b;
-    public a c;
-
-    /* loaded from: classes5.dex */
-    public static class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference<n03> a;
-        public String b;
-
-        public b(n03 n03Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n03Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new WeakReference<>(n03Var);
-            this.b = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            n03 n03Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (n03Var = this.a.get()) == null) {
-                return;
-            }
-            if (n03.d) {
-                Log.d("MDelegate-Observe", "run: observer timeout " + this.b);
-            }
-            m03 m03Var = new m03(this.b);
-            m03Var.setResult(null);
-            n03Var.c(m03Var);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947948600, "Lcom/baidu/tieba/n03;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947948600, "Lcom/baidu/tieba/n03;");
-                return;
-            }
-        }
-        d = tk1.a;
-    }
-
-    public static n03 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (e == null) {
-                synchronized (n03.class) {
-                    if (e == null) {
-                        e = new n03();
-                    }
-                }
-            }
-            return e;
-        }
-        return (n03) invokeV.objValue;
-    }
+    public HashMap<String, String> a;
 
     public n03() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ConcurrentHashMap<>();
-        this.b = new ConcurrentHashMap<>();
-        this.c = new a(Looper.getMainLooper());
+        this.a = new HashMap<>();
     }
 
-    public void c(@NonNull m03 m03Var) {
+    public void a(HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, m03Var) == null) {
-            o03<m03> o03Var = this.a.get(m03Var.b());
-            if (o03Var == null) {
-                if (d) {
-                    Log.e("MDelegate-Observe", "notify a null observer");
-                    return;
-                }
-                return;
-            }
-            String b2 = o03Var.b();
-            if (d) {
-                Log.d("MDelegate-Observe", "notify observer: " + b2);
-            }
-            o03Var.onEvent(m03Var);
-            if (this.b.containsKey(b2)) {
-                if (d) {
-                    Log.d("MDelegate-Observe", "remove observer: " + b2 + " timeout runnable");
-                }
-                this.c.removeCallbacks(this.b.get(b2));
-                this.b.remove(b2);
-            }
-            if (o03Var.c()) {
-                if (d) {
-                    Log.d("MDelegate-Observe", "auto unregister disposable observer: " + b2);
-                }
-                f(o03Var);
-            }
-        }
-    }
-
-    public void e(o03<m03> o03Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, o03Var) == null) {
-            if (o03Var == null) {
-                if (d) {
-                    Log.e("MDelegate-Observe", "register a null observer");
-                    return;
-                }
-                return;
-            }
-            String b2 = o03Var.b();
-            if (this.a.containsKey(b2)) {
-                if (d) {
-                    Log.e("MDelegate-Observe", "multiple register observer：" + b2);
-                    return;
-                }
-                return;
-            }
-            if (d) {
-                Log.d("MDelegate-Observe", "register observer: " + b2);
-            }
-            this.a.put(b2, o03Var);
-            long a2 = o03Var.a();
-            if (a2 > 0 && o03Var.c()) {
-                if (d) {
-                    Log.d("MDelegate-Observe", "post observer: " + b2 + " " + a2 + "ms timeout runnable");
-                }
-                b bVar = new b(this, b2);
-                this.b.put(b2, bVar);
-                this.c.postDelayed(bVar, a2);
-            }
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (d) {
-                Log.d("MDelegate-Observe", "release observable");
-            }
-            if (e == null) {
-                return;
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
             this.a.clear();
-            for (Map.Entry<String, Runnable> entry : this.b.entrySet()) {
-                if (d) {
-                    Log.d("MDelegate-Observe", "remove observer: " + entry.getKey() + " timeout runnable");
-                }
-                this.c.removeCallbacks(entry.getValue());
+            if (hashMap != null && hashMap.size() >= 1) {
+                this.a = hashMap;
             }
-            this.b.clear();
-            e = null;
         }
     }
 
-    public void f(o03<m03> o03Var) {
+    @Override // okhttp3.Interceptor
+    public Response intercept(Interceptor.Chain chain) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, o03Var) == null) {
-            if (o03Var == null) {
-                if (d) {
-                    Log.e("MDelegate-Observe", "unregister a null observer");
-                    return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chain)) == null) {
+            HashMap<String, String> hashMap = this.a;
+            if (hashMap != null && hashMap.size() >= 1) {
+                Request.Builder newBuilder = chain.request().newBuilder();
+                for (Map.Entry<String, String> entry : this.a.entrySet()) {
+                    newBuilder.addHeader(entry.getKey(), entry.getValue());
                 }
-                return;
+                return chain.proceed(newBuilder.build());
             }
-            String b2 = o03Var.b();
-            if (!this.a.containsKey(b2)) {
-                if (d) {
-                    Log.e("MDelegate-Observe", "unregister a nonexistent observer");
-                    return;
-                }
-                return;
-            }
-            if (d) {
-                Log.d("MDelegate-Observe", "unregister observer: " + b2);
-            }
-            this.a.remove(b2);
+            return chain.proceed(chain.request());
         }
+        return (Response) invokeL.objValue;
     }
 }

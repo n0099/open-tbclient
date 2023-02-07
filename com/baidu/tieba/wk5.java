@@ -1,242 +1,149 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.BdLog;
+import android.os.Process;
+import android.os.SystemClock;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.util.io.Closeables;
+import com.baidu.android.util.soloader.SoLoader;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.launch.stats.ZygoteSpeedStats;
+import com.baidu.searchbox.launch.utils.LaunchNativeUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Callable;
-import java.util.concurrent.TimeUnit;
+import java.io.BufferedReader;
+import java.io.Closeable;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
 /* loaded from: classes6.dex */
-public class wk5 {
+public final class wk5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final Handler a;
-    public final int b;
-    public final long c;
-    public int d;
-    @Nullable
-    public Runnable e;
+    public long a;
+    public long b;
 
-    /* loaded from: classes6.dex */
-    public interface c<T> {
-        void call(boolean z, T t);
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements c<Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c a;
-        public final /* synthetic */ wk5 b;
-
-        /* loaded from: classes6.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    b bVar = this.a;
-                    bVar.b.k(bVar.a);
-                }
-            }
-        }
-
-        public b(wk5 wk5Var, c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wk5Var, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = wk5Var;
-            this.a = cVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wk5.c
-        public void call(boolean z, Void r6) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, r6) == null) && !z) {
-                this.b.e = new a(this);
-                this.b.a.postDelayed(this.b.e, this.b.c);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Callable a;
-        public final /* synthetic */ wk5 b;
-
-        public a(wk5 wk5Var, Callable callable) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wk5Var, callable};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = wk5Var;
-            this.a = callable;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.l(this.a);
-            }
-        }
-    }
-
-    public wk5(int i, int i2, @NonNull TimeUnit timeUnit) {
+    public wk5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), timeUnit};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new Handler(Looper.getMainLooper());
-        this.b = i;
-        this.c = timeUnit.toMillis(i2);
+        this.a = -1L;
+        this.b = -1L;
     }
 
-    public void i(@NonNull c<c<Void>> cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            h();
-            k(cVar);
-        }
-    }
-
-    public void j(@NonNull Callable<Boolean> callable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, callable) == null) {
-            h();
-            l(callable);
-        }
-    }
-
-    @NonNull
-    public static wk5 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return new wk5(10, 1000, TimeUnit.MILLISECONDS);
-        }
-        return (wk5) invokeV.objValue;
-    }
-
-    public void h() {
+    public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Runnable runnable = this.e;
-            if (runnable != null) {
-                this.a.removeCallbacks(runnable);
-                this.e = null;
-            }
-            this.d = 0;
+            this.a = SystemClock.elapsedRealtime();
+            Process.getElapsedCpuTime();
         }
     }
 
-    public final void k(@NonNull c<c<Void>> cVar) {
+    public long c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            try {
-                if (this.d < this.b) {
-                    boolean z = true;
-                    int i = this.d + 1;
-                    this.d = i;
-                    if (i < this.b) {
-                        z = false;
-                    }
-                    cVar.call(z, new b(this, cVar));
-                }
-            } catch (Exception e) {
-                BdLog.e(e);
-                Runnable runnable = this.e;
-                if (runnable != null) {
-                    this.a.removeCallbacks(runnable);
-                    this.e = null;
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.b == -1) {
+                b();
             }
+            return this.b;
         }
+        return invokeV.longValue;
     }
 
-    public final void l(@NonNull Callable<Boolean> callable) {
+    /* JADX WARN: Not initialized variable reg: 6, insn: 0x00b5: MOVE  (r3 I:??[OBJECT, ARRAY]) = (r6 I:??[OBJECT, ARRAY]), block:B:44:0x00b5 */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x00ae  */
+    /* JADX WARN: Removed duplicated region for block: B:56:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void b() {
+        BufferedReader bufferedReader;
+        NumberFormatException e;
+        IOException e2;
+        FileNotFoundException e3;
+        Closeable closeable;
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, callable) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            uk5.b().d();
+            Closeable closeable2 = null;
+            long j2 = -1;
             try {
-                if (this.d < this.b) {
-                    this.d++;
-                    if (!callable.call().booleanValue()) {
-                        a aVar = new a(this, callable);
-                        this.e = aVar;
-                        this.a.postDelayed(aVar, this.c);
+                try {
+                    bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream("/proc/self/stat")), 1000);
+                    try {
+                        String[] split = bufferedReader.readLine().split(" ");
+                        if (split.length > 21 && split[0].equals(String.valueOf(Process.myPid()))) {
+                            String str = split[21];
+                            try {
+                                SoLoader.load(AppRuntime.getAppContext(), "launch_native");
+                                j = LaunchNativeUtils.getClkTck();
+                            } catch (UnsatisfiedLinkError e4) {
+                                Log.e(ZygoteSpeedStats.TAG, "load so failed, UnsatisfiedLinkError", e4);
+                                j = 0;
+                            }
+                            Log.d(ZygoteSpeedStats.TAG, "_SC_CLK_TCK " + j);
+                            if (j <= 0) {
+                                j = 100;
+                            }
+                            j2 = (Long.parseLong(str) * 1000) / j;
+                        }
+                    } catch (FileNotFoundException e5) {
+                        e3 = e5;
+                        Log.e(ZygoteSpeedStats.TAG, "can't read process status file", e3);
+                        Closeables.closeSafely(bufferedReader);
+                        if (j2 <= 0) {
+                        }
+                    } catch (IOException e6) {
+                        e2 = e6;
+                        Log.e(ZygoteSpeedStats.TAG, "read process status failed", e2);
+                        Closeables.closeSafely(bufferedReader);
+                        if (j2 <= 0) {
+                        }
+                    } catch (NumberFormatException e7) {
+                        e = e7;
+                        Log.e(ZygoteSpeedStats.TAG, "parse status file failed", e);
+                        Closeables.closeSafely(bufferedReader);
+                        if (j2 <= 0) {
+                        }
                     }
+                } catch (Throwable th) {
+                    th = th;
+                    closeable2 = closeable;
+                    Closeables.closeSafely(closeable2);
+                    throw th;
                 }
-            } catch (Exception e) {
-                BdLog.e(e);
-                Runnable runnable = this.e;
-                if (runnable != null) {
-                    this.a.removeCallbacks(runnable);
-                    this.e = null;
-                }
+            } catch (FileNotFoundException e8) {
+                bufferedReader = null;
+                e3 = e8;
+            } catch (IOException e9) {
+                bufferedReader = null;
+                e2 = e9;
+            } catch (NumberFormatException e10) {
+                bufferedReader = null;
+                e = e10;
+            } catch (Throwable th2) {
+                th = th2;
+                Closeables.closeSafely(closeable2);
+                throw th;
+            }
+            Closeables.closeSafely(bufferedReader);
+            if (j2 <= 0) {
+                this.b = this.a - j2;
             }
         }
     }

@@ -18,16 +18,16 @@ public final class a extends com.kwad.components.ad.reward.i.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b ua;
-    public final C0570a ub;
+    public final C0574a ub;
 
     /* renamed from: com.kwad.components.ad.reward.i.kwai.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0570a extends com.kwad.components.ad.reward.i.b {
+    public static class C0574a extends com.kwad.components.ad.reward.i.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r6v0 int)] */
-        public C0570a(int i) {
+        public C0574a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -88,7 +88,7 @@ public final class a extends com.kwad.components.ad.reward.i.a {
             }
         }
         this.ua = new b();
-        this.ub = new C0570a(d.sf());
+        this.ub = new C0574a(d.sf());
     }
 
     private void iE() {

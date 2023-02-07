@@ -1,21 +1,17 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.os.Message;
-import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.m72;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class l72 {
+public class l72 implements m72.b {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,121 +29,44 @@ public class l72 {
                 return;
             }
         }
-        a = tk1.a;
+        a = gp1.a;
     }
 
-    public static void a(Message message) {
+    public l72() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, message) == null) && message != null) {
-            Object obj = message.obj;
-            if (obj instanceof Bundle) {
-                Bundle bundle = (Bundle) obj;
-                String string = bundle.getString("eventType");
-                HashMap hashMap = new HashMap();
-                hashMap.put("eventType", string);
-                JSONObject jSONObject = new JSONObject();
-                if (TextUtils.equals(string, "checkForUpdate")) {
-                    try {
-                        jSONObject.put("hasUpdate", bundle.getBoolean("hasUpdate"));
-                    } catch (JSONException e) {
-                        if (a) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-                hashMap.put("data", jSONObject.toString());
-                ke2 ke2Var = new ke2("updateStatusChange", hashMap);
-                SwanAppActivity activity = wp2.U().getActivity();
-                if (activity != null && activity.R() == 1) {
-                    rn2.i().v(string, bundle.getBoolean("hasUpdate"));
-                } else {
-                    wp2.U().u(ke2Var);
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void b(String str, boolean z) {
+    @Override // com.baidu.tieba.m72.b
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65538, null, str, z) == null) {
-            j12.k("SwanAppPkgUpdateManager", "send checkForUpdate msg, hasUpdate=" + z);
-            Bundle bundle = new Bundle();
-            bundle.putBoolean("hasUpdate", z);
-            d("checkForUpdate", str, bundle);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && a) {
+            Log.d("SimplePreDownloadCallback", "pre download success");
         }
     }
 
-    public static void c(String str) {
+    @Override // com.baidu.tieba.m72.b
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            j12.k("SwanAppPkgUpdateManager", "send update failed msg");
-            d("updateFailed", str, null);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && a) {
+            Log.w("SimplePreDownloadCallback", "pre download has invalid app id");
         }
     }
 
-    public static void e(String str) {
+    @Override // com.baidu.tieba.m72.b
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            if (a) {
-                Log.d("SwanAppPkgUpdateManager", "send update ready msg");
-            }
-            d("updateReady", str, null);
-        }
-    }
-
-    public static void d(String str, String str2, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, bundle) == null) {
-            if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
-                if (bundle == null) {
-                    bundle = new Bundle();
-                }
-                bundle.putString("eventType", str);
-                z03 e = z03.e();
-                b13 b13Var = new b13(107, bundle);
-                b13Var.c(str2);
-                e.h(b13Var);
-                return;
-            }
-            j12.k("SwanAppPkgUpdateManager", "appId is empty or eventType is empty");
-        }
-    }
-
-    public static void f(String str, String str2, boolean z) {
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65542, null, str, str2, z) == null) {
-            int hashCode = str.hashCode();
-            if (hashCode != -1330233754) {
-                if (hashCode != -1317168438) {
-                    if (hashCode == -585906598 && str.equals("updateReady")) {
-                        c = 0;
-                    }
-                    c = 65535;
-                } else {
-                    if (str.equals("checkForUpdate")) {
-                        c = 2;
-                    }
-                    c = 65535;
-                }
-            } else {
-                if (str.equals("updateFailed")) {
-                    c = 1;
-                }
-                c = 65535;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c == 2) {
-                        b(str2, z);
-                        return;
-                    }
-                    return;
-                }
-                c(str2);
-                return;
-            }
-            e(str2);
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && a) {
+            Log.w("SimplePreDownloadCallback", "pre download fail error code - " + i);
         }
     }
 }

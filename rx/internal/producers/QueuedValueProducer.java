@@ -1,13 +1,13 @@
 package rx.internal.producers;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.aba;
-import com.baidu.tieba.aca;
-import com.baidu.tieba.f9a;
-import com.baidu.tieba.hca;
-import com.baidu.tieba.m8a;
-import com.baidu.tieba.q8a;
-import com.baidu.tieba.w8a;
+import com.baidu.tieba.fda;
+import com.baidu.tieba.jfa;
+import com.baidu.tieba.jga;
+import com.baidu.tieba.oda;
+import com.baidu.tieba.qga;
+import com.baidu.tieba.vca;
+import com.baidu.tieba.zca;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,12 +19,12 @@ import java.util.Queue;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes9.dex */
-public final class QueuedValueProducer<T> extends AtomicLong implements m8a {
+public final class QueuedValueProducer<T> extends AtomicLong implements vca {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Object NULL_SENTINEL;
     public static final long serialVersionUID = 7277121710709137047L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final q8a<? super T> child;
+    public final zca<? super T> child;
     public final Queue<Object> queue;
     public final AtomicInteger wip;
 
@@ -48,38 +48,38 @@ public final class QueuedValueProducer<T> extends AtomicLong implements m8a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public QueuedValueProducer(q8a<? super T> q8aVar) {
-        this(q8aVar, r0);
-        Queue abaVar;
+    public QueuedValueProducer(zca<? super T> zcaVar) {
+        this(zcaVar, r0);
+        Queue jfaVar;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {q8aVar};
+            Object[] objArr = {zcaVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((q8a) objArr2[0], (Queue) objArr2[1]);
+                this((zca) objArr2[0], (Queue) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        if (hca.b()) {
-            abaVar = new aca();
+        if (qga.b()) {
+            jfaVar = new jga();
         } else {
-            abaVar = new aba();
+            jfaVar = new jfa();
         }
     }
 
-    public QueuedValueProducer(q8a<? super T> q8aVar, Queue<Object> queue) {
+    public QueuedValueProducer(zca<? super T> zcaVar, Queue<Object> queue) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {q8aVar, queue};
+            Object[] objArr = {zcaVar, queue};
             interceptable.invokeUnInit(65538, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -89,7 +89,7 @@ public final class QueuedValueProducer<T> extends AtomicLong implements m8a {
                 return;
             }
         }
-        this.child = q8aVar;
+        this.child = zcaVar;
         this.queue = queue;
         this.wip = new AtomicInteger();
     }
@@ -98,20 +98,20 @@ public final class QueuedValueProducer<T> extends AtomicLong implements m8a {
         Object poll;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65539, this) == null) && this.wip.getAndIncrement() == 0) {
-            q8a<? super T> q8aVar = this.child;
+            zca<? super T> zcaVar = this.child;
             Queue<Object> queue = this.queue;
-            while (!q8aVar.isUnsubscribed()) {
+            while (!zcaVar.isUnsubscribed()) {
                 this.wip.lazySet(1);
                 long j = get();
                 long j2 = 0;
                 while (j != 0 && (poll = queue.poll()) != null) {
                     try {
                         if (poll == NULL_SENTINEL) {
-                            q8aVar.onNext(null);
+                            zcaVar.onNext(null);
                         } else {
-                            q8aVar.onNext(poll);
+                            zcaVar.onNext(poll);
                         }
-                        if (q8aVar.isUnsubscribed()) {
+                        if (zcaVar.isUnsubscribed()) {
                             return;
                         }
                         j--;
@@ -120,7 +120,7 @@ public final class QueuedValueProducer<T> extends AtomicLong implements m8a {
                         if (poll == NULL_SENTINEL) {
                             poll = null;
                         }
-                        w8a.g(th, q8aVar, poll);
+                        fda.g(th, zcaVar, poll);
                         return;
                     }
                 }
@@ -151,14 +151,14 @@ public final class QueuedValueProducer<T> extends AtomicLong implements m8a {
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.m8a
+    @Override // com.baidu.tieba.vca
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             if (i >= 0) {
                 if (i > 0) {
-                    f9a.b(this, j);
+                    oda.b(this, j);
                     drain();
                     return;
                 }

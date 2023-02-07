@@ -1,7 +1,83 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
-public interface y14 {
-    void a(x44 x44Var, w44 w44Var);
 
-    void b(o44 o44Var, n44 n44Var);
+import android.util.Log;
+import android.webkit.JavascriptInterface;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
+public class y14 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public a a;
+    @V8JavascriptField
+    public int height;
+    @V8JavascriptField
+    public int left;
+    @V8JavascriptField
+    public int realHeight;
+    @V8JavascriptField
+    public int realWidth;
+    @V8JavascriptField
+    public int top;
+    @V8JavascriptField
+    public int width;
+
+    /* loaded from: classes7.dex */
+    public interface a {
+        void i(String str);
+    }
+
+    public y14(@NonNull d12 d12Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {d12Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        a(d12Var);
+    }
+
+    public void b(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.a = aVar;
+        }
+    }
+
+    @JavascriptInterface
+    public void onFieldChangedCallback(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (gp1.a) {
+                Log.d("BannerAdStyle", "onFieldChangedCallback fieldName=" + str);
+            }
+            a aVar = this.a;
+            if (aVar != null) {
+                aVar.i(str);
+            }
+        }
+    }
+
+    public final void a(@NonNull d12 d12Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, d12Var) == null) {
+            this.left = d12Var.r("left", this.left);
+            this.top = d12Var.r("top", this.top);
+            this.width = d12Var.r("width", this.width);
+            this.height = d12Var.r("height", this.height);
+        }
+    }
 }

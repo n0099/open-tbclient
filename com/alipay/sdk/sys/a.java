@@ -67,7 +67,7 @@ public class a {
 
     /* renamed from: com.alipay.sdk.sys.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0013a {
+    public static final class C0012a {
         public static /* synthetic */ Interceptable $ic = null;
         public static final HashMap<UUID, a> a;
         public static final HashMap<String, a> b;
@@ -91,7 +91,7 @@ public class a {
             b = new HashMap<>();
         }
 
-        public C0013a() {
+        public C0012a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();

@@ -1,579 +1,213 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.nad.jni.NADNativeHelper;
-import com.baidu.nadcore.net.request.Headers;
-import com.baidu.prologue.business.data.BaseVM;
-import com.baidu.prologue.business.data.ParseError;
-import com.baidu.tbadk.browser.SearchJsBridge;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tbadk.util.AdExtParam;
+import com.baidu.platform.comapi.map.MapBundleKey;
+import com.baidu.searchbox.pms.db.PackageTable;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
-import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
-import com.qq.e.comm.constants.Constants;
-import java.io.UnsupportedEncodingException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.tencent.open.SocialOperation;
 /* loaded from: classes5.dex */
-public class ne1 {
+public class ne1 extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Handler a;
-    public oe1 b;
-    public int c;
-    public volatile boolean d;
 
-    /* loaded from: classes5.dex */
-    public class a extends ir0<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ long c;
-
-        public String f(Headers headers, String str, int i) throws Exception {
-            InterceptResult invokeLLI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, headers, str, i)) == null) ? str : (String) invokeLLI.objValue;
-        }
-
-        public a(ne1 ne1Var, String str, long j, long j2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ne1Var, str, Long.valueOf(j), Long.valueOf(j2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = j;
-            this.c = j2;
-        }
-
-        @Override // com.baidu.tieba.gr0
-        public void a(Exception exc, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) {
-                BaseVM.n(this.a, this.b, this.c, exc.getMessage(), StickerDataChangeType.UPDATE);
-            }
-        }
-
-        @Override // com.baidu.tieba.hr0
-        public /* bridge */ /* synthetic */ Object d(Headers headers, String str, int i) throws Exception {
-            f(headers, str, i);
-            return str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.hr0
-        /* renamed from: e */
-        public void b(Headers headers, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048579, this, headers, str, i) == null) {
-                BaseVM.n(this.a, this.b, this.c, BasicPushStatus.SUCCESS_CODE, StickerDataChangeType.UPDATE);
-                try {
-                    se1.e(str, this.a);
-                } catch (ParseError e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends ir0<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ long c;
-        public final /* synthetic */ oe1 d;
-        public final /* synthetic */ ne1 e;
-
-        public String f(Headers headers, String str, int i) throws Exception {
-            InterceptResult invokeLLI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, headers, str, i)) == null) ? str : (String) invokeLLI.objValue;
-        }
-
-        public b(ne1 ne1Var, String str, long j, long j2, oe1 oe1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ne1Var, str, Long.valueOf(j), Long.valueOf(j2), oe1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = ne1Var;
-            this.a = str;
-            this.b = j;
-            this.c = j2;
-            this.d = oe1Var;
-        }
-
-        @Override // com.baidu.tieba.gr0
-        public void a(Exception exc, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) {
-                BaseVM.o(this.a, this.b, this.c, exc.getMessage(), "query", this.e.d, "");
-                if (!this.e.d && this.e.a != null) {
-                    this.e.a.removeCallbacksAndMessages(null);
-                    this.e.a.post(new c(this.e, this.a));
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.hr0
-        public /* bridge */ /* synthetic */ Object d(Headers headers, String str, int i) throws Exception {
-            f(headers, str, i);
-            return str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.hr0
-        /* renamed from: e */
-        public void b(Headers headers, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048579, this, headers, str, i) == null) {
-                BaseVM.o(this.a, this.b, this.c, BasicPushStatus.SUCCESS_CODE, "query", this.e.d, str);
-                if (!this.e.d) {
-                    this.e.a.removeCallbacksAndMessages(null);
-                    try {
-                        List<ze1> e = se1.e(str, this.a);
-                        if (e != null && e.size() > 0 && e.get(0) != null) {
-                            this.d.b(e.get(0));
-                        } else if (se1.a(str)) {
-                            this.d.a(new Throwable("no ad"));
-                        } else {
-                            new c(this.e, this.a).run();
-                        }
-                    } catch (ParseError e2) {
-                        e2.printStackTrace();
-                        this.d.a(e2);
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ne1 a;
-
-        public c(ne1 ne1Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ne1Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ne1Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            this.a.d = true;
-            ze1 n = xe1.n(re1.b());
-            if (this.a.b == null) {
-                return;
-            }
-            if (n != null) {
-                n.D = 2;
-                this.a.b.b(n);
-                return;
-            }
-            this.a.b.a(new Throwable("no ad"));
-        }
-    }
-
-    public ne1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ne1(Context context) {
+        super(context, "nps.db", (SQLiteDatabase.CursorFactory) null, 6);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new Handler(Looper.getMainLooper());
-        this.c = 5000;
-        this.d = false;
     }
 
-    public final void e(JSONObject jSONObject) {
-        JSONObject optJSONObject;
+    public final void d(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || le1.a().d() == null || !le1.a().d().has("client_ext") || (optJSONObject = le1.a().d().optJSONObject("client_ext")) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048579, this, sQLiteDatabase) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("ALTER TABLE ");
+            sb.append("bundleinfo");
+            sb.append(" ADD COLUMN ");
+            sb.append("patch_url");
+            sb.append(" TEXT;");
+            sQLiteDatabase.execSQL(sb.toString());
+            sb.delete(0, sb.length());
+            sb.append("ALTER TABLE ");
+            sb.append("bundleinfo");
+            sb.append(" ADD COLUMN ");
+            sb.append("patch_md5");
+            sb.append(" TEXT;");
+            sQLiteDatabase.execSQL(sb.toString());
         }
-        Iterator<String> keys = optJSONObject.keys();
-        while (keys.hasNext()) {
-            String next = keys.next();
+    }
+
+    public final void a(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
             try {
-                jSONObject.put(next, optJSONObject.opt(next));
-            } catch (JSONException e) {
+                sQLiteDatabase.execSQL("ALTER TABLE bundleinfo ADD network_strategy Text ");
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public final void f(HashMap<String, String> hashMap) {
-        String o;
+    public final void b(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap) == null) {
-            mj0 a2 = ej0.a();
-            if (TextUtils.isEmpty(a2.o())) {
-                o = a2.v();
-            } else {
-                o = a2.o();
-            }
-            hashMap.put("ver", o);
-            hashMap.put("sv", "1.0");
-            hashMap.put("uid", a2.s());
-            hashMap.put(TiebaStatic.Params.BDID, a2.n());
-            hashMap.put("cuid", a2.g());
-            String e = uj0.c().e(false);
-            if (!TextUtils.isEmpty(e)) {
-                hashMap.put(SearchJsBridge.COOKIE_MOD, e);
-            }
-            String h = uj0.c().h(false);
-            if (!TextUtils.isEmpty(h)) {
-                hashMap.put("ov", h);
-            }
-            String b2 = uj0.c().b(false);
-            if (!TextUtils.isEmpty(b2)) {
-                hashMap.put("imei", b2);
-            }
-            hashMap.put("ua", a2.p());
-            hashMap.put("fmt", "json");
-            hashMap.put("apna", a2.packageName());
-            hashMap.put("eid", a2.i());
-            hashMap.put("st", "1");
-            hashMap.put("ot", "2");
-            hashMap.put("nt", String.valueOf(new er0().c()));
-            hashMap.put(Config.EXCEPTION_CRASH_TYPE, "2");
-            hashMap.put("is_https", "1");
-            String a3 = uj0.c().a(false);
-            if (!TextUtils.isEmpty(a3)) {
-                hashMap.put(HttpRequest.ANDROID_ID, a3);
-            }
-            hashMap.put("from", le1.a().from());
-            hashMap.put("cfrom", le1.a().a());
-            hashMap.put("User-Agent", ej0.e());
-        }
-    }
-
-    public final void g(@NonNull HashMap<String, String> hashMap, String str, String str2, long j) {
-        int i;
-        Iterator<ze1> it;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{hashMap, str, str2, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase) == null) {
             try {
-                JSONArray jSONArray = new JSONArray();
-                JSONObject jSONObject = new JSONObject();
-                new JSONObject();
-                if (y8.f().h()) {
-                    jSONObject.put("k", "cmd");
-                    jSONObject.put("v", str2);
-                    jSONArray.put(jSONObject);
-                }
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("k", AdExtParam.KEY_NAD_CORE_VERSION);
-                jSONObject2.put("v", "5.10.0.26");
-                jSONArray.put(jSONObject2);
-                JSONObject jSONObject3 = new JSONObject();
-                List<ze1> s = xe1.s();
-                ArrayList arrayList = new ArrayList();
-                ArrayList arrayList2 = new ArrayList();
-                JSONArray jSONArray2 = new JSONArray();
-                TextUtils.equals(str, le1.a().e());
-                if (s != null && s.size() > 0) {
-                    Iterator<ze1> it2 = s.iterator();
-                    i = 0;
-                    while (it2.hasNext()) {
-                        ze1 next = it2.next();
-                        JSONObject jSONObject4 = new JSONObject();
-                        jSONObject4.put("k", next.c);
-                        if (!TextUtils.isEmpty(next.c)) {
-                            int f = xe1.f(next, re1.b());
-                            StringBuilder sb = new StringBuilder();
-                            it = it2;
-                            sb.append("onAdSuccess: ");
-                            sb.append(f);
-                            Log.e("Afd", sb.toString());
-                            if (f == 0) {
-                                if (next.i()) {
-                                    t01.b(arrayList2, next.c);
-                                }
-                                if (next.g()) {
-                                    t01.b(arrayList, next.c);
-                                }
-                            } else if (next.i()) {
-                                i |= f;
+                sQLiteDatabase.execSQL("ALTER TABLE bundleinfo ADD silence INTEGER DEFAULT 1");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public final void c(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("ALTER TABLE ");
+            sb.append("bundleinfo");
+            sb.append(" ADD COLUMN ");
+            sb.append("sub_bundle");
+            sb.append(" TEXT;");
+            sQLiteDatabase.execSQL(sb.toString());
+            sb.delete(0, sb.length());
+            sb.append("ALTER TABLE ");
+            sb.append("bundleinfo");
+            sb.append(" ADD COLUMN ");
+            sb.append("dependency");
+            sb.append(" TEXT;");
+            sQLiteDatabase.execSQL(sb.toString());
+            sb.delete(0, sb.length());
+            sb.append("ALTER TABLE ");
+            sb.append("bundleinfo");
+            sb.append(" ADD COLUMN ");
+            sb.append("main_bundle");
+            sb.append(" TEXT;");
+            sQLiteDatabase.execSQL(sb.toString());
+        }
+    }
+
+    public final void e(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, sQLiteDatabase) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("ALTER TABLE ");
+            sb.append("bundleinfo");
+            sb.append(" ADD COLUMN ");
+            sb.append("silence_update");
+            sb.append(" INTEGER DEFAULT ");
+            sb.append(1);
+            sb.append(";");
+            try {
+                sQLiteDatabase.execSQL(sb.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            sb.delete(0, sb.length());
+            sb.append("ALTER TABLE ");
+            sb.append("bundleinfo");
+            sb.append(" ADD COLUMN ");
+            sb.append("wifionly");
+            sb.append(" INTEGER DEFAULT ");
+            sb.append(1);
+            sb.append(";");
+            try {
+                sQLiteDatabase.execSQL(sb.toString());
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    public final void f(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, sQLiteDatabase) == null) {
+            sQLiteDatabase.execSQL(g());
+        }
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, sQLiteDatabase) == null) {
+            f(sQLiteDatabase);
+        }
+    }
+
+    public final String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "CREATE TABLE bundleinfo (_id INTEGER PRIMARY KEY," + EmotionResourceInfo.JSON_KEY_PKG_NAME + " TEXT NOT NULL,version_code INTEGER,path TEXT,min_version INTEGER,update_v LONG,type INTEGER DEFAULT 0,broken INTEGER DEFAULT 0,force_update INTEGER DEFAULT 0,forbidden INTEGER DEFAULT 0," + PackageTable.MD5 + " TEXT," + SocialOperation.GAME_SIGNATURE + " TEXT,name TEXT,description TEXT,download_url TEXT,icon_url TEXT,dependence TEXT," + MapBundleKey.MapObjKey.OBJ_SL_VISI + " INTEGER DEFAULT 0,removalbe INTEGER DEFAULT 0,size TEXT,need_remove INTEGER DEFAULT 0," + PackageTable.ABI + " INTEGER DEFAULT -1,ext TEXT,silence INTEGER DEFAULT 1,silence_update INTEGER DEFAULT 1,wifionly INTEGER DEFAULT 1,patch_url TEXT,patch_md5 TEXT, network_strategy TEXT, sub_bundle TEXT, dependency TEXT, main_bundle TEXT  );";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, sQLiteDatabase, i, i2) == null) {
+            sQLiteDatabase.execSQL("DROP TABLE IF EXISTS bundleinfo");
+            onCreate(sQLiteDatabase);
+        }
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048585, this, sQLiteDatabase, i, i2) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            if (i == 5) {
+                                c(sQLiteDatabase);
+                                return;
                             }
-                        } else {
-                            it = it2;
+                            return;
                         }
-                        jSONObject4.put("r", String.valueOf(next.x));
-                        if (next.i()) {
-                            jSONArray2.put(jSONObject4);
-                        }
-                        it2 = it;
+                        a(sQLiteDatabase);
+                        c(sQLiteDatabase);
+                        return;
                     }
-                } else {
-                    i = 0;
+                    d(sQLiteDatabase);
+                    a(sQLiteDatabase);
+                    c(sQLiteDatabase);
+                    return;
                 }
-                jSONObject3.put("d", jSONArray2);
-                jSONObject3.put("s", bf1.d());
-                jSONArray.put(new JSONObject());
-                if (TextUtils.equals(str2, "query")) {
-                    JSONObject jSONObject5 = new JSONObject();
-                    jSONObject5.put("k", "ukey");
-                    jSONObject5.put("v", TextUtils.join(",", arrayList));
-                    jSONArray.put(jSONObject5);
-                    JSONObject jSONObject6 = new JSONObject();
-                    jSONObject6.put("k", "xz_ukey");
-                    jSONObject6.put("v", TextUtils.join(",", arrayList2));
-                    jSONArray.put(jSONObject6);
-                    if (arrayList2.isEmpty()) {
-                        if (i == 0) {
-                            i = 1;
-                        }
-                        BaseVM.d = String.valueOf(i);
-                    } else {
-                        BaseVM.d = "";
-                    }
-                }
-                JSONObject jSONObject7 = new JSONObject();
-                jSONObject7.put("k", "logid");
-                jSONObject7.put("v", String.valueOf(j));
-                jSONArray.put(jSONObject7);
-                JSONObject jSONObject8 = new JSONObject();
-                jSONObject8.put("k", "uid");
-                jSONObject8.put("v", ej0.a().s());
-                jSONArray.put(jSONObject8);
-                JSONObject jSONObject9 = new JSONObject();
-                jSONObject9.put("k", "ext_info");
-                JSONObject jSONObject10 = new JSONObject();
-                jSONObject10.put("ipdx", ln0.a().a());
-                jSONObject10.put("update_mark", NADNativeHelper.b());
-                jSONObject10.put("boot_mark", NADNativeHelper.a());
-                try {
-                    e(jSONObject10);
-                    jSONObject10.put(Constants.KEYS.AD_INFO, jSONObject3);
-                    jSONObject9.put("v", jSONObject10.toString());
-                    jSONArray.put(jSONObject9);
-                    JSONObject jSONObject11 = new JSONObject();
-                    jSONObject11.put("k", AdExtParam.KEY_IADEX);
-                    jSONObject11.put("v", ej0.d().m());
-                    jSONArray.put(jSONObject11);
-                    String f2 = uj0.c().f(false);
-                    if (!TextUtils.isEmpty(f2)) {
-                        JSONObject jSONObject12 = new JSONObject();
-                        jSONObject12.put("k", "oaid_v");
-                        jSONObject12.put("v", f2);
-                        jSONArray.put(jSONObject12);
-                    }
-                    try {
-                        JSONObject jSONObject13 = new JSONObject();
-                        jSONObject13.put("k", "encoded_ua_new");
-                        jSONObject13.put("v", URLEncoder.encode(ej0.e(), IMAudioTransRequest.CHARSET));
-                        jSONArray.put(jSONObject13);
-                    } catch (UnsupportedEncodingException unused) {
-                    }
-                    JSONObject jSONObject14 = new JSONObject();
-                    jSONObject14.put("k", "boot_type");
-                    jSONObject14.put("v", re1.b());
-                    jSONArray.put(jSONObject14);
-                    JSONObject jSONObject15 = new JSONObject();
-                    jSONObject15.put("k", "hot_background_time");
-                    jSONObject15.put("v", ((int) (System.currentTimeMillis() - re1.a())) / 1000);
-                    jSONArray.put(jSONObject15);
-                    hashMap.put("ext", jSONArray.toString());
-                } catch (JSONException e) {
-                    e = e;
-                    e.printStackTrace();
-                }
-            } catch (JSONException e2) {
-                e = e2;
+                e(sQLiteDatabase);
+                d(sQLiteDatabase);
+                a(sQLiteDatabase);
+                c(sQLiteDatabase);
+                return;
             }
-        }
-    }
-
-    public final String h(String str, Map<String, String> map) {
-        InterceptResult invokeLL;
-        String query;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, map)) == null) {
-            if (map != null && map.size() != 0) {
-                URI create = URI.create(str);
-                if (TextUtils.isEmpty(create.getQuery())) {
-                    query = "";
-                } else {
-                    query = create.getQuery();
-                }
-                StringBuilder sb = new StringBuilder(query);
-                if (sb.length() > 0) {
-                    sb.append('&');
-                }
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    sb.append(entry.getKey());
-                    sb.append("=");
-                    sb.append(entry.getValue());
-                    sb.append('&');
-                }
-                if (sb.length() > 0) {
-                    sb.deleteCharAt(sb.length() - 1);
-                }
-                try {
-                    return new URI(create.getScheme(), create.getAuthority(), create.getPath(), sb.toString(), create.getFragment()).toString();
-                } catch (URISyntaxException e) {
-                    e.printStackTrace();
-                }
-            }
-            return str;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public final pr0 i(String str, String str2, long j) {
-        InterceptResult invokeCommon;
-        String str3;
-        String str4;
-        String h;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Long.valueOf(j)})) == null) {
-            if (TextUtils.equals("query", str) && ye1.u() && re1.b() == 0) {
-                h = we1.m().k(str);
-            } else {
-                String a2 = he1.a();
-                if (TextUtils.equals(str, "query") && ye1.L() && le1.a().d() != null && !TextUtils.isEmpty(le1.a().d().optString("host_url"))) {
-                    a2 = le1.a().d().optString("host_url");
-                }
-                StringBuilder sb = new StringBuilder();
-                sb.append(a2);
-                if (TextUtils.equals(str, StickerDataChangeType.UPDATE)) {
-                    str3 = "?action=update";
-                } else {
-                    str3 = "?action=query";
-                }
-                sb.append(str3);
-                String sb2 = sb.toString();
-                HashMap<String, String> hashMap = new HashMap<>();
-                if (TextUtils.equals(str, StickerDataChangeType.UPDATE)) {
-                    str4 = String.valueOf(ye1.o());
-                } else {
-                    str4 = "1";
-                }
-                hashMap.put("ac", str4);
-                hashMap.put("pid", str2);
-                hashMap.put("product_id ", ej0.a().r());
-                f(hashMap);
-                g(hashMap, str2, str, j);
-                h = h(sb2, hashMap);
-            }
-            pr0 pr0Var = new pr0();
-            pr0Var.l(h);
-            pr0Var.a("User-Agent", ej0.e());
-            pr0Var.c();
-            return pr0Var;
-        }
-        return (pr0) invokeCommon.objValue;
-    }
-
-    public void j(String str, oe1 oe1Var) {
-        Handler handler;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, str, oe1Var) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            te1.a(String.valueOf(currentTimeMillis));
-            pr0 i = i("query", str, currentTimeMillis);
-            i.g(this.c);
-            JSONObject d = le1.a().d();
-            if (d != null && d.has("query_response_thread")) {
-                if (d.optInt("query_response_thread", 0) == 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                i.i(z);
-            }
-            wq0.b().a().a(i, new b(this, str, currentTimeMillis, System.currentTimeMillis(), oe1Var));
-            this.b = oe1Var;
-            this.d = false;
-            int f = le1.a().f() - ye1.m();
-            this.c = f;
-            if (f > 0 && (handler = this.a) != null) {
-                handler.postDelayed(new c(this, str), this.c);
-            }
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            String optString = le1.a().d().optString("na_cpc_update_pid");
-            if (TextUtils.isEmpty(optString)) {
-                optString = le1.a().e();
-            }
-            String str = optString;
-            wq0.b().a().a(i(StickerDataChangeType.UPDATE, str, currentTimeMillis), new a(this, str, currentTimeMillis, System.currentTimeMillis()));
+            b(sQLiteDatabase);
+            e(sQLiteDatabase);
+            d(sQLiteDatabase);
+            a(sQLiteDatabase);
+            c(sQLiteDatabase);
         }
     }
 }

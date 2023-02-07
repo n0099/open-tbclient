@@ -1,92 +1,45 @@
 package com.baidu.tieba;
 
-import android.content.pm.PackageInfo;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.SuppressLint;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.heytap.mcssdk.PushManager;
-import org.json.JSONObject;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 /* loaded from: classes5.dex */
-public class mv3 extends pw3 {
+public class mv3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947986079, "Lcom/baidu/tieba/mv3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947986079, "Lcom/baidu/tieba/mv3;");
-                return;
-            }
-        }
-        c = tk1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mv3() {
-        super("checkAppInstalled");
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.pw3
-    public jw1 a(@NonNull JSONObject jSONObject, @NonNull nh2 nh2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, nh2Var)) == null) {
-            if (c) {
-                Log.d("checkAppInstalled", "handle: " + jSONObject);
-            }
-            String optString = jSONObject.optString("packageName");
-            if (TextUtils.isEmpty(optString)) {
-                nh2Var.onFail(31010, "package name is empty");
-                return null;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
             try {
-                PackageInfo packageInfo = AppRuntime.getAppContext().getPackageManager().getPackageInfo(optString, 0);
-                if (c) {
-                    Log.d("checkAppInstalled", "packageInfo: " + packageInfo);
+                byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes());
+                StringBuilder sb = new StringBuilder();
+                for (byte b : digest) {
+                    int i = b & 255;
+                    if (i < 16) {
+                        sb.append(0);
+                    }
+                    sb.append(Integer.toHexString(i));
                 }
-                if (packageInfo != null) {
-                    JSONObject jSONObject2 = new JSONObject();
-                    JSONObject jSONObject3 = new JSONObject();
-                    jSONObject3.put(PushManager.APP_VERSION_NAME, packageInfo.versionName);
-                    jSONObject3.put(PushManager.APP_VERSION_CODE, packageInfo.versionCode);
-                    jSONObject2.put("data", jSONObject3);
-                    nh2Var.a(jSONObject2);
-                } else {
-                    nh2Var.onFail(31016, "no package info");
-                }
-            } catch (Exception unused) {
-                nh2Var.onFail(31011, "app is not installed");
+                return sb.toString();
+            } catch (NoSuchAlgorithmException unused) {
+                return "";
             }
-            return null;
         }
-        return (jw1) invokeLL.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    @SuppressLint({"DefaultLocale"})
+    public static String b(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, str, j)) == null) {
+            return a(String.format("%d%s%d", 1, str.toLowerCase(), Long.valueOf(j)));
+        }
+        return (String) invokeLJ.objValue;
     }
 }

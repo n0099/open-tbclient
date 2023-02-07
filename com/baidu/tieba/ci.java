@@ -1,41 +1,86 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ci extends ph {
+public class ci {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public String b;
 
-    @Override // com.baidu.tieba.ph
-    public String p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "mon" : (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ci(li liVar) {
-        super(liVar);
+    public ci() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {liVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((li) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.s = true;
-        this.o = "alert";
+        this.a = 0L;
+        this.b = null;
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            wc wcVar = new wc("statisticConfig", "switchsConfig", DiskFileOperate.Action.READ);
+            wcVar.setSdCard(false);
+            wcVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+            rc.f().call(wcVar);
+            if (wcVar.isSuccess()) {
+                str = wcVar.a();
+            } else {
+                str = null;
+            }
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                this.a = jSONObject.getLong("time");
+                this.b = jSONObject.getString("data");
+                return true;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return true;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        long currentTimeMillis = System.currentTimeMillis();
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("time", currentTimeMillis);
+            jSONObject.put("data", str);
+            wc wcVar = new wc("statisticConfig", "switchsConfig", DiskFileOperate.Action.WRITE_FORCE);
+            wcVar.setSdCard(false);
+            wcVar.b(jSONObject.toString());
+            wcVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+            rc.f().call(wcVar);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 }

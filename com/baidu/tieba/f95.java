@@ -1,161 +1,111 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.TbadkApplication;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.TBAlertBuilder;
-import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class f95 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static long a = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public interface c {
-        void a();
-    }
-
-    /* loaded from: classes4.dex */
-    public static class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c a;
-        public final /* synthetic */ TBAlertBuilder b;
-
-        public a(c cVar, TBAlertBuilder tBAlertBuilder) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cVar, tBAlertBuilder};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cVar;
-            this.b = tBAlertBuilder;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                c cVar = this.a;
-                if (cVar != null) {
-                    cVar.a();
-                }
-                this.b.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TBAlertBuilder a;
-
-        public b(TBAlertBuilder tBAlertBuilder) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tBAlertBuilder};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tBAlertBuilder;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                f95.b();
-                this.a.dismiss();
-            }
-        }
-    }
-
-    public static void b() {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            try {
-                int skinType = TbadkCoreApplication.getInst().getSkinType();
-                if (skinType == 4) {
-                    str = "&skin=dart";
-                } else if (skinType == 1) {
-                    str = "&skin=night";
-                } else {
-                    str = "";
-                }
-                Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-                if (currentActivity instanceof TbPageContextSupport) {
-                    UrlManager.getInstance().dealOneLink(((TbPageContextSupport) currentActivity).getPageContext(), new String[]{TbConfig.VIRTUAL_IMAGE_MAIN_URL + str});
-                }
-            } catch (Exception e) {
-                BdLog.e("openPageByUrl fail:" + e.toString());
-            }
-        }
-    }
-
-    public static void c(c cVar) {
-        Context context;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, cVar) != null) || (context = TbadkCoreApplication.getInst().getContext()) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947718983, "Lcom/baidu/tieba/f95;")) == null) {
             return;
         }
-        TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(TbadkApplication.getInst().getCurrentActivity());
-        View inflate = LayoutInflater.from(context).inflate(R.layout.pb_virtual_image_setting_post, (ViewGroup) null);
-        cx4 d = cx4.d(inflate.findViewById(R.id.virtual_image_setting_layout));
-        d.n(R.string.J_X06);
-        d.f(R.color.CAM_X0201);
-        TextView textView = (TextView) inflate.findViewById(R.id.virtual_image_setting_confirm_cancel_btn);
-        cx4 d2 = cx4.d(textView);
-        d2.A(R.string.F_X01);
-        d2.z(R.dimen.T_X07);
-        d2.v(R.color.CAM_X0105);
-        d2.n(R.string.J_X07);
-        d2.l(R.dimen.L_X02);
-        d2.k(R.color.CAM_X0105);
-        d2.j(R.string.A_X07);
-        textView.setOnClickListener(new a(cVar, tBAlertBuilder));
-        TextView textView2 = (TextView) inflate.findViewById(R.id.virtual_image_setting_confirm_btn);
-        cx4 d3 = cx4.d(textView2);
-        d3.A(R.string.F_X01);
-        d3.z(R.dimen.T_X07);
-        d3.v(R.color.CAM_X0304);
-        d3.n(R.string.J_X07);
-        d3.l(R.dimen.L_X02);
-        d3.k(R.color.CAM_X0304);
-        d3.j(R.string.A_X07);
-        textView2.setOnClickListener(new b(tBAlertBuilder));
-        tBAlertBuilder.r(true);
-        tBAlertBuilder.k(inflate);
-        tBAlertBuilder.z();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947718983, "Lcom/baidu/tieba/f95;");
+        }
+    }
+
+    public static int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (dj.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                return 3;
+            }
+            return p35.m().n("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), 3);
+        }
+        return invokeV.intValue;
+    }
+
+    public static int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (TbSingleton.getInstance().getSharePanelConfData() != null && TbSingleton.getInstance().getSharePanelConfData().c()) {
+                int a2 = a();
+                if (a2 != 2) {
+                    if (a2 == 3) {
+                        return R.drawable.icon_mask_share_wechat40_svg;
+                    }
+                    if (a2 != 4) {
+                        if (a2 != 6) {
+                            if (a2 != 8) {
+                                return R.drawable.icon_mask_share_wechat40_svg;
+                            }
+                            return R.drawable.icon_mask_share_qq40_svg;
+                        }
+                        return R.drawable.icon_mask_share_weibo40_svg;
+                    }
+                    return R.drawable.icon_mask_share_qqzone40_svg;
+                }
+                return R.drawable.icon_mask_share_circle40_svg;
+            }
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    public static long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            long j = a;
+            if (j >= 0) {
+                return j;
+            }
+            if (!dj.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                a = p35.m().o("key_shared_to_tb_friend_prefix_" + TbadkCoreApplication.getCurrentAccount(), 0L);
+            }
+            return a;
+        }
+        return invokeV.longValue;
+    }
+
+    public static void d(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) && i > 0 && !dj.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+            p35.m().z("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), i);
+            p35.m().H("key_shared_to_tb_friend_prefix_" + TbadkCoreApplication.getCurrentAccount());
+            a = 0L;
+        }
+    }
+
+    public static void e(long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeJ(65541, null, j) == null) && !dj.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+            p35.m().A("key_shared_to_tb_friend_prefix_" + TbadkCoreApplication.getCurrentAccount(), j);
+            a = j;
+        }
+    }
+
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            a = -1L;
+        }
     }
 }

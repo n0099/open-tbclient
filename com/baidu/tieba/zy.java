@@ -2,28 +2,33 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.view.View;
-import com.baidu.adp.BdUniqueId;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.ItemCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class zy extends cx<fs4> {
+public class zy extends ox {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public m86 f;
+    public FrameLayout h;
+    public ItemCardView i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zy(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity());
+    public zy(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,34 +39,66 @@ public class zy extends cx<fs4> {
                 return;
             }
         }
-        this.f = new m86(tbPageContext, bdUniqueId);
+        r(Boolean.TRUE);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ux
-    /* renamed from: s */
-    public void a(fs4 fs4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, fs4Var) == null) && (fs4Var instanceof q96)) {
-            this.f.a((q96) fs4Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.cx
+    @Override // com.baidu.tieba.hx
     public View k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f.f();
+            if (this.h == null) {
+                FrameLayout frameLayout = new FrameLayout(this.b);
+                this.h = frameLayout;
+                SkinManager.setBackgroundColor(frameLayout, R.color.CAM_X0206);
+                this.h.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+            }
+            this.h.removeAllViews();
+            if (this.i == null) {
+                ItemCardView itemCardView = new ItemCardView(this.b);
+                this.i = itemCardView;
+                itemCardView.setBackGroundColor(R.color.CAM_X0205);
+                this.i.setIsShowRightBtn(true);
+            }
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
+            layoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003) - UtilHelper.getDimenPixelSize(R.dimen.M_H_X004);
+            layoutParams.leftMargin = this.b.getResources().getDimensionPixelSize(R.dimen.M_W_X005);
+            layoutParams.rightMargin = this.b.getResources().getDimensionPixelSize(R.dimen.M_W_X005);
+            layoutParams.bottomMargin = this.b.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
+            this.h.addView(this.i, layoutParams);
+            return this.h;
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.vx
+    @Override // com.baidu.tieba.ay
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            this.f.onChangeSkinType(tbPageContext, i);
+            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0206);
+            ItemCardView itemCardView = this.i;
+            if (itemCardView != null) {
+                itemCardView.G();
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.zx
+    /* renamed from: w */
+    public void a(sw4 sw4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, sw4Var) == null) {
+            if (sw4Var != null && sw4Var.getThreadData() != null && sw4Var.getThreadData().originalThreadData != null && sw4Var.getThreadData().originalThreadData.C != null) {
+                if (!sw4Var.getThreadData().originalThreadData.m && !sw4Var.getThreadData().shouldShowBlockedState()) {
+                    this.h.setVisibility(0);
+                    this.i.setData(sw4Var.getThreadData().originalThreadData.D, 13, sw4Var.getThreadData().originalThreadData.f);
+                    return;
+                }
+                this.h.setVisibility(8);
+                return;
+            }
+            this.h.setVisibility(8);
         }
     }
 }

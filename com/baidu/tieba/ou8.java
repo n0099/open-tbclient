@@ -1,57 +1,194 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.pu8;
+import com.baidu.titan.sdk.common.TitanConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.io.File;
 /* loaded from: classes5.dex */
-public class ou8 extends du8 {
+public class ou8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pu8 c;
+    public pu8 a;
+    public String b;
+    public boolean c;
+    public Context d;
+    public pu8.a e;
 
-    public ou8() {
+    /* loaded from: classes5.dex */
+    public class a implements pu8.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ou8 a;
+
+        public a(ou8 ou8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ou8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ou8Var;
+        }
+
+        @Override // com.baidu.tieba.pu8.a
+        public void a() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.a.c) {
+                return;
+            }
+            this.a.c = false;
+        }
+    }
+
+    public ou8(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = null;
+        this.c = false;
+        this.e = new a(this);
+        this.d = context;
     }
 
-    public pu8 h() {
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TextUtils.isEmpty(this.b)) {
+                return this.b;
+            }
+            String b = qu8.b();
+            this.b = b;
+            if (TextUtils.isEmpty(b)) {
+                this.b = qu8.c();
+            } else if (!this.b.endsWith(File.separator)) {
+                this.b += File.separator;
+            }
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.c;
         }
-        return (pu8) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.du8
-    public void d(JSONObject jSONObject) throws Exception {
-        JSONObject optJSONObject;
+    public void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && (optJSONObject = jSONObject.optJSONObject("forum_dir")) != null) {
-            pu8 pu8Var = new pu8();
-            pu8Var.a(optJSONObject);
-            i(pu8Var);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            String c = c();
+            if (TextUtils.isEmpty(c)) {
+                return;
+            }
+            h();
+            if (qu8.e(c) && f(c, TitanConstant.KEY_INSTANT_INIT_CLASS, true)) {
+                this.c = true;
+            }
         }
     }
 
-    public void i(pu8 pu8Var) {
+    /* JADX DEBUG: Multi-variable search result rejected for r0v6, resolved type: com.baidu.tieba.pu8 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v0, types: [com.baidu.tieba.pu8, com.baidu.tieba.pu8$a] */
+    public final void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pu8Var) == null) {
-            this.c = pu8Var;
-            g(null);
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            pu8 pu8Var = this.a;
+            if (pu8Var != null) {
+                try {
+                    try {
+                        pu8Var.c();
+                    } catch (Exception e) {
+                        BdLog.e(e);
+                    }
+                } finally {
+                    this.a.b(null);
+                    this.a = null;
+                }
+            }
+            this.c = false;
         }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            h();
+        }
+    }
+
+    public final void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            File file = new File(str);
+            if (!file.exists()) {
+                if (file.mkdirs()) {
+                    BdLog.d("folder mkdir success: " + str);
+                } else if (!file.exists()) {
+                    BdLog.d("folder mkdir failed");
+                }
+            }
+            if (file.isDirectory()) {
+                return;
+            }
+            throw new IllegalArgumentException("The logcat folder path is not a directory: " + str);
+        }
+    }
+
+    public final boolean f(String str, String str2, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048579, this, str, str2, z)) == null) {
+            if (this.a != null) {
+                return true;
+            }
+            e(str);
+            pu8 pu8Var = new pu8(str, str2, z);
+            this.a = pu8Var;
+            pu8Var.b(this.e);
+            try {
+                this.a.start();
+                return true;
+            } catch (IllegalThreadStateException unused) {
+                return true;
+            } catch (Exception e) {
+                this.a = null;
+                BdLog.e(e);
+                return false;
+            }
+        }
+        return invokeLLZ.booleanValue;
     }
 }

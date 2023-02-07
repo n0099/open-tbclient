@@ -342,14 +342,14 @@ public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
                     return null;
                 }
             }
-            Map<Uri, ByteBuffer> prepareFontData = FontsContractCompat.prepareFontData(context, fontInfoArr, cancellationSignal);
+            Map<Uri, ByteBuffer> readFontInfoIntoByteBuffer = TypefaceCompatUtil.readFontInfoIntoByteBuffer(context, fontInfoArr, cancellationSignal);
             Object newFamily = newFamily();
             if (newFamily == null) {
                 return null;
             }
             boolean z = false;
             for (FontsContractCompat.FontInfo fontInfo : fontInfoArr) {
-                ByteBuffer byteBuffer = prepareFontData.get(fontInfo.getUri());
+                ByteBuffer byteBuffer = readFontInfoIntoByteBuffer.get(fontInfo.getUri());
                 if (byteBuffer != null) {
                     if (!addFontFromBuffer(newFamily, byteBuffer, fontInfo.getTtcIndex(), fontInfo.getWeight(), fontInfo.isItalic() ? 1 : 0)) {
                         abortCreation(newFamily);

@@ -7,16 +7,16 @@ import android.view.View;
 import com.airbnb.lottie.L;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.breathetip.tipview.BreatheTipView;
-import com.baidu.tieba.bh;
-import com.baidu.tieba.pf;
-import com.baidu.tieba.qf;
-import com.baidu.tieba.rf;
-import com.baidu.tieba.tz4;
-import com.baidu.tieba.uz4;
-import com.baidu.tieba.vz4;
-import com.baidu.tieba.wz4;
-import com.baidu.tieba.xz4;
-import com.baidu.tieba.yz4;
+import com.baidu.tieba.g45;
+import com.baidu.tieba.gh;
+import com.baidu.tieba.h45;
+import com.baidu.tieba.i45;
+import com.baidu.tieba.j45;
+import com.baidu.tieba.k45;
+import com.baidu.tieba.l45;
+import com.baidu.tieba.uf;
+import com.baidu.tieba.vf;
+import com.baidu.tieba.wf;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,11 +30,11 @@ public class BreatheTipWidget {
     public static boolean h;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
-    public qf b;
-    public xz4 c;
+    public vf b;
+    public k45 c;
     public BreatheTipView d;
     public View e;
-    public yz4 f;
+    public l45 f;
     public final Runnable g;
 
     static {
@@ -152,7 +152,7 @@ public class BreatheTipWidget {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements rf.a {
+    public class b implements wf.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BreatheTipWidget a;
@@ -175,7 +175,7 @@ public class BreatheTipWidget {
             this.a = breatheTipWidget;
         }
 
-        @Override // com.baidu.tieba.rf.a
+        @Override // com.baidu.tieba.wf.a
         public void onDismiss() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -184,7 +184,7 @@ public class BreatheTipWidget {
             }
         }
 
-        @Override // com.baidu.tieba.rf.a
+        @Override // com.baidu.tieba.wf.a
         public void onShown() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -194,7 +194,7 @@ public class BreatheTipWidget {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements pf {
+    public class c implements uf {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BreatheTipWidget a;
@@ -217,7 +217,7 @@ public class BreatheTipWidget {
             this.a = breatheTipWidget;
         }
 
-        @Override // com.baidu.tieba.pf
+        @Override // com.baidu.tieba.uf
         public View c(LayoutInflater layoutInflater) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -230,7 +230,7 @@ public class BreatheTipWidget {
             return (View) invokeL.objValue;
         }
 
-        @Override // com.baidu.tieba.pf
+        @Override // com.baidu.tieba.uf
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -243,7 +243,7 @@ public class BreatheTipWidget {
             return invokeV.intValue;
         }
 
-        @Override // com.baidu.tieba.pf
+        @Override // com.baidu.tieba.uf
         public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -256,7 +256,7 @@ public class BreatheTipWidget {
             return invokeV.intValue;
         }
 
-        @Override // com.baidu.tieba.pf
+        @Override // com.baidu.tieba.uf
         public int getXOffset() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -269,7 +269,7 @@ public class BreatheTipWidget {
             return invokeV.intValue;
         }
 
-        @Override // com.baidu.tieba.pf
+        @Override // com.baidu.tieba.uf
         public int getYOffset() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -324,34 +324,34 @@ public class BreatheTipWidget {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            qf qfVar = this.b;
-            if (qfVar != null) {
-                qfVar.d();
+            vf vfVar = this.b;
+            if (vfVar != null) {
+                vfVar.d();
             }
-            bh.a().removeCallbacks(this.g);
+            gh.a().removeCallbacks(this.g);
         }
     }
 
-    public BreatheTipWidget f(uz4 uz4Var, tz4 tz4Var) {
+    public BreatheTipWidget f(h45 h45Var, g45 g45Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uz4Var, tz4Var)) == null) {
-            PointType pointType = tz4Var.a;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h45Var, g45Var)) == null) {
+            PointType pointType = g45Var.a;
             if (pointType == PointType.LOTTIE) {
-                this.c = new vz4(this.a);
+                this.c = new i45(this.a);
             } else if (pointType == PointType.DRAWABLE) {
-                this.c = new wz4(this.a);
+                this.c = new j45(this.a);
             }
             if (this.d == null) {
                 this.d = new BreatheTipView(this.a);
             }
-            xz4 xz4Var = this.c;
-            if (xz4Var != null) {
-                xz4Var.a(tz4Var);
+            k45 k45Var = this.c;
+            if (k45Var != null) {
+                k45Var.a(g45Var);
             }
             BreatheTipView breatheTipView = this.d;
             if (breatheTipView != null) {
-                breatheTipView.setData(uz4Var);
+                breatheTipView.setData(h45Var);
             }
             return this;
         }
@@ -366,23 +366,23 @@ public class BreatheTipWidget {
                 return false;
             }
             h = true;
-            yz4 yz4Var = new yz4();
-            this.f = yz4Var;
-            yz4Var.h(this.d, this.c, this.e);
-            rf rfVar = new rf();
-            rfVar.c(0);
-            rfVar.k(this.e);
-            rfVar.i(true);
-            rfVar.j(true);
-            rfVar.d(true);
-            rfVar.h(new b(this));
-            rfVar.a(new c(this));
-            qf b2 = rfVar.b();
+            l45 l45Var = new l45();
+            this.f = l45Var;
+            l45Var.h(this.d, this.c, this.e);
+            wf wfVar = new wf();
+            wfVar.c(0);
+            wfVar.k(this.e);
+            wfVar.i(true);
+            wfVar.j(true);
+            wfVar.d(true);
+            wfVar.h(new b(this));
+            wfVar.a(new c(this));
+            vf b2 = wfVar.b();
             this.b = b2;
             b2.k(false);
             this.b.l(true);
             this.b.n(activity, false);
-            bh.a().postDelayed(this.g, 4000L);
+            gh.a().postDelayed(this.g, 4000L);
             return true;
         }
         return invokeL.booleanValue;

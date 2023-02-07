@@ -29,9 +29,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ai7;
 import com.baidu.tieba.horizonalList.widget.AbsHListView;
-import com.baidu.tieba.oz8;
-import com.baidu.tieba.pd7;
+import com.baidu.tieba.n39;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -402,7 +402,7 @@ public class HListView extends AbsHListView {
             boolean z = false;
             if (this.mFooterViewInfos.size() > 0) {
                 ListAdapter listAdapter = this.mAdapter;
-                if (listAdapter != null && ((pd7) listAdapter).d(view2)) {
+                if (listAdapter != null && ((ai7) listAdapter).d(view2)) {
                     AbsHListView.c cVar = this.mDataSetObserver;
                     if (cVar != null) {
                         cVar.onChanged();
@@ -423,7 +423,7 @@ public class HListView extends AbsHListView {
             boolean z = false;
             if (this.mHeaderViewInfos.size() > 0) {
                 ListAdapter listAdapter = this.mAdapter;
-                if (listAdapter != null && ((pd7) listAdapter).e(view2)) {
+                if (listAdapter != null && ((ai7) listAdapter).e(view2)) {
                     AbsHListView.c cVar = this.mDataSetObserver;
                     if (cVar != null) {
                         cVar.onChanged();
@@ -601,7 +601,7 @@ public class HListView extends AbsHListView {
         this.mArrowScrollFocusResult = new b(null);
         this.mMaxWidth = 0;
         this.mGestureDetector = new GestureDetector(new e(this, null));
-        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, oz8.HListView, i, 0);
+        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, n39.HListView, i, 0);
         int i5 = -1;
         if (obtainStyledAttributes != null) {
             charSequenceArr = obtainStyledAttributes.getTextArray(0);
@@ -1206,7 +1206,7 @@ public class HListView extends AbsHListView {
             if (this.mHeaderViewInfos.size() <= 0 && this.mFooterViewInfos.size() <= 0) {
                 this.mAdapter = listAdapter;
             } else {
-                this.mAdapter = new pd7(this.mHeaderViewInfos, this.mFooterViewInfos, listAdapter);
+                this.mAdapter = new ai7(this.mHeaderViewInfos, this.mFooterViewInfos, listAdapter);
             }
             this.mOldSelectedPosition = -1;
             this.mOldSelectedColId = Long.MIN_VALUE;
@@ -2538,7 +2538,7 @@ public class HListView extends AbsHListView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048579, this, view2, obj, z) == null) {
             ListAdapter listAdapter = this.mAdapter;
-            if (listAdapter != null && !(listAdapter instanceof pd7)) {
+            if (listAdapter != null && !(listAdapter instanceof ai7)) {
                 throw new IllegalStateException("Cannot add header view to list -- setAdapter has already been called.");
             }
             c cVar2 = new c();

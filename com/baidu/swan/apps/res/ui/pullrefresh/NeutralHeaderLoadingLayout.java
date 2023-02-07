@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ai3;
-import com.baidu.tieba.tk1;
+import com.baidu.tieba.gp1;
+import com.baidu.tieba.nm3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -78,7 +78,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
                 return;
             }
         }
-        k = tk1.a;
+        k = gp1.a;
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
@@ -112,7 +112,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
             if (view2 != null) {
                 return view2.getHeight();
             }
-            return ai3.f(getContext(), 50.0f);
+            return nm3.f(getContext(), 50.0f);
         }
         return invokeV.intValue;
     }
@@ -195,23 +195,6 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
         o();
     }
 
-    @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            if (k) {
-                Log.e("NeutralLoadingLayout", "pullLength = " + i);
-            }
-            if (getState() == ILoadingLayout$State.PULL_TO_REFRESH) {
-                this.j.setAnimPercent(n(i));
-            }
-            int i2 = this.g;
-            if (i > i2) {
-                setTranslationY((i2 - i) / 2);
-            }
-        }
-    }
-
     public float n(int i) {
         InterceptResult invokeI;
         float f;
@@ -245,11 +228,28 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, viewGroup, attributeSet)) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00be, viewGroup, false);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00bd, viewGroup, false);
             this.i = inflate;
             return inflate;
         }
         return (View) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            if (k) {
+                Log.e("NeutralLoadingLayout", "pullLength = " + i);
+            }
+            if (getState() == ILoadingLayout$State.PULL_TO_REFRESH) {
+                this.j.setAnimPercent(n(i));
+            }
+            int i2 = this.g;
+            if (i > i2) {
+                setTranslationY((i2 - i) / 2);
+            }
+        }
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
@@ -271,8 +271,8 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.j = (NeutralRefreshAnimView) findViewById(R.id.obfuscated_res_0x7f091730);
-            int f = ai3.f(getContext(), 29.0f);
+            this.j = (NeutralRefreshAnimView) findViewById(R.id.obfuscated_res_0x7f091773);
+            int f = nm3.f(getContext(), 29.0f);
             this.e = f;
             this.f = (int) (f * 2.4f);
             int i = (int) (f * 1.5f);

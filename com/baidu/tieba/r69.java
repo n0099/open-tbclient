@@ -1,106 +1,319 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.browser.BrowserHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.j05;
+import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.SimpleDateFormat;
-import java.util.List;
-import java.util.TimeZone;
 /* loaded from: classes6.dex */
-public class r69 extends BdAsyncTask<Void, Void, List<s69>> {
+public class r69 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public Context b;
-    public int c;
-    public SimpleDateFormat d;
-    public SimpleDateFormat e;
 
     /* loaded from: classes6.dex */
-    public interface a {
-        void a(List<s69> list);
-    }
+    public static class a implements j05.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ j05 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948073716, "Lcom/baidu/tieba/r69;")) == null) {
-            return;
+        public a(j05 j05Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j05Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = j05Var;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948073716, "Lcom/baidu/tieba/r69;");
-        }
-    }
 
-    public r69(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        @Override // com.baidu.tieba.j05.e
+        public void onClick(j05 j05Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, j05Var) == null) {
+                this.a.dismiss();
             }
         }
-        this.b = context;
-        this.c = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07027a);
-        this.e = new SimpleDateFormat("mm:ss");
-        this.d = new SimpleDateFormat("HH:mm:ss");
-        TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
-        this.e.setTimeZone(timeZone);
-        this.d.setTimeZone(timeZone);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
-    public List<s69> doInBackground(Void... voidArr) {
+    /* loaded from: classes6.dex */
+    public static class b implements j05.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ j05 a;
+
+        public b(j05 j05Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j05Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = j05Var;
+        }
+
+        @Override // com.baidu.tieba.j05.e
+        public void onClick(j05 j05Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, j05Var) == null) {
+                this.a.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c implements j05.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ j05 a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ TbPageContext c;
+        public final /* synthetic */ int d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ String f;
+
+        public c(j05 j05Var, int i, TbPageContext tbPageContext, int i2, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j05Var, Integer.valueOf(i), tbPageContext, Integer.valueOf(i2), str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = j05Var;
+            this.b = i;
+            this.c = tbPageContext;
+            this.d = i2;
+            this.e = str;
+            this.f = str2;
+        }
+
+        @Override // com.baidu.tieba.j05.e
+        public void onClick(j05 j05Var) {
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, j05Var) == null) {
+                this.a.dismiss();
+                int i2 = this.b;
+                String str = null;
+                if (i2 != 1) {
+                    if (i2 != 2) {
+                        if (i2 != 3) {
+                            if (i2 != 4) {
+                                if (i2 != 5) {
+                                    if (i2 != 7) {
+                                        i = 0;
+                                    } else {
+                                        i = 22;
+                                    }
+                                } else {
+                                    i = 18;
+                                    TiebaStatic.log("c10767");
+                                }
+                            } else {
+                                i = 14;
+                                TiebaStatic.log("c10285");
+                                str = "4012001002";
+                            }
+                        } else {
+                            i = 11;
+                            TiebaStatic.log("c10276");
+                            str = "4011001002";
+                        }
+                    } else {
+                        i = 13;
+                        TiebaStatic.log("c10282");
+                        str = "4012001001";
+                    }
+                } else {
+                    i = 10;
+                    TiebaStatic.log("c10271");
+                    str = "4011001001";
+                }
+                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(this.c.getPageActivity(), TbadkCoreApplication.getCurrentMemberType(), "", i);
+                if (!StringUtils.isNULL(str)) {
+                    memberPayActivityConfig.setSceneId(str);
+                }
+                memberPayActivityConfig.setFromScence(this.d);
+                memberPayActivityConfig.setReferPageClickZone(this.e, this.f);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class d implements j05.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ j05 a;
+
+        public d(j05 j05Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j05Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = j05Var;
+        }
+
+        @Override // com.baidu.tieba.j05.e
+        public void onClick(j05 j05Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, j05Var) == null) {
+                this.a.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class e implements j05.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ j05 a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ TbPageContext c;
+
+        public e(j05 j05Var, String str, TbPageContext tbPageContext) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j05Var, str, tbPageContext};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = j05Var;
+            this.b = str;
+            this.c = tbPageContext;
+        }
+
+        @Override // com.baidu.tieba.j05.e
+        public void onClick(j05 j05Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, j05Var) == null) {
+                this.a.dismiss();
+                if (this.b == null) {
+                    return;
+                }
+                TbadkCoreApplication.getInst().setThemeWebviewOpen(true);
+                BrowserHelper.o(this.c.getPageActivity(), this.b);
+            }
+        }
+    }
+
+    public static boolean a(DressItemData dressItemData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-            List<s69> a2 = t69.a(this.b);
-            t69.d("/sdcard", a2, false);
-            t69.d("/sdcard/DCIM", a2, true);
-            t69.e(a2);
-            return a2;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: c */
-    public void onPostExecute(List<s69> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            super.onPostExecute(list);
-            a aVar = this.a;
-            if (aVar != null) {
-                aVar.a(list);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, dressItemData)) == null) {
+            int freeUserLevel = dressItemData.getFreeUserLevel();
+            if (dressItemData.isDefault() || freeUserLevel == 0) {
+                return true;
+            }
+            if (freeUserLevel == 100) {
+                if (dressItemData.getActivityFinish() != 0) {
+                    return true;
+                }
+                return false;
+            } else if (freeUserLevel == 101) {
+                if (TbadkCoreApplication.getCurrentMemberType() == 3) {
+                    return true;
+                }
+                return false;
+            } else if (TbadkCoreApplication.getCurrentMemberType() >= 2 && TbadkCoreApplication.getCurrentVipLevel() >= freeUserLevel) {
+                return true;
+            } else {
+                return false;
             }
         }
+        return invokeL.booleanValue;
     }
 
-    public void d(a aVar) {
+    public static void b(TbPageContext<?> tbPageContext, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.a = aVar;
+        if ((interceptable != null && interceptable.invokeLIL(65537, null, tbPageContext, i, str) != null) || tbPageContext == null) {
+            return;
         }
+        j05 j05Var = new j05(tbPageContext.getPageActivity());
+        j05Var.setMessageId(R.string.obfuscated_res_0x7f0f14d8);
+        j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038b, new d(j05Var));
+        j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f14d7, new e(j05Var, str, tbPageContext));
+        j05Var.create(tbPageContext);
+        j05Var.show();
+    }
+
+    public static void c(TbPageContext<?> tbPageContext, int i, String str, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{tbPageContext, Integer.valueOf(i), str, Integer.valueOf(i2)}) != null) || tbPageContext == null) {
+            return;
+        }
+        j05 j05Var = new j05(tbPageContext.getPageActivity());
+        j05Var.setButtonTextColor(R.color.CAM_X0305);
+        j05Var.setTitle(str);
+        a aVar = new a(j05Var);
+        j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038b, aVar);
+        j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0a46, aVar);
+        j05Var.create(tbPageContext);
+        j05Var.show();
+    }
+
+    public static void d(TbPageContext<?> tbPageContext, int i, String str, int i2, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65539, null, new Object[]{tbPageContext, Integer.valueOf(i), str, Integer.valueOf(i2), str2, str3}) != null) || tbPageContext == null) {
+            return;
+        }
+        j05 j05Var = new j05(tbPageContext.getPageActivity());
+        j05Var.setButtonTextColor(R.color.CAM_X0305);
+        j05Var.setMessage(str);
+        j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038b, new b(j05Var));
+        j05Var.setPositiveButton(R.string.open_now, new c(j05Var, i, tbPageContext, i2, str2, str3));
+        j05Var.create(tbPageContext);
+        j05Var.show();
     }
 }

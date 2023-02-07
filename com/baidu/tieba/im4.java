@@ -1,34 +1,35 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.webcompat.impl.WebCompatImpl;
+import android.app.Activity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class im4 implements nf1 {
+public class im4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public im4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+    /* loaded from: classes4.dex */
+    public interface a {
+        void validateRequestPermissionsRequestCode(int i);
     }
 
-    @Override // com.baidu.tieba.nf1
-    public Object get() {
-        InterceptResult invokeV;
+    public static boolean a(Activity activity, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new WebCompatImpl() : invokeV.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, activity, str)) == null) {
+            return activity.shouldShowRequestPermissionRationale(str);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void requestPermissions(Activity activity, String[] strArr, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65537, null, activity, strArr, i) == null) {
+            if (activity instanceof a) {
+                ((a) activity).validateRequestPermissionsRequestCode(i);
+            }
+            activity.requestPermissions(strArr, i);
+        }
     }
 }

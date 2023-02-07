@@ -9,7 +9,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMSettings;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.tieba.g80;
+import com.baidu.tieba.m80;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -251,10 +251,10 @@ public class LoginManager {
                     return;
                 }
             }
-            Handler handler = g80.c;
+            Handler handler = m80.c;
             if (handler != null) {
                 handler.removeCallbacks(this.imLoginRunable);
-                g80.c.postDelayed(this.imLoginRunable, 3000L);
+                m80.c.postDelayed(this.imLoginRunable, 3000L);
             }
         }
     }

@@ -8,9 +8,9 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.data.ThreadRecommendTagData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ax4;
-import com.baidu.tieba.nv8;
-import com.baidu.tieba.s05;
+import com.baidu.tieba.f55;
+import com.baidu.tieba.lz8;
+import com.baidu.tieba.n15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,16 +50,16 @@ public class ThreadRecommendTagUtil {
                 if (!isElementValid(themeColorInfo.night)) {
                     return 0;
                 }
-                return nv8.f(themeColorInfo.night.common_color);
+                return lz8.f(themeColorInfo.night.common_color);
             } else if (TbadkApplication.getInst().getSkinType() == 4) {
                 if (!isElementValid(themeColorInfo.dark)) {
                     return 0;
                 }
-                return nv8.f(themeColorInfo.dark.common_color);
+                return lz8.f(themeColorInfo.dark.common_color);
             } else if (!isElementValid(themeColorInfo.day)) {
                 return 0;
             } else {
-                return nv8.f(themeColorInfo.day.common_color);
+                return lz8.f(themeColorInfo.day.common_color);
             }
         }
         return invokeL.intValue;
@@ -89,8 +89,8 @@ public class ThreadRecommendTagUtil {
                 int color3 = getColor(threadData.getThreadRecommendTagData().getBoundaryColor());
                 int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X002);
                 int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X002);
-                float[] z = ax4.z(R.string.J_X04);
-                s05.b bVar = new s05.b();
+                float[] z = n15.z(R.string.J_X04);
+                f55.b bVar = new f55.b();
                 bVar.v(z[0]);
                 bVar.y(R.dimen.T_X10);
                 bVar.w(dimenPixelSize);
@@ -105,7 +105,7 @@ public class ThreadRecommendTagUtil {
                     bVar.r(UtilHelper.getDimenPixelSize(R.dimen.L_X02));
                     bVar.t(UtilHelper.getDimenPixelSize(R.dimen.L_X01));
                     bVar.q(color3);
-                    bVar.p(ax4.b(R.string.A_X04));
+                    bVar.p(n15.b(R.string.A_X04));
                 }
                 bVar.o(color2);
                 spannableStringBuilder.setSpan(bVar.n(), 0, text.length(), 33);
@@ -127,7 +127,7 @@ public class ThreadRecommendTagUtil {
                 int color2 = getColor(threadRecommendTagData.getBackgroundColor());
                 int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
                 int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X002);
-                s05.b bVar = new s05.b();
+                f55.b bVar = new f55.b();
                 bVar.v(UtilHelper.getDimenPixelSize(R.dimen.tbds10));
                 bVar.y(R.dimen.T_X10);
                 bVar.w(dimenPixelSize);

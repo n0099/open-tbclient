@@ -1,95 +1,169 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import android.content.Context;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.m4a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire2.FieldEncoding;
-import com.squareup.wire2.ProtoAdapter;
-import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.win.opensdk.PBError;
+import com.win.opensdk.PBVideo;
+import com.win.opensdk.PBVideoListener;
 /* loaded from: classes5.dex */
-public final class k4a<E extends m4a> extends ProtoAdapter<E> {
+public class k4a extends ReporterPidLoader<PBVideo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Class<E> a;
-    public Method b;
+
+    /* loaded from: classes5.dex */
+    public class a implements PBVideoListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public boolean b;
+        public final /* synthetic */ PBVideo c;
+        public final /* synthetic */ k4a d;
+
+        public a(k4a k4aVar, PBVideo pBVideo) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k4aVar, pBVideo};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = k4aVar;
+            this.c = pBVideo;
+        }
+
+        @Override // com.win.opensdk.PBListener
+        public void onClicked() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                LogPrinter.d();
+                this.d.onAdClicked(this.c, this.b, new String[0]);
+                this.b = true;
+            }
+        }
+
+        @Override // com.win.opensdk.PBListener
+        public void onFail(PBError pBError) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pBError) == null) {
+                LogPrinter.e("onFail errorCode: " + pBError.getCode() + ", errorMessage: " + pBError.getMsg(), new Object[0]);
+                this.d.onError(pBError.getCode(), pBError.getMsg());
+            }
+        }
+
+        @Override // com.win.opensdk.PBListener
+        public void onLoaded() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                LogPrinter.d();
+                this.d.onAdLoaded((k4a) this.c);
+            }
+        }
+
+        @Override // com.win.opensdk.PBVideoListener
+        public void onRewardedAdClosed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                LogPrinter.d();
+                this.d.onAdClose(this.c);
+            }
+        }
+
+        @Override // com.win.opensdk.PBVideoListener
+        public void onRewardedAdOpened() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                LogPrinter.d();
+                this.d.onAdShow(this.c, this.a, new String[0]);
+                this.a = true;
+            }
+        }
+
+        @Override // com.win.opensdk.PBVideoListener
+        public void onRewardedShowFail(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+                LogPrinter.d();
+                this.d.onAdError(this.c, 0, str);
+            }
+        }
+
+        @Override // com.win.opensdk.PBVideoListener
+        public void onUserEarnedReward(boolean z, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
+                LogPrinter.d();
+                this.d.onRewardedVideo(this.c, z, new String[0]);
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k4a(Class<E> cls) {
-        super(FieldEncoding.VARINT, cls);
+    public k4a(Ssp.Pid pid) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.REWARD), pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cls};
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((FieldEncoding) objArr2[0], (Class) objArr2[1]);
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = cls;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: a */
-    public E decode(i4a i4aVar) throws IOException {
-        InterceptResult invokeL;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, i4aVar)) == null) {
-            int l = i4aVar.l();
-            try {
-                E e = (E) d().invoke(null, Integer.valueOf(l));
-                if (e != null) {
-                    return e;
-                }
-                throw new ProtoAdapter.EnumConstantNotFoundException(l, this.a);
-            } catch (IllegalAccessException | InvocationTargetException e2) {
-                throw new AssertionError(e2);
-            }
-        }
-        return (E) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: b */
-    public void encode(j4a j4aVar, E e) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j4aVar, e) == null) {
-            j4aVar.q(e.getValue());
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
+            onLoadStart(funAdSlot);
+            PBVideo pBVideo = new PBVideo(context.getApplicationContext(), this.mPid.pid);
+            pBVideo.setVideoListener(new a(this, pBVideo));
+            pBVideo.load();
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: c */
-    public int encodedSize(E e) {
-        InterceptResult invokeL;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
+        PBVideo pBVideo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e)) == null) {
-            return j4a.i(e.getValue());
+        if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (pBVideo = (PBVideo) obj) != null) {
+            pBVideo.destroy();
         }
-        return invokeL.intValue;
     }
 
-    public boolean equals(Object obj) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean isAdAvailable(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) {
-            if ((obj instanceof k4a) && ((k4a) obj).a == this.a) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            PBVideo pBVideo = (PBVideo) obj;
+            if (pBVideo != null && pBVideo.isReady()) {
                 return true;
             }
             return false;
@@ -97,31 +171,20 @@ public final class k4a<E extends m4a> extends ProtoAdapter<E> {
         return invokeL.booleanValue;
     }
 
-    public final Method d() {
-        InterceptResult invokeV;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Method method = this.b;
-            if (method != null) {
-                return method;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
+            PBVideo pBVideo = (PBVideo) obj;
+            onShowStart(pBVideo);
+            if (!pBVideo.isReady()) {
+                LogPrinter.e("Ad isn't ready now", new Object[0]);
+                return false;
             }
-            try {
-                Method method2 = this.a.getMethod("fromValue", Integer.TYPE);
-                this.b = method2;
-                return method2;
-            } catch (NoSuchMethodException e) {
-                throw new AssertionError(e);
-            }
+            pBVideo.show();
+            return true;
         }
-        return (Method) invokeV.objValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.a.hashCode();
-        }
-        return invokeV.intValue;
+        return invokeLLLL.booleanValue;
     }
 }

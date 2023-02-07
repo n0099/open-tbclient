@@ -1,17 +1,18 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import com.baidu.searchbox.v8engine.net.NetRedirectInfo;
+import com.baidu.searchbox.v8engine.net.NetRequest;
+import com.baidu.searchbox.v8engine.net.NetRequestParam;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class my1 extends px1 {
+public class my1 implements NetRequest.RedirectInterceptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xx1 a;
 
     public my1() {
         Interceptable interceptable = $ic;
@@ -27,26 +28,20 @@ public class my1 extends px1 {
         }
     }
 
-    @Override // com.baidu.tieba.px1
-    public void a(qx1 qx1Var, Canvas canvas) {
-        xx1 xx1Var;
+    @Override // com.baidu.searchbox.v8engine.net.NetRequest.RedirectInterceptor
+    public boolean shouldInterceptRedirect(NetRequestParam netRequestParam, NetRedirectInfo netRedirectInfo) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, qx1Var, canvas) == null) && (xx1Var = this.a) != null && xx1Var.d()) {
-            if (this.a.c()) {
-                qx1Var.b.setShader(this.a.b());
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, netRequestParam, netRedirectInfo)) == null) {
+            if (netRedirectInfo == null) {
+                return false;
             }
-            qx1Var.e.setColor(this.a.a());
-            qx1Var.b.setColor(this.a.a());
-            qx1Var.b.setShader(null);
+            String newUrl = netRedirectInfo.getNewUrl();
+            if (!TextUtils.isEmpty(newUrl) && n93.c("request", newUrl, null) == 0) {
+                return false;
+            }
+            return true;
         }
-    }
-
-    @Override // com.baidu.tieba.px1
-    public void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
-            this.a = new xx1(jSONArray);
-        }
+        return invokeLL.booleanValue;
     }
 }

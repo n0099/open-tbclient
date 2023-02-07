@@ -1,28 +1,72 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.immessagecenter.chatgroup.floatentrance.ChatFloatEntranceFragment;
+import com.baidu.tieba.tg5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes4.dex */
-public class eq7 implements qo4 {
+public class eq7 implements pk1<tg5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.qo4
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TbConfig.LIKE_ADDRESS : (String) invokeV.objValue;
+    /* loaded from: classes4.dex */
+    public class a implements tg5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        @Nullable
+        public ChatFloatEntranceFragment b;
+
+        @Override // com.baidu.tieba.tg5
+        public void a(@Nullable tg5.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            }
+        }
+
+        public a(eq7 eq7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eq7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.tg5
+        public void onChangeSkinType(int i) {
+            ChatFloatEntranceFragment chatFloatEntranceFragment;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (chatFloatEntranceFragment = this.b) != null) {
+                chatFloatEntranceFragment.onChangeSkinType(i);
+            }
+        }
+
+        @Override // com.baidu.tieba.tg5
+        @NonNull
+        public tg5.b b(String str, wg5 wg5Var) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, wg5Var)) == null) {
+                if (this.b == null) {
+                    this.b = new ChatFloatEntranceFragment(str, wg5Var);
+                }
+                return this.b;
+            }
+            return (tg5.b) invokeLL.objValue;
+        }
     }
 
     public eq7() {
@@ -39,20 +83,15 @@ public class eq7 implements qo4 {
         }
     }
 
-    @Override // com.baidu.tieba.qo4
-    public void b(HashMap<String, String> hashMap, ro4 ro4Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.pk1
+    /* renamed from: a */
+    public tg5 getService() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap, ro4Var) == null) && ro4Var != null && hashMap != null && !hashMap.isEmpty()) {
-            String str = hashMap.get("fid");
-            if (TextUtils.isEmpty(str)) {
-                return;
-            }
-            String str2 = hashMap.get(TiebaStatic.Params.H5_FORUM_NAME);
-            if (TextUtils.isEmpty(str2)) {
-                return;
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001335, Long.valueOf(yg.g(str, 0L))));
-            TbadkCoreApplication.getInst().addLikeForum(str2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
         }
+        return (tg5) invokeV.objValue;
     }
 }

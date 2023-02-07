@@ -1,51 +1,127 @@
 package com.baidu.tieba;
 
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.util.DisplayMetrics;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.EditText;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.GreyUtil;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tieba.h68;
-import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
+import com.baidu.nadcore.exp.ADConfigError;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.download.DownloadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.List;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 /* loaded from: classes3.dex */
-public abstract class b68<V extends h68, D extends IBaseDialogData> implements g68 {
+public class b68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlertDialog a;
-    public TbPageContext b;
-    public Context c;
-    public DialogInterface.OnKeyListener d;
-    public DialogInterface.OnCancelListener e;
-    public int f;
-    public boolean g;
-    public V h;
 
     /* loaded from: classes3.dex */
-    public class a implements ViewHelper.ViewCallback {
+    public static class a implements gb5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AtomicBoolean a;
+        public final /* synthetic */ f68 a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ g68 c;
 
-        public a(b68 b68Var, AtomicBoolean atomicBoolean) {
+        @Override // com.baidu.tieba.gb5
+        public boolean onFileDownloaded(DownloadData downloadData) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.gb5
+        public boolean onPreDownload(DownloadData downloadData) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        /* renamed from: com.baidu.tieba.b68$a$a  reason: collision with other inner class name */
+        /* loaded from: classes3.dex */
+        public class C0231a extends BdAsyncTask<Void, Void, Boolean> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ DownloadData a;
+            public final /* synthetic */ a b;
+
+            public C0231a(a aVar, DownloadData downloadData) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, downloadData};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = downloadData;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+            public Boolean doInBackground(Void... voidArr) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
+                    FileHelper.deleteFileOrDir(new File(this.b.b));
+                    if (b68.g(this.a.getPath(), this.b.c)) {
+                        a aVar = this.b;
+                        return Boolean.valueOf(b68.f(aVar.c, aVar.b));
+                    }
+                    return Boolean.FALSE;
+                }
+                return (Boolean) invokeL.objValue;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+            public void onPostExecute(Boolean bool) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) {
+                    if (bool.booleanValue()) {
+                        a aVar = this.b;
+                        aVar.a.onSuccess(aVar.b);
+                        return;
+                    }
+                    this.b.a.onFail("fail to download");
+                }
+            }
+        }
+
+        public a(f68 f68Var, String str, g68 g68Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {b68Var, atomicBoolean};
+                Object[] objArr = {f68Var, str, g68Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -55,116 +131,190 @@ public abstract class b68<V extends h68, D extends IBaseDialogData> implements g
                     return;
                 }
             }
-            this.a = atomicBoolean;
+            this.a = f68Var;
+            this.b = str;
+            this.c = g68Var;
         }
 
-        @Override // com.baidu.tbadk.core.util.ViewHelper.ViewCallback
-        public boolean onViewFound(View view2) {
-            InterceptResult invokeL;
+        @Override // com.baidu.tieba.gb5
+        public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-                if (view2 instanceof EditText) {
-                    this.a.set(true);
-                    return true;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
+                a68.a("【表情下载】 onFileDownloadFailed = " + str);
+                if (this.a != null) {
+                    String str2 = "faile to download:";
+                    if (downloadData != null && !TextUtils.isEmpty(downloadData.getUrl())) {
+                        str2 = "faile to download:" + downloadData.getUrl();
+                    }
+                    this.a.onFail(str2);
                 }
+            }
+        }
+
+        @Override // com.baidu.tieba.gb5
+        public void onFileDownloadSucceed(DownloadData downloadData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) {
+                a68.a("【表情下载】 onFileDownloadSucceed = " + this.b);
+                new C0231a(this, downloadData).execute(new Void[0]);
+            }
+        }
+
+        @Override // com.baidu.tieba.gb5
+        public void onFileUpdateProgress(DownloadData downloadData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) {
+                f68 f68Var = this.a;
+                if (f68Var != null) {
+                    f68Var.onProgress(downloadData.getProcess());
+                }
+                a68.a("【表情下载】 onFileUpdateProgress = " + downloadData.getProcess());
+            }
+        }
+    }
+
+    public static void c(g68 g68Var, f68 f68Var) {
+        List<h68> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, g68Var, f68Var) == null) {
+            if (g68Var != null && (list = g68Var.e) != null && list.size() != 0 && !TextUtils.isEmpty(g68Var.d)) {
+                a68.a("【表情下载】 url = " + g68Var.d);
+                a aVar = new a(f68Var, c68.c + g68Var.a + "/", g68Var);
+                new File(c68.c).mkdirs();
+                d(g68Var, c68.c, aVar);
+                return;
+            }
+            if (f68Var != null) {
+                f68Var.onFail("group data null");
+            }
+            a68.a("【表情下载】 fail = 参数异常");
+        }
+    }
+
+    public static void d(g68 g68Var, String str, gb5 gb5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, g68Var, str, gb5Var) == null) {
+            if (g68Var != null && !TextUtils.isEmpty(g68Var.d)) {
+                String str2 = g68Var.a + ".zip";
+                DownloadData downloadData = new DownloadData(g68Var.a, str2, Uri.encode(g68Var.d, "-![.:/,%?&=]"), gb5Var);
+                downloadData.setPath(str + str2);
+                hb5.k().l(downloadData);
+            } else if (gb5Var != null) {
+                gb5Var.onFileDownloadFailed(null, 0, ADConfigError.REASON_NULL_DATA);
+            }
+        }
+    }
+
+    public static String e(String str, String str2, Bitmap bitmap, int i) {
+        InterceptResult invokeLLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, bitmap, i)) == null) {
+            if (bitmap != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                File file = new File(str + str2);
+                try {
+                    if ((file.exists() && !file.delete()) || !file.createNewFile()) {
+                        return null;
+                    }
+                    FileOutputStream fileOutputStream = new FileOutputStream(file);
+                    bitmap.compress(Bitmap.CompressFormat.PNG, i, fileOutputStream);
+                    fileOutputStream.flush();
+                    fileOutputStream.close();
+                    return file.getPath();
+                } catch (Exception unused) {
+                }
+            }
+            return null;
+        }
+        return (String) invokeLLLI.objValue;
+    }
+
+    public static boolean f(g68 g68Var, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, g68Var, str)) == null) {
+            File file = new File(str + "panel.png");
+            File file2 = new File(str + "panel_momo.png");
+            if (file.exists() && file2.exists()) {
+                a68.a("【表情下载】 savePanelImage");
+                return true;
+            }
+            if (!new File(str + g68Var.c).exists()) {
                 return false;
             }
-            return invokeL.booleanValue;
+            Bitmap bitmap = null;
+            try {
+                bitmap = BitmapFactory.decodeFile(str + g68Var.c);
+            } catch (OutOfMemoryError e) {
+                e.printStackTrace();
+            }
+            if (bitmap == null) {
+                return false;
+            }
+            if (!file.exists() && TextUtils.isEmpty(e(str, "panel.png", bitmap, 60))) {
+                return false;
+            }
+            if (!file2.exists() && TextUtils.isEmpty(e(str, "panel_momo.png", bitmap, 60))) {
+                return false;
+            }
+            a68.a("【表情下载】 savePanelImage = " + g68Var.c);
+            return true;
         }
+        return invokeLL.booleanValue;
     }
 
-    public b68(TbPageContext tbPageContext, V v, D d) {
+    public static boolean g(String str, g68 g68Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, v, d};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.f = -1;
-        this.g = false;
-        this.b = tbPageContext;
-        this.c = tbPageContext.getPageActivity();
-        this.h = v;
-        d(d);
-    }
-
-    public void d(D d) {
-        V v;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, d) == null) && (v = this.h) != null) {
-            v.b(d);
-        }
-    }
-
-    @Override // com.baidu.tieba.g68
-    public void dismiss() {
-        AlertDialog alertDialog;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (alertDialog = this.a) != null) {
-            dh.a(alertDialog, this.b.getPageActivity());
-        }
-    }
-
-    @Override // com.baidu.tieba.g68
-    public void show() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            AlertDialog alertDialog = this.a;
-            if (alertDialog != null) {
-                dh.i(alertDialog, this.b.getPageActivity());
-                return;
-            }
-            if (this.g) {
-                this.a = new AlertDialog.Builder(this.c, R.style.obfuscated_res_0x7f1003f2).create();
-            } else {
-                this.a = new AlertDialog.Builder(this.c).create();
-            }
-            GreyUtil.grey(this.a);
-            this.a.setCanceledOnTouchOutside(c());
-            this.a.setCancelable(b());
-            this.a.setOnKeyListener(this.d);
-            DialogInterface.OnCancelListener onCancelListener = this.e;
-            if (onCancelListener != null) {
-                this.a.setOnCancelListener(onCancelListener);
-            }
-            dh.i(this.a, this.b.getPageActivity());
-            if (this.a.getWindow().getDecorView().getParent() == null) {
-                return;
-            }
-            Window window = this.a.getWindow();
-            if (this.f == -1) {
-                this.f = 17;
-            }
-            window.setGravity(this.f);
-            window.setBackgroundDrawableResource(R.drawable.transparent_bg);
-            WindowManager.LayoutParams attributes = window.getAttributes();
-            attributes.dimAmount = 0.7f;
-            attributes.width = -1;
-            DisplayMetrics t = zi.t(this.b.getPageActivity());
-            if (t != null) {
-                int a2 = a();
-                if (UtilHelper.getRealScreenOrientation(this.c) == 2) {
-                    attributes.width = t.heightPixels - (a2 * 2);
-                } else {
-                    attributes.width = t.widthPixels - (a2 * 2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, g68Var)) == null) {
+            ZipInputStream zipInputStream = null;
+            try {
+                try {
+                    ZipInputStream zipInputStream2 = new ZipInputStream(new BufferedInputStream(new FileInputStream(str)));
+                    while (true) {
+                        try {
+                            ZipEntry nextEntry = zipInputStream2.getNextEntry();
+                            if (nextEntry != null) {
+                                if (!nextEntry.isDirectory()) {
+                                    String str2 = ".emotions/" + g68Var.a;
+                                    String str3 = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + str2 + "/" + nextEntry.getName();
+                                    FileHelper.saveFileByStream(str3, zipInputStream2);
+                                    a68.a("【表情下载】 unZipEmotion = " + str3);
+                                }
+                            } else {
+                                zipInputStream2.close();
+                                FileHelper.deleteFile(new File(str));
+                                fj.e(zipInputStream2);
+                                return true;
+                            }
+                        } catch (FileNotFoundException e) {
+                            e = e;
+                            zipInputStream = zipInputStream2;
+                            e.printStackTrace();
+                            fj.e(zipInputStream);
+                            return false;
+                        } catch (IOException e2) {
+                            e = e2;
+                            zipInputStream = zipInputStream2;
+                            e.printStackTrace();
+                            fj.e(zipInputStream);
+                            return false;
+                        } catch (Throwable th) {
+                            th = th;
+                            zipInputStream = zipInputStream2;
+                            fj.e(zipInputStream);
+                            throw th;
+                        }
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
                 }
+            } catch (FileNotFoundException e3) {
+                e = e3;
+            } catch (IOException e4) {
+                e = e4;
             }
-            attributes.height = -2;
-            window.setAttributes(attributes);
-            window.setContentView(this.h.getViewGroup());
-            AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-            ViewHelper.processAllViewsIn(this.h.getViewGroup(), false, new a(this, atomicBoolean));
-            if (atomicBoolean.get()) {
-                window.clearFlags(131080);
-            }
+        } else {
+            return invokeLL.booleanValue;
         }
     }
 }

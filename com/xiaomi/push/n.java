@@ -34,7 +34,7 @@ public abstract class n {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m642a(Context context, String str, boolean z) {
+    public static boolean m644a(Context context, String str, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, context, str, z)) == null) {

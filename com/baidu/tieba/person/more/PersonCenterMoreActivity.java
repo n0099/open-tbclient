@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ke8;
-import com.baidu.tieba.kf8;
-import com.baidu.tieba.z86;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.di8;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.ej8;
+import com.baidu.tieba.ld6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,13 +31,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ke8 a;
+    public di8 a;
     public Bundle b;
-    public kf8 c;
-    public z86 d;
+    public ej8 c;
+    public ld6 d;
 
     /* loaded from: classes5.dex */
-    public class a extends z86<kf8> {
+    public class a extends ld6<ej8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonCenterMoreActivity b;
@@ -61,14 +61,14 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.z86
+        @Override // com.baidu.tieba.ld6
         /* renamed from: d */
-        public void a(View view2, kf8 kf8Var) {
+        public void a(View view2, ej8 ej8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, kf8Var) != null) {
+            if (interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, ej8Var) != null) {
                 return;
             }
-            this.b.c = kf8Var;
+            this.b.c = ej8Var;
             if (this.b.c == null || this.b.D1()) {
                 return;
             }
@@ -111,9 +111,9 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            ke8 ke8Var = this.a;
-            if (ke8Var != null) {
-                ke8Var.d();
+            di8 di8Var = this.a;
+            if (di8Var != null) {
+                di8Var.d();
             }
         }
     }
@@ -147,7 +147,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         }
         if (str.startsWith("tieba&")) {
             if (!TbadkCoreApplication.getInst().appResponseToIntentClass(ConsumptionRecordsActivityConfig.class)) {
-                zi.P(getPageContext().getPageActivity(), R.string.cosume_record_plugin_not_install_tip);
+                ej.P(getPageContext().getPageActivity(), R.string.cosume_record_plugin_not_install_tip);
                 return;
             }
             UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{str.substring(6)});
@@ -167,10 +167,10 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
             if (intent != null) {
                 this.b = intent.getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE);
             }
-            setContentView(R.layout.obfuscated_res_0x7f0d0723);
-            ke8 ke8Var = new ke8(getPageContext(), this.b, this.d);
-            this.a = ke8Var;
-            ke8Var.c();
+            setContentView(R.layout.obfuscated_res_0x7f0d071d);
+            di8 di8Var = new di8(getPageContext(), this.b, this.d);
+            this.a = di8Var;
+            di8Var.c();
         }
     }
 

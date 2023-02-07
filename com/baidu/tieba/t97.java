@@ -1,77 +1,9 @@
 package com.baidu.tieba;
-
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.homepage.personalize.data.RecPersonalizeRequest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.squareup.wire.Wire;
-import java.io.IOException;
-import tbclient.Personalized.DataRes;
 /* loaded from: classes6.dex */
-public class t97 {
-    public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface t97 {
+    void b();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948136119, "Lcom/baidu/tieba/t97;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948136119, "Lcom/baidu/tieba/t97;");
-        }
-    }
+    void c(int i, wn5 wn5Var, int i2);
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            vv4.d();
-            ef<byte[]> c = vv4.c("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
-            if (c != null) {
-                c.e("0", new byte[0], 0L);
-            }
-        }
-    }
-
-    public static DataRes b() {
-        InterceptResult invokeV;
-        byte[] bArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            vv4.d();
-            ef<byte[]> c = vv4.c("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
-            if (c != null && (bArr = c.get("0")) != null && bArr.length != 0) {
-                try {
-                    return (DataRes) new Wire(new Class[0]).parseFrom(bArr, DataRes.class);
-                } catch (IOException e) {
-                    BdLog.e(e);
-                }
-            }
-            return null;
-        }
-        return (DataRes) invokeV.objValue;
-    }
-
-    public static boolean c(ResponsedMessage responsedMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, responsedMessage)) == null) {
-            if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof RecPersonalizeRequest) || ((RecPersonalizeRequest) responsedMessage.getOrginalMessage().getExtra()).getLoadType() != 2) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
+    void d(int i, int i2, wn5 wn5Var, int i3);
 }

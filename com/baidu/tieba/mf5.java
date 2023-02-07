@@ -1,52 +1,45 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.ListUtils;
+import android.view.View;
+import android.widget.RelativeLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class mf5 {
+public class mf5 implements hf5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(List<String> list) {
-        InterceptResult invokeL;
+    public mf5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            if (ListUtils.getCount(list) <= 0) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            StringBuilder sb = new StringBuilder();
-            boolean z = false;
-            for (String str : list) {
-                if (!StringUtils.isNull(str)) {
-                    if (!z && !StringUtils.isNull(sb.toString())) {
-                        z = true;
-                    }
-                    if (z) {
-                        sb.append("_");
-                    }
-                    sb.append(str);
-                }
-            }
-            return sb.toString();
         }
-        return (String) invokeL.objValue;
     }
 
-    public static List<String> b(List<String> list, int i) {
-        InterceptResult invokeLI;
+    @Override // com.baidu.tieba.hf5
+    public void a(View view2, View view3, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, list, i)) == null) {
-            int count = ListUtils.getCount(list);
-            if (count > 0 && i >= 0 && count > i) {
-                return new ArrayList(ListUtils.subList(list, count - i, count));
+        if (interceptable == null || interceptable.invokeLLZ(1048576, this, view2, view3, z) == null) {
+            RelativeLayout relativeLayout = (RelativeLayout) view2;
+            if (z) {
+                relativeLayout.addView(view3, 0);
+            } else {
+                relativeLayout.addView(view3);
             }
-            return list;
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view3.getLayoutParams();
+            layoutParams.width = -1;
+            layoutParams.height = -1;
+            layoutParams.addRule(14);
+            view3.setLayoutParams(layoutParams);
         }
-        return (List) invokeLI.objValue;
     }
 }

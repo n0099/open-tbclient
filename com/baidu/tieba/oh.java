@@ -1,78 +1,54 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ubc.UBCManager;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class oh {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String A;
+    public String B;
+    public String C;
+    public String D;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public String j;
+    public String k;
+    public String l;
+    public String m;
+    public String n;
+    public String o;
+    public String p;
+    public String q;
+    public String r;
+    public String s;
+    public String t;
+    public String u;
+    public String v;
+    public String w;
+    public String x;
+    public String y;
+    public String z;
 
-    public static void a(gh ghVar) {
+    public oh() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, ghVar) == null) && d() && ghVar != null) {
-            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("ext", ghVar.h());
-                uBCManager.onEvent("3102", jSONObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public static void b(gh ghVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, ghVar) == null) && d() && ghVar != null) {
-            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("ext", ghVar.h());
-                uBCManager.onEvent("3052", jSONObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public static void c(gh ghVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, ghVar) == null) && d() && ghVar != null) {
-            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("ext", ghVar.h());
-                uBCManager.onEvent("3103", jSONObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return ih.isOn();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void e(ph phVar, gh ghVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, phVar, ghVar) == null) {
-            if (phVar instanceof ei) {
-                c(ghVar);
-            } else if (phVar instanceof di) {
-                b(ghVar);
-            } else if (phVar instanceof ci) {
-                a(ghVar);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }

@@ -10,40 +10,47 @@ import kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsKt;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.RestrictedSuspendLambda;
 import kotlin.jvm.functions.Function2;
-import kotlin.jvm.internal.Intrinsics;
 /* JADX INFO: Add missing generic type declarations: [S] */
-@Metadata(d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\b\b\u0001\u0010\u0003*\u0002H\u0002*\b\u0012\u0004\u0012\u0002H\u00020\u0004H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006"}, d2 = {"<anonymous>", "", ExifInterface.LATITUDE_SOUTH, ExifInterface.GPS_DIRECTION_TRUE, "Lkotlin/sequences/SequenceScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 5, 1})
-@DebugMetadata(c = "kotlin.sequences.SequencesKt___SequencesKt$runningReduce$1", f = "_Sequences.kt", i = {0, 0, 0, 1, 1}, l = {2173, 2176}, m = "invokeSuspend", n = {"$this$sequence", "iterator", "accumulator", "$this$sequence", "iterator"}, s = {"L$0", "L$1", "L$2", "L$0", "L$1"})
+@Metadata(d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\b\b\u0001\u0010\u0003*\u0002H\u0002*\b\u0012\u0004\u0012\u0002H\u00020\u0004H\u008a@"}, d2 = {"<anonymous>", "", ExifInterface.LATITUDE_SOUTH, ExifInterface.GPS_DIRECTION_TRUE, "Lkotlin/sequences/SequenceScope;"}, k = 3, mv = {1, 6, 0}, xi = 48)
+@DebugMetadata(c = "kotlin.sequences.SequencesKt___SequencesKt$runningReduce$1", f = "_Sequences.kt", i = {0, 0, 0, 1, 1, 1}, l = {2173, 2176}, m = "invokeSuspend", n = {"$this$sequence", "iterator", "accumulator", "$this$sequence", "iterator", "accumulator"}, s = {"L$0", "L$1", "L$2", "L$0", "L$1", "L$2"})
 /* loaded from: classes9.dex */
 public final class SequencesKt___SequencesKt$runningReduce$1<S> extends RestrictedSuspendLambda implements Function2<SequenceScope<? super S>, Continuation<? super Unit>, Object> {
-    public final /* synthetic */ Function2 $operation;
-    public final /* synthetic */ Sequence $this_runningReduce;
+    public final /* synthetic */ Function2<S, T, S> $operation;
+    public final /* synthetic */ Sequence<T> $this_runningReduce;
     public /* synthetic */ Object L$0;
     public Object L$1;
     public Object L$2;
     public int label;
 
+    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: kotlin.sequences.Sequence<? extends T> */
+    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: kotlin.jvm.functions.Function2<? super S, ? super T, ? extends S> */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SequencesKt___SequencesKt$runningReduce$1(Sequence sequence, Function2 function2, Continuation continuation) {
+    /* JADX WARN: Multi-variable type inference failed */
+    public SequencesKt___SequencesKt$runningReduce$1(Sequence<? extends T> sequence, Function2<? super S, ? super T, ? extends S> function2, Continuation<? super SequencesKt___SequencesKt$runningReduce$1> continuation) {
         super(2, continuation);
         this.$this_runningReduce = sequence;
         this.$operation = function2;
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
-    public final Continuation<Unit> create(Object obj, Continuation<?> completion) {
-        Intrinsics.checkNotNullParameter(completion, "completion");
-        SequencesKt___SequencesKt$runningReduce$1 sequencesKt___SequencesKt$runningReduce$1 = new SequencesKt___SequencesKt$runningReduce$1(this.$this_runningReduce, this.$operation, completion);
+    public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
+        SequencesKt___SequencesKt$runningReduce$1 sequencesKt___SequencesKt$runningReduce$1 = new SequencesKt___SequencesKt$runningReduce$1(this.$this_runningReduce, this.$operation, continuation);
         sequencesKt___SequencesKt$runningReduce$1.L$0 = obj;
         return sequencesKt___SequencesKt$runningReduce$1;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function2
-    public final Object invoke(Object obj, Continuation<? super Unit> continuation) {
-        return ((SequencesKt___SequencesKt$runningReduce$1) create(obj, continuation)).invokeSuspend(Unit.INSTANCE);
+    public /* bridge */ /* synthetic */ Object invoke(Object obj, Continuation<? super Unit> continuation) {
+        return invoke((SequenceScope) ((SequenceScope) obj), continuation);
     }
 
+    public final Object invoke(SequenceScope<? super S> sequenceScope, Continuation<? super Unit> continuation) {
+        return ((SequencesKt___SequencesKt$runningReduce$1) create(sequenceScope, continuation)).invokeSuspend(Unit.INSTANCE);
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r5v1, resolved type: kotlin.jvm.functions.Function2<S, T, S> */
+    /* JADX WARN: Multi-variable type inference failed */
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     public final Object invokeSuspend(Object obj) {
         SequenceScope sequenceScope;

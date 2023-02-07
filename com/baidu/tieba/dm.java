@@ -1,98 +1,66 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.pms.IPmsContext;
-import com.baidu.searchbox.pms.init.RequestParams;
-import com.baidu.searchbox.pms.statistic.StatisticCallback;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
-import java.util.List;
-@Singleton
-@Service
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class dm implements IPmsContext {
+public class dm {
     public static /* synthetic */ Interceptable $ic;
+    public static Map<String, gm> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.searchbox.pms.IPmsContext
-    public boolean checkChannelAllow(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public dm() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448302660, "Lcom/baidu/tieba/dm;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448302660, "Lcom/baidu/tieba/dm;");
+                return;
             }
         }
+        HashMap hashMap = new HashMap();
+        a = hashMap;
+        hashMap.put("com.baidu.searchbox.livenps", new cm());
     }
 
-    @Override // com.baidu.searchbox.pms.IPmsContext
-    public List<RequestParams.Channel> getLongConnectParams() {
-        InterceptResult invokeV;
+    public static void a(String str, int i) {
+        gm gmVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return Collections.emptyList();
+        if ((interceptable == null || interceptable.invokeLI(65537, null, str, i) == null) && (gmVar = a.get(str)) != null) {
+            gmVar.b(i);
         }
-        return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.pms.IPmsContext
-    public StatisticCallback getStatisticCallback() {
-        InterceptResult invokeV;
+    public static void b(String str, int i, long j) {
+        gm gmVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return new fm();
+        if ((interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), Long.valueOf(j)}) == null) && (gmVar = a.get(str)) != null) {
+            gmVar.c(i, j);
         }
-        return (StatisticCallback) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.pms.IPmsContext
-    public RequestParams getRegisterParams(String str) {
-        InterceptResult invokeL;
+    public static void c(String str, int i, int i2) {
+        gm gmVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return getRegisterParams(str, "aps");
+        if ((interceptable == null || interceptable.invokeLII(65539, null, str, i, i2) == null) && (gmVar = a.get(str)) != null) {
+            gmVar.d(i, i2);
         }
-        return (RequestParams) invokeL.objValue;
     }
 
-    @Override // com.baidu.searchbox.pms.IPmsContext
-    public RequestParams getRegisterParams(String str, String str2) {
-        InterceptResult invokeLL;
+    public static void d(String str, int i, int i2) {
+        gm gmVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            RequestParams requestParams = new RequestParams();
-            requestParams.setRunType(str);
-            if (TextUtils.isEmpty(str2)) {
-                str2 = "aps";
-            }
-            requestParams.setRunNode(str2);
-            if ("0".equals(str)) {
-                requestParams.addChannel(ol.e().d());
-                requestParams.addChannel(new an());
-                requestParams.addChannel(new km());
-            }
-            return requestParams;
+        if ((interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i, i2) == null) && (gmVar = a.get(str)) != null) {
+            gmVar.e(i, i2);
         }
-        return (RequestParams) invokeLL.objValue;
     }
 }

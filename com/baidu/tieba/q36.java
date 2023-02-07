@@ -1,86 +1,46 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.ala.utils.AlaStringHelper;
+import android.text.TextUtils;
+import android.widget.BaseAdapter;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
-import com.baidu.tieba.wallet.CurrencySwitchUtil;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class q36 {
+public abstract class q36 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RelativeLayout a;
-    public TextView b;
-    public TextView c;
-    public TextView d;
-    public TextView e;
-    public TextView f;
-    public LinearLayout g;
-    public LinearLayout h;
-    public TextView i;
-    public b j;
-    public AlaEnterEffectData k;
-    public Context l;
+    public TbPageContext a;
+    public Context b;
+    public List<u36> c;
+    public int d;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a();
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i : invokeI.longValue;
     }
 
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q36 a;
-
-        public a(q36 q36Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q36Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = q36Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.j != null) {
-                this.a.j.a();
-            }
-        }
-    }
-
-    public q36(Context context, AlaEnterEffectData alaEnterEffectData) {
+    public q36(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, alaEnterEffectData};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -90,111 +50,61 @@ public class q36 {
                 return;
             }
         }
-        if (alaEnterEffectData != null && context != null) {
-            this.l = context;
-            this.k = alaEnterEffectData;
-            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00ec, (ViewGroup) null);
-            this.a = relativeLayout;
-            this.b = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f0908c2);
-            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091379);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091431);
-            this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0906ef);
-            this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0920fa);
-            this.g = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0920fb);
-            this.h = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090775);
-            this.i = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090774);
-            c(alaEnterEffectData);
-        }
+        this.a = tbPageContext;
+        this.b = tbPageContext.getPageActivity();
+        this.c = new ArrayList();
     }
 
-    public void d(b bVar) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public u36 getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.j = bVar;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return this.c.get(i);
         }
+        return (u36) invokeI.objValue;
     }
 
-    public RelativeLayout b() {
-        InterceptResult invokeV;
+    public void c(List<u36> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (RelativeLayout) invokeV.objValue;
-    }
-
-    public void c(AlaEnterEffectData alaEnterEffectData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, alaEnterEffectData) != null) || alaEnterEffectData == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) != null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.k = alaEnterEffectData;
-        this.e.setEnabled(true);
-        int i = this.k.categoryType;
-        if (3 != i) {
-            if (2 == i) {
-                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f0801d5);
-                this.e.setTextColor(this.l.getResources().getColor(R.color.CAM_X0201));
-                this.g.setVisibility(0);
-                this.f.setText(AlaStringHelper.formatLowercasekDou((float) alaEnterEffectData.price));
-                Drawable normalSkinMoneyIcon = CurrencySwitchUtil.getNormalSkinMoneyIcon();
-                int dimensionPixelSize = this.l.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070215);
-                normalSkinMoneyIcon.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
-                this.f.setCompoundDrawablePadding(this.l.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023b));
-                this.f.setCompoundDrawables(normalSkinMoneyIcon, null, null, null);
-                this.h.setVisibility(0);
-                this.i.setText(AlaStringHelper.formatLowercasekDou((float) TbadkCoreApplication.getInst().currentAccountTdouNum));
-                Drawable normalSkinMoneyIcon2 = CurrencySwitchUtil.getNormalSkinMoneyIcon();
-                int dimensionPixelSize2 = this.l.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701e8);
-                normalSkinMoneyIcon2.setBounds(0, 0, dimensionPixelSize2, dimensionPixelSize2);
-                this.i.setCompoundDrawablePadding(this.l.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224));
-                this.i.setCompoundDrawables(normalSkinMoneyIcon2, null, null, null);
+        this.c.clear();
+        this.c.addAll(list);
+        notifyDataSetChanged();
+    }
+
+    public void b(TbPageContext<?> tbPageContext, ThreadData threadData, String str) {
+        String str2;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, threadData, str) == null) && tbPageContext != null && threadData != null && threadData.getAuthor() != null && threadData.getThreadAlaInfo() != null) {
+            if (TbadkCoreApplication.getCurrentAccount() != null) {
+                String userId = threadData.getAuthor().getUserId();
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                z = TextUtils.equals(userId, currentAccount);
+                str2 = currentAccount;
             } else {
-                this.d.setVisibility(0);
-                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080dbb);
-                this.e.setTextColor(this.l.getResources().getColorStateList(R.color.obfuscated_res_0x7f0607b0));
+                str2 = "";
+                z = false;
             }
+            AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
+            alaLiveInfoCoreData.fillWithInfoData(threadData.getThreadAlaInfo());
+            alaLiveInfoCoreData.userName = threadData.getAuthor().getUserName();
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(tbPageContext.getPageActivity(), alaLiveInfoCoreData, str, str2, z, "")));
         }
-        AlaEnterEffectData alaEnterEffectData2 = this.k;
-        if (alaEnterEffectData2.isOwn) {
-            if (alaEnterEffectData2.isUsing()) {
-                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080db8);
-                this.e.setTextColor(this.l.getResources().getColorStateList(R.color.obfuscated_res_0x7f0607af));
-                this.e.setText(R.string.obfuscated_res_0x7f0f0251);
-                if (2 == this.k.categoryType) {
-                    this.h.setVisibility(8);
-                }
-            } else {
-                this.e.setText(R.string.obfuscated_res_0x7f0f0222);
-            }
-        } else {
-            int i2 = alaEnterEffectData2.categoryType;
-            if (3 == i2) {
-                this.e.setText(R.string.obfuscated_res_0x7f0f023c);
-                this.c.setText(this.l.getString(R.string.obfuscated_res_0x7f0f0214, alaEnterEffectData.nobilityName));
-            } else if (2 == i2) {
-                if (TbadkCoreApplication.getInst().currentAccountTdouNum >= this.k.price) {
-                    this.e.setText(R.string.obfuscated_res_0x7f0f0219);
-                } else {
-                    this.e.setText(R.string.obfuscated_res_0x7f0f0212);
-                }
-            } else {
-                this.e.setBackgroundDrawable(null);
-                this.e.setTextColor(this.l.getResources().getColor(R.color.white_alpha60));
-                this.e.setText(R.string.obfuscated_res_0x7f0f0216);
-                this.e.setEnabled(false);
-            }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c.size();
         }
-        this.e.setOnClickListener(new a(this));
-        if (!StringUtils.isNull(alaEnterEffectData.name)) {
-            this.b.setText(alaEnterEffectData.name);
-        }
-        long currentTimeMillis = (alaEnterEffectData.end_time * 1000) - System.currentTimeMillis();
-        if (currentTimeMillis >= 0) {
-            this.c.setText(this.l.getResources().getString(R.string.obfuscated_res_0x7f0f0225, StringHelper.formatDayOrHourTime(currentTimeMillis)));
-        }
-        if (!StringUtils.isNull(alaEnterEffectData.effect_range_name)) {
-            this.d.setText(alaEnterEffectData.effect_range_name);
-        }
+        return invokeV.intValue;
     }
 }

@@ -1,211 +1,128 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.graphics.Bitmap;
-import android.graphics.Rect;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewParent;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
-import android.widget.RelativeLayout;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.GreyUtil;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.funad.view.FunAdAgreeView;
-import com.baidu.tieba.pb.ejection.EjectionAnimationView;
-import com.baidu.tieba.view.WaterRippleView;
+import android.content.Context;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.ThirdStatisticHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes4.dex */
 public class g27 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Activity a;
-    public int b;
-    public FrameLayout c;
-    public WaterRippleView d;
-    public EjectionAnimationView e;
-    public PopupWindow f;
 
-    /* loaded from: classes4.dex */
-    public class a implements x58 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g27 a;
-
-        @Override // com.baidu.tieba.x58
-        public /* synthetic */ void onStart() {
-            w58.a(this);
-        }
-
-        public a(g27 g27Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g27Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = g27Var;
-        }
-
-        @Override // com.baidu.tieba.x58
-        public void onStop() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.e.setVisibility(8);
-                if (this.a.f != null && this.a.f.isShowing()) {
-                    dh.d(this.a.f, this.a.a);
-                }
-            }
+    public static void a(StatisticItem statisticItem, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, statisticItem, str) == null) && YYLiveUtil.isYYLiveLink(str)) {
+            YYLiveUtil.addYyExtData(statisticItem, str);
         }
     }
 
-    public g27(Activity activity) {
+    public static void b(Context context, m09 m09Var) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = 0;
-        this.a = activity;
-        e();
-        f();
-    }
-
-    public void h(FunAdAgreeView funAdAgreeView) {
-        WaterRippleView waterRippleView;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, funAdAgreeView) != null) || funAdAgreeView == null || (waterRippleView = this.d) == null) {
+        if ((interceptable != null && interceptable.invokeLL(65537, null, context, m09Var) != null) || m09Var == null) {
             return;
         }
-        ViewParent parent = waterRippleView.getParent();
-        if (parent instanceof ViewGroup) {
-            ((ViewGroup) parent).removeView(this.d);
+        TbPageContext<BaseFragmentActivity> tbPageContext = null;
+        if (context instanceof BaseActivity) {
+            tbPageContext = ((BaseActivity) context).getPageContext();
+        } else if (context instanceof BaseFragmentActivity) {
+            tbPageContext = ((BaseFragmentActivity) context).getPageContext();
         }
-    }
-
-    public void i(boolean z) {
-        PopupWindow popupWindow;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && (popupWindow = this.f) != null) {
-            popupWindow.setClippingEnabled(z);
+        if (tbPageContext == null) {
+            return;
         }
-    }
-
-    public final int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return UtilHelper.getImmersiveStickyBarHeight() + UtilHelper.getScreenHeight(this.a);
-        }
-        return invokeV.intValue;
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.e.l();
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = new FrameLayout(this.a);
-            this.e = new EjectionAnimationView(this.a);
-            this.c.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            this.e.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-            this.e.setEjectionAnimationViewCallback(new a(this));
-            this.c.addView(this.e);
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            PopupWindow popupWindow = new PopupWindow();
-            this.f = popupWindow;
-            popupWindow.setContentView(this.c);
-            this.f.setHeight(d());
-            this.f.setWidth(-1);
-            this.f.setOutsideTouchable(false);
-            this.f.setFocusable(false);
-            this.f.setTouchable(false);
-            GreyUtil.grey(this.f);
-        }
-    }
-
-    public final void g(View view2, Rect rect) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, view2, rect) == null) && dh.m(this.f, view2, this.b, 0, 0)) {
-            this.e.setAnchorPosition((rect.right + rect.left) / 2, (rect.bottom + rect.top) / 2);
-            this.e.k();
-        }
-    }
-
-    public void j(View view2, List<Bitmap> list, Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048582, this, view2, list, rect) == null) {
-            this.e.setVisibility(0);
-            this.e.setBitmaps(list);
-            g(view2, rect);
-        }
-    }
-
-    public void k(LinearLayout linearLayout, FunAdAgreeView funAdAgreeView) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048583, this, linearLayout, funAdAgreeView) == null) && linearLayout != null && funAdAgreeView != null) {
-            if (funAdAgreeView.getWidth() != 0 && funAdAgreeView.getHeight() != 0) {
-                WaterRippleView waterRippleView = this.d;
-                if (waterRippleView == null) {
-                    this.d = new WaterRippleView(this.a);
-                } else {
-                    ViewParent parent = waterRippleView.getParent();
-                    if (parent instanceof ViewGroup) {
-                        ((ViewGroup) parent).removeView(this.d);
-                    }
-                }
-                linearLayout.getGlobalVisibleRect(new Rect());
-                Rect rect = new Rect();
-                funAdAgreeView.getImgAgree().getGlobalVisibleRect(rect);
-                int centerX = rect.centerX();
-                int centerY = rect.centerY();
-                int g = zi.g(this.a, R.dimen.tbds166);
-                int i = centerX - g;
-                int i2 = centerY - g;
-                int i3 = g * 2;
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i3, i3);
-                layoutParams.addRule(13, -1);
-                layoutParams.setMargins(i, i2, 0, 0);
-                this.c.addView(this.d, layoutParams);
-                return;
+        n09 n09Var = m09Var.f;
+        if (n09Var != null) {
+            qz5.b(n09Var.b, n09Var.c, "1191003700000000", n09Var.d);
+        } else {
+            if (YYLiveUtil.isYYLiveLink(m09Var.d)) {
+                str = m09Var.d + "&source=" + YYLiveUtil.SOURCE_FRS_SERVICE_AREA;
+            } else {
+                str = m09Var.d;
             }
-            BdLog.e("FunAdAgreeView not measured");
+            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
         }
+        i47.a(tbPageContext, m09Var.e);
+    }
+
+    public static void c(m09 m09Var) {
+        int i;
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65538, null, m09Var) != null) || m09Var == null) {
+            return;
+        }
+        StatisticItem statisticItem = new StatisticItem("c13626");
+        statisticItem.param("fid", m09Var.g);
+        if (m09Var.f == null) {
+            i = 1;
+        } else {
+            i = 2;
+        }
+        statisticItem.param("obj_type", i);
+        statisticItem.param("obj_locate", m09Var.h);
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+        n09 n09Var = m09Var.f;
+        if (n09Var != null) {
+            str = n09Var.c;
+        } else {
+            str = m09Var.d;
+        }
+        n09 n09Var2 = m09Var.f;
+        if (n09Var2 != null) {
+            String str2 = n09Var2.a;
+        } else {
+            String str3 = m09Var.c;
+        }
+        statisticItem.param("obj_name", m09Var.c);
+        statisticItem.param("obj_param1", m09Var.d);
+        a(statisticItem, str);
+        TiebaStatic.log(statisticItem);
+        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(m09Var.i, 1));
+    }
+
+    public static void d(m09 m09Var) {
+        int i;
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65539, null, m09Var) != null) || m09Var == null) {
+            return;
+        }
+        StatisticItem statisticItem = new StatisticItem("c13627");
+        statisticItem.param("fid", m09Var.g);
+        if (m09Var.f == null) {
+            i = 1;
+        } else {
+            i = 2;
+        }
+        statisticItem.param("obj_type", i);
+        statisticItem.param("obj_locate", m09Var.h);
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+        n09 n09Var = m09Var.f;
+        if (n09Var != null) {
+            str = n09Var.c;
+        } else {
+            str = m09Var.d;
+        }
+        n09 n09Var2 = m09Var.f;
+        if (n09Var2 != null) {
+            String str2 = n09Var2.a;
+        } else {
+            String str3 = m09Var.c;
+        }
+        statisticItem.param("obj_name", m09Var.c);
+        statisticItem.param("obj_param1", m09Var.d);
+        a(statisticItem, str);
+        TiebaStatic.log(statisticItem);
+        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(m09Var.i, 0));
     }
 }

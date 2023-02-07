@@ -35,16 +35,15 @@ import com.baidu.tbadk.util.TiePlusHelper;
 import com.baidu.tbadk.widget.tiejia.TiePlusEventController;
 import com.baidu.tbadk.widget.tiejia.TiePlusStat;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bh;
-import com.baidu.tieba.cx4;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.fe8;
+import com.baidu.tieba.ft5;
+import com.baidu.tieba.gh;
+import com.baidu.tieba.kl5;
+import com.baidu.tieba.p15;
 import com.baidu.tieba.pb.pb.main.view.CommentFloatSusPendedView;
-import com.baidu.tieba.pb.videopb.AbsVideoPbFragment;
 import com.baidu.tieba.pb.videopb.VideoPbCommentFloatFragment;
-import com.baidu.tieba.q98;
 import com.baidu.tieba.tbadkCore.data.PostData;
-import com.baidu.tieba.uo5;
-import com.baidu.tieba.zg5;
-import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,13 +58,13 @@ public class PbCommentFloatActivity extends AbsPbActivity {
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout A;
     public FrameLayout B;
-    public zg5 C;
+    public kl5 C;
     public BdUniqueId D;
     public TextView E;
     public ImageView F;
     public LinearLayout G;
     public TiePlusEventController H;
-    public uo5 I;
+    public ft5 I;
     public int J;
     public boolean K;
     public int L;
@@ -77,27 +76,27 @@ public class PbCommentFloatActivity extends AbsPbActivity {
     public NoNetworkView y;
     public ImageView z;
 
-    public final void P1() {
+    @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
+    public int D1() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d06e8 : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
-    public int h1() {
+    public int I1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? R.layout.obfuscated_res_0x7f0d06e3 : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
-    public int m1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return 2;
         }
         return invokeV.intValue;
+    }
+
+    public final void k2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+        }
     }
 
     /* loaded from: classes5.dex */
@@ -129,7 +128,7 @@ public class PbCommentFloatActivity extends AbsPbActivity {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.I != null) {
                 this.a.I.q(TiePlusStat.StatType.CLICK);
-                this.a.H.h(this.a.I);
+                this.a.H.g(this.a.I);
                 this.a.H.e(this.a.I);
             }
         }
@@ -165,7 +164,7 @@ public class PbCommentFloatActivity extends AbsPbActivity {
             if ((interceptable != null && interceptable.invokeZ(1048576, this, z) != null) || !z) {
                 return;
             }
-            this.a.P1();
+            this.a.k2();
         }
     }
 
@@ -206,30 +205,30 @@ public class PbCommentFloatActivity extends AbsPbActivity {
             }
             ThreadData threadData = (ThreadData) customResponsedMessage.getData();
             PbModel pbModel = this.a.a;
-            if (pbModel != null && pbModel.l1() != null && this.a.a.l1().Q() != null && threadData != null) {
-                this.a.M1();
+            if (pbModel != null && pbModel.k1() != null && this.a.a.k1().N() != null && threadData != null) {
+                this.a.h2();
                 String str2 = "";
                 if (threadData.getBaijiahaoData() == null) {
                     str = "";
                 } else {
                     str = threadData.getBaijiahaoData().oriUgcNid;
                 }
-                if (this.a.a.l1().Q().getBaijiahaoData() != null) {
-                    str2 = this.a.a.l1().Q().getBaijiahaoData().oriUgcNid;
+                if (this.a.a.k1().N().getBaijiahaoData() != null) {
+                    str2 = this.a.a.k1().N().getBaijiahaoData().oriUgcNid;
                 }
                 if (!"0".equals(str) && !TextUtils.isEmpty(str)) {
                     if (str.equals(str2)) {
-                        this.a.a.l1().Q().setReply_num(threadData.getReply_num());
-                        this.a.S1();
+                        this.a.a.k1().N().setReply_num(threadData.getReply_num());
+                        this.a.n2();
                         return;
                     }
                     return;
                 }
                 String id = threadData.getId();
-                String id2 = this.a.a.l1().Q().getId();
+                String id2 = this.a.a.k1().N().getId();
                 if (!"0".equals(id2) && !TextUtils.isEmpty(id2) && id2.equals(id)) {
-                    this.a.a.l1().Q().setReply_num(threadData.getReply_num());
-                    this.a.S1();
+                    this.a.a.k1().N().setReply_num(threadData.getReply_num());
+                    this.a.n2();
                 }
             }
         }
@@ -264,10 +263,10 @@ public class PbCommentFloatActivity extends AbsPbActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 Fragment fragment = this.a.c;
-                if ((fragment instanceof AbsVideoPbFragment) && ((AbsVideoPbFragment) fragment).H4()) {
-                    ((AbsVideoPbFragment) this.a.c).i5();
+                if ((fragment instanceof VideoPbCommentFloatFragment) && ((VideoPbCommentFloatFragment) fragment).K3()) {
+                    ((VideoPbCommentFloatFragment) this.a.c).d4();
                 } else {
-                    this.a.E1();
+                    this.a.Z1();
                 }
             }
         }
@@ -302,17 +301,17 @@ public class PbCommentFloatActivity extends AbsPbActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_TAB_COMMENT_FLOAT_CLICK);
-                statisticItem.param("fid", this.a.l1().getForumId());
-                statisticItem.param("tid", this.a.l1().F1());
+                statisticItem.param("fid", this.a.H1().getForumId());
+                statisticItem.param("tid", this.a.H1().D1());
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                statisticItem.param("post_id", this.a.l1().J0());
+                statisticItem.param("post_id", this.a.H1().I0());
                 statisticItem.param("obj_source", 1);
                 statisticItem.param("obj_type", 5);
                 if (this.a.getIntent() != null) {
                     statisticItem.param("obj_locate", this.a.getIntent().getIntExtra(PbCommentFloatActivityConfig.KEY_FROM_VIDEO_PAGE_TYPE, 0));
                 }
                 TiebaStatic.log(statisticItem);
-                this.a.E1();
+                this.a.Z1();
             }
         }
     }
@@ -345,7 +344,7 @@ public class PbCommentFloatActivity extends AbsPbActivity {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.R1();
+                this.a.m2();
             }
         }
     }
@@ -372,10 +371,10 @@ public class PbCommentFloatActivity extends AbsPbActivity {
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity, com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity
     public void finish() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            zg5 zg5Var = this.C;
-            if (zg5Var != null) {
-                Intent resultIntent = zg5Var.getResultIntent();
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            kl5 kl5Var = this.C;
+            if (kl5Var != null) {
+                Intent resultIntent = kl5Var.getResultIntent();
                 if (resultIntent != null) {
                     setResult(-1, resultIntent);
                 }
@@ -387,21 +386,196 @@ public class PbCommentFloatActivity extends AbsPbActivity {
             } else {
                 super.finish();
             }
-            bh.a().postDelayed(new f(this), 400L);
+            gh.a().postDelayed(new f(this), 400L);
+        }
+    }
+
+    public void l2(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
+            CustomMessage customMessage = new CustomMessage(2921596);
+            customMessage.setTag(this.D);
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921596, Boolean.valueOf(z));
+            customResponsedMessage.setOrginalMessage(customMessage);
+            MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
+        }
+    }
+
+    @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity, com.baidu.tbadk.core.BaseFragmentActivity
+    public void onKeyboardVisibilityChanged(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
+            super.onKeyboardVisibilityChanged(z);
+            this.K = z;
+        }
+    }
+
+    @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
+    public int G1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (getIntent() == null) {
+                return 0;
+            }
+            return getIntent().getIntExtra(PbCommentFloatActivityConfig.KEY_FROM_PAGE_TYPE, 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public void Z1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            kl5 kl5Var = this.C;
+            if (kl5Var != null && !kl5Var.M0()) {
+                return;
+            }
+            if (this.w != null) {
+                this.v.r();
+            } else {
+                finish();
+            }
+        }
+    }
+
+    public int a2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.L;
+        }
+        return invokeV.intValue;
+    }
+
+    public int b2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (getActivity() == null || getActivity().getIntent() == null) {
+                return 0;
+            }
+            return getActivity().getIntent().getIntExtra(PbCommentFloatActivityConfig.KEY_FROM_VIDEO_PAGE_TYPE, 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public final kl5 c2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            n2();
+            Fragment fragment = this.c;
+            if (fragment instanceof VideoPbCommentFloatFragment) {
+                VideoPbCommentFloatFragment videoPbCommentFloatFragment = (VideoPbCommentFloatFragment) fragment;
+                if (videoPbCommentFloatFragment.i3() != null) {
+                    return videoPbCommentFloatFragment.i3();
+                }
+                return null;
+            }
+            return null;
+        }
+        return (kl5) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity
+    public void closeAnimation() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 0);
+        }
+    }
+
+    public final void e2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.B = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09070d);
+        }
+    }
+
+    @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity, com.baidu.tbadk.core.BaseFragmentActivity
+    public void enterExitAnimation() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
+        }
+    }
+
+    public final void g2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            NoNetworkView noNetworkView = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f0920bf);
+            this.y = noNetworkView;
+            noNetworkView.a(this.M);
+        }
+    }
+
+    public final void i2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            TranView tranView = new TranView(getPageContext().getPageActivity());
+            this.w = tranView;
+            tranView.setVisibility(0);
+            this.w.setOnClickListener(new d(this));
+        }
+    }
+
+    public boolean j2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.K;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void m2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            CustomMessage customMessage = new CustomMessage(2921598);
+            customMessage.setTag(this.D);
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921598, Boolean.TRUE);
+            customResponsedMessage.setOrginalMessage(customMessage);
+            MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
+        }
+    }
+
+    @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+            super.onDestroy();
+            TbadkCoreApplication.getInst().resetFontSize();
+            CommentFloatSusPendedView commentFloatSusPendedView = this.v;
+            if (commentFloatSusPendedView != null) {
+                commentFloatSusPendedView.q();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
+            super.onPause();
+            l2(false);
+            TiePlusEventController tiePlusEventController = this.H;
+            if (tiePlusEventController != null) {
+                tiePlusEventController.onPause();
+            }
         }
     }
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
             super.onResume();
-            Q1(true);
+            l2(true);
             if (this.C == null) {
-                zg5 H1 = H1(this.B, this.x);
-                this.C = H1;
-                if (H1 != null) {
-                    this.v.setContentViewTop(H1);
+                kl5 c2 = c2();
+                this.C = c2;
+                if (c2 != null) {
+                    this.v.setContentViewTop(c2);
                 }
             }
             TiePlusEventController tiePlusEventController = this.H;
@@ -411,43 +585,23 @@ public class PbCommentFloatActivity extends AbsPbActivity {
         }
     }
 
-    public void Q1(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            CustomMessage customMessage = new CustomMessage(2921596);
-            customMessage.setTag(this.D);
-            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921596, Boolean.valueOf(z));
-            customResponsedMessage.setOrginalMessage(customMessage);
-            MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
-        }
-    }
-
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
-    public Fragment d1(String str) {
-        InterceptResult invokeL;
+    public Fragment z1() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
             VideoPbCommentFloatFragment videoPbCommentFloatFragment = new VideoPbCommentFloatFragment();
             videoPbCommentFloatFragment.setArguments(getIntent().getExtras());
             return videoPbCommentFloatFragment;
         }
-        return (Fragment) invokeL.objValue;
+        return (Fragment) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity, com.baidu.tbadk.core.BaseFragmentActivity
-    public void onKeyboardVisibilityChanged(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
-            super.onKeyboardVisibilityChanged(z);
-            this.K = z;
-        }
-    }
-
-    public final void D1() {
+    public final void Y1() {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            cx4.d(this.E).v(R.color.CAM_X0304);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            p15.d(this.E).v(R.color.CAM_X0304);
             int i = this.J;
             if (i != 0 && (imageView = this.F) != null) {
                 if (i != 3 && i != 7) {
@@ -470,206 +624,51 @@ public class PbCommentFloatActivity extends AbsPbActivity {
         }
     }
 
-    public final void S1() {
+    public final void n2() {
         PbModel pbModel;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && (pbModel = this.a) != null && pbModel.l1() != null && this.a.l1().Q() != null) {
-            this.x.setCenterTextTitle(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f12c0), Integer.valueOf(this.a.l1().Q().getReply_num())));
+        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && (pbModel = this.a) != null && pbModel.k1() != null && this.a.k1().N() != null) {
+            this.x.setCenterTextTitle(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f12e1), Integer.valueOf(this.a.k1().N().getReply_num())));
         }
     }
 
-    public void E1() {
+    public final void d2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            zg5 zg5Var = this.C;
-            if (zg5Var != null && !zg5Var.L0()) {
-                return;
-            }
-            if (this.w != null) {
-                this.v.r();
-            } else {
-                finish();
-            }
-        }
-    }
-
-    public int F1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.L;
-        }
-        return invokeV.intValue;
-    }
-
-    public int G1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (getActivity() == null || getActivity().getIntent() == null) {
-                return 0;
-            }
-            return getActivity().getIntent().getIntExtra(PbCommentFloatActivityConfig.KEY_FROM_VIDEO_PAGE_TYPE, 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public final void J1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.B = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0906fb);
-        }
-    }
-
-    public final void L1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            NoNetworkView noNetworkView = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f0920ae);
-            this.y = noNetworkView;
-            noNetworkView.a(this.M);
-        }
-    }
-
-    public final void N1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            TranView tranView = new TranView(getPageContext().getPageActivity());
-            this.w = tranView;
-            tranView.setVisibility(0);
-            this.w.setOnClickListener(new d(this));
-        }
-    }
-
-    public boolean O1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.K;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void R1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            CustomMessage customMessage = new CustomMessage(2921598);
-            customMessage.setTag(this.D);
-            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921598, Boolean.TRUE);
-            customResponsedMessage.setOrginalMessage(customMessage);
-            MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void closeAnimation() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 0);
-        }
-    }
-
-    @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity, com.baidu.tbadk.core.BaseFragmentActivity
-    public void enterExitAnimation() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
-        }
-    }
-
-    @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
-    public int k1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            if (getIntent() == null) {
-                return 0;
-            }
-            return getIntent().getIntExtra(PbCommentFloatActivityConfig.KEY_FROM_PAGE_TYPE, 0);
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            super.onDestroy();
-            TbadkCoreApplication.getInst().resetFontSize();
-            CommentFloatSusPendedView commentFloatSusPendedView = this.v;
-            if (commentFloatSusPendedView != null) {
-                commentFloatSusPendedView.q();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
-            super.onPause();
-            Q1(false);
-            TiePlusEventController tiePlusEventController = this.H;
-            if (tiePlusEventController != null) {
-                tiePlusEventController.onPause();
-            }
-        }
-    }
-
-    public final zg5 H1(FrameLayout frameLayout, NavigationBar navigationBar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, frameLayout, navigationBar)) == null) {
-            S1();
-            Fragment fragment = this.c;
-            if (fragment instanceof AbsVideoPbFragment) {
-                AbsVideoPbFragment absVideoPbFragment = (AbsVideoPbFragment) fragment;
-                if (absVideoPbFragment.T3() != null) {
-                    return absVideoPbFragment.T3();
-                }
-                return null;
-            }
-            return null;
-        }
-        return (zg5) invokeLL.objValue;
-    }
-
-    public final void I1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             CommentFloatSusPendedView commentFloatSusPendedView = (CommentFloatSusPendedView) findViewById(R.id.suspended_view);
             this.v = commentFloatSusPendedView;
             commentFloatSusPendedView.setVideoPageUniqueId(this.D);
             this.v.setIsNoBgColor(true);
-            N1();
-            K1();
-            L1();
-            J1();
+            i2();
+            f2();
+            g2();
+            e2();
             this.v.setNavigationBar(this.A);
             this.v.setTranView(this.w);
             this.v.setContentView(this.B);
             this.v.s();
-            this.E = (TextView) findViewById(R.id.obfuscated_res_0x7f091ceb);
-            this.F = (ImageView) findViewById(R.id.obfuscated_res_0x7f0922b6);
-            this.G = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0922b4);
+            this.E = (TextView) findViewById(R.id.obfuscated_res_0x7f091d00);
+            this.F = (ImageView) findViewById(R.id.obfuscated_res_0x7f0922cb);
+            this.G = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0922c9);
             this.H = new TiePlusEventController(this, TiePlusStat.Locate.VIDEO_COMMENT_TOP);
             registerListener(this.N);
         }
     }
 
-    public final void K1() {
+    public final void f2() {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.suspended_navigation_bar);
             this.x = navigationBar;
-            navigationBar.mCenterText.setTextSize(0, zi.g(getPageContext().getPageActivity(), R.dimen.T_X07));
+            navigationBar.mCenterText.setTextSize(0, ej.g(getPageContext().getPageActivity(), R.dimen.T_X07));
             this.x.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new e(this));
             this.z = this.x.getBackImageView();
             this.x.setIsCorner(true);
             this.x.setStatusBarVisibility(8);
             this.x.isShowBottomLine(true);
-            this.A = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091704);
-            int g = zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds562);
+            this.A = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091748);
+            int g = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds562);
             if (!TbSingleton.getInstance().isNotchScreen(this) && !TbSingleton.getInstance().isCutoutScreen(this)) {
                 i = UtilHelper.getStatusBarHeight();
             } else {
@@ -677,17 +676,17 @@ public class PbCommentFloatActivity extends AbsPbActivity {
             }
             int i2 = g + i;
             this.L = i2;
-            q98.i(i2);
+            fe8.i(i2);
             this.A.addView(this.w, 0, new LinearLayout.LayoutParams(-1, this.L));
         }
     }
 
-    public void M1() {
+    public void h2() {
         PbModel pbModel;
         TiebaPlusInfo tiebaPlusInfo;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (pbModel = this.a) != null && pbModel.l1() != null && this.a.l1().Q() != null && this.a.l1().H() != null) {
-            PostData postData = (PostData) ListUtils.getItem(this.a.l1().H(), 0);
+        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && (pbModel = this.a) != null && pbModel.k1() != null && this.a.k1().N() != null && this.a.k1().G() != null) {
+            PostData postData = (PostData) ListUtils.getItem(this.a.k1().G(), 0);
             List<PbContent> list = null;
             if (postData != null) {
                 list = postData.i0;
@@ -696,13 +695,13 @@ public class PbCommentFloatActivity extends AbsPbActivity {
             if (pbContent != null && (tiebaPlusInfo = pbContent.tiebaplus_info) != null) {
                 Integer num = pbContent.type;
                 this.J = tiebaPlusInfo.jump_type.intValue();
-                uo5 c2 = uo5.c(num.intValue(), tiebaPlusInfo, this.a.l1().Q());
+                ft5 c2 = ft5.c(num.intValue(), tiebaPlusInfo, this.a.k1().N());
                 this.I = c2;
-                c2.b(this.a.l1().Q().statFloor);
+                c2.b(this.a.k1().N().statFloor);
                 this.I.q(TiePlusStat.StatType.EXPOSE);
-                this.H.h(this.I);
+                this.H.g(this.I);
                 this.E.setText(tiebaPlusInfo.desc);
-                D1();
+                Y1();
                 this.G.setVisibility(0);
                 this.x.isShowBottomLine(false);
                 this.G.setOnClickListener(new a(this));
@@ -713,22 +712,22 @@ public class PbCommentFloatActivity extends AbsPbActivity {
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity, com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
             super.onChangeSkinType(i);
             if (!UtilHelper.isFlyMeOs()) {
                 UtilHelper.changeStatusBarIconAndTextColor(true, this);
             }
             this.x.onChangeSkinType(getPageContext(), i);
             SkinManager.setBackgroundColor(this.G, R.color.CAM_X0208);
-            D1();
+            Y1();
             WebPManager.setPureDrawable(this.z, R.drawable.icon_pure_topbar_close44, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS);
             this.y.d(getPageContext(), i);
-            this.v.p(i);
+            this.v.p();
             SkinManager.setBackgroundColor(this.v, R.color.CAM_X0608);
             SkinManager.setBackgroundColor(this.B, R.color.CAM_X0201);
-            zg5 zg5Var = this.C;
-            if (zg5Var != null) {
-                zg5Var.o(i);
+            kl5 kl5Var = this.C;
+            if (kl5Var != null) {
+                kl5Var.o(i);
             }
         }
     }
@@ -736,14 +735,14 @@ public class PbCommentFloatActivity extends AbsPbActivity {
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048599, this, bundle) == null) {
             TbadkCoreApplication.getInst().setTempFontSize(3);
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             if (getIntent() != null) {
                 this.D = (BdUniqueId) getIntent().getSerializableExtra("key_from_video_page_id");
             }
-            I1();
+            d2();
         }
     }
 }

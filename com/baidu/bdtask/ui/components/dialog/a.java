@@ -19,13 +19,13 @@ import com.baidu.bdtask.ui.utils.d;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hr;
-import com.baidu.tieba.ks;
-import com.baidu.tieba.ku;
-import com.baidu.tieba.lu;
-import com.baidu.tieba.qv;
-import com.baidu.tieba.tu;
-import com.baidu.tieba.uu;
+import com.baidu.tieba.mr;
+import com.baidu.tieba.ps;
+import com.baidu.tieba.pu;
+import com.baidu.tieba.qu;
+import com.baidu.tieba.vv;
+import com.baidu.tieba.yu;
+import com.baidu.tieba.zu;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,7 +39,7 @@ import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000L\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0006\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0014\b&\u0018\u0000 72\u00020\u0001:\u00017B\u0007¢\u0006\u0004\b6\u0010\u0004J\r\u0010\u0003\u001a\u00020\u0002¢\u0006\u0004\b\u0003\u0010\u0004J\r\u0010\u0005\u001a\u00020\u0002¢\u0006\u0004\b\u0005\u0010\u0004J\r\u0010\u0006\u001a\u00020\u0002¢\u0006\u0004\b\u0006\u0010\u0004J\u000f\u0010\u0007\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0007\u0010\u0004J\r\u0010\b\u001a\u00020\u0002¢\u0006\u0004\b\b\u0010\u0004J\u000f\u0010\n\u001a\u00020\tH'¢\u0006\u0004\b\n\u0010\u000bJ\u000f\u0010\r\u001a\u0004\u0018\u00010\f¢\u0006\u0004\b\r\u0010\u000eJ\u000f\u0010\u000f\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u000f\u0010\u0004J\u000f\u0010\u0010\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0010\u0010\u0004J#\u0010\u0015\u001a\u00020\u00022\b\u0010\u0012\u001a\u0004\u0018\u00010\u00112\b\u0010\u0014\u001a\u0004\u0018\u00010\u0013H\u0004¢\u0006\u0004\b\u0015\u0010\u0016J\u000f\u0010\u0017\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0017\u0010\u0004J\u0019\u0010\u001a\u001a\u00020\u00022\b\u0010\u0019\u001a\u0004\u0018\u00010\u0018H\u0014¢\u0006\u0004\b\u001a\u0010\u001bJ\u000f\u0010\u001c\u001a\u00020\u0002H\u0014¢\u0006\u0004\b\u001c\u0010\u0004JI\u0010&\u001a\u00020\u00022\u0006\u0010\u001e\u001a\u00020\u001d2\u0006\u0010 \u001a\u00020\u001f2\b\u0010!\u001a\u0004\u0018\u00010\u00112\b\u0010\"\u001a\u0004\u0018\u00010\u00112\b\u0010#\u001a\u0004\u0018\u00010\u00112\f\u0010%\u001a\b\u0012\u0004\u0012\u00020\u00020$¢\u0006\u0004\b&\u0010'R\"\u0010(\u001a\u00020\u001f8\u0006@\u0006X\u0086.¢\u0006\u0012\n\u0004\b(\u0010)\u001a\u0004\b*\u0010+\"\u0004\b,\u0010-R\"\u0010.\u001a\u00020\u00138\u0006@\u0006X\u0086.¢\u0006\u0012\n\u0004\b.\u0010/\u001a\u0004\b0\u00101\"\u0004\b2\u00103R\u0018\u00104\u001a\u0004\u0018\u00010\f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b4\u00105¨\u00068"}, d2 = {"Lcom/baidu/bdtask/ui/components/dialog/BaseActivityDialog;", "Landroid/app/Activity;", "", "dialogCancelUbc", "()V", "dialogClickUbc", "dialogCloseUbc", "dialogShowUbc", "disMiss", "", "getBtnLayout", "()I", "Lcom/baidu/bdtask/component/dialog/TaskDialogViewData;", "getData", "()Lcom/baidu/bdtask/component/dialog/TaskDialogViewData;", "initExtraView", "initView", "", "url", "Landroid/view/View;", NativeConstants.TYPE_VIEW, "loadImageAsync", "(Ljava/lang/String;Landroid/view/View;)V", "onAttachedToWindow", "Landroid/os/Bundle;", "savedInstanceState", "onCreate", "(Landroid/os/Bundle;)V", MissionEvent.MESSAGE_PAUSE, "Landroid/widget/TextView;", "textBtn", "Landroid/widget/ImageView;", "imageBtn", "btnText", "btnTextColor", "btnBgUrl", "Lkotlin/Function0;", "clickAction", "showButton", "(Landroid/widget/TextView;Landroid/widget/ImageView;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/Function0;)V", "bgImg", "Landroid/widget/ImageView;", "getBgImg", "()Landroid/widget/ImageView;", "setBgImg", "(Landroid/widget/ImageView;)V", "closeBtn", "Landroid/view/View;", "getCloseBtn", "()Landroid/view/View;", "setCloseBtn", "(Landroid/view/View;)V", "data", "Lcom/baidu/bdtask/component/dialog/TaskDialogViewData;", "<init>", "Companion", "lib-bdtask-ui-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class a extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -66,13 +66,13 @@ public abstract class a extends Activity {
     public abstract int e();
 
     /* renamed from: com.baidu.bdtask.ui.components.dialog.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public static final class View$OnClickListenerC0095a implements View.OnClickListener {
+    /* loaded from: classes2.dex */
+    public static final class View$OnClickListenerC0094a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public View$OnClickListenerC0095a(a aVar) {
+        public View$OnClickListenerC0094a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -92,13 +92,13 @@ public abstract class a extends Activity {
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
-            ku v;
-            lu d;
+            pu v;
+            qu d;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 TaskDialogViewData a = this.a.a();
                 if (a != null && (v = BDPTask.m.v()) != null && (d = v.d()) != null) {
-                    d.b(a.getTaskInfoSingleKey(), hr.c.a());
+                    d.b(a.getTaskInfoSingleKey(), mr.c.a());
                 }
                 this.a.g();
                 this.a.d();
@@ -106,7 +106,7 @@ public abstract class a extends Activity {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static final class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -139,7 +139,7 @@ public abstract class a extends Activity {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static final class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -221,8 +221,8 @@ public abstract class a extends Activity {
     }
 
     public final void b(TextView textView, ImageView imageView, String str, String str2, String str3, Function0<Unit> function0) {
-        ku v;
-        ks h;
+        pu v;
+        ps h;
         Context appContext;
         Resources resources;
         Interceptable interceptable = $ic;
@@ -230,7 +230,7 @@ public abstract class a extends Activity {
             if (!TextUtils.isEmpty(str)) {
                 textView.setVisibility(0);
                 imageView.setVisibility(8);
-                textView.setTextColor(qv.a.a(str2, resources.getColor(R.color.task_sdk_text_color_default)));
+                textView.setTextColor(vv.a.a(str2, resources.getColor(R.color.task_sdk_text_color_default)));
                 textView.setText(str);
                 textView.setOnClickListener(new b(function0));
                 c(str3, textView);
@@ -280,41 +280,41 @@ public abstract class a extends Activity {
 
     public final void g() {
         TaskDialogViewData a;
-        ku v;
-        tu f;
+        pu v;
+        yu f;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (a = a()) != null && (v = BDPTask.m.v()) != null && (f = v.f()) != null) {
-            f.a("y_task_pop", "close_clk", uu.b(uu.a, a.getTaskId(), a.getTaskActId(), null, 4, null));
+            f.a("y_task_pop", "close_clk", zu.b(zu.a, a.getTaskId(), a.getTaskActId(), null, 4, null));
         }
     }
 
     public final void h() {
         TaskDialogViewData a;
-        ku v;
-        tu f;
+        pu v;
+        yu f;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (a = a()) != null && (v = BDPTask.m.v()) != null && (f = v.f()) != null) {
-            f.a("y_task_pop", "icon_clk", uu.b(uu.a, a.getTaskId(), a.getTaskActId(), null, 4, null));
+            f.a("y_task_pop", "icon_clk", zu.b(zu.a, a.getTaskId(), a.getTaskActId(), null, 4, null));
         }
     }
 
     public final void i() {
         TaskDialogViewData a;
-        ku v;
-        tu f;
+        pu v;
+        yu f;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (a = a()) != null && (v = BDPTask.m.v()) != null && (f = v.f()) != null) {
-            f.a("y_task_pop", "cancel_clk", uu.b(uu.a, a.getTaskId(), a.getTaskActId(), null, 4, null));
+            f.a("y_task_pop", "cancel_clk", zu.b(zu.a, a.getTaskId(), a.getTaskActId(), null, 4, null));
         }
     }
 
     public final void k() {
         TaskDialogViewData a;
-        ku v;
-        tu f;
+        pu v;
+        yu f;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (a = a()) != null && (v = BDPTask.m.v()) != null && (f = v.f()) != null) {
-            f.a("y_task_pop", "c_pv", uu.b(uu.a, a.getTaskId(), a.getTaskActId(), null, 4, null));
+            f.a("y_task_pop", "c_pv", zu.b(zu.a, a.getTaskId(), a.getTaskActId(), null, 4, null));
         }
     }
 
@@ -334,7 +334,7 @@ public abstract class a extends Activity {
             if (findViewById2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("closeBtn");
             }
-            findViewById2.setOnClickListener(new View$OnClickListenerC0095a(this));
+            findViewById2.setOnClickListener(new View$OnClickListenerC0094a(this));
             Intent intent = getIntent();
             Intrinsics.checkExpressionValueIsNotNull(intent, "intent");
             Bundle extras = intent.getExtras();

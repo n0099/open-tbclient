@@ -2,7 +2,7 @@ package com.baidu.lcp.sdk.pb;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.d90;
+import com.baidu.tieba.j90;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -257,7 +257,7 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                LcmPb$LcmNotify lcmPb$LcmNotify = new LcmPb$LcmNotify(this, (d90) null);
+                LcmPb$LcmNotify lcmPb$LcmNotify = new LcmPb$LcmNotify(this, (j90) null);
                 int i = this.a;
                 int i2 = 1;
                 if ((i & 1) != 1) {
@@ -545,7 +545,7 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
         }
     }
 
-    public /* synthetic */ LcmPb$LcmNotify(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, d90 d90Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ LcmPb$LcmNotify(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, j90 j90Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -571,7 +571,7 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
         this.memoizedSerializedSize = -1;
     }
 
-    public /* synthetic */ LcmPb$LcmNotify(GeneratedMessageLite.Builder builder, d90 d90Var) {
+    public /* synthetic */ LcmPb$LcmNotify(GeneratedMessageLite.Builder builder, j90 j90Var) {
         this(builder);
     }
 

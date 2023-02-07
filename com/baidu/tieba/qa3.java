@@ -1,159 +1,97 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.ubc.Flow;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.core.container.PullToRefreshBaseWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class qa3 {
+public class qa3 extends ta3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static pa3 a(String str) {
-        InterceptResult invokeL;
-        Object obj;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qa3(t93 t93Var) {
+        super(t93Var, "/swanAPI/preventPullDownRefresh");
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            Flow d = pj4.d(str);
-            if (g()) {
-                obj = qn2.A0().beginFlow(str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {t93Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ta3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, w83 w83Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, w83Var)) == null) {
+            if (ta3.b) {
+                Log.d("PreventPullDownRefresh", "handle entity: " + unitedSchemeEntity.toString());
+            }
+            JSONObject a = ta3.a(unitedSchemeEntity, "params");
+            if (a == null) {
+                w52.c("preventPullDownRefresh", "none params");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "none params");
+                return false;
+            }
+            String optString = a.optString("slaveId");
+            if (TextUtils.isEmpty(optString)) {
+                w52.c("preventPullDownRefresh", "slaveId null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "slaveId null");
+                return false;
+            }
+            ju2 U = ju2.U();
+            ev1 A = U.A(optString);
+            if (!(A instanceof cv1)) {
+                w52.c("preventPullDownRefresh", "webViewManager not a SwanAppSlaveManager");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "webViewManager not a SwanAppSlaveManager");
+                return false;
+            }
+            f82 V = U.V();
+            if (V == null) {
+                w52.c("PreventPullDownRefresh", "manager is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            }
+            e82 o = V.o();
+            if (o == null) {
+                w52.c("PreventPullDownRefresh", "slave container is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else if (TextUtils.equals("7", o.N1().l())) {
+                w52.c("PreventPullDownRefresh", "this page is from showModalPage api");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(402);
+                return false;
             } else {
-                obj = null;
-            }
-            return new pa3(obj, d);
-        }
-        return (pa3) invokeL.objValue;
-    }
-
-    public static void b(@NonNull pa3 pa3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, pa3Var) == null) {
-            if (g()) {
-                qn2.A0().b(pa3Var.b());
-            }
-            Flow a = pa3Var.a();
-            if (a != null) {
-                a.cancel();
+                boolean optBoolean = a.optBoolean("prevent", false);
+                PullToRefreshBaseWebView h0 = ((cv1) A).h0();
+                if (h0 != null) {
+                    h0.setIsPreventPullToRefresh(optBoolean);
+                    return true;
+                }
+                return true;
             }
         }
-    }
-
-    public static void c(@NonNull pa3 pa3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, pa3Var) == null) {
-            if (g()) {
-                qn2.A0().c(pa3Var.b());
-            }
-            Flow a = pa3Var.a();
-            if (a != null) {
-                a.end();
-            }
-        }
-    }
-
-    public static void d(@NonNull pa3 pa3Var, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, pa3Var, str, str2) == null) {
-            if (g()) {
-                qn2.A0().a(pa3Var.b(), str, str2);
-            }
-            Flow a = pa3Var.a();
-            if (a != null) {
-                a.addEvent(str, str2);
-            }
-        }
-    }
-
-    public static void i(String str, String str2, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65544, null, str, str2, jSONObject) == null) {
-            if (g()) {
-                qn2.A0().f(str, jSONObject);
-            }
-            pj4.l(str2, jSONObject);
-        }
-    }
-
-    public static void e(@NonNull pa3 pa3Var, String str, String str2, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{pa3Var, str, str2, Long.valueOf(j)}) == null) {
-            if (g()) {
-                qn2.A0().g(pa3Var.b(), str, str2, j);
-            }
-            Flow a = pa3Var.a();
-            if (a != null) {
-                a.addEvent(str, str2, j);
-            }
-        }
-    }
-
-    public static void f(@NonNull pa3 pa3Var, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, pa3Var, str) == null) {
-            if (g()) {
-                qn2.A0().h(pa3Var.b(), str);
-            }
-            Flow a = pa3Var.a();
-            if (a != null) {
-                a.setValueWithDuration(str);
-            }
-        }
-    }
-
-    public static void h(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) {
-            if (g()) {
-                qn2.A0().i(str, str2);
-            }
-            pj4.h(str, str2);
-        }
-    }
-
-    public static void j(String str, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, str, map) == null) {
-            if (g()) {
-                qn2.A0().d(str, map);
-            }
-            pj4.j(str, map);
-        }
-    }
-
-    public static void k(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, str, jSONObject) == null) {
-            if (g()) {
-                qn2.A0().f(str, jSONObject);
-            }
-            pj4.l(str, jSONObject);
-        }
-    }
-
-    public static void l(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) {
-            qn2.A0().i(str, str2);
-        }
-    }
-
-    public static void m(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65548, null, str, jSONObject) == null) {
-            qn2.A0().f(str, jSONObject);
-        }
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return qn2.A0().e();
-        }
-        return invokeV.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 }

@@ -1,30 +1,35 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.SuppressLint;
+import android.database.Cursor;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tieba.jf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class kj {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
-    public static lj b;
-    public static String c;
-    public static mj d;
-    public static Handler e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a implements Handler.Callback {
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b implements Comparator<jf.b<?>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public a() {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -38,86 +43,133 @@ public class kj {
             }
         }
 
-        @Override // android.os.Handler.Callback
-        public boolean handleMessage(Message message) {
-            InterceptResult invokeL;
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(jf.b<?> bVar, jf.b<?> bVar2) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-                int i = message.what;
-                if (i != 0) {
-                    if (i != 1) {
-                        if (i != 6) {
-                            if (kj.d != null) {
-                                kj.d.error(message.what, rj.a(R.string.obfuscated_res_0x7f0f1619));
-                            }
-                        } else {
-                            if (kj.d != null) {
-                                kj.d.d(message.arg1);
-                            }
-                            return true;
-                        }
-                    } else if (kj.d != null) {
-                        kj.d.error(message.what, rj.a(R.string.obfuscated_res_0x7f0f1617));
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bVar, bVar2)) == null) {
+                long j = bVar.c;
+                long j2 = bVar2.c;
+                if (j == j2) {
+                    return 0;
+                }
+                if (j > j2) {
+                    return -1;
+                }
+                return 1;
+            }
+            return invokeLL.intValue;
+        }
+    }
+
+    /* JADX WARN: Type inference failed for: r3v11, types: [T, byte[]] */
+    @SuppressLint({"Range"})
+    public static List<jf.b<byte[]>> a(jf<byte[]> jfVar) {
+        InterceptResult invokeL;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jfVar)) == null) {
+            LinkedList linkedList = new LinkedList();
+            try {
+                cursor = c(jfVar);
+            } catch (Throwable th) {
+                th = th;
+                cursor = null;
+            }
+            if (cursor == null) {
+                return null;
+            }
+            while (cursor.moveToNext()) {
+                try {
+                    jf.b bVar = new jf.b();
+                    bVar.a = cursor.getString(cursor.getColumnIndex("m_key"));
+                    bVar.c = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                    cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                    bVar.b = cursor.getBlob(cursor.getColumnIndex("m_value"));
+                    linkedList.add(bVar);
+                } catch (Throwable th2) {
+                    th = th2;
+                    try {
+                        BdLog.e(th);
+                        ch.a(cursor);
+                        Collections.sort(linkedList, new b(null));
+                        return linkedList;
+                    } finally {
+                        ch.a(cursor);
                     }
-                } else if (kj.d != null) {
-                    kj.d.c(kj.c, message.arg1);
                 }
-                int unused = kj.a = 0;
-                mj unused2 = kj.d = null;
-                return false;
             }
-            return invokeL.booleanValue;
+            ch.a(cursor);
+            Collections.sort(linkedList, new b(null));
+            return linkedList;
         }
+        return (List) invokeL.objValue;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448309294, "Lcom/baidu/tieba/kj;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448309294, "Lcom/baidu/tieba/kj;");
-                return;
-            }
-        }
-        e = new Handler(new a());
-    }
-
-    public static void f() {
+    /* JADX WARN: Type inference failed for: r3v11, types: [T, java.lang.String] */
+    @SuppressLint({"Range"})
+    public static List<jf.b<String>> b(jf<String> jfVar) {
+        InterceptResult invokeL;
+        Cursor cursor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            lj ljVar = b;
-            if (ljVar != null) {
-                ljVar.l();
-            } else {
-                a = 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jfVar)) == null) {
+            LinkedList linkedList = new LinkedList();
+            try {
+                cursor = c(jfVar);
+            } catch (Throwable th) {
+                th = th;
+                cursor = null;
             }
-        }
-    }
-
-    public static boolean e(String str, mj mjVar, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65541, null, str, mjVar, i)) == null) {
-            if (a == 0) {
-                lj ljVar = b;
-                if (ljVar == null) {
-                    b = new lj(e, i);
-                } else {
-                    ljVar.k(i);
+            if (cursor == null) {
+                return null;
+            }
+            while (cursor.moveToNext()) {
+                try {
+                    jf.b bVar = new jf.b();
+                    bVar.a = cursor.getString(cursor.getColumnIndex("m_key"));
+                    bVar.c = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                    cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                    bVar.b = cursor.getString(cursor.getColumnIndex("m_value"));
+                    linkedList.add(bVar);
+                } catch (Throwable th2) {
+                    th = th2;
+                    try {
+                        BdLog.e(th);
+                        ch.a(cursor);
+                        Collections.sort(linkedList, new b(null));
+                        return linkedList;
+                    } finally {
+                        ch.a(cursor);
+                    }
                 }
-                c = str;
-                d = mjVar;
-                b.j(str);
-                a = 2;
-                new Thread(b).start();
-                return true;
             }
-            return false;
+            ch.a(cursor);
+            Collections.sort(linkedList, new b(null));
+            return linkedList;
         }
-        return invokeLLI.booleanValue;
+        return (List) invokeL.objValue;
+    }
+
+    public static Cursor c(jf<?> jfVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jfVar)) == null) {
+            if (jfVar == null || !(jfVar instanceof jf.c)) {
+                return null;
+            }
+            jf.c cVar = (jf.c) jfVar;
+            if (!(cVar.c() instanceof hf)) {
+                return null;
+            }
+            af n = ((hf) cVar.c()).n();
+            return n.q(n.h().f(), cVar.j());
+        }
+        return (Cursor) invokeL.objValue;
     }
 }

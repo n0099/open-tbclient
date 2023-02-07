@@ -1,71 +1,50 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class dc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int[] a;
+    public long a;
+    public long b;
+    public long c;
+    public long d;
+    public long e;
+    public long f;
+    public long g;
+    public long h;
+    public int i;
+    public long j;
+    public long k;
+    public long l;
 
-    public dc(int i, int i2, int i3) {
+    public dc() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.a = r0;
-        int[] iArr = {i, i2, i3};
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int[] iArr = this.a;
-            if (iArr == null || iArr.length != 1) {
-                return 0;
-            }
-            return iArr[0];
-        }
-        return invokeV.intValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int[] iArr = this.a;
-            if (iArr == null || iArr.length != 3) {
-                return 0;
-            }
-            int netType = BdNetTypeUtil.netType();
-            if (netType != 1) {
-                if (netType != 2) {
-                    if (netType != 3) {
-                        return this.a[2];
-                    }
-                    return this.a[1];
-                }
-                return this.a[0];
-            }
-            return this.a[2];
-        }
-        return invokeV.intValue;
+        this.a = 0L;
+        this.b = 0L;
+        this.c = 0L;
+        this.d = 0L;
+        this.e = 0L;
+        this.f = 0L;
+        this.g = 0L;
+        this.h = 0L;
+        this.i = 0;
+        this.j = 0L;
+        this.k = 0L;
+        this.l = 0L;
     }
 }

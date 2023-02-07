@@ -9,12 +9,12 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.di3;
-import com.baidu.tieba.px1;
-import com.baidu.tieba.qx1;
-import com.baidu.tieba.ux1;
-import com.baidu.tieba.uy1;
-import com.baidu.tieba.zx1;
+import com.baidu.tieba.c22;
+import com.baidu.tieba.d22;
+import com.baidu.tieba.h22;
+import com.baidu.tieba.h32;
+import com.baidu.tieba.m22;
+import com.baidu.tieba.qm3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -76,8 +76,8 @@ public class CanvasView extends AbsCanvasView {
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<px1> a;
-        public qx1 b;
+        public List<c22> a;
+        public d22 b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -140,7 +140,7 @@ public class CanvasView extends AbsCanvasView {
         }
     }
 
-    public void c(List<px1> list, boolean z) {
+    public void c(List<c22> list, boolean z) {
         boolean z2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLZ(1048576, this, list, z) == null) && list != null && !this.b.contains(list)) {
@@ -157,15 +157,15 @@ public class CanvasView extends AbsCanvasView {
             if (z2) {
                 b bVar2 = this.b.get(size - 1);
                 bVar.b = bVar2.b;
-                List<px1> list2 = bVar2.a;
+                List<c22> list2 = bVar2.a;
                 bVar.a = list2;
                 list2.addAll(list);
             } else {
-                bVar.b = new qx1(this);
+                bVar.b = new d22(this);
                 bVar.a = list;
             }
             this.b.add(bVar);
-            di3.e0(new a(this));
+            qm3.e0(new a(this));
         }
     }
 
@@ -226,13 +226,13 @@ public class CanvasView extends AbsCanvasView {
             int i = this.d;
             if (this.b.size() > 0) {
                 for (b bVar : this.b) {
-                    Iterator<px1> it = bVar.a.iterator();
+                    Iterator<c22> it = bVar.a.iterator();
                     while (true) {
                         if (it.hasNext()) {
-                            px1 next = it.next();
-                            if (next instanceof ux1) {
+                            c22 next = it.next();
+                            if (next instanceof h22) {
                                 i = 2;
-                            } else if (next instanceof uy1) {
+                            } else if (next instanceof h32) {
                                 i = 1;
                                 break;
                             }
@@ -255,7 +255,7 @@ public class CanvasView extends AbsCanvasView {
         }
     }
 
-    public qx1 getCanvasContext() {
+    public d22 getCanvasContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -265,7 +265,7 @@ public class CanvasView extends AbsCanvasView {
             }
             return null;
         }
-        return (qx1) invokeV.objValue;
+        return (d22) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -277,13 +277,13 @@ public class CanvasView extends AbsCanvasView {
                 int save = canvas.save();
                 canvas.setDrawFilter(this.c);
                 for (b bVar : this.b) {
-                    List<px1> list = bVar.a;
-                    qx1 qx1Var = bVar.b;
-                    qx1Var.d();
-                    for (px1 px1Var : list) {
-                        px1Var.a(qx1Var, canvas);
-                        if (px1Var instanceof zx1) {
-                            ((zx1) px1Var).e(this.e);
+                    List<c22> list = bVar.a;
+                    d22 d22Var = bVar.b;
+                    d22Var.d();
+                    for (c22 c22Var : list) {
+                        c22Var.a(d22Var, canvas);
+                        if (c22Var instanceof m22) {
+                            ((m22) c22Var).e(this.e);
                         }
                     }
                 }

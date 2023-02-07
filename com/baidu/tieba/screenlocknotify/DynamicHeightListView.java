@@ -7,7 +7,7 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,7 +37,7 @@ public class DynamicHeightListView extends BdListView {
                 return;
             }
         }
-        this.G = zi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702cd);
+        this.G = ej.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702ce);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -59,7 +59,7 @@ public class DynamicHeightListView extends BdListView {
                 return;
             }
         }
-        this.G = zi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702cd);
+        this.G = ej.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702ce);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -81,7 +81,7 @@ public class DynamicHeightListView extends BdListView {
                 return;
             }
         }
-        this.G = zi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702cd);
+        this.G = ej.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702ce);
     }
 
     public int getMaxHeight() {

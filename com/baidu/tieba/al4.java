@@ -1,30 +1,47 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
-import android.content.Context;
-import android.os.Build;
-import android.system.Os;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileOutputStream;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class al4 implements xk4<String> {
+public class al4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile al4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public a a;
 
-    public al4(Context context) {
+    /* loaded from: classes3.dex */
+    public static class a extends gp4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a() {
+            super("swan_preload_package");
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    public al4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,84 +51,47 @@ public class al4 implements xk4<String> {
                 return;
             }
         }
-        this.a = context.getApplicationContext();
+        this.a = new a();
     }
 
-    @Override // com.baidu.tieba.xk4
-    public boolean a() {
+    public static al4 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (al4.class) {
+                    if (b == null) {
+                        b = new al4();
+                    }
+                }
+            }
+            return b;
+        }
+        return (al4) invokeV.objValue;
+    }
+
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return !new File(this.a.getFilesDir(), "libuuid.so").exists();
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xk4
-    /* renamed from: b */
-    public String get() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return d();
+            return this.a.getString("version", "0");
         }
         return (String) invokeV.objValue;
     }
 
-    public final String d() {
-        InterceptResult invokeV;
+    public void c(zk4 zk4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            File file = new File(this.a.getFilesDir(), "libuuid.so");
-            if (!file.exists()) {
-                return null;
-            }
-            return dl4.c(file);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xk4
-    /* renamed from: c */
-    public void put(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            e(str);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zk4Var) == null) && zk4Var != null) {
+            this.a.edit().putString("version", zk4Var.c()).apply();
         }
     }
 
-    @SuppressLint({"WorldReadableFiles"})
-    @TargetApi(21)
-    public final void e(String str) {
-        int i;
+    public void d(JSONObject jSONObject) {
+        zk4 a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            File file = new File(this.a.getFilesDir(), "libuuid.so");
-            if (Build.VERSION.SDK_INT >= 24) {
-                i = 1;
-            } else {
-                i = 0;
-            }
-            FileOutputStream fileOutputStream = null;
-            try {
-                try {
-                    fileOutputStream = this.a.openFileOutput("libuuid.so", i ^ 1);
-                    fileOutputStream.write(str.getBytes());
-                    fileOutputStream.flush();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                if (i != 0) {
-                    try {
-                        Os.chmod(file.getAbsolutePath(), 436);
-                    } catch (Exception unused) {
-                    }
-                }
-            } finally {
-                dl4.a(fileOutputStream);
-            }
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null || (a2 = zk4.a(jSONObject)) == null) {
+            return;
         }
+        hg4.b().H(a2);
     }
 }

@@ -35,7 +35,7 @@ public class WrappedDrawableApi14 extends Drawable implements Drawable.Callback,
     public boolean isCompatTintEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             return true;
         }
         return invokeV.booleanValue;
@@ -133,10 +133,21 @@ public class WrappedDrawableApi14 extends Drawable implements Drawable.Callback,
     }
 
     @Override // android.graphics.drawable.Drawable
-    public int getMinimumHeight() {
+    @RequiresApi(23)
+    public int getLayoutDirection() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return DrawableCompat.getLayoutDirection(this.mDrawable);
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public int getMinimumHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.mDrawable.getMinimumHeight();
         }
         return invokeV.intValue;
@@ -146,7 +157,7 @@ public class WrappedDrawableApi14 extends Drawable implements Drawable.Callback,
     public int getMinimumWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.mDrawable.getMinimumWidth();
         }
         return invokeV.intValue;
@@ -156,7 +167,7 @@ public class WrappedDrawableApi14 extends Drawable implements Drawable.Callback,
     public int getOpacity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.mDrawable.getOpacity();
         }
         return invokeV.intValue;
@@ -167,7 +178,7 @@ public class WrappedDrawableApi14 extends Drawable implements Drawable.Callback,
     public int[] getState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return this.mDrawable.getState();
         }
         return (int[]) invokeV.objValue;
@@ -177,7 +188,7 @@ public class WrappedDrawableApi14 extends Drawable implements Drawable.Callback,
     public Region getTransparentRegion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             return this.mDrawable.getTransparentRegion();
         }
         return (Region) invokeV.objValue;
@@ -187,7 +198,7 @@ public class WrappedDrawableApi14 extends Drawable implements Drawable.Callback,
     public final Drawable getWrappedDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return this.mDrawable;
         }
         return (Drawable) invokeV.objValue;
@@ -198,8 +209,8 @@ public class WrappedDrawableApi14 extends Drawable implements Drawable.Callback,
     public boolean isAutoMirrored() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.mDrawable.isAutoMirrored();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return DrawableCompat.isAutoMirrored(this.mDrawable);
         }
         return invokeV.booleanValue;
     }
@@ -207,7 +218,7 @@ public class WrappedDrawableApi14 extends Drawable implements Drawable.Callback,
     @Override // android.graphics.drawable.Drawable
     public void jumpToCurrentState() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             this.mDrawable.jumpToCurrentState();
         }
     }
@@ -254,7 +265,7 @@ public class WrappedDrawableApi14 extends Drawable implements Drawable.Callback,
     public boolean setVisible(boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048608, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048610, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             if (!super.setVisible(z, z2) && !this.mDrawable.setVisible(z, z2)) {
                 return false;
             }
@@ -284,7 +295,7 @@ public class WrappedDrawableApi14 extends Drawable implements Drawable.Callback,
     public boolean getPadding(@NonNull Rect rect) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, rect)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, rect)) == null) {
             return this.mDrawable.getPadding(rect);
         }
         return invokeL.booleanValue;
@@ -293,7 +304,7 @@ public class WrappedDrawableApi14 extends Drawable implements Drawable.Callback,
     @Override // android.graphics.drawable.Drawable.Callback
     public void invalidateDrawable(@NonNull Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, drawable) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, drawable) == null) {
             invalidateSelf();
         }
     }
@@ -302,16 +313,27 @@ public class WrappedDrawableApi14 extends Drawable implements Drawable.Callback,
     public void onBoundsChange(Rect rect) {
         Drawable drawable;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048595, this, rect) == null) && (drawable = this.mDrawable) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048596, this, rect) == null) && (drawable = this.mDrawable) != null) {
             drawable.setBounds(rect);
         }
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    @RequiresApi(23)
+    public boolean onLayoutDirectionChanged(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
+            return DrawableCompat.setLayoutDirection(this.mDrawable, i);
+        }
+        return invokeI.booleanValue;
     }
 
     @Override // android.graphics.drawable.Drawable
     public boolean onLevelChange(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) {
             return this.mDrawable.setLevel(i);
         }
         return invokeI.booleanValue;
@@ -320,7 +342,7 @@ public class WrappedDrawableApi14 extends Drawable implements Drawable.Callback,
     @Override // android.graphics.drawable.Drawable
     public void setAlpha(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
             this.mDrawable.setAlpha(i);
         }
     }
@@ -329,15 +351,15 @@ public class WrappedDrawableApi14 extends Drawable implements Drawable.Callback,
     @RequiresApi(19)
     public void setAutoMirrored(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
-            this.mDrawable.setAutoMirrored(z);
+        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
+            DrawableCompat.setAutoMirrored(this.mDrawable, z);
         }
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setChangingConfigurations(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
             this.mDrawable.setChangingConfigurations(i);
         }
     }
@@ -345,7 +367,7 @@ public class WrappedDrawableApi14 extends Drawable implements Drawable.Callback,
     @Override // android.graphics.drawable.Drawable
     public void setColorFilter(ColorFilter colorFilter) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, colorFilter) == null) {
+        if (interceptable == null || interceptable.invokeL(1048603, this, colorFilter) == null) {
             this.mDrawable.setColorFilter(colorFilter);
         }
     }
@@ -353,7 +375,7 @@ public class WrappedDrawableApi14 extends Drawable implements Drawable.Callback,
     @Override // android.graphics.drawable.Drawable
     public void setDither(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
             this.mDrawable.setDither(z);
         }
     }
@@ -361,7 +383,7 @@ public class WrappedDrawableApi14 extends Drawable implements Drawable.Callback,
     @Override // android.graphics.drawable.Drawable
     public void setFilterBitmap(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048605, this, z) == null) {
             this.mDrawable.setFilterBitmap(z);
         }
     }
@@ -370,7 +392,7 @@ public class WrappedDrawableApi14 extends Drawable implements Drawable.Callback,
     public boolean setState(@NonNull int[] iArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, iArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, iArr)) == null) {
             boolean state = this.mDrawable.setState(iArr);
             if (!updateTint(iArr) && !state) {
                 return false;
@@ -383,7 +405,7 @@ public class WrappedDrawableApi14 extends Drawable implements Drawable.Callback,
     @Override // android.graphics.drawable.Drawable, androidx.core.graphics.drawable.TintAwareDrawable
     public void setTint(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
             setTintList(ColorStateList.valueOf(i));
         }
     }
@@ -391,7 +413,7 @@ public class WrappedDrawableApi14 extends Drawable implements Drawable.Callback,
     @Override // android.graphics.drawable.Drawable, androidx.core.graphics.drawable.TintAwareDrawable
     public void setTintList(ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, colorStateList) == null) {
+        if (interceptable == null || interceptable.invokeL(1048608, this, colorStateList) == null) {
             this.mState.mTint = colorStateList;
             updateTint(getState());
         }
@@ -400,7 +422,7 @@ public class WrappedDrawableApi14 extends Drawable implements Drawable.Callback,
     @Override // android.graphics.drawable.Drawable, androidx.core.graphics.drawable.TintAwareDrawable
     public void setTintMode(@NonNull PorterDuff.Mode mode) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048607, this, mode) == null) {
+        if (interceptable == null || interceptable.invokeL(1048609, this, mode) == null) {
             this.mState.mTintMode = mode;
             updateTint(getState());
         }
@@ -437,7 +459,7 @@ public class WrappedDrawableApi14 extends Drawable implements Drawable.Callback,
     @Override // androidx.core.graphics.drawable.WrappedDrawable
     public final void setWrappedDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, drawable) == null) {
+        if (interceptable == null || interceptable.invokeL(1048611, this, drawable) == null) {
             Drawable drawable2 = this.mDrawable;
             if (drawable2 != null) {
                 drawable2.setCallback(null);
@@ -464,7 +486,7 @@ public class WrappedDrawableApi14 extends Drawable implements Drawable.Callback,
         ColorStateList colorStateList;
         WrappedDrawableState wrappedDrawableState;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
             if (isCompatTintEnabled() && (wrappedDrawableState = this.mState) != null) {
                 colorStateList = wrappedDrawableState.mTint;
             } else {
@@ -484,7 +506,7 @@ public class WrappedDrawableApi14 extends Drawable implements Drawable.Callback,
         InterceptResult invokeV;
         Drawable.ConstantState constantState;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             if (!this.mMutated && super.mutate() == this) {
                 this.mState = mutateConstantState();
                 Drawable drawable = this.mDrawable;
@@ -511,7 +533,7 @@ public class WrappedDrawableApi14 extends Drawable implements Drawable.Callback,
     @Override // android.graphics.drawable.Drawable.Callback
     public void scheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{drawable, runnable, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{drawable, runnable, Long.valueOf(j)}) == null) {
             scheduleSelf(runnable, j);
         }
     }
@@ -519,7 +541,7 @@ public class WrappedDrawableApi14 extends Drawable implements Drawable.Callback,
     @Override // android.graphics.drawable.Drawable.Callback
     public void unscheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048610, this, drawable, runnable) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048612, this, drawable, runnable) == null) {
             unscheduleSelf(runnable);
         }
     }

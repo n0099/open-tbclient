@@ -51,7 +51,7 @@ public final class FontRequest {
         }
         Preconditions.checkArgument(z);
         this.mCertificatesArray = i;
-        this.mIdentifier = this.mProviderAuthority + "-" + this.mProviderPackage + "-" + this.mQuery;
+        this.mIdentifier = createIdentifier(str, str2, str3);
     }
 
     public FontRequest(@NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull List<List<byte[]>> list) {
@@ -74,7 +74,16 @@ public final class FontRequest {
         this.mQuery = (String) Preconditions.checkNotNull(str3);
         this.mCertificates = (List) Preconditions.checkNotNull(list);
         this.mCertificatesArray = 0;
-        this.mIdentifier = this.mProviderAuthority + "-" + this.mProviderPackage + "-" + this.mQuery;
+        this.mIdentifier = createIdentifier(str, str2, str3);
+    }
+
+    private String createIdentifier(@NonNull String str, @NonNull String str2, @NonNull String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, this, str, str2, str3)) == null) {
+            return str + "-" + str2 + "-" + str3;
+        }
+        return (String) invokeLLL.objValue;
     }
 
     @Nullable
@@ -97,11 +106,23 @@ public final class FontRequest {
         return invokeV.intValue;
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public String getIdentifier() {
+    @NonNull
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public String getId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mIdentifier;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    @Deprecated
+    public String getIdentifier() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.mIdentifier;
         }
         return (String) invokeV.objValue;
@@ -111,7 +132,7 @@ public final class FontRequest {
     public String getProviderAuthority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.mProviderAuthority;
         }
         return (String) invokeV.objValue;
@@ -121,7 +142,7 @@ public final class FontRequest {
     public String getProviderPackage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.mProviderPackage;
         }
         return (String) invokeV.objValue;
@@ -131,7 +152,7 @@ public final class FontRequest {
     public String getQuery() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.mQuery;
         }
         return (String) invokeV.objValue;
@@ -140,7 +161,7 @@ public final class FontRequest {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("FontRequest {mProviderAuthority: " + this.mProviderAuthority + ", mProviderPackage: " + this.mProviderPackage + ", mQuery: " + this.mQuery + ", mCertificates:");
             for (int i = 0; i < this.mCertificates.size(); i++) {

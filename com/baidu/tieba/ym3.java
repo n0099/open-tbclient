@@ -1,112 +1,52 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.wifi.WifiManager;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class ym3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public a b;
-    public c c;
-    public b d;
-    public JSONObject e;
+    public int a;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public int c;
-        public int d;
-        public String e;
-        public String f;
-        public int g;
-        public int h;
-        public String i;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
     }
 
     /* loaded from: classes7.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
+        public static final ym3 a;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
 
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-255900020, "Lcom/baidu/tieba/ym3$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-255900020, "Lcom/baidu/tieba/ym3$b;");
+                    return;
                 }
             }
+            a = new ym3(null);
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public double b;
-        public double c;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public ym3(@NonNull Context context, @NonNull JSONObject jSONObject) {
+    public ym3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -116,111 +56,54 @@ public class ym3 {
                 return;
             }
         }
-        a aVar = new a();
-        c cVar = new c();
-        b bVar = new b();
-        String g0 = j43.g0();
-        String str = "";
-        this.a = TextUtils.isEmpty(g0) ? "" : g0;
-        this.b = aVar;
-        this.c = cVar;
-        this.d = bVar;
-        this.e = jSONObject;
-        String r = di3.r();
-        aVar.a = "0".equals(r) ? "" : r;
-        String a2 = a();
-        aVar.b = "0".equals(a2) ? "" : a2;
-        aVar.c = 2;
-        aVar.d = an3.e(context) ? 3 : 2;
-        String i3 = f12.i();
-        aVar.e = "NUL".equals(i3) ? "" : i3;
-        String g = f12.g();
-        aVar.f = "NUL".equals(g) ? "" : g;
-        aVar.g = ai3.n(context);
-        aVar.h = ai3.o(context);
-        String b2 = b();
-        if (!TextUtils.isEmpty(b2) && !Config.DEF_MAC_ID.equals(b2)) {
-            str = b2;
-        }
-        aVar.i = str;
-        bVar.a = an3.c();
-        bVar.b = an3.d(context);
+        this.a = 0;
     }
 
-    public String a() {
+    public static ym3 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (ym3) invokeV.objValue;
+    }
+
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String a2 = op3.b.a(AppRuntime.getAppContext());
-            if (TextUtils.isEmpty(a2)) {
-                return "0";
-            }
-            return a2;
+            return c() ? 1 : 0;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return c().toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
-        String str;
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            try {
-                str = ApiReplaceUtil.getMacAddress(((WifiManager) AppRuntime.getAppContext().getApplicationContext().getSystemService("wifi")).getConnectionInfo());
-            } catch (Exception unused) {
-                str = null;
+            if (this.a != 0) {
+                return true;
             }
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            return str;
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @NonNull
-    public JSONObject c() {
-        InterceptResult invokeV;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
-            JSONObject jSONObject3 = new JSONObject();
-            JSONObject jSONObject4 = new JSONObject();
-            try {
-                jSONObject.put("app_id", this.a);
-                jSONObject2.put("deviceid", this.b.a);
-                jSONObject2.put("androidid", this.b.b);
-                jSONObject2.put("os_type", this.b.c);
-                jSONObject2.put(HttpConstants.DEVICE_TYPE, this.b.d);
-                jSONObject2.put("device_vendor", this.b.e);
-                jSONObject2.put("device_model", this.b.f);
-                jSONObject2.put("screen_height", this.b.g);
-                jSONObject2.put("screen_width", this.b.h);
-                jSONObject2.put("mac", this.b.i);
-                jSONObject.put("device", jSONObject2);
-                jSONObject3.put("coord_type", this.c.a);
-                jSONObject3.put("latitude", this.c.b);
-                jSONObject3.put("longitude", this.c.c);
-                jSONObject.put(TableDefine.DB_TABLE_USERINFO, jSONObject3);
-                jSONObject4.put("network", this.d.a);
-                jSONObject4.put("operator", this.d.b);
-                jSONObject.put("network", jSONObject4);
-                jSONObject.put("data", this.e);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a = 0;
         }
-        return (JSONObject) invokeV.objValue;
+    }
+
+    public /* synthetic */ ym3(a aVar) {
+        this();
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.a = i;
+        }
     }
 }

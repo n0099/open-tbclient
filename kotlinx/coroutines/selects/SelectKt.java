@@ -61,8 +61,8 @@ public final class SelectKt {
     @ExperimentalTime
     @ExperimentalCoroutinesApi
     /* renamed from: onTimeout-0lHKgQg  reason: not valid java name */
-    public static final <R> void m2192onTimeout0lHKgQg(SelectBuilder<? super R> selectBuilder, double d, Function1<? super Continuation<? super R>, ? extends Object> function1) {
-        selectBuilder.onTimeout(DelayKt.m2152toDelayMillisLRDsOJo(d), function1);
+    public static final <R> void m2232onTimeout0lHKgQg(SelectBuilder<? super R> selectBuilder, double d, Function1<? super Continuation<? super R>, ? extends Object> function1) {
+        selectBuilder.onTimeout(DelayKt.m2192toDelayMillisLRDsOJo(d), function1);
     }
 
     public static final <R> Object select(Function1<? super SelectBuilder<? super R>, Unit> function1, Continuation<? super R> continuation) {

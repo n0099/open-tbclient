@@ -2,94 +2,96 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.os.Handler;
+import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sdk.container.filedownloader.MaterialLoader;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.io.IOException;
 /* loaded from: classes6.dex */
-public class tg1 {
+public class tg1 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
+    public Handler b;
+    public String c;
+    public ImageView d;
+    public int e;
+    public int f;
 
-    public tg1(Context context) {
+    public tg1(Context context, Handler handler, String str, ImageView imageView, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {context, handler, str, imageView, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
+        this.a = context.getApplicationContext();
+        this.b = handler;
+        this.c = str;
+        this.d = imageView;
+        this.e = i;
+        this.f = i2;
     }
 
-    public final boolean d(String str) {
-        InterceptResult invokeL;
+    /* JADX WARN: Removed duplicated region for block: B:16:0x0036  */
+    /* JADX WARN: Removed duplicated region for block: B:25:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final Bitmap a(String str, int i, int i2) {
+        Bitmap bitmap;
+        Bitmap bitmap2;
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            File a = af1.a(str);
-            if (a != null && a.exists() && a.isFile()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public Bitmap a(String str, ah1 ah1Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, ah1Var)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, str, i, i2)) == null) {
             try {
-                File a = af1.a(str);
-                if (a != null && a.exists() && a.isFile()) {
-                    return BitmapFactory.decodeFile(a.getAbsolutePath());
-                }
-            } catch (OutOfMemoryError unused) {
+                bitmap = ng1.b(this.a).c(str, i, i2);
+            } catch (IOException e) {
+                e = e;
+                bitmap = null;
             }
-            return MaterialLoader.k(this.a).i(str, ah1Var);
-        }
-        return (Bitmap) invokeLL.objValue;
-    }
-
-    public String b(String str, MaterialLoader.MaterialCacheType materialCacheType) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, materialCacheType)) == null) {
             try {
-                File a = af1.a(str);
-                if (a != null && a.exists() && a.isFile()) {
-                    return a.getAbsolutePath();
+            } catch (IOException e2) {
+                e = e2;
+                e.printStackTrace();
+                bitmap2 = bitmap;
+                if (bitmap2 != null) {
                 }
-                return MaterialLoader.k(this.a).m(str, materialCacheType);
-            } catch (Throwable unused) {
-                return null;
             }
+            if (bitmap != null) {
+                ng1.c().a(str, bitmap);
+                return bitmap;
+            }
+            ng1.b(this.a).a(str);
+            bitmap2 = ng1.b(this.a).c(str, i, i2);
+            if (bitmap2 != null) {
+                return qg1.a(str);
+            }
+            return bitmap2;
         }
-        return (String) invokeLL.objValue;
+        return (Bitmap) invokeLII.objValue;
     }
 
-    public boolean c(String str, MaterialLoader.MaterialCacheType materialCacheType) {
-        InterceptResult invokeLL;
+    @Override // java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, materialCacheType)) == null) {
-            if (!MaterialLoader.k(this.a).o(str, materialCacheType) && !d(str)) {
-                return false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Bitmap a = a(this.c, this.e, this.f);
+            if (this.b != null) {
+                this.b.obtainMessage(1, new sg1(this.d, this.c, a)).sendToTarget();
             }
-            return true;
         }
-        return invokeLL.booleanValue;
     }
 }

@@ -1,72 +1,84 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Build;
-import android.os.Process;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.fg0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class dg0 {
+public abstract class dg0 implements fg0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public fg0.a b;
 
-    public static boolean a(Context context) {
-        InterceptResult invokeL;
+    public abstract void b();
+
+    public dg0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            int i = Build.VERSION.SDK_INT;
-            if (i >= 23) {
-                return Process.is64Bit();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (i >= 21) {
-                return c(context);
-            }
-            return false;
         }
-        return invokeL.booleanValue;
+        this.a = 0;
     }
 
-    public static boolean b() {
+    public int a() {
         InterceptResult invokeV;
-        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                String[] strArr = Build.SUPPORTED_ABIS;
-                if (strArr.length > 0) {
-                    str = strArr[0];
-                } else {
-                    str = null;
-                }
-            } else {
-                str = Build.CPU_ABI;
-            }
-            if (str == null || !str.contains("arm64")) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    public static boolean c(Context context) {
-        InterceptResult invokeL;
+    public void c(fg0.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (context == null) {
-                return false;
-            }
-            try {
-                Object invoke = ClassLoader.class.getDeclaredMethod("findLibrary", String.class).invoke(context.getClassLoader(), "art");
-                if (invoke == null) {
-                    return false;
-                }
-                return ((String) invoke).contains("lib64");
-            } catch (Exception unused) {
-                return b();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.b = aVar;
+            if (aVar != null) {
+                aVar.a(a(), this);
             }
         }
-        return invokeL.booleanValue;
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048579, this, i) != null) || this.a == i) {
+            return;
+        }
+        this.a = i;
+        fg0.a aVar = this.b;
+        if (aVar != null) {
+            aVar.a(i, this);
+        }
+    }
+
+    public void e(fg0.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            int i = this.a;
+            if (i != 0 && 3 != i && 2 != i) {
+                c(aVar);
+                return;
+            }
+            d(1);
+            c(aVar);
+            try {
+                b();
+            } catch (Throwable th) {
+                th.printStackTrace();
+                d(3);
+            }
+        }
     }
 }

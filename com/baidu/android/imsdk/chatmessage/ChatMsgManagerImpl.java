@@ -122,8 +122,8 @@ import com.baidu.android.imsdk.utils.RequsetNetworkUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.cyberplayer.sdk.dlna.DlnaManager;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tieba.g80;
-import com.baidu.tieba.imMessageCenter.mention.FeedData;
+import com.baidu.tieba.immessagecenter.mention.FeedData;
+import com.baidu.tieba.m80;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -250,7 +250,7 @@ public class ChatMsgManagerImpl {
                     debugInfo.extInfo += ",chatmsg = " + this.val$chatMsg.toString();
                     CaseUbc.debugUbc(ChatMsgManagerImpl.mContext, "imcase_bcp_send_http", i, "", debugInfo);
                 } else {
-                    g80.c.postDelayed(new Runnable(this, chatMsg) { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl.23.1
+                    m80.c.postDelayed(new Runnable(this, chatMsg) { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl.23.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ AnonymousClass23 this$1;
@@ -1586,7 +1586,7 @@ public class ChatMsgManagerImpl {
                         creatMethodIntent.putExtra("chat_type", i2);
                     }
                     try {
-                        g80.e(mContext).d(mContext, creatMethodIntent);
+                        m80.e(mContext).d(mContext, creatMethodIntent);
                     } catch (Exception e) {
                         LogUtils.e(TAG, "Exception ", e);
                     }
@@ -2749,7 +2749,7 @@ public class ChatMsgManagerImpl {
                 creatMethodIntent.putExtra("session_type", i);
                 creatMethodIntent.putExtra("category", i3);
                 try {
-                    g80.e(mContext).d(mContext, creatMethodIntent);
+                    m80.e(mContext).d(mContext, creatMethodIntent);
                     return;
                 } catch (Exception e) {
                     LogUtils.e(TAG, "sendCustomNotifyMsg Exception ", e);
@@ -2861,7 +2861,7 @@ public class ChatMsgManagerImpl {
             creatMethodIntent.putExtra("msgid", j2);
             creatMethodIntent.putExtra(Constants.EXTRA_CONTACTER_IS_ZHIDA, z);
             try {
-                g80.e(mContext).d(mContext, creatMethodIntent);
+                m80.e(mContext).d(mContext, creatMethodIntent);
                 return true;
             } catch (Exception e) {
                 LogUtils.e(TAG, "Exception ", e);
@@ -2906,7 +2906,7 @@ public class ChatMsgManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_SEND_MSG, chatMsg);
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, str);
             try {
-                g80.e(mContext).d(mContext, creatMethodIntent);
+                m80.e(mContext).d(mContext, creatMethodIntent);
             } catch (Exception e) {
                 onSendMessageResult(6, chatMsg, -1L, str);
                 LogUtils.e(TAG, "Exception ", e);
@@ -3731,7 +3731,7 @@ public class ChatMsgManagerImpl {
                             creatMethodIntent.putExtra("chat_type", i2);
                         }
                         try {
-                            g80.e(mContext).d(mContext, creatMethodIntent);
+                            m80.e(mContext).d(mContext, creatMethodIntent);
                         } catch (Exception e) {
                             LogUtils.e(TAG, "Exception ", e);
                         }
@@ -3789,7 +3789,7 @@ public class ChatMsgManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_CONFIG_CURSOR, j);
             creatMethodIntent.putExtra(Constants.EXTRA_CONFIG_LIMIT, j2);
             try {
-                g80.e(mContext).d(mContext, creatMethodIntent);
+                m80.e(mContext).d(mContext, creatMethodIntent);
             } catch (Exception e) {
                 LogUtils.e(TAG, "Exception ", e);
             }
@@ -3925,7 +3925,7 @@ public class ChatMsgManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_JUMP_MSG, 0);
             creatMethodIntent.putExtra(Constants.EXTRA_RETRY_TIME, 0);
             try {
-                g80.e(mContext).d(mContext, creatMethodIntent);
+                m80.e(mContext).d(mContext, creatMethodIntent);
             } catch (Exception e) {
                 onFetchMsgByIdResult(6, "start service exception", 1, j, 0L, j2, i, -1, 0L, null, null, addListener);
                 LogUtils.e(TAG, "fetchHistoryMessage Exception ", e);
@@ -4070,7 +4070,7 @@ public class ChatMsgManagerImpl {
                     creatMethodIntent.putExtra(Constants.EXTRA_JUMP_MSG, i4);
                     creatMethodIntent.putExtra(Constants.EXTRA_RETRY_TIME, i5);
                     try {
-                        g80.e(mContext).d(mContext, creatMethodIntent);
+                        m80.e(mContext).d(mContext, creatMethodIntent);
                         return;
                     } catch (Exception e) {
                         onFetchMsgByIdResult(6, "start service exception", i, j, j2, j3, i2, -1, 0L, null, null, str5);
@@ -4289,7 +4289,7 @@ public class ChatMsgManagerImpl {
                 creatMethodIntent.putExtra("category", i3);
                 creatMethodIntent.putExtra(Constants.EXTRA_BUSINESS_MSG_EXT, str);
                 try {
-                    g80.e(mContext).d(mContext, creatMethodIntent);
+                    m80.e(mContext).d(mContext, creatMethodIntent);
                     return;
                 } catch (Exception e) {
                     LogUtils.e(TAG, "sendCustomNotifyMsg Exception ", e);
@@ -4337,7 +4337,7 @@ public class ChatMsgManagerImpl {
                 creatMethodIntent.putExtra("session_type", i2);
             }
             try {
-                g80.e(mContext).d(mContext, creatMethodIntent);
+                m80.e(mContext).d(mContext, creatMethodIntent);
                 return true;
             } catch (Exception e) {
                 LogUtils.e(TAG, "setServerMsgRead Exception ", e);
@@ -4407,7 +4407,7 @@ public class ChatMsgManagerImpl {
                 creatMethodIntent.putExtra("session_type", i2);
                 creatMethodIntent.putExtra("source", str2);
                 try {
-                    g80.e(mContext).d(mContext, creatMethodIntent);
+                    m80.e(mContext).d(mContext, creatMethodIntent);
                 } catch (Exception e) {
                     LogUtils.e(TAG, "getChatMsgsByBusiness Exception ", e);
                     onFetchBusinessMsgResult(1003, "", j2, j3, i4, j, false, i, i2, null, addListener);
@@ -4507,7 +4507,7 @@ public class ChatMsgManagerImpl {
                     BindStateManager.saveUnBindInfo(mContext, AccountManager.getToken(mContext), Utility.getIMDeviceId(mContext), Long.valueOf(AccountManager.getUK(mContext)));
                     Intent creatMethodIntent = Utility.creatMethodIntent(mContext, 92);
                     creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
-                    g80.e(mContext).d(mContext, creatMethodIntent);
+                    m80.e(mContext).d(mContext, creatMethodIntent);
                     return;
                 } catch (Exception e) {
                     onUnRegisterNotifyResult(addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR);
@@ -4578,7 +4578,7 @@ public class ChatMsgManagerImpl {
                         creatMethodIntent.putExtra(Constants.EXTRA_CONTACTER_IS_ZHIDA, false);
                         creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
                         try {
-                            g80.e(mContext).d(mContext, creatMethodIntent);
+                            m80.e(mContext).d(mContext, creatMethodIntent);
                         } catch (Exception e) {
                             LogUtils.e(TAG, "Exception ", e);
                         }
@@ -4922,7 +4922,7 @@ public class ChatMsgManagerImpl {
                 creatMethodIntent.putExtra(Constants.EXTRA_SEND_MSG, chatMsg);
                 creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
                 try {
-                    g80.e(mContext).d(mContext, creatMethodIntent);
+                    m80.e(mContext).d(mContext, creatMethodIntent);
                     return;
                 } catch (Exception e) {
                     onSendMessageResult(6, chatMsg, -1L, addListener);
@@ -5205,7 +5205,7 @@ public class ChatMsgManagerImpl {
                 creatMethodIntent.putExtra("session_type", i2);
             }
             try {
-                g80.e(mContext).d(mContext, creatMethodIntent);
+                m80.e(mContext).d(mContext, creatMethodIntent);
                 return true;
             } catch (Exception e) {
                 LogUtils.e(TAG, "setServerMsgRead Exception ", e);

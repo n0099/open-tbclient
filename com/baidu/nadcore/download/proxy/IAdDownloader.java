@@ -1,8 +1,8 @@
 package com.baidu.nadcore.download.proxy;
 
 import androidx.annotation.NonNull;
-import com.baidu.tieba.ml0;
-import com.baidu.tieba.qk0;
+import com.baidu.tieba.cl0;
+import com.baidu.tieba.yl0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public interface IAdDownloader {
-    int a(@NonNull qk0 qk0Var, @NonNull ml0 ml0Var);
+    int a(@NonNull cl0 cl0Var, @NonNull yl0 yl0Var);
 
-    void b(@NonNull qk0 qk0Var);
+    void b(@NonNull cl0 cl0Var);
 
-    void c(@NonNull qk0 qk0Var);
+    void c(@NonNull cl0 cl0Var);
 
-    void d(@NonNull qk0 qk0Var, @NonNull ml0 ml0Var);
+    void d(@NonNull cl0 cl0Var, @NonNull yl0 yl0Var);
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */

@@ -291,15 +291,41 @@ public final class RemoteInput {
     @RequiresApi(20)
     public static android.app.RemoteInput fromCompat(RemoteInput remoteInput) {
         InterceptResult invokeL;
+        Set<String> allowedDataTypes;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, remoteInput)) == null) {
             RemoteInput.Builder addExtras = new RemoteInput.Builder(remoteInput.getResultKey()).setLabel(remoteInput.getLabel()).setChoices(remoteInput.getChoices()).setAllowFreeFormInput(remoteInput.getAllowFreeFormInput()).addExtras(remoteInput.getExtras());
+            if (Build.VERSION.SDK_INT >= 26 && (allowedDataTypes = remoteInput.getAllowedDataTypes()) != null) {
+                for (String str : allowedDataTypes) {
+                    addExtras.setAllowDataType(str, true);
+                }
+            }
             if (Build.VERSION.SDK_INT >= 29) {
                 addExtras.setEditChoicesBeforeSending(remoteInput.getEditChoicesBeforeSending());
             }
             return addExtras.build();
         }
         return (android.app.RemoteInput) invokeL.objValue;
+    }
+
+    @RequiresApi(20)
+    public static RemoteInput fromPlatform(android.app.RemoteInput remoteInput) {
+        InterceptResult invokeL;
+        Set<String> allowedDataTypes;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, remoteInput)) == null) {
+            Builder addExtras = new Builder(remoteInput.getResultKey()).setLabel(remoteInput.getLabel()).setChoices(remoteInput.getChoices()).setAllowFreeFormInput(remoteInput.getAllowFreeFormInput()).addExtras(remoteInput.getExtras());
+            if (Build.VERSION.SDK_INT >= 26 && (allowedDataTypes = remoteInput.getAllowedDataTypes()) != null) {
+                for (String str : allowedDataTypes) {
+                    addExtras.setAllowDataType(str, true);
+                }
+            }
+            if (Build.VERSION.SDK_INT >= 29) {
+                addExtras.setEditChoicesBeforeSending(remoteInput.getEditChoicesBeforeSending());
+            }
+            return addExtras.build();
+        }
+        return (RemoteInput) invokeL.objValue;
     }
 
     @RequiresApi(20)
@@ -322,7 +348,7 @@ public final class RemoteInput {
     public static String getExtraResultsKeyForData(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
             return EXTRA_DATA_TYPE_RESULTS_DATA + str;
         }
         return (String) invokeL.objValue;
@@ -332,7 +358,7 @@ public final class RemoteInput {
     public static Intent getClipDataIntentFromIntent(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, intent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, intent)) == null) {
             ClipData clipData = intent.getClipData();
             if (clipData == null) {
                 return null;
@@ -350,7 +376,7 @@ public final class RemoteInput {
         InterceptResult invokeL;
         Intent clipDataIntentFromIntent;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, intent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, intent)) == null) {
             int i = Build.VERSION.SDK_INT;
             if (i >= 20) {
                 return android.app.RemoteInput.getResultsFromIntent(intent);
@@ -367,7 +393,7 @@ public final class RemoteInput {
         InterceptResult invokeL;
         Intent clipDataIntentFromIntent;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, intent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, intent)) == null) {
             int i = Build.VERSION.SDK_INT;
             if (i >= 28) {
                 return android.app.RemoteInput.getResultsSource(intent);
@@ -385,7 +411,7 @@ public final class RemoteInput {
         Intent clipDataIntentFromIntent;
         String string;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, intent, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, intent, str)) == null) {
             int i = Build.VERSION.SDK_INT;
             if (i >= 26) {
                 return android.app.RemoteInput.getDataResultsFromIntent(intent, str);
@@ -412,7 +438,7 @@ public final class RemoteInput {
 
     public static void setResultsSource(@NonNull Intent intent, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65546, null, intent, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(65547, null, intent, i) == null) {
             int i2 = Build.VERSION.SDK_INT;
             if (i2 >= 28) {
                 android.app.RemoteInput.setResultsSource(intent, i);

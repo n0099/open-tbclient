@@ -1,72 +1,156 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.res.Resources;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.widget.LoadingProgressBar;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes6.dex */
-public abstract class tb1<K, V> {
+public class tb1 extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<K, V> a;
+    public Context a;
+    public View b;
+    public LoadingProgressBar c;
+    public TextView d;
+    public String e;
+    public boolean f;
+    public boolean g;
+    public boolean h;
 
-    public tb1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tb1(@NonNull Context context) {
+        super(context, R.style.obfuscated_res_0x7f100134);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = jd1.c();
+        this.e = "";
+        this.g = false;
+        this.h = false;
+        this.a = context;
+        this.f = a(context);
     }
 
-    public Map<K, V> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public Map<K, V> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public V a(K k) {
+    public final boolean a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) {
-            return this.a.get(k);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            if (context instanceof Activity) {
+                return true;
+            }
+            return false;
         }
-        return (V) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public void e(Map<K, V> map) {
+    public tb1 c(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
-            this.a = map;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+            this.g = z;
+            return this;
+        }
+        return (tb1) invokeZ.objValue;
+    }
+
+    public tb1 d(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            this.h = z;
+            return this;
+        }
+        return (tb1) invokeZ.objValue;
+    }
+
+    public tb1 e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            this.e = str;
+            return this;
+        }
+        return (tb1) invokeL.objValue;
+    }
+
+    @Override // android.app.Dialog
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
+            super.onCreate(bundle);
+            setContentView(R.layout.nad_call_action_loading_dialog);
+            b();
         }
     }
 
-    public void d(K k, V v) {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, k, v) == null) {
-            this.a.put(k, v);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b = findViewById(R.id.root_container);
+            this.c = (LoadingProgressBar) findViewById(R.id.loading_bar);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0915fe);
+            this.d = textView;
+            textView.setText(this.e);
+            setCancelable(this.g);
+            setCanceledOnTouchOutside(this.h);
+            f();
+        }
+    }
+
+    public final void f() {
+        Context context;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || (context = this.a) == null) {
+            return;
+        }
+        Resources resources = context.getResources();
+        View view2 = this.b;
+        if (view2 != null) {
+            view2.setBackground(resources.getDrawable(R.drawable.nad_icon_loading_dialog_bg));
+        }
+        LoadingProgressBar loadingProgressBar = this.c;
+        if (loadingProgressBar != null) {
+            loadingProgressBar.setIndeterminateDrawable(resources.getDrawable(R.drawable.nad_loading_animation));
+        }
+        TextView textView = this.d;
+        if (textView != null) {
+            textView.setTextColor(resources.getColor(R.color.nad_color_white));
+        }
+    }
+
+    @Override // android.app.Dialog
+    public void show() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || !this.f) {
+            return;
+        }
+        try {
+            super.show();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

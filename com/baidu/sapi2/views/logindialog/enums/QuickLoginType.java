@@ -58,7 +58,7 @@ public final class QuickLoginType {
         SINA = new QuickLoginType("SINA", 7, 7, LoginConstants.SINA_LOGIN);
         HUAWEI = new QuickLoginType("HUAWEI", 8, 8, RomUtils.MANUFACTURER_HUAWEI);
         HONOR = new QuickLoginType("HONOR", 9, 9, "honor");
-        XIAOMI = new QuickLoginType("XIAOMI", 10, 10, RomUtils.MANUFACTURER_XIAOMI);
+        XIAOMI = new QuickLoginType(RomUtils.ROM_XIAOMI, 10, 10, RomUtils.MANUFACTURER_XIAOMI);
         MEIZU = new QuickLoginType("MEIZU", 11, 11, "meizu");
         FULL_SCREEN = new QuickLoginType("FULL_SCREEN", 12, 12, "full_screen");
         QuickLoginType quickLoginType = new QuickLoginType("REGISTER", 13, 13, MiPushClient.COMMAND_REGISTER);

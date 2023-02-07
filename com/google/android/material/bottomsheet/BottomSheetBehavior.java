@@ -896,7 +896,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
                 return invokeLI.booleanValue;
             }
         };
-        this.peekHeightGestureInsetBuffer = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704b9);
+        this.peekHeightGestureInsetBuffer = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704be);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.google.android.material.R.styleable.BottomSheetBehavior_Layout);
         this.shapeThemingEnabled = obtainStyledAttributes.hasValue(11);
         boolean hasValue = obtainStyledAttributes.hasValue(1);

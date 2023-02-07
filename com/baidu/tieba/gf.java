@@ -1,32 +1,40 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import com.baidu.adp.base.BdDatabaseNewCreatedMessage;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ef;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class gf<T> extends ff<T> {
+public class gf extends ga {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.tieba.ga
+    public void clearAllTables(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase) == null) {
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gf(String str, df<T> dfVar) {
-        super(str, dfVar);
+    public gf(Context context, String str) {
+        super(context, str, 1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, dfVar};
+            Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (df) objArr2[1]);
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -34,67 +42,27 @@ public class gf<T> extends ff<T> {
         }
     }
 
-    @Override // com.baidu.tieba.ff, com.baidu.tieba.ef
-    public void e(String str, T t, long j) {
+    public void a(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, t, Long.valueOf(j)}) == null) {
-            try {
-                super.e(str, t, j);
-            } catch (Throwable th) {
-                if (BdLog.isDebugMode()) {
-                    BdLog.e(th);
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
+            executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "CREATE TABLE IF NOT EXISTS cache_meta_info(nameSpace VARCHAR(128) PRIMARY KEY, tableName varchar(64), maxSize int(11) default 0, cacheType varchar(32) not null, cacheVersion int(11) default 0, lastActiveTime bigint(21) default 0)");
         }
     }
 
-    @Override // com.baidu.tieba.ff, com.baidu.tieba.ef
-    public T get(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ga
+    public void createAllTables(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            try {
-                return (T) super.get(str);
-            } catch (Throwable th) {
-                if (BdLog.isDebugMode()) {
-                    BdLog.e(th);
-                    return null;
-                }
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) == null) {
+            a(sQLiteDatabase);
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new BdDatabaseNewCreatedMessage(sQLiteDatabase));
         }
-        return (T) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ff, com.baidu.tieba.ef
-    public ef.b<T> h(String str) {
-        InterceptResult invokeL;
+    @Override // android.database.sqlite.SQLiteOpenHelper, com.baidu.tieba.ea
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            try {
-                return super.h(str);
-            } catch (Throwable th) {
-                if (BdLog.isDebugMode()) {
-                    BdLog.e(th);
-                    return null;
-                }
-                return null;
-            }
-        }
-        return (ef.b) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ff, com.baidu.tieba.ef
-    public void remove(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            try {
-                super.remove(str);
-            } catch (Throwable th) {
-                if (BdLog.isDebugMode()) {
-                    BdLog.e(th);
-                }
-            }
+        if ((interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) && i < 1) {
+            a(sQLiteDatabase);
         }
     }
 }

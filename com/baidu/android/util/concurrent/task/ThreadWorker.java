@@ -1,5 +1,6 @@
 package com.baidu.android.util.concurrent.task;
 
+import android.annotation.SuppressLint;
 import android.os.Looper;
 import android.os.Process;
 import com.baidu.android.imsdk.internal.Constants;
@@ -15,6 +16,7 @@ public class ThreadWorker implements Runnable {
     public final Object mLockObj;
     public Looper mLooper;
 
+    @SuppressLint({"MobilebdThread"})
     public ThreadWorker(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -33,7 +35,7 @@ public class ThreadWorker implements Runnable {
         this.mLockObj = new Object();
         this.mLooper = null;
         Thread thread = new Thread(null, this, str);
-        thread.setPriority(1);
+        thread.setPriority(5);
         thread.start();
         synchronized (this.mLockObj) {
             while (this.mLooper == null) {

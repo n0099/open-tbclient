@@ -1,56 +1,143 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Activity;
+import android.view.View;
+import androidx.appcompat.app.AlertDialog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.browser.BrowserHelper;
+import com.baidu.tbadk.core.dialog.TBAlertBuilder;
+import com.baidu.tbadk.core.dialog.TBAlertConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class wo5<T> implements np5 {
+public class wo5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<T> a;
+    public AlertDialog a;
 
-    public wo5(List<T> list) {
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wo5 a;
+
+        public a(wo5 wo5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wo5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wo5Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.a != null) {
+                this.a.a.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Activity a;
+        public final /* synthetic */ wo5 b;
+
+        public b(wo5 wo5Var, Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wo5Var, activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = wo5Var;
+            this.a = activity;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.b.a != null) {
+                    this.b.a.dismiss();
+                }
+                if (!StringUtils.isNull(TbConfig.MEMBER_AUTO_RENEWAL_URL)) {
+                    BrowserHelper.p(this.a, TbConfig.MEMBER_AUTO_RENEWAL_URL);
+                }
+            }
+        }
+    }
+
+    public wo5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = list;
     }
 
-    @Override // com.baidu.tieba.np5
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i >= 0 && i < this.a.size()) {
-                return this.a.get(i);
-            }
-            return "";
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // com.baidu.tieba.np5
-    public int a() {
+    public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.size();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return p35.m().i("key_member_auto_ban_renewal_show", false);
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
+    }
+
+    public void c(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
+            AlertDialog alertDialog = this.a;
+            if (alertDialog != null && alertDialog.isShowing()) {
+                this.a.dismiss();
+            }
+            if (activity == null) {
+                return;
+            }
+            TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.protocol_confirm, TBAlertConfig.OperateBtnStyle.MAIN);
+            TBAlertConfig.a aVar2 = new TBAlertConfig.a((int) R.string.goto_see_more, TBAlertConfig.OperateBtnStyle.SECONDARY);
+            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(activity);
+            tBAlertBuilder.w(R.string.member_reminder);
+            tBAlertBuilder.m(R.string.cancel_member_auto_renewal);
+            tBAlertBuilder.u(aVar2, aVar);
+            tBAlertBuilder.o(true);
+            tBAlertBuilder.j(false);
+            tBAlertBuilder.n(3);
+            this.a = tBAlertBuilder.z();
+            p35.m().w("key_member_auto_ban_renewal_show", true);
+            aVar.a(new a(this));
+            aVar2.a(new b(this, activity));
+        }
     }
 }

@@ -1,99 +1,87 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.DialogInterface;
-import android.os.Build;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tieba.n33;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class g12 {
+public abstract class g12 extends ta3 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public static class a implements DialogInterface.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j43 a;
-
-        public a(j43 j43Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j43Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = j43Var;
-        }
-
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                SwanAppActivity w = this.a.w();
-                if (w != null && Build.VERSION.SDK_INT >= 21) {
-                    w.finishAndRemoveTask();
-                }
-                System.exit(0);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g12(t93 t93Var, String str) {
+        super(t93Var, str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {t93Var, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    public void j(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, HashMap<String, String> hashMap, String str) {
+        HashMap<String, String> params;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return a;
+        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, unitedSchemeEntity, callbackHandler, hashMap, str) == null) && (params = unitedSchemeEntity.getParams()) != null && !params.isEmpty() && hashMap != null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                for (Map.Entry<String, String> entry : hashMap.entrySet()) {
+                    jSONObject.putOpt(entry.getKey(), entry.getValue());
+                }
+            } catch (JSONException e) {
+                if (ta3.b) {
+                    e.printStackTrace();
+                }
+            }
+            if (TextUtils.isEmpty(str)) {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+            } else {
+                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
+            }
         }
-        return invokeV.booleanValue;
     }
 
-    public static void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            a = z;
-        }
-    }
-
-    public static void d(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
-            c(context, !a());
-        }
-    }
-
-    public static void c(Context context, boolean z) {
-        j43 M;
+    public void k(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, boolean z) {
         int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65538, null, context, z) == null) && (M = j43.M()) != null) {
-            h12.c(z);
+        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity, callbackHandler, z) == null) {
             if (z) {
-                i = R.string.obfuscated_res_0x7f0f01a5;
+                i = 0;
             } else {
-                i = R.string.obfuscated_res_0x7f0f0119;
+                i = -1;
             }
-            n33.a aVar = new n33.a(context);
-            aVar.V(context.getString(R.string.obfuscated_res_0x7f0f0155));
-            aVar.x(context.getString(i));
-            aVar.n(new rj3());
-            aVar.m(false);
-            aVar.O(R.string.obfuscated_res_0x7f0f011c, new a(M));
-            aVar.X();
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, i);
         }
+    }
+
+    public String l(UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, unitedSchemeEntity)) == null) {
+            return unitedSchemeEntity.getParams().get("params");
+        }
+        return (String) invokeL.objValue;
     }
 }

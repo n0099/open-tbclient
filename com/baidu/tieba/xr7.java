@@ -1,32 +1,18 @@
 package com.baidu.tieba;
 
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.legoBusiness.homeExtra.interviewLiveSquare.AlarmReceiver;
+import android.view.ViewGroup;
+import com.baidu.tieba.immessagecenter.chatgroup.utility.tag.core.BaseTagItemViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.auth.NTLMEngineImpl;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-/* loaded from: classes6.dex */
-public class xr7 extends mo4 {
+/* loaded from: classes7.dex */
+public abstract class xr7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public vr7 a;
 
-    @Override // com.baidu.tieba.mo4
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "interview/checkInterviewNoticeStatus" : (String) invokeV.objValue;
-    }
+    public abstract BaseTagItemViewHolder b(ViewGroup viewGroup, int i);
 
     public xr7() {
         Interceptable interceptable = $ic;
@@ -42,40 +28,10 @@ public class xr7 extends mo4 {
         }
     }
 
-    @Override // com.baidu.tieba.mo4, com.baidu.tieba.po4
-    public ro4 b(Object obj, HashMap<String, String> hashMap, String str) {
-        InterceptResult invokeLLL;
-        Map.Entry<String, String> next;
+    public void a(vr7 vr7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, obj, hashMap, str)) == null) {
-            Context baseContext = TbadkCoreApplication.getInst().getBaseContext();
-            ro4 ro4Var = new ro4();
-            if (obj instanceof rq7) {
-                rq7 rq7Var = (rq7) obj;
-                Intent intent = new Intent(baseContext, AlarmReceiver.class);
-                Iterator<Map.Entry<String, String>> it = hashMap.entrySet().iterator();
-                boolean z = false;
-                int i = 0;
-                while (it.hasNext() && (next = it.next()) != null) {
-                    intent.putExtra(next.getKey(), next.getValue());
-                    if ("task_id".equals(next.getKey())) {
-                        i = Integer.parseInt(next.getValue());
-                    }
-                }
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (currentAccount == null) {
-                    currentAccount = "";
-                }
-                intent.setData(Uri.parse(currentAccount));
-                if (PendingIntent.getBroadcast(baseContext, i, intent, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH) != null) {
-                    z = true;
-                }
-                ro4Var.a = z;
-                rq7Var.m(true);
-                rq7Var.l(ro4Var.a);
-            }
-            return ro4Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, vr7Var) == null) {
+            this.a = vr7Var;
         }
-        return (ro4) invokeLLL.objValue;
     }
 }

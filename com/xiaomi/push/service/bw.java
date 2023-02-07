@@ -54,10 +54,10 @@ public class bw extends ao.b {
             return;
         }
         try {
-            String a2 = a.a(com.xiaomi.push.v.m761a()).a();
+            String a2 = a.a(com.xiaomi.push.v.m763a()).a();
             if (!TextUtils.isEmpty(a2) && !com.xiaomi.push.q.a.name().equals(a2)) {
                 str = "https://resolver.msg.global.xiaomi.net/psc/?t=a";
-                a = dw.a.a(Base64.decode(cz.a(com.xiaomi.push.v.m761a(), str, (List<com.xiaomi.push.bi>) null), 10));
+                a = dw.a.a(Base64.decode(cz.a(com.xiaomi.push.v.m763a(), str, (List<com.xiaomi.push.bi>) null), 10));
                 if (a == null) {
                     this.a.f976a = a;
                     this.f978a = true;
@@ -67,17 +67,17 @@ public class bw extends ao.b {
                 return;
             }
             str = "https://resolver.msg.xiaomi.net/psc/?t=a";
-            a = dw.a.a(Base64.decode(cz.a(com.xiaomi.push.v.m761a(), str, (List<com.xiaomi.push.bi>) null), 10));
+            a = dw.a.a(Base64.decode(cz.a(com.xiaomi.push.v.m763a(), str, (List<com.xiaomi.push.bi>) null), 10));
             if (a == null) {
             }
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m103a("fetch config failure: " + e.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m105a("fetch config failure: " + e.getMessage());
         }
     }
 
     @Override // com.xiaomi.push.ao.b
     /* renamed from: c */
-    public void mo281c() {
+    public void mo283c() {
         List list;
         List list2;
         bv.a[] aVarArr;

@@ -1,154 +1,205 @@
 package com.baidu.tieba;
 
+import android.content.SharedPreferences;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.data.ThreadRecommendInfoData;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.compatible.EditorHelper;
+import com.baidu.tieba.funAd.strategy.FunAdHistoryData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.List;
-import tbclient.HotThreadList.DataRes;
-import tbclient.HotThreadList.HotThreadListResIdl;
-import tbclient.ThreadInfo;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class i67 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile i67 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public Map<String, ArrayList<FunAdHistoryData>> a;
 
-    public static List<yn> a(List<ThreadData> list) {
+    public i67() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        HashMap hashMap = new HashMap();
+        this.a = hashMap;
+        hashMap.clear();
+        this.a.putAll(d());
+    }
+
+    public static i67 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (i67.class) {
+                    if (b == null) {
+                        b = new i67();
+                    }
+                }
+            }
+            return b;
+        }
+        return (i67) invokeV.objValue;
+    }
+
+    public void a(String str, FunAdHistoryData funAdHistoryData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, funAdHistoryData) == null) && UbsABTestHelper.isDuplicateRemovalFunAdABTest() && !TextUtils.isEmpty(str) && funAdHistoryData != null) {
+            ArrayList<FunAdHistoryData> c = c(str);
+            if (c == null) {
+                c = new ArrayList<>();
+            }
+            c.add(funAdHistoryData);
+            g(c);
+            k67.e().a(str);
+            j(str);
+        }
+    }
+
+    public final ArrayList<FunAdHistoryData> b(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            if (list == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray)) == null) {
+            if (jSONArray == null) {
                 return null;
             }
-            ArrayList arrayList = new ArrayList();
-            int i = 0;
-            for (ThreadData threadData : list) {
-                int[] imageWidthAndHeight = threadData.getImageWidthAndHeight();
-                if (threadData.getType() == ThreadData.TYPE_NORMAL) {
-                    threadData.position = i;
-                    jv4 jv4Var = new jv4();
-                    jv4Var.t = threadData;
-                    jv4Var.position = i;
-                    jv4Var.r = true;
-                    jv4Var.setSupportType(BaseCardInfo.SupportType.TOP);
-                    arrayList.add(jv4Var);
-                    jv4 jv4Var2 = new jv4();
-                    jv4Var2.t = threadData;
-                    jv4Var2.position = i;
-                    if (threadData.isBJHNormalThreadType()) {
-                        jv4Var2.f = true;
-                    } else if (threadData.picCount() == 1) {
-                        jv4Var2.d = true;
-                        jv4Var2.u = imageWidthAndHeight[0];
-                        jv4Var2.v = imageWidthAndHeight[1];
-                    } else if (threadData.picCount() >= 2) {
-                        jv4Var2.e = true;
-                    } else {
-                        jv4Var2.b = true;
-                    }
-                    jv4Var2.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                    arrayList.add(jv4Var2);
-                    d(threadData, arrayList, i);
-                    jv4 jv4Var3 = new jv4();
-                    jv4Var3.g = true;
-                    jv4Var3.t = threadData;
-                    jv4Var3.position = i;
-                    jv4Var3.setSupportType(BaseCardInfo.SupportType.BOTTOM);
-                    arrayList.add(jv4Var3);
-                } else if (threadData.getType() == ThreadData.TYPE_VIDEO) {
-                    threadData.position = i;
-                    jv4 jv4Var4 = new jv4();
-                    jv4Var4.t = threadData;
-                    jv4Var4.position = i;
-                    jv4Var4.r = true;
-                    jv4Var4.setSupportType(BaseCardInfo.SupportType.TOP);
-                    arrayList.add(jv4Var4);
-                    jv4 jv4Var5 = new jv4();
-                    jv4Var5.t = threadData;
-                    jv4Var5.position = i;
-                    jv4Var5.i = true;
-                    jv4Var5.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                    arrayList.add(jv4Var5);
-                    d(threadData, arrayList, i);
-                    jv4 jv4Var6 = new jv4();
-                    jv4Var6.g = true;
-                    jv4Var6.t = threadData;
-                    jv4Var6.position = i;
-                    jv4Var6.setSupportType(BaseCardInfo.SupportType.BOTTOM);
-                    arrayList.add(jv4Var6);
-                } else {
-                    threadData.setSupportType(BaseCardInfo.SupportType.TOP);
+            ArrayList<FunAdHistoryData> arrayList = new ArrayList<>();
+            int length = jSONArray.length();
+            for (int i = 0; i < length; i++) {
+                FunAdHistoryData funAdHistoryData = new FunAdHistoryData();
+                try {
+                    funAdHistoryData.parserJson(jSONArray.getJSONObject(i));
+                    arrayList.add(funAdHistoryData);
+                } catch (JSONException e) {
+                    BdLog.detailException(e);
                 }
-                i++;
-                threadData.setSupportType(BaseCardInfo.SupportType.TOP);
             }
             return arrayList;
         }
-        return (List) invokeL.objValue;
+        return (ArrayList) invokeL.objValue;
     }
 
-    public static List<yn> b(List<ThreadInfo> list) {
-        InterceptResult invokeL;
+    public final void i(ArrayList<FunAdHistoryData> arrayList) {
+        FunAdHistoryData next;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            if (list == null) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList(list.size());
-            for (ThreadInfo threadInfo : list) {
-                ThreadData threadData = new ThreadData();
-                threadData.isFromHotRankTab = true;
-                threadData.parserProtobuf(threadInfo);
-                e(threadData);
-                arrayList.add(threadData);
-            }
-            return a(arrayList);
+        if ((interceptable != null && interceptable.invokeL(1048583, this, arrayList) != null) || arrayList == null) {
+            return;
         }
-        return (List) invokeL.objValue;
+        Iterator<FunAdHistoryData> it = arrayList.iterator();
+        long currentTimeMillis = System.currentTimeMillis() / 1000;
+        while (it.hasNext() && (next = it.next()) != null && currentTimeMillis - next.getShowTime() > 86400) {
+            it.remove();
+        }
     }
 
-    public static List<yn> c(HotThreadListResIdl hotThreadListResIdl) {
+    public ArrayList<FunAdHistoryData> c(String str) {
         InterceptResult invokeL;
-        DataRes dataRes;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, hotThreadListResIdl)) == null) {
-            if (hotThreadListResIdl != null && (dataRes = hotThreadListResIdl.data) != null && !ListUtils.isEmpty(dataRes.thread_info)) {
-                return b(hotThreadListResIdl.data.thread_info);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (this.a != null && !TextUtils.isEmpty(str) && this.a.containsKey(str)) {
+                return this.a.get(str);
             }
             return null;
         }
-        return (List) invokeL.objValue;
+        return (ArrayList) invokeL.objValue;
     }
 
-    public static void d(ThreadData threadData, ArrayList<yn> arrayList, int i) {
-        ThreadRecommendInfoData threadRecommendInfoData;
+    public final void g(ArrayList<FunAdHistoryData> arrayList) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(65539, null, threadData, arrayList, i) == null) && threadData != null && arrayList != null && (threadRecommendInfoData = (ThreadRecommendInfoData) ListUtils.getItem(threadData.getThreadRecommendInfoDataList(), 0)) != null && !TextUtils.isEmpty(threadRecommendInfoData.recommendReason)) {
-            jv4 jv4Var = new jv4();
-            jv4Var.s = true;
-            jv4Var.t = threadData;
-            jv4Var.position = i;
-            jv4Var.setSupportType(BaseCardInfo.SupportType.EXTEND);
-            arrayList.add(jv4Var);
+        if ((interceptable != null && interceptable.invokeL(1048581, this, arrayList) != null) || arrayList == null) {
+            return;
         }
+        h(arrayList);
+        i(arrayList);
     }
 
-    public static void e(ThreadData threadData) {
+    public final void h(ArrayList<FunAdHistoryData> arrayList) {
+        int size;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, threadData) == null) {
-            String lengthLimitName = threadData.getLengthLimitName();
-            String formatTimeForHomeC = StringHelper.getFormatTimeForHomeC(threadData.getLast_time_int() * 1000);
-            if (!TextUtils.isEmpty(lengthLimitName) && !TextUtils.isEmpty(formatTimeForHomeC)) {
-                lengthLimitName = lengthLimitName + "   " + formatTimeForHomeC;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, arrayList) != null) || arrayList == null || (size = arrayList.size()) <= 600) {
+            return;
+        }
+        ListUtils.removeSubList(arrayList, 0, size - 600);
+    }
+
+    public final Map<String, ArrayList<FunAdHistoryData>> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            HashMap hashMap = new HashMap();
+            for (String str : k67.e().c()) {
+                if (!TextUtils.isEmpty(str)) {
+                    ArrayList<FunAdHistoryData> e = e(str);
+                    if (e == null) {
+                        e = new ArrayList<>();
+                    }
+                    hashMap.put(str, e);
+                }
             }
-            threadData.setThreadExtendInfo(lengthLimitName);
+            return hashMap;
         }
+        return (Map) invokeV.objValue;
+    }
+
+    public final ArrayList<FunAdHistoryData> e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            JSONArray jSONArray = null;
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            SharedPreferences g = k67.g();
+            String string = g.getString(str + "_fun_ad_history_key_suffix", "");
+            if (TextUtils.isEmpty(string)) {
+                return null;
+            }
+            try {
+                jSONArray = new JSONArray(string);
+            } catch (JSONException e) {
+                BdLog.detailException(e);
+            }
+            return b(jSONArray);
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public final void j(String str) {
+        ArrayList<FunAdHistoryData> arrayList;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) != null) || this.a == null || TextUtils.isEmpty(str) || !this.a.containsKey(str) || (arrayList = this.a.get(str)) == null) {
+            return;
+        }
+        JSONArray jSONArray = new JSONArray();
+        Iterator<FunAdHistoryData> it = arrayList.iterator();
+        while (it.hasNext()) {
+            JSONObject json = it.next().toJson();
+            if (json != null) {
+                jSONArray.put(json);
+            }
+        }
+        SharedPreferences g = k67.g();
+        EditorHelper.putString(g, str + "_fun_ad_history_key_suffix", jSONArray.toString());
     }
 }

@@ -1,108 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.tbadk.util.TiePlusHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import tbclient.TiebaPlusInfo;
 /* loaded from: classes5.dex */
 public class os5 {
     public static /* synthetic */ Interceptable $ic;
-    public static os5 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile HashMap<String, List<a>> a;
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public HashMap<String, Object> b;
-
-        public a(String str, HashMap<String, Object> hashMap) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, hashMap};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = hashMap;
-        }
-    }
-
-    public os5() {
+    public static boolean a(Context context, h09 h09Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, h09Var)) == null) {
+            if (context == null || h09Var == null || !h09Var.b()) {
+                return false;
             }
-        }
-        this.a = new HashMap<>();
-    }
-
-    public static os5 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (os5.class) {
-                    if (b == null) {
-                        b = new os5();
-                    }
-                }
+            TiePlusHelper tiePlusHelper = new TiePlusHelper(context);
+            TiebaPlusInfo a = h09Var.a();
+            if (a == null) {
+                return false;
             }
-            return b;
+            tiePlusHelper.D(a.app_id);
+            tiePlusHelper.E(a.title);
+            tiePlusHelper.K(true);
+            tiePlusHelper.J(a.download_url);
+            tiePlusHelper.M(a.app_package);
+            tiePlusHelper.N(a.app_power);
+            tiePlusHelper.O(a.app_privacy);
+            et5 et5Var = new et5(context, tiePlusHelper, true);
+            tiePlusHelper.H(et5Var);
+            ItemData itemData = new ItemData();
+            itemData.parseProto(a);
+            tiePlusHelper.L(itemData);
+            et5Var.f(a.app_company);
+            et5Var.g(a.app_icon);
+            et5Var.h(a.title);
+            et5Var.i(a.app_version);
+            et5Var.show();
+            return true;
         }
-        return (os5) invokeV.objValue;
-    }
-
-    public void a(String str, String str2, HashMap<String, Object> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, hashMap) == null) {
-            List<a> list = this.a.get(str);
-            if (list == null) {
-                list = new ArrayList<>();
-                this.a.put(str, list);
-            }
-            list.add(new a(str2, hashMap));
-        }
-    }
-
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.a.remove(str);
-        }
-    }
-
-    public List<a> d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (this.a.containsKey(str)) {
-                return this.a.get(str);
-            }
-            return new ArrayList();
-        }
-        return (List) invokeL.objValue;
+        return invokeLL.booleanValue;
     }
 }

@@ -1,271 +1,137 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.widget.FrameLayout;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.res.ui.BdTimePicker;
-import com.baidu.tieba.o33;
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
+import android.util.Log;
+import android.util.Pair;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Date;
+import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class p33 extends o33 {
+public class p33 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static List<Pair<String, Pair<String, String>>> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdTimePicker c;
-    public int d;
-    public int e;
-    public boolean f;
-    public boolean g;
-    public Date h;
-    public Date i;
 
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class a extends o33.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Date e;
-        public Date f;
-        public Date g;
-        public String h;
-        public boolean i;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(Context context) {
-            super(context);
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948011065, "Lcom/baidu/tieba/p33;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Context) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-        }
-
-        @Override // com.baidu.tieba.o33.a
-        public o33 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                p33 p33Var = (p33) super.a();
-                p33Var.j(this.h);
-                p33Var.h(this.i);
-                Date date = this.g;
-                if (date != null) {
-                    p33Var.k(date.getHours());
-                    p33Var.l(this.g.getMinutes());
-                }
-                Date date2 = this.e;
-                if (date2 != null) {
-                    p33Var.m(date2);
-                }
-                Date date3 = this.f;
-                if (date3 != null) {
-                    p33Var.i(date3);
-                }
-                return p33Var;
-            }
-            return (o33) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.o33.a
-        public o33 b(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-                return new p33(context);
-            }
-            return (o33) invokeL.objValue;
-        }
-
-        public a l(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.i = z;
-                return this;
-            }
-            return (a) invokeZ.objValue;
-        }
-
-        public a m(Date date) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, date)) == null) {
-                this.f = date;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a n(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.h = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a o(Date date) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, date)) == null) {
-                this.g = date;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a p(Date date) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, date)) == null) {
-                this.e = date;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p33(Context context) {
-        super(context, R.style.obfuscated_res_0x7f1001a9);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948011065, "Lcom/baidu/tieba/p33;");
                 return;
             }
         }
-        this.f = false;
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c = new BdTimePicker(getContext());
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-            layoutParams.gravity = 17;
-            this.c.setLayoutParams(layoutParams);
-            this.c.setScrollCycle(true);
-            this.c.setStartDate(this.h);
-            this.c.setmEndDate(this.i);
-            this.c.setHour(this.d);
-            this.c.setMinute(this.e);
-            this.c.l();
-            this.c.setDisabled(this.g);
+        boolean z = gp1.a;
+        a = z;
+        if (z) {
+            ArrayList arrayList = new ArrayList();
+            b = arrayList;
+            arrayList.add(new Pair("总时长", new Pair("na_pms_start_req", "na_end_update_db")));
+            b.add(new Pair<>("PMS信息获取时长", new Pair("na_pms_start_req", "na_pms_end_req")));
+            b.add(new Pair<>("包下载时长", new Pair("na_pms_start_download", "na_pms_end_download")));
+            b.add(new Pair<>("Icon下载时长", new Pair("na_pms_start_icon", "na_pms_end_icon")));
+            b.add(new Pair<>("签名校验时长", new Pair("na_pms_start_check_sign", "na_pms_end_check_sign")));
+            b.add(new Pair<>("包解压时长", new Pair("na_package_start_unzip", "na_package_end_unzip")));
+            b.add(new Pair<>("包解密时长", new Pair("na_package_start_decrypt", "na_package_end_decrypt")));
+            b.add(new Pair<>("更新数据库时长", new Pair("na_start_update_db", "na_end_update_db")));
         }
     }
 
-    public int f() {
-        InterceptResult invokeV;
+    public static void a(String str, String str2, List<UbcFlowEvent> list, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c.getHour();
-        }
-        return invokeV.intValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c.getMinute();
-        }
-        return invokeV.intValue;
-    }
-
-    public void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.g = z;
-        }
-    }
-
-    public void i(Date date) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, date) == null) {
-            this.i = date;
-        }
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void l(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public void m(Date date) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, date) == null) {
-            this.h = date;
-        }
-    }
-
-    @Override // android.app.Dialog
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
-            if (this.f) {
-                getWindow().addFlags(4718592);
-            }
-            e();
-            b().j(this.c);
-        }
-    }
-
-    @Override // com.baidu.tieba.i33, android.app.Dialog
-    public void show() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            BdTimePicker bdTimePicker = this.c;
-            if (bdTimePicker != null) {
-                if (this.d != bdTimePicker.getHour()) {
-                    this.c.setHour(this.d);
-                }
-                if (this.e != this.c.getMinute()) {
-                    this.c.setMinute(this.e);
+        if ((interceptable == null || interceptable.invokeLLLL(65537, null, str, str2, list, str3) == null) && !TextUtils.isEmpty(str) && list != null && list.size() > 0) {
+            cf3 c = pf3.c("770");
+            for (UbcFlowEvent ubcFlowEvent : list) {
+                if (ubcFlowEvent != null) {
+                    df3.e(c, ubcFlowEvent.a, ubcFlowEvent.j(), ubcFlowEvent.g());
                 }
             }
-            super.show();
+            JSONObject jSONObject = new JSONObject();
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject.put("from", "swan");
+                jSONObject.put("type", str2);
+                jSONObject2.put("appid", str);
+                jSONObject2.put("mobile", ml3.c());
+                jSONObject2.put("net", SwanAppNetworkUtils.f().type);
+                if (TextUtils.isEmpty(str3)) {
+                    str3 = "0";
+                }
+                jSONObject2.put("scene", str3);
+                of3.a(jSONObject2);
+                jSONObject.put("ext", jSONObject2.toString());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            df3.f(c, jSONObject.toString());
+            df3.c(c);
+            b(str, list, b);
+        }
+    }
+
+    @SuppressLint({"SwanDebugLog", "LogConditional"})
+    public static void b(String str, List<UbcFlowEvent> list, List<Pair<String, Pair<String, String>>> list2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65538, null, str, list, list2) == null) && a && list != null && list2 != null) {
+            HashMap hashMap = new HashMap();
+            StringBuilder sb = new StringBuilder();
+            sb.append("小程序PMS下载耗时Log：");
+            sb.append("\n");
+            sb.append("小程序ID：");
+            sb.append(str);
+            sb.append("\n");
+            sb.append("小程序ID：");
+            sb.append(str);
+            for (UbcFlowEvent ubcFlowEvent : list) {
+                if (ubcFlowEvent != null) {
+                    sb.append("\n");
+                    sb.append(ubcFlowEvent.g());
+                    sb.append(ZeusCrashHandler.NAME_SEPERATOR);
+                    sb.append(ubcFlowEvent.a);
+                    hashMap.put(ubcFlowEvent.a, Long.valueOf(ubcFlowEvent.g()));
+                }
+            }
+            sb.append("\n");
+            sb.append("耗时计算开始：>>>>>>>>>>>>");
+            for (Pair<String, Pair<String, String>> pair : list2) {
+                if (pair != null) {
+                    String str2 = (String) pair.first;
+                    Object obj = pair.second;
+                    String str3 = (String) ((Pair) obj).first;
+                    String str4 = (String) ((Pair) obj).second;
+                    if (hashMap.get(str3) != null && hashMap.get(str4) != null) {
+                        long longValue = ((Long) hashMap.get(str3)).longValue();
+                        String format = String.format(Locale.CHINA, "%-13d", Long.valueOf(((Long) hashMap.get(str4)).longValue() - longValue));
+                        sb.append("\n");
+                        sb.append("耗时：");
+                        sb.append(format);
+                        sb.append(" >>> ");
+                        sb.append(str2);
+                        sb.append("，计算方式：");
+                        sb.append(str4);
+                        sb.append(" - ");
+                        sb.append(str3);
+                    }
+                }
+            }
+            Log.i("SwanAppPMS", sb.toString());
         }
     }
 }

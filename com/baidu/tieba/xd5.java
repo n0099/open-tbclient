@@ -1,51 +1,39 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.mutiprocess.soloader.SoLoaderEvent;
+import android.content.Context;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
-public class xd5 implements uc5<SoLoaderEvent> {
+public class xd5 extends wb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public xd5() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xd5(Context context, int i) {
+        super(context, TbadkCoreApplication.getInst().getString(R.string.editor_video), 34, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.uc5
-    /* renamed from: a */
-    public boolean onEvent(SoLoaderEvent soLoaderEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, soLoaderEvent)) == null) {
-            if (soLoaderEvent != null && !StringUtils.isNull(soLoaderEvent.name)) {
-                if (rm.a(BdBaseApplication.getInst().getContext(), pm.a(soLoaderEvent.name))) {
-                    ConcurrentHashMap<String, String> resHashMap = BdBaseApplication.getInst().getResHashMap();
-                    String str = soLoaderEvent.name;
-                    resHashMap.put(str, pm.a(str));
-                    return true;
-                }
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
+        this.d = R.drawable.icon_mask_post_video24_selection;
+        this.i = false;
+        this.j = true;
+        this.k = false;
+        this.p = new int[]{60};
     }
 }

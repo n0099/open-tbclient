@@ -2,8 +2,8 @@ package com.baidu.ugc.editvideo.record.processor;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
-import com.baidu.tieba.as9;
-import com.baidu.tieba.jg0;
+import com.baidu.tieba.hw9;
+import com.baidu.tieba.pg0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,11 +29,11 @@ public class SuperpositionProcessor extends BaseEffectProcessor {
     }
 
     @Override // com.baidu.ugc.editvideo.record.processor.IEffectProcessor
-    public int onProcessFrame(jg0 jg0Var, int i, float[] fArr) {
+    public int onProcessFrame(pg0 pg0Var, int i, float[] fArr) {
         InterceptResult invokeLIL;
         int d;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, jg0Var, i, fArr)) == null) ? (jg0Var == null || (d = jg0Var.d((MediaTrack) as9.c(jg0Var.l(), 0), i, null)) == 0) ? i : d : invokeLIL.intValue;
+        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, pg0Var, i, fArr)) == null) ? (pg0Var == null || (d = pg0Var.d((MediaTrack) hw9.c(pg0Var.l(), 0), i, null)) == 0) ? i : d : invokeLIL.intValue;
     }
 
     @Override // com.baidu.ugc.editvideo.record.processor.BaseEffectProcessor

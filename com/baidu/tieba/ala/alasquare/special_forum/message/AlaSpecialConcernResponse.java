@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.alasquare.special_forum.message;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.nz5;
+import com.baidu.tieba.z36;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -16,10 +16,10 @@ import org.json.JSONObject;
 public class AlaSpecialConcernResponse extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<nz5> followList;
+    public List<z36> followList;
     public boolean hasMore;
     public int pn;
-    public List<nz5> recommendList;
+    public List<z36> recommendList;
     public int totalFollowCount;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -63,9 +63,9 @@ public class AlaSpecialConcernResponse extends JsonHttpResponsedMessage {
                         JSONObject optJSONObject = jSONObject2.optJSONObject("user");
                         JSONObject optJSONObject2 = jSONObject2.optJSONObject("ala_live_info");
                         if (optJSONObject != null && optJSONObject2 != null) {
-                            nz5 nz5Var = new nz5();
-                            nz5Var.a(optJSONObject, optJSONObject2);
-                            this.followList.add(nz5Var);
+                            z36 z36Var = new z36();
+                            z36Var.a(optJSONObject, optJSONObject2);
+                            this.followList.add(z36Var);
                         }
                     }
                 }
@@ -76,9 +76,9 @@ public class AlaSpecialConcernResponse extends JsonHttpResponsedMessage {
                         JSONObject optJSONObject3 = jSONObject3.optJSONObject("user");
                         JSONObject optJSONObject4 = jSONObject3.optJSONObject("ala_live_info");
                         if (optJSONObject3 != null && optJSONObject4 != null) {
-                            nz5 nz5Var2 = new nz5();
-                            nz5Var2.a(optJSONObject3, optJSONObject4);
-                            this.recommendList.add(nz5Var2);
+                            z36 z36Var2 = new z36();
+                            z36Var2.a(optJSONObject3, optJSONObject4);
+                            this.recommendList.add(z36Var2);
                         }
                     }
                 }

@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class BehaviorApiManager implements IBehaviorApi {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BEHAVIOR_TYPE = "t";

@@ -1,5 +1,7 @@
 package com.baidu.tieba;
 
+import com.badlogic.gdx.math.Quaternion;
+import com.badlogic.gdx.math.Vector3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -8,9 +10,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class y4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public u3[] a;
-    public float[] b;
-    public z4[] c;
+    public h7<z4<Vector3>> a;
+    public h7<z4<Quaternion>> b;
+    public h7<z4<Vector3>> c;
 
     public y4() {
         Interceptable interceptable = $ic;
@@ -22,7 +24,11 @@ public class y4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = null;
+        this.b = null;
+        this.c = null;
     }
 }

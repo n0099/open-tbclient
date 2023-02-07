@@ -15,10 +15,10 @@ import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.switchs.YunPushOppoproxyEnableSwitch;
-import com.baidu.tieba.cz4;
-import com.baidu.tieba.kj9;
-import com.baidu.tieba.tb;
-import com.baidu.tieba.z35;
+import com.baidu.tieba.m85;
+import com.baidu.tieba.p35;
+import com.baidu.tieba.rn9;
+import com.baidu.tieba.yb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +33,7 @@ public class PushStatic {
     public static CustomMessageListener b;
     public static CustomMessageListener c;
     public static CustomMessageListener d;
-    public static tb e;
+    public static yb e;
     public static CustomMessageListener f;
     public static CustomMessageListener g;
     public static CustomMessageListener h;
@@ -46,11 +46,11 @@ public class PushStatic {
 
         /* renamed from: com.baidu.tieba.yunpush.PushStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0494a implements Runnable {
+        public class RunnableC0498a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0494a(a aVar) {
+            public RunnableC0498a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -102,7 +102,7 @@ public class PushStatic {
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || !TbadkCoreApplication.getInst().isMainProcess(false) || !PermissionUtil.isAgreePrivacyPolicy()) {
                 return;
             }
-            new Thread(new RunnableC0494a(this)).start();
+            new Thread(new RunnableC0498a(this)).start();
         }
     }
 
@@ -310,7 +310,7 @@ public class PushStatic {
     }
 
     /* loaded from: classes7.dex */
-    public static class f extends tb {
+    public static class f extends yb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -521,7 +521,7 @@ public class PushStatic {
         }
         boolean areNotificationsEnabled = NotificationManagerCompat.from(TbadkCoreApplication.getInst()).areNotificationsEnabled();
         if (TbadkCoreApplication.isLogin()) {
-            z = z35.d().l();
+            z = m85.d().l();
         } else {
             z = false;
         }
@@ -542,7 +542,7 @@ public class PushStatic {
             }
             PushManager.enableMeizuProxy(context, true, "111848", "39e9cd05b2294f848dd1c10993e76b59");
             PushManager.enableVivoProxy(context, true);
-            PushManager.startWork(context, 0, kj9.a(context, "api_key"));
+            PushManager.startWork(context, 0, rn9.a(context, "api_key"));
             e();
             NotificationHelper.createIMChannel4Oppo(context);
         }
@@ -551,8 +551,8 @@ public class PushStatic {
     public static void j(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, null, context) == null) {
-            cz4 l = cz4.l();
-            if (l.i(TbConfig.getVersion() + BaiduYunPushMessageReceiver.KEY_SHAREDPRE_PUSH_STARTWORK, false)) {
+            p35 m = p35.m();
+            if (m.i(TbConfig.getVersion() + BaiduYunPushMessageReceiver.KEY_SHAREDPRE_PUSH_STARTWORK, false)) {
                 PushManager.stopWork(context);
             }
         }
@@ -588,7 +588,7 @@ public class PushStatic {
         if ((interceptable != null && interceptable.invokeV(65550, null) != null) || !TbadkCoreApplication.getInst().isMainProcess(false) || !TbadkCoreApplication.isLogin()) {
             return;
         }
-        boolean n = z35.d().n();
+        boolean n = m85.d().n();
         PushManager.uploadNotifyStatus(TbadkCoreApplication.getInst(), n ? 1 : 0, new b());
     }
 }

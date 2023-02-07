@@ -1,179 +1,395 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Handler;
+import android.os.HandlerThread;
 import android.text.TextUtils;
-import android.util.Base64;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.BIMManager;
+import com.baidu.android.imsdk.IMManager;
+import com.baidu.android.imsdk.account.LoginManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.upload.action.CommonUtils;
-import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
-import com.baidu.android.imsdk.upload.action.track.Connection;
-import com.baidu.android.imsdk.upload.action.track.Request;
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
-import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
+import com.baidu.android.imsdk.internal.IMConfigInternal;
+import com.baidu.android.imsdk.internal.MessageFactory;
+import com.baidu.android.imsdk.internal.NotifyMessageHandler;
+import com.baidu.android.imsdk.request.Message;
+import com.baidu.android.imsdk.task.TaskManager;
+import com.baidu.android.imsdk.ubc.CaseUbc;
+import com.baidu.android.imsdk.ubc.UBCConstants;
+import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.lcp.sdk.client.bean.BLCPRequest;
+import com.baidu.searchbox.pms.constants.PmsConstant;
+import com.baidu.tieba.z80;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.gslbsdk.db.ProbeTB;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
-import org.apache.http.cookie.ClientCookie;
+import java.util.LinkedHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class m80 {
+public class m80 {
     public static /* synthetic */ Interceptable $ic;
+    public static Handler c;
+    public static final HandlerThread d;
+    public static volatile LinkedHashMap<Long, Message> e;
+    public static volatile m80 f;
+    public static Context g;
     public transient /* synthetic */ FieldHolder $fh;
+    public AtomicInteger a;
+    public z80 b;
+
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Intent a;
+        public final /* synthetic */ m80 b;
+
+        public a(m80 m80Var, Intent intent) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m80Var, intent};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = m80Var;
+            this.a = intent;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.g(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements z80 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.b90
+        public void onResponse(int i, String str, long j, long j2, long j3, byte[] bArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), bArr}) == null) {
+            }
+        }
+
+        public b(m80 m80Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m80Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.z80
+        public void onResponse(int i, String str, @NonNull z80.a aVar) {
+            Message message;
+            JSONArray optJSONArray;
+            Message message2;
+            Message message3;
+            String str2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, aVar) == null) {
+                LogUtils.i("IMServiceImpl", "IMService err :" + i + ", methodId :" + aVar.a + ", data :" + aVar.c.length + ", Response :" + new String(aVar.c));
+                if (aVar.a == 231) {
+                    NotifyMessageHandler.handleRtcReport("begin", new String(aVar.c));
+                    CaseUbc.DebugInfo debugInfo = new CaseUbc.DebugInfo();
+                    debugInfo.curClassName = "IMServiceImpl.response";
+                    debugInfo.extInfo = "begin";
+                    a80.d().f(CaseUbc.generateUBCData(m80.g, "-1", "", debugInfo), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+                }
+                long j = aVar.b;
+                long j2 = aVar.a;
+                String str3 = "";
+                JSONArray jSONArray = new JSONArray();
+                try {
+                    for (y80 y80Var : aVar.d) {
+                        JSONObject jSONObject = new JSONObject();
+                        jSONObject.put("event", y80Var.a);
+                        jSONObject.put("timestamp_ms", y80Var.b);
+                        jSONArray.put(jSONObject);
+                    }
+                    JSONObject jSONObject2 = new JSONObject();
+                    jSONObject2.put("event_list", jSONArray);
+                    str3 = jSONObject2.toString();
+                } catch (JSONException e) {
+                    LogUtils.i("IMServiceImpl", "event_list JSONException:" + e.getMessage());
+                }
+                if (i == 0) {
+                    try {
+                        JSONObject jSONObject3 = new JSONObject(new String(aVar.c));
+                        int optInt = jSONObject3.optInt(PmsConstant.Statistic.STATISTIC_ERRCODE, -1);
+                        String optString = jSONObject3.optString("msg", "server msg is null");
+                        if (optInt == 4001) {
+                            LoginManager.getInstance(m80.g).triggleLogoutListener(4001, Constants.ERROR_LOGIN_STATE_ERROR);
+                        }
+                        if (jSONObject3.has(Constants.EXTRA_NOTIFY_ID)) {
+                            try {
+                                if (jSONObject3.has("event_list") && (optJSONArray = jSONObject3.optJSONArray("event_list")) != null) {
+                                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                                        jSONArray.put(optJSONArray.get(i2));
+                                    }
+                                }
+                                JSONObject jSONObject4 = new JSONObject();
+                                jSONObject4.put("event", "CIMNotify");
+                                jSONObject4.put("timestamp_ms", System.currentTimeMillis());
+                                jSONArray.put(jSONObject4);
+                                JSONObject jSONObject5 = new JSONObject();
+                                jSONObject5.put("event_list", jSONArray);
+                                str3 = jSONObject5.toString();
+                                LogUtils.d("IMServiceImpl", "Notify eventList :" + str3);
+                            } catch (JSONException e2) {
+                                LogUtils.i("IMServiceImpl", "event_list JSONException:" + e2.getMessage());
+                            }
+                        }
+                        if (j2 == 96) {
+                            NotifyMessageHandler.handleDeliverMessage(m80.g.getApplicationContext(), jSONObject3, str3);
+                            return;
+                        } else if (j2 == 196) {
+                            NotifyMessageHandler.handleMcastMessage(m80.g.getApplicationContext(), jSONObject3, str3);
+                            return;
+                        } else if (j2 == 197) {
+                            NotifyMessageHandler.handleConfigMessage(m80.g.getApplicationContext(), jSONObject3);
+                            return;
+                        } else if (j2 == 226) {
+                            NotifyMessageHandler.handleMediaNotifyMessage(m80.g.getApplicationContext(), jSONObject3);
+                            return;
+                        } else if (j2 == 231) {
+                            NotifyMessageHandler.handleRtcNotifyMessage(m80.g, jSONObject3);
+                            return;
+                        } else {
+                            if (j2 != 236 && j2 != 238) {
+                                LogUtils.d("IMServiceImpl", "key :" + j + "，response :" + jSONObject3.toString() + ", eventList :" + str3);
+                                synchronized (m80.e) {
+                                    if (m80.e.containsKey(Long.valueOf(j)) && (message2 = (Message) m80.e.remove(Long.valueOf(j))) != null) {
+                                        message2.setEventList(str3);
+                                        message2.handleMessageResult(m80.g, jSONObject3, optInt, optString);
+                                    }
+                                }
+                                return;
+                            }
+                            NotifyMessageHandler.handleBusinessCustomizeNotify(m80.g.getApplicationContext(), (int) j2, jSONObject3);
+                            return;
+                        }
+                    } catch (JSONException e3) {
+                        LogUtils.e("IMServiceImpl", "handle response e :", e3);
+                        synchronized (m80.e) {
+                            if (m80.e.containsKey(Long.valueOf(j)) && (message = (Message) m80.e.remove(Long.valueOf(j))) != null) {
+                                message.setEventList(str3);
+                                message.handleMessageResult(m80.g, null, 1010, e3.getMessage());
+                            }
+                            return;
+                        }
+                    }
+                }
+                synchronized (m80.e) {
+                    if (m80.e.containsKey(Long.valueOf(j)) && (message3 = (Message) m80.e.remove(Long.valueOf(j))) != null) {
+                        message3.setEventList(str3);
+                        Context context = m80.g;
+                        if (TextUtils.isEmpty(str)) {
+                            str2 = "lcp error";
+                        } else {
+                            str2 = str;
+                        }
+                        message3.handleMessageResult(context, null, i, str2);
+                    }
+                }
+                LoginManager.getInstance(m80.g).setCurrentState(LoginManager.LoginState.NOT_LOGIN);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947926404, "Lcom/baidu/tieba/m80;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947926404, "Lcom/baidu/tieba/m80;");
+                return;
+            }
+        }
+        HandlerThread handlerThread = new HandlerThread("IMServiceImpl HandlerThread");
+        d = handlerThread;
+        handlerThread.start();
+        c = new Handler(d.getLooper());
+        e = new LinkedHashMap<>();
+    }
 
     public m80() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new AtomicInteger();
+        this.b = new b(this);
+        f();
     }
 
-    public static IMPushPb.Action b(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public final void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            return IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.NEWCONNECTION).setNewConnection(IMPushPb.NewConnection.newBuilder().setAliasId(601110L).setConnectErrorCode(jSONObject.optString("con_err_code", "")).setTokenBegin(jSONObject.optLong("token_begin", 0L)).setTokenEnd(jSONObject.optLong("token_end", 0L)).setDnsBegin(jSONObject.optLong("dns_begin", 0L)).setDnsEnd(jSONObject.optLong("dns_end", 0L)).setSocketBegin(jSONObject.optLong("socket_begin", 0L)).setSocketEnd(jSONObject.optLong("socket_end", 0L)).setLcpLoginBegin(jSONObject.optLong("login_begin", 0L)).setLcpLoginEnd(jSONObject.optLong("login_end", 0L)).setConnectSource(jSONObject.optString("source", "")).setConnectState(jSONObject.optLong("connect_state", -1L)).setEndTime(jSONObject.optLong("flow_end_time", 0L)).setStartTime(jSONObject.optLong("flow_start_time", 0L)).setRetry(jSONObject.optInt("retry_cout", 0)).setExt(jSONObject.toString()).setNetInfo(d(jSONObject)).build()).build();
-        }
-        return (IMPushPb.Action) invokeL.objValue;
-    }
-
-    public static IMPushPb.LcpNetInfo d(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            return IMPushPb.LcpNetInfo.newBuilder().setDomain(jSONObject.optString("domain", "")).setIp(jSONObject.optString("ip", "")).setPort(jSONObject.optString(ClientCookie.PORT_ATTR, "")).setProtocol(jSONObject.optString(ProbeTB.PROTOCOL, "")).build();
-        }
-        return (IMPushPb.LcpNetInfo) invokeL.objValue;
-    }
-
-    public static IMPushPb.Action e(String str, String str2, long j, long j2, long j3, String str3, long j4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str3, Long.valueOf(j4)})) == null) {
-            return IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.REQUEST).setRequest(IMPushPb.Request.newBuilder().setMethod(str).setRequestId(str2).setTimestamp(j).setResponseTime(j2).setErrorCode(j3).setExt(str3).setAliasId(j4).build()).build();
-        }
-        return (IMPushPb.Action) invokeCommon.objValue;
-    }
-
-    public static IMPushPb.Action h(long j, long j2, String str, long j3, long j4, String str2, long j5) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, Long.valueOf(j3), Long.valueOf(j4), str2, Long.valueOf(j5)})) == null) {
-            return IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.CONNECTION).setConnection(IMPushPb.Connection.newBuilder().setStartTime(j).setStopTime(j2).setReason(str).setRetryTime(j3).setRetryCount(j4).setExt(str2).setAliasId(j5).build()).build();
-        }
-        return (IMPushPb.Action) invokeCommon.objValue;
-    }
-
-    public static IMPushPb.Action f(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
-            return IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.NEWREQUEST).setNewRequest(IMPushPb.NewRequest.newBuilder().setAliasId(601111L).setRequestId(jSONObject.optLong(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID)).setServiceId(jSONObject.optString("service_id")).setMethodId(jSONObject.optString("method_id")).setErrorCode(jSONObject.optLong("error_code")).setErrorMsg(jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG)).setRequestTime(jSONObject.optLong("request_time")).setResponseTime(jSONObject.optLong("response_time")).setExt(jSONObject.optString("ext")).setNetInfo(d(jSONObject)).build()).build();
-        }
-        return (IMPushPb.Action) invokeL.objValue;
-    }
-
-    public static IMPushPb.Action g(String str, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, jSONObject)) == null) {
-            int intValue = Integer.valueOf(str).intValue();
-            if (intValue == 601111) {
-                return f(jSONObject);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            int[] iArr = {96, Constants.METHOD_MEDIA_NOTIFY, 196, Constants.METHOD_IM_DELIVER_CONFIG_MSG, 231, Constants.METHOD_IM_CONSULT_NOTIFY_MSG, 238};
+            for (int i = 0; i < 7; i++) {
+                i(2, Integer.valueOf(iArr[i]).intValue());
             }
-            if (intValue == 601110) {
-                return b(jSONObject);
-            }
-            return b(jSONObject);
-        }
-        return (IMPushPb.Action) invokeLL.objValue;
-    }
-
-    public static void i(Context context, Connection connection) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, context, connection) == null) {
-            try {
-                HashSet hashSet = new HashSet(n80.b(context));
-                hashSet.add(Base64.encodeToString(h(connection.startTime, connection.stopTime, connection.reason, connection.retryTime, connection.retryCount, connection.ext, connection.aliasId).toByteArray(), 0));
-                n80.k(context, hashSet);
-            } catch (Exception e) {
-                q90.c("TrackPbGenerator", "putIMConnectionToActions :", e);
-            }
+            i(3, 196);
         }
     }
 
-    public static void j(Context context, Request request) {
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, context, request) == null) {
-            try {
-                HashSet hashSet = new HashSet(n80.d(context));
-                hashSet.add(Base64.encodeToString(e(request.method, request.requestId, request.timestamp, request.responseTime, request.errorCode, request.ext, request.aliasId).toByteArray(), 0));
-                n80.o(context, hashSet);
-            } catch (Exception e) {
-                q90.c("TrackPbGenerator", "putIMRequestToActions :", e);
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            IMManager.init(g.getApplicationContext(), IMConfigInternal.getInstance().getProductLine(g.getApplicationContext()));
+            h();
         }
     }
 
-    public final List<String> a(String str, List<o80> list) {
-        InterceptResult invokeLL;
+    public static void c(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (list != null && !TextUtils.isEmpty(str) && list.size() > 0) {
-                q90.a("TrackPbGenerator", "flow upload details list");
-                for (o80 o80Var : list) {
-                    if (o80Var != null) {
-                        String a = o80Var.a();
-                        if (!TextUtils.isEmpty(a) && a.length() > 0) {
-                            arrayList.add(a);
-                        }
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
+            synchronized (e) {
+                for (Message message : e.values()) {
+                    if (message != null) {
+                        message.handleMessageResult(context, null, -1, "");
                     }
                 }
-                q90.a("TrackPbGenerator", "flow upload detal list:" + arrayList.toString());
+                e.clear();
             }
-            return arrayList;
         }
-        return (List) invokeLL.objValue;
     }
 
-    public byte[] c(Context context, String str, List<o80> list, int i) {
-        InterceptResult invokeLLLI;
+    public static m80 e(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, list, i)) == null) {
-            list.addAll(c90.j(context).g(str, i));
-            List<String> a = a(str, list);
-            if (a != null) {
-                try {
-                    if (a.size() > 0) {
-                        CopyOnWriteArrayList copyOnWriteArrayList = new CopyOnWriteArrayList();
-                        if (a.size() > 0) {
-                            for (String str2 : a) {
-                                copyOnWriteArrayList.add(g(str, new JSONObject(str2)));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            if (f == null) {
+                synchronized (m80.class) {
+                    if (f == null) {
+                        g = context.getApplicationContext();
+                        f = new m80();
+                    }
+                }
+            }
+            return f;
+        }
+        return (m80) invokeL.objValue;
+    }
+
+    public void d(Context context, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+            LogUtils.e("IMServiceImpl", "IMServiceImpl.getInstance(context).enqueueWork");
+            TaskManager.getInstance(context).submitForNetWork(new a(this, intent));
+        }
+    }
+
+    public final void i(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            a90 a90Var = new a90();
+            a90Var.a = i;
+            a90Var.b = i2;
+            v80.c(a90Var, this.b);
+        }
+    }
+
+    public void g(@NonNull Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) {
+            LogUtils.d("IMServiceImpl", "-- onHandleWork -- " + intent);
+            try {
+                int intExtra = intent.getIntExtra("method", -1);
+                int intExtra2 = intent.getIntExtra("service_id", -1);
+                LogUtils.d("IMServiceImpl", "-- onHandleWork methodId : " + intExtra);
+                if (intExtra != -1 && intExtra2 != -1) {
+                    if (intExtra == 50 || intExtra == 201) {
+                        h();
+                    }
+                    Message createNewMessage = MessageFactory.getInstance().createNewMessage(g, intExtra, intent);
+                    if (createNewMessage != null) {
+                        LogUtils.d("IMServiceImpl", "IMLoginState = " + LoginManager.getInstance(g).getCurrentState() + ", methodId :" + intExtra);
+                        createNewMessage.isSending(true);
+                        BLCPRequest bLCPRequest = new BLCPRequest();
+                        bLCPRequest.a = (long) intExtra2;
+                        long type = (long) createNewMessage.getType();
+                        bLCPRequest.b = type;
+                        if (intExtra2 == 3 && type == 55) {
+                            bLCPRequest.b = 185L;
+                        }
+                        bLCPRequest.c = createNewMessage.getBody().getBytes();
+                        bLCPRequest.e = BLCPRequest.SendTimeoutSecond.TIMEOUT_30s;
+                        String str = System.currentTimeMillis() + "";
+                        long j = (bLCPRequest.a * 1000000000000000L) + bLCPRequest.b;
+                        StringBuilder sb = new StringBuilder();
+                        sb.append((System.currentTimeMillis() + "").substring(str.length() - 6));
+                        sb.append(this.a.incrementAndGet());
+                        bLCPRequest.d = j + (Long.parseLong(sb.toString()) * 1000);
+                        synchronized (e) {
+                            if (intExtra == 50) {
+                                if (BIMManager.isIMLogined(g)) {
+                                    LogUtils.d("IMServiceImpl", "cur state is loggined, abandon other 50");
+                                    CaseUbc.DebugInfo debugInfo = new CaseUbc.DebugInfo();
+                                    debugInfo.curClassName = "onHandleWork IM logined";
+                                    debugInfo.extInfo = e.keySet().toString();
+                                    CaseUbc.caseType = "imcase_login";
+                                    a80.d().f(CaseUbc.generateUBCData(g, "-1", "", debugInfo), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+                                    return;
+                                }
+                                e.clear();
+                                e.put(Long.valueOf(bLCPRequest.d), createNewMessage);
+                                e.putAll((LinkedHashMap) e.clone());
+                                LogUtils.d("IMServiceImpl", "cur method :50, cur msgList :" + e.keySet());
+                            } else {
+                                e.put(Long.valueOf(bLCPRequest.d), createNewMessage);
                             }
+                            LogUtils.d("IMServiceImpl", "requestTaskManager msg Id:" + bLCPRequest.d + ". msg :" + e.keySet().toString());
+                            v80.c(bLCPRequest, this.b);
                         }
-                        return IMPushPb.PushImClient.newBuilder().setCommon(CommonUtils.getIMCommon(context, r90.e(context))).setSdkName("lcp").setSdkVersion(2310016L).addAllActions(copyOnWriteArrayList).build().toByteArray();
                     }
-                } catch (Exception e) {
-                    e.printStackTrace();
                 }
+            } catch (Exception e2) {
+                LogUtils.e("IMServiceImpl", "onStartCommand isSmallFlow Exception", e2);
             }
-            return null;
         }
-        return (byte[]) invokeLLLI.objValue;
     }
 }

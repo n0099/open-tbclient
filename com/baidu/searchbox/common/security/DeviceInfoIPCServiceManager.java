@@ -16,7 +16,7 @@ import kotlin.Unit;
 import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0002\u0018\u0002\n\u0002\b\u0004\b\u0000\u0018\u0000 \u0003:\u0001\u0003B\u0007¢\u0006\u0004\b\u0001\u0010\u0002¨\u0006\u0004"}, d2 = {"Lcom/baidu/searchbox/common/security/DeviceInfoIPCServiceManager;", "<init>", "()V", "Companion", "lib-security-framework_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0003\b\u0000\u0018\u0000 \u00032\u00020\u0001:\u0001\u0003B\u0005¢\u0006\u0002\u0010\u0002¨\u0006\u0004"}, d2 = {"Lcom/baidu/searchbox/common/security/DeviceInfoIPCServiceManager;", "", "()V", "Companion", "lib-security-framework_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes2.dex */
 public final class DeviceInfoIPCServiceManager {
     public static /* synthetic */ Interceptable $ic = null;
@@ -56,11 +56,15 @@ public final class DeviceInfoIPCServiceManager {
         return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? Companion.getIPCService() : (IDeviceInfoService) invokeV.objValue;
     }
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001c\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0007\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\r\u0010\u0003J\u000f\u0010\u0002\u001a\u00020\u0001H\u0007¢\u0006\u0004\b\u0002\u0010\u0003J\u0011\u0010\u0005\u001a\u0004\u0018\u00010\u0004H\u0007¢\u0006\u0004\b\u0005\u0010\u0006R\u0016\u0010\b\u001a\u00020\u00078\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\b\u0010\tR\u001e\u0010\n\u001a\u0004\u0018\u00010\u00048\u0002@\u0002X\u0083\u000e¢\u0006\f\n\u0004\b\n\u0010\u000b\u0012\u0004\b\f\u0010\u0003¨\u0006\u000e"}, d2 = {"Lcom/baidu/searchbox/common/security/DeviceInfoIPCServiceManager$Companion;", "", "addIPCService", "()V", "Lcom/baidu/searchbox/common/security/IDeviceInfoService;", "getIPCService", "()Lcom/baidu/searchbox/common/security/IDeviceInfoService;", "", "IPC_SERVICE_NAME", "Ljava/lang/String;", "sDeviceInfoService", "Lcom/baidu/searchbox/common/security/IDeviceInfoService;", "getSDeviceInfoService$annotations", "<init>", "lib-security-framework_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @Metadata(d1 = {"\u0000\"\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\b\u0010\b\u001a\u00020\tH\u0007J\n\u0010\n\u001a\u0004\u0018\u00010\u0006H\u0007R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u001a\u0010\u0005\u001a\u0004\u0018\u00010\u00068\u0002@\u0002X\u0083\u000e¢\u0006\b\n\u0000\u0012\u0004\b\u0007\u0010\u0002¨\u0006\u000b"}, d2 = {"Lcom/baidu/searchbox/common/security/DeviceInfoIPCServiceManager$Companion;", "", "()V", "IPC_SERVICE_NAME", "", "sDeviceInfoService", "Lcom/baidu/searchbox/common/security/IDeviceInfoService;", "getSDeviceInfoService$annotations", "addIPCService", "", "getIPCService", "lib-security-framework_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes2.dex */
     public static final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
 
         @JvmStatic
         public static /* synthetic */ void getSDeviceInfoService$annotations() {
@@ -231,10 +235,6 @@ public final class DeviceInfoIPCServiceManager {
             }
         }
 
-        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
         @JvmStatic
         public final IDeviceInfoService getIPCService() {
             InterceptResult invokeV;
@@ -243,6 +243,7 @@ public final class DeviceInfoIPCServiceManager {
                 if (DeviceInfoIPCServiceManager.sDeviceInfoService == null) {
                     synchronized (DeviceInfoManager.class) {
                         if (DeviceInfoIPCServiceManager.sDeviceInfoService == null) {
+                            Companion companion = DeviceInfoIPCServiceManager.Companion;
                             DeviceInfoIPCServiceManager.sDeviceInfoService = IDeviceInfoService.Stub.asInterface(IPCServiceManager.f(DeviceInfoIPCServiceManager.IPC_SERVICE_NAME, true));
                         }
                         Unit unit = Unit.INSTANCE;

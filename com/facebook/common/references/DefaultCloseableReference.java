@@ -61,7 +61,7 @@ public class DefaultCloseableReference<T> extends CloseableReference<T> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.references.CloseableReference
     /* renamed from: clone */
-    public CloseableReference<T> mo81clone() {
+    public CloseableReference<T> mo83clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

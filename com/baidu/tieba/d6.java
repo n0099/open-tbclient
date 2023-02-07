@@ -1,98 +1,92 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
+import com.badlogic.gdx.Application;
+import com.badlogic.gdx.graphics.Pixmap;
+import com.badlogic.gdx.utils.GdxRuntimeException;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.SynchronousQueue;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes4.dex */
 public class d6 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = true;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ThreadPoolExecutor a;
 
-    /* loaded from: classes4.dex */
-    public class a implements ThreadFactory {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public AtomicInteger a;
-
-        public a(d6 d6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new AtomicInteger();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448300955, "Lcom/baidu/tieba/d6;")) == null) {
+            return;
         }
-
-        @Override // java.util.concurrent.ThreadFactory
-        public Thread newThread(Runnable runnable) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                Thread thread = new Thread(runnable, "NetThread" + this.a.getAndIncrement());
-                thread.setDaemon(true);
-                return thread;
-            }
-            return (Thread) invokeL.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448300955, "Lcom/baidu/tieba/d6;");
         }
     }
 
-    public d6(int i) {
-        boolean z;
-        int i2;
-        BlockingQueue linkedBlockingQueue;
+    public static void a(int i, Pixmap pixmap, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), pixmap, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            if (!a) {
+                b(i, pixmap, i2, i3);
+            } else if (l1.a.getType() != Application.ApplicationType.Android && l1.a.getType() != Application.ApplicationType.WebGL && l1.a.getType() != Application.ApplicationType.iOS) {
+                c(i, pixmap, i2, i3);
+            } else {
+                d(i, pixmap);
             }
         }
-        if (i == Integer.MAX_VALUE) {
-            z = true;
-        } else {
-            z = false;
+    }
+
+    public static void b(int i, Pixmap pixmap, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), pixmap, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            l1.e.q(i, 0, pixmap.j(), pixmap.n(), pixmap.l(), 0, pixmap.i(), pixmap.k(), pixmap.m());
+            if (l1.f == null && i2 != i3) {
+                throw new GdxRuntimeException("texture width and height must be square when using mipmapping.");
+            }
+            int n = pixmap.n() / 2;
+            int l = pixmap.l() / 2;
+            int i4 = 1;
+            Pixmap pixmap2 = pixmap;
+            while (n > 0 && l > 0) {
+                Pixmap pixmap3 = new Pixmap(n, l, pixmap2.h());
+                pixmap3.o(Pixmap.Blending.None);
+                pixmap3.f(pixmap2, 0, 0, pixmap2.n(), pixmap2.l(), 0, 0, n, l);
+                if (i4 > 1) {
+                    pixmap2.dispose();
+                }
+                pixmap2 = pixmap3;
+                l1.e.q(i, i4, pixmap3.j(), pixmap3.n(), pixmap3.l(), 0, pixmap3.i(), pixmap3.k(), pixmap3.m());
+                n = pixmap2.n() / 2;
+                l = pixmap2.l() / 2;
+                i4++;
+            }
         }
-        if (z) {
-            i2 = 0;
-        } else {
-            i2 = i;
+    }
+
+    public static void c(int i, Pixmap pixmap, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), pixmap, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            if (!l1.b.a("GL_ARB_framebuffer_object") && !l1.b.a("GL_EXT_framebuffer_object") && l1.g == null) {
+                b(i, pixmap, i2, i3);
+                return;
+            }
+            l1.e.q(i, 0, pixmap.j(), pixmap.n(), pixmap.l(), 0, pixmap.i(), pixmap.k(), pixmap.m());
+            l1.f.F(i);
         }
-        TimeUnit timeUnit = TimeUnit.SECONDS;
-        if (z) {
-            linkedBlockingQueue = new SynchronousQueue();
-        } else {
-            linkedBlockingQueue = new LinkedBlockingQueue();
+    }
+
+    public static void d(int i, Pixmap pixmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, pixmap) == null) {
+            l1.e.q(i, 0, pixmap.j(), pixmap.n(), pixmap.l(), 0, pixmap.i(), pixmap.k(), pixmap.m());
+            l1.f.F(i);
         }
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i2, i, 60L, timeUnit, linkedBlockingQueue, new a(this));
-        this.a = threadPoolExecutor;
-        threadPoolExecutor.allowCoreThreadTimeOut(!z);
-        new y7();
-        new y7();
     }
 }

@@ -185,14 +185,14 @@ public final class m extends d implements View.OnClickListener {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            this.nL = (ViewGroup) this.es.findViewById(R.id.obfuscated_res_0x7f09124d);
-            this.nG = (KSCornerImageView) this.es.findViewById(R.id.obfuscated_res_0x7f09124a);
-            this.li = (TextView) this.es.findViewById(R.id.obfuscated_res_0x7f09124f);
-            this.vC = (LinearLayout) this.es.findViewById(R.id.obfuscated_res_0x7f09123c);
-            this.vD = (KsPriceView) this.es.findViewById(R.id.obfuscated_res_0x7f09124c);
-            this.vE = (TextView) this.es.findViewById(R.id.obfuscated_res_0x7f091239);
-            this.vF = this.es.findViewById(R.id.obfuscated_res_0x7f09124e);
-            this.vG = (KSCornerImageView) this.es.findViewById(R.id.obfuscated_res_0x7f09124b);
+            this.nL = (ViewGroup) this.es.findViewById(R.id.obfuscated_res_0x7f091290);
+            this.nG = (KSCornerImageView) this.es.findViewById(R.id.obfuscated_res_0x7f09128d);
+            this.li = (TextView) this.es.findViewById(R.id.obfuscated_res_0x7f091292);
+            this.vC = (LinearLayout) this.es.findViewById(R.id.obfuscated_res_0x7f09127f);
+            this.vD = (KsPriceView) this.es.findViewById(R.id.obfuscated_res_0x7f09128f);
+            this.vE = (TextView) this.es.findViewById(R.id.obfuscated_res_0x7f09127c);
+            this.vF = this.es.findViewById(R.id.obfuscated_res_0x7f091291);
+            this.vG = (KSCornerImageView) this.es.findViewById(R.id.obfuscated_res_0x7f09128e);
             this.vE.setText(com.kwad.components.ad.c.b.ai());
             this.vE.setOnClickListener(this);
             this.nG.setOnClickListener(this);
@@ -204,7 +204,7 @@ public final class m extends d implements View.OnClickListener {
             ViewGroup.LayoutParams layoutParams = this.es.getLayoutParams();
             if (layoutParams instanceof FrameLayout.LayoutParams) {
                 FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;
-                layoutParams2.width = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703b5);
+                layoutParams2.width = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703b7);
                 this.es.setLayoutParams(layoutParams2);
             }
         }

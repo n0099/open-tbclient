@@ -45,7 +45,7 @@ public class bo {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m218a(String str) {
+    public static byte[] m220a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {

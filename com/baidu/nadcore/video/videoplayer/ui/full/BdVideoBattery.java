@@ -8,8 +8,8 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.a51;
-import com.baidu.tieba.tz0;
+import com.baidu.tieba.k61;
+import com.baidu.tieba.x01;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,10 +42,10 @@ public class BdVideoBattery extends View {
                 return;
             }
         }
-        d = a51.d(2.0f);
-        e = a51.d(2.0f);
-        f = a51.d(2.0f);
-        g = a51.d(4.0f);
+        d = k61.d(2.0f);
+        e = k61.d(2.0f);
+        f = k61.d(2.0f);
+        g = k61.d(4.0f);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -137,7 +137,7 @@ public class BdVideoBattery extends View {
             if (bitmap != null) {
                 canvas.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
             }
-            float f3 = (float) (tz0.a / 100.0d);
+            float f3 = (float) (x01.a / 100.0d);
             if (f3 >= 0.0f) {
                 if (f3 > 100.0f) {
                     f2 = 100.0f;

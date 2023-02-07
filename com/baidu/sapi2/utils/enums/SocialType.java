@@ -57,7 +57,7 @@ public final class SocialType {
         HUAWEI = new SocialType("HUAWEI", 4, 45, "华为");
         HONOR = new SocialType("HONOR", 5, 61, "荣耀");
         IQIYI = new SocialType("IQIYI", 6, 47, "爱奇艺");
-        XIAOMI = new SocialType("XIAOMI", 7, 49, "小米");
+        XIAOMI = new SocialType(RomUtils.ROM_XIAOMI, 7, 49, "小米");
         MEIZU = new SocialType("MEIZU", 8, 50, "魅族");
         FACEBOOK = new SocialType("FACEBOOK", 9, 55, "facebook");
         TWITTER = new SocialType("TWITTER", 10, 56, "twitter");

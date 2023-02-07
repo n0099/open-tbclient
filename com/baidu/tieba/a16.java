@@ -1,32 +1,17 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tieba.ala.gamebar.AlaGameFrsLiveTabFragment;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes3.dex */
-public class a16 extends fb5 {
+public class a16 extends gs1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlaGameFrsLiveTabFragment c;
-
-    @Override // com.baidu.tieba.fb5
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
 
     public a16() {
         Interceptable interceptable = $ic;
@@ -38,69 +23,15 @@ public class a16 extends fb5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = new AlaGameFrsLiveTabFragment();
-        b().a = this.c;
     }
 
-    @Override // com.baidu.tieba.fb5
-    public gb5 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.gs1
+    public void c(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            gb5 gb5Var = new gb5();
-            gb5Var.e = 2;
-            gb5Var.b = R.string.ala_live;
-            gb5Var.i = gb5.k;
-            return gb5Var;
-        }
-        return (gb5) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.fb5
-    public TbFragmentTabIndicator c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
-            this.b = fragmentTabIndicator;
-            fragmentTabIndicator.setTextSize(2.0f);
-            return this.b;
-        }
-        return (TbFragmentTabIndicator) invokeL.objValue;
-    }
-
-    public void g(po6 po6Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, po6Var) != null) || po6Var == null || !po6Var.h(2)) {
-            return;
-        }
-        po6Var.a(this);
-    }
-
-    public void h(String str) {
-        AlaGameFrsLiveTabFragment alaGameFrsLiveTabFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (alaGameFrsLiveTabFragment = this.c) != null) {
-            alaGameFrsLiveTabFragment.M1(str);
-        }
-    }
-
-    public void i(String str) {
-        AlaGameFrsLiveTabFragment alaGameFrsLiveTabFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && (alaGameFrsLiveTabFragment = this.c) != null) {
-            alaGameFrsLiveTabFragment.N1(str);
-        }
-    }
-
-    public void j(String str) {
-        AlaGameFrsLiveTabFragment alaGameFrsLiveTabFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && (alaGameFrsLiveTabFragment = this.c) != null) {
-            alaGameFrsLiveTabFragment.O1(str);
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            z06.c(z);
         }
     }
 }

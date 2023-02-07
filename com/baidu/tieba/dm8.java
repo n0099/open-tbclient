@@ -1,51 +1,113 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
-import android.content.pm.PackageManager;
-import androidx.exifinterface.media.ExifInterface;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GiftInfo;
+import tbclient.User;
 /* loaded from: classes4.dex */
-public class dm8 {
+public class dm8 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId h;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
+    public String c;
+    public String d;
+    public String e;
+    public int f;
+    public List<Cdo> g;
 
-    public static boolean a() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947709466, "Lcom/baidu/tieba/dm8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947709466, "Lcom/baidu/tieba/dm8;");
+                return;
+            }
+        }
+        h = BdUniqueId.gen();
+    }
+
+    public dm8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            String systemProperty = UtilHelper.getSystemProperty("ro.miui.ui.version.name");
-            if (StringUtils.isNull(systemProperty) || yg.e(systemProperty.replace(ExifInterface.GPS_MEASUREMENT_INTERRUPTED, ""), 0) < 9) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return h;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return !ListUtils.isEmpty(this.g);
         }
         return invokeV.booleanValue;
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
+    public void c(User user) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            PackageManager packageManager = TbadkCoreApplication.getInst().getPackageManager();
-            try {
-                try {
-                } catch (PackageManager.NameNotFoundException unused) {
-                    if (packageManager.getActivityInfo(new ComponentName("com.vivo.permissionmanager", "com.vivo.permissionmanager.activity.StartBgActivityControlActivity"), 0) != null) {
-                        return true;
-                    }
+        if ((interceptable == null || interceptable.invokeL(1048576, this, user) == null) && user != null && !ListUtils.isEmpty(user.gift_list)) {
+            this.c = String.valueOf(user.id);
+            this.d = user.name;
+            this.e = user.name_show;
+            this.f = user.sex.intValue();
+            String str = this.c;
+            if (str != null && str.equals(TbadkCoreApplication.getCurrentAccount())) {
+                this.a = true;
+            } else {
+                this.a = false;
+            }
+            if (user.sex.intValue() == 2) {
+                this.b = false;
+            } else {
+                this.b = true;
+            }
+            Integer num = user.gift_num;
+            if (num != null) {
+                num.intValue();
+            }
+            this.g = new ArrayList();
+            for (GiftInfo giftInfo : user.gift_list) {
+                if (giftInfo != null) {
+                    lm8 lm8Var = new lm8();
+                    lm8Var.c(giftInfo);
+                    this.g.add(lm8Var);
                 }
-            } catch (PackageManager.NameNotFoundException unused2) {
             }
-            if (packageManager.getActivityInfo(new ComponentName("com.vivo.permissionmanager", "com.vivo.permissionmanager.activity.ScreenLockedActionControlActivity"), 0) != null) {
-                return true;
-            }
-            return false;
         }
-        return invokeV.booleanValue;
     }
 }

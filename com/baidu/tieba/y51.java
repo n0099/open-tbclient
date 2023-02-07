@@ -1,29 +1,37 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.annotation.TargetApi;
+import android.app.Activity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+@TargetApi(23)
 /* loaded from: classes7.dex */
 public class y51 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static <T> void a(@NonNull s61 s61Var, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, s61Var, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        if (!str.startsWith("javascript:")) {
-            str = "javascript:" + str;
-        }
-        s61Var.loadUrl(str, null);
+    /* loaded from: classes7.dex */
+    public interface a {
+        void validateRequestPermissionsRequestCode(int i);
     }
 
-    public static <T> void b(@NonNull s61 s61Var, int i, int i2, int i3, int i4) {
+    public static boolean a(Activity activity, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{s61Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            a(s61Var, "NadJsControl.visibleRectChange(".concat(String.valueOf(i)).concat(",").concat(String.valueOf(i2)).concat(",").concat(String.valueOf(i3)).concat(",").concat(String.valueOf(i4)).concat(");"));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, activity, str)) == null) {
+            return activity.shouldShowRequestPermissionRationale(str);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void requestPermissions(Activity activity, String[] strArr, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65537, null, activity, strArr, i) == null) {
+            if (activity instanceof a) {
+                ((a) activity).validateRequestPermissionsRequestCode(i);
+            }
+            activity.requestPermissions(strArr, i);
         }
     }
 }

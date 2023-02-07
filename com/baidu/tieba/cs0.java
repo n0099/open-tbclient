@@ -1,29 +1,31 @@
 package com.baidu.tieba;
+
+import androidx.annotation.Nullable;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public interface cs0 {
-    void a(int i);
+public class cs0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public String a;
+    @Nullable
+    public String b;
+    public boolean c;
 
-    void onBufferEnd();
-
-    void onBufferStart();
-
-    void onEnd(int i);
-
-    void onError(int i, int i2, String str);
-
-    void onInfo(int i, int i2);
-
-    void onPause();
-
-    void onPrepared();
-
-    void onResume();
-
-    void onSeekEnd();
-
-    void onStart();
-
-    void onUpdateProgress(int i, int i2, int i3);
-
-    void onVideoSizeChanged(int i, int i2);
+    public cs0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

@@ -52,7 +52,7 @@ public class AppCompatImageButton extends ImageButton implements TintableBackgro
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AppCompatImageButton(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040337);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040338);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

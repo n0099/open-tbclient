@@ -1,72 +1,62 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetMoreMsg.DataRes;
-import tbclient.GetMoreMsg.MsgContent;
 /* loaded from: classes6.dex */
 public class wp8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public ArrayList<vp8> b;
 
-    public wp8() {
+    public static void a(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLL(65536, null, context, str) == null) {
+            UrlSchemaJumpHelper.jumpGameAlbum(context, str);
         }
-        this.a = true;
-        this.b = null;
     }
 
-    public ArrayList<vp8> a() {
+    public static void b(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) {
+            UrlSchemaJumpHelper.jumpGameGodsPage(context, str);
+        }
+    }
+
+    public static void c(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
+            UrlSchemaJumpHelper.jumpGameOrderPage(context, str);
+        }
+    }
+
+    public static void d(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, context, str) == null) {
+            UrlSchemaJumpHelper.jumpGameSkillDetail(context, str);
+        }
+    }
+
+    public static void e(Context context, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, z) == null) {
+            UrlSchemaJumpHelper.jumpPersonChat(context, str, z);
+        }
+    }
+
+    public static Ringtone f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            Ringtone ringtone = RingtoneManager.getRingtone(TbadkCoreApplication.getInst(), RingtoneManager.getDefaultUri(2));
+            ringtone.play();
+            return ringtone;
         }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void c(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes) == null) && dataRes != null) {
-            boolean z = true;
-            if (dataRes.has_more.intValue() != 1) {
-                z = false;
-            }
-            this.a = z;
-            List<MsgContent> list = dataRes.msg_content;
-            if (list != null && list.size() > 0) {
-                this.b = new ArrayList<>();
-                for (MsgContent msgContent : dataRes.msg_content) {
-                    this.b.add(new vp8(msgContent));
-                }
-            }
-        }
+        return (Ringtone) invokeV.objValue;
     }
 }

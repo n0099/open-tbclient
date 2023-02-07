@@ -1,119 +1,104 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.browser.sailor.BdSailorConfig;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.cert.CertificateException;
-import java.security.cert.X509Certificate;
-import javax.net.ssl.HostnameVerifier;
-import javax.net.ssl.HttpsURLConnection;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSession;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
 /* loaded from: classes6.dex */
 public class th1 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = null;
+    public static String b = null;
+    public static int c = 0;
+    public static boolean d = true;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a implements HostnameVerifier {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // javax.net.ssl.HostnameVerifier
-        public boolean verify(String str, SSLSession sSLSession) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, sSLSession)) == null) {
-                return true;
-            }
-            return invokeLL.booleanValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948181100, "Lcom/baidu/tieba/th1;")) == null) {
+            return;
         }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948181100, "Lcom/baidu/tieba/th1;");
+        }
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return Thread.currentThread().getName() + PreferencesUtil.LEFT_MOUNT + a + ":" + b + ":" + c + PreferencesUtil.RIGHT_MOUNT + str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65538, null, str) != null) || !d) {
+            return;
+        }
+        Log.d("CashierSdk", str);
+    }
+
+    public static void d(Object... objArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, objArr) != null) || !d) {
+            return;
+        }
+        e(new Throwable().getStackTrace());
+        Log.e("CashierSdk", f(objArr));
+    }
+
+    public static void e(StackTraceElement[] stackTraceElementArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, stackTraceElementArr) == null) {
+            a = stackTraceElementArr[1].getFileName();
+            b = stackTraceElementArr[1].getMethodName();
+            c = stackTraceElementArr[1].getLineNumber();
+        }
+    }
+
+    public static void g(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65543, null, str) != null) || !d) {
+            return;
+        }
+        Log.i("CashierSdk", str);
+    }
+
+    public static void c(String str, Throwable th) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65539, null, str, th) != null) || !d) {
+            return;
+        }
+        e(new Throwable().getStackTrace());
+        Log.e("CashierSdk", f(str), th);
+    }
+
+    public static String f(Object... objArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, objArr)) == null) {
+            if (objArr == null) {
+                return "";
+            }
+            StringBuilder sb = new StringBuilder();
+            for (Object obj : objArr) {
+                if (obj != null) {
+                    sb.append(obj.toString());
                 }
             }
+            return a(sb.toString());
         }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements TrustManager, X509TrustManager {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // javax.net.ssl.X509TrustManager
-        public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, x509CertificateArr, str) == null) {
-            }
-        }
-
-        @Override // javax.net.ssl.X509TrustManager
-        public void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x509CertificateArr, str) == null) {
-            }
-        }
-
-        @Override // javax.net.ssl.X509TrustManager
-        public X509Certificate[] getAcceptedIssuers() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return null;
-            }
-            return (X509Certificate[]) invokeV.objValue;
-        }
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* JADX DEBUG: Throwable added to exception handler: 'Exception', keep only Throwable */
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            try {
-                a aVar = new a();
-                b();
-                HttpsURLConnection.setDefaultHostnameVerifier(aVar);
-            } catch (Throwable unused) {
-            }
-        }
-    }
-
-    public static void b() throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            TrustManager[] trustManagerArr = {new b()};
-            SSLContext sSLContext = SSLContext.getInstance(BdSailorConfig.SAILOR_BASE_SSL);
-            sSLContext.init(null, trustManagerArr, null);
-            HttpsURLConnection.setDefaultSSLSocketFactory(sSLContext.getSocketFactory());
-        }
+        return (String) invokeL.objValue;
     }
 }

@@ -51,7 +51,7 @@ public final /* synthetic */ class JobKt__JobKt {
     @Deprecated(level = DeprecationLevel.HIDDEN, message = "Since 1.2.0, binary compatibility with versions <= 1.1.x")
     @JvmName(name = "Job")
     /* renamed from: Job */
-    public static final /* synthetic */ Job m2155Job(Job job) {
+    public static final /* synthetic */ Job m2195Job(Job job) {
         return JobKt.Job(job);
     }
 
@@ -74,13 +74,13 @@ public final /* synthetic */ class JobKt__JobKt {
     }
 
     /* renamed from: Job$default */
-    public static /* synthetic */ Job m2156Job$default(Job job, int i, Object obj) {
-        Job m2155Job;
+    public static /* synthetic */ Job m2196Job$default(Job job, int i, Object obj) {
+        Job m2195Job;
         if ((i & 1) != 0) {
             job = null;
         }
-        m2155Job = m2155Job(job);
-        return m2155Job;
+        m2195Job = m2195Job(job);
+        return m2195Job;
     }
 
     public static final void cancel(CoroutineContext coroutineContext, CancellationException cancellationException) {

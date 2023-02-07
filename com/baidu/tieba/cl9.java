@@ -1,201 +1,119 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.IBinder;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.VideoEasterEggActivityConfig;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class cl9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public final TbPageContext<?> a;
+    public final AntiHelper.k b;
 
-    public static void a() {
-        rl9 c;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65536, null) == null) && (c = xl9.c()) != null) {
-            c.b();
-        }
-    }
+    /* loaded from: classes4.dex */
+    public class a implements AntiHelper.k {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public static Context b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            pl9 a = xl9.a();
-            if (a != null) {
-                return a.getAppContext();
+        public a(cl9 cl9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cl9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            return null;
         }
-        return (Context) invokeV.objValue;
-    }
 
-    public static int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            pl9 a = xl9.a();
-            if (a != null) {
-                return a.d();
+        @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
+        public void onNavigationButtonClick(j05 j05Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, j05Var) == null) {
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_WRITE));
             }
-            return 0;
         }
-        return invokeV.intValue;
-    }
 
-    public static rk9 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return xl9.e();
-        }
-        return (rk9) invokeV.objValue;
-    }
-
-    public static vk9 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return xl9.f();
-        }
-        return (vk9) invokeV.objValue;
-    }
-
-    public static boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            ql9 b = xl9.b();
-            if (b != null) {
-                return b.isAgreePrivacy();
+        @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
+        public void onPositiveButtonClick(j05 j05Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j05Var) == null) {
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_WRITE));
             }
-            return false;
         }
-        return invokeV.booleanValue;
     }
 
-    public static boolean m() {
-        InterceptResult invokeV;
+    public cl9(@NonNull TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            pl9 a = xl9.a();
-            if (a != null) {
-                return a.isDebug();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeV.booleanValue;
+        this.b = new a(this);
+        this.a = tbPageContext;
     }
 
-    public static String c(String str) {
+    public final boolean a(PostWriteCallBackData postWriteCallBackData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            pl9 a = xl9.a();
-            if (a != null) {
-                return a.c(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, postWriteCallBackData)) == null) {
+            if (this.a.getPageActivity() == null || postWriteCallBackData == null || postWriteCallBackData.getVideoEasterEggData() == null || dj.isEmpty(postWriteCallBackData.getVideoEasterEggData().getVideoUrl())) {
+                return false;
             }
-            return str;
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoEasterEggActivityConfig(this.a.getPageActivity()).createNormalConfig("from_frs", postWriteCallBackData.getVideoEasterEggData())));
+            return true;
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static IBinder e(String str) {
-        InterceptResult invokeL;
+    public void b(PostWriteCallBackData postWriteCallBackData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            rl9 c = xl9.c();
-            if (c != null) {
-                return c.a(str);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, postWriteCallBackData) == null) && postWriteCallBackData != null) {
+            if (AntiHelper.m(postWriteCallBackData.getErrorCode(), postWriteCallBackData.getErrorString())) {
+                if (AntiHelper.w(this.a.getPageActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getErrorCode(), this.b) != null) {
+                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_WRITE));
+                }
+            } else if (postWriteCallBackData.getErrorCode() != 0) {
+                if (postWriteCallBackData.getErrorCode() == 230278) {
+                    return;
+                }
+                String errorString = postWriteCallBackData.getErrorString();
+                if (TextUtils.isEmpty(errorString)) {
+                    errorString = this.a.getString(R.string.sand_fail);
+                }
+                this.a.showToast(errorString);
+            } else if (!a(postWriteCallBackData)) {
+                k39.b(this.a.getPageActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
             }
-            return null;
-        }
-        return (IBinder) invokeL.objValue;
-    }
-
-    public static String h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            pl9 a = xl9.a();
-            if (a != null) {
-                return a.e(str);
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String k(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65546, null, z)) == null) {
-            pl9 a = xl9.a();
-            if (a != null) {
-                return a.b(z);
-            }
-            return "";
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    public static void q(int i) {
-        pl9 a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(65552, null, i) == null) && (a = xl9.a()) != null) {
-            a.a(i);
-        }
-    }
-
-    public static int f(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i)) == null) {
-            pl9 a = xl9.a();
-            if (a != null) {
-                return a.getInt(str, i);
-            }
-            return i;
-        }
-        return invokeLI.intValue;
-    }
-
-    public static long g(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, str, j)) == null) {
-            pl9 a = xl9.a();
-            if (a != null) {
-                return a.getLong(str, j);
-            }
-            return j;
-        }
-        return invokeLJ.longValue;
-    }
-
-    public static void n(String str, int i) {
-        pl9 a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65549, null, str, i) == null) && (a = xl9.a()) != null) {
-            a.putInt(str, i);
-        }
-    }
-
-    public static void o(String str, long j) {
-        pl9 a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLJ(65550, null, str, j) == null) && (a = xl9.a()) != null) {
-            a.putLong(str, j);
-        }
-    }
-
-    public static void p(String str, String str2) {
-        pl9 a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65551, null, str, str2) == null) && (a = xl9.a()) != null) {
-            a.putString(str, str2);
         }
     }
 }

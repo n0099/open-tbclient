@@ -1,13 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.searchbox.live.interfaces.service.FollowStatusService;
+import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class iz7 implements hz7 {
+public class iz7 implements FollowStatusService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,23 +26,16 @@ public class iz7 implements hz7 {
         }
     }
 
-    @Override // com.baidu.tieba.hz7
-    public dz7 get() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.live.interfaces.service.FollowStatusService
+    public void saveFollowStatus(boolean z, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return ml8.m();
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, str2}) == null) {
+            UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
+            aVar.a = true;
+            aVar.c = str;
+            aVar.d = z;
+            aVar.e = true;
+            MessageManager.getInstance().dispatchResponsedMessage(new UpdateAttentionMessage(aVar));
         }
-        return (dz7) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.hz7
-    public ez7 a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
-            return new fz7(str, str2, str3);
-        }
-        return (ez7) invokeLLL.objValue;
     }
 }

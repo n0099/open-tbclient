@@ -1,119 +1,72 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import android.view.ViewTreeObserver;
+import android.widget.TextView;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes3.dex */
-public class ad1 {
+public class ad1 implements ViewTreeObserver.OnGlobalLayoutListener {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile Executor a;
-    public static final int b;
-    public static final int c;
-    public static final ThreadFactory d;
     public transient /* synthetic */ FieldHolder $fh;
+    public TextView a;
+    public int b;
 
-    /* loaded from: classes3.dex */
-    public static class a implements ThreadFactory {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final AtomicInteger a;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new AtomicInteger(1);
-        }
-
-        @Override // java.util.concurrent.ThreadFactory
-        public Thread newThread(Runnable runnable) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                return new Thread(runnable, "cashier #" + this.a.getAndIncrement());
-            }
-            return (Thread) invokeL.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947611227, "Lcom/baidu/tieba/ad1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947611227, "Lcom/baidu/tieba/ad1;");
-                return;
-            }
-        }
-        int availableProcessors = Runtime.getRuntime().availableProcessors();
-        b = availableProcessors;
-        c = (availableProcessors * 2) + 1;
-        d = new a();
-    }
-
-    public ad1() {
+    public ad1(TextView textView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {textView};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public static void a(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, runnable) == null) {
-            b().execute(runnable);
+        int maxLines = textView.getMaxLines();
+        this.b = maxLines;
+        if (maxLines <= 0) {
+            this.b = 1;
         }
+        this.a = textView;
+        textView.setMaxLines(this.b + 1);
+        this.a.setSingleLine(false);
     }
 
-    public static synchronized Executor b() {
-        InterceptResult invokeV;
-        Executor executor;
+    @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+    public void onGlobalLayout() {
+        CharSequence text;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            synchronized (ad1.class) {
-                if (a == null) {
-                    synchronized (ad1.class) {
-                        if (a == null) {
-                            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(2, c, 8L, TimeUnit.SECONDS, new LinkedBlockingQueue(), d);
-                            threadPoolExecutor.allowCoreThreadTimeOut(true);
-                            a = threadPoolExecutor;
-                        }
-                    }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            String str = "";
+            if (this.a.getLineCount() > this.b) {
+                try {
+                    text = this.a.getText().subSequence(0, this.a.getLayout().getLineEnd(this.b - 1) - 2);
+                    str = StringHelper.STRING_MORE;
+                } catch (Exception e) {
+                    nk0.d("CustomLinkByEllipsize", "", e);
+                    text = this.a.getText();
                 }
-                executor = a;
+                TextUtils.TruncateAt ellipsize = this.a.getEllipsize();
+                if (ellipsize == TextUtils.TruncateAt.START) {
+                    this.a.setText(str);
+                    this.a.append(text);
+                } else if (ellipsize == TextUtils.TruncateAt.MIDDLE) {
+                    this.a.setText(text.subSequence(0, text.length() / 2));
+                    this.a.append(str);
+                    this.a.append(text.subSequence(text.length() / 2, text.length()));
+                } else {
+                    this.a.setText(text);
+                    this.a.append(str);
+                }
             }
-            return executor;
         }
-        return (Executor) invokeV.objValue;
     }
 }

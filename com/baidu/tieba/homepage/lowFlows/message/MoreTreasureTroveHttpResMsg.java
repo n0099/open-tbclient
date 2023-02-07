@@ -3,9 +3,9 @@ package com.baidu.tieba.homepage.lowFlows.message;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.p77;
-import com.baidu.tieba.u77;
-import com.baidu.tieba.yn;
+import com.baidu.tieba.Cdo;
+import com.baidu.tieba.ac7;
+import com.baidu.tieba.fc7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,10 +16,10 @@ import java.util.List;
 import tbclient.Error;
 import tbclient.MoreTreasureTrove.MoreTreasureTroveResIdl;
 /* loaded from: classes4.dex */
-public class MoreTreasureTroveHttpResMsg extends HttpResponsedMessage implements p77 {
+public class MoreTreasureTroveHttpResMsg extends HttpResponsedMessage implements ac7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<yn> mMoreTreasureTroveDataList;
+    public List<Cdo> mMoreTreasureTroveDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MoreTreasureTroveHttpResMsg() {
@@ -39,8 +39,8 @@ public class MoreTreasureTroveHttpResMsg extends HttpResponsedMessage implements
         }
     }
 
-    @Override // com.baidu.tieba.p77
-    public List<yn> getDataList() {
+    @Override // com.baidu.tieba.ac7
+    public List<Cdo> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -60,7 +60,7 @@ public class MoreTreasureTroveHttpResMsg extends HttpResponsedMessage implements
                 setError(error.errorno.intValue());
                 setErrorString(moreTreasureTroveResIdl.error.usermsg);
             }
-            this.mMoreTreasureTroveDataList = u77.b(moreTreasureTroveResIdl);
+            this.mMoreTreasureTroveDataList = fc7.b(moreTreasureTroveResIdl);
         }
     }
 }

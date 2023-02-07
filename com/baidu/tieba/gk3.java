@@ -1,213 +1,75 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Context;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.URI;
-import java.net.URISyntaxException;
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class gk3 extends dk3 {
+public class gk3 extends zj3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public void n(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947796762, "Lcom/baidu/tieba/gk3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947796762, "Lcom/baidu/tieba/gk3;");
-                return;
-            }
-        }
-        b = tk1.a;
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (b) {
-                Log.i("WebStatsStrategy", "onUserCancel: report");
-            }
-            a();
-            l();
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && !this.a.d("na_start")) {
-            this.a.g("na_start");
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.a.e()) {
-            this.a.k();
-            om2.e();
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.a.i();
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gk3(String str) {
-        super(str);
+    public gk3(t93 t93Var) {
+        super(t93Var, "/swanAPI/setTabBarItem");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {t93Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((t93) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
     }
 
-    public boolean b(String str) {
-        URI uri;
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ta3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, w83 w83Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            try {
-                uri = new URI(str);
-            } catch (URISyntaxException e) {
-                if (b) {
-                    e.printStackTrace();
-                }
-                uri = null;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, w83Var)) == null) {
+            if (ta3.b) {
+                Log.d("SetTabBarItemAction", "handle entity: " + unitedSchemeEntity.toString());
             }
-            if (uri != null && !TextUtils.isEmpty(uri.getPath()) && !TextUtils.equals("/", uri.getPath())) {
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                w52.c("setTabBarItem", "paramsJson is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            if (b) {
-                Log.i("WebStatsStrategy", "onFcpSubmit: " + str);
-            }
-            if (!this.a.d("na_fcp")) {
-                this.a.g("na_fcp");
-            }
-        }
-    }
-
-    public void h(String str) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && !b(str) && !this.a.d("na_load_url_end")) {
-            this.a.g("na_load_url_end");
-            this.a.f("load_end_url", str);
-            boolean d = this.a.d("fe_fmp");
-            fk3 fk3Var = this.a;
-            if (d) {
-                str2 = "1";
+            } else if (zj3.k()) {
+                w52.c("SetTabBarItemAction", "fail not TabBar page");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fail not TabBar page");
+                return false;
             } else {
-                str2 = "0";
-            }
-            fk3Var.f("fmpArrived", str2);
-        }
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            if (b) {
-                Log.i("WebStatsStrategy", "onLoadUrlStart: " + str);
-            }
-            if (!this.a.d("na_load_url")) {
-                this.a.g("na_load_url");
-                this.a.f("load_url", str);
-            }
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && !b(str) && !this.a.d("na_first_image_paint")) {
-            this.a.g("na_first_image_paint");
-        }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && !b(str) && !this.a.d("na_first_text_paint")) {
-            this.a.g("na_first_text_paint");
-        }
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            if (b) {
-                Log.i("WebStatsStrategy", "onFmpSubmit: " + str);
-            }
-            if (!this.a.d("na_up_screen")) {
-                this.a.g("na_up_screen");
-            }
-            if (this.a.d("fe_fmp")) {
-                a();
-                l();
-            }
-        }
-    }
-
-    public void g(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, jSONArray) == null) && jSONArray != null && jSONArray.length() > 0) {
-            for (int i = 0; i < jSONArray.length(); i++) {
-                try {
-                    JSONObject jSONObject = jSONArray.getJSONObject(i);
-                    this.a.h(jSONObject.optString("actionId"), jSONObject.optLong("timestamp"));
-                } catch (JSONException e) {
-                    if (b) {
-                        e.printStackTrace();
-                    }
+                ik3 j = zj3.j();
+                if (j == null) {
+                    w52.c("SetTabBarItemAction", "tabBarViewController is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                } else if (!j.x(optParamsAsJo.optInt("index"), optParamsAsJo.optString("text"), optParamsAsJo.optString("iconPath"), optParamsAsJo.optString("selectedIconPath"))) {
+                    w52.c("setTabBarItem", "set tab bar item fail");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                } else {
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                    return true;
                 }
             }
-            this.a.g("fe_fmp");
-            if (this.a.d("na_up_screen")) {
-                a();
-                l();
-            }
         }
+        return invokeLLLL.booleanValue;
     }
 }

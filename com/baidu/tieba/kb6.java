@@ -1,62 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.browser.core.webview.scroll.NestedScrollWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+/* compiled from: NestedScrollWebView.java */
 /* loaded from: classes5.dex */
-public final class kb6 extends lb6 {
+public final /* synthetic */ class kb6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final kd6 a;
-    public long b;
-    public long c;
 
-    public kb6(kd6 timer) {
+    public static void a(NestedScrollWebView.a aVar, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {timer};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{aVar, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
         }
-        Intrinsics.checkNotNullParameter(timer, "timer");
-        this.a = timer;
     }
 
-    public final long a() {
-        InterceptResult invokeV;
+    public static void b(NestedScrollWebView.a aVar, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            long j = this.c;
-            long j2 = 0;
-            if (this.b > 0) {
-                j2 = this.a.a() - this.b;
-            }
-            return j + j2;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{aVar, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
         }
-        return invokeV.longValue;
-    }
-
-    public final boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.b > 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

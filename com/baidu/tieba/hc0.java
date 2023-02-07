@@ -1,74 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.searchbox.live.interfaces.net.NetResponse;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class hc0 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile int b;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+public interface hc0<T> {
+    void onNetResponse(NetResponse netResponse, T t, Map<String, String> map, List<String> list);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947818772, "Lcom/baidu/tieba/hc0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947818772, "Lcom/baidu/tieba/hc0;");
-        }
-    }
-
-    public hc0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = 0;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public static synchronized hc0 a() {
-        InterceptResult invokeV;
-        hc0 hc0Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (hc0.class) {
-                if (b < 1000000) {
-                    b = 1000000;
-                }
-                hc0Var = new hc0();
-                hc0Var.a = b;
-                b++;
-            }
-            return hc0Var;
-        }
-        return (hc0) invokeV.objValue;
-    }
+    T onParseResponseInBackground(NetResponse netResponse);
 }

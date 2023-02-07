@@ -1,7 +1,6 @@
 package com.baidu.minivideo.plugin.capture.bean;
 
 import android.text.TextUtils;
-import com.baidu.searchbox.cloudcontrol.request.CloudControlRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,7 +52,7 @@ public class VideoDraftTempBean {
                         videoDraftTempBean.mPath = jSONObject.optString("path");
                         videoDraftTempBean.mSpeed = jSONObject.optInt("speed");
                         videoDraftTempBean.mStickerId = jSONObject.optString(FaceItem.DIR_STICKER);
-                        videoDraftTempBean.mFilterId = jSONObject.optString(CloudControlRequest.REQUEST_KEY_FILTER);
+                        videoDraftTempBean.mFilterId = jSONObject.optString("filter");
                         arrayList.add(videoDraftTempBean);
                     }
                 }
@@ -85,7 +84,7 @@ public class VideoDraftTempBean {
                                 jSONArray.put(optString);
                             }
                         } else if (i == 2) {
-                            String optString2 = jSONObject.optString(CloudControlRequest.REQUEST_KEY_FILTER);
+                            String optString2 = jSONObject.optString("filter");
                             if (!TextUtils.isEmpty(optString2) && !hashSet.contains(optString2)) {
                                 hashSet.add(optString2);
                                 jSONArray.put(optString2);
@@ -109,7 +108,7 @@ public class VideoDraftTempBean {
                 jSONObject.put("path", videoDraftTempBean.mPath);
                 jSONObject.put("speed", videoDraftTempBean.mSpeed);
                 jSONObject.put(FaceItem.DIR_STICKER, videoDraftTempBean.mStickerId);
-                jSONObject.put(CloudControlRequest.REQUEST_KEY_FILTER, videoDraftTempBean.mFilterId);
+                jSONObject.put("filter", videoDraftTempBean.mFilterId);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -127,7 +126,7 @@ public class VideoDraftTempBean {
                 jSONObject.put("path", this.mPath);
                 jSONObject.put("speed", this.mSpeed);
                 jSONObject.put(FaceItem.DIR_STICKER, this.mStickerId);
-                jSONObject.put(CloudControlRequest.REQUEST_KEY_FILTER, this.mFilterId);
+                jSONObject.put("filter", this.mFilterId);
             } catch (JSONException e) {
                 e.printStackTrace();
             }

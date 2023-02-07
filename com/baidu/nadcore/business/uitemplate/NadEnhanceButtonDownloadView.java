@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qk0;
+import com.baidu.tieba.cl0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -141,11 +141,11 @@ public class NadEnhanceButtonDownloadView extends NadMiniVideoDownloadView {
 
     @Override // com.baidu.nadcore.business.uitemplate.NadMiniVideoDownloadView
     @DrawableRes
-    public int f(@NonNull qk0 qk0Var) {
+    public int f(@NonNull cl0 cl0Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, qk0Var)) == null) {
-            int i = a.a[qk0Var.c.ordinal()];
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cl0Var)) == null) {
+            int i = a.a[cl0Var.c.ordinal()];
             if (i == 1 || i == 5 || i == 6) {
                 return R.drawable.nad_ebtn_icon;
             }

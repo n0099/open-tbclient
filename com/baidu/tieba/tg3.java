@@ -1,121 +1,85 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ObjectAnimator;
 import android.content.Context;
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.constraintlayout.motion.widget.Key;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+@Deprecated
 /* loaded from: classes6.dex */
-public class tg3 {
+public class tg3 extends ta3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-
-        public a(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = view2;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.a.setTranslationX(0.0f);
-            }
-        }
-    }
-
-    public static void a(s32 s32Var, Context context) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tg3(t93 t93Var) {
+        super(t93Var, "/swanAPI/setStorageSync");
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, s32Var, context) == null) {
-            b(s32Var, context, 2);
-        }
-    }
-
-    public static void b(s32 s32Var, Context context, int i) {
-        View V;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(65537, null, s32Var, context, i) == null) && s32Var != null && s32Var.k() >= i) {
-            p32 j = s32Var.j(s32Var.k() - i);
-            p32 m = s32Var.m();
-            if (m != null && m.D0) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {t93Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            float o = ai3.o(context) >> 2;
-            if (j != null && (V = j.V()) != null) {
-                ObjectAnimator.ofFloat(V, Key.TRANSLATION_X, -o, 0.0f).setDuration(300L).start();
-            }
         }
     }
 
-    public static void c(s32 s32Var, Context context) {
-        View V;
+    @Override // com.baidu.tieba.ta3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, w83 w83Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, s32Var, context) == null) && s32Var != null && s32Var.k() >= 2) {
-            p32 j = s32Var.j(s32Var.k() - 2);
-            float o = ai3.o(context) >> 2;
-            if (j != null && (V = j.V()) != null) {
-                ObjectAnimator ofFloat = ObjectAnimator.ofFloat(V, Key.TRANSLATION_X, 0.0f, -o);
-                ofFloat.setDuration(300L).start();
-                ofFloat.addListener(new a(V));
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, w83Var)) == null) {
+            if (w83Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
+                return false;
             }
-        }
-    }
-
-    public static void d(@NonNull hi4 hi4Var, String str, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLII(65539, null, hi4Var, str, i, i2) != null) || hi4Var == null) {
-            return;
-        }
-        char c = 65535;
-        int hashCode = str.hashCode();
-        if (hashCode != -1876181062) {
-            if (hashCode != -983638536) {
-                if (hashCode == 1528366175 && str.equals("showModalPage")) {
-                    c = 1;
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
+                return false;
+            }
+            String Q = xy1.Q(optParamsAsJo);
+            if (Q == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
+            } else if (fg3.b(Q)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "exceed storage key max length");
+                return false;
+            } else {
+                String P = xy1.P(optParamsAsJo);
+                if (P == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                } else if (fg3.c(P)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "exceed storage item max length");
+                    return false;
+                } else {
+                    fg3 f0 = w83Var.f0();
+                    if (f0.m(Q, P)) {
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1003, "exceed storage max length");
+                        return false;
+                    }
+                    f0.g().putString(Q, P);
+                    sk3.h.update();
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
+                    return true;
                 }
-            } else if (str.equals("navigateBack")) {
-                c = 0;
             }
-        } else if (str.equals("hideModalPage")) {
-            c = 2;
         }
-        if (c != 0) {
-            if (c != 1 && c != 2) {
-                hi4Var.i(i, i2);
-                return;
-            }
-            return;
-        }
-        s32 V = wp2.U().V();
-        p32 j = V.j(V.k() - 1);
-        if (j != null && j.D0) {
-            return;
-        }
-        hi4Var.i(i, i2);
+        return invokeLLLL.booleanValue;
     }
 }

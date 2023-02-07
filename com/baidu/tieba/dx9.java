@@ -1,63 +1,61 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cx9;
+import android.text.TextUtils;
+import com.baidu.android.util.devices.RomUtils;
+import com.baidu.sapi2.share.ShareCallPacking;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunSplashAdInteractionListener;
+import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class dx9 extends cx9.b {
+public class dx9 {
     public static /* synthetic */ Interceptable $ic;
+    public static ArrayList<Integer> a;
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ mx9 f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dx9(cx9 cx9Var, gy9 gy9Var, String str, mx9 mx9Var) {
-        super(cx9Var, gy9Var, str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cx9Var, gy9Var, str, mx9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((cx9) objArr2[0], (gy9) objArr2[1], (String) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947720068, "Lcom/baidu/tieba/dx9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947720068, "Lcom/baidu/tieba/dx9;");
                 return;
             }
         }
-        this.f = mx9Var;
+        ArrayList<Integer> arrayList = new ArrayList<>(4);
+        a = arrayList;
+        arrayList.add(10000);
+        a.add(10001);
+        a.add(10002);
+        a.add(Integer.valueOf((int) ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT));
+        a.add(-1);
     }
 
-    @Override // com.baidu.tieba.cx9.b, com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
-    public void onAdClicked(View view2, int i) {
+    public static int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
-            super.onAdClicked(view2, i);
-            mx9 mx9Var = this.f;
-            String str = this.b;
-            FunSplashAdInteractionListener funSplashAdInteractionListener = mx9Var.j;
-            if (funSplashAdInteractionListener != null) {
-                funSplashAdInteractionListener.onAdClicked(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (TextUtils.isEmpty(b)) {
+                b = rx9.a();
             }
+            if (TextUtils.isEmpty(b)) {
+                return ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT;
+            }
+            if (b.toUpperCase().contains("HUAWEI")) {
+                return 10001;
+            }
+            if (!b.toUpperCase().contains(RomUtils.ROM_XIAOMI)) {
+                return ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT;
+            }
+            return 10002;
         }
-    }
-
-    @Override // com.baidu.tieba.cx9.b, com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
-    public void onAdShow(View view2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
-            super.onAdShow(view2, i);
-            mx9 mx9Var = this.f;
-            mx9Var.g = mx9Var.b.getWidth();
-            mx9Var.h = mx9Var.b.getHeight();
-        }
+        return invokeV.intValue;
     }
 }

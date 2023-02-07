@@ -102,7 +102,7 @@ public class ay {
             try {
                 return Settings.Global.getInt(contentResolver, "user_aggregate", 0);
             } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.m103a("get user aggregate failed, " + e2);
+                com.xiaomi.channel.commonutils.logger.b.m105a("get user aggregate failed, " + e2);
                 return 0;
             }
         }
@@ -190,14 +190,14 @@ public class ay {
         T t3 = null;
         try {
         } catch (Exception e2) {
-            com.xiaomi.channel.commonutils.logger.b.m103a("get value error " + e2);
+            com.xiaomi.channel.commonutils.logger.b.m105a("get value error " + e2);
         }
         if (obj instanceof Notification) {
             t2 = a((Notification) obj, str);
         } else if (obj instanceof Map) {
             t2 = ((Map) obj).get(str);
         } else if (!(obj instanceof Bundle)) {
-            com.xiaomi.channel.commonutils.logger.b.m103a("not support get value from classType:" + obj);
+            com.xiaomi.channel.commonutils.logger.b.m105a("not support get value from classType:" + obj);
             return t3 != null ? t : t3;
         } else {
             t2 = ((Bundle) obj).get(str);
@@ -264,7 +264,7 @@ public class ay {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m706a(Notification notification, String str) {
+    public static void m708a(Notification notification, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65547, null, notification, str) == null) {
             try {
@@ -319,7 +319,7 @@ public class ay {
                     }
                     continue;
                 } catch (Exception e2) {
-                    com.xiaomi.channel.commonutils.logger.b.m103a("can't match url intent. " + e2);
+                    com.xiaomi.channel.commonutils.logger.b.m105a("can't match url intent. " + e2);
                 }
             }
         }
@@ -330,7 +330,7 @@ public class ay {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65550, null, map, bundle, str) == null) {
             if (map == null || bundle == null || TextUtils.isEmpty(str)) {
-                com.xiaomi.channel.commonutils.logger.b.m103a("cp map to b fail:" + str);
+                com.xiaomi.channel.commonutils.logger.b.m105a("cp map to b fail:" + str);
             } else if (TextUtils.isEmpty(map.get(str))) {
                 bundle.remove(str);
             } else {
@@ -354,7 +354,7 @@ public class ay {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m707a(ContentResolver contentResolver) {
+    public static boolean m709a(ContentResolver contentResolver) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, contentResolver)) == null) {
@@ -389,7 +389,7 @@ public class ay {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static Notification.Action[] m708a(Notification notification) {
+    public static Notification.Action[] m710a(Notification notification) {
         InterceptResult invokeL;
         Parcelable[] parcelableArray;
         Interceptable interceptable = $ic;

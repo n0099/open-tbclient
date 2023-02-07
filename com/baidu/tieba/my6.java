@@ -2,44 +2,36 @@ package com.baidu.tieba;
 
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.LinearLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumDetailActivityConfig;
-import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tbadk.widget.LinearGradientView;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.frs.sportspage.FrsSportsRecommendFragment;
-import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tieba.frs.game.strategy.FrsGameStrategyMainFragment;
+import com.baidu.tieba.frs.game.strategy.tab.ScrollLabelTabHost;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ThemeColorInfo;
-import tbclient.ThemeElement;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class my6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public TbImageView b;
-    public LinearGradientView c;
-    public BarImageView d;
-    public TextView e;
-    public FrsViewData f;
-    public boolean g;
-    public String h;
-    public boolean i;
-    public final View.OnClickListener j;
+    public FrsGameStrategyMainFragment a;
+    public View b;
+    public NavigationBar c;
+    public NoNetworkView d;
+    public ScrollLabelTabHost e;
+    public ImageView f;
+    public String g;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -68,31 +60,58 @@ public class my6 {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2 == this.a.b) {
-                    if (!yi.isEmpty(this.a.h) && this.a.f != null && this.a.f.getForum() != null) {
-                        int i = 1;
-                        UrlManager.getInstance().dealOneLink(this.a.a, new String[]{this.a.h}, true);
-                        StatisticItem param = new StatisticItem("c13415").param("fid", this.a.f.getForum().getId());
-                        if (this.a.i) {
-                            i = 2;
-                        }
-                        TiebaStatic.log(param.param("obj_type", i));
-                    }
-                } else if ((view2 == this.a.d || view2 == this.a.e) && this.a.f != null && this.a.f.getForum() != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(this.a.a.getPageActivity(), this.a.f.getForum().getId(), ForumDetailActivityConfig.FromType.FRS)));
-                    TiebaStatic.log(new StatisticItem("c13416").param("fid", this.a.f.getForum().getId()));
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || StringUtils.isNull(this.a.a.O())) {
+                return;
+            }
+            this.a.a.sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(this.a.a.getPageContext().getPageActivity(), this.a.a.O(), ForumDetailActivityConfig.FromType.FRS_GAME_STRATEGY)));
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ my6 a;
+
+        public b(my6 my6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {my6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.a = my6Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if ("from_single_act".equals(this.a.g)) {
+                    this.a.a.getActivity().finish();
+                    return;
+                }
+                CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921342);
+                customResponsedMessage.setmOrginalMessage(new CustomMessage(2001627, this.a.a.getPageContext().getUniqueId()));
+                MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
             }
         }
     }
 
-    public my6(FrsSportsRecommendFragment frsSportsRecommendFragment, View view2) {
+    public my6(FrsGameStrategyMainFragment frsGameStrategyMainFragment, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsSportsRecommendFragment, view2};
+            Object[] objArr = {frsGameStrategyMainFragment, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -102,104 +121,109 @@ public class my6 {
                 return;
             }
         }
-        this.j = new a(this);
-        if (frsSportsRecommendFragment != null && view2 != null) {
-            this.a = frsSportsRecommendFragment.getPageContext();
-            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090dc1);
-            this.c = (LinearGradientView) view2.findViewById(R.id.obfuscated_res_0x7f090dc3);
-            this.d = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ba6);
-            this.e = (TextView) view2.findViewById(R.id.forum_name);
-            this.b.setPageId(frsSportsRecommendFragment.getUniqueId());
-            this.d.setPageId(frsSportsRecommendFragment.getUniqueId());
-            this.d.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.d.setContentDescription(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f02f0));
-            this.d.setStrokeWith(zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds4));
-            this.d.setShowOval(true);
+        this.a = frsGameStrategyMainFragment;
+        this.b = view2;
+        if (view2 != null) {
+            g();
         }
     }
 
-    public void h() {
+    public void j(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            i();
-            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0101);
-            BarImageView barImageView = this.d;
-            if (barImageView != null) {
-                barImageView.setBorderWidth(zi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1));
-                this.d.setBorderColor(SkinManager.getColor(R.color.black_alpha15));
-                this.d.setStrokeColorResId(R.color.CAM_X0201);
-                this.d.invalidate();
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.g = str;
+        }
+    }
+
+    public void k(ey6 ey6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ey6Var) == null) {
+            this.e.setDelegateFrsGameTabDataLoadListener(ey6Var);
+        }
+    }
+
+    public void c(int i, int i2, List<Cdo> list, List<iy6> list2, boolean z, boolean z2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), list, list2, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i3)}) == null) {
+            this.e.j(i, i2, list, list2, z, z2, i3);
+        }
+    }
+
+    public void d() {
+        ScrollLabelTabHost scrollLabelTabHost;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (scrollLabelTabHost = this.e) != null) {
+            scrollLabelTabHost.k();
+        }
+    }
+
+    public NavigationBar e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (NavigationBar) invokeV.objValue;
+    }
+
+    public View f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.e.n();
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.c = (NavigationBar) this.b.findViewById(R.id.view_navigation_bar);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+            layoutParams.setMargins(0, 0, ej.g(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701e8), 0);
+            ImageView imageView = (ImageView) this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d093f, (View.OnClickListener) null);
+            this.f = imageView;
+            imageView.setLayoutParams(layoutParams);
+            this.f.setOnClickListener(new a(this));
+            this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new b(this));
+            this.d = (NoNetworkView) this.b.findViewById(R.id.view_no_network);
+            ScrollLabelTabHost scrollLabelTabHost = (ScrollLabelTabHost) this.b.findViewById(R.id.obfuscated_res_0x7f090bbf);
+            this.e = scrollLabelTabHost;
+            scrollLabelTabHost.setPageId(this.a.getBaseFragmentActivity().getUniqueId());
+        }
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.c.onChangeSkinType(this.a.getPageContext(), i);
+            this.d.d(this.a.getPageContext(), i);
+            this.e.m(i);
+            ImageView imageView = this.f;
+            if (imageView != null) {
+                SkinManager.setNavbarIconSrc(imageView, R.drawable.btn_more_selector_s, R.drawable.btn_more_selector);
             }
         }
     }
 
-    public final void i() {
-        FrsViewData frsViewData;
-        ForumData forum;
-        ThemeColorInfo themeColorInfo;
-        ThemeElement themeElement;
+    public void l(List<iy6> list, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (frsViewData = this.f) != null && (forum = frsViewData.getForum()) != null && (themeColorInfo = forum.getThemeColorInfo()) != null && themeColorInfo.day != null && themeColorInfo.night != null && themeColorInfo.dark != null) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (skinType == 4) {
-                themeElement = themeColorInfo.dark;
-            } else if (skinType == 1) {
-                themeElement = themeColorInfo.night;
-            } else {
-                themeElement = themeColorInfo.day;
-            }
-            if (!this.g) {
-                LinearGradientView linearGradientView = this.c;
-                if (linearGradientView != null) {
-                    ThemeElement themeElement2 = themeColorInfo.day;
-                    String str = themeElement2.light_color;
-                    String str2 = themeElement2.dark_color;
-                    ThemeElement themeElement3 = themeColorInfo.night;
-                    String str3 = themeElement3.light_color;
-                    String str4 = themeElement3.dark_color;
-                    ThemeElement themeElement4 = themeColorInfo.dark;
-                    linearGradientView.setGradientColor(str, str2, str3, str4, themeElement4.light_color, themeElement4.dark_color);
-                    this.c.a(skinType);
-                }
-                TbImageView tbImageView = this.b;
-                if (tbImageView != null) {
-                    tbImageView.K(themeElement.pattern_image, 10, false);
-                }
-            }
+        if (interceptable == null || interceptable.invokeLZ(1048585, this, list, z) == null) {
+            this.e.setTabData(list, z);
         }
     }
 
-    public void j(FrsViewData frsViewData) {
+    public void m(int i, int i2, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, frsViewData) == null) && frsViewData != null && frsViewData.getForum() != null) {
-            this.f = frsViewData;
-            this.g = false;
-            String name = frsViewData.getForum().getName();
-            if (StringHelper.getChineseAndEnglishLength(name) > 20) {
-                name = StringHelper.cutForumNameWithSuffix(name, 20, StringHelper.STRING_MORE);
-            }
-            this.e.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0782), name));
-            this.d.K(this.f.getForum().getImage_url(), 10, false);
-            i();
-            this.d.setOnClickListener(this.j);
-            this.e.setOnClickListener(this.j);
-        }
-    }
-
-    public void k(String str, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048579, this, str, str2, z) == null) {
-            this.d.refresh();
-            if (yi.isEmpty(str)) {
-                this.g = false;
-                i();
-                return;
-            }
-            this.g = true;
-            this.h = str2;
-            this.i = z;
-            this.b.K(str, 10, false);
-            this.b.setOnClickListener(this.j);
+        if (interceptable == null || interceptable.invokeIIL(1048586, this, i, i2, str) == null) {
+            this.e.p(i, i2, str);
         }
     }
 }

@@ -1,132 +1,110 @@
 package com.baidu.tieba;
 
-import android.util.Base64;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import android.util.Pair;
+import androidx.appcompat.widget.ActivityChooserModel;
+import androidx.collection.ArraySet;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.storage.swankv.SwanKV;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStreamReader;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.zip.GZIPInputStream;
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class zh2 {
+public class zh2 implements vh2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final byte[] b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String[] a;
+    public final Pair<String, String>[] b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948359877, "Lcom/baidu/tieba/zh2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948359877, "Lcom/baidu/tieba/zh2;");
+    public zh2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = tk1.a;
-        b = new byte[]{31, -117};
+        this.a = new String[]{"searchbox_webapps_sp", "swan_app_pms_sp", "key_pms_sp_name", "swan_config_sp_name", "swan_clean_stratey", "swan_preload_package", "updatecore_node_ceres", "updatecore_node_host", "swan_host_info_config_sp_name", "updatecore_node_tipmsgs", "swan_launch_tips_config_sp_name", "aiapps_favorite", "searchbox_sconsole_sp", "swan_about_page_sp", "aiapps_guide_dialog_sp", "swan.publisher", "sp_launch_behavior", "swan_app_debug", "swan_debug_feature", "light_info_debug", "swan_method_trace"};
+        this.b = new Pair[]{new Pair<>("aiapp_", ""), new Pair<>("aiapp_setting_", ""), new Pair<>("", "_domain_config")};
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW, THROW, INVOKE, MOVE_EXCEPTION, INVOKE, THROW, INVOKE, MOVE_EXCEPTION, MOVE_EXCEPTION, THROW, THROW, THROW, INVOKE, MOVE_EXCEPTION, INVOKE, THROW, INVOKE, MOVE_EXCEPTION, MOVE_EXCEPTION] complete} */
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public static File a(byte[] bArr, File file) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.vh2
+    public ArraySet<String> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, file)) == null) {
-            if (bArr != null && bArr.length >= 2 && file != null && file.exists()) {
-                byte[] bArr2 = b;
-                bArr[0] = bArr2[0];
-                bArr[1] = bArr2[1];
-                try {
-                    ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-                    GZIPInputStream gZIPInputStream = new GZIPInputStream(byteArrayInputStream);
-                    InputStreamReader inputStreamReader = new InputStreamReader(gZIPInputStream);
-                    BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                    try {
-                        StringBuilder sb = new StringBuilder();
-                        while (true) {
-                            String readLine = bufferedReader.readLine();
-                            if (readLine == null) {
-                                break;
-                            }
-                            sb.append(readLine);
-                        }
-                        if (a) {
-                            Log.d("SwanAppCloneModule", "first char:" + sb.charAt(0));
-                        }
-                        String string = new JSONObject(sb.toString()).getString(bi2.l);
-                        if (a) {
-                            Log.d("SwanAppCloneModule", string);
-                        }
-                        byte[] doFinal = b(2).doFinal(Base64.decode(string, 0));
-                        File file2 = new File(file, bi2.l);
-                        new FileOutputStream(file2).write(doFinal);
-                        if (a) {
-                            Log.d("SwanAppCloneModule", file2.getAbsolutePath());
-                        }
-                        bufferedReader.close();
-                        inputStreamReader.close();
-                        gZIPInputStream.close();
-                        byteArrayInputStream.close();
-                        return file2;
-                    } finally {
-                    }
-                } catch (Exception e) {
-                    if (a) {
-                        e.printStackTrace();
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArraySet<String> arraySet = new ArraySet<>();
+            arraySet.addAll((ArraySet<? extends String>) d());
+            arraySet.addAll((ArraySet<? extends String>) c());
+            arraySet.addAll((ArraySet<? extends String>) b());
+            return arraySet;
+        }
+        return (ArraySet) invokeV.objValue;
+    }
+
+    public final ArraySet<String> b() {
+        InterceptResult invokeV;
+        Pair<String, String>[] pairArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            File file = new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs/");
+            File file2 = new File(gp4.d());
+            ArraySet<String> arraySet = new ArraySet<>();
+            for (Pair<String, String> pair : this.b) {
+                arraySet.addAll((ArraySet<? extends String>) hh2.e(file, (String) pair.first, ((String) pair.second) + "shared_prefs/", null, true));
+                arraySet.addAll((ArraySet<? extends String>) hh2.e(file2, (String) pair.first, ((String) pair.second) + SwanKV.PREFS_SUFFIX, null, true));
+            }
+            w52.k("SwanSpCollector", "recovery renameAppsSp:" + arraySet.toString());
+            return arraySet;
+        }
+        return (ArraySet) invokeV.objValue;
+    }
+
+    public final ArraySet<String> c() {
+        InterceptResult invokeV;
+        String[] strArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            File file = new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs/");
+            String d = gp4.d();
+            ArraySet<String> arraySet = new ArraySet<>();
+            for (String str : this.a) {
+                String J = ap4.J(new File(d, str + SwanKV.PREFS_SUFFIX));
+                if (!TextUtils.isEmpty(J)) {
+                    arraySet.add(J);
+                }
+                String J2 = ap4.J(new File(file, str + ActivityChooserModel.HISTORY_FILE_EXTENSION));
+                if (!TextUtils.isEmpty(J2)) {
+                    arraySet.add(J2);
                 }
             }
-            return null;
+            w52.k("SwanSpCollector", "recovery renameFrameSp:" + arraySet.toString());
+            return arraySet;
         }
-        return (File) invokeLL.objValue;
+        return (ArraySet) invokeV.objValue;
     }
 
-    public static Cipher b(int i) throws Exception {
-        InterceptResult invokeI;
+    public final ArraySet<String> d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING");
-            cipher.init(i, new SecretKeySpec(c("la32118_p9d8#*!6)".getBytes()).substring(16).getBytes(), "AES"), new IvParameterSpec("2081147213143090".getBytes()));
-            return cipher;
-        }
-        return (Cipher) invokeI.objValue;
-    }
-
-    public static String c(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.reset();
-                messageDigest.update(bArr);
-                return nk4.T(messageDigest.digest(), "", false);
-            } catch (NoSuchAlgorithmException e) {
-                if (a) {
-                    e.printStackTrace();
-                    return null;
-                }
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ArraySet<String> arraySet = new ArraySet<>();
+            String J = ap4.J(new File(nh3.e()));
+            if (!TextUtils.isEmpty(J)) {
+                arraySet.add(J);
             }
+            w52.k("SwanSpCollector", "recovery renameSwanKVRoot:" + arraySet.toString());
+            return arraySet;
         }
-        return (String) invokeL.objValue;
+        return (ArraySet) invokeV.objValue;
     }
 }

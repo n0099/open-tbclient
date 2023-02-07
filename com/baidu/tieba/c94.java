@@ -1,11 +1,8 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.BaiduMap;
-import com.baidu.mapapi.map.MapStatusUpdateFactory;
-import com.baidu.mapapi.model.LatLng;
-import com.baidu.mapapi.model.LatLngBounds;
+import com.baidu.tieba.y84;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,12 +10,58 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class c94 extends v84<uq2> {
+public class c94 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<y84> a;
+    public String b;
+    public String c;
+    public int d;
+
+    /* loaded from: classes4.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a94 a;
+        public final /* synthetic */ c94 b;
+
+        public a(c94 c94Var, a94 a94Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c94Var, a94Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = c94Var;
+            this.a = a94Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ArrayList<long[]> e = this.b.e();
+                b94 b94Var = new b94();
+                b94Var.a = this.b.b;
+                b94Var.b = e;
+                b94Var.c = this.b.c;
+                n54.i().b(b94Var, this.a);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -33,84 +76,88 @@ public class c94 extends v84<uq2> {
                 return;
             }
         }
-        boolean z = tk1.a;
+        e = gp1.a;
     }
 
-    public c94() {
+    public c94(ArrayList<z84> arrayList, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {arrayList, str, str2};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        if (e) {
+            Log.d("ClipVideoTask", "videoPath=" + str + "clipList=" + arrayList);
+        }
+        ArrayList<y84> d = d(arrayList);
+        this.a = d;
+        this.b = str;
+        this.c = str2;
+        this.d = d.size();
     }
 
-    public static c94 e() {
+    public void c(a94 a94Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, a94Var) != null) || a94Var == null) {
+            return;
+        }
+        ql3.l(new a(this, a94Var), "clipVideo");
+    }
+
+    public final ArrayList<y84> d(ArrayList<z84> arrayList) {
+        InterceptResult invokeL;
+        y84 a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList)) == null) {
+            ArrayList<y84> arrayList2 = new ArrayList<>();
+            if (arrayList != null && arrayList.size() != 0) {
+                Iterator<z84> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    z84 next = it.next();
+                    if (next != null && (a2 = next.a()) != null) {
+                        arrayList2.add(a2);
+                    }
+                }
+            }
+            return arrayList2;
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public ArrayList<long[]> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new c94();
-        }
-        return (c94) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.v84
-    /* renamed from: d */
-    public boolean b(Context context, uq2 uq2Var, sq2 sq2Var, j43 j43Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, uq2Var, sq2Var, j43Var, jSONObject)) == null) {
-            return f(context, uq2Var, sq2Var, j43Var);
-        }
-        return invokeLLLLL.booleanValue;
-    }
-
-    public final boolean f(Context context, uq2 uq2Var, sq2 sq2Var, j43 j43Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, uq2Var, sq2Var, j43Var)) == null) {
-            j12.i("map", "IncludePointsAction start");
-            rq1 A = wp2.U().A(uq2Var.c);
-            if (!(A instanceof pq1)) {
-                j12.c("map", "WebViewManager is null");
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ArrayList<long[]> arrayList = new ArrayList<>();
+            if (this.d == 0) {
+                return arrayList;
             }
-            t94 d = s84.b().c((pq1) A).d(uq2Var.b);
-            if (d == null) {
-                j12.c("map", "can not find map by id " + uq2Var.b);
-                return false;
+            if (e) {
+                Log.d("ClipVideoTask", "mergeRange mRangeList = " + this.a);
             }
-            j12.i("map", "IncludePointsAction end");
-            return g(uq2Var, d);
+            Collections.sort(this.a, new y84.a());
+            y84 y84Var = this.a.get(0);
+            for (int i = 1; i < this.d; i++) {
+                y84 y84Var2 = this.a.get(i);
+                if (!y84Var.b(y84Var2)) {
+                    arrayList.add(y84.a(y84Var));
+                    y84Var = y84Var2;
+                }
+            }
+            arrayList.add(y84.a(y84Var));
+            if (e) {
+                Log.d("ClipVideoTask", "mergeRange mergeList = " + arrayList);
+            }
+            return arrayList;
         }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final boolean g(uq2 uq2Var, t94 t94Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, uq2Var, t94Var)) == null) {
-            if (uq2Var == null || !uq2Var.isValid()) {
-                return false;
-            }
-            BaiduMap map = t94Var.l.getMap();
-            LatLngBounds.Builder builder = new LatLngBounds.Builder();
-            Iterator<cr2> it = uq2Var.z.iterator();
-            while (it.hasNext()) {
-                cr2 next = it.next();
-                builder.include(new LatLng(next.a, next.b));
-            }
-            LatLngBounds build = builder.build();
-            int[] iArr = uq2Var.A;
-            map.animateMapStatus(MapStatusUpdateFactory.newLatLngBounds(build, iArr[3], iArr[0], iArr[1], iArr[2]));
-            return true;
-        }
-        return invokeLL.booleanValue;
+        return (ArrayList) invokeV.objValue;
     }
 }

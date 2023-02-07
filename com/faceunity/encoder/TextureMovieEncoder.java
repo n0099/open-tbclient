@@ -15,9 +15,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dz7;
-import com.baidu.tieba.hz7;
-import com.baidu.tieba.xy7;
+import com.baidu.tieba.a48;
+import com.baidu.tieba.e48;
+import com.baidu.tieba.u38;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -66,7 +66,7 @@ public class TextureMovieEncoder {
     public int mHeight;
     public WindowSurface mInputWindowSurface;
     public MediaMuxerWrapper mMuxer;
-    public dz7 mPostMonitorManager;
+    public a48 mPostMonitorManager;
     public boolean mReady;
     public Object mReadyFence;
     public int mRecordingStatus;
@@ -385,7 +385,7 @@ public class TextureMovieEncoder {
     }
 
     public TextureMovieEncoder() {
-        hz7 hz7Var;
+        e48 e48Var;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -402,14 +402,14 @@ public class TextureMovieEncoder {
         this.mRecordingStatus = 4;
         this.firstTimeStampBase = 0L;
         this.firstNanoTime = 0L;
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, hz7.class);
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, e48.class);
         if (runTask != null) {
-            hz7Var = (hz7) runTask.getData();
+            e48Var = (e48) runTask.getData();
         } else {
-            hz7Var = null;
+            e48Var = null;
         }
-        if (hz7Var != null) {
-            this.mPostMonitorManager = hz7Var.get();
+        if (e48Var != null) {
+            this.mPostMonitorManager = e48Var.get();
         }
         this.config = null;
         this.prepareEncoderFence = new Object();
@@ -543,9 +543,9 @@ public class TextureMovieEncoder {
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                dz7 dz7Var = this.mPostMonitorManager;
-                if (dz7Var != null) {
-                    dz7Var.b(14, xy7.a(e));
+                a48 a48Var = this.mPostMonitorManager;
+                if (a48Var != null) {
+                    a48Var.b(14, u38.a(e));
                 }
             }
         }
@@ -630,15 +630,15 @@ public class TextureMovieEncoder {
                     this.prepareEncoderFence.notify();
                 }
             } catch (IOException e) {
-                dz7 dz7Var = this.mPostMonitorManager;
-                if (dz7Var != null) {
-                    dz7Var.b(12, xy7.a(e));
+                a48 a48Var = this.mPostMonitorManager;
+                if (a48Var != null) {
+                    a48Var.b(12, u38.a(e));
                 }
             } catch (IllegalStateException e2) {
                 this.videoEncoderReadyFlag = false;
-                dz7 dz7Var2 = this.mPostMonitorManager;
-                if (dz7Var2 != null) {
-                    dz7Var2.b(13, xy7.a(e2));
+                a48 a48Var2 = this.mPostMonitorManager;
+                if (a48Var2 != null) {
+                    a48Var2.b(13, u38.a(e2));
                     return;
                 }
                 return;

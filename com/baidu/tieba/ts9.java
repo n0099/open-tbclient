@@ -1,147 +1,88 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Looper;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class ts9 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String b = "UnionIDHelper";
-    public static boolean c;
-    public static ts9 d;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public List<vs9> a;
+    public rs9 b;
+    public String c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948191919, "Lcom/baidu/tieba/ts9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948191919, "Lcom/baidu/tieba/ts9;");
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements bt9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ss9 a;
-
-        public a(ts9 ts9Var, ss9 ss9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ts9Var, ss9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ss9Var;
-        }
-
-        @Override // com.baidu.tieba.bt9
-        public void a(ct9 ct9Var) {
-            rs9 rs9Var;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, ct9Var) == null) {
-                if (ts9.c) {
-                    String str = ts9.b;
-                    Log.d(str, "异步回调 结果:" + ct9Var);
-                    String str2 = ts9.b;
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("异步回调 (listener != null):");
-                    if (this.a != null) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    sb.append(z);
-                    Log.d(str2, sb.toString());
-                }
-                ss9 ss9Var = this.a;
-                if (ss9Var != null) {
-                    if (ct9Var == null) {
-                        rs9Var = null;
-                    } else {
-                        rs9Var = new rs9(ct9Var.c(), ct9Var.isSupport(), ct9Var.getOAID(), ct9Var.getAAID(), ct9Var.getVAID(), ct9Var.getStatusCode());
-                    }
-                    ss9Var.a(0, rs9Var);
-                }
-            }
-        }
-    }
-
-    public ts9(Context context) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public ts9(List<vs9> list) {
+        this(list, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {list};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((List) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public ts9(List<vs9> list, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = context.getApplicationContext();
+        this.a = list;
     }
 
-    public static ts9 c(Context context) {
-        InterceptResult invokeL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (d == null) {
-                synchronized (ts9.class) {
-                    if (d == null) {
-                        d = new ts9(context);
-                        vs9.c(context);
-                    }
-                }
-            }
-            return d;
-        }
-        return (ts9) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 
-    public void e(ss9 ss9Var) {
+    public rs9 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ss9Var) == null) {
-            us9 us9Var = new us9();
-            us9Var.b(1);
-            us9Var.a(false);
-            d(us9Var, ss9Var, Looper.getMainLooper());
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (rs9) invokeV.objValue;
+    }
+
+    public List<vs9> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (List) invokeV.objValue;
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.c = str;
         }
     }
 
-    public void d(us9 us9Var, ss9 ss9Var, Looper looper) {
+    public void e(rs9 rs9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, us9Var, ss9Var, looper) == null) {
-            zs9.o().i(this.a, looper, new a(this, ss9Var));
+        if (interceptable == null || interceptable.invokeL(1048580, this, rs9Var) == null) {
+            this.b = rs9Var;
         }
     }
 }

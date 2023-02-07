@@ -6,9 +6,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.network.outback.core.CallFactory;
 import com.baidu.searchbox.network.outback.core.CallFactoryParams;
 import com.baidu.searchbox.network.outback.statistics.IAdditionalRecord;
-import com.baidu.tieba.nf1;
-import com.baidu.tieba.of1;
-import com.baidu.tieba.qf1;
+import com.baidu.tieba.bk1;
+import com.baidu.tieba.yj1;
+import com.baidu.tieba.zj1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -58,8 +58,8 @@ public class OutbackComponent {
         IOutbackContext iOutbackContext;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            qf1<IOutbackContext> qf1Var = this.componentHolder.outbackContextHolder;
-            if (qf1Var == null || (iOutbackContext = qf1Var.get()) == null || iOutbackContext.getDefaultCallFactoryProducer() == null) {
+            bk1<IOutbackContext> bk1Var = this.componentHolder.outbackContextHolder;
+            if (bk1Var == null || (iOutbackContext = bk1Var.get()) == null || iOutbackContext.getDefaultCallFactoryProducer() == null) {
                 return false;
             }
             return true;
@@ -86,8 +86,8 @@ public class OutbackComponent {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            qf1<IOutbackContext> qf1Var = this.componentHolder.outbackContextHolder;
-            if (qf1Var != null && qf1Var.get() != null) {
+            bk1<IOutbackContext> bk1Var = this.componentHolder.outbackContextHolder;
+            if (bk1Var != null && bk1Var.get() != null) {
                 return this.componentHolder.outbackContextHolder.get().getIAdditionalRecord();
             }
             throw new IllegalStateException("No Context provided!");
@@ -99,8 +99,8 @@ public class OutbackComponent {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            qf1<IOutbackContext> qf1Var = this.componentHolder.outbackContextHolder;
-            if (qf1Var != null && qf1Var.get() != null) {
+            bk1<IOutbackContext> bk1Var = this.componentHolder.outbackContextHolder;
+            if (bk1Var != null && bk1Var.get() != null) {
                 return this.componentHolder.outbackContextHolder.get().getClientIPProvider();
             }
             throw new IllegalStateException("No Context provided!");
@@ -112,8 +112,8 @@ public class OutbackComponent {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            qf1<IOutbackContext> qf1Var = this.componentHolder.outbackContextHolder;
-            if (qf1Var != null && qf1Var.get() != null) {
+            bk1<IOutbackContext> bk1Var = this.componentHolder.outbackContextHolder;
+            if (bk1Var != null && bk1Var.get() != null) {
                 return this.componentHolder.outbackContextHolder.get().getContext();
             }
             throw new IllegalStateException("No Context provided!");
@@ -135,8 +135,8 @@ public class OutbackComponent {
         IOutbackContext iOutbackContext;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            qf1<IOutbackContext> qf1Var = this.componentHolder.outbackContextHolder;
-            if (qf1Var != null && (iOutbackContext = qf1Var.get()) != null) {
+            bk1<IOutbackContext> bk1Var = this.componentHolder.outbackContextHolder;
+            if (bk1Var != null && (iOutbackContext = bk1Var.get()) != null) {
                 return iOutbackContext.getOutbackEngines().containsKey(str);
             }
             return false;
@@ -150,9 +150,9 @@ public class OutbackComponent {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iOutbackContext)) == null) {
             OutbackComponentHolder outbackComponentHolder = this.componentHolder;
             if (outbackComponentHolder.outbackContextHolder == null) {
-                outbackComponentHolder.outbackContextHolder = new of1();
+                outbackComponentHolder.outbackContextHolder = new zj1();
             }
-            this.componentHolder.outbackContextHolder.a(new nf1<IOutbackContext>(this, iOutbackContext) { // from class: com.baidu.searchbox.network.outback.OutbackComponent.1
+            this.componentHolder.outbackContextHolder.a(new yj1<IOutbackContext>(this, iOutbackContext) { // from class: com.baidu.searchbox.network.outback.OutbackComponent.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ OutbackComponent this$0;
@@ -179,7 +179,7 @@ public class OutbackComponent {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.baidu.tieba.nf1
+                @Override // com.baidu.tieba.yj1
                 public IOutbackContext get() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;

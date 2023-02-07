@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebView;
 /* loaded from: classes7.dex */
 public final class f extends g {
     public static /* synthetic */ Interceptable $ic;
@@ -37,7 +36,7 @@ public final class f extends g {
             if (str == null) {
                 return false;
             }
-            if (!str.startsWith(WebView.SCHEME_MAILTO)) {
+            if (!str.startsWith("mailto:")) {
                 if (str.startsWith("rtsp:")) {
                     try {
                         context.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));

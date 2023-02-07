@@ -1,7 +1,9 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
-public interface xu0 {
-    void switchToFullStyle();
 
-    void switchToNormalStyle();
+import android.view.View;
+import androidx.annotation.NonNull;
+/* loaded from: classes7.dex */
+public interface xu0 {
+    @NonNull
+    View getContentView();
 }

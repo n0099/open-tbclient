@@ -1,227 +1,292 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Build;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.tca;
+import com.baidu.tieba.wca;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Queue;
+import java.util.concurrent.atomic.AtomicLong;
+import rx.exceptions.MissingBackpressureException;
+import rx.internal.operators.NotificationLite;
 /* loaded from: classes7.dex */
-public class zda {
+public final class zda<T> implements tca.b<T, T> {
     public static /* synthetic */ Interceptable $ic;
-    public static Method a;
-    public static Method b;
-    public static Field c;
-    public static int d;
     public transient /* synthetic */ FieldHolder $fh;
+    public final wca a;
+    public final boolean b;
+    public final int c;
 
-    public static int j(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) ? (((((i & 16711680) >> 16) * 38) + (((65280 & i) >> 8) * 75)) + ((i & 255) * 15)) >> 7 : invokeI.intValue;
-    }
+    /* loaded from: classes7.dex */
+    public static final class a<T> extends zca<T> implements gda {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final zca<? super T> e;
+        public final wca.a f;
+        public final boolean g;
+        public final Queue<Object> h;
+        public final int i;
+        public volatile boolean j;
+        public final AtomicLong k;
+        public final AtomicLong l;
+        public Throwable m;
+        public long n;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948357490, "Lcom/baidu/tieba/zda;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948357490, "Lcom/baidu/tieba/zda;");
-                return;
-            }
-        }
-        try {
-            a = Activity.class.getMethod("setStatusBarDarkIcon", Integer.TYPE);
-        } catch (NoSuchMethodException unused) {
-        }
-        try {
-            b = Activity.class.getMethod("setStatusBarDarkIcon", Boolean.TYPE);
-        } catch (NoSuchMethodException unused2) {
-        }
-        try {
-            c = WindowManager.LayoutParams.class.getField("statusBarColor");
-        } catch (NoSuchFieldException unused3) {
-        }
-        try {
-            d = View.class.getField("SYSTEM_UI_FLAG_LIGHT_STATUS_BAR").getInt(null);
-        } catch (IllegalAccessException | NoSuchFieldException unused4) {
-        }
-    }
+        /* renamed from: com.baidu.tieba.zda$a$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class C0505a implements vca {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
 
-    public static boolean a(WindowManager.LayoutParams layoutParams, String str, boolean z) {
-        int i;
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, layoutParams, str, z)) == null) {
-            try {
-                Field declaredField = layoutParams.getClass().getDeclaredField(str);
-                declaredField.setAccessible(true);
-                int i2 = declaredField.getInt(layoutParams);
-                Field declaredField2 = layoutParams.getClass().getDeclaredField("meizuFlags");
-                declaredField2.setAccessible(true);
-                int i3 = declaredField2.getInt(layoutParams);
-                if (z) {
-                    i = i2 | i3;
-                } else {
-                    i = (~i2) & i3;
-                }
-                if (i3 != i) {
-                    declaredField2.setInt(layoutParams, i);
-                    return true;
-                }
-                return false;
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-                return false;
-            } catch (IllegalArgumentException e2) {
-                e2.printStackTrace();
-                return false;
-            } catch (NoSuchFieldException e3) {
-                e3.printStackTrace();
-                return false;
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return false;
-            }
-        }
-        return invokeLLZ.booleanValue;
-    }
-
-    public static void f(Activity activity, boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{activity, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            Method method = b;
-            if (method != null) {
-                try {
-                    method.invoke(activity, Boolean.valueOf(z));
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                } catch (InvocationTargetException e2) {
-                    e2.printStackTrace();
-                }
-            } else if (z2) {
-                i(activity.getWindow(), z);
-            }
-        }
-    }
-
-    public static boolean b(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) {
-            if (j(i) < i2) {
-                return true;
-            }
-            return false;
-        }
-        return invokeII.booleanValue;
-    }
-
-    public static void c(Window window, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65539, null, window, i) == null) {
-            WindowManager.LayoutParams attributes = window.getAttributes();
-            Field field = c;
-            if (field != null) {
-                try {
-                    if (field.getInt(attributes) != i) {
-                        c.set(attributes, Integer.valueOf(i));
-                        window.setAttributes(attributes);
+            public C0505a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
                     }
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
+                }
+                this.a = aVar;
+            }
+
+            @Override // com.baidu.tieba.vca
+            public void request(long j) {
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeJ(1048576, this, j) == null) && j > 0) {
+                    oda.b(this.a.k, j);
+                    this.a.i();
                 }
             }
         }
-    }
 
-    public static void e(Activity activity, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65541, null, activity, z) == null) {
-            f(activity, z, true);
-        }
-    }
-
-    public static void g(View view2, boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65543, null, view2, z) == null) {
-            int systemUiVisibility = view2.getSystemUiVisibility();
-            if (z) {
-                i = d | systemUiVisibility;
+        public a(wca wcaVar, zca<? super T> zcaVar, boolean z, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wcaVar, zcaVar, Boolean.valueOf(z), Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.k = new AtomicLong();
+            this.l = new AtomicLong();
+            this.e = zcaVar;
+            this.f = wcaVar.createWorker();
+            this.g = z;
+            i = i <= 0 ? cfa.c : i;
+            this.i = i - (i >> 2);
+            if (qga.b()) {
+                this.h = new cga(i);
             } else {
-                i = (~d) & systemUiVisibility;
+                this.h = new hfa(i);
             }
-            if (i != systemUiVisibility) {
-                view2.setSystemUiVisibility(i);
-            }
+            e(i);
         }
-    }
 
-    public static void h(Window window, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65544, null, window, i) == null) {
-            try {
-                c(window, i);
-                if (Build.VERSION.SDK_INT > 22) {
-                    g(window.getDecorView(), true);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public static void i(Window window, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65545, null, window, z) == null) {
-            if (Build.VERSION.SDK_INT < 23) {
-                a(window.getAttributes(), "MEIZU_FLAG_DARK_STATUS_BAR_ICON", z);
-                return;
-            }
-            View decorView = window.getDecorView();
-            if (decorView != null) {
-                g(decorView, z);
-                c(window, 0);
-            }
-        }
-    }
-
-    public static void d(Activity activity, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, i) == null) {
-            Method method = a;
-            if (method != null) {
-                try {
-                    method.invoke(activity, Integer.valueOf(i));
-                    return;
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                    return;
-                } catch (InvocationTargetException e2) {
-                    e2.printStackTrace();
-                    return;
+        public boolean g(boolean z, boolean z2, zca<? super T> zcaVar, Queue<Object> queue) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), zcaVar, queue})) == null) {
+                if (zcaVar.isUnsubscribed()) {
+                    queue.clear();
+                    return true;
+                } else if (z) {
+                    if (this.g) {
+                        if (z2) {
+                            Throwable th = this.m;
+                            try {
+                                if (th != null) {
+                                    zcaVar.onError(th);
+                                } else {
+                                    zcaVar.onCompleted();
+                                }
+                                return false;
+                            } finally {
+                            }
+                        }
+                        return false;
+                    }
+                    Throwable th2 = this.m;
+                    if (th2 != null) {
+                        queue.clear();
+                        try {
+                            zcaVar.onError(th2);
+                            return true;
+                        } finally {
+                        }
+                    } else if (z2) {
+                        try {
+                            zcaVar.onCompleted();
+                            return true;
+                        } finally {
+                        }
+                    } else {
+                        return false;
+                    }
+                } else {
+                    return false;
                 }
             }
-            boolean b2 = b(i, 50);
-            if (c != null) {
-                f(activity, b2, b2);
-                h(activity.getWindow(), i);
+            return invokeCommon.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.gda
+        public void call() {
+            int i;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                long j = this.n;
+                Queue<Object> queue = this.h;
+                zca<? super T> zcaVar = this.e;
+                long j2 = 1;
+                do {
+                    long j3 = this.k.get();
+                    while (true) {
+                        i = (j3 > j ? 1 : (j3 == j ? 0 : -1));
+                        if (i == 0) {
+                            break;
+                        }
+                        boolean z2 = this.j;
+                        Object poll = queue.poll();
+                        if (poll == null) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                        if (g(z2, z, zcaVar, queue)) {
+                            return;
+                        }
+                        if (z) {
+                            break;
+                        }
+                        zcaVar.onNext((Object) NotificationLite.e(poll));
+                        j++;
+                        if (j == this.i) {
+                            j3 = oda.g(this.k, j);
+                            e(j);
+                            j = 0;
+                        }
+                    }
+                    if (i == 0 && g(this.j, queue.isEmpty(), zcaVar, queue)) {
+                        return;
+                    }
+                    this.n = j;
+                    j2 = this.l.addAndGet(-j2);
+                } while (j2 != 0);
+            }
+        }
+
+        public void h() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                zca<? super T> zcaVar = this.e;
+                zcaVar.f(new C0505a(this));
+                zcaVar.b(this.f);
+                zcaVar.b(this);
+            }
+        }
+
+        public void i() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.l.getAndIncrement() == 0) {
+                this.f.b(this);
+            }
+        }
+
+        @Override // com.baidu.tieba.uca
+        public void onCompleted() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && !isUnsubscribed() && !this.j) {
+                this.j = true;
+                i();
+            }
+        }
+
+        @Override // com.baidu.tieba.uca
+        public void onError(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, th) == null) {
+                if (!isUnsubscribed() && !this.j) {
+                    this.m = th;
+                    this.j = true;
+                    i();
+                    return;
+                }
+                aha.j(th);
+            }
+        }
+
+        @Override // com.baidu.tieba.uca
+        public void onNext(T t) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048582, this, t) == null) && !isUnsubscribed() && !this.j) {
+                if (!this.h.offer(NotificationLite.h(t))) {
+                    onError(new MissingBackpressureException());
+                } else {
+                    i();
+                }
+            }
+        }
+    }
+
+    public zda(wca wcaVar, boolean z, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {wcaVar, Boolean.valueOf(z), Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            e(activity, b2);
         }
+        this.a = wcaVar;
+        this.b = z;
+        this.c = i <= 0 ? cfa.c : i;
+    }
+
+    public zca<? super T> call(zca<? super T> zcaVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, zcaVar)) == null) {
+            wca wcaVar = this.a;
+            if (wcaVar instanceof rea) {
+                return zcaVar;
+            }
+            if (wcaVar instanceof wea) {
+                return zcaVar;
+            }
+            a aVar = new a(wcaVar, zcaVar, this.b, this.c);
+            aVar.h();
+            return aVar;
+        }
+        return (zca) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.tca.b, com.baidu.tieba.lda
+    public /* bridge */ /* synthetic */ Object call(Object obj) {
+        return call((zca) ((zca) obj));
     }
 }

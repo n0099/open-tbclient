@@ -1,19 +1,28 @@
 package com.baidu.tieba;
 
-import com.badlogic.gdx.Application;
-import com.badlogic.gdx.Files;
 import com.badlogic.gdx.Graphics;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class g1 {
+public abstract class g1 implements Graphics {
     public static /* synthetic */ Interceptable $ic;
-    public static Application a;
-    public static Graphics b;
-    public static f1 c;
-    public static Files d;
-    public static o3 e;
-    public static o3 f;
-    public static p3 g;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract /* synthetic */ Graphics.GraphicsType getType();
+
+    public g1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

@@ -10,42 +10,49 @@ import kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsKt;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.RestrictedSuspendLambda;
 import kotlin.jvm.functions.Function2;
-import kotlin.jvm.internal.Intrinsics;
 /* JADX INFO: Add missing generic type declarations: [R] */
-@Metadata(d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003*\b\u0012\u0004\u0012\u0002H\u00030\u0004H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, "R", "Lkotlin/sequences/SequenceScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 5, 1})
-@DebugMetadata(c = "kotlin.sequences.SequencesKt___SequencesKt$runningFold$1", f = "_Sequences.kt", i = {0, 1}, l = {2115, 2119}, m = "invokeSuspend", n = {"$this$sequence", "$this$sequence"}, s = {"L$0", "L$0"})
+@Metadata(d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003*\b\u0012\u0004\u0012\u0002H\u00030\u0004H\u008a@"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, "R", "Lkotlin/sequences/SequenceScope;"}, k = 3, mv = {1, 6, 0}, xi = 48)
+@DebugMetadata(c = "kotlin.sequences.SequencesKt___SequencesKt$runningFold$1", f = "_Sequences.kt", i = {0, 1, 1}, l = {2115, 2119}, m = "invokeSuspend", n = {"$this$sequence", "$this$sequence", "accumulator"}, s = {"L$0", "L$0", "L$1"})
 /* loaded from: classes9.dex */
 public final class SequencesKt___SequencesKt$runningFold$1<R> extends RestrictedSuspendLambda implements Function2<SequenceScope<? super R>, Continuation<? super Unit>, Object> {
-    public final /* synthetic */ Object $initial;
-    public final /* synthetic */ Function2 $operation;
-    public final /* synthetic */ Sequence $this_runningFold;
+    public final /* synthetic */ R $initial;
+    public final /* synthetic */ Function2<R, T, R> $operation;
+    public final /* synthetic */ Sequence<T> $this_runningFold;
     public /* synthetic */ Object L$0;
     public Object L$1;
     public Object L$2;
     public int label;
 
+    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: kotlin.sequences.Sequence<? extends T> */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: kotlin.jvm.functions.Function2<? super R, ? super T, ? extends R> */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SequencesKt___SequencesKt$runningFold$1(Sequence sequence, Object obj, Function2 function2, Continuation continuation) {
+    /* JADX WARN: Multi-variable type inference failed */
+    public SequencesKt___SequencesKt$runningFold$1(R r, Sequence<? extends T> sequence, Function2<? super R, ? super T, ? extends R> function2, Continuation<? super SequencesKt___SequencesKt$runningFold$1> continuation) {
         super(2, continuation);
+        this.$initial = r;
         this.$this_runningFold = sequence;
-        this.$initial = obj;
         this.$operation = function2;
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
-    public final Continuation<Unit> create(Object obj, Continuation<?> completion) {
-        Intrinsics.checkNotNullParameter(completion, "completion");
-        SequencesKt___SequencesKt$runningFold$1 sequencesKt___SequencesKt$runningFold$1 = new SequencesKt___SequencesKt$runningFold$1(this.$this_runningFold, this.$initial, this.$operation, completion);
+    public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
+        SequencesKt___SequencesKt$runningFold$1 sequencesKt___SequencesKt$runningFold$1 = new SequencesKt___SequencesKt$runningFold$1(this.$initial, this.$this_runningFold, this.$operation, continuation);
         sequencesKt___SequencesKt$runningFold$1.L$0 = obj;
         return sequencesKt___SequencesKt$runningFold$1;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function2
-    public final Object invoke(Object obj, Continuation<? super Unit> continuation) {
-        return ((SequencesKt___SequencesKt$runningFold$1) create(obj, continuation)).invokeSuspend(Unit.INSTANCE);
+    public /* bridge */ /* synthetic */ Object invoke(Object obj, Continuation<? super Unit> continuation) {
+        return invoke((SequenceScope) ((SequenceScope) obj), continuation);
     }
 
+    public final Object invoke(SequenceScope<? super R> sequenceScope, Continuation<? super Unit> continuation) {
+        return ((SequencesKt___SequencesKt$runningFold$1) create(sequenceScope, continuation)).invokeSuspend(Unit.INSTANCE);
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: kotlin.jvm.functions.Function2<R, T, R> */
+    /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Removed duplicated region for block: B:17:0x0053  */
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     /*
@@ -85,10 +92,10 @@ public final class SequencesKt___SequencesKt$runningFold$1<R> extends Restricted
         } else {
             ResultKt.throwOnFailure(obj);
             sequenceScope = (SequenceScope) this.L$0;
-            Object obj4 = this.$initial;
+            R r = this.$initial;
             this.L$0 = sequenceScope;
             this.label = 1;
-            if (sequenceScope.yield(obj4, this) == coroutine_suspended) {
+            if (sequenceScope.yield(r, this) == coroutine_suspended) {
                 return coroutine_suspended;
             }
         }

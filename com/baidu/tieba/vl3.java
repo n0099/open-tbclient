@@ -1,108 +1,189 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.util.android.IntentUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class vl3 extends ProviderDelegation {
+public class vl3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public class a implements dj3<Bundle> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Bundle a;
-        public final /* synthetic */ vl3 b;
-
-        public a(vl3 vl3Var, Bundle bundle) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948244588, "Lcom/baidu/tieba/vl3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vl3Var, bundle};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = vl3Var;
-            this.a = bundle;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.dj3
-        /* renamed from: a */
-        public Bundle create() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.b.c(this.a);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948244588, "Lcom/baidu/tieba/vl3;");
+                return;
             }
-            return (Bundle) invokeV.objValue;
         }
+        a = gp1.a;
     }
 
-    public vl3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public Bundle c(@NonNull Bundle bundle) {
+    public static boolean a(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            int i = bundle.getInt("type");
-            ul3 ul3Var = new ul3();
-            String string = bundle.getString("param1");
-            Bundle bundle2 = new Bundle();
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            return bundle2;
-                        }
-                        bundle2.putString("result", ul3Var.getCookie(string));
-                        return bundle2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
+            if (activity != null && b(activity.getIntent())) {
+                try {
+                    fl3.j(activity);
+                } catch (Exception unused) {
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean b(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, intent)) == null) {
+            if (intent != null) {
+                try {
+                    Bundle extras = intent.getExtras();
+                    if (extras != null) {
+                        extras.isEmpty();
+                        return false;
                     }
-                    ul3Var.storeCookie(string, bundle.getStringArrayList("param2"));
-                    return bundle2;
+                    return false;
+                } catch (Throwable unused) {
+                    return true;
                 }
-                bundle2.putBoolean("result", ul3Var.shouldSendCookie(string, bundle.getString("param2")));
-                return bundle2;
             }
-            bundle2.putBoolean("result", ul3Var.shouldAcceptCookie(string, bundle.getString("param2")));
-            return bundle2;
+            return false;
         }
-        return (Bundle) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(@NonNull Bundle bundle) {
-        InterceptResult invokeL;
+    public static boolean c(Bundle bundle, String str, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
-            return (Bundle) aj3.b(new a(this, bundle));
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, bundle, str, z)) == null) {
+            try {
+                return bundle.getBoolean(str);
+            } catch (Throwable unused) {
+                if (a) {
+                    Log.e(IntentUtils.TAG, "getBoolean failed on bundle " + bundle);
+                }
+                return z;
+            }
         }
-        return (Bundle) invokeL.objValue;
+        return invokeLLZ.booleanValue;
+    }
+
+    public static int f(Bundle bundle, String str, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, null, bundle, str, i)) == null) {
+            try {
+                return bundle.getInt(str);
+            } catch (Throwable unused) {
+                if (a) {
+                    Log.e(IntentUtils.TAG, "getInt failed on bundle " + bundle);
+                }
+                return i;
+            }
+        }
+        return invokeLLI.intValue;
+    }
+
+    public static Bundle d(Bundle bundle, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle, str)) == null) {
+            try {
+                return bundle.getBundle(str);
+            } catch (Throwable unused) {
+                if (a) {
+                    Log.e(IntentUtils.TAG, "getBundle failed on bundle " + bundle);
+                    return null;
+                }
+                return null;
+            }
+        }
+        return (Bundle) invokeLL.objValue;
+    }
+
+    public static Bundle e(Intent intent, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, intent, str)) == null) {
+            try {
+                return intent.getBundleExtra(str);
+            } catch (Throwable unused) {
+                if (a) {
+                    Log.e(IntentUtils.TAG, "getBundleExtra failed on intent " + intent);
+                    return null;
+                }
+                return null;
+            }
+        }
+        return (Bundle) invokeLL.objValue;
+    }
+
+    public static String g(Bundle bundle, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, bundle, str)) == null) {
+            try {
+                return bundle.getString(str);
+            } catch (Throwable unused) {
+                if (a) {
+                    Log.e(IntentUtils.TAG, "getString failed on bundle " + bundle);
+                    return null;
+                }
+                return null;
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String h(Intent intent, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, intent, str)) == null) {
+            try {
+                return intent.getStringExtra(str);
+            } catch (Throwable unused) {
+                if (a) {
+                    Log.e(IntentUtils.TAG, "getStringExtra failed on intent " + intent);
+                    return null;
+                }
+                return null;
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String i(Bundle bundle, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, bundle, str)) == null) {
+            try {
+                return bundle.getString(str);
+            } catch (Throwable unused) {
+                if (a) {
+                    Log.e(IntentUtils.TAG, "getStringExtra failed on bundle " + bundle);
+                    return null;
+                }
+                return null;
+            }
+        }
+        return (String) invokeLL.objValue;
     }
 }

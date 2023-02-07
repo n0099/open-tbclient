@@ -9,7 +9,7 @@ import android.webkit.ValueCallback;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bt3;
+import com.baidu.tieba.ox3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -239,7 +239,7 @@ public class RewardWebView extends WebView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             WebSettings settings = getSettings();
-            settings.setUserAgentString(bt3.b().i(settings.getUserAgentString()));
+            settings.setUserAgentString(ox3.b().i(settings.getUserAgentString()));
         }
     }
 

@@ -79,7 +79,7 @@ public class ae {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m177a() {
+    public static boolean m179a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a == 2 : invokeV.booleanValue;

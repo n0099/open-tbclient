@@ -1,45 +1,55 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tbadk.coreExtra.data.NewGodData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URLEncoder;
-/* loaded from: classes6.dex */
+import tbclient.NewGodInfo;
+/* loaded from: classes7.dex */
 public class xp5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(TbPageContext<?> tbPageContext, String str, String str2, String str3) {
+    public static String a(NewGodData newGodData) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLL(65536, null, tbPageContext, str, str2, str3) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        if (!TbadkCoreApplication.isLogin()) {
-            ViewHelper.skipToLoginActivity(tbPageContext.getPageActivity());
-        } else if (str.equals(TbadkCoreApplication.getCurrentPortrait())) {
-            BdToast.b(tbPageContext.getPageActivity(), tbPageContext.getPageActivity().getString(R.string.can_not_raise_self)).k();
-        } else {
-            try {
-                String str4 = "https://tieba.baidu.com/mo/q/hybrid-main-activity/worldcupPortrait?support_cache=1&thrown_flag_portrait=" + URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
-                if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-                    str4 = str4 + "&figure_url=" + URLEncoder.encode(str2, IMAudioTransRequest.CHARSET) + "&background_value=" + URLEncoder.encode(str3, IMAudioTransRequest.CHARSET);
-                }
-                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(tbPageContext.getPageActivity(), "", str4, false, true, true);
-                tbWebViewActivityConfig.setPageTranslucent(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
-                tbWebViewActivityConfig.setTranslucentAutoClose(true);
-                tbWebViewActivityConfig.setWebDialogName("WorldCupRaiseFlag");
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, newGodData)) == null) {
+            if (newGodData != null && newGodData.getType() == 2) {
+                z = true;
+            } else {
+                z = false;
             }
+            return c(z);
         }
+        return (String) invokeL.objValue;
+    }
+
+    public static String b(NewGodInfo newGodInfo) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, newGodInfo)) == null) {
+            if (newGodInfo != null && newGodInfo.type.intValue() == 2) {
+                z = true;
+            } else {
+                z = false;
+            }
+            return c(z);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
+            if (z) {
+                return TbadkCoreApplication.getInst().getApp().getString(R.string.field_new_video_god);
+            }
+            return TbadkCoreApplication.getInst().getApp().getString(R.string.field_new_god);
+        }
+        return (String) invokeZ.objValue;
     }
 }

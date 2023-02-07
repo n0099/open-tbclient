@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Looper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,38 +10,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes4.dex */
-public final class dda implements r8a {
+public final class dda {
     public static /* synthetic */ Interceptable $ic;
-    public static final x8a b;
+    public static final AtomicReference<dda> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReference<x8a> a;
-
-    /* loaded from: classes4.dex */
-    public static class a implements x8a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.x8a
-        public void call() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
+    public final wca a;
 
     static {
         InterceptResult invokeClinit;
@@ -57,7 +29,33 @@ public final class dda implements r8a {
                 return;
             }
         }
-        b = new a();
+        b = new AtomicReference<>();
+    }
+
+    public static dda a() {
+        dda ddaVar;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            do {
+                dda ddaVar2 = b.get();
+                if (ddaVar2 != null) {
+                    return ddaVar2;
+                }
+                ddaVar = new dda();
+            } while (!b.compareAndSet(null, ddaVar));
+            return ddaVar;
+        }
+        return (dda) invokeV.objValue;
+    }
+
+    public static wca b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return a().a;
+        }
+        return (wca) invokeV.objValue;
     }
 
     public dda() {
@@ -73,68 +71,11 @@ public final class dda implements r8a {
                 return;
             }
         }
-        this.a = new AtomicReference<>();
-    }
-
-    public static dda a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return new dda();
+        wca b2 = bda.a().b().b();
+        if (b2 != null) {
+            this.a = b2;
+        } else {
+            this.a = new eda(Looper.getMainLooper());
         }
-        return (dda) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.r8a
-    public boolean isUnsubscribed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a.get() == b) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.r8a
-    public void unsubscribe() {
-        x8a andSet;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            x8a x8aVar = this.a.get();
-            x8a x8aVar2 = b;
-            if (x8aVar != x8aVar2 && (andSet = this.a.getAndSet(x8aVar2)) != null && andSet != b) {
-                andSet.call();
-            }
-        }
-    }
-
-    public dda(x8a x8aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {x8aVar};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = new AtomicReference<>(x8aVar);
-    }
-
-    public static dda b(x8a x8aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, x8aVar)) == null) {
-            return new dda(x8aVar);
-        }
-        return (dda) invokeL.objValue;
     }
 }

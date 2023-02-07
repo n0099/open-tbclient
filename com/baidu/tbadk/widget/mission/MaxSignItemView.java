@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -183,8 +183,8 @@ public class MaxSignItemView extends FrameLayout {
             }
         }
         this.c = new ArrayList<>();
-        this.g = zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds190);
-        this.h = zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds115);
+        this.g = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds190);
+        this.h = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds115);
         d();
     }
 
@@ -208,8 +208,8 @@ public class MaxSignItemView extends FrameLayout {
             }
         }
         this.c = new ArrayList<>();
-        this.g = zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds190);
-        this.h = zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds115);
+        this.g = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds190);
+        this.h = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds115);
         d();
     }
 
@@ -233,8 +233,8 @@ public class MaxSignItemView extends FrameLayout {
             }
         }
         this.c = new ArrayList<>();
-        this.g = zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds190);
-        this.h = zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds115);
+        this.g = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds190);
+        this.h = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds115);
         d();
     }
 
@@ -266,8 +266,8 @@ public class MaxSignItemView extends FrameLayout {
             LayoutInflater.from(getContext()).inflate(R.layout.max_sign_dialog_cus_view, (ViewGroup) this, true);
             this.a = (LinearLayout) findViewById(R.id.sign_item_container);
             this.b = (LineView) findViewById(R.id.line_view);
-            this.e = zi.g(getContext(), R.dimen.tbds3);
-            this.f = zi.g(getContext(), R.dimen.tbds0);
+            this.e = ej.g(getContext(), R.dimen.tbds3);
+            this.f = ej.g(getContext(), R.dimen.tbds0);
         }
     }
 

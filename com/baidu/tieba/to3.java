@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.cpu.booster.utils.CpuType;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,308 +11,202 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.net.URI;
+import java.net.URISyntaxException;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class to3 {
+public class to3 extends qo3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile to3 d;
-    public static boolean e;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<uo3> a;
-    public boolean b;
-    public Timer c;
+
+    public void n(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948187889, "Lcom/baidu/tieba/to3;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948187889, "Lcom/baidu/tieba/to3;");
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class a extends TimerTask {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ to3 a;
-
-        public a(to3 to3Var) {
-            Interceptable interceptable = $ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948187889, "Lcom/baidu/tieba/to3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {to3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = to3Var;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948187889, "Lcom/baidu/tieba/to3;");
+                return;
+            }
         }
+        b = gp1.a;
+    }
 
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.i();
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            if (b) {
+                Log.i("WebStatsStrategy", "onUserCancel: report");
             }
+            a();
+            l();
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-397198733, "Lcom/baidu/tieba/to3$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-397198733, "Lcom/baidu/tieba/to3$b;");
-                    return;
-                }
-            }
-            int[] iArr = new int[CpuType.values().length];
-            a = iArr;
-            try {
-                iArr[CpuType.Mtk.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[CpuType.QualComm.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[CpuType.Unknown.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
+    public void k() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && !this.a.d("na_start")) {
+            this.a.g("na_start");
         }
     }
 
-    public to3(Context context) {
-        long j;
+    public void l() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.a.e()) {
+            this.a.k();
+            br2.e();
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.a.i();
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public to3(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        if (e) {
-            j = System.currentTimeMillis();
-        } else {
-            j = 0;
-        }
-        a(context.getApplicationContext());
-        if (e) {
-            long currentTimeMillis = System.currentTimeMillis();
-            Log.d("CPU-Booster", "collect booster cost - " + (currentTimeMillis - j) + "ms");
-        }
     }
 
-    public static void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65538, null, z) == null) {
-            e = z;
-        }
-    }
-
-    public static to3 d(@NonNull Context context) {
+    public boolean b(String str) {
+        URI uri;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (d == null) {
-                synchronized (to3.class) {
-                    if (d == null) {
-                        d = new to3(context);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            try {
+                uri = new URI(str);
+            } catch (URISyntaxException e) {
+                if (b) {
+                    e.printStackTrace();
+                }
+                uri = null;
+            }
+            if (uri != null && !TextUtils.isEmpty(uri.getPath()) && !TextUtils.equals("/", uri.getPath())) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            if (b) {
+                Log.i("WebStatsStrategy", "onFcpSubmit: " + str);
+            }
+            if (!this.a.d("na_fcp")) {
+                this.a.g("na_fcp");
+            }
+        }
+    }
+
+    public void h(String str) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && !b(str) && !this.a.d("na_load_url_end")) {
+            this.a.g("na_load_url_end");
+            this.a.f("load_end_url", str);
+            boolean d = this.a.d("fe_fmp");
+            so3 so3Var = this.a;
+            if (d) {
+                str2 = "1";
+            } else {
+                str2 = "0";
+            }
+            so3Var.f("fmpArrived", str2);
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            if (b) {
+                Log.i("WebStatsStrategy", "onLoadUrlStart: " + str);
+            }
+            if (!this.a.d("na_load_url")) {
+                this.a.g("na_load_url");
+                this.a.f("load_url", str);
+            }
+        }
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && !b(str) && !this.a.d("na_first_image_paint")) {
+            this.a.g("na_first_image_paint");
+        }
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && !b(str) && !this.a.d("na_first_text_paint")) {
+            this.a.g("na_first_text_paint");
+        }
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            if (b) {
+                Log.i("WebStatsStrategy", "onFmpSubmit: " + str);
+            }
+            if (!this.a.d("na_up_screen")) {
+                this.a.g("na_up_screen");
+            }
+            if (this.a.d("fe_fmp")) {
+                a();
+                l();
+            }
+        }
+    }
+
+    public void g(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, jSONArray) == null) && jSONArray != null && jSONArray.length() > 0) {
+            for (int i = 0; i < jSONArray.length(); i++) {
+                try {
+                    JSONObject jSONObject = jSONArray.getJSONObject(i);
+                    this.a.h(jSONObject.optString("actionId"), jSONObject.optLong("timestamp"));
+                } catch (JSONException e) {
+                    if (b) {
+                        e.printStackTrace();
                     }
                 }
             }
-            return d;
-        }
-        return (to3) invokeL.objValue;
-    }
-
-    public static void e(@NonNull Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
-            if (e) {
-                Log.d("CPU-Booster", "cpu-booster preInit");
-            }
-            d(context);
-        }
-    }
-
-    public final int c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i < 0) {
-                return 200;
-            }
-            return Math.min(i, 5000);
-        }
-        return invokeI.intValue;
-    }
-
-    public final void a(@NonNull Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            if (ip3.a()) {
-                this.a.add(new vo3(context));
-                this.a.add(new xo3(context));
-            } else if (ip3.b()) {
-                this.a.add(new dp3(context));
-            }
-            int i = b.a[hp3.h().ordinal()];
-            if (i != 1) {
-                if (i == 2) {
-                    this.a.add(new fp3(context));
-                    return;
-                }
-                return;
-            }
-            this.a.add(new bp3(context));
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || !e) {
-            return;
-        }
-        int e2 = hp3.e();
-        StringBuilder sb = new StringBuilder(" \n\n");
-        sb.append("CPU Support Freq Info:\n");
-        for (int i = 0; i < e2; i++) {
-            zo3 a2 = hp3.a(i);
-            sb.append("CPU");
-            sb.append(a2.a);
-            sb.append(":");
-            sb.append("min-");
-            sb.append(a2.b / 1000);
-            sb.append("mHz, max-");
-            sb.append(a2.c / 1000);
-            sb.append("mHz\n");
-        }
-        sb.append("\n\n");
-        sb.append("CPU Current Freq:\n");
-        for (int i2 = 0; i2 < e2; i2++) {
-            sb.append("CPU");
-            sb.append(i2);
-            sb.append(":");
-            sb.append(hp3.j(i2) / 1000);
-            sb.append("mHz");
-            sb.append("\n");
-        }
-        if (e) {
-            Log.d("CPU-Booster", sb.toString());
-        }
-    }
-
-    public synchronized void i() {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            synchronized (this) {
-                if (!this.b) {
-                    return;
-                }
-                if (e) {
-                    Log.d("CPU-Booster", "stopBooster");
-                }
-                if (e) {
-                    j = System.currentTimeMillis();
-                } else {
-                    j = 0;
-                }
-                for (uo3 uo3Var : this.a) {
-                    uo3Var.a();
-                }
-                this.b = false;
-                if (this.c != null) {
-                    this.c.cancel();
-                    this.c = null;
-                }
-                if (e) {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    Log.d("CPU-Booster", "stop booster cost - " + (currentTimeMillis - j) + "ms");
-                }
-            }
-        }
-    }
-
-    public synchronized void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                h(3000);
-            }
-        }
-    }
-
-    public synchronized void h(int i) {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            synchronized (this) {
-                if (this.b) {
-                    if (e) {
-                        Log.d("CPU-Booster", "start fail -> isEnabled - true, already start - " + this.b);
-                    }
-                    return;
-                }
-                if (e) {
-                    Log.d("CPU-Booster", "startBooster");
-                }
-                this.b = true;
-                int c = c(i);
-                if (e) {
-                    j = System.currentTimeMillis();
-                } else {
-                    j = 0;
-                }
-                for (uo3 uo3Var : this.a) {
-                    uo3Var.b(c);
-                }
-                if (this.c == null) {
-                    Timer timer = new Timer();
-                    this.c = timer;
-                    timer.schedule(new a(this), c);
-                }
-                if (e) {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    Log.d("CPU-Booster", "start booster cost - " + (currentTimeMillis - j) + "ms");
-                    f();
-                }
+            this.a.g("fe_fmp");
+            if (this.a.d("na_up_screen")) {
+                a();
+                l();
             }
         }
     }

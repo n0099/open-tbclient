@@ -1,16 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.ILivePlayerService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class kv7 extends dg1<ILivePlayerService> {
+public class kv7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public int c;
+    public String d;
 
     public kv7() {
         Interceptable interceptable = $ic;
@@ -24,17 +25,5 @@ public class kv7 extends dg1<ILivePlayerService> {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.dg1
-    /* renamed from: a */
-    public ILivePlayerService createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new lv7();
-        }
-        return (ILivePlayerService) invokeV.objValue;
     }
 }

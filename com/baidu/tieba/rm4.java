@@ -1,135 +1,355 @@
 package com.baidu.tieba;
 
-import android.app.Dialog;
+import android.app.Activity;
 import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.os.Bundle;
-import android.view.Display;
+import android.content.Intent;
+import android.os.Handler;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.view.RoundRelativeLayout;
+import com.baidu.swan.support.v4.app.Fragment;
+import com.baidu.swan.support.v4.app.FragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bumptech.glide.load.engine.GlideException;
+import java.io.FileDescriptor;
+import java.io.PrintWriter;
 /* loaded from: classes6.dex */
-public class rm4 extends Dialog implements View.OnClickListener {
+public abstract class rm4<E> extends pm4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public s9 b;
-    public float c;
-    public ViewGroup d;
-    public RoundRelativeLayout e;
-    public View f;
-    public ImageView g;
-    public ImageView h;
-    public Drawable i;
+    public final Activity a;
+    public final Context b;
+    public final Handler c;
+    public final int d;
+    public final tm4 e;
+    public in4<String, wm4> f;
+    public xm4 g;
+    public boolean h;
+    public boolean i;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rm4(s9 s9Var) {
-        super(s9Var.getPageActivity(), 16973835);
+    @Override // com.baidu.tieba.pm4
+    @Nullable
+    public View a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return null;
+        }
+        return (View) invokeI.objValue;
+    }
+
+    @Override // com.baidu.tieba.pm4
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void k(Fragment fragment) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, fragment) == null) {
+        }
+    }
+
+    public void l(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048589, this, str, fileDescriptor, printWriter, strArr) == null) {
+        }
+    }
+
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void p(@NonNull Fragment fragment, @NonNull String[] strArr, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048593, this, fragment, strArr, i) == null) {
+        }
+    }
+
+    public boolean q(Fragment fragment) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, fragment)) == null) {
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+        }
+    }
+
+    public rm4(Activity activity, Context context, Handler handler, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {s9Var};
+            Object[] objArr = {activity, context, handler, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = 0.33f;
-        this.b = s9Var;
-        this.a = s9Var.getPageActivity();
+        this.e = new tm4();
+        this.a = activity;
+        this.b = context;
+        this.c = handler;
+        this.d = i;
     }
 
-    public void a() {
+    public void f(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            dh.b(this, this.b);
+        if (interceptable == null || interceptable.invokeLLLL(1048581, this, str, fileDescriptor, printWriter, strArr) == null) {
+            printWriter.print(str);
+            printWriter.print("mLoadersStarted=");
+            printWriter.println(this.i);
+            if (this.g != null) {
+                printWriter.print(str);
+                printWriter.print("Loader Manager ");
+                printWriter.print(Integer.toHexString(System.identityHashCode(this.g)));
+                printWriter.println(":");
+                xm4 xm4Var = this.g;
+                xm4Var.h(str + GlideException.IndentedAppendable.INDENT, fileDescriptor, printWriter, strArr);
+            }
         }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public rm4(FragmentActivity fragmentActivity) {
+        this(fragmentActivity, fragmentActivity, fragmentActivity.a, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {fragmentActivity};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Activity) objArr2[0], (Context) objArr2[1], (Handler) objArr2[2], ((Integer) objArr2[3]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public void c() {
+        xm4 xm4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (xm4Var = this.g) == null) {
+            return;
+        }
+        xm4Var.b();
+    }
+
+    public tm4 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.e;
+        }
+        return (tm4) invokeV.objValue;
+    }
+
+    public Activity getActivity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a;
+        }
+        return (Activity) invokeV.objValue;
+    }
+
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.b;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public Handler h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.c;
+        }
+        return (Handler) invokeV.objValue;
+    }
+
+    public LayoutInflater m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return (LayoutInflater) this.b.getSystemService("layout_inflater");
+        }
+        return (LayoutInflater) invokeV.objValue;
+    }
+
+    public int n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
     }
 
     public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (isShowing()) {
-                dh.b(this, this.b);
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.i) {
+            return;
+        }
+        this.i = true;
+        xm4 xm4Var = this.g;
+        if (xm4Var != null) {
+            xm4Var.f();
+        } else if (!this.h) {
+            xm4 i = i("(root)", true, false);
+            this.g = i;
+            if (i != null && !i.d) {
+                i.f();
             }
-            dh.j(this, this.b);
         }
+        this.h = true;
     }
 
-    public void b(Drawable drawable) {
+    public void t() {
+        in4<String, wm4> in4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable) == null) {
-            this.i = drawable;
-        }
-    }
-
-    public void c(ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) {
-            this.f = viewGroup;
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && view2.getId() == R.id.img_btn_close) {
-            a();
-        }
-    }
-
-    @Override // android.app.Dialog
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
-            super.onCreate(bundle);
-            requestWindowFeature(1);
-            setContentView(R.layout.dialog_card_main);
-            Display defaultDisplay = ((WindowManager) this.a.getSystemService("window")).getDefaultDisplay();
-            WindowManager.LayoutParams attributes = getWindow().getAttributes();
-            attributes.width = defaultDisplay.getWidth();
-            attributes.height = defaultDisplay.getHeight();
-            getWindow().setAttributes(attributes);
-            getWindow().setBackgroundDrawableResource(R.color.transparent);
-            getWindow().setDimAmount(this.c);
-            getWindow().setGravity(80);
-            getWindow().setWindowAnimations(0);
-            setCanceledOnTouchOutside(true);
-            setCancelable(true);
-            this.d = (ViewGroup) findViewById(R.id.card_root_layout);
-            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.round_corner_layout);
-            this.e = roundRelativeLayout;
-            roundRelativeLayout.setAllCornerRound(yg.d(TbadkCoreApplication.getInst().getString(R.string.J_X06), 31.0f));
-            ViewGroup.LayoutParams layoutParams = this.f.getLayoutParams();
-            if (layoutParams != null) {
-                layoutParams.height = -1;
-                layoutParams.width = -1;
-            } else {
-                layoutParams = new RelativeLayout.LayoutParams(-1, -1);
+        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && (in4Var = this.f) != null) {
+            int size = in4Var.size();
+            xm4[] xm4VarArr = new xm4[size];
+            for (int i = size - 1; i >= 0; i--) {
+                xm4VarArr[i] = (xm4) this.f.k(i);
             }
-            this.e.addView(this.f, layoutParams);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f64);
-            this.g = imageView;
-            imageView.setImageDrawable(this.i);
-            ImageView imageView2 = (ImageView) findViewById(R.id.img_btn_close);
-            this.h = imageView2;
-            imageView2.setOnClickListener(this);
+            for (int i2 = 0; i2 < size; i2++) {
+                xm4 xm4Var = xm4VarArr[i2];
+                xm4Var.i();
+                xm4Var.d();
+            }
         }
+    }
+
+    public void e(boolean z) {
+        xm4 xm4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(1048580, this, z) != null) || (xm4Var = this.g) == null || !this.i) {
+            return;
+        }
+        this.i = false;
+        if (z) {
+            xm4Var.e();
+        } else {
+            xm4Var.g();
+        }
+    }
+
+    public void j(String str) {
+        in4<String, wm4> in4Var;
+        xm4 xm4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, str) == null) && (in4Var = this.f) != null && (xm4Var = (xm4) in4Var.get(str)) != null && !xm4Var.e) {
+            xm4Var.b();
+            this.f.remove(str);
+        }
+    }
+
+    public void u(in4<String, wm4> in4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, in4Var) == null) {
+            this.f = in4Var;
+        }
+    }
+
+    public xm4 i(String str, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (this.f == null) {
+                this.f = new in4<>();
+            }
+            xm4 xm4Var = (xm4) this.f.get(str);
+            if (xm4Var == null) {
+                if (z2) {
+                    xm4 xm4Var2 = new xm4(str, this, z);
+                    this.f.put(str, xm4Var2);
+                    return xm4Var2;
+                }
+                return xm4Var;
+            }
+            xm4Var.k(this);
+            return xm4Var;
+        }
+        return (xm4) invokeCommon.objValue;
+    }
+
+    public void r(Fragment fragment, Intent intent, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048595, this, fragment, intent, i) == null) {
+            if (i == -1) {
+                this.b.startActivity(intent);
+                return;
+            }
+            throw new IllegalStateException("Starting activity with a requestCode requires a FragmentActivity host");
+        }
+    }
+
+    public in4<String, wm4> v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            in4<String, wm4> in4Var = this.f;
+            int i = 0;
+            if (in4Var != null) {
+                int size = in4Var.size();
+                xm4[] xm4VarArr = new xm4[size];
+                for (int i2 = size - 1; i2 >= 0; i2--) {
+                    xm4VarArr[i2] = (xm4) this.f.k(i2);
+                }
+                int i3 = 0;
+                while (i < size) {
+                    xm4 xm4Var = xm4VarArr[i];
+                    if (xm4Var.e) {
+                        i3 = 1;
+                    } else {
+                        xm4Var.b();
+                        this.f.remove(xm4Var.c);
+                    }
+                    i++;
+                }
+                i = i3;
+            }
+            if (i != 0) {
+                return this.f;
+            }
+            return null;
+        }
+        return (in4) invokeV.objValue;
     }
 }

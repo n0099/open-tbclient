@@ -1,24 +1,22 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.ContextWrapper;
-import android.content.SharedPreferences;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Stack;
+import java.util.concurrent.locks.ReentrantLock;
+import kotlin.Unit;
 /* loaded from: classes3.dex */
-public class bw extends ContextWrapper {
+public final class bw<T> implements aw<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static bw b;
     public transient /* synthetic */ FieldHolder $fh;
-    public hw a;
+    public final Stack<T> a;
+    public final ReentrantLock b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bw() {
-        super(null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -26,62 +24,76 @@ public class bw extends ContextWrapper {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new Stack<>();
+        this.b = new ReentrantLock(true);
     }
 
-    public static synchronized bw a() {
+    @Override // com.baidu.tieba.aw
+    public T a() {
         InterceptResult invokeV;
-        bw bwVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (bw.class) {
-                if (b == null) {
-                    b = new bw();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ReentrantLock reentrantLock = this.b;
+            reentrantLock.lock();
+            try {
+                if (!c()) {
+                    return this.a.pop();
                 }
-                bwVar = b;
+                return null;
+            } finally {
+                reentrantLock.unlock();
             }
-            return bwVar;
         }
-        return (bw) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
-    @Override // android.content.ContextWrapper
-    public void attachBaseContext(Context context) {
+    @Override // com.baidu.tieba.aw
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            super.attachBaseContext(context);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ReentrantLock reentrantLock = this.b;
+            reentrantLock.lock();
+            try {
+                this.a.clear();
+                Unit unit = Unit.INSTANCE;
+            } finally {
+                reentrantLock.unlock();
+            }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.content.ContextWrapper, android.content.Context
-    public hw getResources() {
+    @Override // com.baidu.tieba.aw
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.a == null) {
-                this.a = new hw(super.getResources(), getAssets(), super.getResources().getDisplayMetrics(), super.getResources().getConfiguration());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ReentrantLock reentrantLock = this.b;
+            reentrantLock.lock();
+            try {
+                return this.a.isEmpty();
+            } finally {
+                reentrantLock.unlock();
             }
-            return this.a;
         }
-        return (hw) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // android.content.ContextWrapper, android.content.Context
-    public SharedPreferences getSharedPreferences(String str, int i) {
-        InterceptResult invokeLI;
+    @Override // com.baidu.tieba.aw
+    public void a(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i)) == null) {
-            if (rw.c(this)) {
-                return dw.a(str, this);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+            ReentrantLock reentrantLock = this.b;
+            reentrantLock.lock();
+            try {
+                this.a.push(t);
+            } finally {
+                reentrantLock.unlock();
             }
-            return super.getSharedPreferences(str, i);
         }
-        return (SharedPreferences) invokeLI.objValue;
     }
 }

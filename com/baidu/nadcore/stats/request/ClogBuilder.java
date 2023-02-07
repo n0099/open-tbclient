@@ -13,15 +13,15 @@ import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.tbadk.core.data.WorkPostNotifyFlutterData;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.b31;
-import com.baidu.tieba.d31;
-import com.baidu.tieba.f31;
-import com.baidu.tieba.j11;
-import com.baidu.tieba.k11;
-import com.baidu.tieba.kj0;
-import com.baidu.tieba.u01;
-import com.baidu.tieba.y21;
-import com.baidu.tieba.z21;
+import com.baidu.tieba.h41;
+import com.baidu.tieba.i41;
+import com.baidu.tieba.k41;
+import com.baidu.tieba.m41;
+import com.baidu.tieba.o41;
+import com.baidu.tieba.s21;
+import com.baidu.tieba.t21;
+import com.baidu.tieba.tj0;
+import com.baidu.tieba.y11;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +34,7 @@ import java.net.URLEncoder;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class ClogBuilder extends j11 {
+public class ClogBuilder extends s21 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final JSONObject c;
@@ -44,6 +44,7 @@ public class ClogBuilder extends j11 {
     public static final class Area {
         public static final /* synthetic */ Area[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
+        public static final Area AD_BLANK;
         public static final Area AD_BTN_DETAIL;
         public static final Area AD_CALL;
         public static final Area AD_DIALOG_SHOW;
@@ -57,6 +58,7 @@ public class ClogBuilder extends j11 {
         public static final Area APP_NOTIFICATION;
         public static final Area APP_PERMISSION;
         public static final Area APP_PRIVACY;
+        public static final Area ARROW;
         public static final Area AUTO_HIDE;
         public static final Area AVATAR;
         public static final Area BTN_NAGITIVE;
@@ -77,7 +79,10 @@ public class ClogBuilder extends j11 {
         public static final Area INVALID;
         public static final Area NAME;
         public static final Area OPEN_BUTTON;
+        public static final Area REWARD_LANDING_PAGE;
+        public static final Area REWARD_SLIDING_TAG;
         public static final Area SLIDING_TAG;
+        public static final Area SWIPE_UP;
         public static final Area TITTLE;
         public static final Area URL;
         public transient /* synthetic */ FieldHolder $fh;
@@ -125,15 +130,20 @@ public class ClogBuilder extends j11 {
             BTN_NAGITIVE = new Area("BTN_NAGITIVE", 26, "btn_nagitive");
             APP_NOTIFICATION = new Area("APP_NOTIFICATION", 27, "APP_NOTIFICATION");
             SLIDING_TAG = new Area("SLIDING_TAG", 28, "sliding_tag");
-            APP = new Area("APP", 29, "APP");
-            URL = new Area("URL", 30, "URL");
-            AD_BTN_DETAIL = new Area("AD_BTN_DETAIL", 31, "detailbtn");
-            AD_LEAVE = new Area("AD_LEAVE", 32, "leave");
-            AVATAR = new Area("AVATAR", 33, "avatar");
-            TITTLE = new Area("TITTLE", 34, "title");
-            Area area = new Area("INVALID", 35, "INVALID");
+            REWARD_SLIDING_TAG = new Area("REWARD_SLIDING_TAG", 29, "tag");
+            SWIPE_UP = new Area("SWIPE_UP", 30, "swipeup");
+            AD_BLANK = new Area("AD_BLANK", 31, "blank");
+            REWARD_LANDING_PAGE = new Area("REWARD_LANDING_PAGE", 32, "landingpage");
+            ARROW = new Area("ARROW", 33, "arrow");
+            APP = new Area("APP", 34, "APP");
+            URL = new Area("URL", 35, "URL");
+            AD_BTN_DETAIL = new Area("AD_BTN_DETAIL", 36, "detailbtn");
+            AD_LEAVE = new Area("AD_LEAVE", 37, "leave");
+            AVATAR = new Area("AVATAR", 38, "avatar");
+            TITTLE = new Area("TITTLE", 39, "title");
+            Area area = new Area("INVALID", 40, "INVALID");
             INVALID = area;
-            $VALUES = new Area[]{ICON, NAME, BUTTON, OPEN_BUTTON, DOWNLOAD_BUTTON, INSTALL_NOW_BUTTON, INSTALL_LATER_BUTTON, HOTAREA, AD_NOTIFICATION_ITEM_CLICK, AD_NOTIFICATION_BTN_CLICK, AD_NOTIFICATION_SHOW, AD_NOTIFICATION_NOTIFY, AD_NOTIFICATION_REMOVE, DIALOG, DIALOG_POSITIVE, DIALOG_NEGATIVE, DIALOG_KEYBACK, AD_CALL, APP_PRIVACY, APP_PERMISSION, FLOATING, IMAGE, CLOSE_BTN, AUTO_HIDE, AD_DIALOG_SHOW, BTN_POSITIVE, BTN_NAGITIVE, APP_NOTIFICATION, SLIDING_TAG, APP, URL, AD_BTN_DETAIL, AD_LEAVE, AVATAR, TITTLE, area};
+            $VALUES = new Area[]{ICON, NAME, BUTTON, OPEN_BUTTON, DOWNLOAD_BUTTON, INSTALL_NOW_BUTTON, INSTALL_LATER_BUTTON, HOTAREA, AD_NOTIFICATION_ITEM_CLICK, AD_NOTIFICATION_BTN_CLICK, AD_NOTIFICATION_SHOW, AD_NOTIFICATION_NOTIFY, AD_NOTIFICATION_REMOVE, DIALOG, DIALOG_POSITIVE, DIALOG_NEGATIVE, DIALOG_KEYBACK, AD_CALL, APP_PRIVACY, APP_PERMISSION, FLOATING, IMAGE, CLOSE_BTN, AUTO_HIDE, AD_DIALOG_SHOW, BTN_POSITIVE, BTN_NAGITIVE, APP_NOTIFICATION, SLIDING_TAG, REWARD_SLIDING_TAG, SWIPE_UP, AD_BLANK, REWARD_LANDING_PAGE, ARROW, APP, URL, AD_BTN_DETAIL, AD_LEAVE, AVATAR, TITTLE, area};
         }
 
         public Area(String str, int i, String str2) {
@@ -232,8 +242,11 @@ public class ClogBuilder extends j11 {
         public static final LogType PHONE_STATE_LISTEN;
         public static final LogType PLACEHOLDER;
         public static final LogType PLAY_ZERO_SEC;
+        public static final LogType REWARD_ACTIVATE_TASK;
         public static final LogType REWARD_COIN_FAIL;
         public static final LogType REWARD_COMPLETE_TASK;
+        public static final LogType REWARD_HALF_TAIL_SLIDE;
+        public static final LogType REWARD_SHOW_TASK;
         public static final LogType REWARD_TOKEN_FAIL;
         public static final LogType SHOW;
         public static final LogType SKIP;
@@ -334,11 +347,14 @@ public class ClogBuilder extends j11 {
             PHONE_STATE_LISTEN = new LogType("PHONE_STATE_LISTEN", 64, "807");
             REWARD_TOKEN_FAIL = new LogType("REWARD_TOKEN_FAIL", 65, "781");
             REWARD_COIN_FAIL = new LogType("REWARD_COIN_FAIL", 66, "782");
-            REWARD_COMPLETE_TASK = new LogType("REWARD_COMPLETE_TASK", 67, "785");
-            NON_AD_CLICK = new LogType("NON_AD_CLICK", 68, "8");
-            LogType logType = new LogType("PLACEHOLDER", 69, "-1");
+            REWARD_HALF_TAIL_SLIDE = new LogType("REWARD_HALF_TAIL_SLIDE", 67, "783");
+            REWARD_ACTIVATE_TASK = new LogType("REWARD_ACTIVATE_TASK", 68, "784");
+            REWARD_COMPLETE_TASK = new LogType("REWARD_COMPLETE_TASK", 69, "785");
+            REWARD_SHOW_TASK = new LogType("REWARD_SHOW_TASK", 70, "786");
+            NON_AD_CLICK = new LogType("NON_AD_CLICK", 71, "8");
+            LogType logType = new LogType("PLACEHOLDER", 72, "-1");
             PLACEHOLDER = logType;
-            $VALUES = new LogType[]{CLICK, SHOW, DISCARD, FAIL, CLOSE, FREE_SHOW, FREE_CLICK, VIDEO_LP_BT, VIDEO_LP_PV, VIDEO_LP_VIDEO_HIDE, CHAN_MORE, DEEP_LINK, VISIBLE_SHOW, VIDEO_LP_TAIL_CLICK, DOWNLOAD_START, DOWNLOAD_PAUSE, DOWNLOAD_CONTINUE, DOWNLOAD_COMPLETE, DOWNLOAD_INSTALL, DOWNLOAD_KEEP, DOWNLOAD_RETRY, DOWNLOAD_FAILED, INSTALL_COMPLETE, MINI_PROGRAM, OPEN_APP, AD_CALL, VISIBLE_TWO_SEC, TAIL_FRAME_SHOW_TIME, DURATION, TRUE_VIEW, DAZZLE_IN, DAZZLE_OUT, DAZZLE_TRANS_SLIDING_COUNT, DAZZLE_CLICK, DAZZLE_CARD_SHOW, PLAY_ZERO_SEC, VIDEO_START, VIDEO_PAUSE, VIDEO_RESUME, VIDEO_COMPLETED, EXCEPTION, CHECK, TOP_VIEW_SPEED_STATE, NAVIDEO_POP_CLOSE, INTERACTION_PRAISE, INTERACTION_SHARE, INTERACTION_COMMENT, SKIP, STOCK, GESTURE_MATCH_SUCCESS, GESTURE_MATCH_FAILURE, INTERACTION_FOLLOW, AD_NOTIFICATION_NOTIFY_FAILED, LOTTIE_LONG_PRESS, LOTTIE_SHOW, LOTTIE_DISMISS, LOTTIE_CLICK, LOTTIE_RES_PREFETCH_FAIL, LOTTIE_LOAD_FAIL, HOME_PAGE_FIRST_SCREEN_AD_SHOW, HW_API_REQUEST, DEEPLINK_STAY_TRANS, DEEPLINK_STAY_TIME, INTERACTION_COLLECT, PHONE_STATE_LISTEN, REWARD_TOKEN_FAIL, REWARD_COIN_FAIL, REWARD_COMPLETE_TASK, NON_AD_CLICK, logType};
+            $VALUES = new LogType[]{CLICK, SHOW, DISCARD, FAIL, CLOSE, FREE_SHOW, FREE_CLICK, VIDEO_LP_BT, VIDEO_LP_PV, VIDEO_LP_VIDEO_HIDE, CHAN_MORE, DEEP_LINK, VISIBLE_SHOW, VIDEO_LP_TAIL_CLICK, DOWNLOAD_START, DOWNLOAD_PAUSE, DOWNLOAD_CONTINUE, DOWNLOAD_COMPLETE, DOWNLOAD_INSTALL, DOWNLOAD_KEEP, DOWNLOAD_RETRY, DOWNLOAD_FAILED, INSTALL_COMPLETE, MINI_PROGRAM, OPEN_APP, AD_CALL, VISIBLE_TWO_SEC, TAIL_FRAME_SHOW_TIME, DURATION, TRUE_VIEW, DAZZLE_IN, DAZZLE_OUT, DAZZLE_TRANS_SLIDING_COUNT, DAZZLE_CLICK, DAZZLE_CARD_SHOW, PLAY_ZERO_SEC, VIDEO_START, VIDEO_PAUSE, VIDEO_RESUME, VIDEO_COMPLETED, EXCEPTION, CHECK, TOP_VIEW_SPEED_STATE, NAVIDEO_POP_CLOSE, INTERACTION_PRAISE, INTERACTION_SHARE, INTERACTION_COMMENT, SKIP, STOCK, GESTURE_MATCH_SUCCESS, GESTURE_MATCH_FAILURE, INTERACTION_FOLLOW, AD_NOTIFICATION_NOTIFY_FAILED, LOTTIE_LONG_PRESS, LOTTIE_SHOW, LOTTIE_DISMISS, LOTTIE_CLICK, LOTTIE_RES_PREFETCH_FAIL, LOTTIE_LOAD_FAIL, HOME_PAGE_FIRST_SCREEN_AD_SHOW, HW_API_REQUEST, DEEPLINK_STAY_TRANS, DEEPLINK_STAY_TIME, INTERACTION_COLLECT, PHONE_STATE_LISTEN, REWARD_TOKEN_FAIL, REWARD_COIN_FAIL, REWARD_HALF_TAIL_SLIDE, REWARD_ACTIVATE_TASK, REWARD_COMPLETE_TASK, REWARD_SHOW_TASK, NON_AD_CLICK, logType};
         }
 
         public LogType(String str, int i, String str2) {
@@ -507,7 +523,7 @@ public class ClogBuilder extends j11 {
                 return;
             }
         }
-        this.c = u01.c(null);
+        this.c = y11.c(null);
         d("origin_time", String.valueOf(System.currentTimeMillis()));
     }
 
@@ -701,14 +717,14 @@ public class ClogBuilder extends j11 {
         return (ClogBuilder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.h11, com.baidu.tieba.k11
+    @Override // com.baidu.tieba.q21, com.baidu.tieba.t21
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             g();
-            kj0 kj0Var = (kj0) ServiceManager.getService(kj0.a);
-            if (kj0Var != null) {
-                A(kj0Var.a(this.c.optString("extra_param")));
+            tj0 tj0Var = (tj0) ServiceManager.getService(tj0.a);
+            if (tj0Var != null) {
+                A(tj0Var.a(this.c.optString("extra_param")));
             }
         }
     }
@@ -723,7 +739,7 @@ public class ClogBuilder extends j11 {
         return (JSONObject) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.j11, com.baidu.tieba.k11
+    @Override // com.baidu.tieba.s21, com.baidu.tieba.t21
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -736,8 +752,8 @@ public class ClogBuilder extends j11 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.h11, com.baidu.tieba.k11
-    public <T extends k11> T b(String str, String str2) {
+    @Override // com.baidu.tieba.q21, com.baidu.tieba.t21
+    public <T extends t21> T b(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
@@ -747,15 +763,15 @@ public class ClogBuilder extends j11 {
         return (T) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.h11
-    public <T extends k11> T d(String str, Object obj) {
+    @Override // com.baidu.tieba.q21
+    public <T extends t21> T d(String str, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, obj)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return this;
             }
-            u01.f(this.c, str, obj);
+            y11.f(this.c, str, obj);
             return this;
         }
         return (T) invokeLL.objValue;
@@ -763,24 +779,24 @@ public class ClogBuilder extends j11 {
 
     public final void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || !z21.a) {
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || !i41.a) {
             return;
         }
-        f31 f31Var = (f31) y21.a().a(f31.class);
-        if (f31Var != null) {
-            f31Var.a(h());
+        o41 o41Var = (o41) h41.a().a(o41.class);
+        if (o41Var != null) {
+            o41Var.a(h());
         }
-        b31 b31Var = (b31) y21.a().a(b31.class);
-        if (b31Var != null) {
-            b31Var.a(h());
+        k41 k41Var = (k41) h41.a().a(k41.class);
+        if (k41Var != null) {
+            k41Var.a(h());
         }
-        d31 d31Var = (d31) y21.a().a(d31.class);
-        if (d31Var != null) {
-            d31Var.a(h());
+        m41 m41Var = (m41) h41.a().a(m41.class);
+        if (m41Var != null) {
+            m41Var.a(h());
         }
     }
 
-    @Override // com.baidu.tieba.j11, com.baidu.tieba.h11, com.baidu.tieba.k11
+    @Override // com.baidu.tieba.s21, com.baidu.tieba.q21, com.baidu.tieba.t21
     @NonNull
     public String toString() {
         InterceptResult invokeV;

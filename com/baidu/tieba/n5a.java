@@ -1,55 +1,57 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
+import com.kwad.sdk.core.response.model.AdInfo;
 /* loaded from: classes5.dex */
-public final class n5a {
+public class n5a extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
-    public static final byte[] a;
-    public static final int[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947954831, "Lcom/baidu/tieba/n5a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947954831, "Lcom/baidu/tieba/n5a;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n5a(Ssp.Pid pid) {
+        super(pid);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Ssp.Pid) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new byte[1024];
-        b = new int[1024];
     }
 
-    public static void a(byte[] bArr, int i, int i2) {
+    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
+    public RippedAd getRippedAdInternal(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65537, null, bArr, i, i2) == null) {
-            int i3 = 0;
-            while (i3 < i2) {
-                int min = Math.min(i3 + 1024, i2) - i3;
-                System.arraycopy(a, 0, bArr, i + i3, min);
-                i3 += min;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            try {
+                Object findField = ReflectionUtils.findField("com.kwad.sdk.core.response.model.AdInfo", obj);
+                if (findField == null) {
+                    return null;
+                }
+                return s4a.a((AdInfo) findField);
+            } catch (Exception e) {
+                LogPrinter.e(e);
+                return null;
             }
         }
-    }
-
-    public static void b(int[] iArr, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65538, null, iArr, i, i2) == null) {
-            int i3 = 0;
-            while (i3 < i2) {
-                int min = Math.min(i3 + 1024, i2) - i3;
-                System.arraycopy(b, 0, iArr, i + i3, min);
-                i3 += min;
-            }
-        }
+        return (RippedAd) invokeL.objValue;
     }
 }

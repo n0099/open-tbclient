@@ -10,7 +10,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
 import kotlin.Metadata;
@@ -21,7 +20,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.StringCompanionObject;
 import kotlin.text.Regex;
 import kotlin.text.UStringsKt;
-@Metadata(d1 = {"\u0000\"\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0010\u0002\n\u0002\b\u0006\u0018\u0000 \u00182\u00020\u0001:\u0001\u0018B(\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0003\u0012\u0006\u0010\u0005\u001a\u00020\u0003\u0012\u0006\u0010\u0006\u001a\u00020\u0003ø\u0001\u0000¢\u0006\u0002\u0010\u0007J\u000e\u0010\u0012\u001a\u00020\u00132\u0006\u0010\u0014\u001a\u00020\tJ\u0006\u0010\u0015\u001a\u00020\tJ\u0006\u0010\u0016\u001a\u00020\tJ\u000e\u0010\u0017\u001a\u00020\u00132\u0006\u0010\b\u001a\u00020\tR\u000e\u0010\b\u001a\u00020\tX\u0082.¢\u0006\u0002\n\u0000R\u001c\u0010\u0006\u001a\u00020\u0003ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\f\u001a\u0004\b\n\u0010\u000bR\u001c\u0010\u0005\u001a\u00020\u0003ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\f\u001a\u0004\b\r\u0010\u000bR\u0019\u0010\u000e\u001a\u00020\u0003X\u0082\u000eø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\fR\u000e\u0010\u000f\u001a\u00020\tX\u0082.¢\u0006\u0002\n\u0000R\u001c\u0010\u0004\u001a\u00020\u0003ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\f\u001a\u0004\b\u0010\u0010\u000bR\u001c\u0010\u0002\u001a\u00020\u0003ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\f\u001a\u0004\b\u0011\u0010\u000b\u0082\u0002\u000f\n\u0002\b\u0019\n\u0005\b¡\u001e0\u0001\n\u0002\b!¨\u0006\u0019"}, d2 = {"Lcom/baidu/tun2tornadolite/booster/sclient/SClientPacket;", "", "version", "Lkotlin/UInt;", GestureAR.SDK_TO_LUA_GESTURE_RESULT_RESERVED, "command", "bodyLength", "(IIIILkotlin/jvm/internal/DefaultConstructorMarker;)V", TtmlNode.TAG_BODY, "Ljava/nio/ByteBuffer;", "getBodyLength-pVg5ArA", "()I", "I", "getCommand-pVg5ArA", "header", "headerBuf", "getReserved-pVg5ArA", "getVersion-pVg5ArA", "encodeHeader2Buffer", "", "buf", "getBody", "getHeader", "writeBodyBuffer", "Companion", "tun2tornadolite_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
+@Metadata(d1 = {"\u0000\"\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0010\u0002\n\u0002\b\u0006\u0018\u0000 \u00182\u00020\u0001:\u0001\u0018B(\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0003\u0012\u0006\u0010\u0005\u001a\u00020\u0003\u0012\u0006\u0010\u0006\u001a\u00020\u0003ø\u0001\u0000¢\u0006\u0002\u0010\u0007J\u000e\u0010\u0012\u001a\u00020\u00132\u0006\u0010\u0014\u001a\u00020\tJ\u0006\u0010\u0015\u001a\u00020\tJ\u0006\u0010\u0016\u001a\u00020\tJ\u000e\u0010\u0017\u001a\u00020\u00132\u0006\u0010\b\u001a\u00020\tR\u000e\u0010\b\u001a\u00020\tX\u0082.¢\u0006\u0002\n\u0000R\u001c\u0010\u0006\u001a\u00020\u0003ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\f\u001a\u0004\b\n\u0010\u000bR\u001c\u0010\u0005\u001a\u00020\u0003ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\f\u001a\u0004\b\r\u0010\u000bR\u0019\u0010\u000e\u001a\u00020\u0003X\u0082\u000eø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\fR\u000e\u0010\u000f\u001a\u00020\tX\u0082.¢\u0006\u0002\n\u0000R\u001c\u0010\u0004\u001a\u00020\u0003ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\f\u001a\u0004\b\u0010\u0010\u000bR\u001c\u0010\u0002\u001a\u00020\u0003ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\f\u001a\u0004\b\u0011\u0010\u000b\u0082\u0002\u000f\n\u0002\b\u0019\n\u0005\b¡\u001e0\u0001\n\u0002\b!¨\u0006\u0019"}, d2 = {"Lcom/baidu/tun2tornadolite/booster/sclient/SClientPacket;", "", "version", "Lkotlin/UInt;", GestureAR.SDK_TO_LUA_GESTURE_RESULT_RESERVED, "command", "bodyLength", "(IIIILkotlin/jvm/internal/DefaultConstructorMarker;)V", "body", "Ljava/nio/ByteBuffer;", "getBodyLength-pVg5ArA", "()I", "I", "getCommand-pVg5ArA", "header", "headerBuf", "getReserved-pVg5ArA", "getVersion-pVg5ArA", "encodeHeader2Buffer", "", "buf", "getBody", "getHeader", "writeBodyBuffer", "Companion", "tun2tornadolite_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes7.dex */
 public final class SClientPacket {
     public static /* synthetic */ Interceptable $ic = null;
@@ -72,7 +71,7 @@ public final class SClientPacket {
         }
 
         /* renamed from: cmd2Str-WZ4Q5Ns  reason: not valid java name */
-        public final String m68cmd2StrWZ4Q5Ns(int i) {
+        public final String m70cmd2StrWZ4Q5Ns(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? i != 0 ? i != 1 ? i != 2 ? i != 3 ? HlsPlaylistParser.METHOD_NONE : "CMD_HEART_BEAT" : "CMD_EVENT" : "CMD_IP_PACKET" : "CMD_HAND_SHAKE" : (String) invokeI.objValue;
@@ -94,7 +93,7 @@ public final class SClientPacket {
 
         /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [('%' char), (r6v0 int), ('s' char)] */
         /* renamed from: toBinary-0ky7B_Q  reason: not valid java name */
-        private final String m66toBinary0ky7B_Q(byte b, int i) {
+        private final String m68toBinary0ky7B_Q(byte b, int i) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Byte.valueOf(b), Integer.valueOf(i)})) == null) {
@@ -103,7 +102,7 @@ public final class SClientPacket {
                 sb.append('%');
                 sb.append(i);
                 sb.append('s');
-                String format = String.format(sb.toString(), Arrays.copyOf(new Object[]{UStringsKt.m2044toStringLxnNnR4(b, 2)}, 1));
+                String format = String.format(sb.toString(), Arrays.copyOf(new Object[]{UStringsKt.m2045toStringLxnNnR4(b, 2)}, 1));
                 Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(format, *args)");
                 return new Regex(" ").replace(format, "0");
             }
@@ -112,7 +111,7 @@ public final class SClientPacket {
 
         /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [('%' char), (r6v0 int), ('s' char)] */
         /* renamed from: toBinary-qim9Vi0  reason: not valid java name */
-        private final String m67toBinaryqim9Vi0(int i, int i2) {
+        private final String m69toBinaryqim9Vi0(int i, int i2) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeII = interceptable.invokeII(65539, this, i, i2)) == null) {
@@ -121,7 +120,7 @@ public final class SClientPacket {
                 sb.append('%');
                 sb.append(i2);
                 sb.append('s');
-                String format = String.format(sb.toString(), Arrays.copyOf(new Object[]{UStringsKt.m2045toStringV7xB4Y4(i, 2)}, 1));
+                String format = String.format(sb.toString(), Arrays.copyOf(new Object[]{UStringsKt.m2046toStringV7xB4Y4(i, 2)}, 1));
                 Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(format, *args)");
                 return new Regex(" ").replace(format, "0");
             }
@@ -133,7 +132,7 @@ public final class SClientPacket {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, header)) == null) {
                 Intrinsics.checkNotNullParameter(header, "header");
-                return new SClientPacket(UInt.m866constructorimpl((UByte.m790constructorimpl(header[0]) & 255) >> 4), UInt.m866constructorimpl(UByte.m790constructorimpl(header[0]) & 255 & 15), UInt.m866constructorimpl(UByte.m790constructorimpl(header[1]) & 255), UInt.m866constructorimpl(UInt.m866constructorimpl(UByte.m790constructorimpl(header[3]) & 255) | UInt.m866constructorimpl(UInt.m866constructorimpl(UByte.m790constructorimpl(header[2]) & 255) << 8)), null);
+                return new SClientPacket(UInt.m867constructorimpl((UByte.m791constructorimpl(header[0]) & 255) >> 4), UInt.m867constructorimpl(UByte.m791constructorimpl(header[0]) & 255 & 15), UInt.m867constructorimpl(UByte.m791constructorimpl(header[1]) & 255), UInt.m867constructorimpl(UInt.m867constructorimpl(UByte.m791constructorimpl(header[3]) & 255) | UInt.m867constructorimpl(UInt.m867constructorimpl(UByte.m791constructorimpl(header[2]) & 255) << 8)), null);
             }
             return (SClientPacket) invokeL.objValue;
         }
@@ -164,13 +163,13 @@ public final class SClientPacket {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, buf) == null) {
             Intrinsics.checkNotNullParameter(buf, "buf");
-            int m866constructorimpl = UInt.m866constructorimpl(UInt.m866constructorimpl(m65getVersionpVg5ArA() & 15) << 28);
-            this.header = m866constructorimpl;
-            int m866constructorimpl2 = UInt.m866constructorimpl(m866constructorimpl | UInt.m866constructorimpl(UInt.m866constructorimpl(m64getReservedpVg5ArA() & 15) << 24));
-            this.header = m866constructorimpl2;
-            int m866constructorimpl3 = UInt.m866constructorimpl(m866constructorimpl2 | UInt.m866constructorimpl(UInt.m866constructorimpl(m63getCommandpVg5ArA() & 255) << 16));
-            this.header = m866constructorimpl3;
-            this.header = UInt.m866constructorimpl(m866constructorimpl3 | UInt.m866constructorimpl(UInt.m866constructorimpl(m62getBodyLengthpVg5ArA() & 65535) << 0));
+            int m867constructorimpl = UInt.m867constructorimpl(UInt.m867constructorimpl(m67getVersionpVg5ArA() & 15) << 28);
+            this.header = m867constructorimpl;
+            int m867constructorimpl2 = UInt.m867constructorimpl(m867constructorimpl | UInt.m867constructorimpl(UInt.m867constructorimpl(m66getReservedpVg5ArA() & 15) << 24));
+            this.header = m867constructorimpl2;
+            int m867constructorimpl3 = UInt.m867constructorimpl(m867constructorimpl2 | UInt.m867constructorimpl(UInt.m867constructorimpl(m65getCommandpVg5ArA() & 255) << 16));
+            this.header = m867constructorimpl3;
+            this.header = UInt.m867constructorimpl(m867constructorimpl3 | UInt.m867constructorimpl(UInt.m867constructorimpl(m64getBodyLengthpVg5ArA() & 65535) << 0));
             this.headerBuf = buf;
             ByteBuffer byteBuffer = null;
             if (buf == null) {
@@ -183,26 +182,26 @@ public final class SClientPacket {
                 Intrinsics.throwUninitializedPropertyAccessException("headerBuf");
                 byteBuffer2 = null;
             }
-            byteBuffer2.put((byte) UInt.m866constructorimpl(UInt.m866constructorimpl(this.header >>> 24) & 255));
+            byteBuffer2.put((byte) UInt.m867constructorimpl(UInt.m867constructorimpl(this.header >>> 24) & 255));
             ByteBuffer byteBuffer3 = this.headerBuf;
             if (byteBuffer3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("headerBuf");
                 byteBuffer3 = null;
             }
-            byteBuffer3.put((byte) UInt.m866constructorimpl(UInt.m866constructorimpl(this.header >>> 16) & 255));
+            byteBuffer3.put((byte) UInt.m867constructorimpl(UInt.m867constructorimpl(this.header >>> 16) & 255));
             ByteBuffer byteBuffer4 = this.headerBuf;
             if (byteBuffer4 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("headerBuf");
                 byteBuffer4 = null;
             }
-            byteBuffer4.put((byte) UInt.m866constructorimpl(UInt.m866constructorimpl(this.header >>> 8) & 255));
+            byteBuffer4.put((byte) UInt.m867constructorimpl(UInt.m867constructorimpl(this.header >>> 8) & 255));
             ByteBuffer byteBuffer5 = this.headerBuf;
             if (byteBuffer5 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("headerBuf");
             } else {
                 byteBuffer = byteBuffer5;
             }
-            byteBuffer.put((byte) UInt.m866constructorimpl(UInt.m866constructorimpl(this.header >>> 0) & 255));
+            byteBuffer.put((byte) UInt.m867constructorimpl(UInt.m867constructorimpl(this.header >>> 0) & 255));
         }
     }
 
@@ -212,7 +211,7 @@ public final class SClientPacket {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ByteBuffer byteBuffer = this.body;
             if (byteBuffer == null) {
-                Intrinsics.throwUninitializedPropertyAccessException(TtmlNode.TAG_BODY);
+                Intrinsics.throwUninitializedPropertyAccessException("body");
                 return null;
             }
             return byteBuffer;
@@ -221,7 +220,7 @@ public final class SClientPacket {
     }
 
     /* renamed from: getBodyLength-pVg5ArA  reason: not valid java name */
-    public final int m62getBodyLengthpVg5ArA() {
+    public final int m64getBodyLengthpVg5ArA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -231,7 +230,7 @@ public final class SClientPacket {
     }
 
     /* renamed from: getCommand-pVg5ArA  reason: not valid java name */
-    public final int m63getCommandpVg5ArA() {
+    public final int m65getCommandpVg5ArA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -255,7 +254,7 @@ public final class SClientPacket {
     }
 
     /* renamed from: getReserved-pVg5ArA  reason: not valid java name */
-    public final int m64getReservedpVg5ArA() {
+    public final int m66getReservedpVg5ArA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -265,7 +264,7 @@ public final class SClientPacket {
     }
 
     /* renamed from: getVersion-pVg5ArA  reason: not valid java name */
-    public final int m65getVersionpVg5ArA() {
+    public final int m67getVersionpVg5ArA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {

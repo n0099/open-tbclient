@@ -256,7 +256,7 @@ public final class PublisherCoroutine<T> extends AbstractCoroutine<Unit> impleme
 
     @Override // kotlinx.coroutines.channels.SendChannel
     /* renamed from: invokeOnClose  reason: collision with other method in class */
-    public /* bridge */ /* synthetic */ void mo2191invokeOnClose(Function1 function1) {
+    public /* bridge */ /* synthetic */ void mo2231invokeOnClose(Function1 function1) {
         invokeOnClose((Function1<? super Throwable, Unit>) function1);
     }
 

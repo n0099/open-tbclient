@@ -3,7 +3,7 @@ package com.baidu.tieba.forumsearch.message;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.an6;
+import com.baidu.tieba.lr6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.SearchPostForum.SearchPostForumResIdl;
 public class SearchPostForumSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public an6 mSearchData;
+    public lr6 mSearchData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SearchPostForumSocketResponseMessage() {
@@ -36,13 +36,13 @@ public class SearchPostForumSocketResponseMessage extends SocketResponsedMessage
         }
     }
 
-    public an6 getSearchData() {
+    public lr6 getSearchData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mSearchData;
         }
-        return (an6) invokeV.objValue;
+        return (lr6) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -59,9 +59,9 @@ public class SearchPostForumSocketResponseMessage extends SocketResponsedMessage
                     setErrorString(searchPostForumResIdl.error.usermsg);
                 }
                 if (getError() == 0 && getOrginalMessage() != null && (getOrginalMessage().getExtra() instanceof SearchPostForumRequestMessage) && searchPostForumResIdl.data != null) {
-                    an6 an6Var = new an6(((SearchPostForumRequestMessage) getOrginalMessage().getExtra()).get_word());
-                    this.mSearchData = an6Var;
-                    an6Var.b(searchPostForumResIdl.data);
+                    lr6 lr6Var = new lr6(((SearchPostForumRequestMessage) getOrginalMessage().getExtra()).get_word());
+                    this.mSearchData = lr6Var;
+                    lr6Var.b(searchPostForumResIdl.data);
                 }
             }
             return searchPostForumResIdl;

@@ -8,7 +8,7 @@ import com.baidu.searchbox.http.HttpRuntime;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.os8;
+import com.baidu.tieba.jw8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -107,7 +107,7 @@ public class LaunchWithPrivacyTask extends LaunchTask {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             registerPhoneListener();
             HttpRuntime.getHttpContext().prefetchDnsResult("tbprefetch");
-            HttpManager.getDefault(os8.a()).setHttpDnsEnable(true);
+            HttpManager.getDefault(jw8.a()).setHttpDnsEnable(true);
         }
     }
 

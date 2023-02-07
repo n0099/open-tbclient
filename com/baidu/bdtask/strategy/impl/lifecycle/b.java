@@ -6,7 +6,7 @@ import com.baidu.bdtask.ctrl.SubTaskState;
 import com.baidu.bdtask.framework.redux.d;
 import com.baidu.bdtask.framework.utils.DebugTrace;
 import com.baidu.bdtask.model.response.TaskProcessData;
-import com.baidu.tieba.uq;
+import com.baidu.tieba.zq;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ public final class b extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b(d<com.baidu.bdtask.ctrl.b, uq> dVar) {
+    public b(d<com.baidu.bdtask.ctrl.b, zq> dVar) {
         super(dVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

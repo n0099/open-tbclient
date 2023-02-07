@@ -1,446 +1,409 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.NumberUtils;
-import java.io.ObjectInput;
-import java.io.ObjectOutput;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public final class jw9 extends o1a {
+public class jw9 {
     public static /* synthetic */ Interceptable $ic;
+    public static HashMap<String, HashMap> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final long b;
-    public final long c;
-    public final int d;
-    public final List<c> e;
 
     /* loaded from: classes5.dex */
-    public static final class b extends o1a implements ew9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final long a;
-        public final int b;
-        public final Ssp.Pid c;
-        public final c d;
+    public interface a {
+        void a(String str);
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(int i, ObjectInput objectInput, Map<Long, Ssp.Pid> map, c cVar) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), objectInput, map, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = cVar;
-            long readLong = objectInput.readLong();
-            this.a = readLong;
-            this.b = objectInput.readInt();
-            this.c = map.get(Long.valueOf(readLong));
-        }
+        void b();
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(JSONObject jSONObject, Map<Long, Ssp.Pid> map, c cVar) {
-            super(0);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jSONObject, map, cVar};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.d = cVar;
-            long adjustLong = NumberUtils.adjustLong(jSONObject.getLong("id"), 0L);
-            this.a = adjustLong;
-            this.b = NumberUtils.adjustInt(jSONObject.getInt("weight"), 0);
-            this.c = map.get(Long.valueOf(adjustLong));
-        }
+        void c(String str);
 
-        @Override // com.baidu.tieba.ew9
-        public boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
+        void d();
 
-        @Override // com.baidu.tieba.ew9
-        public int b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
-        }
+        void e(boolean z);
 
-        public boolean equals(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-                if (this == obj) {
-                    return true;
-                }
-                if (obj == null || b.class != obj.getClass()) {
-                    return false;
-                }
-                b bVar = (b) obj;
-                return this.a == bVar.a && this.b == bVar.b && Objects.equals(this.c, bVar.c);
-            }
-            return invokeL.booleanValue;
-        }
+        void f(boolean z);
 
-        public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Objects.hash(Long.valueOf(this.a), Integer.valueOf(this.b), this.c) : invokeV.intValue;
-        }
+        void g(int i);
 
-        @Override // com.baidu.tieba.o1a
-        public void srzableInternal(ObjectOutput objectOutput) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, objectOutput) == null) {
-                objectOutput.writeLong(this.a);
-                objectOutput.writeInt(this.b);
-            }
-        }
+        void h();
+
+        void i();
+
+        void j(String str);
+
+        void k(int i);
+
+        void onRecordEnd();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jw9(int i, ObjectInput objectInput, Map<Long, Ssp.Pid> map) {
-        super(i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), objectInput, map};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947897853, "Lcom/baidu/tieba/jw9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947897853, "Lcom/baidu/tieba/jw9;");
                 return;
             }
         }
-        this.a = objectInput.readUTF();
-        this.b = objectInput.readLong();
-        this.c = objectInput.readLong();
-        int readInt = objectInput.readInt();
-        HashSet hashSet = new HashSet(readInt);
-        for (int i4 = 0; i4 < readInt; i4++) {
-            hashSet.add(new c(objectInput.readInt(), objectInput, map));
-        }
-        ArrayList arrayList = new ArrayList(hashSet);
-        a(arrayList);
-        this.e = Collections.unmodifiableList(arrayList);
-        if (i >= 1) {
-            this.d = objectInput.readInt();
-        } else {
-            this.d = 0;
-        }
+        a = new HashMap<>();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jw9(JSONObject jSONObject, Map<Long, Ssp.Pid> map) {
-        super(1);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject, map};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = jSONObject.getString("sid");
-        this.b = NumberUtils.adjustLong(jSONObject.getLong("wt"), 0L);
-        this.c = NumberUtils.adjustLong(jSONObject.getLong("tmout"), 0L);
-        JSONArray jSONArray = jSONObject.getJSONArray("pGroups");
-        HashSet hashSet = new HashSet();
-        for (int i3 = 0; i3 < jSONArray.length(); i3++) {
-            hashSet.add(new c(jSONArray.getJSONObject(i3), map));
-        }
-        ArrayList arrayList = new ArrayList(hashSet);
-        a(arrayList);
-        this.e = Collections.unmodifiableList(arrayList);
-        this.d = jSONObject.optInt("ver", 0);
-    }
-
-    public final <T extends c> List<T> a(List<T> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-            Collections.sort(list, new a(this));
-            return list;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || jw9.class != obj.getClass()) {
-                return false;
-            }
-            jw9 jw9Var = (jw9) obj;
-            return this.b == jw9Var.b && this.c == jw9Var.c && Objects.equals(this.a, jw9Var.a) && Objects.equals(this.e, jw9Var.e) && this.d == jw9Var.d;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
+    public static HashMap a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Objects.hash(this.a, Long.valueOf(this.b), Long.valueOf(this.c), this.e, Integer.valueOf(this.d)) : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("event_name", "capture_timer_clear");
+            return hashMap;
+        }
+        return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.o1a
-    public void srzableInternal(ObjectOutput objectOutput) {
+    public static HashMap b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, objectOutput) == null) {
-            objectOutput.writeUTF(this.a);
-            objectOutput.writeLong(this.b);
-            objectOutput.writeLong(this.c);
-            objectOutput.writeInt(this.e.size());
-            for (c cVar : this.e) {
-                cVar.srzable(objectOutput);
-            }
-            objectOutput.writeInt(this.d);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("event_name", "capture_timer_start");
+            return hashMap;
         }
+        return (HashMap) invokeV.objValue;
     }
 
-    /* loaded from: classes5.dex */
-    public static final class c extends o1a implements ew9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final int a;
-        public final List<b> b;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(int i, ObjectInput objectInput, Map<Long, Ssp.Pid> map) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), objectInput, map};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = objectInput.readInt();
-            int readInt = objectInput.readInt();
-            HashSet hashSet = new HashSet();
-            for (int i4 = 0; i4 < readInt; i4++) {
-                hashSet.add(new b(objectInput.readInt(), objectInput, map, this));
-            }
-            this.b = Collections.unmodifiableList(new ArrayList(hashSet));
+    public static HashMap c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            HashMap hashMap = new HashMap();
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("sex_type", Integer.valueOf(i));
+            hashMap.put("event_name", "sex_event");
+            hashMap.put("event_data", hashMap2);
+            return hashMap;
         }
+        return (HashMap) invokeI.objValue;
+    }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(JSONObject jSONObject, Map<Long, Ssp.Pid> map) {
-            super(0);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jSONObject, map};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
+    public static HashMap e(double d) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Double.valueOf(d)})) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("event_name", "audio_volume");
+            hashMap.put("event_data", String.valueOf(Math.ceil(d)));
+            return hashMap;
+        }
+        return (HashMap) invokeCommon.objValue;
+    }
+
+    public static HashMap d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (a.get(str) != null) {
+                return a.get(str);
             }
-            this.a = NumberUtils.adjustInt(jSONObject.getInt("weight"), 0);
-            HashSet hashSet = new HashSet();
-            JSONArray jSONArray = jSONObject.getJSONArray(TiebaStatic.Params.PID_MERGE);
-            for (int i3 = 0; i3 < jSONArray.length(); i3++) {
-                hashSet.add(new b(jSONArray.getJSONObject(i3), map, this));
-            }
-            ArrayList arrayList = new ArrayList(hashSet);
-            a(arrayList);
-            this.b = Collections.unmodifiableList(arrayList);
-        }
-
-        public final <T extends b> List<T> a(List<T> list) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-                Collections.sort(list, new a(this));
-                return list;
-            }
-            return (List) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.ew9
-        public boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.ew9
-        public int b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
-        }
-
-        public boolean equals(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-                if (this == obj) {
-                    return true;
-                }
-                if (obj == null || c.class != obj.getClass()) {
-                    return false;
-                }
-                c cVar = (c) obj;
-                return this.a == cVar.a && Objects.equals(this.b, cVar.b);
-            }
-            return invokeL.booleanValue;
-        }
-
-        public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Objects.hash(Integer.valueOf(this.a), this.b) : invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.o1a
-        public void srzableInternal(ObjectOutput objectOutput) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, objectOutput) == null) {
-                objectOutput.writeInt(this.a);
-                objectOutput.writeInt(this.b.size());
-                for (b bVar : this.b) {
-                    bVar.srzable(objectOutput);
-                }
-            }
-        }
-
-        /* JADX INFO: Add missing generic type declarations: [T] */
-        /* loaded from: classes5.dex */
-        public class a<T> implements Comparator<T> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public a(c cVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
+            HashMap hashMap = null;
+            char c = 65535;
+            switch (str.hashCode()) {
+                case -1909077165:
+                    if (str.equals("startRecord")) {
+                        c = 0;
+                        break;
                     }
-                }
+                    break;
+                case -1848594969:
+                    if (str.equals("pauseRecord")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case -815530368:
+                    if (str.equals("resetRecord")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case -793791417:
+                    if (str.equals("startOverRecord")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+                case 473974106:
+                    if (str.equals("capture_timer_clear")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 488985455:
+                    if (str.equals("capture_timer_start")) {
+                        c = 4;
+                        break;
+                    }
+                    break;
             }
-
-            @Override // java.util.Comparator
-            public int compare(Object obj, Object obj2) {
-                InterceptResult invokeLL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) {
-                    return -Integer.compare(((b) obj).b, ((b) obj2).b);
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        if (c != 3) {
+                            if (c != 4) {
+                                if (c == 5) {
+                                    hashMap = i();
+                                }
+                            } else {
+                                hashMap = b();
+                            }
+                        } else {
+                            hashMap = a();
+                        }
+                    } else {
+                        hashMap = g();
+                    }
+                } else {
+                    hashMap = f();
                 }
-                return invokeLL.intValue;
+            } else {
+                hashMap = h();
             }
+            if (hashMap != null) {
+                a.put(str, hashMap);
+            }
+            return hashMap;
         }
+        return (HashMap) invokeL.objValue;
     }
 
-    /* JADX INFO: Add missing generic type declarations: [T] */
-    /* loaded from: classes5.dex */
-    public class a<T> implements Comparator<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(jw9 jw9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jw9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    public static HashMap f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("msg", "game_pause");
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("event_name", "recorder_video");
+            hashMap2.put("event_data", hashMap);
+            return hashMap2;
         }
+        return (HashMap) invokeV.objValue;
+    }
 
-        @Override // java.util.Comparator
-        public int compare(Object obj, Object obj2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) {
-                return -Integer.compare(((c) obj).a, ((c) obj2).a);
+    public static HashMap g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("msg", "game_reset");
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("event_name", "recorder_video");
+            hashMap2.put("event_data", hashMap);
+            return hashMap2;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public static HashMap h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("msg", "game_start");
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("event_name", "recorder_video");
+            hashMap2.put("event_data", hashMap);
+            return hashMap2;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public static HashMap i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("msg", "game_start_over");
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("event_name", "recorder_video");
+            hashMap2.put("event_data", hashMap);
+            return hashMap2;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public static void j(HashMap<String, Object> hashMap, a aVar) {
+        Object obj;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65546, null, hashMap, aVar) == null) && !hw9.f(hashMap) && aVar != null && (obj = hashMap.get("event_name")) != null && (obj instanceof String)) {
+            String str = (String) obj;
+            char c = 65535;
+            boolean z = true;
+            int i = 0;
+            switch (str.hashCode()) {
+                case -1903331025:
+                    if (str.equals("show_text")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case -1768834290:
+                    if (str.equals("game_end")) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case -1584838740:
+                    if (str.equals("filter_adjust_enable")) {
+                        c = 11;
+                        break;
+                    }
+                    break;
+                case -1272940549:
+                    if (str.equals("game_is_ready")) {
+                        c = '\n';
+                        break;
+                    }
+                    break;
+                case -708270859:
+                    if (str.equals("phone_shake")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case -672934016:
+                    if (str.equals("case_reset")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+                case -548493597:
+                    if (str.equals("need_volume")) {
+                        c = '\t';
+                        break;
+                    }
+                    break;
+                case 902635637:
+                    if (str.equals("child_status")) {
+                        c = '\b';
+                        break;
+                    }
+                    break;
+                case 967087977:
+                    if (str.equals("game_pause")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 969912325:
+                    if (str.equals("game_score")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 1000807605:
+                    if (str.equals("game_http")) {
+                        c = '\f';
+                        break;
+                    }
+                    break;
+                case 1001154298:
+                    if (str.equals("game_time")) {
+                        c = 7;
+                        break;
+                    }
+                    break;
+                case 1076032614:
+                    if (str.equals("need_face")) {
+                        c = 6;
+                        break;
+                    }
+                    break;
             }
-            return invokeLL.intValue;
+            switch (c) {
+                case 0:
+                    if (hashMap.get("text_content") instanceof String) {
+                        aVar.c((String) hashMap.get("text_content"));
+                        return;
+                    }
+                    return;
+                case 1:
+                    aVar.d();
+                    return;
+                case 2:
+                case 3:
+                    if (hashMap.get("game_score") != null) {
+                        aVar.a(hashMap.get("game_score").toString());
+                        return;
+                    }
+                    return;
+                case 4:
+                    if (hashMap.get("game_score") != null) {
+                        aVar.a(hashMap.get("game_score").toString());
+                    }
+                    aVar.onRecordEnd();
+                    return;
+                case 5:
+                    aVar.h();
+                    return;
+                case 6:
+                    aVar.b();
+                    return;
+                case 7:
+                    if (hashMap.get("text_content") instanceof Float) {
+                        try {
+                            i = ((Float) hashMap.get("text_content")).intValue();
+                        } catch (Exception e) {
+                            cw9.g(e);
+                        }
+                        aVar.g(i);
+                        return;
+                    }
+                    return;
+                case '\b':
+                    if (hashMap.get("isDefaultChild") != null) {
+                        String obj2 = hashMap.get("isDefaultChild").toString();
+                        if (!TextUtils.equals(obj2, "1.0") && !TextUtils.equals(obj2, "1")) {
+                            z = false;
+                        }
+                        aVar.f(z);
+                        return;
+                    }
+                    return;
+                case '\t':
+                    if (hashMap.get("volume_ability") != null) {
+                        if (gw9.a(hashMap.get("volume_ability").toString(), 0.0f) != 1.0f) {
+                            z = false;
+                        }
+                        aVar.e(z);
+                        return;
+                    }
+                    return;
+                case '\n':
+                    aVar.i();
+                    return;
+                case 11:
+                    if (hashMap.get("globalBeautyMakeupFilter") != null && (hashMap.get("globalBeautyMakeupFilter") instanceof Float)) {
+                        aVar.k(((Float) hashMap.get("globalBeautyMakeupFilter")).intValue());
+                        return;
+                    }
+                    return;
+                case '\f':
+                    if (hashMap.get("set_content") != null) {
+                        aVar.j(hashMap.get("set_content").toString());
+                        return;
+                    }
+                    return;
+                default:
+                    return;
+            }
         }
     }
 }

@@ -1,52 +1,30 @@
 package com.baidu.tieba;
 
+import android.widget.BaseAdapter;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.UserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.ExcPbPage.ExcContent;
-import tbclient.ExcPbPage.ExcellentPbThreadInfo;
-import tbclient.ExcPbPage.UserInfo;
-import tbclient.Post;
-import tbclient.User;
+import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class i48 implements k48 {
+public abstract class i48 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public UserInfo a;
-    public ExcellentPbThreadInfo b;
-    public List<Post> c;
-    public List<User> d;
+    public ArrayList<UserData> a;
+    public boolean b;
+    public boolean c;
 
-    @Override // com.baidu.tieba.k48
-    public int getErroCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
+    public abstract void a(az4 az4Var);
 
-    @Override // com.baidu.tieba.k48
-    public String getErrorText() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
+    public abstract boolean d(long j);
 
-    public i48(UserInfo userInfo, ExcellentPbThreadInfo excellentPbThreadInfo, List<Post> list, List<User> list2) {
+    public i48() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {userInfo, excellentPbThreadInfo, list, list2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -56,64 +34,42 @@ public class i48 implements k48 {
                 return;
             }
         }
-        this.a = userInfo;
-        this.b = excellentPbThreadInfo;
-        this.c = list;
-        this.d = list2;
+        this.a = null;
+        this.b = false;
+        this.c = false;
     }
 
-    @Override // com.baidu.tieba.k48
-    public List<Post> getPostList() {
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b = false;
+            ArrayList<UserData> arrayList = this.a;
+            if (arrayList != null && arrayList.size() == 0) {
+                this.b = true;
+            }
+        }
+    }
+
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.c;
         }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.k48
-    public ExcellentPbThreadInfo getThreadInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return (ExcellentPbThreadInfo) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.k48
-    public UserInfo getUserInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return (UserInfo) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.k48
-    public List<User> getUserList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.d;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.k48
-    public boolean isEmpty() {
-        InterceptResult invokeV;
-        List<ExcContent> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            ExcellentPbThreadInfo excellentPbThreadInfo = this.b;
-            if (excellentPbThreadInfo == null || (list = excellentPbThreadInfo.content) == null || list.size() <= 0) {
-                return true;
-            }
-            return false;
-        }
         return invokeV.booleanValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a.clear();
+        }
+    }
+
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.c = z;
+        }
     }
 }

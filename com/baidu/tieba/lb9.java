@@ -1,130 +1,381 @@
 package com.baidu.tieba;
 
-import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
+import android.widget.ImageView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.video.record.GLVideoPreviewView;
+import com.baidu.tieba.video.record.ProgressView;
+import com.baidu.tieba.video.record.RecordVideoActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ugc.editvideo.data.MultiMediaData;
-import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUtil;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.faceunity.encoder.TextureMovieEncoder;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class lb9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public RecordVideoActivity c;
+    public ProgressView d;
+    public List<b> e;
+    public boolean f;
+    public long g;
+    public int h;
 
-    public static long[] a(int i, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
-            if (i < 0) {
-                i = 0;
-            }
-            float[] fArr = new float[i];
-            if (i > 1) {
-                float f = 1.0f / i;
-                int i2 = 0;
-                while (i2 < i) {
-                    int i3 = i2 + 1;
-                    if (i3 == i) {
-                        int i4 = i2 - 1;
-                        fArr[i2] = fArr[i4] + ((1.0f - fArr[i4]) / 2.0f);
-                    } else {
-                        fArr[i2] = i3 * f;
-                    }
-                    i2 = i3;
-                }
-            } else if (i == 1) {
-                fArr[0] = 0.5f;
-            }
-            long[] jArr = new long[i];
-            for (int i5 = 0; i5 < i; i5++) {
-                jArr[i5] = fArr[i5] * ((float) j) * 1000.0f;
-            }
-            return jArr;
-        }
-        return (long[]) invokeCommon.objValue;
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(int i);
     }
 
-    public static ob9 b(qb9 qb9Var, gb9 gb9Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, qb9Var, gb9Var)) == null) {
-            if (qb9Var == null || gb9Var == null || qb9Var.e == null) {
-                return null;
-            }
-            long[] a = a(qb9Var.b, qb9Var.a);
-            MultiMediaData multiMediaData = qb9Var.e;
-            ob9 ob9Var = new ob9();
-            ob9Var.e = new ArrayList();
-            ob9Var.a = multiMediaData.path;
-            ob9Var.c = qb9Var.c;
-            ob9Var.d = qb9Var.d;
-            ob9Var.b = multiMediaData.rotation;
-            for (int i = 0; i < qb9Var.b; i++) {
-                long j = multiMediaData.start + a[i];
-                ib9 ib9Var = new ib9();
-                ib9Var.a = bb9.b(multiMediaData.path, j, multiMediaData.type);
-                ib9Var.b = multiMediaData.path;
-                ib9Var.f = i;
-                ib9Var.g = multiMediaData.type;
-                ib9Var.h = qb9Var.c;
-                ib9Var.i = qb9Var.d;
-                ib9Var.j = gb9Var;
-                ib9Var.d = j;
-                ib9Var.c = multiMediaData.rotation;
-                ob9Var.e.add(ib9Var);
-            }
-            return ob9Var;
-        }
-        return (ob9) invokeLL.objValue;
-    }
+    /* loaded from: classes5.dex */
+    public class a implements ProgressView.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ lb9 a;
 
-    public static List<ob9> c(pb9 pb9Var, gb9 gb9Var) {
-        InterceptResult invokeLL;
-        List<ib9> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, pb9Var, gb9Var)) == null) {
-            MultiMediaData multiMediaData = null;
-            if (pb9Var == null || gb9Var == null || pb9Var.b <= 0 || as9.e(pb9Var.e) || as9.e(pb9Var.f)) {
-                return null;
-            }
-            long[] a = a(pb9Var.b, pb9Var.a);
-            ArrayList arrayList = new ArrayList();
-            ob9 ob9Var = null;
-            for (int i = 0; i < pb9Var.b; i++) {
-                long j = ((float) a[i]) / 1000.0f;
-                int findInputIndexInSegments = MultiDataSourceUtil.findInputIndexInSegments(pb9Var.e, j);
-                MultiMediaData multiMediaData2 = (MultiMediaData) as9.c(pb9Var.f, findInputIndexInSegments);
-                if (multiMediaData2 != null) {
-                    if (multiMediaData2 != multiMediaData) {
-                        ob9Var = new ob9();
-                        ob9Var.e = new ArrayList();
-                        ob9Var.a = multiMediaData2.path;
-                        ob9Var.c = pb9Var.c;
-                        ob9Var.d = pb9Var.d;
-                        ob9Var.b = multiMediaData2.rotation;
-                        arrayList.add(ob9Var);
-                    }
-                    long multiMediaDataSeekTime = MultiDataSourceUtil.getMultiMediaDataSeekTime(multiMediaData2, (MediaSegment) as9.c(pb9Var.e, findInputIndexInSegments), j) * 1000;
-                    ib9 ib9Var = new ib9();
-                    ib9Var.a = bb9.b(multiMediaData2.path, multiMediaDataSeekTime, multiMediaData2.type);
-                    ib9Var.b = multiMediaData2.path;
-                    ib9Var.f = i;
-                    ib9Var.g = multiMediaData2.type;
-                    ib9Var.h = pb9Var.c;
-                    ib9Var.i = pb9Var.d;
-                    ib9Var.d = multiMediaDataSeekTime;
-                    ib9Var.j = gb9Var;
-                    ib9Var.c = multiMediaData2.rotation;
-                    if (ob9Var != null && (list = ob9Var.e) != null) {
-                        list.add(ib9Var);
-                    }
-                    multiMediaData = multiMediaData2;
+        /* renamed from: com.baidu.tieba.lb9$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class C0330a implements TextureMovieEncoder.OnEncoderStatusUpdateListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ jb9 a;
+            public final /* synthetic */ a b;
+
+            @Override // com.faceunity.encoder.TextureMovieEncoder.OnEncoderStatusUpdateListener
+            public void onStartSuccess() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 }
             }
-            return arrayList;
+
+            /* renamed from: com.baidu.tieba.lb9$a$a$a  reason: collision with other inner class name */
+            /* loaded from: classes5.dex */
+            public class RunnableC0331a implements Runnable {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ C0330a a;
+
+                public RunnableC0331a(C0330a c0330a) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {c0330a};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.a = c0330a;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable = $ic;
+                    if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b.a.c != null) {
+                        this.a.b.a.c.w0();
+                    }
+                }
+            }
+
+            public C0330a(a aVar, jb9 jb9Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, jb9Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = jb9Var;
+            }
+
+            @Override // com.faceunity.encoder.TextureMovieEncoder.OnEncoderStatusUpdateListener
+            public void onStopSuccess() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                    gh.a().post(new RunnableC0331a(this));
+                    this.a.setOnEncoderStatusUpdateListener(null);
+                }
+            }
         }
-        return (List) invokeLL.objValue;
+
+        public a(lb9 lb9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lb9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = lb9Var;
+        }
+
+        @Override // com.baidu.tieba.video.record.ProgressView.a
+        public void a(int i) {
+            kb9 kb9Var;
+            jb9 q;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                this.a.h = i;
+                if (i != 100 || this.a.c == null || (kb9Var = this.a.c.k) == null || (q = kb9Var.q()) == null) {
+                    return;
+                }
+                if (q instanceof GLVideoPreviewView) {
+                    q.setOnEncoderStatusUpdateListener(new C0330a(this, q));
+                    this.a.o();
+                    return;
+                }
+                this.a.o();
+                if (this.a.c != null) {
+                    this.a.c.w0();
+                }
+            }
+        }
+    }
+
+    public lb9(RecordVideoActivity recordVideoActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {recordVideoActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = 1;
+        this.c = recordVideoActivity;
+        if (recordVideoActivity == null) {
+            return;
+        }
+        ImageView imageView = (ImageView) recordVideoActivity.findViewById(R.id.obfuscated_res_0x7f0904ab);
+        ImageView imageView2 = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090a6c);
+        ProgressView progressView = (ProgressView) this.c.findViewById(R.id.obfuscated_res_0x7f092660);
+        this.d = progressView;
+        progressView.setListener(new a(this));
+        if (!eb9.f(true)) {
+            imageView2.setVisibility(4);
+        }
+        if (!eb9.g(recordVideoActivity.getPackageManager())) {
+            imageView.setVisibility(8);
+        }
+    }
+
+    public void m(int i) {
+        File[] listFiles;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.a = i;
+            if (i == 1) {
+                this.d.setVisibility(4);
+                this.d.d();
+                this.b = 0;
+                File file = new File(n99.f);
+                if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
+                    for (File file2 : listFiles) {
+                        if (file2.getPath().startsWith("rec_tmp_")) {
+                            file2.delete();
+                        }
+                    }
+                }
+            }
+            List<b> list = this.e;
+            if (list != null) {
+                for (b bVar : list) {
+                    bVar.a(this.a);
+                }
+            }
+        }
+    }
+
+    public void c(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+            if (this.e == null) {
+                this.e = new ArrayList();
+            }
+            this.e.add(bVar);
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ProgressView progressView = this.d;
+            if (progressView != null) {
+                progressView.setCurrentState(ProgressView.State.DELETE);
+            }
+            this.b = this.d.getLastProgress();
+            kb9 kb9Var = this.c.k;
+            if (kb9Var != null) {
+                kb9Var.h();
+            }
+        }
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.h;
+        }
+        return invokeV.intValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.a == 6) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            mb9 mb9Var = this.c.I;
+            if (mb9Var != null) {
+                return mb9Var.i();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            int f = f();
+            if (f != 2 && f != 7) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (this.d.b()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void l() {
+        ProgressView progressView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && !this.f && (progressView = this.d) != null) {
+            progressView.setCurrentState(ProgressView.State.ROLLBACK);
+        }
+    }
+
+    public void n() {
+        kb9 kb9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048587, this) != null) || this.f) {
+            return;
+        }
+        ProgressView progressView = this.d;
+        if (progressView != null) {
+            progressView.setVisibility(0);
+            this.d.setCurrentState(ProgressView.State.START);
+        }
+        if (!this.f) {
+            this.f = true;
+            this.g = System.currentTimeMillis();
+        }
+        RecordVideoActivity recordVideoActivity = this.c;
+        if (recordVideoActivity != null && (kb9Var = recordVideoActivity.k) != null) {
+            kb9Var.L();
+            mb9 mb9Var = this.c.I;
+            if (mb9Var != null) {
+                mb9Var.n(this.b);
+            }
+        }
+    }
+
+    public void o() {
+        kb9 kb9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || !this.f) {
+            return;
+        }
+        ProgressView progressView = this.d;
+        if (progressView != null) {
+            progressView.setCurrentState(ProgressView.State.PAUSE);
+        }
+        this.f = false;
+        this.b = (int) (this.b + (System.currentTimeMillis() - this.g));
+        ProgressView progressView2 = this.d;
+        if (progressView2 != null) {
+            int lastProgress = progressView2.getLastProgress();
+            int i = this.b;
+            if (lastProgress != i) {
+                this.d.c(i);
+            }
+        }
+        RecordVideoActivity recordVideoActivity = this.c;
+        if (recordVideoActivity != null && (kb9Var = recordVideoActivity.k) != null) {
+            kb9Var.M();
+        }
     }
 }

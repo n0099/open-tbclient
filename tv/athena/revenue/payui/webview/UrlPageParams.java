@@ -1,7 +1,7 @@
 package tv.athena.revenue.payui.webview;
 
 import androidx.annotation.Keep;
-import com.baidu.tieba.fha;
+import com.baidu.tieba.ola;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,7 +48,7 @@ public class UrlPageParams {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "UrlPageParams{title='" + this.title + "', url='" + fha.a(this.url) + "', rightTitle='" + this.rightTitle + "', rightUrl='" + fha.a(this.rightUrl) + "', rightIcon='" + fha.a(this.rightIcon) + "', rightIconTitle='" + this.rightIconTitle + "', rightIconUrl='" + fha.a(this.rightIconUrl) + "', pageType='" + this.pageType + "'}";
+            return "UrlPageParams{title='" + this.title + "', url='" + ola.a(this.url) + "', rightTitle='" + this.rightTitle + "', rightUrl='" + ola.a(this.rightUrl) + "', rightIcon='" + ola.a(this.rightIcon) + "', rightIconTitle='" + this.rightIconTitle + "', rightIconUrl='" + ola.a(this.rightIconUrl) + "', pageType='" + this.pageType + "'}";
         }
         return (String) invokeV.objValue;
     }

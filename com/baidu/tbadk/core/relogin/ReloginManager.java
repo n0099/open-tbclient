@@ -17,10 +17,10 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qr4;
-import com.baidu.tieba.ry4;
-import com.baidu.tieba.yt4;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.dw4;
+import com.baidu.tieba.e35;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.ly4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -73,35 +73,35 @@ public class ReloginManager {
                 int error = getError();
                 AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
                 if (statusCode == 200 && error == 0) {
-                    yt4 yt4Var = new yt4();
-                    yt4Var.e(jSONObject);
-                    String userId = yt4Var.c().getUserId();
+                    ly4 ly4Var = new ly4();
+                    ly4Var.e(jSONObject);
+                    String userId = ly4Var.c().getUserId();
                     if (userId != null && userId.length() > 0) {
                         AccountData accountData = new AccountData();
-                        String userName = yt4Var.c().getUserName();
-                        String password = yt4Var.c().getPassword();
+                        String userName = ly4Var.c().getUserName();
+                        String password = ly4Var.c().getPassword();
                         accountData.setAccount(userName);
                         if (password != null) {
                             accountData.setPassword(password);
                         } else {
                             accountData.setPassword(currentAccountObj.getPassword());
                         }
-                        accountData.setID(yt4Var.c().getUserId());
-                        accountData.setBDUSS(yt4Var.c().getBDUSS());
-                        accountData.setPortrait(yt4Var.c().getPortrait());
+                        accountData.setID(ly4Var.c().getUserId());
+                        accountData.setBDUSS(ly4Var.c().getBDUSS());
+                        accountData.setPortrait(ly4Var.c().getPortrait());
                         accountData.setIsActive(1);
-                        if (yt4Var.a() != null) {
-                            accountData.setTbs(yt4Var.a().getTbs());
+                        if (ly4Var.a() != null) {
+                            accountData.setTbs(ly4Var.a().getTbs());
                         }
-                        accountData.setGrowthSwitch(yt4Var.b());
-                        ry4.a(DI.ACCOUNT, -1L, 0, "relogin_manager_save_account_to_db", 0, "", new Object[0]);
-                        qr4.g(accountData);
-                        ry4.a(DI.ACCOUNT, -1L, 0, "relogin_manager_save_account_to_application", 0, "", new Object[0]);
+                        accountData.setGrowthSwitch(ly4Var.b());
+                        e35.a(DI.ACCOUNT, -1L, 0, "relogin_manager_save_account_to_db", 0, "", new Object[0]);
+                        dw4.g(accountData);
+                        e35.a(DI.ACCOUNT, -1L, 0, "relogin_manager_save_account_to_application", 0, "", new Object[0]);
                         TbadkCoreApplication.setBdussAndTbsFromBackgroundInRelogin(accountData, accountData.getBDUSS(), accountData.getTbs());
                         TbadkCoreApplication.setCurrentAccount(accountData, TbadkCoreApplication.getInst().getApp().getApplicationContext());
                         return;
                     }
-                    setErrorString(TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f0cd1));
+                    setErrorString(TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f0cfe));
                 }
             }
         }
@@ -145,11 +145,11 @@ public class ReloginManager {
             BgLoginHttpResponsedMessage bgLoginHttpResponsedMessage = (BgLoginHttpResponsedMessage) httpResponsedMessage;
             int statusCode = bgLoginHttpResponsedMessage.getStatusCode();
             int error = bgLoginHttpResponsedMessage.getError();
-            ry4.a(DI.ACCOUNT, -1L, 0, "login_auto_local_result", bgLoginHttpResponsedMessage.getError(), bgLoginHttpResponsedMessage.getErrorString(), new Object[0]);
+            e35.a(DI.ACCOUNT, -1L, 0, "login_auto_local_result", bgLoginHttpResponsedMessage.getError(), bgLoginHttpResponsedMessage.getErrorString(), new Object[0]);
             if ((statusCode == 200 && error != 0) || statusCode != 200) {
                 this.a.f(TbadkCoreApplication.getCurrentAccountObj());
                 if (bgLoginHttpResponsedMessage.getErrorString() != null) {
-                    zi.Q(TbadkCoreApplication.getInst().getContext(), bgLoginHttpResponsedMessage.getErrorString());
+                    ej.Q(TbadkCoreApplication.getInst().getContext(), bgLoginHttpResponsedMessage.getErrorString());
                 }
                 this.a.b.clear();
                 return;
@@ -272,7 +272,7 @@ public class ReloginManager {
     public final void e(AccountData accountData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, accountData) == null) {
-            ry4.a(DI.ACCOUNT, -1L, 0, "login_auto_local_start", 0, "", new Object[0]);
+            e35.a(DI.ACCOUNT, -1L, 0, "login_auto_local_start", 0, "", new Object[0]);
             MessageManager messageManager = MessageManager.getInstance();
             TbadkCoreApplication.setCurrentAccount(null, TbadkCoreApplication.getInst().getApp().getApplicationContext());
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.BG_LOGIN_HTTP_CMD);
@@ -289,8 +289,8 @@ public class ReloginManager {
     public void f(AccountData accountData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
-            ry4.a(DI.ACCOUNT, -1L, 0, "login_auto_foreground", 0, "", new Object[0]);
-            qr4.b();
+            e35.a(DI.ACCOUNT, -1L, 0, "login_auto_foreground", 0, "", new Object[0]);
+            dw4.b();
             TbadkCoreApplication.getInst().handler.sendMessage(TbadkCoreApplication.getInst().handler.obtainMessage(1));
         }
     }
@@ -298,14 +298,14 @@ public class ReloginManager {
     public void l(HttpMessage httpMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, httpMessage) == null) {
-            ry4.a(DI.ACCOUNT, -1L, 0, "login_auto_start", 0, "", new Object[0]);
+            e35.a(DI.ACCOUNT, -1L, 0, "login_auto_start", 0, "", new Object[0]);
             d(httpMessage);
             if (this.a) {
                 return;
             }
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj == null) {
-                currentAccountObj = qr4.e();
+                currentAccountObj = dw4.e();
             }
             if (currentAccountObj != null && !TextUtils.isEmpty(currentAccountObj.getAccount())) {
                 this.a = true;

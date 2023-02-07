@@ -1,116 +1,84 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.exifinterface.media.ExifInterface;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class ow2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public long b;
-    public long c;
+    public int a;
+    public boolean b;
+    public String c;
+    public String d;
+    public int e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948046591, "Lcom/baidu/tieba/ow2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948046591, "Lcom/baidu/tieba/ow2;");
-                return;
-            }
-        }
-        d = tk1.a;
-    }
-
-    public long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.longValue;
-    }
-
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return d().toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public ow2(String str) {
+    public ow2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        if (d) {
-            Log.d(ExifInterface.TAG_MODEL, "new model, scope id - " + str);
-        }
+        this.a = 3;
+        this.b = true;
+        this.d = com.alipay.sdk.widget.d.u;
+        this.e = 60;
     }
 
-    public void a(long j) {
+    public static ow2 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            this.b = j;
-        }
-    }
-
-    public void c(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.c = j;
-        }
-    }
-
-    public JSONObject d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("scope_id", this.a);
-                jSONObject.put("begin_ts", this.b);
-                jSONObject.put("end_ts", this.c);
-            } catch (JSONException e) {
-                if (d) {
-                    e.printStackTrace();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            ow2 ow2Var = new ow2();
+            if (jSONObject != null) {
+                JSONArray optJSONArray = jSONObject.optJSONArray("sourceType");
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    int length = optJSONArray.length();
+                    int i = 0;
+                    for (int i2 = 0; i2 < length; i2++) {
+                        String optString = optJSONArray.optString(i2);
+                        char c = 65535;
+                        int hashCode = optString.hashCode();
+                        if (hashCode != -1367751899) {
+                            if (hashCode == 92896879 && optString.equals("album")) {
+                                c = 0;
+                            }
+                        } else if (optString.equals("camera")) {
+                            c = 1;
+                        }
+                        if (c != 0) {
+                            if (c == 1) {
+                                i |= 2;
+                            }
+                        } else {
+                            i |= 1;
+                        }
+                    }
+                    ow2Var.a = i;
                 }
+                ow2Var.b = jSONObject.optBoolean("compressed", true);
+                int i3 = 60;
+                int optInt = jSONObject.optInt("maxDuration", 60);
+                if (optInt <= 60) {
+                    i3 = optInt;
+                }
+                ow2Var.e = i3;
+                ow2Var.d = jSONObject.optString("camera");
+                ow2Var.c = jSONObject.optString("cb");
             }
-            if (d) {
-                Log.d(ExifInterface.TAG_MODEL, jSONObject.toString());
-            }
-            return jSONObject;
+            return ow2Var;
         }
-        return (JSONObject) invokeV.objValue;
+        return (ow2) invokeL.objValue;
     }
 }

@@ -1,31 +1,20 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import android.os.Message;
+import android.opengl.Matrix;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mario.gldraw2d.params.MirrorType;
+import com.baidu.mario.gldraw2d.params.ScaleType;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.ByteBuffer;
 /* loaded from: classes3.dex */
 public class ae0 {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String f = "ae0";
+    public static final String a = "ae0";
     public transient /* synthetic */ FieldHolder $fh;
-    public HandlerThread a;
-    public Handler b;
-    public ce0 c;
-    public ge0 d;
-    public volatile boolean e;
 
     static {
         InterceptResult invokeClinit;
@@ -43,256 +32,132 @@ public class ae0 {
     }
 
     /* loaded from: classes3.dex */
-    public class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
-        public ByteBuffer a;
-        public int b;
-        public long c;
 
-        public a(ae0 ae0Var, ByteBuffer byteBuffer, int i, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ae0Var, byteBuffer, Integer.valueOf(i), Long.valueOf(j)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-950477216, "Lcom/baidu/tieba/ae0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-950477216, "Lcom/baidu/tieba/ae0$a;");
                     return;
                 }
             }
-            this.a = byteBuffer;
-            this.b = i;
-            this.c = j;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ae0 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(ae0 ae0Var, Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ae0Var, looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ae0Var;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                switch (message.what) {
-                    case 1001:
-                        this.a.k((fe0) message.obj);
-                        return;
-                    case 1002:
-                        this.a.l();
-                        return;
-                    case 1003:
-                        a aVar = (a) message.obj;
-                        this.a.h(aVar.a, aVar.b, aVar.c);
-                        return;
-                    case 1004:
-                        this.a.m();
-                        return;
-                    case 1005:
-                        this.a.j();
-                        return;
-                    case 1006:
-                        this.a.i();
-                        return;
-                    default:
-                        return;
-                }
-            }
-        }
-    }
-
-    public ae0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.e = false;
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Handler handler = this.b;
-            if (handler != null) {
-                handler.removeCallbacksAndMessages(null);
-                this.b = null;
-            }
-            HandlerThread handlerThread = this.a;
-            if (handlerThread != null) {
-                handlerThread.quit();
-                this.a = null;
-            }
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && Build.VERSION.SDK_INT >= 18) {
-            ce0 ce0Var = this.c;
-            if (ce0Var != null) {
-                ce0Var.i();
-                this.c.e();
-            }
-            this.c = null;
-            this.d = null;
-        }
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && Build.VERSION.SDK_INT >= 18) {
-            this.c.h();
-        }
-    }
-
-    public final void m() {
-        ce0 ce0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && Build.VERSION.SDK_INT >= 18 && (ce0Var = this.c) != null) {
-            ce0Var.a(true, null, 0, 0L);
-        }
-    }
-
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            HandlerThread handlerThread = this.a;
-            if (handlerThread != null && handlerThread.isAlive()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void p() {
-        Handler handler;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (handler = this.b) != null) {
-            handler.removeCallbacksAndMessages(null);
-            Handler handler2 = this.b;
-            handler2.sendMessage(handler2.obtainMessage(1005));
-            Handler handler3 = this.b;
-            handler3.sendMessage(handler3.obtainMessage(1006));
-        }
-    }
-
-    public void r() {
-        Handler handler;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (handler = this.b) != null) {
-            handler.sendMessage(handler.obtainMessage(1002));
-        }
-    }
-
-    public void s() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.b != null && this.e) {
-            this.e = false;
-            Handler handler = this.b;
-            handler.sendMessage(handler.obtainMessage(1004));
-        }
-    }
-
-    public final void k(fe0 fe0Var) {
-        ce0 ce0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, fe0Var) == null) && Build.VERSION.SDK_INT >= 18 && (ce0Var = this.c) != null) {
-            ce0Var.k(fe0Var, this.d);
-        }
-    }
-
-    public void g(ByteBuffer byteBuffer, int i, long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{byteBuffer, Integer.valueOf(i), Long.valueOf(j)}) == null) && byteBuffer != null && i > 0) {
-            a aVar = new a(this, byteBuffer, i, j);
-            if (this.b != null && this.e) {
-                Handler handler = this.b;
-                handler.sendMessage(handler.obtainMessage(1003, aVar));
-            }
-        }
-    }
-
-    public final void h(ByteBuffer byteBuffer, int i, long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{byteBuffer, Integer.valueOf(i), Long.valueOf(j)}) == null) && Build.VERSION.SDK_INT >= 18) {
-            this.c.a(false, byteBuffer, i, j);
-        }
-    }
-
-    public final void n(ge0 ge0Var, ee0 ee0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, ge0Var, ee0Var) == null) {
-            HandlerThread handlerThread = new HandlerThread("AudioRecorderThread");
-            this.a = handlerThread;
-            handlerThread.start();
-            this.b = new b(this, this.a.getLooper());
+            int[] iArr = new int[ScaleType.values().length];
+            a = iArr;
             try {
-                this.c = new ce0();
-            } catch (VerifyError unused) {
-                Log.e(f, "initRecorder verifyError");
-                if (this.c == null) {
-                    return;
-                }
+                iArr[ScaleType.FIT_XY.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
             }
-            this.d = ge0Var;
-            if (Build.VERSION.SDK_INT >= 18) {
-                this.c.f(ee0Var);
+            try {
+                a[ScaleType.FIT_CENTER.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[ScaleType.CENTER_CROP.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[ScaleType.EQUAL_SCALE.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
             }
         }
     }
 
-    public boolean q(fe0 fe0Var, ge0 ge0Var, ee0 ee0Var) {
-        InterceptResult invokeLLL;
+    public static void a(float[] fArr, MirrorType mirrorType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, fe0Var, ge0Var, ee0Var)) == null) {
-            if (o()) {
-                Log.e(f, "setupRecorder error! As last audio recorder thread is alive!");
-                return false;
+        if (interceptable == null || interceptable.invokeLL(65537, null, fArr, mirrorType) == null) {
+            if (fArr == null) {
+                Log.e(a, "mirrorDraw2DMVP mvpMatrix == NULLLLLLL!!!");
             }
-            n(ge0Var, ee0Var);
-            Handler handler = this.b;
-            handler.sendMessage(handler.obtainMessage(1001, fe0Var));
-            this.e = true;
-            return true;
+            if (mirrorType == MirrorType.HORIZONTALLY) {
+                Matrix.rotateM(fArr, 0, 180.0f, 0.0f, 1.0f, 0.0f);
+            } else if (mirrorType == MirrorType.VERTICALLY) {
+                Matrix.rotateM(fArr, 0, 180.0f, 1.0f, 0.0f, 0.0f);
+                fArr[6] = 0.0f;
+                fArr[9] = 0.0f;
+            }
         }
-        return invokeLLL.booleanValue;
+    }
+
+    public static void b(float[] fArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, fArr) == null) {
+            Matrix.setIdentityM(fArr, 0);
+        }
+    }
+
+    public static void c(float[] fArr, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLF(65539, null, fArr, f) == null) {
+            if (fArr == null) {
+                Log.e(a, "rotateDraw2DMVP mvpMatrix == NULLLLLLL!!!");
+            }
+            Matrix.rotateM(fArr, 0, f, 0.0f, 0.0f, 1.0f);
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x0062, code lost:
+        if (r0 > r5) goto L32;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x0067, code lost:
+        if (r0 > r5) goto L30;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x0069, code lost:
+        r5 = r5 / r0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x006d, code lost:
+        r8 = r0 / r5;
+        r5 = 1.0f;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void d(float[] fArr, vd0 vd0Var, ud0 ud0Var, ScaleType scaleType, float f) {
+        float f2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{fArr, vd0Var, ud0Var, scaleType, Float.valueOf(f)}) == null) {
+            if (fArr == null) {
+                Log.e(a, "scaleDraw2DMVP mvpMatrix == NULLLLLLL!!!");
+            } else if (vd0Var != null && vd0Var.d() > 0 && vd0Var.b() > 0) {
+                if (ud0Var != null && ud0Var.c() > 0 && ud0Var.b() > 0) {
+                    float d = (vd0Var.d() * 1.0f) / vd0Var.b();
+                    float c = (ud0Var.c() * 1.0f) / ud0Var.b();
+                    int i = a.a[scaleType.ordinal()];
+                    if (i != 1) {
+                        if (i != 2) {
+                            if (i != 3) {
+                                if (i == 4) {
+                                    f2 = f;
+                                }
+                            }
+                        }
+                        Matrix.scaleM(fArr, 0, f, f2, 1.0f);
+                        return;
+                    }
+                    f2 = 1.0f;
+                    f = 1.0f;
+                    Matrix.scaleM(fArr, 0, f, f2, 1.0f);
+                    return;
+                }
+                Log.e(a, "scaleDraw2DMVP draw target error!!!");
+            } else {
+                Log.e(a, "scaleDraw2DMVP source texture error!!!");
+            }
+        }
+    }
+
+    public static void e(float[] fArr, float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{fArr, Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            Matrix.translateM(fArr, 0, f, f2, 1.0f);
+        }
     }
 }

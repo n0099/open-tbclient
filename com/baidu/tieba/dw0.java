@@ -1,25 +1,22 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.app.Activity;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.player.event.ControlEvent;
-import com.baidu.searchbox.player.event.PlayerEvent;
-import com.baidu.searchbox.player.event.StatisticsEvent;
+import com.baidu.nadcore.player.constants.PlayerStatus;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public class dw0 implements mv0 {
+public final class dw0 implements vw0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+    public py0 a;
+    public py0 b;
 
     public dw0() {
         Interceptable interceptable = $ic;
@@ -31,154 +28,215 @@ public class dw0 implements mv0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 0;
-        this.b = 0;
     }
 
-    @Override // com.baidu.tieba.mv0
-    public void a(fy0 fy0Var) {
-        int i;
+    @Override // com.baidu.tieba.vw0
+    public void a(ct0 player) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, fy0Var) == null) && fy0Var != null && !TextUtils.isEmpty(fy0Var.g)) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            if (!TextUtils.isEmpty(fy0Var.f)) {
-                clogBuilder.v(fy0Var.f);
-            }
-            clogBuilder.p(fy0Var.g);
-            String c = fy0Var.a.c();
-            char c2 = 65535;
-            switch (c.hashCode()) {
-                case -1530009462:
-                    if (c.equals(ControlEvent.ACTION_SYNC_PROGRESS)) {
-                        c2 = 5;
-                        break;
-                    }
-                    break;
-                case 154871702:
-                    if (c.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
-                        c2 = 4;
-                        break;
-                    }
-                    break;
-                case 720027695:
-                    if (c.equals(ControlEvent.ACTION_PAUSE)) {
-                        c2 = 1;
-                        break;
-                    }
-                    break;
-                case 723345051:
-                    if (c.equals(ControlEvent.ACTION_START)) {
-                        c2 = 0;
-                        break;
-                    }
-                    break;
-                case 906917140:
-                    if (c.equals(ControlEvent.ACTION_RESUME)) {
-                        c2 = 2;
-                        break;
-                    }
-                    break;
-                case 2145795460:
-                    if (c.equals(StatisticsEvent.ACTION_PLAYER_STOP)) {
-                        c2 = 3;
-                        break;
-                    }
-                    break;
-            }
-            if (c2 != 0) {
-                if (c2 != 1) {
-                    if (c2 != 2) {
-                        if (c2 != 3 && c2 != 4) {
-                            if (c2 == 5) {
-                                int g = fy0Var.a.g(1);
-                                int g2 = fy0Var.a.g(2);
-                                if (g == 0 && g2 != 0 && (i = this.b) != 0 && i >= g2 - 2) {
-                                    clogBuilder.y(ClogBuilder.LogType.VIDEO_COMPLETED).l(String.valueOf(g2)).m(String.valueOf(g2)).n(fy0Var.e);
-                                    e11.b(clogBuilder);
-                                    ClogBuilder p = new ClogBuilder().y(ClogBuilder.LogType.VIDEO_START).k(fy0Var.b).m(fy0Var.d).p(fy0Var.g);
-                                    if (!TextUtils.isEmpty(fy0Var.f)) {
-                                        p.v(fy0Var.f);
-                                    }
-                                    e11.b(p);
-                                }
-                                this.b = g;
-                                return;
-                            }
-                            return;
-                        } else if (this.a < 1) {
-                            return;
-                        } else {
-                            try {
-                                if (this.b > Integer.parseInt(fy0Var.c)) {
-                                    clogBuilder.l(fy0Var.d);
-                                } else {
-                                    clogBuilder.l(fy0Var.c);
-                                }
-                            } catch (NumberFormatException unused) {
-                                clogBuilder.l(fy0Var.c);
-                            }
-                            clogBuilder.y(ClogBuilder.LogType.VIDEO_COMPLETED).m(fy0Var.d).n(fy0Var.e).o("0");
-                            this.a--;
-                            e11.b(clogBuilder);
-                            return;
-                        }
-                    }
-                    clogBuilder.y(ClogBuilder.LogType.VIDEO_RESUME).k(fy0Var.b).m(fy0Var.d);
-                    e11.b(clogBuilder);
-                    return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, player) == null) {
+            Intrinsics.checkNotNullParameter(player, "player");
+            i(player, player.u());
+            py0 k = player.k();
+            if (k != null) {
+                if (!Intrinsics.areEqual(k, this.b)) {
+                    j(this.b);
+                    this.b = null;
+                } else if (!Intrinsics.areEqual(k, this.a)) {
+                    j(this.a);
+                    this.a = null;
                 }
-                boolean d = fy0Var.a.d(7);
-                clogBuilder.l(fy0Var.c).m(fy0Var.d).n(fy0Var.e);
-                if (d) {
-                    clogBuilder.y(ClogBuilder.LogType.VIDEO_PAUSE);
+                j(k);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.vw0
+    public py0 b(ct0 player, py0 py0Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, player, py0Var)) == null) {
+            Intrinsics.checkNotNullParameter(player, "player");
+            if (player.u1()) {
+                py0Var = h(player, player.u());
+            }
+            if (py0Var == null) {
+                py0Var = f(player.o());
+            }
+            this.a = py0Var;
+            return py0Var;
+        }
+        return (py0) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.vw0
+    public void c(ct0 player, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, player, z) == null) {
+            Intrinsics.checkNotNullParameter(player, "player");
+            py0 py0Var = this.a;
+            if (py0Var != null) {
+                e(player, py0Var);
+                return;
+            }
+            if (this.b == null) {
+                this.b = f(player.o());
+            }
+            e(player, this.b);
+        }
+    }
+
+    public final void e(ct0 ct0Var, py0 py0Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, ct0Var, py0Var) == null) && py0Var != null) {
+            ct0Var.e(py0Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.vw0
+    public boolean d(ct0 player, py0 py0Var) {
+        InterceptResult invokeLL;
+        String vid;
+        py0 py0Var2;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, player, py0Var)) == null) {
+            Intrinsics.checkNotNullParameter(player, "player");
+            BdVideoSeries o1 = player.o1();
+            if (o1 == null || (vid = o1.getVid()) == null) {
+                return false;
+            }
+            Intrinsics.checkNotNullExpressionValue(vid, "player.videoSeries?.vid ?: return false");
+            PlayerStatus playerStatus = null;
+            if (!(py0Var instanceof wy0)) {
+                py0Var2 = null;
+            } else {
+                py0Var2 = py0Var;
+            }
+            wy0 wy0Var = (wy0) py0Var2;
+            if (wy0Var != null) {
+                str = wy0Var.y0();
+            } else {
+                str = null;
+            }
+            if (!Intrinsics.areEqual(vid, str)) {
+                return false;
+            }
+            if (py0Var != null) {
+                playerStatus = py0Var.R();
+            }
+            if (!PlayerStatus.isActiveStatus(playerStatus)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public boolean g(bt0 player, String str) {
+        InterceptResult invokeLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, player, str)) == null) {
+            Intrinsics.checkNotNullParameter(player, "player");
+            if (str != null && str.length() != 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
+                return false;
+            }
+            py0 k = player.k();
+            e11.a("ReuseHelper: detach,cache is " + k + ",cacheKey is " + str);
+            if (k != null) {
+                k.Y();
+                tt0.a().c(str, k);
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public py0 h(bt0 player, String str) {
+        InterceptResult invokeLL;
+        Boolean bool;
+        vx0 T;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, player, str)) == null) {
+            Intrinsics.checkNotNullParameter(player, "player");
+            py0 b = tt0.a().b(str);
+            if (b != null && (T = b.T()) != null) {
+                bool = Boolean.valueOf(T.verify(player.o()));
+            } else {
+                bool = null;
+            }
+            if (Intrinsics.areEqual(bool, Boolean.TRUE)) {
+                tt0.a().d(str);
+                player.A0(true);
+                if (b.u() != null) {
+                    b.u().k();
+                    return b;
+                }
+                return b;
+            }
+            player.A0(false);
+            return null;
+        }
+        return (py0) invokeLL.objValue;
+    }
+
+    public final wy0 f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (str == null) {
+                str = "CyberNetPlayer";
+            }
+            return new wy0(str);
+        }
+        return (wy0) invokeL.objValue;
+    }
+
+    public final void j(py0 py0Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, py0Var) == null) && py0Var != null) {
+            py0Var.Y();
+            py0Var.t0();
+            py0Var.a0();
+        }
+    }
+
+    public void i(ct0 player, String str) {
+        Activity activity;
+        bt0 bt0Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, player, str) == null) {
+            Intrinsics.checkNotNullParameter(player, "player");
+            if (player.u1() && player.b0() && !player.S() && (activity = player.getActivity()) != null && activity.isFinishing()) {
+                e11.a("performAutoDetachCache begin");
+                py0 A = player.A();
+                py0 py0Var = this.a;
+                if (py0Var != null) {
+                    bt0Var = py0Var.u();
                 } else {
-                    clogBuilder.y(ClogBuilder.LogType.VIDEO_COMPLETED).o("1");
+                    bt0Var = null;
                 }
-                e11.b(clogBuilder);
-                return;
-            }
-            clogBuilder.y(ClogBuilder.LogType.VIDEO_START).k(fy0Var.b).m(fy0Var.d);
-            this.b = 0;
-            this.a++;
-            e11.b(clogBuilder);
-        }
-    }
-
-    @Override // com.baidu.tieba.mv0
-    public void b(fy0 fy0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fy0Var) == null) && fy0Var != null && fy0Var.a != null && !TextUtils.isEmpty(fy0Var.g)) {
-            String c = fy0Var.a.c();
-            char c2 = 65535;
-            int hashCode = c.hashCode();
-            if (hashCode != 154871702) {
-                if (hashCode != 1370689931) {
-                    if (hashCode == 2145795460 && c.equals(StatisticsEvent.ACTION_PLAYER_STOP)) {
-                        c2 = 1;
+                if (Intrinsics.areEqual(bt0Var, player)) {
+                    e11.a("autoDetachCache,cacheKey:" + str + ", kernelLayer:" + A);
+                    if (g(player, str)) {
+                        this.a = null;
                     }
-                } else if (c.equals(PlayerEvent.ACTION_ON_INFO)) {
-                    c2 = 0;
+                } else if (this.a != null) {
+                    e11.a("detachCache,cacheKey:" + str + ", kernelLayer:" + A);
+                    py0 py0Var2 = this.a;
+                    if (py0Var2 != null) {
+                        py0Var2.Y();
+                    }
+                    tt0.a().c(str, this.a);
+                    this.a = null;
                 }
-            } else if (c.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
-                c2 = 2;
-            }
-            if (c2 != 0) {
-                if (c2 == 1 || c2 == 2) {
-                    gy0.b.b();
-                    return;
-                }
-                return;
-            }
-            ly0 a = gy0.b.a();
-            if (a != null) {
-                a.c(fy0Var.g);
-                a.e(fy0Var.b);
-                a.d(fy0Var.h);
-                a.b(fy0Var.d);
-                gy0.b.c(a);
             }
         }
     }

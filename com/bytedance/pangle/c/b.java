@@ -186,129 +186,128 @@ public final class b {
     }
 
     public static void a(File file, File file2, String str) {
-        ZipFile zipFile;
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, file, file2, str) == null) {
-            ZipFile zipFile2 = null;
+            ZipFile zipFile = null;
             LinkedList<ZipEntry> linkedList = null;
             try {
-                zipFile = new ZipFile(file);
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                Map<String, List<ZipEntry>> a2 = a(zipFile);
-                boolean containsKey = a2.containsKey(a);
-                ZeusLogger.i(ZeusLogger.TAG_SO, "NativeLibHelper copyNativeLib pre-verify-matchHostAbi[" + containsKey + "], pkg=" + str);
-                if (containsKey) {
-                    if (!a2.isEmpty()) {
-                        linkedList = new LinkedList();
-                        HashSet hashSet = new HashSet();
-                        if (a != null) {
-                            str2 = a;
-                        } else {
-                            str2 = b;
-                        }
-                        char c2 = 65535;
-                        switch (str2.hashCode()) {
-                            case -1073971299:
-                                if (str2.equals("mips64")) {
-                                    c2 = 5;
+                ZipFile zipFile2 = new ZipFile(file);
+                try {
+                    Map<String, List<ZipEntry>> a2 = a(zipFile2);
+                    boolean containsKey = a2.containsKey(a);
+                    ZeusLogger.i(ZeusLogger.TAG_SO, "NativeLibHelper copyNativeLib pre-verify-matchHostAbi[" + containsKey + "], pkg=" + str);
+                    if (containsKey) {
+                        if (!a2.isEmpty()) {
+                            linkedList = new LinkedList();
+                            HashSet hashSet = new HashSet();
+                            if (a != null) {
+                                str2 = a;
+                            } else {
+                                str2 = b;
+                            }
+                            char c2 = 65535;
+                            switch (str2.hashCode()) {
+                                case -1073971299:
+                                    if (str2.equals("mips64")) {
+                                        c2 = 5;
+                                        break;
+                                    }
                                     break;
-                                }
-                                break;
-                            case -806050265:
-                                if (str2.equals("x86_64")) {
-                                    c2 = 3;
+                                case -806050265:
+                                    if (str2.equals("x86_64")) {
+                                        c2 = 3;
+                                        break;
+                                    }
                                     break;
-                                }
-                                break;
-                            case -738963905:
-                                if (str2.equals("armeabi")) {
-                                    c2 = 2;
+                                case -738963905:
+                                    if (str2.equals("armeabi")) {
+                                        c2 = 2;
+                                        break;
+                                    }
                                     break;
-                                }
-                                break;
-                            case 117110:
-                                if (str2.equals("x86")) {
-                                    c2 = 4;
+                                case 117110:
+                                    if (str2.equals("x86")) {
+                                        c2 = 4;
+                                        break;
+                                    }
                                     break;
-                                }
-                                break;
-                            case 3351711:
-                                if (str2.equals(IDevices.ABI_MIPS)) {
-                                    c2 = 6;
+                                case 3351711:
+                                    if (str2.equals(IDevices.ABI_MIPS)) {
+                                        c2 = 6;
+                                        break;
+                                    }
                                     break;
-                                }
-                                break;
-                            case 145444210:
-                                if (str2.equals(PassBiometricUtil.CPU_TYPE_ARMEABI_V7A)) {
-                                    c2 = 1;
+                                case 145444210:
+                                    if (str2.equals(PassBiometricUtil.CPU_TYPE_ARMEABI_V7A)) {
+                                        c2 = 1;
+                                        break;
+                                    }
                                     break;
-                                }
-                                break;
-                            case 1431565292:
-                                if (str2.equals("arm64-v8a")) {
-                                    c2 = 0;
+                                case 1431565292:
+                                    if (str2.equals("arm64-v8a")) {
+                                        c2 = 0;
+                                        break;
+                                    }
                                     break;
-                                }
-                                break;
-                        }
-                        switch (c2) {
-                            case 0:
-                                a(a2, "arm64-v8a", linkedList, hashSet);
-                                break;
-                            case 1:
-                                a(a2, PassBiometricUtil.CPU_TYPE_ARMEABI_V7A, linkedList, hashSet);
-                                a(a2, "armeabi", linkedList, hashSet);
-                                break;
-                            case 2:
-                                a(a2, "armeabi", linkedList, hashSet);
-                                break;
-                            case 3:
-                                a(a2, "x86_64", linkedList, hashSet);
-                                if (linkedList.size() == 0) {
+                            }
+                            switch (c2) {
+                                case 0:
                                     a(a2, "arm64-v8a", linkedList, hashSet);
                                     break;
-                                }
-                                break;
-                            case 4:
-                                a(a2, "x86", linkedList, hashSet);
-                                if (linkedList.size() == 0) {
+                                case 1:
                                     a(a2, PassBiometricUtil.CPU_TYPE_ARMEABI_V7A, linkedList, hashSet);
                                     a(a2, "armeabi", linkedList, hashSet);
                                     break;
-                                }
-                                break;
-                            case 5:
-                                a(a2, "mips64", linkedList, hashSet);
-                                break;
-                            case 6:
-                                a(a2, IDevices.ABI_MIPS, linkedList, hashSet);
-                                break;
+                                case 2:
+                                    a(a2, "armeabi", linkedList, hashSet);
+                                    break;
+                                case 3:
+                                    a(a2, "x86_64", linkedList, hashSet);
+                                    if (linkedList.size() == 0) {
+                                        a(a2, "arm64-v8a", linkedList, hashSet);
+                                        break;
+                                    }
+                                    break;
+                                case 4:
+                                    a(a2, "x86", linkedList, hashSet);
+                                    if (linkedList.size() == 0) {
+                                        a(a2, PassBiometricUtil.CPU_TYPE_ARMEABI_V7A, linkedList, hashSet);
+                                        a(a2, "armeabi", linkedList, hashSet);
+                                        break;
+                                    }
+                                    break;
+                                case 5:
+                                    a(a2, "mips64", linkedList, hashSet);
+                                    break;
+                                case 6:
+                                    a(a2, IDevices.ABI_MIPS, linkedList, hashSet);
+                                    break;
+                            }
                         }
+                        if (linkedList != null && !linkedList.isEmpty()) {
+                            if (!file2.exists()) {
+                                file2.mkdirs();
+                            }
+                            for (ZipEntry zipEntry : linkedList) {
+                                a(zipFile2, zipEntry, file2);
+                            }
+                        }
+                        ZeusLogger.i(ZeusLogger.TAG_INSTALL, "NativeLibHelper copyNativeLib, supportedSoEntries empty, pkg=".concat(String.valueOf(str)));
+                        zipFile2.close();
+                        return;
                     }
-                    if (linkedList != null && !linkedList.isEmpty()) {
-                        if (!file2.exists()) {
-                            file2.mkdirs();
-                        }
-                        for (ZipEntry zipEntry : linkedList) {
-                            a(zipFile, zipEntry, file2);
-                        }
+                    zipFile2.close();
+                } catch (Throwable th) {
+                    th = th;
+                    zipFile = zipFile2;
+                    if (zipFile != null) {
+                        zipFile.close();
                     }
-                    ZeusLogger.i(ZeusLogger.TAG_INSTALL, "NativeLibHelper copyNativeLib, supportedSoEntries empty, pkg=".concat(String.valueOf(str)));
-                    zipFile.close();
-                    return;
+                    throw th;
                 }
-                zipFile.close();
             } catch (Throwable th2) {
                 th = th2;
-                zipFile2 = zipFile;
-                if (zipFile2 != null) {
-                    zipFile2.close();
-                }
-                throw th;
             }
         }
     }

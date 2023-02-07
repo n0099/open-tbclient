@@ -1,385 +1,56 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.location.Address;
-import android.location.Geocoder;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.uf;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
+import com.baidu.tbadk.data.IconData;
+import com.baidu.tieba.immessagecenter.im.chat.personaltalk.PersonalTalkSettingActivity;
+import com.baidu.tieba.immessagecenter.im.chat.personaltalk.PersonalTalkSettingModel;
+import com.baidu.tieba.immessagecenter.im.chat.personaltalk.PersonalTalkSettingViewSettingView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.util.List;
-import java.util.Locale;
+import java.util.LinkedList;
+import protobuf.QueryUserInfos.DataRes;
+import protobuf.QueryUserInfos.IconInfo;
+import tbclient.PermissionList;
 /* loaded from: classes5.dex */
-public class ns7 implements vf {
+public class ns7 {
     public static /* synthetic */ Interceptable $ic;
-    public static ns7 n;
     public transient /* synthetic */ FieldHolder $fh;
-    public f a;
-    public Context b;
-    public uf.d c;
-    public LocationManager d;
-    public Address e;
-    public long f;
-    public Handler g;
-    public int h;
-    public boolean i;
-    public Runnable j;
-    public Runnable k;
-    public final LocationListener l;
-    public final LocationListener m;
+    public final PersonalTalkSettingActivity a;
+    public final NavigationBar b;
+    public final View c;
+    public final HeadImageView d;
+    public final TextView e;
+    public final UserIconBox f;
+    public final TextView g;
+    public ImageView h;
+    public TbSettingTextTipView i;
+    public TbSettingTextTipView j;
+    public TbSettingTextTipView k;
+    public RelativeLayout l;
+    public View m;
+    public PersonalTalkSettingViewSettingView n;
 
-    /* loaded from: classes5.dex */
-    public class a implements LocationListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ns7 a;
-
-        @Override // android.location.LocationListener
-        public void onProviderDisabled(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            }
-        }
-
-        @Override // android.location.LocationListener
-        public void onProviderEnabled(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            }
-        }
-
-        @Override // android.location.LocationListener
-        public void onStatusChanged(String str, int i, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048579, this, str, i, bundle) == null) {
-            }
-        }
-
-        public a(ns7 ns7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ns7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ns7Var;
-        }
-
-        @Override // android.location.LocationListener
-        public void onLocationChanged(Location location) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, location) == null) {
-                if (this.a.g.hasMessages(0)) {
-                    this.a.g.removeMessages(0);
-                }
-                this.a.g.removeCallbacks(this.a.k);
-                this.a.g.removeCallbacks(this.a.j);
-                if (this.a.a != null) {
-                    return;
-                }
-                this.a.a = new f(this.a, null);
-                this.a.a.setSelfExecute(true);
-                this.a.a.execute(location);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements LocationListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ns7 a;
-
-        @Override // android.location.LocationListener
-        public void onProviderDisabled(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            }
-        }
-
-        @Override // android.location.LocationListener
-        public void onProviderEnabled(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            }
-        }
-
-        @Override // android.location.LocationListener
-        public void onStatusChanged(String str, int i, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048579, this, str, i, bundle) == null) {
-            }
-        }
-
-        public b(ns7 ns7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ns7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ns7Var;
-        }
-
-        @Override // android.location.LocationListener
-        public void onLocationChanged(Location location) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, location) == null) {
-                if (this.a.g.hasMessages(0)) {
-                    this.a.g.removeMessages(0);
-                }
-                this.a.g.removeCallbacks(this.a.k);
-                this.a.g.removeCallbacks(this.a.j);
-                if (this.a.a != null) {
-                    return;
-                }
-                this.a.a = new f(this.a, null);
-                this.a.a.setSelfExecute(true);
-                this.a.a.execute(location);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ns7 a;
-
-        public c(ns7 ns7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ns7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ns7Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.d != null && PermissionUtil.checkLocationForGoogle(this.a.b)) {
-                try {
-                    this.a.d.requestLocationUpdates("network", 10000L, 100.0f, this.a.l);
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ns7 a;
-
-        public d(ns7 ns7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ns7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ns7Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.d != null && PermissionUtil.checkLocationForGoogle(this.a.b)) {
-                try {
-                    this.a.d.requestLocationUpdates("gps", 10000L, 100.0f, this.a.m);
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class e implements Handler.Callback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ns7 a;
-
-        public e(ns7 ns7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ns7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ns7Var;
-        }
-
-        @Override // android.os.Handler.Callback
-        public boolean handleMessage(Message message) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-                if (message.what == 0) {
-                    this.a.c();
-                    this.a.c.a(this.a.h, "", null, this.a.f, this.a.i);
-                    return false;
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class f extends BdAsyncTask<Location, Void, Address> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ns7 a;
-
-        public f(ns7 ns7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ns7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ns7Var;
-        }
-
-        public /* synthetic */ f(ns7 ns7Var, a aVar) {
-            this(ns7Var);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Address doInBackground(Location... locationArr) {
-            InterceptResult invokeL;
-            List<Address> list;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, locationArr)) == null) {
-                Geocoder geocoder = new Geocoder(this.a.b, Locale.getDefault());
-                if (locationArr != null && locationArr.length >= 1) {
-                    Location location = locationArr[0];
-                    try {
-                        list = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
-                    } catch (IOException | IllegalArgumentException unused) {
-                        list = null;
-                    }
-                    if (list != null && list.size() > 0) {
-                        Address address = list.get(0);
-                        StringBuffer stringBuffer = new StringBuffer();
-                        if (address.getSubLocality() == null || address.getThoroughfare() == null) {
-                            stringBuffer.append(address.getLocality());
-                        }
-                        stringBuffer.append(address.getSubLocality());
-                        stringBuffer.append(address.getThoroughfare());
-                        address.setAddressLine(0, stringBuffer.toString());
-                        return address;
-                    }
-                }
-                return null;
-            }
-            return (Address) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(Address address) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, address) == null) {
-                super.onPostExecute(address);
-                this.a.a = null;
-                if (address != null) {
-                    this.a.c();
-                    this.a.f = System.currentTimeMillis();
-                    this.a.e = address;
-                    this.a.c.a(0, "", this.a.e, this.a.f, this.a.i);
-                    ap8.e().i(String.valueOf(address.getLatitude()));
-                    ap8.e().j(String.valueOf(address.getLongitude()));
-                    ap8.e().k(System.currentTimeMillis());
-                }
-            }
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPreCancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                super.onPreCancel();
-                this.a.a = null;
-            }
-        }
-    }
-
-    public ns7() {
+    public ns7(PersonalTalkSettingActivity personalTalkSettingActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {personalTalkSettingActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -389,147 +60,198 @@ public class ns7 implements vf {
                 return;
             }
         }
-        this.a = null;
-        this.c = null;
-        this.e = null;
-        this.f = 0L;
-        this.g = null;
-        this.i = false;
-        this.j = null;
-        this.k = null;
-        this.l = new a(this);
-        this.m = new b(this);
+        this.a = personalTalkSettingActivity;
+        personalTalkSettingActivity.setContentView(R.layout.obfuscated_res_0x7f0d06c2);
+        View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091a61);
+        this.c = findViewById;
+        NavigationBar navigationBar = (NavigationBar) findViewById.findViewById(R.id.view_navigation_bar);
+        this.b = navigationBar;
+        navigationBar.setCenterTextTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1438));
+        this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        PersonalTalkSettingViewSettingView personalTalkSettingViewSettingView = (PersonalTalkSettingViewSettingView) this.a.findViewById(R.id.obfuscated_res_0x7f091f61);
+        this.n = personalTalkSettingViewSettingView;
+        personalTalkSettingViewSettingView.b.setSwitchStateChangeListener(this.a);
+        this.l = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0925b4);
+        this.i = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f09206d);
+        this.j = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f09206e);
+        this.k = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f09012b);
+        this.i.setOnClickListener(this.a);
+        this.j.setOnClickListener(this.a);
+        this.k.setOnClickListener(this.a);
+        this.l.setOnClickListener(this.a);
+        HeadImageView headImageView = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091a9b);
+        this.d = headImageView;
+        headImageView.setIsRound(true);
+        this.d.setGodIconWidth(R.dimen.tbds47);
+        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090f38);
+        this.h = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090f36);
+        this.f = (UserIconBox) this.a.findViewById(R.id.user_icon_box);
+        this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092598);
+        this.m = this.a.findViewById(R.id.obfuscated_res_0x7f09086a);
     }
 
-    public static ns7 t() {
-        InterceptResult invokeV;
+    /* JADX WARN: Removed duplicated region for block: B:27:0x008c  */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x009a  */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x00a5  */
+    /* JADX WARN: Removed duplicated region for block: B:44:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void g(PersonalTalkSettingModel personalTalkSettingModel) {
+        String nameShow;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
-            if (n == null) {
-                synchronized (ns7.class) {
-                    if (n == null) {
-                        n = new ns7();
-                    }
-                }
+        if ((interceptable == null || interceptable.invokeL(1048582, this, personalTalkSettingModel) == null) && personalTalkSettingModel != null && personalTalkSettingModel.R() != null) {
+            DataRes R = personalTalkSettingModel.R();
+            TextView textView = this.e;
+            String str = "";
+            if (StringUtils.isNull(personalTalkSettingModel.getNameShow())) {
+                nameShow = R.name + "";
+            } else {
+                nameShow = personalTalkSettingModel.getNameShow();
             }
-            return n;
-        }
-        return (ns7) invokeV.objValue;
-    }
-
-    public final void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.g = new Handler(Looper.getMainLooper(), new e(this));
-        }
-    }
-
-    @Override // com.baidu.tieba.vf
-    public void a(boolean z) {
-        LocationManager locationManager;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && this.c != null && (locationManager = this.d) != null) {
-            try {
-                try {
-                    locationManager.removeUpdates(this.l);
-                    this.h = 4;
-                    this.i = z;
-                } catch (Exception e2) {
-                    BdLog.e(e2.getMessage());
-                    c();
-                    this.h = 5;
+            textView.setText(nameShow);
+            if (R.sex.intValue() == 1) {
+                this.e.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_pop_boy, 0);
+            } else if (R.sex.intValue() == 2) {
+                if (R.iconInfo.size() > 0 && R.iconInfo.get(0).name.equals(IconData.meizhi_icon_name)) {
+                    this.e.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+                } else {
+                    this.e.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_pop_girl, 0);
                 }
-                if (PermissionUtil.checkLocationForGoogle(this.b) && (this.d.isProviderEnabled("gps") || this.d.isProviderEnabled("network"))) {
-                    if (PermissionUtil.checkLocationForGoogle(this.b) && this.d.isProviderEnabled("gps")) {
-                        this.g.post(this.k);
-                    } else {
-                        this.h = 1;
+            } else {
+                i = 9;
+                if (personalTalkSettingModel.T() != null) {
+                    str = ms7.a(personalTalkSettingModel.T());
+                }
+                if (StringUtils.isNull(str)) {
+                    str = R.intro;
+                }
+                this.g.setText(str);
+                if (this.f == null) {
+                    LinkedList linkedList = new LinkedList();
+                    for (IconInfo iconInfo : R.iconInfo) {
+                        IconData iconData = new IconData();
+                        iconData.setIconName(iconInfo.name);
+                        iconData.setIcon(iconInfo.iconUrl);
+                        linkedList.add(iconData);
                     }
-                    if (!z) {
-                        if (PermissionUtil.checkLocationForGoogle(this.b) && this.d.isProviderEnabled("network")) {
-                            this.g.post(this.j);
-                        } else {
-                            this.h = 2;
-                        }
-                    }
+                    this.f.g(linkedList, i, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f9), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f9), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224));
                     return;
                 }
-                this.h = 3;
-                this.g.sendMessageDelayed(this.g.obtainMessage(0), uf.n().o());
-            } finally {
-                Handler handler = this.g;
-                handler.sendMessageDelayed(handler.obtainMessage(0), uf.n().o());
+                return;
+            }
+            i = 8;
+            if (personalTalkSettingModel.T() != null) {
+            }
+            if (StringUtils.isNull(str)) {
+            }
+            this.g.setText(str);
+            if (this.f == null) {
             }
         }
     }
 
-    @Override // com.baidu.tieba.vf
-    public void b(uf.d dVar) {
+    public void a(PermissionList permissionList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
-            Context context = TbadkCoreApplication.getInst().getContext();
-            this.b = context;
-            this.c = dVar;
-            try {
-                this.d = (LocationManager) context.getSystemService("location");
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
+        if ((interceptable == null || interceptable.invokeL(1048576, this, permissionList) == null) && permissionList != null && this.n != null) {
+            StringBuilder sb = new StringBuilder();
+            if (permissionList.follow.intValue() == 1) {
+                sb.append("关注、");
             }
-            this.j = new c(this);
-            this.k = new d(this);
-            u();
+            if (permissionList.interact.intValue() == 1) {
+                sb.append("互动、");
+            }
+            if (permissionList.chat.intValue() == 1) {
+                sb.append("私信");
+                this.m.setVisibility(8);
+                this.n.a.setVisibility(8);
+                this.n.b.setVisibility(8);
+            } else {
+                this.n.a.setVisibility(0);
+                this.n.b.setVisibility(0);
+            }
+            if (!StringUtils.isNull(sb.toString()) && sb.length() > 0) {
+                sb.insert(0, "禁止");
+            } else {
+                sb.delete(0, sb.length());
+            }
+            String sb2 = sb.toString();
+            if (!StringUtils.isNull(sb2) && sb2.endsWith("、")) {
+                sb2 = sb2.substring(0, sb2.length() - 1);
+            }
+            this.k.setTip(sb2);
         }
     }
 
-    @Override // com.baidu.tieba.vf
-    public void c() {
+    public void b(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.g.hasMessages(0)) {
-                this.g.removeMessages(0);
-            }
-            this.g.removeCallbacks(this.k);
-            this.g.removeCallbacks(this.j);
-            LocationManager locationManager = this.d;
-            if (locationManager != null) {
-                try {
-                    locationManager.removeUpdates(this.l);
-                    this.d.removeUpdates(this.m);
-                } catch (Throwable th) {
-                    BdLog.detailException(th);
-                }
-            }
-            f fVar = this.a;
-            if (fVar != null) {
-                fVar.cancel();
-                this.a = null;
-            }
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.n.a(z);
         }
     }
 
-    @Override // com.baidu.tieba.vf
-    public void destroy() {
+    public void e(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.g.hasMessages(0)) {
-                this.g.removeMessages(0);
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.n.c(z);
+        }
+    }
+
+    public void f(BdSwitchView.b bVar) {
+        PersonalTalkSettingViewSettingView personalTalkSettingViewSettingView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) && (personalTalkSettingViewSettingView = this.n) != null) {
+            personalTalkSettingViewSettingView.setSwitchStateChangeListener(bVar);
+        }
+    }
+
+    public void c(PersonalTalkSettingModel personalTalkSettingModel) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, personalTalkSettingModel) == null) && personalTalkSettingModel != null && personalTalkSettingModel.R() != null && (str = personalTalkSettingModel.R().portrait) != null && str.length() > 0) {
+            this.d.setImageResource(0);
+            UtilHelper.showHeadImageViewBigV(this.d, personalTalkSettingModel.T());
+            this.d.setTag(null);
+            this.d.setPageId(this.a.getUniqueId());
+            this.d.K(str, 12, false);
+        }
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.a.getLayoutMode().k(this.c);
+            this.b.onChangeSkinType(this.a.getPageContext(), i);
+            p15 d = p15.d(this.e);
+            d.A(R.string.F_X02);
+            d.z(R.dimen.T_X04);
+            d.v(R.color.CAM_X0105);
+            p15 d2 = p15.d(this.g);
+            d2.A(R.string.F_X01);
+            d2.z(R.dimen.T_X08);
+            d2.v(R.color.CAM_X0109);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.h, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+            SkinManager.setBackgroundColor(this.i, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.k, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0201);
+        }
+    }
+
+    public void h(PersonalTalkSettingModel personalTalkSettingModel) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, personalTalkSettingModel) == null) && personalTalkSettingModel != null) {
+            a(personalTalkSettingModel.S());
+            b(personalTalkSettingModel.isNotify());
+            if (fo7.a(String.valueOf(personalTalkSettingModel.getUid())) > 0) {
+                z = true;
+            } else {
+                z = false;
             }
-            this.g.removeCallbacks(this.k);
-            this.g.removeCallbacks(this.j);
-            LocationManager locationManager = this.d;
-            if (locationManager != null) {
-                try {
-                    locationManager.removeUpdates(this.l);
-                    this.d.removeUpdates(this.m);
-                } catch (Exception e2) {
-                    BdLog.detailException(e2);
-                }
-            }
-            f fVar = this.a;
-            if (fVar != null) {
-                fVar.cancel();
-                this.a = null;
-            }
+            e(z);
+            g(personalTalkSettingModel);
+            c(personalTalkSettingModel);
         }
     }
 }

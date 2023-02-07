@@ -1,95 +1,61 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class pp0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public String b;
-    public final String c;
-    public final String d;
-    public final boolean e;
+public interface pp0 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "maxUI");
+    public static final pp0 b = new a();
 
-    public pp0(@NonNull JSONObject jSONObject, boolean z) {
-        String str;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    int a();
+
+    int b();
+
+    int c();
+
+    /* loaded from: classes5.dex */
+    public static class a implements pp0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.pp0
+        public int a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.nad_max_bottom : invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.pp0
+        public int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.nad_max_top : invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.pp0
+        public int c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.nad_max_over_info_vertical : invokeV.intValue;
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        if (z) {
-            str = EmotionResourceInfo.JSON_KEY_PKG_NAME;
-        } else {
-            str = "apk_name";
-        }
-        this.a = jSONObject.optString(str);
-        if (z) {
-            str2 = "key";
-        } else {
-            str2 = "download_key";
-        }
-        this.d = jSONObject.optString(str2);
-        this.b = jSONObject.optString("deferred_cmd");
-        this.c = jSONObject.optString("download_url");
-        jSONObject.optString("source", "apk_yuansheng");
-        this.e = a();
-    }
-
-    @Nullable
-    public static pp0 b(@Nullable JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            return new pp0(jSONObject, false);
-        }
-        return (pp0) invokeL.objValue;
-    }
-
-    @Nullable
-    public static pp0 c(@Nullable JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            return new pp0(jSONObject, true);
-        }
-        return (pp0) invokeL.objValue;
-    }
-
-    public final boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!TextUtils.isEmpty(this.d) && !TextUtils.isEmpty(this.c)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

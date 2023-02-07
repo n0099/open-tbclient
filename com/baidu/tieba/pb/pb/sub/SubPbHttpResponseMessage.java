@@ -4,7 +4,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.o58;
+import com.baidu.tieba.ja8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,21 +16,19 @@ import tbclient.PbFloor.PbFloorResIdl;
 public class SubPbHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public o58 pbFloorData;
+    public ja8 pbFloorData;
     public boolean treatDelPage;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SubPbHttpResponseMessage(int i) {
+    public SubPbHttpResponseMessage() {
         super(CmdConfigHttp.SubPb_HTTP_CMD);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -51,13 +49,13 @@ public class SubPbHttpResponseMessage extends TbHttpResponsedMessage {
             if (extra != null && (extra instanceof SubPbRequestMessage)) {
                 this.treatDelPage = ((SubPbRequestMessage) extra).isTreatDelPage();
             }
-            o58 o58Var = null;
+            ja8 ja8Var = null;
             try {
                 PbFloorResIdl pbFloorResIdl = (PbFloorResIdl) new Wire(new Class[0]).parseFrom(bArr, PbFloorResIdl.class);
                 if (pbFloorResIdl != null && pbFloorResIdl.data != null) {
-                    o58Var = o58.w(pbFloorResIdl.data);
-                    if (o58Var != null) {
-                        o58Var.m = pbFloorResIdl.error;
+                    ja8Var = ja8.t(pbFloorResIdl.data);
+                    if (ja8Var != null) {
+                        ja8Var.m = pbFloorResIdl.error;
                     } else if (pbFloorResIdl.error != null) {
                         if (pbFloorResIdl.error.errorno != null) {
                             setError(pbFloorResIdl.error.errorno.intValue());
@@ -68,7 +66,7 @@ public class SubPbHttpResponseMessage extends TbHttpResponsedMessage {
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
-            this.pbFloorData = o58Var;
+            this.pbFloorData = ja8Var;
         }
     }
 

@@ -15,16 +15,16 @@ import com.baidu.tbadk.core.atomData.AlaFrsStoryLiveGatherActivityConfig;
 import com.baidu.tbadk.core.atomData.AlaGameFrsLiveListActivityConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a16;
 import com.baidu.tieba.ala.frsgamelive.message.AlaFrsStoryLiveGatherRespMessage;
 import com.baidu.tieba.ala.frsgamelive.message.AlaGameFrsLiveThreadsRespMessage;
 import com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsStoryLiveGatherActivity;
 import com.baidu.tieba.ala.gamefrslivelist.AlaGameFrsLiveListActivity;
 import com.baidu.tieba.ala.gamelist.mvc.AlaAllGameLiveEntryActivity;
-import com.baidu.tieba.b16;
-import com.baidu.tieba.po6;
-import com.baidu.tieba.qo6;
-import com.baidu.tieba.t06;
+import com.baidu.tieba.at6;
+import com.baidu.tieba.bt6;
+import com.baidu.tieba.f56;
+import com.baidu.tieba.m56;
+import com.baidu.tieba.n56;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -70,18 +70,18 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof qo6)) {
+            if (!(data instanceof bt6)) {
                 return;
             }
-            qo6 qo6Var = (qo6) data;
-            t06 t06Var = new t06(true);
-            t06Var.b().e = 2;
-            t06Var.h(qo6Var.c());
-            t06Var.i(qo6Var.d());
-            t06Var.g(qo6Var.b());
-            t06Var.j(1);
-            t06Var.k(false);
-            qo6Var.a(t06Var);
+            bt6 bt6Var = (bt6) data;
+            f56 f56Var = new f56(true);
+            f56Var.b().e = 2;
+            f56Var.h(bt6Var.c());
+            f56Var.i(bt6Var.d());
+            f56Var.g(bt6Var.b());
+            f56Var.j(1);
+            f56Var.k(false);
+            bt6Var.a(f56Var);
         }
     }
 
@@ -118,19 +118,19 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof po6)) {
+            if (!(data instanceof at6)) {
                 return;
             }
-            po6 po6Var = (po6) data;
-            t06 t06Var = new t06(true);
-            t06Var.b().e = 9;
-            t06Var.h(po6Var.c());
-            t06Var.i(po6Var.d());
-            t06Var.g(po6Var.b());
-            t06Var.j(1);
-            t06Var.k(true);
-            if (po6Var.h(9)) {
-                po6Var.a(t06Var);
+            at6 at6Var = (at6) data;
+            f56 f56Var = new f56(true);
+            f56Var.b().e = 9;
+            f56Var.h(at6Var.c());
+            f56Var.i(at6Var.d());
+            f56Var.g(at6Var.b());
+            f56Var.j(1);
+            f56Var.k(true);
+            if (at6Var.h(9)) {
+                at6Var.a(f56Var);
             }
         }
     }
@@ -168,18 +168,18 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof qo6)) {
+            if (!(data instanceof bt6)) {
                 return;
             }
-            qo6 qo6Var = (qo6) data;
-            t06 t06Var = new t06(false);
-            t06Var.b().e = 1;
-            t06Var.h(qo6Var.c());
-            t06Var.i(qo6Var.d());
-            t06Var.g(qo6Var.b());
-            t06Var.j(2);
-            t06Var.k(false);
-            qo6Var.a(t06Var);
+            bt6 bt6Var = (bt6) data;
+            f56 f56Var = new f56(false);
+            f56Var.b().e = 1;
+            f56Var.h(bt6Var.c());
+            f56Var.i(bt6Var.d());
+            f56Var.g(bt6Var.b());
+            f56Var.j(2);
+            f56Var.k(false);
+            bt6Var.a(f56Var);
         }
     }
 
@@ -216,16 +216,16 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof qo6)) {
+            if (!(data instanceof bt6)) {
                 return;
             }
-            qo6 qo6Var = (qo6) data;
-            b16 b16Var = new b16();
-            b16Var.b().e = 3;
-            b16Var.g(qo6Var.c());
-            b16Var.h(qo6Var.d());
-            b16Var.i(false);
-            qo6Var.a(b16Var);
+            bt6 bt6Var = (bt6) data;
+            n56 n56Var = new n56();
+            n56Var.b().e = 3;
+            n56Var.g(bt6Var.c());
+            n56Var.h(bt6Var.d());
+            n56Var.i(false);
+            bt6Var.a(n56Var);
         }
     }
 
@@ -262,18 +262,18 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof po6)) {
+            if (!(data instanceof at6)) {
                 return;
             }
-            po6 po6Var = (po6) data;
-            b16 b16Var = new b16();
-            b16Var.b().e = 8;
-            b16Var.b().b = R.string.obfuscated_res_0x7f0f0255;
-            b16Var.g(po6Var.c());
-            b16Var.h(po6Var.d());
-            b16Var.i(true);
-            if (po6Var.h(8)) {
-                po6Var.a(b16Var);
+            at6 at6Var = (at6) data;
+            n56 n56Var = new n56();
+            n56Var.b().e = 8;
+            n56Var.b().b = R.string.obfuscated_res_0x7f0f0255;
+            n56Var.g(at6Var.c());
+            n56Var.h(at6Var.d());
+            n56Var.i(true);
+            if (at6Var.h(8)) {
+                at6Var.a(n56Var);
             }
         }
     }
@@ -311,15 +311,15 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof po6)) {
+            if (!(data instanceof at6)) {
                 return;
             }
-            po6 po6Var = (po6) data;
-            a16 a16Var = new a16();
-            a16Var.i(po6Var.c());
-            a16Var.j(po6Var.d());
-            a16Var.h(po6Var.b());
-            a16Var.g(po6Var);
+            at6 at6Var = (at6) data;
+            m56 m56Var = new m56();
+            m56Var.i(at6Var.c());
+            m56Var.j(at6Var.d());
+            m56Var.h(at6Var.b());
+            m56Var.g(at6Var);
         }
     }
 

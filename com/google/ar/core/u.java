@@ -3,7 +3,7 @@ package com.google.ar.core;
 import android.os.Bundle;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.e3a;
+import com.baidu.tieba.n7a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,7 +13,7 @@ import com.google.ar.core.ArCoreApk;
 public final class u extends com.google.a.b.a.a.a.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ e3a a;
+    public final /* synthetic */ n7a a;
 
     @Override // com.google.a.b.a.a.a.d
     public final void a() {
@@ -29,12 +29,12 @@ public final class u extends com.google.a.b.a.a.a.e {
         }
     }
 
-    public u(e3a e3aVar) {
+    public u(n7a n7aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {e3aVar};
+            Object[] objArr = {n7aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,7 +44,7 @@ public final class u extends com.google.a.b.a.a.a.e {
                 return;
             }
         }
-        this.a = e3aVar;
+        this.a = n7aVar;
     }
 
     @Override // com.google.a.b.a.a.a.d

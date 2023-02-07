@@ -17,11 +17,11 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.en4;
-import com.baidu.tieba.jn;
-import com.baidu.tieba.ug;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.on;
+import com.baidu.tieba.rr4;
 import com.baidu.tieba.view.RoundRelativeLayout;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -32,7 +32,7 @@ public class NewUserRedPackageActivity extends BaseActivity {
     public transient /* synthetic */ FieldHolder $fh;
     public RoundRelativeLayout a;
     public NewUserRedPackageData b;
-    public en4 c;
+    public rr4 c;
     public ImageView d;
     public ImageView e;
     public View.OnClickListener f;
@@ -147,27 +147,27 @@ public class NewUserRedPackageActivity extends BaseActivity {
             setContentView(R.layout.obfuscated_res_0x7f0d0045);
             RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.round_corner_layout);
             this.a = roundRelativeLayout;
-            roundRelativeLayout.setAllCornerRound(zi.g(this, R.dimen.tbds31));
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f64);
+            roundRelativeLayout.setAllCornerRound(ej.g(this, R.dimen.tbds31));
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fa8);
             this.e = (ImageView) findViewById(R.id.img_btn_close);
             this.d.setOnClickListener(this.f);
             this.e.setOnClickListener(this.f);
             z1();
             TiebaStatic.log(new StatisticItem("c13684").param("obj_type", 1));
-            this.c = new en4();
+            this.c = new rr4();
         }
     }
 
     public final void z1() {
-        jn jnVar;
+        on onVar;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || getIntent() == null) {
             return;
         }
         NewUserRedPackageData newUserRedPackageData = (NewUserRedPackageData) getIntent().getSerializableExtra(NewUserRedPackageActivityConfig.KEY_DATA);
         this.b = newUserRedPackageData;
-        if (newUserRedPackageData != null && (jnVar = (jn) ug.h().n(this.b.topPicUrl, 10, new Object[0])) != null) {
-            this.d.setImageBitmap(jnVar.p());
+        if (newUserRedPackageData != null && (onVar = (on) zg.h().n(this.b.topPicUrl, 10, new Object[0])) != null) {
+            this.d.setImageBitmap(onVar.p());
         }
     }
 }

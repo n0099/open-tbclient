@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.down.retry.HttpRetryStatistic;
+import com.baidu.searchbox.retrieve.debug.provider.DebugActiveUploadResult;
 import com.kwad.sdk.core.network.j;
 import com.kwad.sdk.core.network.k;
 import com.kwad.sdk.core.network.l;
@@ -61,7 +62,7 @@ public final class d implements b {
             return true;
         }
         String lowerCase = jVar.url.toLowerCase();
-        return lowerCase.contains("beta") || lowerCase.contains("test") || lowerCase.contains("staging");
+        return lowerCase.contains("beta") || lowerCase.contains(DebugActiveUploadResult.SOURCE) || lowerCase.contains("staging");
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -1,86 +1,36 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 /* loaded from: classes7.dex */
-public class zd2 {
+public class zd2 implements yd2 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile zd2 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<String> a;
-    public final Map<String, a<Boolean>> b;
-    public final Map<String, a<b>> c;
-    public a<Exception> d;
+    public final Map<String, xd2> a;
 
     /* loaded from: classes7.dex */
-    public static class a<T> {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Set<cj3<T>> a;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ zd2 b;
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new HashSet();
-        }
-
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.clear();
-            }
-        }
-
-        public void a(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
-                for (cj3<T> cj3Var : this.a) {
-                    cj3Var.a(t);
-                }
-            }
-        }
-
-        public void c(cj3<T> cj3Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cj3Var) == null) && cj3Var != null) {
-                this.a.add(cj3Var);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final long a;
-        public final long b;
-
-        public b(long j, long j2) {
+        public a(zd2 zd2Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
+                Object[] objArr = {zd2Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -90,147 +40,152 @@ public class zd2 {
                     return;
                 }
             }
-            this.a = j;
-            this.b = j2;
-            int i3 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
+            this.b = zd2Var;
+            this.a = str;
         }
 
-        public boolean a() {
-            InterceptResult invokeV;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.b > 0) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948356033, "Lcom/baidu/tieba/zd2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948356033, "Lcom/baidu/tieba/zd2;");
-                return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.h(this.a);
             }
         }
-        boolean z = tk1.a;
-    }
-
-    public HashSet<String> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new HashSet<>(this.a);
-        }
-        return (HashSet) invokeV.objValue;
     }
 
     public zd2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashSet();
-        this.b = new HashMap();
-        this.c = new HashMap();
-        this.d = new a<>();
+        this.a = new HashMap();
     }
 
-    public static <T> a<T> i(Map<String, a<T>> map, String str) {
-        InterceptResult invokeLL;
+    public static zd2 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, map, str)) == null) {
-            a<T> aVar = map.get(str);
-            if (aVar == null) {
-                a<T> aVar2 = new a<>();
-                map.put(str, aVar2);
-                return aVar2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (zd2.class) {
+                    if (b == null) {
+                        b = new zd2();
+                    }
+                }
             }
-            return aVar;
+            return b;
         }
-        return (a) invokeLL.objValue;
+        return (zd2) invokeV.objValue;
     }
 
-    public void c(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
-            a i = i(this.b, str);
-            i.a(Boolean.valueOf(z));
-            i.b();
-        }
-    }
-
-    public void d(String str, b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, bVar) == null) {
-            if (bVar == null || bVar.a()) {
-                i(this.c, str).a(bVar);
-            }
-        }
-    }
-
-    public zd2 h(String str, cj3<Boolean> cj3Var) {
+    public synchronized zd2 b(String str, UbcFlowEvent ubcFlowEvent) {
         InterceptResult invokeLL;
+        xd2 xd2Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, cj3Var)) == null) {
-            g(this.b, str, cj3Var);
-            return this;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, ubcFlowEvent)) == null) {
+            synchronized (this) {
+                if (c(str) && (xd2Var = this.a.get(str)) != null) {
+                    xd2Var.a(str, ubcFlowEvent);
+                    return this;
+                }
+                return this;
+            }
         }
         return (zd2) invokeLL.objValue;
     }
 
-    public void b(Exception exc) {
+    public synchronized zd2 f(String str, ae2 ae2Var) {
+        InterceptResult invokeLL;
+        xd2 xd2Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-            this.d.a(exc);
-            this.d.b();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, ae2Var)) == null) {
+            synchronized (this) {
+                if (c(str) && (xd2Var = this.a.get(str)) != null) {
+                    xd2Var.e(str, ae2Var);
+                    return this;
+                }
+                return this;
+            }
+        }
+        return (zd2) invokeLL.objValue;
+    }
+
+    public void j(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048583, this, str, j) == null) {
+            ExecutorUtilsExt.delayPostOnElastic(new a(this, str), "PrefetchStageRecorder", 3, j);
         }
     }
 
-    public zd2 e(cj3<Exception> cj3Var) {
+    public final boolean c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cj3Var)) == null) {
-            this.d.c(cj3Var);
-            return this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return !TextUtils.isEmpty(str);
         }
-        return (zd2) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public zd2 f(String... strArr) {
+    public final synchronized void h(String str) {
+        xd2 xd2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            synchronized (this) {
+                if (c(str) && (xd2Var = this.a.get(str)) != null) {
+                    this.a.remove(str);
+                    xd2Var.h(str);
+                }
+            }
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            j(str, 0L);
+        }
+    }
+
+    public synchronized zd2 e(String str, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        xd2 xd2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            synchronized (this) {
+                if (c(str) && (xd2Var = this.a.get(str)) != null) {
+                    xd2Var.d(str, z);
+                    if (z2) {
+                        i(str);
+                    }
+                    return this;
+                }
+                return this;
+            }
+        }
+        return (zd2) invokeCommon.objValue;
+    }
+
+    public synchronized zd2 g(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, strArr)) == null) {
-            this.a.addAll(Arrays.asList(strArr));
-            return this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            synchronized (this) {
+                if (c(str) && !this.a.containsKey(str)) {
+                    xd2 xd2Var = new xd2();
+                    this.a.put(str, xd2Var);
+                    xd2Var.f(str);
+                    return this;
+                }
+                return this;
+            }
         }
         return (zd2) invokeL.objValue;
-    }
-
-    public final <T> zd2 g(Map<String, a<T>> map, String str, cj3<T> cj3Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, map, str, cj3Var)) == null) {
-            f(str);
-            i(map, str).c(cj3Var);
-            return this;
-        }
-        return (zd2) invokeLLL.objValue;
     }
 }

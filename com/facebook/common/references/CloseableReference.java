@@ -56,7 +56,7 @@ public abstract class CloseableReference<T> implements Cloneable, Closeable {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // 
     /* renamed from: clone */
-    public abstract CloseableReference<T> mo81clone();
+    public abstract CloseableReference<T> mo83clone();
 
     static {
         InterceptResult invokeClinit;
@@ -203,7 +203,7 @@ public abstract class CloseableReference<T> implements Cloneable, Closeable {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
                 if (isValid()) {
-                    return mo81clone();
+                    return mo83clone();
                 }
                 return null;
             }

@@ -1,118 +1,96 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
-import androidx.annotation.Nullable;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
-import com.baidu.tbadk.core.atomData.WorkPublishManager;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.frs.ForumWriteData;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tieba.video.VideoItemData;
+import com.baidu.tieba.videoplay.VideoPlayView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes4.dex */
 public class ic9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ViewGroup a;
-    public boolean b;
-    public ForumWriteData c;
-    public int d;
-    public kc9 e;
-    public String f;
-    public String g;
-    public String h;
+    public int a;
+    public int b;
+    public cc9 c;
+    public VideoPlayView.i d;
+    public int e;
+    public Set<String> f;
 
-    public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-        }
-    }
-
-    public ic9(TbPageContext tbPageContext, ViewGroup viewGroup, String str, int i, @Nullable p35 p35Var) {
+    public ic9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, viewGroup, str, Integer.valueOf(i), p35Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = false;
-        this.d = 3;
-        this.f = "";
-        this.g = AlbumActivityConfig.FROM_WRITE;
-        this.h = "0";
-        this.a = viewGroup;
-        this.g = str;
-        if (!"main_tab".equals(str)) {
-            "frs".equals(this.g);
-        }
-        this.e = new kc9(tbPageContext, str);
-        d(TbadkCoreApplication.getInst().getSkinType());
+        this.a = 0;
+        this.b = 0;
+        this.f = new HashSet();
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void c(s9 s9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, s9Var) == null) {
-            this.e.c(s9Var, this.c, this.f);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.e = Math.min(7, TbConfig.PREFETCH_NEXT_VIDEO_NUM);
+            this.b = this.a + 1;
+            b();
         }
     }
 
-    public void d(int i) {
+    public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && this.d != i) {
-            this.d = i;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.c != null && this.e > 0) {
+            while (this.b < this.c.k()) {
+                VideoItemData s = this.c.s(this.b);
+                this.b++;
+                if (s != null && !TextUtils.isEmpty(s.video_url)) {
+                    this.e--;
+                    if (!this.f.contains(s.video_url)) {
+                        CyberPlayerManager.prefetch(s.video_url, null, null, TbConfig.PREFETCH_NEXT_VIDEO_SIZE, null);
+                        this.f.add(s.video_url);
+                    }
+                    if (this.e <= 0) {
+                        break;
+                    }
+                }
+            }
+            if (this.e > 0 && this.d != null && this.c.k() - this.a < 10) {
+                this.d.a();
+            }
         }
     }
 
-    public void h(String str) {
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.h = str;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.a = i;
         }
     }
 
-    public void f(int i) {
+    public void d(cc9 cc9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            WorkPublishManager.setObjLocate(this.h);
-            a(false);
-            this.e.j(this.c, i, this.f);
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_ENTRANCE_CLICKED).param("obj_locate", this.h).param("obj_type", 3));
+        if (interceptable == null || interceptable.invokeL(1048579, this, cc9Var) == null) {
+            this.c = cc9Var;
+        }
+    }
+
+    public void e(VideoPlayView.i iVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, iVar) == null) {
+            this.d = iVar;
         }
     }
 }

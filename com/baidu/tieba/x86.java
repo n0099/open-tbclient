@@ -1,7 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
 public interface x86 {
-    void a(String str);
-
-    void p(int i);
+    boolean a();
 }

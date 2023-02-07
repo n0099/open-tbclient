@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jj;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.oj;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -161,7 +161,7 @@ public class BdToast {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Toast toast = new Toast(this.a);
             this.b = toast;
-            jj.a(toast);
+            oj.a(toast);
             l();
             int i = this.g;
             if (i != -1) {
@@ -175,9 +175,9 @@ public class BdToast {
                 this.d.setVisibility(8);
             }
             if (this.j != 0) {
-                this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(zi.g(this.a, R.dimen.tbds32), this.j));
+                this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(ej.g(this.a, R.dimen.tbds32), this.j));
             } else {
-                this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(zi.g(this.a, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
+                this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(ej.g(this.a, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
             }
             SkinManager.setViewTextColor(this.e, R.color.CAM_X0101, 1);
             this.e.setText(this.f);
@@ -252,7 +252,7 @@ public class BdToast {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIII = interceptable.invokeIII(1048582, this, i, i2, i3)) == null) {
-            i(i, i2, i3, UtilHelper.getDimenPixelSize(R.dimen.obfuscated_res_0x7f0702c3));
+            i(i, i2, i3, UtilHelper.getDimenPixelSize(R.dimen.obfuscated_res_0x7f0702c4));
             return this;
         }
         return (BdToast) invokeIII.objValue;

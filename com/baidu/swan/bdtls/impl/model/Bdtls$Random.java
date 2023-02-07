@@ -2,7 +2,7 @@ package com.baidu.swan.bdtls.impl.model;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.nn3;
+import com.baidu.tieba.as3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -273,7 +273,7 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                Bdtls$Random bdtls$Random = new Bdtls$Random(this, (nn3) null);
+                Bdtls$Random bdtls$Random = new Bdtls$Random(this, (as3) null);
                 int i = this.a;
                 int i2 = 1;
                 if ((i & 1) != 1) {
@@ -564,7 +564,7 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
         }
     }
 
-    public /* synthetic */ Bdtls$Random(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, nn3 nn3Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bdtls$Random(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, as3 as3Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -590,7 +590,7 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
         this.memoizedSerializedSize = -1;
     }
 
-    public /* synthetic */ Bdtls$Random(GeneratedMessageLite.Builder builder, nn3 nn3Var) {
+    public /* synthetic */ Bdtls$Random(GeneratedMessageLite.Builder builder, as3 as3Var) {
         this(builder);
     }
 

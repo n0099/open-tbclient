@@ -1,111 +1,139 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.ImageView;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.crius.uiwidget.ApkDownloadView;
-import com.baidu.nadcore.crius.uiwidget.JumpButton;
-import com.baidu.nadcore.crius.uiwidget.SyncTextView;
-import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.searchbox.crius.data.RenderData;
-import com.baidu.searchbox.crius.factory.IComponentFactory;
-import com.baidu.searchbox.crius.util.ColorUtils;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class wj0 implements IComponentFactory {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface wj0 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "deviceInfo.bag");
+    public static final wj0 b = new a();
 
-    public wj0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    @Nullable
+    jr0 a();
 
-    @Override // com.baidu.searchbox.crius.factory.IComponentFactory
-    public View createComponent(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
-            if (!NativeConstants.COMPONENT_CLOSEAD.equalsIgnoreCase(str) && !"close".equalsIgnoreCase(str)) {
-                if (NativeConstants.COMPONENT_VIEWBTN.equalsIgnoreCase(str)) {
-                    return new JumpButton(context);
-                }
-                if ("download".equalsIgnoreCase(str)) {
-                    return new ApkDownloadView(context);
-                }
-                if (NativeConstants.COMPONENT_SYNC_TEXT_VIEW.equalsIgnoreCase(str)) {
-                    return new SyncTextView(context);
-                }
+    @Nullable
+    jr0 b();
+
+    @Nullable
+    jr0 c();
+
+    @Nullable
+    jr0 d();
+
+    @Nullable
+    jr0 e();
+
+    @Nullable
+    jr0 f();
+
+    @Nullable
+    jr0 g();
+
+    @Nullable
+    boolean h();
+
+    /* loaded from: classes6.dex */
+    public static class a implements wj0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.wj0
+        public jr0 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 return null;
             }
-            ImageView imageView = new ImageView(context);
-            imageView.setId(R.id.nad_base_delete_id);
-            imageView.setImageDrawable(context.getResources().getDrawable(R.drawable.nad_pop_close_btn));
-            imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-            imageView.setContentDescription("不感兴趣");
-            return imageView;
+            return (jr0) invokeV.objValue;
         }
-        return (View) invokeLL.objValue;
-    }
 
-    @Override // com.baidu.searchbox.crius.factory.IComponentFactory
-    public boolean renderComponent(String str, View view2, RenderData renderData, boolean z, boolean z2, boolean z3) {
-        InterceptResult invokeCommon;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, view2, renderData, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
-            if (renderData == null) {
+        @Override // com.baidu.tieba.wj0
+        public jr0 b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return null;
+            }
+            return (jr0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.wj0
+        public jr0 c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return null;
+            }
+            return (jr0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.wj0
+        public jr0 d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return null;
+            }
+            return (jr0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.wj0
+        public jr0 e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return null;
+            }
+            return (jr0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.wj0
+        public jr0 f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return null;
+            }
+            return (jr0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.wj0
+        public jr0 g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return null;
+            }
+            return (jr0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.wj0
+        public boolean h() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
                 return false;
             }
-            if (!NativeConstants.COMPONENT_CLOSEAD.equalsIgnoreCase(str) && !"close".equalsIgnoreCase(str)) {
-                if (view2 instanceof JumpButton) {
-                    ((JumpButton) view2).setText(renderData.text);
-                    return true;
-                } else if (view2 instanceof ApkDownloadView) {
-                    ApkDownloadView apkDownloadView = (ApkDownloadView) view2;
-                    apkDownloadView.setDownloadStyle(renderData.downloadStyle);
-                    apkDownloadView.setTextSize(renderData.fontSize);
-                    apkDownloadView.setTextColor(ColorUtils.getColorRes(z, renderData.colorNight, renderData.color));
-                    apkDownloadView.setProgressColor(ColorUtils.getColorRes(z, renderData.progressNightColor, renderData.progressColor));
-                    apkDownloadView.setStrokeWidth(renderData.strokeWidth);
-                    apkDownloadView.setStrokeColor(ColorUtils.getColorRes(z, renderData.strokeNightColor, renderData.strokeColor));
-                    apkDownloadView.setBorderRadius(renderData.borderRadius);
-                    RenderData.BackgroundData backgroundData = renderData.backgroundData;
-                    if (backgroundData != null) {
-                        if (z) {
-                            str2 = backgroundData.backgroundColorNight;
-                        } else {
-                            str2 = backgroundData.backgroundColor;
-                        }
-                        apkDownloadView.setBackgroundColor(ColorUtils.parseColor(str2));
-                    }
-                    return true;
-                } else if (!(view2 instanceof SyncTextView)) {
-                    return false;
-                } else {
-                    ((SyncTextView) view2).update(renderData, z, z3);
-                    return true;
+            return invokeV.booleanValue;
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            ImageView imageView = (ImageView) view2;
-            imageView.setImageDrawable(view2.getResources().getDrawable(R.drawable.nad_pop_close_btn));
-            imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-            return true;
         }
-        return invokeCommon.booleanValue;
     }
 }

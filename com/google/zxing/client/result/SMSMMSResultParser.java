@@ -1,5 +1,6 @@
 package com.google.zxing.client.result;
 
+import androidx.core.net.MailTo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import com.google.zxing.Result;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -66,8 +66,8 @@ public final class SMSMMSResultParser extends ResultParser {
             Map<String, String> parseNameValuePairs = ResultParser.parseNameValuePairs(massagedText);
             boolean z = false;
             if (parseNameValuePairs != null && !parseNameValuePairs.isEmpty()) {
-                str2 = parseNameValuePairs.get("subject");
-                str = parseNameValuePairs.get(TtmlNode.TAG_BODY);
+                str2 = parseNameValuePairs.get(MailTo.SUBJECT);
+                str = parseNameValuePairs.get("body");
                 z = true;
             } else {
                 str = null;

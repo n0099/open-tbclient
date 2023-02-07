@@ -11,7 +11,6 @@ import com.baidu.searchbox.http.cronet.CronetRuntime;
 import com.baidu.searchbox.http.cronet.ICronet;
 import com.baidu.searchbox.http.request.HttpRequest;
 import com.baidu.searchbox.http.statistics.NetworkStatRecord;
-import com.baidu.searchbox.util.BaiduActiveStatistic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,6 +22,8 @@ import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.net.HttpURLConnection;
 import java.util.List;
 import java.util.Map;
@@ -52,6 +53,7 @@ public class CronetInterceptor implements Interceptor {
     public static final int DEFAULT_BUFFER_SIZE = 8192;
     public static final int MAX_ERROR_CONTENT = 16384;
     public static final String TAG = "CronetInterceptor";
+    public static Method sEnableSslRedirectMethod;
     public transient /* synthetic */ FieldHolder $fh;
     public OkHttpClient mOkHttpClient;
 
@@ -258,50 +260,54 @@ public class CronetInterceptor implements Interceptor {
     }
 
     private void parseCronetProperties(Headers headers, NetworkStatRecord networkStatRecord) {
-        CharSequence charSequence;
-        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, headers, networkStatRecord) == null) {
             try {
-                Long.parseLong(headers.get(BaiduActiveStatistic.UBC_VALUE_REQUEST_START));
-                long parseLong = Long.parseLong(headers.get("dns_start"));
-                long parseLong2 = Long.parseLong(headers.get("dns_end"));
-                long parseLong3 = Long.parseLong(headers.get("connect_start"));
-                long parseLong4 = Long.parseLong(headers.get("ssl_start"));
-                long parseLong5 = Long.parseLong(headers.get("ssl_end"));
-                long parseLong6 = Long.parseLong(headers.get("connect_end"));
-                long parseLong7 = Long.parseLong(headers.get("send_start"));
-                Long.parseLong(headers.get("send_end"));
-                Long.parseLong(headers.get("receive_headers_start"));
-                long parseLong8 = Long.parseLong(headers.get("receive_headers_end"));
-                try {
-                    networkStatRecord.dnsStartTs = parseLong;
-                    networkStatRecord.dnsEndTs = parseLong2;
-                    networkStatRecord.dnsTs = parseLong2 - parseLong;
-                    networkStatRecord.tcpStartTs = parseLong3;
-                    networkStatRecord.sslStartTs = parseLong4;
-                    networkStatRecord.sslEndTs = parseLong5;
-                    networkStatRecord.tcpEndTs = parseLong6;
-                    networkStatRecord.sendHeaderTs = parseLong7;
-                    networkStatRecord.receiveHeaderTs = parseLong8;
-                    networkStatRecord.connTs = parseLong6;
-                    str = "socket-reused";
-                    try {
-                        charSequence = "1";
-                        try {
-                            networkStatRecord.isConnReused = TextUtils.equals(headers.get(str), charSequence);
-                        } catch (Exception unused) {
-                        }
-                    } catch (Exception unused2) {
-                        charSequence = "1";
-                    }
-                } catch (Exception unused3) {
-                    charSequence = "1";
-                    str = "socket-reused";
+                String str = headers.get("dns_start");
+                String str2 = headers.get("dns_end");
+                String str3 = headers.get("connect_start");
+                String str4 = headers.get("ssl_start");
+                String str5 = headers.get("ssl_end");
+                String str6 = headers.get("connect_end");
+                String str7 = headers.get("send_start");
+                String str8 = headers.get("send_end");
+                String str9 = headers.get("receive_headers_start");
+                String str10 = headers.get("receive_headers_end");
+                if (!TextUtils.isEmpty(str)) {
+                    networkStatRecord.dnsStartTs = Long.parseLong(str);
                 }
-                networkStatRecord.isConnReused = TextUtils.equals(headers.get(str), charSequence);
-            } catch (Exception e) {
-                e.printStackTrace();
+                if (!TextUtils.isEmpty(str2)) {
+                    networkStatRecord.dnsEndTs = Long.parseLong(str2);
+                }
+                if (networkStatRecord.dnsStartTs > 0 && networkStatRecord.dnsEndTs > 0) {
+                    networkStatRecord.dnsTs = networkStatRecord.dnsStartTs - networkStatRecord.dnsEndTs;
+                }
+                if (!TextUtils.isEmpty(str3)) {
+                    networkStatRecord.tcpStartTs = Long.parseLong(str3);
+                }
+                if (!TextUtils.isEmpty(str4)) {
+                    networkStatRecord.sslStartTs = Long.parseLong(str4);
+                }
+                if (!TextUtils.isEmpty(str5)) {
+                    networkStatRecord.sslEndTs = Long.parseLong(str5);
+                }
+                if (!TextUtils.isEmpty(str6)) {
+                    networkStatRecord.connTs = Long.parseLong(str6);
+                }
+                if (!TextUtils.isEmpty(str7)) {
+                    networkStatRecord.sendHeaderStartTs = Long.parseLong(str7);
+                }
+                if (!TextUtils.isEmpty(str8)) {
+                    networkStatRecord.sendHeaderTs = Long.parseLong(str8);
+                }
+                if (!TextUtils.isEmpty(str9)) {
+                    networkStatRecord.receiveHeaderStartTs = Long.parseLong(str9);
+                }
+                if (!TextUtils.isEmpty(str10)) {
+                    networkStatRecord.receiveHeaderTs = Long.parseLong(str10);
+                }
+                networkStatRecord.isConnReused = TextUtils.equals(headers.get("socket-reused"), "1");
+            } catch (Exception unused) {
             }
         }
     }
@@ -356,6 +362,33 @@ public class CronetInterceptor implements Interceptor {
                     openHttpURLConnection.disconnect();
                     return chain.proceed(request);
                 }
+                openHttpURLConnection.setInstanceFollowRedirects(this.mOkHttpClient.followRedirects());
+                if (this.mOkHttpClient.followSslRedirects()) {
+                    Method method = sEnableSslRedirectMethod;
+                    if (method == null) {
+                        try {
+                            Method declaredMethod = openHttpURLConnection.getClass().getDeclaredMethod("enableRedirectForDifferentProtocols", new Class[0]);
+                            sEnableSslRedirectMethod = declaredMethod;
+                            if (declaredMethod != null) {
+                                declaredMethod.invoke(openHttpURLConnection, new Object[0]);
+                            }
+                        } catch (IllegalAccessException e) {
+                            e.printStackTrace();
+                        } catch (NoSuchMethodException e2) {
+                            e2.printStackTrace();
+                        } catch (InvocationTargetException e3) {
+                            e3.printStackTrace();
+                        }
+                    } else {
+                        try {
+                            method.invoke(openHttpURLConnection, new Object[0]);
+                        } catch (IllegalAccessException e4) {
+                            e4.printStackTrace();
+                        } catch (InvocationTargetException e5) {
+                            e5.printStackTrace();
+                        }
+                    }
+                }
                 if (this.mOkHttpClient.connectTimeoutMillis() > 0) {
                     openHttpURLConnection.setConnectTimeout(this.mOkHttpClient.connectTimeoutMillis());
                 }
@@ -377,6 +410,7 @@ public class CronetInterceptor implements Interceptor {
                 if (str2 != null) {
                     openHttpURLConnection.addRequestProperty("Cookie", str2);
                 }
+                openHttpURLConnection.addRequestProperty("Lib-Http-Req", "1");
                 openHttpURLConnection.setRequestMethod(request.method());
                 try {
                     if (request.body() != null) {
@@ -483,10 +517,10 @@ public class CronetInterceptor implements Interceptor {
                         }
                     }
                     return build2;
-                } catch (IOException e) {
-                    Log.e(TAG, "Write data or build connection caught exception: " + e.toString());
+                } catch (IOException e6) {
+                    Log.e(TAG, "Write data or build connection caught exception: " + e6.toString());
                     openHttpURLConnection.disconnect();
-                    throw e;
+                    throw e6;
                 }
             }
             return chain.proceed(request);
@@ -501,7 +535,7 @@ public class CronetInterceptor implements Interceptor {
             String str = headers.get("content-type");
             long stringToLong = stringToLong(headers.get(android.net.http.Headers.CONTENT_LEN));
             boolean z = !TextUtils.isEmpty(headers.get("Origin-Content-Encoding"));
-            if (response.code() >= 400) {
+            if (response.code() >= 300) {
                 return getErrorResponseBody(str, stringToLong, httpURLConnection);
             }
             MediaType mediaType = null;
@@ -521,7 +555,7 @@ public class CronetInterceptor implements Interceptor {
                     mediaType = MediaType.parse(str);
                 }
                 return ResponseBody.create(mediaType, new byte[0]);
-            } else if (stringToLong > 0 && stringToLong <= PlaybackStateCompat.ACTION_PLAY_FROM_URI) {
+            } else if (stringToLong >= 0 && stringToLong <= PlaybackStateCompat.ACTION_PLAY_FROM_URI) {
                 return new ResponseBody(this, str, z, stringToLong, readInputStream(inputStream2)) { // from class: com.baidu.searchbox.http.interceptor.CronetInterceptor.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;

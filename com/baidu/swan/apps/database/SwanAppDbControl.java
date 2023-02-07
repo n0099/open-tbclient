@@ -16,18 +16,18 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.database.cloudconfig.SwanAppConfTokenTable;
 import com.baidu.swan.apps.model.SwanAppBearInfo;
 import com.baidu.swan.pms.PMSConstants;
+import com.baidu.tieba.ag2;
+import com.baidu.tieba.ap4;
+import com.baidu.tieba.bg2;
+import com.baidu.tieba.ds2;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
-import com.baidu.tieba.gb2;
-import com.baidu.tieba.j12;
-import com.baidu.tieba.jb2;
-import com.baidu.tieba.kb2;
-import com.baidu.tieba.mb2;
-import com.baidu.tieba.nb2;
-import com.baidu.tieba.nk4;
-import com.baidu.tieba.ob2;
-import com.baidu.tieba.qn2;
-import com.baidu.tieba.tk1;
-import com.baidu.tieba.xh2;
+import com.baidu.tieba.gp1;
+import com.baidu.tieba.km2;
+import com.baidu.tieba.tf2;
+import com.baidu.tieba.w52;
+import com.baidu.tieba.wf2;
+import com.baidu.tieba.xf2;
+import com.baidu.tieba.zf2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -287,14 +287,14 @@ public class SwanAppDbControl {
         public final void m(SQLiteDatabase sQLiteDatabase) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048589, this, sQLiteDatabase) == null) {
-                jb2.a(sQLiteDatabase);
+                wf2.a(sQLiteDatabase);
             }
         }
 
         public final void o(@NonNull SQLiteDatabase sQLiteDatabase) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048591, this, sQLiteDatabase) == null) {
-                ob2.a(sQLiteDatabase);
+                bg2.a(sQLiteDatabase);
             }
         }
 
@@ -304,18 +304,18 @@ public class SwanAppDbControl {
             if (interceptable == null || interceptable.invokeL(1048592, this, sQLiteDatabase) == null) {
                 a(sQLiteDatabase);
                 SwanAppConfTokenTable.a(sQLiteDatabase);
-                jb2.a(sQLiteDatabase);
-                nb2.a(sQLiteDatabase);
-                ob2.a(sQLiteDatabase);
-                kb2.a(sQLiteDatabase);
+                wf2.a(sQLiteDatabase);
+                ag2.a(sQLiteDatabase);
+                bg2.a(sQLiteDatabase);
+                xf2.a(sQLiteDatabase);
             }
         }
 
         public final void p(SQLiteDatabase sQLiteDatabase) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048594, this, sQLiteDatabase) == null) {
-                nb2.a(sQLiteDatabase);
-                nb2.b(sQLiteDatabase);
+                ag2.a(sQLiteDatabase);
+                ag2.b(sQLiteDatabase);
                 b(sQLiteDatabase);
             }
         }
@@ -333,7 +333,7 @@ public class SwanAppDbControl {
                 try {
                     sQLiteDatabase.execSQL("ALTER TABLE ai_apps_favorites ADD is_new_favor INTEGER DEFAULT 0;");
                 } catch (SQLException e) {
-                    j12.l("SwanAppDbControl", "updateSwanFavoriteTableV123 fail", e);
+                    w52.l("SwanAppDbControl", "updateSwanFavoriteTableV123 fail", e);
                 }
             }
         }
@@ -345,7 +345,7 @@ public class SwanAppDbControl {
                     sQLiteDatabase.execSQL("ALTER TABLE ai_apps_favorites ADD pay_protected INTEGER DEFAULT 0;");
                     sQLiteDatabase.execSQL("ALTER TABLE ai_apps_history ADD pay_protected INTEGER DEFAULT 0;");
                 } catch (SQLException e) {
-                    j12.l("SwanAppDbControl", "updateSwanHistoryANDFavoriteTableV123 fail", e);
+                    w52.l("SwanAppDbControl", "updateSwanHistoryANDFavoriteTableV123 fail", e);
                 }
             }
         }
@@ -355,7 +355,7 @@ public class SwanAppDbControl {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) == null) {
                 long currentTimeMillis = System.currentTimeMillis();
-                List<ContentValues> a = qn2.x().a();
+                List<ContentValues> a = ds2.x().a();
                 long currentTimeMillis2 = System.currentTimeMillis();
                 boolean z = false;
                 if (SwanAppDbControl.a) {
@@ -538,7 +538,7 @@ public class SwanAppDbControl {
                         Log.e("SwanAppDbControl", Log.getStackTraceString(e));
                     }
                 }
-                mb2.v(sQLiteDatabase);
+                zf2.v(sQLiteDatabase);
             }
         }
 
@@ -605,7 +605,7 @@ public class SwanAppDbControl {
                             o(sQLiteDatabase);
                             break;
                         case 18:
-                            kb2.a(sQLiteDatabase);
+                            xf2.a(sQLiteDatabase);
                             break;
                         case 19:
                             r(sQLiteDatabase);
@@ -650,7 +650,7 @@ public class SwanAppDbControl {
                 return;
             }
         }
-        a = tk1.a;
+        a = gp1.a;
         e = PMSConstants.PayProtected.NO_PAY_PROTECTED.type;
         b = 24;
     }
@@ -722,18 +722,18 @@ public class SwanAppDbControl {
         return (SwanAppDbControl) invokeL.objValue;
     }
 
-    public gb2 o(String str) {
+    public tf2 o(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            gb2 gb2Var = new gb2();
+            tf2 tf2Var = new tf2();
             if (!TextUtils.isEmpty(str)) {
                 Cursor cursor = null;
                 try {
                     try {
                         cursor = g(str);
                         if (cursor != null && cursor.moveToFirst()) {
-                            s(cursor, gb2Var);
+                            s(cursor, tf2Var);
                         }
                     } catch (Exception e2) {
                         if (a) {
@@ -741,12 +741,12 @@ public class SwanAppDbControl {
                         }
                     }
                 } finally {
-                    nk4.d(cursor);
+                    ap4.d(cursor);
                 }
             }
-            return gb2Var;
+            return tf2Var;
         }
-        return (gb2) invokeL.objValue;
+        return (tf2) invokeL.objValue;
     }
 
     public int b(@Nullable String str, @Nullable String[] strArr) {
@@ -817,7 +817,7 @@ public class SwanAppDbControl {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048585, this, strArr, str, strArr2, str2)) == null) {
             SQLiteDatabase writableDatabase = d.getWritableDatabase();
-            return writableDatabase.query("ai_apps_aps_data INNER JOIN ai_apps_history ON ai_apps_history.app_id = ai_apps_aps_data." + SwanAppTable.app_id, strArr, xh2.a(str), strArr2, null, null, str2);
+            return writableDatabase.query("ai_apps_aps_data INNER JOIN ai_apps_history ON ai_apps_history.app_id = ai_apps_aps_data." + SwanAppTable.app_id, strArr, km2.a(str), strArr2, null, null, str2);
         }
         return (Cursor) invokeLLLL.objValue;
     }
@@ -835,7 +835,7 @@ public class SwanAppDbControl {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048586, this, strArr, str, strArr2, str2)) == null) {
-            return d.getWritableDatabase().query("ai_apps_history", strArr, xh2.a(str), strArr2, null, null, str2);
+            return d.getWritableDatabase().query("ai_apps_history", strArr, km2.a(str), strArr2, null, null, str2);
         }
         return (Cursor) invokeLLLL.objValue;
     }
@@ -858,12 +858,12 @@ public class SwanAppDbControl {
         return invokeLLL.intValue;
     }
 
-    public void s(Cursor cursor, gb2 gb2Var) {
+    public void s(Cursor cursor, tf2 tf2Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048591, this, cursor, gb2Var) == null) && cursor != null && cursor.getCount() > 0) {
+        if ((interceptable == null || interceptable.invokeLL(1048591, this, cursor, tf2Var) == null) && cursor != null && cursor.getCount() > 0) {
             if (a) {
-                Log.d("SwanAppDbControl", "updateQueryAPSFileList: cursor=" + cursor.toString() + ", swanAppDbInfo =" + gb2Var.toString());
+                Log.d("SwanAppDbControl", "updateQueryAPSFileList: cursor=" + cursor.toString() + ", swanAppDbInfo =" + tf2Var.toString());
             }
             if (a) {
                 Log.d("SwanAppDbControl", "updateQueryAPSFileList: cursor.getCount()=" + cursor.getCount());
@@ -903,43 +903,43 @@ public class SwanAppDbControl {
             if (TextUtils.isEmpty(cursor.getString(columnIndex))) {
                 return;
             }
-            gb2Var.a = cursor.getString(columnIndex);
-            gb2Var.b = cursor.getString(columnIndex2);
-            gb2Var.c = cursor.getString(columnIndex3);
-            gb2Var.d = cursor.getInt(columnIndex4);
-            gb2Var.e = cursor.getString(columnIndex5);
-            gb2Var.f = cursor.getString(columnIndex6);
-            gb2Var.g = cursor.getString(columnIndex7);
-            gb2Var.h = cursor.getString(columnIndex8);
-            gb2Var.i = cursor.getString(columnIndex9);
-            gb2Var.j = cursor.getString(columnIndex10);
-            gb2Var.k = cursor.getString(columnIndex11);
-            gb2Var.l = cursor.getString(columnIndex12);
-            gb2Var.m = cursor.getString(columnIndex13);
-            gb2Var.n = cursor.getString(columnIndex14);
-            gb2Var.o = cursor.getString(columnIndex15);
-            gb2Var.p = cursor.getString(columnIndex16);
-            gb2Var.r = cursor.getInt(columnIndex17);
-            gb2Var.s = cursor.getInt(columnIndex18);
-            gb2Var.q = cursor.getString(columnIndex19);
-            gb2Var.t = cursor.getString(columnIndex20);
-            gb2Var.u = cursor.getString(columnIndex21);
-            gb2Var.v = cursor.getString(columnIndex22);
-            gb2Var.w = cursor.getLong(columnIndex23);
-            gb2Var.x = cursor.getInt(columnIndex24);
-            gb2Var.A = cursor.getString(columnIndex25);
-            gb2Var.y = cursor.getInt(columnIndex26);
-            gb2Var.z = cursor.getInt(columnIndex27);
-            gb2Var.B = cursor.getLong(columnIndex29);
-            gb2Var.C = cursor.getLong(columnIndex30);
+            tf2Var.a = cursor.getString(columnIndex);
+            tf2Var.b = cursor.getString(columnIndex2);
+            tf2Var.c = cursor.getString(columnIndex3);
+            tf2Var.d = cursor.getInt(columnIndex4);
+            tf2Var.e = cursor.getString(columnIndex5);
+            tf2Var.f = cursor.getString(columnIndex6);
+            tf2Var.g = cursor.getString(columnIndex7);
+            tf2Var.h = cursor.getString(columnIndex8);
+            tf2Var.i = cursor.getString(columnIndex9);
+            tf2Var.j = cursor.getString(columnIndex10);
+            tf2Var.k = cursor.getString(columnIndex11);
+            tf2Var.l = cursor.getString(columnIndex12);
+            tf2Var.m = cursor.getString(columnIndex13);
+            tf2Var.n = cursor.getString(columnIndex14);
+            tf2Var.o = cursor.getString(columnIndex15);
+            tf2Var.p = cursor.getString(columnIndex16);
+            tf2Var.r = cursor.getInt(columnIndex17);
+            tf2Var.s = cursor.getInt(columnIndex18);
+            tf2Var.q = cursor.getString(columnIndex19);
+            tf2Var.t = cursor.getString(columnIndex20);
+            tf2Var.u = cursor.getString(columnIndex21);
+            tf2Var.v = cursor.getString(columnIndex22);
+            tf2Var.w = cursor.getLong(columnIndex23);
+            tf2Var.x = cursor.getInt(columnIndex24);
+            tf2Var.A = cursor.getString(columnIndex25);
+            tf2Var.y = cursor.getInt(columnIndex26);
+            tf2Var.z = cursor.getInt(columnIndex27);
+            tf2Var.B = cursor.getLong(columnIndex29);
+            tf2Var.C = cursor.getLong(columnIndex30);
             if (cursor.getInt(columnIndex28) != 0) {
                 z = true;
             } else {
                 z = false;
             }
-            gb2Var.D = z;
-            gb2Var.E = cursor.getInt(columnIndex31);
-            gb2Var.F = cursor.getString(columnIndex32);
+            tf2Var.D = z;
+            tf2Var.E = cursor.getInt(columnIndex31);
+            tf2Var.F = cursor.getString(columnIndex32);
         }
     }
 }

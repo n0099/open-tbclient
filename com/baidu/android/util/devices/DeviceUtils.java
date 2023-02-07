@@ -40,6 +40,15 @@ public class DeviceUtils implements IDevices {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static boolean isSupportPreviewWhenClipCopy() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     /* loaded from: classes.dex */
     public static final class CPUInfo {
         public static /* synthetic */ Interceptable $ic = null;
@@ -640,11 +649,23 @@ public class DeviceUtils implements IDevices {
             return invokeV.booleanValue;
         }
 
+        public static boolean hasTiramisu() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
+                if (Build.VERSION.SDK_INT >= 33) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
         @SuppressLint({"ObsoleteSdkInt"})
         public static boolean isGingerbread() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) {
                 if (Build.VERSION.SDK_INT == 9) {
                     return true;
                 }
@@ -657,7 +678,7 @@ public class DeviceUtils implements IDevices {
         public static boolean isGingerbreadmr1() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) {
                 if (Build.VERSION.SDK_INT == 10) {
                     return true;
                 }
@@ -669,7 +690,7 @@ public class DeviceUtils implements IDevices {
         public static boolean isKitKat() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) {
                 if (Build.VERSION.SDK_INT == 19) {
                     return true;
                 }
@@ -681,7 +702,7 @@ public class DeviceUtils implements IDevices {
         public static final boolean isLollipop() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(65563, null)) == null) {
                 if (Build.VERSION.SDK_INT == 21) {
                     return true;
                 }

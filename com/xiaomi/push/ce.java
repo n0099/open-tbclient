@@ -65,7 +65,7 @@ public class ce extends cj.b<Long> {
 
     @Override // com.xiaomi.push.cj.a
     /* renamed from: a */
-    public Object mo253a() {
+    public Object mo255a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Long.valueOf(this.a) : invokeV.objValue;

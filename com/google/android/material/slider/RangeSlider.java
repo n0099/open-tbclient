@@ -19,16 +19,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class RangeSlider extends BaseSlider<RangeSlider, OnChangeListener, OnSliderTouchListener> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface OnChangeListener extends BaseOnChangeListener<RangeSlider> {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface OnSliderTouchListener extends BaseOnSliderTouchListener<RangeSlider> {
     }
 
@@ -55,7 +55,7 @@ public class RangeSlider extends BaseSlider<RangeSlider, OnChangeListener, OnSli
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RangeSlider(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040633);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040637);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -93,7 +93,7 @@ public class RangeSlider extends BaseSlider<RangeSlider, OnChangeListener, OnSli
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04076a});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04076e});
         if (obtainStyledAttributes.hasValue(0)) {
             setValues(convertToFloat(obtainStyledAttributes.getResources().obtainTypedArray(obtainStyledAttributes.getResourceId(0, 0))));
         }

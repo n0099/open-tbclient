@@ -1,15 +1,10 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Context;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tieba.fn2;
-import com.baidu.tieba.va2;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.SwanAppWebViewManager;
+import com.baidu.swan.apps.core.container.NgWebView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,69 +12,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
-import java.util.Set;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ua2 {
+public class ua2 extends SwanAppWebViewManager implements Object<NgWebView>, sa2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final boolean b;
+    public static final boolean x;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String w;
 
-    public static void d(@NonNull PMSAppInfo pMSAppInfo, @Nullable va2.a aVar) {
+    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
+    public void L0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, pMSAppInfo, aVar) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
     }
 
-    public static va2.a e(@NonNull PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
+    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
+    public void V0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, pMSAppInfo)) == null) {
-            return null;
-        }
-        return (va2.a) invokeL.objValue;
-    }
-
-    public static void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65548, null) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pq1 a;
-
-        public a(pq1 pq1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pq1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pq1Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ua2.i(this.a);
-            }
+    @Override // com.baidu.tieba.sa2
+    public void p(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
         }
     }
 
@@ -96,183 +53,75 @@ public class ua2 {
                 return;
             }
         }
-        a = tk1.a;
-        qn2.g0().getSwitch("swan_next_page_res_load", 0);
-        b = false;
-        j12.k("SwanAppSlaveTopPages", "swan_top_page_res_load - " + b);
-        l();
+        x = gp1.a;
     }
 
-    public static boolean a(@NonNull pq1<?> pq1Var, @NonNull ju2 ju2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, pq1Var, ju2Var)) == null) {
-            y43 f = wp2.U().f(ju2Var.d);
-            if (a) {
-                Log.d("SwanAppSlaveTopPages", "page path - " + ju2Var.a);
-                Log.d("SwanAppSlaveTopPages", "page route path - " + ju2Var.d);
-            }
-            return di3.S(pq1Var, f.r);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static va2.a b(@NonNull j43 j43Var, @NonNull pq1<?> pq1Var, @NonNull PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, j43Var, pq1Var, pMSAppInfo)) == null) {
-            Set<String> m = m(pMSAppInfo);
-            if (m != null && m.size() > 0) {
-                String str = pMSAppInfo.appId;
-                String valueOf = String.valueOf(pMSAppInfo.versionCode);
-                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(valueOf)) {
-                    String str2 = fn2.e.i(str, valueOf).getPath() + File.separator;
-                    va2 va2Var = new va2();
-                    for (String str3 : m) {
-                        if (h(str2, str3)) {
-                            ju2 d = ju2.d(bi3.g(str3), str2);
-                            if (di3.b(j43Var.Q(), d, true) && a(pq1Var, d)) {
-                                va2Var.a(f(pq1Var, d));
-                            }
-                        }
-                    }
-                    return va2Var.b();
-                }
-            }
-            return null;
-        }
-        return (va2.a) invokeLLL.objValue;
-    }
-
-    public static ju2 c() {
+    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.ev1
+    public String a() {
         InterceptResult invokeV;
-        SwanAppActivity w;
-        r32 H;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            j43 b0 = j43.b0();
-            if (b0 == null || (w = b0.w()) == null || w.isFinishing() || w.isDestroyed() || (H = wp2.U().H()) == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.w;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.sa2
+    public u72 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return r();
+        }
+        return (u72) invokeV.objValue;
+    }
+
+    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.ev1
+    public void onJSLoaded() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            qf2.U().w0(true);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ua2(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return H.m3();
         }
-        return (ju2) invokeV.objValue;
+        this.w = cb2.b();
     }
 
-    public static ke2 f(pq1<?> pq1Var, ju2 ju2Var) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.sa2
+    public void D(kf2 kf2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, pq1Var, ju2Var)) == null) {
-            return ab2.a(s73.a(pq1Var, ju2Var, ""));
-        }
-        return (ke2) invokeLL.objValue;
-    }
-
-    public static boolean h(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, str2)) == null) {
-            return fn2.C(str, str2);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static JSONObject g(PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, pMSAppInfo)) == null) {
-            return ou2.g().k(pMSAppInfo);
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public static void i(pq1<?> pq1Var) {
-        long j;
-        PMSAppInfo f0;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65545, null, pq1Var) != null) || !b || pq1Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, kf2Var) != null) || kf2Var == null) {
             return;
         }
-        if (a) {
-            j = System.currentTimeMillis();
-        } else {
-            j = 0;
+        if (x) {
+            Log.d("SwanAppMasterManager", "pathList item: " + kf2Var.b);
         }
-        j43 b0 = j43.b0();
-        if (b0 == null || (f0 = b0.W().f0()) == null) {
-            return;
-        }
-        va2.a e = e(f0);
-        if (e == null) {
-            e = b(b0, pq1Var, f0);
-            d(f0, e);
-        }
-        if (e != null) {
-            db2.U().V0(pq1Var.a(), e);
-        }
-        if (a) {
-            long currentTimeMillis = System.currentTimeMillis();
-            Log.d("SwanAppSlaveTopPages", "sendTopPageMsg cost - " + (currentTimeMillis - j) + "ms");
-        }
+        this.b.getSettings().setCodeCacheSetting(p72.a("appjs", kf2Var.b));
     }
 
-    public static void j(pq1<?> pq1Var) {
-        long j;
+    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.ev1
+    public void loadUrl(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65546, null, pq1Var) == null) && b && pq1Var != null) {
-            if (a) {
-                j = System.currentTimeMillis();
-            } else {
-                j = 0;
-            }
-            ExecutorUtilsExt.postOnElastic(new a(pq1Var), "SwanAppSlaveTopPages", 2);
-            if (a) {
-                long currentTimeMillis = System.currentTimeMillis();
-                Log.d("SwanAppSlaveTopPages", "sendTopPageMsg async cost - " + (currentTimeMillis - j) + "ms");
-            }
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            super.loadUrl(str);
         }
-    }
-
-    public static Set<String> k(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, jSONObject)) == null) {
-            if (jSONObject.length() <= 0) {
-                return null;
-            }
-            LinkedHashSet linkedHashSet = new LinkedHashSet();
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                if (!TextUtils.isEmpty(next)) {
-                    linkedHashSet.add(next);
-                }
-            }
-            if (a) {
-                Log.d("SwanAppSlaveTopPages", "get top pages - " + linkedHashSet);
-            }
-            return linkedHashSet;
-        }
-        return (Set) invokeL.objValue;
-    }
-
-    public static Set<String> m(@NonNull PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, pMSAppInfo)) == null) {
-            if (a) {
-                ju2 c = c();
-                Log.d("SwanAppSlaveTopPages", "current page - " + c);
-            }
-            JSONObject g = g(pMSAppInfo);
-            if (g != null && g.length() > 0) {
-                if (a) {
-                    Log.d("SwanAppSlaveTopPages", "pages info - " + g);
-                }
-                return k(g);
-            }
-            return null;
-        }
-        return (Set) invokeL.objValue;
     }
 }

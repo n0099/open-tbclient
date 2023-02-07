@@ -1,136 +1,171 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.provider.Settings;
-import android.view.OrientationEventListener;
-import androidx.core.view.InputDeviceCompat;
+import android.view.View;
+import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.player.constants.PlayerStatus;
+import com.baidu.nadcore.player.ui.BdLayerTitleBarView;
+import com.baidu.searchbox.player.event.InteractiveEvent;
+import com.baidu.searchbox.player.event.LayerEvent;
+import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class bv0 extends OrientationEventListener {
+public class bv0 extends wu0 implements BdLayerTitleBarView.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public a b;
+    public BdLayerTitleBarView b;
 
-    /* loaded from: classes3.dex */
-    public interface a {
-        void onOrientationChanged(int i);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bv0(Context context, int i) {
-        super(context, i);
+    public bv0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public static boolean c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            if (Math.abs(i - 90) > 23 && Math.abs(i - 270) > 23) {
-                return false;
-            }
-            return true;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public static boolean d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if ((i >= 0 && i <= 23) || ((337 <= i && i < 360) || Math.abs(i - 180) <= 23)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public static boolean e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            if (Math.abs(i - 90) <= 23) {
-                return true;
-            }
-            return false;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public static boolean f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (Settings.System.getInt(context.getContentResolver(), "accelerometer_rotation", 0) != 0) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void g(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.b = aVar;
-        }
-    }
-
-    @Override // android.view.OrientationEventListener
-    public void onOrientationChanged(int i) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.a = i;
-            if (i != -1 && (aVar = this.b) != null) {
-                aVar.onOrientationChanged(i);
-            }
-        }
-    }
-
-    public boolean a() {
+    @Override // com.baidu.tieba.xu0
+    @NonNull
+    public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                super.enable();
-                return true;
-            } catch (Exception e) {
-                a01.k("enableSensor()", e);
-                return false;
-            }
+            return this.b;
         }
-        return invokeV.booleanValue;
+        return (View) invokeV.objValue;
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.qu0
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b = new BdLayerTitleBarView(getContext());
+            this.b.setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
+            this.b.setVisibility(4);
+            this.b.setListener(this);
         }
-        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.nadcore.player.ui.BdLayerTitleBarView.a
+    public void onBack() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            q().d1(2);
+        }
+    }
+
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    @Override // com.baidu.tieba.qu0
+    public void k(@NonNull vv0 vv0Var) {
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vv0Var) == null) {
+            String c2 = vv0Var.c();
+            switch (c2.hashCode()) {
+                case -882902390:
+                    if (c2.equals(PlayerEvent.ACTION_SET_DATA_SOURCE)) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -745690976:
+                    if (c2.equals(InteractiveEvent.ACTION_INTERACTIVE_START)) {
+                        c = 5;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -552621273:
+                    if (c2.equals(LayerEvent.ACTION_SWITCH_FULL)) {
+                        c = 6;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -552580917:
+                    if (c2.equals(LayerEvent.ACTION_SWITCH_HALF)) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -461848373:
+                    if (c2.equals(PlayerEvent.ACTION_ON_ERROR)) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 154871702:
+                    if (c2.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 250537257:
+                    if (c2.equals(LayerEvent.ACTION_NET_ERROR_SHOW)) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
+            }
+            if (c != 0 && c != 1 && c != 2) {
+                if (c != 4 && c != 5) {
+                    if (c == 6 && !q().Y()) {
+                        s(true, false);
+                        return;
+                    }
+                    return;
+                }
+                this.b.a(false);
+            } else if (q().V0()) {
+                this.b.e(false, true, q().r1());
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.qu0
+    public void n(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, playerStatus, playerStatus2) == null) {
+            super.n(playerStatus, playerStatus2);
+            if (playerStatus == PlayerStatus.PLAYING && q().V0()) {
+                sy0 sy0Var = this.a;
+                if ((sy0Var instanceof jy0) && !((jy0) sy0Var).V()) {
+                    this.b.a(true);
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.wu0
+    public void s(boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            super.s(z, z2);
+            if (z) {
+                if (q().V0() && q().f1() == 0) {
+                    this.b.e(true, !q().Y(), q().r1());
+                }
+            } else if (q().V0() && q().f1() == 0 && this.b.getVisibility() != 4 && q().Y()) {
+                this.b.a(true);
+            }
+        }
     }
 }

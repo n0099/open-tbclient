@@ -1,96 +1,162 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.text.style.ImageSpan;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import org.json.JSONObject;
+import tbclient.SimpleForum;
+import tbclient.ThemeColorInfo;
 /* loaded from: classes6.dex */
-public class sz4 extends ImageSpan {
+public class sz4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Drawable> a;
+    public String a;
+    public String b;
+    public String c;
+    public boolean d;
+    public int e;
+    public xx4 f;
+    public int g;
+    public int h;
+    public String i;
+    public String j;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sz4(Drawable drawable) {
-        super(drawable);
+    public sz4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {drawable};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Drawable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public final Drawable a() {
+    public String a() {
         InterceptResult invokeV;
-        Drawable drawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WeakReference<Drawable> weakReference = this.a;
-            if (weakReference != null) {
-                drawable = weakReference.get();
-            } else {
-                drawable = null;
-            }
-            if (drawable == null) {
-                Drawable drawable2 = getDrawable();
-                this.a = new WeakReference<>(drawable2);
-                return drawable2;
-            }
-            return drawable;
+            return this.c;
         }
-        return (Drawable) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-            Drawable a = a();
-            canvas.save();
-            canvas.translate(f, ((i5 - a.getBounds().bottom) - paint.getFontMetricsInt().descent) / 2);
-            a.draw(canvas);
-            canvas.restore();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.j;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void g(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.a = String.valueOf(jSONObject.optLong("id", 0L));
+        this.b = jSONObject.optString("name");
+        this.c = jSONObject.optString("avatar");
+        this.e = jSONObject.optInt("level_id");
+        this.j = jSONObject.optString("recommend_tip");
+        JSONObject optJSONObject = jSONObject.optJSONObject("multi_forum_perm");
+        if (optJSONObject != null) {
+            xx4 xx4Var = new xx4();
+            this.f = xx4Var;
+            xx4Var.a(optJSONObject);
+        }
+        int optInt = jSONObject.optInt("memberNum", 0);
+        this.h = optInt;
+        if (optInt == 0) {
+            this.h = jSONObject.optInt("member_num", 0);
+        }
+        this.g = jSONObject.optInt("post_num", 0);
+    }
+
+    public void h(SimpleForum simpleForum) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, simpleForum) != null) || simpleForum == null) {
+            return;
+        }
+        this.a = String.valueOf(simpleForum.id);
+        this.b = simpleForum.name;
+        this.c = simpleForum.avatar;
+        if (simpleForum.is_liked.intValue() == 1) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.d = z;
+        this.e = simpleForum.level_id.intValue();
+        this.j = simpleForum.recommend_tip;
+        if (simpleForum.multi_forum_perm != null) {
+            xx4 xx4Var = new xx4();
+            this.f = xx4Var;
+            xx4Var.b(simpleForum.multi_forum_perm);
+        }
+        simpleForum.is_brand_forum.intValue();
+        this.h = simpleForum.member_num.intValue();
+        this.g = simpleForum.post_num.intValue();
+        this.i = simpleForum.first_class;
+        ThemeColorInfo themeColorInfo = simpleForum.theme_color;
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.b = str;
         }
     }
 
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        InterceptResult invokeCommon;
+    public void j(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            Rect bounds = a().getBounds();
-            if (fontMetricsInt != null) {
-                Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
-                int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
-                int i4 = (bounds.bottom - bounds.top) / 2;
-                int i5 = i3 / 4;
-                int i6 = i4 - i5;
-                int i7 = -(i4 + i5);
-                fontMetricsInt.ascent = i7;
-                fontMetricsInt.top = i7;
-                fontMetricsInt.bottom = i6;
-                fontMetricsInt.descent = i6;
-            }
-            return bounds.right;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.d = z;
         }
-        return invokeCommon.intValue;
     }
 }

@@ -1,12 +1,12 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.util.AppLaunchInfoFetcher;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class f25 {
+public class f25 implements AppLaunchInfoFetcher.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,13 +24,11 @@ public class f25 {
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    @Override // com.baidu.tbadk.util.AppLaunchInfoFetcher.a
+    public void onFinish(vo5 vo5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, vo5Var) == null) && vo5Var != null) {
+            g25.a().c(vo5Var.b);
         }
-        jSONObject.optString("app_id", "");
-        jSONObject.optString("app_name", "");
-        jSONObject.optString("package_name", "");
     }
 }

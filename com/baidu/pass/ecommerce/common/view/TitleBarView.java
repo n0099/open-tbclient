@@ -54,9 +54,9 @@ public class TitleBarView extends RelativeLayout {
             if (this.isDarkMode) {
                 TextView textView = this.rightBtn;
                 if (z) {
-                    color = getResources().getColor(R.color.obfuscated_res_0x7f0609b5);
+                    color = getResources().getColor(R.color.obfuscated_res_0x7f0609c5);
                 } else {
-                    color = getResources().getColor(R.color.obfuscated_res_0x7f0609b4);
+                    color = getResources().getColor(R.color.obfuscated_res_0x7f0609c4);
                 }
                 textView.setTextColor(color);
             }
@@ -110,11 +110,11 @@ public class TitleBarView extends RelativeLayout {
     private void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04ee, (ViewGroup) this, true);
-            this.leftBtn = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091e68);
-            this.leftImageBtn = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091e67);
-            this.titleTv = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091e6a);
-            this.rightBtn = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091e69);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04eb, (ViewGroup) this, true);
+            this.leftBtn = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091e7d);
+            this.leftImageBtn = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091e7c);
+            this.titleTv = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091e7f);
+            this.rightBtn = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091e7e);
         }
     }
 
@@ -122,10 +122,10 @@ public class TitleBarView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.isDarkMode = true;
-            setBackgroundResource(R.drawable.obfuscated_res_0x7f081119);
-            this.leftBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609b1));
-            this.titleTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609b7));
-            this.rightBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609b4));
+            setBackgroundResource(R.drawable.obfuscated_res_0x7f08110f);
+            this.leftBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609c1));
+            this.titleTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609c7));
+            this.rightBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609c4));
         }
     }
 

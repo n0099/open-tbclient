@@ -123,6 +123,7 @@ public class AccessibilityDelegateCompat {
                 wrap.setScreenReaderFocusable(ViewCompat.isScreenReaderFocusable(view2));
                 wrap.setHeading(ViewCompat.isAccessibilityHeading(view2));
                 wrap.setPaneTitle(ViewCompat.getAccessibilityPaneTitle(view2));
+                wrap.setStateDescription(ViewCompat.getStateDescription(view2));
                 this.mCompat.onInitializeAccessibilityNodeInfo(view2, wrap);
                 wrap.addSpansToExtras(accessibilityNodeInfo.getText(), view2);
                 List<AccessibilityNodeInfoCompat.AccessibilityActionCompat> actionList = AccessibilityDelegateCompat.getActionList(view2);
@@ -220,7 +221,7 @@ public class AccessibilityDelegateCompat {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
-            List<AccessibilityNodeInfoCompat.AccessibilityActionCompat> list = (List) view2.getTag(R.id.obfuscated_res_0x7f092127);
+            List<AccessibilityNodeInfoCompat.AccessibilityActionCompat> list = (List) view2.getTag(R.id.obfuscated_res_0x7f092138);
             if (list == null) {
                 return Collections.emptyList();
             }
@@ -264,7 +265,7 @@ public class AccessibilityDelegateCompat {
         WeakReference weakReference;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65541, this, i, view2)) == null) {
-            SparseArray sparseArray = (SparseArray) view2.getTag(R.id.obfuscated_res_0x7f092128);
+            SparseArray sparseArray = (SparseArray) view2.getTag(R.id.obfuscated_res_0x7f092139);
             if (sparseArray != null && (weakReference = (WeakReference) sparseArray.get(i)) != null) {
                 ClickableSpan clickableSpan = (ClickableSpan) weakReference.get();
                 if (isSpanStillValid(clickableSpan, view2)) {

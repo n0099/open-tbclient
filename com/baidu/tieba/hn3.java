@@ -3,10 +3,10 @@ package com.baidu.tieba;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.tieba.md4;
+import com.baidu.searchbox.unitedscheme.SchemeCollecter;
+import com.baidu.tieba.jl3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,14 +14,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.Callback;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONObject;
-@Service
 /* loaded from: classes4.dex */
-public class hn3 implements wn1 {
+public class hn3 extends jl3.a {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String b;
 
     static {
         InterceptResult invokeClinit;
@@ -36,91 +39,132 @@ public class hn3 implements wn1 {
                 return;
             }
         }
-        a = tk1.a;
+        c = gp1.a;
     }
 
-    public hn3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public hn3(boolean z) {
+        super(z);
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Boolean) newInitContext.callArgs[0]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.wn1
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return in3.b().d();
+        if (z) {
+            str = "swan_js_native_v8_ab.txt";
+        } else {
+            str = "swan_js_native_webview_ab.txt";
         }
-        return invokeV.booleanValue;
+        this.b = sr2.g().getPath() + File.separator + "js_native" + File.separator + str;
     }
 
-    @Override // com.baidu.tieba.wn1
-    public void d(byte[] bArr) {
+    public boolean a(int i) {
+        InterceptResult invokeI;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bArr) == null) {
-            in3.b().c(bArr);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            String str = sr2.g().getPath() + File.separator + "js_native" + File.separator;
+            if ((i & 1) != 0) {
+                z = ap4.M(str + "swan_js_native_v8_ab.txt");
+            } else {
+                z = true;
+            }
+            if ((i & 2) != 0) {
+                return z & ap4.M(str + "swan_js_native_webview_ab.txt");
+            }
+            return z;
         }
+        return invokeI.booleanValue;
     }
 
-    @Override // com.baidu.tieba.wn1
-    public boolean g(String str) {
+    @Nullable
+    public final List<String> b(boolean z, String str) {
+        InterceptResult invokeZL;
+        String str2;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZL = interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str)) == null) {
+            if (z) {
+                str2 = SchemeCollecter.CLASSIFY_SWAN_V8;
+            } else {
+                str2 = SchemeCollecter.CLASSIFY_SWAN_WEBVIEW;
+            }
+            if (z) {
+                str3 = "swan/v8_ab";
+            } else {
+                str3 = "swan/webview_ab";
+            }
+            List<JSONObject> b = fn3.b(str2, str3);
+            if (b != null) {
+                File file = new File(str);
+                ArrayList arrayList = new ArrayList();
+                for (JSONObject jSONObject : b) {
+                    if (jSONObject != null) {
+                        arrayList.add(jSONObject.toString());
+                    }
+                }
+                if (file.exists()) {
+                    ap4.L(file);
+                }
+                ap4.h(file);
+                ap4.P(arrayList, file);
+                return arrayList;
+            }
+            return null;
+        }
+        return (List) invokeZL.objValue;
+    }
+
+    public boolean c(@NonNull JSONArray jSONArray) {
         InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return in3.b().e(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray)) == null) {
+            if (jSONArray.length() > 0 && ap4.v(this.b)) {
+                if (this.a) {
+                    str = SchemeCollecter.CLASSIFY_SWAN_V8;
+                } else {
+                    str = SchemeCollecter.CLASSIFY_SWAN_WEBVIEW;
+                }
+                return gn3.a(jSONArray, new File(this.b), SchemeCollecter.getSchemesDesListSize(str));
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.wn1
-    public <T> void e(String str, String str2, ResponseCallback<T> responseCallback) {
+    public List<String> d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, responseCallback) == null) {
-            new yn3().q(str, str2, responseCallback);
-        }
-    }
-
-    @Override // com.baidu.tieba.wn1
-    public void f(String str, String str2, md4.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, cVar) == null) {
-            new xn3().k(str, str2, cVar);
-        }
-    }
-
-    @Override // com.baidu.tieba.wn1
-    public boolean i(@NonNull j43 j43Var, @NonNull JSONObject jSONObject, @NonNull String str, @NonNull String str2, Callback callback, cj3<String> cj3Var) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{j43Var, jSONObject, str, str2, callback, cj3Var})) == null) {
-            JSONObject optJSONObject = jSONObject.optJSONObject("ext");
-            if (optJSONObject == null || !optJSONObject.optBoolean("enableBdtls", false)) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (c) {
+                Log.i("SwanAppCompat", "FileDescriptionsManager obtain desc...");
             }
-            String optString = optJSONObject.optString("serviceId");
-            if (TextUtils.isEmpty(optString)) {
-                if (a) {
-                    Log.d("BdtlsImpl", "onFailure: serviceId is invalid");
+            if (!dl4.b() && !TextUtils.equals(dl4.a(), "0")) {
+                File file = new File(this.b);
+                if (file.exists()) {
+                    ap4.L(file);
                 }
-                if (cj3Var != null) {
-                    cj3Var.a("serviceId is invalid");
-                    return true;
-                }
-                return true;
             }
-            cb3.D(str, j43Var.Y().G(), null, str2);
-            new ao3(j43Var, jSONObject, str2, callback).o(optString);
-            return true;
+            if (ap4.v(this.b)) {
+                if (c) {
+                    Log.d("SwanAppCompat", "start create cache");
+                }
+                return ap4.F(new File(this.b));
+            }
+            return b(this.a, this.b);
         }
-        return invokeCommon.booleanValue;
+        return (List) invokeV.objValue;
     }
 }

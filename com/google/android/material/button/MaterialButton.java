@@ -302,7 +302,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MaterialButton(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f0404ab);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0404ac);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

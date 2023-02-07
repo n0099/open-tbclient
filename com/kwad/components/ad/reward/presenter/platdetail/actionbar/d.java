@@ -60,10 +60,10 @@ public final class d extends com.kwad.components.ad.reward.presenter.a implement
                 z2 = ((!ag.cB(context) && (com.kwad.components.ad.reward.kwai.b.h(adInfo) || com.kwad.sdk.core.response.a.a.bF(adInfo))) || (ag.cB(context) && com.kwad.sdk.core.response.a.a.bE(adInfo))) ? true : true;
                 layoutParams3.gravity = 85;
                 if (z2) {
-                    i = R.dimen.obfuscated_res_0x7f0703b4;
+                    i = R.dimen.obfuscated_res_0x7f0703b6;
                 }
                 layoutParams3.bottomMargin = context.getResources().getDimensionPixelOffset(i);
-                layoutParams3.rightMargin = context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0703b4);
+                layoutParams3.rightMargin = context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0703b6);
                 ksLogoView.setLayoutParams(layoutParams3);
             }
             return layoutParams;
@@ -90,7 +90,7 @@ public final class d extends com.kwad.components.ad.reward.presenter.a implement
             h hVar = new h(this.nM, this.es, this.pM);
             this.rM = hVar;
             hVar.b(u.D(this.nM.mAdTemplate));
-            a(getContext(), com.kwad.sdk.core.response.a.d.bQ(this.nM.mAdTemplate), this.pM, R.dimen.obfuscated_res_0x7f0703ce, false);
+            a(getContext(), com.kwad.sdk.core.response.a.d.bQ(this.nM.mAdTemplate), this.pM, R.dimen.obfuscated_res_0x7f0703d0, false);
         }
     }
 
@@ -120,7 +120,7 @@ public final class d extends com.kwad.components.ad.reward.presenter.a implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onCreate();
-            this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0910f3);
+            this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091136);
         }
     }
 }

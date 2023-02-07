@@ -1,23 +1,26 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.view.Surface;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes6.dex */
-public class uq2 extends vq2 {
+public class uq2 extends qm2<hr2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int[] A;
-    public ArrayList<cr2> z;
+
+    @Override // com.baidu.tieba.qm2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setSurface" : (String) invokeV.objValue;
+    }
 
     public uq2() {
         Interceptable interceptable = $ic;
@@ -29,54 +32,21 @@ public class uq2 extends vq2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.A = new int[]{0, 0, 0, 0};
     }
 
-    @Override // com.baidu.tieba.vq2, com.baidu.tieba.zz1, com.baidu.tieba.iu2
-    public void a(JSONObject jSONObject) throws JSONException {
-        JSONArray jSONArray;
-        JSONArray jSONArray2;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qm2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull hr2 hr2Var) {
+        Object obj;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, hr2Var) != null) || (obj = command.obj) == null) {
             return;
         }
-        super.a(jSONObject);
-        if (jSONObject.has("points") && (jSONArray2 = jSONObject.getJSONArray("points")) != null && jSONArray2.length() > 0) {
-            int length = jSONArray2.length();
-            this.z = new ArrayList<>(length);
-            for (int i = 0; i < length; i++) {
-                JSONObject jSONObject2 = jSONArray2.getJSONObject(i);
-                if (jSONObject2 != null) {
-                    cr2 cr2Var = new cr2();
-                    cr2Var.a(jSONObject2);
-                    if (cr2Var.isValid()) {
-                        this.z.add(cr2Var);
-                    }
-                }
-            }
-        }
-        if (jSONObject.has(CriusAttrConstants.PADDING) && (jSONArray = jSONObject.getJSONArray(CriusAttrConstants.PADDING)) != null && jSONArray.length() > 0) {
-            int min = Math.min(jSONArray.length(), 4);
-            for (int i2 = 0; i2 < min; i2++) {
-                this.A[i2] = ai3.g(jSONArray.optInt(i2));
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.zz1, com.baidu.tieba.iu2
-    public boolean isValid() {
-        InterceptResult invokeV;
-        ArrayList<cr2> arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.b) && (arrayList = this.z) != null && arrayList.size() > 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
+        hr2Var.setSurface((Surface) obj);
+        String str = command.what;
+        d(hr2Var, str, "Surface:" + command.obj.hashCode(), false);
     }
 }

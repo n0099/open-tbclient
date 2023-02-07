@@ -1,87 +1,59 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class u9 {
+public class u9<T> extends v9<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static u9 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Resources a;
+    public View a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448317385, "Lcom/baidu/tieba/u9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448317385, "Lcom/baidu/tieba/u9;");
-        }
-    }
-
-    public u9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public u9(x9<T> x9Var, int i) {
+        super(x9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {x9Var, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((x9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = null;
+        View inflate = LayoutInflater.from(x9Var.getContext()).inflate(i, (ViewGroup) null);
+        this.a = inflate;
+        inflate.setTag(this);
     }
 
-    public static u9 a() {
-        InterceptResult invokeV;
+    public View k(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (u9.class) {
-                    if (b == null) {
-                        b = new u9();
-                    }
-                }
-            }
-            return b;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return this.a.findViewById(i);
         }
-        return (u9) invokeV.objValue;
+        return (View) invokeI.objValue;
     }
 
-    public synchronized Resources getResources() {
+    public View l() {
         InterceptResult invokeV;
-        Resources resources;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this) {
-                resources = this.a;
-            }
-            return resources;
+            return this.a;
         }
-        return (Resources) invokeV.objValue;
-    }
-
-    public synchronized void b(Resources resources) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, resources) == null) {
-            synchronized (this) {
-                this.a = resources;
-            }
-        }
+        return (View) invokeV.objValue;
     }
 }

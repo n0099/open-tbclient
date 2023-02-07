@@ -189,7 +189,7 @@ public final class PayResultActivity extends Activity {
                     b.a = intent.getStringExtra(e);
                     String stringExtra = intent.getStringExtra(f);
                     String stringExtra2 = intent.getStringExtra(g);
-                    com.alipay.sdk.sys.a a2 = a.C0013a.a(intent);
+                    com.alipay.sdk.sys.a a2 = a.C0012a.a(intent);
                     this.a = a2;
                     if (a2 == null) {
                         finish();

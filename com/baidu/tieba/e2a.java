@@ -1,116 +1,37 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
-import android.os.Looper;
-import androidx.core.view.InputDeviceCompat;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.i2a;
+import com.baidu.tieba.b2a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FilenameFilter;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
+import com.fun.ad.sdk.internal.api.PidLoaderSession;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes4.dex */
-public final class e2a {
+public class e2a implements TTNativeExpressAd.ExpressAdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
-    public static e2a e;
-    public static d2a f;
     public transient /* synthetic */ FieldHolder $fh;
-    public i2a a;
-    public k2a b;
-    public j2a c;
-    public List<f2a> d;
+    public boolean a;
+    public boolean b;
+    public final /* synthetic */ f2a c;
+    public final /* synthetic */ ExpressAdListenerWrapper d;
+    public final /* synthetic */ String e;
+    public final /* synthetic */ b2a.b f;
+    public final /* synthetic */ TTNativeExpressAd g;
+    public final /* synthetic */ b2a h;
 
-    /* loaded from: classes4.dex */
-    public class a implements i2a.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e2a a;
-
-        public a(e2a e2aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e2aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = e2aVar;
-        }
-
-        @Override // com.baidu.tieba.i2a.b
-        public void a(long j, long j2, long j3, long j4) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
-                ArrayList<String> e = this.a.b.e(j, j2);
-                if (!e.isEmpty()) {
-                    l2a b = l2a.b();
-                    b.c(j, j2, j3, j4);
-                    b.d(this.a.c.e());
-                    b.e(e);
-                    b.a();
-                    if (e2a.getContext().displayNotification()) {
-                        h2a.c(b.toString());
-                    }
-                    if (this.a.d.size() != 0) {
-                        for (f2a f2aVar : this.a.d) {
-                            f2aVar.onBlock(e2a.getContext().provideContext(), b);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b implements FilenameFilter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ".log";
-        }
-
-        @Override // java.io.FilenameFilter
-        public boolean accept(File file, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, str)) == null) {
-                return str.endsWith(this.a);
-            }
-            return invokeLL.booleanValue;
-        }
-    }
-
-    public e2a() {
+    public e2a(b2a b2aVar, f2a f2aVar, ExpressAdListenerWrapper expressAdListenerWrapper, String str, b2a.b bVar, TTNativeExpressAd tTNativeExpressAd) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {b2aVar, f2aVar, expressAdListenerWrapper, str, bVar, tTNativeExpressAd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -120,137 +41,94 @@ public final class e2a {
                 return;
             }
         }
-        this.d = new LinkedList();
-        this.b = new k2a(Looper.getMainLooper().getThread(), f.provideDumpInterval());
-        this.c = new j2a(f.provideDumpInterval());
-        l(new i2a(new a(this), getContext().provideBlockThreshold(), getContext().stopWhenDebugging()));
-        h2a.b();
+        this.h = b2aVar;
+        this.c = f2aVar;
+        this.d = expressAdListenerWrapper;
+        this.e = str;
+        this.f = bVar;
+        this.g = tTNativeExpressAd;
     }
 
-    public static String h() {
-        InterceptResult invokeV;
-        String providePath;
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onAdClicked(View view2, int i) {
+        Ssp.Pid pid;
+        Ssp.Pid pid2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            String externalStorageState = Environment.getExternalStorageState();
-            if (getContext() == null) {
-                providePath = "";
-            } else {
-                providePath = getContext().providePath();
+        if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
+            LogPrinter.d();
+            this.h.onAdClicked(this.c, this.b, new String[0]);
+            this.b = true;
+            FunAdInteractionListener funAdInteractionListener = this.d.funListener;
+            if (funAdInteractionListener != null) {
+                String str = this.e;
+                pid = this.h.mPid;
+                String str2 = pid.ssp.type;
+                pid2 = this.h.mPid;
+                funAdInteractionListener.onAdClicked(str, str2, pid2.pid);
             }
-            if ("mounted".equals(externalStorageState) && Environment.getExternalStorageDirectory().canWrite()) {
-                return Environment.getExternalStorageDirectory().getPath() + providePath;
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onAdShow(View view2, int i) {
+        Ssp.Pid pid;
+        Ssp.Pid pid2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
+            LogPrinter.d();
+            this.h.onAdShow(this.c, this.a, new String[0]);
+            this.a = true;
+            FunAdInteractionListener funAdInteractionListener = this.d.funListener;
+            if (funAdInteractionListener != null) {
+                String str = this.e;
+                pid = this.h.mPid;
+                String str2 = pid.ssp.type;
+                pid2 = this.h.mPid;
+                funAdInteractionListener.onAdShow(str, str2, pid2.pid);
             }
-            return getContext().provideContext().getFilesDir() + getContext().providePath();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void k(d2a d2aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, d2aVar) == null) {
-            f = d2aVar;
         }
     }
 
-    public void b(f2a f2aVar) {
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onRenderFail(View view2, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, f2aVar) == null) {
-            this.d.add(f2aVar);
-        }
-    }
-
-    public final void l(i2a i2aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, i2aVar) == null) {
-            this.a = i2aVar;
-        }
-    }
-
-    public static File c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            File file = new File(h());
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            return file;
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static e2a e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (e == null) {
-                synchronized (e2a.class) {
-                    if (e == null) {
-                        e = new e2a();
-                    }
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, view2, str, i) == null) {
+            LogPrinter.d();
+            b2a.b bVar = this.f;
+            f2a f2aVar = this.c;
+            if (!bVar.d) {
+                int i2 = bVar.a + 1;
+                bVar.a = i2;
+                if (i2 == bVar.b) {
+                    bVar.e.onAdError(f2aVar, i, str);
                 }
             }
-            return e;
         }
-        return (e2a) invokeV.objValue;
     }
 
-    public static File[] f() {
-        InterceptResult invokeV;
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onRenderSuccess(View view2, float f, float f2) {
+        boolean z;
+        PidLoaderSession<f2a> session;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            File c = c();
-            if (c.exists() && c.isDirectory()) {
-                return c.listFiles(new b());
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            LogPrinter.d();
+            this.g.setCanInterruptVideoPlay(true);
+            this.h.f.put(this.c, this.d);
+            b2a.b bVar = this.f;
+            f2a f2aVar = this.c;
+            if (!bVar.d) {
+                bVar.e.onAdLoaded((b2a) f2aVar);
+                bVar.d = true;
+                session = bVar.e.getSession(f2aVar);
+                bVar.c = session;
+                return;
             }
-            return null;
+            PidLoaderSession<f2a> pidLoaderSession = bVar.c;
+            if (pidLoaderSession != null) {
+                z = bVar.e.isSupportCaching;
+                pidLoaderSession.cacheOrDestroy(f2aVar, z);
+            }
         }
-        return (File[]) invokeV.objValue;
-    }
-
-    public static d2a getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return f;
-        }
-        return (d2a) invokeV.objValue;
-    }
-
-    public j2a d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (j2a) invokeV.objValue;
-    }
-
-    public i2a g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (i2a) invokeV.objValue;
-    }
-
-    public long i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return getContext().provideBlockThreshold() * 0.8f;
-        }
-        return invokeV.longValue;
-    }
-
-    public k2a j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return (k2a) invokeV.objValue;
     }
 }

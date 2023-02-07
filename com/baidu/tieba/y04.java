@@ -1,43 +1,31 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.res.Resources;
-import android.view.ViewGroup;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.res.ui.FullScreenFloatView;
-import com.baidu.swan.games.inspector.SwanInspectorEndpoint;
-import com.baidu.tieba.n33;
-import com.baidu.tieba.z04;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class y04 {
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class y04 extends c14 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FullScreenFloatView a;
 
-    /* loaded from: classes6.dex */
-    public class a implements FullScreenFloatView.c {
+    /* loaded from: classes7.dex */
+    public class a implements pn3<wd3> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-        public final /* synthetic */ y04 b;
+        public final /* synthetic */ am2 a;
 
-        @Override // com.baidu.swan.apps.res.ui.FullScreenFloatView.c
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
-        }
-
-        public a(y04 y04Var, Activity activity) {
+        public a(y04 y04Var, am2 am2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {y04Var, activity};
+                Object[] objArr = {y04Var, am2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,20 +35,28 @@ public class y04 {
                     return;
                 }
             }
-            this.b = y04Var;
-            this.a = activity;
+            this.a = am2Var;
         }
 
-        @Override // com.baidu.swan.apps.res.ui.FullScreenFloatView.c
-        public void onClick() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.pn3
+        /* renamed from: b */
+        public void a(wd3 wd3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.b.d(this.a);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wd3Var) == null) {
+                boolean z = true;
+                if ((wd3Var == null || wd3Var.d || wd3Var.j != 1) ? false : false) {
+                    this.a.a(null);
+                } else {
+                    this.a.onFail(10001, "authorize fail.");
+                }
             }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public y04() {
+        super("authorize");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,54 +64,32 @@ public class y04 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public void c(z04.c cVar, Activity activity) {
-        x04 x04Var;
-        d44 d44Var;
+    @Override // com.baidu.tieba.c14
+    public w02 a(@NonNull JSONObject jSONObject, @NonNull am2 am2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, activity) == null) && activity != null && this.a == null) {
-            if (cVar != null && (d44Var = cVar.c) != null) {
-                x04Var = d44Var.f;
-            } else {
-                x04Var = null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, am2Var)) == null) {
+            if (c14.b && jSONObject.optBoolean("debug", false)) {
+                Log.i("authorize", "debug mode: true.");
+                am2Var.a(null);
+                return null;
             }
-            if (x04.f(x04Var).b()) {
-                b(activity);
+            w83 b0 = w83.b0();
+            if (b0 == null) {
+                am2Var.onFail(10001, "authorize fail.");
+                return null;
             }
+            b0.e0().e("mapp_gamecenter_private_api", new a(this, am2Var));
+            return null;
         }
-    }
-
-    public final void b(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            FullScreenFloatView a2 = s23.a(activity, (ViewGroup) activity.findViewById(16908290), 2);
-            this.a = a2;
-            a2.setFloatButtonText(activity.getString(R.string.obfuscated_res_0x7f0f0177));
-            this.a.setFloatImageBackground(R.drawable.obfuscated_res_0x7f08015d);
-            this.a.setAutoAttachEnable(false);
-            this.a.setDragImageListener(new a(this, activity));
-            this.a.setVisibility(0);
-        }
-    }
-
-    public final void d(Activity activity) {
-        j43 M;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) && (M = j43.M()) != null && M.Y() != null) {
-            Resources resources = activity.getResources();
-            String u = SwanInspectorEndpoint.v().u(resources);
-            n33.a aVar = new n33.a(activity);
-            aVar.V(resources.getString(R.string.obfuscated_res_0x7f0f01dd));
-            aVar.x(u);
-            aVar.n(new rj3());
-            aVar.m(false);
-            aVar.O(R.string.obfuscated_res_0x7f0f01a4, null);
-            aVar.X();
-        }
+        return (w02) invokeLL.objValue;
     }
 }

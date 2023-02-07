@@ -20,6 +20,7 @@ public class PayConfig implements Serializable {
     public static final int PAYTYPE_TYPE_CARDBOX = 4;
     public static final long serialVersionUID = 1473520404420820966L;
     public transient /* synthetic */ FieldHolder $fh;
+    public int fromScene;
     public int isAutoPay;
     public String mClickZone;
     public int mFrom;

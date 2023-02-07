@@ -16,7 +16,7 @@ public final class a {
 
     /* renamed from: com.kwad.components.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC0543a {
+    public interface InterfaceC0547a {
         void c(com.kwad.sdk.e.kwai.b bVar);
 
         void d(com.kwad.sdk.e.kwai.b bVar);
@@ -24,27 +24,27 @@ public final class a {
         void e(com.kwad.sdk.e.kwai.b bVar);
     }
 
-    public static void a(Context context, com.kwad.sdk.e.kwai.b bVar, @NonNull InterfaceC0543a interfaceC0543a) {
+    public static void a(Context context, com.kwad.sdk.e.kwai.b bVar, @NonNull InterfaceC0547a interfaceC0547a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, context, bVar, interfaceC0543a) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65536, null, context, bVar, interfaceC0547a) == null) {
             com.kwad.sdk.core.e.b.d("HybridDownloader", "reportHybrid: download+++url " + bVar.packageUrl);
-            interfaceC0543a.c(bVar);
+            interfaceC0547a.c(bVar);
             bVar.N(System.currentTimeMillis());
             com.kwad.components.a.b.b.a(bVar, 1);
             r.dD(context);
             r.CZ();
-            r.eq(bVar.packageUrl).g(bVar).en(bVar.aiv).bz(true).a(new m(interfaceC0543a, bVar) { // from class: com.kwad.components.a.a.a.1
+            r.eq(bVar.packageUrl).g(bVar).en(bVar.aiv).bz(true).a(new m(interfaceC0547a, bVar) { // from class: com.kwad.components.a.a.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ com.kwad.sdk.e.kwai.b PP;
-                public final /* synthetic */ InterfaceC0543a Qa;
+                public final /* synthetic */ InterfaceC0547a Qa;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {interfaceC0543a, bVar};
+                        Object[] objArr = {interfaceC0547a, bVar};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -54,7 +54,7 @@ public final class a {
                             return;
                         }
                     }
-                    this.Qa = interfaceC0543a;
+                    this.Qa = interfaceC0547a;
                     this.PP = bVar;
                 }
 

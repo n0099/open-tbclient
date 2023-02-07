@@ -1,83 +1,44 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.annotation.SuppressLint;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.Arrays;
+import java.util.HashSet;
 /* loaded from: classes6.dex */
-public class sg4 {
+public final class sg4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile sg4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
-    public sg4() {
+    @NonNull
+    @SuppressLint({"LambdaLast"})
+    public static Bundle a(@NonNull pg4 pg4Var, @Nullable Bundle bundle, String... strArr) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, pg4Var, bundle, strArr)) == null) {
+            if (bundle == null) {
+                bundle = new Bundle();
             }
-        }
-    }
-
-    public static sg4 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (sg4.class) {
-                    if (b == null) {
-                        b = new sg4();
-                    }
-                }
+            if (bundle.getLong("timestamp", -1L) < 0) {
+                bundle.putLong("timestamp", System.currentTimeMillis());
             }
-            return b;
+            return pg4Var.m(bundle, new HashSet(Arrays.asList(strArr)));
         }
-        return (sg4) invokeV.objValue;
+        return (Bundle) invokeLLL.objValue;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    @NonNull
+    @SuppressLint({"LambdaLast"})
+    public static Bundle b(@NonNull pg4 pg4Var, @NonNull String... strArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.a)) {
-                this.a = ub4.b().i().getString("extract_js_url", null);
-            }
-            return this.a;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, pg4Var, strArr)) == null) {
+            return a(pg4Var, null, strArr);
         }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return ub4.b().i().getString("tts_node_version", "0");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void d(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        String optString = jSONObject.optString("version");
-        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || !optJSONObject.has("extract_js_url")) {
-            return;
-        }
-        String optString2 = optJSONObject.optString("extract_js_url");
-        ub4.b().i().putString("tts_node_version", optString);
-        ub4.b().i().putString("extract_js_url", optString2);
+        return (Bundle) invokeLL.objValue;
     }
 }

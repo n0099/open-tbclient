@@ -12,25 +12,25 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.videoplayer.SwanVideoView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wl4;
-import com.baidu.tieba.xl4;
-import com.baidu.tieba.yl4;
+import com.baidu.tieba.jq4;
+import com.baidu.tieba.kq4;
+import com.baidu.tieba.lq4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public final class MediaGestureLayout extends FrameLayout implements xl4 {
+public final class MediaGestureLayout extends FrameLayout implements kq4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wl4 a;
+    public jq4 a;
     public b b;
     public MediaVolume c;
     public MediaBrightness d;
     public MediaFastForward e;
     public SwanVideoView f;
-    public yl4 g;
+    public lq4 g;
 
     /* loaded from: classes3.dex */
     public interface b {
@@ -198,7 +198,7 @@ public final class MediaGestureLayout extends FrameLayout implements xl4 {
         i(context);
     }
 
-    @Override // com.baidu.tieba.xl4
+    @Override // com.baidu.tieba.kq4
     public boolean a(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -213,10 +213,10 @@ public final class MediaGestureLayout extends FrameLayout implements xl4 {
         return invokeL.booleanValue;
     }
 
-    public void g(@NonNull yl4 yl4Var) {
+    public void g(@NonNull lq4 lq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, yl4Var) == null) {
-            this.g = yl4Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, lq4Var) == null) {
+            this.g = lq4Var;
         }
     }
 
@@ -230,15 +230,15 @@ public final class MediaGestureLayout extends FrameLayout implements xl4 {
     public final void i(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
-            wl4 wl4Var = new wl4(context);
-            this.a = wl4Var;
-            wl4Var.d(this);
-            this.g = new yl4.b().f();
+            jq4 jq4Var = new jq4(context);
+            this.a = jq4Var;
+            jq4Var.d(this);
+            this.g = new lq4.b().f();
             setOnTouchListener(new a(this));
         }
     }
 
-    @Override // com.baidu.tieba.xl4
+    @Override // com.baidu.tieba.kq4
     public boolean onDoubleTap(MotionEvent motionEvent) {
         InterceptResult invokeL;
         b bVar;
@@ -260,7 +260,7 @@ public final class MediaGestureLayout extends FrameLayout implements xl4 {
         }
     }
 
-    @Override // com.baidu.tieba.xl4
+    @Override // com.baidu.tieba.kq4
     public boolean b(MotionEvent motionEvent, MediaGestureMode mediaGestureMode) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -281,14 +281,14 @@ public final class MediaGestureLayout extends FrameLayout implements xl4 {
         return invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.xl4
+    @Override // com.baidu.tieba.kq4
     public boolean c(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
             if ((this.g.f() && this.g.b()) || (!this.g.f() && this.g.e())) {
                 float b2 = this.c.b() + (((motionEvent.getY() - motionEvent2.getY()) * this.c.c()) / (getHeight() * 0.8f));
-                this.c.g(R.drawable.obfuscated_res_0x7f081262);
+                this.c.g(R.drawable.obfuscated_res_0x7f081257);
                 this.c.h(b2);
                 this.c.f();
                 return true;
@@ -298,7 +298,7 @@ public final class MediaGestureLayout extends FrameLayout implements xl4 {
         return invokeCommon.booleanValue;
     }
 
-    @Override // com.baidu.tieba.xl4
+    @Override // com.baidu.tieba.kq4
     public boolean d(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
         InterceptResult invokeCommon;
         int i;
@@ -309,9 +309,9 @@ public final class MediaGestureLayout extends FrameLayout implements xl4 {
                 this.e.h((int) (this.e.b() + ((this.e.c() * x) / (getWidth() * 0.8f))));
                 MediaFastForward mediaFastForward = this.e;
                 if (x > 0.0f) {
-                    i = R.drawable.obfuscated_res_0x7f08125e;
+                    i = R.drawable.obfuscated_res_0x7f081253;
                 } else {
-                    i = R.drawable.obfuscated_res_0x7f08125f;
+                    i = R.drawable.obfuscated_res_0x7f081254;
                 }
                 mediaFastForward.g(i);
                 this.e.f();
@@ -322,7 +322,7 @@ public final class MediaGestureLayout extends FrameLayout implements xl4 {
         return invokeCommon.booleanValue;
     }
 
-    @Override // com.baidu.tieba.xl4
+    @Override // com.baidu.tieba.kq4
     public boolean e(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -330,7 +330,7 @@ public final class MediaGestureLayout extends FrameLayout implements xl4 {
             if ((this.g.f() && this.g.b()) || (!this.g.f() && this.g.e())) {
                 float a2 = this.d.a() + (((motionEvent.getY() - motionEvent2.getY()) * this.d.b()) / (getHeight() * 0.8f));
                 this.d.f(a2);
-                this.d.g(R.drawable.obfuscated_res_0x7f081250);
+                this.d.g(R.drawable.obfuscated_res_0x7f081245);
                 this.d.h((int) ((a2 / this.d.b()) * 100.0f));
                 this.d.e();
                 return true;
@@ -340,7 +340,7 @@ public final class MediaGestureLayout extends FrameLayout implements xl4 {
         return invokeCommon.booleanValue;
     }
 
-    @Override // com.baidu.tieba.xl4
+    @Override // com.baidu.tieba.kq4
     public boolean onDown(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

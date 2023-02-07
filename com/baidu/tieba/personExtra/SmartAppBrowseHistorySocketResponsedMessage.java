@@ -3,7 +3,7 @@ package com.baidu.tieba.personExtra;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hg8;
+import com.baidu.tieba.ck8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.HistorySwan.HistorySwanResIdl;
 public class SmartAppBrowseHistorySocketResponsedMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hg8 mData;
+    public ck8 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SmartAppBrowseHistorySocketResponsedMessage() {
@@ -36,13 +36,13 @@ public class SmartAppBrowseHistorySocketResponsedMessage extends SocketResponsed
         }
     }
 
-    public hg8 getData() {
+    public ck8 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mData;
         }
-        return (hg8) invokeV.objValue;
+        return (ck8) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -61,9 +61,9 @@ public class SmartAppBrowseHistorySocketResponsedMessage extends SocketResponsed
                 setErrorString(historySwanResIdl.error.usermsg);
             }
             if (historySwanResIdl.data != null) {
-                hg8 hg8Var = new hg8();
-                this.mData = hg8Var;
-                hg8Var.b(historySwanResIdl.data);
+                ck8 ck8Var = new ck8();
+                this.mData = ck8Var;
+                ck8Var.b(historySwanResIdl.data);
             }
             return historySwanResIdl;
         }

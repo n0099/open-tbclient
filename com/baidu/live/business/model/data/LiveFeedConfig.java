@@ -3,8 +3,9 @@ package com.baidu.live.business.model.data;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
+import com.baidu.searchbox.retrieve.timer.bean.FetchTimer;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tieba.ka0;
+import com.baidu.tieba.qa0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -113,7 +114,7 @@ public class LiveFeedConfig {
                 if (jSONObject != null) {
                     InterestInsert interestInsert = new InterestInsert();
                     interestInsert.duration = jSONObject.optInt("duration");
-                    interestInsert.frequency = jSONObject.optInt("frequency");
+                    interestInsert.frequency = jSONObject.optInt(FetchTimer.FREQUENCY);
                     interestInsert.tab = jSONObject.optJSONArray("tab");
                     return interestInsert;
                 }
@@ -225,10 +226,10 @@ public class LiveFeedConfig {
                     this.minorUfoUrl = optJSONObject.optString("ufo_url");
                 }
                 if (z && z2) {
-                    ka0.f(LIVE_FEED_PAGE_CONFIG_CACHE_KEY, jSONObject.toString());
+                    qa0.f(LIVE_FEED_PAGE_CONFIG_CACHE_KEY, jSONObject.toString());
                 }
             } else if (z && z2) {
-                String b = ka0.b(LIVE_FEED_PAGE_CONFIG_CACHE_KEY, "");
+                String b = qa0.b(LIVE_FEED_PAGE_CONFIG_CACHE_KEY, "");
                 if (!TextUtils.isEmpty(b)) {
                     try {
                         JSONObject jSONObject2 = new JSONObject(b);
@@ -246,7 +247,7 @@ public class LiveFeedConfig {
                             this.minorUfoUrl = optJSONObject2.optString("ufo_url");
                         }
                     } catch (JSONException unused) {
-                        ka0.g(LIVE_FEED_PAGE_CONFIG_CACHE_KEY);
+                        qa0.g(LIVE_FEED_PAGE_CONFIG_CACHE_KEY);
                     }
                 }
             }

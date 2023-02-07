@@ -1,173 +1,93 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantActivity;
-import com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantPerItemView;
-import com.baidu.tieba.themeCenter.background.DressItemData;
-import com.baidu.tieba.w29;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.RandomAccessFile;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes6.dex */
-public class v29 extends BaseAdapter {
+public class v29 extends t29 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AvatarPendantActivity a;
-    public List<DressItemData> b;
-    public w29.a c;
+    public boolean g;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public AvatarPendantPerItemView a;
-
-        public b(v29 v29Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v29Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(v29 v29Var, a aVar) {
-            this(v29Var);
-        }
-    }
-
-    public v29(AvatarPendantActivity avatarPendantActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public v29(String str, int i, int i2, long j, String str2) {
+        super(str, i, i2, j, str2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {avatarPendantActivity};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Long) objArr2[3]).longValue(), (String) objArr2[4]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = avatarPendantActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public DressItemData getItem(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.t29
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<DressItemData> list = this.b;
-            if (list != null && list.size() > 0 && this.b.size() > i) {
-                return this.b.get(i);
-            }
-            return null;
-        }
-        return (DressItemData) invokeI.objValue;
-    }
-
-    public final void b(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            int skinType = TbadkApplication.getInst().getSkinType();
-            if (view2 != null) {
-                dr4 layoutMode = this.a.getLayoutMode();
-                boolean z = true;
-                if (skinType != 1) {
-                    z = false;
-                }
-                layoutMode.l(z);
-                this.a.getLayoutMode().k(view2);
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.g = true;
         }
     }
 
-    public void c(w29.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.c = aVar;
-        }
-    }
-
-    public void d(List<DressItemData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.b = list;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    @Override // com.baidu.tieba.t29
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<DressItemData> list = this.b;
-            if (list != null) {
-                return list.size();
-            }
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.g;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        b bVar;
+    @Override // com.baidu.tieba.t29
+    public w29 g(ArrayList<Integer> arrayList, String str, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
-            if (view2 != null && (view2.getTag() instanceof b)) {
-                bVar = (b) view2.getTag();
-            } else {
-                view2 = LayoutInflater.from(this.a.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d012a, viewGroup, false);
-                bVar = new b(this, null);
-                AvatarPendantPerItemView avatarPendantPerItemView = (AvatarPendantPerItemView) view2.findViewById(R.id.obfuscated_res_0x7f090318);
-                bVar.a = avatarPendantPerItemView;
-                avatarPendantPerItemView.setAvatarPendantItemClickListener(this.c);
-                view2.setTag(bVar);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, arrayList, str, i)) == null) {
+            w29 w29Var = new w29();
+            try {
+                RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.b), "r");
+                int i2 = 0;
+                int size = arrayList.size();
+                Iterator<Integer> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    int i3 = i2 + 1;
+                    w29 h = h(randomAccessFile, it.next().intValue(), i, str);
+                    if (h == null) {
+                        return null;
+                    }
+                    d((int) (((i3 * 50.0f) / size) + 30.0f));
+                    if (!StringUtils.isNull(h.a)) {
+                        return h;
+                    }
+                    if (h.b != 0) {
+                        return h;
+                    }
+                    i2 = i3;
+                    w29Var = h;
+                }
+            } catch (FileNotFoundException unused) {
             }
-            DressItemData item = getItem(i);
-            if (item != null) {
-                bVar.a.c(item);
-            }
-            b(view2);
-            return view2;
+            return w29Var;
         }
-        return (View) invokeILL.objValue;
+        return (w29) invokeLLI.objValue;
     }
 }

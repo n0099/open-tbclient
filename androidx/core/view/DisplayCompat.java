@@ -17,7 +17,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes.dex */
 public final class DisplayCompat {
     public static /* synthetic */ Interceptable $ic = null;
@@ -25,13 +24,147 @@ public final class DisplayCompat {
     public static final int DISPLAY_SIZE_4K_WIDTH = 3840;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @RequiresApi(17)
+    /* loaded from: classes.dex */
+    public static class Api17Impl {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public Api17Impl() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public static void getRealSize(Display display, Point point) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(65537, null, display, point) == null) {
+                display.getRealSize(point);
+            }
+        }
+    }
+
+    @RequiresApi(23)
+    /* loaded from: classes.dex */
+    public static class Api23Impl {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public Api23Impl() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @NonNull
+        public static ModeCompat getMode(@NonNull Context context, @NonNull Display display) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, display)) == null) {
+                Display.Mode mode = display.getMode();
+                Point currentDisplaySizeFromWorkarounds = DisplayCompat.getCurrentDisplaySizeFromWorkarounds(context, display);
+                if (currentDisplaySizeFromWorkarounds != null && !physicalSizeEquals(mode, currentDisplaySizeFromWorkarounds)) {
+                    return new ModeCompat(mode, currentDisplaySizeFromWorkarounds);
+                }
+                return new ModeCompat(mode, true);
+            }
+            return (ModeCompat) invokeLL.objValue;
+        }
+
+        public static boolean physicalSizeEquals(Display.Mode mode, Point point) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, mode, point)) == null) {
+                if ((mode.getPhysicalWidth() == point.x && mode.getPhysicalHeight() == point.y) || (mode.getPhysicalWidth() == point.y && mode.getPhysicalHeight() == point.x)) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeLL.booleanValue;
+        }
+
+        @NonNull
+        @SuppressLint({"ArrayReturn"})
+        public static ModeCompat[] getSupportedModes(@NonNull Context context, @NonNull Display display) {
+            InterceptResult invokeLL;
+            ModeCompat modeCompat;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, display)) == null) {
+                Display.Mode[] supportedModes = display.getSupportedModes();
+                ModeCompat[] modeCompatArr = new ModeCompat[supportedModes.length];
+                Display.Mode mode = display.getMode();
+                Point currentDisplaySizeFromWorkarounds = DisplayCompat.getCurrentDisplaySizeFromWorkarounds(context, display);
+                if (currentDisplaySizeFromWorkarounds != null && !physicalSizeEquals(mode, currentDisplaySizeFromWorkarounds)) {
+                    for (int i = 0; i < supportedModes.length; i++) {
+                        if (physicalSizeEquals(supportedModes[i], mode)) {
+                            modeCompat = new ModeCompat(supportedModes[i], currentDisplaySizeFromWorkarounds);
+                        } else {
+                            modeCompat = new ModeCompat(supportedModes[i], false);
+                        }
+                        modeCompatArr[i] = modeCompat;
+                    }
+                } else {
+                    for (int i2 = 0; i2 < supportedModes.length; i2++) {
+                        modeCompatArr[i2] = new ModeCompat(supportedModes[i2], physicalSizeEquals(supportedModes[i2], mode));
+                    }
+                }
+                return modeCompatArr;
+            }
+            return (ModeCompat[]) invokeLL.objValue;
+        }
+
+        public static boolean isCurrentModeTheLargestMode(@NonNull Display display) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, display)) == null) {
+                Display.Mode mode = display.getMode();
+                Display.Mode[] supportedModes = display.getSupportedModes();
+                for (int i = 0; i < supportedModes.length; i++) {
+                    if (mode.getPhysicalHeight() < supportedModes[i].getPhysicalHeight() || mode.getPhysicalWidth() < supportedModes[i].getPhysicalWidth()) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public static boolean physicalSizeEquals(Display.Mode mode, Display.Mode mode2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, mode, mode2)) == null) {
+                if (mode.getPhysicalWidth() == mode2.getPhysicalWidth() && mode.getPhysicalHeight() == mode2.getPhysicalHeight()) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeLL.booleanValue;
+        }
+    }
+
     /* loaded from: classes.dex */
     public static final class ModeCompat {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final boolean mIsNative;
         public final Display.Mode mMode;
-        public final Point mPhysicalDisplaySize;
+        public final Point mPhysicalSize;
 
         public ModeCompat(@NonNull Point point) {
             Interceptable interceptable = $ic;
@@ -48,19 +181,19 @@ public final class DisplayCompat {
                     return;
                 }
             }
-            Preconditions.checkNotNull(point, "physicalDisplaySize == null");
-            this.mIsNative = true;
-            this.mPhysicalDisplaySize = point;
+            Preconditions.checkNotNull(point, "physicalSize == null");
+            this.mPhysicalSize = point;
             this.mMode = null;
+            this.mIsNative = true;
         }
 
         @RequiresApi(23)
-        public ModeCompat(@NonNull Display.Mode mode, boolean z) {
+        public ModeCompat(@NonNull Display.Mode mode, @NonNull Point point) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {mode, Boolean.valueOf(z)};
+                Object[] objArr = {mode, point};
                 interceptable.invokeUnInit(65537, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -70,17 +203,40 @@ public final class DisplayCompat {
                     return;
                 }
             }
-            Preconditions.checkNotNull(mode, "Display.Mode == null, can't wrap a null reference");
-            this.mIsNative = z;
-            this.mPhysicalDisplaySize = new Point(mode.getPhysicalWidth(), mode.getPhysicalHeight());
+            Preconditions.checkNotNull(mode, "mode == null, can't wrap a null reference");
+            Preconditions.checkNotNull(point, "physicalSize == null");
+            this.mPhysicalSize = point;
             this.mMode = mode;
+            this.mIsNative = true;
+        }
+
+        @RequiresApi(23)
+        public ModeCompat(@NonNull Display.Mode mode, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mode, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
+            Preconditions.checkNotNull(mode, "mode == null, can't wrap a null reference");
+            this.mPhysicalSize = new Point(mode.getPhysicalWidth(), mode.getPhysicalHeight());
+            this.mMode = mode;
+            this.mIsNative = z;
         }
 
         public int getPhysicalHeight() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.mPhysicalDisplaySize.y;
+                return this.mPhysicalSize.y;
             }
             return invokeV.intValue;
         }
@@ -89,11 +245,12 @@ public final class DisplayCompat {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.mPhysicalDisplaySize.x;
+                return this.mPhysicalSize.x;
             }
             return invokeV.intValue;
         }
 
+        @Deprecated
         public boolean isNative() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -129,7 +286,7 @@ public final class DisplayCompat {
         }
     }
 
-    public static Point getPhysicalDisplaySize(@NonNull Context context, @NonNull Display display) {
+    public static Point getCurrentDisplaySizeFromWorkarounds(@NonNull Context context, @NonNull Display display) {
         InterceptResult invokeLL;
         Point parsePhysicalDisplaySizeFromSystemProperties;
         Interceptable interceptable = $ic;
@@ -142,17 +299,26 @@ public final class DisplayCompat {
             if (parsePhysicalDisplaySizeFromSystemProperties != null) {
                 return parsePhysicalDisplaySizeFromSystemProperties;
             }
-            if (isSonyBravia4kTv(context)) {
-                return new Point(3840, DISPLAY_SIZE_4K_HEIGHT);
+            if (!isSonyBravia4kTv(context) || !isCurrentModeTheLargestMode(display)) {
+                return null;
+            }
+            return new Point(3840, DISPLAY_SIZE_4K_HEIGHT);
+        }
+        return (Point) invokeLL.objValue;
+    }
+
+    @NonNull
+    public static Point getDisplaySize(@NonNull Context context, @NonNull Display display) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, display)) == null) {
+            Point currentDisplaySizeFromWorkarounds = getCurrentDisplaySizeFromWorkarounds(context, display);
+            if (currentDisplaySizeFromWorkarounds != null) {
+                return currentDisplaySizeFromWorkarounds;
             }
             Point point = new Point();
-            int i = Build.VERSION.SDK_INT;
-            if (i >= 23) {
-                Display.Mode mode = display.getMode();
-                point.x = mode.getPhysicalWidth();
-                point.y = mode.getPhysicalHeight();
-            } else if (i >= 17) {
-                display.getRealSize(point);
+            if (Build.VERSION.SDK_INT >= 17) {
+                Api17Impl.getRealSize(display, point);
             } else {
                 display.getSize(point);
             }
@@ -162,39 +328,55 @@ public final class DisplayCompat {
     }
 
     @NonNull
+    public static ModeCompat getMode(@NonNull Context context, @NonNull Display display) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, display)) == null) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                return Api23Impl.getMode(context, display);
+            }
+            return new ModeCompat(getDisplaySize(context, display));
+        }
+        return (ModeCompat) invokeLL.objValue;
+    }
+
+    @NonNull
     @SuppressLint({"ArrayReturn"})
     public static ModeCompat[] getSupportedModes(@NonNull Context context, @NonNull Display display) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, display)) == null) {
-            Point physicalDisplaySize = getPhysicalDisplaySize(context, display);
-            if (Build.VERSION.SDK_INT >= 23) {
-                Display.Mode[] supportedModes = display.getSupportedModes();
-                ArrayList arrayList = new ArrayList(supportedModes.length);
-                boolean z = false;
-                for (int i = 0; i < supportedModes.length; i++) {
-                    if (physicalSizeEquals(supportedModes[i], physicalDisplaySize)) {
-                        arrayList.add(i, new ModeCompat(supportedModes[i], true));
-                        z = true;
-                    } else {
-                        arrayList.add(i, new ModeCompat(supportedModes[i], false));
-                    }
-                }
-                if (!z) {
-                    arrayList.add(new ModeCompat(physicalDisplaySize));
-                }
-                return (ModeCompat[]) arrayList.toArray(new ModeCompat[0]);
-            }
-            return new ModeCompat[]{new ModeCompat(physicalDisplaySize)};
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, display)) == null) {
+            return Build.VERSION.SDK_INT >= 23 ? Api23Impl.getSupportedModes(context, display) : new ModeCompat[]{getMode(context, display)};
         }
         return (ModeCompat[]) invokeLL.objValue;
+    }
+
+    @Nullable
+    public static Point parsePhysicalDisplaySizeFromSystemProperties(@NonNull String str, @NonNull Display display) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, str, display)) == null) {
+            if (display.getDisplayId() != 0) {
+                return null;
+            }
+            String systemProperty = getSystemProperty(str);
+            if (TextUtils.isEmpty(systemProperty)) {
+                return null;
+            }
+            try {
+                return parseDisplaySize(systemProperty);
+            } catch (NumberFormatException unused) {
+                return null;
+            }
+        }
+        return (Point) invokeLL.objValue;
     }
 
     @Nullable
     public static String getSystemProperty(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             try {
                 Class<?> cls = Class.forName("android.os.SystemProperties");
                 return (String) cls.getMethod("get", String.class).invoke(cls, str);
@@ -208,7 +390,7 @@ public final class DisplayCompat {
     public static boolean isSonyBravia4kTv(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
             if (isTv(context) && "Sony".equals(Build.MANUFACTURER) && Build.MODEL.startsWith("BRAVIA") && context.getPackageManager().hasSystemFeature("com.sony.dtv.hardware.panel.qfhd")) {
                 return true;
             }
@@ -220,7 +402,7 @@ public final class DisplayCompat {
     public static Point parseDisplaySize(@NonNull String str) throws NumberFormatException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
             String[] split = str.trim().split("x", -1);
             if (split.length == 2) {
                 int parseInt = Integer.parseInt(split[0]);
@@ -234,10 +416,22 @@ public final class DisplayCompat {
         return (Point) invokeL.objValue;
     }
 
+    public static boolean isCurrentModeTheLargestMode(@NonNull Display display) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, display)) == null) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                return Api23Impl.isCurrentModeTheLargestMode(display);
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
     public static boolean isTv(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
             UiModeManager uiModeManager = (UiModeManager) context.getSystemService("uimode");
             if (uiModeManager != null && uiModeManager.getCurrentModeType() == 4) {
                 return true;
@@ -245,39 +439,5 @@ public final class DisplayCompat {
             return false;
         }
         return invokeL.booleanValue;
-    }
-
-    @Nullable
-    public static Point parsePhysicalDisplaySizeFromSystemProperties(@NonNull String str, @NonNull Display display) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, display)) == null) {
-            if (display.getDisplayId() == 0) {
-                String systemProperty = getSystemProperty(str);
-                if (!TextUtils.isEmpty(systemProperty)) {
-                    try {
-                        return parseDisplaySize(systemProperty);
-                    } catch (NumberFormatException unused) {
-                        return null;
-                    }
-                }
-                return null;
-            }
-            return null;
-        }
-        return (Point) invokeLL.objValue;
-    }
-
-    @RequiresApi(23)
-    public static boolean physicalSizeEquals(Display.Mode mode, Point point) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, mode, point)) == null) {
-            if ((mode.getPhysicalWidth() == point.x && mode.getPhysicalHeight() == point.y) || (mode.getPhysicalWidth() == point.y && mode.getPhysicalHeight() == point.x)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
     }
 }

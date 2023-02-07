@@ -1,120 +1,157 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
+import android.annotation.SuppressLint;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.pb.pb.main.PbFragment;
-import com.baidu.tieba.pb.pb.main.PbPageNewsInfoHolder;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.coreExtra.view.BaseWebView;
+import com.baidu.tieba.payment.PayVcodeActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"ResourceAsColor"})
 /* loaded from: classes5.dex */
-public class o88 extends p78<m88, PbPageNewsInfoHolder> {
+public class o88 extends v9<PayVcodeActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public y48 g;
-    public PbPageNewsInfoHolder.b h;
-
-    /* loaded from: classes5.dex */
-    public class a implements PbPageNewsInfoHolder.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ o88 a;
-
-        public a(o88 o88Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o88Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = o88Var;
-        }
-
-        @Override // com.baidu.tieba.pb.pb.main.PbPageNewsInfoHolder.b
-        public void a(m88 m88Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, m88Var) == null) && m88Var != null) {
-                ac8.a(this.a.g, m88Var, m88Var.d0, 5);
-            }
-        }
-    }
+    public PayVcodeActivity a;
+    public ViewGroup b;
+    public View c;
+    public ViewGroup d;
+    public TextView e;
+    public BaseWebView f;
+    public TextView g;
+    public ProgressBar h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o88(PbFragment pbFragment, BdUniqueId bdUniqueId) {
-        super(pbFragment, bdUniqueId);
+    public o88(PayVcodeActivity payVcodeActivity) {
+        super(payVcodeActivity.getPageContext());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pbFragment, bdUniqueId};
+            Object[] objArr = {payVcodeActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((kc8) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((x9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.h = new a(this);
+        this.a = payVcodeActivity;
+        payVcodeActivity.setContentView(R.layout.obfuscated_res_0x7f0d06e3);
+        p(payVcodeActivity);
     }
 
-    public void r(y48 y48Var) {
+    public View k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, y48Var) == null) {
-            this.g = y48Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public TextView l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.g;
+        }
+        return (TextView) invokeV.objValue;
+    }
+
+    public TextView m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return (TextView) invokeV.objValue;
+    }
+
+    public ViewGroup n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return (ViewGroup) invokeV.objValue;
+    }
+
+    public BaseWebView o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.f;
+        }
+        return (BaseWebView) invokeV.objValue;
+    }
+
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            il5.a(this.a.getPageContext(), this.b);
+            SkinManager.setBgColor(this.g, i);
+            SkinManager.setBackgroundResource(this.e, R.drawable.s_navbar_button_bg);
+            SkinManager.setViewTextColor(this.e, R.color.CAM_X0101, 1);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: v */
-    public PbPageNewsInfoHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void q(boolean z) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            return new PbPageNewsInfoHolder(this.b.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0705, viewGroup, false), this.h);
-        }
-        return (PbPageNewsInfoHolder) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.p78, com.baidu.tieba.ln
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        w(i, view2, viewGroup, (m88) obj, (PbPageNewsInfoHolder) viewHolder);
-        return view2;
-    }
-
-    public View w(int i, View view2, ViewGroup viewGroup, m88 m88Var, PbPageNewsInfoHolder pbPageNewsInfoHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, m88Var, pbPageNewsInfoHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) m88Var, (m88) pbPageNewsInfoHolder);
-            if (m88Var == null) {
-                return view2;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            TextView textView = this.g;
+            if (z) {
+                i = 0;
+            } else {
+                i = 8;
             }
-            m88Var.d0 = i + 1;
-            ac8.d(this.b.getUniqueId(), this.g, m88Var, m88Var.d0, 5);
-            pbPageNewsInfoHolder.g(m88Var);
-            pbPageNewsInfoHolder.h(TbadkCoreApplication.getInst().getSkinType());
-            return view2;
+            textView.setVisibility(i);
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public void r(boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            ProgressBar progressBar = this.h;
+            if (z) {
+                i = 0;
+            } else {
+                i = 8;
+            }
+            progressBar.setVisibility(i);
+        }
+    }
+
+    public final void p(PayVcodeActivity payVcodeActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, payVcodeActivity) == null) {
+            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f0918c1);
+            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0918bb);
+            this.e = textView;
+            SkinManager.setBackgroundResource(textView, R.drawable.s_navbar_button_bg);
+            SkinManager.setViewTextColor(this.e, R.color.CAM_X0101, 1);
+            this.f = (BaseWebView) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0925f6);
+            this.g = (TextView) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f092758);
+            this.c = payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0918bf);
+            this.d = (ViewGroup) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0918c0);
+            this.h = (ProgressBar) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0918c2);
+            this.f.setHorizontalScrollBarEnabled(false);
+            this.f.setHorizontalScrollbarOverlay(false);
+            this.f.setScrollBarStyle(33554432);
+            this.f.getSettings().setJavaScriptEnabled(true);
+        }
     }
 }

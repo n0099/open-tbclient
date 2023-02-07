@@ -1,261 +1,123 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.RectF;
-import android.text.TextUtils;
 import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.gz;
+import com.baidu.tieba.vy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
 /* loaded from: classes3.dex */
-public class bm5 {
+public class bm5 extends vl5<wz4, ThreadCardViewHolder<wz4>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Paint a;
-    public final Paint b;
-    public final Paint c;
-    public final View d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
-    public int k;
-    public float l;
-    public final Paint m;
-    public int n;
-    public int o;
-    public int p;
-    public int q;
-    public int r;
-    public int s;
-    public int t;
-    public float[] u;
-    public int v;
 
-    public bm5(View view2) {
+    /* loaded from: classes3.dex */
+    public class a implements no {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ bm5 a;
+
+        public a(bm5 bm5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bm5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bm5Var;
+        }
+
+        @Override // com.baidu.tieba.no
+        public void b(View view2, Cdo cdo, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, cdo, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (cdo instanceof wz4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+                ThreadData threadData = ((wz4) cdo).t;
+                threadData.objType = 1;
+                ThreadCardUtils.jumpToPB((sw4) threadData, view2.getContext(), this.a.A(), false);
+                ((ThreadCardViewHolder) view2.getTag()).a().p(new gz.a(1));
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bm5(TbPageContext<?> tbPageContext) {
+        super(tbPageContext, ThreadData.TYPE_ITEM);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new Paint();
-        this.b = new Paint();
-        this.c = new Paint();
-        this.e = 16;
-        this.f = 16;
-        this.g = -1;
-        this.h = DebugControllerOverlayDrawable.TEXT_BACKGROUND_COLOR;
-        this.i = 20;
-        this.j = 20;
-        this.k = 36;
-        this.l = 0.0f;
-        this.m = new Paint();
-        this.n = 3;
-        this.o = R.color.CAM_X0101;
-        this.p = R.color.CAM_X0305;
-        this.q = 20;
-        this.r = 20;
-        this.s = 36;
-        this.t = 0;
-        this.v = 0;
-        this.d = view2;
-        int color = getContext().getResources().getColor(R.color.black_alpha40);
-        this.h = color;
-        this.b.setColor(color);
-        this.b.setAntiAlias(true);
-        this.i = (int) getContext().getResources().getDimension(R.dimen.tbfontsize26);
-        int color2 = getContext().getResources().getColor(R.color.CAM_X0101);
-        this.g = color2;
-        this.a.setColor(color2);
-        this.a.setTextSize(this.i);
-        this.a.setAntiAlias(true);
-        this.a.setTypeface(ax4.I(ax4.F(R.string.F_X02)));
-        this.e = zi.g(getContext(), R.dimen.tbds16);
-        this.f = zi.g(getContext(), R.dimen.tbds16);
-        this.j = zi.g(getContext(), R.dimen.tbds22);
-        this.k = zi.g(getContext(), R.dimen.tbds40);
-        this.l = ax4.z(R.string.J_X01)[0];
-        int dimension = (int) getContext().getResources().getDimension(R.dimen.tbfontsize26);
-        this.q = dimension;
-        this.c.setTextSize(dimension);
-        this.a.setAntiAlias(true);
-        this.m.setAntiAlias(true);
-        this.r = zi.g(getContext(), R.dimen.tbds16);
-        this.s = zi.g(getContext(), R.dimen.tbds22);
-        this.t = zi.g(getContext(), R.dimen.tbds5);
-        this.v = zi.g(getContext(), R.dimen.M_W_X006);
-        zi.g(getContext(), R.dimen.M_H_X004);
-        i(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    private Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            View view2 = this.d;
-            if (view2 != null && view2.getContext() != null) {
-                return this.d.getContext();
-            }
-            return TbadkCoreApplication.getInst().getContext();
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public final void e() {
-        View view2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (view2 = this.d) != null) {
-            view2.invalidate();
-        }
-    }
-
-    public void a(Canvas canvas, String str, boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(1048576, this, canvas, str, z) == null) && canvas != null && this.d != null && !TextUtils.isEmpty(str)) {
-            int save = canvas.save();
-            this.d.getPaddingLeft();
-            int paddingRight = this.d.getPaddingRight();
-            this.d.getPaddingTop();
-            int paddingBottom = this.d.getPaddingBottom();
-            int left = this.d.getLeft();
-            int right = this.d.getRight();
-            int top = this.d.getTop();
-            int bottom = this.d.getBottom();
-            float measureText = this.a.measureText(str);
-            Paint.FontMetrics fontMetrics = this.a.getFontMetrics();
-            if (z) {
-                if (this.u == null) {
-                    this.u = ax4.C(R.array.S_O_X001);
-                }
-                float[] fArr = this.u;
-                if (fArr != null && fArr.length >= 4) {
-                    i = save;
-                    this.a.setShadowLayer(fArr[1], fArr[2], fArr[3], (int) fArr[0]);
-                } else {
-                    i = save;
-                }
-                int i2 = this.v;
-                canvas.drawText(str, (((right - left) - paddingRight) - i2) - measureText, (((bottom - top) - paddingBottom) - i2) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.a);
-            } else {
-                i = save;
-                float f = this.k + measureText;
-                float f2 = this.i + this.j;
-                canvas.translate((((right - left) - paddingRight) - f) - this.f, (((bottom - top) - paddingBottom) - f2) - this.e);
-                RectF rectF = new RectF(0.0f, 0.0f, f, f2);
-                float f3 = this.l;
-                if (f3 < 1.0f) {
-                    this.l = f3 * f2;
-                }
-                float f4 = this.l;
-                canvas.drawRoundRect(rectF, f4, f4, this.b);
-                this.a.clearShadowLayer();
-                canvas.drawText(str, (rectF.width() - measureText) / 2.0f, (rectF.height() / 2.0f) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.a);
-            }
-            int i3 = i;
-            if (i3 >= 1 && i3 <= canvas.getSaveCount()) {
-                canvas.restoreToCount(i3);
-            }
-        }
-    }
-
-    public void b(Canvas canvas, String str, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, str, i) == null) && canvas != null && this.d != null && !TextUtils.isEmpty(str)) {
-            if (i != 0) {
-                this.p = i;
-                this.m.setColor(SkinManager.getColor(i));
-            }
-            int save = canvas.save();
-            int paddingLeft = this.d.getPaddingLeft();
-            this.d.getPaddingRight();
-            int paddingTop = this.d.getPaddingTop();
-            this.d.getPaddingBottom();
-            float measureText = this.c.measureText(str);
-            canvas.translate(paddingLeft, paddingTop);
-            RectF rectF = new RectF(0.0f, 0.0f, this.s + measureText, this.q + this.r);
-            int i2 = this.t;
-            canvas.drawRoundRect(rectF, i2, i2, this.m);
-            Paint.FontMetrics fontMetrics = this.c.getFontMetrics();
-            canvas.drawText(str, (rectF.width() - measureText) / 2.0f, (rectF.height() / 2.0f) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.c);
-            if (save >= 1 && save <= canvas.getSaveCount()) {
-                canvas.restoreToCount(save);
-            }
-        }
-    }
-
-    public float c(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: M */
+    public ThreadCardViewHolder<wz4> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return zi.G(this.a, str).height() + this.j;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            vy.b bVar = new vy.b(this.c.getPageActivity(), false);
+            cy cyVar = new cy(this.c.getPageActivity());
+            cyVar.A(true);
+            cyVar.w();
+            bVar.h(cyVar);
+            vy k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.d);
+            k.s(A());
+            ThreadCardViewHolder<wz4> threadCardViewHolder = new ThreadCardViewHolder<>(k);
+            threadCardViewHolder.i(this.mPageId);
+            setOnAdapterItemClickListener(new a(this));
+            return threadCardViewHolder;
         }
-        return invokeL.floatValue;
+        return (ThreadCardViewHolder) invokeL.objValue;
     }
 
-    public float d(String str) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: N */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, wz4 wz4Var, ThreadCardViewHolder<wz4> threadCardViewHolder) {
+        InterceptResult invokeCommon;
+        ThreadData threadData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return zi.H(this.a, str) + this.k;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, wz4Var, threadCardViewHolder})) == null) {
+            if (wz4Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && (threadData = wz4Var.t) != null) {
+                threadData.statFloor = getPositionByType(i) + 1;
+                threadCardViewHolder.a().r(i);
+                threadCardViewHolder.e(wz4Var);
+                threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
+                return threadCardViewHolder.getView();
+            }
+            return null;
         }
-        return invokeL.floatValue;
-    }
-
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.g = i;
-            this.a.setColor(i);
-            e();
-        }
-    }
-
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.i = i;
-            this.a.setTextSize(i);
-            e();
-        }
-    }
-
-    public void i(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) != null) || this.n == i) {
-            return;
-        }
-        this.n = i;
-        this.c.setColor(SkinManager.getColor(i, this.o));
-        this.m.setColor(SkinManager.getColor(i, this.p));
-    }
-
-    public void f(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
-            this.f = i;
-            this.e = i2;
-            e();
-        }
+        return (View) invokeCommon.objValue;
     }
 }

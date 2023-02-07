@@ -1,125 +1,84 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.content.ServiceConnection;
+import android.database.Cursor;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.Reader;
+import java.net.HttpURLConnection;
 /* loaded from: classes4.dex */
 public class ch {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Context context, Intent intent) {
-        InterceptResult invokeLL;
+    public static void a(Cursor cursor) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, intent)) == null) {
+        if ((interceptable == null || interceptable.invokeL(65536, null, cursor) == null) && cursor != null) {
             try {
-                context.sendBroadcast(intent);
-                return true;
+                cursor.close();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
-                return false;
             }
         }
-        return invokeLL.booleanValue;
     }
 
-    public static boolean startActivity(Context context, Intent intent) {
-        InterceptResult invokeLL;
+    public static void b(Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, intent)) == null) {
+        if ((interceptable == null || interceptable.invokeL(65537, null, closeable) == null) && closeable != null) {
             try {
-                if (!(context instanceof Activity) && intent != null) {
-                    intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                }
-                context.startActivity(intent);
-                return true;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
+                closeable.close();
+            } catch (Throwable th) {
+                BdLog.e(th.getMessage());
             }
         }
-        return invokeLL.booleanValue;
     }
 
-    public static boolean startService(Context context, Intent intent) {
-        InterceptResult invokeLL;
+    public static void c(InputStream inputStream) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, intent)) == null) {
+        if ((interceptable == null || interceptable.invokeL(65538, null, inputStream) == null) && inputStream != null) {
             try {
-                context.startService(intent);
-                return true;
-            } catch (Exception e) {
+                inputStream.close();
+            } catch (IOException e) {
                 BdLog.e(e.getMessage());
-                return false;
             }
         }
-        return invokeLL.booleanValue;
     }
 
-    public static boolean stopService(Context context, Intent intent) {
-        InterceptResult invokeLL;
+    public static void d(OutputStream outputStream) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, intent)) == null) {
+        if ((interceptable == null || interceptable.invokeL(65539, null, outputStream) == null) && outputStream != null) {
             try {
-                context.stopService(intent);
-                return true;
-            } catch (Exception e) {
+                outputStream.close();
+            } catch (IOException e) {
                 BdLog.e(e.getMessage());
-                return false;
             }
         }
-        return invokeLL.booleanValue;
     }
 
-    public static boolean unbindService(Context context, ServiceConnection serviceConnection) {
-        InterceptResult invokeLL;
+    public static void e(Reader reader) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, serviceConnection)) == null) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, reader) == null) && reader != null) {
             try {
-                context.unbindService(serviceConnection);
-                return true;
-            } catch (Exception e) {
+                reader.close();
+            } catch (IOException e) {
                 BdLog.e(e.getMessage());
-                return false;
             }
         }
-        return invokeLL.booleanValue;
     }
 
-    public static boolean bindService(Context context, Intent intent, ServiceConnection serviceConnection, int i) {
-        InterceptResult invokeLLLI;
+    public static void f(HttpURLConnection httpURLConnection) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65537, null, context, intent, serviceConnection, i)) == null) {
+        if ((interceptable == null || interceptable.invokeL(65541, null, httpURLConnection) == null) && httpURLConnection != null) {
             try {
-                context.bindService(intent, serviceConnection, i);
-                return true;
+                httpURLConnection.disconnect();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
-                return false;
             }
         }
-        return invokeLLLI.booleanValue;
-    }
-
-    public static boolean startActivityForResult(Activity activity, Intent intent, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, activity, intent, i)) == null) {
-            try {
-                activity.startActivityForResult(intent, i);
-                return true;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
-            }
-        }
-        return invokeLLI.booleanValue;
     }
 }

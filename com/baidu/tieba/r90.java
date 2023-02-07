@@ -1,53 +1,71 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.Looper;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.dns.transmit.DnsTransmitter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.SocketException;
+import java.net.UnknownHostException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Dns;
+import okhttp3.Headers;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 /* loaded from: classes6.dex */
 public class r90 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "";
-    public static String b = "";
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile r90 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public OkHttpClient a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948076320, "Lcom/baidu/tieba/r90;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948076320, "Lcom/baidu/tieba/r90;");
-        }
+    /* loaded from: classes6.dex */
+    public interface b {
+        Map<String, String> getHeaders();
+
+        String getHost();
+
+        String getMediaType();
+
+        String getMethod();
+
+        byte[] getRequestParameter();
     }
 
     /* loaded from: classes6.dex */
-    public static class a implements Runnable {
+    public interface d {
+        void onFailure(int i, String str);
+
+        void onSuccess(byte[] bArr);
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SharedPreferences a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ Object c;
+        public final /* synthetic */ d a;
 
-        public a(SharedPreferences sharedPreferences, String str, Object obj) {
+        public a(r90 r90Var, d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {sharedPreferences, str, obj};
+                Object[] objArr = {r90Var, dVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -57,285 +75,177 @@ public class r90 {
                     return;
                 }
             }
-            this.a = sharedPreferences;
-            this.b = str;
-            this.c = obj;
+            this.a = dVar;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // okhttp3.Callback
+        public void onFailure(@NonNull Call call, @NonNull IOException iOException) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                r90.B(this.a, this.b, this.c);
+            if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
+                String str = "HttpRequest error :" + iOException.toString();
+                if (iOException instanceof SocketException) {
+                    str = "HttpRequest SocketException :" + iOException.toString();
+                }
+                r90.b(this.a, 10003, str);
+            }
+        }
+
+        @Override // okhttp3.Callback
+        public void onResponse(@NonNull Call call, @NonNull Response response) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
+                try {
+                    if (response.code() != 200) {
+                        r90.b(this.a, response.code(), response.message());
+                    } else if (response.body() == null) {
+                        r90.b(this.a, 10004, "response body empty");
+                    } else {
+                        byte[] bytes = response.body().bytes();
+                        w90.b("HttpExecutor", "onSuccess errorCode ：" + response.code() + ", errorMsg :" + new String(bytes));
+                        this.a.onSuccess(bytes);
+                    }
+                } catch (IOException e) {
+                    d dVar = this.a;
+                    r90.b(dVar, 10001, "parse response exception ：" + e);
+                }
             }
         }
     }
 
-    public static void A(Context context, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65537, null, context, str, i) == null) {
-            C(context, str, Integer.valueOf(i));
-        }
-    }
+    /* loaded from: classes6.dex */
+    public class c implements Dns {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public static void D(Context context, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, str2) == null) {
-            C(context, str, str2);
-        }
-    }
-
-    public static boolean m(Context context, String str, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65553, null, context, str, z)) == null) {
-            if (context == null) {
-                return false;
-            }
-            return context.getSharedPreferences("blcp_sp", 0).getBoolean(str, z);
-        }
-        return invokeLLZ.booleanValue;
-    }
-
-    public static int n(Context context, String str, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65554, null, context, str, i)) == null) {
-            if (context == null) {
-                return -1;
-            }
-            return context.getSharedPreferences("blcp_sp", 0).getInt(str, i);
-        }
-        return invokeLLI.intValue;
-    }
-
-    public static String o(Context context, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65555, null, context, str, str2)) == null) {
-            if (context == null) {
-                return "";
-            }
-            return context.getSharedPreferences("blcp_sp", 0).getString(str, str2);
-        }
-        return (String) invokeLLL.objValue;
-    }
-
-    public static void v(Context context, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65562, null, context, str, i) == null) {
-            D(context, "protocol_priority" + i, str);
-        }
-    }
-
-    public static void y(Context context, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65565, null, context, str, z) == null) {
-            C(context, str, Boolean.valueOf(z));
-        }
-    }
-
-    public static void B(SharedPreferences sharedPreferences, String str, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, sharedPreferences, str, obj) == null) {
-            if (obj instanceof Boolean) {
-                sharedPreferences.edit().putBoolean(str, ((Boolean) obj).booleanValue()).apply();
-            } else if (obj instanceof Integer) {
-                sharedPreferences.edit().putInt(str, ((Integer) obj).intValue()).apply();
-            } else if (obj instanceof Long) {
-                sharedPreferences.edit().putLong(str, ((Long) obj).longValue()).apply();
-            } else if (obj instanceof Float) {
-                sharedPreferences.edit().putFloat(str, ((Float) obj).floatValue()).apply();
-            } else if (obj instanceof String) {
-                sharedPreferences.edit().putString(str, (String) obj).apply();
+        public c(r90 r90Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {r90Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-    }
 
-    public static void C(Context context, String str, Object obj) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65539, null, context, str, obj) != null) || context == null) {
-            return;
-        }
-        try {
-            SharedPreferences sharedPreferences = context.getSharedPreferences("blcp_sp", 0);
-            if (Looper.getMainLooper().getThread() == Thread.currentThread()) {
-                n90.a(context).b(new a(sharedPreferences, str, obj));
-            } else {
-                B(sharedPreferences, str, obj);
+        @Override // okhttp3.Dns
+        public List<InetAddress> lookup(String str) throws UnknownHostException {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                w90.b("HttpExecutor", "LCPHttpDns lookup  hostName is " + str);
+                if (!TextUtils.isEmpty(str) && str.contains(DnsTransmitter.IDC_HOST)) {
+                    InetAddress[] allByName = InetAddress.getAllByName(DnsTransmitter.BGP_IP);
+                    w90.b("HttpExecutor", "LCPHttpDns lookup  hostName direct ip");
+                    return Arrays.asList(allByName);
+                }
+                w90.b("HttpExecutor", "LCPHttpDns lookup  hostName is by System");
+                return Dns.SYSTEM.lookup(str);
             }
-        } catch (Throwable th) {
-            q90.b("SpUtils", th.getMessage());
+            return (List) invokeL.objValue;
         }
     }
 
-    public static String b(Context context) {
-        InterceptResult invokeL;
+    public r90() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            if (!TextUtils.isEmpty(b)) {
-                return b;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return o(context, "blcp_app_id", "");
         }
-        return (String) invokeL.objValue;
+        this.a = new OkHttpClient.Builder().connectTimeout(10L, TimeUnit.SECONDS).readTimeout(10L, TimeUnit.SECONDS).writeTimeout(10L, TimeUnit.SECONDS).build();
     }
 
-    public static boolean c(Context context) {
-        InterceptResult invokeL;
+    public static void b(@NonNull d dVar, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            return m(context, "bddns_enable", false);
+        if (interceptable == null || interceptable.invokeLIL(65538, null, dVar, i, str) == null) {
+            dVar.onFailure(i, str);
+            w90.b("HttpExecutor", "failedResponse errorCode ：" + i + ", errorMsg :" + str);
         }
-        return invokeL.booleanValue;
     }
 
-    public static int d(Context context) {
+    public static Headers c(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            return n(context, "conn_type", 1);
-        }
-        return invokeL.intValue;
-    }
-
-    public static String e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            if (!TextUtils.isEmpty(a)) {
-                return a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
+            try {
+                Headers.Builder builder = new Headers.Builder();
+                if (map != null && map.size() > 0) {
+                    for (String str : map.keySet()) {
+                        String str2 = str.toString();
+                        builder.add(str2, map.get(str2));
+                    }
+                }
+                return builder.build();
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
             }
-            return o(context, "blcp_cuid", "");
         }
-        return (String) invokeL.objValue;
+        return (Headers) invokeL.objValue;
     }
 
-    public static int f(Context context) {
-        InterceptResult invokeL;
+    public static r90 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-            return n(context, "key_vip_connect_type", 3);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (b == null) {
+                synchronized (r90.class) {
+                    if (b == null) {
+                        b = new r90();
+                    }
+                }
+            }
+            return b;
         }
-        return invokeL.intValue;
+        return (r90) invokeV.objValue;
     }
 
-    public static int g(Context context) {
-        InterceptResult invokeL;
+    public void e(@NonNull b bVar, @NonNull d dVar) {
+        Request build;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
-            return n(context, "lcp_env_debug", 0);
-        }
-        return invokeL.intValue;
-    }
-
-    public static int i(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
-            return n(context, "protocols_size", 1);
-        }
-        return invokeL.intValue;
-    }
-
-    public static String j(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
-            return o(context, "blcp_token", "");
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean k(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
-            return !TextUtils.isEmpty(j(context));
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean l(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) {
-            return m(context, "lcp_debug", false);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static String h(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, context, i)) == null) {
-            return o(context, "protocol_priority" + i, " : : ");
-        }
-        return (String) invokeLI.objValue;
-    }
-
-    public static void p(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65556, null, context, str) == null) {
-            b = str;
-            D(context, "blcp_app_id", str);
-        }
-    }
-
-    public static void q(Context context, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65557, null, context, z) == null) {
-            y(context, "bddns_enable", z);
-        }
-    }
-
-    public static void r(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65558, null, context, str) == null) {
-            a = str;
-            D(context, "blcp_cuid", str);
-        }
-    }
-
-    public static void s(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65559, null, context, i) == null) {
-            A(context, "key_vip_connect_type", i);
-        }
-    }
-
-    public static void t(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65560, null, context, i) == null) {
-            A(context, "lcp_env_debug", i);
-        }
-    }
-
-    public static void u(Context context, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65561, null, context, z) == null) {
-            y(context, "lcp_debug", z);
-        }
-    }
-
-    public static void w(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65563, null, context, i) == null) {
-            A(context, "protocols_size", i);
-        }
-    }
-
-    public static void x(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65564, null, context, str) == null) {
-            D(context, "blcp_token", str);
-        }
-    }
-
-    public static void z(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65566, null, context, i) == null) {
-            A(context, "conn_type", i);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, bVar, dVar) == null) {
+            try {
+                String host = bVar.getHost();
+                byte[] requestParameter = bVar.getRequestParameter();
+                if (requestParameter != null && requestParameter.length > 0) {
+                    if (bVar.getMethod().equals("POST")) {
+                        build = new Request.Builder().url(host).post(RequestBody.create(MediaType.parse(bVar.getMediaType()), requestParameter)).build();
+                    } else {
+                        if (requestParameter != null && requestParameter.length > 0) {
+                            host = host + "?" + new String(requestParameter);
+                        }
+                        build = new Request.Builder().url(host).build();
+                    }
+                    Map<String, String> headers = bVar.getHeaders();
+                    Headers c2 = c(headers);
+                    OkHttpClient okHttpClient = this.a;
+                    if (headers != null && c2 != null) {
+                        build = build.newBuilder().headers(c2).build();
+                        String str = headers.get("Host");
+                        if (!TextUtils.isEmpty(str) && str.contains(DnsTransmitter.IDC_HOST)) {
+                            okHttpClient = this.a.newBuilder().dns(new c(this)).build();
+                        }
+                    }
+                    w90.a("HttpExecutor", "request url :" + host + " , method :" + bVar.getMethod() + " , body :" + new String(bVar.getRequestParameter()));
+                    okHttpClient.newCall(build).enqueue(new a(this, dVar));
+                    return;
+                }
+                b(dVar, 10000, "request args exception");
+            } catch (Exception e) {
+                b(dVar, 10004, "request exception :" + e);
+            }
         }
     }
 }

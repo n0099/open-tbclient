@@ -1,217 +1,256 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
+import android.text.InputFilter;
+import android.text.Spanned;
+import android.text.TextUtils;
+import android.widget.EditText;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.message.EvaluateRelevanceItemUpdatedMessage;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.write.write.relevance.RelevanceItemSearchData;
-import com.baidu.tieba.write.write.relevance.RelevanceItemSearchResponse;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.switchs.LimitLowQualityPicUploadSwitch;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes5.dex */
 public class mh9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public BdUniqueId b;
-    public final String c;
-    public b d;
-    public List<String> e;
-    public HttpMessageListener f;
 
     /* loaded from: classes5.dex */
-    public interface b {
+    public interface c {
         void a();
+    }
 
-        void c(RelevanceItemSearchData relevanceItemSearchData);
-
-        void d();
-
-        void onError(int i, String str);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947972811, "Lcom/baidu/tieba/mh9;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947972811, "Lcom/baidu/tieba/mh9;");
+        }
     }
 
     /* loaded from: classes5.dex */
-    public class a extends HttpMessageListener {
+    public static class a implements InputFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mh9 a;
+        public c a;
+        public int b;
+        public String c;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(mh9 mh9Var, int i) {
-            super(i);
+        public a(int i, c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {mh9Var, Integer.valueOf(i)};
+                Object[] objArr = {Integer.valueOf(i), cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = mh9Var;
+            this.c = "[^a-zA-Z0-9一-龥]";
+            this.b = i;
+            this.a = cVar;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            RelevanceItemSearchData relevanceItemSearchData;
+        public final String a(String str, String str2) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && this.a.d != null) {
-                if (httpResponsedMessage.getOrginalMessage() != null && httpResponsedMessage.getOrginalMessage().getTag() != this.a.b) {
-                    return;
-                }
-                if (httpResponsedMessage instanceof RelevanceItemSearchResponse) {
-                    relevanceItemSearchData = ((RelevanceItemSearchResponse) httpResponsedMessage).getResponseData();
-                } else {
-                    relevanceItemSearchData = null;
-                }
-                if (relevanceItemSearchData != null && relevanceItemSearchData.getData() != null) {
-                    if (!ListUtils.equalList(this.a.e, relevanceItemSearchData.getData().getTab_option())) {
-                        this.a.e = relevanceItemSearchData.getData().getTab_option();
-                        MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemUpdatedMessage(this.a.e));
-                    }
-                    if (httpResponsedMessage.getError() == 0) {
-                        if (ListUtils.isEmpty(relevanceItemSearchData.getData().getItem_list())) {
-                            if (this.a.a == 1) {
-                                this.a.d.a();
-                                return;
-                            } else {
-                                this.a.d.d();
-                                return;
-                            }
-                        } else if (relevanceItemSearchData != null) {
-                            this.a.d.c(relevanceItemSearchData);
-                            if (this.a.a == 1 && relevanceItemSearchData.getData().getItem_list().size() < 20) {
-                                this.a.d.d();
-                            }
-                            mh9.f(this.a);
-                            return;
-                        } else {
-                            return;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+                return str2.replaceAll(str, "");
+            }
+            return (String) invokeLL.objValue;
+        }
+
+        @Override // android.text.InputFilter
+        public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), spanned, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+                if (spanned != null && charSequence != null) {
+                    String a = a(this.c, charSequence.toString());
+                    int c = rp5.c(spanned.toString()) - (i4 - i3);
+                    int c2 = rp5.c(a);
+                    int i5 = this.b;
+                    int i6 = i5 - c;
+                    if (c + c2 > i5) {
+                        c cVar = this.a;
+                        if (cVar != null) {
+                            cVar.a();
                         }
+                        return StringHelper.cutChineseAndEnglishWithSuffix(a, i6, "");
                     }
-                    this.a.d.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
-                    this.a.l();
+                    return a;
+                }
+                return charSequence;
+            }
+            return (CharSequence) invokeCommon.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b implements InputFilter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public c a;
+        public EditText b;
+        public int c;
+
+        public b(EditText editText, int i, c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {editText, Integer.valueOf(i), cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemUpdatedMessage(null));
-                this.a.d.onError(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0cd1));
-                this.a.l();
             }
+            this.b = editText;
+            this.c = i;
+            this.a = cVar;
         }
-    }
 
-    public mh9(BdUniqueId bdUniqueId, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        @Override // android.text.InputFilter
+        public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), spanned, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+                if (spanned != null && charSequence != null) {
+                    if (" ".equals(charSequence)) {
+                        return charSequence;
+                    }
+                    int d = rp5.d(spanned.toString()) - (i4 - i3);
+                    int d2 = rp5.d(charSequence.toString());
+                    if (d == 0 && d2 > this.c && TextUtils.isEmpty(this.b.getText())) {
+                        c cVar = this.a;
+                        if (cVar != null) {
+                            cVar.a();
+                        }
+                        return rp5.l(charSequence.toString(), this.c);
+                    } else if (!TextUtils.isEmpty(this.b.getText()) && (d + d2) - rp5.j(this.b.getText().toString()) > this.c) {
+                        c cVar2 = this.a;
+                        if (cVar2 != null) {
+                            cVar2.a();
+                        }
+                        if (d2 > this.c) {
+                            return spanned.toString().substring(i3, i4);
+                        }
+                        return "";
+                    } else {
+                        return charSequence;
+                    }
+                }
+                return charSequence;
             }
-        }
-        this.a = 1;
-        a aVar = new a(this, CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH);
-        this.f = aVar;
-        this.b = bdUniqueId;
-        this.c = str;
-        aVar.setTag(bdUniqueId);
-        k();
-        MessageManager.getInstance().registerListener(this.f);
-    }
-
-    public static /* synthetic */ int f(mh9 mh9Var) {
-        int i = mh9Var.a;
-        mh9Var.a = i + 1;
-        return i;
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            l();
-            i(str);
+            return (CharSequence) invokeCommon.objValue;
         }
     }
 
-    public void m(b bVar) {
+    public static boolean a(ImageFileInfo imageFileInfo) {
+        InterceptResult invokeL;
+        String filePath;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-            this.d = bVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, imageFileInfo)) == null) {
+            if (!LimitLowQualityPicUploadSwitch.isOff() && imageFileInfo != null && !imageFileInfo.isGif() && (filePath = imageFileInfo.getFilePath()) != null) {
+                long fileSize = FileHelper.getFileSize(filePath);
+                if (fileSize < 5120) {
+                    e(1, "" + fileSize);
+                    return true;
+                }
+                int[] imageFileWH = FileHelper.getImageFileWH(filePath);
+                if (imageFileWH[0] < 100 || imageFileWH[1] < 100) {
+                    e(2, imageFileWH[0] + "*" + imageFileWH[1]);
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean b(ImageFileInfo imageFileInfo) {
+        InterceptResult invokeL;
+        String filePath;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, imageFileInfo)) == null) {
+            int n = p35.m().n("key_upload_pic_max_width", 0);
+            int n2 = p35.m().n("key_upload_pic_max_height", 0);
+            if (n <= 0 || n2 <= 0 || imageFileInfo == null || imageFileInfo.isGif() || (filePath = imageFileInfo.getFilePath()) == null) {
+                return false;
+            }
+            int[] imageFileWH = FileHelper.getImageFileWH(filePath);
+            if (imageFileWH[0] < n && imageFileWH[1] < n2) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean c(ImageFileInfo imageFileInfo) {
+        InterceptResult invokeL;
+        String filePath;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, imageFileInfo)) == null) {
+            if (!LimitLowQualityPicUploadSwitch.isOff() && imageFileInfo != null && !imageFileInfo.isGif() && (filePath = imageFileInfo.getFilePath()) != null) {
+                long fileSize = FileHelper.getFileSize(filePath);
+                if (fileSize > 4194304) {
+                    e(1, "" + fileSize);
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return p35.m().n("show_write_title_tip_count", 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public static void e(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65541, null, i, str) == null) {
+            TiebaStatic.log(new StatisticItem("c14021").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", i).param("obj_param1", str));
         }
     }
 
-    public void h() {
+    public static void f(WriteData writeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH);
-            httpMessage.addParam("tab_name", this.c);
-            httpMessage.addParam("pn", this.a);
-            httpMessage.addParam("rn", 20);
-            httpMessage.setTag(this.b);
-            MessageManager.getInstance().sendMessage(httpMessage);
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH, TbConfig.SERVER_ADDRESS + TbConfig.RELEVANCE_ITEM_SEARCH_URL);
-            tbHttpMessageTask.setIsNeedAddCommenParam(true);
-            tbHttpMessageTask.setResponsedClass(RelevanceItemSearchResponse.class);
-            tbHttpMessageTask.setPriority(4);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public final void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH);
-            httpMessage.addParam("tab_name", this.c);
-            httpMessage.addParam("keyword", str);
-            httpMessage.addParam("pn", this.a);
-            httpMessage.addParam("rn", 20);
-            httpMessage.setTag(this.b);
-            MessageManager.getInstance().sendMessage(httpMessage);
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().removeMessage(this.b);
-            MessageManager.getInstance().unRegisterListener(this.b);
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a = 1;
+        if ((interceptable == null || interceptable.invokeL(65542, null, writeData) == null) && writeData != null && !TextUtils.isEmpty(writeData.getTitle())) {
+            p35.m().z("show_write_title_tip_count", d() + 1);
         }
     }
 }

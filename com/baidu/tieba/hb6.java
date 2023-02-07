@@ -1,248 +1,80 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.danmu.data.ItemState;
-import com.baidu.tieba.danmu.data.state.DrawState;
-import com.baidu.tieba.danmu.ui.DanmakuPlayer;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.browser.core.webview.offline.message.OfflineResourceReqMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.HashMap;
 /* loaded from: classes4.dex */
-public class hb6 implements Comparable<hb6> {
+public class hb6 extends BdAsyncTask<Void, Void, ib6> {
     public static /* synthetic */ Interceptable $ic;
-    public static final a i;
-    public static final hb6 j;
     public transient /* synthetic */ FieldHolder $fh;
-    public ib6 a;
-    public ItemState b;
-    public long c;
-    public kd6 d;
-    public final c7<vb6> e;
-    public final kb6 f;
-    public final DrawState g;
-    public int h;
 
-    /* loaded from: classes4.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final hb6 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeV = interceptable.invokeV(1048576, this)) != null) {
-                return (hb6) invokeV.objValue;
-            }
-            return hb6.j;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947817997, "Lcom/baidu/tieba/hb6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947817997, "Lcom/baidu/tieba/hb6;");
-                return;
-            }
-        }
-        i = new a(null);
-        j = new hb6(ib6.p.c(), null, 2, null);
-    }
-
-    public hb6(ib6 data, DanmakuPlayer danmakuPlayer) {
-        nb6 m;
+    public hb6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {data, danmakuPlayer};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        Intrinsics.checkNotNullParameter(data, "data");
-        this.a = data;
-        this.b = ItemState.Uninitialized;
-        kd6 kd6Var = null;
-        if (danmakuPlayer != null && (m = danmakuPlayer.m()) != null) {
-            kd6Var = m.w();
-        }
-        this.d = kd6Var == null ? mb6.h.a().f() : kd6Var;
-        this.e = new c7<>(0);
-        this.f = new kb6(this.d);
-        this.g = new DrawState();
-        this.h = -1;
-    }
-
-    public /* synthetic */ hb6(ib6 ib6Var, DanmakuPlayer danmakuPlayer, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this(ib6Var, (i2 & 2) != 0 ? null : danmakuPlayer);
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.g.t();
-            if (this.b.compareTo(ItemState.Measured) > 0) {
-                this.b = ItemState.Measured;
-            }
-        }
-    }
-
-    public final c7<vb6> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return (c7) invokeV.objValue;
-    }
-
-    public final ib6 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return (ib6) invokeV.objValue;
-    }
-
-    public final DrawState f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.g;
-        }
-        return (DrawState) invokeV.objValue;
-    }
-
-    public final long g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.c;
-        }
-        return invokeV.longValue;
-    }
-
-    public final int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.h;
-        }
-        return invokeV.intValue;
-    }
-
-    public final ItemState i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.b;
-        }
-        return (ItemState) invokeV.objValue;
-    }
-
-    public final long j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.a.k() + this.f.a();
-        }
-        return invokeV.longValue;
-    }
-
-    public final boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.f.b();
-        }
-        return invokeV.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: c */
-    public int compareTo(hb6 other) {
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: b */
+    public ib6 doInBackground(Void... voidArr) {
         InterceptResult invokeL;
+        HashMap<String, db6> hashMap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, other)) == null) {
-            Intrinsics.checkNotNullParameter(other, "other");
-            return this.a.compareTo(other.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
+            ib6 ib6Var = new ib6();
+            for (String str : za6.h().j()) {
+                String i = za6.h().i(str);
+                jb6 c = gb6.c(str, i);
+                if (c != null && !TextUtils.isEmpty(c.a) && (hashMap = c.b) != null && hashMap.size() != 0) {
+                    if (ib6Var.a == null) {
+                        ib6Var.a = new HashMap();
+                    }
+                    ib6Var.a.put(str, c);
+                    if (ib6Var.b == null) {
+                        ib6Var.b = new HashMap<>();
+                    }
+                    ib6Var.b.putAll(c.b);
+                    gb6.b(c.c, str);
+                } else {
+                    e35.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", str, "hybridVersion", i, "hybridResult", "bundle incomplete");
+                    gb6.a(str);
+                }
+            }
+            return ib6Var;
         }
-        return invokeL.intValue;
+        return (ib6) invokeL.objValue;
     }
 
-    public final void l(ib6 ib6Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: c */
+    public void onPostExecute(ib6 ib6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, ib6Var) == null) {
-            Intrinsics.checkNotNullParameter(ib6Var, "<set-?>");
-            this.a = ib6Var;
-        }
-    }
-
-    public final void m(long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) {
-            this.c = j2;
-        }
-    }
-
-    public final void n(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.h = i2;
-        }
-    }
-
-    public final void o(ItemState itemState) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, itemState) == null) {
-            Intrinsics.checkNotNullParameter(itemState, "<set-?>");
-            this.b = itemState;
-        }
-    }
-
-    public final void p(kd6 kd6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, kd6Var) == null) {
-            Intrinsics.checkNotNullParameter(kd6Var, "<set-?>");
-            this.d = kd6Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ib6Var) == null) {
+            if (ib6Var == null) {
+                e35.a("OfflineCache", -1L, -1, "readFile", -1, "read error", new Object[0]);
+            } else {
+                cb6.a().g(ib6Var.b);
+            }
+            ac6.b("lt-log", "ReadRouterFinalResult:" + ib6Var);
+            MessageManager.getInstance().sendMessage(new OfflineResourceReqMsg("0.0.0.0"));
         }
     }
 }

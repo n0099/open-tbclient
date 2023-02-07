@@ -1,286 +1,116 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PrivacyMarkActivityConfig;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.SimpleUser;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BinaryBitmap;
+import com.google.zxing.DecodeHintType;
+import com.google.zxing.MultiFormatReader;
+import com.google.zxing.RGBLuminanceSource;
+import com.google.zxing.common.GlobalHistogramBinarizer;
+import com.google.zxing.common.HybridBinarizer;
+import java.util.ArrayList;
+import java.util.EnumMap;
+import java.util.Map;
 /* loaded from: classes4.dex */
 public class hq8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<DecodeHintType, Object> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public boolean e;
-    public int f;
-    public int g;
-    public int h;
-    public SimpleUser i;
-    public int j;
-    public int k;
 
-    public hq8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947832474, "Lcom/baidu/tieba/hq8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947832474, "Lcom/baidu/tieba/hq8;");
+                return;
             }
         }
+        a = new EnumMap(DecodeHintType.class);
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(BarcodeFormat.QR_CODE);
+        arrayList.add(BarcodeFormat.AZTEC);
+        arrayList.add(BarcodeFormat.DATA_MATRIX);
+        arrayList.add(BarcodeFormat.PDF_417);
+        a.put(DecodeHintType.TRY_HARDER, BarcodeFormat.QR_CODE);
+        a.put(DecodeHintType.POSSIBLE_FORMATS, arrayList);
+        a.put(DecodeHintType.CHARACTER_SET, IMAudioTransRequest.CHARSET);
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public static Bitmap a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.g;
-        }
-        return invokeV.intValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.h;
-        }
-        return invokeV.intValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public SimpleUser f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.i;
-        }
-        return (SimpleUser) invokeV.objValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.k;
-        }
-        return invokeV.intValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            cz4 l = cz4.l();
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            this.a = l.m("post" + currentAccount, 0);
-            this.b = l.m("like" + currentAccount, 0);
-            this.c = l.m("group" + currentAccount, 0);
-            this.d = l.m("live" + currentAccount, 0);
-            this.f = l.m("reply" + currentAccount, 1);
-            this.k = l.m("reply_show_myself" + currentAccount, 0);
-            this.g = l.m(PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE + currentAccount, 0);
-            this.h = l.m("bazhu_show_outside" + currentAccount, 0);
-            this.e = TbadkCoreApplication.getInst().getLocationShared();
-            if (this.a == 0 && this.b == 0 && this.c == 0 && this.d == 0 && this.f == 1 && this.k == 0 && this.g == 0 && this.h == 0) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            cz4 l = cz4.l();
-            l.x("post" + currentAccount, this.a);
-            l.x("like" + currentAccount, this.b);
-            l.x("group" + currentAccount, this.c);
-            l.x("live" + currentAccount, this.d);
-            l.x("reply" + currentAccount, this.f);
-            l.x("reply_show_myself" + currentAccount, this.k);
-            l.x(PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE + currentAccount, this.g);
-            l.x("bazhu_show_outside" + currentAccount, this.h);
-            TbadkCoreApplication.getInst().setLocationShared(this.e);
-        }
-    }
-
-    public void l(hq8 hq8Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048587, this, hq8Var) != null) || hq8Var == null) {
-            return;
-        }
-        this.a = hq8Var.a;
-        this.b = hq8Var.b;
-        this.c = hq8Var.c;
-        this.e = hq8Var.e;
-        this.d = hq8Var.d;
-        this.j = hq8Var.j;
-        this.f = hq8Var.f;
-        this.k = hq8Var.k;
-        this.h = hq8Var.h;
-        this.g = hq8Var.g;
-    }
-
-    public void n(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048589, this, str, i) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            cz4 l = cz4.l();
-            l.x(str + currentAccount, i);
-        }
-    }
-
-    public void o(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    public void p(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.h = i;
-        }
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.j = i;
-        }
-    }
-
-    public void r(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048593, this, i) == null) && i <= 3 && i >= 1) {
-            this.b = i;
-        }
-    }
-
-    public void s(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048594, this, i) == null) && i <= 3 && i >= 1) {
-            this.c = i;
-        }
-    }
-
-    public void t(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048595, this, i) == null) && i <= 3 && i >= 1) {
-            this.d = i;
-        }
-    }
-
-    public void u(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
-            if (i != 1) {
-                this.e = false;
-            } else {
-                this.e = true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            try {
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                int i = 1;
+                options.inJustDecodeBounds = true;
+                BitmapFactory.decodeFile(str, options);
+                int i2 = options.outHeight / 800;
+                if (i2 > 0) {
+                    i = i2;
+                }
+                options.inSampleSize = i;
+                options.inJustDecodeBounds = false;
+                return BitmapFactory.decodeFile(str, options);
+            } catch (Exception unused) {
+                return null;
             }
         }
+        return (Bitmap) invokeL.objValue;
     }
 
-    public void v(SimpleUser simpleUser) {
+    public static String b(Bitmap bitmap) {
+        InterceptResult invokeL;
+        RGBLuminanceSource rGBLuminanceSource;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, simpleUser) == null) {
-            this.i = simpleUser;
-            if (simpleUser != null) {
-                x(simpleUser.show_onlyme.intValue());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bitmap)) == null) {
+            try {
+                int width = bitmap.getWidth();
+                int height = bitmap.getHeight();
+                int[] iArr = new int[width * height];
+                bitmap.getPixels(iArr, 0, width, 0, 0, width, height);
+                rGBLuminanceSource = new RGBLuminanceSource(width, height, iArr);
+            } catch (Exception e) {
+                e = e;
+                rGBLuminanceSource = null;
+            }
+            try {
+                return new MultiFormatReader().decode(new BinaryBitmap(new HybridBinarizer(rGBLuminanceSource)), a).getText();
+            } catch (Exception e2) {
+                e = e2;
+                e.printStackTrace();
+                if (rGBLuminanceSource != null) {
+                    try {
+                        return new MultiFormatReader().decode(new BinaryBitmap(new GlobalHistogramBinarizer(rGBLuminanceSource)), a).getText();
+                    } catch (Throwable th) {
+                        th.printStackTrace();
+                        return null;
+                    }
+                }
+                return null;
             }
         }
+        return (String) invokeL.objValue;
     }
 
-    public void w(int i) {
+    public static String c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
-            if (i == 0) {
-                this.f = 1;
-            } else {
-                this.f = i;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return b(a(str));
         }
-    }
-
-    public void x(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
-            this.k = i;
-        }
-    }
-
-    public void y(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
-            this.a = i;
-        }
+        return (String) invokeL.objValue;
     }
 }

@@ -1,119 +1,106 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.browser.BrowserHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URLEncoder;
 /* loaded from: classes5.dex */
 public class j77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public List<ln> b;
-    public eo c;
-    public i77 d;
-    public n77 e;
-    public h77 f;
-    public l77 g;
-    public k77 h;
-    public m77 i;
-    public o77 j;
 
-    public j77(TbPageContext tbPageContext, eo eoVar) {
+    public static boolean c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, eoVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            switch (i) {
+                case 202001:
+                case 205001:
+                case 309456:
+                case CmdConfigHttp.CMD_CHECK_REAL_NAME /* 1003325 */:
+                    return true;
+                default:
+                    return false;
             }
         }
-        this.a = tbPageContext;
-        this.c = eoVar;
-        a();
+        return invokeI.booleanValue;
     }
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b = new ArrayList();
-            i77 i77Var = new i77(this.a);
-            this.d = i77Var;
-            i77Var.v(this.c);
-            this.b.add(this.d);
-            n77 n77Var = new n77(this.a);
-            this.e = n77Var;
-            n77Var.v(this.c);
-            this.b.add(this.e);
-            h77 h77Var = new h77(this.a);
-            this.f = h77Var;
-            h77Var.v(this.c);
-            this.b.add(this.f);
-            l77 l77Var = new l77(this.a);
-            this.g = l77Var;
-            l77Var.v(this.c);
-            this.b.add(this.g);
-            k77 k77Var = new k77(this.a);
-            this.h = k77Var;
-            k77Var.v(this.c);
-            this.b.add(this.h);
-            m77 m77Var = new m77(this.a);
-            this.i = m77Var;
-            m77Var.v(this.c);
-            this.b.add(this.i);
-            o77 o77Var = new o77(this.a);
-            this.j = o77Var;
-            o77Var.v(this.c);
-            this.b.add(this.j);
-            this.c.a(this.b);
-        }
-    }
+    /* loaded from: classes5.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public void b() {
-        eo eoVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (eoVar = this.c) != null) {
-            eoVar.getListAdapter().notifyDataSetChanged();
-        }
-    }
-
-    public void c(List<yn> list) {
-        eo eoVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && (eoVar = this.c) != null) {
-            eoVar.setData(list);
-            b();
-        }
-    }
-
-    public void d(vq4 vq4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, vq4Var) == null) {
-            for (ln lnVar : this.b) {
-                if (lnVar instanceof g77) {
-                    ((g77) lnVar).u(vq4Var);
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                j77.e();
+            }
+        }
     }
 
-    public void e(BdUniqueId bdUniqueId) {
+    public static void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
-            for (ln lnVar : this.b) {
-                lnVar.setPageId(bdUniqueId);
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            if (!ej.E()) {
+                TbadkCoreApplication.getInst().handler.post(new a());
+            } else {
+                e();
             }
+        }
+    }
+
+    public static boolean b(NetWork netWork) {
+        InterceptResult invokeL;
+        int netErrorCode;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, netWork)) == null) {
+            if (netWork == null) {
+                return false;
+            }
+            if (netWork.isNetSuccess()) {
+                netErrorCode = netWork.getServerErrorCode();
+            } else {
+                netErrorCode = netWork.getNetErrorCode();
+            }
+            if (netErrorCode != 1990055) {
+                return false;
+            }
+            d();
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
+            BrowserHelper.v(applicationContext, "", UrlSchemaHelper.REAL_NAME_AUTH_URL + "&u=" + URLEncoder.encode(UrlSchemaHelper.FINISH_THIS_WEBVIEW), true, true, true, true, true, false);
         }
     }
 }

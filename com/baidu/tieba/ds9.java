@@ -1,122 +1,76 @@
 package com.baidu.tieba;
 
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class ds9 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static Toast a = null;
-    public static int b = -1;
-    public static int c = -1;
+public final class ds9 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947715263, "Lcom/baidu/tieba/ds9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947715263, "Lcom/baidu/tieba/ds9;");
-        }
-    }
+    /* loaded from: classes4.dex */
+    public static class a extends wr9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65537, null, i) == null) {
-            b(i, 0);
-        }
-    }
-
-    public static void b(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65538, null, i, i2) == null) {
-            c(yn9.c().getContext().getResources().getString(i), i2);
-        }
-    }
-
-    public static void c(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65539, null, str, i) == null) {
-            d(str, i, null);
-        }
-    }
-
-    public static void d(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i, str2) == null) {
-            e(str, i, str2, -1);
-        }
-    }
-
-    public static void e(String str, int i, String str2, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2)}) == null) {
-            if (b != -1 && c != -1) {
-                Toast toast = a;
-                if (toast != null) {
-                    toast.cancel();
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                Toast toast2 = new Toast(yn9.c().getContext());
-                a = toast2;
-                if (i2 > -1) {
-                    toast2.setGravity(i2, 0, 0);
-                }
-                a.setDuration(i);
-                try {
-                    View inflate = LayoutInflater.from(yn9.c().getContext()).inflate(b, (ViewGroup) null);
-                    TextView textView = (TextView) inflate.findViewById(c);
-                    if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str) && str.contains(str2)) {
-                        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-                        spannableStringBuilder.setSpan(new ForegroundColorSpan(yn9.c().getContext().getResources().getColor(R.color.app_theme_color)), str.indexOf(str2), str.indexOf(str2) + str2.length(), 33);
-                        textView.setText(spannableStringBuilder);
-                    } else {
-                        textView.setText(str);
+            }
+        }
+
+        @Override // com.baidu.tieba.wr9
+        public final void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (zr9.a(com.baidu.ubs.analytics.d.a.b)) {
+                    for (File file : ds9.a(com.baidu.ubs.analytics.d.a.b)) {
+                        if (gr9.c(gr9.a(file, "http://absample.baidu.com/appabapp/appapi/sdkerrorlog"), null)) {
+                            zr9.b(file.getPath());
+                        }
                     }
-                    a.setView(inflate);
-                    a.show();
-                    return;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return;
+                }
+                if (zr9.a(com.baidu.ubs.analytics.d.a.c)) {
+                    for (File file2 : ds9.a(com.baidu.ubs.analytics.d.a.c)) {
+                        if (!file2.getName().equals(ur9.e()) && gr9.c(gr9.a(file2, "http://absample.baidu.com/appabapp/appapi/sdklog"), null)) {
+                            zr9.b(file2.getPath());
+                        }
+                    }
                 }
             }
-            Toast toast3 = a;
-            if (toast3 == null) {
-                Toast makeText = Toast.makeText(yn9.c().getContext(), str, i);
-                a = makeText;
-                if (i2 > -1) {
-                    makeText.setGravity(i2, 0, 0);
+        }
+    }
+
+    public static /* synthetic */ List a(String str) {
+        ArrayList arrayList = new ArrayList();
+        File[] listFiles = new File(str).listFiles();
+        if (listFiles != null) {
+            for (int i = 0; i < listFiles.length; i++) {
+                String name = listFiles[i].getName();
+                if (name.endsWith("txt") || name.endsWith("log")) {
+                    arrayList.add(listFiles[i]);
                 }
-            } else {
-                toast3.cancel();
-                Toast makeText2 = Toast.makeText(yn9.c().getContext(), str, i);
-                a = makeText2;
-                if (i2 > -1) {
-                    makeText2.setGravity(i2, 0, 0);
-                }
-                a.setDuration(i);
             }
-            try {
-                a.show();
-            } catch (Exception unused) {
-            }
+        }
+        return arrayList;
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            vr9.a(new a());
         }
     }
 }

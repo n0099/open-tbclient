@@ -1,30 +1,69 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.content.Context;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.module.frs.Frs$From;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ng5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ng5 {
+    public static final a a = a.a;
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            StatisticItem statisticItem = new StatisticItem("c13395");
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("obj_id", TbadkCoreApplication.getInst().getCuidGalaxy2());
-            statisticItem.param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis());
-            statisticItem.param("obj_type", bj.g());
-            statisticItem.param("resource_id", bj.k());
-            statisticItem.param("aid", TbSingleton.getInstance().getCpuFlopsDuration());
-            statisticItem.param("obj_param1", TbSingleton.getInstance().getAnimComputedFps("anim_switch_slide"));
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, TbSingleton.getInstance().getAnimComputedFps("anim_switch_trans_frs"));
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, TbSingleton.getInstance().getAnimComputedFps("anim_switch_sendthread_maintab"));
-            TiebaStatic.log(statisticItem);
+    void a(TbPageContext<?> tbPageContext, long j);
+
+    void b(Context context, Frs$From frs$From, Long l, String str);
+
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ a a;
+        public static final ServiceReference b;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-576302256, "Lcom/baidu/tieba/ng5$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-576302256, "Lcom/baidu/tieba/ng5$a;");
+                    return;
+                }
+            }
+            a = new a();
+            b = new ServiceReference("Frs", "FrsService");
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public final ServiceReference a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return b;
+            }
+            return (ServiceReference) invokeV.objValue;
         }
     }
 }

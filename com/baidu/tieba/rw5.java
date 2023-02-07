@@ -1,27 +1,63 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.WeakHashMap;
 /* loaded from: classes6.dex */
-public class rw5 {
+public final class rw5<K, V> {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile qw5 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final WeakHashMap<K, V> a;
 
-    public static synchronized qw5 a() {
-        InterceptResult invokeV;
-        qw5 qw5Var;
+    public rw5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (rw5.class) {
-                if (a == null) {
-                    a = new qw5();
-                }
-                qw5Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return qw5Var;
         }
-        return (qw5) invokeV.objValue;
+        this.a = new WeakHashMap<>();
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.clear();
+        }
+    }
+
+    public final boolean b(K k) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k)) == null) {
+            return this.a.containsKey(k);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final V c(K k) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k)) == null) {
+            return this.a.get(k);
+        }
+        return (V) invokeL.objValue;
+    }
+
+    public final void d(K k, V v) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, k, v) == null) {
+            this.a.put(k, v);
+        }
     }
 }

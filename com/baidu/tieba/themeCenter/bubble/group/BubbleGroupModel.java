@@ -11,13 +11,13 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.k39;
-import com.baidu.tieba.qw8;
-import com.baidu.tieba.rb;
-import com.baidu.tieba.s9;
+import com.baidu.tieba.j79;
+import com.baidu.tieba.o09;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.tieba.themeCenter.bubble.all.BubbleSetResponseMessage;
-import com.baidu.tieba.w39;
+import com.baidu.tieba.v79;
+import com.baidu.tieba.wb;
+import com.baidu.tieba.x9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,16 +29,16 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BubbleGroupActivity a;
-    public w39 b;
-    public List<k39> c;
+    public v79 b;
+    public List<j79> c;
     public c d;
     public boolean e;
-    public rb f;
+    public wb f;
     public final HttpMessageListener g;
 
     /* loaded from: classes6.dex */
     public interface c {
-        void a(int i, String str, w39 w39Var, List<k39> list);
+        void a(int i, String str, v79 v79Var, List<j79> list);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -52,7 +52,7 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
     }
 
     /* loaded from: classes6.dex */
-    public class a extends rb {
+    public class a extends wb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BubbleGroupModel a;
@@ -79,7 +79,7 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
             this.a = bubbleGroupModel;
         }
 
-        @Override // com.baidu.tieba.rb
+        @Override // com.baidu.tieba.wb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
@@ -166,7 +166,7 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((s9) newInitContext.callArgs[0]);
+                super((x9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -201,8 +201,8 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
     public final void O() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            qw8.h(309030, BubbleGroupSocketResponseMessage.class, false, false);
-            qw8.c(309030, CmdConfigHttp.CMD_BUBBLE_CATEGORY, TbConfig.BUBBLE_GROUP_PAGE, BubbleGroupHttpResponseMessage.class, false, false, true, false);
+            o09.h(309030, BubbleGroupSocketResponseMessage.class, false, false);
+            o09.c(309030, CmdConfigHttp.CMD_BUBBLE_CATEGORY, TbConfig.BUBBLE_GROUP_PAGE, BubbleGroupHttpResponseMessage.class, false, false, true, false);
         }
     }
 
@@ -228,12 +228,12 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
     }
 
     public final void R(int i) {
-        List<k39> list;
+        List<j79> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && (list = this.c) != null && list.size() > 0) {
-            for (k39 k39Var : this.c) {
-                if (k39Var != null && k39Var.a() != null) {
-                    for (DressItemData dressItemData : k39Var.a()) {
+            for (j79 j79Var : this.c) {
+                if (j79Var != null && j79Var.a() != null) {
+                    for (DressItemData dressItemData : j79Var.a()) {
                         if (dressItemData != null) {
                             if (dressItemData.getPropsId() == i) {
                                 dressItemData.setInUse(true);

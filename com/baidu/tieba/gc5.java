@@ -1,17 +1,33 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.tbadk.img.WriteImagesInfo;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public interface gc5 extends lc5 {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("ImMessageCenter", "ChatBoxDialogService");
+public class gc5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public WriteImagesInfo a;
+    public boolean b;
 
-    void onChangeSkinType(int i);
-
-    void onDestroy();
-
-    void onPause();
-
-    void onResume();
+    public gc5(WriteImagesInfo writeImagesInfo, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {writeImagesInfo, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = writeImagesInfo;
+        this.b = z;
+    }
 }

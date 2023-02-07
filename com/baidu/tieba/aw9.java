@@ -1,30 +1,66 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes3.dex */
 public class aw9 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = -1;
+    public static String b = "";
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, Double> a;
 
-    public aw9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947629734, "Lcom/baidu/tieba/aw9;")) == null) {
+            return;
         }
-        this.a = new HashMap();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947629734, "Lcom/baidu/tieba/aw9;");
+        }
+    }
+
+    public static String a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (!TextUtils.isEmpty(b)) {
+                return b;
+            }
+            try {
+                b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return b;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static int b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            int i = a;
+            if (i >= 0) {
+                return i;
+            }
+            try {
+                a = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return a;
+        }
+        return invokeL.intValue;
     }
 }

@@ -1,227 +1,95 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
-import com.baidu.searchbox.player.event.LayerEvent;
-import com.baidu.searchbox.player.event.PlayerEvent;
+import com.baidu.tieba.sn0;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes4.dex */
-public class hw0 extends zv0 implements nv0 {
+public class hw0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gw0 b;
-    public Object c;
+    public final float a;
+    public final float b;
 
-    @Override // com.baidu.tieba.zv0
-    public void f(ru0 ru0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ru0Var) == null) {
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes4.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final hw0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-733449750, "Lcom/baidu/tieba/hw0$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-733449750, "Lcom/baidu/tieba/hw0$b;");
+                    return;
+                }
+            }
+            a = new hw0(null);
         }
     }
 
-    @Override // com.baidu.tieba.zv0
-    public void i(ru0 ru0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, ru0Var) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hw0(Map<String, String> map, Object obj) {
-        super(map);
+    public hw0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {map, obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Map) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = obj;
+        this.a = sn0.a.a().getLaunchSpeedScore();
+        this.b = sn0.a.a().getStaticDeviceScore();
     }
 
-    @Override // com.baidu.tieba.jv0
-    public void a(boolean z) {
-        gw0 gw0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (gw0Var = this.b) != null) {
-            gw0Var.k(z);
-        }
+    public /* synthetic */ hw0(a aVar) {
+        this();
     }
 
-    @Override // com.baidu.tieba.nv0
-    public void e(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-            this.c = obj;
-        }
-    }
-
-    public void l(boolean z) {
-        gw0 gw0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && (gw0Var = this.b) != null) {
-            gw0Var.j(z);
-        }
-    }
-
-    @Override // com.baidu.tieba.kv0
-    public boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (!TextUtils.isEmpty(str) && this.a != null && PlayerEvent.ACTION_ON_COMPLETE.equals(str)) {
-                this.a.P(0);
-                gw0 gw0Var = new gw0(this.a, this.c);
-                this.b = gw0Var;
-                gw0Var.e();
-                if (k()) {
-                    if (this.b.i()) {
-                        this.a.P(0);
-                        this.a.u().y().y(true);
-                        return true;
-                    }
-                    this.a.P(8);
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.zv0
-    public void g(ru0 ru0Var) {
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ru0Var) == null) {
-            String c2 = ru0Var.c();
-            int hashCode = c2.hashCode();
-            if (hashCode != -552621273) {
-                if (hashCode != -552580917) {
-                    if (hashCode == 851534116 && c2.equals(LayerEvent.ACTION_NIGHT_MODEL_CHANGED)) {
-                        c = 2;
-                    }
-                    c = 65535;
-                } else {
-                    if (c2.equals(LayerEvent.ACTION_SWITCH_HALF)) {
-                        c = 1;
-                    }
-                    c = 65535;
-                }
-            } else {
-                if (c2.equals(LayerEvent.ACTION_SWITCH_FULL)) {
-                    c = 0;
-                }
-                c = 65535;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c == 2) {
-                        l(ru0Var.d(17));
-                        return;
-                    }
-                    return;
-                }
-                a(true);
-                return;
-            }
-            a(false);
-        }
-    }
-
-    @Override // com.baidu.tieba.zv0
-    public void h(ru0 ru0Var) {
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ru0Var) == null) {
-            String c2 = ru0Var.c();
-            int hashCode = c2.hashCode();
-            if (hashCode != -1759675333) {
-                if (hashCode == -882902390 && c2.equals(PlayerEvent.ACTION_SET_DATA_SOURCE)) {
-                    c = 0;
-                }
-                c = 65535;
-            } else {
-                if (c2.equals(PlayerEvent.ACTION_GO_BACK_OR_FOREGROUND)) {
-                    c = 1;
-                }
-                c = 65535;
-            }
-            if (c != 0) {
-                if (c == 1 && this.a.M() && this.b != null) {
-                    if (!ru0Var.d(4)) {
-                        this.b.m();
-                        return;
-                    } else {
-                        this.b.l();
-                        return;
-                    }
-                }
-                return;
-            }
-            this.a.P(8);
-        }
-    }
-
-    public final boolean k() {
+    public static hw0 a() {
         InterceptResult invokeV;
-        BdVideoSeries o1;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            ix0 ix0Var = this.a;
-            if (ix0Var == null || (o1 = ix0Var.u().o1()) == null || o1.getVideoAd() == null || o1.getVideoAd().fullItemAdData == null) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
         }
-        return invokeV.booleanValue;
+        return (hw0) invokeV.objValue;
     }
 
-    public final void m() {
+    public float b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048585, this) != null) || this.b == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        this.b = null;
+        return invokeV.floatValue;
     }
 
-    @Override // com.baidu.tieba.jv0
-    public void onDestroy() {
-        ix0 ix0Var;
+    public float c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            if (this.b != null && (ix0Var = this.a) != null && ix0Var.M()) {
-                this.b.f();
-            }
-            gw0 gw0Var = this.b;
-            if (gw0Var != null) {
-                gw0Var.c();
-                m();
-            }
-            this.a = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-    }
-
-    @Override // com.baidu.tieba.jv0
-    public void onLayerRelease() {
-        gw0 gw0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (gw0Var = this.b) != null) {
-            gw0Var.f();
-        }
+        return invokeV.floatValue;
     }
 }

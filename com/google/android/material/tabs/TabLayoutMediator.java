@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.tabs.TabLayout;
 import java.lang.ref.WeakReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class TabLayoutMediator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,12 +32,12 @@ public final class TabLayoutMediator {
     @NonNull
     public final ViewPager2 viewPager;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface TabConfigurationStrategy {
         void onConfigureTab(@NonNull TabLayout.Tab tab, int i);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class PagerAdapterObserver extends RecyclerView.AdapterDataObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -110,7 +110,7 @@ public final class TabLayoutMediator {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class TabLayoutOnPageChangeCallback extends ViewPager2.OnPageChangeCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -188,7 +188,7 @@ public final class TabLayoutMediator {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class ViewPagerOnTabSelectedListener implements TabLayout.OnTabSelectedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

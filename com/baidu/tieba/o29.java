@@ -1,50 +1,23 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
-import android.view.MotionEvent;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class o29 {
     public static /* synthetic */ Interceptable $ic;
-    public static o29 mInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public a mICrabSdk;
-
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(Application application);
-
-        void b(Exception exc);
-
-        void c(String str);
-
-        void d(String str);
-
-        void e(String str);
-
-        void f(MotionEvent motionEvent, Activity activity);
-
-        void onPause(Activity activity);
-
-        void onResume(Activity activity);
-    }
-
-    private boolean isCrabSdkSwitchOn() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
+    public ArrayList<Integer> a;
+    public String b;
+    public String c;
+    public String d;
+    public int e;
 
     public o29() {
         Interceptable interceptable = $ic;
@@ -56,102 +29,30 @@ public class o29 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.mICrabSdk = getCrabSdk();
     }
 
-    private a getCrabSdk() {
-        InterceptResult invokeV;
-        CustomResponsedMessage runTask;
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            if (isCrabSdkSwitchOn() && (runTask = MessageManager.getInstance().runTask(2016565, a.class)) != null) {
-                return (a) runTask.getData();
-            }
-            return null;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || StringUtils.isNull(str)) {
+            return;
         }
-        return (a) invokeV.objValue;
-    }
-
-    public static o29 getInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (mInstance == null) {
-                synchronized (o29.class) {
-                    if (mInstance == null) {
-                        mInstance = new o29();
+        try {
+            JSONObject optJSONObject = new JSONObject(str).optJSONObject("data");
+            if (optJSONObject != null) {
+                JSONArray optJSONArray = optJSONObject.optJSONArray("chunk_nolist");
+                if (optJSONArray != null) {
+                    int length = optJSONArray.length();
+                    this.a = new ArrayList<>();
+                    for (int i = 0; i < length; i++) {
+                        this.a.add(Integer.valueOf(optJSONArray.getInt(i)));
                     }
                 }
+                this.b = optJSONObject.optString("upload_id");
+                this.c = optJSONObject.optString("video_url");
             }
-            return mInstance;
-        }
-        return (o29) invokeV.objValue;
-    }
-
-    public void behaviorRecordEvent(MotionEvent motionEvent, Activity activity) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, motionEvent, activity) == null) && (aVar = this.mICrabSdk) != null) {
-            aVar.f(motionEvent, activity);
-        }
-    }
-
-    public void initSdk(Application application) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, application) == null) && (aVar = this.mICrabSdk) != null) {
-            aVar.a(application);
-        }
-    }
-
-    public void onPause(Activity activity) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) && (aVar = this.mICrabSdk) != null) {
-            aVar.onPause(activity);
-        }
-    }
-
-    public void onResume(Activity activity) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, activity) == null) && (aVar = this.mICrabSdk) != null) {
-            aVar.onResume(activity);
-        }
-    }
-
-    public void setFlutterPath(String str) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (aVar = this.mICrabSdk) != null) {
-            aVar.c(str);
-        }
-    }
-
-    public void setLastFlutterPage(String str) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && (aVar = this.mICrabSdk) != null) {
-            aVar.e(str);
-        }
-    }
-
-    public void setOpenFlutterPage(String str) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && (aVar = this.mICrabSdk) != null) {
-            aVar.d(str);
-        }
-    }
-
-    public void uploadException(Exception exc) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, exc) == null) && (aVar = this.mICrabSdk) != null) {
-            aVar.b(exc);
+        } catch (JSONException unused) {
         }
     }
 }

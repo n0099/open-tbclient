@@ -1,33 +1,27 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.os.Build;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public class ot {
+public final class ot {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static byte[] a(byte[] bArr) {
+    public static boolean a(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            return b(bArr, 0, bArr.length);
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static byte[] b(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, bArr, i, i2)) == null) {
-            if (bArr != null && bArr.length != 0) {
-                byte[] bArr2 = new byte[i2];
-                System.arraycopy(bArr, i, bArr2, 0, i2);
-                return bArr2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
+            if (activity == null || activity.isFinishing()) {
+                return true;
             }
-            return new byte[0];
+            if (Build.VERSION.SDK_INT >= 17 && activity.isDestroyed()) {
+                return true;
+            }
+            return false;
         }
-        return (byte[]) invokeLII.objValue;
+        return invokeL.booleanValue;
     }
 }

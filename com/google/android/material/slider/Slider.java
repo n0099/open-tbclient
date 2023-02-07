@@ -17,16 +17,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class Slider extends BaseSlider<Slider, OnChangeListener, OnSliderTouchListener> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface OnChangeListener extends BaseOnChangeListener<Slider> {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface OnSliderTouchListener extends BaseOnSliderTouchListener<Slider> {
     }
 
@@ -53,7 +53,7 @@ public class Slider extends BaseSlider<Slider, OnChangeListener, OnSliderTouchLi
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public Slider(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040633);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040637);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

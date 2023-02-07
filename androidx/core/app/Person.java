@@ -300,10 +300,53 @@ public class Person {
     public Builder toBuilder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return new Builder(this);
         }
         return (Builder) invokeV.objValue;
+    }
+
+    @NonNull
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public String resolveToLegacyUri() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            String str = this.mUri;
+            if (str != null) {
+                return str;
+            }
+            if (this.mName != null) {
+                return "name:" + ((Object) this.mName);
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    @RequiresApi(22)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public PersistableBundle toPersistableBundle() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            PersistableBundle persistableBundle = new PersistableBundle();
+            CharSequence charSequence = this.mName;
+            if (charSequence != null) {
+                str = charSequence.toString();
+            } else {
+                str = null;
+            }
+            persistableBundle.putString("name", str);
+            persistableBundle.putString("uri", this.mUri);
+            persistableBundle.putString("key", this.mKey);
+            persistableBundle.putBoolean(IS_BOT_KEY, this.mIsBot);
+            persistableBundle.putBoolean(IS_IMPORTANT_KEY, this.mIsImportant);
+            return persistableBundle;
+        }
+        return (PersistableBundle) invokeV.objValue;
     }
 
     @NonNull
@@ -313,7 +356,7 @@ public class Person {
         InterceptResult invokeV;
         Icon icon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             Person.Builder name = new Person.Builder().setName(getName());
             if (getIcon() != null) {
                 icon = getIcon().toIcon();
@@ -330,7 +373,7 @@ public class Person {
         InterceptResult invokeV;
         Bundle bundle;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             Bundle bundle2 = new Bundle();
             bundle2.putCharSequence("name", this.mName);
             IconCompat iconCompat = this.mIcon;
@@ -347,30 +390,5 @@ public class Person {
             return bundle2;
         }
         return (Bundle) invokeV.objValue;
-    }
-
-    @NonNull
-    @RequiresApi(22)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public PersistableBundle toPersistableBundle() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            PersistableBundle persistableBundle = new PersistableBundle();
-            CharSequence charSequence = this.mName;
-            if (charSequence != null) {
-                str = charSequence.toString();
-            } else {
-                str = null;
-            }
-            persistableBundle.putString("name", str);
-            persistableBundle.putString("uri", this.mUri);
-            persistableBundle.putString("key", this.mKey);
-            persistableBundle.putBoolean(IS_BOT_KEY, this.mIsBot);
-            persistableBundle.putBoolean(IS_IMPORTANT_KEY, this.mIsImportant);
-            return persistableBundle;
-        }
-        return (PersistableBundle) invokeV.objValue;
     }
 }

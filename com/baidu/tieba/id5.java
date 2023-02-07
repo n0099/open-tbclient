@@ -1,44 +1,74 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.mutiprocess.face.EmotionReloadEvent;
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.os.Build;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.protobuf.CodedInputStream;
 /* loaded from: classes4.dex */
-public class id5 implements uc5<EmotionReloadEvent> {
+public class id5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public id5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.uc5
-    /* renamed from: a */
-    public boolean onEvent(EmotionReloadEvent emotionReloadEvent) {
+    @TargetApi(16)
+    public static boolean a(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, emotionReloadEvent)) == null) {
-            if (emotionReloadEvent == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
+            if (Build.VERSION.SDK_INT < 16) {
                 return false;
             }
-            MessageManager.getInstance().runTask(2004603, (Class) null);
+            return ((ViewGroup) activity.findViewById(16908290)).getChildAt(0).getFitsSystemWindows();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean b(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
+            if ((activity.getWindow().getAttributes().flags & 1024) != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @TargetApi(19)
+    public static boolean c(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
+            if (Build.VERSION.SDK_INT < 19 || (activity.getWindow().getAttributes().flags & CodedInputStream.DEFAULT_SIZE_LIMIT) == 0) {
+                return false;
+            }
             return true;
         }
         return invokeL.booleanValue;
+    }
+
+    public static boolean d(View view2, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, view2, i)) == null) {
+            if (view2.isInEditMode() || view2.getHeight() == i || Math.abs(view2.getHeight() - i) == hd5.a(view2.getContext())) {
+                return false;
+            }
+            int h = gd5.h(view2.getContext());
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+            if (layoutParams == null) {
+                view2.setLayoutParams(new ViewGroup.LayoutParams(-1, h));
+                return true;
+            }
+            layoutParams.height = h;
+            view2.requestLayout();
+            return true;
+        }
+        return invokeLI.booleanValue;
     }
 }

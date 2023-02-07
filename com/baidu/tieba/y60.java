@@ -1,40 +1,28 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.network.outback.core.internal.Util;
-import com.baidu.tieba.d70;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.Iterator;
-import java.util.concurrent.Executor;
-import java.util.concurrent.SynchronousQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.io.IOException;
+import okhttp3.Dns;
+import okhttp3.Interceptor;
+import okhttp3.Request;
+import okhttp3.Response;
 /* loaded from: classes7.dex */
-public final class y60 {
+public class y60 implements Interceptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    @Nullable
-    public Runnable c;
-    @Nullable
-    public Executor d;
-    public final Deque<d70.a> e;
-    public final Deque<d70.a> f;
-    public final Deque<d70> g;
+    public Dns a;
 
-    public y60() {
+    public y60(Dns dns) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dns};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,155 +32,25 @@ public final class y60 {
                 return;
             }
         }
-        this.a = 64;
-        this.b = 5;
-        this.e = new ArrayDeque();
-        this.f = new ArrayDeque();
-        this.g = new ArrayDeque();
+        this.a = dns;
     }
 
-    public synchronized Executor c() {
-        InterceptResult invokeV;
-        Executor executor;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                if (this.d == null) {
-                    this.d = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue(), Util.threadFactory("BaiduNetwork Dispatcher", false));
-                }
-                executor = this.d;
-            }
-            return executor;
-        }
-        return (Executor) invokeV.objValue;
-    }
-
-    public y60(Executor executor) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {executor};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = 64;
-        this.b = 5;
-        this.e = new ArrayDeque();
-        this.f = new ArrayDeque();
-        this.g = new ArrayDeque();
-        this.d = executor;
-    }
-
-    public synchronized void a(d70.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            synchronized (this) {
-                if (this.f.size() < this.a && i(aVar) < this.b) {
-                    this.f.add(aVar);
-                    c().execute(aVar);
-                } else {
-                    this.e.add(aVar);
-                }
-            }
-        }
-    }
-
-    public final int i(d70.a aVar) {
+    @Override // okhttp3.Interceptor
+    public Response intercept(Interceptor.Chain chain) throws IOException {
         InterceptResult invokeL;
+        Dns dns;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar)) == null) {
-            int i = 0;
-            for (d70.a aVar2 : this.f) {
-                if (!aVar2.b().c && aVar2.c().equals(aVar.c())) {
-                    i++;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chain)) == null) {
+            Request request = chain.request();
+            com.baidu.searchbox.network.outback.core.Request request2 = (com.baidu.searchbox.network.outback.core.Request) request.tag(com.baidu.searchbox.network.outback.core.Request.class);
+            if (request2 == null) {
+                return chain.proceed(request);
             }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
-    public synchronized void b(d70 d70Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d70Var) == null) {
-            synchronized (this) {
-                this.g.add(d70Var);
+            if ((request2.getNetworkStatRecord().dnsDetail == null || (request2.getNetworkStatRecord().dnsDetail != null && StringUtil.EMPTY_ARRAY.equalsIgnoreCase(request2.getNetworkStatRecord().dnsDetail.toString().trim()))) && (dns = this.a) != null) {
+                dns.lookup(request2.url().host());
             }
+            return chain.proceed(request);
         }
-    }
-
-    public void d(d70.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            f(this.f, aVar, true);
-        }
-    }
-
-    public void e(d70 d70Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, d70Var) == null) {
-            f(this.g, d70Var, false);
-        }
-    }
-
-    public final <T> void f(Deque<T> deque, T t, boolean z) {
-        int h;
-        Runnable runnable;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048581, this, deque, t, z) == null) {
-            synchronized (this) {
-                if (deque.remove(t)) {
-                    if (z) {
-                        g();
-                    }
-                    h = h();
-                    runnable = this.c;
-                } else {
-                    throw new AssertionError("Call wasn't in-flight!");
-                }
-            }
-            if (h == 0 && runnable != null) {
-                runnable.run();
-            }
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || this.f.size() >= this.a || this.e.isEmpty()) {
-            return;
-        }
-        Iterator<d70.a> it = this.e.iterator();
-        while (it.hasNext()) {
-            d70.a next = it.next();
-            if (i(next) < this.b) {
-                it.remove();
-                this.f.add(next);
-                c().execute(next);
-            }
-            if (this.f.size() >= this.a) {
-                return;
-            }
-        }
-    }
-
-    public synchronized int h() {
-        InterceptResult invokeV;
-        int size;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            synchronized (this) {
-                size = this.f.size() + this.g.size();
-            }
-            return size;
-        }
-        return invokeV.intValue;
+        return (Response) invokeL.objValue;
     }
 }

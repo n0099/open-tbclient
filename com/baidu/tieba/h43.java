@@ -1,151 +1,31 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.extcore.cores.SwanAppCores;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebChromeClient;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class h43 extends i43 {
+public class h43 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final j43 l;
+    public String a;
+    public String b;
+    public Object c;
+    public boolean d;
+    public String e;
 
-    @Override // com.baidu.tieba.m43
-    public boolean E() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.m43
-    public void G() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.i43
-    public sd4 I() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (sd4) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.i43
-    public t63 J() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (t63) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.i43
-    public void Q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.m43
-    public String getAppId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.m43
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.m43
-    public void l(Bundle bundle, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, bundle, str) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.m43
-    public SwanAppCores m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return null;
-        }
-        return (SwanAppCores) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.m43
-    public String n(String... strArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, strArr)) == null) ? "" : (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.m43
-    public void r(SwanAppActivity swanAppActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, swanAppActivity) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.m43
-    public void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.m43
-    public void t(SwanAppActivity swanAppActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, swanAppActivity) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.m43
-    public SwanAppActivity w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return null;
-        }
-        return (SwanAppActivity) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.m43
-    public e13 y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return null;
-        }
-        return (e13) invokeV.objValue;
-    }
-
-    public h43() {
+    public h43(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -155,16 +35,60 @@ public class h43 extends i43 {
                 return;
             }
         }
-        this.l = new j43(this, "");
+        this.d = false;
+        this.b = str;
     }
 
-    @Override // com.baidu.tieba.m43
-    public j43 q() {
+    public static String a(g43 g43Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, g43Var)) == null) {
+            if (g43Var == null) {
+                return "";
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("componentId", g43Var.f);
+                jSONObject.put("pluginProvider", g43Var.b);
+                jSONObject.put(WebChromeClient.KEY_ARG_ARRAY, g43Var.g);
+                jSONObject.put("slaveId", g43Var.e);
+            } catch (JSONException e) {
+                o43.b(Log.getStackTraceString(e));
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    /* JADX WARN: Type inference failed for: r1v0, types: [org.json.JSONObject, T] */
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            cj2 cj2Var = new cj2();
+            ?? jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", "functionPageFinished");
+                jSONObject.put("componentId", this.b);
+                jSONObject.put("isSuccess", this.d);
+                jSONObject.put("data", this.e);
+                if (this.c != null) {
+                    jSONObject.put("error", this.c.toString());
+                }
+            } catch (JSONException e) {
+                o43.b(Log.getStackTraceString(e));
+            }
+            cj2Var.c = jSONObject;
+            ju2.U().m(this.a, cj2Var);
+            o43.b("finish event, isSuccess = " + this.d);
+        }
+    }
+
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.l;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "SwanPluginFunPageFinishEvent{eventType='functionPageFinished', componentId='" + this.b + "', error=" + this.c + ", isSuccess=" + this.d + ", resultData='" + this.e + "'}";
         }
-        return (j43) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 }

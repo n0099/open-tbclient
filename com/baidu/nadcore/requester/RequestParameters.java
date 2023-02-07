@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.network.outback.EngineName;
-import com.baidu.tieba.hq0;
+import com.baidu.tieba.dr0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +23,7 @@ public class RequestParameters {
     public final String c;
     public final String d;
     @Nullable
-    public final hq0 e;
+    public final dr0 e;
     @NonNull
     public final RefreshType f;
     public final String g;
@@ -195,7 +195,7 @@ public class RequestParameters {
         public int b;
         public String c;
         public String d;
-        public hq0 e;
+        public dr0 e;
         public RefreshType f;
         public String g;
         public SlotType h;

@@ -5,9 +5,9 @@ import com.baidu.bdtask.framework.utils.DebugTrace;
 import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.bdtask.model.response.TaskResponseData;
 import com.baidu.searchbox.launch.LaunchStatsUtils;
-import com.baidu.tieba.xq;
-import com.baidu.tieba.yq;
-import com.baidu.tieba.zq;
+import com.baidu.tieba.cr;
+import com.baidu.tieba.dr;
+import com.baidu.tieba.er;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,27 +29,27 @@ public final class a {
     public static final a b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000-\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006*\u0001\u0000\b\n\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u0011\u0010\u0012J\u001f\u0010\u0007\u001a\u00020\u00062\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u0005\u001a\u00020\u0004H\u0016¢\u0006\u0004\b\u0007\u0010\bJ\u0017\u0010\u000b\u001a\u00020\u00062\u0006\u0010\n\u001a\u00020\tH\u0016¢\u0006\u0004\b\u000b\u0010\fJ\u0017\u0010\u000f\u001a\u00020\u00062\u0006\u0010\u000e\u001a\u00020\rH\u0016¢\u0006\u0004\b\u000f\u0010\u0010¨\u0006\u0013"}, d2 = {"com/baidu/bdtask/ctrl/repo/api/BDPTaskRepo$taskCompletedRequest$2", "Lcom/baidu/tieba/yq;", "", "errmsg", "", "statusCode", "", "onFail", "(Ljava/lang/String;I)V", "Lcom/baidu/bdtask/ctrl/repo/TaskResponseParser;", "parser", "onResponseParsed", "(Lcom/baidu/bdtask/ctrl/repo/TaskResponseParser;)V", "Lcom/baidu/bdtask/model/response/TaskResponseData;", "data", "onSucceed", "(Lcom/baidu/bdtask/model/response/TaskResponseData;)V", "<init>", "(Lcom/baidu/bdtask/ctrl/repo/api/TaskResponseCallback;)V", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000-\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006*\u0001\u0000\b\n\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u0011\u0010\u0012J\u001f\u0010\u0007\u001a\u00020\u00062\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u0005\u001a\u00020\u0004H\u0016¢\u0006\u0004\b\u0007\u0010\bJ\u0017\u0010\u000b\u001a\u00020\u00062\u0006\u0010\n\u001a\u00020\tH\u0016¢\u0006\u0004\b\u000b\u0010\fJ\u0017\u0010\u000f\u001a\u00020\u00062\u0006\u0010\u000e\u001a\u00020\rH\u0016¢\u0006\u0004\b\u000f\u0010\u0010¨\u0006\u0013"}, d2 = {"com/baidu/bdtask/ctrl/repo/api/BDPTaskRepo$taskCompletedRequest$2", "Lcom/baidu/tieba/dr;", "", "errmsg", "", "statusCode", "", "onFail", "(Ljava/lang/String;I)V", "Lcom/baidu/bdtask/ctrl/repo/TaskResponseParser;", "parser", "onResponseParsed", "(Lcom/baidu/bdtask/ctrl/repo/TaskResponseParser;)V", "Lcom/baidu/bdtask/model/response/TaskResponseData;", "data", "onSucceed", "(Lcom/baidu/bdtask/model/response/TaskResponseData;)V", "<init>", "(Lcom/baidu/bdtask/ctrl/repo/api/TaskResponseCallback;)V", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* renamed from: com.baidu.bdtask.ctrl.repo.api.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0089a implements yq {
+    public static final class C0088a implements dr {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xq a;
+        public final /* synthetic */ cr a;
 
-        @Override // com.baidu.tieba.yq
-        public void b(zq zqVar) {
+        @Override // com.baidu.tieba.dr
+        public void b(er erVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zqVar) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, erVar) == null) {
             }
         }
 
-        public C0089a(xq xqVar) {
+        public C0088a(cr crVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {xqVar};
+                Object[] objArr = {crVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -59,10 +59,10 @@ public final class a {
                     return;
                 }
             }
-            this.a = xqVar;
+            this.a = crVar;
         }
 
-        @Override // com.baidu.tieba.yq
+        @Override // com.baidu.tieba.dr
         public void a(final TaskResponseData taskResponseData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, taskResponseData) == null) {
@@ -107,7 +107,7 @@ public final class a {
             }
         }
 
-        @Override // com.baidu.tieba.yq
+        @Override // com.baidu.tieba.dr
         public void a(final String str, final int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i) == null) {
@@ -187,9 +187,9 @@ public final class a {
     }
 
     @JvmOverloads
-    public final void a(final String str, final String str2, final int i, JSONObject jSONObject, xq xqVar) {
+    public final void a(final String str, final String str2, final int i, JSONObject jSONObject, cr crVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), jSONObject, xqVar}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), jSONObject, crVar}) == null) {
             DebugTrace.a.c(new Function0<String>(str, str2, i) { // from class: com.baidu.bdtask.ctrl.repo.api.BDPTaskRepo$taskCompletedRequest$1
                 public static /* synthetic */ Interceptable $ic;
                 public final /* synthetic */ int $behavior;
@@ -231,7 +231,7 @@ public final class a {
                     return (String) invokeV.objValue;
                 }
             });
-            a.c(str, str2, i, "", null, jSONObject, new C0089a(xqVar));
+            a.c(str, str2, i, "", null, jSONObject, new C0088a(crVar));
         }
     }
 }

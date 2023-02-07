@@ -1,15 +1,15 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.api.KsRewardVideoAd;
 /* loaded from: classes5.dex */
-public final class j5a {
+public abstract class j5a implements KsRewardVideoAd.RewardAdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] a;
-    public int[] b;
 
     public j5a() {
         Interceptable interceptable = $ic;
@@ -25,23 +25,24 @@ public final class j5a {
         }
     }
 
-    public static void a(j5a j5aVar, int i) {
+    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
+    public void onExtraRewardVerify(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65537, null, j5aVar, i) == null) {
-            for (int i2 = 0; i2 < i; i2++) {
-                int[] iArr = j5aVar.b;
-                byte[] bArr = j5aVar.a;
-                int i3 = i2 * 4;
-                iArr[i2] = ((bArr[i3 + 3] & 255) << 24) | (bArr[i3] & 255) | ((bArr[i3 + 1] & 255) << 8) | ((bArr[i3 + 2] & 255) << 16);
-            }
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
-    public static void b(j5a j5aVar, byte[] bArr, int[] iArr) {
+    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
+    public void onRewardStepVerify(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, j5aVar, bArr, iArr) == null) {
-            j5aVar.a = bArr;
-            j5aVar.b = iArr;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
+    public void onVideoSkipToEnd(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
         }
     }
 }

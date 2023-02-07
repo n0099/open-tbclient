@@ -114,12 +114,12 @@ public final class c extends AnimationDrawable {
         float f3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            this.AE = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080ce7);
-            this.AF = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080ce9);
-            this.AG = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080ce8);
-            this.AH = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080ceb);
-            this.AI = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080cea);
-            Bitmap decodeResource = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080cf0);
+            this.AE = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080cd9);
+            this.AF = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080cdb);
+            this.AG = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080cda);
+            this.AH = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080cdd);
+            this.AI = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080cdc);
+            Bitmap decodeResource = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080ce2);
             int i = this.Bc;
             if (i != 0) {
                 if (i == 1) {
@@ -138,16 +138,16 @@ public final class c extends AnimationDrawable {
             this.AU = new Paint(1);
             int i2 = this.Bc;
             if (i2 == 0) {
-                this.AW = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f0703fa);
-                int dimension = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f0703fb);
+                this.AW = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f0703fc);
+                int dimension = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f0703fd);
                 this.AV = dimension;
                 this.AR = (-this.AQ) * 0.22f;
                 f = dimension;
                 f2 = 0.08f;
             } else if (i2 != 1) {
                 if (i2 == 2) {
-                    this.AW = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f0703fb);
-                    this.AV = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f0703fa);
+                    this.AW = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f0703fd);
+                    this.AV = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f0703fc);
                     this.AR = this.AW * 0.09f;
                     f = -this.AP;
                     f2 = 0.5f;
@@ -199,8 +199,8 @@ public final class c extends AnimationDrawable {
                 });
                 this.AX.setRepeatCount(-1);
             } else {
-                this.AW = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f0703fb);
-                this.AV = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f0703fa);
+                this.AW = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f0703fd);
+                this.AV = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f0703fc);
                 this.AR = this.AW * 0.09f;
                 f = -this.AP;
                 f2 = 0.2f;

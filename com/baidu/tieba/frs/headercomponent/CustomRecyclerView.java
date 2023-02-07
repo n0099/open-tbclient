@@ -77,7 +77,7 @@ public class CustomRecyclerView extends BdTypeRecyclerView {
         }
     }
 
-    @Override // android.view.ViewGroup, android.view.View
+    @Override // com.baidu.adp.widget.ListView.BdTypeRecyclerView, android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

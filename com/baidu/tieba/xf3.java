@@ -1,117 +1,212 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.graphics.Rect;
-import android.view.View;
-import android.view.ViewTreeObserver;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.extcore.model.ExtensionCore;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class xf3 {
+public class xf3 extends zf3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean x;
+    public static int y;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public View c;
-    public int d;
-    public wf3 e;
+    public boolean v;
+    public JSONObject w;
 
-    /* loaded from: classes6.dex */
-    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ xf3 b;
-
-        public a(xf3 xf3Var, String str) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948298404, "Lcom/baidu/tieba/xf3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xf3Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = xf3Var;
-            this.a = str;
-        }
-
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.b.e != null) {
-                    this.b.e.c(this.a);
-                }
-                Rect rect = new Rect();
-                this.b.c.getWindowVisibleDisplayFrame(rect);
-                int height = rect.height();
-                if (this.b.d != this.b.a) {
-                    if (this.b.d == height) {
-                        return;
-                    }
-                    if (this.b.d - height > this.b.b) {
-                        if (this.b.e != null) {
-                            this.b.e.b(this.a, this.b.d - height);
-                        }
-                        this.b.d = height;
-                        return;
-                    } else if (height - this.b.d > this.b.b) {
-                        if (this.b.e != null) {
-                            this.b.e.a(this.a, height - this.b.d);
-                        }
-                        this.b.d = height;
-                        return;
-                    } else {
-                        return;
-                    }
-                }
-                this.b.d = height;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948298404, "Lcom/baidu/tieba/xf3;");
+                return;
             }
         }
+        x = gp1.a;
+        y = 35;
     }
 
-    public xf3(String str, Activity activity) {
+    public xf3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, activity};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = 0;
-        this.b = 200;
-        View decorView = activity.getWindow().getDecorView();
-        this.c = decorView;
-        decorView.getViewTreeObserver().addOnGlobalLayoutListener(new a(this, str));
+        this.v = false;
+        this.c = "NA";
     }
 
-    public final void h(wf3 wf3Var) {
+    @Override // com.baidu.tieba.zf3, com.baidu.tieba.yf3
+    public JSONObject f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, wf3Var) == null) {
-            this.e = wf3Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.h == null) {
+                this.h = new JSONObject();
+            }
+            try {
+                if (this.w != null) {
+                    if (this.v) {
+                        String z = qm3.z(y);
+                        if (!TextUtils.isEmpty(z)) {
+                            this.w.put("stacktrace", z);
+                        }
+                    }
+                    if (this.w.length() != 0) {
+                        this.h.put("info", this.w);
+                    }
+                }
+                ExtensionCore T = qf2.U().T();
+                if (T != null) {
+                    this.h.put("extension_ver", T.extensionCoreVersionName);
+                }
+            } catch (JSONException e) {
+                if (x) {
+                    e.printStackTrace();
+                }
+            }
+            return super.f();
         }
+        return (JSONObject) invokeV.objValue;
     }
 
-    public static void g(String str, Activity activity, wf3 wf3Var) {
+    public xf3 l(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65543, null, str, activity, wf3Var) == null) {
-            new xf3(str, activity).h(wf3Var);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            if (str != null && str2 != null) {
+                if (this.w == null) {
+                    this.w = new JSONObject();
+                }
+                try {
+                    this.w.put(str, str2);
+                } catch (JSONException e) {
+                    if (x) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            return this;
         }
+        return (xf3) invokeLL.objValue;
+    }
+
+    public xf3 m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            this.f = str;
+            return this;
+        }
+        return (xf3) invokeL.objValue;
+    }
+
+    public xf3 n(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            this.v = z;
+            return this;
+        }
+        return (xf3) invokeZ.objValue;
+    }
+
+    public xf3 o(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            this.b = String.valueOf(i);
+            return this;
+        }
+        return (xf3) invokeI.objValue;
+    }
+
+    public xf3 p(@NonNull pk3 pk3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, pk3Var)) == null) {
+            this.b = String.valueOf(pk3Var.a());
+            String sb = pk3Var.g().toString();
+            if (!TextUtils.isEmpty(sb)) {
+                l("detail", sb);
+            }
+            return this;
+        }
+        return (xf3) invokeL.objValue;
+    }
+
+    public xf3 q(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            this.a = str;
+            return this;
+        }
+        return (xf3) invokeL.objValue;
+    }
+
+    public xf3 s(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            this.g = str;
+            return this;
+        }
+        return (xf3) invokeL.objValue;
+    }
+
+    public xf3 t(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            this.c = str;
+            return this;
+        }
+        return (xf3) invokeL.objValue;
+    }
+
+    public xf3 r(wt2 wt2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, wt2Var)) == null) {
+            if (wt2Var == null) {
+                return this;
+            }
+            if (!TextUtils.isEmpty(wt2Var.T())) {
+                this.c = wt2Var.T();
+            }
+            if (!TextUtils.isEmpty(wt2Var.H())) {
+                this.f = wt2Var.H();
+            }
+            if (!TextUtils.isEmpty(wt2Var.W())) {
+                this.p = wt2Var.W();
+            }
+            if (!TextUtils.isEmpty(wt2Var.e0())) {
+                this.s = wt2Var.e0();
+            }
+            return this;
+        }
+        return (xf3) invokeL.objValue;
     }
 }

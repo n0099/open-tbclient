@@ -1,97 +1,132 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.provider.Settings;
-import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ve3 extends g63 {
+public final class ve3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ve3(g53 g53Var) {
-        super(g53Var, "/swanAPI/getAutoRotationSync");
+    public static String a(@NonNull String str, @Nullable String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {g53Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+            return str + str2;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void i(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65544, null, str, z) == null) {
+            kh3.a().putBoolean(a("SwanAppStabilitySp-autoObtain", str), z);
         }
     }
 
-    @Override // com.baidu.tieba.g63
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j43 j43Var) {
-        InterceptResult invokeLLLL;
-        boolean z;
+    public static void j(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j43Var)) == null) {
-            if (j43Var == null) {
-                j12.c("getAutoRotationSync", "none swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-                if (g63.b) {
-                    Log.e("SwanAppAction", "getAutoRotationSync --- illegal swanApp");
-                }
-                return false;
-            } else if (context == null) {
-                j12.c("getAutoRotationSync", "none context");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-                if (g63.b) {
-                    Log.e("SwanAppAction", "getAutoRotationSync --- illegal context");
-                }
-                return false;
-            } else {
-                try {
-                    int i = Settings.System.getInt(context.getApplicationContext().getContentResolver(), "accelerometer_rotation");
-                    if (g63.b) {
-                        Log.d("SwanAppAction", "getAutoRotationSync --- isRotateOn: " + i);
-                    }
-                    JSONObject jSONObject = new JSONObject();
-                    if (i != 0) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    try {
-                        jSONObject.put("isRotateOn", z);
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-                        return true;
-                    } catch (JSONException unused) {
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "json exception");
-                        if (g63.b) {
-                            Log.e("SwanAppAction", "getAutoRotationSync --- json exception");
-                        }
-                        return false;
-                    }
-                } catch (Exception e) {
-                    if (g63.b) {
-                        e.printStackTrace();
-                        Log.e("SwanAppAction", "getAutoRotationSync --- can't get setting");
-                    }
-                    return false;
-                }
-            }
+        if (interceptable == null || interceptable.invokeLI(65545, null, str, i) == null) {
+            kh3.a().putInt(a("SwanAppStabilitySp-autoObtainDataLen", str), i);
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    public static void k(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65546, null, str, i) == null) {
+            kh3.a().putInt(a("SwanAppStabilitySp-obtainIntervalMs", str), i);
+        }
+    }
+
+    public static void l(boolean z, @Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(65547, null, z, str) == null) {
+            kh3.a().putBoolean(a("SwanAppStabilitySp-obtainData", str), z);
+        }
+    }
+
+    public static void m(boolean z, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(65548, null, z, str) == null) {
+            kh3.a().putBoolean(a("SwanAppStabilitySp-stabilityProfile", str), z);
+        }
+    }
+
+    public static void n(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65549, null, str, i) == null) {
+            kh3.a().putInt(a("SwanAppStabilitySp-swanStartupStability", str), i);
+        }
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            String appId = v83.K().getAppId();
+            eh3 a = kh3.a();
+            a.remove(a("SwanAppStabilitySp-obtainData", appId));
+            a.remove(a("SwanAppStabilitySp-autoObtain", appId));
+            a.remove(a("SwanAppStabilitySp-swanStartupStability", appId));
+            a.remove(a("SwanAppStabilitySp-obtainIntervalMs", appId));
+            a.remove(a("SwanAppStabilitySp-autoObtainDataLen", appId));
+            a.remove(a("SwanAppStabilitySp-stabilityProfile", appId));
+        }
+    }
+
+    public static int c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            return kh3.a().getInt(a("SwanAppStabilitySp-autoObtainDataLen", v83.K().getAppId()), i);
+        }
+        return invokeI.intValue;
+    }
+
+    public static int d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            return kh3.a().getInt(a("SwanAppStabilitySp-obtainIntervalMs", v83.K().getAppId()), i);
+        }
+        return invokeI.intValue;
+    }
+
+    public static int e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            return kh3.a().getInt(a("SwanAppStabilitySp-swanStartupStability", v83.K().getAppId()), i);
+        }
+        return invokeI.intValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return kh3.a().getBoolean(a("SwanAppStabilitySp-autoObtain", v83.K().getAppId()), false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return kh3.a().getBoolean(a("SwanAppStabilitySp-obtainData", v83.K().getAppId()), false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return kh3.a().getBoolean(a("SwanAppStabilitySp-stabilityProfile", v83.K().getAppId()), false);
+        }
+        return invokeV.booleanValue;
     }
 }

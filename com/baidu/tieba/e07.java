@@ -1,183 +1,124 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.tbadkCore.FrsRequestData;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.frs.itemtab.card.CardItemDetailListItemLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class e07 {
+public class e07 extends hx<l07> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View f;
+    public EMTextView g;
+    public ArrayList<q07> h;
 
-    public static int d(int i) {
-        InterceptResult invokeI;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e07(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            if (i != 2) {
-                if (i != 3) {
-                    if (i != 5) {
-                        if (i != 6) {
-                            if (i != 7) {
-                                return i != 8 ? -1 : 4;
-                            }
-                            return 3;
-                        }
-                        return 2;
-                    }
-                    return 0;
-                }
-                return 1;
-            }
-            return 0;
-        }
-        return invokeI.intValue;
-    }
-
-    public static int f(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
-                            return i != 4 ? -1 : 8;
-                        }
-                        return 7;
-                    }
-                    return 6;
-                }
-                return 3;
-            }
-            return 2;
-        }
-        return invokeI.intValue;
-    }
-
-    public static int g(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i == 3) {
-                            return 1;
-                        }
-                        if (i != 4) {
-                            return -1;
-                        }
-                    }
-                    return 4;
-                }
-                return 3;
-            }
-            return 2;
-        }
-        return invokeI.intValue;
-    }
-
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            try {
-                SharedPreferences.Editor edit = c().edit();
-                edit.clear();
-                edit.commit();
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static String b() {
+    @Override // com.baidu.tieba.hx
+    public View k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return "pref_name_frs_sortType_" + TbadkCoreApplication.getCurrentAccount();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.f == null) {
+                View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d01a0, (ViewGroup) null, true);
+                this.f = inflate;
+                this.g = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f09107d);
+            }
+            return this.f;
         }
-        return (String) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    public static SharedPreferences c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ay
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return TbadkCoreApplication.getInst().getSharedPreferences(b(), 0);
-        }
-        return (SharedPreferences) invokeV.objValue;
-    }
-
-    public static int e(int i, FrsRequestData frsRequestData) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, frsRequestData)) == null) {
-            if (i != 2) {
-                if (i != 3) {
-                    if (i != 5) {
-                        if (i != 6) {
-                            if (i != 7) {
-                                if (i == 8 && frsRequestData != null) {
-                                    frsRequestData.setSortType(4);
-                                    frsRequestData.V(0);
-                                }
-                            } else if (frsRequestData != null) {
-                                frsRequestData.setSortType(3);
-                                frsRequestData.V(0);
-                            }
-                        } else if (frsRequestData != null) {
-                            frsRequestData.setSortType(2);
-                            frsRequestData.V(0);
-                        }
-                    } else if (frsRequestData != null) {
-                        frsRequestData.setSortType(0);
-                        frsRequestData.V(1);
-                    }
-                } else if (frsRequestData != null) {
-                    frsRequestData.setSortType(1);
-                    frsRequestData.V(0);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            p15 d = p15.d(this.f);
+            d.n(R.string.J_X06);
+            d.f(R.color.CAM_X0205);
+            p15 d2 = p15.d(this.g);
+            d2.A(R.string.F_X02);
+            d2.v(R.color.CAM_X0105);
+            for (int i2 = 0; i2 < ((ViewGroup) this.f).getChildCount(); i2++) {
+                if (((ViewGroup) this.f).getChildAt(i2) instanceof CardItemDetailListItemLayout) {
+                    ((CardItemDetailListItemLayout) ((ViewGroup) this.f).getChildAt(i2)).d();
                 }
-            } else if (frsRequestData != null) {
-                frsRequestData.setSortType(0);
-                frsRequestData.V(0);
             }
-            return 1;
         }
-        return invokeIL.intValue;
     }
 
-    public static int h(String str) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.zx
+    /* renamed from: s */
+    public void a(l07 l07Var) {
+        boolean z;
+        View childAt;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return -1;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, l07Var) == null) && l07Var != null && l07Var.f()) {
+            ArrayList<q07> c = l07Var.c();
+            if (ListUtils.getCount(c) != ListUtils.getCount(this.h)) {
+                if (ListUtils.getCount(this.h) > 0) {
+                    ((ViewGroup) this.f).removeViews(1, ListUtils.getCount(this.h));
+                }
+                z = true;
+            } else {
+                z = false;
             }
-            try {
-                return c().getInt(str, -1);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return -1;
+            if (c != null) {
+                for (int i = 0; i < c.size(); i++) {
+                    if (z) {
+                        childAt = new CardItemDetailListItemLayout(this.b);
+                        ((ViewGroup) this.f).addView(childAt, -1, -2);
+                    } else {
+                        childAt = ((ViewGroup) this.f).getChildAt(i + 1);
+                    }
+                    if (childAt instanceof CardItemDetailListItemLayout) {
+                        ((CardItemDetailListItemLayout) childAt).setData(c.get(i));
+                    }
+                }
             }
-        }
-        return invokeL.intValue;
-    }
-
-    public static void i(String str, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65544, null, str, i) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            SharedPreferences.Editor edit = c().edit();
-            edit.putInt(str, i);
-            edit.apply();
-        } catch (Exception e) {
-            e.printStackTrace();
+            ViewGroup viewGroup = (ViewGroup) this.f;
+            int childCount = viewGroup.getChildCount() - 1;
+            while (true) {
+                if (childCount <= 0) {
+                    break;
+                }
+                if ((viewGroup.getChildAt(childCount) instanceof CardItemDetailListItemLayout) && viewGroup.getChildAt(childCount).getVisibility() == 0) {
+                    ((CardItemDetailListItemLayout) viewGroup.getChildAt(childCount)).setDividerVisible(false);
+                    break;
+                }
+                childCount--;
+            }
+            this.h = c;
         }
     }
 }

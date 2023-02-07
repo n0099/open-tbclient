@@ -24,9 +24,9 @@ import com.baidu.tbadk.data.SearchFriendResult;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.k45;
-import com.baidu.tieba.pg;
-import com.baidu.tieba.tt5;
+import com.baidu.tieba.fy5;
+import com.baidu.tieba.ug;
+import com.baidu.tieba.x85;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,16 +39,16 @@ import java.util.List;
 public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> implements UserIconBox.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tt5 a;
+    public fy5 a;
     public NavigationBar b;
     public View c;
     public View d;
-    public tt5.c e;
+    public fy5.c e;
     public CustomMessageListener f;
     public final HttpMessageListener g;
 
     /* loaded from: classes3.dex */
-    public class a implements tt5.c {
+    public class a implements fy5.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SearchFriendActivity a;
@@ -71,7 +71,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
             this.a = searchFriendActivity;
         }
 
-        @Override // com.baidu.tieba.tt5.c
+        @Override // com.baidu.tieba.fy5.c
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -126,7 +126,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
                 Iterator it = arrayList.iterator();
                 while (it.hasNext()) {
                     Object next = it.next();
-                    if ((next instanceof k45) && userInfo.getUserId() == ((k45) next).d()) {
+                    if ((next instanceof x85) && userInfo.getUserId() == ((x85) next).d()) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(this.a.getPageContext().getPageActivity(), userInfo.getUserId(), userInfo.getUserName(), userInfo.getPortrait(), 0, 4)));
                         return;
                     }
@@ -184,17 +184,17 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
                         SearchFriendResult.UserInfo userInfo2 = userInfo.get(0);
                         if (userInfo2 == null) {
                             SearchFriendActivity searchFriendActivity = this.a;
-                            searchFriendActivity.showToast(searchFriendActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0cd1));
+                            searchFriendActivity.showToast(searchFriendActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0cfe));
                             return;
                         }
                         this.a.sendMessage(new CustomMessage(2001265, userInfo2));
                         return;
                     }
                     SearchFriendActivity searchFriendActivity2 = this.a;
-                    searchFriendActivity2.showToast(searchFriendActivity2.getPageContext().getString(R.string.obfuscated_res_0x7f0f0cd1));
+                    searchFriendActivity2.showToast(searchFriendActivity2.getPageContext().getString(R.string.obfuscated_res_0x7f0f0cfe));
                 } else if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
                     SearchFriendActivity searchFriendActivity3 = this.a;
-                    searchFriendActivity3.showToast(searchFriendActivity3.getPageContext().getString(R.string.obfuscated_res_0x7f0f0cd1));
+                    searchFriendActivity3.showToast(searchFriendActivity3.getPageContext().getString(R.string.obfuscated_res_0x7f0f0cfe));
                 } else {
                     this.a.showToast(httpResponsedMessage.getErrorString());
                 }
@@ -298,13 +298,13 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
     }
 
     @Override // com.baidu.tbadk.core.view.UserIconBox.c
-    public pg<TbImageView> G() {
+    public ug<TbImageView> G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return UserIconBox.c(getPageContext().getPageActivity(), 8);
         }
-        return (pg) invokeV.objValue;
+        return (ug) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -334,15 +334,15 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d004e);
-            this.c = findViewById(R.id.obfuscated_res_0x7f091747);
+            this.c = findViewById(R.id.obfuscated_res_0x7f091788);
             d dVar = new d(this);
             this.c.setOnClickListener(dVar);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091746);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091787);
             this.b = navigationBar;
             navigationBar.setTitleText(R.string.find_new_friend);
             this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new e(this));
-            this.d = findViewById(R.id.obfuscated_res_0x7f091749);
-            this.a = new tt5(getPageContext(), this.d);
+            this.d = findViewById(R.id.obfuscated_res_0x7f09178a);
+            this.a = new fy5(getPageContext(), this.d);
             this.d.setOnClickListener(dVar);
             this.a.l(this.e);
             TiebaStatic.log("add_new");

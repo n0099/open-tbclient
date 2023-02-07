@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.flutter.FlutterPluginManager;
-import com.baidu.tieba.ol;
+import com.baidu.tieba.tl;
 import com.baidu.tieba.wallet.WalletPluginManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -123,7 +123,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d069e);
+            setContentView(R.layout.obfuscated_res_0x7f0d06a4);
             w1();
             x1();
         }
@@ -145,14 +145,14 @@ public class NpsPluginCenterActivity extends BaseActivity {
     public final void x1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091eac);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ec0);
             this.e.add(LiveMediaPluginManager.BJH_PLUGIN_PKG_NAME);
             this.e.add("com.baidu.live.media.business");
             this.e.add("com.baidu.searchbox.livenps");
             this.e.add("com.baidu.searchbox.yylive.extlib");
             this.e.add(WalletPluginManager.PLUGIN_PKG_NAME);
             this.e.add(FlutterPluginManager.PLUGIN_PKG_NAME);
-            for (BundleInfo bundleInfo : ol.e().c()) {
+            for (BundleInfo bundleInfo : tl.e().c()) {
                 if (this.e.contains(bundleInfo.getPackageName())) {
                     TbSettingTextTipView y1 = y1();
                     y1.setText(bundleInfo.getName());

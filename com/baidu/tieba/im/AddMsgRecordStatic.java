@@ -10,8 +10,8 @@ import com.baidu.tieba.im.message.RequestAddMsgRecordMessage;
 import com.baidu.tieba.im.message.ResponseClearTaskIdMessage;
 import com.baidu.tieba.im.model.AddMsgRecordHttpProtoResponse;
 import com.baidu.tieba.im.model.AddMsgRecordSocketResponse;
-import com.baidu.tieba.qw8;
-import com.baidu.tieba.rb;
+import com.baidu.tieba.o09;
+import com.baidu.tieba.wb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +25,7 @@ public class AddMsgRecordStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public static class a extends rb {
+    public static class a extends wb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -51,7 +51,7 @@ public class AddMsgRecordStatic {
         }
 
         /* JADX WARN: Removed duplicated region for block: B:19:0x002d  */
-        @Override // com.baidu.tieba.rb
+        @Override // com.baidu.tieba.wb
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -112,8 +112,8 @@ public class AddMsgRecordStatic {
                 return;
             }
         }
-        qw8.f(309265, AddMsgRecordSocketResponse.class, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ADD_MSG_RECORD, qw8.a(TbConfig.ADD_MSG_RECORD, 309265));
+        o09.f(309265, AddMsgRecordSocketResponse.class, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ADD_MSG_RECORD, o09.a(TbConfig.ADD_MSG_RECORD, 309265));
         tbHttpMessageTask.setResponsedClass(AddMsgRecordHttpProtoResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
         MessageManager.getInstance().registerListener(new a(CmdConfigHttp.CMD_ADD_MSG_RECORD, 309265));

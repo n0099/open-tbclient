@@ -1,8 +1,8 @@
 package rx.internal.operators;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.k8a;
-import com.baidu.tieba.q8a;
+import com.baidu.tieba.tca;
+import com.baidu.tieba.zca;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,18 +12,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes9.dex */
-public final class NeverObservableHolder implements k8a.a<Object> {
+public final class NeverObservableHolder implements tca.a<Object> {
     public static final /* synthetic */ NeverObservableHolder[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
     public static final NeverObservableHolder INSTANCE;
-    public static final k8a<Object> NEVER;
+    public static final tca<Object> NEVER;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.k8a.a, com.baidu.tieba.y8a
-    public void call(q8a<? super Object> q8aVar) {
+    @Override // com.baidu.tieba.tca.a, com.baidu.tieba.hda
+    public void call(zca<? super Object> zcaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, q8aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, zcaVar) == null) {
         }
     }
 
@@ -43,7 +43,7 @@ public final class NeverObservableHolder implements k8a.a<Object> {
         NeverObservableHolder neverObservableHolder = new NeverObservableHolder("INSTANCE", 0);
         INSTANCE = neverObservableHolder;
         $VALUES = new NeverObservableHolder[]{neverObservableHolder};
-        NEVER = k8a.a(neverObservableHolder);
+        NEVER = tca.a(neverObservableHolder);
     }
 
     public NeverObservableHolder(String str, int i) {
@@ -65,13 +65,13 @@ public final class NeverObservableHolder implements k8a.a<Object> {
         }
     }
 
-    public static <T> k8a<T> instance() {
+    public static <T> tca<T> instance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return (k8a<T>) NEVER;
+            return (tca<T>) NEVER;
         }
-        return (k8a) invokeV.objValue;
+        return (tca) invokeV.objValue;
     }
 
     public static NeverObservableHolder[] values() {

@@ -24,13 +24,13 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tbadk.mutiprocess.prePageKey.PrePageKeyEvent;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
-import com.baidu.tieba.ad5;
-import com.baidu.tieba.ch;
-import com.baidu.tieba.ef5;
-import com.baidu.tieba.hf5;
-import com.baidu.tieba.if5;
-import com.baidu.tieba.kf5;
-import com.baidu.tieba.t9;
+import com.baidu.tieba.da;
+import com.baidu.tieba.hh;
+import com.baidu.tieba.lh5;
+import com.baidu.tieba.pj5;
+import com.baidu.tieba.sj5;
+import com.baidu.tieba.tj5;
+import com.baidu.tieba.vj5;
 import com.baidu.tieba.y9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -288,7 +288,7 @@ public class IntentConfig extends OrmObject {
                     intentConfig2.startActivity(intentConfig2.mComponentClass);
                 }
             }
-            ch.unbindService(this.a.mContext, this.a.mClientConnection);
+            hh.unbindService(this.a.mContext, this.a.mClientConnection);
         }
     }
 
@@ -454,7 +454,7 @@ public class IntentConfig extends OrmObject {
             setComponentClass(cls);
             Intent intent = new Intent();
             intent.setClass(this.mContext, RemoteActivityProxyService.class);
-            ch.bindService(this.mContext, intent, this.mClientConnection, 1);
+            hh.bindService(this.mContext, intent, this.mClientConnection, 1);
         }
     }
 
@@ -495,7 +495,7 @@ public class IntentConfig extends OrmObject {
             setComponentClass(cls);
             Intent intent = new Intent();
             intent.setClass(this.mContext, RemoteActivityProxyService.class);
-            ch.bindService(this.mContext, intent, this.mClientConnection, 1);
+            hh.bindService(this.mContext, intent, this.mClientConnection, 1);
         }
     }
 
@@ -503,13 +503,13 @@ public class IntentConfig extends OrmObject {
         Context context;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65547, this) == null) && this.mIntent != null && (context = this.mContext) != null) {
-            t9<?> b2 = y9.b(context);
-            if5 if5Var = null;
-            if (b2 instanceof hf5) {
-                if5Var = ((hf5) b2).getTbPageInfo();
+            y9<?> b2 = da.b(context);
+            tj5 tj5Var = null;
+            if (b2 instanceof sj5) {
+                tj5Var = ((sj5) b2).getTbPageInfo();
             }
-            if (if5Var != null) {
-                this.mIntent.putExtra("tb_page_tag_source_trace", if5Var.a());
+            if (tj5Var != null) {
+                this.mIntent.putExtra("tb_page_tag_source_trace", tj5Var.a());
             }
         }
     }
@@ -519,7 +519,7 @@ public class IntentConfig extends OrmObject {
         ArrayList<String> c;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.mIntent != null && (context = this.mContext) != null) {
-            ef5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(context);
+            pj5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(context);
             if (currentVisiblePageExtra == null) {
                 c = null;
             } else {
@@ -530,7 +530,7 @@ public class IntentConfig extends OrmObject {
             }
             if (currentVisiblePageExtra != null) {
                 TbPageExtraHelper.setPrePageKey(currentVisiblePageExtra.a());
-                ad5.i(new PrePageKeyEvent(TbPageExtraHelper.getPrePageKey()));
+                lh5.i(new PrePageKeyEvent(TbPageExtraHelper.getPrePageKey()));
             }
             this.mIntent.putStringArrayListExtra("tb_page_extar_source_list", c);
         }
@@ -539,10 +539,10 @@ public class IntentConfig extends OrmObject {
     public void addSourceTraceForPageStayDurationStat() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.mIntent != null) {
-            t9<?> b2 = y9.b(this.mContext);
+            y9<?> b2 = da.b(this.mContext);
             ArrayList<String> arrayList = null;
-            if (b2 instanceof kf5) {
-                arrayList = (ArrayList) ((kf5) b2).getNextPageSourceKeyList();
+            if (b2 instanceof vj5) {
+                arrayList = (ArrayList) ((vj5) b2).getNextPageSourceKeyList();
             }
             if (ListUtils.isEmpty(arrayList)) {
                 return;

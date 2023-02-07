@@ -1,74 +1,69 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.im.model.IMUserListModel;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes4.dex */
 public class i49 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final MainTabActivity a;
+    public long b;
 
-    public static byte[] a(List<String> list) {
-        InterceptResult invokeL;
+    public i49(MainTabActivity mainTabActivity, v39 v39Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            if (list == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, v39Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            StringBuilder sb = new StringBuilder();
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                sb.append(list.get(i));
-                sb.append("\n");
-            }
-            return sb.toString().getBytes();
         }
-        return (byte[]) invokeL.objValue;
+        this.b = 0L;
+        this.a = mainTabActivity;
     }
 
-    public static byte[] b(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            return jSONObject.toString().getBytes();
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || System.currentTimeMillis() - this.b < IMUserListModel.REQUEST_SPACE) {
+            return;
         }
-        return (byte[]) invokeL.objValue;
+        HashMap hashMap = new HashMap();
+        hashMap.put("type", "start");
+        hashMap.put("uname", TbadkCoreApplication.getCurrentAccountName());
+        hashMap.put("uid", TbadkCoreApplication.getCurrentAccount());
+        MessageManager.getInstance().sendMessage(new CustomMessage(2006002, hashMap));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005013, null));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
+        this.b = System.currentTimeMillis();
     }
 
-    public static boolean c(byte[] bArr, String str) {
-        InterceptResult invokeLL;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, str)) == null) {
-            if (bArr == null) {
-                return false;
-            }
-            cg cgVar = new cg();
-            cgVar.b().s(str);
-            cgVar.b().q(HttpMessageTask.HTTP_METHOD.POST);
-            cgVar.b().c("", bArr);
-            new zf(cgVar).m(3, -1, -1);
-            int i = cgVar.c().b;
-            byte[] bArr2 = cgVar.c().i;
-            if (bArr2 == null || i != 200) {
-                return false;
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            zg.h().b(this.a.getUniqueId());
+            a();
             try {
-                if (new JSONObject(new String(bArr2, IMAudioTransRequest.CHARSET)).optJSONObject("error").optInt("errno") != 0) {
-                    return false;
-                }
-                return true;
+                this.a.moveTaskToBack(true);
             } catch (Exception e) {
-                e.printStackTrace();
-                return false;
+                BdLog.e(e);
             }
         }
-        return invokeLL.booleanValue;
     }
 }

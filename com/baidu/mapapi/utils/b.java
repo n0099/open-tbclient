@@ -29,6 +29,7 @@ import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.searchbox.retrieve.debug.provider.DebugActiveUploadResult;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -456,7 +457,7 @@ public class b {
                 sb.append("walking_ar");
                 sb.append("&src=");
                 sb.append("sdk_[" + g + PreferencesUtil.RIGHT_MOUNT);
-                Log.e("test", sb.toString());
+                Log.e(DebugActiveUploadResult.SOURCE, sb.toString());
                 Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
                 intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
                 context.startActivity(intent);

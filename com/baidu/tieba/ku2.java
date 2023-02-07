@@ -1,7 +1,10 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.app.Activity;
+import android.app.Application;
+import android.os.Bundle;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,110 +13,40 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class ku2 {
+public class ku2 implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
-    public static String h;
+    public static final boolean c;
+    public static volatile ku2 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public boolean d;
-    public String e;
-    public String f;
+    public boolean a;
+    public int b;
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public ku2 a;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new ku2();
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityCreated(Activity activity, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
         }
+    }
 
-        public ku2 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a;
-            }
-            return (ku2) invokeV.objValue;
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityDestroyed(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
         }
+    }
 
-        public a b(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.a.b = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityPaused(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
         }
+    }
 
-        public a c(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.a.d = z;
-                return this;
-            }
-            return (a) invokeZ.objValue;
-        }
-
-        public a d(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.a.a = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a e(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.a.c = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a f(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                this.a.f = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a g(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                this.a.e = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, bundle) == null) {
         }
     }
 
@@ -130,8 +63,7 @@ public final class ku2 {
                 return;
             }
         }
-        g = tk1.a;
-        h = "SwanAppParam";
+        c = gp1.a;
     }
 
     public ku2() {
@@ -144,110 +76,109 @@ public final class ku2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = false;
     }
 
-    public String h() {
+    public static ku2 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (ku2.class) {
+                    if (d == null) {
+                        d = new ku2();
+                    }
+                }
+            }
+            return d;
+        }
+        return (ku2) invokeV.objValue;
+    }
+
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.a;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public String j() {
-        InterceptResult invokeV;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.d = false;
-        }
-    }
-
-    public static ku2 g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (c) {
+                Log.d("SwanAppLifecycle", "registerSelf for lifecycle");
             }
-            try {
-                ku2 ku2Var = new ku2();
-                JSONObject jSONObject = new JSONObject(str);
-                ku2Var.a = jSONObject.optString("page");
-                ku2Var.c = jSONObject.optString("params");
-                ku2Var.b = jSONObject.optString("baseUrl");
-                ku2Var.d = jSONObject.optBoolean("isFirstPage");
-                ku2Var.e = jSONObject.optString("routeType");
-                ku2Var.f = jSONObject.optString("routeId");
-                return ku2Var;
-            } catch (JSONException e) {
-                if (g) {
-                    String str2 = h;
-                    Log.e(str2, "createSwanAppParam() error: " + Log.getStackTraceString(e));
+            ds2.c().registerActivityLifecycleCallbacks(this);
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (c) {
+                Log.d("SwanAppLifecycle", "un registerSelf for lifecycle");
+            }
+            ds2.c().unregisterActivityLifecycleCallbacks(this);
+        }
+    }
+
+    public void d(boolean z) {
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && (z2 = this.a) != z) {
+            if (z2) {
+                this.a = false;
+                yu2.a().e(null);
+                return;
+            }
+            this.a = true;
+            yu2.a().d(null);
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityResumed(Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, activity) == null) && !this.a) {
+            this.a = true;
+            yu2.a().d(activity);
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStarted(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, activity) == null) {
+            int i = this.b + 1;
+            this.b = i;
+            if (i == 1 && !this.a) {
+                if (c) {
+                    Log.d("SwanAppLifecycle", "onBackgroundToForeground");
                 }
-                return null;
+                this.a = true;
+                yu2.a().d(activity);
             }
         }
-        return (ku2) invokeL.objValue;
     }
 
-    public String m() {
-        InterceptResult invokeV;
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStopped(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("page", this.a);
-                jSONObject.put("params", this.c);
-                jSONObject.put("baseUrl", this.b);
-                jSONObject.put("isFirstPage", this.d);
-                jSONObject.put("routeType", this.e);
-                jSONObject.put("routeId", this.f);
-            } catch (JSONException e) {
-                if (g) {
-                    String str = h;
-                    Log.e(str, "toJSONString error: " + Log.getStackTraceString(e));
+        if (interceptable == null || interceptable.invokeL(1048586, this, activity) == null) {
+            int i = this.b - 1;
+            this.b = i;
+            if (i == 0 && this.a) {
+                if (c) {
+                    Log.d("SwanAppLifecycle", "onForegroundToBackground");
                 }
+                this.a = false;
+                yu2.a().e(activity);
             }
-            return jSONObject.toString();
         }
-        return (String) invokeV.objValue;
     }
 }

@@ -86,12 +86,12 @@ public class a extends Dialog {
 
     /* renamed from: com.tencent.connect.auth.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C0726a extends WebViewClient {
+    public class C0730a extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C0726a(a aVar) {
+        public C0730a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -168,7 +168,7 @@ public class a extends Dialog {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ SslErrorHandler a;
-                    public final /* synthetic */ C0726a b;
+                    public final /* synthetic */ C0730a b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -201,7 +201,7 @@ public class a extends Dialog {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ SslErrorHandler a;
-                    public final /* synthetic */ C0726a b;
+                    public final /* synthetic */ C0730a b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -251,7 +251,7 @@ public class a extends Dialog {
                         this.a.d.postDelayed(new Runnable(this) { // from class: com.tencent.connect.auth.a.a.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
-                            public final /* synthetic */ C0726a a;
+                            public final /* synthetic */ C0730a a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -835,7 +835,7 @@ public class a extends Dialog {
         if (interceptable == null || interceptable.invokeV(65555, this) == null) {
             this.k.setVerticalScrollBarEnabled(false);
             this.k.setHorizontalScrollBarEnabled(false);
-            this.k.setWebViewClient(new C0726a());
+            this.k.setWebViewClient(new C0730a());
             this.k.setWebChromeClient(new WebChromeClient());
             this.k.clearFormData();
             this.k.clearSslPreferences();

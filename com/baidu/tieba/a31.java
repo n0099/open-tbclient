@@ -1,104 +1,74 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.HashMap;
 /* loaded from: classes3.dex */
-public final class a31 {
+public class a31 {
     public static /* synthetic */ Interceptable $ic;
+    public static final HashMap<Class<? extends g31>, g31> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final String c;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public a31() {
-        this(null, null, null, 7, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this((String) objArr[0], (String) objArr[1], (String) objArr[2], ((Integer) objArr[3]).intValue(), (DefaultConstructorMarker) objArr[4]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947564138, "Lcom/baidu/tieba/a31;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947564138, "Lcom/baidu/tieba/a31;");
                 return;
             }
         }
+        a = new HashMap<>();
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof a31) {
-                    a31 a31Var = (a31) obj;
-                    return Intrinsics.areEqual(this.a, a31Var.a) && Intrinsics.areEqual(this.b, a31Var.b) && Intrinsics.areEqual(this.c, a31Var.c);
-                }
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String str = this.a;
-            int hashCode = (str != null ? str.hashCode() : 0) * 31;
-            String str2 = this.b;
-            int hashCode2 = (hashCode + (str2 != null ? str2.hashCode() : 0)) * 31;
-            String str3 = this.c;
-            return hashCode2 + (str3 != null ? str3.hashCode() : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "ConsoleLogItemData(key1=" + this.a + ", key2=" + this.b + ", content=" + this.c + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public a31(String key1, String key2, String content) {
+    public a31() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {key1, key2, content};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        Intrinsics.checkNotNullParameter(key1, "key1");
-        Intrinsics.checkNotNullParameter(key2, "key2");
-        Intrinsics.checkNotNullParameter(content, "content");
-        this.a = key1;
-        this.b = key2;
-        this.c = content;
     }
 
-    public /* synthetic */ a31(String str, String str2, String str3, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i & 1) != 0 ? "" : str, (i & 2) != 0 ? "" : str2, (i & 4) != 0 ? "" : str3);
+    public static <T extends g31> T a(Class<T> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cls)) == null) {
+            T t = (T) a.get(cls);
+            if (t == null) {
+                synchronized (a31.class) {
+                    t = (T) a.get(cls);
+                    if (t == null) {
+                        t = (T) b31.a(cls);
+                        a.put(cls, t);
+                    }
+                }
+            }
+            return t;
+        }
+        return (T) invokeL.objValue;
+    }
+
+    public static <T extends g31> f31 b(Class<T> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) {
+            return a(cls).b();
+        }
+        return (f31) invokeL.objValue;
     }
 }

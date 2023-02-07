@@ -17,15 +17,15 @@ import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cz4;
-import com.baidu.tieba.h45;
-import com.baidu.tieba.kq8;
-import com.baidu.tieba.nq8;
-import com.baidu.tieba.op7;
-import com.baidu.tieba.r9;
+import com.baidu.tieba.fu8;
+import com.baidu.tieba.gu7;
+import com.baidu.tieba.iu8;
+import com.baidu.tieba.nu8;
+import com.baidu.tieba.ou8;
+import com.baidu.tieba.p35;
 import com.baidu.tieba.setting.model.AboutModel;
-import com.baidu.tieba.sq8;
-import com.baidu.tieba.tq8;
+import com.baidu.tieba.u85;
+import com.baidu.tieba.w9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -35,16 +35,16 @@ import java.util.Date;
 public class AboutActivity extends BaseActivity<AboutActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kq8 a;
+    public fu8 a;
     public AboutModel b;
     public c c;
     public String d;
-    public sq8 e;
-    public tq8 f;
+    public nu8 e;
+    public ou8 f;
     public int g;
 
     /* loaded from: classes6.dex */
-    public class a implements nq8 {
+    public class a implements iu8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AboutActivity a;
@@ -67,7 +67,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             this.a = aboutActivity;
         }
 
-        @Override // com.baidu.tieba.nq8
+        @Override // com.baidu.tieba.iu8
         public void a(int i) {
             String str;
             String fileDireciory;
@@ -80,7 +80,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                 } else if (i == 2) {
                     this.a.sendMessage(new CustomMessage(2015001, new GuildActivityConfig(this.a.getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_ABOUT_PAGE, false)));
                 } else if (i == 3) {
-                    cz4.l().v(SettingTextFunctionIntroView.h, true);
+                    p35.m().w(SettingTextFunctionIntroView.h, true);
                     BrowserHelper.t(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getString(R.string.function_intro), this.a.d, true, false, false);
                 } else if (i == 4) {
                     if (TbConfig.getDebugSwitch()) {
@@ -98,7 +98,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                 } else if (i == 5) {
                     if (this.a.e == null) {
                         AboutActivity aboutActivity = this.a;
-                        aboutActivity.e = new sq8(aboutActivity.getActivity());
+                        aboutActivity.e = new nu8(aboutActivity.getActivity());
                         this.a.e.create(this.a.getPageContext());
                     }
                     this.a.e.show();
@@ -115,7 +115,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     }
 
     /* loaded from: classes6.dex */
-    public class b extends r9 {
+    public class b extends w9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AboutActivity a;
@@ -138,7 +138,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             this.a = aboutActivity;
         }
 
-        @Override // com.baidu.tieba.r9
+        @Override // com.baidu.tieba.w9
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(1048576, this, obj) != null) {
@@ -180,7 +180,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         public void onReceive(Context context, Intent intent) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && this.this$0.a != null) {
-                this.this$0.a.J();
+                this.this$0.a.K();
             }
         }
     }
@@ -206,7 +206,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     public final void F1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            op7.b().a(true);
+            gu7.b().a(true);
             AboutModel aboutModel = this.b;
             if (aboutModel == null) {
                 this.b = new AboutModel(this, new b(this));
@@ -214,9 +214,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                 aboutModel.cancelLoadData();
             }
             this.b.K();
-            kq8 kq8Var = this.a;
-            if (kq8Var != null) {
-                kq8Var.D();
+            fu8 fu8Var = this.a;
+            if (fu8Var != null) {
+                fu8Var.E();
             }
         }
     }
@@ -231,17 +231,17 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             if (aboutModel != null) {
                 aboutModel.cancelLoadData();
             }
-            kq8 kq8Var = this.a;
-            if (kq8Var != null) {
-                kq8Var.E();
+            fu8 fu8Var = this.a;
+            if (fu8Var != null) {
+                fu8Var.F();
             }
-            sq8 sq8Var = this.e;
-            if (sq8Var != null) {
-                sq8Var.dismiss();
+            nu8 nu8Var = this.e;
+            if (nu8Var != null) {
+                nu8Var.dismiss();
             }
-            tq8 tq8Var = this.f;
-            if (tq8Var != null) {
-                tq8Var.i();
+            ou8 ou8Var = this.f;
+            if (ou8Var != null) {
+                ou8Var.i();
                 this.f = null;
             }
         }
@@ -252,9 +252,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             super.onChangeSkinType(i);
-            kq8 kq8Var = this.a;
-            if (kq8Var != null) {
-                kq8Var.L(i);
+            fu8 fu8Var = this.a;
+            if (fu8Var != null) {
+                fu8Var.M(i);
             }
         }
     }
@@ -264,48 +264,48 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            this.f = new tq8(this);
-            kq8 kq8Var = new kq8(this, new a(this));
-            this.a = kq8Var;
-            kq8Var.J();
+            this.f = new ou8(this);
+            fu8 fu8Var = new fu8(this, new a(this));
+            this.a = fu8Var;
+            fu8Var.K();
             H1();
         }
     }
 
     public final void G1(Object obj) {
-        h45 h45Var;
+        u85 u85Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            kq8 kq8Var = this.a;
-            if (kq8Var != null) {
-                kq8Var.E();
+            fu8 fu8Var = this.a;
+            if (fu8Var != null) {
+                fu8Var.F();
             }
             if (obj != null) {
-                h45Var = (h45) obj;
+                u85Var = (u85) obj;
             } else {
-                h45Var = null;
+                u85Var = null;
             }
-            if (h45Var != null) {
-                TbadkCoreApplication.getInst().setVersionData(h45Var.u());
+            if (u85Var != null) {
+                TbadkCoreApplication.getInst().setVersionData(u85Var.u());
                 TbadkCoreApplication.getInst().refreshNewVersion(false);
-                if (h45Var.u().hasNewVer() && TbConfig.COULD_UPDATE) {
-                    if (h45Var.u().forceUpdate()) {
-                        sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), h45Var.u(), h45Var.j())));
+                if (u85Var.u().hasNewVer() && TbConfig.COULD_UPDATE) {
+                    if (u85Var.u().forceUpdate()) {
+                        sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), u85Var.u(), u85Var.j())));
                     } else {
                         Long valueOf = Long.valueOf(new Date().getTime());
-                        CustomMessage customMessage = new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), h45Var.u(), h45Var.j()));
+                        CustomMessage customMessage = new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), u85Var.u(), u85Var.j()));
                         TbadkCoreApplication.getInst().setUpdateNotifyTime(valueOf.longValue());
                         sendMessage(customMessage);
                     }
                 }
-                kq8 kq8Var2 = this.a;
-                if (kq8Var2 != null) {
-                    kq8Var2.J();
+                fu8 fu8Var2 = this.a;
+                if (fu8Var2 != null) {
+                    fu8Var2.K();
                     return;
                 }
                 return;
             }
-            showToast(getResources().getString(R.string.obfuscated_res_0x7f0f0cd1));
+            showToast(getResources().getString(R.string.obfuscated_res_0x7f0f0cfe));
         }
     }
 
@@ -339,9 +339,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onResume();
-            kq8 kq8Var = this.a;
-            if (kq8Var != null) {
-                kq8Var.J();
+            fu8 fu8Var = this.a;
+            if (fu8Var != null) {
+                fu8Var.K();
             }
         }
     }

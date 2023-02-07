@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -85,7 +85,7 @@ public class AutoLineWrapLayout extends ViewGroup {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = zi.g(getContext(), R.dimen.obfuscated_res_0x7f0701d5);
+            this.a = ej.g(getContext(), R.dimen.obfuscated_res_0x7f0701d5);
         }
     }
 

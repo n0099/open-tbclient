@@ -1,11 +1,13 @@
 package com.baidu.tieba;
-
-import java.io.File;
 /* loaded from: classes6.dex */
 public interface rl1 {
-    File a(String str, String str2);
+    void a();
 
-    File b();
+    void b();
 
-    String c();
+    void c();
+
+    void e();
+
+    void f();
 }

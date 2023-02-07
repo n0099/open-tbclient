@@ -1,116 +1,99 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class xy4 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static wy4 a = null;
-    public static int b = 0;
-    public static int c = 0;
-    public static int d = 0;
-    public static int e = 1;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import tbclient.PbPage.RecommendBook;
+/* loaded from: classes7.dex */
+public class xy4 extends PostData {
+    public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId i1;
     public transient /* synthetic */ FieldHolder $fh;
+    public String Z0;
+    public String a1;
+    public String b1;
+    public String c1;
+    public String d1;
+    public String e1;
+    public List<String> f1;
+    public String g1;
+    public String h1;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948316694, "Lcom/baidu/tieba/xy4;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948316694, "Lcom/baidu/tieba/xy4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948316694, "Lcom/baidu/tieba/xy4;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+        i1 = BdUniqueId.gen();
+    }
+
+    public xy4() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948316694, "Lcom/baidu/tieba/xy4;");
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
     }
 
-    public static int a() {
+    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            wy4 wy4Var = a;
-            if (wy4Var == null) {
-                return -1;
-            }
-            return wy4Var.getCurrentTabType();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return i1;
         }
-        return invokeV.intValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public static Class<?> b() {
+    public boolean o1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            wy4 wy4Var = a;
-            if (wy4Var == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!StringUtils.isNull(this.c1)) {
+                return true;
             }
-            return wy4Var.d();
+            return false;
         }
-        return (Class) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static String c() {
-        InterceptResult invokeV;
+    public void p1(RecommendBook recommendBook) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            wy4 wy4Var = a;
-            if (wy4Var == null) {
-                return null;
-            }
-            return wy4Var.f();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void d(Context context) {
-        wy4 wy4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) != null) || (wy4Var = a) == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, recommendBook) != null) || recommendBook == null) {
             return;
         }
-        wy4Var.a(context);
-    }
-
-    public static void h(wy4 wy4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, wy4Var) == null) {
-            a = wy4Var;
-        }
-    }
-
-    public static void e(Context context, int i) {
-        wy4 wy4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65541, null, context, i) != null) || (wy4Var = a) == null) {
-            return;
-        }
-        wy4Var.b(context, i);
-    }
-
-    public static void f(Context context, int i, boolean z) {
-        wy4 wy4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65542, null, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || (wy4Var = a) == null) {
-            return;
-        }
-        wy4Var.c(context, i, z);
-    }
-
-    public static void g(Context context, int i, boolean z) {
-        wy4 wy4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65543, null, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || (wy4Var = a) == null) {
-            return;
-        }
-        wy4Var.e(context, i, z);
+        this.Z0 = recommendBook.recommend_text;
+        this.a1 = recommendBook.suggest_text;
+        this.b1 = recommendBook.suggest_url;
+        this.c1 = recommendBook.book_id;
+        recommendBook.book_type.intValue();
+        this.d1 = recommendBook.book_cover;
+        this.e1 = recommendBook.book_title;
+        this.f1 = recommendBook.book_tips;
+        this.g1 = recommendBook.botton_text;
+        this.h1 = recommendBook.subscript_icon;
     }
 }

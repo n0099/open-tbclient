@@ -26,17 +26,17 @@ import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bh;
-import com.baidu.tieba.cs4;
-import com.baidu.tieba.eh;
-import com.baidu.tieba.k38;
-import com.baidu.tieba.l38;
-import com.baidu.tieba.m38;
-import com.baidu.tieba.qr4;
-import com.baidu.tieba.ry4;
-import com.baidu.tieba.sr4;
+import com.baidu.tieba.dw4;
+import com.baidu.tieba.e35;
+import com.baidu.tieba.fw4;
+import com.baidu.tieba.gh;
+import com.baidu.tieba.h88;
+import com.baidu.tieba.i88;
+import com.baidu.tieba.j88;
+import com.baidu.tieba.jh;
+import com.baidu.tieba.kl5;
+import com.baidu.tieba.pw4;
 import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
-import com.baidu.tieba.zg5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,11 +44,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 /* loaded from: classes5.dex */
-public class LoginDialogActivity extends SuspendedActivity implements zg5 {
+public class LoginDialogActivity extends SuspendedActivity implements kl5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewGroup k;
-    public k38 l;
+    public h88 l;
     public BdAsyncTask<?, ?, ?> m;
     public String n;
     public String o;
@@ -61,27 +61,20 @@ public class LoginDialogActivity extends SuspendedActivity implements zg5 {
     public String v;
     public ILoginListener w;
     public String x;
-    public final sr4.a y;
+    public final fw4.a y;
 
-    @Override // com.baidu.tieba.zg5
-    public boolean L0() {
+    @Override // com.baidu.tieba.kl5
+    public boolean M0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public void b1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.zg5
-    public boolean t() {
+    @Override // com.baidu.tieba.kl5
+    public boolean x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
@@ -90,8 +83,15 @@ public class LoginDialogActivity extends SuspendedActivity implements zg5 {
         return invokeV.booleanValue;
     }
 
+    @Override // com.baidu.tbadk.suspended.SuspendedActivity
+    public void y1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+        }
+    }
+
     /* loaded from: classes5.dex */
-    public class a implements sr4.a {
+    public class a implements fw4.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LoginDialogActivity a;
@@ -114,24 +114,24 @@ public class LoginDialogActivity extends SuspendedActivity implements zg5 {
             this.a = loginDialogActivity;
         }
 
-        @Override // com.baidu.tieba.sr4.a
+        @Override // com.baidu.tieba.fw4.a
         public void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.a.t1();
+                this.a.P1();
             }
         }
 
-        @Override // com.baidu.tieba.sr4.a
+        @Override // com.baidu.tieba.fw4.a
         public void c(AccountData accountData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
                 this.a.closeLoadingDialog();
-                this.a.o1(accountData);
+                this.a.K1(accountData);
             }
         }
 
-        @Override // com.baidu.tieba.sr4.a
+        @Override // com.baidu.tieba.fw4.a
         public void a(String str, int i, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
@@ -204,8 +204,8 @@ public class LoginDialogActivity extends SuspendedActivity implements zg5 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                qr4.g(this.a);
-                ry4.a(DI.ACCOUNT, -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
+                dw4.g(this.a);
+                e35.a(DI.ACCOUNT, -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
             }
         }
     }
@@ -226,111 +226,88 @@ public class LoginDialogActivity extends SuspendedActivity implements zg5 {
         this.y = new a(this);
     }
 
-    @Override // com.baidu.tieba.zg5
-    public Intent getResultIntent() {
+    public final void F1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            gh.a().post(new b(this));
+        }
+    }
+
+    public String H1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            k38 k38Var = this.l;
-            if (k38Var != null) {
-                return k38Var.getResultIntent();
+            return this.x;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public ILoginListener I1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.w;
+        }
+        return (ILoginListener) invokeV.objValue;
+    }
+
+    public void L1() {
+        ILoginListener iLoginListener;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (iLoginListener = this.w) != null) {
+            iLoginListener.onCancel();
+            this.w = null;
+        }
+    }
+
+    public void M1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            LoginActivityConfig loginActivityConfig = new LoginActivityConfig((Context) this, true);
+            loginActivityConfig.setFrom(getPreExtraPageKey());
+            loginActivityConfig.setFromDialog("dialog_fail");
+            loginActivityConfig.start();
+            G1(0);
+        }
+    }
+
+    @Override // com.baidu.tieba.kl5
+    public Intent getResultIntent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            h88 h88Var = this.l;
+            if (h88Var != null) {
+                return h88Var.getResultIntent();
             }
             return null;
         }
         return (Intent) invokeV.objValue;
     }
 
-    public final void j1() {
+    public void E1(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            bh.a().post(new b(this));
-        }
-    }
-
-    public String l1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.x;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public ILoginListener m1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.w;
-        }
-        return (ILoginListener) invokeV.objValue;
-    }
-
-    public void p1() {
-        ILoginListener iLoginListener;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (iLoginListener = this.w) != null) {
-            iLoginListener.onCancel();
-            this.w = null;
-        }
-    }
-
-    public void q1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            LoginActivityConfig loginActivityConfig = new LoginActivityConfig((Context) this, true);
-            loginActivityConfig.setFrom(getPreExtraPageKey());
-            loginActivityConfig.setFromDialog("dialog_fail");
-            loginActivityConfig.start();
-            k1(0);
-        }
-    }
-
-    public void i1(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && getIntent() != null) {
             DialogLoginHelper.addLoginDialogSuccessLog(this.s, this.t, str);
             DialogLoginHelper.addMinePageLoginDialogSuccessLog(this.u, this.v);
         }
     }
 
-    @Override // com.baidu.tieba.zg5
+    @Override // com.baidu.tieba.kl5
     public void o(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
             this.k.setBackgroundResource(R.color.transparent);
-            k38 k38Var = this.l;
-            if (k38Var != null) {
-                k38Var.o(i);
+            h88 h88Var = this.l;
+            if (h88Var != null) {
+                h88Var.o(i);
             }
         }
     }
 
-    @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public zg5 P0(LinearLayout linearLayout, NavigationBar navigationBar) {
-        InterceptResult invokeLL;
+    public void G1(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linearLayout, navigationBar)) == null) {
-            this.k = linearLayout;
-            navigationBar.setVisibility(8);
-            if (getIntent() == null) {
-                finish();
-                return this;
-            }
-            n1();
-            if (TextUtils.isEmpty(this.n)) {
-                this.l = new l38(this.o, this.p, this.q);
-            } else {
-                this.l = new m38(this.n);
-            }
-            this.l.a(this, linearLayout);
-            return this;
-        }
-        return (zg5) invokeLL.objValue;
-    }
-
-    public void k1(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             ILoginListener iLoginListener = this.w;
             if (iLoginListener != null) {
                 if (i == 0) {
@@ -350,22 +327,22 @@ public class LoginDialogActivity extends SuspendedActivity implements zg5 {
         }
     }
 
-    public final void o1(AccountData accountData) {
+    public final void K1(AccountData accountData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, accountData) == null) {
-            s1(accountData);
-            ry4.a(DI.ACCOUNT, -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
+        if (interceptable == null || interceptable.invokeL(1048582, this, accountData) == null) {
+            O1(accountData);
+            e35.a(DI.ACCOUNT, -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
             TbadkCoreApplication.getInst().onUserChanged(getIntent());
-            k1(-1);
+            G1(-1);
             TbadkCoreApplication.getInst().onDeviceFirstLoginChanged(accountData);
-            cs4.c().b(1);
-            j1();
+            pw4.c().b(1);
+            F1();
         }
     }
 
-    public final void n1() {
+    public final void J1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.n = getIntent().getStringExtra(LoginDialogActivityConfig.SHARE_MODEL_JSON_STRING);
             this.o = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_ENCRYPT_PHONE_NUM);
             this.p = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_OPERATOR);
@@ -383,17 +360,9 @@ public class LoginDialogActivity extends SuspendedActivity implements zg5 {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
+    public void N1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048588, this, i, i2, intent) == null) {
-            super.onActivityResult(i, i2, intent);
-        }
-    }
-
-    public void r1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(Boolean.TRUE));
             SapiAccount session = SapiAccountManager.getInstance().getSession();
             if (session != null) {
@@ -401,17 +370,17 @@ public class LoginDialogActivity extends SuspendedActivity implements zg5 {
                 if (bdAsyncTask != null) {
                     bdAsyncTask.cancel();
                 }
-                this.m = sr4.b().a(session.username, session.bduss, "", null, this.y);
+                this.m = fw4.b().a(session.username, session.bduss, "", null, this.y);
                 return;
             }
             closeLoadingDialog();
-            k1(0);
+            G1(0);
         }
     }
 
-    public void t1() {
+    public void P1() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048594, this) != null) || getPageContext() == null) {
+        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || getPageContext() == null) {
             return;
         }
         if (getLoadingDialog() != null && getLoadingDialog().c()) {
@@ -424,14 +393,45 @@ public class LoginDialogActivity extends SuspendedActivity implements zg5 {
         }
     }
 
-    public final void s1(AccountData accountData) {
+    public final void O1(AccountData accountData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, accountData) == null) {
-            eh.a().c(new c(this, accountData));
-            ry4.a(DI.ACCOUNT, -1L, 0, "login_activity_save_account_to_application", 0, "", new Object[0]);
+        if (interceptable == null || interceptable.invokeL(1048587, this, accountData) == null) {
+            jh.a().c(new c(this, accountData));
+            e35.a(DI.ACCOUNT, -1L, 0, "login_activity_save_account_to_application", 0, "", new Object[0]);
             TbadkCoreApplication.setCurrentAccount(accountData, getPageContext().getPageActivity());
             BrowserHelper.h(TbadkCoreApplication.getInst());
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921024, Boolean.TRUE));
         }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onActivityResult(int i, int i2, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048591, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
+        }
+    }
+
+    @Override // com.baidu.tbadk.suspended.SuspendedActivity
+    public kl5 q1(LinearLayout linearLayout, NavigationBar navigationBar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, linearLayout, navigationBar)) == null) {
+            this.k = linearLayout;
+            navigationBar.setVisibility(8);
+            if (getIntent() == null) {
+                finish();
+                return this;
+            }
+            J1();
+            if (TextUtils.isEmpty(this.n)) {
+                this.l = new i88(this.o, this.p, this.q);
+            } else {
+                this.l = new j88(this.n);
+            }
+            this.l.a(this, linearLayout);
+            return this;
+        }
+        return (kl5) invokeLL.objValue;
     }
 }

@@ -1,54 +1,43 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import org.json.JSONObject;
+import java.util.Map;
 /* loaded from: classes3.dex */
-public class bj2 extends di2<tk2> {
+public class bj2 extends wi2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final w02 c;
 
-    @Override // com.baidu.tieba.di2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "onFocus" : (String) invokeV.objValue;
-    }
-
-    public bj2() {
+    public bj2(@NonNull String str, @NonNull w02 w02Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, w02Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = str;
+        this.c = w02Var;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.di2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull tk2 tk2Var) {
+    @Override // com.baidu.tieba.wi2
+    public void m(Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, tk2Var) == null) {
-            String str = command.what;
-            d(tk2Var, str, "" + command.obj, true);
-            Object obj = command.obj;
-            if (obj instanceof JSONObject) {
-                JSONObject jSONObject = (JSONObject) obj;
-                tk2Var.s(jSONObject.optInt("focusWidth"), jSONObject.optInt("focusHeight"), jSONObject.optInt("focusX"), jSONObject.optInt("focusY"));
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+            map.put("status", Integer.valueOf(this.c.b));
+            map.put("data", this.c.d);
+            map.put("message", this.c.c);
         }
     }
 }

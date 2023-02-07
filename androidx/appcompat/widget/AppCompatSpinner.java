@@ -1143,7 +1143,7 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AppCompatSpinner(@NonNull Context context, int i) {
-        this(context, null, R.attr.obfuscated_res_0x7f040647, i);
+        this(context, null, R.attr.obfuscated_res_0x7f04064b, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1164,7 +1164,7 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AppCompatSpinner(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040647);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f04064b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1364,7 +1364,7 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
             CharSequence[] textArray = obtainStyledAttributes.getTextArray(0);
             if (textArray != null) {
                 ArrayAdapter arrayAdapter = new ArrayAdapter(context, 17367048, textArray);
-                arrayAdapter.setDropDownViewResource(R.layout.obfuscated_res_0x7f0d0834);
+                arrayAdapter.setDropDownViewResource(R.layout.obfuscated_res_0x7f0d082d);
                 setAdapter((SpinnerAdapter) arrayAdapter);
             }
             obtainStyledAttributes.recycle();

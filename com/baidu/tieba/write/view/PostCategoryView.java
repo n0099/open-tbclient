@@ -12,9 +12,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.MorePopupWindow;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ej;
 import com.baidu.tieba.frs.TabMenuPopView;
-import com.baidu.tieba.np6;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.yt6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -93,13 +93,13 @@ public class PostCategoryView extends TextView {
         this.h = drawable2;
         drawable2.setBounds(0, 0, drawable2.getIntrinsicWidth(), this.g.getIntrinsicHeight());
         setCompoundDrawables(null, null, this.g, null);
-        setPadding(0, 0, zi.g(getContext(), R.dimen.obfuscated_res_0x7f0702d2), 0);
-        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0767, (ViewGroup) null);
+        setPadding(0, 0, ej.g(getContext(), R.dimen.obfuscated_res_0x7f0702d3), 0);
+        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0760, (ViewGroup) null);
         this.c = linearLayout;
-        LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f091af0);
+        LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f091b0a);
         this.d = linearLayout2;
-        this.e = (TabMenuPopView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f091af1);
-        View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f091aef);
+        this.e = (TabMenuPopView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f091b0b);
+        View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f091b09);
         this.f = findViewById;
         findViewById.setOnClickListener(new a(this));
     }
@@ -128,10 +128,10 @@ public class PostCategoryView extends TextView {
         }
     }
 
-    public void setCategoryContainerData(List<np6> list, np6 np6Var) {
+    public void setCategoryContainerData(List<yt6> list, yt6 yt6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, np6Var) == null) {
-            this.e.setData(list, np6Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, yt6Var) == null) {
+            this.e.setData(list, yt6Var);
         }
     }
 }

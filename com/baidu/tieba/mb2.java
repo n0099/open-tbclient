@@ -1,25 +1,11 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.ContentResolver;
-import android.content.ContentValues;
-import android.database.ContentObserver;
-import android.database.Cursor;
-import android.database.MatrixCursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.WorkerThread;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.database.SwanAppDbControl;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.de2;
-import com.baidu.tieba.x63;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,41 +13,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.mipush.sdk.Constants;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Set;
-import java.util.concurrent.atomic.AtomicLong;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
-import rx.schedulers.Schedulers;
 /* loaded from: classes5.dex */
-public class mb2 implements de2 {
+public class mb2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    @Nullable
-    public static AtomicLong b;
-    public static final String[] c;
+    public static final boolean c;
+    public static volatile mb2 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Set<a> a;
+    public final Set<a> b;
 
     /* loaded from: classes5.dex */
-    public static class a implements y8a<Cursor> {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x63.c a;
+        public final String a;
+        public final String b;
 
-        public a(x63.c cVar) {
+        public a(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cVar};
+                Object[] objArr = {str, Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -71,176 +49,93 @@ public class mb2 implements de2 {
                     return;
                 }
             }
-            this.a = cVar;
+            this.a = str;
+            this.b = String.valueOf(j);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.y8a
-        public void call(Cursor cursor) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cursor) == null) {
-                if (cursor == null || !cursor.moveToFirst()) {
-                    if (mb2.a) {
-                        Log.d("SwanAppHistoryHelper", "historyList == null || historyList.size() == 0");
-                    }
-                    ls2.a(cursor);
-                    this.a.a(null);
-                    return;
-                }
-                this.a.a(mb2.k(cursor));
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b implements c9a<String, Cursor> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
+        public a(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jSONObject};
+                interceptable.invokeUnInit(65537, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
                 }
             }
+            if (jSONObject == null) {
+                this.b = null;
+                this.a = null;
+                return;
+            }
+            this.a = jSONObject.optString("appKey");
+            this.b = jSONObject.optString("version");
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.c9a
-        public Cursor call(String str) {
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.b)) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public int hashCode() {
+            InterceptResult invokeV;
+            int hashCode;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                String str = this.a;
+                int i = 0;
+                if (str == null) {
+                    hashCode = 0;
+                } else {
+                    hashCode = str.hashCode();
+                }
+                String str2 = this.b;
+                if (str2 != null) {
+                    i = str2.hashCode();
+                }
+                return (hashCode * 31) + i;
+            }
+            return invokeV.intValue;
+        }
+
+        public boolean equals(@Nullable Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                return mb2.m();
-            }
-            return (Cursor) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class c extends d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public gb2 b;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c() {
-            super(null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((a) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+                if (obj == this) {
+                    return true;
                 }
-            }
-        }
-
-        public /* synthetic */ c(a aVar) {
-            this();
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static abstract class d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public vh2 a;
-
-        public d() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                if (!(obj instanceof a)) {
+                    return false;
                 }
-            }
-            this.a = new vh2();
-        }
-
-        public /* synthetic */ d(a aVar) {
-            this();
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class e implements Comparator<d> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public e() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                a aVar = (a) obj;
+                if (TextUtils.equals(this.a, aVar.a) && TextUtils.equals(this.b, aVar.b)) {
+                    return true;
                 }
+                return false;
             }
+            return invokeL.booleanValue;
         }
 
-        public /* synthetic */ e(a aVar) {
-            this();
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(d dVar, d dVar2) {
-            InterceptResult invokeLL;
+        public String toString() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, dVar, dVar2)) == null) {
-                return Long.compare(dVar2.a.e, dVar.a.e);
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return "Item{appKey='" + this.a + "', version='" + this.b + "'}";
             }
-            return invokeLL.intValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class f extends d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public PMSAppInfo b;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public f() {
-            super(null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((a) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        public /* synthetic */ f(a aVar) {
-            this();
+            return (String) invokeV.objValue;
         }
     }
 
@@ -257,881 +152,198 @@ public class mb2 implements de2 {
                 return;
             }
         }
-        a = tk1.a;
-        c = new String[]{"_id", SwanAppDbControl.SwanAppTable.app_id.name(), SwanAppDbControl.SwanAppTable.app_key.name(), SwanAppDbControl.SwanAppTable.version.name(), SwanAppDbControl.SwanAppTable.description.name(), SwanAppDbControl.SwanAppTable.error_code.name(), SwanAppDbControl.SwanAppTable.error_detail.name(), SwanAppDbControl.SwanAppTable.error_msg.name(), SwanAppDbControl.SwanAppTable.resume_date.name(), SwanAppDbControl.SwanAppTable.icon.name(), SwanAppDbControl.SwanAppTable.icon_url.name(), SwanAppDbControl.SwanAppTable.max_swan_version.name(), SwanAppDbControl.SwanAppTable.min_swan_version.name(), SwanAppDbControl.SwanAppTable.name.name(), SwanAppDbControl.SwanAppTable.service_category.name(), SwanAppDbControl.SwanAppTable.subject_info.name(), SwanAppDbControl.SwanAppTable.bear_info.name(), SwanAppDbControl.SwanAppTable.sign.name(), SwanAppDbControl.SwanAppTable.type.name(), SwanAppDbControl.SwanAppTable.is_have_zip.name(), SwanAppDbControl.SwanAppTable.app_open_url.name(), SwanAppDbControl.SwanAppTable.app_download_url.name(), SwanAppDbControl.SwanAppTable.target_swan_version.name(), SwanAppDbControl.SwanAppTable.app_zip_size.name(), SwanAppDbControl.SwanAppTable.pending_aps_errcode.name(), SwanAppDbControl.SwanAppTable.version_code.name(), SwanAppDbControl.SwanAppTable.app_category.name(), SwanAppDbControl.SwanAppTable.orientation.name(), SwanAppDbControl.SwanAppTable.max_age.name(), SwanAppDbControl.SwanAppTable.create_time.name(), SwanAppDbControl.SwanAppTable.force_fetch_meta_info.name(), "app_from", "visit_time", SwanAppDbControl.SwanAppTable.pay_protected.name(), "customer_service", "global_notice", "global_private", "pa_number", Constants.PHONE_BRAND, SwanAppDbControl.SwanAppTable.quick_app_key.name()};
+        c = gp1.a;
     }
 
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            AppRuntime.getAppContext().getContentResolver().delete(lb2.a(), null, null);
-        }
-    }
-
-    public static Cursor m() {
+    public static mb2 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            return n(null, null);
-        }
-        return (Cursor) invokeV.objValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    @WorkerThread
-    public static boolean c(@NonNull ContentResolver contentResolver, @Nullable vh2 vh2Var, de2.b bVar) {
-        InterceptResult invokeLLL;
-        String uri;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, contentResolver, vh2Var, bVar)) == null) {
-            if (vh2Var == null || TextUtils.isEmpty(vh2Var.a)) {
-                return false;
-            }
-            if (a) {
-                Log.d("SwanAppHistoryHelper", "addHistory: " + vh2Var.c + " / " + vh2Var.a);
-            }
-            if (TextUtils.equals(String.valueOf(1), vh2Var.g)) {
-                String str = vh2Var.a;
-                ee2 m = ee2.m(bVar);
-                m.i(1);
-                h(contentResolver, str, m.k());
-            }
-            Uri a2 = lb2.a();
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("app_id", vh2Var.a);
-            contentValues.put("visit_time", Long.valueOf(vh2Var.e));
-            contentValues.put("app_from", vh2Var.i);
-            contentValues.put("app_name", vh2Var.c);
-            contentValues.put("app_key", vh2Var.b);
-            contentValues.put("version_code", vh2Var.j);
-            contentValues.put("app_icon", vh2Var.d);
-            contentValues.put("frame_type", Integer.valueOf(vh2Var.f));
-            contentValues.put("app_type", vh2Var.g);
-            contentValues.put("pay_protected", Integer.valueOf(vh2Var.h));
-            contentValues.put("sync_state", (Integer) 0);
-            try {
-                Uri insert = AppRuntime.getAppContext().getContentResolver().insert(a2, contentValues);
-                if (a) {
-                    if (insert == null) {
-                        uri = "NULL";
-                    } else {
-                        uri = insert.toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (mb2.class) {
+                    if (d == null) {
+                        d = new mb2();
                     }
-                    Log.d("SwanAppHistoryHelper", "Add history: newUri - " + uri);
                 }
-                if (e()) {
-                    String str2 = vh2Var.a;
-                    ee2 m2 = ee2.m(bVar);
-                    m2.i(2);
-                    t(contentResolver, str2, m2.k());
-                }
-                if (insert == null) {
-                    return false;
-                }
-                return true;
-            } catch (Exception e2) {
-                w22.f(a2.toString(), vh2Var.a, e2.toString());
-                if (!a) {
-                    return false;
-                }
-                Log.e("SwanAppHistoryHelper", "encounter error while adding swan history" + e2.toString());
-                throw new RuntimeException("encounter error while adding swan history, only throw in debug mode", e2);
             }
+            return d;
         }
-        return invokeLLL.booleanValue;
+        return (mb2) invokeV.objValue;
     }
 
-    public static void d(MatrixCursor matrixCursor, int i, d dVar) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, matrixCursor, i, dVar) == null) {
-            if (dVar instanceof c) {
-                c cVar = (c) dVar;
-                matrixCursor.newRow().add("_id", Integer.valueOf(i)).add(SwanAppDbControl.SwanAppTable.app_id.name(), cVar.b.a).add(SwanAppDbControl.SwanAppTable.app_key.name(), cVar.b.b).add(SwanAppDbControl.SwanAppTable.version.name(), cVar.b.q).add(SwanAppDbControl.SwanAppTable.description.name(), cVar.b.c).add(SwanAppDbControl.SwanAppTable.error_code.name(), Integer.valueOf(cVar.b.d)).add(SwanAppDbControl.SwanAppTable.error_detail.name(), cVar.b.e).add(SwanAppDbControl.SwanAppTable.error_msg.name(), cVar.b.f).add(SwanAppDbControl.SwanAppTable.resume_date.name(), cVar.b.g).add(SwanAppDbControl.SwanAppTable.icon.name(), cVar.b.h).add(SwanAppDbControl.SwanAppTable.icon_url.name(), cVar.b.i).add(SwanAppDbControl.SwanAppTable.max_swan_version.name(), cVar.b.j).add(SwanAppDbControl.SwanAppTable.min_swan_version.name(), cVar.b.k).add(SwanAppDbControl.SwanAppTable.name.name(), cVar.b.l).add(SwanAppDbControl.SwanAppTable.service_category.name(), cVar.b.m).add(SwanAppDbControl.SwanAppTable.subject_info.name(), cVar.b.n).add(SwanAppDbControl.SwanAppTable.bear_info.name(), cVar.b.o).add(SwanAppDbControl.SwanAppTable.sign.name(), cVar.b.p).add(SwanAppDbControl.SwanAppTable.type.name(), Integer.valueOf(cVar.b.r)).add(SwanAppDbControl.SwanAppTable.is_have_zip.name(), Integer.valueOf(cVar.b.s)).add(SwanAppDbControl.SwanAppTable.app_open_url.name(), cVar.b.t).add(SwanAppDbControl.SwanAppTable.app_download_url.name(), cVar.b.u).add(SwanAppDbControl.SwanAppTable.target_swan_version.name(), cVar.b.v).add(SwanAppDbControl.SwanAppTable.app_zip_size.name(), Long.valueOf(cVar.b.w)).add(SwanAppDbControl.SwanAppTable.pending_aps_errcode.name(), Integer.valueOf(cVar.b.x)).add(SwanAppDbControl.SwanAppTable.version_code.name(), cVar.b.A).add(SwanAppDbControl.SwanAppTable.app_category.name(), Integer.valueOf(cVar.b.y)).add(SwanAppDbControl.SwanAppTable.orientation.name(), Integer.valueOf(cVar.b.z)).add(SwanAppDbControl.SwanAppTable.max_age.name(), Long.valueOf(cVar.b.B)).add(SwanAppDbControl.SwanAppTable.create_time.name(), Long.valueOf(cVar.b.C)).add(SwanAppDbControl.SwanAppTable.force_fetch_meta_info.name(), Integer.valueOf(cVar.b.D ? 1 : 0)).add("app_from", cVar.a.i).add("visit_time", Long.valueOf(cVar.a.e)).add(SwanAppDbControl.SwanAppTable.pay_protected.name(), Integer.valueOf(cVar.b.E)).add(SwanAppDbControl.SwanAppTable.quick_app_key.name(), cVar.b.F);
-                return;
-            }
-            f fVar = (f) dVar;
-            matrixCursor.newRow().add("_id", Integer.valueOf(i)).add(SwanAppDbControl.SwanAppTable.app_id.name(), fVar.a.a).add(SwanAppDbControl.SwanAppTable.app_key.name(), fVar.b.appKey).add(SwanAppDbControl.SwanAppTable.version.name(), Long.valueOf(fVar.b.versionCode)).add(SwanAppDbControl.SwanAppTable.description.name(), fVar.b.description).add(SwanAppDbControl.SwanAppTable.error_code.name(), Integer.valueOf(fVar.b.appStatus)).add(SwanAppDbControl.SwanAppTable.error_detail.name(), fVar.b.statusDetail).add(SwanAppDbControl.SwanAppTable.error_msg.name(), fVar.b.statusDesc).add(SwanAppDbControl.SwanAppTable.resume_date.name(), fVar.b.resumeDate).add(SwanAppDbControl.SwanAppTable.icon.name(), "").add(SwanAppDbControl.SwanAppTable.icon_url.name(), fVar.a.d).add(SwanAppDbControl.SwanAppTable.max_swan_version.name(), "").add(SwanAppDbControl.SwanAppTable.min_swan_version.name(), "").add(SwanAppDbControl.SwanAppTable.name.name(), fVar.a.c).add(SwanAppDbControl.SwanAppTable.service_category.name(), fVar.b.serviceCategory).add(SwanAppDbControl.SwanAppTable.subject_info.name(), fVar.b.subjectInfo).add(SwanAppDbControl.SwanAppTable.bear_info.name(), fVar.b.bearInfo).add(SwanAppDbControl.SwanAppTable.sign.name(), "").add(SwanAppDbControl.SwanAppTable.type.name(), Integer.valueOf(fVar.b.type)).add(SwanAppDbControl.SwanAppTable.is_have_zip.name(), 0).add(SwanAppDbControl.SwanAppTable.app_open_url.name(), "").add(SwanAppDbControl.SwanAppTable.app_download_url.name(), "").add(SwanAppDbControl.SwanAppTable.target_swan_version.name(), "").add(SwanAppDbControl.SwanAppTable.app_zip_size.name(), Long.valueOf(fVar.b.pkgSize)).add(SwanAppDbControl.SwanAppTable.pending_aps_errcode.name(), Integer.valueOf(fVar.b.pendingErrCode)).add(SwanAppDbControl.SwanAppTable.version_code.name(), fVar.b.versionName).add(SwanAppDbControl.SwanAppTable.app_category.name(), Integer.valueOf(fVar.b.appCategory)).add(SwanAppDbControl.SwanAppTable.orientation.name(), Integer.valueOf(fVar.b.getOrientation())).add(SwanAppDbControl.SwanAppTable.max_age.name(), Long.valueOf(fVar.b.maxAge)).add(SwanAppDbControl.SwanAppTable.create_time.name(), Long.valueOf(fVar.b.createTime)).add(SwanAppDbControl.SwanAppTable.force_fetch_meta_info.name(), 0).add("app_from", fVar.a.i).add("visit_time", Long.valueOf(fVar.a.e)).add(SwanAppDbControl.SwanAppTable.pay_protected.name(), Integer.valueOf(fVar.b.payProtected)).add("customer_service", Integer.valueOf(fVar.b.customerService)).add("global_notice", Integer.valueOf(fVar.b.globalNotice)).add("global_private", Integer.valueOf(fVar.b.globalPrivate)).add("pa_number", fVar.b.paNumber).add(Constants.PHONE_BRAND, fVar.b.brandsInfo).add(SwanAppDbControl.SwanAppTable.quick_app_key.name(), fVar.b.quickAppKey);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            b(true);
         }
     }
 
-    public static boolean e() {
+    public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (b != null) {
-                long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - b.get() <= 86400000) {
-                    return false;
-                }
-                b.set(currentTimeMillis);
-                xc3.a().putLong("key_check_delete_swan_history", currentTimeMillis);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.b.size() > 0) {
                 return true;
             }
-            synchronized (xc3.class) {
-                if (b != null) {
-                    return false;
-                }
-                b = new AtomicLong(xc3.a().getLong("key_check_delete_swan_history", 0L));
-                return e();
-            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Removed duplicated region for block: B:31:0x004f  */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x006d  */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x007d  */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x007f  */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00a1  */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x00c1  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static boolean g(ContentResolver contentResolver, String str, String str2, String str3, String str4, boolean z, de2.b bVar) {
-        InterceptResult invokeCommon;
-        char c2;
-        int i;
-        int delete;
-        boolean z2;
-        tc2 d2;
+    public mb2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{contentResolver, str, str2, str3, str4, Boolean.valueOf(z), bVar})) == null) {
-            switch (str4.hashCode()) {
-                case 48:
-                    if (str4.equals("0")) {
-                        c2 = 1;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 49:
-                    if (str4.equals("1")) {
-                        c2 = 0;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 50:
-                    if (str4.equals("2")) {
-                        c2 = 2;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 51:
-                    if (str4.equals("3")) {
-                        c2 = 3;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                default:
-                    c2 = 65535;
-                    break;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            if (c2 != 0) {
-                if (c2 != 1) {
-                    if (c2 != 2) {
-                        if (c2 == 3) {
-                            i = 3;
-                        }
-                    } else {
-                        i = 2;
-                    }
-                } else {
-                    i = 1;
-                }
-                if (!TextUtils.isEmpty(str)) {
-                    if (TextUtils.isEmpty(str2)) {
-                        return false;
-                    }
-                    delete = contentResolver.delete(lb2.a(), "app_key=? AND app_type=? AND version_code=?", new String[]{str2, String.valueOf(i), str3});
-                } else {
-                    delete = contentResolver.delete(lb2.a(), "app_id=?", new String[]{str});
-                }
-                if (delete <= 0) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                if (z && z2 && (d2 = vc2.c().d()) != null) {
-                    ee2 m = ee2.m(bVar);
-                    m.i(4);
-                    d2.e(str, true, m.k());
-                }
-                if (a) {
-                    Log.d("SwanAppHistoryHelper", "deleteHistory: " + str + " isSuccess: " + z2);
-                }
-                if (z2) {
-                    wh2.j("DEL", str, System.currentTimeMillis(), str2, String.valueOf(i), str3, null);
-                }
-                return z2;
+        }
+        this.a = an3.a(new a[0]);
+        this.b = an3.a(new a[0]);
+    }
+
+    public void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            if (c) {
+                Log.d("PreloadAppsRecorder", "clear all");
             }
-            i = 0;
-            if (!TextUtils.isEmpty(str)) {
-            }
-            if (delete <= 0) {
+            synchronized (this.a) {
+                this.a.clear();
+                this.b.clear();
             }
             if (z) {
-                ee2 m2 = ee2.m(bVar);
-                m2.i(4);
-                d2.e(str, true, m2.k());
-            }
-            if (a) {
-            }
-            if (z2) {
-            }
-            return z2;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public static void h(@NonNull ContentResolver contentResolver, @Nullable String str, de2.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65544, null, contentResolver, str, bVar) == null) {
-            if (a) {
-                Log.d("SwanAppHistoryHelper", "start deleteOtherDevHistory: ");
-            }
-            if (TextUtils.isEmpty(str)) {
-                return;
-            }
-            String a2 = lw1.a(str);
-            if (TextUtils.isEmpty(a2)) {
-                return;
-            }
-            List<String> s = s(contentResolver, str);
-            if (s != null && s.size() != 0) {
-                tc2 d2 = vc2.c().d();
-                if (d2 != null) {
-                    if (a) {
-                        Log.d("SwanAppHistoryHelper", "deleteOtherDevHistory: delete other dev SwanApp");
-                    }
-                    d2.g(s, false, false, bVar);
-                }
-                if (a) {
-                    Log.d("SwanAppHistoryHelper", "deleteOtherDevHistory: delete other dev history");
-                }
-                contentResolver.delete(lb2.a(), "app_id LIKE ? AND app_id != ?", new String[]{a2 + "_dev%", str});
-            } else if (a) {
-                Log.d("SwanAppHistoryHelper", "deleteOtherDevHistory finish because: other dev history is empty");
+                k();
             }
         }
     }
 
-    @NonNull
-    public static Set<String> i(@NonNull ContentResolver contentResolver) {
+    public boolean f(a aVar) {
         InterceptResult invokeL;
-        StringBuilder sb;
+        boolean contains;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, contentResolver)) == null) {
-            HashSet hashSet = new HashSet();
-            Cursor cursor = null;
-            try {
-                try {
-                    cursor = contentResolver.query(lb2.a(), null, null, null, null);
-                } catch (Exception e2) {
-                    if (a) {
-                        e2.printStackTrace();
-                    }
-                    if (a && cursor != null) {
-                        sb = new StringBuilder();
-                    }
-                }
-                if (cursor != null && cursor.moveToFirst()) {
-                    do {
-                        hashSet.add(cursor.getString(cursor.getColumnIndex("app_id")));
-                    } while (cursor.moveToNext());
-                    if (a) {
-                        sb = new StringBuilder();
-                        sb.append("getAllHistoryIdsSet: Cursor count: ");
-                        sb.append(cursor.getCount());
-                        Log.d("SwanAppHistoryHelper", sb.toString());
-                    }
-                    nk4.d(cursor);
-                    return hashSet;
-                }
-                if (a && cursor != null) {
-                    sb = new StringBuilder();
-                    sb.append("getAllHistoryIdsSet: Cursor count: ");
-                    sb.append(cursor.getCount());
-                    Log.d("SwanAppHistoryHelper", sb.toString());
-                }
-                nk4.d(cursor);
-                return hashSet;
-            } catch (Throwable th) {
-                if (a && cursor != null) {
-                    Log.d("SwanAppHistoryHelper", "getAllHistoryIdsSet: Cursor count: " + cursor.getCount());
-                }
-                nk4.d(cursor);
-                throw th;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, aVar)) == null) {
+            synchronized (this.a) {
+                contains = this.a.contains(aVar);
             }
+            return contains;
         }
-        return (Set) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static Set<String> q(SQLiteDatabase sQLiteDatabase) {
+    public boolean g(a aVar) {
         InterceptResult invokeL;
-        StringBuilder sb;
+        boolean contains;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, sQLiteDatabase)) == null) {
-            HashSet hashSet = new HashSet();
-            Cursor cursor = null;
-            try {
-                try {
-                    cursor = sQLiteDatabase.query("ai_apps_history", null, null, null, null, null, null);
-                } catch (Exception e2) {
-                    if (a) {
-                        e2.printStackTrace();
-                    }
-                    if (a && cursor != null) {
-                        sb = new StringBuilder();
-                    }
-                }
-                if (cursor != null && cursor.moveToFirst()) {
-                    do {
-                        hashSet.add(cursor.getString(cursor.getColumnIndex("app_id")));
-                    } while (cursor.moveToNext());
-                    if (a) {
-                        sb = new StringBuilder();
-                        sb.append("getAllHistoryIdsSet: Cursor count: ");
-                        sb.append(cursor.getCount());
-                        Log.d("SwanAppHistoryHelper", sb.toString());
-                    }
-                    ls2.a(cursor);
-                    return hashSet;
-                }
-                if (a && cursor != null) {
-                    sb = new StringBuilder();
-                    sb.append("getAllHistoryIdsSet: Cursor count: ");
-                    sb.append(cursor.getCount());
-                    Log.d("SwanAppHistoryHelper", sb.toString());
-                }
-                ls2.a(cursor);
-                return hashSet;
-            } catch (Throwable th) {
-                if (a && cursor != null) {
-                    Log.d("SwanAppHistoryHelper", "getAllHistoryIdsSet: Cursor count: " + cursor.getCount());
-                }
-                ls2.a(cursor);
-                throw th;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, aVar)) == null) {
+            synchronized (this.a) {
+                contains = this.b.contains(aVar);
             }
+            return contains;
         }
-        return (Set) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static void j(x63.c cVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65546, null, cVar) != null) || cVar == null) {
-            return;
-        }
-        k8a.f("").y(Schedulers.io()).h(new b()).k(u8a.b()).w(new a(cVar));
-    }
-
-    @NonNull
-    public static JSONObject k(Cursor cursor) {
-        InterceptResult invokeL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, cursor)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            do {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    String string = cursor.getString(cursor.getColumnIndex("app_id"));
-                    if (!TextUtils.isEmpty(string)) {
-                        jSONObject.put("appid", string);
-                    }
-                    String string2 = cursor.getString(cursor.getColumnIndex("app_key"));
-                    if (!TextUtils.isEmpty(string2)) {
-                        jSONObject.put("appKey", string2);
-                    }
-                    jSONObject.put("version", cursor.getInt(cursor.getColumnIndex("version_code")));
-                    int i = cursor.getInt(cursor.getColumnIndex("frame_type"));
-                    jSONObject.put("frameType", i);
-                    int i2 = cursor.getInt(cursor.getColumnIndex("app_type"));
-                    String str2 = "1";
-                    if (i2 != 0) {
-                        if (i2 != 1) {
-                            if (i2 != 2) {
-                                if (i2 == 3) {
-                                    str2 = "3";
-                                }
-                            } else {
-                                str2 = "2";
-                            }
-                        } else {
-                            str2 = "0";
-                        }
-                    }
-                    jSONObject.put("type", str2);
-                    if (TextUtils.isEmpty(string)) {
-                        string = "";
-                    }
-                    if (i == 1) {
-                        str = String.format(x63.d, string);
-                    } else {
-                        str = x63.c + string + "\"}";
-                    }
-                    jSONObject.put("scheme", str);
-                    String string3 = cursor.getString(cursor.getColumnIndex("visit_time"));
-                    if (!TextUtils.isEmpty(string3)) {
-                        jSONObject.put("dataStamp", string3);
-                        jSONObject.put("dateStamp", string3);
-                    }
-                    String string4 = cursor.getString(cursor.getColumnIndex("app_icon"));
-                    if (!TextUtils.isEmpty(string4)) {
-                        jSONObject.put("iconUrl", string4);
-                    }
-                    jSONObject.put("payProtected", cursor.getInt(cursor.getColumnIndex("pay_protected")));
-                    String string5 = cursor.getString(cursor.getColumnIndex("app_name"));
-                    if (!TextUtils.isEmpty(string5)) {
-                        jSONObject.put("title", string5);
-                    }
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                }
-                jSONArray.put(jSONObject);
-            } while (cursor.moveToNext());
-            ls2.a(cursor);
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("history", jSONArray);
-            } catch (JSONException e3) {
-                e3.printStackTrace();
-            }
-            if (a) {
-                Log.d("SwanAppHistoryHelper", "historyCursorToJson : " + jSONObject2.toString());
-            }
-            return jSONObject2;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public static void l(List<vh2> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65548, null, list) == null) && list != null && list.size() > 0) {
-            SQLiteDatabase e2 = SwanAppDbControl.f(AppRuntime.getAppContext()).e();
-            e2.beginTransaction();
-            try {
-                try {
-                    for (vh2 vh2Var : list) {
-                        ContentValues contentValues = new ContentValues();
-                        contentValues.put("app_id", vh2Var.a);
-                        contentValues.put("visit_time", Long.valueOf(vh2Var.e));
-                        contentValues.put("app_from", vh2Var.i);
-                        contentValues.put("app_name", vh2Var.c);
-                        contentValues.put("app_key", vh2Var.b);
-                        contentValues.put("version_code", vh2Var.j);
-                        contentValues.put("app_icon", vh2Var.d);
-                        contentValues.put("app_type", vh2Var.g);
-                        contentValues.put("frame_type", Integer.valueOf(vh2Var.f));
-                        contentValues.put("pay_protected", Integer.valueOf(vh2Var.h));
-                        contentValues.put("sync_state", (Integer) 1);
-                        e2.insertWithOnConflict("ai_apps_history", null, contentValues, 5);
-                    }
-                    e2.setTransactionSuccessful();
-                } catch (Exception e3) {
-                    if (a) {
-                        e3.printStackTrace();
-                    }
-                }
-                e2.endTransaction();
-                AppRuntime.getAppContext().getContentResolver().notifyChange(lb2.a(), (ContentObserver) null, false);
-            } catch (Throwable th) {
-                e2.endTransaction();
-                throw th;
-            }
-        }
-    }
-
-    public static Cursor n(String str, String[] strArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, str, strArr)) == null) {
-            return AppRuntime.getAppContext().getContentResolver().query(lb2.a(), null, str, strArr, "visit_time desc  LIMIT 200");
-        }
-        return (Cursor) invokeLL.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0091  */
-    /* JADX WARN: Removed duplicated region for block: B:30:0x015b  */
-    /* JADX WARN: Removed duplicated region for block: B:34:0x0196  */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x01e3  */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x0208 A[LOOP:3: B:50:0x0202->B:52:0x0208, LOOP_END] */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x021a  */
-    /* JADX WARN: Removed duplicated region for block: B:61:0x0277  */
-    /* JADX WARN: Removed duplicated region for block: B:65:0x0285  */
-    /* JADX WARN: Removed duplicated region for block: B:69:0x02b1 A[LOOP:5: B:67:0x02ab->B:69:0x02b1, LOOP_END] */
-    @Deprecated
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static Cursor o(@NonNull String str, int i) {
-        InterceptResult invokeLI;
-        Cursor query;
-        List<d> arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65551, null, str, i)) == null) {
-            HashMap hashMap = new HashMap();
-            Cursor p = p(AppRuntime.getAppContext().getContentResolver(), str);
-            if (p != null && p.moveToFirst()) {
-                do {
-                    gb2 gb2Var = new gb2();
-                    SwanAppDbControl.f(AppRuntime.getAppContext()).s(p, gb2Var);
-                    if (!TextUtils.isEmpty(gb2Var.a)) {
-                        c cVar = new c(null);
-                        cVar.b = gb2Var;
-                        vh2 vh2Var = cVar.a;
-                        vh2Var.a = gb2Var.a;
-                        vh2Var.a = p.getString(p.getColumnIndex("app_from"));
-                        cVar.a.e = p.getLong(p.getColumnIndex("visit_time"));
-                        hashMap.put(cVar.a.a, cVar);
-                        if (a) {
-                            Log.v("history_migrate_pms", "Aps&History == " + gb2Var.a);
-                        }
-                    }
-                } while (p.moveToNext());
-                nk4.d(p);
-                if (a) {
-                }
-                query = AppRuntime.getAppContext().getContentResolver().query(lb2.a(), null, null, null, null);
-                HashMap hashMap2 = new HashMap();
-                if (query == null) {
-                }
-                nk4.d(query);
-                if (a) {
-                }
-                ArrayList<d> arrayList2 = new ArrayList();
-                while (r2.hasNext()) {
-                }
-                if (a) {
-                }
-                while (r13.hasNext()) {
-                }
-                if (a) {
-                }
-                arrayList = new ArrayList(hashMap.values());
-                Collections.sort(arrayList, new e(null));
-                int i2 = 0;
-                if (i > 0) {
-                }
-                MatrixCursor matrixCursor = new MatrixCursor(c, 50);
-                while (r13.hasNext()) {
-                }
-                return matrixCursor;
-            }
-            nk4.d(p);
-            if (a) {
-                Log.d("history_migrate_pms", "^ Aps & History 查询到 " + hashMap.size() + " 个历史记录");
-            }
-            query = AppRuntime.getAppContext().getContentResolver().query(lb2.a(), null, null, null, null);
-            HashMap hashMap22 = new HashMap();
-            if (query == null && query.moveToFirst()) {
-                do {
-                    vh2 vh2Var2 = new vh2();
-                    vh2Var2.a = query.getString(query.getColumnIndex("app_id"));
-                    vh2Var2.i = query.getString(query.getColumnIndex("app_from"));
-                    vh2Var2.e = query.getLong(query.getColumnIndex("visit_time"));
-                    vh2Var2.c = query.getString(query.getColumnIndex("app_name"));
-                    vh2Var2.b = query.getString(query.getColumnIndex("app_key"));
-                    vh2Var2.j = query.getString(query.getColumnIndex("version_code"));
-                    vh2Var2.d = query.getString(query.getColumnIndex("app_icon"));
-                    vh2Var2.f = query.getInt(query.getColumnIndex("frame_type"));
-                    hashMap22.put(vh2Var2.a, vh2Var2);
-                    if (a) {
-                        Log.v("history_migrate_pms", "History == " + vh2Var2.a);
-                    }
-                } while (query.moveToNext());
-                nk4.d(query);
-                if (a) {
-                }
-                ArrayList<d> arrayList22 = new ArrayList();
-                while (r2.hasNext()) {
-                }
-                if (a) {
-                }
-                while (r13.hasNext()) {
-                }
-                if (a) {
-                }
-                arrayList = new ArrayList(hashMap.values());
-                Collections.sort(arrayList, new e(null));
-                int i22 = 0;
-                if (i > 0) {
-                    arrayList = arrayList.subList(0, i);
-                    if (a) {
-                    }
-                }
-                MatrixCursor matrixCursor2 = new MatrixCursor(c, 50);
-                while (r13.hasNext()) {
-                }
-                return matrixCursor2;
-            }
-            nk4.d(query);
-            if (a) {
-                Log.d("history_migrate_pms", "^ History 库查询到 " + hashMap22.size() + " 个历史记录");
-            }
-            ArrayList<d> arrayList222 = new ArrayList();
-            for (PMSAppInfo pMSAppInfo : new ArrayList(gc4.i().v().values())) {
-                if (a) {
-                    Log.v("history_migrate_pms", "Pms == " + pMSAppInfo.appId);
-                }
-                String str2 = pMSAppInfo.appName;
-                if (str2 != null && str2.contains(str) && hashMap22.containsKey(pMSAppInfo.appId)) {
-                    f fVar = new f(null);
-                    fVar.a = (vh2) hashMap22.get(pMSAppInfo.appId);
-                    fVar.b = pMSAppInfo;
-                    arrayList222.add(fVar);
-                }
-            }
-            if (a) {
-                Log.d("history_migrate_pms", "^ Pms & History 查询到 " + arrayList222.size() + " 个历史记录");
-            }
-            for (d dVar : arrayList222) {
-                hashMap.put(dVar.a.a, dVar);
-            }
-            if (a) {
-                Log.d("history_migrate_pms", "合并后有 " + hashMap.size() + " 个历史记录");
-                Iterator it = hashMap.values().iterator();
-                while (it.hasNext()) {
-                    Log.v("history_migrate_pms", "Migrate == " + ((d) it.next()).a.a);
-                }
-            }
-            arrayList = new ArrayList(hashMap.values());
-            Collections.sort(arrayList, new e(null));
-            int i222 = 0;
-            if (i > 0 && i < arrayList.size()) {
-                arrayList = arrayList.subList(0, i);
-                if (a) {
-                    Log.d("history_migrate_pms", "Limit限制 " + i + " 条");
-                }
-            }
-            MatrixCursor matrixCursor22 = new MatrixCursor(c, 50);
-            for (d dVar2 : arrayList) {
-                d(matrixCursor22, i222, dVar2);
-                i222++;
-            }
-            return matrixCursor22;
-        }
-        return (Cursor) invokeLI.objValue;
-    }
-
-    @Nullable
-    public static Cursor p(@NonNull ContentResolver contentResolver, @NonNull String str) {
-        InterceptResult invokeLL;
-        Cursor cursor;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, contentResolver, str)) == null) {
-            try {
-                cursor = contentResolver.query(lb2.b(), null, SwanAppDbControl.SwanAppTable.name.name() + " LIKE ? ", new String[]{"%" + str + "%"}, "visit_time desc  LIMIT 200");
-            } catch (Exception e2) {
-                if (a) {
-                    e2.printStackTrace();
-                }
-                cursor = null;
-            }
-            if (a && cursor != null) {
-                Log.d("SwanAppHistoryHelper", "queryHistoryByKeyword: keyword[" + str + "]  Cursor count: " + cursor.getCount());
-            }
-            return cursor;
-        }
-        return (Cursor) invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:28:0x008a */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v2 */
-    /* JADX WARN: Type inference failed for: r1v3 */
-    /* JADX WARN: Type inference failed for: r1v4, types: [java.io.Closeable] */
-    @Nullable
-    public static List<String> s(@NonNull ContentResolver contentResolver, @Nullable String str) {
-        InterceptResult invokeLL;
-        Cursor cursor;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65555, null, contentResolver, str)) == null) {
-            ?? r1 = 0;
-            try {
-                if (TextUtils.isEmpty(str)) {
-                    return null;
-                }
-                try {
-                    String a2 = lw1.a(str);
-                    if (TextUtils.isEmpty(a2)) {
-                        nk4.d(null);
-                        return null;
-                    }
-                    cursor = contentResolver.query(lb2.a(), null, "app_id LIKE ? AND app_id != ?", new String[]{a2 + "_dev%", str}, "visit_time desc  LIMIT 200");
-                    if (cursor != null) {
-                        try {
-                            if (cursor.moveToFirst()) {
-                                ArrayList arrayList = new ArrayList();
-                                do {
-                                    String string = cursor.getString(cursor.getColumnIndex("app_id"));
-                                    if (!TextUtils.isEmpty(string)) {
-                                        arrayList.add(string);
-                                    }
-                                } while (cursor.moveToNext());
-                                nk4.d(cursor);
-                                return arrayList;
-                            }
-                        } catch (Exception e2) {
-                            e = e2;
-                            if (a) {
-                                e.printStackTrace();
-                            }
-                            nk4.d(cursor);
-                            return null;
-                        }
-                    }
-                    nk4.d(cursor);
-                    return null;
-                } catch (Exception e3) {
-                    e = e3;
-                    cursor = null;
-                } catch (Throwable th) {
-                    th = th;
-                    nk4.d(r1);
-                    throw th;
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                r1 = contentResolver;
-            }
-        } else {
-            return (List) invokeLL.objValue;
-        }
-    }
-
-    public static List<vh2> r() {
+    public Set<String> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
-            ContentResolver contentResolver = AppRuntime.getAppContext().getContentResolver();
-            Cursor query = contentResolver.query(lb2.a(), null, "sync_state=?", new String[]{String.valueOf(0)}, "visit_time asc  LIMIT 200");
-            if (query != null && query.moveToFirst()) {
-                ArrayList arrayList = new ArrayList();
-                do {
-                    vh2 vh2Var = new vh2();
-                    vh2Var.a = query.getString(query.getColumnIndex("app_id"));
-                    vh2Var.e = query.getLong(query.getColumnIndex("visit_time"));
-                    arrayList.add(vh2Var);
-                } while (query.moveToNext());
-                ls2.a(query);
-                return arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            HashSet a2 = an3.a(new String[0]);
+            synchronized (this.a) {
+                for (a aVar : this.a) {
+                    a2.add(aVar.a);
+                }
+                for (a aVar2 : this.b) {
+                    a2.add(aVar2.a);
+                }
             }
-            ls2.a(query);
-            return null;
+            return a2;
         }
-        return (List) invokeV.objValue;
+        return (Set) invokeV.objValue;
     }
 
-    @WorkerThread
-    public static void t(@NonNull ContentResolver contentResolver, @Nullable String str, de2.b bVar) {
-        int i;
-        Cursor query;
+    public void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65556, null, contentResolver, str, bVar) == null) {
-            Cursor cursor = null;
-            if (str == null) {
-                str = "";
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            h53 w = i53.Q("swan_multi_preload_on_server").A("swan_multi_preload_app_ids", (String[]) d().toArray(new String[0])).w("swan_multi_preload_app_process_index", SwanAppProcessInfo.current().index);
+            w.K(true);
+            w.call();
+            if (c) {
+                Log.d("PreloadAppsRecorder", "send all prefetch records to server");
             }
-            try {
-                try {
-                    query = contentResolver.query(lb2.a(), null, "app_id != ?", new String[]{str, String.valueOf(200)}, "visit_time DESC limit ?,-1");
-                } catch (Exception e2) {
-                    e = e2;
+        }
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && c) {
+            Log.d(str, "all apps in recorder :");
+            synchronized (this.a) {
+                Iterator<a> it = this.a.iterator();
+                while (it.hasNext()) {
+                    Log.d(str, "loaded:" + it.next());
                 }
-            } catch (Throwable th) {
-                th = th;
+                Iterator<a> it2 = this.b.iterator();
+                while (it2.hasNext()) {
+                    Log.d(str, "loading:" + it2.next());
+                }
             }
-            try {
-                ArrayList arrayList = new ArrayList();
-                if (query != null) {
-                    while (query.moveToNext()) {
-                        String string = query.getString(query.getColumnIndex("app_id"));
-                        if (!TextUtils.isEmpty(string)) {
-                            arrayList.add(string);
-                        }
+        }
+    }
+
+    public void j(JSONObject jSONObject) {
+        int length;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) == null) && jSONObject != null && jSONObject.length() > 0) {
+            if (c) {
+                Log.d("PreloadAppsRecorder", "get multi preload status - " + jSONObject);
+            }
+            synchronized (this.a) {
+                b(false);
+                JSONArray optJSONArray = jSONObject.optJSONArray("loaded");
+                if (optJSONArray != null && (length = optJSONArray.length()) > 0) {
+                    for (int i = 0; i < length; i++) {
+                        i(new a(optJSONArray.optJSONObject(i)), true);
                     }
                 }
-                if (a) {
-                    Log.i("SwanAppHistoryHelper", "tryDelUpperLimitSwanApp size=" + arrayList.size() + ", appId=" + str);
+                JSONObject optJSONObject = jSONObject.optJSONObject("loading");
+                if (optJSONObject != null && optJSONObject.length() > 0) {
+                    i(new a(optJSONObject), false);
                 }
-                if (arrayList.isEmpty()) {
-                    nk4.d(query);
-                    return;
-                }
-                tc2 d2 = vc2.c().d();
-                if (d2 != null) {
-                    d2.f(arrayList, false, bVar);
-                }
+            }
+            k();
+        }
+    }
+
+    public void i(a aVar, boolean z) {
+        Set<a> set;
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(1048583, this, aVar, z) == null) && aVar != null && aVar.a()) {
+            if (c) {
                 StringBuilder sb = new StringBuilder();
-                int size = arrayList.size();
-                for (i = 0; i < size; i++) {
-                    sb.append('\'');
-                    sb.append((String) arrayList.get(i));
-                    sb.append('\'');
-                    if (i < size - 1) {
-                        sb.append(",");
-                    }
+                sb.append("record one app status - ");
+                if (z) {
+                    str = "loaded";
+                } else {
+                    str = "loading";
                 }
-                String str2 = "app_id in (" + sb.toString() + SmallTailInfo.EMOTION_SUFFIX;
-                int delete = contentResolver.delete(lb2.a(), str2, null);
-                if (a) {
-                    Log.i("SwanAppHistoryHelper", "tryDelUpperLimitSwanApp delete result=" + delete + ", query=" + str2);
-                }
-                nk4.d(query);
-            } catch (Exception e3) {
-                e = e3;
-                cursor = query;
-                if (a) {
-                    Log.e("SwanAppHistoryHelper", "tryDelUpperLimitSwanApp error", e);
-                }
-                nk4.d(cursor);
-            } catch (Throwable th2) {
-                th = th2;
-                cursor = query;
-                nk4.d(cursor);
-                throw th;
+                sb.append(str);
+                Log.d("PreloadAppsRecorder", sb.toString());
+                Log.d("PreloadAppsRecorder", "record one app - " + aVar);
             }
-        }
-    }
-
-    public static void u(ContentResolver contentResolver, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65557, null, contentResolver, str, i) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("sync_state", Integer.valueOf(i));
-            contentResolver.update(lb2.a(), contentValues, "app_id=?", new String[]{str});
-        }
-    }
-
-    public static void v(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65558, null, sQLiteDatabase) == null) {
-            sQLiteDatabase.beginTransaction();
-            try {
-                for (String str : q(sQLiteDatabase)) {
-                    PMSAppInfo u = gc4.i().u(str);
-                    if (u != null) {
-                        ContentValues contentValues = new ContentValues();
-                        contentValues.put("app_name", u.appName);
-                        contentValues.put("app_icon", u.iconUrl);
-                        contentValues.put("frame_type", Integer.valueOf(u.appCategory));
-                        contentValues.put("app_type", String.valueOf(u.type));
-                        contentValues.put("sync_state", (Integer) 0);
-                        if (sQLiteDatabase.updateWithOnConflict("ai_apps_history", contentValues, "app_id=?", new String[]{str}, 5) <= 0) {
-                            if (a) {
-                                Log.e("SwanAppHistoryHelper", "updatePMSDataToHistoryTable: 更新失败");
-                            }
-                            return;
-                        }
-                    }
+            synchronized (this.a) {
+                if (z) {
+                    set = this.a;
+                } else {
+                    set = this.b;
                 }
-                sQLiteDatabase.setTransactionSuccessful();
-            } finally {
-                sQLiteDatabase.endTransaction();
+                set.add(aVar);
             }
         }
     }

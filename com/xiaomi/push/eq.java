@@ -101,7 +101,7 @@ public class eq extends Notification.Builder {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public eq mo379a(String str) {
+    public eq mo381a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
@@ -124,7 +124,7 @@ public class eq extends Notification.Builder {
     }
 
     /* renamed from: a */
-    public void mo377a() {
+    public void mo379a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
         }
@@ -135,7 +135,7 @@ public class eq extends Notification.Builder {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            mo377a();
+            mo379a();
             return super.build();
         }
         return (Notification) invokeV.objValue;

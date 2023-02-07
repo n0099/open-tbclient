@@ -13,9 +13,9 @@ import com.baidu.nadcore.appframework.BaseActivity;
 import com.baidu.nadcore.connect.NetWorkUtils;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e11;
-import com.baidu.tieba.ej0;
-import com.baidu.tieba.pk0;
+import com.baidu.tieba.bl0;
+import com.baidu.tieba.n21;
+import com.baidu.tieba.nj0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,27 +34,27 @@ public abstract class NadDialogActivity extends BaseActivity {
     public LinearLayout y;
     public String z;
 
-    public void C1() {
+    public void X1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    public void D1() {
+    public void Y1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
     }
 
-    public abstract int E1();
+    public abstract int Z1();
 
-    public void G1() {
+    public void b2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
         }
     }
 
-    public boolean H1() {
+    public boolean c2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -63,7 +63,7 @@ public abstract class NadDialogActivity extends BaseActivity {
         return invokeV.booleanValue;
     }
 
-    public boolean I1() {
+    public boolean d2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -72,7 +72,7 @@ public abstract class NadDialogActivity extends BaseActivity {
         return invokeV.booleanValue;
     }
 
-    public String J1() {
+    public String e2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -81,7 +81,7 @@ public abstract class NadDialogActivity extends BaseActivity {
         return (String) invokeV.objValue;
     }
 
-    public String K1() {
+    public String f2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -118,9 +118,9 @@ public abstract class NadDialogActivity extends BaseActivity {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.D1();
+                this.a.Y1();
                 NadDialogActivity nadDialogActivity = this.a;
-                nadDialogActivity.L1(nadDialogActivity.A, ClogBuilder.LogType.FREE_CLICK.type, ClogBuilder.Area.BTN_POSITIVE.type, this.a.z);
+                nadDialogActivity.g2(nadDialogActivity.A, ClogBuilder.LogType.FREE_CLICK.type, ClogBuilder.Area.BTN_POSITIVE.type, this.a.z);
             }
         }
     }
@@ -153,9 +153,9 @@ public abstract class NadDialogActivity extends BaseActivity {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.C1();
+                this.a.X1();
                 NadDialogActivity nadDialogActivity = this.a;
-                nadDialogActivity.L1(nadDialogActivity.A, ClogBuilder.LogType.FREE_CLICK.type, ClogBuilder.Area.BTN_NAGITIVE.type, this.a.z);
+                nadDialogActivity.g2(nadDialogActivity.A, ClogBuilder.LogType.FREE_CLICK.type, ClogBuilder.Area.BTN_NAGITIVE.type, this.a.z);
             }
         }
     }
@@ -174,7 +174,7 @@ public abstract class NadDialogActivity extends BaseActivity {
         }
     }
 
-    public final void F1() {
+    public final void a2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.v = (TextView) findViewById(R.id.tv_nagitive);
@@ -182,18 +182,18 @@ public abstract class NadDialogActivity extends BaseActivity {
             this.w = (LinearLayout) findViewById(R.id.ad_dialog_container);
             this.x = (LinearLayout) findViewById(R.id.ll_dialog_content_container);
             this.y = (LinearLayout) findViewById(R.id.ll_dialog_btn_container);
-            LayoutInflater.from(this).inflate(E1(), (ViewGroup) this.x, true);
-            this.w.setBackground(ej0.b().getResources().getDrawable(R.drawable.nad_dialog_bg));
-            this.w.setDividerDrawable(ej0.b().getResources().getDrawable(R.drawable.nad_dialog_divider_horizon));
-            this.y.setDividerDrawable(ej0.b().getResources().getDrawable(R.drawable.nad_dialog_divider_vertical));
-            if (I1()) {
-                this.u.setText(K1());
+            LayoutInflater.from(this).inflate(Z1(), (ViewGroup) this.x, true);
+            this.w.setBackground(nj0.b().getResources().getDrawable(R.drawable.nad_dialog_bg));
+            this.w.setDividerDrawable(nj0.b().getResources().getDrawable(R.drawable.nad_dialog_divider_horizon));
+            this.y.setDividerDrawable(nj0.b().getResources().getDrawable(R.drawable.nad_dialog_divider_vertical));
+            if (d2()) {
+                this.u.setText(f2());
                 this.u.setOnClickListener(new a(this));
             } else {
                 this.u.setVisibility(8);
             }
-            if (H1()) {
-                this.v.setText(J1());
+            if (c2()) {
+                this.v.setText(e2());
                 this.v.setOnClickListener(new b(this));
                 return;
             }
@@ -201,29 +201,29 @@ public abstract class NadDialogActivity extends BaseActivity {
         }
     }
 
-    public final void L1(String str, String str2, String str3, String str4) {
+    public final void g2(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLL(1048585, this, str, str2, str3, str4) != null) || !NetWorkUtils.b(ej0.b())) {
+        if ((interceptable != null && interceptable.invokeLLLL(1048585, this, str, str2, str3, str4) != null) || !NetWorkUtils.b(nj0.b())) {
             return;
         }
-        e11.b(new ClogBuilder().z(str2).v(str).j(str3).p(str4));
+        n21.b(new ClogBuilder().z(str2).v(str).j(str3).p(str4));
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
-    public void b1(Bundle bundle) {
+    public void y1(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
-            super.b1(bundle);
-            setContentView(pk0.a().a());
+            super.y1(bundle);
+            setContentView(bl0.a().a());
             Intent intent = getIntent();
             this.B = intent;
             if (intent != null) {
                 this.z = intent.getStringExtra("ext");
                 this.A = this.B.getStringExtra("alsPage");
             }
-            F1();
-            G1();
-            L1(this.A, ClogBuilder.LogType.FREE_SHOW.type, ClogBuilder.Area.AD_DIALOG_SHOW.type, this.z);
+            a2();
+            b2();
+            g2(this.A, ClogBuilder.LogType.FREE_SHOW.type, ClogBuilder.Area.AD_DIALOG_SHOW.type, this.z);
         }
     }
 }

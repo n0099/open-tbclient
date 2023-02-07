@@ -70,7 +70,7 @@ public class PopupMenu {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PopupMenu(@NonNull Context context, @NonNull View view2, int i) {
-        this(context, view2, i, R.attr.obfuscated_res_0x7f040560, 0);
+        this(context, view2, i, R.attr.obfuscated_res_0x7f040562, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

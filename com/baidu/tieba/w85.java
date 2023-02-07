@@ -1,74 +1,170 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.os.Build;
-import android.view.View;
-import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.protobuf.CodedInputStream;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class w85 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
+    public static Map<String, String> b;
+    public static boolean c;
+    public static boolean d;
+    public static int e;
+    public static int f;
+    public static boolean g;
+    public static String h;
+    public static Map<String, String> i;
+    public static int j;
+    public static int k;
+    public static boolean l;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @TargetApi(16)
-    public static boolean a(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
-            if (Build.VERSION.SDK_INT < 16) {
-                return false;
-            }
-            return ((ViewGroup) activity.findViewById(16908290)).getChildAt(0).getFitsSystemWindows();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948224469, "Lcom/baidu/tieba/w85;")) == null) {
+            return;
         }
-        return invokeL.booleanValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948224469, "Lcom/baidu/tieba/w85;");
+        }
     }
 
-    public static boolean b(Activity activity) {
-        InterceptResult invokeL;
+    public static int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
-            if ((activity.getWindow().getAttributes().flags & 1024) != 0) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (!c) {
+                return p35.m().n("video_report_config_upload_number", 5);
             }
-            return false;
+            return f;
         }
-        return invokeL.booleanValue;
+        return invokeV.intValue;
     }
 
-    @TargetApi(19)
-    public static boolean c(Activity activity) {
-        InterceptResult invokeL;
+    public static int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
-            if (Build.VERSION.SDK_INT < 19 || (activity.getWindow().getAttributes().flags & CodedInputStream.DEFAULT_SIZE_LIMIT) == 0) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (!c) {
+                return p35.m().n("video_report_config_upload_type", 0);
             }
-            return true;
+            return e;
         }
-        return invokeL.booleanValue;
+        return invokeV.intValue;
     }
 
-    public static boolean d(View view2, int i) {
-        InterceptResult invokeLI;
+    public static boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, view2, i)) == null) {
-            if (view2.isInEditMode() || view2.getHeight() == i || Math.abs(view2.getHeight() - i) == v85.a(view2.getContext())) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (!c) {
+                return p35.m().i("video_report_config_switch", true);
             }
-            int h = u85.h(view2.getContext());
-            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
-            if (layoutParams == null) {
-                view2.setLayoutParams(new ViewGroup.LayoutParams(-1, h));
-                return true;
-            }
-            layoutParams.height = h;
-            view2.requestLayout();
-            return true;
+            return d;
         }
-        return invokeLI.booleanValue;
+        return invokeV.booleanValue;
+    }
+
+    public static void d(JSONObject jSONObject) throws JSONException {
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        boolean z3 = true;
+        c = true;
+        if (jSONObject.optInt(SetImageWatermarkTypeReqMsg.SWITCH, 1) == 0) {
+            z = false;
+        } else {
+            z = true;
+        }
+        d = z;
+        p35.m().w("video_report_config_switch", d);
+        e = jSONObject.optInt("upload_type", 0);
+        p35.m().z("video_report_config_upload_type", e);
+        f = jSONObject.optInt("upload_number", 5);
+        p35.m().z("video_report_config_upload_number", f);
+        j = jSONObject.optInt("prepare_max_wait_time", 10000);
+        p35.m().z("video_report_prepare_max_wait_time", j);
+        k = jSONObject.optInt("prepare_max_loading_time", 3000);
+        p35.m().z("video_report_prepare_max_loading_time", k);
+        if (jSONObject.optInt("is_open_prepare_time", 0) == 1) {
+            z2 = true;
+        } else {
+            z2 = false;
+        }
+        l = z2;
+        p35.m().w("video_report_is_open_prepare_time", l);
+        if (jSONObject.optInt("moov_check", 0) == 0) {
+            z3 = false;
+        }
+        g = z3;
+        p35.m().w("video_report_config_moov_check", g);
+        String optString = jSONObject.optString("android_debug_type");
+        h = optString;
+        if (!StringUtils.isNull(optString)) {
+            p35.m().B("video_report_config_debug_type", h);
+            e(h);
+        }
+        String optString2 = jSONObject.optString("step_cache_strategy");
+        a = optString2;
+        if (!StringUtils.isNull(optString2)) {
+            p35.m().B("video_report_config_step_cache_strategy", a);
+            f(a);
+        }
+    }
+
+    public static void e(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65541, null, str) != null) || StringUtils.isNull(str)) {
+            return;
+        }
+        if (i == null) {
+            i = new HashMap();
+        }
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            i.put("debug_avformat_open_input", jSONObject.optString("debug_avformat_open_input"));
+            i.put("debug_dns_strategy", jSONObject.optString("debug_dns_strategy"));
+            i.put("debug_url_null_strategy", jSONObject.optString("debug_url_null_strategy"));
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+        }
+    }
+
+    public static void f(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65542, null, str) != null) || StringUtils.isNull(str)) {
+            return;
+        }
+        if (b == null) {
+            b = new HashMap();
+        }
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            b.put("step_cache_force_use_proxy", jSONObject.optString("step_cache_force_use_proxy"));
+            b.put("step_cache_switch", jSONObject.optString("step_cache_switch"));
+            b.put("step_cache_rush_hour", jSONObject.optString("step_cache_rush_hour"));
+            b.put("step_cache_rush_hour_cache_duration", jSONObject.optString("step_cache_rush_hour_cache_duration"));
+            b.put("step_cache_normol_cache_duration", jSONObject.optString("step_cache_normol_cache_duration"));
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+        }
     }
 }

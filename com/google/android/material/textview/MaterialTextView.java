@@ -131,7 +131,7 @@ public class MaterialTextView extends AppCompatTextView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            return MaterialAttributes.resolveBoolean(context, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406e2, true);
+            return MaterialAttributes.resolveBoolean(context, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406e6, true);
         }
         return invokeL.booleanValue;
     }

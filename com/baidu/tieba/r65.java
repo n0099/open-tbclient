@@ -1,47 +1,48 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.ViewGroup;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class r65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<s65> a;
 
-    public static void a(DownloadData downloadData) {
-        Activity currentActivity;
+    public r65() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, downloadData) == null) && (currentActivity = TbadkApplication.getInst().getCurrentActivity()) != null && !currentActivity.isDestroyed()) {
-            BdTopToast bdTopToast = new BdTopToast(currentActivity, 2000);
-            bdTopToast.h(false);
-            bdTopToast.g(currentActivity.getString(R.string.item_download_fail));
-            bdTopToast.i((ViewGroup) currentActivity.findViewById(16908290));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
+        this.a = new ArrayList();
     }
 
-    public static void b(DownloadData downloadData) {
-        Activity currentActivity;
+    public void a(JSONObject jSONObject) throws JSONException {
+        JSONArray optJSONArray;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, downloadData) == null) && (currentActivity = TbadkApplication.getInst().getCurrentActivity()) != null && !currentActivity.isDestroyed()) {
-            BdTopToast bdTopToast = new BdTopToast(currentActivity, 2000);
-            bdTopToast.h(false);
-            bdTopToast.g(currentActivity.getString(R.string.item_download_no_net));
-            bdTopToast.i((ViewGroup) currentActivity.findViewById(16908290));
-        }
-    }
-
-    public static void c(DownloadData downloadData) {
-        Activity currentActivity;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, downloadData) == null) && (currentActivity = TbadkApplication.getInst().getCurrentActivity()) != null && !currentActivity.isDestroyed()) {
-            BdTopToast bdTopToast = new BdTopToast(currentActivity, 2000);
-            bdTopToast.h(true);
-            bdTopToast.g(currentActivity.getString(R.string.item_download_success));
-            bdTopToast.i((ViewGroup) currentActivity.findViewById(16908290));
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && (optJSONArray = jSONObject.optJSONArray("applist")) != null && optJSONArray.length() != 0) {
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
+                if (jSONObject2 != null) {
+                    s65 s65Var = new s65();
+                    s65Var.a(jSONObject2);
+                    this.a.add(s65Var);
+                }
+            }
         }
     }
 }

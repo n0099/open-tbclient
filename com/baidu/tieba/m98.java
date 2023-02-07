@@ -1,74 +1,154 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.view.ViewStub;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import tbclient.Post;
+import tbclient.User;
 /* loaded from: classes5.dex */
-public class m98 extends ln<gt5, CardViewHolder<ct5>> {
+public class m98 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public ct5 b;
+    public View a;
+    public View b;
+    public TextView c;
+    public l98 d;
+    public l98 e;
+    public l98 f;
+    public View g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public m98(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(String str);
+    }
+
+    public m98(Context context, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {context, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = null;
-        this.a = tbPageContext;
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01d6, (ViewGroup) null);
+        this.b = inflate;
+        this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090660);
+        this.g = this.b.findViewById(R.id.obfuscated_res_0x7f09065d);
+        this.a = this.b.findViewById(R.id.obfuscated_res_0x7f0906c1);
+        this.d = new l98((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f090661), aVar);
+        this.e = new l98((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f090662), aVar);
+        this.f = new l98((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f090663), aVar);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: s */
-    public CardViewHolder<ct5> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final User a(Post post, List<User> list) {
+        InterceptResult invokeLL;
+        Long l;
+        Long l2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            this.b = new ct5(this.a);
-            return new CardViewHolder<>(this.b);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, post, list)) == null) {
+            if (post == null || list == null || list.isEmpty() || (l = post.author_id) == null) {
+                return null;
+            }
+            long longValue = l.longValue();
+            for (User user : list) {
+                if (user != null && (l2 = user.id) != null && l2.longValue() == longValue) {
+                    return user;
+                }
+            }
+            return null;
         }
-        return (CardViewHolder) invokeL.objValue;
+        return (User) invokeLL.objValue;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.ln
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, gt5 gt5Var, CardViewHolder<ct5> cardViewHolder) {
-        t(i, view2, viewGroup, gt5Var, cardViewHolder);
-        return view2;
-    }
-
-    public View t(int i, View view2, ViewGroup viewGroup, gt5 gt5Var, CardViewHolder<ct5> cardViewHolder) {
-        InterceptResult invokeCommon;
+    public View b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, gt5Var, cardViewHolder})) == null) {
-            cardViewHolder.a().i(gt5Var);
-            return view2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return (View) invokeCommon.objValue;
+        return (View) invokeV.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            SkinManager.setBackgroundResource(this.b, R.color.common_color_10187);
+            SkinManager.setBackgroundColor(this.a, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.c, R.color.CAM_X0106, 1);
+            SkinManager.setBackgroundColor(this.g, R.color.CAM_X0204);
+            this.d.c();
+            this.e.c();
+            this.f.c();
+        }
+    }
+
+    public void d(List<Post> list, List<User> list2) {
+        boolean z;
+        boolean update;
+        boolean update2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, list, list2) == null) {
+            if (list != null && !list.isEmpty()) {
+                this.g.setVisibility(0);
+                int size = list.size();
+                if (size == 1) {
+                    z = this.d.update(list.get(0), a(list.get(0), list2));
+                    this.e.d(false);
+                    this.f.d(false);
+                } else {
+                    if (size == 2) {
+                        boolean update3 = this.d.update(list.get(0), a(list.get(0), list2));
+                        boolean update4 = this.e.update(list.get(1), a(list.get(1), list2));
+                        this.f.d(false);
+                        update = update4;
+                        z = update3;
+                        update2 = false;
+                    } else if (size >= 3) {
+                        boolean update5 = this.d.update(list.get(0), a(list.get(0), list2));
+                        update = this.e.update(list.get(1), a(list.get(1), list2));
+                        update2 = this.f.update(list.get(2), a(list.get(2), list2));
+                        z = update5;
+                    } else {
+                        z = false;
+                    }
+                    if (z && !update && !update2) {
+                        this.c.setVisibility(8);
+                        return;
+                    } else {
+                        this.c.setVisibility(0);
+                        return;
+                    }
+                }
+                update2 = false;
+                update = false;
+                if (z) {
+                }
+                this.c.setVisibility(0);
+                return;
+            }
+            this.c.setVisibility(8);
+            this.d.d(false);
+            this.e.d(false);
+            this.f.d(false);
+            this.g.setVisibility(8);
+        }
     }
 }

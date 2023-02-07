@@ -1,100 +1,196 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.app.Activity;
+import android.text.TextUtils;
+import android.webkit.JsPromptResult;
+import android.webkit.WebView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.browser.CommonTbJsBridge;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
+import com.baidu.tieba.mt8;
+import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
+import com.baidu.tieba.video.UserItemData;
+import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import tbclient.RecommendInfo;
-import tbclient.SchoolRecomUserInfo;
+import java.util.HashMap;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class wu4 extends ThreadData {
+public class wu4 implements vb6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public ArrayList<xu4> b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948283059, "Lcom/baidu/tieba/wu4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948283059, "Lcom/baidu/tieba/wu4;");
-                return;
-            }
-        }
-        c = BdUniqueId.gen();
+    @Override // com.baidu.tieba.vb6
+    public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
+        ub6.a(this, webView, str, jSONObject);
     }
 
     public wu4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = "";
-        this.b = new ArrayList<>();
     }
 
-    public ArrayList<xu4> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.data.ThreadData
-    public String getTitle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.data.ThreadData, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return c;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void f(RecommendInfo recommendInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recommendInfo) != null) || recommendInfo == null) {
+    public static /* synthetic */ void f(String str, String str2, String str3, WebView webView, HashMap hashMap) {
+        JSONObject jSONObject;
+        Activity a;
+        if (hashMap == null) {
             return;
         }
-        this.a = recommendInfo.title;
-        for (SchoolRecomUserInfo schoolRecomUserInfo : recommendInfo.user_list) {
-            if (schoolRecomUserInfo != null) {
-                xu4 xu4Var = new xu4();
-                xu4Var.f(schoolRecomUserInfo);
-                this.b.add(xu4Var);
+        Class<?> cls = null;
+        try {
+            if (TextUtils.isEmpty(str)) {
+                jSONObject = new JSONObject();
+            } else {
+                jSONObject = new JSONObject(str);
+            }
+            try {
+                jSONObject.put("page", str2);
+                jSONObject.put("refre", str3);
+                jSONObject.put("from", 0);
+            } catch (Exception unused) {
+            }
+        } catch (Exception unused2) {
+            jSONObject = null;
+        }
+        if (jSONObject != null) {
+            try {
+                cls = Class.forName((String) hashMap.get(str2));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            if (cls == null || (a = pb6.a(webView.getContext())) == null) {
+                return;
+            }
+            for (Class<?> cls2 : cls.getInterfaces()) {
+                if (cls2.isAssignableFrom(kt8.class)) {
+                    try {
+                        ((kt8) cls.newInstance()).dispatch(jSONObject, a);
+                        return;
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
+                        return;
+                    }
+                }
             }
         }
+    }
+
+    @Override // com.baidu.tieba.vb6
+    public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            if (CommonTbJsBridge.FINISH_THIS_PAGE.equals(str2)) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str3);
+                    jsPromptResult.confirm(c(webView, jSONObject.optString("nextPage"), jSONObject.optString("source")).a());
+                    return true;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return false;
+                }
+            }
+            return false;
+        }
+        return invokeLLLLL.booleanValue;
+    }
+
+    public x19 c(WebView webView, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2)) == null) {
+            x19 x19Var = new x19();
+            Activity a = pb6.a(webView.getContext());
+            if (a != null) {
+                a.finish();
+                if (dj.isEquals(str, "FictionalCharacterDetailsPage")) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put("uid", String.valueOf(TbadkCoreApplication.getCurrentAccountId()));
+                    hashMap.put("source", str2);
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(a, "FictionalCharacterDetailsPage", hashMap)));
+                }
+            }
+            return x19Var;
+        }
+        return (x19) invokeLLL.objValue;
+    }
+
+    public x19 d(WebView webView, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, String str11, String str12, String str13, String str14, String str15, String str16, String str17) {
+        InterceptResult invokeCommon;
+        String str18;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{webView, str, str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, str12, str13, str14, str15, str16, str17})) == null) {
+            x19 x19Var = new x19();
+            ArrayList arrayList = new ArrayList();
+            VideoItemData videoItemData = new VideoItemData();
+            videoItemData.thread_id = str;
+            videoItemData.post_id = str2;
+            videoItemData.title = str3;
+            UserItemData userItemData = new UserItemData();
+            userItemData.user_name = str4;
+            userItemData.name_show = str5;
+            userItemData.portrait = str6;
+            videoItemData.author_info = userItemData;
+            videoItemData.thumbnail_url = str7;
+            videoItemData.video_url = str8;
+            videoItemData.video_width = str9;
+            videoItemData.video_height = str10;
+            videoItemData.video_duration = dh.e(str11, 0);
+            if (dh.g(str10, 0L) > dh.g(str9, 0L)) {
+                z = true;
+                str18 = str12;
+            } else {
+                str18 = str12;
+                z = false;
+            }
+            videoItemData.comment_num = str18;
+            videoItemData.agree_num = str13;
+            videoItemData.share_num = str14;
+            videoItemData.forum_id = str15;
+            videoItemData.forum_name = str16;
+            arrayList.add(videoItemData);
+            uo5.d(pb6.a(webView.getContext()), arrayList, videoItemData.nid, z, 0, null, "from_nani_video", "personalize_page", "", VideoPlayActivityConfig.FROM_H5_SEARCH, "", "1".equals(str17), false, dh.g(str15, 0L));
+            return x19Var;
+        }
+        return (x19) invokeCommon.objValue;
+    }
+
+    public x19 e(final WebView webView, final String str, final String str2, final String str3) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, webView, str, str2, str3)) == null) {
+            x19 x19Var = new x19();
+            mt8.c().b(new mt8.c() { // from class: com.baidu.tieba.su4
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // com.baidu.tieba.mt8.c
+                public final void a(HashMap hashMap) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, hashMap) == null) {
+                        wu4.f(str3, str, str2, webView, hashMap);
+                    }
+                }
+            });
+            return x19Var;
+        }
+        return (x19) invokeLLLL.objValue;
     }
 }

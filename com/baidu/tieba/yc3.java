@@ -1,19 +1,30 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.storage.swankv.AshmemFileDescriptor;
+import android.content.Context;
+import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
 /* loaded from: classes7.dex */
-public class yc3 extends ProviderDelegation {
+public class yc3 extends UnitedSchemeBaseInterceptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor
+    public String getInterceptorName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "aiapps_scheme_compat_interceptor" : (String) invokeV.objValue;
+    }
 
     public yc3() {
         Interceptable interceptable = $ic;
@@ -29,36 +40,25 @@ public class yc3 extends ProviderDelegation {
         }
     }
 
-    @Nullable
-    public static AshmemFileDescriptor c(@NonNull String str, int i) {
-        InterceptResult invokeLI;
+    @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor, com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeAbsInterceptor
+    public boolean shouldInterceptDispatch(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("name", str);
-            bundle.putInt("size", i);
-            y03 c = w03.c(yc3.class, bundle);
-            if (c.a()) {
-                c.a.setClassLoader(AshmemFileDescriptor.class.getClassLoader());
-                return (AshmemFileDescriptor) c.a.getParcelable("result");
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler)) == null) {
+            Uri uri = unitedSchemeEntity.getUri();
+            String firstPath = unitedSchemeEntity.getFirstPath();
+            if (uri != null && !TextUtils.isEmpty(uri.getHost()) && !TextUtils.isEmpty(firstPath)) {
+                String host = uri.getHost();
+                if (host.toLowerCase().matches("v\\d+") && TextUtils.equals(firstPath, "swan")) {
+                    String uri2 = uri.toString();
+                    if (TextUtils.isEmpty(uri2)) {
+                        return false;
+                    }
+                    unitedSchemeEntity.resetUriAndPath(Uri.parse(uri2.replace(UnitedSchemeEntity.UNITED_SCHEME + host + "/" + firstPath, UnitedSchemeEntity.UNITED_SCHEME + "swanAPI")));
+                }
             }
-            return null;
+            return false;
         }
-        return (AshmemFileDescriptor) invokeLI.objValue;
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            String string = bundle.getString("name", null);
-            int i = bundle.getInt("size", 0);
-            Bundle bundle2 = new Bundle();
-            bundle2.setClassLoader(AshmemFileDescriptor.class.getClassLoader());
-            bundle2.putParcelable("result", dd3.a(string, i));
-            return bundle2;
-        }
-        return (Bundle) invokeL.objValue;
+        return invokeLLL.booleanValue;
     }
 }

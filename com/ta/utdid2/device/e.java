@@ -40,7 +40,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             String b = com.ta.utdid2.a.a.a.b(str);
-            if (!g.m93a(b)) {
+            if (!g.m95a(b)) {
                 try {
                     return new String(com.ta.utdid2.a.a.b.decode(b, 0));
                 } catch (IllegalArgumentException unused) {

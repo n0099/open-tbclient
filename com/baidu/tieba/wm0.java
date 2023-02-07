@@ -1,36 +1,44 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import androidx.annotation.NonNull;
+import com.baidu.tieba.tm0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class wm0 extends on0 {
+public abstract class wm0<T extends tm0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Class<T> a;
 
-    public wm0() {
+    public abstract void onEvent(@NonNull T t);
+
+    public wm0(Class<T> cls) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cls};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = cls;
     }
 
-    @Override // com.baidu.tieba.on0, com.baidu.tieba.rn0
-    public void onBackgroundToForeground(@NonNull Activity activity) {
+    public final Class<T> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, activity) != null) || !c41.b()) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        vm0.b().request().a(true);
+        return (Class) invokeV.objValue;
     }
 }

@@ -1,97 +1,273 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class my5 extends a86<dy5> {
+public class my5 {
     public static /* synthetic */ Interceptable $ic;
+    public static my5 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView i;
-    public TextView j;
-    public TbImageView k;
-    public TbImageView l;
-    public View m;
-    public dy5 n;
 
-    @Override // com.baidu.tieba.a86
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d087c : invokeV.intValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public my5(TbPageContext tbPageContext, ViewGroup viewGroup) {
-        super(tbPageContext, viewGroup);
+    public my5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.m = h();
-        this.i = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090edc);
-        this.j = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090edb);
-        this.k = (TbImageView) h().findViewById(R.id.obfuscated_res_0x7f090eda);
-        TbImageView tbImageView = (TbImageView) h().findViewById(R.id.obfuscated_res_0x7f090ed9);
-        this.l = tbImageView;
-        tbImageView.setAutoChangeStyle(true);
-        this.l.setDefaultResource(17170445);
-        this.l.setDefaultBgResource(17170445);
-        this.k.setOnClickListener(this);
-        this.j.setOnClickListener(this);
-        j(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public static my5 f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && e() != null) {
-            e().a(view2, this.n);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (my5.class) {
+                if (a == null) {
+                    a = new my5();
+                }
+            }
+            return a;
         }
+        return (my5) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.a86
-    /* renamed from: r */
-    public void i(dy5 dy5Var) {
+    public boolean a(x85 x85Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, dy5Var) == null) {
-            this.n = dy5Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, x85Var)) == null) {
+            SQLiteDatabase b = oy5.b();
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (b != null && x85Var != null && !TextUtils.isEmpty(currentAccount)) {
+                try {
+                    ContentValues c = c(x85Var);
+                    if (b.update("table_" + currentAccount, c, "id = ?", new String[]{String.valueOf(x85Var.d())}) == 0) {
+                        b.insert("table_" + currentAccount, null, c);
+                    }
+                    return true;
+                } catch (Exception e) {
+                    TiebaStatic.printDBExceptionLog(e, "RelationshipDao.addContactItem", new Object[0]);
+                }
+            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.a86
-    public void j(TbPageContext<?> tbPageContext, int i) {
+    public final ContentValues c(x85 x85Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            SkinManager.setBackgroundResource(this.m, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0101);
-            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0101);
-            SkinManager.setImageResource(this.k, R.drawable.icon_tab_live_close_n);
-            SkinManager.setBackgroundResource(this.j, R.drawable.tab_sub_notification_btn_bg_selecor);
-            SkinManager.setImageResource(this.l, R.drawable.obfuscated_res_0x7f0802ef);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, x85Var)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("name", x85Var.e());
+            contentValues.put("id", Long.valueOf(x85Var.d()));
+            contentValues.put("user_type", Integer.valueOf(x85Var.h()));
+            contentValues.put("portrait", x85Var.g());
+            contentValues.put("quanpin", x85Var.c());
+            contentValues.put("first_letter", x85Var.a());
+            contentValues.put("name_show", x85Var.f());
+            if (x85Var.b() != null) {
+                contentValues.put("location_hide", Integer.valueOf(x85Var.b().b()));
+                contentValues.put("location_distance", x85Var.b().a());
+                contentValues.put("location_time", Long.valueOf(x85Var.b().c()));
+            }
+            return contentValues;
         }
+        return (ContentValues) invokeL.objValue;
+    }
+
+    public synchronized boolean b(hy5 hy5Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hy5Var)) == null) {
+            synchronized (this) {
+                SQLiteDatabase b = oy5.b();
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                if (b != null && hy5Var != null && !TextUtils.isEmpty(currentAccount)) {
+                    b.execSQL("DROP TABLE IF EXISTS table_" + currentAccount);
+                    b.execSQL("CREATE TABLE IF NOT EXISTS table_" + currentAccount + "(name TEXT NOT NULL UNIQUE, id LONG, name_show TEXT, portrait TEXT, quanpin TEXT, first_letter TEXT, location_hide INT, location_distance TEXT ,location_time LONG, user_type INT);");
+                    b.beginTransaction();
+                    try {
+                        for (ly5 ly5Var : hy5Var.a()) {
+                            for (x85 x85Var : ly5Var.a()) {
+                                ContentValues c = c(x85Var);
+                                b.insert("table_" + currentAccount, null, c);
+                            }
+                        }
+                        b.setTransactionSuccessful();
+                        b.endTransaction();
+                        return true;
+                    } catch (Exception e) {
+                        BdLog.e(e.toString());
+                        TiebaStatic.printDBExceptionLog(e, "RelationshipDao.addContactItems", new Object[0]);
+                        b.endTransaction();
+                        return false;
+                    }
+                }
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean d(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
+            SQLiteDatabase b = oy5.b();
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (b != null && j >= 0 && !TextUtils.isEmpty(currentAccount)) {
+                try {
+                    b.delete("table_" + currentAccount, "id = ?", new String[]{String.valueOf(j)});
+                    return true;
+                } catch (Exception e) {
+                    TiebaStatic.printDBExceptionLog(e, "RelationshipDao.deleteContactItem", new Object[0]);
+                }
+            }
+            return false;
+        }
+        return invokeJ.booleanValue;
+    }
+
+    public synchronized List<x85> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (this) {
+                SQLiteDatabase b = oy5.b();
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                Cursor cursor = null;
+                ArrayList arrayList = new ArrayList();
+                if (b != null && !TextUtils.isEmpty(currentAccount)) {
+                    b.beginTransaction();
+                    char c = 0;
+                    try {
+                        String[] strArr = z85.a;
+                        int length = strArr.length;
+                        int i = 0;
+                        while (i < length) {
+                            String str = strArr[i];
+                            ArrayList arrayList2 = new ArrayList();
+                            x85 x85Var = new x85();
+                            x85Var.j(str);
+                            arrayList2.add(x85Var);
+                            String[] strArr2 = new String[1];
+                            strArr2[c] = str;
+                            cursor = b.rawQuery("SELECT * FROM table_" + currentAccount + " WHERE first_letter=?", strArr2);
+                            if (cursor != null) {
+                                while (cursor.moveToNext()) {
+                                    x85 x85Var2 = new x85();
+                                    x85Var2.j(str);
+                                    x85Var2.n(cursor.getString(cursor.getColumnIndex("name")));
+                                    x85Var2.o(cursor.getString(cursor.getColumnIndex("name_show")));
+                                    x85Var2.m(cursor.getLong(cursor.getColumnIndex("id")));
+                                    x85Var2.q(cursor.getInt(cursor.getColumnIndex("user_type")));
+                                    x85Var2.p(cursor.getString(cursor.getColumnIndex("portrait")));
+                                    x85Var2.l(cursor.getString(cursor.getColumnIndex("quanpin")));
+                                    x85Var2.k(new y85(cursor.getString(cursor.getColumnIndex("location_distance")), cursor.getLong(cursor.getColumnIndex("location_time")), cursor.getInt(cursor.getColumnIndex("location_hide"))));
+                                    arrayList2.add(x85Var2);
+                                }
+                            }
+                            if (arrayList2.size() > 1) {
+                                arrayList.addAll(arrayList2);
+                            }
+                            fj.a(cursor);
+                            i++;
+                            c = 0;
+                        }
+                        b.setTransactionSuccessful();
+                        fj.a(cursor);
+                    } catch (Exception e) {
+                        BdLog.e(e.toString());
+                        TiebaStatic.printDBExceptionLog(e, "RelationshipDao.getContactList", new Object[0]);
+                        fj.a(cursor);
+                    }
+                    b.endTransaction();
+                    return arrayList;
+                }
+                return arrayList;
+            }
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public synchronized ArrayList<x85> g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            synchronized (this) {
+                SQLiteDatabase b = oy5.b();
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                Cursor cursor = null;
+                ArrayList<x85> arrayList = new ArrayList<>();
+                if (b != null && !TextUtils.isEmpty(currentAccount)) {
+                    b.beginTransaction();
+                    char c = 0;
+                    try {
+                        String[] strArr = z85.a;
+                        int length = strArr.length;
+                        int i = 0;
+                        while (i < length) {
+                            String str = strArr[i];
+                            ArrayList arrayList2 = new ArrayList();
+                            x85 x85Var = new x85();
+                            x85Var.j(str);
+                            arrayList2.add(x85Var);
+                            String[] strArr2 = new String[2];
+                            strArr2[c] = str;
+                            strArr2[1] = "1";
+                            cursor = b.rawQuery("SELECT * FROM table_" + currentAccount + " WHERE first_letter = ? AND user_type = ? ", strArr2);
+                            if (cursor != null) {
+                                while (cursor.moveToNext()) {
+                                    x85 x85Var2 = new x85();
+                                    x85Var2.j(str);
+                                    x85Var2.n(cursor.getString(cursor.getColumnIndex("name")));
+                                    x85Var2.o(cursor.getString(cursor.getColumnIndex("name_show")));
+                                    x85Var2.m(cursor.getLong(cursor.getColumnIndex("id")));
+                                    x85Var2.q(cursor.getInt(cursor.getColumnIndex("user_type")));
+                                    x85Var2.p(cursor.getString(cursor.getColumnIndex("portrait")));
+                                    x85Var2.l(cursor.getString(cursor.getColumnIndex("quanpin")));
+                                    x85Var2.k(new y85(cursor.getString(cursor.getColumnIndex("location_distance")), cursor.getLong(cursor.getColumnIndex("location_time")), cursor.getInt(cursor.getColumnIndex("location_hide"))));
+                                    arrayList2.add(x85Var2);
+                                }
+                            }
+                            if (arrayList2.size() > 1) {
+                                arrayList.addAll(arrayList2);
+                            }
+                            fj.a(cursor);
+                            i++;
+                            c = 0;
+                        }
+                        b.setTransactionSuccessful();
+                        fj.a(cursor);
+                    } catch (Exception e) {
+                        BdLog.e(e.toString());
+                        TiebaStatic.printDBExceptionLog(e, "RelationshipDao.getOfficialAccountList", new Object[0]);
+                        fj.a(cursor);
+                    }
+                    b.endTransaction();
+                    return arrayList;
+                }
+                return arrayList;
+            }
+        }
+        return (ArrayList) invokeV.objValue;
     }
 }

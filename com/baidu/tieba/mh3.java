@@ -1,28 +1,52 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.os.Build;
+import android.os.Bundle;
 import androidx.annotation.NonNull;
-import androidx.core.app.NotificationManagerCompat;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.storage.swankv.AshmemFileDescriptor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class mh3 {
+public class mh3 extends w43 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @SuppressLint({"ObsoleteSdkInt"})
-    public static boolean a(@NonNull Context context) {
-        InterceptResult invokeL;
+    public mh3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 19) {
-                return NotificationManagerCompat.from(context).areNotificationsEnabled();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return true;
         }
-        return invokeL.booleanValue;
+    }
+
+    public static void e(@NonNull AshmemFileDescriptor ashmemFileDescriptor) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65537, null, ashmemFileDescriptor) != null) || !ProcessUtils.isMainProcess()) {
+            return;
+        }
+        Bundle bundle = new Bundle();
+        bundle.setClassLoader(AshmemFileDescriptor.class.getClassLoader());
+        bundle.putParcelable("result", ashmemFileDescriptor);
+        q53.a(bundle, mh3.class);
+    }
+
+    @Override // com.baidu.tieba.w43
+    public void b(@NonNull Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            bundle.setClassLoader(AshmemFileDescriptor.class.getClassLoader());
+            AshmemFileDescriptor ashmemFileDescriptor = (AshmemFileDescriptor) bundle.getParcelable("result");
+            if (ashmemFileDescriptor != null) {
+                qh3.b(ashmemFileDescriptor);
+            }
+        }
     }
 }

@@ -145,7 +145,7 @@ public final class TtmlDecoder extends SimpleSubtitleDecoder {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (!str.equals("tt") && !str.equals("head") && !str.equals(TtmlNode.TAG_BODY) && !str.equals(TtmlNode.TAG_DIV) && !str.equals("p") && !str.equals(TtmlNode.TAG_SPAN) && !str.equals(TtmlNode.TAG_BR) && !str.equals("style") && !str.equals(TtmlNode.TAG_STYLING) && !str.equals(TtmlNode.TAG_LAYOUT) && !str.equals("region") && !str.equals(TtmlNode.TAG_METADATA) && !str.equals(TtmlNode.TAG_SMPTE_IMAGE) && !str.equals(TtmlNode.TAG_SMPTE_DATA) && !str.equals(TtmlNode.TAG_SMPTE_INFORMATION)) {
+            if (!str.equals("tt") && !str.equals("head") && !str.equals("body") && !str.equals(TtmlNode.TAG_DIV) && !str.equals("p") && !str.equals(TtmlNode.TAG_SPAN) && !str.equals(TtmlNode.TAG_BR) && !str.equals("style") && !str.equals(TtmlNode.TAG_STYLING) && !str.equals(TtmlNode.TAG_LAYOUT) && !str.equals("region") && !str.equals(TtmlNode.TAG_METADATA) && !str.equals(TtmlNode.TAG_SMPTE_IMAGE) && !str.equals(TtmlNode.TAG_SMPTE_DATA) && !str.equals(TtmlNode.TAG_SMPTE_INFORMATION)) {
                 return false;
             }
             return true;

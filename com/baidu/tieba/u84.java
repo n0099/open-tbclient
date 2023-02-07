@@ -1,27 +1,32 @@
 package com.baidu.tieba;
 
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class u84 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile t84 a;
     public transient /* synthetic */ FieldHolder $fh;
+    @V8JavascriptField
+    public int microphoneStatus;
 
-    public static synchronized t84 a() {
-        InterceptResult invokeV;
-        t84 t84Var;
+    public u84(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (u84.class) {
-                if (a == null) {
-                    a = new t84();
-                }
-                t84Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return t84Var;
         }
-        return (t84) invokeV.objValue;
+        this.microphoneStatus = i;
     }
 }

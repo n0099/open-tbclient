@@ -332,7 +332,7 @@ public final class Constants {
     public static boolean dispatchToPimc2(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? j == APPID_HAOKAN || j == APPID_HAOKAN_JISU || j == APPID_QUANMIN || j == APPID_YIMEI || j == APPID_TIEBA : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? j == APPID_HAOKAN || j == APPID_HAOKAN_JISU || j == APPID_QUANMIN || j == APPID_YIMEI || j == 10773430 : invokeJ.booleanValue;
     }
 
     static {

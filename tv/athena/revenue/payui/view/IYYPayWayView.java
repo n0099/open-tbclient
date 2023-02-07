@@ -1,9 +1,9 @@
 package tv.athena.revenue.payui.view;
 
-import com.baidu.tieba.dga;
-import com.baidu.tieba.fga;
-import com.baidu.tieba.gga;
-import com.baidu.tieba.hha;
+import com.baidu.tieba.mka;
+import com.baidu.tieba.oka;
+import com.baidu.tieba.pka;
+import com.baidu.tieba.qla;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,15 +17,15 @@ import java.util.Map;
 import tv.athena.revenue.api.pay.params.AppCustomExpand;
 import tv.athena.revenue.api.pay.params.PayFlowType;
 /* loaded from: classes9.dex */
-public interface IYYPayWayView extends hha {
+public interface IYYPayWayView extends qla {
 
     /* loaded from: classes9.dex */
     public interface a {
-        void a(gga ggaVar, dga dgaVar, AppCustomExpand appCustomExpand);
+        void a(pka pkaVar, mka mkaVar, AppCustomExpand appCustomExpand);
 
-        void b(gga ggaVar, dga dgaVar, AppCustomExpand appCustomExpand);
+        void b(pka pkaVar, mka mkaVar, AppCustomExpand appCustomExpand);
 
-        void c(fga fgaVar);
+        void c(oka okaVar);
 
         void onRefreshViewFail(int i, String str);
 
@@ -112,7 +112,7 @@ public interface IYYPayWayView extends hha {
         public transient /* synthetic */ FieldHolder $fh;
         public List<PayWayInfo> a;
         public String b;
-        public dga c;
+        public mka c;
         public AppCustomExpand d;
         public Map<String, String> e;
         public boolean f;

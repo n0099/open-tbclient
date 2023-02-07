@@ -1,11 +1,12 @@
 package com.baidu.tieba.advert.sdk.data;
 
 import android.text.TextUtils;
+import androidx.core.content.FileProvider;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bv5;
-import com.baidu.tieba.iu5;
+import com.baidu.tieba.nz5;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import com.baidu.tieba.uy5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -146,7 +147,7 @@ public class AdInfo implements Serializable {
                             if (jSONArray5.length() > 0 && (jSONObject6 = jSONArray5.getJSONObject(0)) != null) {
                                 this.adImgUrl = jSONObject6.optString("thread_pic");
                                 this.redirectUrl = jSONObject6.optString("url");
-                                this.displayName = jSONObject6.optString("displayName");
+                                this.displayName = jSONObject6.optString(FileProvider.DISPLAYNAME_FIELD);
                                 this.startShowTime = jSONObject6.optLong("start_show_time");
                                 this.endShowTime = jSONObject6.optLong("end_show_time");
                                 this.adVideoUrl = jSONObject6.optString("adVideo");
@@ -170,7 +171,7 @@ public class AdInfo implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            iu5 b = iu5.b(bv5.f());
+            uy5 b = uy5.b(nz5.f());
             if (TextUtils.isEmpty(b.d)) {
                 return true;
             }

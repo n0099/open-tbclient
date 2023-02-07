@@ -1,16 +1,16 @@
 package com.baidu.tieba.livesdk.dispatcher;
 
 import android.content.Context;
-import com.baidu.tieba.ds7;
-import com.baidu.tieba.pp8;
-import com.baidu.tieba.ut7;
+import com.baidu.tieba.kt8;
+import com.baidu.tieba.py7;
+import com.baidu.tieba.vw7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class YYLiveRoomDispatcher implements pp8 {
+public class YYLiveRoomDispatcher implements kt8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PREFIX = "bdtiebalive://video/yylive/joinlive";
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,11 +29,11 @@ public class YYLiveRoomDispatcher implements pp8 {
         }
     }
 
-    @Override // com.baidu.tieba.pp8
+    @Override // com.baidu.tieba.kt8
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {
-            ut7.j().G(context, ds7.a(PREFIX, jSONObject));
+            py7.j().G(context, vw7.a(PREFIX, jSONObject));
         }
     }
 }

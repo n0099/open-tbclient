@@ -1,56 +1,50 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.security.MessageDigest;
 /* loaded from: classes5.dex */
 public class q50 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, p50> a;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        List<p50> a();
-    }
-
-    public q50(a aVar) {
+    public static byte[] a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("SHA1");
+                messageDigest.update(str.getBytes(str2));
+                return messageDigest.digest();
+            } catch (Exception unused) {
+                return null;
             }
         }
-        this.a = new HashMap();
-        for (p50 p50Var : aVar.a()) {
-            this.a.put(p50Var.e(), p50Var);
-        }
+        return (byte[]) invokeLL.objValue;
     }
 
-    public p50 a(String str) {
+    public static byte[] b(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.a.get(str) : (p50) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
+                messageDigest.update(bArr);
+                return messageDigest.digest();
+            } catch (Exception unused) {
+                return null;
+            }
+        }
+        return (byte[]) invokeL.objValue;
     }
 
-    public List<p50> b() {
-        InterceptResult invokeV;
+    public static String c(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new ArrayList(this.a.values()) : (List) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
+            return l50.b(b(bArr), false);
+        }
+        return (String) invokeL.objValue;
     }
 }

@@ -1,39 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.concurrent.atomic.AtomicInteger;
+import android.app.Activity;
 /* loaded from: classes6.dex */
-public class sa2 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final AtomicInteger a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface sa2 {
+    void D(kf2 kf2Var);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948144613, "Lcom/baidu/tieba/sa2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948144613, "Lcom/baidu/tieba/sa2;");
-                return;
-            }
-        }
-        a = new AtomicInteger(1);
-    }
+    String a();
 
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return String.valueOf(a.getAndIncrement());
-        }
-        return (String) invokeV.objValue;
-    }
+    void attachActivity(Activity activity);
+
+    void b(k72 k72Var);
+
+    void destroy();
+
+    u72 f();
+
+    void loadUrl(String str);
+
+    void p(int i);
 }

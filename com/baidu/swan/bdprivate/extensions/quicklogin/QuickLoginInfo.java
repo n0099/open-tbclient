@@ -6,8 +6,8 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.process.SwanAppIPCData;
-import com.baidu.tieba.nm3;
-import com.baidu.tieba.tk1;
+import com.baidu.tieba.ar3;
+import com.baidu.tieba.gp1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -95,7 +95,7 @@ public class QuickLoginInfo extends SwanAppIPCData {
                 return;
             }
         }
-        DEBUG = tk1.a;
+        DEBUG = gp1.a;
         CREATOR = new a();
     }
 
@@ -160,20 +160,20 @@ public class QuickLoginInfo extends SwanAppIPCData {
     }
 
     @Nullable
-    public static QuickLoginInfo parseQuickLoginInfo(nm3 nm3Var) {
+    public static QuickLoginInfo parseQuickLoginInfo(ar3 ar3Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, nm3Var)) == null) {
-            if (nm3Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, ar3Var)) == null) {
+            if (ar3Var == null) {
                 return null;
             }
             QuickLoginInfo quickLoginInfo = new QuickLoginInfo();
-            quickLoginInfo.supportQuickLogin = nm3Var.f();
-            quickLoginInfo.encryptPhoneNum = nm3Var.c();
-            quickLoginInfo.serviceAgreement = nm3Var.b();
-            quickLoginInfo.hasHistory = nm3Var.d();
-            quickLoginInfo.loginMode = nm3Var.e();
-            quickLoginInfo.agreeText = nm3Var.a();
+            quickLoginInfo.supportQuickLogin = ar3Var.f();
+            quickLoginInfo.encryptPhoneNum = ar3Var.c();
+            quickLoginInfo.serviceAgreement = ar3Var.b();
+            quickLoginInfo.hasHistory = ar3Var.d();
+            quickLoginInfo.loginMode = ar3Var.e();
+            quickLoginInfo.agreeText = ar3Var.a();
             return quickLoginInfo;
         }
         return (QuickLoginInfo) invokeL.objValue;

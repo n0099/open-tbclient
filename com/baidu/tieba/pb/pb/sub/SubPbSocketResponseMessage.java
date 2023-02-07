@@ -4,7 +4,7 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.o58;
+import com.baidu.tieba.ja8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.PbFloor.PbFloorResIdl;
 public class SubPbSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public o58 pbFloorData;
+    public ja8 pbFloorData;
     public boolean treatDelPage;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -49,13 +49,13 @@ public class SubPbSocketResponseMessage extends SocketResponsedMessage {
             if (extra != null && (extra instanceof SubPbRequestMessage)) {
                 this.treatDelPage = ((SubPbRequestMessage) extra).isTreatDelPage();
             }
-            o58 o58Var = null;
+            ja8 ja8Var = null;
             try {
                 PbFloorResIdl pbFloorResIdl = (PbFloorResIdl) new Wire(new Class[0]).parseFrom(bArr, PbFloorResIdl.class);
                 if (pbFloorResIdl != null && pbFloorResIdl.data != null) {
-                    o58Var = o58.w(pbFloorResIdl.data);
-                    if (o58Var != null) {
-                        o58Var.m = pbFloorResIdl.error;
+                    ja8Var = ja8.t(pbFloorResIdl.data);
+                    if (ja8Var != null) {
+                        ja8Var.m = pbFloorResIdl.error;
                     } else if (pbFloorResIdl.error != null) {
                         if (pbFloorResIdl.error.errorno != null) {
                             setError(pbFloorResIdl.error.errorno.intValue());
@@ -66,8 +66,8 @@ public class SubPbSocketResponseMessage extends SocketResponsedMessage {
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
-            this.pbFloorData = o58Var;
-            return o58Var;
+            this.pbFloorData = ja8Var;
+            return ja8Var;
         }
         return invokeIL.objValue;
     }

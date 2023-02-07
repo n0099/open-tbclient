@@ -254,20 +254,20 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
                         if (view2 == null || view2.getId() != 1) {
                             View inflate = LayoutInflater.from(this.this$0.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0007, viewGroup, false);
                             inflate.setId(1);
-                            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0922ff)).setText(this.this$0.getContext().getString(R.string.obfuscated_res_0x7f0f003f));
+                            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092314)).setText(this.this$0.getContext().getString(R.string.obfuscated_res_0x7f0f003f));
                             return inflate;
                         }
                         return view2;
                     }
                     throw new IllegalArgumentException();
                 }
-                if (view2 == null || view2.getId() != R.id.obfuscated_res_0x7f0913cc) {
+                if (view2 == null || view2.getId() != R.id.obfuscated_res_0x7f09140e) {
                     view2 = LayoutInflater.from(this.this$0.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0007, viewGroup, false);
                 }
                 PackageManager packageManager = this.this$0.getContext().getPackageManager();
                 ResolveInfo resolveInfo = (ResolveInfo) getItem(i);
-                ((ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ea0)).setImageDrawable(resolveInfo.loadIcon(packageManager));
-                ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922ff)).setText(resolveInfo.loadLabel(packageManager));
+                ((ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ee5)).setImageDrawable(resolveInfo.loadIcon(packageManager));
+                ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f092314)).setText(resolveInfo.loadLabel(packageManager));
                 if (this.mShowDefaultActivity && i == 0 && this.mHighlightDefaultActivity) {
                     view2.setActivated(true);
                 } else {
@@ -629,12 +629,12 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
         View findViewById = findViewById(R.id.obfuscated_res_0x7f090074);
         this.mActivityChooserContent = findViewById;
         this.mActivityChooserContentBackground = findViewById.getBackground();
-        FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0907b1);
+        FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0907c3);
         this.mDefaultActivityButton = frameLayout;
         frameLayout.setOnClickListener(this.mCallbacks);
         this.mDefaultActivityButton.setOnLongClickListener(this.mCallbacks);
-        this.mDefaultActivityButtonImage = (ImageView) this.mDefaultActivityButton.findViewById(R.id.obfuscated_res_0x7f090f20);
-        FrameLayout frameLayout2 = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09098a);
+        this.mDefaultActivityButtonImage = (ImageView) this.mDefaultActivityButton.findViewById(R.id.obfuscated_res_0x7f090f65);
+        FrameLayout frameLayout2 = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0909ce);
         frameLayout2.setOnClickListener(this.mCallbacks);
         frameLayout2.setAccessibilityDelegate(new View.AccessibilityDelegate(this) { // from class: androidx.appcompat.widget.ActivityChooserView.3
             public static /* synthetic */ Interceptable $ic;
@@ -727,7 +727,7 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
             }
         });
         this.mExpandActivityOverflowButton = frameLayout2;
-        ImageView imageView = (ImageView) frameLayout2.findViewById(R.id.obfuscated_res_0x7f090f20);
+        ImageView imageView = (ImageView) frameLayout2.findViewById(R.id.obfuscated_res_0x7f090f65);
         this.mExpandActivityOverflowButtonImage = imageView;
         imageView.setImageDrawable(drawable);
         ActivityChooserViewAdapter activityChooserViewAdapter = new ActivityChooserViewAdapter(this);

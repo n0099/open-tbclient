@@ -17,28 +17,28 @@ import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.co;
-import com.baidu.tieba.gl;
-import com.baidu.tieba.n9;
-import com.baidu.tieba.o9;
-import com.baidu.tieba.rb;
+import com.baidu.tieba.ba;
+import com.baidu.tieba.ca;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.ho;
+import com.baidu.tieba.ll;
+import com.baidu.tieba.s9;
 import com.baidu.tieba.t9;
-import com.baidu.tieba.u9;
-import com.baidu.tieba.ug;
-import com.baidu.tieba.w9;
-import com.baidu.tieba.x9;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.wb;
+import com.baidu.tieba.y9;
+import com.baidu.tieba.z9;
+import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public abstract class BdBaseFragmentActivity<T> extends FragmentActivity implements View.OnClickListener, View.OnLongClickListener, t9<T>, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, DialogInterface.OnClickListener, x9 {
+public abstract class BdBaseFragmentActivity<T> extends FragmentActivity implements View.OnClickListener, View.OnLongClickListener, y9<T>, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, DialogInterface.OnClickListener, ca {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PRELOAD_DELAY = 100;
     public transient /* synthetic */ FieldHolder $fh;
-    public w9 iPageLifecycleCallback;
+    public ba iPageLifecycleCallback;
     public final Handler mHandler;
     public BdUniqueId mId;
     public boolean mIsScroll;
@@ -64,13 +64,13 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         }
     }
 
-    public co onGetPreLoadListView() {
+    public ho onGetPreLoadListView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return null;
         }
-        return (co) invokeV.objValue;
+        return (ho) invokeV.objValue;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -100,10 +100,10 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.x9
-    public void onPreLoad(co coVar) {
+    @Override // com.baidu.tieba.ca
+    public void onPreLoad(ho hoVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, coVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, hoVar) == null) {
         }
     }
 
@@ -184,8 +184,8 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         if ((interceptable != null && interceptable.invokeL(65537, this, view2) != null) || view2 == null) {
             return;
         }
-        if (view2 instanceof gl) {
-            ((gl) view2).refresh();
+        if (view2 instanceof ll) {
+            ((ll) view2).refresh();
         }
         if (view2 instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view2;
@@ -226,7 +226,7 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Resources resources = u9.a().getResources();
+            Resources resources = z9.a().getResources();
             if (resources != null && BdBaseApplication.getInst().getIsPluginResourcOpen()) {
                 return resources;
             }
@@ -235,7 +235,7 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         return (Resources) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.x9
+    @Override // com.baidu.tieba.ca
     public BdUniqueId getUniqueId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -252,7 +252,7 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         }
     }
 
-    @Override // com.baidu.tieba.x9
+    @Override // com.baidu.tieba.ca
     public boolean isScroll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -267,7 +267,7 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onPause();
-            ug.h().e(this.mId);
+            zg.h().e(this.mId);
             this.mHandler.removeCallbacks(this.preLoadRunnable);
         }
     }
@@ -286,7 +286,7 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             super.onStop();
-            co onGetPreLoadListView = onGetPreLoadListView();
+            ho onGetPreLoadListView = onGetPreLoadListView();
             if (onGetPreLoadListView != null) {
                 onGetPreLoadListView.cancelRefresh();
             }
@@ -297,12 +297,12 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
-            n9.b(this);
+            s9.b(this);
             super.onCreate(bundle);
             if (this.mId == null) {
                 this.mId = BdUniqueId.gen();
             }
-            o9.f().n(getPageContext().getPageActivity());
+            t9.f().n(getPageContext().getPageActivity());
         }
     }
 
@@ -327,7 +327,7 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         MessageManager.getInstance().sendMessage(message);
     }
 
-    @Override // com.baidu.tieba.x9
+    @Override // com.baidu.tieba.ca
     public void setIsScroll(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
@@ -339,7 +339,7 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
     public void setRequestedOrientation(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
-            if (n9.d(this) && n9.a(i)) {
+            if (s9.d(this) && s9.a(i)) {
                 return;
             }
             super.setRequestedOrientation(i);
@@ -356,7 +356,7 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
     public void showToast(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
-            zi.Q(getApplicationContext(), str);
+            ej.Q(getApplicationContext(), str);
         }
     }
 
@@ -364,16 +364,16 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            w9 w9Var = this.iPageLifecycleCallback;
-            if (w9Var != null) {
-                w9Var.onDestroy();
+            ba baVar = this.iPageLifecycleCallback;
+            if (baVar != null) {
+                baVar.onDestroy();
             }
             super.onDestroy();
             MessageManager.getInstance().unRegisterListener(this.mId);
             MessageManager.getInstance().removeMessage(this.mId);
-            ug.h().b(this.mId);
+            zg.h().b(this.mId);
             this.mHandler.removeCallbacks(this.preLoadRunnable);
-            o9.f().l(getPageContext().getPageActivity());
+            t9.f().l(getPageContext().getPageActivity());
         }
     }
 
@@ -387,23 +387,23 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         }
     }
 
-    public void registerListener(int i, rb rbVar) {
+    public void registerListener(int i, wb wbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048595, this, i, rbVar) == null) {
-            if (rbVar != null && rbVar.getTag() == null) {
-                rbVar.setTag(this.mId);
+        if (interceptable == null || interceptable.invokeIL(1048595, this, i, wbVar) == null) {
+            if (wbVar != null && wbVar.getTag() == null) {
+                wbVar.setTag(this.mId);
             }
-            MessageManager.getInstance().registerListener(i, rbVar);
+            MessageManager.getInstance().registerListener(i, wbVar);
         }
     }
 
-    public void registerListener(rb rbVar) {
+    public void registerListener(wb wbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, rbVar) == null) {
-            if (rbVar != null && rbVar.getTag() == null) {
-                rbVar.setTag(this.mId);
+        if (interceptable == null || interceptable.invokeL(1048597, this, wbVar) == null) {
+            if (wbVar != null && wbVar.getTag() == null) {
+                wbVar.setTag(this.mId);
             }
-            MessageManager.getInstance().registerListener(rbVar);
+            MessageManager.getInstance().registerListener(wbVar);
         }
     }
 

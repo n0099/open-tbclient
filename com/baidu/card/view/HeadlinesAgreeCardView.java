@@ -24,12 +24,12 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bv4;
-import com.baidu.tieba.cx4;
-import com.baidu.tieba.fs4;
-import com.baidu.tieba.fz;
-import com.baidu.tieba.ux;
+import com.baidu.tieba.kz;
+import com.baidu.tieba.oz4;
+import com.baidu.tieba.p15;
+import com.baidu.tieba.sw4;
 import com.baidu.tieba.view.TbImageAutoSwitch;
+import com.baidu.tieba.zx;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,7 +40,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
-public class HeadlinesAgreeCardView extends FrameLayout implements ux<fs4> {
+public class HeadlinesAgreeCardView extends FrameLayout implements zx<sw4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int k;
     public static final int l;
@@ -52,8 +52,8 @@ public class HeadlinesAgreeCardView extends FrameLayout implements ux<fs4> {
     public TbImageAutoSwitch d;
     public TextView e;
     public HeadlinesItemInfoView f;
-    public bv4 g;
-    public fz h;
+    public oz4 g;
+    public kz h;
     public final List<String> i;
     public final TbImageAutoSwitch.b j;
 
@@ -251,7 +251,7 @@ public class HeadlinesAgreeCardView extends FrameLayout implements ux<fs4> {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            cx4.d(this.e).v(R.color.CAM_X0109);
+            p15.d(this.e).v(R.color.CAM_X0109);
         }
     }
 
@@ -269,10 +269,10 @@ public class HeadlinesAgreeCardView extends FrameLayout implements ux<fs4> {
         }
     }
 
-    public void setOnStatListener(fz fzVar) {
+    public void setOnStatListener(kz kzVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fzVar) == null) {
-            this.h = fzVar;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, kzVar) == null) {
+            this.h = kzVar;
         }
     }
 
@@ -307,28 +307,28 @@ public class HeadlinesAgreeCardView extends FrameLayout implements ux<fs4> {
     }
 
     public void g() {
-        bv4 bv4Var;
+        oz4 oz4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (bv4Var = this.g) != null && !TextUtils.isEmpty(bv4Var.a())) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (oz4Var = this.g) != null && !TextUtils.isEmpty(oz4Var.a())) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(getContext(), null, this.g.a(), true)));
         }
     }
 
     public void h() {
-        bv4 bv4Var;
+        oz4 oz4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (bv4Var = this.g) != null && !TextUtils.isEmpty(bv4Var.i())) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (oz4Var = this.g) != null && !TextUtils.isEmpty(oz4Var.i())) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(getContext(), null, this.g.i(), true)));
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ux
+    @Override // com.baidu.tieba.zx
     /* renamed from: i */
-    public void a(fs4 fs4Var) {
+    public void a(sw4 sw4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, fs4Var) == null) && fs4Var != null && fs4Var.getThreadData() != null && fs4Var.getThreadData().getTaskInfoData() != null && fs4Var.getThreadData().getTaskInfoData().e() != null) {
-            bv4 e = fs4Var.getThreadData().getTaskInfoData().e();
+        if ((interceptable == null || interceptable.invokeL(1048580, this, sw4Var) == null) && sw4Var != null && sw4Var.getThreadData() != null && sw4Var.getThreadData().getTaskInfoData() != null && sw4Var.getThreadData().getTaskInfoData().e() != null) {
+            oz4 e = sw4Var.getThreadData().getTaskInfoData().e();
             this.g = e;
             this.b.setData(e);
             this.i.clear();
@@ -337,11 +337,11 @@ public class HeadlinesAgreeCardView extends FrameLayout implements ux<fs4> {
             if (!TextUtils.isEmpty(this.g.h())) {
                 this.e.setText(this.g.h());
             }
-            k(fs4Var.getThreadData());
+            k(sw4Var.getThreadData());
             this.f.setOnBannerClickListener(new b(this));
-            fz fzVar = this.h;
-            if (fzVar != null) {
-                fzVar.onShow();
+            kz kzVar = this.h;
+            if (kzVar != null) {
+                kzVar.onShow();
             }
         }
     }

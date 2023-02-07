@@ -1,45 +1,32 @@
 package com.baidu.tieba;
 
+import androidx.exifinterface.media.ExifInterface;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import javax.annotation.Nullable;
-import org.webrtc.CalledByNative;
-import org.webrtc.VideoCodecInfo;
-import org.webrtc.VideoDecoder;
-import org.webrtc.VideoDecoderFactory;
-/* compiled from: VideoDecoderFactory.java */
+import java.util.Set;
+import kotlin.collections.SetsKt__SetsKt;
 /* loaded from: classes4.dex */
-public final /* synthetic */ class f8a {
+public final class f8a {
     public static /* synthetic */ Interceptable $ic;
+    public static final Set<String> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @CalledByNative
-    public static VideoCodecInfo[] $default$getSupportedCodecs(VideoDecoderFactory videoDecoderFactory) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, videoDecoderFactory)) == null) ? new VideoCodecInfo[0] : (VideoCodecInfo[]) invokeL.objValue;
-    }
-
-    @Nullable
-    @Deprecated
-    public static VideoDecoder $default$createDecoder(VideoDecoderFactory videoDecoderFactory, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, videoDecoderFactory, str)) == null) {
-            throw new UnsupportedOperationException("Deprecated and not implemented.");
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947719386, "Lcom/baidu/tieba/f8a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947719386, "Lcom/baidu/tieba/f8a;");
+                return;
+            }
         }
-        return (VideoDecoder) invokeLL.objValue;
-    }
-
-    @Nullable
-    @CalledByNative
-    public static VideoDecoder $default$createDecoder(VideoDecoderFactory videoDecoderFactory, VideoCodecInfo videoCodecInfo) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, videoDecoderFactory, videoCodecInfo)) == null) {
-            return videoDecoderFactory.createDecoder(videoCodecInfo.getName());
-        }
-        return (VideoDecoder) invokeLL.objValue;
+        a = SetsKt__SetsKt.setOf((Object[]) new String[]{"M", "L", "H", ExifInterface.GPS_MEASUREMENT_INTERRUPTED, "C", ExifInterface.LATITUDE_SOUTH, "Q", "R", ExifInterface.GPS_MEASUREMENT_IN_PROGRESS, "Z", "m", "l", "h", "v", "c", "s", "q", "r", "a", "z"});
     }
 }

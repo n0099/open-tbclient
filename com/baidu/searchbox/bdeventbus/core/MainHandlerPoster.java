@@ -15,7 +15,8 @@ import kotlin.Metadata;
 import kotlin.Pair;
 import kotlin.Unit;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000L\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0007\b\u0000\u0018\u00002\u00020\u00012\u00020\u0002B\u0007¢\u0006\u0004\b!\u0010\"J\u001f\u0010\b\u001a\u00020\u00072\u0006\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0006\u001a\u00020\u0005H\u0016¢\u0006\u0004\b\b\u0010\tJ\u0017\u0010\f\u001a\u00020\u00072\u0006\u0010\u000b\u001a\u00020\nH\u0016¢\u0006\u0004\b\f\u0010\rR\u001c\u0010\u000f\u001a\u00020\u000e8\u0006@\u0006X\u0086D¢\u0006\f\n\u0004\b\u000f\u0010\u0010\u001a\u0004\b\u0011\u0010\u0012R+\u0010\u0015\u001a\u0014\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00050\u00140\u00138\u0006@\u0006¢\u0006\f\n\u0004\b\u0015\u0010\u0016\u001a\u0004\b\u0017\u0010\u0018R\u0016\u0010\u001a\u001a\u00020\u00198\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001a\u0010\u001bR\u001c\u0010\u001d\u001a\u00020\u001c8\u0006@\u0006X\u0086D¢\u0006\f\n\u0004\b\u001d\u0010\u001e\u001a\u0004\b\u001f\u0010 ¨\u0006#"}, d2 = {"Lcom/baidu/searchbox/bdeventbus/core/MainHandlerPoster;", "Lcom/baidu/searchbox/bdeventbus/core/Poster;", "Landroid/os/Handler;", "", "event", "Lcom/baidu/searchbox/bdeventbus/core/SubscriptionInfo;", "subscriptionInfo", "", "enqueue", "(Ljava/lang/Object;Lcom/baidu/searchbox/bdeventbus/core/SubscriptionInfo;)V", "Landroid/os/Message;", "msg", "handleMessage", "(Landroid/os/Message;)V", "", "TAG", "Ljava/lang/String;", "getTAG", "()Ljava/lang/String;", "Ljava/util/concurrent/ConcurrentLinkedQueue;", "Lkotlin/Pair;", "concurrentLinkedQueue", "Ljava/util/concurrent/ConcurrentLinkedQueue;", "getConcurrentLinkedQueue", "()Ljava/util/concurrent/ConcurrentLinkedQueue;", "", "handlerActive", "Z", "", "maxMillisInsideHandleMessage", "I", "getMaxMillisInsideHandleMessage", "()I", "<init>", "()V", "lib-bd-event-bus_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+import kotlin.jvm.internal.Ref;
+@Metadata(d1 = {"\u0000H\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\b\u0000\u0018\u00002\u00020\u00012\u00020\u0002B\u0005¢\u0006\u0002\u0010\u0003J\u0018\u0010\u0015\u001a\u00020\u00162\u0006\u0010\u0017\u001a\u00020\u000b2\u0006\u0010\u0018\u001a\u00020\fH\u0016J\u0010\u0010\u0019\u001a\u00020\u00162\u0006\u0010\u001a\u001a\u00020\u001bH\u0016R\u0014\u0010\u0004\u001a\u00020\u0005X\u0086D¢\u0006\b\n\u0000\u001a\u0004\b\u0006\u0010\u0007R#\u0010\b\u001a\u0014\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\u000b\u0012\u0004\u0012\u00020\f0\n0\t¢\u0006\b\n\u0000\u001a\u0004\b\r\u0010\u000eR\u000e\u0010\u000f\u001a\u00020\u0010X\u0082\u000e¢\u0006\u0002\n\u0000R\u0014\u0010\u0011\u001a\u00020\u0012X\u0086D¢\u0006\b\n\u0000\u001a\u0004\b\u0013\u0010\u0014¨\u0006\u001c"}, d2 = {"Lcom/baidu/searchbox/bdeventbus/core/MainHandlerPoster;", "Landroid/os/Handler;", "Lcom/baidu/searchbox/bdeventbus/core/Poster;", "()V", "TAG", "", "getTAG", "()Ljava/lang/String;", "concurrentLinkedQueue", "Ljava/util/concurrent/ConcurrentLinkedQueue;", "Lkotlin/Pair;", "", "Lcom/baidu/searchbox/bdeventbus/core/SubscriptionInfo;", "getConcurrentLinkedQueue", "()Ljava/util/concurrent/ConcurrentLinkedQueue;", "handlerActive", "", "maxMillisInsideHandleMessage", "", "getMaxMillisInsideHandleMessage", "()I", "enqueue", "", "event", "subscriptionInfo", "handleMessage", "msg", "Landroid/os/Message;", "lib-bd-event-bus_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes2.dex */
 public final class MainHandlerPoster extends Handler implements Poster {
     public static /* synthetic */ Interceptable $ic;
@@ -90,6 +91,8 @@ public final class MainHandlerPoster extends Handler implements Poster {
         return (String) invokeV.objValue;
     }
 
+    /* JADX WARN: Type inference failed for: r3v1, types: [T, java.lang.Object] */
+    /* JADX WARN: Type inference failed for: r3v8, types: [T, java.lang.Object] */
     @Override // android.os.Handler
     public void handleMessage(Message msg) {
         Interceptable interceptable = $ic;
@@ -99,21 +102,26 @@ public final class MainHandlerPoster extends Handler implements Poster {
             try {
                 long currentTimeMillis = System.currentTimeMillis();
                 do {
-                    Pair<Object, SubscriptionInfo> poll = this.concurrentLinkedQueue.poll();
-                    if (poll == null) {
+                    Ref.ObjectRef objectRef = new Ref.ObjectRef();
+                    ?? poll = this.concurrentLinkedQueue.poll();
+                    objectRef.element = poll;
+                    if (poll == 0) {
                         synchronized (this) {
-                            poll = this.concurrentLinkedQueue.poll();
-                            if (poll == null) {
+                            ?? poll2 = this.concurrentLinkedQueue.poll();
+                            objectRef.element = poll2;
+                            if (poll2 == 0) {
                                 this.handlerActive = false;
                                 return;
                             }
                             Unit unit = Unit.INSTANCE;
                         }
                     }
-                    Intrinsics.checkNotNull(poll);
-                    Action<Object> action = poll.getSecond().getAction();
-                    Intrinsics.checkNotNull(poll);
-                    action.call(poll.getFirst());
+                    T t = objectRef.element;
+                    Intrinsics.checkNotNull(t);
+                    Action<Object> action = ((SubscriptionInfo) ((Pair) t).getSecond()).getAction();
+                    T t2 = objectRef.element;
+                    Intrinsics.checkNotNull(t2);
+                    action.call(((Pair) t2).getFirst());
                 } while (System.currentTimeMillis() - currentTimeMillis < this.maxMillisInsideHandleMessage);
                 sendMessage(obtainMessage());
                 this.handlerActive = true;

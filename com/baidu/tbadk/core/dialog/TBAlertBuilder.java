@@ -29,9 +29,9 @@ import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cx4;
-import com.baidu.tieba.kw4;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.p15;
+import com.baidu.tieba.x05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -237,7 +237,7 @@ public class TBAlertBuilder {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             int i = context.getResources().getDisplayMetrics().widthPixels;
             int i2 = (i * 837) / 1076;
-            int g = zi.g(context, R.dimen.tbds756);
+            int g = ej.g(context, R.dimen.tbds756);
             if (i2 < g) {
                 return Math.min(i, g);
             }
@@ -404,7 +404,7 @@ public class TBAlertBuilder {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, z) == null) {
-            cx4 d = cx4.d(view2);
+            p15 d = p15.d(view2);
             if (this.e == null) {
                 i = 0;
             } else {
@@ -448,7 +448,7 @@ public class TBAlertBuilder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             c(this.s, this.r);
-            kw4.g();
+            x05.g();
         }
     }
 
@@ -495,14 +495,14 @@ public class TBAlertBuilder {
             this.s.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             c(this.s, this.r);
             if (!TextUtils.isEmpty(this.f)) {
-                TextView l = kw4.l(this.b);
+                TextView l = x05.l(this.b);
                 l.setText(this.f);
                 l.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), UtilHelper.getDimenPixelSize(R.dimen.M_H_X009), UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), UtilHelper.getDimenPixelSize(R.dimen.M_H_X007));
                 this.s.addView(l);
                 CharSequence charSequence = this.g;
                 if (charSequence != null && !StringUtils.isNull(charSequence.toString())) {
                     l.setPadding(l.getPaddingLeft(), l.getPaddingTop(), l.getPaddingRight(), UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
-                    TextView l2 = kw4.l(this.b);
+                    TextView l2 = x05.l(this.b);
                     l2.setText(this.g);
                     l2.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), UtilHelper.getDimenPixelSize(R.dimen.M_H_X007));
                     this.s.addView(l2);
@@ -511,10 +511,10 @@ public class TBAlertBuilder {
             if (!TextUtils.isEmpty(this.h)) {
                 RelativeLayout relativeLayout = new RelativeLayout(this.b);
                 relativeLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-                TextView b2 = kw4.b(this.b, this.j);
+                TextView b2 = x05.b(this.b, this.j);
                 b2.setText(this.h);
                 b2.setGravity(this.i);
-                b2.setId(R.id.obfuscated_res_0x7f0907cb);
+                b2.setId(R.id.obfuscated_res_0x7f0907dc);
                 b2.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), 0);
                 b2.setMaxHeight(UtilHelper.getDimenPixelSize(R.dimen.tbds868));
                 b2.setMovementMethod(this.k);
@@ -522,7 +522,7 @@ public class TBAlertBuilder {
                 View view3 = new View(this.b);
                 view3.setVisibility(4);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, UtilHelper.getDimenPixelSize(R.dimen.tbds104));
-                layoutParams.addRule(8, R.id.obfuscated_res_0x7f0907cb);
+                layoutParams.addRule(8, R.id.obfuscated_res_0x7f0907dc);
                 SkinManager.setBackgroundColorToTransparent(view3, R.color.CAM_X0205, GradientDrawable.Orientation.BOTTOM_TOP);
                 relativeLayout.addView(view3, layoutParams);
                 this.s.addView(relativeLayout);
@@ -540,14 +540,14 @@ public class TBAlertBuilder {
                 if (this.o) {
                     this.p = new b(this);
                 }
-                this.s.addView(kw4.j(this.b, this.m, this.p));
+                this.s.addView(x05.j(this.b, this.m, this.p));
             }
             linearLayout.addView(this.s, new ViewGroup.LayoutParams(-1, -2));
             if (this.n) {
                 ImageView imageView = new ImageView(this.b);
                 imageView.setImageResource(R.drawable.icon_mask_pop_close);
-                LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds104), zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds105));
-                layoutParams2.setMargins(0, zi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X010), 0, 0);
+                LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds104), ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds105));
+                layoutParams2.setMargins(0, ej.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X010), 0, 0);
                 imageView.setOnClickListener(new c(this));
                 linearLayout.addView(imageView, layoutParams2);
             }

@@ -1,11 +1,10 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Bundle;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.net.request.Headers;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,32 +12,90 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.concurrent.CopyOnWriteArrayList;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class wh0 implements rn0, qn0, sn0, tn0 {
+public class wh0 implements yn0 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean d;
-    public static wh0 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CopyOnWriteArrayList<rn0> a;
-    public final LinkedList<WeakReference<Activity>> b;
-    public int c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948270442, "Lcom/baidu/tieba/wh0;")) == null) {
-            return;
+    /* loaded from: classes6.dex */
+    public class a extends ms0<JSONObject> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wh0 a;
+
+        @Override // com.baidu.tieba.ks0
+        public void a(Exception exc, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) {
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+
+        public a(wh0 wh0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wh0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wh0Var;
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948270442, "Lcom/baidu/tieba/wh0;");
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ls0
+        /* renamed from: e */
+        public void b(Headers headers, JSONObject jSONObject, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeLLI(1048579, this, headers, jSONObject, i) != null) {
+                return;
+            }
+            this.a.i(jSONObject);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ls0
+        /* renamed from: f */
+        public JSONObject d(Headers headers, String str, int i) throws Exception {
+            InterceptResult invokeLLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, headers, str, i)) == null) {
+                if (i != 200 || TextUtils.isEmpty(str)) {
+                    return null;
+                }
+                return new JSONObject(str);
+            }
+            return (JSONObject) invokeLLI.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final wh0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-317865300, "Lcom/baidu/tieba/wh0$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-317865300, "Lcom/baidu/tieba/wh0$b;");
+                    return;
+                }
+            }
+            a = new wh0(null);
         }
     }
 
@@ -46,54 +103,68 @@ public final class wh0 implements rn0, qn0, sn0, tn0 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = new CopyOnWriteArrayList<>();
-        this.b = new LinkedList<>();
     }
 
-    public static wh0 e() {
+    public static wh0 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (e == null) {
-                synchronized (wh0.class) {
-                    if (e == null) {
-                        e = new wh0();
-                    }
-                }
-            }
-            return e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
         }
         return (wh0) invokeV.objValue;
     }
 
-    @Nullable
-    public Activity f() {
+    @Override // com.baidu.tieba.yn0
+    @NonNull
+    public String a() {
         InterceptResult invokeV;
-        WeakReference<Activity> last;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.b.isEmpty() || (last = this.b.getLast()) == null) {
-                return null;
-            }
-            return last.get();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return f();
         }
-        return (Activity) invokeV.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public final long d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return k21.a().b("nad_app_quick_config").getLong("ip_dx_expire_time", 0L);
+        }
+        return invokeV.longValue;
+    }
+
+    public final long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return k21.a().b("nad_app_quick_config").getLong("request_ip_dx_time", 0L);
+        }
+        return invokeV.longValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return k21.a().b("nad_app_quick_config").getString("ip_dx_data", "");
+        }
+        return (String) invokeV.objValue;
     }
 
     public final boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.a.size() > 0) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (System.currentTimeMillis() / 1000 <= d()) {
                 return true;
             }
             return false;
@@ -101,211 +172,73 @@ public final class wh0 implements rn0, qn0, sn0, tn0 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.qn0
-    @Nullable
-    public Activity a() {
+    public final boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!this.b.isEmpty() && this.b.size() >= 2) {
-                LinkedList<WeakReference<Activity>> linkedList = this.b;
-                return linkedList.get(linkedList.size() - 2).get();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (System.currentTimeMillis() - e() > 21600000) {
+                return true;
             }
-            return null;
+            return false;
         }
-        return (Activity) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.qn0
-    @Nullable
-    public Activity c() {
-        InterceptResult invokeV;
-        Activity activity;
+    @Override // com.baidu.tieba.yn0
+    public void request() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int size = this.b.size();
-            if (size < 2) {
-                return f();
-            }
-            for (int i = size - 1; i >= 0; i--) {
-                WeakReference<Activity> weakReference = this.b.get(i);
-                if (weakReference != null && (activity = weakReference.get()) != null && !activity.isFinishing()) {
-                    return activity;
-                }
-            }
-            return null;
-        }
-        return (Activity) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.tn0
-    public void b(@Nullable rn0 rn0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rn0Var) == null) && rn0Var != null && !this.a.contains(rn0Var)) {
-            if (d && this.a.size() > 0) {
-                CopyOnWriteArrayList<rn0> copyOnWriteArrayList = this.a;
-                copyOnWriteArrayList.add(copyOnWriteArrayList.size() - 1, rn0Var);
-                return;
-            }
-            this.a.add(rn0Var);
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            m();
         }
     }
 
-    @Override // com.baidu.tieba.rn0
-    public void onActivityStarted(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, activity) == null) {
-            if (g()) {
-                Iterator<rn0> it = this.a.iterator();
-                while (it.hasNext()) {
-                    it.next().onActivityStarted(activity);
-                }
-            }
-            int i = this.c + 1;
-            this.c = i;
-            if (i == 1) {
-                onBackgroundToForeground(activity);
-            }
-        }
+    public /* synthetic */ wh0(a aVar) {
+        this();
     }
 
-    @Override // com.baidu.tieba.rn0
-    public void onActivityStopped(@NonNull Activity activity) {
+    public final void i(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, activity) == null) {
-            if (g()) {
-                Iterator<rn0> it = this.a.iterator();
-                while (it.hasNext()) {
-                    it.next().onActivityStopped(activity);
-                }
-            }
-            int i = this.c - 1;
-            this.c = i;
-            if (i == 0) {
-                onForegroundToBackground(activity);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.tn0
-    public void d(@Nullable rn0 rn0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, rn0Var) == null) && rn0Var != null && this.a.contains(rn0Var)) {
-            this.a.remove(rn0Var);
-        }
-    }
-
-    public void h(@Nullable rn0 rn0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, rn0Var) == null) && rn0Var != null && !this.a.contains(rn0Var)) {
-            d = true;
-            this.a.add(rn0Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.rn0
-    public void onActivityPaused(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, activity) != null) || !g()) {
+        if ((interceptable != null && interceptable.invokeL(1048582, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        Iterator<rn0> it = this.a.iterator();
-        while (it.hasNext()) {
-            it.next().onActivityPaused(activity);
+        k(jSONObject);
+        j(jSONObject.optLong("exptime"));
+    }
+
+    public final void j(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            k21.a().b("nad_app_quick_config").h("ip_dx_expire_time", j);
         }
     }
 
-    @Override // com.baidu.tieba.rn0
-    public void onActivityResumed(@NonNull Activity activity) {
+    public final void k(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, activity) != null) || !g()) {
-            return;
-        }
-        Iterator<rn0> it = this.a.iterator();
-        while (it.hasNext()) {
-            it.next().onActivityResumed(activity);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) == null) {
+            k21.a().b("nad_app_quick_config").i("ip_dx_data", jSONObject.toString());
         }
     }
 
-    @Override // com.baidu.tieba.rn0
-    public void onBackgroundToForeground(@NonNull Activity activity) {
+    public final void l(long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048590, this, activity) != null) || !g()) {
-            return;
-        }
-        Iterator<rn0> it = this.a.iterator();
-        while (it.hasNext()) {
-            it.next().onBackgroundToForeground(activity);
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            k21.a().b("nad_app_quick_config").h("request_ip_dx_time", j);
         }
     }
 
-    @Override // com.baidu.tieba.rn0
-    public void onForegroundToBackground(@NonNull Activity activity) {
+    public void m() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048591, this, activity) != null) || !g()) {
-            return;
-        }
-        Iterator<rn0> it = this.a.iterator();
-        while (it.hasNext()) {
-            it.next().onForegroundToBackground(activity);
-        }
-    }
-
-    @Override // com.baidu.tieba.rn0
-    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, activity, bundle) == null) {
-            this.b.add(new WeakReference<>(activity));
-            if (!g()) {
-                return;
-            }
-            Iterator<rn0> it = this.a.iterator();
-            while (it.hasNext()) {
-                it.next().onActivityCreated(activity, bundle);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.rn0
-    public void onActivityDestroyed(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity) == null) {
-            if (g()) {
-                Iterator<rn0> it = this.a.iterator();
-                while (it.hasNext()) {
-                    it.next().onActivityDestroyed(activity);
-                }
-            }
-            if (this.b.isEmpty()) {
-                return;
-            }
-            int size = this.b.size();
-            while (true) {
-                size--;
-                if (size >= 0) {
-                    if (this.b.get(size).get() == activity) {
-                        break;
-                    }
-                } else {
-                    size = -1;
-                    break;
-                }
-            }
-            if (size != -1) {
-                this.b.remove(size);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.rn0
-    public void onActivitySaveInstanceState(@NonNull Activity activity, @Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048587, this, activity, bundle) != null) || !g()) {
-            return;
-        }
-        Iterator<rn0> it = this.a.iterator();
-        while (it.hasNext()) {
-            it.next().onActivitySaveInstanceState(activity, bundle);
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && h() && !g()) {
+            l(System.currentTimeMillis());
+            uj0 a2 = nj0.c().a();
+            String g = a2.g();
+            String packageName = a2.packageName();
+            String str = "https://bz-ipdx.baidu.com/miaozhen?" + String.format("uid=%s&appname=%s", g, packageName);
+            es0 a3 = as0.b().a();
+            ts0 ts0Var = new ts0();
+            ts0Var.l(str);
+            ts0Var.c();
+            a3.a(ts0Var, new a(this));
         }
     }
 }

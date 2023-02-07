@@ -22,11 +22,11 @@ public class a {
     public final h b;
     public final g c;
     public final e d;
-    public C0524a e;
+    public C0528a e;
 
     /* renamed from: com.bytedance.pangle.res.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0524a {
+    public static class C0528a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final short a;
@@ -35,7 +35,7 @@ public class a {
         public final int d;
         public final int e;
 
-        public C0524a(short s, int i, int i2, int i3) {
+        public C0528a(short s, int i, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,17 +57,17 @@ public class a {
             this.e = i3 + i2;
         }
 
-        public static C0524a a(g gVar, e eVar) {
+        public static C0528a a(g gVar, e eVar) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, gVar, eVar)) == null) {
                 try {
-                    return new C0524a(gVar.readShort(), gVar.readShort(), gVar.readInt(), eVar.a());
+                    return new C0528a(gVar.readShort(), gVar.readShort(), gVar.readInt(), eVar.a());
                 } catch (EOFException unused) {
-                    return new C0524a((short) -1, 0, 0, eVar.a());
+                    return new C0528a((short) -1, 0, 0, eVar.a());
                 }
             }
-            return (C0524a) invokeLL.objValue;
+            return (C0528a) invokeLL.objValue;
         }
     }
 
@@ -97,15 +97,15 @@ public class a {
         }
     }
 
-    private C0524a j() {
+    private C0528a j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
-            C0524a a = C0524a.a(this.c, this.d);
+            C0528a a = C0528a.a(this.c, this.d);
             this.e = a;
             return a;
         }
-        return (C0524a) invokeV.objValue;
+        return (C0528a) invokeV.objValue;
     }
 
     public a(byte[] bArr, h hVar) {

@@ -10,7 +10,7 @@ import com.baidu.searchbox.aperf.param.ThreadCollector;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.ruka.ioc.IBlockMonitor;
-import com.baidu.tieba.a2a;
+import com.baidu.tieba.j6a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +33,7 @@ public class BlockMonitor implements IBlockMonitor {
     public static final SimpleDateFormat TIME_FORMATTER;
     public static String sBlockTimeStamp;
     public transient /* synthetic */ FieldHolder $fh;
-    public a2a mBlockWatchDog;
+    public j6a mBlockWatchDog;
     public boolean mMonitorStarted;
 
     /* renamed from: com.baidu.searchbox.block.impl.BlockMonitor$1  reason: invalid class name */
@@ -44,7 +44,7 @@ public class BlockMonitor implements IBlockMonitor {
     }
 
     /* loaded from: classes2.dex */
-    public static class BlockListenerImpl implements a2a.f {
+    public static class BlockListenerImpl implements j6a.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -66,7 +66,7 @@ public class BlockMonitor implements IBlockMonitor {
             this();
         }
 
-        @Override // com.baidu.tieba.a2a.f
+        @Override // com.baidu.tieba.j6a.f
         public void onAppNotResponding(ANRError aNRError) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aNRError) == null) {
@@ -121,10 +121,10 @@ public class BlockMonitor implements IBlockMonitor {
 
     @Override // com.baidu.searchbox.ruka.ioc.IBlockMonitor
     public void stopBlockMonitor() {
-        a2a a2aVar;
+        j6a j6aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.mMonitorStarted && (a2aVar = this.mBlockWatchDog) != null) {
-            a2aVar.interrupt();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.mMonitorStarted && (j6aVar = this.mBlockWatchDog) != null) {
+            j6aVar.interrupt();
             this.mMonitorStarted = false;
         }
     }
@@ -190,9 +190,9 @@ public class BlockMonitor implements IBlockMonitor {
             return;
         }
         this.mMonitorStarted = true;
-        a2a a2aVar = new a2a(i);
-        this.mBlockWatchDog = a2aVar;
-        a2aVar.e();
+        j6a j6aVar = new j6a(i);
+        this.mBlockWatchDog = j6aVar;
+        j6aVar.e();
         this.mBlockWatchDog.d(true);
         this.mBlockWatchDog.c(new BlockListenerImpl(null));
         if (AppConfig.isDebug()) {

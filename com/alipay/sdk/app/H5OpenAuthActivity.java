@@ -44,7 +44,7 @@ public class H5OpenAuthActivity extends H5PayActivity {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (this.i) {
                 try {
-                    com.alipay.sdk.sys.a a = a.C0013a.a(getIntent());
+                    com.alipay.sdk.sys.a a = a.C0012a.a(getIntent());
                     if (a != null) {
                         com.alipay.sdk.app.statistic.a.b(this, a, "", a.d);
                     }
@@ -62,7 +62,7 @@ public class H5OpenAuthActivity extends H5PayActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) {
             try {
-                com.alipay.sdk.sys.a a = a.C0013a.a(intent);
+                com.alipay.sdk.sys.a a = a.C0012a.a(intent);
                 try {
                     super.startActivity(intent);
                     if (intent != null) {

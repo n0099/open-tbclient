@@ -1,21 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.lib.cache.BdCacheService;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.mainentrance.RequestSearchPersonHistoryWriteMessage;
-import com.baidu.tieba.mainentrance.ResponseSearchPersonHistoryWriteMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class zs7 implements CustomMessageTask.CustomRunnable<Object> {
+public class zs7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
 
     public zs7() {
         Interceptable interceptable = $ic;
@@ -27,35 +28,75 @@ public class zs7 implements CustomMessageTask.CustomRunnable<Object> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 0;
+        this.b = 0;
+        this.c = 0;
+        this.d = 0;
+        this.e = 0;
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        InterceptResult invokeL;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage != null && (customMessage instanceof RequestSearchPersonHistoryWriteMessage)) {
-                RequestSearchPersonHistoryWriteMessage requestSearchPersonHistoryWriteMessage = (RequestSearchPersonHistoryWriteMessage) customMessage;
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (currentAccount == null) {
-                    currentAccount = "";
-                }
-                vv4.d();
-                ef<String> f = vv4.f("tb.searchperson_history", currentAccount);
-                if (requestSearchPersonHistoryWriteMessage.isClear()) {
-                    BdCacheService.n().l(f);
-                } else {
-                    Object data = requestSearchPersonHistoryWriteMessage.getData();
-                    if (data != null && (data instanceof String)) {
-                        f.g((String) data, null);
-                    }
-                }
-                return new ResponseSearchPersonHistoryWriteMessage();
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return invokeV.intValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public void f(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        try {
+            this.a = jSONObject.optInt("agree", 0);
+            this.b = jSONObject.optInt("replyme", 0);
+            this.c = jSONObject.optInt("atme", 0);
+            this.d = jSONObject.optInt("fans", 0);
+            jSONObject.optInt("pletter", 0);
+            this.e = jSONObject.optInt("bookmark", 0);
+        } catch (Exception e) {
+            BdLog.detailException(e);
+        }
     }
 }

@@ -1,35 +1,66 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.content.Context;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class h91 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface h91 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "sailorIocUtil");
+    public static final h91 b = new a();
 
-    public static boolean a(Application application) {
-        InterceptResult invokeL;
-        Object f;
-        ClassLoader classLoader;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, application)) == null) {
-            try {
-                Context baseContext = application.getBaseContext();
-                if (baseContext == null || (f = ua1.f(baseContext, "mPackageInfo")) == null || (classLoader = (ClassLoader) ua1.f(f, "mClassLoader")) == null) {
-                    return false;
-                }
-                i91 i91Var = new i91(classLoader.getParent(), classLoader);
-                ua1.k(f, "mClassLoader", i91Var);
-                Thread.currentThread().setContextClassLoader(i91Var);
-                return true;
-            } catch (Throwable th) {
-                th.printStackTrace();
+    boolean a();
+
+    void b(@Nullable String str, @Nullable Map<String, String> map, @Nullable String str2);
+
+    void c();
+
+    /* loaded from: classes4.dex */
+    public static class a implements h91 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.h91
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 return false;
             }
+            return invokeV.booleanValue;
         }
-        return invokeL.booleanValue;
+
+        @Override // com.baidu.tieba.h91
+        public void b(@Nullable String str, @Nullable Map<String, String> map, @Nullable String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map, str2) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.h91
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 }

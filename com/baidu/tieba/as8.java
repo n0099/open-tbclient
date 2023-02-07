@@ -1,41 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
 /* loaded from: classes3.dex */
-public class as8 implements y10 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface as8 extends IAdBaseAsyncController {
 
-    public as8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+    /* loaded from: classes3.dex */
+    public interface a {
+        void a(int i);
     }
 
-    @Override // com.baidu.tieba.y10
-    public String getAppVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return TbConfig.getVersion();
-        }
-        return (String) invokeV.objValue;
-    }
+    void a(TbPageContext<BaseFragmentActivity> tbPageContext);
+
+    void c(AdvertAppInfo advertAppInfo, boolean z);
+
+    @Nullable
+    br8 i(AdvertAppInfo advertAppInfo);
+
+    void loadAd();
+
+    void m(AdvertAppInfo advertAppInfo);
 }

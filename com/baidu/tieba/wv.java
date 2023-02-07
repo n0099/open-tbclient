@@ -1,98 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.Rect;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Stack;
-import java.util.concurrent.locks.ReentrantLock;
-import kotlin.Unit;
 /* loaded from: classes6.dex */
-public final class wv<T> implements vv<T> {
+public class wv {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Stack<T> a;
-    public final ReentrantLock b;
 
-    public wv() {
+    public static void a(View view2, View view3, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new Stack<>();
-        this.b = new ReentrantLock(true);
-    }
-
-    @Override // com.baidu.tieba.vv
-    public T a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ReentrantLock reentrantLock = this.b;
-            reentrantLock.lock();
-            try {
-                if (!c()) {
-                    return this.a.pop();
-                }
-                return null;
-            } finally {
-                reentrantLock.unlock();
-            }
-        }
-        return (T) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.vv
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ReentrantLock reentrantLock = this.b;
-            reentrantLock.lock();
-            try {
-                this.a.clear();
-                Unit unit = Unit.INSTANCE;
-            } finally {
-                reentrantLock.unlock();
-            }
+        if (interceptable == null || interceptable.invokeLLI(65536, null, view2, view3, i) == null) {
+            b(view2, view3, i, i, i, i);
         }
     }
 
-    @Override // com.baidu.tieba.vv
-    public boolean c() {
-        InterceptResult invokeV;
+    public static void b(View view2, View view3, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ReentrantLock reentrantLock = this.b;
-            reentrantLock.lock();
-            try {
-                return this.a.isEmpty();
-            } finally {
-                reentrantLock.unlock();
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.vv
-    public void a(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            ReentrantLock reentrantLock = this.b;
-            reentrantLock.lock();
-            try {
-                this.a.push(t);
-            } finally {
-                reentrantLock.unlock();
+        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{view2, view3, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) && view3 != null && view2 != null) {
+            if (view2.getTouchDelegate() instanceof uv) {
+                ((uv) view2.getTouchDelegate()).b(view3, i, i2, i3, i4);
+            } else {
+                view2.setTouchDelegate(new uv(view3, i, i2, i3, i4, new Rect(0, 0, 0, 0)));
             }
         }
     }

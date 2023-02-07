@@ -53,17 +53,17 @@ public class db {
                         try {
                             if (iuVar instanceof ia) {
                                 String str = ((ia) iuVar).f614d;
-                                if (!TextUtils.isEmpty(str) && en.a(en.m373a(str)) != -1) {
-                                    a = en.a(en.m373a(str));
+                                if (!TextUtils.isEmpty(str) && en.a(en.m375a(str)) != -1) {
+                                    a = en.a(en.m375a(str));
                                     break;
                                 }
                             } else if (iuVar instanceof ii) {
                                 String str2 = ((ii) iuVar).f673d;
                                 if (!TextUtils.isEmpty(str2)) {
-                                    if (en.a(en.m373a(str2)) != -1) {
-                                        a = en.a(en.m373a(str2));
+                                    if (en.a(en.m375a(str2)) != -1) {
+                                        a = en.a(en.m375a(str2));
                                     }
-                                    if (ht.B.equals(en.m373a(str2))) {
+                                    if (ht.B.equals(en.m375a(str2))) {
                                         return -1;
                                     }
                                 }
@@ -146,7 +146,7 @@ public class db {
             it.a(cif, bArr);
             a(str, context, cif, bArr.length);
         } catch (iz unused) {
-            com.xiaomi.channel.commonutils.logger.b.m103a("fail to convert bytes to container");
+            com.xiaomi.channel.commonutils.logger.b.m105a("fail to convert bytes to container");
         }
     }
 }

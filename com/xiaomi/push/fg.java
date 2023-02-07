@@ -67,7 +67,7 @@ public class fg implements fz {
             this.f = TrafficStats.getUidRxBytes(myUid);
             this.e = TrafficStats.getUidTxBytes(myUid);
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m103a("Failed to obtain traffic data during initialization: " + e);
+            com.xiaomi.channel.commonutils.logger.b.m105a("Failed to obtain traffic data during initialization: " + e);
             this.f = -1L;
             this.e = -1L;
         }
@@ -84,7 +84,7 @@ public class fg implements fz {
             if (bj.b(this.f384a)) {
                 this.f382a = elapsedRealtime;
             }
-            if (this.f384a.m671c()) {
+            if (this.f384a.m673c()) {
                 this.c = elapsedRealtime;
             }
         }
@@ -102,7 +102,7 @@ public class fg implements fz {
                 faVar.d((int) (System.currentTimeMillis() / 1000));
                 faVar.b((int) (this.b / 1000));
                 faVar.c((int) (this.d / 1000));
-                fh.m397a().a(faVar);
+                fh.m399a().a(faVar);
                 b();
             }
         }
@@ -115,14 +115,14 @@ public class fg implements fz {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m396a() {
+    public synchronized void m398a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
                 if (this.f384a == null) {
                     return;
                 }
-                String m209a = bj.m209a((Context) this.f384a);
+                String m211a = bj.m211a((Context) this.f384a);
                 boolean c = bj.c(this.f384a);
                 long elapsedRealtime = SystemClock.elapsedRealtime();
                 if (this.f382a > 0) {
@@ -134,14 +134,14 @@ public class fg implements fz {
                     this.c = 0L;
                 }
                 if (c) {
-                    if ((!TextUtils.equals(this.f386a, m209a) && this.b > 30000) || this.b > 5400000) {
+                    if ((!TextUtils.equals(this.f386a, m211a) && this.b > 30000) || this.b > 5400000) {
                         c();
                     }
-                    this.f386a = m209a;
+                    this.f386a = m211a;
                     if (this.f382a == 0) {
                         this.f382a = elapsedRealtime;
                     }
-                    if (this.f384a.m671c()) {
+                    if (this.f384a.m673c()) {
                         this.c = elapsedRealtime;
                     }
                 }
@@ -156,7 +156,7 @@ public class fg implements fz {
             this.a = 0;
             this.f385a = null;
             this.f383a = fwVar;
-            this.f386a = bj.m209a((Context) this.f384a);
+            this.f386a = bj.m211a((Context) this.f384a);
             fj.a(0, ez.v.a());
         }
     }
@@ -169,24 +169,24 @@ public class fg implements fz {
             if (this.a == 0 && this.f385a == null) {
                 this.a = i;
                 this.f385a = exc;
-                fj.b(fwVar.mo426a(), exc);
+                fj.b(fwVar.mo428a(), exc);
             }
             if (i == 22 && this.c != 0) {
-                long m424a = fwVar.m424a() - this.c;
-                if (m424a < 0) {
-                    m424a = 0;
+                long m426a = fwVar.m426a() - this.c;
+                if (m426a < 0) {
+                    m426a = 0;
                 }
-                this.d += m424a + (gc.b() / 2);
+                this.d += m426a + (gc.b() / 2);
                 this.c = 0L;
             }
-            m396a();
+            m398a();
             int myUid = Process.myUid();
             long j2 = -1;
             try {
                 j2 = TrafficStats.getUidRxBytes(myUid);
                 j = TrafficStats.getUidTxBytes(myUid);
             } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.m103a("Failed to obtain traffic data: " + e);
+                com.xiaomi.channel.commonutils.logger.b.m105a("Failed to obtain traffic data: " + e);
                 j = -1L;
             }
             com.xiaomi.channel.commonutils.logger.b.c("Stats rx=" + (j2 - this.f) + ", tx=" + (j - this.e));
@@ -199,8 +199,8 @@ public class fg implements fz {
     public void a(fw fwVar, Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, fwVar, exc) == null) {
-            fj.a(0, ez.d.a(), 1, fwVar.mo426a(), bj.c(this.f384a) ? 1 : 0);
-            m396a();
+            fj.a(0, ez.d.a(), 1, fwVar.mo428a(), bj.c(this.f384a) ? 1 : 0);
+            m398a();
         }
     }
 
@@ -208,9 +208,9 @@ public class fg implements fz {
     public void b(fw fwVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, fwVar) == null) {
-            m396a();
+            m398a();
             this.c = SystemClock.elapsedRealtime();
-            fj.a(0, ez.v.a(), fwVar.mo426a(), fwVar.a());
+            fj.a(0, ez.v.a(), fwVar.mo428a(), fwVar.a());
         }
     }
 }

@@ -5,11 +5,11 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ef;
-import com.baidu.tieba.hu8;
-import com.baidu.tieba.ru8;
-import com.baidu.tieba.s9;
-import com.baidu.tieba.vv4;
+import com.baidu.tieba.fy8;
+import com.baidu.tieba.i05;
+import com.baidu.tieba.jf;
+import com.baidu.tieba.py8;
+import com.baidu.tieba.x9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ public class SquareModel extends BdBaseModel<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
-    public ru8 b;
+    public py8 b;
     public a c;
     public long d;
     public long e;
@@ -30,7 +30,7 @@ public class SquareModel extends BdBaseModel<Object> {
 
     /* loaded from: classes6.dex */
     public interface a {
-        void a(boolean z, String str, ru8 ru8Var);
+        void a(boolean z, String str, py8 py8Var);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -44,12 +44,12 @@ public class SquareModel extends BdBaseModel<Object> {
     }
 
     /* loaded from: classes6.dex */
-    public class b extends BdAsyncTask<Object, ru8, ru8> {
+    public class b extends BdAsyncTask<Object, py8, py8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public hu8 a;
+        public fy8 a;
         public int b;
-        public ef<String> c;
+        public jf<String> c;
         public final /* synthetic */ SquareModel d;
 
         public b(SquareModel squareModel, int i) {
@@ -78,14 +78,14 @@ public class SquareModel extends BdBaseModel<Object> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public ru8 doInBackground(Object... objArr) {
+        public py8 doInBackground(Object... objArr) {
             InterceptResult invokeL;
-            ru8 ru8Var;
+            py8 py8Var;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                this.a = new hu8();
-                vv4.d();
-                ef<String> e = vv4.e("tb.square");
+                this.a = new fy8();
+                i05.d();
+                jf<String> e = i05.e("tb.square");
                 this.c = e;
                 String str = null;
                 if (this.b == 0) {
@@ -93,20 +93,20 @@ public class SquareModel extends BdBaseModel<Object> {
                     if (str2 == null) {
                         return null;
                     }
-                    ru8 ru8Var2 = new ru8();
-                    ru8Var2.j(str2);
-                    this.d.h = ru8Var2.f();
-                    if (ru8Var2.g()) {
+                    py8 py8Var2 = new py8();
+                    py8Var2.j(str2);
+                    this.d.h = py8Var2.f();
+                    if (py8Var2.g()) {
                         this.d.h = 0L;
                     }
-                    if (ru8Var2.c()) {
-                        return ru8Var2;
+                    if (py8Var2.c()) {
+                        return py8Var2;
                     }
                     this.b = 1;
                     str = str2;
-                    ru8Var = ru8Var2;
+                    py8Var = py8Var2;
                 } else {
-                    ru8Var = null;
+                    py8Var = null;
                 }
                 if (this.b == 1) {
                     this.d.d = System.currentTimeMillis();
@@ -117,45 +117,45 @@ public class SquareModel extends BdBaseModel<Object> {
                     this.d.g = System.currentTimeMillis();
                 }
                 if (this.a.e()) {
-                    ru8Var = new ru8();
-                    ru8Var.j(str);
-                    Long valueOf = Long.valueOf(ru8Var.f());
+                    py8Var = new py8();
+                    py8Var.j(str);
+                    Long valueOf = Long.valueOf(py8Var.f());
                     if (valueOf.longValue() > this.d.h) {
                         this.c.e("square_cache_key", str, 86400000L);
                     } else {
                         String str3 = this.c.get("square_cache_key");
                         if (str3 != null) {
-                            ru8 ru8Var3 = new ru8();
-                            ru8Var3.j(str3);
-                            ru8Var3.m(ru8Var.e());
-                            ru8Var3.n(valueOf.longValue());
-                            this.c.e("square_cache_key", ru8Var3.d(), 86400000L);
-                            ru8Var = ru8Var3;
+                            py8 py8Var3 = new py8();
+                            py8Var3.j(str3);
+                            py8Var3.m(py8Var.e());
+                            py8Var3.n(valueOf.longValue());
+                            this.c.e("square_cache_key", py8Var3.d(), 86400000L);
+                            py8Var = py8Var3;
                         } else {
                             this.c.e("square_cache_key", str, 86400000L);
                         }
                     }
                     this.d.h = valueOf.longValue();
                 }
-                return ru8Var;
+                return py8Var;
             }
-            return (ru8) invokeL.objValue;
+            return (py8) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(ru8 ru8Var) {
+        public void onPostExecute(py8 py8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ru8Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, py8Var) == null) {
                 this.d.a = null;
-                this.d.b = ru8Var;
+                this.d.b = py8Var;
                 if (this.d.c != null) {
                     if (this.b != 0 && !this.a.e()) {
-                        this.d.c.a(false, this.a.c(), ru8Var);
+                        this.d.c.a(false, this.a.c(), py8Var);
                         return;
                     }
-                    this.d.c.a(true, null, ru8Var);
+                    this.d.c.a(true, null, py8Var);
                 }
             }
         }
@@ -165,9 +165,9 @@ public class SquareModel extends BdBaseModel<Object> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 super.cancel();
-                hu8 hu8Var = this.a;
-                if (hu8Var != null) {
-                    hu8Var.b();
+                fy8 fy8Var = this.a;
+                if (fy8Var != null) {
+                    fy8Var.b();
                 }
                 this.d.a = null;
             }
@@ -186,7 +186,7 @@ public class SquareModel extends BdBaseModel<Object> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((s9) newInitContext.callArgs[0]);
+                super((x9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -199,7 +199,7 @@ public class SquareModel extends BdBaseModel<Object> {
         this.e = 0L;
         this.f = 0L;
         this.g = 0L;
-        this.b = new ru8();
+        this.b = new py8();
     }
 
     public boolean U(int i) {
@@ -224,13 +224,13 @@ public class SquareModel extends BdBaseModel<Object> {
         }
     }
 
-    public ru8 P() {
+    public py8 P() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.b;
         }
-        return (ru8) invokeV.objValue;
+        return (py8) invokeV.objValue;
     }
 
     public long Q() {

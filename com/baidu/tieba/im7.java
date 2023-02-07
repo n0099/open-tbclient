@@ -1,150 +1,73 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Rect;
-import android.view.View;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.imMessageCenter.chatgroup.utility.tag.core.TagAdapter;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes4.dex */
 public class im7 {
     public static /* synthetic */ Interceptable $ic;
+    public static im7 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public RecyclerView a;
-    public TagAdapter b;
-    public lm7 c;
+    public ic a;
 
-    /* loaded from: classes4.dex */
-    public static class a extends RecyclerView.ItemDecoration {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final int a;
-        public final int b;
-
-        public a(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-            this.b = i2;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947858390, "Lcom/baidu/tieba/im7;")) == null) {
+            return;
         }
-
-        @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
-        public void getItemOffsets(Rect rect, View view2, RecyclerView recyclerView, RecyclerView.State state) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(1048576, this, rect, view2, recyclerView, state) == null) {
-                super.getItemOffsets(rect, view2, recyclerView, state);
-                int i = this.a;
-                rect.set(i / 2, this.b, i / 2, 0);
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947858390, "Lcom/baidu/tieba/im7;");
         }
     }
 
-    public im7(Context context, RecyclerView recyclerView, lm7 lm7Var, mm7 mm7Var, int i, int i2) {
+    public im7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, recyclerView, lm7Var, mm7Var, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        if (context != null && recyclerView != null && lm7Var != null && mm7Var != null) {
-            this.a = recyclerView;
-            TagAdapter tagAdapter = new TagAdapter(mm7Var, lm7Var, context);
-            this.b = tagAdapter;
-            this.a.setAdapter(tagAdapter);
-            this.c = lm7Var;
-            if (i2 == 1) {
-                gm7 gm7Var = new gm7(recyclerView, i);
-                GridLayoutManager gridLayoutManager = new GridLayoutManager(context, gm7Var.b());
-                gridLayoutManager.setSpanSizeLookup(gm7Var);
-                this.a.setLayoutManager(gridLayoutManager);
-                this.a.addItemDecoration(new a(i, i));
-                return;
-            }
-            this.a.addItemDecoration(new a(i, 0));
-            this.a.setLayoutManager(new LinearLayoutManager(context, 0, false));
-            return;
-        }
-        throw new IllegalArgumentException("入参不能为null");
+        this.a = null;
+        this.a = new ic(1000, 1000, 1000);
     }
 
-    public jm7 a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return this.c.d(i);
-        }
-        return (jm7) invokeI.objValue;
-    }
-
-    public void c(List list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.c.g(list);
-        }
-    }
-
-    public void d(List list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.c.h(list);
-        }
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.c.i(i);
-        }
-    }
-
-    public void f(km7 km7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, km7Var) == null) {
-            this.c.k(km7Var);
-        }
-    }
-
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.c.m(i);
-        }
-    }
-
-    public List<jm7> b() {
+    public static im7 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c.f();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (im7.class) {
+                    if (b == null) {
+                        b = new im7();
+                    }
+                }
+            }
+            return b;
         }
-        return (List) invokeV.objValue;
+        return (im7) invokeV.objValue;
+    }
+
+    public ic b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (ic) invokeV.objValue;
     }
 }

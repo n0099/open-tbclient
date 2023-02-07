@@ -1,373 +1,287 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.cache.BdCacheService;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.ef;
-import com.baidu.tieba.tbadkCore.FrsRequestData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.browser.BrowserType;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.http.cookie.CookieManager;
+import com.baidu.searchbox.util.IBaiduIdentityContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.App;
-import tbclient.BannerList;
-import tbclient.FrsPage.DataRes;
-import tbclient.FrsPage.ForumInfo;
-import tbclient.FrsPage.FrsPageResIdl;
-import tbclient.ThreadInfo;
-import tbclient.User;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class ov8 {
+public class ov8 implements IBaiduIdentityContext {
     public static /* synthetic */ Interceptable $ic;
-    public static final Wire c;
-    public static ov8 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public xv8 a;
-    public ef<byte[]> b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948045816, "Lcom/baidu/tieba/ov8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948045816, "Lcom/baidu/tieba/ov8;");
-                return;
-            }
-        }
-        c = new Wire(new Class[0]);
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public byte[] encryptByNativeBds(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) ? new byte[0] : (byte[]) invokeLL.objValue;
     }
 
-    public static ov8 i() {
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String getAppMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                synchronized (ov8.class) {
-                    if (d == null) {
-                        d = new ov8();
-                    }
-                }
-            }
-            return d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
         }
-        return (ov8) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public long h() {
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String getBDVCInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String getIid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public boolean getJoinUserExperiencePreference(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String getLocString(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, context, i)) == null) {
+            return null;
+        }
+        return (String) invokeLI.objValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String getLocationInfo(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String getMatrixstyle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            long n = cz4.l().n("key_frs_cache_time", 604800000L);
-            if (n < 0) {
-                return 604800000L;
-            }
-            return n;
+            return null;
         }
-        return invokeV.longValue;
+        return (String) invokeV.objValue;
     }
 
-    public xv8 j() {
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String getOEMChannel(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String getOsBranch() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return null;
         }
-        return (xv8) invokeV.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String getPassUid(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, context)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String getPkgName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public boolean getPrivacySwitch(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, context)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String[] getProcessUARegex(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, context)) == null) ? new String[0] : (String[]) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String getSearchBoxTypeId(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, context)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String getTn(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, context)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String getZid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public boolean isAgreePrivacy() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public boolean isBlinkEnable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public boolean isDataFlowPopDialog(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, context)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public boolean isPeakTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public boolean isSelfUpdateInstalled(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, context)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public CookieManager obtainCookieManager(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048598, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            return null;
+        }
+        return (CookieManager) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String processUrlExternal(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048599, this, str, z)) == null) {
+            return null;
+        }
+        return (String) invokeLZ.objValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String processUserAgentExternal(String str, BrowserType browserType) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048600, this, str, browserType)) == null) {
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public void setCookieManualNoBdussOperate(String str, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048601, this, str, str2, z) == null) {
+        }
     }
 
     public ov8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-        this.a = null;
-        this.b = null;
-        this.b = BdCacheService.n().b("tb.frs.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
-    }
-
-    public void a(String str, byte[] bArr, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(1048576, this, str, bArr, z) == null) && str != null && str.length() > 0) {
-            if (z) {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                ef<byte[]> efVar = this.b;
-                efVar.e(currentAccount + str, bArr, h());
-                return;
-            }
-            String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
-            ef<byte[]> efVar2 = this.b;
-            efVar2.i(currentAccount2 + str, bArr, h());
-        }
-    }
-
-    public void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && this.b != null && str != null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            ef<byte[]> efVar = this.b;
-            byte[] bArr = efVar.get(currentAccount + str);
-            if (bArr != null && bArr.length > 0) {
-                try {
-                    FrsPageResIdl frsPageResIdl = (FrsPageResIdl) c.parseFrom(bArr, FrsPageResIdl.class);
-                    if (frsPageResIdl != null && frsPageResIdl.data != null && frsPageResIdl.data.forum != null && frsPageResIdl.data.forum.banner_list != null && frsPageResIdl.data.forum.banner_list.app != null && frsPageResIdl.data.forum.banner_list.app.size() > 0) {
-                        ArrayList arrayList = new ArrayList();
-                        for (App app : frsPageResIdl.data.forum.banner_list.app) {
-                            boolean isNull = StringUtils.isNull(str2);
-                            if (app != null && (isNull || str2.equals(wm8.a(app)))) {
-                                arrayList.add(app);
-                            }
-                        }
-                        BannerList.Builder builder = new BannerList.Builder(frsPageResIdl.data.forum.banner_list);
-                        if (builder.app != null) {
-                            builder.app.removeAll(arrayList);
-                        }
-                        FrsPageResIdl.Builder builder2 = new FrsPageResIdl.Builder(frsPageResIdl);
-                        DataRes.Builder builder3 = new DataRes.Builder(frsPageResIdl.data);
-                        ForumInfo.Builder builder4 = new ForumInfo.Builder(frsPageResIdl.data.forum);
-                        builder4.banner_list = builder.build(true);
-                        builder3.forum = builder4.build(true);
-                        builder2.data = builder3.build(true);
-                        a(str, builder2.build(true).toByteArray(), true);
-                    }
-                } catch (Exception e) {
-                    BdLog.detailException(e);
-                }
-            }
-        }
-    }
-
-    public void m(String str, byte[] bArr) {
-        List<ThreadInfo> list;
-        int count;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048587, this, str, bArr) == null) && this.b != null && str != null && bArr != null && bArr.length > 0) {
-            try {
-                FrsPageResIdl frsPageResIdl = (FrsPageResIdl) c.parseFrom(bArr, FrsPageResIdl.class);
-                if (frsPageResIdl == null || frsPageResIdl.data == null || (count = ListUtils.getCount((list = frsPageResIdl.data.thread_list))) <= 0) {
-                    return;
-                }
-                if (count >= 15) {
-                    a(str, bArr, true);
-                    return;
-                }
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                ef<byte[]> efVar = this.b;
-                byte[] bArr2 = efVar.get(currentAccount + str);
-                if (bArr2 == null) {
-                    a(str, bArr, true);
-                    return;
-                }
-                FrsPageResIdl frsPageResIdl2 = (FrsPageResIdl) c.parseFrom(bArr2, FrsPageResIdl.class);
-                if (frsPageResIdl2 != null && frsPageResIdl2.data != null && frsPageResIdl2.data.thread_list != null) {
-                    List<ThreadInfo> list2 = frsPageResIdl2.data.thread_list;
-                    int count2 = ListUtils.getCount(list2);
-                    ArrayList arrayList = new ArrayList();
-                    ArrayList arrayList2 = new ArrayList();
-                    int i = 0;
-                    for (int i2 = 15; i < count2 && count < i2; i2 = 15) {
-                        ThreadInfo threadInfo = (ThreadInfo) ListUtils.getItem(list2, i);
-                        if (threadInfo != null && threadInfo.tid != null && threadInfo.is_top.intValue() == 0 && !k(threadInfo.tid.longValue(), list)) {
-                            arrayList.add(threadInfo);
-                            User f = f(frsPageResIdl2.data.user_list, threadInfo.author_id.longValue());
-                            if (f != null) {
-                                arrayList2.add(f);
-                            }
-                            count++;
-                        }
-                        i++;
-                    }
-                    FrsPageResIdl.Builder builder = new FrsPageResIdl.Builder(frsPageResIdl);
-                    DataRes.Builder builder2 = new DataRes.Builder(frsPageResIdl.data);
-                    builder2.thread_list.addAll(arrayList);
-                    builder2.user_list.addAll(arrayList2);
-                    builder.data = builder2.build(true);
-                    a(str, builder.build(true).toByteArray(), true);
-                    return;
-                }
-                a(str, bArr, true);
-            } catch (Exception e) {
-                BdLog.detailException(e);
-            }
-        }
-    }
-
-    public void c(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) && this.b != null && str != null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            ef<byte[]> efVar = this.b;
-            byte[] bArr = efVar.get(currentAccount + str);
-            if (bArr != null && bArr.length > 0) {
-                try {
-                    FrsPageResIdl frsPageResIdl = (FrsPageResIdl) c.parseFrom(bArr, FrsPageResIdl.class);
-                    if (frsPageResIdl != null && frsPageResIdl.data != null && frsPageResIdl.data.ala_stage_list != null) {
-                        DataRes.Builder builder = new DataRes.Builder(frsPageResIdl.data);
-                        if (builder.ala_stage_list != null) {
-                            builder.ala_stage_list.clear();
-                        }
-                        FrsPageResIdl.Builder builder2 = new FrsPageResIdl.Builder(frsPageResIdl);
-                        builder2.data = builder.build(true);
-                        a(str, builder2.build(true).toByteArray(), true);
-                    }
-                } catch (Exception e) {
-                    BdLog.detailException(e);
-                }
-            }
-        }
-    }
-
-    public void d(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) && this.b != null && str != null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            ef<byte[]> efVar = this.b;
-            byte[] bArr = efVar.get(currentAccount + str);
-            if (bArr != null && bArr.length > 0) {
-                try {
-                    FrsPageResIdl frsPageResIdl = (FrsPageResIdl) c.parseFrom(bArr, FrsPageResIdl.class);
-                    if (frsPageResIdl != null && frsPageResIdl.data != null && frsPageResIdl.data.thread_list != null) {
-                        ArrayList arrayList = new ArrayList();
-                        for (ThreadInfo threadInfo : frsPageResIdl.data.thread_list) {
-                            if (threadInfo != null && threadInfo.tid != null && str2 != null && str2.equals(threadInfo.tid.toString())) {
-                                arrayList.add(threadInfo);
-                            }
-                        }
-                        DataRes.Builder builder = new DataRes.Builder(frsPageResIdl.data);
-                        if (builder.thread_list != null) {
-                            builder.thread_list.removeAll(arrayList);
-                        }
-                        FrsPageResIdl.Builder builder2 = new FrsPageResIdl.Builder(frsPageResIdl);
-                        builder2.data = builder.build(true);
-                        a(str, builder2.build(true).toByteArray(), true);
-                    }
-                } catch (Exception e) {
-                    BdLog.detailException(e);
-                }
-            }
-        }
-    }
-
-    public boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (this.b != null && str != null) {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                ef<byte[]> efVar = this.b;
-                byte[] bArr = efVar.get(currentAccount + str);
-                if (bArr != null && bArr.length > 0) {
-                    xv8 xv8Var = new xv8();
-                    this.a = xv8Var;
-                    xv8Var.isFromCache = true;
-                    xv8Var.parserProtobuf(bArr, false);
-                    ForumData forumData = this.a.forum;
-                    if (forumData != null && forumData.getFrsBannerData() != null) {
-                        this.a.forum.getFrsBannerData().i = false;
-                    }
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final User f(List<User> list, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, list, j)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return null;
-            }
-            for (User user : list) {
-                if (user != null && user.id.longValue() == j) {
-                    return user;
-                }
-            }
-            return null;
-        }
-        return (User) invokeLJ.objValue;
-    }
-
-    public final boolean k(long j, List<ThreadInfo> list) {
-        InterceptResult invokeJL;
-        Long l;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048585, this, j, list)) == null) {
-            int count = ListUtils.getCount(list);
-            for (int i = 0; i < count; i++) {
-                ThreadInfo threadInfo = (ThreadInfo) ListUtils.getItem(list, i);
-                if (threadInfo != null && (l = threadInfo.tid) != null && l.longValue() == j) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeJL.booleanValue;
-    }
-
-    public String g(String str, int i, int i2, int i3) {
-        InterceptResult invokeLIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(1048582, this, str, i, i2, i3)) == null) {
-            String str2 = str + i + i2;
-            if (i3 != 0) {
-                return str + i + i2 + FrsRequestData.CATEGORY_ID_KEY + i3;
-            }
-            return str2;
-        }
-        return (String) invokeLIII.objValue;
-    }
-
-    public boolean l(String str) {
-        InterceptResult invokeL;
-        ef.b<byte[]> h;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            if (str != null && str.length() > 0 && (h = this.b.h(str)) != null) {
-                return UtilHelper.isSameDay(h.c, System.currentTimeMillis());
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void n(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048588, this, str, z) == null) && str != null && str.length() > 0) {
-            if (z) {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                ef<byte[]> efVar = this.b;
-                efVar.remove(currentAccount + str);
-                return;
-            }
-            String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
-            ef<byte[]> efVar2 = this.b;
-            efVar2.d(currentAccount2 + str);
         }
     }
 }

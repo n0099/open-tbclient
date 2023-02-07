@@ -1,56 +1,42 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.BundleDataSource;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.CursorDataSource;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.IntentDataSource;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.JsonDataSource;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.MapDataSource;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.ProtobufDataSource;
+import android.util.SparseArray;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ne {
+public class ne implements be {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public SparseArray<Object> a;
 
-    public static final boolean a(vc vcVar, od odVar) {
-        InterceptResult invokeLL;
-        dd a;
+    public ne(SparseArray<Object> sparseArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, vcVar, odVar)) == null) {
-            if (vcVar != null && odVar != null) {
-                for (Field field : tc.b(vcVar.getClass())) {
-                    if (field != null && !Modifier.isTransient(field.getModifiers()) && !Modifier.isStatic(field.getModifiers())) {
-                        String name = field.getName();
-                        if (!TextUtils.isEmpty(name) && (a = pe.a(tc.d(vcVar, name))) != null) {
-                            Object obj = null;
-                            if (odVar instanceof JsonDataSource) {
-                                obj = a.f(new me(field.getGenericType()));
-                            } else if (odVar instanceof BundleDataSource) {
-                                obj = a.d(new me(field.getGenericType()));
-                            } else if (odVar instanceof IntentDataSource) {
-                                obj = a.e(new me(field.getGenericType()));
-                            } else if (odVar instanceof MapDataSource) {
-                                obj = a.b(new me(field.getGenericType()));
-                            } else if (odVar instanceof CursorDataSource) {
-                                obj = a.a(new me(field.getGenericType()));
-                            } else if (odVar instanceof ProtobufDataSource) {
-                                obj = a.c(new me(field.getGenericType()));
-                            }
-                            if (obj != null) {
-                                odVar.set(name, obj);
-                            }
-                        }
-                    }
-                }
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {sparseArray};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeLL.booleanValue;
+        this.a = sparseArray;
+    }
+
+    @Override // com.baidu.tieba.be
+    public Object a(re reVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, reVar)) == null) {
+            return qe.f(this.a, reVar);
+        }
+        return invokeL.objValue;
     }
 }

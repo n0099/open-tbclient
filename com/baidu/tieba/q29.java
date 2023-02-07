@@ -1,122 +1,387 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.content.Context;
-import android.webkit.WebChromeClient;
-import android.webkit.WebView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbErrInfo;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.tieba.tbadkCore.videoupload.VideoBlockUploadResult;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 /* loaded from: classes5.dex */
-public class q29 {
+public class q29 implements p29 {
     public static /* synthetic */ Interceptable $ic;
-    public static q29 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
+    public NetWork a;
+    public boolean b;
+    public final String c;
+    public final int d;
+    public final int e;
+    public s29 f;
+    public a48 g;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(Application application);
-
-        void b(Context context);
-
-        void c(Context context, WebView webView, WebChromeClient webChromeClient);
-
-        void d(Context context, String str, boolean z);
-    }
-
-    public q29() {
+    public q29(String str, int i, int i2, a48 a48Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), a48Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = c();
+        this.b = false;
+        this.c = str;
+        this.e = i;
+        this.d = i2 / i;
+        this.g = a48Var;
     }
 
-    public static q29 b() {
-        InterceptResult invokeV;
+    public final byte[] c(RandomAccessFile randomAccessFile, int i, int i2, long j) {
+        InterceptResult invokeCommon;
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (q29.class) {
-                    if (b == null) {
-                        b = new q29();
-                    }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{randomAccessFile, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)})) == null) {
+            if (randomAccessFile != null && i >= 0) {
+                boolean z = true;
+                if (i == i2 - 1) {
+                    i3 = (int) (j - (i * this.e));
+                } else {
+                    i3 = this.e;
                 }
-            }
-            return b;
-        }
-        return (q29) invokeV.objValue;
-    }
-
-    public final a c() {
-        InterceptResult invokeV;
-        CustomResponsedMessage runTask;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (e() && (runTask = MessageManager.getInstance().runTask(2156671, a.class)) != null) {
-                return (a) runTask.getData();
+                byte[] bArr = new byte[i3];
+                boolean z2 = false;
+                try {
+                    if (randomAccessFile.read(bArr, 0, i3) == -1) {
+                        z = false;
+                    }
+                    z2 = z;
+                } catch (IOException unused) {
+                }
+                if (z2) {
+                    return bArr;
+                }
             }
             return null;
         }
-        return (a) invokeV.objValue;
+        return (byte[]) invokeCommon.objValue;
     }
 
-    public final boolean e() {
-        InterceptResult invokeV;
+    public final VideoBlockUploadResult h(byte[] bArr, int i, int i2, int i3) {
+        InterceptResult invokeLIII;
+        int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (cz4.l().m("pref_key_stat_sdk_enable", 1) != 0) {
-                return true;
+        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr, i, i2, i3)) == null) {
+            int i5 = this.d;
+            int length = bArr.length;
+            int i6 = i / i5;
+            if (i6 == i2) {
+                i4 = i3 - ((i6 - 1) * i5);
+            } else {
+                i4 = i5;
             }
-            return false;
+            k(this.a, i5, length, i4, i6, bArr);
+            NetWork netWork = this.a;
+            netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.VIDEO_UPLOAD_BLOCK);
+            return g(this.a);
         }
-        return invokeV.booleanValue;
+        return (VideoBlockUploadResult) invokeLIII.objValue;
     }
 
-    public void a(Context context) {
-        a aVar;
+    public final VideoBlockUploadResult j(byte[] bArr, int i, int i2, int i3) {
+        InterceptResult invokeLIII;
+        int i4;
+        int i5;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.a) != null) {
-            aVar.b(context);
+        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(1048586, this, bArr, i, i2, i3)) == null) {
+            int length = bArr.length;
+            int i6 = this.d;
+            if (i % i6 == 0) {
+                i4 = i / i6;
+            } else {
+                i4 = (i / i6) + 1;
+            }
+            int i7 = i4;
+            if (i7 == i2) {
+                i5 = i3 - ((i7 - 1) * this.d);
+            } else {
+                i5 = this.d;
+            }
+            k(this.a, i5, length, i5, i7, bArr);
+            NetWork netWork = this.a;
+            netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.VIDEO_UPLOAD_FILE);
+            return g(this.a);
+        }
+        return (VideoBlockUploadResult) invokeLIII.objValue;
+    }
+
+    @Override // com.baidu.tieba.p29
+    public void a(s29 s29Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, s29Var) == null) {
+            this.f = s29Var;
         }
     }
 
-    public void d(Application application) {
-        a aVar;
+    @Override // com.baidu.tieba.p29
+    public VideoFinishResult b(String str, int i) throws IOException {
+        InterceptResult invokeLI;
+        String str2;
+        int i2;
+        long j;
+        VideoBlockUploadResult i3;
+        String str3;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, application) == null) && PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.a) != null) {
-            aVar.a(application);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
+            String str4 = null;
+            if (StringUtils.isNull(str)) {
+                return null;
+            }
+            File file = new File(str);
+            if (!file.exists()) {
+                return null;
+            }
+            m29.a();
+            VideoFinishResult videoFinishResult = new VideoFinishResult();
+            String b = lj.b(FileHelper.GetStreamFromFile(file));
+            if (!StringUtils.isNull(b)) {
+                b = b.toLowerCase();
+            }
+            String str5 = b;
+            n29 c = m29.c(str5);
+            RandomAccessFile randomAccessFile = new RandomAccessFile(file, "r");
+            long length = file.length();
+            int d = d(length, this.e);
+            int d2 = d(d, this.d);
+            if (c != null) {
+                str2 = c.a;
+            } else {
+                str2 = null;
+            }
+            if (c != null) {
+                i2 = c.b;
+            } else {
+                i2 = 0;
+            }
+            if (i2 < d && randomAccessFile.skipBytes(this.e * i2) < this.e * i2) {
+                randomAccessFile.close();
+                return null;
+            }
+            String str6 = str2;
+            int i4 = i2;
+            VideoBlockUploadResult videoBlockUploadResult = null;
+            while (i4 < d) {
+                f(i4, d, 10);
+                int i5 = i4 + 1;
+                int i6 = i4;
+                VideoBlockUploadResult videoBlockUploadResult2 = videoBlockUploadResult;
+                byte[] c2 = c(randomAccessFile, i4, d, length);
+                f(i6, d, 25);
+                if (c2 != null && c2.length > 0) {
+                    f(i6, d, 40);
+                    j = length;
+                    this.a = e(str5, length, d2, str6);
+                    f(i6, d, 55);
+                    if (i5 == d) {
+                        i3 = j(c2, i5, d2, d);
+                    } else if (i5 % this.d == 0) {
+                        VideoBlockUploadResult h = h(c2, i5, d2, d);
+                        str3 = h.upload_id;
+                        videoBlockUploadResult = h;
+                        f(i6, d, 80);
+                        if (videoBlockUploadResult == null && !videoBlockUploadResult.isSuccess()) {
+                            videoFinishResult.setUserMessage(videoBlockUploadResult.getErrorMessage());
+                            videoFinishResult.setErrorNo(videoBlockUploadResult.getErrorCode());
+                            a48 a48Var = this.g;
+                            if (a48Var != null) {
+                                a48Var.f(305, videoBlockUploadResult.getErrorCode(), videoBlockUploadResult.getErrorMessage());
+                            }
+                            if (videoFinishResult.getErrorNo() == 320033) {
+                                m29.b(str5);
+                            }
+                            randomAccessFile.close();
+                            TiebaStatic.log(new StatisticItem("c12024").param("params", videoBlockUploadResult.getErrorMessage()));
+                            return videoFinishResult;
+                        }
+                        m29.d(str5, str3, i5);
+                        f(i6, d, 100);
+                        str6 = str3;
+                    } else {
+                        i3 = i(i5, c2, d2, d);
+                    }
+                    videoBlockUploadResult = i3;
+                    str3 = str6;
+                    f(i6, d, 80);
+                    if (videoBlockUploadResult == null) {
+                    }
+                    m29.d(str5, str3, i5);
+                    f(i6, d, 100);
+                    str6 = str3;
+                } else {
+                    j = length;
+                    videoBlockUploadResult = videoBlockUploadResult2;
+                }
+                i4 = i5;
+                length = j;
+                str4 = null;
+            }
+            videoFinishResult.setErrorMessage(str4);
+            videoFinishResult.setErrorNo(0);
+            if (videoBlockUploadResult != null) {
+                videoFinishResult.setVideoUrl(videoBlockUploadResult.video_url);
+            }
+            m29.b(str5);
+            videoFinishResult.setVideoMd5(str5);
+            randomAccessFile.close();
+            a48 a48Var2 = this.g;
+            if (a48Var2 != null) {
+                a48Var2.j();
+            }
+            return videoFinishResult;
+        }
+        return (VideoFinishResult) invokeLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.p29
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b = true;
+            NetWork netWork = this.a;
+            if (netWork != null) {
+                netWork.cancelNetConnect();
+            }
         }
     }
 
-    public void f(Context context, String str, boolean z) {
-        a aVar;
+    public final int d(long j, int i) {
+        InterceptResult invokeCommon;
+        long j2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(1048580, this, context, str, z) == null) && PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.a) != null) {
-            aVar.d(context, str, z);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) {
+            long j3 = i;
+            if (j % j3 == 0) {
+                j2 = j / j3;
+            } else {
+                j2 = (j / j3) + 1;
+            }
+            return (int) j2;
+        }
+        return invokeCommon.intValue;
+    }
+
+    public final NetWork e(String str, long j, int i, String str2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, Long.valueOf(j), Integer.valueOf(i), str2})) == null) {
+            NetWork netWork = new NetWork();
+            netWork.addPostData("forum_id", this.c);
+            netWork.addPostData(HttpRequest.TBS, TbadkCoreApplication.getInst().getTbs());
+            netWork.addPostData("total_length", String.valueOf(j));
+            netWork.addPostData(VideoFinishResult.KEY_VIDEO_MD5, str);
+            netWork.addPostData("block_num", String.valueOf(i));
+            netWork.addPostData("upload_id", str2);
+            return netWork;
+        }
+        return (NetWork) invokeCommon.objValue;
+    }
+
+    public final VideoBlockUploadResult i(int i, byte[] bArr, int i2, int i3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), bArr, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            int i4 = this.d;
+            int i5 = i % i4;
+            int length = bArr.length;
+            int i6 = (i / i4) + 1;
+            if (i6 == i2) {
+                i4 = i3 - ((i6 - 1) * i4);
+            }
+            k(this.a, i5, length, i4, i6, bArr);
+            NetWork netWork = this.a;
+            netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.VIDEO_UPLOAD_CHUNK);
+            return g(this.a);
+        }
+        return (VideoBlockUploadResult) invokeCommon.objValue;
+    }
+
+    public final void f(int i, int i2, int i3) {
+        s29 s29Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIII(1048582, this, i, i2, i3) == null) && (s29Var = this.f) != null) {
+            s29Var.onProgressUpdate((i + (i3 / 100.0f)) / i2);
         }
     }
 
-    public void g(Context context, WebView webView, WebChromeClient webChromeClient) {
-        a aVar;
+    public final VideoBlockUploadResult g(NetWork netWork) {
+        InterceptResult invokeL;
+        int netErrorCode;
+        String errMsg;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048581, this, context, webView, webChromeClient) == null) && PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.a) != null) {
-            aVar.c(context, webView, webChromeClient);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, netWork)) == null) {
+            VideoBlockUploadResult videoBlockUploadResult = new VideoBlockUploadResult();
+            if (this.b) {
+                netErrorCode = netWork.getServerErrorCode();
+                errMsg = netWork.getErrorString();
+            } else {
+                String postMultiNetData = netWork.postMultiNetData();
+                if (netWork.getNetContext().getResponse().isRequestSuccess()) {
+                    OrmObject objectWithJsonStr = OrmObject.objectWithJsonStr(postMultiNetData, VideoBlockUploadResult.class);
+                    if (objectWithJsonStr instanceof VideoBlockUploadResult) {
+                        VideoBlockUploadResult videoBlockUploadResult2 = (VideoBlockUploadResult) objectWithJsonStr;
+                        if (videoBlockUploadResult2.isSuccess()) {
+                            netErrorCode = videoBlockUploadResult2.getErrorCode();
+                            String errorMessage = videoBlockUploadResult2.getErrorMessage();
+                            videoBlockUploadResult.upload_id = videoBlockUploadResult2.upload_id;
+                            videoBlockUploadResult.video_url = videoBlockUploadResult2.video_url;
+                            errMsg = errorMessage;
+                        }
+                    }
+                    errMsg = null;
+                    netErrorCode = 0;
+                } else if (netWork.getNetErrorCode() == 200) {
+                    netErrorCode = netWork.getServerErrorCode();
+                    errMsg = netWork.getErrorString();
+                } else {
+                    netErrorCode = netWork.getNetErrorCode();
+                    errMsg = TbErrInfo.getErrMsg(-7);
+                }
+            }
+            videoBlockUploadResult.setErrorNo(netErrorCode);
+            videoBlockUploadResult.setErrorMessage(errMsg);
+            return videoBlockUploadResult;
         }
+        return (VideoBlockUploadResult) invokeL.objValue;
+    }
+
+    public final void k(NetWork netWork, int i, long j, int i2, int i3, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048587, this, new Object[]{netWork, Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), bArr}) != null) || netWork == null) {
+            return;
+        }
+        netWork.addPostData("chunk_no", String.valueOf(i));
+        netWork.addPostData("chunk_length", String.valueOf(j));
+        netWork.addPostData("chunk_num", String.valueOf(i2));
+        netWork.addPostData("block_no", String.valueOf(i3));
+        netWork.addPostData("video_chunk", bArr);
     }
 }

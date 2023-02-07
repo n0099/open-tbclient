@@ -1,54 +1,85 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.TopicList.TopicList;
+import tbclient.TopicList.TopicListModule;
 /* loaded from: classes4.dex */
-public class fi7 {
+public class fi7 implements Cdo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947765173, "Lcom/baidu/tieba/fi7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947765173, "Lcom/baidu/tieba/fi7;");
+                return;
+            }
+        }
+        a = BdUniqueId.gen();
+    }
 
     public fi7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public String a(String str) {
-        InterceptResult invokeL;
-        m25 a;
+    @Override // com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (str != null) {
-                try {
-                    o15 o15Var = new o15(TbConfig.UPLOAD_CHUNK_AUDIO_ADDRESS, TbConfig.FINISH_UPLOAD_CHUNK_AUDIO_ADDRESS);
-                    String storeFile = FileHelper.getStoreFile(str, 1);
-                    o15Var.a("type", 2);
-                    n25 d = o15Var.d(storeFile);
-                    if (d != null && d.d() && (a = d.a()) != null) {
-                        String b = a.b();
-                        l15.b(str, b);
-                        return b;
-                    }
-                    return null;
-                } catch (Exception unused) {
-                    return null;
-                }
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return a;
         }
-        return (String) invokeL.objValue;
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void a(TopicList topicList) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, topicList) == null) && topicList != null) {
+            topicList.topic_id.longValue();
+            String str = topicList.topic_name;
+            topicList.tag.intValue();
+            topicList.discuss_num.longValue();
+            String str2 = topicList.topic_desc;
+            String str3 = topicList.topic_pic;
+        }
+    }
+
+    public void b(TopicListModule topicListModule) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, topicListModule) == null) {
+            try {
+                String str = topicListModule.module_title;
+                String str2 = topicListModule.tips;
+                String str3 = topicListModule.rule_jump_url;
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+            }
+        }
     }
 }

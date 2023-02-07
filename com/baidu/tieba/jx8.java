@@ -1,19 +1,18 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class jx8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public String a;
     public String b;
-    public Bitmap c;
-    public String d;
-    public String e;
 
     public jx8() {
         Interceptable interceptable = $ic;
@@ -25,9 +24,20 @@ public class jx8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 0;
+    }
+
+    public void a(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        try {
+            this.a = jSONObject.optString(SpeedStatsUtils.UBC_VALUE_BANNER);
+            this.b = jSONObject.optString("link");
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
     }
 }

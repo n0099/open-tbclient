@@ -1,69 +1,26 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class r42 {
+public final class r42 extends k42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String t;
+    public boolean u;
+    public boolean v;
+    public String w;
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(NetworkStatus networkStatus);
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements SwanAppNetworkUtils.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
-
-        public a(r42 r42Var, b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r42Var, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bVar;
-        }
-
-        @Override // com.baidu.swan.apps.network.SwanAppNetworkUtils.b
-        public void onResult(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
-                            this.a.a(NetworkStatus.NETWORK_UNKNOWN);
-                            return;
-                        } else {
-                            this.a.a(NetworkStatus.NETWORK_OFFLINE);
-                            return;
-                        }
-                    }
-                    this.a.a(NetworkStatus.NETWORK_BAD);
-                    return;
-                }
-                this.a.a(NetworkStatus.NETWORK_GOOD);
-            }
-        }
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public r42() {
+        super("animateview", "sanId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -71,17 +28,53 @@ public class r42 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], (String) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.u = false;
+        this.v = true;
+        this.w = null;
     }
 
-    public void a(@NonNull b bVar) {
+    @Override // com.baidu.tieba.k42, com.baidu.tieba.m42, com.baidu.tieba.vy2
+    public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, bVar) != null) || bVar == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        SwanAppNetworkUtils.b(new a(this, bVar));
+        super.a(jSONObject);
+        this.t = jSONObject.optString("path");
+        this.u = jSONObject.optBoolean("loop");
+        this.v = jSONObject.optBoolean("autoPlay");
+        this.w = jSONObject.optString("action");
+    }
+
+    @Override // com.baidu.tieba.m42, com.baidu.tieba.vy2
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.b)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (isValid() && !TextUtils.isEmpty(this.t)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

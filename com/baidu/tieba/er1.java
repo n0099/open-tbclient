@@ -1,104 +1,44 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class er1 {
+public class er1 implements jt1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public int d;
-    public int e;
-    public int f;
-    public boolean g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947743845, "Lcom/baidu/tieba/er1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947743845, "Lcom/baidu/tieba/er1;");
-                return;
-            }
+    @Override // com.baidu.tieba.jt1
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
-        boolean z = tk1.a;
     }
 
-    public er1(String str, String str2, String str3, int i, int i2, int i3, boolean z) {
+    @Override // com.baidu.tieba.jt1
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public er1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
-        this.d = i;
-        this.e = i2;
-        this.f = i3;
-        this.g = z;
-    }
-
-    public dt2 a() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("showMuteBtn", true);
-                jSONObject.put("showCenterPlayBtn", true);
-                dt2 dt2Var = new dt2();
-                dt2Var.j = "SwanAdPlayer";
-                dt2Var.b = "SwanAdPlayer";
-                dt2Var.o = true;
-                dt2Var.k = false;
-                if (!this.g) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                dt2Var.x = z;
-                dt2Var.I = false;
-                dt2Var.l = this.a;
-                dt2Var.y = this.b;
-                dt2Var.c = this.c;
-                pu2 pu2Var = new pu2(0, 0, this.d, this.e);
-                dt2Var.h = pu2Var;
-                pu2Var.i(true);
-                dt2Var.m = this.f;
-                if (this.g) {
-                    dt2Var.q = AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY;
-                }
-                return dt2.h(jSONObject, dt2Var);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (dt2) invokeV.objValue;
     }
 }

@@ -1,156 +1,72 @@
 package com.baidu.tieba;
 
-import android.widget.RelativeLayout;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.FollowUserDecorView;
-import com.baidu.tbadk.TbPageContext;
+import android.content.res.Resources;
+import android.graphics.Rect;
+import android.view.View;
+import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.card.AutoVideoCardViewHolder;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.view.FollowUserButton;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.sina.weibo.sdk.utils.ResourceManager;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class lx extends ex implements ux<ThreadData>, vx {
+public class lx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FollowUserDecorView e;
-    public boolean f;
-    public int g;
-    public int h;
 
-    public lx(TbPageContext tbPageContext) {
+    public static Rect a(jo joVar, View view2, int i) {
+        InterceptResult invokeLLI;
+        BdTypeRecyclerView bdTypeRecyclerView;
+        RecyclerView.LayoutManager layoutManager;
+        int i2;
+        View findViewByPosition;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, joVar, view2, i)) == null) {
+            if (view2.getTag() instanceof AutoVideoCardViewHolder) {
+                return ThreadCardUtils.computeViewArea(((AutoVideoCardViewHolder) view2.getTag()).t().getVideoContainer());
             }
+            if (!(joVar instanceof BdTypeRecyclerView) || (layoutManager = (bdTypeRecyclerView = (BdTypeRecyclerView) joVar).getLayoutManager()) == null) {
+                return null;
+            }
+            int firstVisiblePosition = bdTypeRecyclerView.getFirstVisiblePosition();
+            int lastVisiblePosition = bdTypeRecyclerView.getLastVisiblePosition();
+            List<Cdo> data = joVar.getData();
+            Object item = ListUtils.getItem(data, i);
+            if (!(item instanceof BaseCardInfo)) {
+                return null;
+            }
+            BaseCardInfo baseCardInfo = (BaseCardInfo) item;
+            int headerViewsCount = bdTypeRecyclerView.getHeaderViewsCount();
+            if (firstVisiblePosition > headerViewsCount) {
+                i2 = firstVisiblePosition - headerViewsCount;
+            } else {
+                i2 = headerViewsCount;
+            }
+            while (i2 <= lastVisiblePosition) {
+                Object item2 = ListUtils.getItem(data, i2 - headerViewsCount);
+                if ((item2 instanceof BaseCardInfo) && baseCardInfo.position == ((BaseCardInfo) item2).position && (findViewByPosition = layoutManager.findViewByPosition(i2)) != null && (findViewByPosition.getTag() instanceof AutoVideoCardViewHolder)) {
+                    return ThreadCardUtils.computeViewArea(((AutoVideoCardViewHolder) findViewByPosition.getTag()).t().getVideoContainer());
+                }
+                i2++;
+            }
+            return null;
         }
-        this.f = true;
-        this.g = zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds166);
-        this.h = zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds78);
-        this.e = new FollowUserDecorView(tbPageContext.getPageActivity());
-        h(-1);
-        m();
+        return (Rect) invokeLLI.objValue;
     }
 
-    public final int l(int i) {
+    public static int b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            return zi.g(TbadkCoreApplication.getInst(), i);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            Resources resources = TbadkCoreApplication.getInst().getResources();
+            return resources.getIdentifier("icon_mask_level_usergrouth_" + i, ResourceManager.DRAWABLE, TbadkCoreApplication.getInst().getPackageName());
         }
         return invokeI.intValue;
-    }
-
-    public void o(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.e.setClickableUnLike(z);
-        }
-    }
-
-    public void p(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.e.setIsShowIcon(z);
-        }
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            if (d() != null) {
-                d().rightMargin = i;
-            }
-            this.e.setLayoutParams(d());
-        }
-    }
-
-    public void r(FollowUserButton.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
-            this.e.setOnClickEvent(aVar);
-        }
-    }
-
-    public void s(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, bdUniqueId) == null) {
-            this.e.setPageUniqueId(bdUniqueId);
-        }
-    }
-
-    public void t(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.e.setSvgIconResId(i);
-        }
-    }
-
-    public void k(fs4 fs4Var, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fs4Var, z) == null) {
-            this.f = z;
-            t(0);
-            o(true);
-        }
-    }
-
-    @Override // com.baidu.tieba.vx
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, tbPageContext, i) == null) {
-            this.e.onChangeSkinType(i);
-        }
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.g = zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds177);
-            this.h = zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds76);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.g, this.h);
-            layoutParams.addRule(11);
-            layoutParams.addRule(10);
-            layoutParams.topMargin = l(R.dimen.tbds52);
-            i(layoutParams);
-            g(this.e);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ux
-    /* renamed from: n */
-    public void a(ThreadData threadData) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, threadData) == null) {
-            if (threadData != null && threadData.getAuthor() != null) {
-                if (this.f) {
-                    i = R.dimen.tbds120;
-                } else {
-                    i = R.dimen.tbds44;
-                }
-                q(l(i));
-                this.e.setVisibility(0);
-                this.e.setData(threadData);
-                this.e.setTag(threadData);
-                return;
-            }
-            this.e.setVisibility(8);
-        }
     }
 }

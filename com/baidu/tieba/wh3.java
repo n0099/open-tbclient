@@ -1,172 +1,179 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Base64;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.nio.channels.Channels;
-import java.nio.channels.ReadableByteChannel;
-import java.security.GeneralSecurityException;
-import java.security.KeyFactory;
-import java.security.NoSuchAlgorithmException;
-import java.security.PublicKey;
-import java.security.spec.InvalidKeySpecException;
-import java.security.spec.X509EncodedKeySpec;
-import javax.crypto.Cipher;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes6.dex */
-public class wh3 {
+public final class wh3 extends xh3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948270535, "Lcom/baidu/tieba/wh3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ArrayList a;
+        public final /* synthetic */ wh3 b;
+
+        public a(wh3 wh3Var, ArrayList arrayList) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wh3Var, arrayList};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948270535, "Lcom/baidu/tieba/wh3;");
+            this.b = wh3Var;
+            this.a = arrayList;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.m(this.a);
+                this.b.j();
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wh3(sh3 sh3Var) {
+        super(sh3Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {sh3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((sh3) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = tk1.a;
     }
 
-    public static boolean a(File file, String str) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.xh3
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, file, str)) == null) {
-            return b(file, str, null);
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.b.a()) {
+            return;
         }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean c(ReadableByteChannel readableByteChannel, String str) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, readableByteChannel, str)) == null) {
-            return d(readableByteChannel, str, null);
+        long j = 0;
+        if (xh3.f) {
+            j = System.currentTimeMillis();
         }
-        return invokeLL.booleanValue;
-    }
-
-    public static byte[] e(byte[] bArr, PublicKey publicKey) throws GeneralSecurityException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, bArr, publicKey)) == null) {
-            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-            cipher.init(2, publicKey);
-            return cipher.doFinal(bArr);
+        this.a.g(new a(this, this.b.n()));
+        if (xh3.f) {
+            Log.d("SwanCookieSyncPolicy", "saveCacheToDatabase costTime:" + (System.currentTimeMillis() - j));
         }
-        return (byte[]) invokeLL.objValue;
     }
 
-    public static boolean b(File file, String str, qi3 qi3Var) {
-        InterceptResult invokeLLL;
-        boolean z;
-        Object valueOf;
+    public final void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, file, str, qi3Var)) == null) {
-            if (file == null) {
-                z = true;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.g) {
+            return;
+        }
+        long j = 0;
+        if (xh3.f) {
+            j = System.currentTimeMillis();
+        }
+        this.a.b();
+        this.g = true;
+        if (xh3.f) {
+            Log.d("SwanCookieSyncPolicy", "clearExpiredCookies costTime:" + (System.currentTimeMillis() - j));
+        }
+    }
+
+    public void l() {
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (xh3.f) {
+                j = System.currentTimeMillis();
             } else {
-                z = false;
+                j = 0;
             }
-            if (!z && file.exists() && !TextUtils.isEmpty(str)) {
-                ReadableByteChannel readableByteChannel = null;
-                try {
-                    readableByteChannel = Channels.newChannel(new FileInputStream(file));
-                    return d(readableByteChannel, str, qi3Var);
-                } catch (IOException e) {
-                    if (a) {
-                        e.printStackTrace();
-                    }
-                    return false;
-                } finally {
-                    nk4.d(readableByteChannel);
-                }
+            this.a.h();
+            if (xh3.f) {
+                Log.d("SwanCookieSyncPolicy", "preInitDatabase costTime:" + (System.currentTimeMillis() - j));
             }
-            if (qi3Var != null) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("zipfile: isEmpty=");
-                sb.append(z);
-                sb.append("; exists=");
-                if (z) {
-                    valueOf = "";
-                } else {
-                    valueOf = Boolean.valueOf(file.exists());
-                }
-                sb.append(valueOf);
-                qi3Var.a = sb.toString();
-            }
-            return false;
         }
-        return invokeLLL.booleanValue;
     }
 
-    public static boolean d(ReadableByteChannel readableByteChannel, String str, qi3 qi3Var) throws IOException {
-        InterceptResult invokeLLL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, readableByteChannel, str, qi3Var)) == null) {
-            if (readableByteChannel == null) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (!z && !TextUtils.isEmpty(str)) {
-                String c = pk4.c(false, readableByteChannel);
-                if (qi3Var != null) {
-                    qi3Var.a = c;
-                }
-                try {
-                    String str2 = new String(e(Base64.decode(str.getBytes(IMAudioTransRequest.CHARSET), 8), f("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDZuy3GEbahJc292fsyvrGneTJKQnzpdhNsJfDS5csb0MtmW+4JEvBH5wCZK5j4+nrRfKBF7JuTHe0nSWOZWNxgLU87pwCxozXSNrsiiOjsV+3KwYfdz5QlvvyCfvmllGObPqL7dWR92V2UYEWMSneBHtwDhCBCzmhAoOxZVsAq2wIDAQAB")), IMAudioTransRequest.CHARSET);
-                    if (qi3Var != null) {
-                        qi3Var.b = str2;
-                    }
-                    return TextUtils.equals(str2, c);
-                } catch (Exception e) {
-                    if (a) {
-                        Log.i("SwanAppSignChecker", e.toString());
-                        e.printStackTrace();
-                    }
-                    if (qi3Var != null) {
-                        qi3Var.b = e.getLocalizedMessage();
-                    }
-                    return false;
-                }
-            }
-            if (qi3Var != null) {
-                qi3Var.a = "zipSource isNullIs=" + z;
-            }
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public static PublicKey f(String str) {
+    public ArrayList<rh3> k(String str) {
         InterceptResult invokeL;
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (xh3.f) {
+                j = System.currentTimeMillis();
+            } else {
+                j = 0;
+            }
+            ArrayList<rh3> arrayList = new ArrayList<>();
             try {
-                return KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes(IMAudioTransRequest.CHARSET), 0)));
-            } catch (UnsupportedEncodingException | NullPointerException | NoSuchAlgorithmException | InvalidKeySpecException unused) {
-                return null;
+                arrayList = this.a.e(str);
+            } catch (Exception e) {
+                w52.k("SwanCookieSyncPolicy", Log.getStackTraceString(e));
+            }
+            if (xh3.f) {
+                Log.d("SwanCookieSyncPolicy", "getCookiesForDomain costTime:" + (System.currentTimeMillis() - j));
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public final void m(ArrayList<rh3> arrayList) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) && arrayList != null && !arrayList.isEmpty()) {
+            if (xh3.f) {
+                Log.d("SwanCookieSyncPolicy", "syncFromRamToFlash start");
+            }
+            Iterator<rh3> it = arrayList.iterator();
+            while (it.hasNext()) {
+                rh3 next = it.next();
+                if (next != null) {
+                    if (xh3.f) {
+                        Log.d("SwanCookieSyncPolicy", "syncFromRamToFlash result cookie:" + next.toString());
+                    }
+                    int i = next.i;
+                    if (i != 0) {
+                        if (i != 2) {
+                            if (i == 3) {
+                                this.a.d(next.a, next.b, next.c);
+                                this.a.a(next);
+                                this.b.y(next);
+                            }
+                        } else {
+                            this.a.d(next.a, next.b, next.c);
+                            this.b.g(next);
+                        }
+                    } else {
+                        this.a.a(next);
+                        this.b.y(next);
+                    }
+                }
             }
         }
-        return (PublicKey) invokeL.objValue;
     }
 }

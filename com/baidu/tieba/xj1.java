@@ -1,122 +1,219 @@
 package com.baidu.tieba;
 
+import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.MessageDigest;
-/* loaded from: classes6.dex */
+import java.net.URLDecoder;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.regex.Pattern;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
 public final class xj1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948302186, "Lcom/baidu/tieba/xj1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948302186, "Lcom/baidu/tieba/xj1;");
-                return;
-            }
-        }
-        a = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:4:0x0004 */
-    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: byte */
-    /* JADX DEBUG: Multi-variable search result rejected for r4v1, resolved type: int */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r4v5, types: [int] */
-    public static String a(byte b) {
-        InterceptResult invokeB;
+    public static String a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeB = interceptable.invokeB(65537, null, b)) == null) {
-            if (b < 0) {
-                b += 256;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            if (i != 0) {
+                if (i != 101) {
+                    if (i != 201) {
+                        if (i != 202) {
+                            if (i != 301) {
+                                if (i != 302) {
+                                    switch (i) {
+                                        case 401:
+                                            return qj1.a().getString(R.string.prologue_united_scheme_err_message_action_sec_check_fail);
+                                        case 402:
+                                            return qj1.a().getString(R.string.prologue_united_scheme_err_message_action_acl_check_fail);
+                                        case 403:
+                                            return qj1.a().getString(R.string.prologue_united_scheme_err_message_action_allow_close);
+                                        default:
+                                            return qj1.a().getString(R.string.prologue_united_scheme_err_message_parse_fail);
+                                    }
+                                }
+                                return qj1.a().getString(R.string.prologue_united_scheme_err_message_action_notfound);
+                            }
+                            return qj1.a().getString(R.string.prologue_united_scheme_err_message_module_notfound);
+                        }
+                        return qj1.a().getString(R.string.prologue_united_scheme_err_message_params_parse_fail);
+                    }
+                    return qj1.a().getString(R.string.prologue_united_scheme_err_message_parse_fail);
+                }
+                return qj1.a().getString(R.string.prologue_united_scheme_err_message_not_support);
             }
-            return a[b / 16] + a[b % 16];
+            return qj1.a().getString(R.string.prologue_united_scheme_err_message_ok);
         }
-        return (String) invokeB.objValue;
+        return (String) invokeI.objValue;
     }
 
-    public static String b(String str) {
+    public static HashMap<String, String> b(String str) {
+        InterceptResult invokeL;
+        String substring;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            HashMap<String, String> hashMap = new HashMap<>();
+            if (TextUtils.isEmpty(str)) {
+                return hashMap;
+            }
+            int indexOf = str.indexOf("?");
+            int indexOf2 = str.indexOf("#");
+            if (indexOf < 0) {
+                return hashMap;
+            }
+            if (indexOf2 < 0) {
+                substring = str.substring(indexOf + 1);
+            } else {
+                substring = str.substring(indexOf + 1, indexOf2);
+            }
+            String[] split = substring.split("&");
+            if (split == null) {
+                return hashMap;
+            }
+            for (String str2 : split) {
+                int indexOf3 = str2.indexOf("=");
+                if (indexOf3 > 0) {
+                    try {
+                        hashMap.put(URLDecoder.decode(str2.substring(0, indexOf3)), URLDecoder.decode(str2.substring(indexOf3 + 1)));
+                    } catch (IllegalArgumentException unused) {
+                    }
+                }
+            }
+            return hashMap;
+        }
+        return (HashMap) invokeL.objValue;
+    }
+
+    public static String[] c(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            String str2 = "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, uri)) == null) {
+            if (uri == null) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList(uri.getPathSegments());
+            if (!d(uri)) {
+                arrayList.add(0, uri.getHost());
+            }
+            if (arrayList.size() <= 0) {
+                return null;
+            }
+            return (String[]) arrayList.toArray(new String[0]);
+        }
+        return (String[]) invokeL.objValue;
+    }
+
+    public static boolean d(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, uri)) == null) {
+            if (uri == null) {
+                return false;
+            }
+            String host = uri.getHost();
+            if (TextUtils.isEmpty(host) || !host.startsWith("v") || !e(host)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (Pattern.compile("[0-9]").matcher(str).find()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean f(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, uri)) == null) {
+            if (uri == null) {
+                return false;
+            }
+            String scheme = uri.getScheme();
+            String host = uri.getHost();
+            if (!TextUtils.equals(tj1.a, scheme) || TextUtils.isEmpty(host)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return f(Uri.parse(str));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static JSONObject h(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) {
+            return j(null, i);
+        }
+        return (JSONObject) invokeI.objValue;
+    }
+
+    public static JSONObject i(int i, String str) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65544, null, i, str)) == null) {
+            JSONObject jSONObject = new JSONObject();
             try {
-                if (TextUtils.isEmpty(str)) {
-                    return "";
-                }
-                String str3 = new String(str);
+                jSONObject.put("status", String.valueOf(i));
+                jSONObject.put("message", str);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeIL.objValue;
+    }
+
+    public static JSONObject j(JSONObject jSONObject, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, jSONObject, i)) == null) {
+            return k(jSONObject, i, a(i));
+        }
+        return (JSONObject) invokeLI.objValue;
+    }
+
+    public static JSONObject k(JSONObject jSONObject, int i, String str) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65546, null, jSONObject, i, str)) == null) {
+            JSONObject i2 = i(i, str);
+            if (jSONObject != null) {
                 try {
-                    return c(MessageDigest.getInstance("MD5").digest(str3.getBytes()));
-                } catch (Throwable th) {
-                    th = th;
-                    str2 = str3;
-                    tj1.d(th);
-                    return str2;
+                    i2.put("data", jSONObject);
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
-            } catch (Throwable th2) {
-                th = th2;
             }
-        } else {
-            return (String) invokeL.objValue;
+            return i2;
         }
-    }
-
-    public static String c(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            StringBuffer stringBuffer = new StringBuffer();
-            for (byte b : bArr) {
-                stringBuffer.append(a(b));
-            }
-            return stringBuffer.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String d(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
-            if (bArr == null || bArr.length <= 0) {
-                return "";
-            }
-            try {
-                return c(MessageDigest.getInstance("MD5").digest(bArr));
-            } catch (Throwable th) {
-                tj1.d(th);
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static byte[] e(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
-            if (bArr == null || bArr.length <= 0) {
-                return null;
-            }
-            try {
-                return MessageDigest.getInstance("MD5").digest(bArr);
-            } catch (Throwable th) {
-                tj1.d(th);
-                return null;
-            }
-        }
-        return (byte[]) invokeL.objValue;
+        return (JSONObject) invokeLIL.objValue;
     }
 }

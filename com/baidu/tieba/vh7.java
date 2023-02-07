@@ -1,120 +1,123 @@
 package com.baidu.tieba;
 
-import androidx.collection.LongSparseArray;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
+import android.annotation.TargetApi;
+import android.view.ActionMode;
+import android.view.Menu;
+import android.view.MenuItem;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.data.GroupMsgData;
-import com.baidu.tieba.im.message.MessageSyncMessage;
-import com.baidu.tieba.im.message.ResponsePullMessage;
-import com.baidu.tieba.im.message.ResponseUnLoginMessage;
+import com.baidu.tieba.horizonalList.widget.AbsHListView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class vh7 extends pb {
+public class vh7 implements uh7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public uh7 a;
+    public AbsHListView b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vh7() {
-        super(202003);
+    public vh7(AbsHListView absHListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {absHListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = absHListView;
     }
 
-    public final void c(GroupMsgData groupMsgData) {
+    public void c(uh7 uh7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, groupMsgData) == null) && groupMsgData != null && groupMsgData.getGroupInfo() != null) {
-            MessageManager.getInstance().dispatchResponsedMessage(groupMsgData);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uh7Var) == null) {
+            this.a = uh7Var;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.mb
-    /* renamed from: d */
-    public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
-        InterceptResult invokeL;
+    @Override // android.view.ActionMode.Callback
+    @TargetApi(11)
+    public void onDestroyActionMode(ActionMode actionMode) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, socketResponsedMessage)) == null) {
-            MessageSyncMessage messageSyncMessage = null;
-            if (!(socketResponsedMessage instanceof ResponsePullMessage)) {
-                return null;
-            }
-            if (socketResponsedMessage.getOrginalMessage() != null && (socketResponsedMessage.getOrginalMessage() instanceof MessageSyncMessage)) {
-                messageSyncMessage = (MessageSyncMessage) socketResponsedMessage.getOrginalMessage();
-            }
-            if (messageSyncMessage != null) {
-                ry4.a("im", messageSyncMessage.getClientLogID(), messageSyncMessage.getCmd(), "ack", socketResponsedMessage.getError(), socketResponsedMessage.getErrorString(), new Object[0]);
-            }
-            if (socketResponsedMessage.getError() == 110000) {
-                MessageManager.getInstance().dispatchResponsedMessage(new ResponseUnLoginMessage());
-            }
-            ResponsePullMessage responsePullMessage = (ResponsePullMessage) socketResponsedMessage;
-            List<GroupMsgData> groupMsg = responsePullMessage.getGroupMsg();
-            if (groupMsg != null && groupMsg.size() > 0) {
-                for (GroupMsgData groupMsgData : groupMsg) {
-                    if (groupMsgData != null && groupMsgData.getGroupInfo() != null) {
-                        c(groupMsgData);
-                    }
-                }
-            }
-            if (!e(responsePullMessage)) {
-                th7.n().p();
-            }
-            return socketResponsedMessage;
+        if (interceptable == null || interceptable.invokeL(1048581, this, actionMode) == null) {
+            this.a.onDestroyActionMode(actionMode);
+            AbsHListView absHListView = this.b;
+            absHListView.mChoiceActionMode = null;
+            absHListView.clearChoices();
+            AbsHListView absHListView2 = this.b;
+            absHListView2.mDataChanged = true;
+            absHListView2.rememberSyncState();
+            this.b.requestLayout();
+            this.b.setLongClickable(true);
         }
-        return (SocketResponsedMessage) invokeL.objValue;
     }
 
-    public final boolean e(ResponsePullMessage responsePullMessage) {
-        InterceptResult invokeL;
-        Long l;
-        Long l2;
+    @Override // com.baidu.tieba.uh7
+    @TargetApi(11)
+    public void a(ActionMode actionMode, int i, long j, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, responsePullMessage)) == null) {
-            if (responsePullMessage != null && responsePullMessage.getGroupMsg() != null && responsePullMessage.getGroupMsg().size() != 0 && !responsePullMessage.hasError()) {
-                List<GroupMsgData> groupMsg = responsePullMessage.getGroupMsg();
-                if (!(responsePullMessage.getOrginalMessage() instanceof MessageSyncMessage)) {
-                    return false;
-                }
-                MessageSyncMessage messageSyncMessage = (MessageSyncMessage) responsePullMessage.getOrginalMessage();
-                if (messageSyncMessage.getGroupMids() != null && messageSyncMessage.getGroupMids().size() != 0) {
-                    LongSparseArray<Long> longSparseArray = new LongSparseArray<>();
-                    LongSparseArray<Long> q = mh7.n().q();
-                    boolean z = false;
-                    for (GroupMsgData groupMsgData : groupMsg) {
-                        if (groupMsgData != null && groupMsgData.getGroupInfo() != null && nh7.a(groupMsgData.getGroupInfo().getCustomType()) && (l = q.get(groupMsgData.getGroupInfo().getGroupId())) != null && (l2 = messageSyncMessage.getGroupMids().get(groupMsgData.getGroupInfo().getGroupId())) != null) {
-                            if (l.longValue() > l2.longValue()) {
-                                z = true;
-                            }
-                            if (groupMsgData.hasMore()) {
-                                longSparseArray.put(groupMsgData.getGroupInfo().getGroupId(), l);
-                            }
-                        }
-                    }
-                    if (z && longSparseArray.size() > 0) {
-                        th7.n().t(longSparseArray);
-                        return true;
-                    }
-                }
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{actionMode, Integer.valueOf(i), Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+            this.a.a(actionMode, i, j, z);
+            if (this.b.getCheckedItemCount() == 0) {
+                actionMode.finish();
+            }
+        }
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.a != null) {
+                return true;
             }
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.view.ActionMode.Callback
+    @TargetApi(11)
+    public boolean onActionItemClicked(ActionMode actionMode, MenuItem menuItem) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, actionMode, menuItem)) == null) {
+            return this.a.onActionItemClicked(actionMode, menuItem);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // android.view.ActionMode.Callback
+    @TargetApi(11)
+    public boolean onCreateActionMode(ActionMode actionMode, Menu menu) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, actionMode, menu)) == null) {
+            if (!this.a.onCreateActionMode(actionMode, menu)) {
+                return false;
+            }
+            this.b.setLongClickable(false);
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // android.view.ActionMode.Callback
+    @TargetApi(11)
+    public boolean onPrepareActionMode(ActionMode actionMode, Menu menu) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, actionMode, menu)) == null) {
+            return this.a.onPrepareActionMode(actionMode, menu);
+        }
+        return invokeLL.booleanValue;
     }
 }

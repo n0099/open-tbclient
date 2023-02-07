@@ -17,7 +17,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nv8;
+import com.baidu.tieba.lz8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -187,7 +187,7 @@ public class OvalImageView extends ImageView {
     public void setStringColor(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.k = nv8.f(str);
+            this.k = lz8.f(str);
         }
     }
 
@@ -216,11 +216,11 @@ public class OvalImageView extends ImageView {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             this.o = skinType;
             if (skinType == 0) {
-                this.i = nv8.f("#2bb8ff");
-                this.j = nv8.f("#2b80ff");
+                this.i = lz8.f("#2bb8ff");
+                this.j = lz8.f("#2b80ff");
             } else if (skinType == 1 || skinType == 4) {
-                this.i = nv8.f("#249BD6");
-                this.j = nv8.f("#246CD6");
+                this.i = lz8.f("#249BD6");
+                this.j = lz8.f("#246CD6");
             }
         }
     }
@@ -319,7 +319,7 @@ public class OvalImageView extends ImageView {
                     } else {
                         i = this.j;
                     }
-                    paint.setShadowLayer(width3, cos, sin, nv8.a(i, 0.83f));
+                    paint.setShadowLayer(width3, cos, sin, lz8.a(i, 0.83f));
                 }
                 LinearGradient linearGradient = this.h;
                 if (linearGradient != null) {
@@ -401,8 +401,8 @@ public class OvalImageView extends ImageView {
     public void setStartAndEndColor(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) {
-            this.i = nv8.f(str);
-            this.j = nv8.f(str2);
+            this.i = lz8.f(str);
+            this.j = lz8.f(str2);
             this.a = true;
             invalidate();
         }

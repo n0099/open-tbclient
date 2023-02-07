@@ -67,20 +67,20 @@ public class MsgPhotoLiveItemAdapter extends MsgCommonItemAdapter<MsgPhotoLiveCa
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
+    @Override // com.baidu.tieba.qn
     /* renamed from: E */
     public MsgCommonItemAdapter.MsgViewHolder<MsgPhotoLiveCardVew> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             MsgPhotoLiveCardVew msgPhotoLiveCardVew = new MsgPhotoLiveCardVew(this.a);
-            return new a(this, msgPhotoLiveCardVew.k(), msgPhotoLiveCardVew);
+            return new a(this, msgPhotoLiveCardVew.l(), msgPhotoLiveCardVew);
         }
         return (MsgCommonItemAdapter.MsgViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.tieba.ln
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.tieba.qn
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
         v(i, view2, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view2;
@@ -93,9 +93,9 @@ public class MsgPhotoLiveItemAdapter extends MsgCommonItemAdapter<MsgPhotoLiveCa
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
             super.onFillViewHolder(i, view2, viewGroup, chatMessage, msgViewHolder);
             MsgPhotoLiveCardVew a2 = msgViewHolder.a();
-            a2.h0(this.a, chatMessage, viewGroup);
-            a2.E(this.b);
-            a2.G(i);
+            a2.i0(this.a, chatMessage, viewGroup);
+            a2.F(this.b);
+            a2.H(i);
             this.a.getLayoutMode().l(false);
             this.a.getLayoutMode().k(view2);
             return view2;

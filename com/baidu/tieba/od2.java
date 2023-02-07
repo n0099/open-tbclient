@@ -1,48 +1,38 @@
 package com.baidu.tieba;
 
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 /* loaded from: classes5.dex */
-public class od2 {
+public final class od2 implements fd2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<Integer, Integer> a;
+    public a b;
+    public OutputStream c;
+    public File d;
+    public boolean e;
 
     /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final od2 a;
-        public transient /* synthetic */ FieldHolder $fh;
+    public interface a {
+        void a(File file);
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-550533041, "Lcom/baidu/tieba/od2$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-550533041, "Lcom/baidu/tieba/od2$a;");
-                    return;
-                }
-            }
-            a = new od2();
-        }
+        void b(File file);
     }
 
-    public od2() {
+    public od2(File file, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {file, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -52,40 +42,69 @@ public class od2 {
                 return;
             }
         }
-        this.a = new ConcurrentHashMap();
+        this.d = file;
+        this.b = aVar;
+        b(file);
     }
 
-    public static od2 b() {
-        InterceptResult invokeV;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a.a;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.c == null) {
+            return;
         }
-        return (od2) invokeV.objValue;
-    }
-
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.a.put(Integer.valueOf(i), Integer.valueOf(c(i) + 1));
-            j12.k("SwanRecoveryCounter", "addRecoveryCount level=" + i);
-        }
-    }
-
-    public int c(int i) {
-        InterceptResult invokeI;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            Integer num = this.a.get(Integer.valueOf(i));
-            if (num != null) {
-                i2 = num.intValue();
+        a aVar = this.b;
+        if (aVar != null) {
+            if (this.e) {
+                aVar.a(this.d);
             } else {
-                i2 = 0;
+                aVar.b(this.d);
             }
-            j12.k("SwanRecoveryCounter", "getRecoveryCount level=" + i + ";count=" + i2);
-            return i2;
         }
-        return invokeI.intValue;
+        ap4.d(this.c);
+    }
+
+    public final void b(File file) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file) == null) {
+            try {
+                if (this.c == null && file != null) {
+                    ap4.h(this.d);
+                    this.c = new FileOutputStream(file);
+                }
+            } catch (Exception e) {
+                if (fd2.a) {
+                    Log.e("HybridIntercept", Log.getStackTraceString(e));
+                }
+            }
+        }
+    }
+
+    public void c(InputStream inputStream) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, inputStream) == null) && inputStream != null && !this.e) {
+            ap4.Q(inputStream, this.d);
+            this.e = true;
+        }
+    }
+
+    public void d(byte[] bArr, int i, int i2) {
+        OutputStream outputStream;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLII(1048579, this, bArr, i, i2) == null) && (outputStream = this.c) != null) {
+            try {
+                if (i2 > 0) {
+                    outputStream.write(bArr, i, i2);
+                } else {
+                    this.e = true;
+                }
+            } catch (IOException unused) {
+                ap4.d(this.c);
+                this.c = null;
+                a aVar = this.b;
+                if (aVar != null) {
+                    aVar.b(this.d);
+                }
+            }
+        }
     }
 }

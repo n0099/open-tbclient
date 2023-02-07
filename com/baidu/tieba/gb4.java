@@ -1,48 +1,40 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.http.AbstractHttpManager;
-import com.baidu.tieba.qb4;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes4.dex */
-public class gb4 extends qb4.a {
+public class gb4 implements aq1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gb4(AbstractHttpManager abstractHttpManager) {
-        super(abstractHttpManager);
+    public gb4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {abstractHttpManager};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((AbstractHttpManager) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qb4.a, com.baidu.searchbox.http.request.HttpRequestBuilder
-    /* renamed from: a */
-    public qb4 build() {
+    @Override // com.baidu.tieba.aq1
+    public Class<? extends c82> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            bb4.b().j(this.httpUrl.toString(), this);
-            requestFrom(6);
-            return super.build();
+            return t44.class;
         }
-        return (qb4) invokeV.objValue;
+        return (Class) invokeV.objValue;
     }
 }

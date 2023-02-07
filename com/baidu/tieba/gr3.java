@@ -1,19 +1,15 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.graphics.Bitmap;
+import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import androidx.transition.Transition;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.payment.PaymentManager;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog;
-import com.baidu.swan.apps.view.SwanAppErrorDialog;
-import com.baidu.swan.facade.init.SwanAppInitHelper;
-import com.baidu.swan.facade.requred.webview.LoadingActivity;
-import com.baidu.tieba.er3;
-import com.baidu.tieba.ka2;
+import com.baidu.tieba.tt2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,73 +17,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
+import java.io.File;
+import org.json.JSONException;
+import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes4.dex */
-public class gr3 implements er3.b {
+public class gr3 implements gu1 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-
-    @Override // com.baidu.tieba.er3.b
-    public Bitmap d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (Bitmap) invokeV.objValue;
-    }
+    public PaymentManager a;
 
     /* loaded from: classes4.dex */
-    public class b implements cj3<Boolean> {
+    public class a extends eh1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ la2 a;
-        public final /* synthetic */ gr3 b;
+        public final /* synthetic */ long a;
 
-        /* loaded from: classes4.dex */
-        public class a implements ka2.e {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Boolean a;
-            public final /* synthetic */ b b;
-
-            public a(b bVar, Boolean bool) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, bool};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = bVar;
-                this.a = bool;
-            }
-
-            @Override // com.baidu.tieba.ka2.e
-            public void a() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    b bVar = this.b;
-                    bVar.b.i(this.a, bVar.a);
-                }
-            }
-        }
-
-        public b(gr3 gr3Var, la2 la2Var) {
+        public a(gr3 gr3Var, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gr3Var, la2Var};
+                Object[] objArr = {gr3Var, Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -97,71 +50,28 @@ public class gr3 implements er3.b {
                     return;
                 }
             }
-            this.b = gr3Var;
-            this.a = la2Var;
+            this.a = j;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cj3
-        /* renamed from: b */
-        public void a(Boolean bool) {
+        @Override // com.baidu.tieba.eh1
+        public void a(int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
                 if (gr3.b) {
-                    Log.i("SailorSoDownloadAdapter", "startDownload onCallback: " + bool);
+                    Log.d("RebateInfoManager", "requestBatchRebateInfo onResult: " + i + " " + str);
                 }
-                if (!bool.booleanValue()) {
-                    this.b.i(bool, this.a);
-                } else {
-                    SwanAppInitHelper.doWebViewInit(i43.K(), new a(this, bool));
-                }
+                ap4.j(gr3.d());
+                ap4.N(String.valueOf(this.a), gr3.d());
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class a implements DialogInterface.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ la2 a;
-        public final /* synthetic */ gr3 b;
-
-        public a(gr3 gr3Var, la2 la2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gr3Var, la2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = gr3Var;
-            this.a = la2Var;
-        }
-
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLI(1048576, this, dialogInterface, i) != null) || -2 == i) {
-                return;
-            }
-            this.b.j();
-            this.b.l(this.a);
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class c implements Runnable {
+    public class b extends eh1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public c(gr3 gr3Var) {
+        public b(gr3 gr3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -177,45 +87,11 @@ public class gr3 implements er3.b {
             }
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.eh1
+        public void a(int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Context appContext = AppRuntime.getAppContext();
-                Intent intent = new Intent(appContext, LoadingActivity.class);
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                intent.putExtra("so_lib_name", ZeusWebViewPreloadClass.ZEUS_FILE_DIR);
-                sg3.g(appContext, intent);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public d(gr3 gr3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gr3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                i43.K().p("loading_hide");
+            if ((interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) && gr3.b) {
+                Log.d("RebateInfoManager", "requestSingleRebateInfo onResult: " + i + " " + str);
             }
         }
     }
@@ -233,7 +109,7 @@ public class gr3 implements er3.b {
                 return;
             }
         }
-        b = tk1.a;
+        b = gp1.a;
     }
 
     public gr3() {
@@ -249,88 +125,86 @@ public class gr3 implements er3.b {
                 return;
             }
         }
-        this.a = false;
+        this.a = new PaymentManager();
     }
 
-    @Override // com.baidu.tieba.er3.b
-    public ih4 a() {
+    public static /* synthetic */ File d() {
+        return e();
+    }
+
+    public static File e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new lm4();
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return new File(AppRuntime.getAppContext().getFilesDir().getPath(), "rebate_info_timestamp");
         }
-        return (ih4) invokeV.objValue;
+        return (File) invokeV.objValue;
     }
 
-    public void h() {
+    @Override // com.baidu.tieba.gu1
+    public boolean a(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        w83 b0;
+        tt2.a W;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            i43.M().post(new d(this));
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            i43.M().post(new c(this));
-        }
-    }
-
-    @Override // com.baidu.tieba.er3.b
-    public void b(boolean z, la2 la2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, la2Var) == null) {
-            if (this.a) {
-                if (!z) {
-                    j();
-                }
-                l(la2Var);
-            } else if (z) {
-                l(la2Var);
-            } else {
-                k(new a(this, la2Var));
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
+            if (!ed3.l() || (b0 = w83.b0()) == null || (W = b0.W()) == null) {
+                return false;
             }
+            f(str, co4.g().u(AppRuntime.getAppContext()), ds2.h0().i(ds2.c()), xo3.i(b0.getApplicationContext()), str2, str3, ds2.n().a(), W.T());
+            return true;
         }
+        return invokeLLL.booleanValue;
     }
 
-    public final void i(Boolean bool, la2 la2Var) {
+    @Override // com.baidu.tieba.gu1
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, bool, la2Var) == null) {
-            this.a = false;
-            h();
-            if (la2Var != null) {
-                if (bool.booleanValue()) {
-                    la2Var.onSuccess();
-                } else {
-                    la2Var.onFail();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            String E = ap4.E(e());
+            long currentTimeMillis = System.currentTimeMillis() / 1000;
+            if (!TextUtils.isEmpty(E)) {
+                try {
+                    if (currentTimeMillis - Long.parseLong(E) < 86400) {
+                        if (b) {
+                            Log.d("RebateInfoManager", "requestBatchRebateInfo: 相邻请求时间需要大于一天");
+                            return;
+                        }
+                        return;
+                    }
+                } catch (NumberFormatException e) {
+                    if (b) {
+                        e.printStackTrace();
+                        return;
+                    }
+                    return;
                 }
             }
+            this.a.p(new a(this, currentTimeMillis));
         }
     }
 
-    public void k(DialogInterface.OnClickListener onClickListener) {
+    public final void f(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, onClickListener) == null) {
-            BaseActivityDialog.e r = SwanAppErrorDialog.r();
-            r.B(R.string.obfuscated_res_0x7f0f01e2);
-            r.u(R.string.obfuscated_res_0x7f0f01e1);
-            r.w(R.string.obfuscated_res_0x7f0f01df, onClickListener);
-            r.z(R.string.obfuscated_res_0x7f0f01e0, onClickListener);
-            r.D();
-        }
-    }
-
-    public final void l(la2 la2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, la2Var) == null) {
-            this.a = true;
-            if (b) {
-                Log.i("SailorSoDownloadAdapter", "startDownload: ");
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, str3, str4, str5, str6, str7, str8}) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("masterId", str);
+                if (!TextUtils.isEmpty(str2)) {
+                    jSONObject.put("userPassId", str2);
+                }
+                jSONObject.put("cuid", str3);
+                jSONObject.put("bduss", str4);
+                jSONObject.put(Transition.MATCH_ITEM_ID_STR, str5);
+                jSONObject.put("businessId", str6);
+                jSONObject.put("naid", str7);
+                jSONObject.put("scene", str8);
+                this.a.o(jSONObject, new b(this));
+            } catch (JSONException e) {
+                if (b) {
+                    e.printStackTrace();
+                }
             }
-            yd2 yd2Var = yd2.d;
-            zd2 zd2Var = new zd2();
-            zd2Var.h(ZeusWebViewPreloadClass.ZEUS_FILE_DIR, new b(this, la2Var));
-            yd2Var.C(zd2Var);
         }
     }
 }

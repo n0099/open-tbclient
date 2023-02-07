@@ -1,86 +1,134 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 /* loaded from: classes4.dex */
 public class hm3 {
     public static /* synthetic */ Interceptable $ic;
-    public static vk1 a;
-    public static final vk1 b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public static class a implements vk1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.vk1
-        public void onResult(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+    public static boolean d(int i, int i2, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            if (z) {
+                return false;
             }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            float f = i;
+            if (f > 100.0f) {
+                float f2 = i2;
+                if (f2 > 100.0f) {
+                    float f3 = f / f2;
+                    return f3 > 2.5f || 1.0f / f3 > 2.5f;
                 }
+                return false;
             }
+            return false;
         }
+        return invokeCommon.booleanValue;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947828475, "Lcom/baidu/tieba/hm3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947828475, "Lcom/baidu/tieba/hm3;");
-                return;
-            }
-        }
-        b = new a();
-    }
-
-    public static vk1 a() {
-        InterceptResult invokeV;
+    public static BitmapFactory.Options a(Uri uri) {
+        InterceptResult invokeL;
+        InputStream openInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            vk1 vk1Var = a;
-            if (vk1Var == null) {
-                return b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, uri)) == null) {
+            Context appContext = AppRuntime.getAppContext();
+            InputStream inputStream = null;
+            if (appContext == null || uri == null) {
+                return null;
             }
-            return vk1Var;
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = true;
+            try {
+                try {
+                    openInputStream = appContext.getContentResolver().openInputStream(uri);
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (FileNotFoundException e) {
+                e = e;
+            }
+            try {
+                BitmapFactory.decodeStream(openInputStream, null, options);
+                ap4.d(openInputStream);
+            } catch (FileNotFoundException e2) {
+                e = e2;
+                inputStream = openInputStream;
+                e.printStackTrace();
+                ap4.d(inputStream);
+                return options;
+            } catch (Throwable th2) {
+                th = th2;
+                inputStream = openInputStream;
+                ap4.d(inputStream);
+                throw th;
+            }
+            return options;
         }
-        return (vk1) invokeV.objValue;
+        return (BitmapFactory.Options) invokeL.objValue;
     }
 
-    public static void b() {
+    public static boolean b(Uri uri) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            a = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, uri)) == null) {
+            BitmapFactory.Options a = a(uri);
+            if (a == null) {
+                return false;
+            }
+            String str = a.outMimeType;
+            if (TextUtils.isEmpty(str) || !str.equalsIgnoreCase("image/gif")) {
+                return false;
+            }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    public static void c(vk1 vk1Var) {
+    public static boolean c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, vk1Var) == null) && a != vk1Var) {
-            a = vk1Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return b(om3.p(str));
         }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean e(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, uri)) == null) {
+            BitmapFactory.Options a = a(uri);
+            if (a != null && d(a.outWidth, a.outHeight, b(uri))) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return e(om3.p(str));
+        }
+        return invokeL.booleanValue;
     }
 }

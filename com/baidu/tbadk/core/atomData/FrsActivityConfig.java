@@ -17,15 +17,15 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.e07;
+import com.baidu.tieba.dh;
+import com.baidu.tieba.dj;
+import com.baidu.tieba.ej;
 import com.baidu.tieba.frs.mc.FrsNetModel;
-import com.baidu.tieba.rn8;
+import com.baidu.tieba.gp5;
+import com.baidu.tieba.mr8;
+import com.baidu.tieba.p47;
+import com.baidu.tieba.qv8;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
-import com.baidu.tieba.vk5;
-import com.baidu.tieba.vr8;
-import com.baidu.tieba.yg;
-import com.baidu.tieba.yi;
-import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -127,7 +127,7 @@ public class FrsActivityConfig extends IntentConfig {
         BdUniqueId gen = BdUniqueId.gen();
         this.mPageId = gen;
         intent.putExtra(FRS_PAGE_ID, gen);
-        vr8.b("frs");
+        qv8.b("frs");
     }
 
     public FrsActivityConfig createBackSpecialCfg(String str, String str2, boolean z, boolean z2) {
@@ -242,27 +242,27 @@ public class FrsActivityConfig extends IntentConfig {
                 i2 = 6;
             }
             if (UbsABTestHelper.isFrsNewAreaTabSortTestA() && FrsTabTestHelper.HAVE_NOT_RECORD_SORT != FrsTabTestHelper.getFrsNewAreaTabSort()) {
-                frsRequestData.S(e07.d(FrsTabTestHelper.getFrsNewAreaTabSort()));
+                frsRequestData.S(p47.d(FrsTabTestHelper.getFrsNewAreaTabSort()));
             }
-            frsRequestData.setSortType(e07.d(i2));
+            frsRequestData.setSortType(p47.d(i2));
             if (i2 == 5) {
                 frsRequestData.V(1);
             } else {
                 frsRequestData.V(0);
             }
-            frsRequestData.G("forum_name", yi.getUrlEncode(stringExtra));
+            frsRequestData.G("forum_name", dj.getUrlEncode(stringExtra));
             frsRequestData.G("client_type", "2");
             frsRequestData.setPn(1);
             frsRequestData.setCallFrom(intExtra);
-            e07.e(i2, frsRequestData);
+            p47.e(i2, frsRequestData);
             frsRequestData.d0("2");
             frsRequestData.e0("-2");
             frsRequestData.X(stringExtra);
             frsRequestData.l0(1);
             frsRequestData.P(0);
-            frsRequestData.k0(zi.l(TbadkCoreApplication.getInst()));
-            frsRequestData.j0(zi.j(TbadkCoreApplication.getInst()));
-            frsRequestData.i0(zi.i(TbadkCoreApplication.getInst()));
+            frsRequestData.k0(ej.l(TbadkCoreApplication.getInst()));
+            frsRequestData.j0(ej.j(TbadkCoreApplication.getInst()));
+            frsRequestData.i0(ej.i(TbadkCoreApplication.getInst()));
             if (TbImageHelper.getInstance().isShowBigImage()) {
                 i = 2;
             } else {
@@ -274,18 +274,18 @@ public class FrsActivityConfig extends IntentConfig {
             }
             frsRequestData.Z(null);
             frsRequestData.m0(stringExtra3);
-            frsRequestData.Y(yg.g(vk5.a(), 0L));
+            frsRequestData.Y(dh.g(gp5.a(), 0L));
             frsRequestData.setStType(stringExtra2);
             frsRequestData.U(1);
             frsRequestData.setNeedCache(true);
             frsRequestData.setUpdateType(3);
             frsRequestData.T(longExtra);
-            e07.e(i2, frsRequestData);
+            p47.e(i2, frsRequestData);
             frsRequestData.b0(1);
             frsRequestData.setPushTid(intent.getStringExtra(MainTabActivityConfig.PUSH_TID));
-            if (ThreadData.isRecAppLoaded.get() && rn8.l().b() != null) {
-                int d = rn8.l().b().d(stringExtra, false);
-                int e = rn8.l().b().e(stringExtra, false);
+            if (ThreadData.isRecAppLoaded.get() && mr8.l().b() != null) {
+                int d = mr8.l().b().d(stringExtra, false);
+                int e = mr8.l().b().e(stringExtra, false);
                 if (frsRequestData.L() == 1) {
                     d++;
                 } else if (frsRequestData.L() == 2) {

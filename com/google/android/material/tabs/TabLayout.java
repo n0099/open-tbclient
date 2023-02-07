@@ -82,7 +82,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 @ViewPager.DecorView
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TabLayout extends HorizontalScrollView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ANIMATION_DURATION = 300;
@@ -164,7 +164,7 @@ public class TabLayout extends HorizontalScrollView {
     public ViewPager viewPager;
 
     @Deprecated
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface BaseOnTabSelectedListener<T extends Tab> {
         void onTabReselected(T t);
 
@@ -173,33 +173,33 @@ public class TabLayout extends HorizontalScrollView {
         void onTabUnselected(T t);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public @interface LabelVisibility {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public @interface Mode {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface OnTabSelectedListener extends BaseOnTabSelectedListener<Tab> {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public @interface TabGravity {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public @interface TabIndicatorGravity {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class AdapterChangeListener implements ViewPager.OnAdapterChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -243,7 +243,7 @@ public class TabLayout extends HorizontalScrollView {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class PagerAdapterObserver extends DataSetObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -284,7 +284,7 @@ public class TabLayout extends HorizontalScrollView {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class SlidingTabIndicator extends LinearLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -707,7 +707,7 @@ public class TabLayout extends HorizontalScrollView {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Tab {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int INVALID_POSITION = -1;
@@ -1048,7 +1048,7 @@ public class TabLayout extends HorizontalScrollView {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class TabLayoutOnPageChangeListener implements ViewPager.OnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1125,7 +1125,7 @@ public class TabLayout extends HorizontalScrollView {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public final class TabView extends LinearLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1831,7 +1831,7 @@ public class TabLayout extends HorizontalScrollView {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class ViewPagerOnTabSelectedListener implements OnTabSelectedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2303,7 +2303,7 @@ public class TabLayout extends HorizontalScrollView {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TabLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040691);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040695);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

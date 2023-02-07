@@ -1,19 +1,21 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Path;
-import android.graphics.RectF;
+import android.annotation.SuppressLint;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.net.NetInfo;
+import com.baidu.searchbox.v8engine.net.NetRequestResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
+import java.util.Observable;
+import java.util.Observer;
 /* loaded from: classes4.dex */
-public class hy1 extends px1 {
+public class hy1 implements Observer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RectF a;
 
     public hy1() {
         Interceptable interceptable = $ic;
@@ -29,29 +31,77 @@ public class hy1 extends px1 {
         }
     }
 
-    @Override // com.baidu.tieba.px1
-    public void a(qx1 qx1Var, Canvas canvas) {
-        RectF rectF;
+    public final String a(@NonNull NetInfo netInfo, @NonNull NetRequestResult netRequestResult, int i) {
+        InterceptResult invokeLLI;
+        Integer num;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, qx1Var, canvas) == null) && (rectF = this.a) != null) {
-            qx1Var.f.addRect(rectF, Path.Direction.CW);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, netInfo, netRequestResult, i)) == null) {
+            Object obj = "";
+            if (i == 200) {
+                return "";
+            }
+            String statusMsg = netRequestResult.getStatusMsg();
+            NetInfo.Response response = netInfo.getResponse();
+            NetInfo.Base base = netInfo.getBase();
+            StringBuilder sb = new StringBuilder();
+            sb.append(statusMsg);
+            sb.append("; code=");
+            if (response == null) {
+                num = "";
+            } else {
+                num = Integer.valueOf(response.mCode);
+            }
+            sb.append(num);
+            String sb2 = sb.toString();
+            StringBuilder sb3 = new StringBuilder();
+            sb3.append(sb2);
+            sb3.append("; status=");
+            if (base != null) {
+                obj = Integer.valueOf(base.mStatus);
+            }
+            sb3.append(obj);
+            return sb3.toString();
         }
+        return (String) invokeLLI.objValue;
     }
 
-    @Override // com.baidu.tieba.px1
-    public void b(JSONArray jSONArray) {
+    @Override // java.util.Observer
+    @SuppressLint({"BDThrowableCheck"})
+    public void update(Observable observable, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() == 4) {
-                    int g = ai3.g((float) jSONArray.optDouble(0));
-                    int g2 = ai3.g((float) jSONArray.optDouble(1));
-                    this.a = new RectF(g, g2, g + ai3.g((float) jSONArray.optDouble(2)), g2 + ai3.g((float) jSONArray.optDouble(3)));
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, observable, obj) != null) || !(obj instanceof NetRequestResult)) {
+            return;
+        }
+        NetRequestResult netRequestResult = (NetRequestResult) obj;
+        String url = netRequestResult.getUrl();
+        String valueOf = String.valueOf(netRequestResult.getId());
+        int statusCode = netRequestResult.getStatusCode();
+        if (statusCode != 3) {
+            if (statusCode != 4) {
+                if (statusCode != 5) {
+                    if (statusCode == 6) {
+                        ge2.D(valueOf, netRequestResult.getCreatedTime(), 0L, 0L);
+                    }
+                } else {
+                    ge2.D(valueOf, 0L, 0L, netRequestResult.getCreatedTime());
                 }
-            } catch (Exception e) {
-                if (tk1.a) {
-                    e.printStackTrace();
-                }
+            } else if (url != null) {
+                ge2.k().q(valueOf, url);
+            }
+        } else {
+            ge2.D(valueOf, 0L, netRequestResult.getCreatedTime(), 0L);
+        }
+        NetInfo netInfo = netRequestResult.getNetInfo();
+        int statusCode2 = netRequestResult.getStatusCode();
+        if (netRequestResult.getFromType() == 1 && url != null && netInfo != null) {
+            ge2.k().B(valueOf, url, netInfo);
+            long l = ge2.k().l(valueOf);
+            long currentTimeMillis = System.currentTimeMillis();
+            String e = qm3.n().e();
+            pf3.Q(statusCode2, netRequestResult.getUrl(), 0, a(netInfo, netRequestResult, statusCode2), pf3.l(), e, l, currentTimeMillis, valueOf);
+        } else if (netInfo != null) {
+            if (statusCode2 < 0 || statusCode2 >= 400) {
+                pf3.P(statusCode2, netRequestResult.getUrl(), 0, a(netInfo, netRequestResult, statusCode2), 0L, 0L, valueOf);
             }
         }
     }

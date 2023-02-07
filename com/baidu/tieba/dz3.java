@@ -1,33 +1,28 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
-import android.util.Log;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import org.json.JSONObject;
-@Service
 /* loaded from: classes4.dex */
-public class dz3 implements sl1 {
+public class dz3 extends Dialog {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
+    public DialogInterface.OnClickListener a;
 
     /* loaded from: classes4.dex */
-    public class a extends hz3 {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dz3 a;
 
         public a(dz3 dz3Var) {
             Interceptable interceptable = $ic;
@@ -41,34 +36,31 @@ public class dz3 implements sl1 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = dz3Var;
         }
 
-        @Override // com.baidu.tieba.hz3
-        @NonNull
-        public File a() {
-            InterceptResult invokeV;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return k12.a();
-            }
-            return (File) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.hz3
-        public void b(@NonNull String str, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
-                k12.e(str, j);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.dismiss();
+                dz3 dz3Var = this.a;
+                DialogInterface.OnClickListener onClickListener = dz3Var.a;
+                if (onClickListener != null) {
+                    onClickListener.onClick(dz3Var, -2);
+                }
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b implements yy3 {
+    public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dz3 a;
 
         public b(dz3 dz3Var) {
             Interceptable interceptable = $ic;
@@ -82,100 +74,68 @@ public class dz3 implements sl1 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dz3Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.dismiss();
+                dz3 dz3Var = this.a;
+                DialogInterface.OnClickListener onClickListener = dz3Var.a;
+                if (onClickListener != null) {
+                    onClickListener.onClick(dz3Var, -1);
                 }
             }
         }
-
-        @Override // com.baidu.tieba.yy3
-        public void a(boolean z) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && dz3.a) {
-                String str = dz3.b;
-                Log.d(str, "download sConsole result: " + z);
-            }
-        }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947721804, "Lcom/baidu/tieba/dz3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947721804, "Lcom/baidu/tieba/dz3;");
-                return;
-            }
-        }
-        a = tk1.a;
-        b = dz3.class.getSimpleName();
-    }
-
-    public dz3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dz3(@NonNull Context context) {
+        super(context, R.style.obfuscated_res_0x7f100001);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = null;
     }
 
-    @Override // com.baidu.tieba.sl1
-    public String b() {
-        InterceptResult invokeV;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return az3.m().e();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.sl1
-    public ec4 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return new gz3(new a(this), new b(this));
-        }
-        return (ec4) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.sl1
-    public void a(@NonNull Activity activity, @Nullable DialogInterface.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, onClickListener) == null) {
-            az3.m().p(activity, onClickListener);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092474);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f092496);
+            sc4.a(textView);
+            sc4.a(textView2);
+            textView.setOnClickListener(new a(this));
+            textView2.setOnClickListener(new b(this));
         }
     }
 
-    @Override // com.baidu.tieba.sl1
-    public void e(int i, String str) {
+    @Override // android.app.Dialog
+    public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) {
-            fz3.d(i, str);
-        }
-    }
-
-    @Override // com.baidu.tieba.sl1
-    public void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            cz3.h(jSONObject);
-        }
-    }
-
-    @Override // com.baidu.tieba.sl1
-    public void f(cj3<Boolean> cj3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, cj3Var) == null) {
-            az3.m().o(cj3Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            super.onCreate(bundle);
+            setContentView(R.layout.obfuscated_res_0x7f0d00a8);
+            setCancelable(false);
+            a();
         }
     }
 }

@@ -1,27 +1,96 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes6.dex */
-public class um3 {
+public class um3 implements zl4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile tm3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized tm3 a() {
-        InterceptResult invokeV;
-        tm3 tm3Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (um3.class) {
-                if (a == null) {
-                    a = new tm3();
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final um3 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-370416624, "Lcom/baidu/tieba/um3$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
                 }
-                tm3Var = a;
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-370416624, "Lcom/baidu/tieba/um3$b;");
+                    return;
+                }
             }
-            return tm3Var;
+            a = new um3(null);
         }
-        return (tm3) invokeV.objValue;
+    }
+
+    public um3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static um3 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (um3) invokeV.objValue;
+    }
+
+    public /* synthetic */ um3(a aVar) {
+        this();
+    }
+
+    @Override // com.baidu.tieba.zl4
+    public boolean a(@NonNull String str, @NonNull int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    return false;
+                }
+                File file = new File(es2.g().b(), str);
+                if (!file.exists() || !file.isDirectory()) {
+                    return false;
+                }
+                return true;
+            }
+            File file2 = new File(sr2.g(), str);
+            if (!file2.exists() || !file2.isDirectory()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLI.booleanValue;
     }
 }

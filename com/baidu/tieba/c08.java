@@ -1,92 +1,71 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class c08 implements yn {
+public class c08 extends d08 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public List<e65> b;
-    public boolean c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947621054, "Lcom/baidu/tieba/c08;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947621054, "Lcom/baidu/tieba/c08;");
-                return;
-            }
+    @Override // com.baidu.tieba.d08, com.baidu.searchbox.live.interfaces.player.LivePlayer
+    public void saveProgressToDb() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
-        d = BdUniqueId.gen();
     }
 
-    public c08() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c08(String str) {
+        super(null, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.yn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.player.BDVideoPlayer, com.baidu.searchbox.player.kernel.IKernelPlayer
+    public void onPrepared() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return d;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void a(JSONObject jSONObject) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        boolean z2 = false;
-        if (jSONObject.optInt("need_profile", 0) == 1) {
-            z = true;
-        } else {
-            z = false;
-        }
-        this.a = z;
-        JSONArray optJSONArray = jSONObject.optJSONArray("nearby_person_list");
-        if (optJSONArray != null && optJSONArray.length() > 0) {
-            this.b = new ArrayList();
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                e65 e65Var = new e65();
-                e65Var.a(optJSONArray.optJSONObject(i));
-                this.b.add(e65Var);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.onPrepared();
+            int i = this.mVideoTask.position;
+            if (i > 0) {
+                seekTo(i);
             }
         }
-        if (jSONObject.optInt("has_more", 0) == 1) {
-            z2 = true;
+    }
+
+    @Override // com.baidu.tieba.d08, com.baidu.tieba.b08, com.baidu.searchbox.player.UniversalPlayer, com.baidu.searchbox.player.BDVideoPlayer
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.release();
+            saveProgressToDb();
         }
-        this.c = z2;
+    }
+
+    @Override // com.baidu.tieba.b08, com.baidu.searchbox.player.BDVideoPlayer, com.baidu.searchbox.player.IBVideoPlayer
+    public void stop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.stop();
+            saveProgressToDb();
+        }
     }
 }

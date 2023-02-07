@@ -1,25 +1,38 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.mainTab.FragmentTabIndicator;
+import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
+import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class gz6 {
+public class gz6 extends qf5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public boolean c;
 
-    public gz6(String str) {
+    @Override // com.baidu.tieba.qf5
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public gz6(FrsFragment frsFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {frsFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,92 +42,41 @@ public class gz6 {
                 return;
             }
         }
-        if (str != null && str.matches("\\d{1}_\\d{1}.*")) {
-            this.a = str.substring(0, 1).contains("1");
-            this.b = str.substring(2, 3).contains("1");
-            if (str.length() >= 5) {
-                this.c = str.substring(4, 5).contains("1");
-                return;
-            }
-            return;
-        }
-        this.a = false;
-        this.b = true;
+        b().a = frsFragment;
     }
 
-    public gz6(boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = z;
-        this.b = z2;
-    }
-
-    public boolean a() {
+    @Override // com.baidu.tieba.qf5
+    public rf5 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            rf5 rf5Var = new rf5();
+            rf5Var.e = 1;
+            rf5Var.b = R.string.chosen_pb_title;
+            rf5Var.i = rf5.k;
+            return rf5Var;
         }
-        return invokeV.booleanValue;
+        return (rf5) invokeV.objValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.qf5
+    public TbFragmentTabIndicator c(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
+            this.b = fragmentTabIndicator;
+            fragmentTabIndicator.setTextSize(2.0f);
             return this.b;
         }
-        return invokeV.booleanValue;
+        return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    public void g(at6 at6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, at6Var) != null) || at6Var == null || !at6Var.h(1)) {
+            return;
         }
-        return invokeV.booleanValue;
-    }
-
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.b = z;
-        }
-    }
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return String.format("%s_%s_%s", Integer.valueOf(this.a ? 1 : 0), Integer.valueOf(this.b ? 1 : 0), Integer.valueOf(this.c ? 1 : 0));
-        }
-        return (String) invokeV.objValue;
+        at6Var.a(this);
     }
 }

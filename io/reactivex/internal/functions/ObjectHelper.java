@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.functions.BiPredicate;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ObjectHelper {
     public static /* synthetic */ Interceptable $ic;
     public static final BiPredicate<Object, Object> EQUALS;
@@ -40,7 +40,7 @@ public final class ObjectHelper {
         return invokeCommon.intValue;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class BiObjectPredicate implements BiPredicate<Object, Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

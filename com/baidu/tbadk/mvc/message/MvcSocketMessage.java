@@ -2,15 +2,15 @@ package com.baidu.tbadk.mvc.message;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
-import com.baidu.tieba.je5;
-import com.baidu.tieba.ke5;
+import com.baidu.tieba.ui5;
+import com.baidu.tieba.vi5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class MvcSocketMessage<T extends ke5, D extends je5> extends TbSocketMessage {
+public class MvcSocketMessage<T extends vi5, D extends ui5> extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isNeedCache;
@@ -44,7 +44,7 @@ public class MvcSocketMessage<T extends ke5, D extends je5> extends TbSocketMess
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.requestData.h(false);
+            return this.requestData.g(false);
         }
         return invokeV.objValue;
     }

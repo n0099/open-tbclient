@@ -1,172 +1,197 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Locale;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class xg3 {
+public class xg3 implements zg3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Set<Integer> a;
-    public static final Set<Integer> b;
-    public static final Set<Integer> c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948299365, "Lcom/baidu/tieba/xg3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948299365, "Lcom/baidu/tieba/xg3;");
-                return;
-            }
-        }
-        a = new HashSet();
-        b = new HashSet();
-        c = new HashSet();
-        a.add(2);
-        a.add(3);
-        a.add(4);
-        a.add(5);
-        a.add(6);
-        b.add(7);
-        b.add(1);
-        c.addAll(a);
-        c.addAll(b);
+    @Override // com.baidu.tieba.zg3
+    public String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? str : (String) invokeL.objValue;
     }
 
-    public static Date a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.zg3
+    public boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new Date();
-        }
-        return (Date) invokeV.objValue;
-    }
-
-    public static String b(Date date, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, date, str)) == null) {
-            if (date == null) {
-                return "";
-            }
-            try {
-                return new SimpleDateFormat(str, Locale.getDefault()).format(date);
-            } catch (Exception unused) {
-                try {
-                    return new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(date);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return "";
-                }
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static Date c(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            if (str == null) {
-                return null;
-            }
-            try {
-                return new SimpleDateFormat(str2, Locale.getDefault()).parse(str);
-            } catch (Exception unused) {
-                try {
-                    return new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).parse(str);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return null;
-                }
-            }
-        }
-        return (Date) invokeLL.objValue;
-    }
-
-    public static Date d(String str, String[] strArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, strArr)) == null) {
-            Date date = null;
-            if (!TextUtils.isEmpty(str) && strArr != null) {
-                for (String str2 : strArr) {
-                    try {
-                        date = new SimpleDateFormat(str2, Locale.getDefault()).parse(str);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    if (date != null) {
-                        break;
-                    }
-                }
-            }
-            return date;
-        }
-        return (Date) invokeLL.objValue;
-    }
-
-    public static String e(Date date, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, date, str)) == null) {
-            if (date == null) {
-                return "";
-            }
-            try {
-                return new SimpleDateFormat(str, Locale.getDefault()).format(date);
-            } catch (Exception unused) {
-                try {
-                    return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(date);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return "";
-                }
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String g(long j, String str) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(65543, null, j, str)) == null) {
-            try {
-                return new SimpleDateFormat((str == null || str.isEmpty()) ? "yyyy-MM-dd HH:mm:ss" : "yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date(j));
-            } catch (NumberFormatException e) {
-                if (tk1.a) {
-                    e.printStackTrace();
-                    return "";
-                }
-                return "";
-            }
-        }
-        return (String) invokeJL.objValue;
-    }
-
-    public static boolean f(Long l, Long l2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, l, l2)) == null) {
-            if (l.longValue() / 86400000 == l2.longValue() / 86400000) {
-                return true;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             return false;
         }
-        return invokeLL.booleanValue;
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.zg3
+    public String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.zg3
+    public String e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.zg3
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.zg3
+    public String g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.zg3
+    public String h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.zg3
+    public String i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.zg3
+    public boolean j(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048585, this, str, z)) == null) {
+            return false;
+        }
+        return invokeLZ.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.zg3
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.zg3
+    public boolean l(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.zg3
+    public String m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends wg3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.wg3
+        @NonNull
+        public String c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.ah3
+        public long getMaxSize() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return 0L;
+            }
+            return invokeV.longValue;
+        }
+
+        public a(xg3 xg3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xg3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public xg3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.zg3
+    @NonNull
+    public ah3 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return new a(this);
+        }
+        return (ah3) invokeV.objValue;
     }
 }

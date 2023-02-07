@@ -1,66 +1,61 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.res.Resources;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nps.interfa.IResourcesFetcher;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes7.dex */
-public class yl {
+public class yl implements IResourcesFetcher {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, bm> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448322810, "Lcom/baidu/tieba/yl;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public yl() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448322810, "Lcom/baidu/tieba/yl;");
-                return;
-            }
-        }
-        HashMap hashMap = new HashMap();
-        a = hashMap;
-        hashMap.put("com.baidu.searchbox.livenps", new xl());
-    }
-
-    public static void a(String str, int i) {
-        bm bmVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65537, null, str, i) == null) && (bmVar = a.get(str)) != null) {
-            bmVar.b(i);
         }
     }
 
-    public static void b(String str, int i, long j) {
-        bm bmVar;
+    @Override // com.baidu.nps.interfa.IResourcesFetcher
+    public Resources getBaseContextResources() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), Long.valueOf(j)}) == null) && (bmVar = a.get(str)) != null) {
-            bmVar.c(i, j);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return BdBaseApplication.getInst().getResources();
         }
+        return (Resources) invokeV.objValue;
     }
 
-    public static void c(String str, int i, int i2) {
-        bm bmVar;
+    @Override // com.baidu.nps.interfa.IResourcesFetcher
+    public Resources getGlobalResources() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(65539, null, str, i, i2) == null) && (bmVar = a.get(str)) != null) {
-            bmVar.d(i, i2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return BdBaseApplication.getInst().getResources();
         }
+        return (Resources) invokeV.objValue;
     }
 
-    public static void d(String str, int i, int i2) {
-        bm bmVar;
+    @Override // com.baidu.nps.interfa.IResourcesFetcher
+    public Resources[] getWrapperResources() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i, i2) == null) && (bmVar = a.get(str)) != null) {
-            bmVar.e(i, i2);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new Resources[]{BdBaseApplication.getInst().getResources()} : (Resources[]) invokeV.objValue;
     }
 }

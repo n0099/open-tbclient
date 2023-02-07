@@ -4,7 +4,6 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -378,7 +377,7 @@ public class NetworkStatRecord {
                     jSONObject.put("netType", this.netType);
                 }
                 if (this.startTs != -1) {
-                    jSONObject.put(FetchLog.START_TIME, this.startTs);
+                    jSONObject.put("startTime", this.startTs);
                 }
                 if (this.tcpStartTs != -1) {
                     jSONObject.put("tcpStartTime", this.tcpStartTs);

@@ -1,119 +1,66 @@
 package com.baidu.tieba;
 
+import android.net.Uri;
 import android.text.TextUtils;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.ScrollView;
-import android.widget.TextView;
+import android.util.Log;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
+import android.webkit.WebView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PrivacyMarkActivityConfig;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
-import com.baidu.tbadk.data.UserData;
-import com.baidu.tieba.setting.im.more.SecretSettingActivity;
-import com.baidu.tieba.setting.model.friendAndStrangerSwitch.GetFriendAndStrangerSwitchModel;
-import com.baidu.tieba.setting.more.MsgSettingItemView;
-import com.baidu.tieba.wallet.CurrencySwitchUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.quickWebView.data.QuickWebViewBridgeData;
+import com.baidu.tieba.quickWebView.message.QuickWebViewHttpReqMsg;
+import com.baidu.tieba.quickWebView.message.QuickWebViewHttpResMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.TreeSet;
 /* loaded from: classes5.dex */
-public class jq8 extends q9<SecretSettingActivity> {
+public class jq8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String H;
-    public static final String I;
-    public static final String J;
-    public static final String K;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbSettingTextTipView A;
-    public TbSettingTextTipView B;
-    public TbSettingTextTipView C;
-    public TbSettingTextTipView D;
-    public TbSettingTextTipView E;
-    public View.OnClickListener F;
-    public b G;
-    public NavigationBar a;
-    public LinearLayout b;
-    public View c;
-    public TbSettingTextTipView d;
-    public TbSettingTextTipView e;
-    public TbSettingTextTipView f;
-    public TbSettingTextTipView g;
-    public TbSettingTextTipView h;
-    public View i;
-    public TbSettingTextTipView j;
-    public TbSettingTextTipView k;
-    public SecretSettingActivity l;
-    public View m;
-    public String[] n;
-    public TbSettingTextTipView o;
-    public TbSettingTextTipView p;
-    public TbSettingTextTipView q;
-    public ScrollView r;
-    public TextView s;
-    public TextView t;
-    public TextView u;
-    public MsgSettingItemView v;
-    public MsgSettingItemView w;
-    public TextView x;
-    public TbSettingTextTipView y;
-    public TbSettingTextTipView z;
+    public final WebView a;
+    public BdUniqueId b;
+    public s19 c;
+    public Map<String, Boolean> d;
+    public Map<String, String> e;
+    public Map<String, String> f;
+    public String g;
+    public HttpMessageListener h;
 
     /* loaded from: classes5.dex */
-    public interface b {
-        void a();
-
-        void b();
-
-        void c();
-
-        void d();
-
-        void e();
-
-        void f();
-
-        void g();
-
-        void h();
-
-        void i();
-
-        void j();
-
-        void onBackPressed();
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
+    public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ jq8 a;
 
-        public a(jq8 jq8Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(jq8 jq8Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {jq8Var};
+                Object[] objArr = {jq8Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -122,379 +69,381 @@ public class jq8 extends q9<SecretSettingActivity> {
             this.a = jq8Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX DEBUG: Multi-variable search result rejected for r5v3, resolved type: boolean */
+        /* JADX WARN: Multi-variable type inference failed */
+        /* JADX WARN: Removed duplicated region for block: B:27:0x0098  */
+        /* JADX WARN: Removed duplicated region for block: B:39:0x0188  */
+        /* JADX WARN: Removed duplicated region for block: B:40:0x018b  */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            String str;
+            String str2;
+            String str3;
+            int i;
+            boolean z;
+            int i2;
+            String str4;
+            String str5;
+            String s;
+            StringBuilder sb;
+            String str6;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.G == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof QuickWebViewHttpResMsg)) {
                 return;
             }
-            if (view2 == this.a.c) {
-                this.a.G.onBackPressed();
-            } else if (view2 == this.a.d) {
-                this.a.G.i();
-            } else if (view2 == this.a.e) {
-                this.a.G.g();
-            } else if (view2 == this.a.g) {
-                this.a.G.c();
-            } else if (view2 == this.a.h) {
-                this.a.G.h();
-            } else if (view2 == this.a.k) {
-                this.a.G.e();
-            } else if (view2 == this.a.j) {
-                this.a.G.a();
-            } else if (view2 == this.a.o) {
-                this.a.G.f();
-            } else if (view2 == this.a.p) {
-                this.a.G.j();
-            } else if (view2 == this.a.f) {
-                this.a.G.d();
-            } else if (view2 == this.a.q) {
-                this.a.G.b();
-            } else if (view2 == this.a.y) {
-                UrlManager.getInstance().dealOneLink(this.a.l.getPageContext(), new String[]{TbConfig.TIEBA_ADDRESS + "tb/eula_mobile.html"});
-            } else if (view2 == this.a.z) {
-                UrlManager urlManager = UrlManager.getInstance();
-                TbPageContext<SecretSettingActivity> pageContext = this.a.l.getPageContext();
-                urlManager.dealOneLink(pageContext, new String[]{jq8.H + ("?curskintype=" + SkinManager.getCurrentSkinTypeString())});
-            } else if (view2 == this.a.A) {
-                UrlManager.getInstance().dealOneLink((TbPageContext<?>) this.a.l.getPageContext(), new String[]{TbConfig.TIEBA_ADDRESS + "tb/mobile/wisemainstatic/secretright.html"}, true);
-                TbSingleton.getInstance().needRefreshForumSquare = true;
-            } else if (view2 == this.a.B) {
-                UrlManager urlManager2 = UrlManager.getInstance();
-                TbPageContext<SecretSettingActivity> pageContext2 = this.a.l.getPageContext();
-                urlManager2.dealOneLink(pageContext2, new String[]{jq8.I + ("?curskintype=" + SkinManager.getCurrentSkinTypeString())});
-            } else if (view2 == this.a.C) {
-                if (CurrencySwitchUtil.isYyIsConvert()) {
-                    UrlManager.getInstance().dealOneLink(this.a.l.getPageContext(), new String[]{TbConfig.TIEBA_ADDRESS + "tb/yy/agreement.html"});
-                    return;
+            QuickWebViewHttpResMsg quickWebViewHttpResMsg = (QuickWebViewHttpResMsg) httpResponsedMessage;
+            int i3 = 0;
+            String str7 = null;
+            if (!(quickWebViewHttpResMsg.getOrginalMessage() instanceof QuickWebViewHttpReqMsg)) {
+                str = "";
+                str2 = null;
+                str3 = null;
+                i = 0;
+            } else {
+                QuickWebViewHttpReqMsg quickWebViewHttpReqMsg = (QuickWebViewHttpReqMsg) quickWebViewHttpResMsg.getOrginalMessage();
+                boolean z2 = quickWebViewHttpReqMsg.isFromRequestByNative;
+                if (StringUtils.isNull(quickWebViewHttpReqMsg.url)) {
+                    str = "";
+                    str2 = null;
+                    str3 = null;
+                    i = z2;
+                } else {
+                    String str8 = quickWebViewHttpReqMsg.url;
+                    str = quickWebViewHttpReqMsg.module;
+                    str3 = quickWebViewHttpReqMsg.urlSign;
+                    String str9 = quickWebViewHttpReqMsg.jsCallbackMethod;
+                    if (TextUtils.isEmpty(str9) && z2 == 0) {
+                        str9 = (String) this.a.e.remove(str3);
+                        i3 = 1;
+                    }
+                    z = ((Boolean) this.a.d.remove(str3)).booleanValue();
+                    str7 = str9;
+                    str2 = str8;
+                    i2 = z2;
+                    if (!quickWebViewHttpResMsg.isSuccess() && !TextUtils.isEmpty(quickWebViewHttpResMsg.getResult())) {
+                        str5 = quickWebViewHttpResMsg.getResult();
+                        str4 = BasicPushStatus.SUCCESS_CODE;
+                    } else {
+                        str4 = quickWebViewHttpResMsg.getError() + "";
+                        str5 = "\"\"";
+                    }
+                    s = kq8.q().s(str);
+                    if (s == null) {
+                        s = "0.0.0.0";
+                    }
+                    sb = new StringBuilder();
+                    sb.append("{");
+                    sb.append("\"status\":");
+                    sb.append("\"");
+                    sb.append(str4);
+                    sb.append("\"");
+                    sb.append(",");
+                    sb.append("\"data\":");
+                    sb.append(str5);
+                    sb.append(",");
+                    sb.append("\"cache_version\":");
+                    sb.append("\"");
+                    sb.append(s);
+                    sb.append("\"");
+                    sb.append(",");
+                    sb.append("\"cache\":");
+                    sb.append("\"");
+                    sb.append(i3);
+                    sb.append("\"");
+                    sb.append(",");
+                    sb.append("\"fromPreRequest\":");
+                    sb.append("\"");
+                    sb.append(i2 ^ 1);
+                    sb.append("\"");
+                    sb.append("}");
+                    Log.d("lt-http-proxy", "网络请求结果：fromPreRequest=" + (i2 ^ 1));
+                    if (i2 != 0 && !z) {
+                        if (StringUtils.isNull(str7)) {
+                            Log.d("lt-http-proxy", "请求完成：预请求-收到网络请求结果（" + httpResponsedMessage.getStatusCode() + "），缓存请求结果：url=" + str2);
+                            this.a.f.put(str3, sb.toString());
+                            return;
+                        }
+                        Log.d("lt-http-proxy", "请求完成：预请求-收到网络请求结果（" + httpResponsedMessage.getStatusCode() + "），开始回调js函数(" + str7 + ")：url=" + str2);
+                        this.a.l(str7, sb.toString());
+                        return;
+                    }
+                    StringBuilder sb2 = new StringBuilder();
+                    sb2.append("请求完成：");
+                    if (i2 == 0) {
+                        str6 = "端能力";
+                    } else {
+                        str6 = "预请求";
+                    }
+                    sb2.append(str6);
+                    sb2.append("-收到网络请求结果（");
+                    sb2.append(httpResponsedMessage.getStatusCode());
+                    sb2.append("），开始回调端能力：url=");
+                    sb2.append(str2);
+                    Log.d("lt-http-proxy", sb2.toString());
+                    this.a.i(str2, sb.toString());
                 }
-                UrlManager.getInstance().dealOneLink(this.a.l.getPageContext(), new String[]{TbConfig.TIEBA_ADDRESS + "tb/tdou_mobile.html"});
-            } else if (view2 == this.a.D) {
-                UrlManager urlManager3 = UrlManager.getInstance();
-                TbPageContext<SecretSettingActivity> pageContext3 = this.a.l.getPageContext();
-                urlManager3.dealOneLink(pageContext3, new String[]{jq8.J + ("?curskintype=" + SkinManager.getCurrentSkinTypeString())});
-            } else if (view2 == this.a.E) {
-                UrlManager urlManager4 = UrlManager.getInstance();
-                TbPageContext<SecretSettingActivity> pageContext4 = this.a.l.getPageContext();
-                urlManager4.dealOneLink(pageContext4, new String[]{jq8.K + ("?curskintype=" + SkinManager.getCurrentSkinTypeString())});
             }
+            z = false;
+            i2 = i;
+            if (!quickWebViewHttpResMsg.isSuccess()) {
+            }
+            str4 = quickWebViewHttpResMsg.getError() + "";
+            str5 = "\"\"";
+            s = kq8.q().s(str);
+            if (s == null) {
+            }
+            sb = new StringBuilder();
+            sb.append("{");
+            sb.append("\"status\":");
+            sb.append("\"");
+            sb.append(str4);
+            sb.append("\"");
+            sb.append(",");
+            sb.append("\"data\":");
+            sb.append(str5);
+            sb.append(",");
+            sb.append("\"cache_version\":");
+            sb.append("\"");
+            sb.append(s);
+            sb.append("\"");
+            sb.append(",");
+            sb.append("\"cache\":");
+            sb.append("\"");
+            sb.append(i3);
+            sb.append("\"");
+            sb.append(",");
+            sb.append("\"fromPreRequest\":");
+            sb.append("\"");
+            sb.append(i2 ^ 1);
+            sb.append("\"");
+            sb.append("}");
+            Log.d("lt-http-proxy", "网络请求结果：fromPreRequest=" + (i2 ^ 1));
+            if (i2 != 0) {
+            }
+            StringBuilder sb22 = new StringBuilder();
+            sb22.append("请求完成：");
+            if (i2 == 0) {
+            }
+            sb22.append(str6);
+            sb22.append("-收到网络请求结果（");
+            sb22.append(httpResponsedMessage.getStatusCode());
+            sb22.append("），开始回调端能力：url=");
+            sb22.append(str2);
+            Log.d("lt-http-proxy", sb22.toString());
+            this.a.i(str2, sb.toString());
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947892056, "Lcom/baidu/tieba/jq8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947892056, "Lcom/baidu/tieba/jq8;");
-                return;
-            }
-        }
-        H = TbConfig.TIEBA_ADDRESS + "mo/q/wise-bawu-core/privacy-policy";
-        I = TbConfig.TIEBA_ADDRESS + "mo/q/wise-bawu-core/app-permissions";
-        J = TbConfig.TIEBA_ADDRESS + "mo/q/wise-bawu-core/security-check";
-        K = TbConfig.TIEBA_ADDRESS + "mo/q/wise-bawu-core/third-list";
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jq8(SecretSettingActivity secretSettingActivity) {
-        super(secretSettingActivity.getPageContext());
+    public jq8(WebView webView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {secretSettingActivity};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {webView};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((s9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.F = new a(this);
-        this.l = secretSettingActivity;
-        secretSettingActivity.setContentView(R.layout.obfuscated_res_0x7f0d07d1);
-        L(secretSettingActivity);
+        this.d = new HashMap();
+        this.e = new HashMap();
+        this.f = new HashMap();
+        this.h = new a(this, CmdConfigHttp.CMD_WEB_HTTP_PROXY);
+        this.a = webView;
+        this.g = webView.getSettings().getUserAgentString();
+        BdUniqueId gen = BdUniqueId.gen();
+        this.b = gen;
+        this.h.setTag(gen);
+        this.h.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.h);
     }
 
-    public void N(b bVar) {
+    public void n(s19 s19Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.G = bVar;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, s19Var) == null) {
+            this.c = s19Var;
         }
     }
 
-    public void O(boolean z) {
+    public void k(QuickWebViewBridgeData quickWebViewBridgeData, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            if (z) {
-                this.w.setVisibility(0);
+        if (interceptable == null || interceptable.invokeLLZ(1048581, this, quickWebViewBridgeData, str, z) == null) {
+            Log.d("lt-http-proxy", "端能力请求：" + quickWebViewBridgeData.url);
+            f(quickWebViewBridgeData, str, z);
+        }
+    }
+
+    public final void f(QuickWebViewBridgeData quickWebViewBridgeData, String str, boolean z) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLZ(1048576, this, quickWebViewBridgeData, str, z) == null) && quickWebViewBridgeData != null && !StringUtils.isNull(quickWebViewBridgeData.url) && !StringUtils.isNull(quickWebViewBridgeData.type)) {
+            String g = g(quickWebViewBridgeData.url);
+            String remove = this.f.remove(g);
+            if (!TextUtils.isEmpty(remove) && str != null) {
+                Log.d("lt-http-proxy", "请求完成：命中预请求缓存-执行js回调，url=" + quickWebViewBridgeData.url);
+                l(str, remove);
+            } else if (!TextUtils.isEmpty(remove) && z) {
+                Log.d("lt-http-proxy", "请求完成：命中预请求缓存-执行端能力回调，url=" + quickWebViewBridgeData.url);
+                i(quickWebViewBridgeData.url, remove);
             } else {
-                this.w.setVisibility(8);
-            }
-        }
-    }
-
-    public BdSwitchView H() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.v.getSwitchView();
-        }
-        return (BdSwitchView) invokeV.objValue;
-    }
-
-    public BdSwitchView J() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.w.getSwitchView();
-        }
-        return (BdSwitchView) invokeV.objValue;
-    }
-
-    public void M() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.d.g();
-        }
-    }
-
-    public final void K() {
-        MsgSettingItemView msgSettingItemView;
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (msgSettingItemView = this.v) != null && this.w != null && (i = GetFriendAndStrangerSwitchModel.FRIEND_AND_STRANGER_MASK_TYPE) != 0) {
-            if (i != 1) {
-                msgSettingItemView.getSwitchView().j();
-                this.w.setVisibility(8);
-                this.w.getSwitchView().j();
-                return;
-            }
-            msgSettingItemView.getSwitchView().m();
-            this.w.getSwitchView().j();
-        }
-    }
-
-    public final void L(SecretSettingActivity secretSettingActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, secretSettingActivity) == null) {
-            this.b = (LinearLayout) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f091844);
-            NavigationBar navigationBar = (NavigationBar) secretSettingActivity.findViewById(R.id.view_navigation_bar);
-            this.a = navigationBar;
-            this.c = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.a.setCenterTextTitle(secretSettingActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f1168));
-            this.d = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f0903b4);
-            this.e = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f091b3e);
-            this.f = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f09155e);
-            this.k = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f091b3f);
-            this.g = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f091b40);
-            this.h = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f091b47);
-            this.j = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f0922a2);
-            MsgSettingItemView msgSettingItemView = (MsgSettingItemView) this.l.findViewById(R.id.obfuscated_res_0x7f091080);
-            this.v = msgSettingItemView;
-            msgSettingItemView.setText(R.string.obfuscated_res_0x7f0f0705);
-            this.v.setOnSwitchStateChangeListener(this.l);
-            this.v.setTextSize(0, zi.g(this.l, R.dimen.obfuscated_res_0x7f0702b7));
-            MsgSettingItemView msgSettingItemView2 = this.v;
-            msgSettingItemView2.setPadding(msgSettingItemView2.getPaddingLeft() + 10, this.v.getPaddingTop() + 10, this.v.getPaddingRight() + 10, this.v.getPaddingBottom() + 10);
-            MsgSettingItemView msgSettingItemView3 = (MsgSettingItemView) this.l.findViewById(R.id.obfuscated_res_0x7f091081);
-            this.w = msgSettingItemView3;
-            msgSettingItemView3.setText(R.string.obfuscated_res_0x7f0f12b2);
-            this.w.setTextSize(0, zi.g(this.l, R.dimen.obfuscated_res_0x7f0702b7));
-            MsgSettingItemView msgSettingItemView4 = this.w;
-            msgSettingItemView4.setPadding(msgSettingItemView4.getPaddingLeft() + 10, this.w.getPaddingTop() + 10, this.w.getPaddingRight() + 10, this.w.getPaddingBottom() + 10);
-            this.w.setOnSwitchStateChangeListener(this.l);
-            this.i = secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f090709);
-            this.r = (ScrollView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f09152d);
-            this.s = (TextView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f091f12);
-            this.t = (TextView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f091f13);
-            this.u = (TextView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f091f14);
-            this.c.setOnClickListener(this.F);
-            this.d.setOnClickListener(this.F);
-            this.k.setOnClickListener(this.F);
-            this.e.setOnClickListener(this.F);
-            this.f.setOnClickListener(this.F);
-            this.g.setOnClickListener(this.F);
-            this.h.setOnClickListener(this.F);
-            this.j.setOnClickListener(this.F);
-            this.m = this.l.findViewById(R.id.obfuscated_res_0x7f091b48);
-            this.n = this.l.getResources().getStringArray(R.array.privacy_setting_config);
-            this.k.setVisibility(8);
-            TbSettingTextTipView tbSettingTextTipView = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f091b45);
-            this.o = tbSettingTextTipView;
-            tbSettingTextTipView.setOnClickListener(this.F);
-            TbSettingTextTipView tbSettingTextTipView2 = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f091b3d);
-            this.p = tbSettingTextTipView2;
-            tbSettingTextTipView2.setOnClickListener(this.F);
-            TbSettingTextTipView tbSettingTextTipView3 = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f091b41);
-            this.q = tbSettingTextTipView3;
-            tbSettingTextTipView3.setOnClickListener(this.F);
-            UserData e = v95.d().e();
-            if (e != null && e.getBazhuGradeData() != null && !StringUtils.isNull(e.getBazhuGradeData().getDesc()) && !StringUtils.isNull(e.getBazhuGradeData().getLevel())) {
-                this.f.setVisibility(0);
-            } else {
-                this.f.setVisibility(8);
-            }
-            this.x = (TextView) this.l.findViewById(R.id.obfuscated_res_0x7f091b46);
-            TbSettingTextTipView tbSettingTextTipView4 = (TbSettingTextTipView) this.l.findViewById(R.id.obfuscated_res_0x7f0922ba);
-            this.y = tbSettingTextTipView4;
-            tbSettingTextTipView4.setOnClickListener(this.F);
-            TbSettingTextTipView tbSettingTextTipView5 = (TbSettingTextTipView) this.l.findViewById(R.id.obfuscated_res_0x7f0922b9);
-            this.z = tbSettingTextTipView5;
-            tbSettingTextTipView5.setOnClickListener(this.F);
-            TbSettingTextTipView tbSettingTextTipView6 = (TbSettingTextTipView) this.l.findViewById(R.id.obfuscated_res_0x7f0922b8);
-            this.A = tbSettingTextTipView6;
-            tbSettingTextTipView6.setOnClickListener(this.F);
-            TbSettingTextTipView tbSettingTextTipView7 = (TbSettingTextTipView) this.l.findViewById(R.id.obfuscated_res_0x7f0922b7);
-            this.B = tbSettingTextTipView7;
-            tbSettingTextTipView7.setOnClickListener(this.F);
-            TbSettingTextTipView tbSettingTextTipView8 = (TbSettingTextTipView) this.l.findViewById(R.id.obfuscated_res_0x7f0922bb);
-            this.C = tbSettingTextTipView8;
-            tbSettingTextTipView8.setOnClickListener(this.F);
-            if (CurrencySwitchUtil.isYyIsConvert()) {
-                this.C.setText(R.string.obfuscated_res_0x7f0f16b6);
-            } else {
-                this.C.setText(R.string.obfuscated_res_0x7f0f145a);
-            }
-            TbSettingTextTipView tbSettingTextTipView9 = (TbSettingTextTipView) this.l.findViewById(R.id.obfuscated_res_0x7f091a5a);
-            this.D = tbSettingTextTipView9;
-            tbSettingTextTipView9.setOnClickListener(this.F);
-            TbSettingTextTipView tbSettingTextTipView10 = (TbSettingTextTipView) this.l.findViewById(R.id.obfuscated_res_0x7f09226e);
-            this.E = tbSettingTextTipView10;
-            tbSettingTextTipView10.setOnClickListener(this.F);
-            K();
-        }
-    }
-
-    public void P(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            if (z) {
-                this.m.setVisibility(0);
-            } else {
-                this.m.setVisibility(8);
-            }
-            if (SwitchManager.getInstance().findType("reply_private_setting_switch") == 1) {
-                this.i.setVisibility(0);
-                this.j.setVisibility(0);
-                return;
-            }
-            this.i.setVisibility(8);
-            this.j.setVisibility(8);
-        }
-    }
-
-    public void Q(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2) == null) {
-            if (i2 == 3 && i == 3) {
-                this.f.setTip(this.l.getString(R.string.obfuscated_res_0x7f0f0b26));
-            } else if (i2 == 3) {
-                this.f.setTip(this.l.getString(R.string.obfuscated_res_0x7f0f0b25));
-            } else if (i == 3) {
-                this.f.setTip(this.l.getString(R.string.obfuscated_res_0x7f0f0b27));
-            } else {
-                this.f.setTip(this.l.getString(R.string.obfuscated_res_0x7f0f0b24));
-            }
-        }
-    }
-
-    public void R(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048585, this, str, i) == null) {
-            int i2 = i - 1;
-            String[] strArr = this.n;
-            if (strArr != null && i2 < strArr.length && i2 >= 0) {
-                if (TextUtils.equals(str, "like")) {
-                    this.e.setTip(this.n[i2]);
-                } else if (TextUtils.equals(str, "group")) {
-                    this.k.setTip(this.n[i2]);
-                } else if (TextUtils.equals(str, "live")) {
-                    this.g.setTip(this.n[i2]);
-                } else if (TextUtils.equals(str, "reply")) {
-                    if (i2 == 0) {
-                        this.j.setTip(this.l.getString(R.string.all_person));
-                    } else {
-                        this.j.setTip(this.n[i2]);
+                if (this.d.containsKey(g)) {
+                    if (!TextUtils.isEmpty(str)) {
+                        Log.d("lt-http-proxy", "加入等待队列：重复的请求-js回调函数-等待网络结果完成后回调，url=" + quickWebViewBridgeData.url);
+                        this.e.put(g, str);
+                        return;
+                    } else if (z) {
+                        Log.d("lt-http-proxy", "加入等待队列：重复的请求-端能力-等待网络结果完成后回调，url=" + quickWebViewBridgeData.url);
+                        this.d.put(g, Boolean.TRUE);
+                        return;
                     }
-                } else if (TextUtils.equals(str, PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE) || TextUtils.equals(str, "bazhu_show_outside")) {
-                    String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                    Q(cz4.l().m(PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE + currentAccount, 0), cz4.l().m("bazhu_show_outside" + currentAccount, 0));
                 }
-            }
-        }
-    }
-
-    public void S(hq8 hq8Var) {
-        String[] strArr;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, hq8Var) == null) && hq8Var != null && (strArr = this.n) != null) {
-            int length = strArr.length;
-            int d = hq8Var.d() - 1;
-            if (d < length && d >= 0) {
-                this.k.setTip(this.n[d]);
-            }
-            int c = hq8Var.c() - 1;
-            if (c < length && c >= 0) {
-                this.e.setTip(this.n[c]);
-            }
-            int e = hq8Var.e() - 1;
-            if (e < length && e >= 0) {
-                this.g.setTip(this.n[e]);
-            }
-            int g = hq8Var.g() - 1;
-            if (g < length && g >= 0) {
-                if (g == 0) {
-                    this.j.setTip(this.l.getString(R.string.all_person));
+                StringBuilder sb = new StringBuilder();
+                if (z) {
+                    str2 = "端能力";
                 } else {
-                    this.j.setTip(this.n[g]);
+                    str2 = "预请求";
                 }
+                sb.append(str2);
+                sb.append("-正在发起网络请求：");
+                sb.append(quickWebViewBridgeData.url);
+                Log.d("lt-http-proxy", sb.toString());
+                this.d.put(g, Boolean.valueOf(z));
+                m(quickWebViewBridgeData, str, z, g);
             }
-            Q(hq8Var.a(), hq8Var.b());
         }
     }
 
-    public void onChangeSkinType(int i) {
+    public final String g(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            dr4 layoutMode = this.l.getLayoutMode();
-            boolean z = true;
-            if (i != 1) {
-                z = false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
             }
-            layoutMode.l(z);
-            this.l.getLayoutMode().k(this.b);
-            this.a.onChangeSkinType(this.l.getPageContext(), i);
-            cx4.d(this.s).v(R.color.CAM_X0108);
-            cx4.d(this.t).v(R.color.CAM_X0108);
-            cx4.d(this.u).v(R.color.CAM_X0108);
-            cx4.d(this.x).v(R.color.CAM_X0108);
-            cx4.d(this.r).f(R.color.CAM_X0204);
-            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0205);
-            SkinManager.setBackgroundColor(this.e, R.color.CAM_X0205);
-            SkinManager.setBackgroundColor(this.g, R.color.CAM_X0205);
-            SkinManager.setBackgroundColor(this.f, R.color.CAM_X0205);
-            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0205);
-            SkinManager.setBackgroundColor(this.k, R.color.CAM_X0205);
-            SkinManager.setBackgroundColor(this.q, R.color.CAM_X0205);
-            SkinManager.setBackgroundColor(this.y, R.color.CAM_X0205);
-            SkinManager.setBackgroundColor(this.B, R.color.CAM_X0205);
-            SkinManager.setBackgroundColor(this.A, R.color.CAM_X0205);
-            SkinManager.setBackgroundColor(this.z, R.color.CAM_X0205);
-            SkinManager.setBackgroundColor(this.C, R.color.CAM_X0205);
-            SkinManager.setBackgroundColor(this.D, R.color.CAM_X0205);
-            SkinManager.setBackgroundColor(this.E, R.color.CAM_X0205);
-            this.v.c(this.l.getPageContext(), i);
-            this.w.c(this.l.getPageContext(), i);
+            try {
+                Uri parse = Uri.parse(str);
+                String str2 = parse.getScheme() + "://" + parse.getAuthority() + parse.getPath();
+                TreeSet<String> treeSet = new TreeSet(parse.getQueryParameterNames());
+                StringBuilder sb = new StringBuilder();
+                boolean z = true;
+                for (String str3 : treeSet) {
+                    if (z) {
+                        z = false;
+                        sb.append("?");
+                        sb.append(str3);
+                        sb.append("=");
+                        sb.append(parse.getQueryParameter(str3));
+                    } else {
+                        sb.append("&");
+                        sb.append(str3);
+                        sb.append("=");
+                        sb.append(parse.getQueryParameter(str3));
+                    }
+                }
+                return lj.c(str2 + ((Object) sb));
+            } catch (Exception unused) {
+                return str;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.b);
+            MessageManager.getInstance().removeMessage(this.b);
+            this.d.clear();
+            this.d = null;
+            this.e.clear();
+            this.e = null;
+            this.f.clear();
+            this.f = null;
+        }
+    }
+
+    public final void i(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            linkedHashMap.put("result", str2);
+            linkedHashMap.put("NotificationKey", str);
+            this.c.i(this.a, "RequestByNativeToH5", linkedHashMap);
+        }
+    }
+
+    public void j(QuickWebViewBridgeData quickWebViewBridgeData, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, quickWebViewBridgeData, str) == null) {
+            Log.d("lt-http-proxy", "预请求：" + quickWebViewBridgeData.url);
+            f(quickWebViewBridgeData, str, false);
+        }
+    }
+
+    public final void l(String str, String str2) {
+        WebView webView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) && (webView = this.a) != null) {
+            webView.loadUrl("javascript:window." + str + "('" + str2 + "')");
+        }
+    }
+
+    public final void m(QuickWebViewBridgeData quickWebViewBridgeData, String str, boolean z, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{quickWebViewBridgeData, str, Boolean.valueOf(z), str2}) == null) {
+            QuickWebViewHttpReqMsg quickWebViewHttpReqMsg = new QuickWebViewHttpReqMsg();
+            quickWebViewHttpReqMsg.url = quickWebViewBridgeData.url;
+            quickWebViewHttpReqMsg.urlSign = str2;
+            quickWebViewHttpReqMsg.module = quickWebViewBridgeData.module;
+            quickWebViewHttpReqMsg.begin = quickWebViewBridgeData.begin;
+            quickWebViewHttpReqMsg.jsCallbackMethod = str;
+            quickWebViewHttpReqMsg.setTag(this.b);
+            quickWebViewHttpReqMsg.isFromRequestByNative = z;
+            CookieSyncManager.createInstance(this.a.getContext());
+            String cookie = CookieManager.getInstance().getCookie("tieba.baidu.com");
+            if (!TextUtils.isEmpty(cookie)) {
+                HashMap<String, String> headers = quickWebViewHttpReqMsg.getHeaders();
+                if (headers != null) {
+                    String str3 = headers.get("Cookie");
+                    if (!TextUtils.isEmpty(str3)) {
+                        if (str3.endsWith(";")) {
+                            cookie = str3 + cookie;
+                        } else {
+                            cookie = str3 + ";" + cookie;
+                        }
+                    }
+                    quickWebViewHttpReqMsg.addHeader("Cookie", cookie);
+                } else {
+                    quickWebViewHttpReqMsg.addHeader("Cookie", cookie);
+                }
+            }
+            quickWebViewHttpReqMsg.setUserAgent(this.g);
+            quickWebViewHttpReqMsg.addCookie("cache_version", kq8.q().s(quickWebViewBridgeData.module));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_WEB_HTTP_PROXY, quickWebViewBridgeData.url);
+            tbHttpMessageTask.setResponsedClass(QuickWebViewHttpResMsg.class);
+            tbHttpMessageTask.setIsNeedAddCommenParam(false);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(false);
+            tbHttpMessageTask.setPriority(4);
+            if (quickWebViewBridgeData.type.toLowerCase().equals("post")) {
+                Map<String, String> map = quickWebViewBridgeData.data;
+                if (map != null && !map.isEmpty()) {
+                    for (Map.Entry<String, String> entry : quickWebViewBridgeData.data.entrySet()) {
+                        quickWebViewHttpReqMsg.addParam(entry.getKey(), entry.getValue());
+                    }
+                }
+                tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
+            } else {
+                tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
+            }
+            MessageManager.getInstance().sendMessage(quickWebViewHttpReqMsg, tbHttpMessageTask);
         }
     }
 }

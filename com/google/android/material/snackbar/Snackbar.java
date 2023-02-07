@@ -33,7 +33,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class Snackbar extends BaseTransientBottomBar<Snackbar> {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] SNACKBAR_BUTTON_STYLE_ATTR;
@@ -45,7 +45,7 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
     public BaseTransientBottomBar.BaseCallback<Snackbar> callback;
     public boolean hasAction;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Callback extends BaseTransientBottomBar.BaseCallback<Snackbar> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DISMISS_EVENT_ACTION = 1;
@@ -87,7 +87,7 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class SnackbarLayout extends BaseTransientBottomBar.SnackbarBaseLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -188,8 +188,8 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
                 return;
             }
         }
-        SNACKBAR_BUTTON_STYLE_ATTR = new int[]{R.attr.obfuscated_res_0x7f040636};
-        SNACKBAR_CONTENT_STYLE_ATTRS = new int[]{R.attr.obfuscated_res_0x7f040636, R.attr.obfuscated_res_0x7f040638};
+        SNACKBAR_BUTTON_STYLE_ATTR = new int[]{R.attr.obfuscated_res_0x7f04063a};
+        SNACKBAR_CONTENT_STYLE_ATTRS = new int[]{R.attr.obfuscated_res_0x7f04063a, R.attr.obfuscated_res_0x7f04063c};
     }
 
     @Override // com.google.android.material.snackbar.BaseTransientBottomBar
@@ -250,7 +250,7 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
             if (findSuitableParent != null) {
                 LayoutInflater from = LayoutInflater.from(findSuitableParent.getContext());
                 if (hasSnackbarContentStyleAttrs(findSuitableParent.getContext())) {
-                    i2 = R.layout.obfuscated_res_0x7f0d05da;
+                    i2 = R.layout.obfuscated_res_0x7f0d05d7;
                 } else {
                     i2 = R.layout.obfuscated_res_0x7f0d0219;
                 }

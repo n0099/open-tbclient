@@ -558,7 +558,7 @@ public class f {
             String a2 = l.a(32);
             long elapsedRealtime = SystemClock.elapsedRealtime();
             com.alipay.sdk.app.statistic.a.a(this.f, "biz", "BSPStart", a2 + "|" + elapsedRealtime);
-            a.C0013a.a(this.f, a2);
+            a.C0012a.a(this.f, a2);
             AlipayResultActivity.a.put(a2, new a(this, countDownLatch));
             try {
                 try {
@@ -779,7 +779,7 @@ public class f {
             long elapsedRealtime = SystemClock.elapsedRealtime();
             com.alipay.sdk.sys.a aVar = this.f;
             com.alipay.sdk.app.statistic.a.a(aVar, "biz", "BSAStart", a2 + "|" + elapsedRealtime);
-            a.C0013a.a(this.f, a2);
+            a.C0012a.a(this.f, a2);
             APayEntranceActivity.g.put(a2, new b(this, countDownLatch));
             try {
                 HashMap<String, String> a3 = com.alipay.sdk.sys.a.a(this.f);

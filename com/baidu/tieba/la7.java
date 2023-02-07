@@ -1,80 +1,64 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import android.util.LongSparseArray;
+import android.util.SparseArray;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import tbclient.RecomVertical.DataRes;
+import tbclient.RecomVertical.DislikeReason;
+import tbclient.RecomVertical.ThreadPersonalized;
 /* loaded from: classes5.dex */
-public class la7 extends cx<fs4> {
+public class la7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tc7 f;
-    public int g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public la7(Context context, TbPageContext<?> tbPageContext) {
-        super(context);
+    public static void a(DataRes dataRes, List<Cdo> list) {
+        sd6 sd6Var;
+        ThreadData threadData;
+        ThreadPersonalized threadPersonalized;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, dataRes, list) == null) && dataRes != null && list != null) {
+            LongSparseArray longSparseArray = new LongSparseArray();
+            for (ThreadPersonalized threadPersonalized2 : dataRes.thread_personalized) {
+                if (threadPersonalized2 != null) {
+                    longSparseArray.put(threadPersonalized2.tid.longValue(), threadPersonalized2);
+                }
+            }
+            int count = ListUtils.getCount(list);
+            for (int i = 0; i < count; i++) {
+                Cdo cdo = (Cdo) ListUtils.getItem(list, i);
+                if ((cdo instanceof sd6) && (threadData = (sd6Var = (sd6) cdo).getThreadData()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(dh.g(threadData.getTid(), 0L))) != null) {
+                    sd6Var.J(threadPersonalized.source);
+                    sd6Var.M(threadPersonalized.weight);
+                    sd6Var.D(threadPersonalized.abtest_tag);
+                    threadData.mRecomAbTag = threadPersonalized.abtest_tag;
+                    threadData.mRecomSource = threadPersonalized.source;
+                    threadData.mRecomWeight = threadPersonalized.weight;
+                    if (threadData.getThreadVideoInfo() != null) {
+                        sd6Var.H(threadData.getThreadVideoInfo().is_vertical);
+                    }
+                    List<DislikeReason> list2 = threadPersonalized.dislike_resource;
+                    if (list2 != null) {
+                        SparseArray<String> sparseArray = new SparseArray<>();
+                        for (DislikeReason dislikeReason : list2) {
+                            int intValue = dislikeReason.dislike_id.intValue();
+                            sparseArray.put(intValue, dislikeReason.dislike_reason + "%" + dislikeReason.extra);
+                        }
+                        sd6Var.feedBackReasonMap = sparseArray;
+                        sd6Var.G(threadPersonalized.extra);
+                    }
+                }
             }
         }
-        this.g = 3;
-        this.f = new tc7(tbPageContext);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ux
-    /* renamed from: s */
-    public void a(fs4 fs4Var) {
+    public static void b(DataRes dataRes, List<Cdo> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, fs4Var) == null) && (fs4Var instanceof qc7)) {
-            this.f.i((qc7) fs4Var);
-        }
-    }
-
-    public void t(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
-            this.f.o(bdUniqueId);
-        }
-    }
-
-    @Override // com.baidu.tieba.cx
-    public View k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f.r();
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.vx
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            if (this.g != i) {
-                this.f.j(tbPageContext, i);
-                q(k(), 3);
-            }
-            this.g = i;
+        if (interceptable == null || interceptable.invokeLL(65537, null, dataRes, list) == null) {
+            a(dataRes, list);
         }
     }
 }

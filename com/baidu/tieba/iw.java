@@ -1,74 +1,36 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.os.HandlerThread;
-import android.os.Looper;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class iw extends HandlerThread {
+public final class iw {
     public static /* synthetic */ Interceptable $ic;
+    public static HashMap<String, hw> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public iw(String str, int i) {
-        super(str, i);
+    public static synchronized hw a(String str, Context context) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                Looper looper = getLooper();
-                if (Build.VERSION.SDK_INT >= 18) {
-                    looper.quitSafely();
-                } else {
-                    looper.quit();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, context)) == null) {
+            synchronized (iw.class) {
+                if (TextUtils.isEmpty(str)) {
+                    str = context.getPackageName() + "_preferences";
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
+                if (a == null) {
+                    a = new HashMap<>();
+                }
+                if (a.get(str) != null) {
+                    return a.get(str);
+                }
+                hw hwVar = new hw(str);
+                a.put(str, hwVar);
+                return hwVar;
             }
         }
-    }
-
-    @Override // android.os.HandlerThread
-    public boolean quit() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return quitSafely();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.os.HandlerThread
-    public boolean quitSafely() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            jw.c(this);
-            return true;
-        }
-        return invokeV.booleanValue;
+        return (hw) invokeLL.objValue;
     }
 }

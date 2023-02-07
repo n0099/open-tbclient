@@ -32,7 +32,7 @@ public class bf implements XMPushService.n {
 
     @Override // com.xiaomi.push.service.XMPushService.n
     /* renamed from: a */
-    public void mo467a() {
+    public void mo469a() {
         a aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = a) == null) {

@@ -13,10 +13,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bv4;
-import com.baidu.tieba.cx4;
+import com.baidu.tieba.dh;
+import com.baidu.tieba.oz4;
+import com.baidu.tieba.p15;
 import com.baidu.tieba.view.HeadlinesItemCountDownView;
-import com.baidu.tieba.yg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -110,27 +110,27 @@ public class HeadlinesItemInfoView extends FrameLayout {
         }
     }
 
-    public void b(bv4 bv4Var) {
+    public void b(oz4 oz4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bv4Var) != null) || bv4Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oz4Var) != null) || oz4Var == null) {
             return;
         }
-        this.b.K(bv4Var.f(), 10, false);
-        this.c.setText(bv4Var.l());
-        this.e.setText(bv4Var.b());
-        this.d.setData(yg.g(bv4Var.d(), 0L), bv4Var.c(), bv4Var.k());
+        this.b.K(oz4Var.f(), 10, false);
+        this.c.setText(oz4Var.l());
+        this.e.setText(oz4Var.b());
+        this.d.setData(dh.g(oz4Var.d(), 0L), oz4Var.c(), oz4Var.k());
         c(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            cx4 d = cx4.d(this);
+            p15 d = p15.d(this);
             d.n(R.string.J_X05);
             d.f(R.color.CAM_X0201);
-            cx4.d(this.c).v(R.color.CAM_X0107);
+            p15.d(this.c).v(R.color.CAM_X0107);
             this.d.i(i);
-            cx4 d2 = cx4.d(this.e);
+            p15 d2 = p15.d(this.e);
             d2.v(R.color.CAM_X0304);
             d2.l(R.dimen.L_X01);
             d2.k(R.color.CAM_X0304);

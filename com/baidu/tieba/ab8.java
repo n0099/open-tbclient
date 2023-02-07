@@ -1,23 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.tieba.bb8;
+import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
 /* loaded from: classes3.dex */
-public class ab8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ab8<V extends bb8, D extends IBaseDialogData> {
+    int a();
 
-    public static final void a(String str, String str2, String str3, String str4, String str5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65536, null, str, str2, str3, str4, str5) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.addParam("fid", str2);
-            statisticItem.addParam("tid", str3);
-            statisticItem.addParam("uid", str4);
-            statisticItem.addParam("obj_source", str5);
-            TiebaStatic.log(statisticItem);
-        }
-    }
+    boolean b();
+
+    boolean c();
+
+    void dismiss();
+
+    void show();
 }

@@ -427,9 +427,9 @@ public final class l extends com.kwad.components.core.i.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65538, null, dialogFragment, layoutInflater, viewGroup, cVar, aVar)) == null) {
             View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0490, viewGroup, false);
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0912a6)).setText(cVar.getTitle());
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091126);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091129);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0912e9)).setText(cVar.getTitle());
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091169);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09116c);
             textView.setText(cVar.fK());
             textView2.setText(cVar.fL());
             textView.setOnClickListener(new View.OnClickListener(dialogFragment, aVar) { // from class: com.kwad.components.ad.reward.l.3
@@ -526,11 +526,11 @@ public final class l extends com.kwad.components.core.i.e {
             if (aVar instanceof com.kwad.components.ad.reward.i.a.a) {
                 com.kwad.components.ad.reward.i.a.a.a((com.kwad.components.ad.reward.i.a.a) aVar, inflate.getContext(), adTemplate);
             }
-            ((RewardTaskStepView) inflate.findViewById(R.id.obfuscated_res_0x7f091262)).a(aVar.ir(), cVar.no);
-            KSImageLoader.loadAppIcon((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091261), cVar.eL(), adTemplate, 12);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09125f);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091260);
-            TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091263);
+            ((RewardTaskStepView) inflate.findViewById(R.id.obfuscated_res_0x7f0912a5)).a(aVar.ir(), cVar.no);
+            KSImageLoader.loadAppIcon((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0912a4), cVar.eL(), adTemplate, 12);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0912a2);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0912a3);
+            TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0912a6);
             StringBuilder sb = new StringBuilder();
             sb.append(aVar.is());
             String sb2 = sb.toString();
@@ -631,9 +631,9 @@ public final class l extends com.kwad.components.core.i.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65541, this, lVar, layoutInflater, viewGroup, cVar, aVar)) == null) {
             View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0491, viewGroup, false);
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091203)).setText(g(inflate.getContext(), cVar.nq));
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091201);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091200);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091246)).setText(g(inflate.getContext(), cVar.nq));
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091244);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091243);
             textView.setText(cVar.fK());
             textView2.setText(cVar.fL());
             textView.setOnClickListener(new View.OnClickListener(this, lVar, aVar) { // from class: com.kwad.components.ad.reward.l.5
@@ -781,9 +781,9 @@ public final class l extends com.kwad.components.core.i.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{dialogFragment, layoutInflater, viewGroup, cVar, adTemplate, aVar})) == null) {
             View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0475, viewGroup, false);
-            KSImageLoader.loadImage((KSCornerImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091241), cVar.kY, adTemplate);
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091240)).setText(cVar.getTitle());
-            inflate.findViewById(R.id.obfuscated_res_0x7f09123d).setOnClickListener(new View.OnClickListener(dialogFragment, aVar) { // from class: com.kwad.components.ad.reward.l.9
+            KSImageLoader.loadImage((KSCornerImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091284), cVar.kY, adTemplate);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091283)).setText(cVar.getTitle());
+            inflate.findViewById(R.id.obfuscated_res_0x7f091280).setOnClickListener(new View.OnClickListener(dialogFragment, aVar) { // from class: com.kwad.components.ad.reward.l.9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ DialogFragment nj;
@@ -820,7 +820,7 @@ public final class l extends com.kwad.components.core.i.e {
                     }
                 }
             });
-            inflate.findViewById(R.id.obfuscated_res_0x7f09123f).setOnClickListener(new View.OnClickListener(aVar) { // from class: com.kwad.components.ad.reward.l.10
+            inflate.findViewById(R.id.obfuscated_res_0x7f091282).setOnClickListener(new View.OnClickListener(aVar) { // from class: com.kwad.components.ad.reward.l.10
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a nk;
@@ -853,7 +853,7 @@ public final class l extends com.kwad.components.core.i.e {
                     aVar2.fJ();
                 }
             });
-            inflate.findViewById(R.id.obfuscated_res_0x7f09123e).setOnClickListener(new View.OnClickListener(dialogFragment, aVar) { // from class: com.kwad.components.ad.reward.l.2
+            inflate.findViewById(R.id.obfuscated_res_0x7f091281).setOnClickListener(new View.OnClickListener(dialogFragment, aVar) { // from class: com.kwad.components.ad.reward.l.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ DialogFragment nj;

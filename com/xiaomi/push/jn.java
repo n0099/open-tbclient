@@ -38,12 +38,12 @@ public class jn extends jp {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
-            byte[] m606a = this.f838a.m606a();
+            byte[] m608a = this.f838a.m608a();
             if (i2 > this.f838a.a() - this.a) {
                 i2 = this.f838a.a() - this.a;
             }
             if (i2 > 0) {
-                System.arraycopy(m606a, this.a, bArr, i, i2);
+                System.arraycopy(m608a, this.a, bArr, i, i2);
                 this.a += i2;
             }
             return i2;
@@ -53,7 +53,7 @@ public class jn extends jp {
 
     @Override // com.xiaomi.push.jp
     /* renamed from: a */
-    public void mo629a(byte[] bArr, int i, int i2) {
+    public void mo631a(byte[] bArr, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i, i2) == null) {
             this.f838a.write(bArr, i, i2);

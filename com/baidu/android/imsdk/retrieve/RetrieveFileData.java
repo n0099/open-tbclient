@@ -124,7 +124,7 @@ public class RetrieveFileData {
                             sb.append("\u0000");
                         }
                     }
-                    str = new String(Utility.decrypt(AES_PATH_IV, sb.toString(), Base64.decode(optString4, 0)));
+                    str = new String(Utility.decrypt("1357902468135246", sb.toString(), Base64.decode(optString4, 0)));
                     LogUtils.d("FetchFileData", "解密后的path路径：" + str);
                 } catch (Exception e2) {
                     e2.printStackTrace();

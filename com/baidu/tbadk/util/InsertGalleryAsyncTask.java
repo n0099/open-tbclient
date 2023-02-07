@@ -16,10 +16,10 @@ import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.ac;
-import com.baidu.tieba.ui;
-import com.baidu.tieba.xg;
-import com.baidu.tieba.yg;
+import com.baidu.tieba.ch;
+import com.baidu.tieba.dh;
+import com.baidu.tieba.fc;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -151,8 +151,8 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, this, str, str2, i)) == null) {
-            int b2 = ac.d().b().b();
-            int b3 = ac.d().c().b();
+            int b2 = fc.d().b().b();
+            int b3 = fc.d().c().b();
             boolean z = false;
             for (int i2 = 0; i2 < i; i2++) {
                 try {
@@ -307,7 +307,7 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, str)) == null) {
-            ui.k(str);
+            zi.k(str);
             return new File(str);
         }
         return (File) invokeL.objValue;
@@ -484,7 +484,7 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
                         responseCode = httpURLConnection.getResponseCode();
                         if (responseCode == 302) {
                             String headerField = httpURLConnection.getHeaderField("Location");
-                            xg.f(httpURLConnection);
+                            ch.f(httpURLConnection);
                             try {
                                 if (this.imageFile != null) {
                                     this.imageFile.delete();
@@ -507,7 +507,7 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
                             if (!this.imageFile.exists()) {
                                 this.imageFile.createNewFile();
                             }
-                            xg.d(fileOutputStream);
+                            ch.d(fileOutputStream);
                             FileOutputStream fileOutputStream2 = new FileOutputStream(this.imageFile, true);
                             try {
                                 httpURLConnection = getConnect(new URL(headerField), i, i2);
@@ -534,7 +534,7 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
             if (responseCode == 200) {
                 String headerField2 = httpURLConnection.getHeaderField("Content-Length");
                 if (headerField2 != null) {
-                    i3 = yg.e(headerField2, 0);
+                    i3 = dh.e(headerField2, 0);
                 } else {
                     i3 = 0;
                 }
@@ -552,25 +552,25 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
                         } else {
                             try {
                                 fileOutputStream.flush();
-                                xg.c(inputStream);
-                                xg.f(httpURLConnection);
-                                xg.d(fileOutputStream);
+                                ch.c(inputStream);
+                                ch.f(httpURLConnection);
+                                ch.d(fileOutputStream);
                                 return true;
                             } catch (Exception unused3) {
                                 throw new FileNotFoundException();
                             }
                         }
                         th = th2;
-                        xg.c(inputStream);
-                        xg.f(httpURLConnection);
-                        xg.d(fileOutputStream);
+                        ch.c(inputStream);
+                        ch.f(httpURLConnection);
+                        ch.d(fileOutputStream);
                         throw th;
                     }
                 }
             }
-            xg.c(null);
-            xg.f(httpURLConnection);
-            xg.d(fileOutputStream);
+            ch.c(null);
+            ch.f(httpURLConnection);
+            ch.d(fileOutputStream);
             return false;
         }
         return invokeLLII.booleanValue;
@@ -601,18 +601,18 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
             try {
                 fileOutputStream.write(decode);
                 fileOutputStream.flush();
-                xg.d(fileOutputStream);
+                ch.d(fileOutputStream);
                 return true;
             } catch (Exception e2) {
                 e = e2;
                 fileOutputStream2 = fileOutputStream;
                 e.printStackTrace();
-                xg.d(fileOutputStream2);
+                ch.d(fileOutputStream2);
                 return false;
             } catch (Throwable th2) {
                 th = th2;
                 fileOutputStream2 = fileOutputStream;
-                xg.d(fileOutputStream2);
+                ch.d(fileOutputStream2);
                 throw th;
             }
         }

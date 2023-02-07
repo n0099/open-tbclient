@@ -1,10 +1,9 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IHostAppRuntime;
-import com.baidu.nps.interfa.IHostAppRuntime_HostAppRuntimeManager_Provider;
-import com.baidu.pyramid.annotation.Inject;
+import android.content.Context;
+import android.util.Log;
+import android.widget.Toast;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,22 +11,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes5.dex */
-public class n91 {
-    public static /* synthetic */ Interceptable $ic;
-    public static n91 b;
+public final class n91 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int a = 3072;
+    public static final n91 b;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject
-    public qf1<IHostAppRuntime> a;
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            of1 b2 = of1.b();
-            this.a = b2;
-            b2.a(new IHostAppRuntime_HostAppRuntimeManager_Provider());
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -55,27 +47,70 @@ public class n91 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        c();
     }
 
-    public static n91 b() {
-        InterceptResult invokeV;
+    @JvmStatic
+    public static final void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
+        if ((interceptable != null && interceptable.invokeLL(65538, null, str, str2) != null) || str == null) {
+            return;
         }
-        return (n91) invokeV.objValue;
+        if (str2 == null) {
+            if (o91.a()) {
+                Log.d("NadBrowser@DEBUG@" + str, " >>>>>>>> " + str2);
+            }
+        } else if (o91.a()) {
+            if (str2.length() <= a) {
+                Log.d("NadBrowser@DEBUG@" + str, " >>>>>>>> " + str2);
+                return;
+            }
+            String str3 = str2;
+            while (true) {
+                int length = str3.length();
+                int i = a;
+                if (length > i) {
+                    if (str3 != null) {
+                        String substring = str3.substring(0, i);
+                        Intrinsics.checkNotNullExpressionValue(substring, "(this as java.lang.Strin…ing(startIndex, endIndex)");
+                        str3 = StringsKt__StringsJVMKt.replace$default(str3, substring, "", false, 4, (Object) null);
+                        Log.d("NadBrowser@DEBUG@" + str, " >>>>>>>> " + substring);
+                    } else {
+                        throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
+                    }
+                } else {
+                    return;
+                }
+            }
+        }
     }
 
-    public Application a() {
-        InterceptResult invokeV;
+    @JvmStatic
+    public static final void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.get().getApplication();
+        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && o91.a()) {
+            Log.e("NadBrowser@ERROR@" + str, "printLog: >>>>>>>> " + str2);
         }
-        return (Application) invokeV.objValue;
+    }
+
+    @JvmStatic
+    public static final void c(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) && context != null && o91.a()) {
+            Toast.makeText(context, str, 0).show();
+        }
+    }
+
+    @JvmStatic
+    public static final void d(Exception exception) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, exception) == null) {
+            Intrinsics.checkNotNullParameter(exception, "exception");
+            if (!o91.a()) {
+                return;
+            }
+            throw exception;
+        }
     }
 }

@@ -187,7 +187,7 @@ public class FingerprintDialog extends Dialog implements FingerprintDialogInterf
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            findViewById(R.id.obfuscated_res_0x7f090ea0).setVisibility(8);
+            findViewById(R.id.obfuscated_res_0x7f090ee5).setVisibility(8);
             return this;
         }
         return (FingerprintDialogInterface) invokeV.objValue;

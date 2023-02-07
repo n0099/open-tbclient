@@ -1,274 +1,92 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.opengl.EGLContext;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.ar.DefaultParams;
-import com.baidu.ar.bean.DuMixARConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.exifinterface.media.ExifInterface;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.internal.Base64;
+import com.google.android.exoplayer2.text.cea.Cea608Decoder;
+import java.io.ByteArrayOutputStream;
+import java.io.OutputStream;
+import java.util.zip.GZIPOutputStream;
+import kotlin.jvm.internal.ByteCompanionObject;
+import org.apache.commons.codec.binary4util.BaseNCodec;
 /* loaded from: classes7.dex */
-public final class ze0 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static boolean a = false;
-    public static af0 b = null;
-    public static gf0 c = null;
-    public static Context d = null;
-    public static byte[] e = null;
-    public static JSONObject f = null;
-    public static JSONObject g = null;
-    public static boolean h = true;
-    public static String i = "live";
+public class ze0 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public interface a {
-        void onProgress(int i, int i2);
+    public static class a extends GZIPOutputStream {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-        void onResult(boolean z, String str);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948356932, "Lcom/baidu/tieba/ze0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948356932, "Lcom/baidu/tieba/ze0;");
-        }
-    }
-
-    public static void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            Log.e("DuAr_DuController", "ar->" + str);
-        }
-    }
-
-    public static void j(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65547, null, context) == null) {
-            k(context, "10000", "2288883fb087c4a37fbaf12bce65916e", "");
-        }
-    }
-
-    public static void p(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65553, null, aVar) == null) {
-            nf0.e().k(aVar);
-        }
-    }
-
-    public static void q(gf0 gf0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65554, null, gf0Var) == null) {
-            c = gf0Var;
-        }
-    }
-
-    public static void r(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65555, null, str) == null) {
-            i = str;
-        }
-    }
-
-    public static void s(af0 af0Var) {
-        File f2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65556, null, af0Var) == null) {
-            b = af0Var;
-            if (af0Var == null && (f2 = nf0.e().f()) != null) {
-                b = new af0(f2.getAbsolutePath());
-            }
-        }
-    }
-
-    public static void t(File file) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65557, null, file) != null) || file == null) {
-            return;
-        }
-        af0 af0Var = b;
-        if (af0Var == null) {
-            af0Var = new af0(file.getAbsolutePath());
-        }
-        s(af0Var);
-    }
-
-    public static void u(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65558, null, z) == null) {
-            h = z;
-            t(nf0.e().f());
-        }
-    }
-
-    public static byte[] b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return e;
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public static gf0 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return c;
-        }
-        return (gf0) invokeV.objValue;
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return i;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static synchronized ef0 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            synchronized (ze0.class) {
-                if (g != null && g.length() > 0) {
-                    return ef0.b(g);
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(OutputStream outputStream) {
+            super(outputStream);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {outputStream};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((OutputStream) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return null;
             }
         }
-        return (ef0) invokeV.objValue;
-    }
 
-    public static af0 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return b;
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                ((GZIPOutputStream) this).def.setLevel(i);
+            }
         }
-        return (af0) invokeV.objValue;
     }
 
-    public static Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return d;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public static int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return ye0.a0();
-        }
-        return invokeV.intValue;
-    }
-
-    public static String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return ye0.b0();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            return a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
-            return nf0.e().h();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
-            return h;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static DefaultParams d(EGLContext eGLContext) {
+    public static byte[] a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, eGLContext)) == null) {
-            String g2 = af0.g();
-            if (m()) {
-                a("getDuMixDefaultParams EGLContext: " + eGLContext + ", modelPath: " + g2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
+            byte[] bArr2 = new byte[bArr.length];
+            byte[] bArr3 = {26, 31, -22, -104, 118, 81, -16, 6, 90, -75, Byte.MIN_VALUE, ExifInterface.MARKER_SOI, 85, 92, 106, 114, -20, 34, 116, 13, -70, -77, 122, -71, -84, -25, -42, 99, ExifInterface.START_CODE, 100, 19, -37, -99, 32, -17, 70, -124, -24, -114, -120, 24, 73, -103, 3, -44, 1, 52, 91, 17, 40, -21, 66, -91, 21, 16, ExifInterface.MARKER_SOF5, 80, 49, 12, -123, 123, -92, 68, 102, Constants.SHORT_PING_CMD_TYPE, -6, -72, -89, -107, 10, 126, -102, -98, -52, ExifInterface.MARKER_SOF0, 120, -32, ExifInterface.MARKER_SOF9, -80, 98, 55, -85, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 47, -101, 84, -90, 121, 125, -28, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, ExifInterface.MARKER_SOF1, 83, -113, BaseNCodec.PAD_DEFAULT, -67, ExifInterface.MARKER_SOF7, -15, 22, -19, 94, 28, -46, 97, 43, ByteCompanionObject.MAX_VALUE, -9, 20, 112, ExifInterface.MARKER_SOF10, Constants.GZIP_CAST_TYPE, -68, -2, -112, -79, -47, -13, 109, 27, -116, -96, -115, -18, -100, 5, Base64.INTERNAL_PADDING, 67, 48, 82, -23, 88, -66, ExifInterface.MARKER_SOS, 50, 23, -4, -48, ExifInterface.MARKER_SOF6, ExifInterface.MARKER_SOF13, -29, -78, 115, -122, 69, -34, -86, 74, ExifInterface.MARKER_SOF14, -87, -1, -121, 124, 71, -126, 7, 62, 56, -94, 77, -110, -27, 30, -83, ExifInterface.MARKER_SOF2, 0, 18, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 104, 29, 78, 25, -41, 2, -65, -8, -3, 89, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, -56, 58, -45, 79, 14, 96, 72, -26, -14, -82, 15, 108, -30, -97, -108, -109, 54, -73, -11, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, ExifInterface.MARKER_SOF3, -33, 59, ExifInterface.MARKER_SOF15, 117, -95, 9, 87, 110, -125, -105, 86, 45, 60, -81, ExifInterface.MARKER_EOI, -43, ExifInterface.MARKER_APP1, ExifInterface.MARKER_SOF11, 63, -88, 76, -10, 8, 53, 93, 75, -60, 111, 105, -127, 103, -111, -93, 95, 64, -69, -106, -7, 113, 4, -5, -74, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, -117, -12, -35, 51, 119, 65, 33, -36, 107, -119, 57, -118, -76, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS};
+            int i = 0;
+            int i2 = 0;
+            for (int i3 = 0; i3 < bArr.length; i3++) {
+                i = (i + 1) & 255;
+                i2 = (bArr3[i] + i2) & 255;
+                byte b = bArr3[i];
+                bArr3[i] = bArr3[i2];
+                bArr3[i2] = b;
+                bArr2[i3] = (byte) (bArr[i3] ^ bArr3[(bArr3[i] + bArr3[i2]) & 255]);
             }
-            DefaultParams defaultParams = new DefaultParams();
-            defaultParams.setFaceAlgoModelPath(g2);
-            JSONObject jSONObject = f;
-            if (jSONObject != null && jSONObject.length() > 0) {
-                defaultParams.setGradingConfig(f);
-            }
-            if (eGLContext != null) {
-                defaultParams.setUseTextureIO(true);
-                defaultParams.setShareContext(eGLContext);
-            }
-            JSONObject jSONObject2 = f;
-            if (jSONObject2 != null && jSONObject2.length() > 0) {
-                defaultParams.setGradingConfig(f);
-                if (m()) {
-                    a("getDuMixDefaultParams  " + f.toString());
-                }
-            }
-            return defaultParams;
+            return bArr2;
         }
-        return (DefaultParams) invokeL.objValue;
+        return (byte[]) invokeL.objValue;
     }
 
-    public static void k(Context context, String str, String str2, String str3) {
+    public static byte[] b(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65548, null, context, str, str2, str3) == null) {
-            l(context, str, str2, str3, null);
-        }
-    }
-
-    @Deprecated
-    public static void l(Context context, String str, String str2, String str3, af0 af0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65549, null, context, str, str2, str3, af0Var) == null) {
-            if (m()) {
-                a("sdk init with appId:" + str + ", apikey:" + str2 + ", secretKey:" + str3);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            if (bArr == null || bArr.length == 0) {
+                return null;
             }
-            d = context.getApplicationContext();
-            DuMixARConfig.setAppId(str);
-            DuMixARConfig.setAPIKey(str2);
-            DuMixARConfig.setSecretKey(str3);
-            kf0.d().i(d);
-            s(af0Var);
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            a aVar = new a(byteArrayOutputStream);
+            aVar.a(9);
+            aVar.write(bArr);
+            aVar.close();
+            return byteArrayOutputStream.toByteArray();
         }
+        return (byte[]) invokeL.objValue;
     }
 }

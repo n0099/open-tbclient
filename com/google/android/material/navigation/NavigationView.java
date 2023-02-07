@@ -249,7 +249,7 @@ public class NavigationView extends ScrimInsetsFrameLayout {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public NavigationView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f0404fd);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0404fe);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

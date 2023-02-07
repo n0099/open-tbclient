@@ -79,7 +79,7 @@ public final class a {
                             }
                             break;
                         case -1706170181:
-                            if (upperCase.equals("XIAOMI")) {
+                            if (upperCase.equals(RomUtils.ROM_XIAOMI)) {
                                 c = 1;
                                 break;
                             }

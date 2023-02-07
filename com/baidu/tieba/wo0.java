@@ -1,56 +1,49 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.max.event.VideoEventTypeEnum;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class wo0 implements cj0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final VideoEventTypeEnum a;
+public interface wo0 {
+    public static final ServiceReference a = new ServiceReference("nad.business", "rewardVideoLpTaskCenter");
+    public static final wo0 b = new a();
 
-    public wo0(VideoEventTypeEnum type) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {type};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(po0 po0Var);
+
+        void onFail(Exception exc);
+    }
+
+    void a(@NonNull xq0 xq0Var, @NonNull mr0 mr0Var, @NonNull b bVar);
+
+    /* loaded from: classes6.dex */
+    public static class a implements wo0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.wo0
+        public void a(@NonNull xq0 xq0Var, @NonNull mr0 mr0Var, @NonNull b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, xq0Var, mr0Var, bVar) == null) {
             }
         }
-        Intrinsics.checkNotNullParameter(type, "type");
-        this.a = type;
-    }
 
-    @Override // com.baidu.tieba.cj0
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String simpleName = wo0.class.getSimpleName();
-            Intrinsics.checkNotNullExpressionValue(simpleName, "VideoViewEvent::class.java.simpleName");
-            return simpleName;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-        return (String) invokeV.objValue;
-    }
-
-    public final VideoEventTypeEnum getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (VideoEventTypeEnum) invokeV.objValue;
     }
 }

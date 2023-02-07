@@ -1,14 +1,17 @@
 package com.baidu.tieba;
-
-import java.util.HashMap;
-import java.util.List;
 /* loaded from: classes5.dex */
 public interface lk0 {
-    List<qk0> a();
+    void setBackgroundColor(int i);
 
-    void b(HashMap<String, qk0> hashMap);
+    void setBorderRadius(float f);
 
-    void c(c11 c11Var);
+    void setProgressColor(int i);
 
-    void update(c11 c11Var);
+    void setStrokeColor(int i);
+
+    void setStrokeWidth(float f);
+
+    void setTextColor(int i);
+
+    void setTextSize(float f);
 }

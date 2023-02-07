@@ -1,17 +1,19 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.content.Context;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ly2 {
+public class ly2 extends jy2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final boolean b;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,46 +29,46 @@ public class ly2 {
                 return;
             }
         }
-        a = tk1.a;
-        b = c("swan_perf_stat_rectify", 0);
-        c = c("swan_perf_stat_overlay_rectify", 0);
-        if (a) {
-            Log.d("SwanRectifyAbSwitcher", "670 data rectify on - " + b);
-            Log.d("SwanRectifyAbSwitcher", "670 data overlay rectify on - " + c);
-        }
+        boolean z = gp1.a;
     }
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ly2(String str) {
+        super(str);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean c(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, str, i)) == null) {
-            qn2.g0().getSwitch(str, i);
-            if (a) {
-                Log.d("SwanRectifyAbSwitcher", str + " - " + i);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            if (i == 1) {
-                return true;
-            }
-            return false;
         }
-        return invokeLI.booleanValue;
+    }
+
+    private void update(ey2 ey2Var, gy2 gy2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65538, this, ey2Var, gy2Var, unitedSchemeEntity, callbackHandler) == null) {
+            ey2Var.h(gy2Var);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+        }
+    }
+
+    @Override // com.baidu.tieba.jy2
+    public boolean a(ey2 ey2Var, gy2 gy2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, w83 w83Var) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{ey2Var, gy2Var, context, unitedSchemeEntity, callbackHandler, w83Var})) == null) {
+            w52.b("vrvideo", "update, video id:" + gy2Var.j + " slave id: " + gy2Var.c);
+            update(ey2Var, gy2Var, unitedSchemeEntity, callbackHandler);
+            return true;
+        }
+        return invokeCommon.booleanValue;
     }
 }

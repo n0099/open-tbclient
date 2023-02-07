@@ -1,195 +1,143 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class wy2 implements uy2 {
+public final class wy2 implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public vy2 a;
-    public long b;
-    public long c;
-
-    /* loaded from: classes6.dex */
-    public class a implements View.OnLongClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wy2 a;
-
-        public a(wy2 wy2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wy2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = wy2Var;
-        }
-
-        @Override // android.view.View.OnLongClickListener
-        public boolean onLongClick(View view2) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-                if (this.a.j()) {
-                    this.a.k();
-                    return true;
-                }
-                this.a.l();
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948286841, "Lcom/baidu/tieba/wy2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948286841, "Lcom/baidu/tieba/wy2;");
-                return;
-            }
-        }
-        d = tk1.a;
-    }
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
 
     public wy2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-        if (j()) {
-            this.a = new vy2();
         }
     }
 
-    public final boolean j() {
+    @Nullable
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b(this);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public Object clone() throws CloneNotSupportedException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return super.clone();
+        }
+        return invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String b(wy2 wy2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, wy2Var)) == null) {
+            if (wy2Var == null || TextUtils.isEmpty(wy2Var.a)) {
+                return null;
+            }
+            if (TextUtils.isEmpty(wy2Var.b)) {
+                return wy2Var.a;
+            }
+            return wy2Var.a + "?" + wy2Var.b;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(wy2 wy2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, wy2Var)) == null) {
+            if (wy2Var == null || TextUtils.isEmpty(wy2Var.d)) {
+                return null;
+            }
+            if (TextUtils.isEmpty(wy2Var.b)) {
+                return wy2Var.d;
+            }
+            return wy2Var.d + "?" + wy2Var.b;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static wy2 d(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            wy2 wy2Var = new wy2();
+            wy2Var.a = om3.f(str);
+            wy2Var.b = om3.o(str);
+            wy2Var.c = str2;
+            wy2Var.d = oc3.b(wy2Var.a);
+            return wy2Var;
+        }
+        return (wy2) invokeLL.objValue;
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (!d) {
-                return false;
-            }
-            return AppRuntime.getAppContext().getSharedPreferences("light_info_debug", 0).getBoolean("light_info_switch", false);
+            return "SwanAppPageParam{mPage='" + this.a + "', mParams='" + this.b + "', mBaseUrl='" + this.c + "', mRoutePage='" + this.d + "', mRoutType='" + this.e + "', mRouteId='" + this.f + "'}";
         }
-        return invokeV.booleanValue;
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            AppRuntime.getAppContext().getSharedPreferences("light_info_debug", 0).edit().putBoolean("light_info_switch", false).apply();
-            vy2 vy2Var = this.a;
-            if (vy2Var != null) {
-                vy2Var.c();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.uy2
-    public void a(long j) {
-        vy2 vy2Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048576, this, j) == null) && j() && (vy2Var = this.a) != null) {
-            vy2Var.f(j - this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.uy2
-    public void c(long j) {
-        vy2 vy2Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && j() && (vy2Var = this.a) != null) {
-            vy2Var.h(j - this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.uy2
-    public void d(long j) {
-        vy2 vy2Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) && j() && (vy2Var = this.a) != null) {
-            vy2Var.i(j - this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.uy2
-    public void e(long j) {
-        vy2 vy2Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048579, this, j) == null) && j() && (vy2Var = this.a) != null) {
-            vy2Var.g(j - this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.vx2
-    public void end(long j) {
-        vy2 vy2Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048580, this, j) == null) && j() && (vy2Var = this.a) != null) {
-            this.c = j;
-            vy2Var.l(this.b, j);
-            this.a.a();
-        }
-    }
-
-    @Override // com.baidu.tieba.uy2
-    public void f(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && d && view2 != null) {
-            view2.setOnLongClickListener(new a(this));
-        }
-    }
-
-    @Override // com.baidu.tieba.vx2
-    public void start(long j) {
-        vy2 vy2Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048585, this, j) == null) && j() && (vy2Var = this.a) != null) {
-            this.b = j;
-            vy2Var.e();
-        }
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            AppRuntime.getAppContext().getSharedPreferences("light_info_debug", 0).edit().putBoolean("light_info_switch", true).apply();
-            if (this.a == null) {
-                this.a = new vy2();
-            }
-            this.a.k();
-        }
+        return (String) invokeV.objValue;
     }
 }

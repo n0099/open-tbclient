@@ -22,9 +22,9 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cx4;
-import com.baidu.tieba.xy6;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.i37;
+import com.baidu.tieba.p15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -146,7 +146,7 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
             this.c = inflate;
             TextView textView = (TextView) inflate.findViewById(R.id.forum_name_text);
             this.e = textView;
-            cx4 d = cx4.d(textView);
+            p15 d = p15.d(textView);
             d.A(R.string.F_X01);
             d.z(R.dimen.T_X09);
             d.v(R.color.CAM_X0305);
@@ -154,7 +154,7 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
             d.n(R.string.J_X01);
             d.l(R.dimen.L_X02);
             d.k(R.color.CAM_X0305);
-            this.e.setCompoundDrawablePadding(zi.g(this.b, R.dimen.M_W_X002));
+            this.e.setCompoundDrawablePadding(ej.g(this.b, R.dimen.M_W_X002));
         }
     }
 
@@ -170,7 +170,7 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
         Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.icon_pure_good12, color, WebPManager.ResourceStateType.NORMAL_PRESS);
         this.f = pureDrawable;
         if (pureDrawable != null) {
-            this.f.setBounds(0, 0, zi.g(this.b, R.dimen.T_X09), zi.g(this.b, R.dimen.T_X09));
+            this.f.setBounds(0, 0, ej.g(this.b, R.dimen.T_X09), ej.g(this.b, R.dimen.T_X09));
         }
         f();
     }
@@ -194,9 +194,9 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
             MessageManager.getInstance().sendMessage(new CustomMessage(2003000, createNormalCfg2));
         } else if (i == 2) {
             c("c13967", 1);
-            xy6 xy6Var = new xy6();
-            xy6Var.e = 3;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921384, xy6Var));
+            i37 i37Var = new i37();
+            i37Var.e = 3;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921384, i37Var));
         }
         View.OnClickListener onClickListener = this.g;
         if (onClickListener != null) {

@@ -1,206 +1,190 @@
 package com.baidu.tieba;
 
-import android.media.CamcorderProfile;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.graphics.SurfaceTexture;
+import android.opengl.GLES20;
+import android.util.Log;
+import android.view.Surface;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.afx.recode.OutputSurface;
+import com.baidu.tbadk.core.atomData.TbFileVideoActivityConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Objects;
+import com.faceunity.FaceUnityUtils;
+import com.faceunity.gles.FullFrameRect;
+import com.faceunity.gles.Texture2dProgram;
+import com.faceunity.wrapper.faceunity;
 /* loaded from: classes4.dex */
-public class fa9 implements Comparable<fa9> {
+public class fa9 implements SurfaceTexture.OnFrameAvailableListener {
     public static /* synthetic */ Interceptable $ic;
+    public static int m;
+    public static int n;
+    public static int[] o;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final int b;
-    public int c;
+    public SurfaceTexture a;
+    public Surface b;
+    public Object c;
+    public boolean d;
+    public Context e;
+    public String f;
+    public int g;
+    public int h;
+    public FullFrameRect i;
+    public FullFrameRect j;
+    public int k;
+    public final float[] l;
 
-    public fa9(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947757547, "Lcom/baidu/tieba/fa9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947757547, "Lcom/baidu/tieba/fa9;");
                 return;
             }
         }
-        this.c = 30;
-        this.a = i;
-        this.b = i2;
+        o = new int[]{0, 0, 0};
     }
 
-    public fa9(int i, int i2, int i3) {
+    public Surface d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (Surface) invokeV.objValue;
+    }
+
+    public fa9(Context context, String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {context, str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = 30;
-        this.a = i;
-        this.b = i2;
-        this.c = i3;
+        this.c = new Object();
+        this.f = "normal";
+        this.l = new float[16];
+        this.e = context;
+        this.f = str;
+        this.g = i;
+        this.h = i2;
+        f();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(@NonNull fa9 fa9Var) {
-        InterceptResult invokeL;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fa9Var)) == null) {
-            int i = this.a;
-            int i2 = this.b;
-            int i3 = i * i2;
-            int i4 = fa9Var.a;
-            int i5 = fa9Var.b;
-            if (i3 == i4 * i5) {
-                return this.c - fa9Var.c;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this.c) {
+                while (!this.d) {
+                    try {
+                        this.c.wait(500L);
+                        if (!this.d) {
+                            throw new RuntimeException("Surface frame wait timed out");
+                        }
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+                this.d = false;
             }
-            return (i * i2) - (i4 * i5);
-        }
-        return invokeL.intValue;
-    }
-
-    public boolean f(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            return g(this, i);
-        }
-        return invokeI.booleanValue;
-    }
-
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.c = i;
+            b("before updateTexImage");
+            this.a.updateTexImage();
         }
     }
 
-    public CamcorderProfile b() {
-        InterceptResult invokeV;
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.a == 720 && this.b == 480) {
-                return CamcorderProfile.get(4);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b.release();
+            this.b = null;
+            this.a = null;
+            FullFrameRect fullFrameRect = this.i;
+            if (fullFrameRect != null) {
+                fullFrameRect.release(false);
+                this.i = null;
             }
-            if (this.a == 1280 && this.b == 720) {
-                return CamcorderProfile.get(5);
-            }
-            if (this.a == 1920 && this.b == 1080) {
-                return CamcorderProfile.get(6);
-            }
-            if (this.a == 3840 && this.b == 2160) {
-                return CamcorderProfile.get(8);
-            }
-            return CamcorderProfile.get(5);
+            faceunity.fuDestroyItem(n);
+            int[] iArr = o;
+            n = 0;
+            iArr[1] = 0;
+            faceunity.fuDestroyItem(m);
+            int[] iArr2 = o;
+            m = 0;
+            iArr2[0] = 0;
+            faceunity.fuOnDeviceLost();
         }
-        return (CamcorderProfile) invokeV.objValue;
     }
 
-    public int c() {
-        InterceptResult invokeV;
+    public void b(String str) {
+        int glGetError;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || (glGetError = GLES20.glGetError()) == 0) {
+            return;
         }
-        return invokeV.intValue;
+        Log.e(OutputSurface.TAG, str + ": glError " + glGetError);
+        throw new RuntimeException(str + ": glError " + glGetError);
     }
 
-    public int d() {
-        InterceptResult invokeV;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.updateTexImage();
+            this.a.getTransformMatrix(this.l);
+            faceunity.fuItemSetParam(m, TbFileVideoActivityConfig.FILTER_NAME, this.f);
+            faceunity.fuItemSetParam(m, "eye_bright", 0.0d);
+            faceunity.fuItemSetParam(m, "tooth_whiten", 0.0d);
+            this.i.drawFrame(faceunity.fuBeautifyImage(this.k, 1, this.g, this.h, 0, o), this.l);
         }
-        return invokeV.intValue;
     }
 
-    public int e() {
-        InterceptResult invokeV;
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.i = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
+            Log.d(OutputSurface.TAG, "onSurfaceCreated: ");
+            FullFrameRect fullFrameRect = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_EXT));
+            this.j = fullFrameRect;
+            this.k = fullFrameRect.createTextureObject();
+            this.a = new SurfaceTexture(this.k);
+            this.b = new Surface(this.a);
+            int upFaceUnity = FaceUnityUtils.setUpFaceUnity(this.e);
+            m = upFaceUnity;
+            o[0] = upFaceUnity;
+            this.a.setOnFrameAvailableListener(this);
         }
-        return invokeV.intValue;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
+    public void onFrameAvailable(SurfaceTexture surfaceTexture) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
-            if (obj == null) {
-                return false;
+        if (interceptable == null || interceptable.invokeL(1048582, this, surfaceTexture) == null) {
+            Log.d(OutputSurface.TAG, "new frame available");
+            synchronized (this.c) {
+                if (!this.d) {
+                    this.d = true;
+                    this.c.notifyAll();
+                } else {
+                    throw new RuntimeException("mFrameAvailable already set, frame could be dropped");
+                }
             }
-            if (this == obj) {
-                return true;
-            }
-            if (!(obj instanceof fa9)) {
-                return false;
-            }
-            fa9 fa9Var = (fa9) obj;
-            if (this.a != fa9Var.a || this.b != fa9Var.b || this.c != fa9Var.c) {
-                return false;
-            }
-            return true;
         }
-        return invokeL.booleanValue;
-    }
-
-    public boolean g(fa9 fa9Var, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, fa9Var, i)) == null) {
-            if (fa9Var.e() == 720 && fa9Var.d() == 480) {
-                return CamcorderProfile.hasProfile(i, 2002);
-            }
-            if (fa9Var.e() == 1280 && fa9Var.d() == 720) {
-                return CamcorderProfile.hasProfile(i, 2003);
-            }
-            if (fa9Var.e() == 1920 && fa9Var.d() == 1080) {
-                return CamcorderProfile.hasProfile(i, 2004);
-            }
-            if (fa9Var.e() == 3840 && fa9Var.d() == 2160) {
-                return CamcorderProfile.hasProfile(i, 2005);
-            }
-            return false;
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return Objects.hash(Integer.valueOf(e()), Integer.valueOf(d()), Integer.valueOf(c()));
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.a + "x" + this.b + " " + this.c + "p";
-        }
-        return (String) invokeV.objValue;
     }
 }

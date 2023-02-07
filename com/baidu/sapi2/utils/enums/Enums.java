@@ -102,7 +102,7 @@ public class Enums {
             HONOR = new LastLoginType("HONOR", 9, "honor", 23);
             CFO = new LastLoginType("CFO", 10, "cfo", 60);
             YY = new LastLoginType("YY", 11, "yy", 100);
-            XIAOMI = new LastLoginType("XIAOMI", 12, RomUtils.MANUFACTURER_XIAOMI, 13);
+            XIAOMI = new LastLoginType(RomUtils.ROM_XIAOMI, 12, RomUtils.MANUFACTURER_XIAOMI, 13);
             MEIZU = new LastLoginType("MEIZU", 13, "meizu", 14);
             SLIENT_SHARE = new LastLoginType("SLIENT_SHARE", 14, "slient_share", 7);
             CHOICE_SHARE = new LastLoginType("CHOICE_SHARE", 15, ShareCallPacking.LOGIN_TYPE_SHARE_V1_CHOICE, 8);

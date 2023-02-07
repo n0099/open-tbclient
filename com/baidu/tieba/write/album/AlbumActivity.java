@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sc9;
+import com.baidu.tieba.sg9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class AlbumActivity extends BaseFragmentActivity implements View.OnClickListener, ActivityCompat.OnRequestPermissionsResultCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sc9 a;
+    public sg9 a;
     public View b;
     public boolean c;
 
@@ -46,7 +46,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void closeAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 4);
         }
     }
@@ -54,7 +54,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void enterExitAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 4);
         }
     }
@@ -62,15 +62,15 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
             View view2 = this.b;
             if (view2 != null) {
                 view2.setBackgroundDrawable(null);
             }
-            sc9 sc9Var = this.a;
-            if (sc9Var != null) {
-                sc9Var.onDestroy();
+            sg9 sg9Var = this.a;
+            if (sg9Var != null) {
+                sg9Var.onDestroy();
             }
         }
     }
@@ -78,10 +78,10 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            sc9 sc9Var = this.a;
-            if (sc9Var != null) {
-                sc9Var.E();
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            sg9 sg9Var = this.a;
+            if (sg9Var != null) {
+                sg9Var.E();
             }
             super.onPause();
         }
@@ -90,11 +90,11 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onResume();
-            sc9 sc9Var = this.a;
-            if (sc9Var != null) {
-                sc9Var.onResume();
+            sg9 sg9Var = this.a;
+            if (sg9Var != null) {
+                sg9Var.onResume();
             }
         }
     }
@@ -102,11 +102,11 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onStart();
-            sc9 sc9Var = this.a;
-            if (sc9Var != null) {
-                sc9Var.H();
+            sg9 sg9Var = this.a;
+            if (sg9Var != null) {
+                sg9Var.H();
             }
         }
     }
@@ -114,62 +114,19 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onStop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onStop();
-            sc9 sc9Var = this.a;
-            if (sc9Var != null) {
-                sc9Var.J();
+            sg9 sg9Var = this.a;
+            if (sg9Var != null) {
+                sg9Var.J();
             }
-        }
-    }
-
-    public final void N0() {
-        View view2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (view2 = this.b) == null) {
-            return;
-        }
-        if (this.c && view2.getLayoutParams() != null) {
-            ViewGroup.LayoutParams layoutParams = this.b.getLayoutParams();
-            layoutParams.height = UtilHelper.getStatusBarHeight();
-            this.b.setLayoutParams(layoutParams);
-            P0(true);
-            return;
-        }
-        P0(false);
-    }
-
-    public final void P0(boolean z) {
-        View view2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) != null) || (view2 = this.b) == null) {
-            return;
-        }
-        if (this.c && z && view2.getVisibility() != 0) {
-            this.b.setVisibility(0);
-        } else if (!z && this.b.getVisibility() != 8) {
-            this.b.setVisibility(8);
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
-            super.onCreate(bundle);
-            setSwipeBackEnabled(false);
-            setContentView(R.layout.obfuscated_res_0x7f0d0115);
-            this.b = findViewById(R.id.obfuscated_res_0x7f092073);
-            this.c = UtilHelper.canUseStyleImmersiveSticky();
-            N0();
-            this.a = new sc9(this, bundle, R.id.obfuscated_res_0x7f090b0b, R.id.obfuscated_res_0x7f090b0b);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048580, this, i, i2, intent) == null) {
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
             if (i2 == -1) {
                 this.a.M(intent);
@@ -180,33 +137,60 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201, i);
-            sc9 sc9Var = this.a;
-            if (sc9Var != null) {
-                sc9Var.o(i);
+            sg9 sg9Var = this.a;
+            if (sg9Var != null) {
+                sg9Var.o(i);
             }
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
-        sc9 sc9Var;
+        sg9 sg9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, view2) == null) && (sc9Var = this.a) != null) {
-            sc9Var.onClick(view2);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && (sg9Var = this.a) != null) {
+            sg9Var.onClick(view2);
         }
     }
 
     @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
-            sc9 sc9Var = this.a;
-            if (sc9Var != null) {
-                sc9Var.G(bundle);
+            sg9 sg9Var = this.a;
+            if (sg9Var != null) {
+                sg9Var.G(bundle);
             }
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
+            super.onCreate(bundle);
+            setSwipeBackEnabled(false);
+            setContentView(R.layout.obfuscated_res_0x7f0d0114);
+            this.b = findViewById(R.id.obfuscated_res_0x7f092085);
+            this.c = UtilHelper.canUseStyleImmersiveSticky();
+            p1();
+            this.a = new sg9(this, bundle, R.id.obfuscated_res_0x7f090b4e, R.id.obfuscated_res_0x7f090b4e);
+        }
+    }
+
+    public final void q1(boolean z) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(1048590, this, z) != null) || (view2 = this.b) == null) {
+            return;
+        }
+        if (this.c && z && view2.getVisibility() != 0) {
+            this.b.setVisibility(0);
+        } else if (!z && this.b.getVisibility() != 8) {
+            this.b.setVisibility(8);
         }
     }
 
@@ -214,7 +198,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048585, this, i, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048583, this, i, keyEvent)) == null) {
             if (i == 4) {
                 this.a.D();
                 return true;
@@ -222,5 +206,21 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
             return super.onKeyDown(i, keyEvent);
         }
         return invokeIL.booleanValue;
+    }
+
+    public final void p1() {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048589, this) != null) || (view2 = this.b) == null) {
+            return;
+        }
+        if (this.c && view2.getLayoutParams() != null) {
+            ViewGroup.LayoutParams layoutParams = this.b.getLayoutParams();
+            layoutParams.height = UtilHelper.getStatusBarHeight();
+            this.b.setLayoutParams(layoutParams);
+            q1(true);
+            return;
+        }
+        q1(false);
     }
 }

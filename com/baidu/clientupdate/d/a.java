@@ -13,6 +13,7 @@ import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
 import com.baidu.clientupdate.appinfo.RuleInfo;
 import com.baidu.clientupdate.download.Download;
 import com.baidu.clientupdate.download.DownloadManager;
+import com.baidu.searchbox.cloudcommand.dao.CloudCommandTable;
 import com.baidu.searchbox.unitedscheme.SchemeDescPatchListener;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -309,7 +310,7 @@ public final class a {
                     this.c = (ClientUpdateInfo) h.a(jSONObject.optJSONObject("clientupdate"), 0);
                     if (!new URI(this.c.mDownurl).getHost().endsWith(PublicSuffixDatabase.BAIDU_TLD_PLUS_ONE)) {
                         JSONObject jSONObject2 = new JSONObject();
-                        jSONObject2.put("msgId", "3");
+                        jSONObject2.put(CloudCommandTable.MSG_ID, "3");
                         jSONObject2.put("messageDetail", "下载地址有问题");
                         if (iClientUpdaterCallback != null) {
                             iClientUpdaterCallback.onError(jSONObject2);

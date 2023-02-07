@@ -1,64 +1,88 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.collection.ArrayMap;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.storage.swankv.AshmemFileDescriptor;
+import com.baidu.storage.swankv.SwanKV;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
-/* loaded from: classes5.dex */
+import java.util.Map;
+/* loaded from: classes6.dex */
 public class qh3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final Map<String, ph3> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            j43 M = j43.M();
-            if (M != null) {
-                return String.format(str, M.O(), M.V());
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948091789, "Lcom/baidu/tieba/qh3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return "";
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948091789, "Lcom/baidu/tieba/qh3;");
+                return;
+            }
         }
-        return (String) invokeL.objValue;
+        a = gp1.a;
+        b = new ArrayMap();
     }
 
-    public static String b() {
-        InterceptResult invokeV;
+    @Nullable
+    public static AshmemFileDescriptor a(@NonNull String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            String a = a("https://smartapps.cn/%s/%s/page-frame.html");
-            if (tk1.a) {
-                Log.d("SwanAppRefererUtils", "getFixedReferer: " + a);
-            }
-            return a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            String b = b();
-            if (!TextUtils.isEmpty(b)) {
-                if (tk1.a) {
-                    Log.d("SwanAppRefererUtils", "call setRefererPattern for Slave Webview; referer is " + b);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
+            try {
+                if (ProcessUtils.isMainProcess()) {
+                    synchronized (b) {
+                        ph3 ph3Var = b.get(str);
+                        if (ph3Var != null && ph3Var.a() != null) {
+                            return ph3Var.a();
+                        }
+                        int ashmemFD = SwanKV.getAshmemFD(str, i);
+                        if (ashmemFD >= 0) {
+                            AshmemFileDescriptor ashmemFileDescriptor = new AshmemFileDescriptor(str, ashmemFD, i);
+                            mh3.e(ashmemFileDescriptor);
+                            return ashmemFileDescriptor;
+                        }
+                        return null;
+                    }
                 }
-                WebSettingsGlobalBlink.setRefererPattern(b, fn2.i());
+                return lh3.c(str, i);
+            } catch (Throwable th) {
+                if (a) {
+                    th.printStackTrace();
+                    return null;
+                }
+                return null;
             }
         }
+        return (AshmemFileDescriptor) invokeLI.objValue;
     }
 
-    public static boolean c(String str) {
-        InterceptResult invokeL;
+    public static synchronized void b(@NonNull AshmemFileDescriptor ashmemFileDescriptor) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && str.startsWith("https://")) {
-                return true;
+        if (interceptable == null || interceptable.invokeL(65538, null, ashmemFileDescriptor) == null) {
+            synchronized (qh3.class) {
+                if (ProcessUtils.isMainProcess()) {
+                    return;
+                }
+                ph3 ph3Var = b.get(ashmemFileDescriptor.getName());
+                if (ph3Var != null && ph3Var.a() != null && ph3Var.a().getAshmemFD() != ashmemFileDescriptor.getAshmemFD()) {
+                    SwanKV b2 = ph3Var.b();
+                    ph3Var.c(new SwanKV(ashmemFileDescriptor));
+                    b2.release();
+                }
             }
-            return false;
         }
-        return invokeL.booleanValue;
     }
 }

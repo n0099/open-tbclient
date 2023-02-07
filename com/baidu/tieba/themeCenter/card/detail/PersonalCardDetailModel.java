@@ -6,9 +6,9 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.qw8;
-import com.baidu.tieba.r29;
-import com.baidu.tieba.rb;
+import com.baidu.tieba.o09;
+import com.baidu.tieba.q69;
+import com.baidu.tieba.wb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,13 +18,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public r29 a;
+    public q69 a;
     public b b;
-    public rb c;
+    public wb c;
 
     /* loaded from: classes6.dex */
     public interface b {
-        void a(int i, String str, r29 r29Var);
+        void a(int i, String str, q69 q69Var);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -48,7 +48,7 @@ public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActiv
     }
 
     /* loaded from: classes6.dex */
-    public class a extends rb {
+    public class a extends wb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalCardDetailModel a;
@@ -75,7 +75,7 @@ public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActiv
             this.a = personalCardDetailModel;
         }
 
-        @Override // com.baidu.tieba.rb
+        @Override // com.baidu.tieba.wb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
@@ -110,8 +110,8 @@ public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActiv
             }
         }
         this.c = new a(this, CmdConfigHttp.CMD_GET_CARD_DETAIL, 309333);
-        qw8.h(309333, PersonalCardDetailSocketReponse.class, false, false);
-        qw8.c(309333, CmdConfigHttp.CMD_GET_CARD_DETAIL, TbConfig.GET_CARD_DETAIL, PersonalCardDetailHttpReponse.class, false, false, false, false);
+        o09.h(309333, PersonalCardDetailSocketReponse.class, false, false);
+        o09.c(309333, CmdConfigHttp.CMD_GET_CARD_DETAIL, TbConfig.GET_CARD_DETAIL, PersonalCardDetailHttpReponse.class, false, false, false, false);
         registerListener(this.c);
     }
 

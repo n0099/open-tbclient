@@ -1,29 +1,29 @@
 package com.baidu.tieba;
 
-import java.io.IOException;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface so9 {
-    int a() throws IOException;
+public class so9 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    int b() throws IOException;
-
-    boolean c();
-
-    void close();
-
-    void d();
-
-    int e() throws IOException;
-
-    boolean f();
-
-    byte[] g();
-
-    long getCurrentPosition();
-
-    long getDuration();
-
-    void h(long j);
-
-    void seek(long j);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948158284, "Lcom/baidu/tieba/so9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948158284, "Lcom/baidu/tieba/so9;");
+                return;
+            }
+        }
+        a = jp9.m();
+    }
 }

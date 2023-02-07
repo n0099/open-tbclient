@@ -1,13 +1,25 @@
 package com.baidu.tieba;
+
+import android.graphics.Bitmap;
+import com.baidu.tieba.video.editvideo.data.PendantData;
+import java.util.List;
 /* loaded from: classes6.dex */
 public interface t99 {
-    void H0(w99 w99Var);
+    void S();
 
-    void M0(String str, String str2, String str3, String str4);
+    void h();
 
-    void c(int i);
+    void h0(String str);
 
-    void onError(int i, String str);
+    void m();
 
-    void onFinish();
+    void n0(String str);
+
+    void n1(Bitmap bitmap);
+
+    void onNext();
+
+    void s(List<PendantData> list);
+
+    void x();
 }

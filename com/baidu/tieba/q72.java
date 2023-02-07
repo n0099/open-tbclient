@@ -1,189 +1,165 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.CallSuper;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.n72;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.Set;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class q72<T extends n72> extends xb4<jd4> {
+public class q72 extends ta3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final T a;
 
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @CallSuper
-    public void p(@NonNull jd4 jd4Var, @Nullable cg3 cg3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, jd4Var, cg3Var) == null) {
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948044669, "Lcom/baidu/tieba/q72;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948044669, "Lcom/baidu/tieba/q72;");
-                return;
-            }
-        }
-        b = tk1.a;
-    }
-
-    @Override // com.baidu.tieba.xb4
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return super.g();
-        }
-        return invokeV.intValue;
-    }
-
-    public q72(@NonNull T t) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public q72(t93 t93Var) {
+        super(t93Var, "/swanAPI/sConsole");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {t93Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = t;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xb4, com.baidu.tieba.ac4
-    /* renamed from: s */
-    public void c(jd4 jd4Var) {
+    @Override // com.baidu.tieba.ta3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, w83 w83Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, jd4Var) == null) {
-            super.c(jd4Var);
-            if (b) {
-                Log.d("SwanPMSSubDownload", "PMSPkgSub onDownloadStart " + jd4Var);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, w83Var)) == null) {
+            if (ta3.b) {
+                Log.d("ConsoleAction", "handle entity: " + unitedSchemeEntity.toString());
+                return false;
             }
+            return false;
         }
+        return invokeLLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.cc4
-    @NonNull
-    public Bundle m(@NonNull Bundle bundle, Set<String> set) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.ta3
+    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, w83 w83Var) {
+        InterceptResult invokeLLLLL;
+        boolean optBoolean;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, bundle, set)) == null) {
-            Bundle bundle2 = new Bundle();
-            if (set.contains("event_performance_ubc")) {
-                this.a.n(bundle.getString("performance_ubc_event_id"), bundle.getString("performance_ubc_extra_key_for_event"));
-                set.remove("event_performance_ubc");
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, w83Var)) == null) {
+            if (ta3.b) {
+                Log.d("ConsoleAction", "handleSubAction subAction: " + str);
             }
-            return bundle2;
+            if (!t52.a() && !w52.f() && !TextUtils.equals(str, "/swanAPI/sConsole/debugSwitch")) {
+                return super.i(context, unitedSchemeEntity, callbackHandler, str, w83Var);
+            }
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            char c = 65535;
+            switch (str.hashCode()) {
+                case -1923550429:
+                    if (str.equals("/swanAPI/sConsole/sanIncData2Console")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case -1792428120:
+                    if (str.equals("/swanAPI/sConsole/sanFullData2Console")) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case -797920904:
+                    if (str.equals("/swanAPI/sConsole/hide")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case -797593805:
+                    if (str.equals("/swanAPI/sConsole/show")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case -161927599:
+                    if (str.equals("/swanAPI/sConsole/postMessage")) {
+                        c = 6;
+                        break;
+                    }
+                    break;
+                case 1089933937:
+                    if (str.equals("/swanAPI/sConsole/debugSwitch")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case 2136057821:
+                    if (str.equals("/swanAPI/sConsole/getSanDataFromActiveSlave")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+            }
+            switch (c) {
+                case 0:
+                    if (optParamsAsJo != null && (optBoolean = optParamsAsJo.optBoolean("enableDebug")) != t52.a()) {
+                        t52.c(context, optBoolean);
+                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                        w52.i("ConsoleAction", " sConsole switch：" + optParamsAsJo.optBoolean("enableDebug"));
+                    }
+                    return true;
+                case 1:
+                    ju2.U().q().P(true);
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                    w52.i("ConsoleAction", "sConsole show");
+                    return true;
+                case 2:
+                    ju2.U().q().P(false);
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                    w52.i("ConsoleAction", "sConsole hide");
+                    return true;
+                case 3:
+                    if (optParamsAsJo != null && optParamsAsJo.length() > 0) {
+                        w52.i("ConsoleAction", "send san inc data");
+                        r72.d(optParamsAsJo.toString());
+                    } else {
+                        w52.c("ConsoleAction", "san inc data is null");
+                    }
+                    return true;
+                case 4:
+                    if (optParamsAsJo != null && optParamsAsJo.length() > 0) {
+                        w52.i("ConsoleAction", "send san full data");
+                        r72.c(optParamsAsJo.toString());
+                    } else {
+                        w52.c("ConsoleAction", "san full data is null");
+                    }
+                    return true;
+                case 5:
+                    w52.i("ConsoleAction", "request san full data");
+                    r72.b();
+                    return true;
+                case 6:
+                    fq1 h = es2.h();
+                    if (h != null) {
+                        h.c(optParamsAsJo);
+                    }
+                    return true;
+                default:
+                    return super.i(context, unitedSchemeEntity, callbackHandler, str, w83Var);
+            }
         }
-        return (Bundle) invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ac4
-    /* renamed from: o */
-    public String d(jd4 jd4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jd4Var)) == null) {
-            if (TextUtils.isEmpty(jd4Var.o)) {
-                jd4Var.o = l();
-            }
-            int i = jd4Var.h;
-            if (i == 0) {
-                return c82.b(jd4Var.o, String.valueOf(jd4Var.i));
-            }
-            if (i == 1) {
-                return c82.d(jd4Var.o, String.valueOf(jd4Var.i));
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xb4, com.baidu.tieba.ac4
-    /* renamed from: r */
-    public final void i(jd4 jd4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, jd4Var) == null) {
-            super.i(jd4Var);
-            p(jd4Var, t(jd4Var));
-            if (b) {
-                Log.d("SwanPMSSubDownload", "PMSPkgSub onDownloadFinish " + jd4Var);
-            }
-        }
-    }
-
-    @CallSuper
-    public void q(jd4 jd4Var, dd4 dd4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jd4Var, dd4Var) == null) {
-            super.e(jd4Var, dd4Var);
-            j12.k("SwanPMSSubDownload", "PMSPkgSub#onDownloadError del:" + jd4Var.a);
-            nk4.M(jd4Var.a);
-            if (b) {
-                Log.d("SwanPMSSubDownload", "PMSPkgSub onDownloadError " + jd4Var + ", error=" + dd4Var);
-            }
-        }
-    }
-
-    public final cg3 t(jd4 jd4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, jd4Var)) == null) {
-            if (!wh3.a(new File(jd4Var.a), jd4Var.m)) {
-                cg3 cg3Var = new cg3();
-                cg3Var.k(12L);
-                cg3Var.b(2300L);
-                cg3Var.d("分包签名校验失败");
-                return cg3Var;
-            } else if (!c82.g(jd4Var)) {
-                cg3 cg3Var2 = new cg3();
-                cg3Var2.k(12L);
-                cg3Var2.b(2320L);
-                cg3Var2.d("分包解压失败");
-                return cg3Var2;
-            } else {
-                return null;
-            }
-        }
-        return (cg3) invokeL.objValue;
+        return invokeLLLLL.booleanValue;
     }
 }

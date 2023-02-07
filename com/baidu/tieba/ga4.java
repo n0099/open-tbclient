@@ -1,34 +1,65 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.BaiduMap;
-import com.baidu.mapapi.map.MapStatusUpdateFactory;
-import com.baidu.mapapi.map.Marker;
-import com.baidu.mapapi.map.Overlay;
-import com.baidu.mapapi.map.OverlayOptions;
-import com.baidu.mapapi.model.LatLngBounds;
+import com.baidu.searchbox.v8engine.JSExceptionType;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
 /* loaded from: classes4.dex */
-public abstract class ga4 implements BaiduMap.OnMarkerClickListener, BaiduMap.OnPolylineClickListener {
+public class ga4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaiduMap a;
-    public List<OverlayOptions> b;
-    public List<Overlay> c;
+    public final String a;
+    public final Object b;
 
-    public abstract List<OverlayOptions> b();
+    public static String f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            switch (i) {
+                case 1:
+                    return "boolean";
+                case 2:
+                case 3:
+                case 5:
+                    return com.baidu.sapi2.views.logindialog.view.a.k;
+                case 4:
+                default:
+                    return "unknown";
+                case 6:
+                    return "array";
+                case 7:
+                    return EMABTest.TYPE_STRING;
+                case 8:
+                    return "function";
+                case 9:
+                    return "object";
+                case 10:
+                    return "arraybuffer";
+                case 11:
+                    return StringUtil.NULL_STRING;
+                case 12:
+                    return SessionMonitorEngine.PUBLIC_DATA_UNDIFNED;
+            }
+        }
+        return (String) invokeI.objValue;
+    }
 
-    public ga4(BaiduMap baiduMap) {
+    public ga4(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baiduMap};
+            Object[] objArr = {str, obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,54 +69,90 @@ public abstract class ga4 implements BaiduMap.OnMarkerClickListener, BaiduMap.On
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.a = baiduMap;
-        if (0 == 0) {
-            this.b = new ArrayList();
-        }
-        if (this.c == null) {
-            this.c = new ArrayList();
-        }
+        this.a = str;
+        this.b = obj;
     }
 
-    public final void a() {
+    public static Object a(gg2 gg2Var, String str, String str2, ga4 ga4Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a == null) {
-            return;
-        }
-        c();
-        if (b() != null) {
-            this.b.addAll(b());
-        }
-        for (OverlayOptions overlayOptions : this.b) {
-            this.c.add(this.a.addOverlay(overlayOptions));
-        }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.a == null) {
-            return;
-        }
-        for (Overlay overlay : this.c) {
-            overlay.remove();
-        }
-        this.b.clear();
-        this.c.clear();
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.a != null && this.c.size() > 0) {
-            LatLngBounds.Builder builder = new LatLngBounds.Builder();
-            for (Overlay overlay : this.c) {
-                if (overlay instanceof Marker) {
-                    builder.include(((Marker) overlay).getPosition());
-                }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, gg2Var, str, str2, ga4Var)) == null) {
+            if (ga4Var.g()) {
+                return ga4Var.d();
             }
-            this.a.setMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build()));
+            String a = da4.a(str, str2, ga4Var.e());
+            gg2Var.throwJSException(JSExceptionType.Error, a);
+            return a;
         }
+        return invokeLLLL.objValue;
+    }
+
+    public static ga4 b(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return new ga4(str, null);
+        }
+        return (ga4) invokeL.objValue;
+    }
+
+    public static ga4 i(@Nullable Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, obj)) == null) {
+            return new ga4(null, obj);
+        }
+        return (ga4) invokeL.objValue;
+    }
+
+    public static Object h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return new JsObject();
+        }
+        return invokeV.objValue;
+    }
+
+    public Object d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.a == null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String c(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (g()) {
+                return da4.b(str);
+            }
+            return da4.a(str, str2, e());
+        }
+        return (String) invokeLL.objValue;
     }
 }

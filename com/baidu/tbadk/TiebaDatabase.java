@@ -4,7 +4,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaMainDatabaseHelper;
 import com.baidu.tbadk.core.util.TiebaMainSdDatabaseHelper;
-import com.baidu.tieba.aa;
+import com.baidu.tieba.fa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,8 +17,8 @@ public class TiebaDatabase {
     public static /* synthetic */ Interceptable $ic;
     public static TiebaDatabase _instance;
     public transient /* synthetic */ FieldHolder $fh;
-    public aa mainDB;
-    public aa mainSdDB;
+    public fa mainDB;
+    public fa mainSdDB;
 
     static {
         InterceptResult invokeClinit;
@@ -59,43 +59,43 @@ public class TiebaDatabase {
         return (TiebaDatabase) invokeV.objValue;
     }
 
-    public aa getMainDBDatabaseManager() {
+    public fa getMainDBDatabaseManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            aa aaVar = this.mainDB;
-            if (aaVar != null) {
-                return aaVar;
+            fa faVar = this.mainDB;
+            if (faVar != null) {
+                return faVar;
             }
             synchronized (_instance) {
                 if (this.mainDB != null) {
                     return this.mainDB;
                 }
-                aa aaVar2 = new aa(new TiebaMainDatabaseHelper(TbadkCoreApplication.getInst().getContext()));
-                this.mainDB = aaVar2;
-                return aaVar2;
+                fa faVar2 = new fa(new TiebaMainDatabaseHelper(TbadkCoreApplication.getInst().getContext()));
+                this.mainDB = faVar2;
+                return faVar2;
             }
         }
-        return (aa) invokeV.objValue;
+        return (fa) invokeV.objValue;
     }
 
-    public aa getSdcardMainDBDatabaseManager() {
+    public fa getSdcardMainDBDatabaseManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            aa aaVar = this.mainSdDB;
-            if (aaVar != null) {
-                return aaVar;
+            fa faVar = this.mainSdDB;
+            if (faVar != null) {
+                return faVar;
             }
             synchronized (_instance) {
                 if (this.mainSdDB != null) {
                     return this.mainSdDB;
                 }
-                aa aaVar2 = new aa(new TiebaMainSdDatabaseHelper());
-                this.mainSdDB = aaVar2;
-                return aaVar2;
+                fa faVar2 = new fa(new TiebaMainSdDatabaseHelper());
+                this.mainSdDB = faVar2;
+                return faVar2;
             }
         }
-        return (aa) invokeV.objValue;
+        return (fa) invokeV.objValue;
     }
 }

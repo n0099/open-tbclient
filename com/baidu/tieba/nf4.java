@@ -1,232 +1,33 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.WorkerThread;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tieba.kf4;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import android.content.Context;
+import com.baidu.searchbox.http.cookie.CookieManager;
+import com.baidu.searchbox.http.request.HttpRequestBuilder;
 import java.util.List;
-import java.util.Map;
+import okhttp3.Interceptor;
 /* loaded from: classes5.dex */
-public class nf4 extends kf4 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface nf4 {
+    CookieManager f();
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-        public String b;
-        public long c;
+    int g();
 
-        public a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = 0L;
-            this.a = str;
-        }
+    Context getAppContext();
 
-        @NonNull
-        public static List<a> e(@Nullable List<jd4> list) {
-            InterceptResult invokeL;
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-                ArrayList arrayList = new ArrayList();
-                if (list != null && !list.isEmpty()) {
-                    for (jd4 jd4Var : list) {
-                        if (jd4Var != null) {
-                            a aVar = new a(jd4Var.g);
-                            if (jd4Var.r) {
-                                str = "independent";
-                            } else {
-                                str = "normal";
-                            }
-                            aVar.c(str);
-                            aVar.d(jd4Var.i);
-                            arrayList.add(aVar);
-                        }
-                    }
-                }
-                return arrayList;
-            }
-            return (List) invokeL.objValue;
-        }
+    int getReadTimeout();
 
-        public String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a;
-            }
-            return (String) invokeV.objValue;
-        }
+    String getUserAgent();
 
-        public long b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.c;
-            }
-            return invokeV.longValue;
-        }
+    boolean h();
 
-        public String getType() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return this.b;
-            }
-            return (String) invokeV.objValue;
-        }
+    boolean i();
 
-        public void c(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                this.b = str;
-            }
-        }
+    boolean isDebug();
 
-        public void d(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-                this.c = j;
-            }
-        }
-    }
+    void j(String str, HttpRequestBuilder httpRequestBuilder);
 
-    /* loaded from: classes5.dex */
-    public static class b extends kf4.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        @Nullable
-        public String[] e;
-        @Nullable
-        public List<a> f;
+    int k();
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(String str) {
-            super(str);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((String) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
+    List<Interceptor> l();
 
-        @Nullable
-        public String[] i() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.e;
-            }
-            return (String[]) invokeV.objValue;
-        }
-
-        @Nullable
-        public List<a> j() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.f;
-            }
-            return (List) invokeV.objValue;
-        }
-
-        public boolean k() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                String[] strArr = this.e;
-                if (strArr != null && strArr.length != 0) {
-                    return false;
-                }
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public void l(@Nullable String[] strArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, strArr) == null) {
-                this.e = strArr;
-            }
-        }
-
-        public void m(@Nullable List<a> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-                this.f = list;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    @WorkerThread
-    public nf4(List<b> list, @Nullable mh4 mh4Var) {
-        super((List<? extends kf4.a>) list, mh4Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list, mh4Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((List<? extends kf4.a>) objArr2[0], (mh4) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.kf4
-    public void g(@NonNull Map<String, PMSAppInfo> map, @NonNull Map<String, id4> map2, @NonNull kf4.a aVar, @Nullable mh4 mh4Var) {
-        int j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, map, map2, aVar, mh4Var) == null) {
-            super.g(map, map2, aVar, mh4Var);
-            if (!(aVar instanceof b)) {
-                return;
-            }
-            b bVar = (b) aVar;
-            if (bVar.i() != null && bVar.j() == null && (j = gc4.i().j(bVar.b())) >= 0) {
-                bVar.m(a.e(gc4.i().k(bVar.b(), j)));
-            }
-        }
-    }
+    int m();
 }

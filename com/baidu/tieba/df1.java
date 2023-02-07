@@ -1,7 +1,23 @@
 package com.baidu.tieba;
-/* loaded from: classes4.dex */
-public interface df1 {
-    boolean c(String str);
 
-    void handleSchemeDispatchCallback(String str, String str2);
+import android.os.Build;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes4.dex */
+public class df1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if ("arm64-v8a".equalsIgnoreCase(Build.CPU_ABI)) {
+                return 2;
+            }
+            return 1;
+        }
+        return invokeV.intValue;
+    }
 }

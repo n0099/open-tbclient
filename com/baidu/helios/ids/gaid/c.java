@@ -1,6 +1,6 @@
 package com.baidu.helios.ids.gaid;
 
-import com.baidu.tieba.u40;
+import com.baidu.tieba.a50;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -81,6 +81,6 @@ public class c {
     public static String a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) ? new String(new u40().a(bArr), "UTF-8") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) ? new String(new a50().a(bArr), "UTF-8") : (String) invokeL.objValue;
     }
 }

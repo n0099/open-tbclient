@@ -1,58 +1,51 @@
 package com.baidu.tieba;
 
+import com.baidu.searchbox.http.statistics.NetworkStatRecord;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.ActHot;
-import tbclient.ActPost;
-import tbclient.LinkInfo;
+import java.util.Random;
 /* loaded from: classes6.dex */
-public class ww8 {
+public class ww8 implements yw8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<uw8> a;
-    public ArrayList<vw8> b;
+    public int a;
+    public int b;
 
-    public ww8() {
+    public ww8(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList<>();
-        this.b = new ArrayList<>();
+        this.a = i;
+        this.b = i2;
     }
 
-    public void a(ActPost actPost) {
+    @Override // com.baidu.tieba.yw8
+    public boolean a(NetworkStatRecord networkStatRecord) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, actPost) != null) || actPost == null) {
-            return;
-        }
-        String str = actPost.list_head;
-        for (ActHot actHot : actPost.act_hot) {
-            if (actHot != null) {
-                uw8 uw8Var = new uw8();
-                uw8Var.g(actHot);
-                this.a.add(uw8Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, networkStatRecord)) == null) {
+            if (networkStatRecord == null) {
+                return false;
             }
-        }
-        List<LinkInfo> list = actPost.link_info;
-        for (LinkInfo linkInfo : list) {
-            if (list != null) {
-                vw8 vw8Var = new vw8();
-                vw8Var.a(linkInfo);
-                this.b.add(vw8Var);
+            if ((networkStatRecord.from == 3 && sv4.e()) || new Random().nextInt(this.b) >= this.a) {
+                return false;
             }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 }

@@ -1,6 +1,5 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.kwad.sdk.core.response.model.AdProductInfo;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
@@ -10,7 +9,7 @@ public final class fb implements com.kwad.sdk.core.d<AdProductInfo.SpikeInfo> {
         if (jSONObject == null) {
             return;
         }
-        spikeInfo.endTime = jSONObject.optLong(FetchLog.END_TIME);
+        spikeInfo.endTime = jSONObject.optLong("endTime");
         spikeInfo.soldStock = jSONObject.optInt("soldStock");
         spikeInfo.originalStock = jSONObject.optInt("originalStock");
     }
@@ -22,7 +21,7 @@ public final class fb implements com.kwad.sdk.core.d<AdProductInfo.SpikeInfo> {
         }
         long j = spikeInfo.endTime;
         if (j != 0) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, FetchLog.END_TIME, j);
+            com.kwad.sdk.utils.r.putValue(jSONObject, "endTime", j);
         }
         int i = spikeInfo.soldStock;
         if (i != 0) {

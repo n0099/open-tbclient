@@ -8,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -119,7 +118,7 @@ public class CustomDialogData implements IBaseDialogData {
                 head.text = optJSONObject.optString("text");
                 customDialogData.head = head;
             }
-            customDialogData.body = jSONObject.optString(TtmlNode.TAG_BODY);
+            customDialogData.body = jSONObject.optString("body");
             JSONArray optJSONArray = jSONObject.optJSONArray(NativeConstants.ID_BUTTON);
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {

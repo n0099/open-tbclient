@@ -1,70 +1,55 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import android.webkit.JavascriptInterface;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Environment;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.tieba.sr2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes3.dex */
 public class a62 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947567052, "Lcom/baidu/tieba/a62;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947567052, "Lcom/baidu/tieba/a62;");
-                return;
-            }
+    public static sr2.g a(tt2 tt2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tt2Var)) == null) {
+            File file = new File(Environment.getExternalStorageDirectory() + "/" + b62.d());
+            sr2.M(file, b(), tt2Var);
+            ap4.j(file);
+            sr2.g gVar = new sr2.g();
+            File file2 = new File(b(), "app.json");
+            SwanAppConfigData c = SwanAppConfigData.c(ap4.E(file2), b());
+            gVar.a = b().getPath() + File.separator;
+            gVar.b = c;
+            w52.k("ADBDebugBundleHelper", "configFile path: " + file2.getPath() + " exist: " + file2.exists() + " info.mAppBundlePath path: " + gVar.a);
+            return gVar;
         }
-        a = tk1.a;
+        return (sr2.g) invokeL.objValue;
     }
 
-    public a62(h32 h32Var) {
+    public static File b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {h32Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_adb_debug");
+            if (!file.exists()) {
+                file.mkdirs();
             }
+            return file;
         }
+        return (File) invokeV.objValue;
     }
 
-    @JavascriptInterface
-    public String setData(String str, String str2) {
-        InterceptResult invokeLL;
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (a) {
-                Log.d("DaemonJsBridge", "slave id: " + str + " data: " + str2);
-            }
-            int i = 0;
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                wp2.U().y(new me2(str, str2), false);
-            } else {
-                i = 202;
-            }
-            return UnitedSchemeUtility.wrapCallbackParams(i).toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return AppRuntime.getAppContext().getFilesDir() + File.separator + "aiapps_adb_debug";
         }
-        return (String) invokeLL.objValue;
+        return (String) invokeV.objValue;
     }
 }

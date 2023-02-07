@@ -1,144 +1,79 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.android.common.others.IStringUtil;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.MessageDigest;
 /* loaded from: classes6.dex */
 public class sf0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final char[] a;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public long c;
-    public long d;
-    public long e;
-    public long f;
-    public long g;
-    public long h;
-    public long i;
-    public long j;
-    public String k;
-    public String l;
-    public boolean m;
-    public StringBuilder n;
 
-    public sf0(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948149356, "Lcom/baidu/tieba/sf0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948149356, "Lcom/baidu/tieba/sf0;");
                 return;
             }
         }
-        this.f = 1000L;
-        this.m = false;
-        this.n = new StringBuilder();
-        this.k = str;
-        this.l = str2;
-        e();
+        a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
     }
 
-    public final void a(String str, String str2) {
+    public static String a(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            Log.d(str, str2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            if (bArr == null) {
+                return null;
+            }
+            StringBuilder sb = new StringBuilder(bArr.length * 2);
+            for (int i = 0; i < bArr.length; i++) {
+                sb.append(a[(bArr[i] & 240) >>> 4]);
+                sb.append(a[bArr[i] & 15]);
+            }
+            return sb.toString();
         }
+        return (String) invokeL.objValue;
     }
 
-    public void b() {
+    public static String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            long currentTimeMillis = System.currentTimeMillis() - this.h;
-            this.i = currentTimeMillis;
-            this.j = this.g;
-            this.h = 0L;
-            this.g = 0L;
-            if (this.m) {
-                a(this.k, String.format("%s, PeriodTime: %d, Times: %d", this.l, Long.valueOf(currentTimeMillis), Long.valueOf(this.j)));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (str == null) {
+                return null;
+            }
+            try {
+                return c(str.getBytes("UTF-8"));
+            } catch (Exception unused) {
+                return null;
             }
         }
+        return (String) invokeL.objValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public static String c(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String format = String.format("%s, Total: %d, Times: %d, Min: %d, Max: %d, Average：%f", this.l, Long.valueOf(this.d), Long.valueOf(this.e), Long.valueOf(this.c), Long.valueOf(this.b), Float.valueOf(((float) this.d) / ((float) this.e)));
-            if (this.m) {
-                a(this.k, format);
-            }
-            return format;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.a == 0) {
-                this.a = System.currentTimeMillis();
-                return;
-            }
-            long currentTimeMillis = System.currentTimeMillis() - this.a;
-            this.d += currentTimeMillis;
-            this.e++;
-            if (currentTimeMillis > this.b) {
-                this.b = currentTimeMillis;
-            } else if (currentTimeMillis < this.c) {
-                this.c = currentTimeMillis;
-            }
-            if (this.m) {
-                if (this.n.length() > 0) {
-                    StringBuilder sb = this.n;
-                    sb.delete(0, sb.length());
-                }
-                this.n.append(this.l);
-                for (int i = (int) ((currentTimeMillis - 33) / 5); i > 0; i--) {
-                    this.n.append(IStringUtil.EXTENSION_SEPARATOR);
-                }
-                this.n.append(currentTimeMillis);
-                a(this.k, this.n.toString());
-            }
-            this.g++;
-            if (this.f > 0 && System.currentTimeMillis() - this.h > this.f) {
-                b();
-            }
-            long currentTimeMillis2 = System.currentTimeMillis();
-            this.a = currentTimeMillis2;
-            if (this.h == 0) {
-                this.h = currentTimeMillis2;
-                this.g = 0L;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.update(bArr);
+                return a(messageDigest.digest());
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
             }
         }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a = 0L;
-            this.d = 0L;
-            this.e = 0L;
-            this.b = Long.MIN_VALUE;
-            this.c = Long.MAX_VALUE;
-        }
-    }
-
-    public void f(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.f = j;
-        }
+        return (String) invokeL.objValue;
     }
 }

@@ -1,28 +1,18 @@
 package com.baidu.tieba;
 
-import android.database.SQLException;
-import android.database.sqlite.SQLiteDatabase;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.db.PackageTable;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import com.baidu.tieba.uc4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 /* loaded from: classes6.dex */
-public class xc4 implements rc4<kd4> {
+public class xc4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final lh4 a;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "swan_plugin" : (String) invokeV.objValue;
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -37,82 +27,31 @@ public class xc4 implements rc4<kd4> {
                 return;
             }
         }
-        a = lh4.c();
+        a = gp1.a;
     }
 
-    public xc4() {
+    public static void a(@NonNull w83 w83Var, @NonNull uc4.e eVar) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.rc4
-    public void a(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-            sQLiteDatabase.execSQL(b());
-        }
-    }
-
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "CREATE TABLE " + c() + "(_id INTEGER PRIMARY KEY AUTOINCREMENT,bundle_id TEXT NOT NULL,category INT NOT NULL,version_name TEXT NOT NULL,version_code INT DEFAULT 0,size LONG DEFAULT 0," + PackageTable.MD5 + " TEXT NOT NULL,sign TEXT NOT NULL," + TTDownloadField.TT_DOWNLOAD_URL + " TEXT NOT NULL," + PackageTable.FILE_PATH + " TEXT," + PackageTable.CURRENT_SIZE + " LONG DEFAULT 0,create_time LONG DEFAULT 0,update_time LONG DEFAULT 0,state INT DEFAULT 0,max_age LONG DEFAULT 0,token TEXT,domains TEXT,app_key TEXT,app_name TEXT, UNIQUE (bundle_id,version_name));";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void d(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("ALTER TABLE " + c() + " ADD COLUMN app_key TEXT");
-                sQLiteDatabase.execSQL("ALTER TABLE " + c() + " ADD COLUMN app_name TEXT");
-            } catch (SQLException e) {
-                a.g("PMSDBHelperPlugin", "#inertAppKeyAndAppName error", e);
-            }
-        }
-    }
-
-    public final void e(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("ALTER TABLE " + c() + " ADD COLUMN token TEXT");
-                sQLiteDatabase.execSQL("ALTER TABLE " + c() + " ADD COLUMN domains TEXT");
-            } catch (SQLException e) {
-                a.g("PMSDBHelperPlugin", "#inertTokenAndDomains error", e);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.rc4
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048581, this, sQLiteDatabase, i, i2) == null) {
-            while (i < i2) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i == 5) {
-                            d(sQLiteDatabase);
-                        }
-                    } else {
-                        e(sQLiteDatabase);
-                    }
-                } else {
-                    sQLiteDatabase.execSQL(b());
+        if (interceptable == null || interceptable.invokeLL(65537, null, w83Var, eVar) == null) {
+            long l = w83Var.W().l("launch_time", 0L);
+            if (l <= 0) {
+                if (a) {
+                    Log.d("GameWebViewStatistic", "doH5GameLoadingFinishStats: launchTime is invalid.");
+                    return;
                 }
-                i++;
+                return;
             }
+            yf3 yf3Var = new yf3();
+            yf3Var.a = pf3.n(w83Var.W().G());
+            yf3Var.f = w83Var.getAppId();
+            yf3Var.c = w83Var.W().T();
+            yf3Var.b = "startup";
+            yf3Var.g = eVar.a;
+            yf3Var.e = eVar.b;
+            yf3Var.a("na_start", Long.valueOf(l));
+            yf3Var.a("h5_start", Long.valueOf(eVar.c));
+            yf3Var.a("h5_finish", Long.valueOf(eVar.d));
+            pf3.x("1235", yf3Var);
         }
     }
 }

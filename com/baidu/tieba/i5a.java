@@ -1,16 +1,15 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.api.KsFeedAd;
 /* loaded from: classes4.dex */
-public final class i5a {
+public abstract class i5a implements KsFeedAd.AdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int[] b;
-    public int[] c;
 
     public i5a() {
         Interceptable interceptable = $ic;
@@ -26,25 +25,17 @@ public final class i5a {
         }
     }
 
-    public static void a(i5a i5aVar, c5a c5aVar) {
+    @Override // com.kwad.sdk.api.KsFeedAd.AdInteractionListener
+    public void onDownloadTipsDialogDismiss() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, i5aVar, c5aVar) == null) {
-            int length = i5aVar.c.length;
-            int i = 0;
-            for (int i2 = 0; i2 < length; i2++) {
-                i5aVar.c[i2] = i;
-                f5a.n(i5aVar.a, i5aVar.b, i, c5aVar);
-                i += 1080;
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    public static void b(i5a i5aVar, int i, int i2) {
+    @Override // com.kwad.sdk.api.KsFeedAd.AdInteractionListener
+    public void onDownloadTipsDialogShow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65538, null, i5aVar, i, i2) == null) {
-            i5aVar.a = i;
-            i5aVar.b = new int[i2 * 1080];
-            i5aVar.c = new int[i2];
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
     }
 }

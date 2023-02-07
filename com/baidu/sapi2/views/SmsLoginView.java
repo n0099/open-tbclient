@@ -39,7 +39,7 @@ import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.utils.enums.Enums;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ya1;
+import com.baidu.tieba.jf1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -523,7 +523,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(SmsLoginView smsLoginView, Context context) {
-            super(context, R.style.obfuscated_res_0x7f1003ea);
+            super(context, R.style.obfuscated_res_0x7f1003ed);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -707,15 +707,15 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
         this.m = true;
         this.a = context;
         this.b = LayoutInflater.from(context).inflate(R.layout.layout_sapi_sdk_sms_login_view, (ViewGroup) this, true);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ya1.sapi_sdk_sms_login_view, i, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, jf1.sapi_sdk_sms_login_view, i, 0);
         boolean z2 = obtainStyledAttributes.getBoolean(0, false);
         obtainStyledAttributes.recycle();
         this.c = this.b.findViewById(R.id.code_container);
-        this.d = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f091a76);
+        this.d = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f091a93);
         this.i = this.b.findViewById(R.id.loading_container);
         this.e = (EditText) this.b.findViewById(R.id.check_code);
         this.f = (TextView) this.b.findViewById(R.id.get_code);
-        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091b96);
+        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091bb0);
         this.h = this.b.findViewById(R.id.separate_line);
         a(this.d, context.getString(R.string.sapi_sdk_sms_hint_input_phone));
         a(this.e, context.getString(R.string.sapi_sdk_sms_hint_input_check_code));

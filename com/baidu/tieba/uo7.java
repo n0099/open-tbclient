@@ -1,40 +1,118 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AlaInfoData;
+import com.baidu.tbadk.core.data.YyExtData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.TiebaStaticHelper;
+import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class uo7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
 
-    public uo7(String str) {
+    public static void a(StatisticItem statisticItem, bp7 bp7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLL(65536, null, statisticItem, bp7Var) == null) {
+            int i = 5;
+            String str = "";
+            if (bp7Var != null) {
+                YyExtData g = bp7Var.g();
+                if (g != null) {
+                    if (g.isYyGame) {
+                        i = 3;
+                    } else {
+                        i = 2;
+                    }
+                    str = TiebaStatic.YYValues.YY_LIVE;
+                }
+                if (!TextUtils.isEmpty(bp7Var.e())) {
+                    statisticItem.param("obj_param1", bp7Var.e());
+                }
             }
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, i);
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, str);
         }
-        this.a = str;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public static void b(StatisticItem statisticItem, String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if ((interceptable == null || interceptable.invokeLLLLL(65537, null, statisticItem, str, str2, str3, str4) == null) && statisticItem != null) {
+            if (!TextUtils.isEmpty(str)) {
+                statisticItem.param("fid", str);
+            }
+            if (!TextUtils.isEmpty(str2)) {
+                statisticItem.param("fname", str2);
+            }
+            if (!TextUtils.isEmpty(str3)) {
+                statisticItem.param("uid", str3);
+            }
+            if (!TextUtils.isEmpty(str4)) {
+                statisticItem.param("tid", str4);
+            }
         }
-        return (String) invokeV.objValue;
+    }
+
+    public static void c(int i, String str, String str2, String str3, String str4, bp7 bp7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), str, str2, str3, str4, bp7Var}) == null) {
+            StatisticItem statisticItem = new StatisticItem("c15008");
+            statisticItem.param("obj_locate", i);
+            b(statisticItem, str, str2, str3, str4);
+            if (bp7Var != null) {
+                a(statisticItem, bp7Var);
+                TiebaStaticHelper.addYYParam(statisticItem, bp7Var.g());
+            }
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static void d(String str, String str2, String str3, @NonNull AlaInfoData alaInfoData) {
+        String str4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65539, null, str, str2, str3, alaInfoData) == null) {
+            StatisticItem param = new StatisticItem("c13711").param("fid", str).param("fname", str2).param("uid", TbadkCoreApplication.getCurrentAccount()).param("tid", str3);
+            String str5 = "";
+            if (alaInfoData.user_info == null) {
+                str4 = "";
+            } else {
+                str4 = "" + alaInfoData.user_info.user_id;
+            }
+            StatisticItem param2 = param.param("obj_param1", str4);
+            int calculateLiveType = YYLiveUtil.calculateLiveType(alaInfoData);
+            if (alaInfoData.isLegalYYLiveData()) {
+                TiebaStaticHelper.addYYParam(param2, alaInfoData.mYyExtData);
+                str5 = TiebaStatic.YYValues.YY_LIVE;
+            }
+            param2.param(TiebaStatic.Params.OBJ_PARAM2, calculateLiveType);
+            param2.param(TiebaStatic.Params.OBJ_PARAM3, str5);
+            TiebaStatic.log(param2);
+        }
+    }
+
+    public static void e(String str, String str2, String str3, String str4, bp7 bp7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3, str4, bp7Var) == null) {
+            StatisticItem statisticItem = new StatisticItem("c15007");
+            b(statisticItem, str, str2, str3, str4);
+            if (bp7Var != null) {
+                a(statisticItem, bp7Var);
+                TiebaStaticHelper.addYYParam(statisticItem, bp7Var.g());
+            }
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static void f(int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(65541, null, i, str, str2) == null) {
+            TiebaStatic.log(new StatisticItem("c13857").param("obj_type", i).param("post_id", str).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", str2));
+        }
     }
 }

@@ -1,52 +1,72 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.k8a;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class k9a<T, R> implements k8a.a<R> {
+public class k9a {
     public static /* synthetic */ Interceptable $ic;
+    public static k9a b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final k8a.a<T> a;
-    public final k8a.b<? extends R, ? super T> b;
+    public c9a a;
 
-    public k9a(k8a.a<T> aVar, k8a.b<? extends R, ? super T> bVar) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947869302, "Lcom/baidu/tieba/k9a;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947869302, "Lcom/baidu/tieba/k9a;");
+        }
+    }
+
+    public k9a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, bVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = aVar;
-        this.b = bVar;
+        this.a = null;
     }
 
-    public void call(q8a<? super R> q8aVar) {
+    public static k9a b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, q8aVar) == null) {
-            try {
-                q8a q8aVar2 = (q8a) rca.n(this.b).call(q8aVar);
-                q8aVar2.d();
-                this.a.call(q8aVar2);
-            } catch (Throwable th) {
-                w8a.e(th);
-                q8aVar.onError(th);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                b = new k9a();
+            }
+            return b;
+        }
+        return (k9a) invokeV.objValue;
+    }
+
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            c9a c9aVar = this.a;
+            if (c9aVar != null) {
+                c9aVar.info("authsdk", str);
+            } else {
+                Log.i("authsdk", str);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.k8a.a, com.baidu.tieba.y8a
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((q8a) ((q8a) obj));
     }
 }

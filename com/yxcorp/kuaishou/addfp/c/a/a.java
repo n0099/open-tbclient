@@ -6,6 +6,7 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.util.devices.RomUtils;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.tbadk.core.util.RomTypeUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -411,9 +412,9 @@ public final class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             String str = Build.MANUFACTURER;
             boolean z4 = false;
-            if (!str.equalsIgnoreCase("XIAOMI")) {
+            if (!str.equalsIgnoreCase(RomUtils.ROM_XIAOMI)) {
                 String str2 = Build.BRAND;
-                if (!str2.equalsIgnoreCase("XIAOMI") && !str2.equalsIgnoreCase("REDMI") && !str2.equalsIgnoreCase("MEITU") && TextUtils.isEmpty(a("ro.miui.ui.version.name", ""))) {
+                if (!str2.equalsIgnoreCase(RomUtils.ROM_XIAOMI) && !str2.equalsIgnoreCase("REDMI") && !str2.equalsIgnoreCase("MEITU") && TextUtils.isEmpty(a("ro.miui.ui.version.name", ""))) {
                     z = false;
                     if (!z) {
                         if (!(str.equalsIgnoreCase("BLACKSHARK") || Build.BRAND.equalsIgnoreCase("BLACKSHARK"))) {

@@ -55,7 +55,7 @@ public class b extends c {
                 com.baidu.android.pushservice.j.a(this.a).a(null, null, null, null);
                 m.c(this.a);
             }
-            new b.C0053b(this.a).a(System.currentTimeMillis()).a(optInt + "").d(401102L).a();
+            new b.C0052b(this.a).a(System.currentTimeMillis()).a(optInt + "").d(401102L).a();
             gVar.a(optInt);
             return gVar;
         }

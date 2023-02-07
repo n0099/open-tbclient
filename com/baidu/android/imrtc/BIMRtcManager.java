@@ -42,8 +42,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.internal.MessageFactory;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
-import com.baidu.tieba.g80;
+import com.baidu.tieba.m80;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -702,7 +701,7 @@ public class BIMRtcManager {
                 creatMethodIntent.putExtra(RtcConstants.EXTRA_RTC_INFO, bIMRtcInfo.toRtcInfoString());
                 creatMethodIntent.putExtra(RtcConstants.EXTRA_RTC_ACTION_ID, i);
                 creatMethodIntent.putExtra("rtc_room_id", bIMRtcInfo.getRtcRoomId());
-                g80.e(mContext).d(mContext, creatMethodIntent);
+                m80.e(mContext).d(mContext, creatMethodIntent);
                 trackRequest(bIMRtcInfo, 230, i, "c_send_request", -1);
                 mBIMRtcEvent.sdkAction = i;
                 mBIMRtcEvent.sdkSeqId = RtcConstants.IM_RTC_SDK_SEQ_ID.get();
@@ -751,7 +750,7 @@ public class BIMRtcManager {
                     }
                 }
                 jSONObject.put("sseq_id", j);
-                jSONObject.put(ShaderParams.VALUE_TYPE_STEP, str);
+                jSONObject.put("step", str);
                 if (TextUtils.isEmpty(str2)) {
                     if (!(bIMRtcInfo instanceof BIMAckRtcInfo)) {
                         str2 = "-1";

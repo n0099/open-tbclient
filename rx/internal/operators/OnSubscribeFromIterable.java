@@ -1,11 +1,11 @@
 package rx.internal.operators;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.f9a;
-import com.baidu.tieba.k8a;
-import com.baidu.tieba.m8a;
-import com.baidu.tieba.q8a;
-import com.baidu.tieba.w8a;
+import com.baidu.tieba.fda;
+import com.baidu.tieba.oda;
+import com.baidu.tieba.tca;
+import com.baidu.tieba.vca;
+import com.baidu.tieba.zca;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,25 +13,25 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes9.dex */
-public final class OnSubscribeFromIterable<T> implements k8a.a<T> {
+public final class OnSubscribeFromIterable<T> implements tca.a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Iterable<? extends T> a;
 
     /* loaded from: classes9.dex */
-    public static final class IterableProducer<T> extends AtomicLong implements m8a {
+    public static final class IterableProducer<T> extends AtomicLong implements vca {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8730475647105475802L;
         public transient /* synthetic */ FieldHolder $fh;
         public final Iterator<? extends T> it;
-        public final q8a<? super T> o;
+        public final zca<? super T> o;
 
-        public IterableProducer(q8a<? super T> q8aVar, Iterator<? extends T> it) {
+        public IterableProducer(zca<? super T> zcaVar, Iterator<? extends T> it) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {q8aVar, it};
+                Object[] objArr = {zcaVar, it};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -41,7 +41,7 @@ public final class OnSubscribeFromIterable<T> implements k8a.a<T> {
                     return;
                 }
             }
-            this.o = q8aVar;
+            this.o = zcaVar;
             this.it = it;
         }
 
@@ -49,35 +49,35 @@ public final class OnSubscribeFromIterable<T> implements k8a.a<T> {
         public void fastPath() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                q8a<? super T> q8aVar = this.o;
+                zca<? super T> zcaVar = this.o;
                 Iterator<? extends T> it = this.it;
-                while (!q8aVar.isUnsubscribed()) {
+                while (!zcaVar.isUnsubscribed()) {
                     try {
-                        q8aVar.onNext((T) it.next());
-                        if (q8aVar.isUnsubscribed()) {
+                        zcaVar.onNext((T) it.next());
+                        if (zcaVar.isUnsubscribed()) {
                             return;
                         }
                         try {
                             if (!it.hasNext()) {
-                                if (!q8aVar.isUnsubscribed()) {
-                                    q8aVar.onCompleted();
+                                if (!zcaVar.isUnsubscribed()) {
+                                    zcaVar.onCompleted();
                                     return;
                                 }
                                 return;
                             }
                         } catch (Throwable th) {
-                            w8a.f(th, q8aVar);
+                            fda.f(th, zcaVar);
                             return;
                         }
                     } catch (Throwable th2) {
-                        w8a.f(th2, q8aVar);
+                        fda.f(th2, zcaVar);
                         return;
                     }
                 }
             }
         }
 
-        @Override // com.baidu.tieba.m8a
+        @Override // com.baidu.tieba.vca
         public void request(long j) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) != null) || get() == Long.MAX_VALUE) {
@@ -85,7 +85,7 @@ public final class OnSubscribeFromIterable<T> implements k8a.a<T> {
             }
             if (j == Long.MAX_VALUE && compareAndSet(0L, Long.MAX_VALUE)) {
                 fastPath();
-            } else if (j > 0 && f9a.b(this, j) == 0) {
+            } else if (j > 0 && oda.b(this, j) == 0) {
                 slowPath(j);
             }
         }
@@ -94,41 +94,41 @@ public final class OnSubscribeFromIterable<T> implements k8a.a<T> {
         public void slowPath(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-                q8a<? super T> q8aVar = this.o;
+                zca<? super T> zcaVar = this.o;
                 Iterator<? extends T> it = this.it;
                 do {
                     long j2 = 0;
                     while (true) {
                         if (j2 != j) {
-                            if (q8aVar.isUnsubscribed()) {
+                            if (zcaVar.isUnsubscribed()) {
                                 return;
                             }
                             try {
-                                q8aVar.onNext((T) it.next());
-                                if (q8aVar.isUnsubscribed()) {
+                                zcaVar.onNext((T) it.next());
+                                if (zcaVar.isUnsubscribed()) {
                                     return;
                                 }
                                 try {
                                     if (!it.hasNext()) {
-                                        if (!q8aVar.isUnsubscribed()) {
-                                            q8aVar.onCompleted();
+                                        if (!zcaVar.isUnsubscribed()) {
+                                            zcaVar.onCompleted();
                                             return;
                                         }
                                         return;
                                     }
                                     j2++;
                                 } catch (Throwable th) {
-                                    w8a.f(th, q8aVar);
+                                    fda.f(th, zcaVar);
                                     return;
                                 }
                             } catch (Throwable th2) {
-                                w8a.f(th2, q8aVar);
+                                fda.f(th2, zcaVar);
                                 return;
                             }
                         } else {
                             j = get();
                             if (j2 == j) {
-                                j = f9a.g(this, j2);
+                                j = oda.g(this, j2);
                             }
                         }
                     }
@@ -159,27 +159,27 @@ public final class OnSubscribeFromIterable<T> implements k8a.a<T> {
         throw new NullPointerException("iterable must not be null");
     }
 
-    public void call(q8a<? super T> q8aVar) {
+    public void call(zca<? super T> zcaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, q8aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, zcaVar) == null) {
             try {
                 Iterator<? extends T> it = this.a.iterator();
                 boolean hasNext = it.hasNext();
-                if (!q8aVar.isUnsubscribed()) {
+                if (!zcaVar.isUnsubscribed()) {
                     if (!hasNext) {
-                        q8aVar.onCompleted();
+                        zcaVar.onCompleted();
                     } else {
-                        q8aVar.f(new IterableProducer(q8aVar, it));
+                        zcaVar.f(new IterableProducer(zcaVar, it));
                     }
                 }
             } catch (Throwable th) {
-                w8a.f(th, q8aVar);
+                fda.f(th, zcaVar);
             }
         }
     }
 
-    @Override // com.baidu.tieba.k8a.a, com.baidu.tieba.y8a
+    @Override // com.baidu.tieba.tca.a, com.baidu.tieba.hda
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((q8a) ((q8a) obj));
+        call((zca) ((zca) obj));
     }
 }

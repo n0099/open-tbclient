@@ -1,42 +1,162 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.annotation.SuppressLint;
+import androidx.annotation.IntRange;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class n52 extends k52<JSONObject, jw1> {
+public class n52 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
+    public static int c;
     public transient /* synthetic */ FieldHolder $fh;
+    public int[] a;
 
-    public n52() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947953374, "Lcom/baidu/tieba/n52;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947953374, "Lcom/baidu/tieba/n52;");
+                return;
+            }
+        }
+        b = gp1.a;
+        c = 5;
+    }
+
+    public n52(@IntRange(from = 1) int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        c(i, false);
+    }
+
+    public n52(@IntRange(from = 1) int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        c(i, z);
+    }
+
+    public final int a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return i >> c;
+        }
+        return invokeI.intValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public boolean b(@IntRange(from = 0) int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i < 0) {
+                w52.c("Component-DiffBitMap", "diff < 0: " + i);
+                if (!b) {
+                    return false;
+                }
+                throw new IndexOutOfBoundsException("diff < 0: " + i);
+            }
+            int[] iArr = this.a;
+            int length = (iArr.length << c) - 1;
+            if (i > length) {
+                String str = "diff > " + length + ": " + i;
+                w52.c("Component-DiffBitMap", str);
+                if (!b) {
+                    return false;
+                }
+                throw new IndexOutOfBoundsException(str);
+            } else if (((1 << i) & iArr[a(i)]) == 0) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        return invokeI.booleanValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public void d(@IntRange(from = 0) int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            if (i < 0) {
+                w52.c("Component-DiffBitMap", "diff < 0: " + i);
+                if (!b) {
+                    return;
+                }
+                throw new IndexOutOfBoundsException("diff < 0: " + i);
+            }
+            int[] iArr = this.a;
+            int length = (iArr.length << c) - 1;
+            if (i > length) {
+                String str = "diff > " + length + ": " + i;
+                w52.c("Component-DiffBitMap", str);
+                if (!b) {
+                    return;
+                }
+                throw new IndexOutOfBoundsException(str);
+            }
+            int a = a(i);
+            iArr[a] = (1 << i) | iArr[a];
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.o52
-    @NonNull
-    /* renamed from: c */
-    public jw1 a(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @SuppressLint({"BDThrowableCheck"})
+    public final void c(@IntRange(from = 1) int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            return new jw1(101, "error type is not support");
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            if (i <= 0) {
+                String str = "number <= 0: " + i;
+                w52.c("Component-DiffBitMap", str);
+                if (!b) {
+                    i = 500;
+                } else {
+                    throw new NegativeArraySizeException(str);
+                }
+            }
+            int[] iArr = new int[a(i - 1) + 1];
+            this.a = iArr;
+            int length = iArr.length;
+            if (z) {
+                for (int i2 = 0; i2 < length; i2++) {
+                    this.a[i2] = -1;
+                }
+            }
         }
-        return (jw1) invokeL.objValue;
     }
 }

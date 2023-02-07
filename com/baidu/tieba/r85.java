@@ -1,30 +1,74 @@
 package com.baidu.tieba;
 
-import android.content.res.TypedArray;
-import android.util.AttributeSet;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.coreExtra.message.HotEventRequestMessage;
+import com.baidu.tbadk.coreExtra.message.HotEventRespondedMessage;
+import com.baidu.tbadk.data.HotEventData;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class r85 implements o85 {
+public class r85 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile r85 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final View a;
-    public boolean b;
-    public boolean c;
-    public boolean d;
+    public boolean a;
+    public String b;
+    public final HttpMessageListener c;
 
-    public r85(View view2, AttributeSet attributeSet) {
+    /* loaded from: classes6.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ r85 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(r85 r85Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {r85Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = r85Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
+                this.a.a = false;
+                if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003543 || !(httpResponsedMessage instanceof HotEventRespondedMessage) || httpResponsedMessage.getError() != 0) {
+                    return;
+                }
+                j95.h(HotEventData.getInstance());
+            }
+        }
+    }
+
+    public r85() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, attributeSet};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,111 +78,69 @@ public class r85 implements o85 {
                 return;
             }
         }
-        this.b = false;
-        this.c = false;
-        this.d = false;
-        this.a = view2;
-        if (attributeSet != null) {
-            TypedArray typedArray = null;
-            try {
-                typedArray = view2.getContext().obtainStyledAttributes(attributeSet, oz8.KPSwitchPanelLayout);
-                this.c = typedArray.getBoolean(0, false);
-            } finally {
-                if (typedArray != null) {
-                    typedArray.recycle();
+        this.a = false;
+        this.b = "";
+        this.c = new a(this, CmdConfigHttp.CMD_HOT_EVENT);
+        c();
+    }
+
+    public static r85 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (r85.class) {
+                    if (d == null) {
+                        d = new r85();
+                    }
                 }
             }
+            return d;
+        }
+        return (r85) invokeV.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            e();
         }
     }
 
-    public boolean a(int i) {
-        InterceptResult invokeI;
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i == 0) {
-                this.b = false;
-            }
-            if (i == this.a.getVisibility()) {
-                return true;
-            }
-            if (!b() || i != 0) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().registerListener(this.c);
         }
-        return invokeI.booleanValue;
     }
 
-    public void d(int i) {
+    public final void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048579, this, i) != null) || this.c) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_HOT_EVENT);
+        }
+    }
+
+    public final void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HOT_EVENT, TbConfig.SERVER_ADDRESS + str);
+            tbHttpMessageTask.setResponsedClass(HotEventRespondedMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || this.a) {
             return;
         }
-        w85.d(this.a, i);
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.c = z;
+        if (!this.b.equals(str)) {
+            this.b = str;
+            g();
+            d(str);
         }
-    }
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    @Override // com.baidu.tieba.o85
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.o85
-    public void handleHide() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.b = true;
-        }
-    }
-
-    @Override // com.baidu.tieba.o85
-    public void handleShow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            throw new IllegalAccessError("You can't invoke handle show in handler, please instead of handling in the panel layout, maybe just need invoke super.setVisibility(View.VISIBLE)");
-        }
-    }
-
-    @Override // com.baidu.tieba.o85
-    public boolean isVisible() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return !this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int[] c(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) == null) {
-            if (this.b) {
-                this.a.setVisibility(8);
-                int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
-                i2 = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
-                i = makeMeasureSpec;
-            }
-            return new int[]{i, i2};
-        }
-        return (int[]) invokeII.objValue;
+        MessageManager.getInstance().sendMessage(new HotEventRequestMessage(CmdConfigHttp.CMD_HOT_EVENT));
+        this.a = true;
     }
 }

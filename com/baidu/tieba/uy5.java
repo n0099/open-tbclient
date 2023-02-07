@@ -1,108 +1,146 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.advert.sdk.data.AdInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tencent.connect.share.QzonePublish;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class uy5 extends a86<qx5> {
+public class uy5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hx5 i;
-    public hx5 j;
-    public ViewGroup k;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public int g;
+    public int h;
+    public int i;
+    public long j;
+    public long k;
 
-    @Override // com.baidu.tieba.a86
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0876 : invokeV.intValue;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uy5(TbPageContext<?> tbPageContext, ViewGroup viewGroup, int i, boolean z) {
-        super(tbPageContext, viewGroup);
+    public uy5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, viewGroup, Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (z) {
-            this.i = new wy5(tbPageContext, i);
-            this.j = new wy5(tbPageContext, i);
-            s();
-            return;
-        }
-        this.i = new vy5(tbPageContext, i);
-        this.j = new vy5(tbPageContext, i);
-        r();
+        this.d = "";
+        this.c = "";
+        this.e = "";
+        this.f = "";
+        this.b = "";
+        this.a = "";
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.a86
-    /* renamed from: t */
-    public void i(qx5 qx5Var) {
+    public boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, qx5Var) == null) && qx5Var != null) {
-            this.i.a(qx5Var.a);
-            this.j.a(qx5Var.b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return !TextUtils.isEmpty(this.d);
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.a86
-    public void j(TbPageContext<?> tbPageContext, int i) {
+    public static uy5 a(AdInfo adInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            this.i.onChangeSkinType(tbPageContext, i);
-            this.j.onChangeSkinType(tbPageContext, i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, adInfo)) == null) {
+            uy5 uy5Var = new uy5();
+            if (adInfo == null) {
+                return uy5Var;
+            }
+            uy5Var.a = adInfo.adImgUrl;
+            uy5Var.b = adInfo.redirectUrl;
+            uy5Var.j = adInfo.startShowTime;
+            uy5Var.k = adInfo.endShowTime;
+            uy5Var.d = adInfo.videoLocalPath;
+            uy5Var.e = adInfo.videoJumpUrl;
+            uy5Var.f = adInfo.videoMd5;
+            uy5Var.g = adInfo.videoDuration;
+            uy5Var.h = adInfo.videoWidth;
+            uy5Var.i = adInfo.videoHight;
+            uy5Var.c = adInfo.adVideoUrl;
+            return uy5Var;
         }
+        return (uy5) invokeL.objValue;
     }
 
-    public final void r() {
+    public static uy5 b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.k = (ViewGroup) h();
-            View view2 = new View(getContext());
-            this.k.setPadding(g().getResources().getDimensionPixelSize(R.dimen.tbds44), g().getResources().getDimensionPixelSize(R.dimen.tbds12), g().getResources().getDimensionPixelSize(R.dimen.tbds44), 0);
-            this.k.addView(this.i.getView());
-            this.k.addView(view2, new LinearLayout.LayoutParams(g().getResources().getDimensionPixelSize(R.dimen.tbds12), -1));
-            this.k.addView(this.j.getView());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            uy5 uy5Var = new uy5();
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                uy5Var.a = jSONObject.optString("adImgUrl");
+                uy5Var.b = jSONObject.optString("redirectUrl");
+                uy5Var.d = jSONObject.optString("videoLocalPath");
+                uy5Var.j = jSONObject.optLong("startShowTime");
+                uy5Var.k = jSONObject.optLong("endShowTime");
+                uy5Var.e = jSONObject.optString("videoJumpUrl");
+                uy5Var.f = jSONObject.optString("videoMd5");
+                uy5Var.g = jSONObject.optInt(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION);
+                uy5Var.h = jSONObject.optInt("videoWidth");
+                uy5Var.i = jSONObject.optInt("videoHeight");
+                uy5Var.c = jSONObject.optString("adVideoUrl");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return uy5Var;
         }
+        return (uy5) invokeL.objValue;
     }
 
-    public final void s() {
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.k = (ViewGroup) h();
-            View view2 = new View(getContext());
-            this.k.setPadding(g().getResources().getDimensionPixelSize(R.dimen.tbds34), g().getResources().getDimensionPixelSize(R.dimen.tbds21), g().getResources().getDimensionPixelSize(R.dimen.tbds34), 0);
-            this.k.addView(this.i.getView());
-            this.k.addView(view2, new LinearLayout.LayoutParams(g().getResources().getDimensionPixelSize(R.dimen.tbds20), -1));
-            this.k.addView(this.j.getView());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if ((System.currentTimeMillis() / 1000 >= this.j && System.currentTimeMillis() / 1000 <= this.k) || (this.j == 0 && this.k == 0)) {
+                return true;
+            }
+            return false;
         }
+        return invokeV.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("adImgUrl", this.a);
+                jSONObject.put("redirectUrl", this.b);
+                jSONObject.put("videoLocalPath", this.d);
+                jSONObject.put("startShowTime", this.j);
+                jSONObject.put("endShowTime", this.k);
+                jSONObject.put("videoMd5", this.f);
+                jSONObject.put("videoJumpUrl", this.e);
+                jSONObject.put(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION, this.g);
+                jSONObject.put("videoWidth", this.h);
+                jSONObject.put("videoHeight", this.i);
+                jSONObject.put("adVideoUrl", this.c);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

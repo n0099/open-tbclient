@@ -1,73 +1,51 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class zy2 implements bz2 {
+public class zy2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Long> a;
-    public long b;
 
-    @Override // com.baidu.tieba.bz2
-    public String getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "PageUpdateRender" : (String) invokeV.objValue;
-    }
-
-    public zy2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948376214, "Lcom/baidu/tieba/zy2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948376214, "Lcom/baidu/tieba/zy2;");
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = -1L;
+        a = gp1.a;
     }
 
-    @Override // com.baidu.tieba.bz2
-    public long a() {
-        InterceptResult invokeV;
+    public static String a(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<Long> list = this.a;
-            if (list != null && list.size() > 0 && this.b >= 0) {
-                return this.b - ((Long) Collections.min(this.a)).longValue();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, pMSAppInfo)) == null) {
+            if (pMSAppInfo == null) {
+                if (a) {
+                    Log.e("AppInfoExt", "appInfo can not be null, please check");
+                    return "";
+                }
+                return "";
             }
-            return -1L;
+            String str = pMSAppInfo.serverExt;
+            if (a) {
+                Log.d("AppInfoExt", "appId - " + pMSAppInfo.appId + ",get app info' ext - " + str);
+            }
+            return str;
         }
-        return invokeV.longValue;
-    }
-
-    @Override // com.baidu.tieba.bz2
-    public void b(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.b = j;
-        }
-    }
-
-    @Override // com.baidu.tieba.bz2
-    public void c(long j) {
-        List<Long> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) && (list = this.a) != null) {
-            list.add(Long.valueOf(j));
-        }
+        return (String) invokeL.objValue;
     }
 }

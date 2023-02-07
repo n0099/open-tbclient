@@ -1,111 +1,60 @@
 package com.baidu.tieba;
 
-import android.opengl.GLES20;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.FloatBuffer;
 /* loaded from: classes6.dex */
-public class td0 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "td0";
+public class td0 extends sd0 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final float[] g;
+    public static final float[] h;
+    public static final FloatBuffer i;
+    public static final FloatBuffer j;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948177225, "Lcom/baidu/tieba/td0;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948177225, "Lcom/baidu/tieba/td0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948177225, "Lcom/baidu/tieba/td0;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+        float[] fArr = {-1.0f, -1.0f, 1.0f, -1.0f, -1.0f, 1.0f, 1.0f, 1.0f};
+        g = fArr;
+        h = new float[]{0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f};
+        i = zd0.b(fArr);
+        j = zd0.b(h);
+    }
+
+    public td0() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948177225, "Lcom/baidu/tieba/td0;");
-        }
-    }
-
-    public static void a(String str) {
-        int glGetError;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, str) == null) && (glGetError = GLES20.glGetError()) != 0) {
-            Log.e(a, str + ": glError 0x" + Integer.toHexString(glGetError));
-        }
-    }
-
-    public static FloatBuffer b(float[] fArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, fArr)) == null) {
-            ByteBuffer allocateDirect = ByteBuffer.allocateDirect(fArr.length * 4);
-            allocateDirect.order(ByteOrder.nativeOrder());
-            FloatBuffer asFloatBuffer = allocateDirect.asFloatBuffer();
-            asFloatBuffer.put(fArr);
-            asFloatBuffer.position(0);
-            return asFloatBuffer;
-        }
-        return (FloatBuffer) invokeL.objValue;
-    }
-
-    public static int c(String str, String str2) {
-        InterceptResult invokeLL;
-        int d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            int d2 = d(35633, str);
-            if (d2 == 0 || (d = d(35632, str2)) == 0) {
-                return -1;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            int glCreateProgram = GLES20.glCreateProgram();
-            a("glCreateProgram");
-            if (glCreateProgram == 0) {
-                Log.e(a, "Could not create program");
-            }
-            GLES20.glAttachShader(glCreateProgram, d2);
-            a("glAttachShader");
-            GLES20.glAttachShader(glCreateProgram, d);
-            a("glAttachShader");
-            GLES20.glLinkProgram(glCreateProgram);
-            int[] iArr = new int[1];
-            GLES20.glGetProgramiv(glCreateProgram, 35714, iArr, 0);
-            if (iArr[0] != 1) {
-                Log.e(a, "Could not link program: ");
-                Log.e(a, GLES20.glGetProgramInfoLog(glCreateProgram));
-                GLES20.glDeleteProgram(glCreateProgram);
-                return -1;
-            }
-            return glCreateProgram;
         }
-        return invokeLL.intValue;
-    }
-
-    public static int d(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, str)) == null) {
-            int glCreateShader = GLES20.glCreateShader(i);
-            a("glCreateShader type=" + i);
-            GLES20.glShaderSource(glCreateShader, str);
-            GLES20.glCompileShader(glCreateShader);
-            int[] iArr = new int[1];
-            GLES20.glGetShaderiv(glCreateShader, 35713, iArr, 0);
-            if (iArr[0] == 0) {
-                String str2 = a;
-                Log.e(str2, "Could not compile shader " + i + ":");
-                String str3 = a;
-                Log.e(str3, " " + GLES20.glGetShaderInfoLog(glCreateShader));
-                GLES20.glDeleteShader(glCreateShader);
-                return 0;
-            }
-            return glCreateShader;
-        }
-        return invokeIL.intValue;
+        this.a = i;
+        this.b = j;
+        this.d = 2;
+        this.e = 2 * 4;
+        this.c = g.length / 2;
+        this.f = 8;
     }
 }

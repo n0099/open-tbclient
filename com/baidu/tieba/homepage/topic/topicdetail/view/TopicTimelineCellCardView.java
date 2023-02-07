@@ -19,8 +19,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fc7;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.qg7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -35,7 +35,7 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
     public TextView d;
     public int e;
     public int f;
-    public fc7 g;
+    public qg7 g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TopicTimelineCellCardView(Context context) {
@@ -109,12 +109,12 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01bd, (ViewGroup) this, true);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09059f);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905a0);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0905a1);
-            this.e = zi.g(context, R.dimen.tbds340);
-            this.f = zi.g(context, R.dimen.tbds230);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01bc, (ViewGroup) this, true);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0905a0);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905a1);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0905a2);
+            this.e = ej.g(context, R.dimen.tbds340);
+            this.f = ej.g(context, R.dimen.tbds230);
             setOnClickListener(this);
             b();
         }
@@ -142,19 +142,19 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
         MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(getContext()).createNormalCfg(String.valueOf(this.g.b), "", "")));
     }
 
-    public void setData(fc7 fc7Var) {
+    public void setData(qg7 qg7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, fc7Var) == null) {
-            if (fc7Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, qg7Var) == null) {
+            if (qg7Var == null) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
-            this.g = fc7Var;
-            this.c.setText(fc7Var.d);
-            this.d.setText(fc7Var.c);
-            if (StringUtils.isNull(fc7Var.e)) {
-                int i = fc7Var.f;
+            this.g = qg7Var;
+            this.c.setText(qg7Var.d);
+            this.d.setText(qg7Var.c);
+            if (StringUtils.isNull(qg7Var.e)) {
+                int i = qg7Var.f;
                 if (i == 0) {
                     SkinManager.setBackgroundResource(this.b, R.drawable.topic_timeline_bg_one);
                     return;
@@ -167,11 +167,11 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
                 }
             }
             try {
-                GradientDrawable gradientDrawable = (GradientDrawable) getResources().getDrawable(R.drawable.obfuscated_res_0x7f0812b4);
-                gradientDrawable.setColor(Color.parseColor(fc7Var.e));
+                GradientDrawable gradientDrawable = (GradientDrawable) getResources().getDrawable(R.drawable.obfuscated_res_0x7f0812a9);
+                gradientDrawable.setColor(Color.parseColor(qg7Var.e));
                 this.b.setBackgroundDrawable(gradientDrawable);
             } catch (Exception unused) {
-                int i2 = fc7Var.f;
+                int i2 = qg7Var.f;
                 if (i2 == 0) {
                     SkinManager.setBackgroundResource(this.b, R.drawable.topic_timeline_bg_one);
                 } else if (i2 == 1) {

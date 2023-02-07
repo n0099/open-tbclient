@@ -1,65 +1,59 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.base.BdBaseFragmentActivity;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.util.PriorityOrganizer;
-import com.baidu.tieba.pb.pb.main.PbActivity;
+import android.webkit.JsPromptResult;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.payment.PayVcodeActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class p88 extends CustomMessageListener {
+public class p88 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final PbActivity a;
-    public ta8 b;
-    public ua8 c;
+    public PayVcodeActivity a;
+    public u19 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p88(PbActivity pbActivity) {
-        super(2921728);
+    public p88(PayVcodeActivity payVcodeActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pbActivity};
+            Object[] objArr = {payVcodeActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = pbActivity;
-        this.b = new ta8(pbActivity);
-        ua8 ua8Var = new ua8(pbActivity);
-        this.c = ua8Var;
-        PriorityOrganizer.m(this.b, ua8Var);
-        setPriority(1);
+        this.a = payVcodeActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    public void a(u19 u19Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921728) {
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            BdUniqueId bdUniqueId = null;
-            if (currentActivity instanceof BdBaseFragmentActivity) {
-                bdUniqueId = ((BdBaseFragmentActivity) currentActivity).getUniqueId();
-            }
-            if (getTag() == bdUniqueId && !this.b.v(true)) {
-                this.b.E(true);
-                this.a.e0().t(this.b);
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, u19Var) == null) {
+            this.b = u19Var;
         }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
+        PayVcodeActivity payVcodeActivity;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            u19 u19Var = this.b;
+            if ((u19Var != null && u19Var.onJsPrompt(str2, jsPromptResult)) || (payVcodeActivity = this.a) == null || !ih.f(payVcodeActivity.getPageContext())) {
+                return true;
+            }
+            return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
+        }
+        return invokeLLLLL.booleanValue;
     }
 }

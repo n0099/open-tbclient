@@ -1,9 +1,11 @@
 package com.baidu.tieba;
-
-import java.util.List;
 /* loaded from: classes4.dex */
-public interface ge6 {
-    void a(List<be6> list, List<be6> list2, int i);
+public interface ge6 extends Cdo {
+    void A(boolean z);
 
-    void b(int i, String str);
+    void d(boolean z);
+
+    int getPosition();
+
+    boolean n();
 }

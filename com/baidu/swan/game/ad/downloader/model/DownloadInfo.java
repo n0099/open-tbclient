@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.game.ad.downloader.exception.DownloadException;
-import com.baidu.tieba.ms3;
+import com.baidu.tieba.zw3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ public class DownloadInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long mCreateAt;
-    public transient ms3 mDownloadListener;
+    public transient zw3 mDownloadListener;
     public DownloadException mException;
     public String mId;
     public String mPackageName;
@@ -146,13 +146,13 @@ public class DownloadInfo implements Serializable {
         return invokeV.longValue;
     }
 
-    public ms3 getDownloadListener() {
+    public zw3 getDownloadListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mDownloadListener;
         }
-        return (ms3) invokeV.objValue;
+        return (zw3) invokeV.objValue;
     }
 
     public DownloadException getException() {
@@ -258,10 +258,10 @@ public class DownloadInfo implements Serializable {
         }
     }
 
-    public void setDownloadListener(ms3 ms3Var) {
+    public void setDownloadListener(zw3 zw3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, ms3Var) == null) {
-            this.mDownloadListener = ms3Var;
+        if (interceptable == null || interceptable.invokeL(1048590, this, zw3Var) == null) {
+            this.mDownloadListener = zw3Var;
         }
     }
 

@@ -7,8 +7,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c05;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.p45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PbFirstFloorMessageButton extends TBSpecificationBtn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c05 o;
+    public p45 o;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbFirstFloorMessageButton(Context context) {
@@ -87,10 +87,10 @@ public class PbFirstFloorMessageButton extends TBSpecificationBtn {
     public final void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c05 c05Var = new c05();
-            this.o = c05Var;
-            c05Var.r(R.color.CAM_X0903);
-            this.o.g(zi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X006));
+            p45 p45Var = new p45();
+            this.o = p45Var;
+            p45Var.r(R.color.CAM_X0903);
+            this.o.g(ej.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X006));
             this.o.v(R.drawable.icon_mask_messageline, TBSpecificationButtonConfig.IconType.WEBP);
             this.o.p(TBSpecificationButtonConfig.WebpType.PURE);
             this.o.h(R.color.CAM_X0304);
@@ -98,9 +98,9 @@ public class PbFirstFloorMessageButton extends TBSpecificationBtn {
         }
     }
 
-    public void onChangeSkinType(int i) {
+    public void q() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             k();
         }
     }

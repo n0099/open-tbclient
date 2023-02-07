@@ -1,26 +1,43 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.db.DBTableDefine;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tieba.gv7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.UserTaskInfo;
 /* loaded from: classes5.dex */
-public class n65 {
+public class n65 implements gv7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
     public String c;
-    public int d;
-    public int e;
+    public String d;
+    public String e;
     public String f;
     public String g;
+    public String h;
+    public String i;
+    public String j;
+    public String k;
+    public String l;
+    public String m;
+    public int n;
+    public String o;
+    public gv7.a p;
+    public int q;
+    public String r;
 
     public n65() {
         Interceptable interceptable = $ic;
@@ -36,102 +53,138 @@ public class n65 {
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+            return !"0".equals(this.r);
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public String c() {
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+            return "dynamic".equals(this.e);
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int g() {
+    @Override // com.baidu.tieba.gv7
+    public gv7.a getParallelCharge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.e;
+            return this.p;
         }
-        return invokeV.intValue;
+        return (gv7.a) invokeV.objValue;
     }
 
-    public void h(JSONObject jSONObject) {
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (StringUtils.isNull(this.a) && StringUtils.isNull(this.j) && StringUtils.isNull(this.l)) {
+                return true;
+            }
+            if (c()) {
+                if (StringUtils.isNull(this.c) || StringUtils.isNull(this.d)) {
+                    return true;
+                }
+                return false;
+            }
+            return StringUtils.isNull(this.b);
         }
-        jSONObject.optLong("id");
-        this.a = jSONObject.optString("name");
-        this.b = jSONObject.optString(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF);
-        this.c = jSONObject.optString("task_icon_url");
-        this.d = jSONObject.optInt("status");
-        jSONObject.optInt("target_num");
-        jSONObject.optInt("curr_num");
-        jSONObject.optInt("task_type");
-        this.e = jSONObject.optInt("weight");
-        this.f = jSONObject.optString("act_type");
-        this.g = jSONObject.optString("target_scheme");
+        return invokeV.booleanValue;
     }
 
-    public void i(UserTaskInfo userTaskInfo) {
+    public final JSONArray d(JSONObject jSONObject, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, userTaskInfo) != null) || userTaskInfo == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, jSONObject, str)) == null) {
+            try {
+                return jSONObject.optJSONArray(str);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return null;
+            }
+        }
+        return (JSONArray) invokeLL.objValue;
+    }
+
+    public void e(JSONObject jSONObject) {
+        String lowerCase;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        userTaskInfo.id.longValue();
-        this.a = userTaskInfo.name;
-        this.b = userTaskInfo.brief;
-        this.c = userTaskInfo.task_icon_url;
-        this.d = userTaskInfo.status.intValue();
-        userTaskInfo.target_num.intValue();
-        userTaskInfo.curr_num.intValue();
-        userTaskInfo.task_type.intValue();
-        this.e = userTaskInfo.weight.intValue();
-        this.f = userTaskInfo.act_type;
-        this.g = userTaskInfo.target_scheme;
+        this.a = jSONObject.optString("url");
+        this.b = jSONObject.optString("icon_url");
+        this.c = jSONObject.optString("fold_lottie");
+        this.d = jSONObject.optString("unfold_lottie");
+        this.e = jSONObject.optString("float_type");
+        jSONObject.optString("fold_name");
+        jSONObject.optString("unfold_name");
+        this.h = jSONObject.optString("view_statistics_url");
+        this.i = jSONObject.optString("click_statistics_url");
+        this.j = jSONObject.optString("scheme");
+        this.k = jSONObject.optString("package_name");
+        this.l = jSONObject.optString("deeplink");
+        this.n = jSONObject.optInt("source", 1);
+        this.m = jSONObject.optString("ext_info");
+        this.o = jSONObject.optString(LegoListActivityConfig.AD_ID);
+        this.r = jSONObject.optString("display_ad_icon");
+        gv7.a aVar = new gv7.a();
+        this.p = aVar;
+        aVar.a = jSONObject.optString("parallel_charge_url");
+        this.p.c = f(d(jSONObject, "show_urls"));
+        this.p.d = f(d(jSONObject, "click_urls"));
+        String c = lj.c(TbadkApplication.getInst().getAndroidId());
+        String lastCachedOid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
+        StringBuilder sb = new StringBuilder();
+        sb.append("&ANDROIDID=");
+        String str = "";
+        if (c == null) {
+            lowerCase = "";
+        } else {
+            lowerCase = c.toLowerCase();
+        }
+        sb.append(lowerCase);
+        sb.append("&OAID=");
+        if (lastCachedOid != null) {
+            str = lastCachedOid.toUpperCase();
+        }
+        sb.append(str);
+        String sb2 = sb.toString();
+        if (!StringUtils.isNull(this.h)) {
+            this.h += sb2;
+        }
+        if (!StringUtils.isNull(this.i)) {
+            this.i += sb2;
+        }
+    }
+
+    public final ArrayList<String> f(JSONArray jSONArray) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, jSONArray)) == null) {
+            if (jSONArray != null && jSONArray.length() != 0) {
+                int length = jSONArray.length();
+                ArrayList<String> arrayList = new ArrayList<>(length);
+                for (int i = 0; i < length; i++) {
+                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                    if (optJSONObject != null) {
+                        String optString = optJSONObject.optString("url");
+                        if (!StringUtils.isNull(optString)) {
+                            arrayList.add(optString);
+                        }
+                    }
+                }
+                return arrayList;
+            }
+            return new ArrayList<>();
+        }
+        return (ArrayList) invokeL.objValue;
     }
 }

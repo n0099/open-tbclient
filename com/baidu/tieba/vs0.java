@@ -1,131 +1,124 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.net.request.Headers;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.Intrinsics;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.channels.Channels;
+import java.nio.channels.FileChannel;
+import java.nio.channels.ReadableByteChannel;
 /* loaded from: classes6.dex */
 public final class vs0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final vs0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948251222, "Lcom/baidu/tieba/vs0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(String str, int i);
+
+        void b();
+    }
+
+    /* loaded from: classes6.dex */
+    public static class a implements ks0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ File a;
+        public final /* synthetic */ b b;
+
+        public a(File file, b bVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948251222, "Lcom/baidu/tieba/vs0;");
-                return;
-            }
-        }
-        a = new vs0();
-    }
-
-    public vs0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    @JvmStatic
-    public static final int a(ss0 ss0Var, String str) {
-        InterceptResult invokeLL;
-        qs0 c;
-        Integer num;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, ss0Var, str)) == null) {
-            if (ss0Var != null || ((c = us0.c(str)) != null && (ss0Var = c.a()) != null)) {
-                num = Integer.valueOf(ss0Var.a());
-            } else {
-                num = null;
-            }
-            if (num != null) {
-                return num.intValue();
-            }
-            return 0;
-        }
-        return invokeLL.intValue;
-    }
-
-    @JvmStatic
-    public static final String c(ss0 ss0Var, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, ss0Var, str, str2)) == null) {
-            return a.b(a(ss0Var, str), str2);
-        }
-        return (String) invokeLLL.objValue;
-    }
-
-    public final String b(int i, String str) {
-        InterceptResult invokeIL;
-        boolean z;
-        String d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                d = "https://sv.baidu.com";
-            } else {
-                d = d(str);
-            }
-            if (i != 1) {
-                return "";
-            }
-            return d;
-        }
-        return (String) invokeIL.objValue;
-    }
-
-    public final String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            try {
-                Uri url = Uri.parse(str);
-                Intrinsics.checkNotNullExpressionValue(url, "url");
-                String scheme = url.getScheme();
-                if (scheme == null) {
-                    return "https://sv.baidu.com";
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {file, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                String str2 = scheme + "://";
-                if (str2 == null) {
-                    return "https://sv.baidu.com";
-                }
-                String str3 = str2 + url.getHost();
-                if (str3 == null) {
-                    return "https://sv.baidu.com";
-                }
-                return str3;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return "https://sv.baidu.com";
+            }
+            this.a = file;
+            this.b = bVar;
+        }
+
+        @Override // com.baidu.tieba.ks0
+        public void a(Exception exc, int i) {
+            b bVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) && (bVar = this.b) != null) {
+                bVar.a(exc.getMessage(), i);
             }
         }
-        return (String) invokeL.objValue;
+
+        @Override // com.baidu.tieba.ks0
+        public void c(Headers headers, InputStream inputStream, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, headers, inputStream, i) == null) {
+                if (i == 200) {
+                    try {
+                        vs0.b(inputStream, this.a);
+                        if (this.b != null) {
+                            this.b.b();
+                            return;
+                        }
+                        return;
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        b bVar = this.b;
+                        if (bVar != null) {
+                            bVar.a(e.getMessage(), -1);
+                            return;
+                        }
+                        return;
+                    }
+                }
+                b bVar2 = this.b;
+                if (bVar2 != null) {
+                    bVar2.a("", i);
+                }
+            }
+        }
+    }
+
+    public static void a(@NonNull File file, @NonNull String str, @Nullable b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, file, str, bVar) == null) {
+            es0 a2 = as0.b().a();
+            ts0 ts0Var = new ts0();
+            ts0Var.l(str);
+            ts0Var.c();
+            a2.b(ts0Var, new a(file, bVar));
+        }
+    }
+
+    public static void b(@NonNull InputStream inputStream, @NonNull File file) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, inputStream, file) == null) {
+            FileOutputStream fileOutputStream = new FileOutputStream(file);
+            ReadableByteChannel newChannel = Channels.newChannel(inputStream);
+            FileChannel channel = fileOutputStream.getChannel();
+            long j = 4096;
+            long j2 = 0;
+            while (j > 0) {
+                try {
+                    j = channel.transferFrom(newChannel, j2, 4096L);
+                    j2 += j;
+                } finally {
+                    qj0.a(fileOutputStream);
+                }
+            }
+        }
     }
 }

@@ -151,9 +151,9 @@ public class d extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, this, mapStatus) == null) {
             com.baidu.platform.comapi.map.b.a.b bVar = this.i;
-            double abs = Math.abs(new a.c(new a.C0140a(bVar.b.a, bVar.c.a), this.i.b).a);
+            double abs = Math.abs(new a.c(new a.C0139a(bVar.b.a, bVar.c.a), this.i.b).a);
             com.baidu.platform.comapi.map.b.a.b bVar2 = this.i;
-            double abs2 = Math.abs(new a.c(new a.C0140a(bVar2.b.b, bVar2.c.b), this.i.b).a);
+            double abs2 = Math.abs(new a.c(new a.C0139a(bVar2.b.b, bVar2.c.b), this.i.b).a);
             double d = this.k;
             boolean z3 = false;
             if (d != 0.0d && d * this.g.b < 0.0d) {
@@ -216,8 +216,8 @@ public class d extends a {
             if (d3 * ((a.d) obj2).a > 0.0d && ((a.d) obj).b * ((a.d) obj2).b > 0.0d) {
                 a(mapStatus, a);
             } else if (Math.abs(((a.d) pair.first).a - ((a.d) pair.second).a) >= 1.0d && Math.abs(((a.d) pair.first).b - ((a.d) pair.second).b) >= 1.0d) {
-                double abs = Math.abs(new a.c(new a.C0140a(bVar.b.a, bVar.c.a), bVar.b).a);
-                double abs2 = Math.abs(new a.c(new a.C0140a(bVar.b.b, bVar.c.b), bVar.b).a);
+                double abs = Math.abs(new a.c(new a.C0139a(bVar.b.a, bVar.c.a), bVar.b).a);
+                double abs2 = Math.abs(new a.c(new a.C0139a(bVar.b.b, bVar.c.b), bVar.b).a);
                 double d4 = this.k;
                 if (d4 != 0.0d && d4 * this.g.b < 0.0d) {
                     z = true;

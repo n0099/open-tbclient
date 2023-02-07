@@ -2,7 +2,6 @@ package com.baidu.searchbox.common.security;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -21,7 +20,7 @@ import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Ref;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u00004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0007\u0018\u0000 \u00192\u00020\u00012\u00020\u0002:\u0001\u0019B\u0011\b\u0016\u0012\u0006\u0010\u0011\u001a\u00020\u0010¢\u0006\u0004\b\u0016\u0010\u0017B\u0007¢\u0006\u0004\b\u0016\u0010\u0018J\u000f\u0010\u0004\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\u0004\u0010\u0005J\u000f\u0010\u0006\u001a\u00020\u0003H\u0007¢\u0006\u0004\b\u0006\u0010\u0005J\u0019\u0010\t\u001a\u00020\b2\b\b\u0002\u0010\u0007\u001a\u00020\u0003H\u0007¢\u0006\u0004\b\t\u0010\nJ!\u0010\u000e\u001a\u0004\u0018\u00010\f2\u0006\u0010\u000b\u001a\u00020\u00032\u0006\u0010\r\u001a\u00020\fH\u0016¢\u0006\u0004\b\u000e\u0010\u000fJ\u001f\u0010\u0014\u001a\u00020\u00132\u0006\u0010\u0011\u001a\u00020\u00102\u0006\u0010\u0012\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\u0014\u0010\u0015¨\u0006\u001a"}, d2 = {"Lcom/baidu/searchbox/common/security/DeviceIdBagMap;", "Landroid/os/Parcelable;", "Ljava/util/concurrent/ConcurrentHashMap;", "", "describeContents", "()I", "getDeviceFlag", "deviceFlag", "", "isSync", "(I)Z", "key", "Lcom/baidu/searchbox/common/security/DeviceIdBag;", "value", "put", "(ILcom/baidu/searchbox/common/security/DeviceIdBag;)Lcom/baidu/searchbox/common/security/DeviceIdBag;", "Landroid/os/Parcel;", "parcel", "flags", "", "writeToParcel", "(Landroid/os/Parcel;I)V", "<init>", "(Landroid/os/Parcel;)V", "()V", "CREATOR", "lib-security-framework_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(d1 = {"\u0000.\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0002\b\u0003\u0018\u0000 \u00142\u000e\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\u00030\u00012\u00020\u0004:\u0001\u0014B\u000f\b\u0016\u0012\u0006\u0010\u0005\u001a\u00020\u0006¢\u0006\u0002\u0010\u0007B\u0005¢\u0006\u0002\u0010\bJ\b\u0010\t\u001a\u00020\u0002H\u0016J\b\u0010\n\u001a\u00020\u0002H\u0007J\u0012\u0010\u000b\u001a\u00020\f2\b\b\u0002\u0010\r\u001a\u00020\u0002H\u0007J\u001a\u0010\u000e\u001a\u0004\u0018\u00010\u00032\u0006\u0010\u000f\u001a\u00020\u00022\u0006\u0010\u0010\u001a\u00020\u0003H\u0016J\u0018\u0010\u0011\u001a\u00020\u00122\u0006\u0010\u0005\u001a\u00020\u00062\u0006\u0010\u0013\u001a\u00020\u0002H\u0016¨\u0006\u0015"}, d2 = {"Lcom/baidu/searchbox/common/security/DeviceIdBagMap;", "Ljava/util/concurrent/ConcurrentHashMap;", "", "Lcom/baidu/searchbox/common/security/DeviceIdBag;", "Landroid/os/Parcelable;", "parcel", "Landroid/os/Parcel;", "(Landroid/os/Parcel;)V", "()V", "describeContents", "getDeviceFlag", "isSync", "", "deviceFlag", "put", "key", "value", "writeToParcel", "", "flags", "CREATOR", "lib-security-framework_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes2.dex */
 public final class DeviceIdBagMap extends ConcurrentHashMap<Integer, DeviceIdBag> implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
@@ -54,11 +53,15 @@ public final class DeviceIdBagMap extends ConcurrentHashMap<Integer, DeviceIdBag
         return invokeV.intValue;
     }
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\"\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0011\n\u0002\b\u0005\b\u0086\u0003\u0018\u00002\u00020\u0001B\t\b\u0002¢\u0006\u0004\b\f\u0010\rJ\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0005\u0010\u0006J\u001f\u0010\n\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\u00040\t2\u0006\u0010\b\u001a\u00020\u0007H\u0016¢\u0006\u0004\b\n\u0010\u000b¨\u0006\u000e"}, d2 = {"Lcom/baidu/searchbox/common/security/DeviceIdBagMap$CREATOR;", "android/os/Parcelable$Creator", "Landroid/os/Parcel;", "parcel", "Lcom/baidu/searchbox/common/security/DeviceIdBagMap;", "createFromParcel", "(Landroid/os/Parcel;)Lcom/baidu/searchbox/common/security/DeviceIdBagMap;", "", "size", "", "newArray", "(I)[Lcom/baidu/searchbox/common/security/DeviceIdBagMap;", "<init>", "()V", "lib-security-framework_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @Metadata(d1 = {"\u0000$\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0011\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\b\u0086\u0003\u0018\u00002\b\u0012\u0004\u0012\u00020\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0003J\u0010\u0010\u0004\u001a\u00020\u00022\u0006\u0010\u0005\u001a\u00020\u0006H\u0016J\u001d\u0010\u0007\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\u00020\b2\u0006\u0010\t\u001a\u00020\nH\u0016¢\u0006\u0002\u0010\u000b¨\u0006\f"}, d2 = {"Lcom/baidu/searchbox/common/security/DeviceIdBagMap$CREATOR;", "Landroid/os/Parcelable$Creator;", "Lcom/baidu/searchbox/common/security/DeviceIdBagMap;", "()V", "createFromParcel", "parcel", "Landroid/os/Parcel;", "newArray", "", "size", "", "(I)[Lcom/baidu/searchbox/common/security/DeviceIdBagMap;", "lib-security-framework_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes2.dex */
     public static final class CREATOR implements Parcelable.Creator<DeviceIdBagMap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ CREATOR(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
 
         public CREATOR() {
             Interceptable interceptable = $ic;
@@ -72,10 +75,6 @@ public final class DeviceIdBagMap extends ConcurrentHashMap<Integer, DeviceIdBag
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-        }
-
-        public /* synthetic */ CREATOR(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -131,7 +130,7 @@ public final class DeviceIdBagMap extends ConcurrentHashMap<Integer, DeviceIdBag
     public final int getDeviceFlag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             int i = 0;
             for (Integer deviceFlag : keySet()) {
                 Intrinsics.checkNotNullExpressionValue(deviceFlag, "deviceFlag");
@@ -142,19 +141,19 @@ public final class DeviceIdBagMap extends ConcurrentHashMap<Integer, DeviceIdBag
         return invokeV.intValue;
     }
 
-    public /* bridge */ Set getEntries() {
+    public /* bridge */ Set<Map.Entry<Integer, DeviceIdBag>> getEntries() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return super.entrySet();
         }
         return (Set) invokeV.objValue;
     }
 
-    public /* bridge */ Set getKeys() {
+    public /* bridge */ Set<Integer> getKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return super.keySet();
         }
         return (Set) invokeV.objValue;
@@ -163,16 +162,16 @@ public final class DeviceIdBagMap extends ConcurrentHashMap<Integer, DeviceIdBag
     public /* bridge */ int getSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             return super.size();
         }
         return invokeV.intValue;
     }
 
-    public /* bridge */ Collection getValues() {
+    public /* bridge */ Collection<DeviceIdBag> getValues() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             return super.values();
         }
         return (Collection) invokeV.objValue;
@@ -182,7 +181,7 @@ public final class DeviceIdBagMap extends ConcurrentHashMap<Integer, DeviceIdBag
     public final /* bridge */ Set<Integer> keySet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             return getKeys();
         }
         return (Set) invokeV.objValue;
@@ -192,7 +191,7 @@ public final class DeviceIdBagMap extends ConcurrentHashMap<Integer, DeviceIdBag
     public final /* bridge */ int size() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
             return getSize();
         }
         return invokeV.intValue;
@@ -202,7 +201,7 @@ public final class DeviceIdBagMap extends ConcurrentHashMap<Integer, DeviceIdBag
     public final /* bridge */ Collection<DeviceIdBag> values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
             return getValues();
         }
         return (Collection) invokeV.objValue;
@@ -232,7 +231,6 @@ public final class DeviceIdBagMap extends ConcurrentHashMap<Integer, DeviceIdBag
             int readInt2 = parcel.readInt();
             DeviceIdBag deviceIdBag = (DeviceIdBag) parcel.readParcelable(DeviceIdBag.class.getClassLoader());
             if (deviceIdBag != null) {
-                Intrinsics.checkNotNullExpressionValue(deviceIdBag, "this");
                 put(readInt2, deviceIdBag);
             }
         }
@@ -275,13 +273,13 @@ public final class DeviceIdBagMap extends ConcurrentHashMap<Integer, DeviceIdBag
     public final boolean isSync(final int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
             if (((~getDeviceFlag()) & i) != 0) {
                 return false;
             }
             final Ref.BooleanRef booleanRef = new Ref.BooleanRef();
             booleanRef.element = true;
-            DeviceInfoUtilKt.forEachDevice(new Function1<Integer, Unit>(this, i, booleanRef) { // from class: com.baidu.searchbox.common.security.DeviceIdBagMap$isSync$1
+            DeviceInfoUtilKt.forEachDevice(new Function1<Integer, Unit>(i, this, booleanRef) { // from class: com.baidu.searchbox.common.security.DeviceIdBagMap$isSync$1
                 public static /* synthetic */ Interceptable $ic;
                 public final /* synthetic */ int $deviceFlag;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -295,7 +293,7 @@ public final class DeviceIdBagMap extends ConcurrentHashMap<Integer, DeviceIdBag
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i), booleanRef};
+                        Object[] objArr = {Integer.valueOf(i), this, booleanRef};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -306,8 +304,8 @@ public final class DeviceIdBagMap extends ConcurrentHashMap<Integer, DeviceIdBag
                             return;
                         }
                     }
-                    this.this$0 = this;
                     this.$deviceFlag = i;
+                    this.this$0 = this;
                     this.$isSync = booleanRef;
                 }
 
@@ -337,7 +335,7 @@ public final class DeviceIdBagMap extends ConcurrentHashMap<Integer, DeviceIdBag
     public /* bridge */ DeviceIdBag remove(Integer num) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, num)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, num)) == null) {
             return (DeviceIdBag) super.remove((Object) num);
         }
         return (DeviceIdBag) invokeL.objValue;
@@ -348,10 +346,10 @@ public final class DeviceIdBagMap extends ConcurrentHashMap<Integer, DeviceIdBag
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (obj instanceof Integer) {
-                return containsKey((Integer) obj);
+            if (!(obj instanceof Integer)) {
+                return false;
             }
-            return false;
+            return containsKey((Integer) obj);
         }
         return invokeL.booleanValue;
     }
@@ -361,44 +359,60 @@ public final class DeviceIdBagMap extends ConcurrentHashMap<Integer, DeviceIdBag
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (obj instanceof DeviceIdBag) {
-                return containsValue((DeviceIdBag) obj);
+            if (!(obj instanceof DeviceIdBag)) {
+                return false;
             }
-            return false;
+            return containsValue((DeviceIdBag) obj);
         }
         return invokeL.booleanValue;
     }
 
     @Override // java.util.concurrent.ConcurrentHashMap, java.util.AbstractMap, java.util.Map
-    public final /* bridge */ Object get(Object obj) {
+    public final /* bridge */ DeviceIdBag get(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) {
-            if (obj instanceof Integer) {
-                return get((Integer) obj);
+            if (!(obj instanceof Integer)) {
+                return null;
             }
-            return null;
+            return get((Integer) obj);
         }
-        return invokeL.objValue;
+        return (DeviceIdBag) invokeL.objValue;
     }
 
     @Override // java.util.concurrent.ConcurrentHashMap, java.util.AbstractMap, java.util.Map
-    public final /* bridge */ Object remove(Object obj) {
+    public final /* bridge */ DeviceIdBag remove(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, obj)) == null) {
-            if (obj instanceof Integer) {
-                return remove((Integer) obj);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, obj)) == null) {
+            if (!(obj instanceof Integer)) {
+                return null;
             }
+            return remove((Integer) obj);
+        }
+        return (DeviceIdBag) invokeL.objValue;
+    }
+
+    @Override // java.util.concurrent.ConcurrentHashMap, java.util.AbstractMap, java.util.Map
+    public final /* bridge */ /* synthetic */ Object get(Object obj) {
+        if (!(obj instanceof Integer)) {
             return null;
         }
-        return invokeL.objValue;
+        return get((Integer) obj);
+    }
+
+    @Override // java.util.concurrent.ConcurrentHashMap, java.util.AbstractMap, java.util.Map
+    public final /* bridge */ /* synthetic */ Object remove(Object obj) {
+        if (!(obj instanceof Integer)) {
+            return null;
+        }
+        return remove((Integer) obj);
     }
 
     public /* bridge */ DeviceIdBag getOrDefault(Integer num, DeviceIdBag deviceIdBag) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, num, deviceIdBag)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, num, deviceIdBag)) == null) {
             return (DeviceIdBag) super.getOrDefault((Object) num, (Integer) deviceIdBag);
         }
         return (DeviceIdBag) invokeLL.objValue;
@@ -408,7 +422,7 @@ public final class DeviceIdBagMap extends ConcurrentHashMap<Integer, DeviceIdBag
         InterceptResult invokeIL;
         DeviceIdBag deviceIdBag;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048593, this, i, value)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048595, this, i, value)) == null) {
             Intrinsics.checkNotNullParameter(value, "value");
             synchronized (DeviceIdBagMap.class) {
                 deviceIdBag = (DeviceIdBag) super.put((DeviceIdBagMap) Integer.valueOf(i), (Integer) value);
@@ -421,23 +435,22 @@ public final class DeviceIdBagMap extends ConcurrentHashMap<Integer, DeviceIdBag
     public /* bridge */ boolean remove(Integer num, DeviceIdBag deviceIdBag) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048597, this, num, deviceIdBag)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048600, this, num, deviceIdBag)) == null) {
             return super.remove((Object) num, (Object) deviceIdBag);
         }
         return invokeLL.booleanValue;
     }
 
-    @Override // java.util.concurrent.ConcurrentHashMap, java.util.Map, java.util.concurrent.ConcurrentMap
-    public final /* bridge */ Object getOrDefault(Object obj, Object obj2) {
+    public final /* bridge */ DeviceIdBag getOrDefault(Object obj, DeviceIdBag deviceIdBag) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, obj, obj2)) == null) {
-            if (obj instanceof Integer) {
-                return getOrDefault((Integer) obj, (DeviceIdBag) obj2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, obj, deviceIdBag)) == null) {
+            if (!(obj instanceof Integer)) {
+                return deviceIdBag;
             }
-            return obj2;
+            return getOrDefault((Integer) obj, deviceIdBag);
         }
-        return invokeLL.objValue;
+        return (DeviceIdBag) invokeLL.objValue;
     }
 
     @Override // java.util.concurrent.ConcurrentHashMap, java.util.AbstractMap, java.util.Map
@@ -449,19 +462,27 @@ public final class DeviceIdBagMap extends ConcurrentHashMap<Integer, DeviceIdBag
     public final /* bridge */ boolean remove(Object obj, Object obj2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048598, this, obj, obj2)) == null) {
-            if ((obj instanceof Integer) && (obj2 instanceof DeviceIdBag)) {
-                return remove((Integer) obj, (DeviceIdBag) obj2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048601, this, obj, obj2)) == null) {
+            if (!(obj instanceof Integer) || !(obj2 instanceof DeviceIdBag)) {
+                return false;
             }
-            return false;
+            return remove((Integer) obj, (DeviceIdBag) obj2);
         }
         return invokeLL.booleanValue;
+    }
+
+    @Override // java.util.concurrent.ConcurrentHashMap, java.util.Map, java.util.concurrent.ConcurrentMap
+    public final /* bridge */ /* synthetic */ Object getOrDefault(Object obj, Object obj2) {
+        if (!(obj instanceof Integer)) {
+            return obj2;
+        }
+        return getOrDefault((Integer) obj, (DeviceIdBag) obj2);
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048601, this, parcel, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048604, this, parcel, i) == null) {
             Intrinsics.checkNotNullParameter(parcel, "parcel");
             synchronized (DeviceIdBagMap.class) {
                 Set<Integer> keys = keySet();

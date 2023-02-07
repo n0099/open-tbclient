@@ -3,7 +3,7 @@ package com.baidu.tieba.gift.myGiftList;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
-import com.baidu.tieba.s27;
+import com.baidu.tieba.d77;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.GetMyGift.GetMyGiftResIdl;
 public class GetPersonalGiftListSocketResponseMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public s27 giftListData;
+    public d77 giftListData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetPersonalGiftListSocketResponseMessage() {
@@ -36,13 +36,13 @@ public class GetPersonalGiftListSocketResponseMessage extends TbSocketReponsedMe
         }
     }
 
-    public s27 getGiftListData() {
+    public d77 getGiftListData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.giftListData;
         }
-        return (s27) invokeV.objValue;
+        return (d77) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -60,18 +60,18 @@ public class GetPersonalGiftListSocketResponseMessage extends TbSocketReponsedMe
                 setError(error.errorno.intValue());
                 setErrorString(getMyGiftResIdl.error.usermsg);
             }
-            s27 s27Var = new s27();
-            this.giftListData = s27Var;
-            s27Var.f(getMyGiftResIdl.data);
+            d77 d77Var = new d77();
+            this.giftListData = d77Var;
+            d77Var.f(getMyGiftResIdl.data);
             return getMyGiftResIdl;
         }
         return invokeIL.objValue;
     }
 
-    public void setGiftListData(s27 s27Var) {
+    public void setGiftListData(d77 d77Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, s27Var) == null) {
-            this.giftListData = s27Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d77Var) == null) {
+            this.giftListData = d77Var;
         }
     }
 }

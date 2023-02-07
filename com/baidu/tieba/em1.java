@@ -1,143 +1,119 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.tieba.k32;
-import com.baidu.tieba.ka2;
+import com.baidu.browser.sailor.BdSailorConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.VideoPlayerFactory;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSession;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 /* loaded from: classes4.dex */
-public class em1 implements mo1 {
+public class em1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.mo1
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 10150;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.mo1
-    public VideoPlayerFactory b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (VideoPlayerFactory) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.mo1
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 5000;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.mo1
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.mo1
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.mo1
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-        }
-    }
-
     /* loaded from: classes4.dex */
-    public class a implements ka2.e {
+    public static class a implements HostnameVerifier {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ k32.c a;
 
-        public a(em1 em1Var, k32.c cVar) {
+        @Override // javax.net.ssl.HostnameVerifier
+        public boolean verify(String str, SSLSession sSLSession) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, sSLSession)) == null) {
+                return true;
+            }
+            return invokeLL.booleanValue;
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {em1Var, cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = cVar;
         }
+    }
 
-        @Override // com.baidu.tieba.ka2.e
-        public void a() {
-            k32.c cVar;
+    /* loaded from: classes4.dex */
+    public static class b implements TrustManager, X509TrustManager {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // javax.net.ssl.X509TrustManager
+        public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (cVar = this.a) != null) {
-                cVar.a();
+            if (interceptable == null || interceptable.invokeLL(1048576, this, x509CertificateArr, str) == null) {
+            }
+        }
+
+        @Override // javax.net.ssl.X509TrustManager
+        public void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x509CertificateArr, str) == null) {
+            }
+        }
+
+        @Override // javax.net.ssl.X509TrustManager
+        public X509Certificate[] getAcceptedIssuers() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return null;
+            }
+            return (X509Certificate[]) invokeV.objValue;
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
     }
 
-    public em1() {
+    /* JADX DEBUG: Throwable added to exception handler: 'Exception', keep only Throwable */
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            try {
+                a aVar = new a();
+                b();
+                HttpsURLConnection.setDefaultHostnameVerifier(aVar);
+            } catch (Throwable unused) {
             }
         }
     }
 
-    @Override // com.baidu.tieba.mo1
-    public void d(boolean z) {
+    public static void b() throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            if (z) {
-                ka2.h(AppRuntime.getAppContext()).k(ProcessUtils.isMainProcess());
-            } else {
-                ka2.h(AppRuntime.getAppContext()).i();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.mo1
-    public void h(k32.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, cVar) == null) {
-            ka2.h(AppRuntime.getAppContext()).f(new a(this, cVar));
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            TrustManager[] trustManagerArr = {new b()};
+            SSLContext sSLContext = SSLContext.getInstance(BdSailorConfig.SAILOR_BASE_SSL);
+            sSLContext.init(null, trustManagerArr, null);
+            HttpsURLConnection.setDefaultSSLSocketFactory(sSLContext.getSocketFactory());
         }
     }
 }

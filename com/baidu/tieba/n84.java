@@ -1,31 +1,143 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.DialogInterface;
+import android.os.Bundle;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.tieba.a83;
+import com.baidu.tieba.tt2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Member;
-import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class n84 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static boolean b;
-    public static Method c;
-    public static Method d;
-    public static Method e;
-    public static Method f;
-    public static Method g;
-    public static Method h;
-    public static Method i;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public a83 a;
+
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SwanAppActivity a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ d12 c;
+        public final /* synthetic */ tt2 d;
+        public final /* synthetic */ n84 e;
+
+        public a(n84 n84Var, SwanAppActivity swanAppActivity, String str, d12 d12Var, tt2 tt2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n84Var, swanAppActivity, str, d12Var, tt2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = n84Var;
+            this.a = swanAppActivity;
+            this.b = str;
+            this.c = d12Var;
+            this.d = tt2Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.e.f(this.a, this.b, this.c, this.d);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements DialogInterface.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d12 a;
+
+        public b(n84 n84Var, d12 d12Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n84Var, d12Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = d12Var;
+        }
+
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                ib4.call(this.a, true, new p84(false));
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements DialogInterface.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d12 a;
+        public final /* synthetic */ tt2 b;
+        public final /* synthetic */ n84 c;
+
+        public c(n84 n84Var, d12 d12Var, tt2 tt2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n84Var, d12Var, tt2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = n84Var;
+            this.a = d12Var;
+            this.b = tt2Var;
+        }
+
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                ib4.call(this.a, true, new p84(true));
+                this.c.e(this.b);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -40,269 +152,92 @@ public class n84 {
                 return;
             }
         }
-        boolean f2 = l84.f();
-        a = f2;
-        if (f2) {
-            try {
-                Method declaredMethod = Class.class.getDeclaredMethod("forName", String.class);
-                c = declaredMethod;
-                declaredMethod.setAccessible(true);
-                Method declaredMethod2 = Class.class.getDeclaredMethod("getDeclaredMethod", String.class, Class[].class);
-                d = declaredMethod2;
-                declaredMethod2.setAccessible(true);
-                Method declaredMethod3 = Class.class.getDeclaredMethod("getMethod", String.class, Class[].class);
-                e = declaredMethod3;
-                declaredMethod3.setAccessible(true);
-                Method declaredMethod4 = Class.class.getDeclaredMethod("getDeclaredField", String.class);
-                f = declaredMethod4;
-                declaredMethod4.setAccessible(true);
-                Method declaredMethod5 = Class.class.getDeclaredMethod("getField", String.class);
-                g = declaredMethod5;
-                declaredMethod5.setAccessible(true);
-                Method declaredMethod6 = Class.class.getDeclaredMethod("newInstance", new Class[0]);
-                h = declaredMethod6;
-                declaredMethod6.setAccessible(true);
-                Method declaredMethod7 = Class.class.getDeclaredMethod("getDeclaredConstructor", Class[].class);
-                i = declaredMethod7;
-                declaredMethod7.setAccessible(true);
-                b = true;
-            } catch (Throwable unused) {
+        b = gp1.a;
+    }
+
+    public n84() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static Class<?> a(String str) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException {
-        InterceptResult invokeL;
+    public final void c(d12 d12Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return b(str, false);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, d12Var, str) == null) {
+            f34 f34Var = new f34();
+            f34Var.errMsg = str;
+            ib4.call(d12Var, false, f34Var);
         }
-        return (Class) invokeL.objValue;
     }
 
-    public static boolean l(Member member) {
-        InterceptResult invokeL;
+    public void d(JsObject jsObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, member)) == null) {
-            if (member == null) {
-                return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsObject) == null) {
+            d12 F = d12.F(jsObject);
+            if (F == null) {
+                F = new d12();
             }
-            return Modifier.isStatic(member.getModifiers());
+            d12 d12Var = F;
+            w83 q = v83.K().q();
+            if (!q.I()) {
+                c(d12Var, "reload failed, api internal error.");
+                return;
+            }
+            SwanAppActivity w = q.w();
+            tt2.a W = q.W();
+            if (w == null) {
+                c(d12Var, "reload failed, api internal error.");
+                return;
+            }
+            String B = d12Var.B("content");
+            if (TextUtils.isEmpty(B)) {
+                B = w.getString(R.string.obfuscated_res_0x7f0f0184);
+            }
+            qm3.e0(new a(this, w, B, d12Var, W));
         }
-        return invokeL.booleanValue;
     }
 
-    public static <T> T m(Class<T> cls) throws InvocationTargetException, IllegalAccessException, InstantiationException, ClassCastException {
-        InterceptResult invokeL;
+    public final void e(@NonNull tt2 tt2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, cls)) == null) {
-            if (cls == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tt2Var) == null) {
+            String H = tt2Var.H();
+            String h1 = ut2.h1(tt2Var.H(), tt2Var.T(), tt2Var.G());
+            Bundle bundle = new Bundle();
+            bundle.putString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, H);
+            bundle.putString("scheme", h1);
+            bundle.putInt("target", SwanAppProcessInfo.current().index);
+            if (b) {
+                Log.d("SwanGameReloadApi", "reload-appid:" + tt2Var.H());
             }
-            if (a && b) {
-                return (T) h.invoke(cls, new Object[0]);
-            }
-            return cls.newInstance();
+            r53.Q().W(bundle, o84.class);
         }
-        return (T) invokeL.objValue;
     }
 
-    public static Class<?> b(String str, boolean z) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException {
-        InterceptResult invokeLZ;
+    public final void f(@NonNull Activity activity, @NonNull String str, @NonNull d12 d12Var, @NonNull tt2 tt2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, str, z)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || interceptable.invokeLLLL(1048579, this, activity, str, d12Var, tt2Var) == null) {
+            a83 a83Var = this.a;
+            if (a83Var != null && a83Var.isShowing()) {
+                c(d12Var, "reload failed, the reload dialog has been displayed.");
+                return;
             }
-            if (z) {
-                l84.d(l84.b(str));
-            }
-            if (a && b) {
-                return (Class) c.invoke(null, str);
-            }
-            return Class.forName(str);
+            a83.a aVar = new a83.a(activity);
+            aVar.U(R.string.obfuscated_res_0x7f0f0185);
+            aVar.x(str);
+            aVar.a();
+            aVar.n(new eo3());
+            aVar.m(false);
+            aVar.B(R.string.obfuscated_res_0x7f0f0114, new b(this, d12Var));
+            aVar.O(R.string.obfuscated_res_0x7f0f01a4, new c(this, d12Var, tt2Var));
+            this.a = aVar.X();
         }
-        return (Class) invokeLZ.objValue;
-    }
-
-    public static <T> Constructor<T> c(Class<T> cls, Class<?>... clsArr) throws InvocationTargetException, IllegalAccessException, NoSuchMethodException, ClassCastException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, cls, clsArr)) == null) {
-            if (cls == null) {
-                return null;
-            }
-            if (a && b) {
-                return (Constructor) i.invoke(cls, clsArr);
-            }
-            return cls.getDeclaredConstructor(clsArr);
-        }
-        return (Constructor) invokeLL.objValue;
-    }
-
-    public static Field d(Class<?> cls, String str) throws NoSuchFieldException, InvocationTargetException, IllegalAccessException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls, str)) == null) {
-            if (cls != null && !TextUtils.isEmpty(str)) {
-                if (a && b) {
-                    return (Field) f.invoke(cls, str);
-                }
-                return cls.getDeclaredField(str);
-            }
-            return null;
-        }
-        return (Field) invokeLL.objValue;
-    }
-
-    public static Field f(Class<?> cls, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, cls, str)) == null) {
-            Field field = null;
-            if (cls != null && !TextUtils.isEmpty(str)) {
-                boolean z = false;
-                for (Class<?> cls2 = cls; cls2 != null && cls2 != Object.class; cls2 = cls2.getSuperclass()) {
-                    try {
-                        field = d(cls, str);
-                    } catch (Exception unused) {
-                    }
-                    if (field == null && !z) {
-                        z = true;
-                        try {
-                            field = g(cls, str);
-                        } catch (Exception unused2) {
-                        }
-                    }
-                    if (field != null) {
-                        return field;
-                    }
-                }
-            }
-            return field;
-        }
-        return (Field) invokeLL.objValue;
-    }
-
-    public static Field g(Class<?> cls, String str) throws NoSuchFieldException, InvocationTargetException, IllegalAccessException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, cls, str)) == null) {
-            if (cls != null && !TextUtils.isEmpty(str)) {
-                if (a && b) {
-                    return (Field) g.invoke(cls, str);
-                }
-                return cls.getField(str);
-            }
-            return null;
-        }
-        return (Field) invokeLL.objValue;
-    }
-
-    public static Method e(Class<?> cls, String str, Class<?>... clsArr) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, cls, str, clsArr)) == null) {
-            if (cls != null && !TextUtils.isEmpty(str)) {
-                if (a && b) {
-                    return (Method) d.invoke(cls, str, clsArr);
-                }
-                return cls.getDeclaredMethod(str, clsArr);
-            }
-            return null;
-        }
-        return (Method) invokeLLL.objValue;
-    }
-
-    public static Method i(Class<?> cls, String str, Class<?>... clsArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, cls, str, clsArr)) == null) {
-            Method method = null;
-            if (cls != null && !TextUtils.isEmpty(str)) {
-                boolean z = false;
-                for (Class<?> cls2 = cls; cls2 != null && cls2 != Object.class; cls2 = cls2.getSuperclass()) {
-                    try {
-                        method = e(cls, str, clsArr);
-                    } catch (Exception unused) {
-                    }
-                    if (method == null && !z) {
-                        z = true;
-                        try {
-                            method = j(cls, str, clsArr);
-                        } catch (Exception unused2) {
-                        }
-                    }
-                    if (method != null) {
-                        return method;
-                    }
-                }
-            }
-            return method;
-        }
-        return (Method) invokeLLL.objValue;
-    }
-
-    public static Method j(Class<?> cls, String str, Class<?>... clsArr) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, null, cls, str, clsArr)) == null) {
-            if (cls != null && !TextUtils.isEmpty(str)) {
-                if (a && b) {
-                    return (Method) e.invoke(cls, str, clsArr);
-                }
-                return cls.getMethod(str, clsArr);
-            }
-            return null;
-        }
-        return (Method) invokeLLL.objValue;
-    }
-
-    public static Object k(Class<?> cls, String str, Object... objArr) {
-        InterceptResult invokeLLL;
-        Class[] clsArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, cls, str, objArr)) == null) {
-            if (objArr != null) {
-                clsArr = new Class[objArr.length];
-                for (int i2 = 0; i2 < objArr.length; i2++) {
-                    clsArr[i2] = objArr[i2].getClass();
-                }
-            } else {
-                clsArr = null;
-            }
-            Method i3 = i(cls, str, clsArr);
-            if (i3 == null) {
-                return null;
-            }
-            try {
-                i3.setAccessible(true);
-                if (!l(i3)) {
-                    return null;
-                }
-                return i3.invoke(null, objArr);
-            } catch (Throwable unused) {
-                return null;
-            }
-        }
-        return invokeLLL.objValue;
-    }
-
-    public static Object h(Object obj, String str) {
-        InterceptResult invokeLL;
-        Field f2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, obj, str)) == null) {
-            if (obj == null || TextUtils.isEmpty(str) || (f2 = f(obj.getClass(), str)) == null) {
-                return null;
-            }
-            try {
-                f2.setAccessible(true);
-                return f2.get(obj);
-            } catch (Throwable unused) {
-                return null;
-            }
-        }
-        return invokeLL.objValue;
     }
 }

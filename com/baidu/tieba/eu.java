@@ -1,72 +1,72 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.rule.TaskRuleData;
+import com.baidu.bdtask.ctrl.model.TaskStatus;
+import com.baidu.bdtask.model.info.TaskInfo;
+import com.baidu.bdtask.model.ui.TaskUIData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class eu extends vt<TaskRuleData> {
+public final class eu {
     public static /* synthetic */ Interceptable $ic;
+    public static final eu a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "rule" : (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public eu(xt xtVar) {
-        super(xtVar);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {xtVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((xt) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448303869, "Lcom/baidu/tieba/eu;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448303869, "Lcom/baidu/tieba/eu;");
                 return;
             }
         }
+        a = new eu();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vt
-    /* renamed from: c */
-    public TaskRuleData a(String str) {
-        InterceptResult invokeL;
+    public eu() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                String version = jSONObject.optString("ver");
-                String upgrade = jSONObject.optString("url");
-                long optLong = jSONObject.optLong("expire");
-                int optInt = jSONObject.optInt("stay", Integer.MAX_VALUE);
-                int optInt2 = jSONObject.optInt("repeat", Integer.MAX_VALUE);
-                boolean optBoolean = jSONObject.optBoolean(TaskRuleData.keyUniq);
-                boolean optBoolean2 = jSONObject.optBoolean(TaskRuleData.keyPersist);
-                int optInt3 = jSONObject.optInt(TaskRuleData.keyNoClickTimes, -1);
-                boolean optBoolean3 = jSONObject.optBoolean("auto", true);
-                int optInt4 = jSONObject.optInt(TaskRuleData.keyPersistOnFail, 0);
-                Intrinsics.checkExpressionValueIsNotNull(version, "version");
-                Intrinsics.checkExpressionValueIsNotNull(upgrade, "upgrade");
-                return new TaskRuleData(version, upgrade, optLong, optInt, optInt2, optBoolean, optBoolean2, optBoolean3, optInt3, optInt4);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        return (TaskRuleData) invokeL.objValue;
+    }
+
+    public final du a(TaskStatus taskStatus, TaskInfo taskInfo) {
+        InterceptResult invokeLL;
+        int i;
+        TaskUIData taskUIData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, taskStatus, taskInfo)) == null) {
+            if (taskStatus.isFinished()) {
+                taskUIData = taskInfo.getResponse().getUi();
+                i = taskInfo.getResponse().getUiType();
+            } else if (taskStatus.isRunning()) {
+                taskUIData = taskInfo.getTaskMeter().getUi();
+                i = taskInfo.getTaskMeter().getUiType();
+            } else if (taskStatus.isInited() | taskStatus.isRegistered()) {
+                taskUIData = taskInfo.getTaskGuide().getUi();
+                i = taskInfo.getTaskGuide().getUiType();
+            } else {
+                i = -1;
+                taskUIData = null;
+            }
+            return new du(i, taskUIData);
+        }
+        return (du) invokeLL.objValue;
     }
 }

@@ -6,7 +6,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebView;
 import com.google.zxing.Result;
 import java.util.List;
 /* loaded from: classes8.dex */
@@ -64,7 +63,7 @@ public final class VEventResultParser extends ResultParser {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             if (str != null) {
-                if (str.startsWith(WebView.SCHEME_MAILTO) || str.startsWith("MAILTO:")) {
+                if (str.startsWith("mailto:") || str.startsWith("MAILTO:")) {
                     return str.substring(7);
                 }
                 return str;

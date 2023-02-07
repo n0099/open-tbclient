@@ -1,60 +1,83 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class bh extends Handler {
+public class bh {
     public static /* synthetic */ Interceptable $ic;
-    public static final bh a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public long c;
+    public int d;
+    public int e;
+    public long f;
+    public int g;
+    public int h;
+    public long i;
+    public int j;
+    public long k;
+    public int l;
+    public long m;
+    public int n;
+    public long o;
+    public int p;
+    public long q;
+    public int r;
+    public long s;
+    public int t;
+    public int u;
+    public int v;
+    public int w;
+    public int x;
+    public int y;
+    public long z;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448300583, "Lcom/baidu/tieba/bh;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448300583, "Lcom/baidu/tieba/bh;");
-                return;
-            }
-        }
-        a = new bh();
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bh() {
-        super(Looper.getMainLooper());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static final bh a() {
-        InterceptResult invokeV;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = 0;
+            this.b = 0;
+            this.c = 0L;
+            this.d = 0;
+            this.e = 0;
+            this.f = 0L;
+            this.g = 0;
+            this.h = 0;
+            this.i = 0L;
+            this.j = 0;
+            this.k = 0L;
+            this.l = 0;
+            this.m = 0L;
+            this.n = 0;
+            this.o = 0L;
+            this.p = 0;
+            this.q = 0L;
+            this.r = 0;
+            this.s = 0L;
+            this.t = 0;
+            this.u = 0;
+            this.v = 0;
+            this.w = 0;
+            this.x = 0;
+            this.y = 0;
+            this.z = 0L;
         }
-        return (bh) invokeV.objValue;
     }
 }

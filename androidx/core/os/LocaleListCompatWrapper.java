@@ -15,6 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
@@ -107,7 +108,7 @@ public final class LocaleListCompatWrapper implements LocaleListInterface {
             this.mStringRepresentation = "";
             return;
         }
-        Locale[] localeArr2 = new Locale[localeArr.length];
+        ArrayList arrayList = new ArrayList();
         HashSet hashSet = new HashSet();
         StringBuilder sb = new StringBuilder();
         for (int i3 = 0; i3 < localeArr.length; i3++) {
@@ -115,20 +116,18 @@ public final class LocaleListCompatWrapper implements LocaleListInterface {
             if (locale != null) {
                 if (!hashSet.contains(locale)) {
                     Locale locale2 = (Locale) locale.clone();
-                    localeArr2[i3] = locale2;
+                    arrayList.add(locale2);
                     toLanguageTag(sb, locale2);
                     if (i3 < localeArr.length - 1) {
                         sb.append(',');
                     }
                     hashSet.add(locale2);
-                } else {
-                    throw new IllegalArgumentException("list[" + i3 + "] is a repetition");
                 }
             } else {
                 throw new NullPointerException("list[" + i3 + "] is null");
             }
         }
-        this.mList = localeArr2;
+        this.mList = (Locale[]) arrayList.toArray(new Locale[arrayList.size()]);
         this.mStringRepresentation = sb.toString();
     }
 

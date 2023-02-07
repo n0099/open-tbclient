@@ -1,6 +1,7 @@
 package com.xiaomi.push;
 
 import android.text.TextUtils;
+import androidx.core.net.MailTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.pass.biometrics.base.http.HttpClientWrap;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -8,7 +9,6 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.xiaomi.push.gl;
 import com.xiaomi.push.gp;
@@ -47,11 +47,11 @@ public class gv {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, xmlPullParser)) == null) {
-            Object m449a = gu.a().m449a("all", "xm:chat");
-            if (m449a == null || !(m449a instanceof com.xiaomi.push.service.k)) {
+            Object m451a = gu.a().m451a("all", "xm:chat");
+            if (m451a == null || !(m451a instanceof com.xiaomi.push.service.k)) {
                 return null;
             }
-            return ((com.xiaomi.push.service.k) m449a).b(xmlPullParser);
+            return ((com.xiaomi.push.service.k) m451a).b(xmlPullParser);
         }
         return (gk) invokeLLL.objValue;
     }
@@ -61,7 +61,7 @@ public class gv {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, xmlPullParser, fwVar)) == null) {
             String attributeValue = xmlPullParser.getAttributeValue("", "id");
-            String attributeValue2 = xmlPullParser.getAttributeValue("", "to");
+            String attributeValue2 = xmlPullParser.getAttributeValue("", MailTo.TO);
             String attributeValue3 = xmlPullParser.getAttributeValue("", "from");
             String attributeValue4 = xmlPullParser.getAttributeValue("", "chid");
             gl.a a2 = gl.a.a(xmlPullParser.getAttributeValue("", "type"));
@@ -79,7 +79,7 @@ public class gv {
                     String name = xmlPullParser.getName();
                     String namespace = xmlPullParser.getNamespace();
                     if (name.equals("error")) {
-                        grVar = m453a(xmlPullParser);
+                        grVar = m455a(xmlPullParser);
                     } else {
                         glVar = new gl();
                         glVar.a(a(name, namespace, xmlPullParser));
@@ -126,7 +126,7 @@ public class gv {
                 String attributeValue = xmlPullParser.getAttributeValue("", "chid");
                 String attributeValue2 = xmlPullParser.getAttributeValue("", "id");
                 String attributeValue3 = xmlPullParser.getAttributeValue("", "from");
-                String attributeValue4 = xmlPullParser.getAttributeValue("", "to");
+                String attributeValue4 = xmlPullParser.getAttributeValue("", MailTo.TO);
                 String attributeValue5 = xmlPullParser.getAttributeValue("", "type");
                 bg.b a2 = com.xiaomi.push.service.bg.a().a(attributeValue, attributeValue4);
                 if (a2 == null) {
@@ -153,7 +153,7 @@ public class gv {
                                 gmVar.k(attributeValue2);
                                 gmVar.f(attributeValue5);
                                 gk gkVar = new gk("s", null, null, null);
-                                gkVar.m440a(text);
+                                gkVar.m442a(text);
                                 gmVar.a(gkVar);
                                 return gmVar;
                             }
@@ -177,7 +177,7 @@ public class gv {
                 attributeValue6 = "ID_NOT_AVAILABLE";
             }
             gmVar2.k(attributeValue6);
-            gmVar2.m(xmlPullParser.getAttributeValue("", "to"));
+            gmVar2.m(xmlPullParser.getAttributeValue("", MailTo.TO));
             gmVar2.n(xmlPullParser.getAttributeValue("", "from"));
             gmVar2.l(xmlPullParser.getAttributeValue("", "chid"));
             gmVar2.a(xmlPullParser.getAttributeValue("", "appid"));
@@ -230,23 +230,23 @@ public class gv {
                     if (TextUtils.isEmpty(namespace)) {
                         namespace = "xm";
                     }
-                    if (name.equals("subject")) {
+                    if (name.equals(MailTo.SUBJECT)) {
                         b(xmlPullParser);
-                        gmVar2.g(m454a(xmlPullParser));
-                    } else if (name.equals(TtmlNode.TAG_BODY)) {
+                        gmVar2.g(m456a(xmlPullParser));
+                    } else if (name.equals("body")) {
                         String attributeValue11 = xmlPullParser.getAttributeValue("", HttpClientWrap.c);
-                        String m454a = m454a(xmlPullParser);
+                        String m456a = m456a(xmlPullParser);
                         if (TextUtils.isEmpty(attributeValue11)) {
-                            gmVar2.h(m454a);
+                            gmVar2.h(m456a);
                         } else {
-                            gmVar2.a(m454a, attributeValue11);
+                            gmVar2.a(m456a, attributeValue11);
                         }
                     } else if (name.equals("thread")) {
                         if (str2 == null) {
                             str2 = xmlPullParser.nextText();
                         }
                     } else if (name.equals("error")) {
-                        gmVar2.a(m453a(xmlPullParser));
+                        gmVar2.a(m455a(xmlPullParser));
                     } else {
                         gmVar2.a(a(name, namespace, xmlPullParser));
                     }
@@ -261,7 +261,7 @@ public class gv {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static gp m451a(XmlPullParser xmlPullParser) {
+    public static gp m453a(XmlPullParser xmlPullParser) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, xmlPullParser)) == null) {
@@ -276,7 +276,7 @@ public class gv {
                 }
             }
             gp gpVar = new gp(bVar);
-            gpVar.m(xmlPullParser.getAttributeValue("", "to"));
+            gpVar.m(xmlPullParser.getAttributeValue("", MailTo.TO));
             gpVar.n(xmlPullParser.getAttributeValue("", "from"));
             gpVar.l(xmlPullParser.getAttributeValue("", "chid"));
             String attributeValue2 = xmlPullParser.getAttributeValue("", "id");
@@ -308,7 +308,7 @@ public class gv {
                             printStream2.println("Found invalid presence mode " + nextText);
                         }
                     } else if (name.equals("error")) {
-                        gpVar.a(m453a(xmlPullParser));
+                        gpVar.a(m455a(xmlPullParser));
                     } else {
                         gpVar.a(a(name, namespace, xmlPullParser));
                     }
@@ -322,7 +322,7 @@ public class gv {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static gq m452a(XmlPullParser xmlPullParser) {
+    public static gq m454a(XmlPullParser xmlPullParser) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, xmlPullParser)) == null) {
@@ -342,7 +342,7 @@ public class gv {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static gr m453a(XmlPullParser xmlPullParser) {
+    public static gr m455a(XmlPullParser xmlPullParser) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, xmlPullParser)) == null) {
@@ -392,7 +392,7 @@ public class gv {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m454a(XmlPullParser xmlPullParser) {
+    public static String m456a(XmlPullParser xmlPullParser) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(65543, null, xmlPullParser)) != null) {

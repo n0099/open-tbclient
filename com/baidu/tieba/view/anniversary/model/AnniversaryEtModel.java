@@ -6,12 +6,12 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.qw8;
-import com.baidu.tieba.rb;
-import com.baidu.tieba.s9;
-import com.baidu.tieba.t99;
-import com.baidu.tieba.w99;
-import com.baidu.tieba.x99;
+import com.baidu.tieba.o09;
+import com.baidu.tieba.sd9;
+import com.baidu.tieba.vd9;
+import com.baidu.tieba.wb;
+import com.baidu.tieba.wd9;
+import com.baidu.tieba.x9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,9 +21,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class AnniversaryEtModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public t99 a;
-    public x99 b;
-    public final rb c;
+    public sd9 a;
+    public wd9 b;
+    public final wb c;
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
@@ -46,7 +46,7 @@ public class AnniversaryEtModel extends BdBaseModel {
     }
 
     /* loaded from: classes6.dex */
-    public class a extends rb {
+    public class a extends wb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AnniversaryEtModel a;
@@ -73,19 +73,19 @@ public class AnniversaryEtModel extends BdBaseModel {
             this.a = anniversaryEtModel;
         }
 
-        @Override // com.baidu.tieba.rb
+        @Override // com.baidu.tieba.wb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && responsedMessage != null && this.a.a != null && this.a.b != null) {
                 if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
-                    w99 w99Var = null;
+                    vd9 vd9Var = null;
                     if (responsedMessage instanceof AnniversaryEtSocketResMessage) {
-                        w99Var = ((AnniversaryEtSocketResMessage) responsedMessage).getResultData();
+                        vd9Var = ((AnniversaryEtSocketResMessage) responsedMessage).getResultData();
                     } else if (responsedMessage instanceof AnniversaryEtHttpResMessage) {
-                        w99Var = ((AnniversaryEtHttpResMessage) responsedMessage).getResultData();
+                        vd9Var = ((AnniversaryEtHttpResMessage) responsedMessage).getResultData();
                     }
-                    if (w99Var != null) {
-                        this.a.a.H0(w99Var);
+                    if (vd9Var != null) {
+                        this.a.a.G0(vd9Var);
                         return;
                     } else {
                         this.a.a.onError(-1, "请求失败，请稍后重试");
@@ -98,26 +98,26 @@ public class AnniversaryEtModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AnniversaryEtModel(@NonNull TbPageContext tbPageContext, t99 t99Var) {
+    public AnniversaryEtModel(@NonNull TbPageContext tbPageContext, sd9 sd9Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, t99Var};
+            Object[] objArr = {tbPageContext, sd9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((s9) newInitContext.callArgs[0]);
+                super((x9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.c = new a(this, CmdConfigHttp.CMD_HTTP_ET_VIDEO, 309725);
-        this.a = t99Var;
-        this.b = new x99(tbPageContext, t99Var);
+        this.a = sd9Var;
+        this.b = new wd9(tbPageContext, sd9Var);
         init();
     }
 
@@ -131,27 +131,27 @@ public class AnniversaryEtModel extends BdBaseModel {
         }
     }
 
-    public void J(w99 w99Var) {
-        x99 x99Var;
+    public void J(vd9 vd9Var) {
+        wd9 wd9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, w99Var) == null) && (x99Var = this.b) != null) {
-            x99Var.m(w99Var);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vd9Var) == null) && (wd9Var = this.b) != null) {
+            wd9Var.m(vd9Var);
         }
     }
 
     public void cancel() {
-        x99 x99Var;
+        wd9 wd9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (x99Var = this.b) != null) {
-            x99Var.i();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (wd9Var = this.b) != null) {
+            wd9Var.i();
         }
     }
 
     public final void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            qw8.h(309725, AnniversaryEtSocketResMessage.class, false, false);
-            qw8.c(309725, CmdConfigHttp.CMD_HTTP_ET_VIDEO, "c/f/video/videoTemplate", AnniversaryEtHttpResMessage.class, true, true, true, false);
+            o09.h(309725, AnniversaryEtSocketResMessage.class, false, false);
+            o09.c(309725, CmdConfigHttp.CMD_HTTP_ET_VIDEO, "c/f/video/videoTemplate", AnniversaryEtHttpResMessage.class, true, true, true, false);
             registerListener(this.c);
         }
     }

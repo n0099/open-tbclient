@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
-public interface l2 extends f1, j7 {
-    void d(x2 x2Var);
+public interface l2 extends o7 {
 
-    void pause();
-
-    void resume();
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(l2 l2Var);
+    }
 }

@@ -417,7 +417,7 @@ public class RequestManager implements ComponentCallbacks2, LifecycleListener, M
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048623, this, requestOptions) == null) {
             synchronized (this) {
-                this.requestOptions = requestOptions.mo79clone().autoClone();
+                this.requestOptions = requestOptions.mo81clone().autoClone();
             }
         }
     }

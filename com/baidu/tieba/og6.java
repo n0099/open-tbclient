@@ -1,198 +1,84 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tieba.sw8;
-import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collections;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class og6 {
+public abstract class og6<T> extends jg6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LikeModel a;
-    public sw8 b;
-    public boolean c;
-    public b d;
-    public a e;
-    public TbPageContext f;
+    public final boolean b;
+    public final Set<T> c;
+    public boolean d;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(String str, long j);
+    public abstract T c(tf6 tf6Var);
 
-        void b(String str, long j);
-
-        void c(Object obj);
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends r9 implements sw8.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public a a;
-        public final /* synthetic */ og6 b;
-
-        public b(og6 og6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {og6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = og6Var;
-        }
-
-        public void d(a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-                this.a = aVar;
-            }
-        }
-
-        @Override // com.baidu.tieba.sw8.a
-        public void a(String str, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
-                this.b.c = false;
-                zi.Q(this.b.f.getPageActivity(), this.b.a.getErrorString());
-                a aVar = this.a;
-                if (aVar != null) {
-                    aVar.b(str, j);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.sw8.a
-        public void b(String str, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
-                this.b.c = false;
-                a aVar = this.a;
-                if (aVar != null) {
-                    aVar.a(str, j);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.r9
-        public void c(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-                this.b.c = false;
-                if (this.b.a.getErrorCode() == 22) {
-                    zi.Q(this.b.f.getPageActivity(), this.b.f.getString(R.string.had_liked_forum));
-                } else if (obj == null) {
-                } else {
-                    if (this.b.a.getErrorCode() != 0) {
-                        zi.Q(this.b.f.getPageActivity(), this.b.a.getErrorString());
-                        return;
-                    }
-                    a aVar = this.a;
-                    if (aVar != null) {
-                        aVar.c(obj);
-                    }
-                }
-            }
-        }
-    }
-
-    public og6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public og6(int i, boolean z) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = z;
+        this.c = Collections.synchronizedSet(new LinkedHashSet());
+        this.d = true;
     }
 
-    public void g(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.e = aVar;
-        }
+    public /* synthetic */ og6(int i, boolean z, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this(i, (i2 & 2) != 0 ? false : z);
     }
 
-    public void h(TbPageContext tbPageContext) {
+    @Override // com.baidu.tieba.jg6
+    public boolean b(sf6 item, vh6 timer, mf6 config) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, tbPageContext) == null) {
-            this.f = tbPageContext;
-        }
-    }
-
-    public final boolean d(TbPageContext tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tbPageContext)) == null) {
-            if (!zi.F()) {
-                UtilHelper.showToast(tbPageContext.getPageActivity(), tbPageContext.getString(R.string.obfuscated_res_0x7f0f0cd1));
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(timer, "timer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            if (!this.d) {
                 return false;
-            } else if (!ViewHelper.checkUpIsLogin(tbPageContext.getPageActivity())) {
-                return false;
-            } else {
+            }
+            boolean contains = this.c.contains(c(item.e()));
+            if (this.b) {
+                if (contains) {
+                    return false;
+                }
                 return true;
             }
+            return contains;
         }
-        return invokeL.booleanValue;
+        return invokeLLL.booleanValue;
     }
 
-    public void e(String str, String str2) {
+    public final Set<T> d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) != null) || this.c || !d(this.f)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Set<T> mFilterSet = this.c;
+            Intrinsics.checkNotNullExpressionValue(mFilterSet, "mFilterSet");
+            return mFilterSet;
         }
-        if (this.d == null) {
-            b bVar = new b(this);
-            this.d = bVar;
-            bVar.d(this.e);
-        }
-        if (this.a == null) {
-            LikeModel likeModel = new LikeModel(this.f);
-            this.a = likeModel;
-            likeModel.setLoadDataCallBack(this.d);
-        }
-        this.c = true;
-        this.a.Y(str, str2);
-    }
-
-    public void f(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) != null) || this.c || !d(this.f)) {
-            return;
-        }
-        if (this.d == null) {
-            b bVar = new b(this);
-            this.d = bVar;
-            bVar.d(this.e);
-        }
-        if (this.b == null) {
-            sw8 sw8Var = new sw8();
-            this.b = sw8Var;
-            sw8Var.b(this.d);
-        }
-        long g = yg.g(str2, -1L);
-        if (g == -1) {
-            return;
-        }
-        this.c = true;
-        this.b.c(str, g);
+        return (Set) invokeV.objValue;
     }
 }

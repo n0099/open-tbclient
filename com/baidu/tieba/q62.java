@@ -1,17 +1,33 @@
 package com.baidu.tieba;
 
+import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkItem;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class q62 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean h;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public JSONArray g;
 
     static {
         InterceptResult invokeClinit;
@@ -26,56 +42,91 @@ public class q62 {
                 return;
             }
         }
-        a = tk1.a;
+        h = gp1.a;
     }
 
-    public static boolean a(h32 h32Var, String str) {
-        InterceptResult invokeLL;
-        j43 b0;
-        l62 a2;
+    public q62() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, h32Var, str)) == null) {
-            if (a) {
-                Log.d("MasterIsolationHelper", "JS CALL - " + str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            boolean z = false;
-            if (i03.D()) {
+        }
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(this.c)) {
                 return false;
             }
-            if (h32Var != null && !TextUtils.isEmpty(h32Var.getContainerId())) {
-                if (y62.i().k(h32Var.getContainerId())) {
-                    return true;
-                }
-                if (!j82.h()) {
-                    return false;
-                }
-                String containerId = h32Var.getContainerId();
-                if (!p62.a(containerId) || (b0 = j43.b0()) == null || !b(h32Var) || (a2 = s62.b().a()) == null) {
-                    return false;
-                }
-                String h = a2.h();
-                if (TextUtils.isEmpty(h)) {
-                    return false;
-                }
-                z = (TextUtils.equals(a2.i().a(), h32Var.getContainerId()) && TextUtils.equals(h, b0.b)) ? true : true;
-                if (a && z) {
-                    Log.w("MasterIsolationHelper", "master id - " + containerId + ",can not call API - " + str + ", intercept for preload/prefetch");
-                }
-            }
-            return z;
+            return true;
         }
-        return invokeLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public static boolean b(h32 h32Var) {
+    public static q62 e(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, h32Var)) == null) {
-            if ((h32Var instanceof rb2) && ((rb2) h32Var).getInvokeSourceType() == 0) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            q62 q62Var = new q62();
+            try {
+                q62Var.a = jSONObject.getString("appKey");
+                q62Var.b = jSONObject.getString(DeepLinkItem.DEEPLINK_APPURL_KEY) + "?swanJsVersion=" + bi3.h(0) + "&appVersion=" + qm3.D();
+                q62Var.c = jSONObject.getString("wsUrl");
+                q62Var.d = jSONObject.optString("notInHistory", "1");
+                q62Var.e = jSONObject.optString(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD);
+                q62Var.f = jSONObject.optString("slavePreload");
+                q62Var.g = jSONObject.optJSONArray("hosts");
+                return q62Var;
+            } catch (JSONException unused) {
+                if (h) {
+                    Log.e("WirelessDebugModel", "DebuggerLaunchAction params is invalid");
+                    return null;
+                }
+                return null;
             }
-            return false;
         }
-        return invokeL.booleanValue;
+        return (q62) invokeL.objValue;
+    }
+
+    public String a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return b(i, this.b);
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public String c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            return b(i, this.c);
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public final String b(int i, String str) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str)) == null) {
+            if (this.g != null && !TextUtils.isEmpty(str) && i >= 0 && i < this.g.length()) {
+                Uri parse = Uri.parse(str);
+                String optString = this.g.optString(i);
+                if (!TextUtils.isEmpty(optString) && parse.getHost() != null) {
+                    return str.replace(parse.getHost(), optString);
+                }
+            }
+            return str;
+        }
+        return (String) invokeIL.objValue;
     }
 }

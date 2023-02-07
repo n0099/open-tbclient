@@ -7,35 +7,35 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 /* loaded from: classes6.dex */
-public class xd implements wd {
+public class xd implements be {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Integer a;
+    public Byte a;
 
-    public xd(int i) {
+    public xd(byte b) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {Byte.valueOf(b)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = Integer.valueOf(i);
+        this.a = Byte.valueOf(b);
     }
 
-    @Override // com.baidu.tieba.wd
-    public Object a(me meVar) {
+    @Override // com.baidu.tieba.be
+    public Object a(re reVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, meVar)) == null) {
-            Class<?> a = meVar.a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, reVar)) == null) {
+            Class<?> a = reVar.a();
             if (a != Byte.class && a != Byte.TYPE) {
                 if (a != Short.class && a != Short.TYPE) {
                     if (a != Integer.class && a != Integer.TYPE) {
@@ -53,7 +53,7 @@ public class xd implements wd {
                                             }
                                             if (a == byte[].class) {
                                                 try {
-                                                    return ri.e(String.valueOf(this.a), 0);
+                                                    return wi.e(String.valueOf(this.a), 0);
                                                 } catch (IOException e) {
                                                     e.printStackTrace();
                                                     return null;

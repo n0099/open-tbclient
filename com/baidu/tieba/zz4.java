@@ -1,114 +1,105 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
-import android.os.Build;
-import androidx.annotation.ColorRes;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+import tbclient.FrsPage.TopNews;
 /* loaded from: classes7.dex */
-public class zz4 extends TBSpecificationButtonConfig {
+public class zz4 extends PostData {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b1;
     public transient /* synthetic */ FieldHolder $fh;
-    public int[] u;
-    public boolean v;
+    public String Z0;
+    public String a1;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948377237, "Lcom/baidu/tieba/zz4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948377237, "Lcom/baidu/tieba/zz4;");
+                return;
+            }
+        }
+        b1 = BdUniqueId.gen();
+    }
 
     public zz4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.v = false;
-        this.b = R.color.CAM_X0101;
-        this.d = R.color.CAM_X0302;
-    }
-
-    @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
-    public Drawable a(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
-            return s(f);
-        }
-        return (Drawable) invokeF.objValue;
-    }
-
-    public void q(@ColorRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.d = i;
-            this.b = R.color.CAM_X0101;
-            this.q = true;
-            TBSpecificationButtonConfig.a aVar = this.t;
-            if (aVar != null) {
-                aVar.c();
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public void r(@ColorRes int i) {
+    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.b = i;
-            this.q = true;
-            TBSpecificationButtonConfig.a aVar = this.t;
-            if (aVar != null) {
-                aVar.c();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b1;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public String o1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.Z0;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String p1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a1;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void q1(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        try {
+            this.Z0 = jSONObject.optString("news_link");
+            this.a1 = jSONObject.optString("summary");
+            jSONObject.optInt(CriusAttrConstants.POSITION, 0);
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 
-    public void t(int[] iArr) {
+    public void r1(TopNews topNews) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, iArr) == null) {
-            this.u = iArr;
-            this.v = true;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, topNews) != null) || topNews == null) {
+            return;
         }
-    }
-
-    public final Drawable s(float f) {
-        InterceptResult invokeF;
-        int i;
-        GradientDrawable gradientDrawable;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048579, this, f)) == null) {
-            if (!this.q) {
-                this.b = SkinManager.getColor(this.r, (int) R.color.CAM_X0101);
-            }
-            if (this.q) {
-                i = SkinManager.getColor(this.r, this.d);
-            } else {
-                i = this.d;
-            }
-            if (!this.v) {
-                this.u = new int[]{i, i};
-            }
-            if (Build.VERSION.SDK_INT >= 16) {
-                gradientDrawable = new GradientDrawable();
-                gradientDrawable.setOrientation(this.s);
-                gradientDrawable.setColors(this.u);
-            } else {
-                gradientDrawable = new GradientDrawable(this.s, this.u);
-            }
-            gradientDrawable.setGradientType(0);
-            gradientDrawable.setShape(0);
-            gradientDrawable.setCornerRadius(f);
-            return gradientDrawable;
-        }
-        return (Drawable) invokeF.objValue;
+        this.Z0 = topNews.news_link;
+        this.a1 = topNews.summary;
     }
 }

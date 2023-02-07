@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tieba.j58;
+import com.baidu.tieba.fa8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,16 +12,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PbPostShareDialogConfig extends ShareDialogConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public j58 mPbPostData;
+    public fa8 mPbPostData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbPostShareDialogConfig(Context context, ShareItem shareItem, boolean z, j58 j58Var) {
+    public PbPostShareDialogConfig(Context context, ShareItem shareItem, boolean z, fa8 fa8Var) {
         super(context, shareItem, z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, shareItem, Boolean.valueOf(z), j58Var};
+            Object[] objArr = {context, shareItem, Boolean.valueOf(z), fa8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,15 +33,15 @@ public class PbPostShareDialogConfig extends ShareDialogConfig {
                 return;
             }
         }
-        this.mPbPostData = j58Var;
+        this.mPbPostData = fa8Var;
     }
 
-    public j58 getPbPostData() {
+    public fa8 getPbPostData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.mPbPostData;
         }
-        return (j58) invokeV.objValue;
+        return (fa8) invokeV.objValue;
     }
 }

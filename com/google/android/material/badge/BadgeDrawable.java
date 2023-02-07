@@ -244,9 +244,9 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
             this.alpha = 255;
             this.number = -1;
             this.badgeTextColor = new TextAppearance(context, R.style.obfuscated_res_0x7f100207).textColor.getDefaultColor();
-            this.contentDescriptionNumberless = context.getString(R.string.obfuscated_res_0x7f0f0b87);
+            this.contentDescriptionNumberless = context.getString(R.string.obfuscated_res_0x7f0f0bac);
             this.contentDescriptionQuantityStrings = R.plurals.obfuscated;
-            this.contentDescriptionExceedsMaxBadgeNumberRes = R.string.obfuscated_res_0x7f0f0b89;
+            this.contentDescriptionExceedsMaxBadgeNumberRes = R.string.obfuscated_res_0x7f0f0bae;
         }
 
         public SavedState(@NonNull Parcel parcel) {
@@ -316,9 +316,9 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
         Resources resources = context.getResources();
         this.badgeBounds = new Rect();
         this.shapeDrawable = new MaterialShapeDrawable();
-        this.badgeRadius = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070435);
-        this.badgeWidePadding = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070434);
-        this.badgeWithTextRadius = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070438);
+        this.badgeRadius = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07043a);
+        this.badgeWidePadding = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070439);
+        this.badgeWithTextRadius = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07043d);
         TextDrawableHelper textDrawableHelper = new TextDrawableHelper(this);
         this.textDrawableHelper = textDrawableHelper;
         textDrawableHelper.getTextPaint().setTextAlign(Paint.Align.CENTER);
@@ -358,9 +358,9 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
         }
         Resources resources = context.getResources();
         if (hasNumber()) {
-            i = R.dimen.obfuscated_res_0x7f070436;
+            i = R.dimen.obfuscated_res_0x7f07043b;
         } else {
-            i = R.dimen.obfuscated_res_0x7f070433;
+            i = R.dimen.obfuscated_res_0x7f070438;
         }
         int dimensionPixelSize = resources.getDimensionPixelSize(i);
         int i3 = this.savedState.badgeGravity;
@@ -630,7 +630,7 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
             if (context == null) {
                 return "";
             }
-            return context.getString(R.string.obfuscated_res_0x7f0f0b8a, Integer.valueOf(this.maxBadgeNumber), DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
+            return context.getString(R.string.obfuscated_res_0x7f0f0baf, Integer.valueOf(this.maxBadgeNumber), DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
         }
         return (String) invokeV.objValue;
     }

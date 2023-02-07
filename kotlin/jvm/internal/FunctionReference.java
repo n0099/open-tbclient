@@ -92,7 +92,7 @@ public class FunctionReference extends CallableReference implements FunctionBase
         }
         if (obj instanceof FunctionReference) {
             FunctionReference functionReference = (FunctionReference) obj;
-            if (Intrinsics.areEqual(getOwner(), functionReference.getOwner()) && getName().equals(functionReference.getName()) && getSignature().equals(functionReference.getSignature()) && this.flags == functionReference.flags && this.arity == functionReference.arity && Intrinsics.areEqual(getBoundReceiver(), functionReference.getBoundReceiver())) {
+            if (getName().equals(functionReference.getName()) && getSignature().equals(functionReference.getSignature()) && this.flags == functionReference.flags && this.arity == functionReference.arity && Intrinsics.areEqual(getBoundReceiver(), functionReference.getBoundReceiver()) && Intrinsics.areEqual(getOwner(), functionReference.getOwner())) {
                 return true;
             }
             return false;

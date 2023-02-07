@@ -1,19 +1,14 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.util.AppLaunchInfoFetcher;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class e25 {
+public class e25 implements AppLaunchInfoFetcher.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<f25> a;
 
     public e25() {
         Interceptable interceptable = $ic;
@@ -25,24 +20,15 @@ public class e25 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList();
     }
 
-    public void a(JSONObject jSONObject) throws JSONException {
-        JSONArray optJSONArray;
+    @Override // com.baidu.tbadk.util.AppLaunchInfoFetcher.a
+    public void onFinish(vo5 vo5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && (optJSONArray = jSONObject.optJSONArray("applist")) != null && optJSONArray.length() != 0) {
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
-                if (jSONObject2 != null) {
-                    f25 f25Var = new f25();
-                    f25Var.a(jSONObject2);
-                    this.a.add(f25Var);
-                }
-            }
+        if ((interceptable == null || interceptable.invokeL(1048576, this, vo5Var) == null) && vo5Var != null) {
+            d25.s(vo5Var.a, vo5Var.b);
         }
     }
 }

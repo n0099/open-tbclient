@@ -1,59 +1,80 @@
 package com.baidu.tieba;
 
-import com.baidu.live.business.base.LiveBaseFragment;
+import android.graphics.Typeface;
+import android.text.TextUtils;
+import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.ref.WeakReference;
+import java.io.File;
+import java.util.Hashtable;
 /* loaded from: classes5.dex */
 public class na0 {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
-    public static WeakReference<LiveBaseFragment> b;
+    public static final Hashtable<String, Typeface> a;
+    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947995596, "Lcom/baidu/tieba/na0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947995596, "Lcom/baidu/tieba/na0;");
-        }
-    }
-
-    public static int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a;
-        }
-        return invokeV.intValue;
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            a = 0;
-            WeakReference<LiveBaseFragment> weakReference = b;
-            if (weakReference != null) {
-                weakReference.clear();
-                b = null;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947995596, "Lcom/baidu/tieba/na0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947995596, "Lcom/baidu/tieba/na0;");
+                return;
             }
         }
+        a = new Hashtable<>();
+        b = LiveFeedPageSdk.getInstance().getApplication().getFilesDir().getAbsolutePath() + File.separator + "font/";
+        new File(b).mkdirs();
     }
 
-    public static void c(int i) {
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
-            a = i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                return new File(str).exists();
+            } catch (Exception unused) {
+                return false;
+            }
         }
+        return invokeL.booleanValue;
+    }
+
+    public static Typeface b(String str) {
+        InterceptResult invokeL;
+        Typeface typeface;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            synchronized (a) {
+                if (!a.containsKey(str)) {
+                    String str2 = b + str;
+                    if (a(str2)) {
+                        try {
+                            a.put(str, Typeface.createFromFile(str2));
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+                if (a.get(str) == null) {
+                    typeface = Typeface.DEFAULT;
+                } else {
+                    typeface = a.get(str);
+                }
+            }
+            return typeface;
+        }
+        return (Typeface) invokeL.objValue;
     }
 }

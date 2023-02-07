@@ -1,23 +1,32 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class xq2 extends vq2 {
+/* loaded from: classes7.dex */
+public class xq2 extends qm2<hr2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String A;
-    public ArrayList<String> B;
-    public String z;
+    public int b;
+    public int c;
+
+    @Override // com.baidu.tieba.qm2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setZeusVideoExt" : (String) invokeV.objValue;
+    }
 
     public xq2() {
         Interceptable interceptable = $ic;
@@ -32,50 +41,63 @@ public class xq2 extends vq2 {
                 return;
             }
         }
-        this.z = "";
-        this.A = "";
+        this.b = 1;
+        this.c = 3;
     }
 
-    @Override // com.baidu.tieba.zz1, com.baidu.tieba.iu2
-    public boolean isValid() {
-        InterceptResult invokeV;
-        cr2 cr2Var;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qm2
+    @SuppressLint({"BDThrowableCheck"})
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull hr2 hr2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!TextUtils.isEmpty(this.c) && (cr2Var = this.j) != null && cr2Var.isValid()) {
-                return true;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, hr2Var) == null) {
+            Object obj = command.obj;
+            boolean z = false;
+            if (!(obj instanceof String)) {
+                if (qm2.a) {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("setZeusVideoExt with a illegal obj ");
+                    if (obj == null) {
+                        z = true;
+                    }
+                    sb.append(z);
+                    throw new RuntimeException(sb.toString());
+                }
+                return;
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.vq2, com.baidu.tieba.zz1, com.baidu.tieba.iu2
-    public void a(JSONObject jSONObject) throws JSONException {
-        JSONArray optJSONArray;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        super.a(jSONObject);
-        if (jSONObject.has("scale")) {
-            this.k = jSONObject.optDouble("scale", 18.0d);
-        }
-        if (jSONObject.has("name")) {
-            this.z = jSONObject.optString("name");
-        }
-        if (jSONObject.has("address")) {
-            this.A = jSONObject.optString("address");
-        }
-        if (jSONObject.has("ignoredApps") && (optJSONArray = jSONObject.optJSONArray("ignoredApps")) != null) {
-            int length = optJSONArray.length();
-            this.B = new ArrayList<>();
-            for (int i = 0; i < length; i++) {
-                this.B.add(optJSONArray.optString(i));
+            String str = command.what;
+            d(hr2Var, str, "setZeusVideoExt:" + obj, false);
+            try {
+                JSONObject jSONObject = new JSONObject((String) obj);
+                if (jSONObject.has("instance-error")) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put("instance-error", jSONObject.optString("instance-error"));
+                    hr2Var.S(hashMap);
+                }
+                String optString = jSONObject.optString("firstPlayStatus");
+                if (!TextUtils.isEmpty(optString)) {
+                    hr2Var.a0(optString);
+                }
+                this.b = jSONObject.optInt("min-cache", this.b);
+                int optInt = jSONObject.optInt("max-cache", this.c);
+                this.c = optInt;
+                if (this.b <= optInt) {
+                    if (jSONObject.has("min-cache")) {
+                        hr2Var.G(this.b);
+                    }
+                    if (jSONObject.has("max-cache")) {
+                        hr2Var.f0(this.c);
+                    }
+                } else if (qm2.a) {
+                    Log.w("【InlineCommand】", "setZeusVideoExt: minCache " + this.b + " > maxCache " + this.c);
+                }
+            } catch (Exception e) {
+                if (!qm2.a) {
+                    return;
+                }
+                throw new RuntimeException("setZeusVideoExt with a illegal str", e);
             }
-        }
-        if (jSONObject.has("naviPreference")) {
-            jSONObject.optInt("naviPreference", -1);
         }
     }
 }

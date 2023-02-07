@@ -1,16 +1,7 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.view.MessageRedDotView;
-import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,18 +11,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class oa6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public View b;
-    public RelativeLayout c;
-    public ImageView d;
-    public MessageRedDotView e;
+    public final WebView a;
 
-    public oa6(Context context) {
+    public oa6(WebView webView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {webView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,77 +28,36 @@ public class oa6 {
                 return;
             }
         }
-        this.a = context;
-        View inflate = LayoutInflater.from(context).inflate(R.layout.widget_message_entrance, (ViewGroup) null);
-        this.b = inflate;
-        this.c = (RelativeLayout) inflate.findViewById(R.id.message_view_layout);
-        this.d = (ImageView) this.b.findViewById(R.id.img_message);
-        MessageRedDotView messageRedDotView = (MessageRedDotView) this.b.findViewById(R.id.img_red_tip);
-        this.e = messageRedDotView;
-        messageRedDotView.setShadowEnabled(false);
+        this.a = webView;
     }
 
-    public MessageRedDotView a() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
+            return this.a.canGoBack();
         }
-        return (MessageRedDotView) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public ImageView b() {
-        InterceptResult invokeV;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return (ImageView) invokeV.objValue;
-    }
-
-    public View c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.e.e();
-            this.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_information40, SkinManager.getColor(R.color.CAM_X0106), WebPManager.ResourceStateType.NORMAL_PRESS));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.goBack();
         }
     }
 
-    public void g(int i) {
-        View view2;
+    public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048582, this, i) == null) && (view2 = this.b) != null) {
-            view2.setVisibility(i);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.reload();
         }
     }
 
-    public void e(boolean z, int i) {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            if (z) {
-                this.e.f(i);
-                this.e.setVisibility(0);
-                return;
-            }
-            this.e.setVisibility(8);
-        }
-    }
-
-    public void f(NavigationBar.ControlAlign controlAlign, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048581, this, controlAlign, z) == null) && !z && controlAlign == NavigationBar.ControlAlign.HORIZONTAL_RIGHT) {
-            ((RelativeLayout.LayoutParams) this.d.getLayoutParams()).rightMargin = -zi.g(this.a, R.dimen.tbds10);
-            ((RelativeLayout.LayoutParams) this.e.getLayoutParams()).rightMargin = -zi.g(this.a, R.dimen.tbds10);
-            this.c.getLayoutParams().width = zi.g(this.a, R.dimen.obfuscated_res_0x7f070306);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.stopLoading();
         }
     }
 }

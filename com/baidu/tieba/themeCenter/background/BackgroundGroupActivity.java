@@ -5,12 +5,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.a39;
-import com.baidu.tieba.b39;
-import com.baidu.tieba.nf5;
+import com.baidu.tieba.a79;
 import com.baidu.tieba.themeCenter.background.BackgroundGroupModel;
-import com.baidu.tieba.w39;
-import com.baidu.tieba.z29;
+import com.baidu.tieba.v79;
+import com.baidu.tieba.y69;
+import com.baidu.tieba.yj5;
+import com.baidu.tieba.z69;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,11 +23,11 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
     public BackgroundGroupModel b;
-    public a39 c;
-    public b39 d;
+    public z69 c;
+    public a79 d;
     public BackgroundGroupModel.c e;
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.kf5
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.vj5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -59,9 +59,9 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         }
 
         @Override // com.baidu.tieba.themeCenter.background.BackgroundGroupModel.c
-        public void a(int i, String str, w39 w39Var, List<z29> list) {
+        public void a(int i, String str, v79 v79Var, List<y69> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, w39Var, list}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, v79Var, list}) == null) {
                 BackgroundGroupActivity backgroundGroupActivity = this.a;
                 backgroundGroupActivity.hideLoadingView(backgroundGroupActivity.c.d());
                 this.a.c.i();
@@ -70,7 +70,7 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
                     this.a.c.j();
                     return;
                 }
-                this.a.c.k(w39Var, list, this.a.b.P());
+                this.a.c.k(v79Var, list, this.a.b.P());
             }
         }
     }
@@ -92,17 +92,17 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public nf5 getPageStayDurationItem() {
+    public yj5 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            nf5 pageStayDurationItem = super.getPageStayDurationItem();
+            yj5 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 pageStayDurationItem.a = true;
             }
             return pageStayDurationItem;
         }
-        return (nf5) invokeV.objValue;
+        return (yj5) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -115,10 +115,10 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        a39 a39Var;
+        z69 z69Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.b != null && (a39Var = this.c) != null) {
-            showLoadingView(a39Var.d());
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.b != null && (z69Var = this.c) != null) {
+            showLoadingView(z69Var.d());
             this.b.loadData();
         }
     }
@@ -137,9 +137,9 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            a39 a39Var = this.c;
-            if (a39Var != null) {
-                a39Var.f();
+            z69 z69Var = this.c;
+            if (z69Var != null) {
+                z69Var.f();
             }
         }
     }
@@ -154,12 +154,12 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
             BackgroundGroupModel backgroundGroupModel = new BackgroundGroupModel(this);
             this.b = backgroundGroupModel;
             backgroundGroupModel.S(this.e);
-            b39 b39Var = new b39(this.a, this.b.getUniqueId());
-            this.d = b39Var;
-            b39Var.c(1);
-            a39 a39Var = new a39(this, this.d);
-            this.c = a39Var;
-            a39Var.e();
+            a79 a79Var = new a79(this.a, this.b.getUniqueId());
+            this.d = a79Var;
+            a79Var.c(1);
+            z69 z69Var = new z69(this, this.d);
+            this.c = z69Var;
+            z69Var.e();
             showLoadingView(this.c.d());
             this.b.loadData();
         }

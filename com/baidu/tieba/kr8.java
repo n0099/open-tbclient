@@ -1,76 +1,36 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.ActivityNotFoundException;
 import android.content.Context;
-import android.content.Intent;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class kr8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface kr8 {
+    qn<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId);
 
-    public static synchronized String a(Context context) {
-        InterceptResult invokeL;
-        String string;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            synchronized (kr8.class) {
-                try {
-                    string = context.getResources().getString(context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.labelRes);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return null;
-                }
-            }
-            return string;
-        }
-        return (String) invokeL.objValue;
-    }
+    fr8 b();
 
-    public static boolean startActivity(Context context, Intent intent) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, intent)) == null) {
-            try {
-                if (!(context instanceof Activity) && intent != null) {
-                    intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                }
-                context.startActivity(intent);
-                return true;
-            } catch (ActivityNotFoundException e) {
-                e.printStackTrace();
-                return false;
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
+    ar8 c();
 
-    public static boolean startActivity(Context context, Class<?> cls) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, cls)) == null) {
-            try {
-                Intent intent = new Intent(context, cls);
-                if (!(context instanceof Activity)) {
-                    intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                }
-                context.startActivity(intent);
-                return true;
-            } catch (ActivityNotFoundException e) {
-                e.printStackTrace();
-                return false;
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
+    qn<?, ?> d(jr8 jr8Var, BdUniqueId bdUniqueId);
+
+    void e();
+
+    List<AdvertAppInfo> f();
+
+    qn<?, ?> g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str);
+
+    IAdBaseAsyncController h(@NonNull IAdBaseAsyncController.Type type, @Nullable IAdBaseAsyncController.a aVar);
+
+    hr8 i();
+
+    void j(AdvertAppInfo advertAppInfo);
+
+    void k(HashMap<String, String> hashMap, Context context);
 }

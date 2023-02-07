@@ -1,61 +1,52 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hz0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class iz0<T extends hz0> extends gz0<T> {
+public class iz0 extends ty0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Object c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public iz0(int i) {
-        super(i);
+    public iz0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new Object();
+        getContentView().setClickable(false);
     }
 
-    @Override // com.baidu.tieba.gz0
-    @NonNull
-    public T a() {
-        InterceptResult invokeV;
-        T t;
+    @Override // com.baidu.tieba.ty0
+    public void N() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this.c) {
-                t = (T) super.a();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.N();
+            LinearLayout linearLayout = this.i;
+            if (linearLayout != null) {
+                linearLayout.setClickable(false);
             }
-            return t;
         }
-        return (T) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.gz0
-    public void d(@NonNull T t) {
+    @Override // com.baidu.tieba.ty0
+    public void O() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            synchronized (this.c) {
-                super.d(t);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.O();
+            LinearLayout linearLayout = this.f;
+            if (linearLayout != null) {
+                linearLayout.setClickable(false);
             }
         }
     }

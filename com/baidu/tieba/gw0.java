@@ -1,166 +1,381 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.player.tail.AdVideoTailFrameView;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.searchbox.player.event.PlayerEvent;
+import com.baidu.nadcore.player.utils.BdNetUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class gw0 extends yv0 implements AdVideoTailFrameView.b {
+public class gw0 {
     public static /* synthetic */ Interceptable $ic;
+    public static String e;
     public transient /* synthetic */ FieldHolder $fh;
-    public AdVideoTailFrameView b;
-    public Object c;
+    public ArrayList<String> a;
+    public ArrayList<String> b;
+    public ArrayList<c> c;
+    public ArrayList<c> d;
 
-    public void f() {
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    public static String i(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? "" : (String) invokeL.objValue;
+    }
+
+    public final int j(@IntRange(from = 0) int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            if (i != 1) {
+                if (i != 6) {
+                    if (i != 44) {
+                        if (i != 22) {
+                            return i != 23 ? -1 : 4;
+                        }
+                        return 1;
+                    }
+                    return 3;
+                }
+                return 2;
+            }
+            return 0;
+        }
+        return invokeI.intValue;
+    }
+
+    /* loaded from: classes4.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final gw0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-762078901, "Lcom/baidu/tieba/gw0$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-762078901, "Lcom/baidu/tieba/gw0$b;");
+                    return;
+                }
+            }
+            a = new gw0(null);
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gw0(ix0 ix0Var, Object obj) {
-        super(ix0Var);
+    /* loaded from: classes4.dex */
+    public class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+
+        public c(gw0 gw0Var, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gw0Var, str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = str2;
+        }
+    }
+
+    public gw0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ix0Var, obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ix0) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = obj;
     }
 
-    @Override // com.baidu.nadcore.player.tail.AdVideoTailFrameView.b
-    public void a() {
+    public static gw0 h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            boolean z = this.c instanceof gq0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (gw0) invokeV.objValue;
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            String f = p11.f();
+            if (!TextUtils.isEmpty(f)) {
+                this.d = q(f);
+            }
         }
     }
 
-    public void e() {
+    public final void m() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a != null && this.c != null) {
-            g();
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            String g = p11.g();
+            if (!TextUtils.isEmpty(g)) {
+                this.b = p(g);
+            }
         }
     }
 
-    public boolean i() {
+    public final void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            String o = p11.o();
+            if (!TextUtils.isEmpty(o)) {
+                this.c = q(o);
+            }
+        }
+    }
+
+    public final void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            String p = p11.p();
+            if (!TextUtils.isEmpty(p)) {
+                this.a = p(p);
+            }
+        }
+    }
+
+    public /* synthetic */ gw0(a aVar) {
+        this();
+    }
+
+    public final boolean b(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (k(4) && c() && a(str)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean a(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (this.b == null) {
+                m();
+            }
+            ArrayList<String> arrayList = this.b;
+            if (arrayList != null && arrayList.size() > 0) {
+                Iterator<String> it = this.b.iterator();
+                while (it.hasNext()) {
+                    String next = it.next();
+                    if (!TextUtils.isEmpty(next) && str.contains(next)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean e(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (this.a == null) {
+                o();
+            }
+            ArrayList<String> arrayList = this.a;
+            if (arrayList != null && arrayList.size() > 0) {
+                Iterator<String> it = this.a.iterator();
+                while (it.hasNext()) {
+                    String next = it.next();
+                    if (!TextUtils.isEmpty(next) && str.contains(next)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final ArrayList<String> p(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            ArrayList<String> arrayList = new ArrayList<>();
+            try {
+                JSONArray jSONArray = new JSONArray(str);
+                int length = jSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    String optString = jSONArray.optString(i, "");
+                    if (!TextUtils.isEmpty(optString)) {
+                        arrayList.add(optString);
+                    }
+                }
+            } catch (Exception unused) {
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public final ArrayList<c> q(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
+            ArrayList<c> arrayList = new ArrayList<>();
+            try {
+                JSONArray jSONArray = new JSONArray(str);
+                int length = jSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                    if (optJSONObject != null) {
+                        arrayList.add(new c(this, optJSONObject.optString("start_time", ""), optJSONObject.optString("end_time", "")));
+                    }
+                }
+            } catch (Exception unused) {
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.d == null) {
+                l();
+            }
+            ArrayList<c> arrayList = this.d;
+            if (arrayList != null && arrayList.size() > 0) {
+                Iterator<c> it = this.d.iterator();
+                while (it.hasNext()) {
+                    c next = it.next();
+                    if (f11.a(next.a, next.b)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            AdVideoTailFrameView adVideoTailFrameView = this.b;
-            if (adVideoTailFrameView != null && adVideoTailFrameView.q()) {
-                return true;
+            if (this.c == null) {
+                n();
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void l() {
-        AdVideoTailFrameView adVideoTailFrameView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (adVideoTailFrameView = this.b) != null) {
-            adVideoTailFrameView.w();
-        }
-    }
-
-    public void m() {
-        AdVideoTailFrameView adVideoTailFrameView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (adVideoTailFrameView = this.b) != null) {
-            adVideoTailFrameView.t();
-        }
-    }
-
-    @Override // com.baidu.nadcore.player.tail.AdVideoTailFrameView.b
-    public void b() {
-        ix0 ix0Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Object obj = this.c;
-            if (obj instanceof gq0) {
-                if ("ad_full_video".equals(((gq0) obj).n)) {
-                    if (this.a != null && h() && this.a.M()) {
-                        if (this.a.u().V0()) {
-                            this.a.F(iu0.w(PlayerEvent.ACTION_ON_COMPLETE));
-                        } else {
-                            this.a.u().y().G(0);
-                        }
-                    }
-                } else if ("ad_append_video".equals(((gq0) this.c).n) && (ix0Var = this.a) != null && ix0Var.M()) {
-                    this.b.u(ClogBuilder.LogType.CLOSE.type, "", "");
-                    this.a.P(8);
-                    this.a.N();
-                    this.a.F(hu0.w("layer_event_ad_finish"));
-                    if (!this.a.u().a0()) {
-                        this.a.F(iu0.w(PlayerEvent.ACTION_ON_COMPLETE));
+            ArrayList<c> arrayList = this.c;
+            if (arrayList != null && arrayList.size() > 0) {
+                Iterator<c> it = this.c.iterator();
+                while (it.hasNext()) {
+                    c next = it.next();
+                    if (f11.a(next.a, next.b)) {
+                        return true;
                     }
                 }
-            }
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.a == null) {
-            return;
-        }
-        if (this.b == null) {
-            AdVideoTailFrameView adVideoTailFrameView = new AdVideoTailFrameView(this.a.getContentView().getContext(), this.a, d());
-            this.b = adVideoTailFrameView;
-            this.a.L(adVideoTailFrameView);
-        }
-        this.b.n(d());
-        this.b.setCallBack(this);
-        Object obj = this.c;
-        if (obj != null) {
-            this.b.setData(obj);
-            this.b.v();
-        }
-    }
-
-    public final boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            ix0 ix0Var = this.a;
-            if (ix0Var != null && ix0Var.u().o1() != null && this.a.u().o1().getVideoAd() != null && this.a.u().o1().getVideoAd().fullItemAdData != null) {
-                return true;
+                return false;
             }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    public void j(boolean z) {
-        AdVideoTailFrameView adVideoTailFrameView;
+    public boolean d(int i, @Nullable String str) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048583, this, z) == null) && (adVideoTailFrameView = this.b) != null) {
-            adVideoTailFrameView.s(z);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, str)) == null) {
+            if (p11.n()) {
+                return true;
+            }
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            if (i == 23) {
+                if (!b(str)) {
+                    return false;
+                }
+            } else if (!f(i, str)) {
+                return false;
+            }
+            if (BdNetUtils.g() || !BdNetUtils.c()) {
+                return true;
+            }
+            return false;
         }
+        return invokeIL.booleanValue;
     }
 
-    public void k(boolean z) {
-        AdVideoTailFrameView adVideoTailFrameView;
+    public final boolean f(int i, String str) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && (adVideoTailFrameView = this.b) != null) {
-            adVideoTailFrameView.n(z);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, str)) == null) {
+            if (k(j(i)) && g() && e(str)) {
+                return true;
+            }
+            return false;
         }
+        return invokeIL.booleanValue;
+    }
+
+    public final boolean k(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            if (TextUtils.isEmpty(e)) {
+                e = i("video_pcdn_scene_control_android");
+            }
+            if (!TextUtils.isEmpty(e) && i < e.length() && i >= 0) {
+                return "1".equals(String.valueOf(e.charAt(i)));
+            }
+            if (i >= 0 && i < 4) {
+                return true;
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
     }
 }

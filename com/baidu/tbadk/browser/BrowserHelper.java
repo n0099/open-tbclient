@@ -29,11 +29,11 @@ import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.PvThread;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.bj;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.rr4;
-import com.baidu.tieba.sr4;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.dj;
+import com.baidu.tieba.ew4;
+import com.baidu.tieba.fw4;
+import com.baidu.tieba.gj;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -166,7 +166,7 @@ public class BrowserHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (!i(str) && !yi.isEmpty(str) && str.contains("_client_type=")) {
+            if (!i(str) && !dj.isEmpty(str) && str.contains("_client_type=")) {
                 return str;
             }
             return str + "&_client_type=2";
@@ -178,7 +178,7 @@ public class BrowserHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (!yi.isEmpty(str) && str.indexOf("_client_version=") > -1) {
+            if (!dj.isEmpty(str) && str.indexOf("_client_version=") > -1) {
                 return str;
             }
             return str + "&_client_version=" + TbConfig.getVersion();
@@ -190,7 +190,7 @@ public class BrowserHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (!yi.isEmpty(str) && str.indexOf("cuid=") <= -1) {
+            if (!dj.isEmpty(str) && str.indexOf("cuid=") <= -1) {
                 StringBuilder sb = new StringBuilder();
                 sb.append(str);
                 if (str.indexOf("?") > 0) {
@@ -219,7 +219,7 @@ public class BrowserHelper {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, list)) == null) {
-            if (!yi.isEmpty(str) && list != null) {
+            if (!dj.isEmpty(str) && list != null) {
                 StringBuilder sb = new StringBuilder();
                 sb.append(str);
                 if (str.indexOf("?") < 0) {
@@ -274,7 +274,7 @@ public class BrowserHelper {
 
     public static void h(Context context) {
         CookieManager cookieManager;
-        sr4.b bVar;
+        fw4.b bVar;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, context) == null) {
@@ -289,13 +289,13 @@ public class BrowserHelper {
                 return;
             }
             cookieManager.setAcceptCookie(true);
-            if (sr4.b() != null) {
-                bVar = sr4.b().c(TbadkCoreApplication.getCurrentBduss());
+            if (fw4.b() != null) {
+                bVar = fw4.b().c(TbadkCoreApplication.getCurrentBduss());
             } else {
                 bVar = null;
             }
             if (bVar != null) {
-                String a2 = rr4.a(TbadkCoreApplication.getCurrentAccountInfo());
+                String a2 = ew4.a(TbadkCoreApplication.getCurrentAccountInfo());
                 StringBuilder sb = new StringBuilder();
                 if (!StringUtils.isNull(a2)) {
                     sb.append("STOKEN=");
@@ -325,7 +325,7 @@ public class BrowserHelper {
                 str = "";
             }
             cookieManager.setCookie(".baidu.com", "BAIDUCUID=" + str + ";");
-            cookieManager.setCookie(".baidu.com", "TBBRAND=" + bj.g() + ";");
+            cookieManager.setCookie(".baidu.com", "TBBRAND=" + gj.g() + ";");
             cookieManager.setCookie(".baidu.com", "BAIDUZID=" + TbadkCoreApplication.getInst().getZid() + ";");
             cookieManager.setCookie(".baidu.com", "BAIDUID=" + TbSingleton.getInstance().getBaiduIdForAnti() + ";");
             cookieManager.setCookie(".baidu.com", "cuid_galaxy2=" + cuidGalaxy2 + ";");

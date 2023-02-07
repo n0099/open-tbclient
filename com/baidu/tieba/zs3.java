@@ -1,20 +1,25 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface zs3 {
-    void a(String str, JSONObject jSONObject);
+public class zs3 extends vs3 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean b();
-
-    boolean c(View view2);
-
-    boolean d(View view2, tr3 tr3Var);
-
-    void e();
-
-    boolean f(View view2, tr3 tr3Var);
-
-    boolean removeView(View view2);
+    public zs3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

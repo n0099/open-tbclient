@@ -1,114 +1,42 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
-import android.content.ComponentName;
-import android.content.Intent;
-import android.os.Bundle;
+import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.dz1;
+import com.baidu.tieba.ii3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ji3 {
+public class ji3 extends ta3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
-    public static c g;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final Application a;
-    @Nullable
-    public rp2 b;
-    public boolean c;
-    public boolean d;
-    public int e;
 
     /* loaded from: classes5.dex */
-    public interface c {
-        void a(boolean z, int i);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends rp2 {
+    public class a implements ii3.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ji3 a;
+        public final /* synthetic */ UnitedSchemeEntity a;
+        public final /* synthetic */ CallbackHandler b;
+        public final /* synthetic */ oz1 c;
+        public final /* synthetic */ ji3 d;
 
-        /* renamed from: com.baidu.tieba.ji3$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class RunnableC0327a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Activity a;
-            public final /* synthetic */ a b;
-
-            public RunnableC0327a(a aVar, Activity activity) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, activity};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = activity;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                boolean u;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    Intent intent = this.a.getIntent();
-                    to1 o = qn2.o();
-                    ComponentName component = intent.getComponent();
-                    if (this.b.a.c && intent.hasCategory("android.intent.category.LAUNCHER") && "android.intent.action.MAIN".equals(intent.getAction()) && o != null && component != null && TextUtils.equals(o.A(), component.getClassName())) {
-                        if (this.b.a.d) {
-                            if (ji3.f) {
-                                Log.w("SwanHomeScreenLaunch", "SwanApp is Foreground Now");
-                                return;
-                            }
-                            return;
-                        }
-                        pg3 m = pg3.m();
-                        if (qg3.a() && pg3.k()) {
-                            u = m.w(this.a, this.b.a.e, false);
-                        } else {
-                            u = m.u(this.b.a.e, false, false);
-                        }
-                        if (ji3.f) {
-                            Log.d("SwanHomeScreenLaunch", "moveTaskToFront " + u + ", taskId=" + this.b.a.e);
-                        }
-                        m.i();
-                    }
-                    if (ji3.f) {
-                        Log.d("SwanHomeScreenLaunch", "class=" + this.a + ", swanAppForeground=" + this.b.a.c + ", flag=" + intent.getFlags() + ", ComponentName=" + component);
-                    }
-                }
-            }
-        }
-
-        public a(ji3 ji3Var) {
+        public a(ji3 ji3Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, oz1 oz1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ji3Var};
+                Object[] objArr = {ji3Var, unitedSchemeEntity, callbackHandler, oz1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -118,134 +46,112 @@ public class ji3 {
                     return;
                 }
             }
-            this.a = ji3Var;
+            this.d = ji3Var;
+            this.a = unitedSchemeEntity;
+            this.b = callbackHandler;
+            this.c = oz1Var;
         }
 
-        @Override // com.baidu.tieba.rp2, android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityStarted(Activity activity) {
-            boolean z;
+        @Override // com.baidu.tieba.ii3.a
+        public void a(double[] dArr) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-                super.onActivityStarted(activity);
-                ji3 ji3Var = this.a;
-                if (ji3Var.c && activity != null && activity.getTaskId() == this.a.e) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                ji3Var.c = z;
-            }
-        }
-
-        @Override // com.baidu.tieba.rp2, android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityCreated(Activity activity, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLL(1048576, this, activity, bundle) != null) || !pg3.j()) {
-                return;
-            }
-            super.onActivityCreated(activity, bundle);
-            if (activity != null && activity.getIntent() != null) {
-                RunnableC0327a runnableC0327a = new RunnableC0327a(this, activity);
-                if (qg3.a()) {
-                    runnableC0327a.run();
-                } else {
-                    dh3.j(runnableC0327a, "moveTaskToFront");
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ji3 a;
-
-        public b(ji3 ji3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ji3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if (interceptable == null || interceptable.invokeL(1048576, this, dArr) == null) {
+                if (dArr != null && dArr.length == 3) {
+                    w52.i("accelerometer", "handle accelerometer change, x : " + dArr[0] + " y: " + dArr[1] + " z: " + dArr[2]);
+                    this.d.k(this.a, this.b, this.c, dArr);
                     return;
                 }
-            }
-            this.a = ji3Var;
-        }
-
-        @Override // com.baidu.tieba.ji3.c
-        public void a(boolean z, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-                if (!z) {
-                    if (this.a.c && i == 1) {
-                        this.a.c = false;
-                    }
-                } else {
-                    this.a.c = true;
-                    this.a.e = i;
-                }
-                this.a.d = z;
+                w52.c("accelerometer", "illegal accelerometers");
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947884213, "Lcom/baidu/tieba/ji3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947884213, "Lcom/baidu/tieba/ji3;");
-                return;
-            }
-        }
-        f = tk1.a;
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            g = null;
-            this.a.unregisterActivityLifecycleCallbacks(this.b);
-        }
-    }
-
-    public ji3(@NonNull Application application) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ji3(t93 t93Var) {
+        super(t93Var, "/swanAPI/startAccelerometer");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {application};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {t93Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = application;
-        this.b = new a(this);
-        g = new b(this);
-        application.registerActivityLifecycleCallbacks(this.b);
     }
 
-    public static void h(boolean z, int i) {
-        c cVar;
+    @Override // com.baidu.tieba.ta3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, w83 w83Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) && (cVar = g) != null) {
-            cVar.a(z, i);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, w83Var)) == null) {
+            if (w83Var == null) {
+                w52.c("accelerometer", "none swanApp");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
+                if (ta3.b) {
+                    Log.d("SwanAppAction", "startAccelerometer --- illegal swanApp");
+                }
+                return false;
+            } else if (context == null) {
+                w52.c("accelerometer", "none context");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
+                if (ta3.b) {
+                    Log.d("SwanAppAction", "startAccelerometer --- illegal context");
+                }
+                return false;
+            } else {
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    if (ta3.b) {
+                        Log.d("SwanAppAction", "startAccelerometer --- params is empty");
+                    }
+                    w52.c("accelerometer", "none params");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                    return false;
+                }
+                String optString = optParamsAsJo.optString("cb");
+                if (TextUtils.isEmpty(optString)) {
+                    if (ta3.b) {
+                        Log.d("SwanAppAction", "startAccelerometer --- cb is empty");
+                    }
+                    w52.c("accelerometer", "cb is empty");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                w52.i("accelerometer", " init ");
+                oz1 oz1Var = new oz1("accelerometerChange", optParamsAsJo, optString);
+                ii3 a2 = ii3.a();
+                a2.b(context, dz1.b.a(optParamsAsJo.optString("interval")));
+                a2.e(new a(this, unitedSchemeEntity, callbackHandler, oz1Var));
+                a2.f();
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                oz1Var.a(unitedSchemeEntity, callbackHandler);
+                return true;
+            }
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public final void k(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, oz1 oz1Var, double[] dArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity, callbackHandler, oz1Var, dArr) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("x", dArr[0]);
+                jSONObject.put("y", dArr[1]);
+                jSONObject.put("z", dArr[2]);
+                oz1Var.c(unitedSchemeEntity, callbackHandler, jSONObject);
+            } catch (JSONException e) {
+                w52.c("accelerometer", "handle compass,json error，" + e.toString());
+                oz1Var.e(unitedSchemeEntity, callbackHandler, "Json error");
+            }
         }
     }
 }

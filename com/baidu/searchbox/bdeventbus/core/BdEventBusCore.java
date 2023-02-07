@@ -22,7 +22,7 @@ import kotlin.LazyKt__LazyJVMKt;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000b\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\t\b\u0000\u0018\u0000:\u00019B\u0007¢\u0006\u0004\b7\u00108J\u000f\u0010\u0004\u001a\u00020\u0001H\u0000¢\u0006\u0004\b\u0002\u0010\u0003J\u0017\u0010\n\u001a\u00020\u00072\u0006\u0010\u0006\u001a\u00020\u0005H\u0000¢\u0006\u0004\b\b\u0010\tJ\u0017\u0010\u000b\u001a\u00020\u00072\u0006\u0010\u0006\u001a\u00020\u0005H\u0002¢\u0006\u0004\b\u000b\u0010\tJ\u0017\u0010\u000e\u001a\u00020\u00072\u0006\u0010\r\u001a\u00020\fH\u0002¢\u0006\u0004\b\u000e\u0010\u000fJ9\u0010\u000e\u001a\u00020\u00072\u0006\u0010\u0010\u001a\u00020\u00052\n\u0010\u0012\u001a\u0006\u0012\u0002\b\u00030\u00112\u0006\u0010\u0014\u001a\u00020\u00132\f\u0010\u0016\u001a\b\u0012\u0004\u0012\u00020\u00050\u0015H\u0000¢\u0006\u0004\b\u0017\u0010\u0018J\u0015\u0010\u0019\u001a\u00020\u00072\u0006\u0010\u0010\u001a\u00020\u0005¢\u0006\u0004\b\u0019\u0010\tR\u001d\u0010\u001d\u001a\u00020\u00018B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u001a\u0010\u001b\u001a\u0004\b\u001c\u0010\u0003R\u0016\u0010\u001e\u001a\u00020\u00138\u0002@\u0002X\u0082D¢\u0006\u0006\n\u0004\b\u001e\u0010\u001fR\u0016\u0010!\u001a\u00020 8\u0002@\u0002X\u0082D¢\u0006\u0006\n\u0004\b!\u0010\"R\u001d\u0010'\u001a\u00020#8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b$\u0010\u001b\u001a\u0004\b%\u0010&R\u001d\u0010,\u001a\u00020(8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b)\u0010\u001b\u001a\u0004\b*\u0010+R(\u0010/\u001a\u0014\u0012\u0004\u0012\u00020\u0005\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00050.0-8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b/\u00100R\u001d\u00105\u001a\u0002018B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b2\u0010\u001b\u001a\u0004\b3\u00104R(\u00106\u001a\u0014\u0012\u0004\u0012\u00020\u0005\u0012\n\u0012\b\u0012\u0004\u0012\u00020\f0.0-8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b6\u00100¨\u0006:"}, d2 = {"Lcom/baidu/searchbox/bdeventbus/core/BdEventBusCore;", "Ljava/util/concurrent/ExecutorService;", "getExecutorService$lib_bd_event_bus_release", "()Ljava/util/concurrent/ExecutorService;", "getExecutorService", "", "event", "", "post$lib_bd_event_bus_release", "(Ljava/lang/Object;)V", "post", "postSingleEvent", "Lcom/baidu/searchbox/bdeventbus/core/SubscriptionInfo;", "subscriptionInfo", TableDefine.PaSubscribeColumns.COLUMN_SUBSCRIBE, "(Lcom/baidu/searchbox/bdeventbus/core/SubscriptionInfo;)V", "subscriber", "Ljava/lang/Class;", "eventType", "", "threadMode", "Lcom/baidu/searchbox/bdeventbus/Action;", "action", "subscribe$lib_bd_event_bus_release", "(Ljava/lang/Object;Ljava/lang/Class;ILcom/baidu/searchbox/bdeventbus/Action;)V", MiPushClient.COMMAND_UNREGISTER, "DEFAULT_EXECUTOR_SERVICE$delegate", "Lkotlin/Lazy;", "getDEFAULT_EXECUTOR_SERVICE", "DEFAULT_EXECUTOR_SERVICE", "LAZY_SUBSCRIBE_MSG", "I", "", "TAG", "Ljava/lang/String;", "Lcom/baidu/searchbox/bdeventbus/core/AsyncPoster;", "asyncPoster$delegate", "getAsyncPoster", "()Lcom/baidu/searchbox/bdeventbus/core/AsyncPoster;", "asyncPoster", "Lcom/baidu/searchbox/bdeventbus/core/BackgroundPoster;", "backgroundPoster$delegate", "getBackgroundPoster", "()Lcom/baidu/searchbox/bdeventbus/core/BackgroundPoster;", "backgroundPoster", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/CopyOnWriteArrayList;", "eventBySubscriber", "Ljava/util/concurrent/ConcurrentHashMap;", "Lcom/baidu/searchbox/bdeventbus/core/MainHandlerPoster;", "mainHandlerPoster$delegate", "getMainHandlerPoster", "()Lcom/baidu/searchbox/bdeventbus/core/MainHandlerPoster;", "mainHandlerPoster", "subscriptionsInfoByEventType", "<init>", "()V", "PostingThreadState", "lib-bd-event-bus_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(d1 = {"\u0000b\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\b\u0000\u0018\u00002\u00020\u0001:\u00012B\u0005¢\u0006\u0002\u0010\u0002J\r\u0010!\u001a\u00020\u0004H\u0000¢\u0006\u0002\b\"J\u0015\u0010#\u001a\u00020$2\u0006\u0010%\u001a\u00020\u0001H\u0000¢\u0006\u0002\b&J\u0010\u0010'\u001a\u00020$2\u0006\u0010%\u001a\u00020\u0001H\u0002J\u0010\u0010(\u001a\u00020$2\u0006\u0010)\u001a\u00020 H\u0002J7\u0010(\u001a\u00020$2\u0006\u0010*\u001a\u00020\u00012\n\u0010+\u001a\u0006\u0012\u0002\b\u00030,2\u0006\u0010-\u001a\u00020\n2\f\u0010.\u001a\b\u0012\u0004\u0012\u00020\u00010/H\u0000¢\u0006\u0002\b0J\u000e\u00101\u001a\u00020$2\u0006\u0010*\u001a\u00020\u0001R\u001b\u0010\u0003\u001a\u00020\u00048BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0007\u0010\b\u001a\u0004\b\u0005\u0010\u0006R\u000e\u0010\t\u001a\u00020\nX\u0082D¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082D¢\u0006\u0002\n\u0000R\u001b\u0010\r\u001a\u00020\u000e8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0011\u0010\b\u001a\u0004\b\u000f\u0010\u0010R\u001b\u0010\u0012\u001a\u00020\u00138BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0016\u0010\b\u001a\u0004\b\u0014\u0010\u0015R \u0010\u0017\u001a\u0014\u0012\u0004\u0012\u00020\u0001\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00010\u00190\u0018X\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010\u001a\u001a\u00020\u001b8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u001e\u0010\b\u001a\u0004\b\u001c\u0010\u001dR \u0010\u001f\u001a\u0014\u0012\u0004\u0012\u00020\u0001\u0012\n\u0012\b\u0012\u0004\u0012\u00020 0\u00190\u0018X\u0082\u000e¢\u0006\u0002\n\u0000¨\u00063"}, d2 = {"Lcom/baidu/searchbox/bdeventbus/core/BdEventBusCore;", "", "()V", "DEFAULT_EXECUTOR_SERVICE", "Ljava/util/concurrent/ExecutorService;", "getDEFAULT_EXECUTOR_SERVICE", "()Ljava/util/concurrent/ExecutorService;", "DEFAULT_EXECUTOR_SERVICE$delegate", "Lkotlin/Lazy;", "LAZY_SUBSCRIBE_MSG", "", "TAG", "", "asyncPoster", "Lcom/baidu/searchbox/bdeventbus/core/AsyncPoster;", "getAsyncPoster", "()Lcom/baidu/searchbox/bdeventbus/core/AsyncPoster;", "asyncPoster$delegate", "backgroundPoster", "Lcom/baidu/searchbox/bdeventbus/core/BackgroundPoster;", "getBackgroundPoster", "()Lcom/baidu/searchbox/bdeventbus/core/BackgroundPoster;", "backgroundPoster$delegate", "eventBySubscriber", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/CopyOnWriteArrayList;", "mainHandlerPoster", "Lcom/baidu/searchbox/bdeventbus/core/MainHandlerPoster;", "getMainHandlerPoster", "()Lcom/baidu/searchbox/bdeventbus/core/MainHandlerPoster;", "mainHandlerPoster$delegate", "subscriptionsInfoByEventType", "Lcom/baidu/searchbox/bdeventbus/core/SubscriptionInfo;", "getExecutorService", "getExecutorService$lib_bd_event_bus_release", "post", "", "event", "post$lib_bd_event_bus_release", "postSingleEvent", TableDefine.PaSubscribeColumns.COLUMN_SUBSCRIBE, "subscriptionInfo", "subscriber", "eventType", "Ljava/lang/Class;", "threadMode", "action", "Lcom/baidu/searchbox/bdeventbus/Action;", "subscribe$lib_bd_event_bus_release", MiPushClient.COMMAND_UNREGISTER, "PostingThreadState", "lib-bd-event-bus_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes2.dex */
 public final class BdEventBusCore {
     public static /* synthetic */ Interceptable $ic;
@@ -36,31 +36,7 @@ public final class BdEventBusCore {
     public final Lazy mainHandlerPoster$delegate;
     public ConcurrentHashMap<Object, CopyOnWriteArrayList<SubscriptionInfo>> subscriptionsInfoByEventType;
 
-    private final AsyncPoster getAsyncPoster() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? (AsyncPoster) this.asyncPoster$delegate.getValue() : (AsyncPoster) invokeV.objValue;
-    }
-
-    private final BackgroundPoster getBackgroundPoster() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? (BackgroundPoster) this.backgroundPoster$delegate.getValue() : (BackgroundPoster) invokeV.objValue;
-    }
-
-    private final ExecutorService getDEFAULT_EXECUTOR_SERVICE() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? (ExecutorService) this.DEFAULT_EXECUTOR_SERVICE$delegate.getValue() : (ExecutorService) invokeV.objValue;
-    }
-
-    private final MainHandlerPoster getMainHandlerPoster() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? (MainHandlerPoster) this.mainHandlerPoster$delegate.getValue() : (MainHandlerPoster) invokeV.objValue;
-    }
-
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0002\u0018\u0002\n\u0002\u0010!\n\u0002\u0010\u0000\n\u0002\b\u0007\b\u0000\u0018\u0000B\u0007¢\u0006\u0004\b\u0007\u0010\bR\u001f\u0010\u0003\u001a\b\u0012\u0004\u0012\u00020\u00020\u00018\u0006@\u0006¢\u0006\f\n\u0004\b\u0003\u0010\u0004\u001a\u0004\b\u0005\u0010\u0006¨\u0006\t"}, d2 = {"Lcom/baidu/searchbox/bdeventbus/core/BdEventBusCore$PostingThreadState;", "", "", "eventQueue", "Ljava/util/List;", "getEventQueue", "()Ljava/util/List;", "<init>", "()V", "lib-bd-event-bus_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @Metadata(d1 = {"\u0000\u0014\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010!\n\u0002\b\u0003\b\u0000\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002R\u0017\u0010\u0003\u001a\b\u0012\u0004\u0012\u00020\u00010\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006¨\u0006\u0007"}, d2 = {"Lcom/baidu/searchbox/bdeventbus/core/BdEventBusCore$PostingThreadState;", "", "()V", "eventQueue", "", "getEventQueue", "()Ljava/util/List;", "lib-bd-event-bus_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes2.dex */
     public static final class PostingThreadState {
         public static /* synthetic */ Interceptable $ic;
@@ -190,6 +166,53 @@ public final class BdEventBusCore {
         });
     }
 
+    private final AsyncPoster getAsyncPoster() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            return (AsyncPoster) this.asyncPoster$delegate.getValue();
+        }
+        return (AsyncPoster) invokeV.objValue;
+    }
+
+    private final BackgroundPoster getBackgroundPoster() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            return (BackgroundPoster) this.backgroundPoster$delegate.getValue();
+        }
+        return (BackgroundPoster) invokeV.objValue;
+    }
+
+    private final ExecutorService getDEFAULT_EXECUTOR_SERVICE() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            Object value = this.DEFAULT_EXECUTOR_SERVICE$delegate.getValue();
+            Intrinsics.checkNotNullExpressionValue(value, "<get-DEFAULT_EXECUTOR_SERVICE>(...)");
+            return (ExecutorService) value;
+        }
+        return (ExecutorService) invokeV.objValue;
+    }
+
+    private final MainHandlerPoster getMainHandlerPoster() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+            return (MainHandlerPoster) this.mainHandlerPoster$delegate.getValue();
+        }
+        return (MainHandlerPoster) invokeV.objValue;
+    }
+
+    public final ExecutorService getExecutorService$lib_bd_event_bus_release() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return getDEFAULT_EXECUTOR_SERVICE();
+        }
+        return (ExecutorService) invokeV.objValue;
+    }
+
     private final void postSingleEvent(Object obj) {
         CopyOnWriteArrayList<SubscriptionInfo> copyOnWriteArrayList;
         Interceptable interceptable = $ic;
@@ -258,15 +281,6 @@ public final class BdEventBusCore {
             copyOnWriteArrayList4.add(subscriptionInfo.getEventType());
             this.eventBySubscriber.put(subscriptionInfo.getSubscriber(), copyOnWriteArrayList4);
         }
-    }
-
-    public final ExecutorService getExecutorService$lib_bd_event_bus_release() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return getDEFAULT_EXECUTOR_SERVICE();
-        }
-        return (ExecutorService) invokeV.objValue;
     }
 
     public final void post$lib_bd_event_bus_release(Object event) {

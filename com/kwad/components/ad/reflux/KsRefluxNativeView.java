@@ -161,7 +161,7 @@ public class KsRefluxNativeView extends FrameLayout {
                 if (itemViewType == FeedType.FEED_TYPE_UNKNOWN.getType() || itemViewType == FeedType.FEED_TYPE_TEXT_ABOVE.getType() || itemViewType == FeedType.FEED_TYPE_TEXT_LEFT.getType()) {
                     if (aVar.eP()) {
                         aVar.eK();
-                        aVar.a(new a.InterfaceC0562a(this) { // from class: com.kwad.components.ad.reflux.KsRefluxNativeView.b.1
+                        aVar.a(new a.InterfaceC0566a(this) { // from class: com.kwad.components.ad.reflux.KsRefluxNativeView.b.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ b kK;
@@ -184,7 +184,7 @@ public class KsRefluxNativeView extends FrameLayout {
                                 this.kK = this;
                             }
 
-                            @Override // com.kwad.components.ad.reflux.a.InterfaceC0562a
+                            @Override // com.kwad.components.ad.reflux.a.InterfaceC0566a
                             public final void eF() {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -228,7 +228,7 @@ public class KsRefluxNativeView extends FrameLayout {
                             this.kL = r7;
                         }
 
-                        @Override // com.kwad.components.core.widget.b.a, com.kwad.components.core.widget.b.InterfaceC0617b
+                        @Override // com.kwad.components.core.widget.b.a, com.kwad.components.core.widget.b.InterfaceC0621b
                         public final void onAdClicked() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -239,7 +239,7 @@ public class KsRefluxNativeView extends FrameLayout {
                             }
                         }
 
-                        @Override // com.kwad.components.core.widget.b.a, com.kwad.components.core.widget.b.InterfaceC0617b
+                        @Override // com.kwad.components.core.widget.b.a, com.kwad.components.core.widget.b.InterfaceC0621b
                         public final void onAdShow() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -383,7 +383,7 @@ public class KsRefluxNativeView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
             FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0468, this);
-            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0911ec);
+            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09122f);
             this.kG = recyclerView;
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), 1, false));
             b bVar = new b(getContext());

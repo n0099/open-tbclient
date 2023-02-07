@@ -1,21 +1,28 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.os.Build;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.common.security.DeviceInfoManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.util.Base64Encoder;
 /* loaded from: classes3.dex */
 public class b20 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public boolean g;
 
     public b20() {
         Interceptable interceptable = $ic;
@@ -30,64 +37,138 @@ public class b20 {
                 return;
             }
         }
-        d();
+        g();
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (TextUtils.isEmpty(this.e)) {
+                i();
+            }
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.b;
         }
         return (String) invokeV.objValue;
     }
 
-    public final void d() {
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            Context appContext = AppRuntime.getAppContext();
-            this.a = c(appContext);
-            this.b = b(appContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.e = new String(Base64Encoder.B64Encode(this.d.getBytes()));
         }
     }
 
-    public final String b(Context context) {
-        InterceptResult invokeL;
+    public boolean j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            int displayWidth = DeviceUtil.ScreenInfo.getDisplayWidth(context);
-            int displayHeight = DeviceUtil.ScreenInfo.getDisplayHeight(context);
-            int densityDpi = DeviceUtil.ScreenInfo.getDensityDpi(context);
-            StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append(displayWidth);
-            stringBuffer.append("_");
-            stringBuffer.append(displayHeight);
-            stringBuffer.append("_");
-            stringBuffer.append("android");
-            stringBuffer.append("_");
-            stringBuffer.append(this.a);
-            stringBuffer.append("_");
-            stringBuffer.append(densityDpi);
-            return stringBuffer.toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (this.g) {
+                return false;
+            }
+            boolean k = k();
+            this.g = k;
+            if (!k) {
+                z10.b().g(new g20(1));
+            }
+            return !this.g;
         }
-        return (String) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public String c(Context context) {
-        InterceptResult invokeL;
+    public final boolean k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            String appVersion = t10.c().getAppVersion();
-            if (!TextUtils.isEmpty(appVersion)) {
-                return appVersion;
-            }
-            try {
-                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return "0.8";
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return DeviceInfoManager.INSTANCE.getDeviceInfo(AppRuntime.getAppContext(), "pub_param", "", 304).isSync(304);
         }
-        return (String) invokeL.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            DeviceInfoManager.INSTANCE.getDeviceInfo(AppRuntime.getAppContext(), "pub_param", "", 304);
+            String str = DeviceInfoManager.INSTANCE.getModel("pub_param", "").deviceId;
+            this.a = str;
+            if (TextUtils.isEmpty(str)) {
+                this.a = "NUL";
+            } else {
+                this.a = this.a.replace("_", "-");
+            }
+            String str2 = DeviceInfoManager.INSTANCE.getManufacturer(Constants.EXTRA_PARAM, "pub_param").deviceId;
+            this.b = str2;
+            if (TextUtils.isEmpty(str2)) {
+                this.b = "NUL";
+            } else {
+                this.b = this.b.replace("_", "-");
+            }
+            String str3 = DeviceInfoManager.INSTANCE.getOsVersion(Constants.EXTRA_PARAM, "pub_param").deviceId;
+            this.c = str3;
+            if (TextUtils.isEmpty(str3)) {
+                this.c = "0.0";
+            } else {
+                this.c = this.c.replace("_", "-");
+            }
+            this.f = String.valueOf(Build.VERSION.SDK_INT);
+            this.d = h();
+        }
+    }
+
+    public final String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            String str = this.a;
+            String str2 = this.c;
+            String str3 = this.b;
+            return str + "_" + str2 + "_" + this.f + "_" + str3;
+        }
+        return (String) invokeV.objValue;
     }
 }

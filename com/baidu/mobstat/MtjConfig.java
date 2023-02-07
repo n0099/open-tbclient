@@ -121,7 +121,7 @@ public class MtjConfig {
             JIGUANG = new PushPlatform("JIGUANG", 1, "jiguang", 1);
             GETUI = new PushPlatform("GETUI", 2, "getui", 2);
             HUAWEI = new PushPlatform("HUAWEI", 3, RomUtils.MANUFACTURER_HUAWEI, 3);
-            XIAOMI = new PushPlatform("XIAOMI", 4, RomUtils.MANUFACTURER_XIAOMI, 4);
+            XIAOMI = new PushPlatform(RomUtils.ROM_XIAOMI, 4, RomUtils.MANUFACTURER_XIAOMI, 4);
             UMENG = new PushPlatform("UMENG", 5, BaseConstants.CATEGORY_UMENG, 5);
             XINGE = new PushPlatform("XINGE", 6, "xinge", 6);
             ALIYUN = new PushPlatform("ALIYUN", 7, "aliyun", 7);

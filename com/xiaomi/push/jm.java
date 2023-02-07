@@ -79,7 +79,7 @@ public class jm extends jp {
 
     @Override // com.xiaomi.push.jp
     /* renamed from: a  reason: collision with other method in class */
-    public void mo629a(byte[] bArr, int i, int i2) {
+    public void mo631a(byte[] bArr, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i, i2) == null) {
             OutputStream outputStream = this.f837a;

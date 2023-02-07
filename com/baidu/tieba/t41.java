@@ -1,7 +1,23 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
-public interface t41 {
-    void load(String str) throws Throwable;
 
-    void loadLibrary(String str) throws Throwable;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes6.dex */
+public class t41 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static String a(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, str2, str3)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3) && str.contains(str3)) {
+                return str.replace(str3, str2);
+            }
+            return str;
+        }
+        return (String) invokeLLL.objValue;
+    }
 }

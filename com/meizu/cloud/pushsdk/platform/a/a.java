@@ -3,6 +3,7 @@ package com.meizu.cloud.pushsdk.platform.a;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.searchbox.cloudcommand.dao.CloudCommandTable;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 import com.meizu.cloud.pushinternal.DebugLogger;
 import com.meizu.cloud.pushsdk.b.a.c;
@@ -91,7 +92,7 @@ public class a {
 
     public c<String> a(String str, String str2, String str3, File file) {
         LinkedHashMap linkedHashMap = new LinkedHashMap();
-        linkedHashMap.put("msgId", str);
+        linkedHashMap.put(CloudCommandTable.MSG_ID, str);
         linkedHashMap.put("deviceId", str2);
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);

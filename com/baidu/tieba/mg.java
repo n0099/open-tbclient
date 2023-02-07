@@ -1,315 +1,152 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
+import android.net.SSLCertificateSocketFactory;
+import android.os.Build;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.protocol.HTTP;
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.net.UnknownHostException;
+import java.security.cert.X509Certificate;
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLPeerUnverifiedException;
+import javax.net.ssl.SSLSession;
+import javax.net.ssl.SSLSocket;
+import javax.net.ssl.SSLSocketFactory;
+import okhttp3.CertificatePinner;
+import okhttp3.Handshake;
+import okhttp3.internal.tls.OkHostnameVerifier;
 /* loaded from: classes5.dex */
-public class mg {
+public class mg extends SSLSocketFactory {
     public static /* synthetic */ Interceptable $ic;
-    public static String d;
-    public static String e;
-    public static String f;
-    public static boolean g;
-    public static String h;
-    public static String i;
-    public static String j;
-    public static String k;
     public transient /* synthetic */ FieldHolder $fh;
-    public cg a;
-    public zf b;
-    public long c;
+    public final String a;
+    public HostnameVerifier b;
+    public HttpsURLConnection c;
 
-    public mg() {
+    @Override // javax.net.SocketFactory
+    public Socket createSocket() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (Socket) invokeV.objValue;
+    }
+
+    @Override // javax.net.SocketFactory
+    public Socket createSocket(String str, int i) throws IOException, UnknownHostException {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
+            return null;
+        }
+        return (Socket) invokeLI.objValue;
+    }
+
+    @Override // javax.net.SocketFactory
+    public Socket createSocket(String str, int i, InetAddress inetAddress, int i2) throws IOException, UnknownHostException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Integer.valueOf(i), inetAddress, Integer.valueOf(i2)})) == null) {
+            return null;
+        }
+        return (Socket) invokeCommon.objValue;
+    }
+
+    @Override // javax.net.SocketFactory
+    public Socket createSocket(InetAddress inetAddress, int i) throws IOException {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, inetAddress, i)) == null) {
+            return null;
+        }
+        return (Socket) invokeLI.objValue;
+    }
+
+    @Override // javax.net.SocketFactory
+    public Socket createSocket(InetAddress inetAddress, int i, InetAddress inetAddress2, int i2) throws IOException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{inetAddress, Integer.valueOf(i), inetAddress2, Integer.valueOf(i2)})) == null) {
+            return null;
+        }
+        return (Socket) invokeCommon.objValue;
+    }
+
+    @Override // javax.net.ssl.SSLSocketFactory
+    public String[] getDefaultCipherSuites() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new String[0] : (String[]) invokeV.objValue;
+    }
+
+    @Override // javax.net.ssl.SSLSocketFactory
+    public String[] getSupportedCipherSuites() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? new String[0] : (String[]) invokeV.objValue;
+    }
+
+    public mg(HttpsURLConnection httpsURLConnection) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {httpsURLConnection};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        i();
+        this.a = mg.class.getSimpleName();
+        this.b = HttpsURLConnection.getDefaultHostnameVerifier();
+        this.c = httpsURLConnection;
     }
 
-    public void c() {
-        zf zfVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (zfVar = this.b) != null) {
-            zfVar.b();
-        }
-    }
-
-    public cg e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return (cg) invokeV.objValue;
-    }
-
-    public zf f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
-        }
-        return (zf) invokeV.objValue;
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            System.setProperty("http.keepAlive", "false");
-            this.c = BdStatisticsManager.getInstance().getClientLogId();
-        }
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            zf zfVar = this.b;
-            if (zfVar != null) {
-                return zfVar.k();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void m() {
-        zf zfVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (zfVar = this.b) != null) {
-            zfVar.p();
-        }
-    }
-
-    public static void n(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            d = str;
-        }
-    }
-
-    public static void o(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            h = str;
-        }
-    }
-
-    public static void p(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            i = str;
-        }
-    }
-
-    public static void q(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            j = str;
-        }
-    }
-
-    public static void r(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            k = str;
-        }
-    }
-
-    public static void s(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65542, null, z) == null) {
-            g = z;
-        }
-    }
-
-    public static void t(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
-            f = str;
-        }
-    }
-
-    public static void u(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
-            e = str;
-        }
-    }
-
-    public final void a(cg cgVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cgVar) == null) {
-            b(cgVar, false);
-        }
-    }
-
-    public final void b(cg cgVar, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cgVar, z) != null) || cgVar == null) {
-            return;
-        }
-        if (!TextUtils.isEmpty(d)) {
-            cgVar.b().a("Cookie", d);
-        } else {
-            cgVar.b().a("Cookie", "");
-        }
-        if (!TextUtils.isEmpty(f)) {
-            cgVar.b().a("client_user_token", f);
-        }
-        if (!TextUtils.isEmpty(e)) {
-            cgVar.b().a("User-Agent", e);
-        }
-        if (z) {
-            cgVar.b().a("Accept-Encoding", "gzip");
-        } else {
-            cgVar.b().a("Accept-Encoding", "");
-        }
-        if (g) {
-            cgVar.b().a(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
-        } else {
-            cgVar.b().a(HTTP.CONN_DIRECTIVE, "close");
-        }
-        cgVar.b().a("client_logid", String.valueOf(this.c));
-        if (!TextUtils.isEmpty(h)) {
-            cgVar.b().a("cuid", h);
-        }
-        if (!TextUtils.isEmpty(i)) {
-            cgVar.b().a("cuid_galaxy2", i);
-        }
-        if (!TextUtils.isEmpty(j)) {
-            cgVar.b().a("c3_aid", j);
-        }
-        if (!TextUtils.isEmpty(k)) {
-            cgVar.b().a(TiebaStatic.Params.CUID_GID, k);
-        }
-    }
-
-    public boolean d(String str, String str2, boolean z, int i2, int i3, int i4, int i5, LinkedList<BasicNameValuePair> linkedList, gg ggVar, boolean z2, boolean z3, boolean z4) {
+    @Override // javax.net.ssl.SSLSocketFactory
+    public Socket createSocket(Socket socket, String str, int i, boolean z) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), linkedList, ggVar, Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)})) == null) {
-            cg cgVar = new cg();
-            this.a = cgVar;
-            a(cgVar);
-            this.a.b().s(str);
-            this.a.b().o(z4);
-            zf zfVar = new zf(this.a);
-            this.b = zfVar;
-            return zfVar.c(str2, ggVar, i2, i3, i4, i5, z2, z3);
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public eg g(String str, int i2, int i3, int i4) throws Exception {
-        InterceptResult invokeLIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(1048582, this, str, i2, i3, i4)) == null) {
-            return h(str, false, i2, i3, i4);
-        }
-        return (eg) invokeLIII.objValue;
-    }
-
-    public eg h(String str, boolean z, int i2, int i3, int i4) throws Exception {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-            cg cgVar = new cg();
-            this.a = cgVar;
-            b(cgVar, z);
-            this.a.b().s(str);
-            zf zfVar = new zf(this.a);
-            this.b = zfVar;
-            zfVar.d(i2, i3, i4);
-            return this.a.c();
-        }
-        return (eg) invokeCommon.objValue;
-    }
-
-    public eg k(String str, List<BasicNameValuePair> list, boolean z, int i2, int i3, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{str, list, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), linkedList})) == null) {
-            cg cgVar = new cg();
-            this.a = cgVar;
-            b(cgVar, z);
-            this.a.b().s(str);
-            if (list != null) {
-                for (BasicNameValuePair basicNameValuePair : list) {
-                    this.a.b().d(basicNameValuePair);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{socket, str, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            String requestProperty = this.c.getRequestProperty("Host");
+            if (requestProperty != null) {
+                str = requestProperty;
+            }
+            InetAddress inetAddress = socket.getInetAddress();
+            if (z) {
+                socket.close();
+            }
+            SSLCertificateSocketFactory sSLCertificateSocketFactory = (SSLCertificateSocketFactory) SSLCertificateSocketFactory.getDefault(0);
+            SSLSocket sSLSocket = (SSLSocket) sSLCertificateSocketFactory.createSocket(inetAddress, i);
+            sSLSocket.setEnabledProtocols(sSLSocket.getSupportedProtocols());
+            if (Build.VERSION.SDK_INT >= 17) {
+                sSLCertificateSocketFactory.setHostname(sSLSocket, str);
+            } else {
+                try {
+                    sSLSocket.getClass().getMethod("setHostname", String.class).invoke(sSLSocket, str);
+                } catch (Exception e) {
+                    Log.w(this.a, " SNI Setting failed", e);
                 }
             }
-            if (linkedList != null) {
-                Iterator<BasicNameValuePair> it = linkedList.iterator();
-                while (it.hasNext()) {
-                    BasicNameValuePair next = it.next();
-                    this.a.b().a(next.getName(), next.getValue());
-                }
+            SSLSession session = sSLSocket.getSession();
+            if (this.b.verify(str, session)) {
+                return sSLSocket;
             }
-            zf zfVar = new zf(this.a);
-            this.b = zfVar;
-            zfVar.m(i2, i3, -1);
-            return this.a.c();
+            X509Certificate x509Certificate = (X509Certificate) Handshake.get(session).peerCertificates().get(0);
+            throw new SSLPeerUnverifiedException("Hostname " + str + " not verified:\n    certificate: " + CertificatePinner.pin(x509Certificate) + "\n    DN: " + x509Certificate.getSubjectDN().getName() + "\n    subjectAltNames: " + OkHostnameVerifier.allSubjectAltNames(x509Certificate));
         }
-        return (eg) invokeCommon.objValue;
-    }
-
-    public eg l(String str, boolean z, ArrayList<BasicNameValuePair> arrayList, HashMap<String, byte[]> hashMap, int i2, int i3, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{str, Boolean.valueOf(z), arrayList, hashMap, Integer.valueOf(i2), Integer.valueOf(i3), linkedList})) == null) {
-            cg cgVar = new cg();
-            this.a = cgVar;
-            b(cgVar, z);
-            this.a.b().s(str);
-            if (linkedList != null) {
-                Iterator<BasicNameValuePair> it = linkedList.iterator();
-                while (it.hasNext()) {
-                    BasicNameValuePair next = it.next();
-                    this.a.b().a(next.getName(), next.getValue());
-                }
-            }
-            if (arrayList != null) {
-                Iterator<BasicNameValuePair> it2 = arrayList.iterator();
-                while (it2.hasNext()) {
-                    BasicNameValuePair next2 = it2.next();
-                    this.a.b().b(next2.getName(), next2.getValue());
-                }
-            }
-            if (hashMap != null) {
-                for (Map.Entry<String, byte[]> entry : hashMap.entrySet()) {
-                    this.a.b().c(entry.getKey(), entry.getValue());
-                }
-            }
-            zf zfVar = new zf(this.a);
-            this.b = zfVar;
-            zfVar.m(i2, i3, -1);
-            return this.a.c();
-        }
-        return (eg) invokeCommon.objValue;
+        return (Socket) invokeCommon.objValue;
     }
 }

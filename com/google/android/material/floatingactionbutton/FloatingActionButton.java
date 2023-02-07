@@ -701,7 +701,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         float dimension2 = obtainStyledAttributes.getDimension(9, 0.0f);
         float dimension3 = obtainStyledAttributes.getDimension(11, 0.0f);
         this.compatPadding = obtainStyledAttributes.getBoolean(16, false);
-        int dimensionPixelSize = getResources().getDimensionPixelSize(com.baidu.tieba.R.dimen.obfuscated_res_0x7f07049c);
+        int dimensionPixelSize = getResources().getDimensionPixelSize(com.baidu.tieba.R.dimen.obfuscated_res_0x7f0704b1);
         this.maxImageSize = obtainStyledAttributes.getDimensionPixelSize(10, 0);
         MotionSpec createFromAttribute = MotionSpec.createFromAttribute(context2, obtainStyledAttributes, 15);
         MotionSpec createFromAttribute2 = MotionSpec.createFromAttribute(context2, obtainStyledAttributes, 8);

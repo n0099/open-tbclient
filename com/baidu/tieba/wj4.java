@@ -1,57 +1,32 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import java.util.concurrent.ExecutorService;
-import org.json.JSONArray;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface wj4 {
-    String a();
+public class wj4 extends zj4 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    String b();
-
-    boolean c(String str);
-
-    ExecutorService d();
-
-    void e(String str, int i, JSONArray jSONArray);
-
-    void f(String str, int i);
-
-    void g(String str, String str2, int i, String str3, int i2);
-
-    String getAppId();
-
-    String getAppVersion();
-
-    String getDeviceId(Context context);
-
-    String getScene();
-
-    String h();
-
-    void i(String str, int i, String str2);
-
-    boolean j();
-
-    int k();
-
-    xj4 l();
-
-    String m();
-
-    void n(String str, String str2, int i, String str3, long j, int i2);
-
-    String o(Context context);
-
-    boolean p();
-
-    boolean q();
-
-    boolean r();
-
-    String s();
-
-    String t();
-
-    String u(Context context);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wj4(String str, long j) {
+        super("swan-game-sconsole", str, j, 2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r8;
+            Object[] objArr = {str, Long.valueOf(j)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1], ((Long) objArr2[2]).longValue(), ((Integer) objArr2[3]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
 }

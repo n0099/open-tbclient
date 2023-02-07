@@ -1,216 +1,123 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.bdtask.model.response.TaskResponseData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.AlbumFloatActivityConfig;
+import com.baidu.tbadk.core.atomData.WorkPublishOpenHelper;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.PostPrefixData;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class yk9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static volatile yk9 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public zk9 a;
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public Map<String, JSONObject> b;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public static void a(@NonNull TbPageContext<?> tbPageContext, @NonNull WriteData writeData) {
+        String str;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, tbPageContext, writeData) == null) {
+            String str2 = "";
+            if (lg9.b()) {
+                if (TextUtils.isEmpty(writeData.getTitle())) {
+                    str = "";
+                    i = 1;
+                } else {
+                    str = writeData.getTitle();
+                    i = 5;
+                }
+                if (!TextUtils.isEmpty(writeData.getForumId()) && !TextUtils.isEmpty(writeData.getForumName())) {
+                    lg9.f(tbPageContext, str, writeData.getContent(), writeData.getForumId(), writeData.getForumName(), 3, Boolean.FALSE, "", "", "");
                     return;
                 }
-            }
-            this.a = 0;
-            this.b = new HashMap();
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948333186, "Lcom/baidu/tieba/yk9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948333186, "Lcom/baidu/tieba/yk9;");
+                lg9.f(tbPageContext, str, writeData.getContent(), writeData.getForumId(), writeData.getForumName(), i, Boolean.TRUE, "", "", "");
                 return;
             }
-        }
-        b = cl9.m();
-    }
-
-    public yk9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+            if (writeData.getWriteImagesInfo() != null) {
+                str2 = writeData.getWriteImagesInfo().toJsonString();
             }
+            c(tbPageContext, writeData, str2, writeData.getFrom(), writeData.getDisableAudioMessage(), writeData.isVoiceEnable(), writeData.getPrefixData(), true);
         }
     }
 
-    public static yk9 f() {
-        InterceptResult invokeV;
+    public static void b(@NonNull TbPageContext<?> tbPageContext, @NonNull WriteData writeData, @NonNull WriteImagesInfo writeImagesInfo, String str, String str2, boolean z, PostPrefixData postPrefixData) {
+        String str3;
+        JSONObject json;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (yk9.class) {
-                    if (c == null) {
-                        c = new yk9();
-                    }
-                }
-            }
-            return c;
-        }
-        return (yk9) invokeV.objValue;
-    }
-
-    public final boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            hk9 o = hk9.o();
-            if (o != null && !o.g("2980", 32)) {
-                return false;
-            }
-            if (o != null && o.d("2980")) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            hk9 o = hk9.o();
-            if (o != null && !o.g("2980", 32)) {
-                return false;
-            }
-            if (o != null && o.d("2980")) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void a(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(1048576, this, str, z) != null) || TextUtils.isEmpty(str) || !TextUtils.isDigitsOnly(str) || !b()) {
-            return;
-        }
-        this.a.c(str, z);
-    }
-
-    public boolean d(ml9 ml9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, ml9Var)) == null) {
-            if (ml9Var == null || ml9Var.w() || !c()) {
-                return false;
-            }
-            this.a.f();
-            Map<String, a> v = this.a.v(7);
-            if (v != null && v.size() != 0) {
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{tbPageContext, writeData, writeImagesInfo, str, str2, Boolean.valueOf(z), postPrefixData}) == null) {
+            String jsonString = writeImagesInfo.toJsonString();
+            if (writeData.getType() == 11 && (json = writeImagesInfo.toJson()) != null) {
                 try {
-                    JSONObject jSONObject = new JSONObject();
-                    boolean z = false;
-                    for (String str : v.keySet()) {
-                        a aVar = v.get(str);
-                        if (aVar != null && !TextUtils.isEmpty(str)) {
-                            JSONObject jSONObject2 = new JSONObject();
-                            JSONArray jSONArray = new JSONArray();
-                            for (JSONObject jSONObject3 : aVar.b.values()) {
-                                jSONArray.put(jSONObject3);
-                            }
-                            jSONObject2.put("total", aVar.a);
-                            jSONObject2.put("data", jSONArray);
-                            jSONObject.put(str.replace("-", ""), jSONObject2);
-                            z = true;
-                        }
-                    }
-                    if (z) {
-                        ok9 ok9Var = new ok9("2980");
-                        ok9Var.y(jSONObject);
-                        ok9Var.B(System.currentTimeMillis());
-                        ml9Var.c(ok9Var, ok9Var.g());
-                        ml9Var.a(v.keySet());
-                        return true;
-                    }
+                    json.put("maxImagesAllowed", 9 - writeImagesInfo.size());
+                    json.put("chosedFiles", (Object) null);
+                    jsonString = json.toString();
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    str3 = null;
                 }
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void e(Map<String, a> map, String str, String str2, int i, int i2) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{map, str, str2, Integer.valueOf(i), Integer.valueOf(i2)}) != null) || map == null) {
-            return;
-        }
-        if (map.containsKey(str)) {
-            aVar = map.get(str);
-        } else {
-            a aVar2 = new a();
-            map.put(str, aVar2);
-            aVar = aVar2;
-        }
-        Map<String, JSONObject> map2 = aVar.b;
-        if (map2.containsKey(str2) && b) {
-            Log.e("UBCArrivalStatics", "*******duplicate ubc id record: " + str2);
-        }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("id", str2);
-            jSONObject.put("c", i);
-            jSONObject.put("cc", i2);
-            aVar.a += i;
-            map2.put(str2, jSONObject);
-        } catch (JSONException e) {
-            e.printStackTrace();
+            str3 = jsonString;
+            c(tbPageContext, writeData, str3, str, str2, z, postPrefixData, false);
         }
     }
 
-    public void g(zk9 zk9Var) {
+    public static void c(@NonNull TbPageContext<?> tbPageContext, @NonNull WriteData writeData, String str, String str2, String str3, boolean z, PostPrefixData postPrefixData, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, zk9Var) == null) {
-            this.a = zk9Var;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{tbPageContext, writeData, str, str2, str3, Boolean.valueOf(z), postPrefixData, Boolean.valueOf(z2)}) == null) {
+            AlbumFloatActivityConfig albumFloatActivityConfig = new AlbumFloatActivityConfig(tbPageContext.getPageActivity(), str, true, true);
+            albumFloatActivityConfig.getIntent().putExtra("forum_id", writeData.getForumId());
+            albumFloatActivityConfig.getIntent().putExtra("forum_name", writeData.getForumName());
+            albumFloatActivityConfig.getIntent().putExtra("from", str2);
+            albumFloatActivityConfig.setRequestCode(TaskResponseData.ERROR_NO_TASK_OFFLINE_03);
+            albumFloatActivityConfig.setAlbumThread(0);
+            albumFloatActivityConfig.setCanSelectVideo(z2);
+            albumFloatActivityConfig.setCanSelectOnlyVideo(z2);
+            albumFloatActivityConfig.setCanEditImage(false);
+            albumFloatActivityConfig.setFromWrite(3);
+            albumFloatActivityConfig.setCallFrom(writeData.getCallFrom());
+            albumFloatActivityConfig.setStatisticFrom(writeData.getStatisticFrom());
+            albumFloatActivityConfig.setProfessionZone(writeData.getProZone());
+            albumFloatActivityConfig.setFrsTabInfo(writeData.getFrsTabInfoData());
+            if (z2) {
+                if (!TextUtils.isEmpty(writeData.getTitle())) {
+                    albumFloatActivityConfig.setVideoTitle(writeData.getTitle());
+                } else {
+                    albumFloatActivityConfig.setVideoTitle("");
+                }
+                albumFloatActivityConfig.setBarName(writeData.getForumName());
+                albumFloatActivityConfig.setBarID(writeData.getForumId());
+                if (!TextUtils.isEmpty(writeData.getForumId()) && !TextUtils.isEmpty(writeData.getForumName())) {
+                    albumFloatActivityConfig.setCanChangeBarName(false);
+                } else {
+                    albumFloatActivityConfig.setCanChangeBarName(true);
+                }
+                albumFloatActivityConfig.setVideoAbstract(writeData.getContent());
+            }
+            AntiData antiData = new AntiData();
+            antiData.voice_message = str3;
+            antiData.setIfVoice(z);
+            albumFloatActivityConfig.setExtraData(antiData, postPrefixData, writeData.getFirstDir(), writeData.getSecondDir());
+            tbPageContext.sendMessage(new CustomMessage(2002001, albumFloatActivityConfig));
+        }
+    }
+
+    public static void d(@NonNull TbPageContext<?> tbPageContext, @NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, tbPageContext, writeData) == null) {
+            int a = lg9.a();
+            if (lg9.c(a)) {
+                lg9.e(tbPageContext.getPageActivity(), a, WorkPublishOpenHelper.OPEN_WORK_PUBLISH_FROM_FRS_WRITE);
+            } else {
+                a(tbPageContext, writeData);
+            }
         }
     }
 }

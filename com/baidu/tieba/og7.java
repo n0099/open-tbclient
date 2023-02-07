@@ -1,5 +1,9 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,11 +11,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.NewHottopic.TopicThread;
 /* loaded from: classes5.dex */
-public class og7 {
+public class og7 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static og7 a;
+    public static final BdUniqueId g;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public ThreadData b;
+    public long c;
+    public int d;
+    public int e;
+    public boolean f;
 
     static {
         InterceptResult invokeClinit;
@@ -26,7 +37,7 @@ public class og7 {
                 return;
             }
         }
-        a = new og7();
+        g = BdUniqueId.gen();
     }
 
     public og7() {
@@ -43,23 +54,45 @@ public class og7 {
         }
     }
 
-    public static og7 a() {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return g;
         }
-        return (og7) invokeV.objValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public synchronized void b() {
+    public void c(TopicThread topicThread) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                ni7.j().l();
-                mi7.j().l();
-                ki7.j().l();
-            }
+        if ((interceptable != null && interceptable.invokeL(1048576, this, topicThread) != null) || topicThread == null) {
+            return;
         }
+        this.a = topicThread.feed_id.longValue();
+        if (topicThread.thread_info != null) {
+            ThreadData threadData = new ThreadData();
+            this.b = threadData;
+            threadData.parserProtobuf(topicThread.thread_info);
+            this.b.parser_title();
+        }
+        this.d = topicThread.user_agree.intValue();
+        this.e = topicThread.source.intValue();
+    }
+
+    public void f(tbclient.NewTopicThread.TopicThread topicThread) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, topicThread) != null) || topicThread == null) {
+            return;
+        }
+        this.a = topicThread.feed_id.longValue();
+        if (topicThread.thread_info != null) {
+            ThreadData threadData = new ThreadData();
+            this.b = threadData;
+            threadData.parserProtobuf(topicThread.thread_info);
+            this.b.parser_title();
+        }
+        this.d = Integer.parseInt(topicThread.user_agree);
+        this.e = topicThread.source.intValue();
     }
 }

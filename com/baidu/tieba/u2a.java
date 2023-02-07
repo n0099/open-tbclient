@@ -1,31 +1,31 @@
 package com.baidu.tieba;
 
-import android.app.PendingIntent;
-import android.content.Context;
-import android.net.Uri;
-import android.os.Bundle;
-import android.util.Log;
-import com.baidu.searchbox.live.frame.IntentData;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.ArCoreApk;
-import com.google.ar.core.exceptions.UnavailableDeviceNotCompatibleException;
-import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
+import com.bytedance.sdk.openadsdk.TTAdDislike;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes6.dex */
-public class u2a implements ArCoreApk.a {
+public class u2a implements TTAdDislike.DislikeInteractionCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ v2a a;
+    public final /* synthetic */ View a;
+    public final /* synthetic */ l2a b;
+    public final /* synthetic */ FunAdInteractionListener c;
+    public final /* synthetic */ String d;
+    public final /* synthetic */ r2a e;
 
-    public u2a(v2a v2aVar) {
+    public u2a(r2a r2aVar, View view2, l2a l2aVar, FunAdInteractionListener funAdInteractionListener, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {v2aVar};
+            Object[] objArr = {r2aVar, view2, l2aVar, funAdInteractionListener, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,81 +35,42 @@ public class u2a implements ArCoreApk.a {
                 return;
             }
         }
-        this.a = v2aVar;
+        this.e = r2aVar;
+        this.a = view2;
+        this.b = l2aVar;
+        this.c = funAdInteractionListener;
+        this.d = str;
     }
 
-    public static Uri b(String str) {
-        InterceptResult invokeL;
+    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
+    public void onCancel() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return new Uri.Builder().scheme("content").authority("com.google.ar.core.services.arcorecontentprovider").path(str).build();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LogPrinter.e("CSJNativeExpressAd dislike callback onCancel", new Object[0]);
         }
-        return (Uri) invokeL.objValue;
     }
 
-    public static ArCoreApk.Availability c(Context context) {
-        InterceptResult invokeL;
+    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
+    public void onSelected(int i, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            try {
-                if (d(context) != null) {
-                    return ArCoreApk.Availability.SUPPORTED_APK_TOO_OLD;
-                }
-                return ArCoreApk.Availability.SUPPORTED_INSTALLED;
-            } catch (UnavailableDeviceNotCompatibleException unused) {
-                return ArCoreApk.Availability.UNSUPPORTED_DEVICE_NOT_CAPABLE;
-            } catch (UnavailableUserDeclinedInstallationException | RuntimeException unused2) {
-                return ArCoreApk.Availability.UNKNOWN_ERROR;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
+            LogPrinter.e("CSJNativeExpressAd dislike callback onSelected position: " + i + ", message: " + str, new Object[0]);
+            View view2 = this.a;
+            if (view2 != null && view2.getParent() != null) {
+                ((ViewGroup) this.a.getParent()).removeView(this.a);
             }
-        }
-        return (ArCoreApk.Availability) invokeL.objValue;
-    }
-
-    @Override // com.google.ar.core.ArCoreApk.a
-    public void a(ArCoreApk.Availability availability) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, availability) == null) {
-            synchronized (this.a) {
-                v2a.c(this.a, availability);
-                v2a.f(this.a, false);
+            this.e.onAdClose(this.b);
+            FunAdInteractionListener funAdInteractionListener = this.c;
+            if (funAdInteractionListener != null) {
+                funAdInteractionListener.onAdClose(this.d);
             }
         }
     }
 
-    public static PendingIntent d(Context context) {
-        InterceptResult invokeL;
+    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
+    public void onShow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            try {
-                Bundle call = context.getContentResolver().call(b(""), "getSetupIntent", context.getPackageName(), (Bundle) null);
-                if (call == null) {
-                    return null;
-                }
-                PendingIntent pendingIntent = (PendingIntent) call.getParcelable(IntentData.KEY);
-                if (pendingIntent != null) {
-                    return pendingIntent;
-                }
-                String string = call.getString("exceptionType", "");
-                if (string.isEmpty()) {
-                    return null;
-                }
-                if (!string.equals(UnavailableDeviceNotCompatibleException.class.getName())) {
-                    if (!string.equals(UnavailableUserDeclinedInstallationException.class.getName())) {
-                        Class<? extends U> asSubclass = Class.forName(string).asSubclass(RuntimeException.class);
-                        String string2 = call.getString("exceptionText", null);
-                        if (string2 != null) {
-                            throw ((RuntimeException) asSubclass.getConstructor(String.class).newInstance(string2));
-                        }
-                        throw ((RuntimeException) asSubclass.getConstructor(new Class[0]).newInstance(new Object[0]));
-                    }
-                    throw new UnavailableUserDeclinedInstallationException();
-                }
-                throw new UnavailableDeviceNotCompatibleException();
-            } catch (ReflectiveOperationException | RuntimeException e) {
-                Log.i("ARCore-SetupContentResolver", "Post-install failed", e);
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
-        return (PendingIntent) invokeL.objValue;
     }
 }

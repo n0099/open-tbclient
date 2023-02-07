@@ -1,116 +1,73 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class qj5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public int b;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public a(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = i;
-        }
-
-        public static a a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-                if (StringUtils.isNull(str)) {
-                    return null;
-                }
-                a aVar = new a();
-                if (str.contains("#")) {
-                    String[] split = str.split("#");
-                    if (split.length == 1) {
-                        aVar.a = split[0];
-                    } else if (split.length == 2) {
-                        aVar.a = split[0];
-                        aVar.b = yg.e(split[1], -1);
-                    }
-                } else {
-                    aVar.a = str;
-                }
-                return aVar;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (StringUtils.isNull(this.a)) {
-                    return "";
-                }
-                return this.a + "#" + this.b;
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    public static String[] a() {
-        InterceptResult invokeV;
+    public static String a(ArrayList<String> arrayList, String str, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            String r = cz4.l().r("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
-            if (StringUtils.isNull(r)) {
-                return new String[0];
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, arrayList, str, i)) == null) {
+            ArrayList arrayList2 = new ArrayList();
+            if (!ListUtils.isEmpty(arrayList)) {
+                arrayList2.addAll(arrayList);
             }
-            String[] split = r.split("\\^");
-            if (split != null && split.length > 0) {
-                ArrayList arrayList = new ArrayList();
-                for (String str : split) {
-                    a a2 = a.a(str);
-                    if (a2 != null && !StringUtils.isNull(a2.a)) {
-                        arrayList.add(a2.a);
-                    }
-                }
-                return (String[]) arrayList.toArray(new String[arrayList.size()]);
+            if (!TextUtils.isEmpty(str)) {
+                arrayList2.add(str);
+            }
+            List<String> c = c(arrayList2, i);
+            if (!ListUtils.isEmpty(c)) {
+                return b(c);
             }
             return null;
         }
-        return (String[]) invokeV.objValue;
+        return (String) invokeLLI.objValue;
+    }
+
+    public static String b(List<String> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
+            if (ListUtils.getCount(list) <= 0) {
+                return null;
+            }
+            StringBuilder sb = new StringBuilder();
+            boolean z = false;
+            for (String str : list) {
+                if (!StringUtils.isNull(str)) {
+                    if (!z && !StringUtils.isNull(sb.toString())) {
+                        z = true;
+                    }
+                    if (z) {
+                        sb.append("_");
+                    }
+                    sb.append(str);
+                }
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static List<String> c(List<String> list, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, list, i)) == null) {
+            int count = ListUtils.getCount(list);
+            if (count > 0 && i >= 0 && count > i) {
+                return ListUtils.subList(list, count - i, count);
+            }
+            return list;
+        }
+        return (List) invokeLI.objValue;
     }
 }

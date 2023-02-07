@@ -60,7 +60,7 @@ public final class c {
             boolean a = m.oF().a(ksScene, "loadFullScreenVideoAd");
             ksScene.setAdStyle(3);
             KsAdLoadManager.ab();
-            KsAdLoadManager.a(new a.C0598a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(a).a(new com.kwad.components.core.k.c(fullScreenVideoAdListener, ksScene, elapsedRealtime) { // from class: com.kwad.components.ad.fullscreen.c.1
+            KsAdLoadManager.a(new a.C0602a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(a).a(new com.kwad.components.core.k.c(fullScreenVideoAdListener, ksScene, elapsedRealtime) { // from class: com.kwad.components.ad.fullscreen.c.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ KsScene cU;

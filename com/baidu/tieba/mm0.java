@@ -1,48 +1,51 @@
 package com.baidu.tieba;
 
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
+import com.baidu.nadcore.download.view.IDownloadViewCreator;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class mm0 {
     public static /* synthetic */ Interceptable $ic;
+    public static IDownloadViewCreator a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Object a;
-    public final Class<?> b;
-    public final int c;
-    public final km0<?> d;
 
-    public mm0(int i, Object obj, Class<?> cls, km0<?> km0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), obj, cls, km0Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947977337, "Lcom/baidu/tieba/mm0;")) == null) {
+            return;
         }
-        this.c = i;
-        this.a = obj;
-        this.b = cls;
-        this.d = km0Var;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947977337, "Lcom/baidu/tieba/mm0;");
+        }
     }
 
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
+    public static vl0<?> a(@NonNull ViewGroup viewGroup, IDownloadViewCreator.ViewType viewType) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SubscribeInfo:{\n    threadMode:" + this.c + "\n    tag:" + this.a + "\n    eventClass:" + this.b + "\n    subscriber:" + this.d + "\n}";
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, viewGroup, viewType)) == null) {
+            if (a == null) {
+                synchronized (cj0.class) {
+                    if (a == null) {
+                        a = (IDownloadViewCreator) ServiceManager.getService(IDownloadViewCreator.a);
+                    }
+                    if (a == null) {
+                        a = IDownloadViewCreator.b;
+                    }
+                }
+            }
+            return a.a(viewGroup, viewType);
         }
-        return (String) invokeV.objValue;
+        return (vl0) invokeLL.objValue;
     }
 }

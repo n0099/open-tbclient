@@ -1,9 +1,5 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.content.Context;
-import android.os.Build;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,9 +7,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 /* loaded from: classes4.dex */
-public final class gha {
+public final class gha extends fha {
     public static /* synthetic */ Interceptable $ic;
     public static final gha a;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,25 +43,12 @@ public final class gha {
         }
     }
 
-    @TargetApi(17)
-    public final boolean a(Context context) {
-        InterceptResult invokeL;
+    public static fha e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (context != null && (context instanceof Activity)) {
-                Activity activity = (Activity) context;
-                if (activity.isFinishing()) {
-                    RLog.warn("ViewUtils", "activity is finishing");
-                    return false;
-                } else if (Build.VERSION.SDK_INT >= 17 && activity.isDestroyed()) {
-                    return false;
-                } else {
-                    return true;
-                }
-            }
-            RLog.warn("ViewUtils", "mContext is null or not activity");
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
         }
-        return invokeL.booleanValue;
+        return (fha) invokeV.objValue;
     }
 }

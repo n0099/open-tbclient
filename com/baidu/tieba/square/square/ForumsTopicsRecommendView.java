@@ -10,9 +10,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aa5;
-import com.baidu.tieba.jn;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.me5;
+import com.baidu.tieba.on;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
 /* loaded from: classes6.dex */
-public class ForumsTopicsRecommendView extends ViewGroup implements aa5 {
+public class ForumsTopicsRecommendView extends ViewGroup implements me5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
@@ -80,25 +80,25 @@ public class ForumsTopicsRecommendView extends ViewGroup implements aa5 {
         this.i = 0;
         this.j = null;
         this.a = context;
-        this.d = zi.l(context);
+        this.d = ej.l(context);
         this.b = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5);
         this.c = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701b2);
-        this.e = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070279);
-        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02d3, (ViewGroup) this, true);
-        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090aff));
-        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090b00));
-        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090b01));
-        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090b02));
+        this.e = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07027a);
+        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02d2, (ViewGroup) this, true);
+        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090b42));
+        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090b43));
+        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090b44));
+        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090b45));
         int i3 = this.d;
         int i4 = this.b;
         this.g = ((i3 - (i4 * 2)) - this.c) / 2;
         setPadding(i4, 0, i4, 0);
     }
 
-    @Override // com.baidu.tieba.aa5
-    public void a(jn jnVar, String str, boolean z) {
+    @Override // com.baidu.tieba.me5
+    public void a(on onVar, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048576, this, jnVar, str, z) == null) {
+        if (interceptable == null || interceptable.invokeLLZ(1048576, this, onVar, str, z) == null) {
             b(str);
         }
     }

@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.l75;
-import com.baidu.tieba.nv8;
-import com.baidu.tieba.u75;
-import com.baidu.tieba.z65;
+import com.baidu.tieba.gc5;
+import com.baidu.tieba.lb5;
+import com.baidu.tieba.lz8;
+import com.baidu.tieba.xb5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class SendView extends TextView implements l75 {
+public class SendView extends TextView implements xb5 {
     public static /* synthetic */ Interceptable $ic = null;
     public static int f = 2;
     public static int g = 1;
@@ -78,7 +78,7 @@ public class SendView extends TextView implements l75 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.J(new z65(8, -1, null));
+                this.a.J(new lb5(8, -1, null));
             }
         }
     }
@@ -104,7 +104,7 @@ public class SendView extends TextView implements l75 {
         this.c = new boolean[]{false, false, false, false, false};
         this.d = new int[]{0, 0};
         this.e = h;
-        setPadding(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070259), context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f9), context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070230), context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f9));
+        setPadding(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07025a), context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f9), context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070231), context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f9));
         setGravity(17);
         setIncludeFontPadding(false);
         setEnabled(false);
@@ -114,13 +114,13 @@ public class SendView extends TextView implements l75 {
         setOnClickListener(new a(this));
     }
 
-    @Override // com.baidu.tieba.a75
-    public void A(z65 z65Var) {
+    @Override // com.baidu.tieba.mb5
+    public void A(lb5 lb5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, z65Var) != null) || z65Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, lb5Var) != null) || lb5Var == null) {
             return;
         }
-        int i = z65Var.a;
+        int i = lb5Var.a;
         if (i != 4) {
             if (i != 39 && i != 28) {
                 if (i != 29) {
@@ -143,15 +143,15 @@ public class SendView extends TextView implements l75 {
                             this.c[2] = false;
                             break;
                         case 12:
-                            Object obj = z65Var.c;
-                            if (!(obj instanceof u75)) {
+                            Object obj = lb5Var.c;
+                            if (!(obj instanceof gc5)) {
                                 return;
                             }
-                            u75 u75Var = (u75) obj;
-                            WriteImagesInfo writeImagesInfo = u75Var.a;
+                            gc5 gc5Var = (gc5) obj;
+                            WriteImagesInfo writeImagesInfo = gc5Var.a;
                             if (writeImagesInfo != null) {
                                 if (writeImagesInfo.getChosedFiles() != null) {
-                                    this.d[0] = u75Var.a.getChosedFiles().size();
+                                    this.d[0] = gc5Var.a.getChosedFiles().size();
                                 } else {
                                     this.d[0] = 0;
                                 }
@@ -181,7 +181,7 @@ public class SendView extends TextView implements l75 {
                 this.c[3] = true;
             }
         } else {
-            Object obj2 = z65Var.c;
+            Object obj2 = lb5Var.c;
             if (obj2 != null && (!(obj2 instanceof String) || !StringUtils.isNull((String) obj2))) {
                 this.c[0] = true;
             } else {
@@ -191,16 +191,16 @@ public class SendView extends TextView implements l75 {
         a(this.e);
     }
 
-    @Override // com.baidu.tieba.l75
-    public void J(z65 z65Var) {
+    @Override // com.baidu.tieba.xb5
+    public void J(lb5 lb5Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z65Var) == null) && (editorTools = this.a) != null) {
-            editorTools.C(z65Var);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lb5Var) == null) && (editorTools = this.a) != null) {
+            editorTools.C(lb5Var);
         }
     }
 
-    @Override // com.baidu.tieba.l75
+    @Override // com.baidu.tieba.xb5
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, editorTools) == null) {
@@ -208,7 +208,7 @@ public class SendView extends TextView implements l75 {
         }
     }
 
-    @Override // com.baidu.tieba.l75
+    @Override // com.baidu.tieba.xb5
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
@@ -243,16 +243,16 @@ public class SendView extends TextView implements l75 {
         }
     }
 
-    @Override // com.baidu.tieba.l75
+    @Override // com.baidu.tieba.xb5
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             int color = SkinManager.getColor(i, (int) R.color.CAM_X0302);
-            setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{nv8.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), nv8.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
+            setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{lz8.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), lz8.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
         }
     }
 
-    @Override // com.baidu.tieba.l75
+    @Override // com.baidu.tieba.xb5
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -260,7 +260,7 @@ public class SendView extends TextView implements l75 {
         }
     }
 
-    @Override // com.baidu.tieba.l75
+    @Override // com.baidu.tieba.xb5
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -270,7 +270,7 @@ public class SendView extends TextView implements l75 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.l75
+    @Override // com.baidu.tieba.xb5
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -278,7 +278,7 @@ public class SendView extends TextView implements l75 {
         }
     }
 
-    @Override // com.baidu.tieba.l75
+    @Override // com.baidu.tieba.xb5
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {

@@ -1,8 +1,8 @@
 package com.baidu.nadcore.sweetsqlite;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.o11;
-import com.baidu.tieba.u11;
+import com.baidu.tieba.d31;
+import com.baidu.tieba.x21;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,7 +13,7 @@ public abstract class Column implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 10929877886821294L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final o11 field;
+    public final x21 field;
     public boolean isAssignedValue;
 
     public abstract void clear();
@@ -22,12 +22,12 @@ public abstract class Column implements Serializable {
 
     public abstract int type();
 
-    public Column(o11 o11Var) {
+    public Column(x21 x21Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {o11Var};
+            Object[] objArr = {x21Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,13 +38,13 @@ public abstract class Column implements Serializable {
             }
         }
         this.isAssignedValue = false;
-        this.field = o11Var;
+        this.field = x21Var;
     }
 
     public void copyTo(Column column) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, column) == null) {
-            u11.f(this, column);
+            d31.f(this, column);
         }
     }
 }

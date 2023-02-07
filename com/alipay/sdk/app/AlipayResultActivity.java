@@ -87,7 +87,7 @@ public class AlipayResultActivity extends Activity {
                 String stringExtra = intent.getStringExtra("session");
                 Bundle bundleExtra = intent.getBundleExtra("result");
                 String stringExtra2 = intent.getStringExtra("scene");
-                com.alipay.sdk.sys.a a2 = a.C0013a.a(stringExtra);
+                com.alipay.sdk.sys.a a2 = a.C0012a.a(stringExtra);
                 if (a2 == null) {
                     finish();
                     return;

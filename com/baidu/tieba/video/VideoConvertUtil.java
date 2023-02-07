@@ -7,8 +7,8 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.os.RemoteException;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.o59;
-import com.baidu.tieba.p59;
+import com.baidu.tieba.n99;
+import com.baidu.tieba.o99;
 import com.baidu.tieba.video.convert.IVideoConvertListener;
 import com.baidu.tieba.video.convert.IVideoConvertService;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -32,7 +32,7 @@ public class VideoConvertUtil {
     public String d;
     public File e;
     public File f;
-    public p59 g;
+    public o99 g;
     public IntenalConvertListener h;
     public int i;
     public boolean j;
@@ -173,7 +173,7 @@ public class VideoConvertUtil {
                 return;
             }
         }
-        String str = o59.f;
+        String str = n99.f;
     }
 
     private void bindService() {
@@ -295,10 +295,10 @@ public class VideoConvertUtil {
         return (String) invokeL.objValue;
     }
 
-    public void o(p59 p59Var) {
+    public void o(o99 o99Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, p59Var) == null) {
-            this.g = p59Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, o99Var) == null) {
+            this.g = o99Var;
         }
     }
 
@@ -314,12 +314,12 @@ public class VideoConvertUtil {
                 e.printStackTrace();
                 i = -1;
             }
-            p59 p59Var = this.g;
-            if (p59Var != null) {
+            o99 o99Var = this.g;
+            if (o99Var != null) {
                 if (i == 0) {
-                    p59Var.b();
+                    o99Var.b();
                 } else {
-                    p59Var.a(i);
+                    o99Var.a(i);
                 }
             }
         }

@@ -18,7 +18,6 @@ import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.collections.ArraysKt___ArraysJvmKt;
 import kotlin.internal.InlineOnly;
-import kotlin.internal.PlatformImplementationsKt;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.InlineMarker;
@@ -26,14 +25,14 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.ranges.RangesKt___RangesKt;
 import kotlin.sequences.Sequence;
 import kotlin.text.Charsets;
-@Metadata(d1 = {"\u0000z\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0012\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010 \n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\u001a\u0012\u0010\u0000\u001a\u00020\u0001*\u00020\u00022\u0006\u0010\u0003\u001a\u00020\u0004\u001a\u001c\u0010\u0005\u001a\u00020\u0001*\u00020\u00022\u0006\u0010\u0006\u001a\u00020\u00072\b\b\u0002\u0010\b\u001a\u00020\t\u001a!\u0010\n\u001a\u00020\u000b*\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\t2\b\b\u0002\u0010\f\u001a\u00020\rH\u0087\b\u001a!\u0010\u000e\u001a\u00020\u000f*\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\t2\b\b\u0002\u0010\f\u001a\u00020\rH\u0087\b\u001aB\u0010\u0010\u001a\u00020\u0001*\u00020\u000226\u0010\u0011\u001a2\u0012\u0013\u0012\u00110\u0004¢\u0006\f\b\u0013\u0012\b\b\u0014\u0012\u0004\b\b(\u0015\u0012\u0013\u0012\u00110\r¢\u0006\f\b\u0013\u0012\b\b\u0014\u0012\u0004\b\b(\u0016\u0012\u0004\u0012\u00020\u00010\u0012\u001aJ\u0010\u0010\u001a\u00020\u0001*\u00020\u00022\u0006\u0010\u0017\u001a\u00020\r26\u0010\u0011\u001a2\u0012\u0013\u0012\u00110\u0004¢\u0006\f\b\u0013\u0012\b\b\u0014\u0012\u0004\b\b(\u0015\u0012\u0013\u0012\u00110\r¢\u0006\f\b\u0013\u0012\b\b\u0014\u0012\u0004\b\b(\u0016\u0012\u0004\u0012\u00020\u00010\u0012\u001a7\u0010\u0018\u001a\u00020\u0001*\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\t2!\u0010\u0011\u001a\u001d\u0012\u0013\u0012\u00110\u0007¢\u0006\f\b\u0013\u0012\b\b\u0014\u0012\u0004\b\b(\u001a\u0012\u0004\u0012\u00020\u00010\u0019\u001a\r\u0010\u001b\u001a\u00020\u001c*\u00020\u0002H\u0087\b\u001a\r\u0010\u001d\u001a\u00020\u001e*\u00020\u0002H\u0087\b\u001a\u0017\u0010\u001f\u001a\u00020 *\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\tH\u0087\b\u001a\n\u0010!\u001a\u00020\u0004*\u00020\u0002\u001a\u001a\u0010\"\u001a\b\u0012\u0004\u0012\u00020\u00070#*\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\t\u001a\u0014\u0010$\u001a\u00020\u0007*\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\t\u001a\u0017\u0010%\u001a\u00020&*\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\tH\u0087\b\u001aB\u0010'\u001a\u0002H(\"\u0004\b\u0000\u0010(*\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\t2\u0018\u0010)\u001a\u0014\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00070*\u0012\u0004\u0012\u0002H(0\u0019H\u0086\bø\u0001\u0000ø\u0001\u0001¢\u0006\u0002\u0010,\u001a\u0012\u0010-\u001a\u00020\u0001*\u00020\u00022\u0006\u0010\u0003\u001a\u00020\u0004\u001a\u001c\u0010.\u001a\u00020\u0001*\u00020\u00022\u0006\u0010\u0006\u001a\u00020\u00072\b\b\u0002\u0010\b\u001a\u00020\t\u001a\u0017\u0010/\u001a\u000200*\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\tH\u0087\b\u0082\u0002\u000f\n\u0006\b\u0011(+0\u0001\n\u0005\b\u009920\u0001¨\u00061"}, d2 = {"appendBytes", "", "Ljava/io/File;", "array", "", "appendText", "text", "", "charset", "Ljava/nio/charset/Charset;", "bufferedReader", "Ljava/io/BufferedReader;", "bufferSize", "", "bufferedWriter", "Ljava/io/BufferedWriter;", "forEachBlock", "action", "Lkotlin/Function2;", "Lkotlin/ParameterName;", "name", "buffer", "bytesRead", "blockSize", "forEachLine", "Lkotlin/Function1;", "line", "inputStream", "Ljava/io/FileInputStream;", "outputStream", "Ljava/io/FileOutputStream;", "printWriter", "Ljava/io/PrintWriter;", "readBytes", "readLines", "", "readText", "reader", "Ljava/io/InputStreamReader;", "useLines", ExifInterface.GPS_DIRECTION_TRUE, BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "Lkotlin/sequences/Sequence;", "Requires newer compiler version to be inlined correctly.", "(Ljava/io/File;Ljava/nio/charset/Charset;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;", "writeBytes", "writeText", "writer", "Ljava/io/OutputStreamWriter;", "kotlin-stdlib"}, k = 5, mv = {1, 5, 1}, xi = 1, xs = "kotlin/io/FilesKt")
+@Metadata(d1 = {"\u0000z\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0012\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010 \n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\u001a\u0012\u0010\u0000\u001a\u00020\u0001*\u00020\u00022\u0006\u0010\u0003\u001a\u00020\u0004\u001a\u001c\u0010\u0005\u001a\u00020\u0001*\u00020\u00022\u0006\u0010\u0006\u001a\u00020\u00072\b\b\u0002\u0010\b\u001a\u00020\t\u001a!\u0010\n\u001a\u00020\u000b*\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\t2\b\b\u0002\u0010\f\u001a\u00020\rH\u0087\b\u001a!\u0010\u000e\u001a\u00020\u000f*\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\t2\b\b\u0002\u0010\f\u001a\u00020\rH\u0087\b\u001aB\u0010\u0010\u001a\u00020\u0001*\u00020\u000226\u0010\u0011\u001a2\u0012\u0013\u0012\u00110\u0004¢\u0006\f\b\u0013\u0012\b\b\u0014\u0012\u0004\b\b(\u0015\u0012\u0013\u0012\u00110\r¢\u0006\f\b\u0013\u0012\b\b\u0014\u0012\u0004\b\b(\u0016\u0012\u0004\u0012\u00020\u00010\u0012\u001aJ\u0010\u0010\u001a\u00020\u0001*\u00020\u00022\u0006\u0010\u0017\u001a\u00020\r26\u0010\u0011\u001a2\u0012\u0013\u0012\u00110\u0004¢\u0006\f\b\u0013\u0012\b\b\u0014\u0012\u0004\b\b(\u0015\u0012\u0013\u0012\u00110\r¢\u0006\f\b\u0013\u0012\b\b\u0014\u0012\u0004\b\b(\u0016\u0012\u0004\u0012\u00020\u00010\u0012\u001a7\u0010\u0018\u001a\u00020\u0001*\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\t2!\u0010\u0011\u001a\u001d\u0012\u0013\u0012\u00110\u0007¢\u0006\f\b\u0013\u0012\b\b\u0014\u0012\u0004\b\b(\u001a\u0012\u0004\u0012\u00020\u00010\u0019\u001a\r\u0010\u001b\u001a\u00020\u001c*\u00020\u0002H\u0087\b\u001a\r\u0010\u001d\u001a\u00020\u001e*\u00020\u0002H\u0087\b\u001a\u0017\u0010\u001f\u001a\u00020 *\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\tH\u0087\b\u001a\n\u0010!\u001a\u00020\u0004*\u00020\u0002\u001a\u001a\u0010\"\u001a\b\u0012\u0004\u0012\u00020\u00070#*\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\t\u001a\u0014\u0010$\u001a\u00020\u0007*\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\t\u001a\u0017\u0010%\u001a\u00020&*\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\tH\u0087\b\u001aB\u0010'\u001a\u0002H(\"\u0004\b\u0000\u0010(*\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\t2\u0018\u0010)\u001a\u0014\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00070*\u0012\u0004\u0012\u0002H(0\u0019H\u0086\bø\u0001\u0000ø\u0001\u0001¢\u0006\u0002\u0010,\u001a\u0012\u0010-\u001a\u00020\u0001*\u00020\u00022\u0006\u0010\u0003\u001a\u00020\u0004\u001a\u001c\u0010.\u001a\u00020\u0001*\u00020\u00022\u0006\u0010\u0006\u001a\u00020\u00072\b\b\u0002\u0010\b\u001a\u00020\t\u001a\u0017\u0010/\u001a\u000200*\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\tH\u0087\b\u0082\u0002\u000f\n\u0006\b\u0011(+0\u0001\n\u0005\b\u009920\u0001¨\u00061"}, d2 = {"appendBytes", "", "Ljava/io/File;", "array", "", "appendText", "text", "", "charset", "Ljava/nio/charset/Charset;", "bufferedReader", "Ljava/io/BufferedReader;", "bufferSize", "", "bufferedWriter", "Ljava/io/BufferedWriter;", "forEachBlock", "action", "Lkotlin/Function2;", "Lkotlin/ParameterName;", "name", "buffer", "bytesRead", "blockSize", "forEachLine", "Lkotlin/Function1;", "line", "inputStream", "Ljava/io/FileInputStream;", "outputStream", "Ljava/io/FileOutputStream;", "printWriter", "Ljava/io/PrintWriter;", "readBytes", "readLines", "", "readText", "reader", "Ljava/io/InputStreamReader;", "useLines", ExifInterface.GPS_DIRECTION_TRUE, BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "Lkotlin/sequences/Sequence;", "Requires newer compiler version to be inlined correctly.", "(Ljava/io/File;Ljava/nio/charset/Charset;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;", "writeBytes", "writeText", "writer", "Ljava/io/OutputStreamWriter;", "kotlin-stdlib"}, k = 5, mv = {1, 6, 0}, xi = 49, xs = "kotlin/io/FilesKt")
 /* loaded from: classes9.dex */
 public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public static final void appendBytes(File appendBytes, byte[] array) {
-        Intrinsics.checkNotNullParameter(appendBytes, "$this$appendBytes");
+    public static final void appendBytes(File file, byte[] array) {
+        Intrinsics.checkNotNullParameter(file, "<this>");
         Intrinsics.checkNotNullParameter(array, "array");
-        FileOutputStream fileOutputStream = new FileOutputStream(appendBytes, true);
+        FileOutputStream fileOutputStream = new FileOutputStream(file, true);
         try {
             fileOutputStream.write(array);
             Unit unit = Unit.INSTANCE;
@@ -42,15 +41,17 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
         }
     }
 
-    public static final void forEachBlock(File forEachBlock, Function2<? super byte[], ? super Integer, Unit> action) {
-        Intrinsics.checkNotNullParameter(forEachBlock, "$this$forEachBlock");
+    public static final void forEachBlock(File file, Function2<? super byte[], ? super Integer, Unit> action) {
+        Intrinsics.checkNotNullParameter(file, "<this>");
         Intrinsics.checkNotNullParameter(action, "action");
-        forEachBlock(forEachBlock, 4096, action);
+        forEachBlock(file, 4096, action);
     }
 
     @InlineOnly
     public static final PrintWriter printWriter(File file, Charset charset) {
         BufferedWriter bufferedWriter;
+        Intrinsics.checkNotNullParameter(file, "<this>");
+        Intrinsics.checkNotNullParameter(charset, "charset");
         OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream(file), charset);
         if (outputStreamWriter instanceof BufferedWriter) {
             bufferedWriter = (BufferedWriter) outputStreamWriter;
@@ -60,11 +61,11 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
         return new PrintWriter(bufferedWriter);
     }
 
-    public static final List<String> readLines(File readLines, Charset charset) {
-        Intrinsics.checkNotNullParameter(readLines, "$this$readLines");
+    public static final List<String> readLines(File file, Charset charset) {
+        Intrinsics.checkNotNullParameter(file, "<this>");
         Intrinsics.checkNotNullParameter(charset, "charset");
         final ArrayList arrayList = new ArrayList();
-        forEachLine(readLines, charset, new Function1<String, Unit>() { // from class: kotlin.io.FilesKt__FileReadWriteKt$readLines$1
+        forEachLine(file, charset, new Function1<String, Unit>() { // from class: kotlin.io.FilesKt__FileReadWriteKt$readLines$1
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
                 super(1);
@@ -88,28 +89,30 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public static final String readText(File readText, Charset charset) {
-        Intrinsics.checkNotNullParameter(readText, "$this$readText");
+    public static final String readText(File file, Charset charset) {
+        Intrinsics.checkNotNullParameter(file, "<this>");
         Intrinsics.checkNotNullParameter(charset, "charset");
-        InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(readText), charset);
+        InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(file), charset);
         try {
-            String readText2 = TextStreamsKt.readText(inputStreamReader);
+            String readText = TextStreamsKt.readText(inputStreamReader);
             CloseableKt.closeFinally(inputStreamReader, null);
-            return readText2;
+            return readText;
         } finally {
         }
     }
 
     @InlineOnly
     public static final InputStreamReader reader(File file, Charset charset) {
+        Intrinsics.checkNotNullParameter(file, "<this>");
+        Intrinsics.checkNotNullParameter(charset, "charset");
         return new InputStreamReader(new FileInputStream(file), charset);
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public static final void writeBytes(File writeBytes, byte[] array) {
-        Intrinsics.checkNotNullParameter(writeBytes, "$this$writeBytes");
+    public static final void writeBytes(File file, byte[] array) {
+        Intrinsics.checkNotNullParameter(file, "<this>");
         Intrinsics.checkNotNullParameter(array, "array");
-        FileOutputStream fileOutputStream = new FileOutputStream(writeBytes);
+        FileOutputStream fileOutputStream = new FileOutputStream(file);
         try {
             fileOutputStream.write(array);
             Unit unit = Unit.INSTANCE;
@@ -120,20 +123,24 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
 
     @InlineOnly
     public static final OutputStreamWriter writer(File file, Charset charset) {
+        Intrinsics.checkNotNullParameter(file, "<this>");
+        Intrinsics.checkNotNullParameter(charset, "charset");
         return new OutputStreamWriter(new FileOutputStream(file), charset);
     }
 
-    public static final void appendText(File appendText, String text, Charset charset) {
-        Intrinsics.checkNotNullParameter(appendText, "$this$appendText");
+    public static final void appendText(File file, String text, Charset charset) {
+        Intrinsics.checkNotNullParameter(file, "<this>");
         Intrinsics.checkNotNullParameter(text, "text");
         Intrinsics.checkNotNullParameter(charset, "charset");
         byte[] bytes = text.getBytes(charset);
-        Intrinsics.checkNotNullExpressionValue(bytes, "(this as java.lang.String).getBytes(charset)");
-        appendBytes(appendText, bytes);
+        Intrinsics.checkNotNullExpressionValue(bytes, "this as java.lang.String).getBytes(charset)");
+        appendBytes(file, bytes);
     }
 
     @InlineOnly
     public static final BufferedReader bufferedReader(File file, Charset charset, int i) {
+        Intrinsics.checkNotNullParameter(file, "<this>");
+        Intrinsics.checkNotNullParameter(charset, "charset");
         InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(file), charset);
         if (inputStreamReader instanceof BufferedReader) {
             return (BufferedReader) inputStreamReader;
@@ -143,6 +150,8 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
 
     @InlineOnly
     public static final BufferedWriter bufferedWriter(File file, Charset charset, int i) {
+        Intrinsics.checkNotNullParameter(file, "<this>");
+        Intrinsics.checkNotNullParameter(charset, "charset");
         OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream(file), charset);
         if (outputStreamWriter instanceof BufferedWriter) {
             return (BufferedWriter) outputStreamWriter;
@@ -150,20 +159,20 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
         return new BufferedWriter(outputStreamWriter, i);
     }
 
-    public static final void forEachLine(File forEachLine, Charset charset, Function1<? super String, Unit> action) {
-        Intrinsics.checkNotNullParameter(forEachLine, "$this$forEachLine");
+    public static final void forEachLine(File file, Charset charset, Function1<? super String, Unit> action) {
+        Intrinsics.checkNotNullParameter(file, "<this>");
         Intrinsics.checkNotNullParameter(charset, "charset");
         Intrinsics.checkNotNullParameter(action, "action");
-        TextStreamsKt.forEachLine(new BufferedReader(new InputStreamReader(new FileInputStream(forEachLine), charset)), action);
+        TextStreamsKt.forEachLine(new BufferedReader(new InputStreamReader(new FileInputStream(file), charset)), action);
     }
 
-    public static final void writeText(File writeText, String text, Charset charset) {
-        Intrinsics.checkNotNullParameter(writeText, "$this$writeText");
+    public static final void writeText(File file, String text, Charset charset) {
+        Intrinsics.checkNotNullParameter(file, "<this>");
         Intrinsics.checkNotNullParameter(text, "text");
         Intrinsics.checkNotNullParameter(charset, "charset");
         byte[] bytes = text.getBytes(charset);
-        Intrinsics.checkNotNullExpressionValue(bytes, "(this as java.lang.String).getBytes(charset)");
-        writeBytes(writeText, bytes);
+        Intrinsics.checkNotNullExpressionValue(bytes, "this as java.lang.String).getBytes(charset)");
+        writeBytes(file, bytes);
     }
 
     public static /* synthetic */ void appendText$default(File file, String str, Charset charset, int i, Object obj) {
@@ -180,6 +189,8 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
         if ((i2 & 2) != 0) {
             i = 8192;
         }
+        Intrinsics.checkNotNullParameter(file, "<this>");
+        Intrinsics.checkNotNullParameter(charset, "charset");
         InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(file), charset);
         if (inputStreamReader instanceof BufferedReader) {
             return (BufferedReader) inputStreamReader;
@@ -194,6 +205,8 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
         if ((i2 & 2) != 0) {
             i = 8192;
         }
+        Intrinsics.checkNotNullParameter(file, "<this>");
+        Intrinsics.checkNotNullParameter(charset, "charset");
         OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream(file), charset);
         if (outputStreamWriter instanceof BufferedWriter) {
             return (BufferedWriter) outputStreamWriter;
@@ -219,11 +232,11 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
     /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: java.io.FileInputStream */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r2v2, types: [byte[], java.lang.Object] */
-    public static final void forEachBlock(File forEachBlock, int i, Function2<? super byte[], ? super Integer, Unit> action) {
-        Intrinsics.checkNotNullParameter(forEachBlock, "$this$forEachBlock");
+    public static final void forEachBlock(File file, int i, Function2<? super byte[], ? super Integer, Unit> action) {
+        Intrinsics.checkNotNullParameter(file, "<this>");
         Intrinsics.checkNotNullParameter(action, "action");
         ?? r2 = new byte[RangesKt___RangesKt.coerceAtLeast(i, 512)];
-        FileInputStream fileInputStream = new FileInputStream(forEachBlock);
+        FileInputStream fileInputStream = new FileInputStream(file);
         while (true) {
             try {
                 int read = fileInputStream.read(r2);
@@ -240,11 +253,13 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
 
     @InlineOnly
     public static final FileInputStream inputStream(File file) {
+        Intrinsics.checkNotNullParameter(file, "<this>");
         return new FileInputStream(file);
     }
 
     @InlineOnly
     public static final FileOutputStream outputStream(File file) {
+        Intrinsics.checkNotNullParameter(file, "<this>");
         return new FileOutputStream(file);
     }
 
@@ -253,6 +268,8 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
         if ((i & 1) != 0) {
             charset = Charsets.UTF_8;
         }
+        Intrinsics.checkNotNullParameter(file, "<this>");
+        Intrinsics.checkNotNullParameter(charset, "charset");
         OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream(file), charset);
         if (outputStreamWriter instanceof BufferedWriter) {
             bufferedWriter = (BufferedWriter) outputStreamWriter;
@@ -280,6 +297,8 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
         if ((i & 1) != 0) {
             charset = Charsets.UTF_8;
         }
+        Intrinsics.checkNotNullParameter(file, "<this>");
+        Intrinsics.checkNotNullParameter(charset, "charset");
         return new InputStreamReader(new FileInputStream(file), charset);
     }
 
@@ -287,16 +306,18 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
         if ((i & 1) != 0) {
             charset = Charsets.UTF_8;
         }
+        Intrinsics.checkNotNullParameter(file, "<this>");
+        Intrinsics.checkNotNullParameter(charset, "charset");
         return new OutputStreamWriter(new FileOutputStream(file), charset);
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public static final byte[] readBytes(File readBytes) {
-        Intrinsics.checkNotNullParameter(readBytes, "$this$readBytes");
-        FileInputStream fileInputStream = new FileInputStream(readBytes);
+    public static final byte[] readBytes(File file) {
+        Intrinsics.checkNotNullParameter(file, "<this>");
+        FileInputStream fileInputStream = new FileInputStream(file);
         try {
-            long length = readBytes.length();
-            if (length <= Integer.MAX_VALUE) {
+            long length = file.length();
+            if (length <= 2147483647L) {
                 int i = (int) length;
                 byte[] bArr = new byte[i];
                 int i2 = i;
@@ -311,7 +332,7 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
                 }
                 if (i2 > 0) {
                     bArr = Arrays.copyOf(bArr, i3);
-                    Intrinsics.checkNotNullExpressionValue(bArr, "java.util.Arrays.copyOf(this, newSize)");
+                    Intrinsics.checkNotNullExpressionValue(bArr, "copyOf(this, newSize)");
                 } else {
                     int read2 = fileInputStream.read();
                     if (read2 != -1) {
@@ -322,17 +343,17 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
                         if (size >= 0) {
                             byte[] buffer = exposingBufferByteArrayOutputStream.getBuffer();
                             byte[] copyOf = Arrays.copyOf(bArr, size);
-                            Intrinsics.checkNotNullExpressionValue(copyOf, "java.util.Arrays.copyOf(this, newSize)");
+                            Intrinsics.checkNotNullExpressionValue(copyOf, "copyOf(this, newSize)");
                             bArr = ArraysKt___ArraysJvmKt.copyInto(buffer, copyOf, i, 0, exposingBufferByteArrayOutputStream.size());
                         } else {
-                            throw new OutOfMemoryError("File " + readBytes + " is too big to fit in memory.");
+                            throw new OutOfMemoryError("File " + file + " is too big to fit in memory.");
                         }
                     }
                 }
                 CloseableKt.closeFinally(fileInputStream, null);
                 return bArr;
             }
-            throw new OutOfMemoryError("File " + readBytes + " is too big (" + length + " bytes) to fit in memory.");
+            throw new OutOfMemoryError("File " + file + " is too big (" + length + " bytes) to fit in memory.");
         } catch (Throwable th) {
             try {
                 throw th;
@@ -344,12 +365,12 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public static final <T> T useLines(File useLines, Charset charset, Function1<? super Sequence<String>, ? extends T> block) {
+    public static final <T> T useLines(File file, Charset charset, Function1<? super Sequence<String>, ? extends T> block) {
         BufferedReader bufferedReader;
-        Intrinsics.checkNotNullParameter(useLines, "$this$useLines");
+        Intrinsics.checkNotNullParameter(file, "<this>");
         Intrinsics.checkNotNullParameter(charset, "charset");
         Intrinsics.checkNotNullParameter(block, "block");
-        InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(useLines), charset);
+        InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(file), charset);
         if (inputStreamReader instanceof BufferedReader) {
             bufferedReader = (BufferedReader) inputStreamReader;
         } else {
@@ -358,55 +379,29 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
         try {
             T invoke = block.invoke(TextStreamsKt.lineSequence(bufferedReader));
             InlineMarker.finallyStart(1);
-            if (PlatformImplementationsKt.apiVersionIsAtLeast(1, 1, 0)) {
-                CloseableKt.closeFinally(bufferedReader, null);
-            } else {
-                bufferedReader.close();
-            }
+            CloseableKt.closeFinally(bufferedReader, null);
             InlineMarker.finallyEnd(1);
             return invoke;
-        } catch (Throwable th) {
-            try {
-                throw th;
-            } catch (Throwable th2) {
-                InlineMarker.finallyStart(1);
-                if (!PlatformImplementationsKt.apiVersionIsAtLeast(1, 1, 0)) {
-                    try {
-                        bufferedReader.close();
-                    } catch (Throwable unused) {
-                    }
-                } else {
-                    CloseableKt.closeFinally(bufferedReader, th);
-                }
-                InlineMarker.finallyEnd(1);
-                throw th2;
-            }
+        } finally {
         }
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public static /* synthetic */ Object useLines$default(File useLines, Charset charset, Function1 block, int i, Object obj) {
+    public static /* synthetic */ Object useLines$default(File file, Charset charset, Function1 function1, int i, Object obj) {
         BufferedReader bufferedReader;
         if ((i & 1) != 0) {
             charset = Charsets.UTF_8;
         }
-        Intrinsics.checkNotNullParameter(useLines, "$this$useLines");
-        Intrinsics.checkNotNullParameter(charset, "charset");
-        Intrinsics.checkNotNullParameter(block, "block");
-        InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(useLines), charset);
+        InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(file), charset);
         if (inputStreamReader instanceof BufferedReader) {
             bufferedReader = (BufferedReader) inputStreamReader;
         } else {
             bufferedReader = new BufferedReader(inputStreamReader, 8192);
         }
         try {
-            Object invoke = block.invoke(TextStreamsKt.lineSequence(bufferedReader));
+            Object invoke = function1.invoke(TextStreamsKt.lineSequence(bufferedReader));
             InlineMarker.finallyStart(1);
-            if (PlatformImplementationsKt.apiVersionIsAtLeast(1, 1, 0)) {
-                CloseableKt.closeFinally(bufferedReader, null);
-            } else {
-                bufferedReader.close();
-            }
+            CloseableKt.closeFinally(bufferedReader, null);
             InlineMarker.finallyEnd(1);
             return invoke;
         } finally {

@@ -15,18 +15,18 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bm0;
-import com.baidu.tieba.k41;
-import com.baidu.tieba.un0;
-import com.baidu.tieba.vn0;
-import com.baidu.tieba.zl0;
+import com.baidu.tieba.go0;
+import com.baidu.tieba.ho0;
+import com.baidu.tieba.lm0;
+import com.baidu.tieba.nm0;
+import com.baidu.tieba.u51;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class AdInstallTipsView extends LinearLayout implements bm0, View.OnClickListener {
+public class AdInstallTipsView extends LinearLayout implements nm0, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
@@ -37,7 +37,7 @@ public class AdInstallTipsView extends LinearLayout implements bm0, View.OnClick
     public FrameLayout f;
     public TextView g;
     public CountDownTextView h;
-    public zl0<AdInstallTipsView> i;
+    public lm0<AdInstallTipsView> i;
     public b j;
 
     /* loaded from: classes2.dex */
@@ -48,12 +48,12 @@ public class AdInstallTipsView extends LinearLayout implements bm0, View.OnClick
     }
 
     /* loaded from: classes2.dex */
-    public class a implements vn0 {
+    public class a implements ho0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdInstallTipsView a;
 
-        @Override // com.baidu.tieba.vn0
+        @Override // com.baidu.tieba.ho0
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -78,7 +78,7 @@ public class AdInstallTipsView extends LinearLayout implements bm0, View.OnClick
             this.a = adInstallTipsView;
         }
 
-        @Override // com.baidu.tieba.vn0
+        @Override // com.baidu.tieba.ho0
         public void b(Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
@@ -108,7 +108,7 @@ public class AdInstallTipsView extends LinearLayout implements bm0, View.OnClick
         }
     }
 
-    @Override // com.baidu.tieba.bm0
+    @Override // com.baidu.tieba.nm0
     public void a(long j) {
         boolean z;
         ClogBuilder.Area area;
@@ -183,7 +183,7 @@ public class AdInstallTipsView extends LinearLayout implements bm0, View.OnClick
         }
     }
 
-    @Override // com.baidu.tieba.bm0
+    @Override // com.baidu.tieba.nm0
     public void b(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
@@ -191,7 +191,7 @@ public class AdInstallTipsView extends LinearLayout implements bm0, View.OnClick
         }
     }
 
-    @Override // com.baidu.tieba.bm0
+    @Override // com.baidu.tieba.nm0
     public void c(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
@@ -203,7 +203,7 @@ public class AdInstallTipsView extends LinearLayout implements bm0, View.OnClick
         }
     }
 
-    @Override // com.baidu.tieba.bm0
+    @Override // com.baidu.tieba.nm0
     public void onProgress(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
@@ -230,7 +230,7 @@ public class AdInstallTipsView extends LinearLayout implements bm0, View.OnClick
             setBackground(getResources().getDrawable(R.drawable.nad_install_tips_bg));
             setOrientation(0);
             setGravity(16);
-            this.i = new zl0<>(this);
+            this.i = new lm0<>(this);
         }
     }
 
@@ -262,7 +262,7 @@ public class AdInstallTipsView extends LinearLayout implements bm0, View.OnClick
             this.c.setOnClickListener(this);
             this.f.setOnClickListener(this);
             setOnClickListener(this);
-            k41.a(getContext(), this.c, 10.0f);
+            u51.a(getContext(), this.c, 10.0f);
         }
     }
 
@@ -296,7 +296,7 @@ public class AdInstallTipsView extends LinearLayout implements bm0, View.OnClick
     public void update(String str, String str2, long j, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, str2, Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            un0.a().c(str, new a(this));
+            go0.a().c(str, new a(this));
             this.b.setText(str2);
             if (z) {
                 this.d.setVisibility(8);

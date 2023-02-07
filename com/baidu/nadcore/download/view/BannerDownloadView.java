@@ -14,7 +14,7 @@ import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i31;
+import com.baidu.tieba.r41;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -157,7 +157,7 @@ public class BannerDownloadView extends AppCompatTextView {
     public final void d(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, i31.nad_progress);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, r41.nad_progress);
             int color = getResources().getColor(R.color.nad_download_button_text_color);
             int color2 = getResources().getColor(R.color.nad_download_button_fg_start);
             int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.nad_progress_button_radian);

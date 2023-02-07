@@ -1,71 +1,110 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Parcelable;
-import android.util.SparseArray;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class li4 extends FrameLayout {
+public class li4<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final List<T> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public li4(Context context) {
-        super(context);
+    public li4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new ArrayList();
     }
 
-    public static ViewGroup a(View view2) {
+    public synchronized T c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                if (this.a.isEmpty()) {
+                    return null;
+                }
+                T t = this.a.get(0);
+                this.a.remove(0);
+                return t;
+            }
+        }
+        return (T) invokeV.objValue;
+    }
+
+    public synchronized T d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this) {
+                if (this.a.isEmpty()) {
+                    return null;
+                }
+                return this.a.get(0);
+            }
+        }
+        return (T) invokeV.objValue;
+    }
+
+    @NonNull
+    public Iterator<T> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a.iterator();
+        }
+        return (Iterator) invokeV.objValue;
+    }
+
+    public T e(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            li4 li4Var = new li4(view2.getContext());
-            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
-            if (layoutParams != null) {
-                li4Var.setLayoutParams(layoutParams);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
+            if (t != null) {
+                for (int size = this.a.size() - 1; size >= 0; size--) {
+                    if (t.equals(this.a.get(size))) {
+                        return this.a.get(size);
+                    }
+                }
+                return null;
             }
-            view2.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-            li4Var.addView(view2);
-            return li4Var;
+            return null;
         }
-        return (ViewGroup) invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
-    @Override // android.view.ViewGroup, android.view.View
-    public void dispatchRestoreInstanceState(SparseArray<Parcelable> sparseArray) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sparseArray) == null) {
-            dispatchThawSelfOnly(sparseArray);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(",Queue Size:" + this.a.size());
+            synchronized (this) {
+                int i = 0;
+                for (T t : this.a) {
+                    sb.append(":[" + i + PreferencesUtil.RIGHT_MOUNT + t);
+                    i++;
+                }
+            }
+            return sb.toString();
         }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void dispatchSaveInstanceState(SparseArray<Parcelable> sparseArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sparseArray) == null) {
-            dispatchFreezeSelfOnly(sparseArray);
-        }
+        return (String) invokeV.objValue;
     }
 }

@@ -1,27 +1,49 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
 /* loaded from: classes7.dex */
-public interface y34 {
-    void a(JsObject jsObject);
+public class y34 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(JsObject jsObject);
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? "meter.js" : (String) invokeV.objValue;
+    }
 
-    void c(JsObject jsObject);
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            File b = b();
+            if (b.exists()) {
+                ap4.j(b);
+            }
+        }
+    }
 
-    void d(JsObject jsObject);
+    public static File b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return m54.e("aigames_debug_dashboard");
+        }
+        return (File) invokeV.objValue;
+    }
 
-    void e(JsObject jsObject);
-
-    void f();
-
-    void g(JsObject jsObject);
-
-    void h(JsObject jsObject);
-
-    void i(JsObject jsObject);
-
-    void j();
-
-    void k(JsObject jsObject);
+    public static File c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            File b = b();
+            if (!b.exists()) {
+                b.mkdirs();
+            }
+            return new File(b, "debugDashboard.zip");
+        }
+        return (File) invokeV.objValue;
+    }
 }

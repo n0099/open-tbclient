@@ -1,190 +1,78 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.Uri;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.extractor.CyberExtractor;
-import com.baidu.tieba.gi2;
-import com.baidu.tieba.ri2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
-import java.util.Map;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 /* loaded from: classes3.dex */
-public class am4 implements ri2 {
+public class am4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public ri2.a b;
-    public CyberExtractor c;
-    public volatile boolean d;
 
-    @Override // com.baidu.tieba.gi2
-    @Nullable
-    public String j0() {
-        InterceptResult invokeV;
+    public static String a(byte[] bArr, String str, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
+                if (z) {
+                    hexString = hexString.toUpperCase();
+                }
+                if (hexString.length() == 1) {
+                    sb.append("0");
+                }
+                sb.append(hexString);
+                sb.append(str);
+            }
+            return sb.toString();
         }
-        return (String) invokeV.objValue;
+        return (String) invokeLLZ.objValue;
     }
 
-    /* loaded from: classes3.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ Map b;
-        public final /* synthetic */ am4 c;
-
-        public a(am4 am4Var, String str, Map map) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {am4Var, str, map};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = am4Var;
-            this.a = str;
-            this.b = map;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.c.d) {
-                    if (am4.e) {
-                        Log.d("MediaExtractorWidget", "media extractor already released");
-                        return;
+    public static String b(File file, boolean z) {
+        InterceptResult invokeLZ;
+        FileInputStream fileInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, file, z)) == null) {
+            FileInputStream fileInputStream2 = null;
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.reset();
+                fileInputStream = new FileInputStream(file);
+                try {
+                    byte[] bArr = new byte[8192];
+                    while (true) {
+                        int read = fileInputStream.read(bArr);
+                        if (read > 0) {
+                            messageDigest.update(bArr, 0, read);
+                        } else {
+                            String a = a(messageDigest.digest(), "", z);
+                            ap4.d(fileInputStream);
+                            return a;
+                        }
                     }
-                    return;
+                } catch (FileNotFoundException | IOException | NoSuchAlgorithmException unused) {
+                    ap4.d(fileInputStream);
+                    return null;
+                } catch (Throwable th) {
+                    th = th;
+                    fileInputStream2 = fileInputStream;
+                    ap4.d(fileInputStream2);
+                    throw th;
                 }
-                this.c.c.setDataSource(this.c.getContext(), Uri.parse(ll2.a(this.a)), this.b);
-                Bundle metaData = this.c.c.getMetaData();
-                if (this.c.b != null) {
-                    this.c.b.a(metaData);
-                }
+            } catch (FileNotFoundException | IOException | NoSuchAlgorithmException unused2) {
+                fileInputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
             }
+        } else {
+            return (String) invokeLZ.objValue;
         }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947619969, "Lcom/baidu/tieba/am4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947619969, "Lcom/baidu/tieba/am4;");
-                return;
-            }
-        }
-        e = tk1.a;
-    }
-
-    @Override // com.baidu.tieba.gi2
-    @Nullable
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return qn2.c();
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ri2
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.d = true;
-            CyberExtractor cyberExtractor = this.c;
-            if (cyberExtractor != null) {
-                cyberExtractor.release();
-            }
-            this.c = null;
-            ri2.a aVar = this.b;
-            if (aVar != null) {
-                aVar.onRelease();
-            }
-            this.b = null;
-        }
-    }
-
-    public am4(ZeusPluginFactory.Invoker invoker, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {invoker, str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = str;
-        this.d = false;
-    }
-
-    @Override // com.baidu.tieba.gi2
-    public void A(@NonNull gi2.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.c = new CyberExtractor(true);
-            aVar.a(true);
-        }
-    }
-
-    @Override // com.baidu.tieba.ri2
-    public void w(ri2.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            this.b = aVar;
-        }
-    }
-
-    @Override // com.baidu.tieba.ri2
-    public void k(String str, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048580, this, str, map) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        dh3.j(new a(this, str, map), "loadMetadata");
     }
 }

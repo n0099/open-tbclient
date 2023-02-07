@@ -4,8 +4,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.dc7;
-import com.baidu.tieba.yn;
+import com.baidu.tieba.Cdo;
+import com.baidu.tieba.og7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ public class ResponseHttpGetTopicThreadMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
-    public List<yn> mDataList;
+    public List<Cdo> mDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseHttpGetTopicThreadMessage() {
@@ -61,15 +61,15 @@ public class ResponseHttpGetTopicThreadMessage extends TbHttpResponsedMessage {
             this.mDataList = new ArrayList();
             for (TopicThread topicThread : newTopicThreadResIdl.data.thread_list) {
                 if (topicThread != null) {
-                    dc7 dc7Var = new dc7();
-                    dc7Var.f(topicThread);
-                    this.mDataList.add(dc7Var);
+                    og7 og7Var = new og7();
+                    og7Var.f(topicThread);
+                    this.mDataList.add(og7Var);
                 }
             }
         }
     }
 
-    public List<yn> getDataList() {
+    public List<Cdo> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

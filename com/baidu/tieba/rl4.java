@@ -1,68 +1,20 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.internal.ETAG;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class rl4 {
+public class rl4 extends fk4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BroadcastReceiver a;
-    public Context b;
-    public int c;
-    public b d;
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(int i, int i2);
-    }
-
-    /* loaded from: classes6.dex */
-    public class a extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rl4 this$0;
-
-        public a(rl4 rl4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rl4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = rl4Var;
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            int d;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLL(1048576, this, context, intent) != null) || !TextUtils.equals(intent.getAction(), "android.net.conn.CONNECTIVITY_CHANGE") || (d = this.this$0.d()) == this.this$0.c) {
-                return;
-            }
-            if (this.this$0.d != null) {
-                this.this$0.d.a(this.this$0.c, d);
-            }
-            this.this$0.c = d;
-        }
-    }
 
     public rl4() {
         Interceptable interceptable = $ic;
@@ -78,44 +30,71 @@ public class rl4 {
         }
     }
 
-    public int d() {
+    @Override // com.baidu.tieba.fk4
+    public JSONArray c() {
         InterceptResult invokeV;
+        List<xh4> w;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (SwanAppNetworkUtils.j(this.b)) {
-                return 1;
+            JSONArray jSONArray = new JSONArray();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", "bbasp_core");
+                jSONObject.put("version_name", hg4.b().J(0));
+                jSONObject.put("version_code", hg4.b().w(0));
+                jSONArray.put(jSONObject);
+            } catch (JSONException unused) {
             }
-            if (SwanAppNetworkUtils.i(this.b)) {
-                return 2;
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("type", "bbasp_game");
+                jSONObject2.put("version_name", hg4.b().J(1));
+                jSONObject2.put("version_code", hg4.b().w(1));
+                jSONArray.put(jSONObject2);
+            } catch (JSONException unused2) {
             }
-            return 0;
+            JSONObject jSONObject3 = new JSONObject();
+            try {
+                jSONObject3.put("type", ETAG.KEY_EXTENSION);
+                jSONObject3.put("version_name", hg4.b().v(0));
+                jSONObject3.put("version_code", hg4.b().j(0));
+                jSONArray.put(jSONObject3);
+            } catch (JSONException unused3) {
+            }
+            JSONObject jSONObject4 = new JSONObject();
+            try {
+                jSONObject4.put("type", "extension_game");
+                jSONObject4.put("version_name", hg4.b().v(1));
+                jSONObject4.put("version_code", hg4.b().j(1));
+                jSONArray.put(jSONObject4);
+            } catch (JSONException unused4) {
+            }
+            try {
+                w = tg4.i().w(f(10));
+            } catch (JSONException unused5) {
+            }
+            if (w == null) {
+                return jSONArray;
+            }
+            for (xh4 xh4Var : w) {
+                JSONObject jSONObject5 = new JSONObject();
+                jSONObject5.put("type", "ddl");
+                jSONObject5.put("bundle_id", xh4Var.g);
+                jSONObject5.put("version_code", xh4Var.i);
+                jSONObject5.put("version_name", xh4Var.j);
+                jSONArray.put(jSONObject5);
+            }
+            return jSONArray;
         }
-        return invokeV.intValue;
+        return (JSONArray) invokeV.objValue;
     }
 
-    public void g() {
-        Context context;
+    public final String f(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (context = this.b) != null) {
-            context.unregisterReceiver(this.a);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return "SELECT * from (SELECT * from (SELECT * from swan_plugin ORDER BY update_time) group by bundle_id) order by update_time DESC limit 0," + i + ";";
         }
-    }
-
-    public void e(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.b = context;
-            this.c = d();
-            a aVar = new a(this);
-            this.a = aVar;
-            this.b.registerReceiver(aVar, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
-        }
-    }
-
-    public void f(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.d = bVar;
-        }
+        return (String) invokeI.objValue;
     }
 }

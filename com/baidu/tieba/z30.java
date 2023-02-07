@@ -1,11 +1,14 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import com.baidu.android.common.util.DeviceId;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class z30 implements b40 {
+public class z30 implements c40 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -21,5 +24,18 @@ public abstract class z30 implements b40 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.c40
+    public String a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            if (context != null) {
+                return DeviceId.getCUID(context);
+            }
+            throw new NullPointerException("context should not be null");
+        }
+        return (String) invokeL.objValue;
     }
 }

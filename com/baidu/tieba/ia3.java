@@ -1,132 +1,173 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import android.content.Context;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.upload.UploadConstant;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public final class ia3 {
+public class ia3 extends ta3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(@NonNull String str, @Nullable String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            return str + str2;
-        }
-        return (String) invokeLL.objValue;
+    /* loaded from: classes4.dex */
+    public interface b {
     }
 
-    public static void i(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65544, null, str, z) == null) {
-            xc3.a().putBoolean(a("SwanAppStabilitySp-autoObtain", str), z);
-        }
-    }
+    /* loaded from: classes4.dex */
+    public class a implements b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Activity a;
 
-    public static void j(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65545, null, str, i) == null) {
-            xc3.a().putInt(a("SwanAppStabilitySp-autoObtainDataLen", str), i);
-        }
-    }
-
-    public static void k(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65546, null, str, i) == null) {
-            xc3.a().putInt(a("SwanAppStabilitySp-obtainIntervalMs", str), i);
-        }
-    }
-
-    public static void l(boolean z, @Nullable String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(65547, null, z, str) == null) {
-            xc3.a().putBoolean(a("SwanAppStabilitySp-obtainData", str), z);
+        public a(ia3 ia3Var, Activity activity, Uri uri, String str, CallbackHandler callbackHandler, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ia3Var, activity, uri, str, callbackHandler, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = activity;
         }
     }
 
-    public static void m(boolean z, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ia3(t93 t93Var) {
+        super(t93Var, "/swanAPI/file/openDocument");
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(65548, null, z, str) == null) {
-            xc3.a().putBoolean(a("SwanAppStabilitySp-stabilityProfile", str), z);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {t93Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
     }
 
-    public static void n(String str, int i) {
+    @Override // com.baidu.tieba.ta3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, w83 w83Var) {
+        InterceptResult invokeLLLL;
+        Uri uri;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65549, null, str, i) == null) {
-            xc3.a().putInt(a("SwanAppStabilitySp-swanStartupStability", str), i);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, w83Var)) == null) {
+            if (w83Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
+                return false;
+            } else if (w83Var.n0()) {
+                if (ta3.b) {
+                    Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
+                }
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
+                return false;
+            } else {
+                JSONObject a2 = ta3.a(unitedSchemeEntity, "params");
+                if (a2 == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal params");
+                    return false;
+                }
+                String optString = a2.optString("filePath");
+                if (TextUtils.isEmpty(optString)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal filePath");
+                    return false;
+                }
+                String g0 = w83.g0();
+                if (TextUtils.isEmpty(g0)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal appId");
+                    return false;
+                }
+                String M = eg3.M(optString, g0);
+                if (TextUtils.isEmpty(M)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal realFilePath");
+                    return false;
+                }
+                String optString2 = a2.optString(UploadConstant.KEY_FILE_TYPE);
+                String t = ap4.t(M);
+                if (TextUtils.isEmpty(t)) {
+                    if (TextUtils.isEmpty(optString2)) {
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal file ext");
+                        return false;
+                    }
+                } else {
+                    optString2 = t;
+                }
+                String b2 = nl3.b(optString2);
+                if (TextUtils.isEmpty(b2)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal file mimeType");
+                    return false;
+                }
+                Uri parse = Uri.parse(M);
+                if (parse == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal Uri path");
+                    return false;
+                }
+                if (parse.getScheme() == null) {
+                    uri = Uri.fromFile(new File(M));
+                } else {
+                    uri = parse;
+                }
+                SwanAppActivity w = w83Var.w();
+                if (w == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal activity == null");
+                    return false;
+                } else if (!nl3.a(b2)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not support this mimeType=" + b2);
+                    return false;
+                } else {
+                    String optString3 = a2.optString("cb");
+                    it1 r = ds2.r();
+                    if (!r.b(w, b2)) {
+                        if (TextUtils.isEmpty(optString3)) {
+                            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not found plugin,mimeType=" + b2);
+                            return false;
+                        }
+                        j(w, b2, uri, optString3, callbackHandler);
+                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                        return true;
+                    }
+                    r.c(w, uri, b2);
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                    callbackHandler.handleSchemeDispatchCallback(optString3, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                    return true;
+                }
+            }
         }
+        return invokeLLLL.booleanValue;
     }
 
-    public static void b() {
+    public final void j(Activity activity, String str, Uri uri, String str2, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            String appId = i43.K().getAppId();
-            rc3 a = xc3.a();
-            a.remove(a("SwanAppStabilitySp-obtainData", appId));
-            a.remove(a("SwanAppStabilitySp-autoObtain", appId));
-            a.remove(a("SwanAppStabilitySp-swanStartupStability", appId));
-            a.remove(a("SwanAppStabilitySp-obtainIntervalMs", appId));
-            a.remove(a("SwanAppStabilitySp-autoObtainDataLen", appId));
-            a.remove(a("SwanAppStabilitySp-stabilityProfile", appId));
+        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, uri, str2, callbackHandler) == null) {
+            ds2.r().a(activity, str, new a(this, activity, uri, str, callbackHandler, str2));
         }
-    }
-
-    public static int c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            return xc3.a().getInt(a("SwanAppStabilitySp-autoObtainDataLen", i43.K().getAppId()), i);
-        }
-        return invokeI.intValue;
-    }
-
-    public static int d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            return xc3.a().getInt(a("SwanAppStabilitySp-obtainIntervalMs", i43.K().getAppId()), i);
-        }
-        return invokeI.intValue;
-    }
-
-    public static int e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            return xc3.a().getInt(a("SwanAppStabilitySp-swanStartupStability", i43.K().getAppId()), i);
-        }
-        return invokeI.intValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return xc3.a().getBoolean(a("SwanAppStabilitySp-autoObtain", i43.K().getAppId()), false);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return xc3.a().getBoolean(a("SwanAppStabilitySp-obtainData", i43.K().getAppId()), false);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return xc3.a().getBoolean(a("SwanAppStabilitySp-stabilityProfile", i43.K().getAppId()), false);
-        }
-        return invokeV.booleanValue;
     }
 }

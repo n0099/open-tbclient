@@ -1,41 +1,81 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.util.PriorityOrganizer;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.User;
-import tbclient.VoiceRoom;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class q17 {
+public class q17 extends PriorityOrganizer.Task {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public FrsFragment m;
+    public FrsActivity n;
+    public boolean o;
 
-    public static List<m17> a(List<VoiceRoom> list) {
-        InterceptResult invokeL;
+    public q17(FrsActivity frsActivity, FrsFragment frsFragment) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (VoiceRoom voiceRoom : list) {
-                if (voiceRoom != null) {
-                    ArrayList arrayList2 = new ArrayList();
-                    m17 m17Var = new m17();
-                    m17Var.a = voiceRoom.room_name;
-                    m17Var.c = String.valueOf(voiceRoom.talker_num);
-                    m17Var.d = String.valueOf(voiceRoom.joined_num);
-                    m17Var.e = voiceRoom.room_id.longValue();
-                    for (User user : voiceRoom.talker) {
-                        if (user != null) {
-                            arrayList2.add(user.portrait);
-                        }
-                    }
-                    m17Var.b = arrayList2;
-                    arrayList.add(m17Var);
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsActivity, frsFragment};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return arrayList;
         }
-        return (List) invokeL.objValue;
+        this.n = frsActivity;
+        this.m = frsFragment;
+    }
+
+    public void F(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.o = z;
+        }
+    }
+
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            FrsFragment frsFragment = this.m;
+            if (frsFragment != null && !frsFragment.C3() && TbSingleton.getInstance().getFrsResponseData() != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (g15.l() || !this.o || !z37.d(TbSingleton.getInstance().getFrsResponseData(), this.m)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            t();
+        }
     }
 }

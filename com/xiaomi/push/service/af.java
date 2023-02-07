@@ -50,7 +50,7 @@ public final class af extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public String mo673a() {
+    public String mo675a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "send ack message for clear push message." : (String) invokeV.objValue;
@@ -58,19 +58,19 @@ public final class af extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public void mo394a() {
+    public void mo396a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
                 ia iaVar = new ia();
                 iaVar.c(ht.D.f529a);
-                iaVar.a(this.f908a.m553a());
+                iaVar.a(this.f908a.m555a());
                 iaVar.a(this.f908a.a());
                 iaVar.b(this.f908a.b());
                 iaVar.e(this.f908a.c());
                 iaVar.a(0L);
                 iaVar.d("success clear push message.");
-                ah.a(this.f909a, ah.b(this.a.b(), this.a.m539a(), iaVar, hj.i));
+                ah.a(this.f909a, ah.b(this.a.b(), this.a.m541a(), iaVar, hj.i));
             } catch (gh e) {
                 com.xiaomi.channel.commonutils.logger.b.d("clear push message. " + e);
                 this.f909a.a(10, e);

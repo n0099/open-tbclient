@@ -34,71 +34,71 @@ import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.swan.apps.process.SwanAppProcessInfo;
 import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ai3;
-import com.baidu.tieba.bb3;
-import com.baidu.tieba.cb3;
-import com.baidu.tieba.cg3;
-import com.baidu.tieba.ch3;
+import com.baidu.tieba.a93;
+import com.baidu.tieba.b23;
+import com.baidu.tieba.bj3;
+import com.baidu.tieba.bu2;
 import com.baidu.tieba.cj3;
-import com.baidu.tieba.ck3;
-import com.baidu.tieba.cy2;
-import com.baidu.tieba.db2;
-import com.baidu.tieba.dh3;
-import com.baidu.tieba.di3;
-import com.baidu.tieba.dp2;
-import com.baidu.tieba.e13;
-import com.baidu.tieba.eb2;
-import com.baidu.tieba.ej3;
-import com.baidu.tieba.g43;
-import com.baidu.tieba.gg3;
-import com.baidu.tieba.gp2;
-import com.baidu.tieba.h13;
-import com.baidu.tieba.h93;
-import com.baidu.tieba.ha3;
-import com.baidu.tieba.hh2;
-import com.baidu.tieba.i43;
-import com.baidu.tieba.ih2;
-import com.baidu.tieba.ih3;
-import com.baidu.tieba.ip2;
-import com.baidu.tieba.j12;
-import com.baidu.tieba.j43;
-import com.baidu.tieba.ja3;
+import com.baidu.tieba.cl3;
+import com.baidu.tieba.d83;
+import com.baidu.tieba.de2;
+import com.baidu.tieba.ds2;
+import com.baidu.tieba.e82;
+import com.baidu.tieba.ef3;
+import com.baidu.tieba.el3;
+import com.baidu.tieba.el4;
+import com.baidu.tieba.es2;
+import com.baidu.tieba.f82;
+import com.baidu.tieba.fl3;
+import com.baidu.tieba.fm3;
+import com.baidu.tieba.g62;
+import com.baidu.tieba.gp1;
+import com.baidu.tieba.hc3;
+import com.baidu.tieba.ie3;
+import com.baidu.tieba.j82;
 import com.baidu.tieba.ju2;
-import com.baidu.tieba.kb3;
-import com.baidu.tieba.kh2;
-import com.baidu.tieba.ky2;
-import com.baidu.tieba.li3;
-import com.baidu.tieba.lj3;
-import com.baidu.tieba.mb3;
-import com.baidu.tieba.mp2;
-import com.baidu.tieba.n43;
-import com.baidu.tieba.oe3;
-import com.baidu.tieba.op2;
-import com.baidu.tieba.ox2;
-import com.baidu.tieba.pe3;
-import com.baidu.tieba.pg3;
-import com.baidu.tieba.q33;
-import com.baidu.tieba.q92;
-import com.baidu.tieba.qn2;
-import com.baidu.tieba.r32;
-import com.baidu.tieba.ra3;
-import com.baidu.tieba.rg3;
-import com.baidu.tieba.rg4;
-import com.baidu.tieba.rn2;
-import com.baidu.tieba.s32;
-import com.baidu.tieba.sg3;
-import com.baidu.tieba.sh3;
-import com.baidu.tieba.t12;
-import com.baidu.tieba.tk1;
-import com.baidu.tieba.u73;
-import com.baidu.tieba.v93;
-import com.baidu.tieba.w32;
-import com.baidu.tieba.wp2;
-import com.baidu.tieba.xa3;
-import com.baidu.tieba.xp2;
-import com.baidu.tieba.yf3;
-import com.baidu.tieba.yg4;
-import com.baidu.tieba.zq1;
+import com.baidu.tieba.kf3;
+import com.baidu.tieba.ku2;
+import com.baidu.tieba.lk3;
+import com.baidu.tieba.ll4;
+import com.baidu.tieba.mv1;
+import com.baidu.tieba.nm3;
+import com.baidu.tieba.of3;
+import com.baidu.tieba.p23;
+import com.baidu.tieba.pf3;
+import com.baidu.tieba.pk3;
+import com.baidu.tieba.pl3;
+import com.baidu.tieba.pn3;
+import com.baidu.tieba.po3;
+import com.baidu.tieba.qf2;
+import com.baidu.tieba.ql3;
+import com.baidu.tieba.qm3;
+import com.baidu.tieba.qt2;
+import com.baidu.tieba.r53;
+import com.baidu.tieba.rf2;
+import com.baidu.tieba.rn3;
+import com.baidu.tieba.t83;
+import com.baidu.tieba.tk3;
+import com.baidu.tieba.tt2;
+import com.baidu.tieba.u53;
+import com.baidu.tieba.ud3;
+import com.baidu.tieba.ue3;
+import com.baidu.tieba.ul2;
+import com.baidu.tieba.v83;
+import com.baidu.tieba.vl2;
+import com.baidu.tieba.vl3;
+import com.baidu.tieba.vt2;
+import com.baidu.tieba.w52;
+import com.baidu.tieba.w83;
+import com.baidu.tieba.we3;
+import com.baidu.tieba.wy2;
+import com.baidu.tieba.x23;
+import com.baidu.tieba.xf3;
+import com.baidu.tieba.xl2;
+import com.baidu.tieba.ym3;
+import com.baidu.tieba.yn3;
+import com.baidu.tieba.zf3;
+import com.baidu.tieba.zt2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -110,27 +110,27 @@ import com.facebook.common.internal.Sets;
 import java.util.HashSet;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes3.dex */
-public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResultDispatcherHolder, q33.a, pe3, ServiceConnection {
+public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResultDispatcherHolder, d83.a, cj3, ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean B;
     public static final String C;
     public static final long D;
     public transient /* synthetic */ FieldHolder $fh;
     public View A;
-    public ih2 m;
+    public vl2 m;
     public Messenger n;
     public FrameLifeState o;
     public ActivityResultDispatcher p;
     @Nullable
-    public pg3 q;
+    public cl3 q;
     public String r;
     public boolean s;
     public boolean t;
     public OrientationEventListener u;
-    public rg3 v;
-    public lj3 w;
-    public q33 x;
-    public final g43 y;
+    public el3 v;
+    public yn3 w;
+    public d83 x;
+    public final t83 y;
     public boolean z;
 
     /* loaded from: classes3.dex */
@@ -169,7 +169,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
             public void onOrientationChanged(int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                    i43.K().c = i;
+                    v83.K().c = i;
                 }
             }
         }
@@ -208,7 +208,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
     }
 
     /* loaded from: classes3.dex */
-    public class a implements cj3<n43.a> {
+    public class a implements pn3<a93.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SwanAppActivity a;
@@ -232,9 +232,9 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cj3
+        @Override // com.baidu.tieba.pn3
         /* renamed from: b */
-        public void a(n43.a aVar) {
+        public void a(a93.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) != null) {
                 return;
@@ -244,7 +244,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
     }
 
     /* loaded from: classes3.dex */
-    public class b implements cj3<n43.a> {
+    public class b implements pn3<a93.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SwanAppActivity a;
@@ -268,9 +268,9 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cj3
+        @Override // com.baidu.tieba.pn3
         /* renamed from: b */
-        public void a(n43.a aVar) {
+        public void a(a93.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) != null) {
                 return;
@@ -280,7 +280,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
     }
 
     /* loaded from: classes3.dex */
-    public class c implements cj3<n43.a> {
+    public class c implements pn3<a93.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SwanAppActivity a;
@@ -304,9 +304,9 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cj3
+        @Override // com.baidu.tieba.pn3
         /* renamed from: b */
-        public void a(n43.a aVar) {
+        public void a(a93.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
                 this.a.A0(true, aVar);
@@ -315,7 +315,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
     }
 
     /* loaded from: classes3.dex */
-    public class d implements ej3<n43.a, Boolean> {
+    public class d implements rn3<a93.a, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SwanAppActivity a;
@@ -339,9 +339,9 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ej3
+        @Override // com.baidu.tieba.rn3
         /* renamed from: b */
-        public Boolean a(n43.a aVar) {
+        public Boolean a(a93.a aVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
@@ -414,46 +414,46 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                wp2 U = wp2.U();
+                ju2 U = ju2.U();
                 SwanAppActivity activity = U.getActivity();
                 if (activity != null && !activity.isFinishing()) {
-                    s32 V = U.V();
+                    f82 V = U.V();
                     if (V == null) {
-                        j12.i("SwanAppActivity", "doWebViewStart: fragment manager is null.");
+                        w52.i("SwanAppActivity", "doWebViewStart: fragment manager is null.");
                         return;
                     } else if (TextUtils.isEmpty(this.a)) {
-                        j12.i("SwanAppActivity", "doWebViewStart:  url is null.");
+                        w52.i("SwanAppActivity", "doWebViewStart:  url is null.");
                         return;
                     } else if (V == null) {
-                        j12.i("SwanAppActivity", "pushWebViewFragment: fragment manager is null.");
+                        w52.i("SwanAppActivity", "pushWebViewFragment: fragment manager is null.");
                         return;
                     } else {
-                        r32.S3(null);
-                        s32.b i = V.i("init");
-                        int i2 = s32.i;
+                        e82.S3(null);
+                        f82.b i = V.i("init");
+                        int i2 = f82.i;
                         i.n(i2, i2);
                         i.f();
                         String str = this.a;
-                        i.l("default_webview", ju2.d(str, str), true).a();
-                        lj3 T = activity.T();
+                        i.l("default_webview", wy2.d(str, str), true).a();
+                        yn3 T = activity.T();
                         if (T != null) {
                             T.F(1);
                         }
-                        cg3 cg3Var = new cg3();
-                        cg3Var.k(1L);
-                        cg3Var.i(2110L);
-                        cg3Var.f("host url" + this.a);
-                        gg3.a().f(cg3Var);
-                        kb3 kb3Var = new kb3();
-                        kb3Var.p(cg3Var);
-                        kb3Var.r(i43.K().q().W());
-                        kb3Var.q(cb3.n(i43.K().k()));
-                        kb3Var.m(i43.K().getAppId());
-                        cb3.R(kb3Var);
+                        pk3 pk3Var = new pk3();
+                        pk3Var.k(1L);
+                        pk3Var.i(2110L);
+                        pk3Var.f("host url" + this.a);
+                        tk3.a().f(pk3Var);
+                        xf3 xf3Var = new xf3();
+                        xf3Var.p(pk3Var);
+                        xf3Var.r(v83.K().q().W());
+                        xf3Var.q(pf3.n(v83.K().k()));
+                        xf3Var.m(v83.K().getAppId());
+                        pf3.R(xf3Var);
                         return;
                     }
                 }
-                j12.i("SwanAppActivity", "activity is invalid.");
+                w52.i("SwanAppActivity", "activity is invalid.");
             }
         }
     }
@@ -486,7 +486,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                qn2.o().d();
+                ds2.o().d();
             }
         }
     }
@@ -518,8 +518,8 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && ha3.d()) {
-                ha3.k();
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && ue3.d()) {
+                ue3.k();
             }
         }
     }
@@ -552,9 +552,9 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                qn2.o().k();
-                if (!ky2.h()) {
-                    ch3.m(this.a);
+                ds2.o().k();
+                if (!x23.h()) {
+                    pl3.m(this.a);
                 }
             }
         }
@@ -589,7 +589,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    ja3.d().l();
+                    we3.d().l();
                 } catch (Exception e) {
                     if (SwanAppActivity.B) {
                         Log.e("SwanAppActivity", "SaveTraceException:", e);
@@ -600,7 +600,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
     }
 
     /* loaded from: classes3.dex */
-    public class l implements cj3<n43.a> {
+    public class l implements pn3<a93.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SwanAppActivity a;
@@ -624,9 +624,9 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cj3
+        @Override // com.baidu.tieba.pn3
         /* renamed from: b */
-        public void a(n43.a aVar) {
+        public void a(a93.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) != null) {
                 return;
@@ -636,7 +636,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
     }
 
     /* loaded from: classes3.dex */
-    public class m implements cj3<n43.a> {
+    public class m implements pn3<a93.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SwanAppActivity a;
@@ -660,9 +660,9 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cj3
+        @Override // com.baidu.tieba.pn3
         /* renamed from: b */
-        public void a(n43.a aVar) {
+        public void a(a93.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) != null) {
                 return;
@@ -672,7 +672,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
     }
 
     /* loaded from: classes3.dex */
-    public class n implements cj3<n43.a> {
+    public class n implements pn3<a93.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SwanAppActivity a;
@@ -696,9 +696,9 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cj3
+        @Override // com.baidu.tieba.pn3
         /* renamed from: b */
-        public void a(n43.a aVar) {
+        public void a(a93.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) != null) {
                 return;
@@ -708,7 +708,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
     }
 
     /* loaded from: classes3.dex */
-    public class o implements cj3<n43.a> {
+    public class o implements pn3<a93.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SwanAppActivity a;
@@ -732,9 +732,9 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cj3
+        @Override // com.baidu.tieba.pn3
         /* renamed from: b */
-        public void a(n43.a aVar) {
+        public void a(a93.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) != null) {
                 return;
@@ -744,7 +744,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
     }
 
     /* loaded from: classes3.dex */
-    public class p implements cj3<n43.a> {
+    public class p implements pn3<a93.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SwanAppActivity a;
@@ -768,9 +768,9 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cj3
+        @Override // com.baidu.tieba.pn3
         /* renamed from: b */
-        public void a(n43.a aVar) {
+        public void a(a93.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) != null) {
                 return;
@@ -792,7 +792,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
                 return;
             }
         }
-        B = tk1.a;
+        B = gp1.a;
         C = SwanAppActivity.class.getName();
         D = TimeUnit.SECONDS.toMillis(1L);
     }
@@ -813,7 +813,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         this.o = FrameLifeState.INACTIVATED;
         this.r = "sys";
         this.s = false;
-        this.y = new g43();
+        this.y = new t83();
         this.z = false;
     }
 
@@ -821,15 +821,15 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
     public void onStop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048633, this) == null) {
-            j12.i("SwanApp", "SwanAppActivity onStop");
+            w52.i("SwanApp", "SwanAppActivity onStop");
             super.onStop();
             this.t = true;
             H0(FrameLifeState.JUST_CREATED);
             if (!Z()) {
-                ox2.m();
+                b23.m();
             }
-            dh3.k(new k(this), "tracer");
-            qn2.p0().flush(false);
+            ql3.k(new k(this), "tracer");
+            ds2.p0().flush(false);
         }
     }
 
@@ -844,11 +844,11 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         }
     }
 
-    public void F0(hh2 hh2Var) {
-        ih2 ih2Var;
+    public void F0(ul2 ul2Var) {
+        vl2 vl2Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, hh2Var) == null) && (ih2Var = this.m) != null) {
-            ih2Var.T0(hh2Var);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, ul2Var) == null) && (vl2Var = this.m) != null) {
+            vl2Var.T0(ul2Var);
         }
     }
 
@@ -862,11 +862,11 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         }
     }
 
-    public final void N(mb3 mb3Var) {
-        ih2 ih2Var;
+    public final void N(zf3 zf3Var) {
+        vl2 vl2Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048587, this, mb3Var) == null) && (ih2Var = this.m) != null) {
-            ih2Var.Q(mb3Var);
+        if ((interceptable == null || interceptable.invokeL(1048587, this, zf3Var) == null) && (vl2Var = this.m) != null) {
+            vl2Var.Q(zf3Var);
         }
     }
 
@@ -898,18 +898,18 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         return invokeL.booleanValue;
     }
 
-    public final void k0(mp2 mp2Var) {
+    public final void k0(zt2 zt2Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048614, this, mp2Var) == null) && b0() && mp2Var.b(" event_params_installer_progress")) {
-            this.w.u(mp2Var.g(" event_params_installer_progress"));
+        if ((interceptable == null || interceptable.invokeL(1048614, this, zt2Var) == null) && b0() && zt2Var.b(" event_params_installer_progress")) {
+            this.w.u(zt2Var.g(" event_params_installer_progress"));
         }
     }
 
-    public final void n0(mp2 mp2Var) {
-        ih2 ih2Var;
+    public final void n0(zt2 zt2Var) {
+        vl2 vl2Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048618, this, mp2Var) == null) && (ih2Var = this.m) != null && ih2Var.f0()) {
-            G0("update_tag_by_activity_on_new_intent".equals(mp2Var.n("app_update_tag")));
+        if ((interceptable == null || interceptable.invokeL(1048618, this, zt2Var) == null) && (vl2Var = this.m) != null && vl2Var.f0()) {
+            G0("update_tag_by_activity_on_new_intent".equals(zt2Var.n("app_update_tag")));
         }
     }
 
@@ -918,9 +918,9 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048627, this, bundle) == null) {
             super.onPostCreate(bundle);
-            rg3 rg3Var = this.v;
-            if (rg3Var != null) {
-                rg3Var.n();
+            el3 el3Var = this.v;
+            if (el3Var != null) {
+                el3Var.n();
             }
         }
     }
@@ -951,29 +951,29 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048636, this, str) == null) {
             G0(true);
-            db2.U().b1(str);
+            qf2.U().b1(str);
         }
     }
 
     public final void r0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048637, this, str) == null) {
-            di3.e0(new f(this, str));
+            qm3.e0(new f(this, str));
         }
     }
 
     public void s0(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048638, this, bundle) == null) {
-            h13.k(this, bundle);
+            u53.k(this, bundle);
         }
     }
 
-    public void t0(hh2 hh2Var) {
-        ih2 ih2Var;
+    public void t0(ul2 ul2Var) {
+        vl2 vl2Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048639, this, hh2Var) == null) && (ih2Var = this.m) != null) {
-            ih2Var.I0(hh2Var);
+        if ((interceptable == null || interceptable.invokeL(1048639, this, ul2Var) == null) && (vl2Var = this.m) != null) {
+            vl2Var.I0(ul2Var);
         }
     }
 
@@ -989,14 +989,14 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
     public final void E0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            sg3.j(this);
+            fl3.j(this);
         }
     }
 
     public void L() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.A == null) {
-            this.A = t12.a(this);
+            this.A = g62.a(this);
         }
     }
 
@@ -1019,57 +1019,57 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            ih2 ih2Var = this.m;
-            if (ih2Var == null) {
+            vl2 vl2Var = this.m;
+            if (vl2Var == null) {
                 return "";
             }
-            return ih2Var.i;
+            return vl2Var.i;
         }
         return (String) invokeV.objValue;
     }
 
-    public ih2 Q() {
+    public vl2 Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             return this.m;
         }
-        return (ih2) invokeV.objValue;
+        return (vl2) invokeV.objValue;
     }
 
     public int R() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            ih2 ih2Var = this.m;
-            if (ih2Var == null) {
+            vl2 vl2Var = this.m;
+            if (vl2Var == null) {
                 return -1;
             }
-            return ih2Var.k();
+            return vl2Var.k();
         }
         return invokeV.intValue;
     }
 
-    public gp2.a S() {
+    public tt2.a S() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            ih2 ih2Var = this.m;
-            if (ih2Var == null) {
+            vl2 vl2Var = this.m;
+            if (vl2Var == null) {
                 return null;
             }
-            return ih2Var.Z();
+            return vl2Var.Z();
         }
-        return (gp2.a) invokeV.objValue;
+        return (tt2.a) invokeV.objValue;
     }
 
-    public lj3 T() {
+    public yn3 T() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
             return this.w;
         }
-        return (lj3) invokeV.objValue;
+        return (yn3) invokeV.objValue;
     }
 
     public SwanAppProcessInfo U() {
@@ -1090,27 +1090,27 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         return (String) invokeV.objValue;
     }
 
-    public rg3 W() {
+    public el3 W() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
             return this.v;
         }
-        return (rg3) invokeV.objValue;
+        return (el3) invokeV.objValue;
     }
 
     @Nullable
-    public s32 X() {
+    public f82 X() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            ih2 ih2Var = this.m;
-            if (ih2Var == null) {
+            vl2 vl2Var = this.m;
+            if (vl2Var == null) {
                 return null;
             }
-            return ih2Var.c0();
+            return vl2Var.c0();
         }
-        return (s32) invokeV.objValue;
+        return (f82) invokeV.objValue;
     }
 
     public synchronized boolean Z() {
@@ -1135,23 +1135,23 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            return !TextUtils.isEmpty(yg4.e().b());
+            return !TextUtils.isEmpty(ll4.e().b());
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.pe3
-    public oe3 b() {
+    @Override // com.baidu.tieba.cj3
+    public bj3 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            ih2 ih2Var = this.m;
-            if (ih2Var == null) {
+            vl2 vl2Var = this.m;
+            if (vl2Var == null) {
                 return null;
             }
-            return ih2Var.d0();
+            return vl2Var.d0();
         }
-        return (oe3) invokeV.objValue;
+        return (bj3) invokeV.objValue;
     }
 
     public final boolean b0() {
@@ -1166,18 +1166,18 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.q33.a
+    @Override // com.baidu.tieba.d83.a
     @NonNull
-    public q33 d() {
+    public d83 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
             if (this.x == null) {
-                this.x = new q33(this, (FrameLayout) findViewById(16908290), 0);
+                this.x = new d83(this, (FrameLayout) findViewById(16908290), 0);
             }
             return this.x;
         }
-        return (q33) invokeV.objValue;
+        return (d83) invokeV.objValue;
     }
 
     public boolean e0() {
@@ -1193,7 +1193,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
-            PMSAppInfo f0 = i43.K().q().W().f0();
+            PMSAppInfo f0 = v83.K().q().W().f0();
             if (f0 == null || f0.appStatus != 6) {
                 return false;
             }
@@ -1208,7 +1208,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
             super.finish();
             if (B) {
-                j12.i("SwanAppActivity", Log.getStackTraceString(new Throwable("call finish!")));
+                w52.i("SwanAppActivity", Log.getStackTraceString(new Throwable("call finish!")));
             }
         }
     }
@@ -1231,8 +1231,8 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
-            ih2 ih2Var = this.m;
-            if (ih2Var != null && ih2Var.g0()) {
+            vl2 vl2Var = this.m;
+            if (vl2Var != null && vl2Var.g0()) {
                 return true;
             }
             return false;
@@ -1263,11 +1263,11 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048626, this) == null) {
-            j12.i("SwanApp", "SwanAppActivity onPause");
+            w52.i("SwanApp", "SwanAppActivity onPause");
             super.onPause();
             H0(FrameLifeState.JUST_STARTED);
             this.s = false;
-            xa3.l(false);
+            kf3.l(false);
             OrientationEventListener orientationEventListener = this.u;
             if (orientationEventListener != null) {
                 orientationEventListener.disable();
@@ -1279,12 +1279,12 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
     public void onStart() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048632, this) == null) {
-            j12.i("SwanApp", "SwanAppActivity onStart");
+            w52.i("SwanApp", "SwanAppActivity onStart");
             super.onStart();
             this.t = false;
-            rg3 rg3Var = this.v;
-            if (rg3Var != null) {
-                rg3Var.e();
+            el3 el3Var = this.v;
+            if (el3Var != null) {
+                el3Var.e();
             }
             H0(FrameLifeState.JUST_STARTED);
         }
@@ -1294,24 +1294,24 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         View view2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048640, this) == null) && (view2 = this.A) != null) {
-            t12.d(this, view2);
+            g62.d(this, view2);
             this.A = null;
         }
     }
 
     public void v0() {
-        ih2 ih2Var;
+        vl2 vl2Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048641, this) == null) && (ih2Var = this.m) != null) {
-            ih2Var.K0();
+        if ((interceptable == null || interceptable.invokeV(1048641, this) == null) && (vl2Var = this.m) != null) {
+            vl2Var.K0();
         }
     }
 
     public void z0() {
-        ih2 ih2Var;
+        vl2 vl2Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048645, this) == null) && (ih2Var = this.m) != null) {
-            ih2Var.M0();
+        if ((interceptable == null || interceptable.invokeV(1048645, this) == null) && (vl2Var = this.m) != null) {
+            vl2Var.M0();
         }
     }
 
@@ -1320,8 +1320,8 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048624, this, i2, keyEvent)) == null) {
-            ih2 ih2Var = this.m;
-            if ((ih2Var != null && ih2Var.r0(i2, keyEvent)) || this.A != null) {
+            vl2 vl2Var = this.m;
+            if ((vl2Var != null && vl2Var.r0(i2, keyEvent)) || this.A != null) {
                 return true;
             }
             return super.onKeyDown(i2, keyEvent);
@@ -1342,26 +1342,26 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
                 setRequestedOrientation(i4);
             }
             if (i3 == 1) {
-                if (sh3.p(this)) {
-                    sh3.s(this);
+                if (fm3.p(this)) {
+                    fm3.s(this);
                 }
-                sg3.e(this);
+                fl3.e(this);
             }
         }
     }
 
-    public void A0(boolean z, @Nullable n43.a aVar) {
+    public void A0(boolean z, @Nullable a93.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048576, this, z, aVar) == null) {
             if (this.w == null) {
-                this.w = new lj3(this);
+                this.w = new yn3(this);
             }
-            lj3 lj3Var = this.w;
+            yn3 yn3Var = this.w;
             boolean z2 = true;
-            if (1 != i43.K().q().W().G()) {
+            if (1 != v83.K().q().W().G()) {
                 z2 = false;
             }
-            lj3Var.E(z2, z, aVar);
+            yn3Var.E(z2, z, aVar);
         }
     }
 
@@ -1378,32 +1378,32 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         }
     }
 
-    public final synchronized boolean B0(j43 j43Var) {
+    public final synchronized boolean B0(w83 w83Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j43Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, w83Var)) == null) {
             synchronized (this) {
                 if (this.m != null) {
                     M();
                 }
-                ih2 a2 = kh2.a(this, j43Var);
+                vl2 a2 = xl2.a(this, w83Var);
                 if (a2 == null) {
-                    cg3 cg3Var = new cg3();
-                    cg3Var.k(5L);
-                    cg3Var.i(11L);
-                    cg3Var.d("can not buildFramework");
-                    dp2.e(this, cg3Var, j43Var.k(), j43Var.b);
+                    pk3 pk3Var = new pk3();
+                    pk3Var.k(5L);
+                    pk3Var.i(11L);
+                    pk3Var.d("can not buildFramework");
+                    qt2.e(this, pk3Var, w83Var.k(), w83Var.b);
                     E0();
                     return false;
                 }
                 this.m = a2;
                 g gVar = new g(this);
-                if (ky2.h()) {
-                    cy2.e().d(gVar, "updateMobStat", false);
+                if (x23.h()) {
+                    p23.e().d(gVar, "updateMobStat", false);
                 } else {
-                    dh3.k(gVar, "updateMobStat");
+                    ql3.k(gVar, "updateMobStat");
                 }
-                y0(j43Var.W().d0(), j43Var.k());
+                y0(w83Var.W().d0(), w83Var.k());
                 return true;
             }
         }
@@ -1414,19 +1414,19 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             synchronized (this) {
-                j43 q = i43.K().q();
+                w83 q = v83.K().q();
                 if (!q.I()) {
-                    j12.i("SwanAppActivity", "updateFrame: unavailable");
+                    w52.i("SwanAppActivity", "updateFrame: unavailable");
                 } else if (!d0(q.getAppId()) && !B0(q)) {
-                    j12.i("SwanAppActivity", "updateFrame: swan app id is null.");
+                    w52.i("SwanAppActivity", "updateFrame: swan app id is null.");
                 } else {
                     this.m.update(this.o, z);
-                    j12.i("SwanAppActivity", "updateFrame: ");
+                    w52.i("SwanAppActivity", "updateFrame: ");
                     if (B) {
                         w0();
                     }
-                    if (this.q == null && pg3.j()) {
-                        pg3 m2 = pg3.m();
+                    if (this.q == null && cl3.j()) {
+                        cl3 m2 = cl3.m();
                         this.q = m2;
                         if (!this.z) {
                             m2.y(S(), getTaskId());
@@ -1437,27 +1437,27 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         }
     }
 
-    public final void I0(mp2 mp2Var) {
+    public final void I0(zt2 zt2Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, mp2Var) == null) && b0()) {
-            this.w.I(mp2Var.n("app_icon_url"));
-            this.w.K(mp2Var.n("app_name"));
-            if (i43.K().q().W().G() == 0) {
-                this.w.L(mp2Var.i("app_pay_protected"));
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, zt2Var) == null) && b0()) {
+            this.w.I(zt2Var.n("app_icon_url"));
+            this.w.K(zt2Var.n("app_name"));
+            if (v83.K().q().W().G() == 0) {
+                this.w.L(zt2Var.i("app_pay_protected"));
             }
         }
     }
 
-    public final void m0(n43.a aVar) {
+    public final void m0(a93.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048616, this, aVar) == null) {
             if (B) {
                 Log.i("SwanAppActivity", "onAppOccupied: ");
             }
-            gp2.a W = i43.K().q().W();
+            tt2.a W = v83.K().q().W();
             y0(W.d0(), W.G());
             A0(false, aVar);
-            j12.i("SwanAppActivity", "appName: " + W.K() + " appId: " + W.H());
+            w52.i("SwanAppActivity", "appName: " + W.K() + " appId: " + W.H());
         }
     }
 
@@ -1468,18 +1468,18 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         boolean moveTaskToBack;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048617, this, z)) == null) {
-            gp2.a S = S();
+            tt2.a S = S();
             boolean z3 = false;
             if (S != null && "1230000000000000".equals(S.T())) {
                 z2 = true;
             } else {
                 z2 = false;
             }
-            pg3 pg3Var = this.q;
-            if (pg3Var != null && !z2) {
-                pg3Var.v(false);
+            cl3 cl3Var = this.q;
+            if (cl3Var != null && !z2) {
+                cl3Var.v(false);
             }
-            if (Z() && !i43.K().q().s0()) {
+            if (Z() && !v83.K().q().s0()) {
                 try {
                     moveTaskToBack = super.moveTaskToBack(z);
                 } catch (Exception e2) {
@@ -1497,7 +1497,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
                     return z3;
                 }
             }
-            cb3.Y();
+            pf3.Y();
             E0();
             return false;
         }
@@ -1507,18 +1507,18 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
     public void p0(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048635, this, i2) == null) {
-            j12.i("SwanApp", "onBackPressed back stack count: " + getFragmentManager().getBackStackEntryCount());
+            w52.i("SwanApp", "onBackPressed back stack count: " + getFragmentManager().getBackStackEntryCount());
             if (Z()) {
                 this.m.l0(i2);
                 return;
             }
-            HybridUbcFlow m2 = ox2.m();
+            HybridUbcFlow m2 = b23.m();
             if (m2 != null) {
                 m2.E("value", "cancel");
                 m2.D("exitType", String.valueOf(4));
                 m2.n();
             }
-            xp2.a().d(false);
+            ku2.a().d(false);
             moveTaskToBack(true);
         }
     }
@@ -1533,27 +1533,27 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
                         Log.i("SwanAppActivity", "destroyFrame resetLoadingView");
                     }
                 }
-                lj3.A();
-                lj3.z(qn2.c());
-                s32 X = X();
+                yn3.A();
+                yn3.z(ds2.c());
+                f82 X = X();
                 if (X != null) {
-                    s32.b h2 = X.h();
+                    f82.b h2 = X.h();
                     h2.n(0, 0);
                     h2.f();
                     h2.b();
                 }
-                yf3.j();
+                lk3.j();
                 if (this.m != null) {
                     this.m.R0(FrameLifeState.INACTIVATED);
                     this.m.release();
                     this.m = null;
                 }
-                h93.r();
-                j43 q = i43.K().q();
+                ud3.r();
+                w83 q = v83.K().q();
                 q.e0().j();
                 q.N().a();
-                v93.x();
-                rn2.o().a();
+                ie3.x();
+                es2.o().a();
             }
         }
     }
@@ -1561,17 +1561,17 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
     public final void c0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
-            g43 g43Var = this.y;
-            g43Var.c(new d(this));
-            g43Var.f(new c(this), "event_on_still_maintaining");
-            g43Var.f(new b(this), "event_on_app_occupied");
-            g43Var.f(new a(this), "event_on_app_updated");
-            g43Var.f(new p(this), "event_on_app_icon_update");
-            g43Var.f(new o(this), "event_on_pkg_maintain_finish");
-            g43Var.f(new n(this), "installer_on_progress");
-            g43Var.f(new m(this), "event_first_action_launched");
-            g43Var.f(new l(this), "event_on_web_mode_launched");
-            xp2.a().c();
+            t83 t83Var = this.y;
+            t83Var.c(new d(this));
+            t83Var.f(new c(this), "event_on_still_maintaining");
+            t83Var.f(new b(this), "event_on_app_occupied");
+            t83Var.f(new a(this), "event_on_app_updated");
+            t83Var.f(new p(this), "event_on_app_icon_update");
+            t83Var.f(new o(this), "event_on_pkg_maintain_finish");
+            t83Var.f(new n(this), "installer_on_progress");
+            t83Var.f(new m(this), "event_first_action_launched");
+            t83Var.f(new l(this), "event_on_web_mode_launched");
+            ku2.a().c();
         }
     }
 
@@ -1579,32 +1579,32 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048623, this) == null) {
-            i43.K().o(this.y);
-            j12.i("SwanApp", "SwanAppActivity onDestroy");
+            v83.K().o(this.y);
+            w52.i("SwanApp", "SwanAppActivity onDestroy");
             this.u = null;
             M();
             if (this.n != null) {
                 unbindService(this);
             }
-            qn2.H().b();
-            rg3 rg3Var = this.v;
-            if (rg3Var != null) {
-                rg3Var.p();
+            ds2.H().b();
+            el3 el3Var = this.v;
+            if (el3Var != null) {
+                el3Var.p();
             }
-            i43.K().r(this);
+            v83.K().r(this);
             H0(FrameLifeState.INACTIVATED);
-            wp2.b0();
-            String appId = i43.K().getAppId();
+            ju2.b0();
+            String appId = v83.K().getAppId();
             if (B) {
-                op2 d2 = op2.d(appId);
+                bu2 d2 = bu2.d(appId);
                 d2.e().c();
                 d2.h();
             }
-            ha3.l(true);
-            i43.K().n(new String[0]);
+            ue3.l(true);
+            v83.K().n(new String[0]);
             this.q = null;
             super.onDestroy();
-            xp2.a().e();
+            ku2.a().e();
         }
     }
 
@@ -1612,24 +1612,24 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
     public void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048628, this) == null) {
-            j12.i("SwanApp", "SwanAppActivity onResume");
+            w52.i("SwanApp", "SwanAppActivity onResume");
             Intent intent = getIntent();
-            if (intent != null && !i43.K().E()) {
+            if (intent != null && !v83.K().E()) {
                 intent.putExtra("receive_launch_intent_time", System.currentTimeMillis());
-                i43.K().l(intent.getExtras(), "update_tag_by_activity_on_create");
-                if (i43.K().E() && ip2.a(intent)) {
-                    i43.K().q().W().I0("1250000000000000");
+                v83.K().l(intent.getExtras(), "update_tag_by_activity_on_create");
+                if (v83.K().E() && vt2.a(intent)) {
+                    v83.K().q().W().I0("1250000000000000");
                 }
             }
             j0();
             super.onResume();
             ExecutorUtilsExt.postOnElastic(new j(this), "OrientationEventListener", 2);
-            rg3 rg3Var = this.v;
-            if (rg3Var != null) {
-                rg3Var.t();
+            el3 el3Var = this.v;
+            if (el3Var != null) {
+                el3Var.t();
             }
             H0(FrameLifeState.JUST_RESUMED);
-            li3.b().d();
+            ym3.b().d();
         }
     }
 
@@ -1640,7 +1640,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
             if (B) {
                 Log.i("SwanAppActivity", "handleSwanAppExit:" + i2 + ", pid:" + Process.myPid());
             }
-            qn2.H().d(this, i2, S());
+            ds2.H().d(this, i2, S());
         }
     }
 
@@ -1685,19 +1685,19 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, str)) == null) {
-            j12.k("SwanAppActivity", "isInvalidIntentAppId: intentAppId=" + str + ",currentAppId=" + i43.K().getAppId());
+            w52.k("SwanAppActivity", "isInvalidIntentAppId: intentAppId=" + str + ",currentAppId=" + v83.K().getAppId());
             boolean z2 = true;
-            if (i43.K().q().E() && i43.K().q().x0()) {
+            if (v83.K().q().E() && v83.K().q().x0()) {
                 z = true;
             } else {
                 z = false;
             }
-            z2 = (!z || TextUtils.equals(str, i43.K().getAppId())) ? false : false;
-            j12.k("SwanAppActivity", "isInvalidIntentAppId: isInValidIntent=" + z2);
+            z2 = (!z || TextUtils.equals(str, v83.K().getAppId())) ? false : false;
+            w52.k("SwanAppActivity", "isInvalidIntentAppId: isInValidIntent=" + z2);
             if (z2) {
-                ra3.b bVar = new ra3.b(SessionCommand.COMMAND_CODE_PLAYER_UPDATE_LIST_METADATA);
+                ef3.b bVar = new ef3.b(SessionCommand.COMMAND_CODE_PLAYER_UPDATE_LIST_METADATA);
                 bVar.l(str);
-                bVar.h(i43.K().getAppId());
+                bVar.h(v83.K().getAppId());
                 bVar.m();
             }
             return z2;
@@ -1711,9 +1711,9 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048625, this, intent) == null) {
             super.onNewIntent(intent);
-            eb2.e();
+            rf2.e();
             intent.putExtra("receive_launch_intent_time", System.currentTimeMillis());
-            j12.i("SwanApp", "SwanAppActivity onNewIntent");
+            w52.i("SwanApp", "SwanAppActivity onNewIntent");
             setIntent(intent);
             overridePendingTransition(R.anim.obfuscated_res_0x7f010022, R.anim.obfuscated_res_0x7f01001c);
             if (B) {
@@ -1728,24 +1728,24 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
                 sb.append(z);
                 Log.i("SwanAppActivity", sb.toString());
             }
-            rg3 rg3Var = this.v;
-            if (rg3Var != null) {
-                rg3Var.r();
+            el3 el3Var = this.v;
+            if (el3Var != null) {
+                el3Var.r();
             }
             if (intent.getExtras() != null && intent.getExtras().getBoolean("property_web_mode_degrade")) {
-                j12.i("SwanAppActivity", "onNewIntent: start swan web");
-                i43.K().q().A0();
+                w52.i("SwanAppActivity", "onNewIntent: start swan web");
+                v83.K().q().A0();
             }
             this.s = true;
-            xa3.l(true);
-            i43 K = i43.K();
+            kf3.l(true);
+            v83 K = v83.K();
             K.l(intent.getExtras(), "update_tag_by_activity_on_new_intent");
-            if (K.E() && ip2.a(intent)) {
+            if (K.E() && vt2.a(intent)) {
                 K.q().Y().I0("1250000000000000");
             }
-            pg3 pg3Var = this.q;
-            if (pg3Var != null) {
-                pg3Var.z(intent, getTaskId());
+            cl3 cl3Var = this.q;
+            if (cl3Var != null) {
+                cl3Var.z(intent, getTaskId());
             }
         }
     }
@@ -1753,24 +1753,24 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
     public final void l0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
-            if (w32.b.a()) {
-                q0(ck3.b(u73.e()));
+            if (j82.b.a()) {
+                q0(po3.b(hc3.e()));
             } else if (!isDestroyed()) {
-                if (i43.K().q().I()) {
+                if (v83.K().q().I()) {
                     G0(true);
                 } else {
-                    i43.M().postDelayed(new e(this), D);
+                    v83.M().postDelayed(new e(this), D);
                 }
             }
         }
     }
 
     public final void w0() {
-        j43 q;
+        w83 q;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048642, this) == null) && (q = i43.K().q()) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048642, this) == null) && (q = v83.K().q()) != null) {
             String V = q.Y().V();
-            op2 d2 = op2.d(q.Y().V());
+            bu2 d2 = bu2.d(q.Y().V());
             d2.f("appId: " + q.b + "  launchId: " + V).e();
             d2.h();
         }
@@ -1782,43 +1782,43 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
             if (!TextUtils.isEmpty(str)) {
                 q0(str);
             } else if (isDestroyed()) {
-                j12.i("SwanAppActivity", "onAppWebModeStart: swan activity isDestroyed.");
-            } else if (w32.b.a() && i43.K().q().z0() && rg4.d()) {
+                w52.i("SwanAppActivity", "onAppWebModeStart: swan activity isDestroyed.");
+            } else if (j82.b.a() && v83.K().q().z0() && el4.d()) {
                 G0(true);
-                db2.U().a1();
+                qf2.U().a1();
             } else if (a0() && !f0()) {
                 G0(true);
-                r0(yg4.e().b());
-            } else if (i43.K().q().z0() && rg4.d()) {
+                r0(ll4.e().b());
+            } else if (v83.K().q().z0() && el4.d()) {
                 G0(true);
-                db2.U().a1();
+                qf2.U().a1();
             } else {
-                String D2 = qn2.o().D();
-                if (qn2.a().c() && !di3.G() && !TextUtils.isEmpty(D2)) {
+                String D2 = ds2.o().D();
+                if (ds2.a().c() && !qm3.G() && !TextUtils.isEmpty(D2)) {
                     G0(true);
-                    r0(Uri.parse(D2).buildUpon().appendQueryParameter("appkey", i43.K().getAppId()).build().toString());
+                    r0(Uri.parse(D2).buildUpon().appendQueryParameter("appkey", v83.K().getAppId()).build().toString());
                     return;
                 }
-                cg3 cg3Var = new cg3();
-                cg3Var.k(1L);
-                cg3Var.i(2109L);
-                cg3Var.f("web mode start failed.");
+                pk3 pk3Var = new pk3();
+                pk3Var.k(1L);
+                pk3Var.i(2109L);
+                pk3Var.f("web mode start failed.");
                 if (f0()) {
-                    gg3.a().f(cg3Var);
-                    kb3 kb3Var = new kb3();
-                    kb3Var.p(cg3Var);
-                    kb3Var.r(i43.K().q().W());
-                    kb3Var.q(cb3.n(i43.K().k()));
-                    kb3Var.m(i43.K().getAppId());
-                    cb3.R(kb3Var);
+                    tk3.a().f(pk3Var);
+                    xf3 xf3Var = new xf3();
+                    xf3Var.p(pk3Var);
+                    xf3Var.r(v83.K().q().W());
+                    xf3Var.q(pf3.n(v83.K().k()));
+                    xf3Var.m(v83.K().getAppId());
+                    pf3.R(xf3Var);
                 }
-                dp2.e(qn2.c(), cg3Var, 0, "");
+                qt2.e(ds2.c(), pk3Var, 0, "");
                 E0();
             }
         }
     }
 
-    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.tieba.zh4, android.app.Activity
+    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.tieba.mm4, android.app.Activity
     @DebugTrace
     public void onCreate(Bundle bundle) {
         int i2;
@@ -1826,28 +1826,28 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         Bundle bundle2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048622, this, bundle) == null) {
-            eb2.e();
+            rf2.e();
             long currentTimeMillis = System.currentTimeMillis();
             overridePendingTransition(R.anim.obfuscated_res_0x7f010022, R.anim.obfuscated_res_0x7f01001c);
             SwanAppProcessInfo.init(U());
-            qn2.G().b();
-            e13.Q().c0();
+            ds2.G().b();
+            r53.Q().c0();
             boolean z2 = true;
             this.s = true;
-            xa3.l(true);
+            kf3.l(true);
             if (bundle == null) {
                 i2 = 0;
             } else {
                 i2 = 1;
             }
-            bb3.d(i2);
+            of3.d(i2);
             super.onCreate(bundle);
             H0(FrameLifeState.JUST_CREATED);
-            if (ih3.a(this)) {
+            if (vl3.a(this)) {
                 return;
             }
             Intent intent = getIntent();
-            boolean a2 = ip2.a(intent);
+            boolean a2 = vt2.a(intent);
             if (a2) {
                 intent.putExtra("launch_id", SwanLauncher.h());
             }
@@ -1861,11 +1861,11 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
                 E0();
                 return;
             }
-            db2.v.g(intent);
+            qf2.v.g(intent);
             if (B) {
                 Log.i("SwanAppActivity", "onCreate: bindService");
             }
-            if (!q92.a.c()) {
+            if (!de2.a.c()) {
                 try {
                     bindService(new Intent(this, U().service), this, 1);
                 } catch (Exception e2) {
@@ -1877,14 +1877,14 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
             if (Build.VERSION.SDK_INT == 26) {
                 TranslucentUtils.convertFromTranslucent(this);
             }
-            j12.b("SwanAppActivity", "SwanAppActivity onCreate() savedInstanceState=", bundle);
-            j12.i("SwanApp", "SwanAppActivity onCreate");
-            setContentView(R.layout.obfuscated_res_0x7f0d0093);
+            w52.b("SwanAppActivity", "SwanAppActivity onCreate() savedInstanceState=", bundle);
+            w52.i("SwanApp", "SwanAppActivity onCreate");
+            setContentView(R.layout.obfuscated_res_0x7f0d0092);
             if (R() == 0) {
-                ai3.c(this);
+                nm3.c(this);
             }
             c0();
-            i43 K = i43.K();
+            v83 K = v83.K();
             K.t(this);
             K.u(this.y);
             if (intent != null && (a2 || bundle == null)) {
@@ -1897,27 +1897,27 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
                     z = true;
                 }
                 if (z) {
-                    j12.k("SwanAppActivity", "updateSwanApp by onCreate");
+                    w52.k("SwanAppActivity", "updateSwanApp by onCreate");
                     K.l(extras, "update_tag_by_activity_on_create");
                 }
             }
             if (K.E() && a2) {
                 K.q().W().I0("1250000000000000");
             }
-            ai3.b(this);
+            nm3.b(this);
             if (Build.VERSION.SDK_INT != 26) {
-                this.v = new rg3(this);
+                this.v = new el3(this);
             }
-            rg3 rg3Var = this.v;
-            if (rg3Var != null) {
-                rg3Var.u(false);
+            el3 el3Var = this.v;
+            if (el3Var != null) {
+                el3Var.u(false);
             }
-            rg3 rg3Var2 = this.v;
-            if (rg3Var2 != null) {
-                rg3Var2.o();
+            el3 el3Var2 = this.v;
+            if (el3Var2 != null) {
+                el3Var2.o();
             }
             ExecutorUtilsExt.postOnSerial(new h(this), "小程序稳定性数据采集");
-            dh3.k(new i(this), "initOnCreate");
+            ql3.k(new i(this), "initOnCreate");
             this.z = (bundle == null || bundle.getInt("swan_key_save_task_id") != getTaskId()) ? false : false;
         }
     }
@@ -1929,6 +1929,6 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
             return;
         }
         super.onActivityResult(i2, i3, intent);
-        zq1.a().b().b().onActivityResult(this, i2, i3, intent);
+        mv1.a().b().b().onActivityResult(this, i2, i3, intent);
     }
 }

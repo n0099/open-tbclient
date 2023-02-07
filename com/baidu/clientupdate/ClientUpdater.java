@@ -15,6 +15,7 @@ import com.baidu.clientupdate.appinfo.RuleInfo;
 import com.baidu.clientupdate.d.j;
 import com.baidu.clientupdate.download.Download;
 import com.baidu.clientupdate.download.DownloadManager;
+import com.baidu.searchbox.cloudcommand.dao.CloudCommandTable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -127,7 +128,7 @@ public final class ClientUpdater {
             Log.w("ClientUpdater", exc);
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("msgId", "4");
+                jSONObject.put(CloudCommandTable.MSG_ID, "4");
                 jSONObject.put("messageDetail", exc.toString());
             } catch (JSONException e2) {
                 e2.printStackTrace();
@@ -160,7 +161,7 @@ public final class ClientUpdater {
                 LogUtil.logD("ClientUpdater", "更新请求失败：  " + responseMessage);
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("msgId", "3");
+                    jSONObject.put(CloudCommandTable.MSG_ID, "3");
                     jSONObject.put("messageDetail", responseMessage);
                 } catch (JSONException e2) {
                     e2.printStackTrace();
@@ -240,7 +241,7 @@ public final class ClientUpdater {
             StringBuilder sb2 = new StringBuilder("当前网络不可用!");
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("msgId", "2");
+                jSONObject.put(CloudCommandTable.MSG_ID, "2");
                 jSONObject.put("messageDetail", sb2.toString());
             } catch (JSONException e2) {
                 e2.printStackTrace();
@@ -469,7 +470,7 @@ public final class ClientUpdater {
             if (!j.b(this.a)) {
                 StringBuilder sb = new StringBuilder("请加入权限：ACCESS_NETWORK_STATE、INTERNET、GET_TASKS");
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("msgId", "1");
+                jSONObject.put(CloudCommandTable.MSG_ID, "1");
                 jSONObject.put("messageDetail", sb.toString());
                 this.f.onError(jSONObject);
                 return;
@@ -506,7 +507,7 @@ public final class ClientUpdater {
             if (!j.b(this.a)) {
                 StringBuilder sb = new StringBuilder("请加入权限：ACCESS_NETWORK_STATE、INTERNET");
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("msgId", "1");
+                jSONObject.put(CloudCommandTable.MSG_ID, "1");
                 jSONObject.put("messageDetail", sb.toString());
                 if (this.g != null) {
                     this.g.onError(jSONObject);
@@ -514,7 +515,7 @@ public final class ClientUpdater {
             } else if (!j.a(this.a)) {
                 StringBuilder sb2 = new StringBuilder("当前网络不可用!");
                 JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("msgId", "2");
+                jSONObject2.put(CloudCommandTable.MSG_ID, "2");
                 jSONObject2.put("messageDetail", sb2.toString());
                 if (this.g != null) {
                     this.g.onError(jSONObject2);

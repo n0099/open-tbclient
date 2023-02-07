@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import org.json.JSONObject;
+import java.util.Map;
 /* loaded from: classes4.dex */
 public interface db1 {
-    void a(boolean z, JSONObject jSONObject);
+    void loadUrl(String str, Map<String, String> map);
 }

@@ -1,9 +1,17 @@
 package com.baidu.tieba;
+
+import com.baidu.tbadk.download.DownloadData;
 /* loaded from: classes4.dex */
 public interface ep6 {
-    void a(boolean z, boolean z2, int i);
+    void a(DownloadData downloadData);
 
-    void b(int i);
+    void b(DownloadData downloadData);
 
-    void c(int i, int i2);
+    void c(DownloadData downloadData);
+
+    void d(DownloadData downloadData);
+
+    void e(DownloadData downloadData);
+
+    void f(DownloadData downloadData);
 }

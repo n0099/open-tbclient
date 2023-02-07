@@ -1,98 +1,222 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.card.ThreadCardViewHolder;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.qy;
+import android.view.ViewParent;
+import com.baidu.adp.widget.SwipeBackLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.fluency.BdTracesManager;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tieba.o37;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class s37 extends ln<v47, ThreadCardViewHolder<v47>> implements bs5 {
+public class s37 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public TbPageContext<?> b;
-    public eo c;
+    public Context a;
+    public ViewGroup b;
+    public t37 c;
+    public o37 d;
+    public xk5 e;
+    public o37.a f;
+    public Runnable g;
 
-    @Override // com.baidu.tieba.bs5
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+    /* loaded from: classes6.dex */
+    public class a implements o37.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ s37 a;
+
+        public a(s37 s37Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s37Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = s37Var;
+        }
+
+        @Override // com.baidu.tieba.o37.a
+        public void onStateChanged(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (i == 1) {
+                    if (TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_trans_frs")) {
+                        if (this.a.e == null) {
+                            this.a.e = new xk5("anim_switch_trans_frs");
+                        }
+                        this.a.e.b();
+                        BdTracesManager.INSTANCE.getFpsTracer().beginFpsCollect(FrsActivityConfig.KEY_FPS_FRS_FROM, "frs", "tran");
+                    }
+                } else if (i == 2) {
+                    this.a.k();
+                    if (this.a.e != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_trans_frs")) {
+                        this.a.e.c();
+                    }
+                    BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(FrsActivityConfig.KEY_FPS_FRS);
+                } else if (i == 0) {
+                    this.a.j();
+                }
+            }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s37(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ s37 a;
+
+        public b(s37 s37Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s37Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = s37Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.f();
+            }
+        }
+    }
+
+    public s37(Context context, ViewGroup viewGroup, Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {context, viewGroup, intent};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = tbPageContext;
+        this.f = new a(this);
+        this.g = new b(this);
+        this.a = context;
+        this.b = viewGroup;
+        t37 t37Var = new t37(context);
+        this.c = t37Var;
+        o37 a2 = p37.a(t37Var, intent);
+        this.d = a2;
+        a2.b(this.f);
     }
 
-    public void u(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
-            this.a = bdUniqueId;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: s */
-    public ThreadCardViewHolder<v47> onCreateViewHolder(ViewGroup viewGroup) {
+    public static boolean i(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            qy.b bVar = new qy.b(this.b.getPageActivity(), false);
-            bVar.n(new ha7(this.b, this.a));
-            bVar.l().c(0);
-            bVar.l().g(0);
-            bVar.l().f(0);
-            bVar.l().i(0);
-            ThreadCardViewHolder<v47> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.c));
-            threadCardViewHolder.i(this.a);
-            s86.b().a(c96.c("c13620", 2));
-            return threadCardViewHolder;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, intent)) == null) {
+            if (intent == null || intent.getIntExtra("transition_type", 0) == 0) {
+                return false;
+            }
+            return true;
         }
-        return (ThreadCardViewHolder) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, v47 v47Var, ThreadCardViewHolder<v47> threadCardViewHolder) {
-        InterceptResult invokeCommon;
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, v47Var, threadCardViewHolder})) == null) {
-            if (v47Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null) {
-                threadCardViewHolder.e(v47Var);
-                threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
-                return threadCardViewHolder.getView();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            gh.a().removeCallbacks(this.g);
+            if (this.d.a() == 1) {
+                gh.a().postDelayed(this.g, 10L);
+                return;
             }
-            return null;
+            k();
+            this.d.c();
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public final void g() {
+        View findViewById;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ViewGroup viewGroup = this.b;
+            if (viewGroup != null && (viewGroup.getChildAt(0) instanceof SwipeBackLayout)) {
+                this.b.getChildAt(0).setVisibility(8);
+            }
+            ViewGroup viewGroup2 = this.b;
+            if (viewGroup2 != null && (findViewById = viewGroup2.findViewById(16908290)) != null) {
+                findViewById.setVisibility(8);
+            }
+        }
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            ViewGroup viewGroup = this.b;
+            if (viewGroup != null && (viewGroup.getChildAt(0) instanceof SwipeBackLayout)) {
+                this.b.getChildAt(0).setVisibility(0);
+            }
+            ViewGroup viewGroup2 = this.b;
+            if (viewGroup2 != null && viewGroup2.findViewById(16908290) != null) {
+                this.b.findViewById(16908290).setVisibility(0);
+            }
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.b == null) {
+            return;
+        }
+        f();
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            ViewParent parent = this.c.a.getParent();
+            if (parent instanceof ViewGroup) {
+                ((ViewGroup) parent).removeView(this.c.a);
+            }
+            gh.a().removeCallbacks(this.g);
+        }
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || this.b == null) {
+            return;
+        }
+        j();
+        this.b.addView(this.c.a);
+        g();
+        this.d.d();
     }
 }

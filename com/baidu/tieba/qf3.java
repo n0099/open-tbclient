@@ -1,71 +1,196 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.searchbox.v8engine.V8ExceptionInfo;
+import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
+import com.baidu.tieba.tt2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.HashMap;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class qf3 extends mf3 {
+/* loaded from: classes6.dex */
+public class qf3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qf3(g53 g53Var) {
-        super(g53Var, "/swanAPI/openTabBar");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {g53Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((g53) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes6.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ HashMap a;
+        public final /* synthetic */ File b;
+        public final /* synthetic */ String c;
+
+        public a(HashMap hashMap, File file, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hashMap, file, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = hashMap;
+            this.b = file;
+            this.c = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            kt1 u;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (u = ds2.u()) != null) {
+                u.a(this.a, this.b, null, "error_js");
+                if (qf3.a) {
+                    Log.d("V8StabilityHelper", "extraData :" + this.a.toString());
+                    Log.d("V8StabilityHelper", "filePath :" + this.c);
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.g63
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j43 j43Var) {
-        InterceptResult invokeLLLL;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948089867, "Lcom/baidu/tieba/qf3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948089867, "Lcom/baidu/tieba/qf3;");
+                return;
+            }
+        }
+        a = gp1.a;
+    }
+
+    public static void b(V8ExceptionInfo v8ExceptionInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j43Var)) == null) {
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                j12.c("openTabBar", "paramsJson is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else if (mf3.k()) {
-                j12.c("OpenTabBarAction", "fail not TabBar page");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fail not TabBar page");
-                return false;
+        if (interceptable == null || interceptable.invokeL(65538, null, v8ExceptionInfo) == null) {
+            if (v8ExceptionInfo == null) {
+                if (a) {
+                    Log.d("V8StabilityHelper", "empty exceptionInfo");
+                    return;
+                }
+                return;
+            }
+            c(v8ExceptionInfo);
+            d(v8ExceptionInfo);
+        }
+    }
+
+    public static void c(V8ExceptionInfo v8ExceptionInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, v8ExceptionInfo) == null) {
+            if (!ds2.g0().A()) {
+                if (a) {
+                    Log.d("V8StabilityHelper", "stability switch off");
+                    return;
+                }
+                return;
+            }
+            tt2.a aVar = null;
+            w83 M = w83.M();
+            if (M != null) {
+                aVar = M.Y();
+            }
+            pk3 pk3Var = new pk3();
+            pk3Var.k(5L);
+            pk3Var.i(37L);
+            xf3 xf3Var = new xf3();
+            xf3Var.p(pk3Var);
+            xf3Var.r(aVar);
+            xf3Var.q(pf3.n(v83.K().k()));
+            xf3Var.m(w83.g0());
+            JSONObject jSONObject = new JSONObject();
+            try {
+                if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionMsg)) {
+                    jSONObject.put("exceptionMsg", v8ExceptionInfo.exceptionMsg);
+                }
+                if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionTrace)) {
+                    jSONObject.put("exceptionTrace", v8ExceptionInfo.exceptionTrace);
+                }
+                if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionType)) {
+                    jSONObject.put("exceptionType", v8ExceptionInfo.exceptionType);
+                }
+                xf3Var.e(jSONObject);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            pf3.R(xf3Var);
+        }
+    }
+
+    public static void d(V8ExceptionInfo v8ExceptionInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, v8ExceptionInfo) == null) {
+            if (!ds2.g0().G()) {
+                if (a) {
+                    Log.d("V8StabilityHelper", "upload js switch off");
+                }
+            } else if (TextUtils.isEmpty(v8ExceptionInfo.filePath)) {
             } else {
-                vf3 j = mf3.j();
-                if (j == null) {
-                    j12.c("OpenTabBarAction", "tabBarViewController is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                } else if (!j.r(optParamsAsJo.optBoolean("animation"))) {
-                    j12.c("openTabBar", "open bottom bar fail");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                } else {
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    return true;
+                String str = v8ExceptionInfo.filePath;
+                if (str.startsWith("script:")) {
+                    if (a) {
+                        Log.d("V8StabilityHelper", "file path start with js code prefix");
+                        return;
+                    }
+                    return;
+                }
+                SwanCoreVersion e = bi3.e(v83.K().k());
+                if (e != null && !TextUtils.isEmpty(e.swanCorePath)) {
+                    if (!str.startsWith(e.swanCorePath)) {
+                        if (a) {
+                            Log.d("V8StabilityHelper", "file path is not swan core path");
+                            return;
+                        }
+                        return;
+                    }
+                    File file = new File(str);
+                    if (!file.exists()) {
+                        return;
+                    }
+                    HashMap hashMap = new HashMap();
+                    w83 M = w83.M();
+                    if (!TextUtils.isEmpty(w83.g0())) {
+                        hashMap.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, w83.g0());
+                    }
+                    if (M != null && !TextUtils.isEmpty(M.k0())) {
+                        hashMap.put("appVersion", M.k0());
+                    }
+                    if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionMsg)) {
+                        hashMap.put("exceptionMsg", v8ExceptionInfo.exceptionMsg);
+                    }
+                    if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionTrace)) {
+                        hashMap.put("exceptionTrace", v8ExceptionInfo.exceptionTrace);
+                    }
+                    if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionType)) {
+                        hashMap.put("exceptionType", v8ExceptionInfo.exceptionType);
+                    }
+                    ql3.k(new a(hashMap, file, str), "error_js");
                 }
             }
         }
-        return invokeLLLL.booleanValue;
     }
 }

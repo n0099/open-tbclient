@@ -1,64 +1,78 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.IRevenue;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayEventStatistics;
-import tv.athena.revenue.RevenueManager;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import rx.internal.util.atomic.LinkedQueueNode;
 /* loaded from: classes5.dex */
-public class jga {
+public final class jga<E> extends lfa<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static IPayEventStatistics a(int i, int i2) {
-        InterceptResult invokeII;
+    public jga() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65536, null, i, i2)) == null) {
-            IRevenue revenue = RevenueManager.instance().getRevenue(i, i2);
-            if (revenue == null) {
-                RLog.error("UIStatisticReporter", "getSDKReporter error revenue null", new Object[0]);
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return revenue.getPayEventStatistic();
         }
-        return (IPayEventStatistics) invokeII.objValue;
+        b(new LinkedQueueNode<>());
+        d(this.producerNode);
+        this.consumerNode.soNext(null);
     }
 
-    public static void b(int i, int i2, String str) {
+    @Override // java.util.Queue
+    public boolean offer(E e) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65537, null, i, i2, str) == null) {
-            IPayEventStatistics a = a(i, i2);
-            if (a == null) {
-                RLog.error("UIStatisticReporter", "report error isdkReporter null", new Object[0]);
-            } else {
-                a.reportUiEvent(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e)) == null) {
+            if (e != null) {
+                LinkedQueueNode<E> linkedQueueNode = new LinkedQueueNode<>(e);
+                this.producerNode.soNext(linkedQueueNode);
+                this.producerNode = linkedQueueNode;
+                return true;
             }
+            throw new NullPointerException("null elements not allowed");
         }
+        return invokeL.booleanValue;
     }
 
-    public static void c(int i, int i2, String str, String str2) {
+    @Override // java.util.Queue
+    public E peek() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2}) == null) {
-            IPayEventStatistics a = a(i, i2);
-            if (a == null) {
-                RLog.error("UIStatisticReporter", "report error isdkReporter null", new Object[0]);
-            } else {
-                a.reportUiEvent(str, str2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            LinkedQueueNode<E> lvNext = this.consumerNode.lvNext();
+            if (lvNext != null) {
+                return lvNext.lpValue();
             }
+            return null;
         }
+        return (E) invokeV.objValue;
     }
 
-    public static void d(int i, int i2, String str, String str2, String str3, String str4) {
+    @Override // java.util.Queue
+    public E poll() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2, str3, str4}) == null) {
-            IPayEventStatistics a = a(i, i2);
-            if (a == null) {
-                RLog.error("UIStatisticReporter", "report error isdkReporter null", new Object[0]);
-            } else {
-                a.reportUvEvent(str, str2, str3, str4);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            LinkedQueueNode<E> lvNext = this.consumerNode.lvNext();
+            if (lvNext != null) {
+                E andNullValue = lvNext.getAndNullValue();
+                this.consumerNode = lvNext;
+                return andNullValue;
             }
+            return null;
         }
+        return (E) invokeV.objValue;
     }
 }

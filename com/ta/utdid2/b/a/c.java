@@ -96,7 +96,7 @@ public class c {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if (g.m93a(str3)) {
+        if (g.m95a(str3)) {
             this.h = false;
             this.g = false;
         } else if (str3.equals("mounted")) {
@@ -110,7 +110,7 @@ public class c {
             this.g = false;
         }
         try {
-            if ((this.g || this.h) && context != null && !g.m93a(str)) {
+            if ((this.g || this.h) && context != null && !g.m95a(str)) {
                 d a = a(str);
                 this.f25a = a;
                 if (a != null) {
@@ -213,9 +213,9 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) {
-            File m94a = m94a(str);
-            if (m94a != null) {
-                d dVar = new d(m94a.getAbsolutePath());
+            File m96a = m96a(str);
+            if (m96a != null) {
+                d dVar = new d(m96a.getAbsolutePath());
                 this.f25a = dVar;
                 return dVar;
             }
@@ -232,7 +232,7 @@ public class c {
             SharedPreferences sharedPreferences = this.f22a;
             if (sharedPreferences != null) {
                 String string = sharedPreferences.getString(str, "");
-                if (!g.m93a(string)) {
+                if (!g.m95a(string)) {
                     return string;
                 }
             }
@@ -247,7 +247,7 @@ public class c {
 
     public void remove(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && !g.m93a(str) && !str.equals("t")) {
+        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && !g.m95a(str) && !str.equals("t")) {
             b();
             SharedPreferences.Editor editor = this.a;
             if (editor != null) {
@@ -261,7 +261,7 @@ public class c {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private File m94a(String str) {
+    private File m96a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
@@ -396,7 +396,7 @@ public class c {
                     }
                     str = null;
                     str = Environment.getExternalStorageState();
-                    if (!g.m93a(str)) {
+                    if (!g.m95a(str)) {
                         if (str.equals("mounted")) {
                             if (this.f24a == null) {
                                 d a = a(this.c);
@@ -436,7 +436,7 @@ public class c {
             }
             str = null;
             str = Environment.getExternalStorageState();
-            if (!g.m93a(str)) {
+            if (!g.m95a(str)) {
             }
             return z;
         }
@@ -451,7 +451,7 @@ public class c {
 
     public void putString(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) && !g.m93a(str) && !str.equals("t")) {
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) && !g.m95a(str) && !str.equals("t")) {
             b();
             SharedPreferences.Editor editor = this.a;
             if (editor != null) {

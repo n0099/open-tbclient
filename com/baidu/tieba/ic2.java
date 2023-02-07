@@ -1,10 +1,8 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import android.webkit.ValueCallback;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.HttpManager;
+import com.baidu.tieba.fi4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,21 +10,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.net.MalformedURLException;
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ic2 implements hc2 {
+public class ic2 extends gc2 implements fi4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
-    public static volatile ic2 g;
+    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, jc2> a;
-    public HashMap<String, ArrayList<ValueCallback<String>>> b;
-    public String c;
-    public HttpManager d;
-    public final Object e;
 
     static {
         InterceptResult invokeClinit;
@@ -41,156 +32,63 @@ public class ic2 implements hc2 {
                 return;
             }
         }
-        f = tk1.a;
+        ds2.g0().getSwitch("swan_pms_http_request_retry_use_default_net_lib", false);
+        b = false;
     }
 
-    public static ic2 e() {
+    @NonNull
+    public static gj4 K() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (g == null) {
-                synchronized (ic2.class) {
-                    if (g == null) {
-                        g = new ic2();
-                    }
-                }
+            if (b) {
+                return ds2.r0();
             }
-            return g;
+            return new ij4();
         }
-        return (ic2) invokeV.objValue;
+        return (gj4) invokeV.objValue;
     }
 
-    public ic2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ic2(v83 v83Var) {
+        super(v83Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {v83Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((v83) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
-        this.b = new HashMap<>();
-        this.e = new Object();
-        this.d = rn2.l().a();
-        this.c = rn2.f().a();
     }
 
-    @Override // com.baidu.tieba.hc2
-    public void a(String str, String str2) {
-        ArrayList<ValueCallback<String>> arrayList;
+    @Override // com.baidu.tieba.gc2, com.baidu.tieba.fi4
+    public void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, fi4.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            synchronized (this.e) {
-                if (f(str) && (arrayList = this.b.get(str)) != null) {
-                    int size = arrayList.size();
-                    for (int i = 0; i < size; i++) {
-                        arrayList.get(i).onReceiveValue(str2);
-                        if (f) {
-                            Log.e("ImageDownloadManager", i + " load success url = " + str + " path = " + str2);
-                        }
-                    }
-                    this.a.remove(str);
-                }
-            }
+        if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
+            K().b(str, map, map2, jSONObject, aVar);
         }
     }
 
-    public void g(String str, ValueCallback<String> valueCallback) {
+    @Override // com.baidu.tieba.gc2, com.baidu.tieba.fi4
+    public void z(String str, Map<String, String> map, Map<String, String> map2, fi4.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, valueCallback) == null) {
-            if (TextUtils.isEmpty(str)) {
-                valueCallback.onReceiveValue(null);
-                return;
-            }
-            try {
-                String d = d(str);
-                if (TextUtils.isEmpty(d)) {
-                    return;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map, map2, aVar) == null) {
+            String b2 = w23.b();
+            if (b2 != null) {
+                if (map == null) {
+                    map = new HashMap<>();
                 }
-                File file = new File(d(str));
-                if (file.exists() && !file.isDirectory()) {
-                    if (valueCallback != null) {
-                        valueCallback.onReceiveValue(d);
-                        return;
-                    }
-                    return;
-                }
-                synchronized (this.e) {
-                    if (!f(str)) {
-                        c(str);
-                    }
-                    b(str, valueCallback);
-                }
-            } catch (Exception e) {
-                if (f) {
-                    e.printStackTrace();
-                }
+                map.put("launchid", b2);
             }
-        }
-    }
-
-    public final void b(String str, ValueCallback<String> valueCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, valueCallback) == null) {
-            if (this.b.containsKey(str)) {
-                this.b.get(str).add(valueCallback);
-                return;
-            }
-            ArrayList<ValueCallback<String>> arrayList = new ArrayList<>();
-            arrayList.add(valueCallback);
-            this.b.put(str, arrayList);
-        }
-    }
-
-    public final void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (f) {
-                Log.d("ImageDownloadManager", "ImageDownloadManager SwanGamePreloadManager url:" + str);
-            }
-            jc2 jc2Var = new jc2(this.d, this.c, str, this);
-            this.a.put(str, jc2Var);
-            jc2Var.e();
-        }
-    }
-
-    public final String d(String str) throws MalformedURLException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return this.c + rn2.f().c(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final boolean f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            return this.a.containsKey(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.hc2
-    public void fail(int i, String str) {
-        ArrayList<ValueCallback<String>> arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) {
-            synchronized (this.e) {
-                if (f(str) && (arrayList = this.b.get(str)) != null) {
-                    int size = arrayList.size();
-                    for (int i2 = 0; i2 < size; i2++) {
-                        arrayList.get(i2).onReceiveValue("");
-                    }
-                    this.a.remove(str);
-                }
-            }
+            K().z(str, map, map2, aVar);
         }
     }
 }

@@ -1,146 +1,80 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.poly.widget.PayChannelEntity;
+import com.baidu.nps.interfa.ISignatureVerifier;
+import com.baidu.nps.interfa.ISignatureVerifier_SignatureVerifier_Provider;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes4.dex */
-public class de1 extends BaseAdapter {
+public class de1 {
     public static /* synthetic */ Interceptable $ic;
+    public static de1 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<PayChannelEntity> a;
-    public Context b;
+    @Inject
+    public bk1<ISignatureVerifier> a;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return 0L;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            zj1 b2 = zj1.b();
+            this.a = b2;
+            b2.a(new ISignatureVerifier_SignatureVerifier_Provider());
         }
-        return invokeI.longValue;
     }
 
-    /* loaded from: classes4.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public ImageView a;
-        public TextView b;
-        public ImageView c;
-
-        public a(View view2) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947701561, "Lcom/baidu/tieba/de1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ad0);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ad4);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ad5);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947701561, "Lcom/baidu/tieba/de1;");
+                return;
+            }
         }
+        b = new de1();
     }
 
-    public de1(Context context) {
+    public de1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = context;
+        c();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public PayChannelEntity getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i >= 0 && i < this.a.size()) {
-                return this.a.get(i);
-            }
-            return null;
-        }
-        return (PayChannelEntity) invokeI.objValue;
-    }
-
-    public void b(List<PayChannelEntity> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.a = list;
-            notifyDataSetChanged();
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public static de1 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<PayChannelEntity> list = this.a;
-            if (list == null) {
-                return 0;
-            }
-            return list.size();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
         }
-        return invokeV.intValue;
+        return (de1) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
+    public ISignatureVerifier b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
-            PayChannelEntity item = getItem(i);
-            if (item == null) {
-                return view2;
-            }
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0239, (ViewGroup) null, false);
-                view2.setTag(new a(view2));
-            }
-            if (view2.getTag() != null && (view2.getTag() instanceof a)) {
-                a aVar = (a) view2.getTag();
-                dc1.b().a(aVar.a, item.getIcon());
-                aVar.b.setText(item.getDisplayName());
-                if (item.getIsSelected() == 1) {
-                    aVar.c.setImageResource(R.drawable.obfuscated_res_0x7f080459);
-                } else {
-                    aVar.c.setImageResource(R.drawable.obfuscated_res_0x7f0812eb);
-                }
-            }
-            return view2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.get();
         }
-        return (View) invokeILL.objValue;
+        return (ISignatureVerifier) invokeV.objValue;
     }
 }

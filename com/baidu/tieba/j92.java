@@ -1,15 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
+import android.graphics.Bitmap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class j92 implements cj3<HybridUbcFlow> {
+public class j92 extends g92 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Bitmap d;
 
     public j92() {
         Interceptable interceptable = $ic;
@@ -25,17 +26,30 @@ public class j92 implements cj3<HybridUbcFlow> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cj3
-    /* renamed from: b */
-    public void a(HybridUbcFlow hybridUbcFlow) {
+    public static j92 a(String str, Bitmap bitmap) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
-            hybridUbcFlow.J("3334");
-            hybridUbcFlow.I(HybridUbcFlow.SubmitStrategy.PREFETCH_NA);
-            hybridUbcFlow.E("from", "swan");
-            hybridUbcFlow.E("type", "unknown");
-            hybridUbcFlow.E("source", "unknown");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, bitmap)) == null) {
+            j92 j92Var = new j92();
+            j92Var.a = 1;
+            j92Var.b = str;
+            j92Var.c = 0L;
+            j92Var.d = bitmap;
+            return j92Var;
         }
+        return (j92) invokeLL.objValue;
+    }
+
+    public static j92 b(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, str, j)) == null) {
+            j92 j92Var = new j92();
+            j92Var.a = 1;
+            j92Var.b = str;
+            j92Var.c = j;
+            return j92Var;
+        }
+        return (j92) invokeLJ.objValue;
     }
 }

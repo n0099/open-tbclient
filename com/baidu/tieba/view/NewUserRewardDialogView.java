@@ -17,9 +17,9 @@ import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.data.IconStampData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ax4;
-import com.baidu.tieba.cx4;
-import com.baidu.tieba.pm;
+import com.baidu.tieba.n15;
+import com.baidu.tieba.p15;
+import com.baidu.tieba.um;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -161,7 +161,7 @@ public class NewUserRewardDialogView extends LinearLayout {
             this.g = (TextView) findViewById(R.id.new_user_dialog_share);
             this.a.setKeepLastFrame(true);
             MessageManager.getInstance().registerListener(this.h);
-            this.b.setRoundLayoutRadius(ax4.z(R.string.J_X06));
+            this.b.setRoundLayoutRadius(n15.z(R.string.J_X06));
         }
     }
 
@@ -172,12 +172,12 @@ public class NewUserRewardDialogView extends LinearLayout {
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0107);
             SkinManager.setImageResource(this.e, R.drawable.icon_use_close_n);
-            cx4 d = cx4.d(this.f);
+            p15 d = p15.d(this.f);
             d.l(R.dimen.L_X01);
             d.k(R.color.CAM_X0902);
             d.n(R.string.J_X01);
             d.v(R.color.CAM_X0105);
-            cx4 d2 = cx4.d(this.g);
+            p15 d2 = p15.d(this.g);
             d2.l(R.dimen.L_X01);
             d2.k(R.color.CAM_X0304);
             d2.n(R.string.J_X01);
@@ -220,13 +220,13 @@ public class NewUserRewardDialogView extends LinearLayout {
         this.d.setText(iconStampData.stampText);
         int i = iconStampData.stampType;
         if (i == 1) {
-            this.a.setSourcePath(pm.b("post_1_times.mp4"));
+            this.a.setSourcePath(um.b("post_1_times.mp4"));
         } else if (i == 2) {
-            this.a.setSourcePath(pm.b("reply_1_times.mp4"));
+            this.a.setSourcePath(um.b("reply_1_times.mp4"));
         } else if (i == 3) {
-            this.a.setSourcePath(pm.b("post_7_times.mp4"));
+            this.a.setSourcePath(um.b("post_7_times.mp4"));
         } else {
-            this.a.setSourcePath(pm.b("reply_7_times.mp4"));
+            this.a.setSourcePath(um.b("reply_7_times.mp4"));
         }
         this.a.play();
     }

@@ -1,18 +1,43 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.io.File;
 /* loaded from: classes5.dex */
-public class o44 {
+public abstract class o44 implements fk2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<long[]> b;
-    public String c;
+
+    @Override // com.baidu.tieba.fk2
+    @NonNull
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "aigames/extcore/game-extension-core.zip" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.fk2
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.fk2
+    @NonNull
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "aigames/extcore/game-extension-config.json" : (String) invokeV.objValue;
+    }
 
     public o44() {
         Interceptable interceptable = $ic;
@@ -28,12 +53,14 @@ public class o44 {
         }
     }
 
-    public String toString() {
+    @Override // com.baidu.tieba.fk2
+    @NonNull
+    public File f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "[ videoPath = " + this.a + "; clipPath = " + this.c + "; clipList = " + this.b + " ]";
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return new File(m54.d(), "extension_core");
         }
-        return (String) invokeV.objValue;
+        return (File) invokeV.objValue;
     }
 }

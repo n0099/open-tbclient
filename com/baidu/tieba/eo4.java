@@ -1,50 +1,45 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes4.dex */
-public class eo4 extends bo4 {
+public class eo4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public int d;
+    public String e;
+    public String f;
+    public int g;
+    public String h;
+    public int i;
+    public int j;
+    public String k;
 
-    @Override // com.baidu.tieba.ao4
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "h" : (String) invokeV.objValue;
-    }
-
-    public eo4() {
+    public eo4(String str, String str2, String str3, int i, String str4, String str5) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3, Integer.valueOf(i), str4, str5};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.ao4
-    public String a(String[] strArr, Map<String, String> map) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, strArr, map)) == null) {
-            if (strArr != null && strArr.length != 0) {
-                StringBuilder sb = new StringBuilder("com.baidu.tieba://unidispatch/home");
-                c(strArr, sb, map, 1);
-                return sb.toString();
-            }
-            return null;
-        }
-        return (String) invokeLL.objValue;
+        this.a = str;
+        this.b = str2;
+        this.c = str3;
+        this.d = i;
+        this.e = str4;
+        this.f = str5;
     }
 }

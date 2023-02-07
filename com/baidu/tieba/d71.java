@@ -1,45 +1,144 @@
 package com.baidu.tieba;
 
-import android.widget.ImageView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.webkit.ValueCallback;
+import androidx.annotation.RequiresApi;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.browser.sailor.BdSailorConfig;
+import com.baidu.nadcore.webarch.feature.NadWebFeature;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes4.dex */
-public class d71 {
+public final class d71 {
     public static /* synthetic */ Interceptable $ic;
+    public static d71 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public HashMap<String, NadWebFeature> b;
 
-    /* loaded from: classes4.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final j71 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-907041938, "Lcom/baidu/tieba/d71$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-907041938, "Lcom/baidu/tieba/d71$a;");
-                    return;
-                }
+    public d71() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            a = new j71();
+        }
+        this.a = false;
+        this.b = new HashMap<>(4);
+    }
+
+    public static synchronized d71 c() {
+        InterceptResult invokeV;
+        d71 d71Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (d71.class) {
+                if (c == null) {
+                    c = new d71();
+                }
+                d71Var = c;
+            }
+            return d71Var;
+        }
+        return (d71) invokeV.objValue;
+    }
+
+    @RequiresApi(api = 21)
+    public static boolean h(Activity activity, ValueCallback<Uri[]> valueCallback, a71 a71Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, activity, valueCallback, a71Var)) == null) {
+            if (valueCallback == null) {
+                return false;
+            }
+            if (activity == null) {
+                valueCallback.onReceiveValue(null);
+                return false;
+            }
+            NadWebFeature b = c().b(BdSailorConfig.SAILOR_BASE_UPLOAD);
+            if (b != null && b.c()) {
+                if (b instanceof c71) {
+                    return ((c71) b).h(activity, valueCallback, a71Var);
+                }
+                valueCallback.onReceiveValue(null);
+            } else {
+                valueCallback.onReceiveValue(null);
+            }
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public NadWebFeature a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return b(str);
+        }
+        return (NadWebFeature) invokeL.objValue;
+    }
+
+    public NadWebFeature b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return this.b.get(str);
+        }
+        return (NadWebFeature) invokeL.objValue;
+    }
+
+    public boolean d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            e(context);
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void e(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, context) == null) && !this.a) {
+            c71 c71Var = new c71(context);
+            c71Var.a();
+            i(c71Var);
+            this.a = true;
         }
     }
 
-    public static l71<ImageView> a() {
-        InterceptResult invokeV;
+    public void f(Activity activity) {
+        NadWebFeature a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return a.a;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, activity) == null) && (a = a(BdSailorConfig.SAILOR_BASE_UPLOAD)) != null && a.c() && (a instanceof c71)) {
+            ((c71) a).f(activity);
         }
-        return (l71) invokeV.objValue;
+    }
+
+    public final void i(NadWebFeature nadWebFeature) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, nadWebFeature) == null) && nadWebFeature != null) {
+            this.b.put(nadWebFeature.b(), nadWebFeature);
+        }
+    }
+
+    public void g(Activity activity, int i, int i2, Intent intent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{activity, Integer.valueOf(i), Integer.valueOf(i2), intent}) == null) && 11 == i && (a(BdSailorConfig.SAILOR_BASE_UPLOAD) instanceof c71)) {
+            ((c71) a(BdSailorConfig.SAILOR_BASE_UPLOAD)).g(activity, i2, intent);
+        }
     }
 }

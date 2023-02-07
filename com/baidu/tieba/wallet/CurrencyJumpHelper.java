@@ -4,8 +4,8 @@ import android.content.Context;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.tieba.sf5;
-import com.baidu.tieba.xf5;
+import com.baidu.tieba.dk5;
+import com.baidu.tieba.ik5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -72,10 +72,10 @@ public class CurrencyJumpHelper {
         }
     }
 
-    public static void goYYPay(Context context, @Nullable sf5 sf5Var) {
+    public static void goYYPay(Context context, @Nullable dk5 dk5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, context, sf5Var) == null) {
-            MessageManager.getInstance().runTask(2921546, String.class, new xf5(context, 0, null, null, sf5Var));
+        if (interceptable == null || interceptable.invokeLL(65541, null, context, dk5Var) == null) {
+            MessageManager.getInstance().runTask(2921546, String.class, new ik5(context, 0, null, null, dk5Var));
         }
     }
 
@@ -100,20 +100,20 @@ public class CurrencyJumpHelper {
         }
     }
 
-    public static void buyGiftGotoBuyTBeanPage(Context context, sf5 sf5Var, String str, Long l, boolean z, int i) {
+    public static void buyGiftGotoBuyTBeanPage(Context context, dk5 dk5Var, String str, Long l, boolean z, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, sf5Var, str, l, Boolean.valueOf(z), Integer.valueOf(i)}) == null) && CurrencySwitchUtil.isYyIsConvert()) {
-            goYYPay(context, sf5Var, str, l, z, i);
+        if ((interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, dk5Var, str, l, Boolean.valueOf(z), Integer.valueOf(i)}) == null) && CurrencySwitchUtil.isYyIsConvert()) {
+            goYYPay(context, dk5Var, str, l, z, i);
         }
     }
 
-    public static void goYYPay(Context context, @Nullable sf5 sf5Var, String str, Long l, boolean z, int i) {
+    public static void goYYPay(Context context, @Nullable dk5 dk5Var, String str, Long l, boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{context, sf5Var, str, l, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            xf5 xf5Var = new xf5(context, 0, str, l, sf5Var);
-            xf5Var.g = z;
-            xf5Var.f = i;
-            MessageManager.getInstance().runTask(2921546, String.class, xf5Var);
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{context, dk5Var, str, l, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            ik5 ik5Var = new ik5(context, 0, str, l, dk5Var);
+            ik5Var.g = z;
+            ik5Var.f = i;
+            MessageManager.getInstance().runTask(2921546, String.class, ik5Var);
         }
     }
 
@@ -124,10 +124,10 @@ public class CurrencyJumpHelper {
         }
     }
 
-    public static void gotoBuyTBeanPage(Context context, float f, String str, String str2, @Nullable sf5 sf5Var) {
+    public static void gotoBuyTBeanPage(Context context, float f, String str, String str2, @Nullable dk5 dk5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, Float.valueOf(f), str, str2, sf5Var}) == null) && CurrencySwitchUtil.isYyIsConvert()) {
-            goYYPay(context, sf5Var);
+        if ((interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, Float.valueOf(f), str, str2, dk5Var}) == null) && CurrencySwitchUtil.isYyIsConvert()) {
+            goYYPay(context, dk5Var);
         }
     }
 }

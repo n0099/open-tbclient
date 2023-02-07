@@ -1,349 +1,210 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.content.Intent;
+import android.database.Cursor;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.live.interfaces.DI;
+import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.util.MaskView;
-import com.baidu.tieba.hw4;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Date;
 /* loaded from: classes4.dex */
-public class dw4 implements gw4 {
+public class dw4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int q;
-    public static final int r;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public hw4 b;
-    public View c;
-    public EMTextView d;
-    public View e;
-    public ImageView f;
-    public Drawable g;
-    public String h;
-    public int i;
-    public int j;
-    public int k;
-    public hw4.e l;
-    public boolean m;
-    public boolean n;
-    public boolean o;
-    public final View.OnClickListener p;
 
-    /* loaded from: classes4.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dw4 a;
-
-        public a(dw4 dw4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dw4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dw4Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.a.l != null) {
-                    this.a.l.onClick();
-                }
-                if (this.a.b != null && this.a.b.d() != null) {
-                    this.a.b.d().o0(this.a.b, this.a.a, this.a.d);
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947718952, "Lcom/baidu/tieba/dw4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947718952, "Lcom/baidu/tieba/dw4;");
-                return;
-            }
-        }
-        q = zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds251);
-        r = zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds231);
-    }
-
-    @Override // com.baidu.tieba.gw4
-    public void a() {
+    public static boolean a(AccountData accountData, fa faVar) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SkinManager.setBackgroundResource(this.d, this.j);
-            SkinManager.setViewTextColorSelector(this.d, this.i);
-            SkinManager.setBackgroundColor(this.e, R.color.CAM_X0204);
-            MaskView.d(this.d, this.n);
-            ImageView imageView = this.f;
-            if (imageView != null) {
-                imageView.setImageDrawable(this.g);
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, accountData, faVar)) == null) {
+            return faVar.e("Insert into account_data(id,account,password,bduss,isactive,tbs,time,portrait,gender,member_iconurl,stoken,name_show) values(?,?,?,?,?,?,?,?,?,?,?,?)", new Object[]{accountData.getID(), accountData.getAccount(), accountData.getPassword(), accountData.getBDUSS(), Integer.valueOf(accountData.getIsActive()), accountData.getTbs(), Long.valueOf(new Date().getTime()), accountData.getPortrait(), Integer.valueOf(accountData.getSex()), accountData.getMemberIconUrl(), accountData.getStoken(), accountData.getAccountNameShow()});
         }
+        return invokeLL.booleanValue;
     }
 
-    public dw4(int i, String str, hw4 hw4Var) {
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, hw4Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            TiebaDatabase.getInstance().getMainDBDatabaseManager().d("update account_data set isactive=0 where isactive=1");
         }
-        this.i = R.color.CAM_X0105;
-        this.j = R.color.CAM_X0204;
-        this.k = 17;
-        this.m = false;
-        this.n = false;
-        this.o = false;
-        this.p = new a(this);
-        this.a = i;
-        this.h = str;
-        this.b = hw4Var;
-        j();
-        i();
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public dw4(hw4 hw4Var) {
-        this(null, hw4Var);
+    public static boolean c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {hw4Var};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], (hw4) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return TiebaDatabase.getInstance().getMainDBDatabaseManager().e("delete from account_data where id=?", new String[]{str});
         }
+        return invokeL.booleanValue;
     }
 
-    public dw4(String str, hw4 hw4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, hw4Var};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.i = R.color.CAM_X0105;
-        this.j = R.color.CAM_X0204;
-        this.k = 17;
-        this.m = false;
-        this.n = false;
-        this.o = false;
-        this.p = new a(this);
-        this.h = str;
-        this.b = hw4Var;
-        this.a = hashCode();
-        j();
-        i();
-    }
-
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.o = z;
-        }
-    }
-
-    public void l(Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, drawable) == null) {
-            this.g = drawable;
-        }
-    }
-
-    public void m(hw4.e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, eVar) == null) {
-            this.l = eVar;
-            i();
-        }
-    }
-
-    public void n(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.h = str;
-            this.d.setText(str);
-        }
-    }
-
-    public void o(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.j = i;
-            SkinManager.setBackgroundResource(this.d, i);
-        }
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.i = i;
-            SkinManager.setViewTextColor(this.d, i);
-        }
-    }
-
-    public void r(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.n = z;
-            MaskView.d(this.d, z);
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            h();
-        }
-    }
-
-    public int f() {
+    public static int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            fa mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            int i = 0;
+            Cursor cursor = null;
+            try {
+                if (mainDBDatabaseManager != null) {
+                    try {
+                        cursor = mainDBDatabaseManager.j("select count(*) from account_data", null);
+                        if (cursor != null && cursor.moveToFirst()) {
+                            i = cursor.getInt(0);
+                        }
+                    } catch (Exception e) {
+                        mainDBDatabaseManager.i(e, "getAccountNum");
+                    }
+                }
+                return i;
+            } finally {
+                ch.a(cursor);
+            }
         }
         return invokeV.intValue;
     }
 
-    public String g() {
+    public static AccountData e() {
+        InterceptResult invokeV;
+        AccountData accountData;
+        Exception e;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            fa mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            Cursor cursor2 = null;
+            if (mainDBDatabaseManager != null) {
+                try {
+                    cursor = mainDBDatabaseManager.j("select * from account_data where isactive=?", new String[]{String.valueOf(1)});
+                    if (cursor != null) {
+                        try {
+                            try {
+                                if (cursor.moveToFirst()) {
+                                    accountData = new AccountData();
+                                    try {
+                                        accountData.setID(cursor.getString(0));
+                                        accountData.setAccount(cursor.getString(1));
+                                        accountData.setPassword(cursor.getString(2));
+                                        accountData.setBDUSS(cursor.getString(3));
+                                        accountData.setIsActive(cursor.getInt(4));
+                                        accountData.setTbs(cursor.getString(5));
+                                        accountData.setTime(cursor.getLong(6));
+                                        accountData.setPortrait(cursor.getString(7));
+                                        accountData.setSex(cursor.getInt(9));
+                                        accountData.setMemberIconUrl(cursor.getString(10));
+                                        accountData.setStoken(cursor.getString(cursor.getColumnIndex("stoken")));
+                                        accountData.setNameShow(cursor.getString(cursor.getColumnIndex("name_show")));
+                                        cursor2 = cursor;
+                                    } catch (Exception e2) {
+                                        e = e2;
+                                        mainDBDatabaseManager.i(e, "getActiveAccountData");
+                                        ch.a(cursor);
+                                        return accountData;
+                                    }
+                                }
+                            } catch (Exception e3) {
+                                accountData = null;
+                                e = e3;
+                            }
+                        } catch (Throwable th) {
+                            th = th;
+                            cursor2 = cursor;
+                            ch.a(cursor2);
+                            throw th;
+                        }
+                    }
+                    accountData = null;
+                    cursor2 = cursor;
+                } catch (Exception e4) {
+                    accountData = null;
+                    e = e4;
+                    cursor = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    ch.a(cursor2);
+                    throw th;
+                }
+            } else {
+                accountData = null;
+            }
+            ch.a(cursor2);
+            return accountData;
+        }
+        return (AccountData) invokeV.objValue;
+    }
+
+    public static ArrayList<AccountData> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.h;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.gw4
-    public View getView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public final void i() {
-        EMTextView eMTextView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (eMTextView = this.d) != null) {
-            eMTextView.setOnClickListener(this.p);
-        }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            cx4.d(this.d).A(R.string.F_X02);
-        }
-    }
-
-    public final void h() {
-        hw4 hw4Var;
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (hw4Var = this.b) != null && hw4Var.getContext() != null) {
-            View inflate = LayoutInflater.from(this.b.getContext()).inflate(R.layout.popup_dialog_view_horizal_item, this.b.f(), false);
-            this.c = inflate;
-            ViewGroup.LayoutParams layoutParams = inflate.getLayoutParams();
-            if (this.o) {
-                i = r;
-            } else {
-                i = q;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            fa mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            ArrayList<AccountData> arrayList = new ArrayList<>();
+            Cursor cursor = null;
+            try {
+                if (mainDBDatabaseManager != null) {
+                    try {
+                        cursor = mainDBDatabaseManager.j("select * from account_data order by time desc", null);
+                        while (cursor.moveToNext()) {
+                            AccountData accountData = new AccountData();
+                            accountData.setID(cursor.getString(0));
+                            accountData.setAccount(cursor.getString(1));
+                            accountData.setPassword(cursor.getString(2));
+                            accountData.setBDUSS(cursor.getString(3));
+                            accountData.setIsActive(cursor.getInt(4));
+                            accountData.setTbs(cursor.getString(5));
+                            accountData.setTime(cursor.getLong(6));
+                            accountData.setPortrait(cursor.getString(7));
+                            accountData.setSex(cursor.getInt(9));
+                            accountData.setMemberIconUrl(cursor.getString(10));
+                            accountData.setStoken(cursor.getString(cursor.getColumnIndex("stoken")));
+                            accountData.setNameShow(cursor.getString(cursor.getColumnIndex("name_show")));
+                            arrayList.add(accountData);
+                        }
+                    } catch (Exception e) {
+                        mainDBDatabaseManager.i(e, "getAllAccountData");
+                    }
+                }
+                return arrayList;
+            } finally {
+                ch.a(cursor);
             }
-            layoutParams.width = i;
-            Object tag = this.d.getTag();
-            EMTextView eMTextView = (EMTextView) this.c.findViewById(R.id.item_view);
-            this.d = eMTextView;
-            eMTextView.setText(this.h);
-            this.d.setGravity(this.k);
-            this.d.setTag(tag);
-            View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f090841);
-            this.e = findViewById;
-            findViewById.setVisibility(8);
-            ImageView imageView = (ImageView) this.c.findViewById(R.id.item_image);
-            this.f = imageView;
-            imageView.setImageDrawable(this.g);
-            a();
-            this.c.setOnClickListener(this.p);
         }
+        return (ArrayList) invokeV.objValue;
     }
 
-    public final void j() {
-        hw4 hw4Var;
+    public static void g(AccountData accountData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (hw4Var = this.b) != null && hw4Var.getContext() != null) {
-            View inflate = LayoutInflater.from(this.b.getContext()).inflate(R.layout.popup_dialog_view_item, this.b.f(), false);
-            this.c = inflate;
-            EMTextView eMTextView = (EMTextView) inflate.findViewById(R.id.item_view);
-            this.d = eMTextView;
-            eMTextView.setText(this.h);
-            this.d.setGravity(this.k);
-            View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f090841);
-            this.e = findViewById;
-            if (this.m) {
-                findViewById.setVisibility(0);
-            } else {
-                findViewById.setVisibility(8);
+        if ((interceptable == null || interceptable.invokeL(65542, null, accountData) == null) && accountData != null && accountData.getID() != null) {
+            Intent intent = new Intent();
+            intent.setAction("com.baidu.tieba.action.accountChange");
+            intent.putExtra("intent_data_accountData", TbadkCoreApplication.getCurrentAccountObj());
+            intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
+            TbadkCoreApplication.getInst().sendBroadcast(intent);
+            String str = "set_basedata_account:";
+            if (!StringUtils.isNull(accountData.getID()) && !StringUtils.isNull(accountData.getBDUSS())) {
+                str = "set_basedata_account:valid_logined";
+            } else if (!StringUtils.isNull(accountData.getBDUSS())) {
+                str = "set_basedata_account:valid";
+            } else if (!StringUtils.isNull(accountData.getID())) {
+                str = "set_basedata_account:logined";
             }
-            a();
+            e35.a(DI.ACCOUNT, -1L, 0, str, 0, "", new Object[0]);
+            if (accountData.getIsActive() == 1) {
+                b();
+            }
+            fa mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            if (!c(accountData.getID()) || !a(accountData, mainDBDatabaseManager)) {
+                if (!mainDBDatabaseManager.d("DROP TABLE IF EXISTS account_data")) {
+                    mainDBDatabaseManager.b();
+                }
+                mainDBDatabaseManager.d("CREATE TABLE if not exists account_data(id,account,password,bduss,isactive int,tbs,time,portrait varchar(255), personal_gid int, gender int, member_iconurl varchar(255),stoken varchar(255),name_show varchar(255))");
+                a(accountData, mainDBDatabaseManager);
+            }
         }
     }
 }

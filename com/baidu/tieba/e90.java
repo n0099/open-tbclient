@@ -1,24 +1,43 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.InvocationTargetException;
+import java.security.KeyManagementException;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateException;
+import java.util.concurrent.TimeoutException;
+import javax.net.ssl.SSLHandshakeException;
 /* loaded from: classes4.dex */
-public class e90 {
+public abstract class e90 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public f90 a;
-    public g90 b;
+    public Context a;
+    public f90 b;
 
-    public e90() {
+    public abstract InputStream b() throws Exception;
+
+    public abstract void c(f90 f90Var);
+
+    public abstract boolean d() throws IOException;
+
+    public abstract f90 e(String str, int i) throws KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IOException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, SSLHandshakeException, AssertionError;
+
+    public abstract void f(d90 d90Var) throws IOException;
+
+    public e90(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,35 +47,16 @@ public class e90 {
                 return;
             }
         }
-        this.a = new f90();
-        this.b = new g90();
+        this.b = null;
+        this.a = context;
     }
 
-    public x80 a(x80 x80Var, boolean z) {
-        InterceptResult invokeLZ;
+    public f90 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, x80Var, z)) == null) {
-            this.a.b(x80Var, z);
-            return x80Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (x80) invokeLZ.objValue;
-    }
-
-    public x80 b(Context context, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, j)) == null) {
-            return this.a.c(context, j);
-        }
-        return (x80) invokeLJ.objValue;
-    }
-
-    public x80 c(InputStream inputStream) throws Exception {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, inputStream)) == null) {
-            return this.b.b(inputStream);
-        }
-        return (x80) invokeL.objValue;
+        return (f90) invokeV.objValue;
     }
 }

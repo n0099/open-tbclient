@@ -145,7 +145,7 @@ public class H5PayActivity extends Activity {
             b();
             super.onCreate(bundle);
             try {
-                com.alipay.sdk.sys.a a = a.C0013a.a(getIntent());
+                com.alipay.sdk.sys.a a = a.C0012a.a(getIntent());
                 if (a == null) {
                     finish();
                     return;

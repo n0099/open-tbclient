@@ -193,7 +193,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
                             bottomAppBar.setFabDiameter(height);
                             CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) view2.getLayoutParams();
                             if (this.this$0.originalBottomMargin == 0) {
-                                ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin = bottomAppBar.getBottomInset() + (bottomAppBar.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07043a) - ((floatingActionButton.getMeasuredHeight() - height) / 2));
+                                ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin = bottomAppBar.getBottomInset() + (bottomAppBar.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07043f) - ((floatingActionButton.getMeasuredHeight() - height) / 2));
                                 ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin = bottomAppBar.getLeftInset();
                                 ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin = bottomAppBar.getRightInset();
                                 if (ViewUtils.isLayoutRtl(floatingActionButton)) {
@@ -267,7 +267,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
                             bottomAppBar.setFabDiameter(height);
                             CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) view2.getLayoutParams();
                             if (this.this$0.originalBottomMargin == 0) {
-                                ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin = bottomAppBar.getBottomInset() + (bottomAppBar.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07043a) - ((floatingActionButton.getMeasuredHeight() - height) / 2));
+                                ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin = bottomAppBar.getBottomInset() + (bottomAppBar.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07043f) - ((floatingActionButton.getMeasuredHeight() - height) / 2));
                                 ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin = bottomAppBar.getLeftInset();
                                 ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin = bottomAppBar.getRightInset();
                                 if (ViewUtils.isLayoutRtl(floatingActionButton)) {
@@ -761,7 +761,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
         this.paddingLeftSystemWindowInsets = obtainStyledAttributes.getBoolean(9, false);
         this.paddingRightSystemWindowInsets = obtainStyledAttributes.getBoolean(10, false);
         obtainStyledAttributes.recycle();
-        this.fabOffsetEndMode = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070439);
+        this.fabOffsetEndMode = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07043e);
         this.materialShapeDrawable.setShapeAppearanceModel(ShapeAppearanceModel.builder().setTopEdge(new BottomAppBarTopEdgeTreatment(obtainStyledAttributes.getDimensionPixelOffset(4, 0), obtainStyledAttributes.getDimensionPixelOffset(5, 0), obtainStyledAttributes.getDimensionPixelOffset(6, 0))).build());
         this.materialShapeDrawable.setShadowCompatibilityMode(2);
         this.materialShapeDrawable.setPaintStyle(Paint.Style.FILL);

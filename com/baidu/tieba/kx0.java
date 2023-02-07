@@ -1,44 +1,166 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
-import com.baidu.tieba.jx0;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.player.tail.AdVideoTailFrameView;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class kx0<VG extends ViewGroup, BE extends jx0> extends ox0<VG, BE> {
+public class kx0 extends cx0 implements AdVideoTailFrameView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public AdVideoTailFrameView b;
+    public Object c;
 
-    public kx0() {
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kx0(my0 my0Var, Object obj) {
+        super(my0Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {my0Var, obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((my0) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = obj;
+    }
+
+    @Override // com.baidu.nadcore.player.tail.AdVideoTailFrameView.b
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            boolean z = this.c instanceof cr0;
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a != null && this.c != null) {
+            g();
+        }
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            AdVideoTailFrameView adVideoTailFrameView = this.b;
+            if (adVideoTailFrameView != null && adVideoTailFrameView.q()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void l() {
+        AdVideoTailFrameView adVideoTailFrameView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (adVideoTailFrameView = this.b) != null) {
+            adVideoTailFrameView.w();
+        }
+    }
+
+    public void m() {
+        AdVideoTailFrameView adVideoTailFrameView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (adVideoTailFrameView = this.b) != null) {
+            adVideoTailFrameView.t();
+        }
+    }
+
+    @Override // com.baidu.nadcore.player.tail.AdVideoTailFrameView.b
+    public void b() {
+        my0 my0Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Object obj = this.c;
+            if (obj instanceof cr0) {
+                if ("ad_full_video".equals(((cr0) obj).s)) {
+                    if (this.a != null && h() && this.a.M()) {
+                        if (this.a.u().V0()) {
+                            this.a.F(mv0.w(PlayerEvent.ACTION_ON_COMPLETE));
+                        } else {
+                            this.a.u().y().G(0);
+                        }
+                    }
+                } else if ("ad_append_video".equals(((cr0) this.c).s) && (my0Var = this.a) != null && my0Var.M()) {
+                    this.b.u(ClogBuilder.LogType.CLOSE.type, "", "");
+                    this.a.P(8);
+                    this.a.N();
+                    this.a.F(lv0.w("layer_event_ad_finish"));
+                    if (!this.a.u().a0()) {
+                        this.a.F(mv0.w(PlayerEvent.ACTION_ON_COMPLETE));
+                    }
+                }
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ex0
-    /* renamed from: S */
-    public yr0 u() {
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.a == null) {
+            return;
+        }
+        if (this.b == null) {
+            AdVideoTailFrameView adVideoTailFrameView = new AdVideoTailFrameView(this.a.getContentView().getContext(), this.a, d());
+            this.b = adVideoTailFrameView;
+            this.a.L(adVideoTailFrameView);
+        }
+        this.b.n(d());
+        this.b.setCallBack(this);
+        Object obj = this.c;
+        if (obj != null) {
+            this.b.setData(obj);
+            this.b.v();
+        }
+    }
+
+    public final boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            xr0 u = super.u();
-            if (u != null) {
-                return (yr0) u;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            my0 my0Var = this.a;
+            if (my0Var != null && my0Var.u().o1() != null && this.a.u().o1().getVideoAd() != null && this.a.u().o1().getVideoAd().fullItemAdData != null) {
+                return true;
             }
-            throw new NullPointerException("null cannot be cast to non-null type com.baidu.nadcore.player.BaseVideoPlayer");
+            return false;
         }
-        return (yr0) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public void j(boolean z) {
+        AdVideoTailFrameView adVideoTailFrameView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048583, this, z) == null) && (adVideoTailFrameView = this.b) != null) {
+            adVideoTailFrameView.s(z);
+        }
+    }
+
+    public void k(boolean z) {
+        AdVideoTailFrameView adVideoTailFrameView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && (adVideoTailFrameView = this.b) != null) {
+            adVideoTailFrameView.n(z);
+        }
     }
 }

@@ -1,61 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* compiled from: lambda */
 /* loaded from: classes5.dex */
-public class l96 implements od7 {
+public final /* synthetic */ class l96 implements z96 {
     public static /* synthetic */ Interceptable $ic;
+    public static final /* synthetic */ l96 a = new l96();
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public String c;
-    public long d;
-    public boolean e;
 
-    public l96() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+    private /* synthetic */ l96() {
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (!(obj instanceof tm5)) {
-                return false;
-            }
-            tm5 tm5Var = (tm5) obj;
-            if (tm5Var.d == this.d && tm5Var.c.equals(this.c) && tm5Var.b.equals(this.b) && tm5Var.e == this.e && tm5Var.a == this.a) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public String toString() {
+    @Override // com.baidu.tieba.z96, java.util.concurrent.Callable
+    public final Object call() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "[HotForumInfoData:rank=" + this.a + ",forumAvatar=" + this.b + ",forumName=" + this.c + ",forumId=" + this.d + ",isLiked=" + this.e + "," + PreferencesUtil.RIGHT_MOUNT;
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? hc6.e() : invokeV.objValue;
     }
 }

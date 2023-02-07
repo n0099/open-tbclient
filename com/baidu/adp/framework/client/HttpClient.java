@@ -13,11 +13,11 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cg;
-import com.baidu.tieba.ma;
-import com.baidu.tieba.vh;
-import com.baidu.tieba.yb;
-import com.baidu.tieba.zf;
+import com.baidu.tieba.ai;
+import com.baidu.tieba.dc;
+import com.baidu.tieba.eg;
+import com.baidu.tieba.hg;
+import com.baidu.tieba.ra;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,7 +28,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class HttpClient extends ma<HttpMessage, HttpMessageTask> {
+public class HttpClient extends ra<HttpMessage, HttpMessageTask> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -74,8 +74,8 @@ public class HttpClient extends ma<HttpMessage, HttpMessageTask> {
         public transient /* synthetic */ FieldHolder $fh;
         public HttpMessage a;
         public HttpMessageTask b;
-        public final cg c;
-        public volatile zf d;
+        public final hg c;
+        public volatile eg d;
 
         public a(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
             Interceptable interceptable = $ic;
@@ -104,7 +104,7 @@ public class HttpClient extends ma<HttpMessage, HttpMessageTask> {
             setKey(String.valueOf(httpMessageTask.getCmd()));
             this.a = httpMessage;
             this.b = httpMessageTask;
-            this.c = new cg();
+            this.c = new hg();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -148,7 +148,7 @@ public class HttpClient extends ma<HttpMessage, HttpMessageTask> {
                 int a2 = this.b.getConnectTimeOut().a();
                 int retry = this.b.getRetry();
                 try {
-                    this.d = new zf(this.c);
+                    this.d = new eg(this.c);
                     if (this.b.getMethod() == HttpMessageTask.HTTP_METHOD.GET) {
                         this.d.d(retry, a, a2);
                     } else if (this.b.getMethod() == HttpMessageTask.HTTP_METHOD.POST) {
@@ -218,8 +218,8 @@ public class HttpClient extends ma<HttpMessage, HttpMessageTask> {
                             }
                             String url = this.b.getUrl();
                             boolean isSuccess = newInstance.isSuccess();
-                            yb ybVar = newInstance.performanceData;
-                            vh.a(str3, cmd, url, isSuccess, true, j3, j12, ybVar.g, j4, j5, ybVar.i);
+                            dc dcVar = newInstance.performanceData;
+                            ai.a(str3, cmd, url, isSuccess, true, j3, j12, dcVar.g, j4, j5, dcVar.i);
                             newInstance.logStatInBackground(this.a.getCmd(), this.c);
                             newInstance.setStartTime(System.currentTimeMillis());
                             publishProgress(newInstance);
@@ -230,7 +230,7 @@ public class HttpClient extends ma<HttpMessage, HttpMessageTask> {
                                 BdLog.detailException("responsedMessage create error reason = " + e3.toString(), e3);
                             }
                             ErrorHttpResponsedMessage errorHttpResponsedMessage = new ErrorHttpResponsedMessage(this.a.getCmd(), this.a);
-                            vh.a(str3, cmd, this.b.getUrl(), false, true, j9, 0L, 0L, 0L, 0L, 0);
+                            ai.a(str3, cmd, this.b.getUrl(), false, true, j9, 0L, 0L, 0L, 0L, 0);
                             return errorHttpResponsedMessage;
                         }
                     }
@@ -285,14 +285,14 @@ public class HttpClient extends ma<HttpMessage, HttpMessageTask> {
                             j3 = j9;
                             j5 = j2;
                             newInstance.setError(-1003);
-                            newInstance.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f05dc));
+                            newInstance.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f05e4));
                             BdLog.detailException(e);
                             if (this.a.getExtra() instanceof NetMessage) {
                             }
                             String url2 = this.b.getUrl();
                             boolean isSuccess2 = newInstance.isSuccess();
-                            yb ybVar2 = newInstance.performanceData;
-                            vh.a(str3, cmd, url2, isSuccess2, true, j3, j12, ybVar2.g, j4, j5, ybVar2.i);
+                            dc dcVar2 = newInstance.performanceData;
+                            ai.a(str3, cmd, url2, isSuccess2, true, j3, j12, dcVar2.g, j4, j5, dcVar2.i);
                             newInstance.logStatInBackground(this.a.getCmd(), this.c);
                             newInstance.setStartTime(System.currentTimeMillis());
                             publishProgress(newInstance);
@@ -312,14 +312,14 @@ public class HttpClient extends ma<HttpMessage, HttpMessageTask> {
                     } catch (Exception e8) {
                         e = e8;
                         newInstance.setError(-1003);
-                        newInstance.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f05dc));
+                        newInstance.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f05e4));
                         BdLog.detailException(e);
                         if (this.a.getExtra() instanceof NetMessage) {
                         }
                         String url22 = this.b.getUrl();
                         boolean isSuccess22 = newInstance.isSuccess();
-                        yb ybVar22 = newInstance.performanceData;
-                        vh.a(str3, cmd, url22, isSuccess22, true, j3, j12, ybVar22.g, j4, j5, ybVar22.i);
+                        dc dcVar22 = newInstance.performanceData;
+                        ai.a(str3, cmd, url22, isSuccess22, true, j3, j12, dcVar22.g, j4, j5, dcVar22.i);
                         newInstance.logStatInBackground(this.a.getCmd(), this.c);
                         newInstance.setStartTime(System.currentTimeMillis());
                         publishProgress(newInstance);
@@ -338,8 +338,8 @@ public class HttpClient extends ma<HttpMessage, HttpMessageTask> {
                 }
                 String url222 = this.b.getUrl();
                 boolean isSuccess222 = newInstance.isSuccess();
-                yb ybVar222 = newInstance.performanceData;
-                vh.a(str3, cmd, url222, isSuccess222, true, j3, j12, ybVar222.g, j4, j5, ybVar222.i);
+                dc dcVar222 = newInstance.performanceData;
+                ai.a(str3, cmd, url222, isSuccess222, true, j3, j12, dcVar222.g, j4, j5, dcVar222.i);
                 newInstance.logStatInBackground(this.a.getCmd(), this.c);
                 newInstance.setStartTime(System.currentTimeMillis());
                 publishProgress(newInstance);
@@ -408,7 +408,7 @@ public class HttpClient extends ma<HttpMessage, HttpMessageTask> {
         }
     }
 
-    @Override // com.baidu.tieba.ja
+    @Override // com.baidu.tieba.oa
     public LinkedList<HttpMessage> e(int i, BdUniqueId bdUniqueId) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -418,7 +418,7 @@ public class HttpClient extends ma<HttpMessage, HttpMessageTask> {
         return (LinkedList) invokeIL.objValue;
     }
 
-    @Override // com.baidu.tieba.ja
+    @Override // com.baidu.tieba.oa
     public void h(int i, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bdUniqueId) == null) {
@@ -427,7 +427,7 @@ public class HttpClient extends ma<HttpMessage, HttpMessageTask> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ja
+    @Override // com.baidu.tieba.oa
     /* renamed from: k */
     public void f(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         Interceptable interceptable = $ic;

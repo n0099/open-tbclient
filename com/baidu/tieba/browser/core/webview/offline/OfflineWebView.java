@@ -15,16 +15,16 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.QuickWebViewSwitch;
+import com.baidu.tieba.ab6;
+import com.baidu.tieba.ac6;
 import com.baidu.tieba.browser.core.webview.bridge.BridgeWebView;
 import com.baidu.tieba.browser.core.webview.offline.data.OfflineBridgeData;
-import com.baidu.tieba.g56;
-import com.baidu.tieba.n66;
-import com.baidu.tieba.o66;
-import com.baidu.tieba.o76;
-import com.baidu.tieba.q66;
-import com.baidu.tieba.r66;
-import com.baidu.tieba.ry4;
+import com.baidu.tieba.cb6;
+import com.baidu.tieba.db6;
+import com.baidu.tieba.e35;
+import com.baidu.tieba.s96;
 import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
+import com.baidu.tieba.za6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +40,7 @@ import java.util.Iterator;
 public class OfflineWebView extends BridgeWebView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public o66 t;
+    public ab6 t;
     public int u;
     public String v;
     public String w;
@@ -122,7 +122,7 @@ public class OfflineWebView extends BridgeWebView {
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.t = new o66();
+            this.t = new ab6();
         }
     }
 
@@ -131,9 +131,9 @@ public class OfflineWebView extends BridgeWebView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.destroy();
-            o66 o66Var = this.t;
-            if (o66Var != null) {
-                o66Var.h();
+            ab6 ab6Var = this.t;
+            if (ab6Var != null) {
+                ab6Var.h();
                 this.t = null;
             }
         }
@@ -170,15 +170,15 @@ public class OfflineWebView extends BridgeWebView {
             String str6 = null;
             try {
                 URL url = new URL(str);
-                r66 c = q66.a().c(url.getPath());
+                db6 c = cb6.a().c(url.getPath());
                 try {
                     if (c == null) {
-                        if (q66.a().b() != null) {
+                        if (cb6.a().b() != null) {
                             this.u = 3;
                         }
                         return null;
                     }
-                    if (g56.e()) {
+                    if (s96.e()) {
                         c.e = true;
                     }
                     int i = 2;
@@ -186,15 +186,15 @@ public class OfflineWebView extends BridgeWebView {
                     try {
                         if (!c.e) {
                             this.u = 4;
-                            ry4.a("OfflineCache", -1L, -1, "readCache", -1, "", "url", str, "hybridName", c.b, "hybridVersion", this.w, "hybridResult", "processing bundle");
+                            e35.a("OfflineCache", -1L, -1, "readCache", -1, "", "url", str, "hybridName", c.b, "hybridVersion", this.w, "hybridResult", "processing bundle");
                             return null;
                         }
                         try {
-                            String i3 = n66.h().i(c.b);
+                            String i3 = za6.h().i(c.b);
                             if (!TextUtils.isEmpty(c.b) && !TextUtils.isEmpty(c.c) && !TextUtils.isEmpty(i3)) {
-                                this.v = n66.p(true, c.b);
-                                this.w = n66.p(false, i3);
-                                String str7 = n66.h().g() + "/" + c.b + "/" + i3 + "/";
+                                this.v = za6.q(true, c.b);
+                                this.w = za6.q(false, i3);
+                                String str7 = za6.h().g() + "/" + c.b + "/" + i3 + "/";
                                 String str8 = c.c;
                                 if (!c.c.endsWith(DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION)) {
                                     str8 = c.c + DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION;
@@ -205,19 +205,19 @@ public class OfflineWebView extends BridgeWebView {
                                 if (!str9.contains("/android_asset/")) {
                                     if (!file.exists()) {
                                         this.u = 2;
-                                        ry4.a("OfflineCache", -1L, -1, "readCache", -1, "", "hybridName", this.v, "hybridVersion", this.w, "hybridResult", "path not found");
+                                        e35.a("OfflineCache", -1L, -1, "readCache", -1, "", "hybridName", this.v, "hybridVersion", this.w, "hybridResult", "path not found");
                                         return null;
                                     } else if (ListUtils.isEmpty(arrayList)) {
                                         return null;
                                     } else {
                                         for (String str10 : arrayList) {
                                             if (StringUtils.isNull(str10)) {
-                                                ry4.a("OfflineCache", -1L, -1, "readCache", -1, "", "hybridName", this.v, "hybridVersion", this.w, "hybridResult", "static file path is null");
+                                                e35.a("OfflineCache", -1L, -1, "readCache", -1, "", "hybridName", this.v, "hybridVersion", this.w, "hybridResult", "static file path is null");
                                                 this.u = 1;
                                                 return null;
                                             } else if (!new File(str7, str10).exists()) {
                                                 this.u = 1;
-                                                ry4.a("OfflineCache", -1L, -1, "readCache", -1, "", "url", str10, "hybridName", this.v, "hybridVersion", this.w, "hybridResult", "bundle incomplete");
+                                                e35.a("OfflineCache", -1L, -1, "readCache", -1, "", "url", str10, "hybridName", this.v, "hybridVersion", this.w, "hybridResult", "bundle incomplete");
                                                 return null;
                                             }
                                         }
@@ -393,16 +393,16 @@ public class OfflineWebView extends BridgeWebView {
                 sb.append("_webview_time=");
                 sb.append(System.currentTimeMillis());
                 str5 = sb.toString();
-                ry4.a("OfflineCache", -1L, -1, "readCache", -1, "", "type", "start", "url", str5);
+                e35.a("OfflineCache", -1L, -1, "readCache", -1, "", "type", "start", "url", str5);
                 if (str5.length() > 100) {
                     str2 = str5.substring(0, 100);
                 } else {
                     str2 = str5;
                 }
-                if (!n66.l(str5)) {
+                if (!za6.l(str5)) {
                     String l = l(str5);
                     if (!TextUtils.isEmpty(l)) {
-                        ry4.a("OfflineCache", -1L, -1, "readCache", -1, "", "type", "end", "url", l, "hybridName", this.v, "hybridVersion", this.w, "hybridResult", "success");
+                        e35.a("OfflineCache", -1L, -1, "readCache", -1, "", "type", "end", "url", l, "hybridName", this.v, "hybridVersion", this.w, "hybridResult", "success");
                         str5 = l;
                         z = true;
                         StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_QUICK_WEBVIEW_LOCAL_URL);
@@ -411,11 +411,11 @@ public class OfflineWebView extends BridgeWebView {
                         } else {
                             str3 = "2";
                         }
-                        TiebaStatic.log(statisticItem.param("obj_locate", str3).param("obj_source", str2).param("obj_type", this.u).param("obj_name", n66.g).param("obj_param1", this.v).param("obj_id", this.w));
+                        TiebaStatic.log(statisticItem.param("obj_locate", str3).param("obj_source", str2).param("obj_type", this.u).param("obj_name", za6.g).param("obj_param1", this.v).param("obj_id", this.w));
                         this.u = 0;
                         this.v = "none";
                         this.w = "0.0.0.0";
-                        ry4.a("search", -1L, 0, "LoadUrl", 0, "", "loadUrl", str2, SetImageWatermarkTypeReqMsg.SWITCH, Boolean.valueOf(QuickWebViewSwitch.getInOn()));
+                        e35.a("search", -1L, 0, "LoadUrl", 0, "", "loadUrl", str2, SetImageWatermarkTypeReqMsg.SWITCH, Boolean.valueOf(QuickWebViewSwitch.getInOn()));
                     }
                 } else {
                     this.u = 5;
@@ -424,13 +424,13 @@ public class OfflineWebView extends BridgeWebView {
                 StatisticItem statisticItem2 = new StatisticItem(TbadkCoreStatisticKey.KEY_QUICK_WEBVIEW_LOCAL_URL);
                 if (!z) {
                 }
-                TiebaStatic.log(statisticItem2.param("obj_locate", str3).param("obj_source", str2).param("obj_type", this.u).param("obj_name", n66.g).param("obj_param1", this.v).param("obj_id", this.w));
+                TiebaStatic.log(statisticItem2.param("obj_locate", str3).param("obj_source", str2).param("obj_type", this.u).param("obj_name", za6.g).param("obj_param1", this.v).param("obj_id", this.w));
                 this.u = 0;
                 this.v = "none";
                 this.w = "0.0.0.0";
-                ry4.a("search", -1L, 0, "LoadUrl", 0, "", "loadUrl", str2, SetImageWatermarkTypeReqMsg.SWITCH, Boolean.valueOf(QuickWebViewSwitch.getInOn()));
+                e35.a("search", -1L, 0, "LoadUrl", 0, "", "loadUrl", str2, SetImageWatermarkTypeReqMsg.SWITCH, Boolean.valueOf(QuickWebViewSwitch.getInOn()));
             }
-            o76.b("lt-log", "offline-end:" + str5);
+            ac6.b("lt-log", "offline-end:" + str5);
             super.loadUrl(str5);
         }
     }

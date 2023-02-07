@@ -1,77 +1,93 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.content.Intent;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.Unit;
-import kotlin.jvm.JvmName;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.internal.Intrinsics;
-@JvmName(name = "TopicListUtil")
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public final class t49 {
+public class t49 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final MainTabActivity a;
+    public final v39 b;
 
-    @JvmOverloads
-    public static final void b() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t49(MainTabActivity mainTabActivity, v39 v39Var) {
+        super(2007002);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            e(null, null, 3, null);
-        }
-    }
-
-    @JvmOverloads
-    public static final void c(TbPageContext<?> tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, tbPageContext) == null) {
-            e(tbPageContext, null, 2, null);
-        }
-    }
-
-    public static final void a(int i, String fid, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), fid, Integer.valueOf(i2)}) == null) {
-            Intrinsics.checkNotNullParameter(fid, "fid");
-            TiebaStatic.log(new StatisticItem("c15112").param("obj_type", i).param("fid", fid).param("obj_locate", i2));
-        }
-    }
-
-    @JvmOverloads
-    public static final void d(TbPageContext<?> tbPageContext, String listType) {
-        Unit unit;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, tbPageContext, listType) == null) {
-            Intrinsics.checkNotNullParameter(listType, "listType");
-            String stringPlus = Intrinsics.stringPlus("https://tieba.baidu.com/mo/q/hybrid/hotTopicRank?customfullscreen=1&nonavigationbar=1&list_type=", listType);
-            if (Intrinsics.areEqual("all", listType)) {
-                stringPlus = Intrinsics.stringPlus(stringPlus, "&page_key=a078");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, v39Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (currentActivity == null) {
-                unit = null;
+        }
+        this.a = mainTabActivity;
+        this.b = v39Var;
+        setPriority(100);
+    }
+
+    public final void a(Intent intent) {
+        v39 v39Var;
+        int a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, intent) == null) && intent != null && (v39Var = this.b) != null && v39Var.y() != null) {
+            try {
+                if (intent.hasExtra("locate_type")) {
+                    a = intent.getIntExtra("locate_type", 1);
+                } else {
+                    a = this.a.o.a();
+                }
+                this.b.y().setCurrentTabByType(a);
+            } catch (Throwable th) {
+                BdLog.e(th);
+                this.a.finish();
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ArrayList<qf5> b;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null && (b = ((sf5) customResponsedMessage.getData()).b()) != null && b.size() != 0) {
+            this.b.z(b);
+            if (this.a.c) {
+                v39 v39Var = this.b;
+                if (v39Var != null && v39Var.y() != null) {
+                    this.b.y().setCurrentTabByType(this.a.b);
+                }
             } else {
-                new TbWebViewActivityConfig(currentActivity, null, stringPlus, true).start();
-                unit = Unit.INSTANCE;
+                v39 v39Var2 = this.b;
+                if (v39Var2 != null && v39Var2.y() != null) {
+                    if (this.a.getIntent() != null && this.a.getIntent().getDataString() != null && this.a.getIntent().getDataString().startsWith(UrlSchemaHelper.SCHEMA_TYPE_DEEPLINK_TOPIC)) {
+                        this.b.y().setCurrentTabByType(2);
+                    } else {
+                        a(this.a.getIntent());
+                    }
+                }
             }
-            if (unit == null && tbPageContext != null) {
-                new TbWebViewActivityConfig(tbPageContext.getPageActivity(), null, stringPlus, true).start();
-            }
+            this.a.c = false;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921333, null));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921543, null));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921579, 0));
         }
-    }
-
-    public static /* synthetic */ void e(TbPageContext tbPageContext, String str, int i, Object obj) {
-        if ((i & 1) != 0) {
-            tbPageContext = null;
-        }
-        if ((i & 2) != 0) {
-            str = "all";
-        }
-        d(tbPageContext, str);
     }
 }

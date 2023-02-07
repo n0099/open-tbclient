@@ -1,241 +1,174 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.SelectForumConfig;
-import com.baidu.tbadk.core.view.NormalItemCell;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.data.SelectForumData;
-import com.baidu.tieba.wg9;
+import android.content.Context;
+import android.graphics.Bitmap;
+import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.coreExtra.data.TbMultiMediaData;
+import com.baidu.tbadk.coreExtra.data.VideoInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.data.MultiMediaData;
+import com.baidu.ugc.editvideo.record.source.multimedia.VlogEditManager;
 /* loaded from: classes4.dex */
-public class df9 extends lf9<eg9> {
+public class df9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public NormalItemCell g;
-    @Nullable
-    public wg9 h;
-    public final wg9.b i;
 
-    @Override // com.baidu.tieba.qf9
-    public void a(@NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeData) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947702770, "Lcom/baidu/tieba/df9;")) == null) {
+            return;
         }
-    }
-
-    @Override // com.baidu.tieba.qf9
-    public void c(WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.qf9
-    public void e(@NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, writeData) == null) {
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class a implements wg9.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ df9 a;
-
-        public a(df9 df9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {df9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = df9Var;
-        }
-
-        @Override // com.baidu.tieba.wg9.b
-        public void a(@NonNull SelectForumData selectForumData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, selectForumData) == null) {
-                if (this.a.e != null) {
-                    this.a.e.setForumId(selectForumData.forumId);
-                    this.a.e.setForumName(selectForumData.forumName);
-                }
-                if (this.a.g != null) {
-                    this.a.g.setSubTitle(selectForumData.forumName);
-                }
-                this.a.y(selectForumData);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ df9 a;
-
-        public b(df9 df9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {df9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = df9Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SelectForumConfig(this.a.a.getPageActivity())));
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public df9(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, eg9.class);
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947702770, "Lcom/baidu/tieba/df9;");
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class a implements ff9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ff9 a;
+
+        public a(ff9 ff9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ff9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
+            this.a = ff9Var;
         }
-        this.i = new a(this);
-    }
 
-    @Override // com.baidu.tieba.lf9, com.baidu.tieba.qf9
-    public void j(@NonNull sf9 sf9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, sf9Var) == null) {
-            super.j(sf9Var);
-            if (this.h == null) {
-                wg9 wg9Var = new wg9();
-                this.h = wg9Var;
-                wg9Var.c(this.i);
-            }
-            this.h.b(this.a.getUniqueId());
-        }
-    }
-
-    @Override // com.baidu.tieba.qf9
-    public void onChangeSkinType(int i) {
-        NormalItemCell normalItemCell;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && (normalItemCell = this.g) != null) {
-            normalItemCell.c();
-        }
-    }
-
-    public final boolean F() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WriteData writeData = this.e;
-            if (writeData != null && "2".equals(writeData.getCallFrom())) {
-                return TextUtils.isEmpty(this.e.getForumName());
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.lf9, com.baidu.tieba.qf9
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.d();
-            wg9 wg9Var = this.h;
-            if (wg9Var != null) {
-                wg9Var.d();
+        @Override // com.baidu.tieba.ff9
+        public void a(int i, Bitmap bitmap) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, bitmap) == null) {
+                ff9 ff9Var = this.a;
+                if (ff9Var != null) {
+                    ff9Var.a(i, bitmap);
+                }
+                cw9.d("single-frameResult: " + i);
             }
         }
     }
 
-    @Override // com.baidu.tieba.lf9, com.baidu.tieba.qf9
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (F()) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SelectForumConfig(this.a.getPageActivity())));
-                return false;
+    /* loaded from: classes4.dex */
+    public static class b implements ff9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ff9 a;
+
+        public b(ff9 ff9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ff9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return true;
+            this.a = ff9Var;
         }
-        return invokeV.booleanValue;
+
+        @Override // com.baidu.tieba.ff9
+        public void a(int i, Bitmap bitmap) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, bitmap) == null) {
+                ff9 ff9Var = this.a;
+                if (ff9Var != null) {
+                    ff9Var.a(i, bitmap);
+                }
+                cw9.d("multi-frameResult: " + i);
+            }
+        }
     }
 
-    @Override // com.baidu.tieba.qf9
-    public View s(@NonNull ViewGroup viewGroup) {
+    public static TbMultiMediaData a(VideoInfo videoInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d04e8, viewGroup, false);
-            this.c = inflate;
-            this.g = (NormalItemCell) inflate.findViewById(R.id.obfuscated_res_0x7f091bf7);
-            NormalItemCell.a aVar = new NormalItemCell.a();
-            aVar.a = R.color.CAM_X0206;
-            aVar.c = R.drawable.icon_pure_ba16;
-            aVar.b = 1;
-            aVar.f = this.a.getString(R.string.obfuscated_res_0x7f0f03de);
-            aVar.e = this.a.getString(R.string.obfuscated_res_0x7f0f03dc);
-            NormalItemCell normalItemCell = this.g;
-            if (normalItemCell != null) {
-                normalItemCell.setConfig(aVar);
-                this.g.setOnClickListener(new b(this));
-                WriteData writeData = this.e;
-                if (writeData != null && "2".equals(writeData.getCallFrom()) && !TextUtils.isEmpty(this.e.getForumName())) {
-                    this.g.setSubTitle(this.e.getForumName());
-                    this.g.setOnClickListener(null);
-                    this.g.a();
-                }
-            }
-            return this.c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, videoInfo)) == null) {
+            TbMultiMediaData tbMultiMediaData = new TbMultiMediaData();
+            tbMultiMediaData.path = videoInfo.getVideoPath();
+            tbMultiMediaData.coverPath = videoInfo.getThumbPath();
+            tbMultiMediaData.height = videoInfo.getVideoHeight();
+            tbMultiMediaData.width = videoInfo.getVideoWidth();
+            tbMultiMediaData.type = 1;
+            tbMultiMediaData.start = 0L;
+            tbMultiMediaData.end = videoInfo.getVideoDuration() * 1000;
+            tbMultiMediaData.originalDuration = videoInfo.getVideoDuration() * 1000;
+            tbMultiMediaData.scaleType = "center_inside";
+            tbMultiMediaData.videoInfoSource = videoInfo.getVideoSource();
+            return tbMultiMediaData;
         }
-        return (View) invokeL.objValue;
+        return (TbMultiMediaData) invokeL.objValue;
+    }
+
+    public static void b(VlogEditManager vlogEditManager, Context context, int i, int i2, int i3, ff9 ff9Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{vlogEditManager, context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), ff9Var}) == null) && vlogEditManager != null && context != null && i > 0) {
+            of9 of9Var = new of9();
+            of9Var.a = vlogEditManager.getDuration();
+            of9Var.b = i;
+            of9Var.f = vlogEditManager.getInputMultiMediaData();
+            MediaTrack mediaTrack = (MediaTrack) hw9.c(vlogEditManager.getUpdateMediaTracks(), 0);
+            if (mediaTrack == null) {
+                return;
+            }
+            of9Var.e = mediaTrack.mediaSegments;
+            if (i2 == 0) {
+                i2 = UtilHelper.getDimenPixelSize(R.dimen.tbds24);
+            }
+            of9Var.c = i2;
+            if (i3 == 0) {
+                i3 = UtilHelper.getDimenPixelSize(R.dimen.tbds32);
+            }
+            of9Var.d = i3;
+            if9.f().i(of9Var, new b(ff9Var));
+        }
+    }
+
+    public static void c(MultiMediaData multiMediaData, Context context, int i, int i2, int i3, ff9 ff9Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{multiMediaData, context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), ff9Var}) == null) && multiMediaData != null && context != null && i > 0) {
+            pf9 pf9Var = new pf9();
+            pf9Var.b = i;
+            pf9Var.a = multiMediaData.originalDuration;
+            pf9Var.e = multiMediaData;
+            if (i2 == 0) {
+                i2 = UtilHelper.getDimenPixelSize(R.dimen.tbds24);
+            }
+            pf9Var.c = i2;
+            if (i3 == 0) {
+                i3 = UtilHelper.getDimenPixelSize(R.dimen.tbds32);
+            }
+            pf9Var.d = i3;
+            if9.f().j(pf9Var, new a(ff9Var));
+        }
     }
 }

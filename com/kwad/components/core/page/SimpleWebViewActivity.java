@@ -51,14 +51,14 @@ public class SimpleWebViewActivity extends com.kwad.components.core.i.a {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f091185);
+            this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f0911c8);
             String stringExtra = getIntent().getStringExtra("key_page_title");
             this.title = stringExtra;
             if (!TextUtils.isEmpty(stringExtra)) {
                 this.mTitle.setText(this.title);
             }
-            findViewById(R.id.obfuscated_res_0x7f091187).setVisibility(8);
-            findViewById(R.id.obfuscated_res_0x7f091186).setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.core.page.SimpleWebViewActivity.1
+            findViewById(R.id.obfuscated_res_0x7f0911ca).setVisibility(8);
+            findViewById(R.id.obfuscated_res_0x7f0911c9).setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.core.page.SimpleWebViewActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ SimpleWebViewActivity Gc;
@@ -95,7 +95,7 @@ public class SimpleWebViewActivity extends com.kwad.components.core.i.a {
     private void initWebView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            KsAdWebView ksAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0912d8);
+            KsAdWebView ksAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f09131b);
             this.mAdWebView = ksAdWebView;
             p.b(ksAdWebView);
         }

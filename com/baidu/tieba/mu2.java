@@ -1,16 +1,18 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.swan.pms.model.PMSAppInfo;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class mu2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static List<WeakReference<lu2>> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -26,26 +28,96 @@ public class mu2 {
                 return;
             }
         }
-        a = tk1.a;
+        a = new ArrayList();
     }
 
-    public static String a(PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
+    public static void a(ev1 ev1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, pMSAppInfo)) == null) {
-            if (pMSAppInfo == null) {
-                if (a) {
-                    Log.e("AppInfoExt", "appInfo can not be null, please check");
-                    return "";
+        if (interceptable == null || interceptable.invokeL(65537, null, ev1Var) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                lu2 lu2Var = a.get(size).get();
+                if (lu2Var == null) {
+                    a.remove(size);
+                } else {
+                    lu2Var.d(ev1Var);
                 }
-                return "";
             }
-            String str = pMSAppInfo.serverExt;
-            if (a) {
-                Log.d("AppInfoExt", "appId - " + pMSAppInfo.appId + ",get app info' ext - " + str);
-            }
-            return str;
         }
-        return (String) invokeL.objValue;
+    }
+
+    public static void b(ev1 ev1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, ev1Var) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                lu2 lu2Var = a.get(size).get();
+                if (lu2Var == null) {
+                    a.remove(size);
+                } else {
+                    lu2Var.b(ev1Var);
+                }
+            }
+        }
+    }
+
+    public static void c(ev1 ev1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, ev1Var) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                lu2 lu2Var = a.get(size).get();
+                if (lu2Var == null) {
+                    a.remove(size);
+                } else {
+                    lu2Var.c(ev1Var);
+                }
+            }
+        }
+    }
+
+    public static void d(ev1 ev1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, ev1Var) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                lu2 lu2Var = a.get(size).get();
+                if (lu2Var == null) {
+                    a.remove(size);
+                } else {
+                    lu2Var.a(ev1Var);
+                }
+            }
+        }
+    }
+
+    public static void f(lu2 lu2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65542, null, lu2Var) != null) || lu2Var == null) {
+            return;
+        }
+        for (int size = a.size() - 1; size >= 0; size--) {
+            lu2 lu2Var2 = a.get(size).get();
+            if (lu2Var2 == null || lu2Var == lu2Var2) {
+                a.remove(size);
+            }
+        }
+    }
+
+    public static void e(lu2 lu2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65541, null, lu2Var) != null) || lu2Var == null) {
+            return;
+        }
+        boolean z = false;
+        for (int size = a.size() - 1; size >= 0; size--) {
+            lu2 lu2Var2 = a.get(size).get();
+            if (lu2Var2 == null) {
+                a.remove(size);
+            } else if (lu2Var2 == lu2Var) {
+                z = true;
+            } else {
+                z = false;
+            }
+        }
+        if (!z) {
+            a.add(new WeakReference<>(lu2Var));
+        }
     }
 }

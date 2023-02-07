@@ -1,6 +1,5 @@
 package com.baidu.tieba.tbadkCore.writeModel;
 
-import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,8 +43,8 @@ public class AsyncPublishImagesStatData implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put(FetchLog.START_TIME, this.startTime);
-            jSONObject.put(FetchLog.END_TIME, this.endTime);
+            jSONObject.put("startTime", this.startTime);
+            jSONObject.put("endTime", this.endTime);
             jSONObject.put("errorCode", this.errorCode);
             jSONObject.put("errorMessage", this.errorMessage);
             if (this.imageInfo != null) {

@@ -4,7 +4,7 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.w39;
+import com.baidu.tieba.v79;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +24,7 @@ public class BackgroundListSocketResponseMessage extends SocketResponsedMessage 
     public boolean hasMore;
     public List<DressItemData> mBackgroundList;
     public int mIsDefault;
-    public w39 mRecommand;
+    public v79 mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BackgroundListSocketResponseMessage() {
@@ -65,9 +65,9 @@ public class BackgroundListSocketResponseMessage extends SocketResponsedMessage 
             DataRes dataRes = getBgListResIdl.data;
             if (dataRes != null) {
                 if (dataRes.recommend != null) {
-                    w39 w39Var = new w39();
-                    this.mRecommand = w39Var;
-                    w39Var.d(getBgListResIdl.data.recommend);
+                    v79 v79Var = new v79();
+                    this.mRecommand = v79Var;
+                    v79Var.d(getBgListResIdl.data.recommend);
                 }
                 this.mIsDefault = getBgListResIdl.data.is_default.intValue();
                 if (getBgListResIdl.data.bgs != null) {
@@ -109,13 +109,13 @@ public class BackgroundListSocketResponseMessage extends SocketResponsedMessage 
         return invokeV.booleanValue;
     }
 
-    public w39 getRecommand() {
+    public v79 getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.mRecommand;
         }
-        return (w39) invokeV.objValue;
+        return (v79) invokeV.objValue;
     }
 
     public boolean hasMore() {

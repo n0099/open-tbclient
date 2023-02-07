@@ -1,17 +1,29 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import java.net.Proxy;
+import java.net.ProxySelector;
+import java.net.SocketAddress;
+import java.net.URI;
+import java.util.Collections;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class i70 implements k70 {
+public class i70 extends ProxySelector {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // java.net.ProxySelector
+    public void connectFailed(URI uri, SocketAddress socketAddress, IOException iOException) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, uri, socketAddress, iOException) == null) {
+        }
+    }
 
     public i70() {
         Interceptable interceptable = $ic;
@@ -27,13 +39,16 @@ public class i70 implements k70 {
         }
     }
 
-    @Override // com.baidu.tieba.k70
-    public HttpURLConnection openHttpURLConnection(URL url) throws IOException {
+    @Override // java.net.ProxySelector
+    public List<Proxy> select(URI uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, url)) == null) {
-            return (HttpURLConnection) url.openConnection();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) {
+            if (uri != null) {
+                return Collections.singletonList(Proxy.NO_PROXY);
+            }
+            throw new IllegalArgumentException("uri must not be null");
         }
-        return (HttpURLConnection) invokeL.objValue;
+        return (List) invokeL.objValue;
     }
 }

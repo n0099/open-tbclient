@@ -1,95 +1,30 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tieba.qi2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class pi2 extends BaseAdapter {
+public class pi2 implements qi2.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public String[] b;
+    public final String a;
+    public JSONObject b;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public ImageView a;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ c(a aVar) {
-            this();
-        }
-    }
-
-    public pi2(Context context, @NonNull String[] strArr) {
+    public pi2(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, strArr};
+            Object[] objArr = {str, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -99,72 +34,71 @@ public class pi2 extends BaseAdapter {
                 return;
             }
         }
-        this.a = context;
-        this.b = strArr;
+        JSONObject jSONObject = new JSONObject();
+        this.b = jSONObject;
+        this.a = str;
+        try {
+            jSONObject.put(IntentConfig.PKG_ID, str);
+            if (z) {
+                update();
+            }
+        } catch (JSONException e) {
+            if (qi2.n0) {
+                e.printStackTrace();
+            }
+        }
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public static pi2 query(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return new pi2(str, true);
+        }
+        return (pi2) invokeL.objValue;
+    }
+
+    private void update() throws JSONException {
+        PMSAppInfo u;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && isValid() && (u = tg4.i().u(this.a)) != null) {
+            this.b.put("app_name", u.appName);
+            this.b.put("pkg_vername", u.versionName);
+            this.b.put("pkg_vercode", u.versionCode);
+            this.b.put("create_time", u.createTime);
+            this.b.put("last_launch_time", u.getLastLaunchTime());
+            this.b.put("launch_count", u.getLaunchCount());
+            this.b.put("install_src", u.getInstallSrc());
+        }
+    }
+
+    @Override // com.baidu.tieba.qi2.a
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b.length;
+            return this.a;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.qi2.a
+    public JSONObject b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            return this.b[i];
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return invokeI.objValue;
+        return (JSONObject) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v9, resolved type: com.baidu.tieba.pi2$b */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        c cVar;
-        View inflate;
-        c cVar2;
+    @Override // com.baidu.tieba.qi2.a
+    public boolean isValid() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                if (i == 11) {
-                    inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d00b4, null);
-                    b bVar = new b(null);
-                    bVar.a = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0907c5);
-                    cVar2 = bVar;
-                } else {
-                    inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d00b6, null);
-                    c cVar3 = new c(null);
-                    cVar3.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0910de);
-                    cVar2 = cVar3;
-                    if (i == 9) {
-                        if (TextUtils.isEmpty(this.b[9])) {
-                            inflate.setBackgroundColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0603cf));
-                            cVar2 = cVar3;
-                        } else {
-                            inflate.setBackgroundResource(R.drawable.obfuscated_res_0x7f080184);
-                            cVar2 = cVar3;
-                        }
-                    }
-                }
-                view2 = inflate;
-                view2.setTag(cVar2);
-                cVar = cVar2;
-            } else {
-                cVar = view2.getTag();
-            }
-            if (i != 11 && (cVar instanceof c)) {
-                ((c) cVar).a.setText(this.b[i]);
-            }
-            return view2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return !TextUtils.isEmpty(this.a);
         }
-        return (View) invokeILL.objValue;
+        return invokeV.booleanValue;
     }
 }

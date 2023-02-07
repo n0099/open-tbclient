@@ -19,7 +19,7 @@ public final class t {
         if (com.kwad.b.kwai.a.QL.booleanValue() && !BX) {
             BX = true;
             View inflate = Wrapper.wrapInflaterIfNeed(LayoutInflater.from(context)).inflate(i, (ViewGroup) null);
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0911a0)).setText(str);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0911e3)).setText(str);
             Toast toast = new Toast(context.getApplicationContext());
             toast.setGravity(17, 0, 0);
             toast.setDuration(0);
@@ -54,7 +54,7 @@ public final class t {
     public static void d(Context context, String str, int i) {
         if (com.kwad.b.kwai.a.QL.booleanValue()) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0429, (ViewGroup) null);
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0911a0)).setText(str);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0911e3)).setText(str);
             Toast toast = new Toast(context);
             toast.setGravity(17, 0, 0);
             toast.setDuration(0);

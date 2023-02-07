@@ -21,7 +21,7 @@ import com.baidu.nadcore.max.uicomponent.WebViewComponent;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.searchbox.live.frame.IntentData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ap0;
+import com.baidu.tieba.rp0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,51 +52,10 @@ public final class ImmersiveVideoDetailActivity extends BaseActivity {
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
-    public void b1(Bundle bundle) {
+    public void A1(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            super.b1(bundle);
-            setContentView(R.layout.nad_max_activity);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091d61);
-            Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.rootview)");
-            this.v = (FrameLayout) findViewById;
-            getWindow().setFormat(-3);
-            y1();
-            ComponentArchManager componentArchManager = this.u;
-            if (componentArchManager == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("componentManager");
-            }
-            Intent intent = getIntent();
-            Intrinsics.checkNotNullExpressionValue(intent, "intent");
-            componentArchManager.f(intent);
-            ComponentArchManager componentArchManager2 = this.u;
-            if (componentArchManager2 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("componentManager");
-            }
-            FrameLayout frameLayout = this.v;
-            if (frameLayout == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("rootView");
-            }
-            componentArchManager2.a(frameLayout);
-            ComponentArchManager componentArchManager3 = this.u;
-            if (componentArchManager3 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("componentManager");
-            }
-            ap0 ap0Var = (ap0) componentArchManager3.j(ap0.class);
-            if (ap0Var != null) {
-                String str = ClogBuilder.LogType.VIDEO_LP_PV.type;
-                Intrinsics.checkNotNullExpressionValue(str, "ClogBuilder.LogType.VIDEO_LP_PV.type");
-                ap0Var.a(str, "");
-            }
-            v1(false);
-        }
-    }
-
-    @Override // com.baidu.nadcore.appframework.BaseActivity
-    public void f1(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) == null) {
-            super.f1(intent);
+        if (interceptable == null || interceptable.invokeL(1048576, this, intent) == null) {
+            super.A1(intent);
             if (intent != null) {
                 ComponentArchManager componentArchManager = this.u;
                 if (componentArchManager == null) {
@@ -108,11 +67,11 @@ public final class ImmersiveVideoDetailActivity extends BaseActivity {
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
-    public boolean m1(Bundle bundle) {
+    public boolean I1(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle)) == null) {
-            if (!super.m1(bundle)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
+            if (!super.I1(bundle)) {
                 return false;
             }
             getWindow().setSoftInputMode(19);
@@ -122,32 +81,16 @@ public final class ImmersiveVideoDetailActivity extends BaseActivity {
                 setCurrentActivityNoTransparent();
             } else {
                 setEnableSliding(true);
-                v1(true);
+                R1(true);
             }
             return true;
         }
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.nadcore.appframework.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent event) {
-        InterceptResult invokeIL;
+    public final void U1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, event)) == null) {
-            Intrinsics.checkNotNullParameter(event, "event");
-            super.onKeyDown(i, event);
-            ComponentArchManager componentArchManager = this.u;
-            if (componentArchManager == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("componentManager");
-            }
-            return componentArchManager.h(i, event);
-        }
-        return invokeIL.booleanValue;
-    }
-
-    public final void y1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             Lifecycle lifecycle = getLifecycle();
             Intrinsics.checkNotNullExpressionValue(lifecycle, "lifecycle");
             ComponentArchManager componentArchManager = new ComponentArchManager(this, lifecycle);
@@ -197,6 +140,63 @@ public final class ImmersiveVideoDetailActivity extends BaseActivity {
                 Intrinsics.throwUninitializedPropertyAccessException("componentManager");
             }
             lifecycle2.addObserver(componentArchManager9);
+        }
+    }
+
+    @Override // com.baidu.nadcore.appframework.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyDown(int i, KeyEvent event) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, event)) == null) {
+            Intrinsics.checkNotNullParameter(event, "event");
+            super.onKeyDown(i, event);
+            ComponentArchManager componentArchManager = this.u;
+            if (componentArchManager == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("componentManager");
+            }
+            return componentArchManager.g(i, event);
+        }
+        return invokeIL.booleanValue;
+    }
+
+    @Override // com.baidu.nadcore.appframework.BaseActivity
+    public void y1(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
+            super.y1(bundle);
+            setContentView(R.layout.nad_max_activity);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091d76);
+            Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.rootview)");
+            this.v = (FrameLayout) findViewById;
+            getWindow().setFormat(-3);
+            U1();
+            ComponentArchManager componentArchManager = this.u;
+            if (componentArchManager == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("componentManager");
+            }
+            Intent intent = getIntent();
+            Intrinsics.checkNotNullExpressionValue(intent, "intent");
+            componentArchManager.f(intent);
+            ComponentArchManager componentArchManager2 = this.u;
+            if (componentArchManager2 == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("componentManager");
+            }
+            FrameLayout frameLayout = this.v;
+            if (frameLayout == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("rootView");
+            }
+            componentArchManager2.a(frameLayout);
+            ComponentArchManager componentArchManager3 = this.u;
+            if (componentArchManager3 == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("componentManager");
+            }
+            rp0 rp0Var = (rp0) componentArchManager3.j(rp0.class);
+            if (rp0Var != null) {
+                String str = ClogBuilder.LogType.VIDEO_LP_PV.type;
+                Intrinsics.checkNotNullExpressionValue(str, "ClogBuilder.LogType.VIDEO_LP_PV.type");
+                rp0Var.a(str, "");
+            }
+            R1(false);
         }
     }
 }

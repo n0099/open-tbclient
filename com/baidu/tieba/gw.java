@@ -1,70 +1,44 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.util.LongSparseArray;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.browser.core.BdCore;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.ContextWrapper;
+import android.content.SharedPreferences;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-@SuppressLint({"NewApi"})
 /* loaded from: classes4.dex */
-public final class gw {
+public class gw extends ContextWrapper {
     public static /* synthetic */ Interceptable $ic;
     public static gw b;
-    public static HashMap<String, tw<String, Integer>> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public mw a;
 
-    public static void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448305853, "Lcom/baidu/tieba/gw;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448305853, "Lcom/baidu/tieba/gw;");
-                return;
-            }
-        }
-        c = new HashMap<>();
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public gw() {
+        super(null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        new LongSparseArray();
     }
 
-    public static synchronized gw b() {
+    public static synchronized gw a() {
         InterceptResult invokeV;
         gw gwVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (gw.class) {
                 if (b == null) {
                     b = new gw();
@@ -76,49 +50,38 @@ public final class gw {
         return (gw) invokeV.objValue;
     }
 
-    private Context getContext() {
-        InterceptResult invokeV;
+    @Override // android.content.ContextWrapper
+    public void attachBaseContext(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            if (this.a == null) {
-                this.a = BdCore.a().getContext();
-            }
-            Context context = this.a;
-            if (context != null) {
-                return context;
-            }
-            throw new RuntimeException("context is null!");
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            super.attachBaseContext(context);
         }
-        return (Context) invokeV.objValue;
     }
 
-    @Deprecated
-    public static int c(String str, String str2) {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.content.ContextWrapper, android.content.Context
+    public mw getResources() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
-            a(str2, str);
-            tw<String, Integer> twVar = c.get(str);
-            if (twVar == null) {
-                twVar = new tw<>(100);
-                c.put(str, twVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.a == null) {
+                this.a = new mw(super.getResources(), getAssets(), super.getResources().getDisplayMetrics(), super.getResources().getConfiguration());
             }
-            Integer c2 = twVar.c(str2);
-            if (c2 == null) {
-                try {
-                    int identifier = b().getContext().getResources().getIdentifier(str2, str, b().getContext().getPackageName());
-                    twVar.d(str2, Integer.valueOf(identifier));
-                    return identifier;
-                } catch (Error e) {
-                    e.printStackTrace();
-                    return 0;
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                    return 0;
-                }
-            }
-            return c2.intValue();
+            return this.a;
         }
-        return invokeLL.intValue;
+        return (mw) invokeV.objValue;
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public SharedPreferences getSharedPreferences(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i)) == null) {
+            if (ww.c(this)) {
+                return iw.a(str, this);
+            }
+            return super.getSharedPreferences(str, i);
+        }
+        return (SharedPreferences) invokeLI.objValue;
     }
 }

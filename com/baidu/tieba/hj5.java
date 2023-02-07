@@ -1,100 +1,129 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.app.Activity;
+import android.content.Context;
+import android.content.res.Resources;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.coreExtra.data.ABTestExtraData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.mvc.core.ViewEventCenter;
+import com.baidu.tieba.zi5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class hj5 {
+public abstract class hj5<D, S extends zi5> implements d09 {
     public static /* synthetic */ Interceptable $ic;
-    public static hj5 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public v15 a;
-    public ABTestExtraData b;
+    public D a;
+    public S b;
+    public final View c;
+    public TbPageContext<?> d;
 
-    public hj5() {
+    public hj5(TbPageContext<?> tbPageContext, View view2, ViewEventCenter viewEventCenter) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, view2, viewEventCenter};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.d = tbPageContext;
+        this.c = view2;
     }
 
-    public static hj5 d() {
+    public TbPageContext<?> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (hj5.class) {
-                    if (c == null) {
-                        c = new hj5();
-                    }
-                }
-            }
-            return c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
         }
-        return (hj5) invokeV.objValue;
+        return (TbPageContext) invokeV.objValue;
     }
 
-    public String c() {
+    public View c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public S d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.b == null) {
-                ABTestExtraData aBTestExtraData = new ABTestExtraData();
-                this.b = aBTestExtraData;
-                aBTestExtraData.parserABTestExtraFormSharedPref();
-            }
-            return this.b.getABTestResult();
+            return this.b;
         }
-        return (String) invokeV.objValue;
+        return (S) invokeV.objValue;
     }
 
-    public final void a(v15 v15Var) {
-        boolean z;
+    public Activity getActivity() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, v15Var) == null) {
-            if (v15Var != null && this.a != null && v15Var.a() == this.a.a()) {
-                z = false;
-            } else {
-                z = true;
-            }
-            this.a = v15Var;
-            if (z) {
-                b("zan_or_cai_smallflow");
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.d.getPageActivity();
+        }
+        return (Activity) invokeV.objValue;
+    }
+
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.d.getContext();
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public Resources getResources() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.d.getResources();
+        }
+        return (Resources) invokeV.objValue;
+    }
+
+    public String e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            return getResources().getString(i);
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public void f(D d) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, d) == null) {
+            this.a = d;
         }
     }
 
-    public final void b(String str) {
+    public void h(S s) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156670, str));
+        if (interceptable == null || interceptable.invokeL(1048585, this, s) == null) {
+            this.b = s;
         }
     }
 
-    public void e(v15 v15Var) {
+    public void g(D d, S s) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, v15Var) == null) {
-            a(v15Var);
-        }
-    }
-
-    public void f(ABTestExtraData aBTestExtraData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aBTestExtraData) == null) {
-            this.b = aBTestExtraData;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, d, s) == null) {
+            f(d);
+            h(s);
         }
     }
 }

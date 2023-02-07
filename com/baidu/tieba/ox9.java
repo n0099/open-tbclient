@@ -1,131 +1,37 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.AdSlot;
-import com.bytedance.sdk.openadsdk.TTAdNative;
-import com.bytedance.sdk.openadsdk.TTDrawFeedAd;
-import com.bytedance.sdk.openadsdk.TTNativeAd;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.channel.model.csj.CSJDrawVideoNativeView;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.ad.sdk.internal.api.utils.NumberUtils;
-import java.util.ArrayList;
-import java.util.List;
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes5.dex */
-public class ox9 extends hx9 {
+public final class ox9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public class a implements TTAdNative.DrawFeedAdListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ox9 a;
-
-        public a(ox9 ox9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ox9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ox9Var;
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.DrawFeedAdListener
-        public void onDrawFeedAdLoad(List<TTDrawFeedAd> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                LogPrinter.d();
-                if (list == null || list.isEmpty()) {
-                    LogPrinter.e("onFeedAdLoad error: adList is null or empty", new Object[0]);
-                    this.a.onError(0, "NoFill");
-                    return;
-                }
-                ArrayList arrayList = new ArrayList();
-                for (TTDrawFeedAd tTDrawFeedAd : list) {
-                    arrayList.add(new ux9(tTDrawFeedAd));
-                }
-                this.a.onAdLoaded((List) arrayList);
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.DrawFeedAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
-        public void onError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                LogPrinter.e("CSJDrawNative onError code: " + i + ", message: " + str, new Object[0]);
-                this.a.onError(i, str);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ox9(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.DRAW), pid);
+    public static byte[] a(String str, String str2, byte[] bArr) throws Exception {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, str2, bArr)) == null) {
+            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
+            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+            cipher.init(2, secretKeySpec, new IvParameterSpec(str.getBytes()));
+            return cipher.doFinal(bArr);
         }
+        return (byte[]) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.hx9
-    public void h(FunAdSlot funAdSlot) {
+    public static byte[] b(String str, String str2, byte[] bArr) throws Exception {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, funAdSlot) == null) {
-            this.e.loadDrawFeedAd(new AdSlot.Builder().setCodeId(this.mPid.pid).setAdCount(NumberUtils.adjustInt(funAdSlot.getAdCount(), 1, 3)).build(), new a(this));
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, bArr)) == null) {
+            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
+            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+            cipher.init(1, secretKeySpec, new IvParameterSpec(str.getBytes()));
+            return cipher.doFinal(bArr);
         }
-    }
-
-    @Override // com.baidu.tieba.hx9, com.fun.ad.sdk.internal.api.BasePidLoader
-    public /* bridge */ /* synthetic */ boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        l(activity, viewGroup, str, (ux9) obj);
-        return true;
-    }
-
-    @Override // com.baidu.tieba.hx9
-    public boolean l(Activity activity, ViewGroup viewGroup, String str, ux9 ux9Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, viewGroup, str, ux9Var)) == null) {
-            onShowStart(ux9Var);
-            CSJDrawVideoNativeView cSJDrawVideoNativeView = (CSJDrawVideoNativeView) LayoutInflater.from(activity).inflate(R.layout.fun_csj_ad_draw_video_native, viewGroup, false);
-            viewGroup.removeAllViews();
-            viewGroup.addView(cSJDrawVideoNativeView);
-            cSJDrawVideoNativeView.a((TTNativeAd) ux9Var.a);
-            f(activity, ux9Var, viewGroup, cSJDrawVideoNativeView, new rx9(this, ux9Var));
-            return true;
-        }
-        return invokeLLLL.booleanValue;
+        return (byte[]) invokeLLL.objValue;
     }
 }

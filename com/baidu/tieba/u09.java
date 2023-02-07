@@ -1,93 +1,58 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
-import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.List;
+import tbclient.ActHot;
+import tbclient.ActPost;
+import tbclient.LinkInfo;
 /* loaded from: classes6.dex */
-public class u09 extends CustomMessageListener {
+public class u09 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final wz8 b;
+    public ArrayList<s09> a;
+    public ArrayList<t09> b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u09(MainTabActivity mainTabActivity, wz8 wz8Var) {
-        super(2007002);
+    public u09() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, wz8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = mainTabActivity;
-        this.b = wz8Var;
-        setPriority(100);
+        this.a = new ArrayList<>();
+        this.b = new ArrayList<>();
     }
 
-    public final void a(Intent intent) {
-        wz8 wz8Var;
-        int a;
+    public void a(ActPost actPost) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, intent) == null) && intent != null && (wz8Var = this.b) != null && wz8Var.y() != null) {
-            try {
-                if (intent.hasExtra("locate_type")) {
-                    a = intent.getIntExtra("locate_type", 1);
-                } else {
-                    a = this.a.o.a();
-                }
-                this.b.y().setCurrentTabByType(a);
-            } catch (Throwable th) {
-                BdLog.e(th);
-                this.a.finish();
+        if ((interceptable != null && interceptable.invokeL(1048576, this, actPost) != null) || actPost == null) {
+            return;
+        }
+        String str = actPost.list_head;
+        for (ActHot actHot : actPost.act_hot) {
+            if (actHot != null) {
+                s09 s09Var = new s09();
+                s09Var.a(actHot);
+                this.a.add(s09Var);
             }
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ArrayList<fb5> b;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null && (b = ((hb5) customResponsedMessage.getData()).b()) != null && b.size() != 0) {
-            this.b.z(b);
-            if (this.a.c) {
-                wz8 wz8Var = this.b;
-                if (wz8Var != null && wz8Var.y() != null) {
-                    this.b.y().setCurrentTabByType(this.a.b);
-                }
-            } else {
-                wz8 wz8Var2 = this.b;
-                if (wz8Var2 != null && wz8Var2.y() != null) {
-                    if (this.a.getIntent() != null && this.a.getIntent().getDataString() != null && this.a.getIntent().getDataString().startsWith(UrlSchemaHelper.SCHEMA_TYPE_DEEPLINK_TOPIC)) {
-                        this.b.y().setCurrentTabByType(2);
-                    } else {
-                        a(this.a.getIntent());
-                    }
-                }
+        List<LinkInfo> list = actPost.link_info;
+        for (LinkInfo linkInfo : list) {
+            if (list != null) {
+                t09 t09Var = new t09();
+                t09Var.a(linkInfo);
+                this.b.add(t09Var);
             }
-            this.a.c = false;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921333, null));
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921543, null));
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921579, 0));
         }
     }
 }

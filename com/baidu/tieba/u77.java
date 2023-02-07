@@ -1,49 +1,85 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
+import android.content.Intent;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.MoreTreasureTrove.DataRes;
-import tbclient.MoreTreasureTrove.MoreTreasureTroveResIdl;
-import tbclient.ThreadInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ActivityPage.ActivityPageReqIdl;
+import tbclient.ActivityPage.DataReq;
 /* loaded from: classes6.dex */
-public class u77 {
+public class u77 implements rm5<ActivityPageReqIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public final lm5 b;
 
-    public static List<yn> a(List<ThreadInfo> list) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.rm5
+    public void a(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            if (list == null) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList(list.size());
-            for (ThreadInfo threadInfo : list) {
-                ThreadData threadData = new ThreadData();
-                threadData.parserProtobuf(threadInfo);
-                threadData.isFromLowFlowsPage = true;
-                arrayList.add(threadData);
-            }
-            return i67.a(arrayList);
+        if (interceptable == null || interceptable.invokeL(1048576, this, intent) == null) {
         }
-        return (List) invokeL.objValue;
     }
 
-    public static List<yn> b(MoreTreasureTroveResIdl moreTreasureTroveResIdl) {
-        InterceptResult invokeL;
-        DataRes dataRes;
+    public u77(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, moreTreasureTroveResIdl)) == null) {
-            if (moreTreasureTroveResIdl != null && (dataRes = moreTreasureTroveResIdl.data) != null && !ListUtils.isEmpty(dataRes.hot_thread_info)) {
-                return a(moreTreasureTroveResIdl.data.hot_thread_info);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return null;
         }
-        return (List) invokeL.objValue;
+        this.b = new lm5(false);
+        this.a = str2;
+    }
+
+    @Override // com.baidu.tieba.rm5
+    public lm5 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (lm5) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rm5
+    /* renamed from: d */
+    public ActivityPageReqIdl b(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            try {
+                DataReq.Builder builder = new DataReq.Builder();
+                builder.activity_name = this.a;
+                builder.pn = Integer.valueOf(this.b.c);
+                builder.rn = 20;
+                builder.scr_h = Integer.valueOf(ej.j(TbadkCoreApplication.getInst()));
+                builder.scr_w = Integer.valueOf(ej.l(TbadkCoreApplication.getInst()));
+                builder.scr_dip = Integer.valueOf((int) ej.i(TbadkCoreApplication.getInst()));
+                builder.q_type = Integer.valueOf(aw4.c().e());
+                if (z || SocketAddCommonParamSwitch.getIsOn()) {
+                    yo5.a(builder, true);
+                }
+                ActivityPageReqIdl.Builder builder2 = new ActivityPageReqIdl.Builder();
+                builder2.data = builder.build(false);
+                return builder2.build(false);
+            } catch (Exception unused) {
+                return null;
+            }
+        }
+        return (ActivityPageReqIdl) invokeZ.objValue;
     }
 }

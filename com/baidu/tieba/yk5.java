@@ -1,101 +1,30 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Date;
-import java.util.regex.Pattern;
 /* loaded from: classes7.dex */
 public class yk5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Pattern a;
-    public static final Pattern b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948333062, "Lcom/baidu/tieba/yk5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948333062, "Lcom/baidu/tieba/yk5;");
-                return;
-            }
-        }
-        a = Pattern.compile("http[s]?://tieba\\.baidu\\.com/f(.*)&jump_tieba_native=1(.*)");
-        b = Pattern.compile("http[s]?://tieba\\.baidu\\.com/p/([\\d]+)\\?pid=([\\d]+)&tid=([\\d]+)&threadtype=([\\d]+)&jump_type=(.*)&jump_tieba_native=1");
-    }
-
-    public static boolean a() {
-        InterceptResult invokeV;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (!UbsABTestHelper.isSearchLoginTestA()) {
-                return false;
-            }
-            Date date = new Date(cz4.l().n("show_login_dialog_strategy_key", 0L));
-            long currentTimeMillis = System.currentTimeMillis();
-            Date date2 = new Date(currentTimeMillis);
-            cz4.l().y("show_login_dialog_strategy_key", currentTimeMillis);
-            return !TimeHelper.isSameDay(date, date2);
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            StatisticItem statisticItem = new StatisticItem("c13395");
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("obj_id", TbadkCoreApplication.getInst().getCuidGalaxy2());
+            statisticItem.param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis());
+            statisticItem.param("obj_type", gj.g());
+            statisticItem.param("resource_id", gj.k());
+            statisticItem.param("aid", TbSingleton.getInstance().getCpuFlopsDuration());
+            statisticItem.param("obj_param1", TbSingleton.getInstance().getAnimComputedFps("anim_switch_slide"));
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, TbSingleton.getInstance().getAnimComputedFps("anim_switch_trans_frs"));
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, TbSingleton.getInstance().getAnimComputedFps("anim_switch_sendthread_maintab"));
+            TiebaStatic.log(statisticItem);
         }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (yi.isEmpty(str)) {
-                return false;
-            }
-            return a.matcher(str.toLowerCase()).find();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (yi.isEmpty(str)) {
-                return false;
-            }
-            return b.matcher(str.toLowerCase()).find();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (yi.isEmpty(str)) {
-                return false;
-            }
-            return "person".equalsIgnoreCase(Uri.parse(str).getAuthority());
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (!b(str) && !c(str) && !d(str)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
     }
 }

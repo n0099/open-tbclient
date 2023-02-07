@@ -140,11 +140,14 @@ public interface IResultReceiver extends IInterface {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iResultReceiver)) == null) {
-                if (Proxy.sDefaultImpl == null && iResultReceiver != null) {
-                    Proxy.sDefaultImpl = iResultReceiver;
-                    return true;
+                if (Proxy.sDefaultImpl == null) {
+                    if (iResultReceiver != null) {
+                        Proxy.sDefaultImpl = iResultReceiver;
+                        return true;
+                    }
+                    return false;
                 }
-                return false;
+                throw new IllegalStateException("setDefaultImpl() called twice");
             }
             return invokeL.booleanValue;
         }

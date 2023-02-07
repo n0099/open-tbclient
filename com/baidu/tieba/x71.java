@@ -1,174 +1,130 @@
 package com.baidu.tieba;
 
+import android.annotation.TargetApi;
 import android.graphics.Color;
-import android.view.View;
-import android.view.ViewGroup;
+import android.view.Window;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.widget.bubble.BubbleManager;
-import com.baidu.nadcore.widget.bubble.BubblePosition;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
-public class x71 extends v71 {
-    public static /* synthetic */ Interceptable $ic;
+public class x71 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = -1;
     public transient /* synthetic */ FieldHolder $fh;
-    public b81 c;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public x71() {
-        this(new b81());
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948253175, "Lcom/baidu/tieba/x71;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this((b81) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948253175, "Lcom/baidu/tieba/x71;");
         }
     }
 
-    public b81 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (b81) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x71(b81 b81Var) {
-        super(b81Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {b81Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((y71) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.c = b81Var;
-    }
-
-    public x71 i(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-            super.a(z);
-            return this;
-        }
-        return (x71) invokeZ.objValue;
-    }
-
-    public x71 k(int i) {
+    public static double a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            super.c(i);
-            return this;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            return 1.0d - ((((Color.red(i) * 0.299d) + (Color.green(i) * 0.587d)) + (Color.blue(i) * 0.114d)) / 255.0d);
         }
-        return (x71) invokeI.objValue;
+        return invokeI.doubleValue;
     }
 
-    public x71 n(BubblePosition bubblePosition) {
-        InterceptResult invokeL;
+    public static boolean b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bubblePosition)) == null) {
-            super.e(bubblePosition);
-            return this;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (a(i) >= 0.3d) {
+                return true;
+            }
+            return false;
         }
-        return (x71) invokeL.objValue;
+        return invokeI.booleanValue;
     }
 
-    public x71 o(BubbleManager.b bVar) {
-        InterceptResult invokeL;
+    public static boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bVar)) == null) {
-            super.f(bVar);
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            int i = a;
+            if (i >= 0) {
+                if (i != 1) {
+                    return false;
+                }
+                return true;
+            }
+            if ("Xiaomi".equals(fk0.c().g(true))) {
+                a = 1;
+            }
+            if (a != 1) {
+                return false;
+            }
+            return true;
         }
-        return (x71) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public x71 p(float f) {
-        InterceptResult invokeF;
+    @TargetApi(21)
+    public static void d(Window window, int i) {
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f)) == null) {
-            super.g(f);
-            return this;
-        }
-        return (x71) invokeF.objValue;
-    }
-
-    public x71 q(CharSequence charSequence) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, charSequence)) == null) {
-            this.c.f().D(charSequence);
-            return this;
-        }
-        return (x71) invokeL.objValue;
-    }
-
-    public x71 j(View view2, ViewGroup viewGroup) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, viewGroup)) == null) {
-            super.b(view2, viewGroup);
-            return this;
-        }
-        return (x71) invokeLL.objValue;
-    }
-
-    public x71 l(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i, i2)) == null) {
-            super.d(i, i2);
-            return this;
-        }
-        return (x71) invokeII.objValue;
-    }
-
-    public x71 m(int i, float f) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) {
-            this.c.s(i, f);
-            return this;
-        }
-        return (x71) invokeCommon.objValue;
-    }
-
-    public x71 r(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048586, this, i, i2)) == null) {
+        if ((interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, window, i) == null) && window != null) {
             try {
-                this.c.f().E(i, i2);
-                return this;
-            } catch (Exception e) {
-                bk0.h("BubbleTextBuilder", "", e);
-                this.c.f().E(Color.parseColor("#CC000000"), Color.parseColor("#CC000000"));
-                return this;
+                if (c()) {
+                    if (e(window, !b(i))) {
+                        window.setStatusBarColor(i);
+                    }
+                } else {
+                    if (i == -16777216 && window.getNavigationBarColor() == -16777216) {
+                        window.clearFlags(Integer.MIN_VALUE);
+                    } else {
+                        window.addFlags(Integer.MIN_VALUE);
+                        int systemUiVisibility = window.getDecorView().getSystemUiVisibility();
+                        if (b(i)) {
+                            i2 = systemUiVisibility & (-8193);
+                        } else {
+                            i2 = systemUiVisibility | 8192;
+                        }
+                        window.getDecorView().setSystemUiVisibility(i2);
+                    }
+                    window.setStatusBarColor(i);
+                }
+            } catch (Throwable unused) {
             }
         }
-        return (x71) invokeII.objValue;
+    }
+
+    public static boolean e(Window window, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65541, null, window, z)) == null) {
+            if (window != null) {
+                Class<?> cls = window.getClass();
+                try {
+                    Class<?> cls2 = Class.forName("android.view.MiuiWindowManager$LayoutParams");
+                    int i = cls2.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE").getInt(cls2);
+                    Method method = cls.getMethod("setExtraFlags", Integer.TYPE, Integer.TYPE);
+                    if (z) {
+                        method.invoke(window, Integer.valueOf(i), Integer.valueOf(i));
+                    } else {
+                        method.invoke(window, 0, Integer.valueOf(i));
+                    }
+                    return true;
+                } catch (Exception unused) {
+                }
+            }
+            return false;
+        }
+        return invokeLZ.booleanValue;
     }
 }

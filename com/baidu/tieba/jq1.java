@@ -1,27 +1,11 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import java.util.Map;
-import org.json.JSONObject;
+import com.baidu.searchbox.http.HttpManager;
+import okhttp3.Callback;
+import okhttp3.Request;
 /* loaded from: classes5.dex */
 public interface jq1 {
-    void a(@NonNull Object obj, String str, String str2);
+    HttpManager a();
 
-    void b(@NonNull Object obj);
-
-    Object beginFlow(String str);
-
-    void c(@NonNull Object obj);
-
-    void d(String str, Map<String, String> map);
-
-    boolean e();
-
-    void f(String str, JSONObject jSONObject);
-
-    void g(@NonNull Object obj, String str, String str2, long j);
-
-    void h(@NonNull Object obj, String str);
-
-    void i(String str, String str2);
+    void call(HttpManager httpManager, Request request, Callback callback);
 }

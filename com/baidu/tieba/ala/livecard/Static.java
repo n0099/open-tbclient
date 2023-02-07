@@ -13,17 +13,17 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.livecard.adapters.FrsAlaShareItemAdapter;
 import com.baidu.tieba.ala.livecard.adapters.FrsSplitAlaShareItemAdapter;
-import com.baidu.tieba.f16;
 import com.baidu.tieba.frs.AbsDelegateAdapterList;
-import com.baidu.tieba.h16;
-import com.baidu.tieba.i16;
-import com.baidu.tieba.j16;
-import com.baidu.tieba.k16;
-import com.baidu.tieba.lo6;
-import com.baidu.tieba.m16;
-import com.baidu.tieba.mo6;
-import com.baidu.tieba.qv8;
-import com.baidu.tieba.rv8;
+import com.baidu.tieba.oz8;
+import com.baidu.tieba.pz8;
+import com.baidu.tieba.r56;
+import com.baidu.tieba.t56;
+import com.baidu.tieba.u56;
+import com.baidu.tieba.v56;
+import com.baidu.tieba.w56;
+import com.baidu.tieba.ws6;
+import com.baidu.tieba.xs6;
+import com.baidu.tieba.y56;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -68,11 +68,11 @@ public class Static {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                 AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
                 CustomMessage customMessage = (CustomMessage) customResponsedMessage.getOrginalMessage();
-                absDelegateAdapterList.add(new h16(null, ThreadData.TYPE_ALA_LIVE_EMPTY, null));
-                absDelegateAdapterList.add(new k16(null, ThreadData.TYPE_VIDEO_ALA_ONLIVE, null));
+                absDelegateAdapterList.add(new t56(null, ThreadData.TYPE_ALA_LIVE_EMPTY, null));
+                absDelegateAdapterList.add(new w56(null, ThreadData.TYPE_VIDEO_ALA_ONLIVE, null));
                 absDelegateAdapterList.add(new FrsSplitAlaShareItemAdapter(null, ThreadData.TYPE_ALA_SHARE_THREAD, null));
-                absDelegateAdapterList.add(new f16(null, qv8.c, null));
-                absDelegateAdapterList.add(new i16(null, rv8.b, null));
+                absDelegateAdapterList.add(new r56(null, oz8.c, null));
+                absDelegateAdapterList.add(new u56(null, pz8.b, null));
             }
         }
     }
@@ -108,10 +108,10 @@ public class Static {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003022 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                 AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
-                absDelegateAdapterList.add(new h16(null, ThreadData.TYPE_ALA_LIVE_EMPTY, null));
-                absDelegateAdapterList.add(new j16(null, ThreadData.TYPE_VIDEO_ALA_ONLIVE, null));
+                absDelegateAdapterList.add(new t56(null, ThreadData.TYPE_ALA_LIVE_EMPTY, null));
+                absDelegateAdapterList.add(new v56(null, ThreadData.TYPE_VIDEO_ALA_ONLIVE, null));
                 absDelegateAdapterList.add(new FrsAlaShareItemAdapter(null, ThreadData.TYPE_ALA_SHARE_THREAD, null));
-                absDelegateAdapterList.add(new j16(null, rv8.b, null));
+                absDelegateAdapterList.add(new v56(null, pz8.b, null));
             }
         }
     }
@@ -145,11 +145,11 @@ public class Static {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof lo6)) {
-                lo6 lo6Var = (lo6) customResponsedMessage.getData();
-                m16 m16Var = new m16();
-                m16Var.g(lo6Var.a);
-                lo6Var.a(49, m16Var);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof ws6)) {
+                ws6 ws6Var = (ws6) customResponsedMessage.getData();
+                y56 y56Var = new y56();
+                y56Var.g(ws6Var.a);
+                ws6Var.a(49, y56Var);
             }
         }
     }
@@ -171,7 +171,7 @@ public class Static {
             MessageManager.getInstance().registerListener(new a(2003008));
             MessageManager.getInstance().registerListener(new b(2003022));
             MessageManager.getInstance().registerListener(new c(2003011));
-            mo6.a().c(49);
+            xs6.a().c(49);
         }
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FRS_STAGE_FEED_BACK, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_FRS_NEGATIVE_URL);

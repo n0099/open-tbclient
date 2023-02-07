@@ -13,10 +13,10 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.facade.provider.processor.ProcessorInfo;
-import com.baidu.tieba.po3;
-import com.baidu.tieba.pq3;
-import com.baidu.tieba.tk1;
-import com.baidu.tieba.vq3;
+import com.baidu.tieba.ct3;
+import com.baidu.tieba.cv3;
+import com.baidu.tieba.gp1;
+import com.baidu.tieba.iv3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -70,7 +70,7 @@ public class SwanContentProvider extends ContentProvider {
                 return;
             }
         }
-        a = tk1.a;
+        a = gp1.a;
         b = AppRuntime.getAppContext().getPackageName() + ".provider";
         c = new UriMatcher(-1);
         d = new HashSet<>();
@@ -129,7 +129,7 @@ public class SwanContentProvider extends ContentProvider {
     @Nullable
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
         InterceptResult invokeLL;
-        pq3 d2;
+        cv3 d2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, uri, contentValues)) == null) {
             if (!c() || (d2 = d(c.match(uri))) == null) {
@@ -152,8 +152,8 @@ public class SwanContentProvider extends ContentProvider {
             if (d.contains(callingPackage)) {
                 return true;
             }
-            String a2 = vq3.a(callingPackage);
-            Set<String> a3 = po3.e().a();
+            String a2 = iv3.a(callingPackage);
+            Set<String> a3 = ct3.e().a();
             z = (a3 == null || !a3.contains(a2)) ? false : false;
             if (z) {
                 d.add(callingPackage);
@@ -163,11 +163,11 @@ public class SwanContentProvider extends ContentProvider {
         return invokeV.booleanValue;
     }
 
-    public final pq3 d(int i) {
+    public final cv3 d(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            Class<? extends pq3> processorClass = ProcessorInfo.getProcessorClass(i);
+            Class<? extends cv3> processorClass = ProcessorInfo.getProcessorClass(i);
             if (processorClass != null) {
                 try {
                     return processorClass.newInstance();
@@ -181,13 +181,13 @@ public class SwanContentProvider extends ContentProvider {
             }
             return null;
         }
-        return (pq3) invokeI.objValue;
+        return (cv3) invokeI.objValue;
     }
 
     @Override // android.content.ContentProvider
     public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
         InterceptResult invokeLLL;
-        pq3 d2;
+        cv3 d2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, uri, str, strArr)) == null) {
             if (!c() || (d2 = d(c.match(uri))) == null) {
@@ -202,7 +202,7 @@ public class SwanContentProvider extends ContentProvider {
     @Nullable
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
         InterceptResult invokeLLLLL;
-        pq3 d2;
+        cv3 d2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, uri, strArr, str, strArr2, str2)) == null) {
             if (!b() || (d2 = d(c.match(uri))) == null) {
@@ -216,7 +216,7 @@ public class SwanContentProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
         InterceptResult invokeLLLL;
-        pq3 d2;
+        cv3 d2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048585, this, uri, contentValues, str, strArr)) == null) {
             if (!c() || (d2 = d(c.match(uri))) == null) {

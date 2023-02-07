@@ -16,7 +16,7 @@ import com.baidu.android.util.devices.StorageUtils;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.aperf.param.util.CpuInfoUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tieba.z10;
+import com.baidu.tieba.f20;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -272,7 +272,7 @@ public class CommonUtils {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            return new z10().a();
+            return new f20().a();
         }
         return (String) invokeV.objValue;
     }

@@ -1,57 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class xo5 implements np5 {
+/* loaded from: classes7.dex */
+public class xo5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
 
-    public xo5(int i, int i2) {
+    public static final <T extends IntentConfig> void a(int i, T t) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeIL(65536, null, i, t) == null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(i, t));
         }
-        this.a = i;
-        this.b = i2;
     }
 
-    @Override // com.baidu.tieba.np5
-    public int a() {
-        InterceptResult invokeV;
+    public static final <T extends IntentConfig> void b(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (this.b - this.a) + 1;
+        if (interceptable == null || interceptable.invokeL(65537, null, t) == null) {
+            a(2002001, t);
         }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.np5
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i >= 0 && i < a()) {
-                return Integer.valueOf(this.a + i);
-            }
-            return 0;
-        }
-        return invokeI.objValue;
     }
 }

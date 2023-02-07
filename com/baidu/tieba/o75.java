@@ -1,25 +1,16 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class o75 implements Comparable<o75> {
+public class o75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(r75 r75Var);
-    }
-
-    public abstract void b(a aVar);
-
-    public abstract int c();
-
-    public abstract void d();
+    public String a;
 
     public o75() {
         Interceptable interceptable = $ic;
@@ -31,24 +22,20 @@ public abstract class o75 implements Comparable<o75> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        d();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(o75 o75Var) {
-        InterceptResult invokeL;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, o75Var)) == null) {
-            if (o75Var == null) {
-                return 1;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject != null) {
+            jSONObject.optInt("offline");
+            jSONObject.optString("title");
+            String optString = jSONObject.optString("link");
+            this.a = optString;
+            if (!TextUtils.isEmpty(optString)) {
+                this.a = this.a.replaceFirst("webview:", "http://");
             }
-            return c() - o75Var.c();
         }
-        return invokeL.intValue;
     }
 }

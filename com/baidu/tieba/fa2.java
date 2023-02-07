@@ -1,16 +1,18 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class fa2 extends id4 {
+public class fa2 extends x92<JSONObject, w02> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String q;
 
     public fa2() {
         Interceptable interceptable = $ic;
@@ -26,16 +28,42 @@ public class fa2 extends id4 {
         }
     }
 
-    @Override // com.baidu.tieba.hd4
-    public boolean a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ba2
+    @NonNull
+    /* renamed from: c */
+    public w02 a(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (super.a() && !TextUtils.isEmpty(this.q)) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return new w02(202);
             }
-            return false;
+            JSONObject optJSONObject = jSONObject.optJSONObject("data");
+            if (optJSONObject == null) {
+                return new w02(202, "data is required");
+            }
+            String optString = optJSONObject.optString("status");
+            if (TextUtils.isEmpty(optString)) {
+                return new w02(202, "status is required");
+            }
+            char c = 65535;
+            int hashCode = optString.hashCode();
+            if (hashCode != 48) {
+                if (hashCode == 49 && optString.equals("1")) {
+                    c = 0;
+                }
+            } else if (optString.equals("0")) {
+                c = 1;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    return new w02(202, "status value is invalid");
+                }
+                new v92().d();
+            }
+            return new w02(0);
         }
-        return invokeV.booleanValue;
+        return (w02) invokeL.objValue;
     }
 }

@@ -1,17 +1,16 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Page;
 /* loaded from: classes3.dex */
-public class bi5 {
+public class bi5 implements fh5<MissionEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public boolean b;
-    public Object c;
 
     public bi5() {
         Interceptable interceptable = $ic;
@@ -23,30 +22,36 @@ public class bi5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = true;
     }
 
-    public void a(Page page) {
-        boolean z;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.fh5
+    /* renamed from: a */
+    public boolean onEvent(MissionEvent missionEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, page) != null) || page == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, missionEvent)) == null) {
+            if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
+                return false;
+            }
+            int i = missionEvent.pageId;
+            int i2 = missionEvent.pageType;
+            long j = missionEvent.tid;
+            String str = missionEvent.actionType;
+            if ("onResume".equals(str)) {
+                cr4.w().K(i, j);
+                cr4.w().P(i2, j);
+            } else if (MissionEvent.MESSAGE_PAUSE.equals(str)) {
+                cr4.w().E();
+            } else if (MissionEvent.MESSAGE_TOUCH.equals(str)) {
+                cr4.w().F();
+            } else if (MissionEvent.MESSAGE_ACTIVITY.equals(str)) {
+                cr4.w().K(i, j);
+            }
+            return true;
         }
-        if (page.has_more.intValue() == 1) {
-            z = true;
-        } else {
-            z = false;
-        }
-        this.b = z;
-        page.has_prev.intValue();
-        this.a = page.current_page.intValue();
-        page.page_size.intValue();
-        page.total_page.intValue();
-        page.offset.intValue();
-        page.total_count.intValue();
-        wi5.b("parserProto--->currentPage=" + this.a + ",hasMore=" + this.b);
+        return invokeL.booleanValue;
     }
 }

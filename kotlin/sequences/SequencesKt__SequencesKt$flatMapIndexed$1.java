@@ -13,22 +13,25 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.RestrictedSuspendLambda;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
-import kotlin.jvm.internal.Intrinsics;
 /* JADX INFO: Add missing generic type declarations: [R] */
-@Metadata(d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003\"\u0004\b\u0002\u0010\u0004*\b\u0012\u0004\u0012\u0002H\u00040\u0005H\u008a@¢\u0006\u0004\b\u0006\u0010\u0007"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, "C", "R", "Lkotlin/sequences/SequenceScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 5, 1})
-@DebugMetadata(c = "kotlin.sequences.SequencesKt__SequencesKt$flatMapIndexed$1", f = "Sequences.kt", i = {}, l = {332}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003\"\u0004\b\u0002\u0010\u0004*\b\u0012\u0004\u0012\u0002H\u00040\u0005H\u008a@"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, "C", "R", "Lkotlin/sequences/SequenceScope;"}, k = 3, mv = {1, 6, 0}, xi = 48)
+@DebugMetadata(c = "kotlin.sequences.SequencesKt__SequencesKt$flatMapIndexed$1", f = "Sequences.kt", i = {0, 0}, l = {332}, m = "invokeSuspend", n = {"$this$sequence", "index"}, s = {"L$0", "I$0"})
 /* loaded from: classes9.dex */
 public final class SequencesKt__SequencesKt$flatMapIndexed$1<R> extends RestrictedSuspendLambda implements Function2<SequenceScope<? super R>, Continuation<? super Unit>, Object> {
-    public final /* synthetic */ Function1 $iterator;
-    public final /* synthetic */ Sequence $source;
-    public final /* synthetic */ Function2 $transform;
+    public final /* synthetic */ Function1<C, Iterator<R>> $iterator;
+    public final /* synthetic */ Sequence<T> $source;
+    public final /* synthetic */ Function2<Integer, T, C> $transform;
     public int I$0;
     public /* synthetic */ Object L$0;
     public Object L$1;
     public int label;
 
+    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: kotlin.sequences.Sequence<? extends T> */
+    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: kotlin.jvm.functions.Function2<? super java.lang.Integer, ? super T, ? extends C> */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: kotlin.jvm.functions.Function1<? super C, ? extends java.util.Iterator<? extends R>> */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SequencesKt__SequencesKt$flatMapIndexed$1(Sequence sequence, Function2 function2, Function1 function1, Continuation continuation) {
+    /* JADX WARN: Multi-variable type inference failed */
+    public SequencesKt__SequencesKt$flatMapIndexed$1(Sequence<? extends T> sequence, Function2<? super Integer, ? super T, ? extends C> function2, Function1<? super C, ? extends Iterator<? extends R>> function1, Continuation<? super SequencesKt__SequencesKt$flatMapIndexed$1> continuation) {
         super(2, continuation);
         this.$source = sequence;
         this.$transform = function2;
@@ -36,17 +39,20 @@ public final class SequencesKt__SequencesKt$flatMapIndexed$1<R> extends Restrict
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
-    public final Continuation<Unit> create(Object obj, Continuation<?> completion) {
-        Intrinsics.checkNotNullParameter(completion, "completion");
-        SequencesKt__SequencesKt$flatMapIndexed$1 sequencesKt__SequencesKt$flatMapIndexed$1 = new SequencesKt__SequencesKt$flatMapIndexed$1(this.$source, this.$transform, this.$iterator, completion);
+    public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
+        SequencesKt__SequencesKt$flatMapIndexed$1 sequencesKt__SequencesKt$flatMapIndexed$1 = new SequencesKt__SequencesKt$flatMapIndexed$1(this.$source, this.$transform, this.$iterator, continuation);
         sequencesKt__SequencesKt$flatMapIndexed$1.L$0 = obj;
         return sequencesKt__SequencesKt$flatMapIndexed$1;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function2
-    public final Object invoke(Object obj, Continuation<? super Unit> continuation) {
-        return ((SequencesKt__SequencesKt$flatMapIndexed$1) create(obj, continuation)).invokeSuspend(Unit.INSTANCE);
+    public /* bridge */ /* synthetic */ Object invoke(Object obj, Continuation<? super Unit> continuation) {
+        return invoke((SequenceScope) ((SequenceScope) obj), continuation);
+    }
+
+    public final Object invoke(SequenceScope<? super R> sequenceScope, Continuation<? super Unit> continuation) {
+        return ((SequencesKt__SequencesKt$flatMapIndexed$1) create(sequenceScope, continuation)).invokeSuspend(Unit.INSTANCE);
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -73,7 +79,7 @@ public final class SequencesKt__SequencesKt$flatMapIndexed$1<R> extends Restrict
         }
         while (it.hasNext()) {
             Object next = it.next();
-            Function2 function2 = this.$transform;
+            Function2<Integer, T, C> function2 = this.$transform;
             int i3 = i + 1;
             if (i < 0) {
                 CollectionsKt__CollectionsKt.throwIndexOverflow();
@@ -83,7 +89,7 @@ public final class SequencesKt__SequencesKt$flatMapIndexed$1<R> extends Restrict
             this.L$1 = it;
             this.I$0 = i3;
             this.label = 1;
-            if (sequenceScope.yieldAll((Iterator) this.$iterator.invoke(invoke), this) == coroutine_suspended) {
+            if (sequenceScope.yieldAll(this.$iterator.invoke(invoke), this) == coroutine_suspended) {
                 return coroutine_suspended;
             }
             i = i3;

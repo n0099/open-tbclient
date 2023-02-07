@@ -1,122 +1,111 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.mutiprocess.location.LocationEvent;
-import com.baidu.tieba.tbadkCore.location.LocationData;
-import com.baidu.tieba.tbadkCore.location.LocationModel;
-import com.baidu.tieba.tbadkCore.location.LocationSocketRequestMessage;
-import com.baidu.tieba.tbadkCore.location.LocationSocketResponsedMessage;
-import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
+import android.content.Context;
+import android.text.TextWatcher;
+import android.widget.EditText;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.editortools.pb.PbNewInputContainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class pd5 implements uc5<LocationEvent> {
+public class pd5 extends wb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tb a;
+    public EditText t;
 
-    /* loaded from: classes5.dex */
-    public class a extends tb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(pd5 pd5Var, int i, boolean z) {
-            super(i, z);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pd5Var, Integer.valueOf(i), Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        /* renamed from: a */
-        public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-            LocationData locationData;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, socketResponsedMessage) != null) || socketResponsedMessage == null) {
-                return;
-            }
-            LocationEvent locationEvent = new LocationEvent();
-            locationEvent.setType(1);
-            locationEvent.eventType = 1;
-            locationEvent.errorCode = socketResponsedMessage.getError();
-            locationEvent.errorMsg = socketResponsedMessage.getErrorString();
-            if (socketResponsedMessage instanceof LocationSocketResponsedMessage) {
-                locationEvent.locationData = ((LocationSocketResponsedMessage) socketResponsedMessage).getLocationData();
-            }
-            if (socketResponsedMessage.getError() == 0 && (locationData = locationEvent.locationData) != null) {
-                LocationModel.J(locationData);
-                fy8.a().f(System.currentTimeMillis());
-                fy8.a().d(locationEvent.locationData);
-            }
-            ad5.i(locationEvent);
-        }
-    }
-
-    public pd5() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pd5(Context context, boolean z, boolean z2, int i) {
+        super(context, (String) null, 27);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new a(this, 303017, true);
+        this.o = false;
+        this.n = 3;
+        PbNewInputContainer pbNewInputContainer = new PbNewInputContainer(context);
+        this.m = pbNewInputContainer;
+        pbNewInputContainer.setTransLink(!z);
+        ((PbNewInputContainer) this.m).setmAtListRequestResponseCode(i);
+        this.t = ((PbNewInputContainer) this.m).getInputView();
+        ((PbNewInputContainer) this.m).setHint(context.getString(R.string.say_your_point));
+        ((PbNewInputContainer) this.m).Q(z2);
+        this.p = new int[]{4, 17, 24, 3, 9, 6, 44, 12, 10, 13, 11, 28, 29, 39, 45, 70};
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.uc5
-    /* renamed from: a */
-    public boolean onEvent(LocationEvent locationEvent) {
-        InterceptResult invokeL;
+    public void g(TextWatcher textWatcher) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, locationEvent)) == null) {
-            if (locationEvent == null) {
-                return false;
-            }
-            if (locationEvent.getType() == 3) {
-                MessageManager.getInstance().unRegisterListener(this.a);
-                MessageManager.getInstance().registerListener(this.a);
-                LocationSocketRequestMessage locationSocketRequestMessage = new LocationSocketRequestMessage();
-                locationSocketRequestMessage.setLat(locationEvent.lat);
-                locationSocketRequestMessage.setLng(locationEvent.lng);
-                MessageManager.getInstance().sendMessage(locationSocketRequestMessage);
-            } else if (locationEvent.eventType == 1) {
-                LocationSocketResponsedMessage locationSocketResponsedMessage = new LocationSocketResponsedMessage();
-                locationSocketResponsedMessage.setError(locationEvent.errorCode);
-                locationSocketResponsedMessage.setErrorString(locationEvent.errorMsg);
-                locationSocketResponsedMessage.setLocationData(locationEvent.locationData);
-                MessageManager.getInstance().dispatchResponsedMessage(locationSocketResponsedMessage);
-            } else if (locationEvent.locationData != null && locationEvent.needRefresh) {
-                fy8.a().d(locationEvent.locationData);
-            } else {
-                MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(locationEvent.isShowLocation, locationEvent.locName, locationEvent.locAddr, locationEvent.locSn));
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(1048576, this, textWatcher) == null) {
+            this.t.addTextChangedListener(textWatcher);
         }
-        return invokeL.booleanValue;
+    }
+
+    public void h(int i) {
+        xb5 xb5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (xb5Var = this.m) != null) {
+            ((PbNewInputContainer) xb5Var).z(i);
+        }
+    }
+
+    public void k(TextWatcher textWatcher) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, textWatcher) == null) {
+            this.t.removeTextChangedListener(textWatcher);
+        }
+    }
+
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && this.m != null && !StringUtils.isNull(str)) {
+            ((PbNewInputContainer) this.m).setDefaultHint(str);
+        }
+    }
+
+    public void m(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && this.m != null && !StringUtils.isNull(str)) {
+            ((PbNewInputContainer) this.m).setHint(str);
+        }
+    }
+
+    public void n(int i) {
+        xb5 xb5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && (xb5Var = this.m) != null) {
+            ((PbNewInputContainer) xb5Var).setType(i);
+        }
+    }
+
+    public EditText i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.t;
+        }
+        return (EditText) invokeV.objValue;
+    }
+
+    public void j() {
+        xb5 xb5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (xb5Var = this.m) != null) {
+            ((PbNewInputContainer) xb5Var).N();
+        }
     }
 }

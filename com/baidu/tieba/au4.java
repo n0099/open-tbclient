@@ -1,14 +1,40 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.baseEditMark.MarkData;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.LotteryTheme;
 /* loaded from: classes3.dex */
-public class au4 {
+public abstract class au4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes3.dex */
+    public interface a {
+        void a(boolean z, boolean z2, String str);
+    }
+
+    public abstract void a();
+
+    public abstract void d();
+
+    public abstract boolean e();
+
+    public abstract MarkData f();
+
+    public abstract String g();
+
+    public abstract void h(boolean z);
+
+    public abstract void i(MarkData markData);
+
+    public abstract void j(a aVar);
 
     public au4() {
         Interceptable interceptable = $ic;
@@ -24,12 +50,29 @@ public class au4 {
         }
     }
 
-    public void a(LotteryTheme lotteryTheme) {
+    public static au4 b(BaseActivity baseActivity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, lotteryTheme) != null) || lotteryTheme == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, baseActivity)) == null) {
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001279, au4.class, baseActivity);
+            if (runTask != null && runTask.getData() != null) {
+                return (au4) runTask.getData();
+            }
+            return null;
         }
-        String str = lotteryTheme.bgcolor;
-        String str2 = lotteryTheme.bgimage;
+        return (au4) invokeL.objValue;
+    }
+
+    public static au4 c(BaseFragmentActivity baseFragmentActivity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseFragmentActivity)) == null) {
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921318, au4.class, baseFragmentActivity);
+            if (runTask != null && runTask.getData() != null) {
+                return (au4) runTask.getData();
+            }
+            return null;
+        }
+        return (au4) invokeL.objValue;
     }
 }

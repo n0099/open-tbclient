@@ -1,19 +1,48 @@
 package com.baidu.tieba;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.security.MessageDigest;
 /* loaded from: classes6.dex */
-public interface rp4 {
-    void a(int i);
+public class rp4 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(String str);
+    public static String a(byte[] bArr, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
+                if (z) {
+                    hexString = hexString.toUpperCase();
+                }
+                if (hexString.length() == 1) {
+                    sb.append("0");
+                }
+                sb.append(hexString);
+                sb.append(str);
+            }
+            return sb.toString();
+        }
+        return (String) invokeLLZ.objValue;
+    }
 
-    void c(String str);
-
-    void d(String str);
-
-    void e(boolean z, boolean z2, int i, String str, String str2, String str3);
-
-    void f(String str, boolean z);
-
-    void g(boolean z, boolean z2, int i);
-
-    void onAdDismiss();
+    public static String b(byte[] bArr, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, bArr, z)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.reset();
+                messageDigest.update(bArr);
+                bArr = messageDigest.digest();
+            } catch (Exception unused) {
+            }
+            return a(bArr, "", z);
+        }
+        return (String) invokeLZ.objValue;
+    }
 }

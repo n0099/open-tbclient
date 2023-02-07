@@ -1,99 +1,135 @@
 package com.baidu.tieba;
 
-import android.text.Selection;
-import android.text.SpanWatcher;
-import android.text.Spannable;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class w05 implements SpanWatcher {
+public class w05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SpanGroupManager a;
-    public int b;
-    public int c;
+    public String a;
+    public String b;
+    public boolean c;
+    public String d;
 
-    @Override // android.text.SpanWatcher
-    public void onSpanAdded(Spannable spannable, Object obj, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(1048576, this, spannable, obj, i, i2) == null) {
-        }
-    }
-
-    @Override // android.text.SpanWatcher
-    public void onSpanRemoved(Spannable spannable, Object obj, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, spannable, obj, i, i2) == null) {
-        }
-    }
-
-    public w05(@NonNull SpanGroupManager spanGroupManager) {
+    public w05() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {spanGroupManager};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public w05(String str, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = spanGroupManager;
+        this.a = str;
+        this.b = str2;
+        this.c = z;
     }
 
-    @Override // android.text.SpanWatcher
-    public void onSpanChanged(Spannable spannable, Object obj, int i, int i2, int i3, int i4) {
-        SpanGroupManager spanGroupManager;
+    public w05(String str, String str2, boolean z, String str3) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{spannable, obj, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) != null) || (spanGroupManager = this.a) == null) {
-            return;
-        }
-        if (obj == Selection.SELECTION_END && this.c != i3) {
-            this.c = i3;
-            u05 A = spanGroupManager.A(i3);
-            if (A != null) {
-                int f = A.f();
-                int c = A.c();
-                if (Math.abs(this.c - c) <= Math.abs(this.c - f)) {
-                    f = c;
-                }
-                int selectionStart = Selection.getSelectionStart(spannable);
-                if (selectionStart > spannable.length()) {
-                    selectionStart = spannable.length();
-                }
-                if (f > spannable.length()) {
-                    f = spannable.length();
-                }
-                Selection.setSelection(spannable, selectionStart, f);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, Boolean.valueOf(z), str3};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
         }
-        if (obj == Selection.SELECTION_START && this.b != i3) {
-            this.b = i3;
-            u05 A2 = this.a.A(i3);
-            if (A2 != null) {
-                int f2 = A2.f();
-                int c2 = A2.c();
-                if (Math.abs(this.b - c2) <= Math.abs(this.b - f2)) {
-                    f2 = c2;
-                }
-                int selectionEnd = Selection.getSelectionEnd(spannable);
-                if (selectionEnd > spannable.length()) {
-                    selectionEnd = spannable.length();
-                }
-                if (f2 > spannable.length()) {
-                    f2 = spannable.length();
-                }
-                Selection.setSelection(spannable, f2, selectionEnd);
+        this.a = str;
+        this.b = str2;
+        this.c = z;
+        this.d = str3;
+    }
+
+    public w05(String str, boolean z, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Boolean.valueOf(z), str2};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
             }
+        }
+        this.a = str;
+        this.c = z;
+        this.d = str2;
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.c = z;
         }
     }
 }

@@ -1,10 +1,8 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.dns.transmit.transmitter.exception.ExceptionMessage;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,56 +10,34 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.binaryresource.BinaryResource;
-import com.facebook.binaryresource.FileBinaryResource;
-import com.facebook.cache.common.CacheKey;
-import com.facebook.cache.common.WriterCallbacks;
-import com.facebook.datasource.DataSource;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.imagepipeline.cache.DefaultCacheKeyFactory;
-import com.facebook.imagepipeline.core.ImagePipeline;
-import com.facebook.imagepipeline.core.ImagePipelineFactory;
-import com.facebook.imagepipeline.request.ImageRequest;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.TreeMap;
 /* loaded from: classes6.dex */
-public class t82 implements m82, s82 {
+public class t82 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public u82 b;
-
-    @Override // com.baidu.tieba.m82
-    public boolean isClosed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
 
     /* loaded from: classes6.dex */
-    public class a implements w82 {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n82 a;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ File b;
 
-        @Override // com.baidu.tieba.w82
-        public void a(ImageRequest imageRequest) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, imageRequest) == null) {
-            }
-        }
-
-        public a(t82 t82Var, n82 n82Var) {
+        public a(String str, File file) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {t82Var, n82Var};
+                Object[] objArr = {str, file};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -71,48 +47,31 @@ public class t82 implements m82, s82 {
                     return;
                 }
             }
-            this.a = n82Var;
+            this.a = str;
+            this.b = file;
         }
 
-        @Override // com.baidu.tieba.w82
-        public void b(ImageRequest imageRequest) {
-            n82 n82Var;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageRequest) == null) && (n82Var = this.a) != null) {
-                n82Var.a();
-            }
-        }
-
-        @Override // com.baidu.tieba.w82
-        public void onCancel(String str) {
-            n82 n82Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (n82Var = this.a) != null) {
-                n82Var.a();
-            }
-        }
-
-        @Override // com.baidu.tieba.w82
-        public void c(ImageRequest imageRequest, Throwable th) {
-            n82 n82Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, imageRequest, th) == null) && (n82Var = this.a) != null) {
-                n82Var.a();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                synchronized (t82.class) {
+                    ap4.S(this.a, this.b, true);
+                }
+                t82.c();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements u82 {
+    public static class b implements Comparator<Long> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public b(t82 t82Var) {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {t82Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -123,196 +82,224 @@ public class t82 implements m82, s82 {
             }
         }
 
-        @Override // com.baidu.tieba.u82
-        public CacheKey a(String str) {
-            InterceptResult invokeL;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(Long l, Long l2) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                if (TextUtils.isEmpty(str)) {
-                    return null;
-                }
-                return DefaultCacheKeyFactory.getInstance().getEncodedCacheKey(ImageRequest.fromUri(Uri.parse(str)), null);
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, l, l2)) == null) {
+                return l2.compareTo(l);
             }
-            return (CacheKey) invokeL.objValue;
+            return invokeLL.intValue;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public static t82 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-448022148, "Lcom/baidu/tieba/t82$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-448022148, "Lcom/baidu/tieba/t82$c;");
-                    return;
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948135003, "Lcom/baidu/tieba/t82;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            a = new t82(null);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948135003, "Lcom/baidu/tieba/t82;");
+                return;
+            }
         }
+        a = gp1.a;
     }
 
     public t82() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.b = new b(this);
     }
 
-    public static t82 d() {
-        InterceptResult invokeV;
+    public static File b(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return c.a;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j)) == null) {
+            String f = f();
+            if (f == null) {
+                return null;
+            }
+            File file = new File(f + File.separator + j);
+            if (file.exists()) {
+                ap4.L(file);
+            }
+            ap4.h(file);
+            return file;
         }
-        return (t82) invokeV.objValue;
+        return (File) invokeJ.objValue;
     }
 
-    public /* synthetic */ t82(a aVar) {
-        this();
-    }
-
-    @Override // com.baidu.tieba.m82
-    public void a(String str, File file, n82 n82Var) {
+    public static long i(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048576, this, str, file, n82Var) != null) || TextUtils.isEmpty(str)) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65546, null, j)) == null) {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+            try {
+                Date parse = simpleDateFormat.parse(simpleDateFormat.format(new Date(j)));
+                if (parse == null) {
+                    return -1L;
+                }
+                return parse.getTime();
+            } catch (ParseException e) {
+                if (gp1.a) {
+                    e.printStackTrace();
+                }
+                return -1L;
+            }
+        }
+        return invokeJ.longValue;
+    }
+
+    public static void c() {
+        w83 b0;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) != null) || (b0 = w83.b0()) == null || TextUtils.isEmpty(b0.getAppId())) {
             return;
         }
-        boolean z = false;
-        if (file != null && file.exists()) {
-            z = b(str, file);
-        }
-        if (z) {
-            n82Var.a();
-        } else {
-            e(str, new a(this, n82Var));
+        File file = new File(sr2.g().getPath() + File.separator + "launch_tips");
+        if (file.exists() && file.isDirectory()) {
+            ap4.j(file);
         }
     }
 
-    public final boolean b(String str, File file) {
-        InterceptResult invokeLL;
-        FileInputStream fileInputStream;
+    public static String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, file)) == null) {
-            CacheKey a2 = this.b.a(str);
-            boolean z = false;
-            FileInputStream fileInputStream2 = null;
-            try {
-                try {
-                    fileInputStream = new FileInputStream(file);
-                } catch (IOException e) {
-                    e = e;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                BinaryResource insert = Fresco.getImagePipelineFactory().getMainFileCache().insert(a2, WriterCallbacks.from(fileInputStream));
-                if (insert != null) {
-                    if (insert.size() > 0) {
-                        z = true;
-                    }
-                }
-                nk4.d(fileInputStream);
-                return z;
-            } catch (IOException e2) {
-                e = e2;
-                fileInputStream2 = fileInputStream;
-                if (s82.a) {
-                    Log.e("HybridIntercept", Log.getStackTraceString(e));
-                }
-                nk4.d(fileInputStream2);
-                return false;
-            } catch (Throwable th2) {
-                th = th2;
-                fileInputStream2 = fileInputStream;
-                nk4.d(fileInputStream2);
-                throw th;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final DataSource<Void> e(String str, w82 w82Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, w82Var)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                ImagePipeline imagePipeline = Fresco.getImagePipeline();
-                ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(Uri.parse(str));
-                if (w82Var != null) {
-                    newBuilderWithSource.setRequestListener(qn2.B().a(w82Var));
-                }
-                return imagePipeline.prefetchToDiskCache(newBuilderWithSource.build(), null);
-            }
-            if (w82Var != null) {
-                w82Var.c(null, new Exception(ExceptionMessage.URL_EMPTY));
-            }
-            return null;
-        }
-        return (DataSource) invokeLL.objValue;
-    }
-
-    public final File c(String str) {
-        InterceptResult invokeL;
-        BinaryResource resource;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            CacheKey a2 = this.b.a(str);
-            if (a2 == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            w83 b0 = w83.b0();
+            if (b0 == null) {
                 return null;
             }
-            if (ImagePipelineFactory.getInstance().getMainFileCache().hasKey(a2)) {
-                BinaryResource resource2 = ImagePipelineFactory.getInstance().getMainFileCache().getResource(a2);
-                if (resource2 == null) {
-                    return null;
-                }
-                return ((FileBinaryResource) resource2).getFile();
-            } else if (!ImagePipelineFactory.getInstance().getSmallImageFileCache().hasKey(a2) || (resource = ImagePipelineFactory.getInstance().getSmallImageFileCache().getResource(a2)) == null) {
+            String appId = b0.getAppId();
+            if (TextUtils.isEmpty(appId)) {
                 return null;
-            } else {
-                return ((FileBinaryResource) resource).getFile();
             }
+            return sr2.g().getPath() + File.separator + "launch_tips_v2" + File.separator + appId;
         }
-        return (File) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.m82
-    public InputStream get(String str) {
-        InterceptResult invokeL;
+    public static File d(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            File c2 = c(str);
-            if (c2 != null && c2.exists()) {
-                try {
-                    return new FileInputStream(c2);
-                } catch (IOException e) {
-                    if (s82.a) {
-                        Log.e("HybridIntercept", Log.getStackTraceString(e));
-                        return null;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65541, null, j)) == null) {
+            File[] g = g();
+            if (g != null && g.length != 0) {
+                File file = null;
+                for (File file2 : g) {
+                    try {
+                        long parseLong = Long.parseLong(file2.getName());
+                        if (parseLong == j) {
+                            file = file2;
+                        } else if (j - parseLong >= 259200000) {
+                            ap4.j(file2);
+                        }
+                    } catch (NumberFormatException unused) {
+                        ap4.j(file2);
                     }
-                    return null;
+                }
+                if (file == null) {
+                    return b(j);
+                }
+                return file;
+            }
+            return b(j);
+        }
+        return (File) invokeJ.objValue;
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            File[] g = g();
+            if (g == null) {
+                return null;
+            }
+            TreeMap treeMap = new TreeMap(new b());
+            long i = i(System.currentTimeMillis());
+            for (File file : g) {
+                try {
+                    long parseLong = Long.parseLong(file.getName());
+                    if (i - parseLong >= 259200000) {
+                        ap4.j(file);
+                    } else {
+                        List<String> F = ap4.F(file);
+                        if (F != null && F.size() > 0) {
+                            treeMap.put(Long.valueOf(parseLong), F);
+                        }
+                    }
+                } catch (NumberFormatException unused) {
+                    ap4.j(file);
                 }
             }
-            return null;
+            if (treeMap.size() == 0) {
+                return null;
+            }
+            StringBuilder sb = new StringBuilder("\n（二）历史日志");
+            for (Map.Entry entry : treeMap.entrySet()) {
+                sb.append("\n----------【");
+                sb.append(new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date(((Long) entry.getKey()).longValue())));
+                sb.append("】----------");
+                for (String str : (List) entry.getValue()) {
+                    if (!TextUtils.isEmpty(str)) {
+                        sb.append("\n");
+                        sb.append(str);
+                    }
+                }
+            }
+            sb.append("\n");
+            return sb.toString();
         }
-        return (InputStream) invokeL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public static File[] g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            String f = f();
+            if (f == null) {
+                return null;
+            }
+            File file = new File(f);
+            if (!file.exists() || !file.isDirectory()) {
+                return null;
+            }
+            return file.listFiles();
+        }
+        return (File[]) invokeV.objValue;
+    }
+
+    public static void h(long j, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJL(65545, null, j, str) == null) {
+            long i = i(j);
+            if (i == -1) {
+                if (a) {
+                    Log.e("LaunchTipsFileHelper", "get timestampByDay failed");
+                    return;
+                }
+                return;
+            }
+            File d = d(i);
+            if (d != null && d.exists()) {
+                ql3.k(new a(str, d), "saveLaunchTipsLog");
+            }
+        }
     }
 }

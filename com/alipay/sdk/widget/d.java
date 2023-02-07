@@ -67,7 +67,7 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
 
     /* renamed from: com.alipay.sdk.widget.d$d  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC0016d implements Runnable {
+    public class RunnableC0015d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Activity a;
@@ -79,14 +79,14 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         public class a implements DialogInterface.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ RunnableC0016d a;
+            public final /* synthetic */ RunnableC0015d a;
 
-            public a(RunnableC0016d runnableC0016d) {
+            public a(RunnableC0015d runnableC0015d) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {runnableC0016d};
+                    Object[] objArr = {runnableC0015d};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -96,7 +96,7 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
                         return;
                     }
                 }
-                this.a = runnableC0016d;
+                this.a = runnableC0015d;
             }
 
             @Override // android.content.DialogInterface.OnClickListener
@@ -111,7 +111,7 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
             }
         }
 
-        public RunnableC0016d(d dVar, Activity activity, SslErrorHandler sslErrorHandler) {
+        public RunnableC0015d(d dVar, Activity activity, SslErrorHandler sslErrorHandler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -665,7 +665,7 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
             synchronized (this) {
                 com.alipay.sdk.widget.e eVar = this.j;
                 try {
-                    com.alipay.sdk.widget.e eVar2 = new com.alipay.sdk.widget.e(this.a, this.h, new e.C0018e(!a(), !a()));
+                    com.alipay.sdk.widget.e eVar2 = new com.alipay.sdk.widget.e(this.a, this.h, new e.C0017e(!a(), !a()));
                     this.j = eVar2;
                     eVar2.setChromeProxy(this);
                     this.j.setWebClientProxy(this);
@@ -755,7 +755,7 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
             synchronized (this) {
                 try {
-                    com.alipay.sdk.widget.e eVar = new com.alipay.sdk.widget.e(this.a, this.h, new e.C0018e(!a(), !a()));
+                    com.alipay.sdk.widget.e eVar = new com.alipay.sdk.widget.e(this.a, this.h, new e.C0017e(!a(), !a()));
                     this.j = eVar;
                     eVar.setChromeProxy(this);
                     this.j.setWebClientProxy(this);
@@ -899,7 +899,7 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
                 }
                 com.alipay.sdk.sys.a aVar = this.h;
                 com.alipay.sdk.app.statistic.a.b(aVar, "net", com.alipay.sdk.app.statistic.b.C, "2-" + sslError);
-                activity.runOnUiThread(new RunnableC0016d(this, activity, sslErrorHandler));
+                activity.runOnUiThread(new RunnableC0015d(this, activity, sslErrorHandler));
                 return true;
             }
         }

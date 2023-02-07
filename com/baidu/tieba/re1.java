@@ -1,163 +1,210 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.Application;
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.content.res.AssetManager;
+import android.content.res.Resources;
+import android.os.Build;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nps.pm.BundleInfo;
+import com.baidu.nps.runtime.InitException;
+import com.baidu.nps.runtime.resources.ResourcesHookUtil;
+import com.baidu.nps.utils.Constant;
+import com.baidu.nps.utils.ContextHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-@SuppressLint({"LongLogTag"})
 /* loaded from: classes6.dex */
-public class re1 implements Application.ActivityLifecycleCallbacks {
+public class re1 {
     public static /* synthetic */ Interceptable $ic;
-    public static int c;
-    public static long d;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public boolean b;
+    public BundleInfo a;
+    public se1 b;
+    public te1 c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948118635, "Lcom/baidu/tieba/re1;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948118635, "Lcom/baidu/tieba/re1;");
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, activity, bundle) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityDestroyed(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityPaused(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, activity) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityResumed(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, activity, bundle) == null) {
-        }
-    }
-
-    public re1() {
+    public re1(BundleInfo bundleInfo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bundleInfo};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = true;
+        this.c = null;
+        if (a(bundleInfo)) {
+            this.a = bundleInfo;
+            return;
+        }
+        me1.j().s(bundleInfo);
+        throw new InitException(22, "bad param bundleInfo:" + bundleInfo.toString());
     }
 
-    public static long a() {
+    public static re1 b(BundleInfo bundleInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bundleInfo)) == null) {
+            re1 re1Var = new re1(bundleInfo);
+            re1Var.d();
+            return re1Var;
+        }
+        return (re1) invokeL.objValue;
+    }
+
+    public final boolean a(BundleInfo bundleInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundleInfo)) == null) {
+            if (bundleInfo == null || TextUtils.isEmpty(bundleInfo.getPackageName())) {
+                return false;
+            }
+            Application applicationContext = ContextHolder.getApplicationContext();
+            if (!af1.d(applicationContext, bundleInfo.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).exists()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public ClassLoader c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == 0) {
-                d = b11.a().b("splash_sp_name").getLong("last_background_time", d);
-            }
-            return d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return invokeV.longValue;
+        return (ClassLoader) invokeV.objValue;
     }
 
-    public static int b() {
+    public final boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            this.b = qe1.d().b(this.a, ContextHolder.getApplicationContext());
+            return true;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    public void c(Activity activity) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            if (this.b) {
-                c = 0;
-                this.b = false;
-            }
-            JSONObject d2 = le1.a().d();
-            if (d2 != null && d2.optBoolean("should_update_by_sdk", true)) {
-                y8.f().j(c);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return super.toString();
         }
+        return (String) invokeV.objValue;
     }
 
-    public void d(Activity activity) {
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-            d = System.currentTimeMillis();
-            b11.a().b("splash_sp_name").h("last_background_time", d);
-            cf1.a();
-            c = 1;
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityStarted(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, activity) == null) {
-            int i = this.a + 1;
-            this.a = i;
-            if (i == 1) {
-                c(activity);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (e()) {
+                if (Build.VERSION.SDK_INT < 21) {
+                    if (!g()) {
+                        throw new InitException(20, "resources init error");
+                    }
+                    return;
+                } else if (f()) {
+                    return;
+                } else {
+                    throw new InitException(20, "resources init error");
+                }
             }
+            throw new InitException(16, "class loader init error");
         }
     }
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityStopped(@NonNull Activity activity) {
+    public final synchronized boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity) == null) {
-            int i = this.a - 1;
-            this.a = i;
-            if (i == 0) {
-                d(activity);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (this) {
+                try {
+                    Application applicationContext = ContextHolder.getApplicationContext();
+                    Resources a = be1.c().a();
+                    Resources b = be1.c().b();
+                    Resources[] d = be1.c().d();
+                    ve1.a().b(applicationContext);
+                    String absolutePath = af1.d(applicationContext, this.a.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath();
+                    ResourcesHookUtil.hookResources(a, absolutePath, this.a.getGroupName());
+                    ResourcesHookUtil.hookResources(b, absolutePath, this.a.getGroupName());
+                    if (d != null) {
+                        for (Resources resources : d) {
+                            ResourcesHookUtil.hookResources(resources, absolutePath, this.a.getGroupName());
+                        }
+                    }
+                } catch (Exception unused) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final synchronized boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            synchronized (this) {
+                Application applicationContext = ContextHolder.getApplicationContext();
+                String absolutePath = af1.d(applicationContext, this.a.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath();
+                String str = applicationContext.getApplicationInfo().sourceDir;
+                try {
+                    AssetManager assetManager = (AssetManager) AssetManager.class.newInstance();
+                    ResourcesHookUtil.hookAssets(assetManager, absolutePath, this.a.getGroupName());
+                    ResourcesHookUtil.hookAssets(assetManager, str, this.a.getGroupName());
+                    Resources a = be1.c().a();
+                    this.c = new te1(assetManager, a.getDisplayMetrics(), a.getConfiguration(), a);
+                } catch (Exception e) {
+                    if (ze1.a()) {
+                        Log.e("Runtime", "resource", e);
+                        return false;
+                    }
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public synchronized Resources getResources(Resources resources) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, resources)) == null) {
+            synchronized (this) {
+                if (Build.VERSION.SDK_INT < 21) {
+                    return this.c;
+                }
+                Application applicationContext = ContextHolder.getApplicationContext();
+                String absolutePath = af1.d(applicationContext, this.a.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath();
+                AssetManager assets = resources.getAssets();
+                if (ResourcesHookUtil.hookAssets(assets, absolutePath, this.a.getGroupName())) {
+                    if (this.c == null || this.c.getAssets().hashCode() != assets.hashCode()) {
+                        if (this.c != null) {
+                            if (Build.VERSION.SDK_INT >= 21) {
+                                ResourcesHookUtil.recoveryAssetsByGroup(assets, this.c.getAssets().hashCode(), this.a.getGroupName());
+                                this.c = new te1(assets, resources.getDisplayMetrics(), resources.getConfiguration(), resources);
+                            }
+                        } else {
+                            this.c = new te1(assets, resources.getDisplayMetrics(), resources.getConfiguration(), resources);
+                        }
+                    }
+                    return this.c;
+                }
+                throw new InitException(21, "resources hook error");
             }
         }
+        return (Resources) invokeL.objValue;
     }
 }

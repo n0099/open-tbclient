@@ -1,55 +1,58 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.net.request.Headers;
 import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONObject;
+@Service
 /* loaded from: classes4.dex */
-public class dh0 {
+public class dh0 extends xi0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public int d;
 
-    /* loaded from: classes4.dex */
-    public interface c {
-        void onResult(boolean z);
+    @Override // com.baidu.tieba.xi0
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? NotificationCompat.CATEGORY_CALL : (String) invokeV.objValue;
     }
 
     /* loaded from: classes4.dex */
-    public class a implements yi0 {
+    public class a extends ms0<Map<String, String>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ String c;
+        public final /* synthetic */ tb1 a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ Context c;
         public final /* synthetic */ String d;
-        public final /* synthetic */ String e;
-        public final /* synthetic */ String f;
-        public final /* synthetic */ String g;
-        public final /* synthetic */ boolean h;
-        public final /* synthetic */ String i;
-        public final /* synthetic */ dh0 j;
+        public final /* synthetic */ fj0 e;
+        public final /* synthetic */ bj0 f;
+        public final /* synthetic */ HashMap g;
+        public final /* synthetic */ String h;
+        public final /* synthetic */ dh0 i;
 
-        public a(dh0 dh0Var, c cVar, Context context, String str, String str2, String str3, String str4, String str5, boolean z, String str6) {
+        public a(dh0 dh0Var, tb1 tb1Var, String str, Context context, String str2, fj0 fj0Var, bj0 bj0Var, HashMap hashMap, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dh0Var, cVar, context, str, str2, str3, str4, str5, Boolean.valueOf(z), str6};
+                Object[] objArr = {dh0Var, tb1Var, str, context, str2, fj0Var, bj0Var, hashMap, str3};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -59,302 +62,242 @@ public class dh0 {
                     return;
                 }
             }
-            this.j = dh0Var;
-            this.a = cVar;
-            this.b = context;
-            this.c = str;
+            this.i = dh0Var;
+            this.a = tb1Var;
+            this.b = str;
+            this.c = context;
             this.d = str2;
-            this.e = str3;
-            this.f = str4;
-            this.g = str5;
-            this.h = z;
-            this.i = str6;
+            this.e = fj0Var;
+            this.f = bj0Var;
+            this.g = hashMap;
+            this.h = str3;
         }
 
-        @Override // com.baidu.tieba.yi0
-        public void onResult(boolean z) {
+        @Override // com.baidu.tieba.ks0
+        public void a(Exception exc, int i) {
+            int i2;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                if (z) {
-                    if (!TextUtils.isEmpty(this.j.c)) {
-                        ClogBuilder clogBuilder = new ClogBuilder();
-                        if (!TextUtils.isEmpty(this.j.a)) {
-                            clogBuilder.r(this.j.a);
-                        }
-                        clogBuilder.v("DEEPLINK");
-                        clogBuilder.y(ClogBuilder.LogType.DEEP_LINK);
-                        clogBuilder.j("APP");
-                        clogBuilder.p(this.j.c);
-                        if (this.j.d == 1) {
-                            clogBuilder.k("deferred");
-                        }
-                        e11.b(clogBuilder);
+            if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) {
+                this.a.dismiss();
+                this.i.n("4", this.b);
+                boolean l = this.i.l(this.c, this.d, this.b);
+                dh0 dh0Var = this.i;
+                fj0 fj0Var = this.e;
+                bj0 bj0Var = this.f;
+                if (l) {
+                    i2 = 0;
+                } else {
+                    i2 = 1001;
+                }
+                dh0Var.c(fj0Var, bj0Var, i2, l);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ls0
+        @Nullable
+        /* renamed from: f */
+        public Map<String, String> d(Headers headers, String str, int i) {
+            InterceptResult invokeLLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, headers, str, i)) == null) {
+                return dh0.m(str);
+            }
+            return (Map) invokeLLI.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ls0
+        /* renamed from: e */
+        public void b(Headers headers, @Nullable Map<String, String> map, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(1048579, this, headers, map, i) == null) {
+                this.a.dismiss();
+                int i2 = 0;
+                if (map == null) {
+                    this.i.n("8", this.b);
+                    boolean l = this.i.l(this.c, this.d, this.b);
+                    dh0 dh0Var = this.i;
+                    fj0 fj0Var = this.e;
+                    bj0 bj0Var = this.f;
+                    if (!l) {
+                        i2 = 1001;
                     }
-                    c cVar = this.a;
-                    if (cVar != null) {
-                        cVar.onResult(true);
-                    }
-                    hh0.e(this.j.c);
+                    dh0Var.c(fj0Var, bj0Var, i2, l);
                     return;
                 }
-                this.j.j(this.b, this.c, this.d, this.e, this.f, this.g, this.h, this.i, this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements yi0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ dh0 d;
-
-        public b(dh0 dh0Var, c cVar, Context context, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dh0Var, cVar, context, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                String str = (String) z11.b(map, "virtualPhone");
+                if (TextUtils.isEmpty(str)) {
+                    this.i.n("5", this.b);
+                    boolean l2 = this.i.l(this.c, this.d, this.b);
+                    dh0 dh0Var2 = this.i;
+                    fj0 fj0Var2 = this.e;
+                    bj0 bj0Var2 = this.f;
+                    if (!l2) {
+                        i2 = 1001;
+                    }
+                    dh0Var2.c(fj0Var2, bj0Var2, i2, l2);
                     return;
                 }
-            }
-            this.d = dh0Var;
-            this.a = cVar;
-            this.b = context;
-            this.c = str;
-        }
-
-        @Override // com.baidu.tieba.yi0
-        public void onResult(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                if (z) {
-                    if (!TextUtils.isEmpty(this.d.c)) {
-                        ClogBuilder clogBuilder = new ClogBuilder();
-                        if (!TextUtils.isEmpty(this.d.a)) {
-                            clogBuilder.r(this.d.a);
-                        }
-                        clogBuilder.v("DEEPLINK");
-                        clogBuilder.y(ClogBuilder.LogType.DEEP_LINK);
-                        clogBuilder.j("MARKET");
-                        clogBuilder.p(this.d.c);
-                        e11.b(clogBuilder);
+                String str2 = (String) z11.b(map, "solutionId");
+                if (TextUtils.isEmpty(str2)) {
+                    this.i.n("6", this.b);
+                    boolean l3 = this.i.l(this.c, this.d, this.b);
+                    dh0 dh0Var3 = this.i;
+                    fj0 fj0Var3 = this.e;
+                    bj0 bj0Var3 = this.f;
+                    if (!l3) {
+                        i2 = 1001;
                     }
-                    c cVar = this.a;
-                    if (cVar != null) {
-                        cVar.onResult(true);
-                        return;
-                    }
+                    dh0Var3.c(fj0Var3, bj0Var3, i2, l3);
                     return;
                 }
-                c cVar2 = this.a;
-                if (cVar2 != null) {
-                    cVar2.onResult(this.d.h(this.b, this.c));
+                String str3 = (String) z11.b(this.g, "log_url");
+                if (str3 == null) {
+                    str3 = "";
                 }
+                if (TextUtils.isEmpty(str3)) {
+                    this.i.n("3", this.b);
+                } else {
+                    this.i.n("7", this.b);
+                    String replaceAll = str3.replaceAll("\\__TIMESTAMP__", this.h).replaceAll("\\__VIRTUALPHONE__", str).replaceAll("\\__SOLUTIONID__", str2);
+                    ts0 ts0Var = new ts0();
+                    ts0Var.l(replaceAll);
+                    ts0Var.g(3000);
+                    ts0Var.c();
+                    as0.b().a().a(ts0Var, null);
+                }
+                boolean l4 = this.i.l(this.c, str, this.b);
+                dh0 dh0Var4 = this.i;
+                fj0 fj0Var4 = this.e;
+                bj0 bj0Var4 = this.f;
+                if (!l4) {
+                    i2 = 1001;
+                }
+                dh0Var4.c(fj0Var4, bj0Var4, i2, l4);
             }
         }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947704413, "Lcom/baidu/tieba/dh0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947704413, "Lcom/baidu/tieba/dh0;");
-                return;
-            }
-        }
-        e = ej0.a().q() + "://vendor/ad/easybrowse?ad_id=_AD_ID_&ext_info=_AD_EXT_&url=_URL_TEMPLATE_";
     }
 
     public dh0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.d = 0;
     }
 
-    public boolean g(Context context, HashMap<String, String> hashMap, c cVar) {
-        InterceptResult invokeLLL;
+    @Nullable
+    public static Map<String, String> m(String str) {
+        InterceptResult invokeL;
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, hashMap, cVar)) == null) {
-            return f(context, null, hashMap, cVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            HashMap hashMap = new HashMap();
+            JSONArray optJSONArray = y11.c(str).optJSONArray("data");
+            if (optJSONArray == null || optJSONArray.length() <= 0 || (optJSONObject = optJSONArray.optJSONObject(0)) == null) {
+                return null;
+            }
+            hashMap.put("virtualPhone", optJSONObject.optString("virtualPhone"));
+            hashMap.put("solutionId", optJSONObject.optString("solutionId"));
+            return hashMap;
         }
-        return invokeLLL.booleanValue;
+        return (Map) invokeL.objValue;
     }
 
-    public boolean f(Context context, String str, HashMap<String, String> hashMap, c cVar) {
+    @Override // com.baidu.tieba.xi0
+    public boolean b(@NonNull Context context, @NonNull bj0 bj0Var, @Nullable Map<String, Object> map, @Nullable fj0 fj0Var) {
         InterceptResult invokeLLLL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, str, hashMap, cVar)) == null) {
-            this.a = str;
-            return k(context, hashMap, cVar);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, bj0Var, map, fj0Var)) == null) {
+            super.b(context, bj0Var, map, fj0Var);
+            HashMap<String, String> d = bj0Var.d();
+            String valueOf = String.valueOf(System.currentTimeMillis());
+            String str2 = (String) z11.b(d, "ext_info");
+            String str3 = (String) z11.b(d, "phone");
+            int i = 0;
+            if (TextUtils.isEmpty(str3)) {
+                n("1", str2);
+                c(fj0Var, bj0Var, 202, false);
+                return true;
+            }
+            if (d.containsKey("type")) {
+                str = (String) z11.b(d, "type");
+            } else {
+                str = "0";
+            }
+            if (TextUtils.equals(str, "1")) {
+                String str4 = (String) z11.b(d, "number_url");
+                if (str4 == null) {
+                    str4 = "";
+                }
+                String str5 = str4;
+                if (TextUtils.isEmpty(str5)) {
+                    n("2", str2);
+                    boolean l = l(context, str3, str2);
+                    if (!l) {
+                        i = 1001;
+                    }
+                    c(fj0Var, bj0Var, i, l);
+                    return true;
+                }
+                tb1 tb1Var = new tb1(context);
+                tb1Var.e(context.getString(R.string.nad_ocpc_phone_call_toast_text));
+                tb1Var.c(false);
+                tb1Var.d(false);
+                u41.b(tb1Var);
+                a aVar = new a(this, tb1Var, str2, context, str3, fj0Var, bj0Var, d, valueOf);
+                String replaceAll = str5.replaceAll("\\__TIMESTAMP__", valueOf);
+                ts0 ts0Var = new ts0();
+                ts0Var.l(replaceAll);
+                ts0Var.g(3000);
+                ts0Var.c();
+                as0.b().a().a(ts0Var, aVar);
+            } else {
+                boolean l2 = l(context, str3, str2);
+                if (!l2) {
+                    i = 1001;
+                }
+                c(fj0Var, bj0Var, i, l2);
+            }
+            return true;
         }
         return invokeLLLL.booleanValue;
     }
 
-    public final boolean h(Context context, String str) {
-        InterceptResult invokeLL;
+    public final boolean l(@NonNull Context context, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, str2)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            if (!TextUtils.isEmpty(this.c)) {
-                ClogBuilder clogBuilder = new ClogBuilder();
-                if (!TextUtils.isEmpty(this.a)) {
-                    clogBuilder.r(this.a);
-                }
-                clogBuilder.v("DEEPLINK");
-                clogBuilder.y(ClogBuilder.LogType.DEEP_LINK);
-                clogBuilder.j("URL");
-                clogBuilder.p(this.c);
-                if (this.d == 1) {
-                    clogBuilder.k("deferred");
-                }
-                e11.b(clogBuilder);
-            }
-            if (!str.startsWith(ej0.a().q()) && !str.startsWith("nadcorevendor://")) {
-                if (!str.startsWith("http") && !str.startsWith("https")) {
-                    return false;
-                }
-                String replace = e.replace("_URL_TEMPLATE_", str);
-                if (!TextUtils.isEmpty(this.b)) {
-                    replace = replace.replace("_AD_ID_", this.b);
-                }
-                if (!TextUtils.isEmpty(this.c)) {
-                    replace = replace.replace("_AD_EXT_", this.c);
-                }
-                ni0.c(replace, context);
+            if (u41.d(context, new Intent("android.intent.action.DIAL", Uri.parse("tel:" + str)))) {
+                n("11", str2);
+                new od1().p(context, str2, "makePhoneCall");
                 return true;
             }
-            ni0.c(str, context);
+            n("9", str2);
             return true;
         }
-        return invokeLL.booleanValue;
-    }
-
-    public final void i(Context context, String str, String str2, String str3, String str4, String str5, String str6, boolean z, String str7, c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, str, str2, str3, str4, str5, str6, Boolean.valueOf(z), str7, cVar}) == null) {
-            try {
-                try {
-                    aj0.a(context, str, str6, new a(this, cVar, context, str2, str3, str4, str5, str6, z, str7), z);
-                } catch (Exception unused) {
-                    j(context, str2, str3, str4, str5, str6, z, str7, cVar);
-                }
-            } catch (Exception unused2) {
-            }
-        }
-    }
-
-    public final void j(Context context, String str, String str2, String str3, String str4, String str5, boolean z, String str6, c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, str, str2, str3, str4, str5, Boolean.valueOf(z), str6, cVar}) == null) {
-            if (TextUtils.isEmpty(str2)) {
-                if (cVar != null) {
-                    cVar.onResult(h(context, str));
-                    return;
-                }
-                return;
-            }
-            try {
-                aj0.a(context, str2, str3, new b(this, cVar, context, str), z);
-            } catch (Exception unused) {
-                if (cVar != null) {
-                    cVar.onResult(h(context, str));
-                }
-            }
-        }
-    }
-
-    public final boolean k(Context context, HashMap<String, String> hashMap, c cVar) {
-        InterceptResult invokeLLL;
-        int i;
-        boolean z;
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, context, hashMap, cVar)) == null) {
-            if (hashMap == null) {
-                if (cVar != null) {
-                    cVar.onResult(false);
-                }
-                return false;
-            }
-            try {
-                String str = hashMap.get("app_url");
-                String str2 = hashMap.get("web_url");
-                String str3 = hashMap.get("min_version");
-                String str4 = hashMap.get(EmotionResourceInfo.JSON_KEY_PKG_NAME);
-                String str5 = hashMap.get("market_url");
-                String str6 = hashMap.get("market_pkg_name");
-                String str7 = hashMap.get("exemption");
-                if (!TextUtils.isEmpty(str7)) {
-                    i = Integer.parseInt(str7);
-                } else {
-                    i = 0;
-                }
-                String str8 = hashMap.get("source");
-                this.b = hashMap.get(LegoListActivityConfig.AD_ID);
-                this.c = hashMap.get("ext_info");
-                String str9 = hashMap.get("exemption");
-                if (!TextUtils.isEmpty(str9)) {
-                    this.d = Integer.parseInt(str9);
-                }
-                hashMap.get("ad_name");
-                if (!TextUtils.isEmpty(str)) {
-                    if (i != 1) {
-                        z2 = true;
-                    } else {
-                        z2 = false;
-                    }
-                    i(context, str, str2, str5, str6, str3, str4, z2, str8, cVar);
-                } else if (!TextUtils.isEmpty(str5)) {
-                    if (i != 1) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    j(context, str2, str5, str6, str3, str4, z, str8, cVar);
-                } else if (!TextUtils.isEmpty(str2)) {
-                    if (cVar != null) {
-                        cVar.onResult(h(context, str2));
-                    }
-                } else {
-                    if (cVar != null) {
-                        cVar.onResult(false);
-                    }
-                    return false;
-                }
-                return true;
-            } catch (NumberFormatException unused) {
-                if (cVar != null) {
-                    cVar.onResult(false);
-                }
-                return false;
-            }
-        }
         return invokeLLL.booleanValue;
+    }
+
+    public final void n(@NonNull String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, str, str2) != null) || TextUtils.isEmpty(str2)) {
+            return;
+        }
+        n21.b(new ClogBuilder().u(ClogBuilder.Page.AD_CALL).i(ClogBuilder.Area.AD_CALL).y(ClogBuilder.LogType.AD_CALL).k(str).p(str2));
     }
 }

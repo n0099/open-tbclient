@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.pb.pb.main.emotion.message.QueryMatchEmotionResponseMessage;
-import com.baidu.tieba.s9;
+import com.baidu.tieba.x9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,7 +36,7 @@ public class QueryMatchEmotionModel extends BdBaseModel {
     public interface b {
         void a(String str, List<EmotionImageData> list);
 
-        void onFail(int i, String str);
+        void onFail();
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -93,7 +93,7 @@ public class QueryMatchEmotionModel extends BdBaseModel {
                 }
                 return;
             }
-            this.a.a.onFail(queryMatchEmotionResponseMessage.getError(), queryMatchEmotionResponseMessage.getErrorString());
+            this.a.a.onFail();
         }
     }
 
@@ -126,18 +126,18 @@ public class QueryMatchEmotionModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public QueryMatchEmotionModel(s9<Object> s9Var) {
-        super(s9Var);
+    public QueryMatchEmotionModel(x9<Object> x9Var) {
+        super(x9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {s9Var};
+            Object[] objArr = {x9Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((s9) newInitContext.callArgs[0]);
+                super((x9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

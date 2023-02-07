@@ -1,18 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.fluency.BdTracesManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.mutiprocess.fps.ImageFpsEvent;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class jd5 implements uc5<ImageFpsEvent> {
+public class jd5 {
     public static /* synthetic */ Interceptable $ic;
+    public static jd5 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
     public jd5() {
         Interceptable interceptable = $ic;
@@ -24,23 +23,41 @@ public class jd5 implements uc5<ImageFpsEvent> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 0;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.uc5
-    /* renamed from: a */
-    public boolean onEvent(ImageFpsEvent imageFpsEvent) {
-        InterceptResult invokeL;
+    public static jd5 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageFpsEvent)) == null) {
-            if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (jd5.class) {
+                    if (b == null) {
+                        b = new jd5();
+                    }
+                }
             }
-            BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(ImageViewerConfig.KEY_FPS_IMAGE);
-            return true;
+            return b;
         }
-        return invokeL.booleanValue;
+        return (jd5) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a = i;
+        }
     }
 }

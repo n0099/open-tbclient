@@ -1,190 +1,98 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.os.Build;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.pms.IPmsContext;
+import com.baidu.searchbox.pms.init.RequestParams;
+import com.baidu.searchbox.pms.statistic.StatisticCallback;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collections;
 import java.util.List;
+@Singleton
+@Service
 /* loaded from: classes4.dex */
-public class im {
+public class im implements IPmsContext {
     public static /* synthetic */ Interceptable $ic;
-    public static File a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448307465, "Lcom/baidu/tieba/im;")) == null) {
-            return;
+    @Override // com.baidu.searchbox.pms.IPmsContext
+    public boolean checkChannelAllow(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            return true;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+        return invokeLL.booleanValue;
+    }
+
+    public im() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448307465, "Lcom/baidu/tieba/im;");
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static void b(ClassLoader classLoader, File file) throws Throwable {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65537, null, classLoader, file) == null) {
-                jm.a(jm.b(classLoader, "pathList").get(classLoader), "nativeLibraryDirectories", new File[]{file});
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: Removed duplicated region for block: B:10:0x002c  */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public static void b(ClassLoader classLoader, File file) throws Throwable {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65537, null, classLoader, file) == null) {
-                Object obj = jm.b(classLoader, "pathList").get(classLoader);
-                List list = (List) jm.b(obj, "nativeLibraryDirectories").get(obj);
-                if (list == null) {
-                    list = new ArrayList(2);
-                }
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    if (file.equals((File) it.next()) || file.equals(im.a)) {
-                        it.remove();
-                        break;
-                    }
-                    while (it.hasNext()) {
-                    }
-                }
-                list.add(0, file);
-                Collection collection = (List) jm.b(obj, "systemNativeLibraryDirectories").get(obj);
-                if (collection == null) {
-                    collection = new ArrayList(2);
-                }
-                Method c = jm.c(obj, "makePathElements", List.class, File.class, List.class);
-                ArrayList arrayList = new ArrayList();
-                list.addAll(collection);
-                Object[] objArr = {list, null, arrayList};
-                Field b = jm.b(obj, "nativeLibraryPathElements");
-                b.setAccessible(true);
-                b.set(obj, (Object[]) c.invoke(obj, objArr));
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static final class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: Removed duplicated region for block: B:10:0x002c  */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public static void b(ClassLoader classLoader, File file) throws Throwable {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65537, null, classLoader, file) == null) {
-                Object obj = jm.b(classLoader, "pathList").get(classLoader);
-                List list = (List) jm.b(obj, "nativeLibraryDirectories").get(obj);
-                if (list == null) {
-                    list = new ArrayList(2);
-                }
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    if (file.equals((File) it.next()) || file.equals(im.a)) {
-                        it.remove();
-                        break;
-                    }
-                    while (it.hasNext()) {
-                    }
-                }
-                list.add(0, file);
-                Collection collection = (List) jm.b(obj, "systemNativeLibraryDirectories").get(obj);
-                if (collection == null) {
-                    collection = new ArrayList(2);
-                }
-                Method c = jm.c(obj, "makePathElements", List.class);
-                list.addAll(collection);
-                Object[] objArr = {list};
-                Field b = jm.b(obj, "nativeLibraryPathElements");
-                b.setAccessible(true);
-                b.set(obj, (Object[]) c.invoke(obj, objArr));
-            }
-        }
-    }
-
-    @TargetApi(23)
-    public static int b() {
+    @Override // com.baidu.searchbox.pms.IPmsContext
+    public List<RequestParams.Channel> getLongConnectParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            try {
-                return Build.VERSION.PREVIEW_SDK_INT;
-            } catch (Throwable unused) {
-                return 1;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return Collections.emptyList();
         }
-        return invokeV.intValue;
+        return (List) invokeV.objValue;
     }
 
-    public static synchronized boolean c(ClassLoader classLoader, File file) throws Throwable {
-        InterceptResult invokeLL;
+    @Override // com.baidu.searchbox.pms.IPmsContext
+    public StatisticCallback getStatisticCallback() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, classLoader, file)) == null) {
-            synchronized (im.class) {
-                boolean z = false;
-                if (classLoader != null && file != null) {
-                    if (file.exists()) {
-                        int i = Build.VERSION.SDK_INT;
-                        if ((i == 25 && b() != 0) || i > 25) {
-                            z = true;
-                        }
-                        if (z) {
-                            c.b(classLoader, file);
-                        } else if (i >= 23) {
-                            b.b(classLoader, file);
-                        } else if (i >= 14) {
-                            a.b(classLoader, file);
-                        }
-                        a = file;
-                        return true;
-                    }
-                }
-                return false;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return new km();
         }
-        return invokeLL.booleanValue;
+        return (StatisticCallback) invokeV.objValue;
     }
 
-    public static synchronized boolean d(ClassLoader classLoader, String str) throws Throwable {
-        InterceptResult invokeLL;
-        boolean c2;
+    @Override // com.baidu.searchbox.pms.IPmsContext
+    public RequestParams getRegisterParams(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, classLoader, str)) == null) {
-            synchronized (im.class) {
-                c2 = c(classLoader, new File(str));
-            }
-            return c2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return getRegisterParams(str, "aps");
         }
-        return invokeLL.booleanValue;
+        return (RequestParams) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.pms.IPmsContext
+    public RequestParams getRegisterParams(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            RequestParams requestParams = new RequestParams();
+            requestParams.setRunType(str);
+            if (TextUtils.isEmpty(str2)) {
+                str2 = "aps";
+            }
+            requestParams.setRunNode(str2);
+            if ("0".equals(str)) {
+                requestParams.addChannel(tl.e().d());
+                requestParams.addChannel(new fn());
+                requestParams.addChannel(new pm());
+            }
+            return requestParams;
+        }
+        return (RequestParams) invokeLL.objValue;
     }
 }

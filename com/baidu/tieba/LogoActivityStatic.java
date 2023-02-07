@@ -28,7 +28,7 @@ public class LogoActivityStatic {
             }
         }
         TbadkCoreApplication.getInst().RegisterIntent(LogoActivityConfig.class, LogoActivity.class);
-        dq5.h();
+        ou5.h();
     }
 
     public LogoActivityStatic() {

@@ -1,117 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.Collection;
-import org.json.JSONArray;
-import org.json.JSONException;
-/* loaded from: classes6.dex */
-public class xm6 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import com.baidu.tbadk.data.QmFilterItem;
+import com.baidu.tieba.wm6;
+/* loaded from: classes7.dex */
+public interface xm6 {
+    boolean a(QmFilterItem qmFilterItem);
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            cz4.l().z(cz4.p("search_forum_history"), "");
-        }
-    }
+    QmFilterItem b();
 
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, str) != null) || StringUtils.isNull(str)) {
-            return;
-        }
-        String r = cz4.l().r(cz4.p("search_forum_history"), "");
-        if (!StringUtils.isNull(r)) {
-            try {
-                JSONArray jSONArray = new JSONArray(r);
-                if (jSONArray.length() <= 0) {
-                    return;
-                }
-                ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    Object obj = jSONArray.get(i);
-                    if (!str.equals(obj)) {
-                        arrayList.add((String) obj);
-                    }
-                }
-                cz4.l().z(cz4.p("search_forum_history"), new JSONArray((Collection) arrayList).toString());
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
+    void c(QmFilterItem qmFilterItem);
 
-    public static void d(String str) {
-        JSONArray jSONArray;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, str) != null) || StringUtils.isNull(str)) {
-            return;
-        }
-        String r = cz4.l().r(cz4.p("search_forum_history"), "");
-        try {
-            if (StringUtils.isNull(r)) {
-                jSONArray = new JSONArray();
-            } else {
-                jSONArray = new JSONArray(r);
-            }
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(str);
-            int i = 1;
-            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                Object obj = jSONArray.get(i2);
-                if ((obj instanceof String) && !str.equals(obj)) {
-                    arrayList.add((String) obj);
-                    i++;
-                }
-                if (i == 6) {
-                    break;
-                }
-            }
-            cz4.l().z(cz4.p("search_forum_history"), new JSONArray((Collection) arrayList).toString());
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
+    void d(wm6.b bVar);
 
-    public static ArrayList<String> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String r = cz4.l().r(cz4.p("search_forum_history"), "");
-            ArrayList<String> arrayList = null;
-            if (StringUtils.isNull(r)) {
-                return null;
-            }
-            try {
-                JSONArray jSONArray = new JSONArray(r);
-                if (jSONArray.length() <= 0) {
-                    return null;
-                }
-                ArrayList<String> arrayList2 = new ArrayList<>();
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    try {
-                        Object obj = jSONArray.get(i);
-                        if (obj instanceof String) {
-                            arrayList2.add((String) obj);
-                        }
-                    } catch (JSONException e) {
-                        e = e;
-                        arrayList = arrayList2;
-                        e.printStackTrace();
-                        return arrayList;
-                    }
-                }
-                return arrayList2;
-            } catch (JSONException e2) {
-                e = e2;
-            }
-        } else {
-            return (ArrayList) invokeV.objValue;
-        }
-    }
+    void e();
+
+    String f(String str);
+
+    void g();
+
+    void h();
+
+    void reset();
 }

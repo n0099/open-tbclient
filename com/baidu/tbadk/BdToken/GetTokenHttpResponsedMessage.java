@@ -3,7 +3,7 @@ package com.baidu.tbadk.BdToken;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.ln4;
+import com.baidu.tieba.yr4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.GetToken.GetTokenResIdl;
 public class GetTokenHttpResponsedMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ln4 mData;
+    public yr4 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetTokenHttpResponsedMessage() {
@@ -36,13 +36,13 @@ public class GetTokenHttpResponsedMessage extends HttpResponsedMessage {
         }
     }
 
-    public ln4 getData() {
+    public yr4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mData;
         }
-        return (ln4) invokeV.objValue;
+        return (yr4) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,9 +59,9 @@ public class GetTokenHttpResponsedMessage extends HttpResponsedMessage {
             setErrorString(getTokenResIdl.error.usermsg);
         }
         if (getTokenResIdl.data != null) {
-            ln4 ln4Var = new ln4();
-            this.mData = ln4Var;
-            ln4Var.e(getTokenResIdl.data);
+            yr4 yr4Var = new yr4();
+            this.mData = yr4Var;
+            yr4Var.e(getTokenResIdl.data);
         }
     }
 }

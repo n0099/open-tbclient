@@ -10,16 +10,16 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.l68;
-import com.baidu.tieba.nb8;
-import com.baidu.tieba.rb8;
+import com.baidu.tieba.cg8;
+import com.baidu.tieba.gb8;
+import com.baidu.tieba.yf8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class SubPbReplyAdapter extends nb8<rb8, SubPbReplyViewHolder> {
+public class SubPbReplyAdapter extends yf8<cg8, SubPbReplyViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean c;
@@ -51,8 +51,8 @@ public class SubPbReplyAdapter extends nb8<rb8, SubPbReplyViewHolder> {
                 }
             }
             this.c = 3;
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a50);
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f090a51);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a96);
+            this.b = view2.findViewById(R.id.obfuscated_res_0x7f090a97);
         }
 
         public void c(boolean z) {
@@ -83,19 +83,19 @@ public class SubPbReplyAdapter extends nb8<rb8, SubPbReplyViewHolder> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SubPbReplyAdapter(l68 l68Var, BdUniqueId bdUniqueId) {
-        super(l68Var, bdUniqueId);
+    public SubPbReplyAdapter(gb8 gb8Var, BdUniqueId bdUniqueId) {
+        super(gb8Var, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {l68Var, bdUniqueId};
+            Object[] objArr = {gb8Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((l68) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((gb8) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -105,13 +105,13 @@ public class SubPbReplyAdapter extends nb8<rb8, SubPbReplyViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
+    @Override // com.baidu.tieba.qn
     /* renamed from: s */
     public SubPbReplyViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new SubPbReplyViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0833, viewGroup, false));
+            return new SubPbReplyViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d082c, viewGroup, false));
         }
         return (SubPbReplyViewHolder) invokeL.objValue;
     }
@@ -124,19 +124,19 @@ public class SubPbReplyAdapter extends nb8<rb8, SubPbReplyViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.nb8, com.baidu.tieba.ln
+    @Override // com.baidu.tieba.yf8, com.baidu.tieba.qn
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, rb8 rb8Var, SubPbReplyViewHolder subPbReplyViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, cg8 cg8Var, SubPbReplyViewHolder subPbReplyViewHolder) {
         InterceptResult invokeCommon;
         int a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rb8Var, subPbReplyViewHolder})) == null) {
-            if (rb8Var == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, cg8Var, subPbReplyViewHolder})) == null) {
+            if (cg8Var == null) {
                 a = 0;
             } else {
-                a = rb8Var.a();
+                a = cg8Var.a();
             }
-            String format = String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f12c0), String.valueOf(a));
+            String format = String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f12e1), String.valueOf(a));
             subPbReplyViewHolder.c(this.c);
             ((SubPbReplyViewHolder) this.viewholder).a.setText(format);
             ((SubPbReplyViewHolder) this.viewholder).b();

@@ -1,111 +1,85 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Method;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.CustomInflater;
+import com.fun.ad.sdk.ExpressInflater;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
+import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.qq.e.ads.nativ.express2.AdEventListener;
+import com.qq.e.ads.nativ.express2.NativeExpressADData2;
 /* loaded from: classes5.dex */
-public class m3a {
+public class m3a extends FunNativeAd2Bridger<NativeExpressADData2, View> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean b;
+    public final /* synthetic */ k3a c;
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static Object a;
-        public static Class<?> b;
-        public static Method c;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-651643695, "Lcom/baidu/tieba/m3a$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-651643695, "Lcom/baidu/tieba/m3a$a;");
-                    return;
-                }
-            }
-            try {
-                Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
-                b = cls;
-                a = cls.newInstance();
-                b.getMethod("getUDID", Context.class);
-                c = b.getMethod("getOAID", Context.class);
-                b.getMethod("getVAID", Context.class);
-                b.getMethod("getAAID", Context.class);
-            } catch (Throwable th) {
-                Log.e("XiaomiId", "xiaomi init error", th);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m3a(k3a k3aVar, ReporterPidLoader reporterPidLoader) {
+        super(reporterPidLoader);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {k3aVar, reporterPidLoader};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((ReporterPidLoader) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = k3aVar;
+    }
 
-        public static String a(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-                return b(context, c);
-            }
-            return (String) invokeL.objValue;
-        }
-
-        public static String b(Context context, Method method) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, method)) == null) {
-                Object obj = a;
-                if (obj != null && method != null) {
-                    try {
-                        Object invoke = method.invoke(obj, context);
-                        if (invoke != null) {
-                            return (String) invoke;
-                        }
-                        return null;
-                    } catch (Exception e) {
-                        Log.e("XiaomiId", "invoke method error", e);
-                        return null;
-                    }
-                }
-                return null;
-            }
-            return (String) invokeLL.objValue;
-        }
-
-        public static boolean c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                if (b != null && a != null) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, NativeExpressADData2 nativeExpressADData2, BaseNativeAd2<NativeExpressADData2, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, nativeExpressADData2, baseNativeAd2, funAdInteractionListener}) == null) {
         }
     }
 
-    public static String a(Context context) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public View createExpressView(NativeExpressADData2 nativeExpressADData2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            return a.a(context.getApplicationContext());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, nativeExpressADData2)) == null) {
+            return nativeExpressADData2.getAdView();
         }
-        return (String) invokeL.objValue;
+        return (View) invokeL.objValue;
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, NativeExpressADData2 nativeExpressADData2, BaseNativeAd2<NativeExpressADData2, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a.c();
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, nativeExpressADData2, baseNativeAd2, funAdInteractionListener}) == null) {
+            NativeExpressADData2 nativeExpressADData22 = nativeExpressADData2;
+            this.c.onShowStart(nativeExpressADData22, this.b);
+            this.b = true;
+            ExpressAdListenerWrapper<AdEventListener> expressAdListenerWrapper = this.c.e.get(nativeExpressADData22);
+            if (expressAdListenerWrapper == null) {
+                LogPrinter.e("Can not get correspond listener by gdtNativeExpress2.", new Object[0]);
+            } else {
+                expressAdListenerWrapper.funListener = funAdInteractionListener;
+            }
+            expressInflater.inflate();
         }
-        return invokeV.booleanValue;
     }
 }

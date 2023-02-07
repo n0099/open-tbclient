@@ -1,25 +1,28 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public class pk9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public boolean c;
+    @NonNull
+    public final EditorTools a;
+    public final Map<Integer, rk9> b;
 
-    public pk9(String str, String str2, String str3, boolean z) {
+    public pk9(@NonNull EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, Boolean.valueOf(z)};
+            Object[] objArr = {editorTools};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,36 +32,35 @@ public class pk9 {
                 return;
             }
         }
-        this.c = false;
-        this.a = str;
-        this.b = str2;
-        this.c = z;
+        this.b = new HashMap();
+        this.a = editorTools;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public void b(int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr) == null) {
+            for (int i : iArr) {
+                if (this.b.containsKey(Integer.valueOf(i))) {
+                    this.a.setToolEnabled(this.b.get(Integer.valueOf(i)).a(i), i);
+                }
+            }
         }
-        return (String) invokeV.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            for (Map.Entry<Integer, rk9> entry : this.b.entrySet()) {
+                this.a.setToolEnabled(entry.getValue().a(entry.getKey().intValue()), entry.getKey().intValue());
+            }
         }
-        return (String) invokeV.objValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    public void c(int i, @NonNull rk9 rk9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, rk9Var) != null) || this.b.containsKey(Integer.valueOf(i))) {
+            return;
         }
-        return invokeV.booleanValue;
+        this.b.put(Integer.valueOf(i), rk9Var);
     }
 }

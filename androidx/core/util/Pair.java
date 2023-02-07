@@ -1,7 +1,6 @@
 package androidx.core.util;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,12 +11,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class Pair<F, S> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public final F first;
-    @Nullable
     public final S second;
 
-    public Pair(@Nullable F f, @Nullable S s) {
+    public Pair(F f, S s) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -37,7 +34,7 @@ public class Pair<F, S> {
     }
 
     @NonNull
-    public static <A, B> Pair<A, B> create(@Nullable A a, @Nullable B b) {
+    public static <A, B> Pair<A, B> create(A a, B b) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, a, b)) == null) {
@@ -88,7 +85,7 @@ public class Pair<F, S> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "Pair{" + String.valueOf(this.first) + " " + String.valueOf(this.second) + "}";
+            return "Pair{" + this.first + " " + this.second + "}";
         }
         return (String) invokeV.objValue;
     }

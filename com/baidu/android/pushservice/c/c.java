@@ -21,6 +21,7 @@ import com.baidu.android.pushservice.i.m;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.baidu.android.pushservice.message.a.k;
 import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.searchbox.cloudcommand.dao.CloudCommandTable;
 import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -160,11 +161,11 @@ public class c {
 
     /* renamed from: com.baidu.android.pushservice.c.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0033c implements DatabaseErrorHandler {
+    public static class C0032c implements DatabaseErrorHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0033c() {
+        public C0032c() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -178,7 +179,7 @@ public class c {
             }
         }
 
-        public /* synthetic */ C0033c(AnonymousClass1 anonymousClass1) {
+        public /* synthetic */ C0032c(AnonymousClass1 anonymousClass1) {
             this();
         }
 
@@ -469,7 +470,7 @@ public class c {
             a = new e("MsgInfoId", 0);
             b = new e(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, 1);
             c = new e("msgType", 2);
-            d = new e("msgId", 3);
+            d = new e(CloudCommandTable.MSG_ID, 3);
             e = new e("arriveTime", 4);
             f = new e("secureInfo", 5);
             g = new e("msgBody", 6);
@@ -652,7 +653,7 @@ public class c {
                 }
             }
             a = new h("verifId", 0);
-            b = new h("msgId", 1);
+            b = new h(CloudCommandTable.MSG_ID, 1);
             c = new h("md5Infos", 2);
             d = new h(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, 3);
             h hVar = new h("time", 4);
@@ -2158,7 +2159,7 @@ public class c {
                         String str = file.getAbsolutePath() + File.separator + "pushinfo.db";
                         SQLiteDatabase sQLiteDatabase = null;
                         if (Build.VERSION.SDK_INT >= 11) {
-                            a = new d(context, str, 8, new C0033c(null));
+                            a = new d(context, str, 8, new C0032c(null));
                         } else {
                             a = new d(context, str, (SQLiteDatabase.CursorFactory) null, 8);
                         }

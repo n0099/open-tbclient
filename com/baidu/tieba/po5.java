@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -10,15 +9,44 @@ public class po5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Drawable a(int i) {
-        InterceptResult invokeI;
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i != 0) {
-                return SkinManager.getDrawable(R.drawable.icon_xiangqing_n);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (str == null) {
+                return false;
             }
-            return SkinManager.getDrawable(R.drawable.icon_xiangqing_n);
+            int indexOf = str.indexOf("hiphotos");
+            if (indexOf > 0 && indexOf < 20) {
+                return true;
+            }
+            int indexOf2 = str.indexOf("tiebapic");
+            if (indexOf2 <= 0 || indexOf2 >= 20) {
+                return false;
+            }
+            return true;
         }
-        return (Drawable) invokeI.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public static boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return c();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (!FileHelper.checkSD() || !lc.c()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

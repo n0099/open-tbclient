@@ -1,80 +1,51 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.entelechy.adapter.FrsGroupCardLayoutHolder;
-import com.baidu.tieba.frs.view.FrsGroupCardLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public final class er6 extends ln<hs6, FrsGroupCardLayoutHolder> {
+public class er6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TbPageContext<?> a;
+    public cr6 a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public er6(TbPageContext<?> pageContext) {
-        super(pageContext.getPageActivity(), hs6.c.a());
+    public er6(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pageContext};
+            Object[] objArr = {tbPageContext, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(pageContext, "pageContext");
-        this.a = pageContext;
+        if (bdTypeListView == null) {
+            return;
+        }
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(new ar6(tbPageContext, jr6.d, tbPageContext.getUniqueId()));
+        cr6 cr6Var = new cr6(tbPageContext, kr6.h, tbPageContext.getUniqueId());
+        this.a = cr6Var;
+        arrayList.add(cr6Var);
+        arrayList.add(new br6(tbPageContext, jr6.c, tbPageContext.getUniqueId()));
+        arrayList.add(new dr6(tbPageContext, jr6.e, tbPageContext.getUniqueId()));
+        bdTypeListView.a(arrayList);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: s */
-    public FrsGroupCardLayoutHolder onCreateViewHolder(ViewGroup parent) {
-        InterceptResult invokeL;
+    public void a(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, parent)) == null) {
-            Intrinsics.checkNotNullParameter(parent, "parent");
-            Activity pageActivity = this.a.getPageActivity();
-            Intrinsics.checkNotNullExpressionValue(pageActivity, "pageContext.pageActivity");
-            return new FrsGroupCardLayoutHolder(new FrsGroupCardLayout(pageActivity, null, 2, null));
+        if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
+            this.a.u(onClickListener);
         }
-        return (FrsGroupCardLayoutHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View convertView, ViewGroup parent, hs6 data, FrsGroupCardLayoutHolder holder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), convertView, parent, data, holder})) == null) {
-            Intrinsics.checkNotNullParameter(convertView, "convertView");
-            Intrinsics.checkNotNullParameter(parent, "parent");
-            Intrinsics.checkNotNullParameter(data, "data");
-            Intrinsics.checkNotNullParameter(holder, "holder");
-            holder.a().setData(data);
-            View view2 = holder.getView();
-            Intrinsics.checkNotNullExpressionValue(view2, "holder.view");
-            return view2;
-        }
-        return (View) invokeCommon.objValue;
     }
 }

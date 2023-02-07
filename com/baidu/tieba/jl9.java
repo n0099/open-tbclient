@@ -1,66 +1,34 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.os.SystemClock;
-import android.util.Log;
+import android.view.View;
+import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.core.util.TimeHelper;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tieba.kj9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class jl9 {
+public class jl9 extends dl9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean t;
-    public static volatile jl9 u;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public long b;
-    public e c;
-    public Application d;
-    public zk9 e;
-    public int f;
-    public int g;
-    public boolean h;
-    public boolean i;
-    public boolean j;
-    public boolean k;
-    public int l;
-    public boolean m;
-    public int n;
-    public int o;
-    public volatile boolean p;
-    public int q;
-    public long r;
-    public Runnable s;
+    public wi9 V;
 
     /* loaded from: classes5.dex */
-    public interface e {
-        void a();
-
-        void b();
-
-        void c();
-
-        void d();
-
-        void e();
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ jl9 a;
@@ -83,29 +51,28 @@ public class jl9 {
             this.a = jl9Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.a.a.getPageActivity(), "", ej.T(TbConfig.QUESTION_THREAD_RULE, "refer=3"), true, true, true)));
             }
-            this.a.k();
-            ek9.w().J(this.a.s, 5000L);
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b extends BroadcastReceiver {
+    public class b implements kj9.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jl9 this$0;
+        public final /* synthetic */ kj9 a;
+        public final /* synthetic */ jl9 b;
 
-        public b(jl9 jl9Var) {
+        public b(jl9 jl9Var, kj9 kj9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {jl9Var};
+                Object[] objArr = {jl9Var, kj9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -115,472 +82,178 @@ public class jl9 {
                     return;
                 }
             }
-            this.this$0 = jl9Var;
+            this.b = jl9Var;
+            this.a = kj9Var;
         }
 
-        public /* synthetic */ b(jl9 jl9Var, a aVar) {
-            this(jl9Var);
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            ConnectivityManager connectivityManager;
+        @Override // com.baidu.tieba.kj9.b
+        public void onClick() {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLL(1048576, this, context, intent) != null) || (connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity")) == null) {
-                return;
-            }
-            try {
-                NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-                if (activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting()) {
-                    this.this$0.w();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                gj9 gj9Var = this.b.D;
+                if (gj9Var != null) {
+                    gj9Var.P(0);
                 }
-            } catch (Exception unused) {
-                if (jl9.t) {
-                    Log.d("UBCUploadTimingManager", "get network info error!");
+                if (this.b.V != null) {
+                    this.b.V.z(8);
                 }
+                this.a.B(8);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c implements Application.ActivityLifecycleCallbacks {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jl9 a;
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityCreated(Activity activity, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityDestroyed(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityPaused(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityResumed(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
-            }
-        }
-
-        public c(jl9 jl9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jl9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = jl9Var;
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityStarted(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
-                jl9.d(this.a);
-                if (this.a.a != 1) {
-                    return;
-                }
-                this.a.r();
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityStopped(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
-                jl9.e(this.a);
-                if (this.a.a != 0) {
-                    return;
-                }
-                this.a.u();
-            }
-        }
-
-        public /* synthetic */ c(jl9 jl9Var, a aVar) {
-            this(jl9Var);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-
-        public d() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947887282, "Lcom/baidu/tieba/jl9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947887282, "Lcom/baidu/tieba/jl9;");
-                return;
-            }
-        }
-        t = cl9.m();
-    }
-
-    public static jl9 m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            if (u == null) {
-                synchronized (jl9.class) {
-                    if (u == null) {
-                        u = new jl9();
-                    }
-                }
-            }
-            return u;
-        }
-        return (jl9) invokeV.objValue;
-    }
-
-    public final void A() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (t) {
-                Log.d("UBCUploadTimingManager", "onTimerArrived");
-            }
-            e eVar = this.c;
-            if (eVar != null) {
-                eVar.b();
-            }
-        }
-    }
-
-    public final void C() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            j(true, 0, 0);
-            if (this.j && this.q == 0) {
-                if (t) {
-                    Log.d("UBCUploadTimingManager", "onUploadSuccess processOneFailedData");
-                }
-                ek9.w().H();
-            }
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.h && this.q == 0 && SystemClock.uptimeMillis() - this.r >= this.o) {
-            A();
-        }
-    }
-
-    public int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.k) {
-                return this.l;
-            }
-            return hk9.o().l();
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.k;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.m;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (this.f + this.g < this.n) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            if (t) {
-                Log.d("UBCUploadTimingManager", "onBackgroundToForeground");
-            }
-            e eVar = this.c;
-            if (eVar != null) {
-                eVar.c();
-            }
-        }
-    }
-
-    public final void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            if (t) {
-                Log.d("UBCUploadTimingManager", "onForegroundToBackground");
-            }
-            e eVar = this.c;
-            if (eVar != null) {
-                eVar.d();
-            }
-        }
-    }
-
-    public final void v() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            if (t) {
-                Log.d("UBCUploadTimingManager", "onLogTooMany");
-            }
-            e eVar = this.c;
-            if (eVar != null) {
-                eVar.a();
-            }
-        }
-    }
-
-    public void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.q++;
-        }
-    }
-
-    public jl9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jl9(@NonNull TbPageContext<?> tbPageContext, @NonNull NavigationBar navigationBar, @NonNull LinearLayout linearLayout, @NonNull EditorTools editorTools, @NonNull pj9 pj9Var, boolean z) {
+        super(tbPageContext, navigationBar, linearLayout, editorTools, pj9Var, z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, navigationBar, linearLayout, editorTools, pj9Var, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (NavigationBar) objArr2[1], (LinearLayout) objArr2[2], (EditorTools) objArr2[3], (pj9) objArr2[4], ((Boolean) objArr2[5]).booleanValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = 0L;
-        this.f = 0;
-        this.g = 0;
-        this.h = false;
-        this.i = false;
-        this.j = false;
-        this.k = false;
-        this.l = 10000;
-        this.m = false;
-        this.n = 100;
-        this.o = 180000;
-        this.p = false;
-        this.q = 0;
-        this.r = SystemClock.uptimeMillis();
-        this.s = new a(this);
     }
 
-    public static /* synthetic */ int d(jl9 jl9Var) {
-        int i = jl9Var.a;
-        jl9Var.a = i + 1;
-        return i;
-    }
-
-    public static /* synthetic */ int e(jl9 jl9Var) {
-        int i = jl9Var.a;
-        jl9Var.a = i - 1;
-        return i;
-    }
-
-    public void B(boolean z) {
+    @Override // com.baidu.tieba.dl9, com.baidu.tieba.el9
+    public void U(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            if (t) {
-                Log.d("UBCUploadTimingManager", "onUploadFinish isSuccess: " + z);
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
+            super.U(bundle);
+            this.p.setQuestionThread(true);
+        }
+    }
+
+    public final void A0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            p35.m().A("key_question_write_guide_time", System.currentTimeMillis());
+        }
+    }
+
+    @Override // com.baidu.tieba.dl9, com.baidu.tieba.el9
+    public void Y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            j09.q(this.p.getForumId(), this);
+        }
+    }
+
+    @Override // com.baidu.tieba.dl9, com.baidu.tieba.el9
+    public void c0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.c0();
+            j09.A(this.p.getForumId(), this.p, false);
+        }
+    }
+
+    @Override // com.baidu.tieba.dl9, com.baidu.tieba.el9, com.baidu.tieba.sj9
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.j();
+            j09.A(this.p.getForumId(), this.p, true);
+        }
+    }
+
+    public final boolean z0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return !TimeHelper.isSameDay(System.currentTimeMillis(), p35.m().o("key_question_write_guide_time", 0L));
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.dl9, com.baidu.tieba.el9
+    public void M(@NonNull List<qj9<?>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            list.add(tk9.o(this.a));
+            gj9 n = tk9.n(this.a, this, this.s, this.J);
+            this.D = n;
+            n.Q(false);
+            list.add(this.D);
+            y0(list);
+            vi9 c = tk9.c(this.a, this, this.d, this.s, this.J);
+            this.E = c;
+            list.add(c);
+            list.add(tk9.h(this.a, this.C));
+            dj9 k = tk9.k(this.a);
+            k.w(this.E);
+            list.add(k);
+            ej9 l = tk9.l(this.a);
+            k.w(l);
+            list.add(l);
+        }
+    }
+
+    @Override // com.baidu.tieba.dl9, com.baidu.tieba.el9
+    public void O(@NonNull EditorTools editorTools) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, editorTools) == null) {
+            editorTools.setMoreButtonAtEnd(false);
+            editorTools.setBarLauncherType(8);
+            editorTools.E(true);
+            editorTools.F(false);
+            editorTools.setBackgroundColorId(R.color.CAM_X0201);
+            vk9.m(this.a, editorTools, this.p.getCallFrom(), this).n(false);
+            editorTools.f();
+            super.O(editorTools);
+        }
+    }
+
+    @Override // com.baidu.tieba.dl9, com.baidu.tieba.el9
+    public void P(@NonNull NavigationBar navigationBar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, navigationBar) == null) {
+            super.P(navigationBar);
+            navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f0f9f));
+            p0(0, ej.g(this.a.getPageActivity(), R.dimen.M_W_X002));
+            q0(R.drawable.obfuscated_res_0x7f080a14, R.dimen.tbds42, R.dimen.tbds42, R.dimen.tbds3);
+            this.j.setOnClickListener(new a(this));
+        }
+    }
+
+    public final void y0(@NonNull List<qj9<?>> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, list) == null) && z0()) {
+            kj9 r = tk9.r(this.a);
+            r.A(new b(this, r));
+            list.add(r);
+            gj9 gj9Var = this.D;
+            if (gj9Var != null) {
+                gj9Var.P(8);
             }
-            this.q = Math.max(this.q - 1, 0);
+            wi9 d = tk9.d(this.a);
+            this.V = d;
+            list.add(d);
+            A0();
+        }
+    }
+
+    @Override // com.baidu.tieba.dl9, com.baidu.tieba.el9, com.baidu.tieba.mj9
+    public void q(@NonNull rj9 rj9Var, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, rj9Var, z) == null) {
+            super.q(rj9Var, z);
+            if (this.a.getPageActivity() == null) {
+                return;
+            }
             if (z) {
-                C();
+                this.a.getPageActivity().getWindow().setSoftInputMode(16);
+            } else {
+                this.a.getPageActivity().getWindow().setSoftInputMode(48);
             }
-            if (!this.h) {
-                return;
-            }
-            this.r = SystemClock.uptimeMillis();
-        }
-    }
-
-    public final void j(boolean z, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)}) != null) || !this.i) {
-            return;
-        }
-        if (z) {
-            if (!q()) {
-                v();
-                return;
-            }
-            return;
-        }
-        boolean q = q();
-        this.g += i;
-        this.f += i2;
-        if (q && !q()) {
-            v();
-        }
-    }
-
-    public void n(Context context, zk9 zk9Var, e eVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048582, this, context, zk9Var, eVar) != null) || context == null) {
-            return;
-        }
-        Application application = (Application) context.getApplicationContext();
-        this.d = application;
-        application.registerActivityLifecycleCallbacks(new c(this, null));
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-        this.d.registerReceiver(new b(this, null), intentFilter);
-        this.e = zk9Var;
-        this.c = eVar;
-        this.k = cl9.i().a();
-        this.l = cl9.i().e();
-        if (this.k) {
-            this.e.k();
-        }
-        this.m = cl9.i().n();
-        d s = this.e.s();
-        this.f = Math.max(s.a, 0);
-        this.g = Math.max(s.b, 0);
-        this.i = cl9.i().j();
-        this.h = cl9.i().d();
-        this.j = cl9.i().o();
-        this.n = hk9.o().A();
-        int B = hk9.o().B() * 1000;
-        this.o = B;
-        if (this.h && B > 0 && !this.p) {
-            ek9.w().J(this.s, 5000L);
-            this.p = true;
-        }
-    }
-
-    public void s(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(1048587, this, i, i2) == null) && this.i && i >= 0 && i2 >= 0 && i + i2 != 0) {
-            if (t) {
-                Log.d("UBCUploadTimingManager", "onClearData eventCount=" + i + ", flowCount=" + i2);
-            }
-            this.f = Math.max(this.f - i, 0);
-            this.g = Math.max(this.g - i2, 0);
-        }
-    }
-
-    public void x(String str, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048592, this, str, i) != null) || !this.i || i != -1 || hk9.o().f(str) || !hk9.o().i(str)) {
-            return;
-        }
-        if (t) {
-            Log.d("UBCUploadTimingManager", "onNewEvent id=" + str + ", currentEventCount=" + this.f);
-        }
-        j(false, 0, 1);
-    }
-
-    public void y(String str, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048593, this, str, i) != null) || !this.i || i <= 0 || hk9.o().f(str) || !hk9.o().i(str)) {
-            return;
-        }
-        if (t) {
-            Log.d("UBCUploadTimingManager", "onNewFlow id=" + str + ", currentFlowCount=" + this.g);
-        }
-        j(false, i, 0);
-    }
-
-    public void t() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || !this.i) {
-            return;
-        }
-        if (t) {
-            Log.d("UBCUploadTimingManager", "onClearDataAndReset");
-        }
-        d s = this.e.s();
-        this.f = Math.max(s.a, 0);
-        this.g = Math.max(s.b, 0);
-    }
-
-    public final void w() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            if (t) {
-                Log.d("UBCUploadTimingManager", "onNetworkAvailable");
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.b > 60000) {
-                e eVar = this.c;
-                if (eVar != null) {
-                    eVar.e();
-                }
-                if (t) {
-                    Log.d("UBCUploadTimingManager", "onNetworkAvailable filter completed!");
-                }
-            }
-            this.b = currentTimeMillis;
         }
     }
 }

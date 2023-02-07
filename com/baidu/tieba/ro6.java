@@ -1,79 +1,82 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
-import com.baidu.tieba.frs.FrsActivity;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.faceshop.forumpackage.adapter.ForumEmotionViewHolder;
+import com.baidu.tieba.faceshop.forumpackage.view.ForumEmotionItemView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ro6 {
+public class ro6 extends qn<wo6, ForumEmotionViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsActivity a;
-    public PollingModel b;
-    public final Runnable c;
+    public TbPageContext a;
+    public vo6 b;
+    public qo6 c;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ro6 a;
-
-        public a(ro6 ro6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ro6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ro6Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b != null) {
-                this.a.b.o0(PollingModel.SUBSCRIBE_GROUP_CHAT_LIST, String.valueOf(System.currentTimeMillis()), TbSingleton.getInstance().getLoopMsgRoomMsgId());
-                bh.a().postDelayed(this.a.c, oy4.a().c());
-            }
-        }
-    }
-
-    public ro6(FrsActivity frsActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ro6(TbPageContext<?> tbPageContext, vo6 vo6Var, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsActivity};
+            Object[] objArr = {tbPageContext, vo6Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new a(this);
-        this.a = frsActivity;
-        this.b = new PollingModel(frsActivity.getPageContext(), this.a.getUniqueId());
+        this.a = tbPageContext;
+        this.b = vo6Var;
     }
 
-    public void b() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: s */
+    public ForumEmotionViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            bh.a().removeCallbacks(this.c);
-            this.a = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            ForumEmotionItemView forumEmotionItemView = new ForumEmotionItemView(this.a);
+            ForumEmotionViewHolder forumEmotionViewHolder = new ForumEmotionViewHolder(this.a, forumEmotionItemView);
+            forumEmotionItemView.b(TbadkCoreApplication.getInst().getSkinType());
+            return forumEmotionViewHolder;
         }
+        return (ForumEmotionViewHolder) invokeL.objValue;
+    }
+
+    public void u(qo6 qo6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, qo6Var) == null) {
+            this.c = qo6Var;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, wo6 wo6Var, ForumEmotionViewHolder forumEmotionViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, wo6Var, forumEmotionViewHolder})) == null) {
+            forumEmotionViewHolder.l(wo6Var, this.b, this.c, i);
+            return forumEmotionViewHolder.getView();
+        }
+        return (View) invokeCommon.objValue;
     }
 }

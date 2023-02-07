@@ -1,16 +1,25 @@
 package com.baidu.tieba;
 
+import android.content.pm.PackageInfo;
+import com.baidu.nps.utils.ContextHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
 /* loaded from: classes4.dex */
 public class cf1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a() {
+    public static PackageInfo a(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            b11.a().b("splash_sp_name").g("splash_launch_status", 2);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
+            if (!new File(str).exists()) {
+                return null;
+            }
+            return ContextHolder.getApplicationContext().getPackageManager().getPackageArchiveInfo(str, i);
         }
+        return (PackageInfo) invokeLI.objValue;
     }
 }

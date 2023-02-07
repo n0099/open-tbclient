@@ -1,77 +1,37 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.InstallActivity;
-import com.google.ar.core.exceptions.UnavailableException;
-import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c3a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public final /* synthetic */ InstallActivity b;
 
-    public c3a(InstallActivity installActivity) {
+    public static RippedAd a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        String str;
+        String str2;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {installActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
+            JSONObject optJSONObject = jSONObject.optJSONObject("ext");
+            if (optJSONObject != null) {
+                str2 = optJSONObject.optString("appname");
+                str3 = optJSONObject.optString(EmotionResourceInfo.JSON_KEY_PKG_NAME);
+                str = optJSONObject.optString("pkgurl");
+            } else {
+                str = null;
+                str2 = null;
+                str3 = null;
             }
+            RippedAd.Builder builder = new RippedAd.Builder();
+            builder.setCorporation(jSONObject.optString("corporation_name")).setTitle(jSONObject.optString("txt")).setDescription(jSONObject.optString("desc")).setAppName(str2).setAppPkg(str3).setAppUrl(str).setIconUrl(jSONObject.optString("img2")).setImageUrl(jSONObject.optString("img")).setVideoImageUrl(null).setVideoUrl(jSONObject.optString("video")).setClickUrl(jSONObject.optString("rl")).setDeepLinkUrl(jSONObject.optString("customized_invoke_url")).setConvUrl(null);
+            return builder.build();
         }
-        this.b = installActivity;
-        this.a = false;
-    }
-
-    public void b(Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-            synchronized (this.b) {
-                if (this.a) {
-                    return;
-                }
-                this.a = true;
-                InstallActivity.e(this.b, com.google.ar.core.p.b);
-                boolean z = exc instanceof UnavailableException;
-                InstallActivity.a(this.b, exc);
-            }
-        }
-    }
-
-    public void a(com.google.ar.core.p pVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, pVar) == null) {
-            synchronized (this.b) {
-                if (this.a) {
-                    return;
-                }
-                InstallActivity.e(this.b, pVar);
-                int ordinal = pVar.ordinal();
-                if (ordinal != 0) {
-                    if (ordinal != 1) {
-                        if (ordinal == 2) {
-                            if (!InstallActivity.f(this.b)) {
-                                InstallActivity.g(this.b);
-                            }
-                            InstallActivity.a(this.b, null);
-                        }
-                    } else {
-                        InstallActivity.a(this.b, new UnavailableUserDeclinedInstallationException());
-                    }
-                    this.a = true;
-                }
-            }
-        }
+        return (RippedAd) invokeL.objValue;
     }
 }

@@ -1,137 +1,69 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.qi6;
-import com.baidu.tieba.view.cloudmusic.MusicPlayer;
-import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
-import com.baidu.tieba.view.cloudmusic.model.CloudMusicListModel;
+import com.baidu.tbadk.core.util.TbMd5;
+import com.baidu.tbadk.download.DownloadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
+import java.util.HashMap;
 /* loaded from: classes4.dex */
-public class ha9 implements la9 {
+public class ha9 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ha9 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CloudMusicListModel a;
-    public final ma9 b;
-    public MusicPlayer c;
+    public HashMap<String, String> a;
+    public DownloadData b;
 
     /* loaded from: classes4.dex */
-    public class b implements qi6.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CloudMusicData.MusicTagList.MusicList a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ ha9 c;
+    public interface b {
+        void a(String str);
 
-        /* loaded from: classes4.dex */
-        public class a implements MusicPlayer.b {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ String a;
-            public final /* synthetic */ b b;
+        void b();
 
-            public a(b bVar, String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, str};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = bVar;
-                this.a = str;
-            }
-
-            @Override // com.baidu.tieba.view.cloudmusic.MusicPlayer.b
-            public void a() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.b.c.c.f();
-                    if (this.a.startsWith("/")) {
-                        File file = new File(this.a);
-                        if (file.exists()) {
-                            file.delete();
-                        }
-                        qi6.h().e();
-                        b bVar = this.b;
-                        bVar.c.b(bVar.a, bVar.b);
-                    }
-                }
-            }
-        }
-
-        public b(ha9 ha9Var, CloudMusicData.MusicTagList.MusicList musicList, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ha9Var, musicList, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = ha9Var;
-            this.a = musicList;
-            this.b = i;
-        }
-
-        @Override // com.baidu.tieba.qi6.b
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.c.b.j0(this.b);
-            }
-        }
-
-        @Override // com.baidu.tieba.qi6.b
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.c.b.m0(this.b);
-            }
-        }
-
-        @Override // com.baidu.tieba.qi6.b
-        public void c(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-                if (!TextUtils.isEmpty(str2)) {
-                    str = str2;
-                }
-                this.c.c.e(str, this.a, new a(this, str));
-            }
-        }
+        void c(String str, String str2);
     }
 
     /* loaded from: classes4.dex */
-    public class a implements qa9<CloudMusicData.MusicTagList> {
+    public class a implements gb5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ha9 a;
+        public final /* synthetic */ b a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ ha9 c;
 
-        public a(ha9 ha9Var) {
+        @Override // com.baidu.tieba.gb5
+        public boolean onFileDownloaded(DownloadData downloadData) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.gb5
+        public boolean onPreDownload(DownloadData downloadData) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public a(ha9 ha9Var, b bVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ha9Var};
+                Object[] objArr = {ha9Var, bVar, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -141,149 +73,159 @@ public class ha9 implements la9 {
                     return;
                 }
             }
-            this.a = ha9Var;
+            this.c = ha9Var;
+            this.a = bVar;
+            this.b = str;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qa9
-        /* renamed from: b */
-        public void a(CloudMusicData.MusicTagList musicTagList) {
+        @Override // com.baidu.tieba.gb5
+        public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, musicTagList) == null) {
-                this.a.b.D(false);
-                if (ListUtils.isEmpty(musicTagList.music_list) && musicTagList.page.pn == 1) {
-                    this.a.b.m(true);
-                } else {
-                    this.a.b.m(false);
-                    this.a.b.E0(musicTagList);
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
+                File file = new File(downloadData.getPath());
+                if (file.exists()) {
+                    file.delete();
                 }
-                if (musicTagList.page.has_more == 0) {
-                    this.a.b.K();
+                if (this.c.b != null && downloadData.getUrl().equals(this.c.b.getUrl())) {
+                    this.c.b = null;
+                }
+                b bVar = this.a;
+                if (bVar != null) {
+                    bVar.a(str);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.gb5
+        public void onFileDownloadSucceed(DownloadData downloadData) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) && downloadData != null && !StringUtils.isNull(downloadData.getPath())) {
+                if (this.c.b != null && downloadData.getUrl().equals(this.c.b.getUrl())) {
+                    this.c.b = null;
+                }
+                if (this.a != null) {
+                    this.c.a.put(downloadData.getPath().substring(n99.a.length(), downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
+                    this.a.c(this.b, downloadData.getPath());
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.gb5
+        public void onFileUpdateProgress(DownloadData downloadData) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) && downloadData.getStatus() == 4) {
+                File file = new File(downloadData.getPath());
+                if (file.exists()) {
+                    file.delete();
+                }
+                if (this.c.b != null && downloadData.getUrl().equals(this.c.b.getUrl())) {
+                    this.c.b = null;
+                }
+                b bVar = this.a;
+                if (bVar != null) {
+                    bVar.b();
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class c implements MusicPlayer.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ CloudMusicData.MusicTagList.MusicList b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ ha9 d;
-
-        public c(ha9 ha9Var, String str, CloudMusicData.MusicTagList.MusicList musicList, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ha9Var, str, musicList, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = ha9Var;
-            this.a = str;
-            this.b = musicList;
-            this.c = i;
-        }
-
-        @Override // com.baidu.tieba.view.cloudmusic.MusicPlayer.b
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.d.c.f();
-                if (this.a.startsWith("/")) {
-                    File file = new File(this.a);
-                    if (file.exists()) {
-                        file.delete();
-                    }
-                    qi6.h().e();
-                    this.d.b(this.b, this.c);
-                }
-            }
-        }
-    }
-
-    public ha9(CloudMusicListModel cloudMusicListModel, ma9 ma9Var) {
+    public ha9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cloudMusicListModel, ma9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = cloudMusicListModel;
-        this.b = ma9Var;
-        ma9Var.d0(this);
-        this.c = MusicPlayer.c();
     }
 
-    @Override // com.baidu.tieba.la9
-    public void e(int i) {
+    public static ha9 g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.b.D(true);
-            this.a.I(i, new a(this));
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (c == null) {
+                synchronized (ha9.class) {
+                    if (c == null) {
+                        c = new ha9();
+                    }
+                }
+            }
+            return c;
         }
+        return (ha9) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.la9
-    public void a() {
+    public void d() {
+        File[] listFiles;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.cancelLoadData();
+            HashMap<String, String> hashMap = this.a;
+            if (hashMap == null) {
+                this.a = new HashMap<>();
+            } else {
+                hashMap.clear();
+            }
+            File file = new File(n99.a);
+            if (file.exists()) {
+                for (File file2 : file.listFiles()) {
+                    if (file2.isFile()) {
+                        this.a.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
+                    }
+                }
+            }
         }
     }
 
-    @Override // com.baidu.tieba.la9
-    public void c() {
+    public void e(String str, String str2, b bVar) {
+        String nameMd5FromUrl;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.K();
+        if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, bVar) != null) || TextUtils.isEmpty(str2) || (nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str2)) == null) {
+            return;
         }
-    }
-
-    @Override // com.baidu.tieba.la9
-    public void b(CloudMusicData.MusicTagList.MusicList musicList, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, musicList, i) == null) && musicList != null && !TextUtils.isEmpty(musicList.resource)) {
-            String g = qi6.h().g(musicList.resource);
-            if (TextUtils.isEmpty(g)) {
-                this.b.U0(i);
-                qi6.h().f(String.valueOf(musicList.music_id), musicList.resource, new b(this, musicList, i));
+        DownloadData downloadData = this.b;
+        if (downloadData != null) {
+            if (str2.equals(downloadData.getUrl())) {
                 return;
             }
-            this.c.e(g, musicList, new c(this, g, musicList, i));
+            hb5.k().h(this.b.getUrl(), true);
         }
+        File file = new File(n99.a);
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+        DownloadData downloadData2 = new DownloadData();
+        downloadData2.setType(17);
+        downloadData2.setId(str);
+        downloadData2.setUrl(str2);
+        downloadData2.setPath(n99.a + nameMd5FromUrl + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
+        downloadData2.setCallback(new a(this, bVar, str2));
+        this.b = downloadData2;
+        hb5.k().l(downloadData2);
     }
 
-    @Override // com.baidu.tieba.la9
-    public void d(CloudMusicData.MusicTagList musicTagList) {
+    public String f(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, musicTagList) == null) {
-            if (ListUtils.isEmpty(musicTagList.music_list)) {
-                this.b.m(true);
-            } else {
-                this.b.m(false);
-                this.b.E0(musicTagList);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str);
+            if (nameMd5FromUrl == null) {
+                return null;
             }
-            if (musicTagList.page.has_more == 0) {
-                this.b.K();
+            HashMap<String, String> hashMap = this.a;
+            if (hashMap == null) {
+                this.a = new HashMap<>();
+                d();
+                if (this.a.size() <= 0) {
+                    return null;
+                }
+                return this.a.get(nameMd5FromUrl);
             }
+            return hashMap.get(nameMd5FromUrl);
         }
+        return (String) invokeL.objValue;
     }
 }

@@ -1,25 +1,57 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.NetWork;
+import android.content.Context;
+import android.widget.BaseAdapter;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class e78 extends Thread {
+public abstract class e78 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final String c;
+    public int a;
+    public boolean b;
+    public final Context c;
+    public List<n78> d;
+    public a e;
 
-    public e78(String str, String str2, String str3) {
+    /* loaded from: classes4.dex */
+    public interface a {
+        void z1(int i);
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            return null;
+        }
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    public e78(List<n78> list, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
+            Object[] objArr = {list, context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,21 +61,78 @@ public class e78 extends Thread {
                 return;
             }
         }
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
+        this.b = true;
+        this.d = list;
+        this.c = context;
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
+    public List<n78> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.run();
-            NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/s/clientcall");
-            netWork.addPostData("tid", this.a);
-            netWork.addPostData("phonenum", this.b);
-            netWork.addPostData("optype", this.c);
-            netWork.postNetData();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (n78 n78Var : this.d) {
+                if (n78Var.e()) {
+                    arrayList.add(n78Var);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            List<n78> list = this.d;
+            if (list == null) {
+                return 0;
+            }
+            return list.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public void c(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.e = aVar;
+        }
+    }
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.b = z;
+        }
+    }
+
+    public void e(List<n78> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+            this.d = list;
+        }
+    }
+
+    public void f(n78 n78Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, n78Var) == null) {
+            if (n78Var.e()) {
+                this.a++;
+            } else {
+                this.a--;
+            }
         }
     }
 }

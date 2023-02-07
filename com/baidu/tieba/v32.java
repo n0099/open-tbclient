@@ -1,160 +1,141 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Matrix;
+import android.util.Base64;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.stat.ShareLoginStat;
-import com.baidu.tieba.s32;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class v32 extends p32 implements View.OnClickListener {
+public class v32 extends t32 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RelativeLayout F0;
-    public RelativeLayout G0;
+    public int k;
+    public int l;
+    public int m;
+    public int n;
 
-    @Override // com.baidu.tieba.p32
-    public boolean J() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.p32
-    public boolean c2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.p32
-    public boolean e2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.p32
-    public void j2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-        }
-    }
-
-    public v32() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public v32(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static v32 V2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new v32();
-        }
-        return (v32) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.p32
-    public void U1(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            V1(view2);
-            t2(-1);
-            C2(-16777216);
-            v2(G(R.string.obfuscated_res_0x7f0f12f5));
-            x2(true);
-            J2(false);
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f0915c9) {
-                qn2.t0().a();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f090300) {
-                W2();
-            }
-        }
-    }
-
-    public final void U2(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0915c9);
-            this.F0 = relativeLayout;
-            relativeLayout.setOnClickListener(this);
-            if (qn2.y0().d() || !di3.G()) {
-                this.F0.setVisibility(8);
-            }
-            RelativeLayout relativeLayout2 = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090300);
-            this.G0 = relativeLayout2;
-            relativeLayout2.setOnClickListener(this);
-        }
-    }
-
-    public final void W2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (p32.E0) {
-                Log.d("SwanAppBaseFragment", "startSettingFragment");
-            }
-            s32 M1 = M1();
-            if (M1 == null) {
-                b43.f(getContext(), R.string.obfuscated_res_0x7f0f01a8).G();
                 return;
             }
-            s32.b i = M1.i("navigateTo");
-            i.n(s32.g, s32.i);
-            i.k("authority", null).a();
-            zt2.o(ShareLoginStat.GetShareListStat.KEY_PERMISSION);
+        }
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            this.k = nm3.g((float) jSONObject.optDouble("x"));
+            this.l = nm3.g((float) jSONObject.optDouble("y"));
+            this.m = nm3.g((float) jSONObject.optDouble("width"));
+            this.n = nm3.g((float) jSONObject.optDouble("height"));
+        } catch (Exception e) {
+            w52.d("canvasGetImageData", "CanvasGetImageData meets json exception", e);
         }
     }
 
-    @Override // com.baidu.swan.support.v4.app.Fragment
-    @Nullable
-    public View x0(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        InterceptResult invokeLLL;
+    public final byte[] h(@NonNull Bitmap bitmap) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0848, viewGroup, false);
-            U1(inflate);
-            U2(inflate);
-            if (T1()) {
-                inflate = W1(inflate);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bitmap)) == null) {
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
+            int i = width * height;
+            int[] iArr = new int[i];
+            bitmap.getPixels(iArr, 0, width, 0, 0, width, height);
+            byte[] bArr = new byte[i * 4];
+            for (int i2 = 0; i2 < i; i2++) {
+                int i3 = iArr[i2];
+                int i4 = i2 * 4;
+                bArr[i4] = (byte) Color.red(i3);
+                bArr[i4 + 1] = (byte) Color.green(i3);
+                bArr[i4 + 2] = (byte) Color.blue(i3);
+                bArr[i4 + 3] = (byte) Color.alpha(i3);
             }
-            return D1(inflate, this);
+            return bArr;
         }
-        return (View) invokeLLL.objValue;
+        return (byte[]) invokeL.objValue;
+    }
+
+    public JSONObject i(@NonNull View view2) {
+        InterceptResult invokeL;
+        String str;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
+            int measuredWidth = view2.getMeasuredWidth();
+            int measuredHeight = view2.getMeasuredHeight();
+            int i2 = 0;
+            if (measuredWidth > 0 && measuredHeight > 0) {
+                int i3 = this.k;
+                this.k = (i3 < 0 || i3 >= measuredWidth) ? 0 : 0;
+                int i4 = this.l;
+                this.l = (i4 < 0 || i4 >= measuredHeight) ? 0 : 0;
+                int i5 = this.m;
+                if (i5 <= 0 || this.k + i5 > measuredWidth) {
+                    i5 = measuredWidth - this.k;
+                }
+                this.m = i5;
+                int i6 = this.n;
+                if (i6 <= 0 || this.l + i6 > measuredHeight) {
+                    i6 = measuredHeight - this.l;
+                }
+                this.n = i6;
+                Bitmap createBitmap = Bitmap.createBitmap(this.m, i6, Bitmap.Config.ARGB_4444);
+                Canvas canvas = new Canvas(createBitmap);
+                canvas.drawARGB(0, 0, 0, 0);
+                canvas.translate(-this.k, -this.l);
+                view2.draw(canvas);
+                Bitmap j = j(createBitmap);
+                str = Base64.encodeToString(h(j), 2);
+                i2 = j.getWidth();
+                i = j.getHeight();
+            } else {
+                w52.b("canvasGetImageData", "canvas size is invalid.");
+                str = "";
+                i = 0;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("width", i2);
+                jSONObject.put("height", i);
+                jSONObject.put("data", str);
+            } catch (Exception e) {
+                w52.d("canvasGetImageData", "CanvasGetImageData meets json exception", e);
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    @NonNull
+    public final Bitmap j(@NonNull Bitmap bitmap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap)) == null) {
+            float l = 1.0f / nm3.l(ds2.c());
+            Matrix matrix = new Matrix();
+            matrix.postScale(l, l);
+            return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+        }
+        return (Bitmap) invokeL.objValue;
     }
 }

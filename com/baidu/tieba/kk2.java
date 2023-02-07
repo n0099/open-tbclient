@@ -1,58 +1,131 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.extcore.model.ExtensionCore;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes5.dex */
-public class kk2 extends di2<uk2> {
+public class kk2 extends jk2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.di2
-    @NonNull
-    public String b() {
+    @Override // com.baidu.tieba.ik2
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ik2
+    public long i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setSoundModel" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 0L;
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.baidu.tieba.ik2
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "0" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ik2
+    public void n(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ik2
+    public void o(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947915895, "Lcom/baidu/tieba/kk2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947915895, "Lcom/baidu/tieba/kk2;");
+                return;
+            }
+        }
+        d = gp1.a;
     }
 
     public kk2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.di2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull uk2 uk2Var) {
+    @Override // com.baidu.tieba.ik2
+    @NonNull
+    public ExtensionCore h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, uk2Var) == null) {
-            String str = command.what;
-            d(uk2Var, str, "" + command.obj, true);
-            Object obj = command.obj;
-            if (obj instanceof String) {
-                String str2 = (String) obj;
-                if (TextUtils.equals(str2, "ear")) {
-                    uk2Var.r(str2);
-                } else if (TextUtils.equals(str2, "speaker")) {
-                    uk2Var.r(str2);
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ExtensionCore extensionCore = new ExtensionCore();
+            extensionCore.extensionCoreVersionCode = 0L;
+            extensionCore.extensionCoreVersionName = "0";
+            extensionCore.extensionCorePath = "";
+            extensionCore.extensionCoreType = 0;
+            return extensionCore;
         }
+        return (ExtensionCore) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.jk2, com.baidu.tieba.ik2
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (d) {
+                Log.d("SwanNoPresetExtensionCoreControl", "isNeedUpdate false");
+                return false;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ik2
+    public <T extends ck2> Exception g(@NonNull T t) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) {
+            if (d) {
+                Log.d("SwanNoPresetExtensionCoreControl", "doUpdate: preset");
+                return null;
+            }
+            return null;
+        }
+        return (Exception) invokeL.objValue;
     }
 }

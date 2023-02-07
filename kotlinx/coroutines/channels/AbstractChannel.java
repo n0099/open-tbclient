@@ -140,16 +140,16 @@ public abstract class AbstractChannel<E> extends AbstractSendChannel<E> implemen
                         if (closed.closeCause == null) {
                             Boolean boxBoolean = Boxing.boxBoolean(false);
                             Result.Companion companion = Result.Companion;
-                            orCreateCancellableContinuation.resumeWith(Result.m772constructorimpl(boxBoolean));
+                            orCreateCancellableContinuation.resumeWith(Result.m773constructorimpl(boxBoolean));
                         } else {
                             Throwable receiveException = closed.getReceiveException();
                             Result.Companion companion2 = Result.Companion;
-                            orCreateCancellableContinuation.resumeWith(Result.m772constructorimpl(ResultKt.createFailure(receiveException)));
+                            orCreateCancellableContinuation.resumeWith(Result.m773constructorimpl(ResultKt.createFailure(receiveException)));
                         }
                     } else if (pollInternal != AbstractChannelKt.POLL_FAILED) {
                         Boolean boxBoolean2 = Boxing.boxBoolean(true);
                         Result.Companion companion3 = Result.Companion;
-                        orCreateCancellableContinuation.resumeWith(Result.m772constructorimpl(boxBoolean2));
+                        orCreateCancellableContinuation.resumeWith(Result.m773constructorimpl(boxBoolean2));
                         break;
                     }
                 } else {
@@ -217,7 +217,7 @@ public abstract class AbstractChannel<E> extends AbstractSendChannel<E> implemen
         public final Object resumeValue(E e) {
             if (this.receiveMode == 2) {
                 ValueOrClosed.Companion companion = ValueOrClosed.Companion;
-                return ValueOrClosed.m2161boximpl(ValueOrClosed.m2162constructorimpl(e));
+                return ValueOrClosed.m2201boximpl(ValueOrClosed.m2202constructorimpl(e));
             }
             return e;
         }
@@ -227,18 +227,18 @@ public abstract class AbstractChannel<E> extends AbstractSendChannel<E> implemen
             if (this.receiveMode == 1 && closed.closeCause == null) {
                 CancellableContinuation<Object> cancellableContinuation = this.cont;
                 Result.Companion companion = Result.Companion;
-                cancellableContinuation.resumeWith(Result.m772constructorimpl(null));
+                cancellableContinuation.resumeWith(Result.m773constructorimpl(null));
             } else if (this.receiveMode == 2) {
                 CancellableContinuation<Object> cancellableContinuation2 = this.cont;
                 ValueOrClosed.Companion companion2 = ValueOrClosed.Companion;
-                ValueOrClosed m2161boximpl = ValueOrClosed.m2161boximpl(ValueOrClosed.m2162constructorimpl(new ValueOrClosed.Closed(closed.closeCause)));
+                ValueOrClosed m2201boximpl = ValueOrClosed.m2201boximpl(ValueOrClosed.m2202constructorimpl(new ValueOrClosed.Closed(closed.closeCause)));
                 Result.Companion companion3 = Result.Companion;
-                cancellableContinuation2.resumeWith(Result.m772constructorimpl(m2161boximpl));
+                cancellableContinuation2.resumeWith(Result.m773constructorimpl(m2201boximpl));
             } else {
                 CancellableContinuation<Object> cancellableContinuation3 = this.cont;
                 Throwable receiveException = closed.getReceiveException();
                 Result.Companion companion4 = Result.Companion;
-                cancellableContinuation3.resumeWith(Result.m772constructorimpl(ResultKt.createFailure(receiveException)));
+                cancellableContinuation3.resumeWith(Result.m773constructorimpl(ResultKt.createFailure(receiveException)));
             }
         }
 
@@ -353,7 +353,7 @@ public abstract class AbstractChannel<E> extends AbstractSendChannel<E> implemen
             Function2<Object, Continuation<? super R>, Object> function2 = this.block;
             if (this.receiveMode == 2) {
                 ValueOrClosed.Companion companion = ValueOrClosed.Companion;
-                e = (E) ValueOrClosed.m2161boximpl(ValueOrClosed.m2162constructorimpl(e));
+                e = (E) ValueOrClosed.m2201boximpl(ValueOrClosed.m2202constructorimpl(e));
             }
             ContinuationKt.startCoroutine(function2, e, this.select.getCompletion());
         }
@@ -381,7 +381,7 @@ public abstract class AbstractChannel<E> extends AbstractSendChannel<E> implemen
                     if (i == 2) {
                         Function2<Object, Continuation<? super R>, Object> function2 = this.block;
                         ValueOrClosed.Companion companion = ValueOrClosed.Companion;
-                        ContinuationKt.startCoroutine(function2, ValueOrClosed.m2161boximpl(ValueOrClosed.m2162constructorimpl(new ValueOrClosed.Closed(closed.closeCause))), this.select.getCompletion());
+                        ContinuationKt.startCoroutine(function2, ValueOrClosed.m2201boximpl(ValueOrClosed.m2202constructorimpl(new ValueOrClosed.Closed(closed.closeCause))), this.select.getCompletion());
                         return;
                     }
                     return;
@@ -703,17 +703,17 @@ public abstract class AbstractChannel<E> extends AbstractSendChannel<E> implemen
     /* JADX WARN: Multi-variable type inference failed */
     @Override // kotlinx.coroutines.channels.ReceiveChannel
     public final Object receiveOrClosed(Continuation<? super ValueOrClosed<? extends E>> continuation) {
-        Object m2162constructorimpl;
+        Object m2202constructorimpl;
         Object pollInternal = pollInternal();
         if (pollInternal != AbstractChannelKt.POLL_FAILED) {
             if (pollInternal instanceof Closed) {
                 ValueOrClosed.Companion companion = ValueOrClosed.Companion;
-                m2162constructorimpl = ValueOrClosed.m2162constructorimpl(new ValueOrClosed.Closed(((Closed) pollInternal).closeCause));
+                m2202constructorimpl = ValueOrClosed.m2202constructorimpl(new ValueOrClosed.Closed(((Closed) pollInternal).closeCause));
             } else {
                 ValueOrClosed.Companion companion2 = ValueOrClosed.Companion;
-                m2162constructorimpl = ValueOrClosed.m2162constructorimpl(pollInternal);
+                m2202constructorimpl = ValueOrClosed.m2202constructorimpl(pollInternal);
             }
-            return ValueOrClosed.m2161boximpl(m2162constructorimpl);
+            return ValueOrClosed.m2201boximpl(m2202constructorimpl);
         }
         return receiveSuspend(2, continuation);
     }
@@ -730,7 +730,7 @@ public abstract class AbstractChannel<E> extends AbstractSendChannel<E> implemen
     }
 
     private final <R> void tryStartBlockUnintercepted(Function2<Object, ? super Continuation<? super R>, ? extends Object> function2, SelectInstance<? super R> selectInstance, int i, Object obj) {
-        Object m2162constructorimpl;
+        Object m2202constructorimpl;
         boolean z = obj instanceof Closed;
         if (z) {
             if (i != 0) {
@@ -739,7 +739,7 @@ public abstract class AbstractChannel<E> extends AbstractSendChannel<E> implemen
                         return;
                     }
                     ValueOrClosed.Companion companion = ValueOrClosed.Companion;
-                    UndispatchedKt.startCoroutineUnintercepted(function2, ValueOrClosed.m2161boximpl(ValueOrClosed.m2162constructorimpl(new ValueOrClosed.Closed(((Closed) obj).closeCause))), selectInstance.getCompletion());
+                    UndispatchedKt.startCoroutineUnintercepted(function2, ValueOrClosed.m2201boximpl(ValueOrClosed.m2202constructorimpl(new ValueOrClosed.Closed(((Closed) obj).closeCause))), selectInstance.getCompletion());
                     return;
                 }
                 Closed closed = (Closed) obj;
@@ -756,11 +756,11 @@ public abstract class AbstractChannel<E> extends AbstractSendChannel<E> implemen
         } else if (i == 2) {
             ValueOrClosed.Companion companion2 = ValueOrClosed.Companion;
             if (z) {
-                m2162constructorimpl = ValueOrClosed.m2162constructorimpl(new ValueOrClosed.Closed(((Closed) obj).closeCause));
+                m2202constructorimpl = ValueOrClosed.m2202constructorimpl(new ValueOrClosed.Closed(((Closed) obj).closeCause));
             } else {
-                m2162constructorimpl = ValueOrClosed.m2162constructorimpl(obj);
+                m2202constructorimpl = ValueOrClosed.m2202constructorimpl(obj);
             }
-            UndispatchedKt.startCoroutineUnintercepted(function2, ValueOrClosed.m2161boximpl(m2162constructorimpl), selectInstance.getCompletion());
+            UndispatchedKt.startCoroutineUnintercepted(function2, ValueOrClosed.m2201boximpl(m2202constructorimpl), selectInstance.getCompletion());
         } else {
             UndispatchedKt.startCoroutineUnintercepted(function2, obj, selectInstance.getCompletion());
         }
@@ -806,16 +806,16 @@ public abstract class AbstractChannel<E> extends AbstractSendChannel<E> implemen
     public void onCancelIdempotent(boolean z) {
         Closed<?> closedForSend = getClosedForSend();
         if (closedForSend != null) {
-            Object m2180constructorimpl$default = InlineList.m2180constructorimpl$default(null, 1, null);
+            Object m2220constructorimpl$default = InlineList.m2220constructorimpl$default(null, 1, null);
             while (true) {
                 LockFreeLinkedListNode prevNode = closedForSend.getPrevNode();
                 if (prevNode instanceof LockFreeLinkedListHead) {
-                    if (m2180constructorimpl$default != null) {
-                        if (!(m2180constructorimpl$default instanceof ArrayList)) {
-                            ((Send) m2180constructorimpl$default).resumeSendClosed(closedForSend);
+                    if (m2220constructorimpl$default != null) {
+                        if (!(m2220constructorimpl$default instanceof ArrayList)) {
+                            ((Send) m2220constructorimpl$default).resumeSendClosed(closedForSend);
                             return;
-                        } else if (m2180constructorimpl$default != null) {
-                            ArrayList arrayList = (ArrayList) m2180constructorimpl$default;
+                        } else if (m2220constructorimpl$default != null) {
+                            ArrayList arrayList = (ArrayList) m2220constructorimpl$default;
                             for (int size = arrayList.size() - 1; size >= 0; size--) {
                                 ((Send) arrayList.get(size)).resumeSendClosed(closedForSend);
                             }
@@ -831,7 +831,7 @@ public abstract class AbstractChannel<E> extends AbstractSendChannel<E> implemen
                     if (!prevNode.remove()) {
                         prevNode.helpRemove();
                     } else if (prevNode != null) {
-                        m2180constructorimpl$default = InlineList.m2185plusimpl(m2180constructorimpl$default, (Send) prevNode);
+                        m2220constructorimpl$default = InlineList.m2225plusimpl(m2220constructorimpl$default, (Send) prevNode);
                     } else {
                         throw new TypeCastException("null cannot be cast to non-null type kotlinx.coroutines.channels.Send");
                     }
@@ -860,7 +860,7 @@ public abstract class AbstractChannel<E> extends AbstractSendChannel<E> implemen
                 } else if (pollInternal != AbstractChannelKt.POLL_FAILED) {
                     Object resumeValue = receiveElement.resumeValue(pollInternal);
                     Result.Companion companion = Result.Companion;
-                    orCreateCancellableContinuation.resumeWith(Result.m772constructorimpl(resumeValue));
+                    orCreateCancellableContinuation.resumeWith(Result.m773constructorimpl(resumeValue));
                     break;
                 }
             }

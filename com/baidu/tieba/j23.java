@@ -1,176 +1,162 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.text.SpannableString;
-import android.text.style.ImageSpan;
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 /* loaded from: classes5.dex */
-public class j23 {
+public class j23 implements i23 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
+    public static volatile j23 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public volatile h23 a;
+    public volatile h33 b;
 
-    /* loaded from: classes5.dex */
-    public static class a extends ImageSpan {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(Context context, Bitmap bitmap) {
-            super(context, bitmap);
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947831358, "Lcom/baidu/tieba/j23;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, bitmap};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], (Bitmap) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947831358, "Lcom/baidu/tieba/j23;");
+                return;
             }
         }
-
-        @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-        public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-                Drawable drawable = getDrawable();
-                Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
-                if (i3 != 0) {
-                    i3 -= 4;
-                }
-                canvas.save();
-                canvas.translate(f, i3 + (((fontMetricsInt.bottom - fontMetricsInt.top) - drawable.getBounds().bottom) / 2));
-                drawable.draw(canvas);
-                canvas.restore();
-            }
-        }
-
-        @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-        public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-                Rect bounds = getDrawable().getBounds();
-                if (fontMetricsInt != null) {
-                    Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
-                    int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
-                    int i4 = (bounds.bottom - bounds.top) / 2;
-                    int i5 = i3 / 4;
-                    int i6 = i4 - i5;
-                    int i7 = -(i4 + i5);
-                    fontMetricsInt.ascent = i7;
-                    fontMetricsInt.top = i7;
-                    int i8 = i6 + 8;
-                    fontMetricsInt.bottom = i8;
-                    fontMetricsInt.descent = i8;
-                }
-                return bounds.right + 5;
-            }
-            return invokeCommon.intValue;
-        }
+        c = gp1.a;
     }
 
-    /* loaded from: classes5.dex */
-    public static class b extends ImageSpan {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(Context context, Bitmap bitmap) {
-            super(context, bitmap);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, bitmap};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], (Bitmap) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-        public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-                Drawable drawable = getDrawable();
-                Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
-                if (i3 != 0) {
-                    i3 -= 4;
-                }
-                canvas.save();
-                canvas.translate(f, i3 + (((fontMetricsInt.bottom - fontMetricsInt.top) - drawable.getBounds().bottom) / 2));
-                drawable.draw(canvas);
-                canvas.restore();
-            }
-        }
-
-        @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-        public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-                Rect bounds = getDrawable().getBounds();
-                if (fontMetricsInt != null) {
-                    Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
-                    int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
-                    int i4 = (bounds.bottom - bounds.top) / 2;
-                    int i5 = i3 / 4;
-                    int i6 = i4 - i5;
-                    int i7 = -(i4 + i5);
-                    fontMetricsInt.ascent = i7;
-                    fontMetricsInt.top = i7;
-                    int i8 = i6 + 3;
-                    fontMetricsInt.bottom = i8;
-                    fontMetricsInt.descent = i8;
-                }
-                return bounds.right + 5;
-            }
-            return invokeCommon.intValue;
-        }
-    }
-
-    public static int a(String str) {
-        InterceptResult invokeL;
+    public j23() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            SpannableString spannableString = new SpannableString(str);
-            int length = str.length();
-            Matcher matcher = Pattern.compile("\\[([一-龥\\w])+\\]").matcher(spannableString);
-            int i = 0;
-            int i2 = 0;
-            while (matcher.find()) {
-                i += matcher.group().length();
-                i2++;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return (length - i) + i2;
         }
-        return invokeL.intValue;
+        i();
+    }
+
+    public static j23 h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (j23.class) {
+                    if (d == null) {
+                        d = new j23();
+                    }
+                }
+            }
+            return d;
+        }
+        return (j23) invokeV.objValue;
+    }
+
+    public h23 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (h23) invokeV.objValue;
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (this.a == null) {
+                this.a = new f23();
+            }
+            if (this.b == null) {
+                this.b = new j33();
+            }
+        }
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return j();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public h33 l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b;
+        }
+        return (h33) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.i23
+    public void end(long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeJ(1048576, this, j) != null) || !k()) {
+            return;
+        }
+        if (c) {
+            Log.d("StartUpInfoMarker", "aiapp start cost at - " + j);
+        }
+        this.a.end(j);
+        this.b.end(j);
+        m(j);
+    }
+
+    @Override // com.baidu.tieba.i23
+    public void start(long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeJ(1048583, this, j) != null) || !k()) {
+            return;
+        }
+        if (c) {
+            Log.d("StartUpInfoMarker", "aiapp start at - " + j);
+        }
+        this.a.start(j);
+        this.b.start(j);
+    }
+
+    public final boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (c) {
+                return true;
+            }
+            w83 b0 = w83.b0();
+            if (b0 == null) {
+                return false;
+            }
+            String appId = b0.getAppId();
+            if (!TextUtils.isEmpty(appId) && y02.b(appId) != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void m(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            sk3.i.update((rk3<Long>) Long.valueOf(j));
+        }
     }
 }

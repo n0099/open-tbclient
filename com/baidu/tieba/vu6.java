@@ -1,38 +1,41 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
+import android.content.res.Configuration;
+import android.text.TextUtils;
+import android.widget.BaseAdapter;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.wu6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class vu6 extends fb5 {
+public class vu6 implements qu6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public uu6 a;
+    public TbPageContext b;
+    public BdTypeListView c;
+    public List<Cdo> d;
+    public final List<qn> e;
+    public boolean f;
+    public int g;
 
-    @Override // com.baidu.tieba.fb5
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public vu6(FrsFragment frsFragment) {
+    public vu6(TbPageContext tbPageContext, BdTypeListView bdTypeListView, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsFragment};
+            Object[] objArr = {tbPageContext, bdTypeListView, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,41 +45,178 @@ public class vu6 extends fb5 {
                 return;
             }
         }
-        b().a = frsFragment;
+        this.d = new ArrayList();
+        this.e = new ArrayList();
+        this.f = false;
+        this.g = -1;
+        this.b = tbPageContext;
+        this.c = bdTypeListView;
+        this.f = z;
+        d();
     }
 
-    @Override // com.baidu.tieba.fb5
-    public gb5 a() {
+    @Override // com.baidu.tieba.qu6
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.g = i;
+            if (!ListUtils.isEmpty(this.d) && this.c != null) {
+                for (Cdo cdo : this.d) {
+                    if (cdo instanceof wu6) {
+                        ((wu6) cdo).s = false;
+                    }
+                }
+                if (BdNetTypeUtil.isWifiNet()) {
+                    if (this.g < this.d.size() - 1) {
+                        List<Cdo> list = this.d;
+                        int i2 = this.g + 1;
+                        this.g = i2;
+                        if (list.get(i2) instanceof wu6) {
+                            ((wu6) this.d.get(this.g)).s = true;
+                            BdTypeListView bdTypeListView = this.c;
+                            bdTypeListView.smoothScrollToPositionFromTop(i + bdTypeListView.getHeaderViewsCount() + 1, 0);
+                            g();
+                        }
+                    } else if (this.g == this.d.size() - 1 && (this.d.get(this.g) instanceof wu6)) {
+                        ((wu6) this.d.get(this.g)).s = false;
+                    }
+                }
+            }
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !ListUtils.isEmpty(this.d)) {
+            Iterator<Cdo> it = this.d.iterator();
+            while (it.hasNext()) {
+                ((wu6) it.next()).s = false;
+            }
+        }
+    }
+
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            gb5 gb5Var = new gb5();
-            gb5Var.e = 1;
-            gb5Var.b = R.string.chosen_pb_title;
-            gb5Var.i = gb5.k;
-            return gb5Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.g;
         }
-        return (gb5) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.fb5
-    public TbFragmentTabIndicator c(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.qu6
+    public void cancel() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
-            this.b = fragmentTabIndicator;
-            fragmentTabIndicator.setTextSize(2.0f);
-            return this.b;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            l();
         }
-        return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    public void g(po6 po6Var) {
+    public final void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, po6Var) != null) || po6Var == null || !po6Var.h(1)) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            uu6 uu6Var = new uu6(this.b, this, this.f);
+            this.a = uu6Var;
+            this.e.add(uu6Var);
+            this.c.a(this.e);
+        }
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a.w();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void g() {
+        BdTypeListView bdTypeListView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (bdTypeListView = this.c) != null && bdTypeListView.getAdapter2() != null && (this.c.getAdapter2() instanceof BaseAdapter)) {
+            this.c.getAdapter2().notifyDataSetChanged();
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.a.onDestroy();
+        }
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.a.B();
+        }
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            b();
+            this.g = 0;
+            k();
+        }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            this.a.C();
+        }
+    }
+
+    public void f(String str, boolean z) {
+        wu6 wu6Var;
+        wu6.b bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(1048582, this, str, z) != null) || TextUtils.isEmpty(str)) {
             return;
         }
-        po6Var.a(this);
+        boolean z2 = false;
+        for (Cdo cdo : this.d) {
+            if (cdo != null && (cdo instanceof wu6) && (bVar = (wu6Var = (wu6) cdo).m) != null && str.equals(bVar.a)) {
+                wu6Var.m.e = z;
+                z2 = true;
+            }
+        }
+        if (z2) {
+            g();
+        }
+    }
+
+    public void h(Configuration configuration) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, configuration) == null) {
+            this.a.x(configuration);
+        }
+    }
+
+    public boolean j(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            return this.a.A(i);
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void m(List<wu6> list, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(1048589, this, list, z) != null) || list == null) {
+            return;
+        }
+        if (z) {
+            this.d.clear();
+        }
+        this.d.addAll(list);
+        this.c.setData(this.d);
+        if (z && list.size() > 0 && this.f && BdNetTypeUtil.isWifiNet()) {
+            l();
+            list.get(0).s = true;
+        }
     }
 }

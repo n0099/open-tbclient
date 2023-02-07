@@ -2690,27 +2690,27 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
             int[] iArr = this.tmpStatesArray;
             int[] onCreateDrawableState = super.onCreateDrawableState(i + iArr.length);
             if (this.liftable) {
-                i2 = com.baidu.tieba.R.attr.obfuscated_res_0x7f040659;
+                i2 = com.baidu.tieba.R.attr.obfuscated_res_0x7f04065d;
             } else {
-                i2 = -2130970201;
+                i2 = -2130970205;
             }
             iArr[0] = i2;
             if (this.liftable && this.lifted) {
-                i3 = com.baidu.tieba.R.attr.obfuscated_res_0x7f04065a;
+                i3 = com.baidu.tieba.R.attr.obfuscated_res_0x7f04065e;
             } else {
-                i3 = -2130970202;
+                i3 = -2130970206;
             }
             iArr[1] = i3;
             if (this.liftable) {
-                i4 = com.baidu.tieba.R.attr.obfuscated_res_0x7f040657;
+                i4 = com.baidu.tieba.R.attr.obfuscated_res_0x7f04065b;
             } else {
-                i4 = -2130970199;
+                i4 = -2130970203;
             }
             iArr[2] = i4;
             if (this.liftable && this.lifted) {
-                i5 = com.baidu.tieba.R.attr.obfuscated_res_0x7f040656;
+                i5 = com.baidu.tieba.R.attr.obfuscated_res_0x7f04065a;
             } else {
-                i5 = -2130970198;
+                i5 = -2130970202;
             }
             iArr[3] = i5;
             return LinearLayout.mergeDrawableStates(onCreateDrawableState, iArr);

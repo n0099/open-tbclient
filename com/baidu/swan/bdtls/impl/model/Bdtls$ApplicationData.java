@@ -1,7 +1,7 @@
 package com.baidu.swan.bdtls.impl.model;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.nn3;
+import com.baidu.tieba.as3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -153,7 +153,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                Bdtls$ApplicationData bdtls$ApplicationData = new Bdtls$ApplicationData(this, (nn3) null);
+                Bdtls$ApplicationData bdtls$ApplicationData = new Bdtls$ApplicationData(this, (as3) null);
                 int i = 1;
                 if ((this.a & 1) != 1) {
                     i = 0;
@@ -515,7 +515,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         }
     }
 
-    public /* synthetic */ Bdtls$ApplicationData(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, nn3 nn3Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bdtls$ApplicationData(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, as3 as3Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -541,7 +541,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         this.memoizedSerializedSize = -1;
     }
 
-    public /* synthetic */ Bdtls$ApplicationData(GeneratedMessageLite.Builder builder, nn3 nn3Var) {
+    public /* synthetic */ Bdtls$ApplicationData(GeneratedMessageLite.Builder builder, as3 as3Var) {
         this(builder);
     }
 

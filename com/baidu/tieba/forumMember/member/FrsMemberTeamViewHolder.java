@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.NoPressedLinearLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -54,40 +54,40 @@ public class FrsMemberTeamViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        int g = zi.g(BdBaseApplication.getInst().getApp(), R.dimen.obfuscated_res_0x7f070198);
+        int g = ej.g(BdBaseApplication.getInst().getApp(), R.dimen.obfuscated_res_0x7f070198);
         int color = SkinManager.getColor(R.color.black_alpha10);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09232c);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09233f);
         this.a = textView;
         textView.setOnClickListener(onClickListener);
-        this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091588);
-        this.f = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f4e);
-        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09225e);
+        this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0915c8);
+        this.f = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f93);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092274);
         this.f.setIsRound(true);
         this.f.setBorderColor(color);
         this.f.setBorderWidth(g);
         this.f.setOnClickListener(onClickListener);
-        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091589);
-        this.g = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f4f);
-        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09225f);
+        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0915c9);
+        this.g = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f94);
+        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092275);
         this.g.setIsRound(true);
         this.g.setBorderColor(color);
         this.g.setBorderWidth(g);
         this.g.setOnClickListener(onClickListener);
-        this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09158a);
-        this.h = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f50);
-        this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092260);
+        this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0915ca);
+        this.h = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f95);
+        this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092276);
         this.h.setIsRound(true);
         this.h.setBorderColor(color);
         this.h.setBorderWidth(g);
         this.h.setOnClickListener(onClickListener);
-        this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09158b);
-        this.i = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f51);
-        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092261);
+        this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0915cb);
+        this.i = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f96);
+        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092277);
         this.i.setIsRound(true);
         this.i.setBorderColor(color);
         this.i.setBorderWidth(g);
         this.i.setOnClickListener(onClickListener);
-        this.n = (NoPressedLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090acd);
+        this.n = (NoPressedLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090b10);
     }
 
     public void a(BawuRoleInfoPub bawuRoleInfoPub, int i) {

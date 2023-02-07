@@ -23,11 +23,11 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.swan.apps.res.ui.SwanAppScrollView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.di3;
-import com.baidu.tieba.qg3;
-import com.baidu.tieba.qn2;
-import com.baidu.tieba.sg3;
-import com.baidu.tieba.tk1;
+import com.baidu.tieba.dl3;
+import com.baidu.tieba.ds2;
+import com.baidu.tieba.fl3;
+import com.baidu.tieba.gp1;
+import com.baidu.tieba.qm3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -137,7 +137,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
                     }
                     e.t(valueOf, this.b);
                     intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                    sg3.g(appContext, intent);
+                    fl3.g(appContext, intent);
                 }
             }
         }
@@ -291,7 +291,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         public void E(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-                di3.a0(new a(this, z));
+                qm3.a0(new a(this, z));
             }
         }
 
@@ -547,7 +547,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
                 return;
             }
         }
-        q = tk1.a;
+        q = gp1.a;
     }
 
     public BaseActivityDialog() {
@@ -612,7 +612,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            Resources b2 = qn2.M().b();
+            Resources b2 = ds2.M().b();
             if (b2 != null) {
                 return b2;
             }
@@ -718,25 +718,25 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09080a);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09081f);
             this.b = (TextView) findViewById(R.id.dialog_message);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090800);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090815);
             this.d = (TextView) findViewById(R.id.positive_button);
             this.e = (TextView) findViewById(R.id.negative_button);
             this.f = (TextView) findViewById(R.id.neutral_button);
-            this.h = findViewById(R.id.obfuscated_res_0x7f090831);
-            this.i = findViewById(R.id.obfuscated_res_0x7f090832);
+            this.h = findViewById(R.id.obfuscated_res_0x7f090845);
+            this.i = findViewById(R.id.obfuscated_res_0x7f090846);
             this.j = (FrameLayout) findViewById(R.id.dialog_custom_content);
             this.k = (ImageView) findViewById(R.id.dialog_icon);
             this.l = (RelativeLayout) findViewById(R.id.searchbox_alert_dialog);
-            this.g = findViewById(R.id.obfuscated_res_0x7f090830);
+            this.g = findViewById(R.id.obfuscated_res_0x7f090844);
             this.n = (SwanAppScrollView) findViewById(R.id.message_scrollview);
-            this.o = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09045f);
+            this.o = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09045b);
             this.p = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070123);
             if (this.m.p > 0) {
                 this.n.getLayoutParams().height = this.m.p;
             }
-            if (qg3.k() || qg3.l()) {
+            if (dl3.k() || dl3.l()) {
                 int dimensionPixelSize = this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07012a);
                 this.b.setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
             }
@@ -756,7 +756,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             }
             linearLayout.setVisibility(i);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.p);
-            layoutParams.addRule(3, R.id.obfuscated_res_0x7f090800);
+            layoutParams.addRule(3, R.id.obfuscated_res_0x7f090815);
             this.o.setLayoutParams(layoutParams);
         }
     }
@@ -821,7 +821,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0096);
+            setContentView(R.layout.obfuscated_res_0x7f0d0095);
             getWindow().setLayout(-1, -1);
             e r = e.r(getIntent().getStringExtra("BOX_ACTIVITY_DIALOG_FOR_BUILDER"));
             this.m = r;

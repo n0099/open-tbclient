@@ -1,69 +1,149 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TbMd5;
-import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.core.data.LoginDialogData;
+import com.baidu.tbadk.core.dialog.TBAlertBuilder;
+import com.baidu.tbadk.core.util.DialogLoginHelper;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tieba.z05;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class j69 {
+public class j69 extends c15 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile j69 c;
+    public static final String i;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, String> a;
-    public DownloadData b;
+    public final MainTabActivity f;
+    public final v39 g;
+    public la5 h;
 
     /* loaded from: classes5.dex */
-    public interface b {
-        void a(String str);
-
-        void b();
-
-        void c(String str, String str2);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements u65 {
+    public class a implements DialogInterface.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ j69 c;
+        public final /* synthetic */ j69 a;
 
-        @Override // com.baidu.tieba.u65
-        public boolean onFileDownloaded(DownloadData downloadData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.u65
-        public boolean onPreDownload(DownloadData downloadData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        public a(j69 j69Var, b bVar, String str) {
+        public a(j69 j69Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {j69Var, bVar, str};
+                Object[] objArr = {j69Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = j69Var;
+        }
+
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                g15.u("operateNew");
+                this.a.c();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AlertDialog a;
+        public final /* synthetic */ j69 b;
+
+        public b(j69 j69Var, AlertDialog alertDialog) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j69Var, alertDialog};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = j69Var;
+            this.a = alertDialog;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            String str;
+            String str2;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2 != null && view2.getContext() != null) {
+                this.a.dismiss();
+                LoginDialogData loginDialogData = new LoginDialogData(view2.getContext(), LoginDialogData.HOME_OPERATE_DIALOG);
+                String b = this.b.h.b();
+                if (TextUtils.isEmpty(b)) {
+                    return;
+                }
+                int skinType = TbadkCoreApplication.getInst().getSkinType();
+                if (skinType == 1) {
+                    str = "skin=night";
+                } else if (skinType == 4) {
+                    str = "skin=dark";
+                } else {
+                    str = "skin=default";
+                }
+                if (b.contains("?")) {
+                    str2 = b + "&customfullscreen=1&nonavigationbar=1&" + str;
+                } else {
+                    str2 = b + "?customfullscreen=1&nonavigationbar=1&" + str;
+                }
+                loginDialogData.setJumpUrl(str2);
+                if (DialogLoginHelper.checkUpIsLogin(loginDialogData)) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(view2.getContext(), null, str2, true)));
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements TbImageView.f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TBAlertBuilder a;
+        public final /* synthetic */ AlertDialog b;
+        public final /* synthetic */ j69 c;
+
+        public c(j69 j69Var, TBAlertBuilder tBAlertBuilder, AlertDialog alertDialog) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j69Var, tBAlertBuilder, alertDialog};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -74,154 +154,124 @@ public class j69 {
                 }
             }
             this.c = j69Var;
-            this.a = bVar;
-            this.b = str;
+            this.a = tBAlertBuilder;
+            this.b = alertDialog;
         }
 
-        @Override // com.baidu.tieba.u65
-        public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
+        @Override // com.baidu.tbadk.widget.TbImageView.f
+        public void a(String str, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
-                File file = new File(downloadData.getPath());
-                if (file.exists()) {
-                    file.delete();
-                }
-                if (this.c.b != null && downloadData.getUrl().equals(this.c.b.getUrl())) {
-                    this.c.b = null;
-                }
-                b bVar = this.a;
-                if (bVar != null) {
-                    bVar.a(str);
+            if (interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) {
+                if (!z) {
+                    this.c.c();
+                } else {
+                    this.a.A(this.b);
                 }
             }
         }
 
-        @Override // com.baidu.tieba.u65
-        public void onFileDownloadSucceed(DownloadData downloadData) {
+        @Override // com.baidu.tbadk.widget.TbImageView.f
+        public void onCancel() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) && downloadData != null && !StringUtils.isNull(downloadData.getPath())) {
-                if (this.c.b != null && downloadData.getUrl().equals(this.c.b.getUrl())) {
-                    this.c.b = null;
-                }
-                if (this.a != null) {
-                    this.c.a.put(downloadData.getPath().substring(o59.h.length(), downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
-                    this.a.c(this.b, downloadData.getPath());
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.u65
-        public void onFileUpdateProgress(DownloadData downloadData) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) && downloadData.getStatus() == 4) {
-                File file = new File(downloadData.getPath());
-                if (file.exists()) {
-                    file.delete();
-                }
-                if (this.c.b != null && downloadData.getUrl().equals(this.c.b.getUrl())) {
-                    this.c.b = null;
-                }
-                b bVar = this.a;
-                if (bVar != null) {
-                    bVar.b();
-                }
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.c.c();
             }
         }
     }
 
-    public j69() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947835388, "Lcom/baidu/tieba/j69;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947835388, "Lcom/baidu/tieba/j69;");
+                return;
+            }
+        }
+        i = "key_home_operate_dialog_" + TbConfig.getBigAppVersion();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j69(@NonNull MainTabActivity mainTabActivity, @NonNull v39 v39Var) {
+        super(mainTabActivity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, v39Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.g = v39Var;
+        this.f = mainTabActivity;
     }
 
-    public static j69 g() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.z05
+    public void d(@NonNull z05.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (c == null) {
-                synchronized (j69.class) {
-                    if (c == null) {
-                        c = new j69();
-                    }
-                }
-            }
-            return c;
-        }
-        return (j69) invokeV.objValue;
-    }
-
-    public void d() {
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            HashMap<String, String> hashMap = this.a;
-            if (hashMap == null) {
-                this.a = new HashMap<>();
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            boolean z = false;
+            if (g15.l()) {
+                aVar.a(false);
+            } else if (!p35.m().i(i, true)) {
+                aVar.a(false);
             } else {
-                hashMap.clear();
-            }
-            File file = new File(o59.h);
-            if (file.exists()) {
-                for (File file2 : file.listFiles()) {
-                    if (file2.isFile()) {
-                        this.a.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
+                la5 homeOperateData = TbSingleton.getInstance().getHomeOperateData();
+                this.h = homeOperateData;
+                if (homeOperateData == null) {
+                    aVar.a(false);
+                } else if (!homeOperateData.c()) {
+                    aVar.a(false);
+                } else {
+                    if (!TextUtils.isEmpty(this.h.a()) && this.h.a().contains("not_show")) {
+                        p35.m().w(i, false);
+                    } else if (this.g.y() != null && this.g.y().getCurrentTabType() == 2) {
+                        z = true;
                     }
+                    aVar.a(z);
                 }
             }
         }
     }
 
-    public void e(String str, String str2, b bVar) {
-        String nameMd5FromUrl;
+    @Override // com.baidu.tieba.c15
+    public void g(TBAlertBuilder tBAlertBuilder) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, bVar) != null) || TextUtils.isEmpty(str2) || (nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str2)) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tBAlertBuilder) == null) {
+            p35.m().w(i, false);
+            int h = TBAlertBuilder.h(TbadkCoreApplication.getInst());
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(h, (h * 4) / 3);
+            TbImageView tbImageView = new TbImageView(this.b);
+            tbImageView.setLayoutParams(layoutParams);
+            tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            tBAlertBuilder.k(tbImageView);
+            tBAlertBuilder.r(true);
+            tBAlertBuilder.v(true);
+            tBAlertBuilder.j(false);
+            tBAlertBuilder.s(new a(this));
+            AlertDialog d = tBAlertBuilder.d();
+            tbImageView.setOnClickListener(new b(this, d));
+            tbImageView.setEvent(new c(this, tBAlertBuilder, d));
+            tbImageView.K(this.h.a(), 10, false);
         }
-        if (this.b != null) {
-            v65.k().h(this.b.getUrl(), true);
-        }
-        File file = new File(o59.h);
-        if (!file.exists()) {
-            file.mkdirs();
-        }
-        DownloadData downloadData = new DownloadData();
-        downloadData.setType(18);
-        downloadData.setId(str);
-        downloadData.setUrl(str2);
-        downloadData.setPath(o59.h + nameMd5FromUrl + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
-        downloadData.setCallback(new a(this, bVar, str2));
-        this.b = downloadData;
-        v65.k().l(downloadData);
     }
 
-    public String f(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.c15
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str);
-            if (nameMd5FromUrl == null) {
-                return null;
-            }
-            HashMap<String, String> hashMap = this.a;
-            if (hashMap == null) {
-                this.a = new HashMap<>();
-                d();
-                if (this.a.size() <= 0) {
-                    return null;
-                }
-                return this.a.get(nameMd5FromUrl);
-            }
-            return hashMap.get(nameMd5FromUrl);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            g15.o("operateNew");
         }
-        return (String) invokeL.objValue;
     }
 }

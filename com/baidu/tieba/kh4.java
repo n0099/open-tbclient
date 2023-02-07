@@ -1,62 +1,118 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import androidx.core.view.InputDeviceCompat;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.pms.db.PackageTable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 /* loaded from: classes5.dex */
-public class kh4 {
+public class kh4 implements eh4<xh4> {
     public static /* synthetic */ Interceptable $ic;
+    public static final yl4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static long a(int i) {
-        InterceptResult invokeI;
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            SharedPreferences a = sh4.a();
-            return a.getLong("latest_update_time" + i, 0L);
-        }
-        return invokeI.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "swan_plugin" : (String) invokeV.objValue;
     }
 
-    public static long b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            SharedPreferences a = sh4.a();
-            return a.getLong("max_age" + i, 0L);
-        }
-        return invokeI.longValue;
-    }
-
-    public static boolean c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if ((System.currentTimeMillis() - a(i)) / 1000 > b(i)) {
-                return true;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947913074, "Lcom/baidu/tieba/kh4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return false;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public static void d(int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            SharedPreferences.Editor edit = sh4.a().edit();
-            edit.putLong("latest_update_time" + i, j).apply();
-        }
-    }
-
-    public static void e(int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            if (j <= 0 || j >= 259200) {
-                j = 0;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947913074, "Lcom/baidu/tieba/kh4;");
+                return;
             }
-            sh4.a().edit().putLong("max_age" + i, j).apply();
+        }
+        a = yl4.c();
+    }
+
+    public kh4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.eh4
+    public void a(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
+            sQLiteDatabase.execSQL(b());
+        }
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "CREATE TABLE " + c() + "(_id INTEGER PRIMARY KEY AUTOINCREMENT,bundle_id TEXT NOT NULL,category INT NOT NULL,version_name TEXT NOT NULL,version_code INT DEFAULT 0,size LONG DEFAULT 0," + PackageTable.MD5 + " TEXT NOT NULL,sign TEXT NOT NULL," + TTDownloadField.TT_DOWNLOAD_URL + " TEXT NOT NULL," + PackageTable.FILE_PATH + " TEXT," + PackageTable.CURRENT_SIZE + " LONG DEFAULT 0,create_time LONG DEFAULT 0,update_time LONG DEFAULT 0,state INT DEFAULT 0,max_age LONG DEFAULT 0,token TEXT,domains TEXT,app_key TEXT,app_name TEXT, UNIQUE (bundle_id,version_name));";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void d(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, sQLiteDatabase) == null) {
+            try {
+                sQLiteDatabase.execSQL("ALTER TABLE " + c() + " ADD COLUMN app_key TEXT");
+                sQLiteDatabase.execSQL("ALTER TABLE " + c() + " ADD COLUMN app_name TEXT");
+            } catch (SQLException e) {
+                a.g("PMSDBHelperPlugin", "#inertAppKeyAndAppName error", e);
+            }
+        }
+    }
+
+    public final void e(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, sQLiteDatabase) == null) {
+            try {
+                sQLiteDatabase.execSQL("ALTER TABLE " + c() + " ADD COLUMN token TEXT");
+                sQLiteDatabase.execSQL("ALTER TABLE " + c() + " ADD COLUMN domains TEXT");
+            } catch (SQLException e) {
+                a.g("PMSDBHelperPlugin", "#inertTokenAndDomains error", e);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.eh4
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048581, this, sQLiteDatabase, i, i2) == null) {
+            while (i < i2) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i == 5) {
+                            d(sQLiteDatabase);
+                        }
+                    } else {
+                        e(sQLiteDatabase);
+                    }
+                } else {
+                    sQLiteDatabase.execSQL(b());
+                }
+                i++;
+            }
         }
     }
 }

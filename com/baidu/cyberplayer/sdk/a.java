@@ -11,17 +11,17 @@ import java.util.ArrayList;
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<C0103a> a;
+    public ArrayList<C0102a> a;
 
     /* renamed from: com.baidu.cyberplayer.sdk.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0103a {
+    public static class C0102a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
         public Object b;
 
-        public C0103a(String str, Object obj) {
+        public C0102a(String str, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -88,17 +88,17 @@ public class a {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj) == null) {
             int size = this.a.size();
             for (int i = 0; i < size; i++) {
-                C0103a c0103a = this.a.get(i);
-                if (c0103a != null && c0103a.a() != null && c0103a.a().equals(str)) {
-                    c0103a.a(obj);
+                C0102a c0102a = this.a.get(i);
+                if (c0102a != null && c0102a.a() != null && c0102a.a().equals(str)) {
+                    c0102a.a(obj);
                     return;
                 }
             }
-            this.a.add(new C0103a(str, obj));
+            this.a.add(new C0102a(str, obj));
         }
     }
 
-    public ArrayList<C0103a> b() {
+    public ArrayList<C0102a> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (ArrayList) invokeV.objValue;

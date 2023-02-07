@@ -1,107 +1,54 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.zxing.BarcodeFormat;
-import com.google.zxing.EncodeHintType;
-import com.google.zxing.MultiFormatWriter;
-import com.google.zxing.common.BitMatrix;
-import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
-import java.util.EnumMap;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import tbclient.GetRecommendGodList.DataRes;
+import tbclient.User;
 /* loaded from: classes5.dex */
 public class nm8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<EncodeHintType, Object> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public List<User> b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948007376, "Lcom/baidu/tieba/nm8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948007376, "Lcom/baidu/tieba/nm8;");
-                return;
+    public nm8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        EnumMap enumMap = new EnumMap(EncodeHintType.class);
-        a = enumMap;
-        enumMap.put((EnumMap) EncodeHintType.CHARACTER_SET, (EncodeHintType) IMAudioTransRequest.CHARSET);
-        a.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
-        a.put(EncodeHintType.MARGIN, 0);
     }
 
-    public static Bitmap a(Bitmap bitmap, Bitmap bitmap2) {
-        InterceptResult invokeLL;
+    public lz4 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bitmap, bitmap2)) == null) {
-            if (bitmap != null && bitmap2 != null) {
-                int width = bitmap.getWidth();
-                int height = bitmap.getHeight();
-                int width2 = bitmap2.getWidth();
-                int height2 = bitmap2.getHeight();
-                float f = ((width * 1.0f) / 5.0f) / width2;
-                Bitmap createBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
-                try {
-                    Canvas canvas = new Canvas(createBitmap);
-                    canvas.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
-                    canvas.scale(f, f, width / 2, height / 2);
-                    canvas.drawBitmap(bitmap2, (width - width2) / 2, (height - height2) / 2, (Paint) null);
-                    canvas.save();
-                    canvas.restore();
-                    return createBitmap;
-                } catch (Exception unused) {
-                    return null;
-                }
-            }
-            return bitmap;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            lz4 lz4Var = new lz4();
+            lz4Var.d = false;
+            lz4Var.f(this.b);
+            return lz4Var;
         }
-        return (Bitmap) invokeLL.objValue;
+        return (lz4) invokeV.objValue;
     }
 
-    public static Bitmap b(String str, int i) {
-        InterceptResult invokeLI;
+    public void b(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
-            return c(str, i, -16777216, -1, null);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) != null) || dataRes == null) {
+            return;
         }
-        return (Bitmap) invokeLI.objValue;
-    }
-
-    public static Bitmap c(String str, int i, int i2, int i3, Bitmap bitmap) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bitmap})) == null) {
-            try {
-                BitMatrix encode = new MultiFormatWriter().encode(str, BarcodeFormat.QR_CODE, i, i, a);
-                int[] iArr = new int[i * i];
-                for (int i4 = 0; i4 < i; i4++) {
-                    for (int i5 = 0; i5 < i; i5++) {
-                        if (encode.get(i5, i4)) {
-                            iArr[(i4 * i) + i5] = i2;
-                        } else {
-                            iArr[(i4 * i) + i5] = i3;
-                        }
-                    }
-                }
-                Bitmap createBitmap = Bitmap.createBitmap(i, i, Bitmap.Config.ARGB_8888);
-                createBitmap.setPixels(iArr, 0, i, 0, 0, i, i);
-                return a(createBitmap, bitmap);
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return (Bitmap) invokeCommon.objValue;
+        this.b = dataRes.recom_user_list;
+        dataRes.has_more.intValue();
+        this.a = dataRes.current_page.intValue();
     }
 }

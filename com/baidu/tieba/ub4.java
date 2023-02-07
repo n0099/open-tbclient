@@ -1,43 +1,61 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
+import android.text.TextUtils;
+import com.baidu.swan.apps.storage.PathType;
+import com.baidu.tieba.m54;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
+import java.io.File;
 /* loaded from: classes6.dex */
 public class ub4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Inject
-    public static ug4 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return tn2.a();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948205218, "Lcom/baidu/tieba/ub4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948205218, "Lcom/baidu/tieba/ub4;");
+                return;
+            }
         }
-        return (ug4) invokeV.objValue;
+        boolean z = gp1.a;
     }
 
-    @Inject
-    public static sb4 b() {
-        InterceptResult invokeV;
+    public static PathType a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return yn2.a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return PathType.ERROR;
+            }
+            if (!str.startsWith("http://") && !str.startsWith("https://")) {
+                return PathType.RELATIVE;
+            }
+            return PathType.NETWORK;
         }
-        return (sb4) invokeV.objValue;
+        return (PathType) invokeL.objValue;
     }
 
-    @Inject
-    public static bd4 c() {
+    public static String b() {
         InterceptResult invokeV;
+        File h;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return ao2.a();
+            w83 q = v83.K().q();
+            if (!q.I() || q.k0() == null || (h = m54.d.h(q.getAppId(), q.k0())) == null || !h.exists()) {
+                return null;
+            }
+            return "file://" + h.getAbsolutePath();
         }
-        return (bd4) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 }

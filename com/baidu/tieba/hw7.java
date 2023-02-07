@@ -1,54 +1,44 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
+import android.graphics.drawable.ColorDrawable;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.AdapterView;
+import android.widget.GridView;
+import android.widget.ListAdapter;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.TbadkSettings;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.MemberPayStatistic;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.gw7;
-import com.baidu.tieba.m95;
-import com.baidu.tieba.memberCenter.bubble.BubbleListData;
-import com.baidu.tieba.memberCenter.bubble.BubbleListModel;
-import com.baidu.tieba.memberCenter.bubble.BubbleView;
-import com.baidu.tieba.memberCenter.bubble.SetBubbleResultData;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class hw7 extends m95 {
+public class hw7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BubbleListModel m;
-    public BubbleListData n;
-    public Context o;
-    public int p;
-    public String q;
-    public String r;
-    public BubbleListModel.c s;
-    public BubbleListModel.d t;
-    public CustomMessageListener u;
-    public View.OnClickListener v;
-    public gw7.e w;
-    public gw7.e x;
+    public Animation a;
+    public Animation b;
+    public View c;
+    public ViewGroup d;
+    public c e;
+    public gw7 f;
+    public boolean g;
 
     /* loaded from: classes4.dex */
-    public class a implements m95.a {
+    public interface c {
+        void a();
+    }
+
+    /* loaded from: classes4.dex */
+    public class a implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -73,44 +63,20 @@ public class hw7 extends m95 {
             this.a = context;
         }
 
-        @Override // com.baidu.tieba.m95.a
-        public View getView(int i, View view2, ViewGroup viewGroup) {
-            InterceptResult invokeILL;
-            BubbleView bubbleView;
-            BubbleView bubbleView2;
+        @Override // android.widget.AdapterView.OnItemClickListener
+        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, view2, viewGroup)) == null) {
-                if (view2 == null) {
-                    bubbleView2 = new BubbleView(this.a);
-                    bubbleView = bubbleView2;
-                } else {
-                    bubbleView = view2;
-                    bubbleView2 = (BubbleView) view2;
-                }
-                BubbleListData.BubbleData Q = this.b.Q(i);
-                if (Q != null) {
-                    bubbleView2.setData(Q, BubbleListModel.I(this.b.n.getB_info()));
-                    bubbleView2.setGravity(17);
-                    bubbleView2.setTag(Integer.valueOf(i));
-                    bubbleView2.setOnClickListener(this.b.v);
-                }
-                int skinType = TbadkCoreApplication.getInst().getSkinType();
-                TbPageContext tbPageContext = (TbPageContext) y9.a(this.b.o);
-                dr4 layoutMode = tbPageContext.getLayoutMode();
-                boolean z = true;
-                if (skinType != 1) {
-                    z = false;
-                }
-                layoutMode.l(z);
-                tbPageContext.getLayoutMode().k(bubbleView);
-                return bubbleView;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                ew7 item = this.b.f.getItem(i);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016448));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016449, item));
+                this.b.f(this.a);
             }
-            return (View) invokeILL.objValue;
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b implements BubbleListModel.c {
+    public class b extends fh {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ hw7 a;
@@ -133,358 +99,25 @@ public class hw7 extends m95 {
             this.a = hw7Var;
         }
 
-        @Override // com.baidu.tieba.memberCenter.bubble.BubbleListModel.c
-        public void a(BubbleListData bubbleListData) {
+        @Override // com.baidu.tieba.fh, android.view.animation.Animation.AnimationListener
+        public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, bubbleListData) != null) {
-                return;
-            }
-            this.a.n = null;
-            if (bubbleListData != null) {
-                if (!bubbleListData.getError_code().equals("0")) {
-                    if (!TextUtils.isEmpty(bubbleListData.getError_msg())) {
-                        UtilHelper.showToast(this.a.o, bubbleListData.getError_msg());
-                    } else {
-                        UtilHelper.showToast(this.a.o, (int) R.string.obfuscated_res_0x7f0f0cd1);
-                    }
-                } else {
-                    UtilHelper.showToast(this.a.o, (int) R.string.obfuscated_res_0x7f0f0cd1);
+            if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
+                this.a.g = false;
+                if (this.a.e != null) {
+                    this.a.e.a();
                 }
-            } else {
-                UtilHelper.showToast(this.a.o, (int) R.string.obfuscated_res_0x7f0f0cd1);
-            }
-            if (this.a.h() != null) {
-                this.a.h().onLoadFail();
-            }
-        }
-
-        @Override // com.baidu.tieba.memberCenter.bubble.BubbleListModel.c
-        public void b(BubbleListData bubbleListData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bubbleListData) == null) {
-                if (bubbleListData == null) {
-                    this.a.h().onLoadFail();
-                    return;
-                }
-                this.a.n = bubbleListData.m55clone();
-                if (this.a.m.K() > 0) {
-                    List<BubbleListData.BubbleData> b_info = bubbleListData.getB_info();
-                    if (b_info != null && b_info.size() != 0) {
-                        for (BubbleListData.BubbleData bubbleData : b_info) {
-                            if (bubbleData != null && bubbleData.getBcode() == this.a.m.K()) {
-                                if (!bubbleData.canUse() && !bubbleData.isFree()) {
-                                    break;
-                                }
-                                this.a.m.Q(this.a.m.K());
-                                this.a.m.P(this.a.m.K(), zi.l(this.a.o), zi.j(this.a.o));
-                            }
-                        }
-                        this.a.m.R(-1);
-                    } else {
-                        return;
-                    }
-                }
-                this.a.R();
-                this.a.h().b(this.a);
+                this.a.d.removeView(this.a.c);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class c implements BubbleListModel.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hw7 a;
-
-        public c(hw7 hw7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hw7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hw7Var;
-        }
-
-        @Override // com.baidu.tieba.memberCenter.bubble.BubbleListModel.d
-        public void a(SetBubbleResultData setBubbleResultData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, setBubbleResultData) == null) {
-                if (setBubbleResultData != null && setBubbleResultData.getB_info() != null) {
-                    this.a.q = setBubbleResultData.getB_info().getB_url();
-                    TbadkCoreApplication.getInst().setDefaultBubble(this.a.q);
-                    this.a.r = setBubbleResultData.getB_info().getDynamicUrl();
-                    TbadkCoreApplication.getInst().setDefaultBubbleDynamicRes(this.a.r);
-                    int J = this.a.m.J();
-                    if (J == 0) {
-                        TbadkCoreApplication.getInst().setDefaultBubble("");
-                        TbadkCoreApplication.getInst().setDefaultBubbleDynamicRes("");
-                        for (BubbleListData.BubbleData bubbleData : this.a.n.getB_info()) {
-                            if (bubbleData.getBcode() != 0) {
-                                if (bubbleData.isDef()) {
-                                    bubbleData.setIs_def(0);
-                                }
-                            } else {
-                                bubbleData.setIs_def(1);
-                            }
-                        }
-                    } else if (setBubbleResultData.getB_info().canUser()) {
-                        for (BubbleListData.BubbleData bubbleData2 : this.a.n.getB_info()) {
-                            if (bubbleData2.getBcode() == J) {
-                                bubbleData2.setIs_def(1);
-                            } else if (bubbleData2.isDef()) {
-                                bubbleData2.setIs_def(0);
-                            }
-                            if (bubbleData2.getBcode() == J) {
-                                bubbleData2.setCan_use(1);
-                            }
-                        }
-                    } else {
-                        UtilHelper.showToast(this.a.o, (int) R.string.setdefualt_error);
-                        if (this.a.n != null && this.a.n.getB_info() != null && this.a.n.getB_info().size() > 0) {
-                            if (this.a.n.getB_info().get(0).getBcode() != 0) {
-                                BubbleListData.BubbleData bubbleData3 = new BubbleListData.BubbleData();
-                                bubbleData3.setBcode(0);
-                                this.a.n.getB_info().add(0, bubbleData3);
-                            } else {
-                                this.a.p = 0;
-                                int i = 0;
-                                while (true) {
-                                    if (i < this.a.n.getB_info().size()) {
-                                        if (!this.a.n.getB_info().get(i).isDef()) {
-                                            i++;
-                                        } else {
-                                            this.a.p = i;
-                                            break;
-                                        }
-                                    } else {
-                                        break;
-                                    }
-                                }
-                                this.a.n.getB_info().get(this.a.p).setIs_def(0);
-                                this.a.n.getB_info().get(0).setIs_def(1);
-                            }
-                        }
-                    }
-                    this.a.R();
-                    this.a.h().b(this.a);
-                    return;
-                }
-                this.a.h().onLoadFail();
-            }
-        }
-
-        @Override // com.baidu.tieba.memberCenter.bubble.BubbleListModel.d
-        public void b(SetBubbleResultData setBubbleResultData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, setBubbleResultData) == null) {
-                if (setBubbleResultData != null) {
-                    if (!setBubbleResultData.getError_code().equals("0")) {
-                        if (!TextUtils.isEmpty(setBubbleResultData.getError_msg())) {
-                            UtilHelper.showToast(this.a.o, setBubbleResultData.getError_msg());
-                        } else {
-                            UtilHelper.showToast(this.a.o, (int) R.string.obfuscated_res_0x7f0f0cd1);
-                        }
-                    } else {
-                        UtilHelper.showToast(this.a.o, (int) R.string.obfuscated_res_0x7f0f0cd1);
-                    }
-                } else {
-                    UtilHelper.showToast(this.a.o, (int) R.string.obfuscated_res_0x7f0f0cd1);
-                }
-                if (this.a.h() != null) {
-                    this.a.h().onLoadFail();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class d extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hw7 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(hw7 hw7Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hw7Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hw7Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.a.m.O(0, 50, 0, 0);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class e implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hw7 a;
-
-        public e(hw7 hw7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hw7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hw7Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.n == null || !(view2 instanceof BubbleView)) {
-                return;
-            }
-            BubbleListData.BubbleData bubbleData = (BubbleListData.BubbleData) ListUtils.getItem(this.a.n.getB_info(), ((Integer) view2.getTag()).intValue());
-            TbadkSettings inst = TbadkSettings.getInst();
-            boolean loadBoolean = inst.loadBoolean(TbadkCoreApplication.isMem + TbadkCoreApplication.getCurrentAccount(), false);
-            if (bubbleData != null && !bubbleData.isDef()) {
-                if (bubbleData.getBcode() != 0 && !bubbleData.canUse() && !loadBoolean) {
-                    if (bubbleData.isFree()) {
-                        if (!(this.a.o instanceof TbPageContextSupport)) {
-                            return;
-                        }
-                        gw7.a(((TbPageContextSupport) this.a.o).getPageContext(), bubbleData, this.a.w);
-                        return;
-                    } else if (!(this.a.o instanceof TbPageContextSupport)) {
-                        return;
-                    } else {
-                        gw7.b(((TbPageContextSupport) this.a.o).getPageContext(), bubbleData, this.a.x);
-                        return;
-                    }
-                }
-                this.a.S(bubbleData.getBcode());
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class f implements gw7.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hw7 a;
-
-        @Override // com.baidu.tieba.gw7.e
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        public f(hw7 hw7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hw7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hw7Var;
-        }
-
-        @Override // com.baidu.tieba.gw7.e
-        public void a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeI(1048576, this, i) != null) {
-                return;
-            }
-            this.a.S(i);
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class g implements gw7.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hw7 a;
-
-        @Override // com.baidu.tieba.gw7.e
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        public g(hw7 hw7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hw7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hw7Var;
-        }
-
-        @Override // com.baidu.tieba.gw7.e
-        public void a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                this.a.m.R(i);
-                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(this.a.o, true, 23004, "pop_unable");
-                memberPayActivityConfig.setSceneId("4002001000");
-                memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_POSTING, MemberPayStatistic.CLICK_ZONE_BUBBLE_POP_UPS_OPENDE_RENEWALFEE_BUTTON);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
-            }
-        }
-    }
-
-    public hw7() {
+    public hw7(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -494,158 +127,97 @@ public class hw7 extends m95 {
                 return;
             }
         }
-        this.p = 0;
-        this.s = new b(this);
-        this.t = new c(this);
-        this.u = new d(this, 2010040);
-        this.v = new e(this);
-        this.w = new f(this);
-        this.x = new g(this);
+        this.g = false;
+        this.d = viewGroup;
     }
 
-    public final BubbleListData.BubbleData Q(int i) {
-        InterceptResult invokeI;
-        BubbleListData bubbleListData;
+    public void f(Context context) {
+        View view2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i >= 0 && i < c() && (bubbleListData = this.n) != null) {
-                return bubbleListData.getB_info().get(i);
-            }
-            return null;
-        }
-        return (BubbleListData.BubbleData) invokeI.objValue;
-    }
-
-    @Override // com.baidu.tieba.a75
-    public void A(z65 z65Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, z65Var) == null) {
-            if (this.m == null) {
-                Context context = this.o;
-                if (context instanceof TbPageContext) {
-                    this.m = new BubbleListModel((TbPageContext) context);
-                } else {
-                    this.m = new BubbleListModel(null);
-                }
-            }
-            if (h() != null) {
-                h().a();
-            }
-            this.m.O(0, 50, zi.l(this.o), zi.j(this.o));
+        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && (view2 = this.c) != null) {
+            view2.startAnimation(i(context));
         }
     }
 
-    public final void R() {
+    public final Animation h(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            BubbleListData bubbleListData = this.n;
-            boolean z = false;
-            if (bubbleListData != null && bubbleListData.getB_info() != null && this.n.getB_info().size() > 0) {
-                BubbleListData.BubbleData bubbleData = new BubbleListData.BubbleData();
-                bubbleData.setBcode(0);
-                if (this.n.getB_info().get(0).getBcode() != 0) {
-                    this.n.getB_info().add(0, bubbleData);
-                }
-                this.p = 0;
-                int i = 0;
-                while (true) {
-                    if (i >= this.n.getB_info().size()) {
-                        break;
-                    } else if (this.n.getB_info().get(i).isDef()) {
-                        this.p = i;
-                        this.q = this.n.getB_info().get(i).getBg_url();
-                        TbadkCoreApplication.getInst().setDefaultBubble(this.q);
-                        this.r = this.n.getB_info().get(i).getDynamicUrl();
-                        TbadkCoreApplication.getInst().setDefaultBubbleDynamicRes(this.r);
-                        break;
-                    } else {
-                        i++;
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            if (this.a == null) {
+                this.a = AnimationUtils.loadAnimation(context, R.anim.dialog_ani_t2b_enter);
             }
-            if (this.p != 0 && !TextUtils.isEmpty(this.q)) {
-                J(new z65(2, 12, " "));
-                z = true;
-            } else {
-                J(new z65(2, 12, null));
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001353, Boolean.valueOf(z)));
-            HashMap hashMap = new HashMap();
-            hashMap.put("b_url", this.q);
-            hashMap.put("dynamic_url", this.r);
-            J(new z65(25, -1, hashMap));
+            return this.a;
         }
+        return (Animation) invokeL.objValue;
     }
 
-    public final void S(int i) {
+    public final Animation i(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.m.P(i, zi.l(this.o), zi.j(this.o));
-            this.m.Q(i);
-            if (h() != null) {
-                h().a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            if (this.b == null) {
+                this.b = AnimationUtils.loadAnimation(context, R.anim.dialog_ani_t2b_exit);
+            }
+            this.b.setAnimationListener(new b(this));
+            return this.b;
+        }
+        return (Animation) invokeL.objValue;
+    }
+
+    public void k(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0111);
+            gw7 gw7Var = this.f;
+            if (gw7Var != null) {
+                gw7Var.notifyDataSetChanged();
             }
         }
     }
 
-    @Override // com.baidu.tieba.m95
-    public void a() {
-        BubbleListModel bubbleListModel;
+    public void l(c cVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (bubbleListModel = this.m) != null) {
-            bubbleListModel.unRegisterListener();
-            this.m.U(this.u);
-            this.m = null;
+        if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
+            this.e = cVar;
         }
     }
 
-    @Override // com.baidu.tieba.m95
-    public int c() {
+    public final View g(Context context, List<ew7> list, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, list, i)) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0538, (ViewGroup) null);
+            GridView gridView = (GridView) inflate.findViewById(R.id.obfuscated_res_0x7f091ec1);
+            gridView.setSelector(new ColorDrawable(context.getResources().getColor(17170445)));
+            gw7 gw7Var = new gw7(context, i);
+            this.f = gw7Var;
+            gw7Var.b(list);
+            gridView.setAdapter((ListAdapter) this.f);
+            gridView.setOnItemClickListener(new a(this, context));
+            return inflate;
+        }
+        return (View) invokeLLI.objValue;
+    }
+
+    public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            BubbleListData bubbleListData = this.n;
-            if (bubbleListData != null && bubbleListData.getB_info() != null) {
-                return this.n.getB_info().size();
-            }
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.g;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.m95
-    public void n(Context context) {
+    public void m(Context context, List<ew7> list, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
-            this.o = context;
-            m95.b bVar = new m95.b();
-            bVar.a = R.drawable.icon_bubble;
-            bVar.b = 0;
-            w(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f0));
-            q(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070201));
-            r(bVar);
-            o(2);
-            v(2);
-            x(new a(this, context));
-            this.q = TbadkCoreApplication.getInst().getDefaultBubble();
-            this.r = TbadkCoreApplication.getInst().getDefaultBubbleDynamicRes();
-            if (this.m == null) {
-                Context context2 = this.o;
-                if (context2 instanceof TbPageContext) {
-                    this.m = new BubbleListModel((TbPageContext) context2);
-                } else {
-                    this.m = new BubbleListModel(null);
-                }
-            }
-            this.m.S(this.s);
-            this.m.T(this.t);
-            this.m.N(this.u);
-            this.m.L();
-            this.m.M();
-            if (h() != null) {
-                h().a();
-            }
-            this.m.O(0, 50, zi.l(this.o), zi.j(this.o));
+        if ((interceptable != null && interceptable.invokeLLI(1048583, this, context, list, i) != null) || this.g) {
+            return;
         }
+        this.g = true;
+        View g = g(context, list, i);
+        this.c = g;
+        this.d.addView(g);
+        SkinManager.setBackgroundColor(this.c, R.color.CAM_X0111);
+        this.c.startAnimation(h(context));
     }
 }

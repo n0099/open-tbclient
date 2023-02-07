@@ -25,9 +25,9 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.ux8;
+import com.baidu.tieba.s19;
 import com.baidu.tieba.video.VideoConvertUtil;
-import com.baidu.tieba.zx8;
+import com.baidu.tieba.x19;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,7 +41,7 @@ public final class AliAuthHttpProxy {
     public transient /* synthetic */ FieldHolder $fh;
     public final WeakReference<WebView> a;
     public final BdUniqueId b;
-    public ux8 c;
+    public s19 c;
     public final Handler d;
 
     /* loaded from: classes3.dex */
@@ -82,7 +82,7 @@ public final class AliAuthHttpProxy {
                 if (message.what == 1118481) {
                     final AuthHttpRequestMsg authHttpRequestMsg = (AuthHttpRequestMsg) message.obj;
                     authHttpRequestMsg.pollingTimesIncrease();
-                    this.a.d.postDelayed(new Runnable() { // from class: com.baidu.tieba.eq4
+                    this.a.d.postDelayed(new Runnable() { // from class: com.baidu.tieba.ru4
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -228,10 +228,10 @@ public final class AliAuthHttpProxy {
         MessageManager.getInstance().registerListener(bVar);
     }
 
-    public void m(ux8 ux8Var) {
+    public void m(s19 s19Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ux8Var) == null) {
-            this.c = ux8Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, s19Var) == null) {
+            this.c = s19Var;
         }
     }
 
@@ -316,15 +316,15 @@ public final class AliAuthHttpProxy {
         return (HttpMessage) invokeL.objValue;
     }
 
-    public zx8 l() {
+    public x19 l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            zx8 zx8Var = new zx8();
-            zx8Var.x(0);
+            x19 x19Var = new x19();
+            x19Var.x(0);
             Activity activityByView = TbPageExtraHelper.getActivityByView(this.a.get());
             if (activityByView == null) {
-                return zx8Var;
+                return x19Var;
             }
             new OpenAuthTask(activityByView).execute("__tb_account_auth__", OpenAuthTask.BizType.AccountAuth, new HashMap<String, String>(this) { // from class: com.baidu.tbadk.browser.auth.AliAuthHttpProxy.3
                 public static /* synthetic */ Interceptable $ic;
@@ -350,8 +350,8 @@ public final class AliAuthHttpProxy {
                     put("url", "https://authweb.alipay.com/auth?auth_type=PURE_OAUTH_SDK&app_id=2021003145680066&scope=auth_user&state=init");
                 }
             }, new c(this), true);
-            return zx8Var;
+            return x19Var;
         }
-        return (zx8) invokeV.objValue;
+        return (x19) invokeV.objValue;
     }
 }

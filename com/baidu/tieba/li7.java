@@ -1,17 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.Hottopic.JoinUser;
+import tbclient.Hottopic.UserInfo;
 /* loaded from: classes5.dex */
 public class li7 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile li7 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public List<oi7> a;
 
     public li7() {
         Interceptable interceptable = $ic;
@@ -27,35 +28,18 @@ public class li7 {
         }
     }
 
-    public static li7 a() {
-        InterceptResult invokeV;
+    public void a(JoinUser joinUser) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (li7.class) {
-                    if (b == null) {
-                        b = new li7();
-                    }
+        if (interceptable == null || interceptable.invokeL(1048576, this, joinUser) == null) {
+            joinUser.join_user_num.longValue();
+            this.a = new ArrayList();
+            for (UserInfo userInfo : joinUser.join_user) {
+                if (userInfo != null) {
+                    oi7 oi7Var = new oi7();
+                    oi7Var.a(userInfo);
+                    this.a.add(oi7Var);
                 }
             }
-            return b;
-        }
-        return (li7) invokeV.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.a = z;
         }
     }
 }

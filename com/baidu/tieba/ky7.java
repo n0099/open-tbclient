@@ -1,119 +1,44 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.imageManager.TbFaceManager;
-import com.baidu.tieba.memberCenter.tail.data.TailData;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Field;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public class ky7 {
     public static /* synthetic */ Interceptable $ic;
+    public static Map<String, String> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public Context b;
-    public TextView c;
-    public ImageView d;
-    public TailData e;
-    public View f;
 
-    public ky7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public TailData b() {
+    public static Map<String, String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if (a == null) {
+                try {
+                    Field declaredField = Class.forName("dalvik.system.VMRuntime").getDeclaredField("ABI_TO_INSTRUCTION_SET_MAP");
+                    declaredField.setAccessible(true);
+                    a = (Map) declaredField.get(null);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            return a;
         }
-        return (TailData) invokeV.objValue;
+        return (Map) invokeV.objValue;
     }
 
-    @SuppressLint({"ResourceAsColor"})
-    public void c() {
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setBackgroundResource(this.f, R.drawable.tail_item_bg);
-            SkinManager.setViewTextColor(this.c, R.color.CAM_X0106, 1);
-            SkinManager.setBackgroundResource(this.d, R.drawable.tail_tool_list_item_checkbox_bg);
-            SkinManager.setImageResource(this.d, R.drawable.tail_tool_list_item_checkbox_selector);
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            try {
+                ApplicationInfo.class.getField("primaryCpuAbi").set(((PackageInfo) Class.forName("android.webkit.WebViewFactory").getMethod("getLoadedPackageInfo", new Class[0]).invoke(null, new Object[0])).applicationInfo, str);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-    }
-
-    public View a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d088e, (ViewGroup) null);
-            this.a = inflate;
-            this.b = context;
-            inflate.setTag(this);
-            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0921c1);
-            this.d = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0921c0);
-            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f0921bf);
-            this.f = findViewById;
-            findViewById.setTag(this);
-            return this.a;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.c.setTextColor(qy7.a(str));
-        }
-    }
-
-    public void e(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.f.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void f(TailData tailData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, tailData) == null) {
-            this.e = tailData;
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.c.setText(TbFaceManager.i().t(this.b, ry7.a(str), null));
-        }
-    }
-
-    public void h(TailData tailData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, tailData) != null) || tailData == null) {
-            return;
-        }
-        g(tailData.getContent());
-        d(tailData.getFontColor());
-        this.d.setSelected(tailData.isSelected());
     }
 }

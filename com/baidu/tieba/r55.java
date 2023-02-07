@@ -1,244 +1,326 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.os.Handler;
+import android.os.Message;
+import android.widget.TextView;
+import androidx.viewpager.widget.ViewPager;
+import com.baidu.adp.widget.IndicatorView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.Advertisement;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class r55 implements Comparable<r55> {
+public class r55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public int f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public String k;
-    public String l;
+    public ViewPager a;
+    public IndicatorView b;
+    public TextView c;
+    public BdBaseViewPagerAdapter d;
+    public t55 e;
+    public boolean f;
+    public boolean g;
+    public int h;
+    public Context i;
+    public List<Cdo> j;
+    public ViewPager.OnPageChangeListener k;
+    public long l;
+    public final Handler.Callback m;
+    public final Handler n;
+    public ViewPager.OnPageChangeListener o;
 
-    public r55() {
+    /* loaded from: classes6.dex */
+    public class a implements Handler.Callback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ r55 a;
+
+        public a(r55 r55Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {r55Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = r55Var;
+        }
+
+        @Override // android.os.Handler.Callback
+        public boolean handleMessage(Message message) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
+                if (message.what != 1) {
+                    return false;
+                }
+                this.a.g();
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements ViewPager.OnPageChangeListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ r55 a;
+
+        public b(r55 r55Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {r55Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = r55Var;
+        }
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageScrollStateChanged(int i) {
+            int count;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (this.a.k != null) {
+                    this.a.k.onPageScrollStateChanged(i);
+                }
+                if (i == 1) {
+                    this.a.n();
+                } else if (i != 0 || (count = this.a.d.getCount()) < 2) {
+                } else {
+                    int currentItem = this.a.a.getCurrentItem();
+                    int i2 = count - 2;
+                    if (currentItem < 1) {
+                        this.a.a.setCurrentItem(i2, false);
+                    } else if (currentItem > i2) {
+                        this.a.a.setCurrentItem(1, false);
+                    }
+                    this.a.m();
+                }
+            }
+        }
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageSelected(int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && this.a.e != null && this.a.e.a(i) == i) {
+                if (this.a.b != null) {
+                    this.a.b.setPosition(this.a.e.c(i));
+                }
+                if (this.a.k != null) {
+                    this.a.k.onPageSelected(this.a.e.c(i));
+                }
+            }
+        }
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageScrolled(int i, float f, int i2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) && this.a.k != null) {
+                this.a.k.onPageScrolled(i, f, i2);
+            }
+        }
+    }
+
+    public r55(Context context, ViewPager viewPager, IndicatorView indicatorView, TextView textView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, viewPager, indicatorView, textView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.h;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.i;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.k;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.j;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.a;
-        }
-        return invokeV.longValue;
-    }
-
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return !"0".equals(this.l);
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(r55 r55Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, r55Var)) == null) {
-            if (k() > r55Var.k()) {
-                return -1;
-            }
-            return 1;
-        }
-        return invokeL.intValue;
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public final void m() {
-        String lowerCase;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            if (StringUtils.isNull(this.g) && StringUtils.isNull(this.h)) {
                 return;
             }
-            String c = gj.c(TbadkApplication.getInst().getAndroidId());
-            String lastCachedOid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
-            StringBuilder sb = new StringBuilder();
-            sb.append("&ANDROIDID=");
-            String str = "";
-            if (c == null) {
-                lowerCase = "";
+        }
+        this.f = false;
+        this.g = true;
+        this.h = 2;
+        this.j = new ArrayList();
+        this.l = 5000L;
+        this.m = new a(this);
+        this.n = new Handler(this.m);
+        this.o = new b(this);
+        h(context, viewPager, indicatorView, textView);
+    }
+
+    public void j(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            if (j < 0) {
+                j = 0;
+            }
+            this.l = j;
+        }
+    }
+
+    public void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.h = i;
+            t55 t55Var = this.e;
+            if (t55Var != null) {
+                t55Var.h(i);
+            }
+        }
+    }
+
+    public final void g() {
+        int count;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a != null && this.d != null) {
+            ca c = da.c(this.i);
+            if ((c != null && c.isScroll()) || (count = this.d.getCount()) < 2) {
+                return;
+            }
+            int currentItem = this.a.getCurrentItem();
+            int i = count - 2;
+            if (currentItem < 1) {
+                this.a.setCurrentItem(i, false);
+            } else if (currentItem > i) {
+                this.a.setCurrentItem(1, false);
             } else {
-                lowerCase = c.toLowerCase();
-            }
-            sb.append(lowerCase);
-            sb.append("&OAID=");
-            if (lastCachedOid != null) {
-                str = lastCachedOid.toUpperCase();
-            }
-            sb.append(str);
-            String sb2 = sb.toString();
-            if (!StringUtils.isNull(this.g) && !this.g.contains("ANDROIDID") && !this.g.contains("OAID")) {
-                this.g += sb2;
-            }
-            if (!StringUtils.isNull(this.h) && !this.h.contains("ANDROIDID") && !this.h.contains("OAID")) {
-                this.h += sb2;
+                this.a.setCurrentItem(currentItem + 1);
             }
         }
     }
 
-    public void o(Advertisement advertisement) {
+    public final void h(Context context, ViewPager viewPager, IndicatorView indicatorView, TextView textView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, advertisement) == null) {
-            this.a = advertisement.time.longValue();
-            this.b = advertisement.pic;
-            this.c = advertisement.pic_click;
-            this.d = advertisement.jump_link;
-            this.e = advertisement.advertisement_id;
-            this.g = advertisement.view_statistics_url;
-            this.h = advertisement.click_statistics_url;
-            this.i = advertisement.floating_text;
-            this.j = advertisement.scheme;
-            this.k = advertisement.package_name;
-            this.l = advertisement.display_ad_icon;
-            m();
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, viewPager, indicatorView, textView) == null) {
+            this.a = viewPager;
+            this.b = indicatorView;
+            this.c = textView;
+            this.i = context;
+            BdBaseViewPagerAdapter bdBaseViewPagerAdapter = new BdBaseViewPagerAdapter(context);
+            this.d = bdBaseViewPagerAdapter;
+            ViewPager viewPager2 = this.a;
+            if (viewPager2 != null) {
+                viewPager2.setAdapter(bdBaseViewPagerAdapter);
+                this.a.setOnPageChangeListener(this.o);
+            }
         }
     }
 
-    public void p(JSONObject jSONObject) {
+    public void i(Context context, s55<?, ?> s55Var) {
+        BdBaseViewPagerAdapter bdBaseViewPagerAdapter;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, jSONObject) == null) {
-            this.b = jSONObject.optString("pic");
-            this.c = jSONObject.optString("pic_click");
-            this.d = jSONObject.optString("jump_link");
-            this.e = jSONObject.optString("advertisement_id");
-            this.g = jSONObject.optString("view_statistics_url");
-            this.h = jSONObject.optString("click_statistics_url");
-            this.i = jSONObject.optString("floating_text");
-            this.j = jSONObject.optString("scheme");
-            this.k = jSONObject.optString("package_name");
-            this.l = jSONObject.optString("display_ad_icon");
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, s55Var) == null) && (bdBaseViewPagerAdapter = this.d) != null) {
+            bdBaseViewPagerAdapter.g(context, s55Var);
+        }
+    }
+
+    public void k(List<Cdo> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, list) != null) || ListUtils.getCount(list) == 0) {
+            return;
+        }
+        this.j = list;
+        t55 t55Var = new t55(list, this.f, this.h);
+        this.e = t55Var;
+        t55Var.i(2);
+        this.e.g(1);
+        this.d.h(this.e.e());
+        this.d.notifyDataSetChanged();
+        this.a.setCurrentItem(this.e.d(), false);
+        if (this.e.b() <= 0) {
+            return;
+        }
+        if (this.e.b() > this.h) {
+            TextView textView = this.c;
+            if (textView != null) {
+                textView.setVisibility(0);
+                this.c.setOnClickListener(null);
+                IndicatorView indicatorView = this.b;
+                if (indicatorView != null) {
+                    indicatorView.setVisibility(8);
+                }
+            } else {
+                IndicatorView indicatorView2 = this.b;
+                if (indicatorView2 != null && !this.f) {
+                    indicatorView2.setVisibility(8);
+                }
+            }
+            IndicatorView indicatorView3 = this.b;
+            if (indicatorView3 != null && indicatorView3.getVisibility() == 0) {
+                int count = this.b.getCount();
+                int i = this.h;
+                if (count != i) {
+                    this.b.setCount(i);
+                }
+            }
             m();
+        }
+        if (this.e.b() >= 2 && this.e.b() <= this.h) {
+            TextView textView2 = this.c;
+            if (textView2 != null) {
+                textView2.setVisibility(8);
+            }
+            IndicatorView indicatorView4 = this.b;
+            if (indicatorView4 != null) {
+                indicatorView4.setVisibility(0);
+                if (this.b.getCount() != this.e.b()) {
+                    this.b.setCount(this.e.b());
+                }
+            }
+            m();
+        }
+        if (this.e.b() < 2) {
+            TextView textView3 = this.c;
+            if (textView3 != null) {
+                textView3.setVisibility(8);
+            }
+            IndicatorView indicatorView5 = this.b;
+            if (indicatorView5 != null) {
+                indicatorView5.setVisibility(8);
+            }
+            n();
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if (this.g) {
+                this.n.removeMessages(1);
+                this.n.sendEmptyMessageDelayed(1, this.l);
+                return;
+            }
+            this.n.removeMessages(1);
+        }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.n.removeMessages(1);
         }
     }
 }

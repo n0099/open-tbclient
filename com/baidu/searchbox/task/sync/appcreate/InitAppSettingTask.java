@@ -9,12 +9,12 @@ import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.switchs.LooperBlockSwitch;
-import com.baidu.tieba.g45;
-import com.baidu.tieba.hk5;
-import com.baidu.tieba.jg5;
-import com.baidu.tieba.k55;
-import com.baidu.tieba.o9;
-import com.baidu.tieba.z35;
+import com.baidu.tieba.m85;
+import com.baidu.tieba.so5;
+import com.baidu.tieba.t85;
+import com.baidu.tieba.t9;
+import com.baidu.tieba.uk5;
+import com.baidu.tieba.x95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -61,8 +61,8 @@ public class InitAppSettingTask extends LaunchTask {
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             TbadkCoreApplication.getInst().mVoiceHeadsetMode = TbadkSettings.getInst().loadInt("voice_headset_mode", 0);
-            hk5.c();
-            jg5.b().r(System.currentTimeMillis() - currentTimeMillis);
+            so5.c();
+            uk5.b().r(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 
@@ -75,9 +75,9 @@ public class InitAppSettingTask extends LaunchTask {
             initSettings();
             TbadkCoreApplication.getInst().initSetting();
             long currentTimeMillis = System.currentTimeMillis();
-            z35.d().q();
-            jg5.b().y(System.currentTimeMillis() - currentTimeMillis);
-            o9.f().r(20);
+            m85.d().q();
+            uk5.b().y(System.currentTimeMillis() - currentTimeMillis);
+            t9.f().r(20);
             if (ProcessUtils.isMainProcess() && LooperBlockSwitch.getIsOn()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
             }
@@ -89,18 +89,18 @@ public class InitAppSettingTask extends LaunchTask {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             String loadString = TbadkSettings.getInst().loadString("lcs_switch_strategy", null);
             if (!TextUtils.isEmpty(loadString)) {
-                g45 g45Var = new g45();
-                g45Var.e(loadString);
-                k55 a = k55.a();
+                t85 t85Var = new t85();
+                t85Var.e(loadString);
+                x95 a = x95.a();
                 boolean z = true;
-                if (g45Var.b() != 1) {
+                if (t85Var.b() != 1) {
                     z = false;
                 }
                 a.h(z);
-                a.i(g45Var.c());
-                a.j(g45Var.d() * 1000);
-                if (g45Var.a() != null) {
-                    a.k(g45Var.a());
+                a.i(t85Var.c());
+                a.j(t85Var.d() * 1000);
+                if (t85Var.a() != null) {
+                    a.k(t85Var.a());
                 }
             }
         }

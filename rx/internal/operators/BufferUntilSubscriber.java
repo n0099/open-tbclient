@@ -1,12 +1,12 @@
 package rx.internal.operators;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cda;
-import com.baidu.tieba.hda;
-import com.baidu.tieba.k8a;
-import com.baidu.tieba.l8a;
-import com.baidu.tieba.q8a;
-import com.baidu.tieba.x8a;
+import com.baidu.tieba.gda;
+import com.baidu.tieba.lha;
+import com.baidu.tieba.qha;
+import com.baidu.tieba.tca;
+import com.baidu.tieba.uca;
+import com.baidu.tieba.zca;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,21 +17,21 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes9.dex */
-public final class BufferUntilSubscriber<T> extends cda<T, T> {
+public final class BufferUntilSubscriber<T> extends lha<T, T> {
     public static /* synthetic */ Interceptable $ic;
-    public static final l8a d;
+    public static final uca d;
     public transient /* synthetic */ FieldHolder $fh;
     public final State<T> b;
     public boolean c;
 
     /* loaded from: classes9.dex */
-    public static final class b<T> implements k8a.a<T> {
+    public static final class b<T> implements tca.a<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final State<T> a;
 
         /* loaded from: classes9.dex */
-        public class a implements x8a {
+        public class a implements gda {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
@@ -54,7 +54,7 @@ public final class BufferUntilSubscriber<T> extends cda<T, T> {
                 this.a = bVar;
             }
 
-            @Override // com.baidu.tieba.x8a
+            @Override // com.baidu.tieba.gda
             public void call() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -81,17 +81,17 @@ public final class BufferUntilSubscriber<T> extends cda<T, T> {
             this.a = state;
         }
 
-        @Override // com.baidu.tieba.k8a.a, com.baidu.tieba.y8a
+        @Override // com.baidu.tieba.tca.a, com.baidu.tieba.hda
         public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((q8a) ((q8a) obj));
+            call((zca) ((zca) obj));
         }
 
-        public void call(q8a<? super T> q8aVar) {
+        public void call(zca<? super T> zcaVar) {
             boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, q8aVar) == null) {
-                if (this.a.casObserverRef(null, q8aVar)) {
-                    q8aVar.b(hda.a(new a(this)));
+            if (interceptable == null || interceptable.invokeL(1048576, this, zcaVar) == null) {
+                if (this.a.casObserverRef(null, zcaVar)) {
+                    zcaVar.b(qha.a(new a(this)));
                     synchronized (this.a.guard) {
                         z = true;
                         if (!this.a.emitting) {
@@ -117,14 +117,14 @@ public final class BufferUntilSubscriber<T> extends cda<T, T> {
                         }
                     }
                 } else {
-                    q8aVar.onError(new IllegalStateException("Only one subscriber allowed!"));
+                    zcaVar.onError(new IllegalStateException("Only one subscriber allowed!"));
                 }
             }
         }
     }
 
     /* loaded from: classes9.dex */
-    public static final class State<T> extends AtomicReference<l8a<? super T>> {
+    public static final class State<T> extends AtomicReference<uca<? super T>> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8026705089538090368L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -149,36 +149,36 @@ public final class BufferUntilSubscriber<T> extends cda<T, T> {
             this.buffer = new ConcurrentLinkedQueue<>();
         }
 
-        public boolean casObserverRef(l8a<? super T> l8aVar, l8a<? super T> l8aVar2) {
+        public boolean casObserverRef(uca<? super T> ucaVar, uca<? super T> ucaVar2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, l8aVar, l8aVar2)) == null) {
-                return compareAndSet(l8aVar, l8aVar2);
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, ucaVar, ucaVar2)) == null) {
+                return compareAndSet(ucaVar, ucaVar2);
             }
             return invokeLL.booleanValue;
         }
     }
 
     /* loaded from: classes9.dex */
-    public static class a implements l8a {
+    public static class a implements uca {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.tieba.l8a
+        @Override // com.baidu.tieba.uca
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.l8a
+        @Override // com.baidu.tieba.uca
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.l8a
+        @Override // com.baidu.tieba.uca
         public void onNext(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
@@ -225,7 +225,7 @@ public final class BufferUntilSubscriber<T> extends cda<T, T> {
         return (BufferUntilSubscriber) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.l8a
+    @Override // com.baidu.tieba.uca
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -249,7 +249,7 @@ public final class BufferUntilSubscriber<T> extends cda<T, T> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((k8a.a) newInitContext.callArgs[0]);
+                super((tca.a) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -282,7 +282,7 @@ public final class BufferUntilSubscriber<T> extends cda<T, T> {
         }
     }
 
-    @Override // com.baidu.tieba.l8a
+    @Override // com.baidu.tieba.uca
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
@@ -294,7 +294,7 @@ public final class BufferUntilSubscriber<T> extends cda<T, T> {
         }
     }
 
-    @Override // com.baidu.tieba.l8a
+    @Override // com.baidu.tieba.uca
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {

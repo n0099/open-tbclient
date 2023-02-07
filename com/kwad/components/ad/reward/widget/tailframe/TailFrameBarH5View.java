@@ -94,8 +94,8 @@ public class TailFrameBarH5View extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65539, this, context, i) == null) {
             LinearLayout.inflate(context, i, this);
-            this.cD = (TextView) findViewById(R.id.obfuscated_res_0x7f0912a4);
-            this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f0912a5);
+            this.cD = (TextView) findViewById(R.id.obfuscated_res_0x7f0912e7);
+            this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f0912e8);
         }
     }
 

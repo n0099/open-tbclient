@@ -1,55 +1,117 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.content.SharedPreferences;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.smallgame.sdk.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class nm1 implements ro1 {
-    public static /* synthetic */ Interceptable $ic;
+public class nm1 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int d = 1;
+    public static int e = 2;
+    public static int f = 3;
     public transient /* synthetic */ FieldHolder $fh;
+    public Map<String, String> a;
+    public Map<String, String> b;
+    public SharedPreferences c;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948007159, "Lcom/baidu/tieba/nm1;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948007159, "Lcom/baidu/tieba/nm1;");
+        }
+    }
 
     public nm1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new HashMap();
+        this.b = new HashMap();
     }
 
-    @Override // com.baidu.tieba.ro1
-    public long a(Context context) {
-        InterceptResult invokeL;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            return e12.b().a;
-        }
-        return invokeL.longValue;
-    }
-
-    @Override // com.baidu.tieba.ro1
-    public void b(Context context, String str, cj3<String> cj3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, cj3Var) == null) {
-            jr1.d(str, cj3Var);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.clear();
         }
     }
 
-    @Override // com.baidu.tieba.ro1
-    public void c(Context context, JSONArray jSONArray, cj3<String> cj3Var) {
+    public String b(int i, String str) {
+        InterceptResult invokeIL;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, jSONArray, cj3Var) == null) {
-            jr1.e(jSONArray, cj3Var);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str)) == null) {
+            if (i == d) {
+                str2 = this.a.get(str);
+            } else if (i == e) {
+                str2 = this.b.get(str);
+            } else {
+                if (i == f) {
+                    SharedPreferences sharedPreferences = this.c;
+                    if (sharedPreferences != null) {
+                        str2 = sharedPreferences.getString(str, "");
+                    } else {
+                        Log.e("TAG", "prefs data store is null");
+                    }
+                }
+                str2 = null;
+            }
+            if (str2 == null) {
+                return "";
+            }
+            return str2;
+        }
+        return (String) invokeIL.objValue;
+    }
+
+    public void c(SharedPreferences sharedPreferences) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sharedPreferences) == null) {
+            this.c = sharedPreferences;
+        }
+    }
+
+    public void d(int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048579, this, i, str, str2) == null) {
+            if (i == d) {
+                this.a.put(str, str2);
+            } else if (i == e) {
+                this.b.put(str, str2);
+            } else if (i == f) {
+                SharedPreferences sharedPreferences = this.c;
+                if (sharedPreferences != null) {
+                    sharedPreferences.edit().putString(str, str2).commit();
+                } else {
+                    Log.e("TAG", "prefs data store is null");
+                }
+            }
         }
     }
 }

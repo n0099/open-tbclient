@@ -1,69 +1,55 @@
 package com.baidu.tieba;
 
-import android.graphics.PointF;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.minivideo.plugin.capture.report.ReportConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.AbstractMap;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class ks9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static float a(PointF pointF, PointF pointF2) {
-        InterceptResult invokeLL;
+    public static void a(String str, os9 os9Var, ns9 ns9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, pointF, pointF2)) == null) {
-            if (pointF != null && pointF2 != null) {
-                float b = ((pointF.x * pointF2.x) + (pointF.y * pointF2.y)) / (b(pointF) * b(pointF2));
-                if (b <= 1.0f && b >= -1.0f) {
-                    return ((pointF.x * pointF2.y) - (pointF2.x * pointF.y) > 0.0f ? 1 : -1) * (360.0f - ((float) Math.toDegrees(Math.acos(b))));
+        if (interceptable == null || interceptable.invokeLLL(65536, null, str, os9Var, ns9Var) == null) {
+            if (cw9.a) {
+                cw9.c("UGC_ArKpiReport", "perf_record_arperf, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + ns9Var.toString());
+            }
+            is9 g = fs9.c().g();
+            if (g != null) {
+                ArrayList arrayList = null;
+                if (ns9Var != null) {
+                    arrayList = new ArrayList();
+                    arrayList.add(new AbstractMap.SimpleEntry("sft", ns9Var.a));
+                    arrayList.add(new AbstractMap.SimpleEntry("bft", ns9Var.b));
+                    arrayList.add(new AbstractMap.SimpleEntry("mem", ns9Var.f));
+                    arrayList.add(new AbstractMap.SimpleEntry("fc", ns9Var.c));
+                    arrayList.add(new AbstractMap.SimpleEntry("time", ns9Var.d + ""));
                 }
+                g.a("perf_record_arperf", str, os9Var.a, os9Var.b, os9Var.c, os9Var.d, os9Var.e, null, arrayList);
             }
-            return 0.0f;
         }
-        return invokeLL.floatValue;
     }
 
-    public static float b(PointF pointF) {
-        InterceptResult invokeL;
+    public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, pointF)) == null) {
-            float f = pointF.x;
-            float f2 = pointF.y;
-            return (float) Math.sqrt((f * f) + (f2 * f2));
-        }
-        return invokeL.floatValue;
-    }
-
-    public static float c(PointF pointF, PointF pointF2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, pointF, pointF2)) == null) {
-            float f = pointF.x;
-            float f2 = pointF2.x;
-            float f3 = pointF.y;
-            float f4 = pointF2.y;
-            return (float) Math.sqrt(((f - f2) * (f - f2)) + ((f3 - f4) * (f3 - f4)));
-        }
-        return invokeLL.floatValue;
-    }
-
-    public static PointF d(PointF pointF, PointF pointF2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, pointF, pointF2)) == null) ? new PointF(pointF2.x - pointF.x, pointF2.y - pointF.y) : (PointF) invokeLL.objValue;
-    }
-
-    public static float e(PointF pointF, PointF pointF2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, pointF, pointF2)) == null) {
-            if (pointF == null || pointF2 == null) {
-                return 1.0f;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            if (cw9.a) {
+                cw9.c("UGC_ArKpiReport", "perf_publish_debug, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2);
             }
-            return b(pointF2) / b(pointF);
+            is9 g = fs9.c().g();
+            if (g != null) {
+                ArrayList arrayList = null;
+                if (str2 != null) {
+                    arrayList = new ArrayList(3);
+                    arrayList.add(new AbstractMap.SimpleEntry<>("ext", str2));
+                    arrayList.add(new AbstractMap.SimpleEntry<>("capture_vername", aw9.a(fs9.c().getContext())));
+                    arrayList.add(new AbstractMap.SimpleEntry<>("capture_vercode", String.valueOf(aw9.b(fs9.c().getContext()))));
+                }
+                g.a(ReportConfig.LOG_KEY_PUBLISH_DEBUG, str, null, null, null, null, null, null, arrayList);
+            }
         }
-        return invokeLL.floatValue;
     }
 }

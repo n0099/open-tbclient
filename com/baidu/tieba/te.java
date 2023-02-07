@@ -1,148 +1,51 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
+import java.util.List;
+import java.util.Locale;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public class te extends ve<byte[]> {
+public class te {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String h;
 
-    @Override // com.baidu.tieba.ve
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.ve
-    public void k(String str, String str2, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(1048579, this, str, str2, i, i2) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public te(aa aaVar, String str) {
-        super(aaVar);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aaVar, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((aa) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.h = str;
-    }
-
-    @Override // com.baidu.tieba.ve
-    public Cursor q(SQLiteDatabase sQLiteDatabase, String str) {
+    public static final boolean a(td tdVar, ad adVar) {
         InterceptResult invokeLL;
+        Object objectByType;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, sQLiteDatabase, str)) == null) {
-            return sQLiteDatabase.rawQuery("select * from " + this.b + " where m_ns = ?", new String[]{str});
-        }
-        return (Cursor) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ve
-    public boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            try {
-                this.a.f().delete(this.b, "m_ns = ?", new String[]{str});
-                return true;
-            } catch (Throwable th) {
-                aa aaVar = this.a;
-                aaVar.i(th, "failed to clear from " + str);
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX WARN: Type inference failed for: r0v14, types: [byte[], T] */
-    @Override // com.baidu.tieba.ve
-    public ze<byte[]> i(SQLiteDatabase sQLiteDatabase, String str) throws Throwable {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, str)) == null) {
-            Cursor cursor = null;
-            try {
-                Cursor rawQuery = sQLiteDatabase.rawQuery("SELECT m_key, m_ns, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.b + " where m_key = ?", new String[]{str});
-                try {
-                    if (rawQuery.moveToNext()) {
-                        ze<byte[]> zeVar = new ze<>();
-                        zeVar.a = rawQuery.getString(0);
-                        zeVar.c = rawQuery.getString(1);
-                        zeVar.d = rawQuery.getLong(2);
-                        zeVar.e = rawQuery.getLong(3);
-                        zeVar.f = rawQuery.getLong(4);
-                        zeVar.b = rawQuery.getBlob(5);
-                        xg.a(rawQuery);
-                        return zeVar;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tdVar, adVar)) == null) {
+            if (adVar != null && tdVar != null) {
+                List<Field> b = yc.b(adVar.getClass());
+                Set<String> keys = tdVar.getKeys();
+                for (Field field : b) {
+                    if (field != null && !Modifier.isTransient(field.getModifiers()) && !Modifier.isStatic(field.getModifiers())) {
+                        String name = field.getName();
+                        if (!TextUtils.isEmpty(name)) {
+                            if (keys.contains(name)) {
+                                Object objectByType2 = tdVar.getObjectByType(name, field.getGenericType());
+                                if (objectByType2 != null) {
+                                    yc.i(adVar, name, objectByType2);
+                                }
+                            } else if (keys.contains(name.toLowerCase(Locale.getDefault()))) {
+                                Object objectByType3 = tdVar.getObjectByType(name.toLowerCase(Locale.getDefault()), field.getGenericType());
+                                if (objectByType3 != null) {
+                                    yc.i(adVar, name, objectByType3);
+                                }
+                            } else if (keys.contains(name.toUpperCase(Locale.getDefault())) && (objectByType = tdVar.getObjectByType(name.toUpperCase(Locale.getDefault()), field.getGenericType())) != null) {
+                                yc.i(adVar, name, objectByType);
+                            }
+                        }
                     }
-                    xg.a(rawQuery);
-                    return null;
-                } catch (Throwable th) {
-                    th = th;
-                    cursor = rawQuery;
-                    xg.a(cursor);
-                    throw th;
                 }
-            } catch (Throwable th2) {
-                th = th2;
+                return true;
             }
-        } else {
-            return (ze) invokeLL.objValue;
+            return false;
         }
-    }
-
-    @Override // com.baidu.tieba.ve
-    public String l(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.a.d("CREATE TABLE IF NOT EXISTS " + this.h + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
-            this.a.d("CREATE INDEX if not exists idx_mi_ns ON " + this.h + "(m_ns)");
-            return this.h;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ve
-    public ContentValues p(ze<byte[]> zeVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, zeVar)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("m_key", zeVar.a);
-            contentValues.put("m_ns", zeVar.c);
-            contentValues.put("m_value", zeVar.b);
-            contentValues.put("saveTime", Long.valueOf(zeVar.d));
-            contentValues.put("lastHitTime", Long.valueOf(zeVar.e));
-            contentValues.put("timeToExpire", Long.valueOf(zeVar.f));
-            return contentValues;
-        }
-        return (ContentValues) invokeL.objValue;
+        return invokeLL.booleanValue;
     }
 }

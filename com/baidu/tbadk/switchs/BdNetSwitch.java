@@ -1,9 +1,9 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tieba.cz4;
 import com.baidu.tieba.debugtool.annotation.Modify;
 import com.baidu.tieba.debugtool.annotation.ModifyClass;
+import com.baidu.tieba.p35;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +24,7 @@ public class BdNetSwitch extends BaseNormalSwitch {
     public static int type;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.lf
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.qf
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -68,12 +68,18 @@ public class BdNetSwitch extends BaseNormalSwitch {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (type > 2) {
-                int m = cz4.l().m("key_bd_net_switch", 0);
-                type = m;
-                if (m == 2) {
+                int n = p35.m().n("key_bd_net_switch", 2);
+                type = n;
+                if (n == 2) {
                     switchOn = true;
-                } else if (m == 1) {
-                    switchOn = UbsABTestHelper.isNetABTest();
+                } else if (n == 1) {
+                    if (UbsABTestHelper.isUseTiebaNetABTest()) {
+                        switchOn = false;
+                    } else if (UbsABTestHelper.isNetABTest()) {
+                        switchOn = true;
+                    } else {
+                        switchOn = true;
+                    }
                 } else {
                     switchOn = false;
                 }

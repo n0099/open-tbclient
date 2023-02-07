@@ -56,7 +56,7 @@ public final class g extends v implements View.OnClickListener {
             if (view2 == null) {
                 return null;
             }
-            int dimensionPixelSize = view2.getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070377);
+            int dimensionPixelSize = view2.getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070379);
             Interpolator create = PathInterpolatorCompat.create(0.0f, 0.0f, 0.58f, 1.0f);
             AnimatorSet animatorSet = new AnimatorSet();
             ObjectAnimator duration = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_Y, -dimensionPixelSize).setDuration(500L);
@@ -181,9 +181,9 @@ public final class g extends v implements View.OnClickListener {
     public final void e(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) {
-            super.a(viewGroup, R.id.obfuscated_res_0x7f091123, R.id.obfuscated_res_0x7f091121);
+            super.a(viewGroup, R.id.obfuscated_res_0x7f091166, R.id.obfuscated_res_0x7f091164);
             if (this.eQ == null) {
-                this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091122);
+                this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091165);
             }
             this.pV.setOnClickListener(this);
         }

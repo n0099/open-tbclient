@@ -1,5 +1,6 @@
 package com.baidu.searchbox.net.update.v2;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.net.update.CommandPostData;
@@ -55,6 +56,7 @@ public abstract class AbstractCommandListener<T> {
         return (ActionData) invokeV.objValue;
     }
 
+    @SuppressLint({"SignatureUseDetector"})
     public final Type getDataType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

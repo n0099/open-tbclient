@@ -1,211 +1,227 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.squareup.wire.Message;
-import com.squareup.wire.Wire;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.HashSet;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class sl5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final List<qn> a;
+    public TbPageContext<?> b;
+    public jo c;
+    public hm5 d;
+    public dm5 e;
+    public wl5 f;
+    public yl5 g;
+    public xl5 h;
+    public zl5 i;
+    public am5 j;
+    public cm5 k;
+    public bm5 l;
+    public fm5 m;
+    public em5 n;
+    public gm5 o;
+    public ul5 p;
+    public tl5 q;
 
-    public static final void a(Wire wire, Class<? extends Message> cls) {
-        File[] listFiles;
-        String name;
+    public sl5(TbPageContext tbPageContext, jo joVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, wire, cls) == null) && wire != null && cls != null) {
-            String str = "wire_" + cls.getName();
-            File file = new File(TbadkCoreApplication.getInst().getCacheDir(), str + "_" + TbConfig.getVersion());
-            byte[] bArr = null;
-            try {
-                if (file.exists() && (bArr = b(file)) != null) {
-                    wire.parseFrom(bArr, cls);
-                }
-                if (bArr == null) {
-                    byte[] bArr2 = (byte[]) tc.c(cls, "toByteArray", new Object[0]).invoke(c(cls, new HashSet()), new Object[0]);
-                    wire.parseFrom(bArr2, cls);
-                    d(file, bArr2);
-                }
-            } catch (Throwable th) {
-                BdLog.detailException(th);
-                try {
-                    file.delete();
-                } catch (Throwable unused) {
-                }
-            }
-            File cacheDir = TbadkCoreApplication.getInst().getCacheDir();
-            if (cacheDir == null || (listFiles = cacheDir.listFiles()) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, joVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            for (File file2 : listFiles) {
-                if (file2 != null && (name = file2.getName()) != null && name.startsWith(str) && !file.getName().equals(name)) {
-                    try {
-                        file2.delete();
-                    } catch (Throwable unused2) {
-                    }
-                }
-            }
         }
+        this.a = new LinkedList();
+        this.b = tbPageContext;
+        this.c = joVar;
+        b();
     }
 
-    public static byte[] b(File file) {
+    public void a(List<qn> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        for (qn qnVar : list) {
+            if (!c(qnVar.getType())) {
+                this.a.add(qnVar);
+            }
+        }
+        this.c.a(this.a);
+    }
+
+    public boolean c(BdUniqueId bdUniqueId) {
         InterceptResult invokeL;
-        ByteArrayOutputStream byteArrayOutputStream;
-        FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            byte[] bArr = null;
-            if (file == null) {
-                return null;
-            }
-            try {
-                fileInputStream = new FileInputStream(file);
-                try {
-                    byteArrayOutputStream = new ByteArrayOutputStream(1024);
-                    try {
-                        byte[] bArr2 = new byte[1024];
-                        while (true) {
-                            int read = fileInputStream.read(bArr2, 0, 1024);
-                            if (read == -1) {
-                                break;
-                            }
-                            byteArrayOutputStream.write(bArr2, 0, read);
-                        }
-                        bArr = byteArrayOutputStream.toByteArray();
-                    } catch (Throwable th) {
-                        th = th;
-                        try {
-                            BdLog.e(th.getMessage());
-                            return bArr;
-                        } finally {
-                            aj.e(fileInputStream);
-                            aj.f(byteArrayOutputStream);
-                        }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId)) == null) {
+            if (bdUniqueId != null && !ListUtils.isEmpty(this.a)) {
+                for (qn qnVar : this.a) {
+                    if (qnVar != null && qnVar.getType() == bdUniqueId) {
+                        return true;
                     }
-                } catch (Throwable th2) {
-                    th = th2;
-                    byteArrayOutputStream = null;
                 }
-            } catch (Throwable th3) {
-                th = th3;
-                byteArrayOutputStream = null;
-                fileInputStream = null;
             }
-            return bArr;
+            return false;
         }
-        return (byte[]) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static final Object c(Class<?> cls, HashSet<Class<?>> hashSet) {
-        InterceptResult invokeLL;
-        Field[] declaredFields;
-        Type[] actualTypeArguments;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cls, hashSet)) == null) {
-            if (hashSet != null && !hashSet.contains(cls)) {
-                hashSet.add(cls);
-                try {
-                    Class<?> cls2 = Class.forName(cls.getName() + "$Builder");
-                    Method declaredMethod = cls2.getDeclaredMethod("build", Boolean.TYPE);
-                    Object newInstance = cls2.newInstance();
-                    for (Field field : cls2.getDeclaredFields()) {
-                        Class<?> type = field.getType();
-                        if (type != null) {
-                            if (tc.e(type, Message.class)) {
-                                Object c = c(type, hashSet);
-                                if (c != null) {
-                                    if (tc.e(c.getClass(), Message.class)) {
-                                        field.setAccessible(true);
-                                        field.set(newInstance, c);
-                                    } else {
-                                        BdLog.e("");
-                                    }
-                                }
-                            } else if (tc.e(type, List.class)) {
-                                Type genericType = field.getGenericType();
-                                if ((genericType instanceof ParameterizedType) && (actualTypeArguments = ((ParameterizedType) genericType).getActualTypeArguments()) != null && actualTypeArguments.length > 0) {
-                                    try {
-                                        Class cls3 = (Class) actualTypeArguments[0];
-                                        if (tc.e(cls3, Message.class)) {
-                                            ArrayList arrayList = new ArrayList();
-                                            Object c2 = c(cls3, hashSet);
-                                            if (c2 != null) {
-                                                if (tc.e(c2.getClass(), Message.class)) {
-                                                    arrayList.add(c2);
-                                                } else {
-                                                    BdLog.e("");
-                                                }
-                                                field.setAccessible(true);
-                                                field.set(newInstance, arrayList);
-                                            }
-                                        }
-                                    } catch (Throwable unused) {
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    return declaredMethod.invoke(newInstance, Boolean.TRUE);
-                } catch (Throwable th) {
-                    BdLog.detailException(th);
-                }
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            hm5 hm5Var = new hm5(this.b);
+            this.d = hm5Var;
+            hm5Var.K(this.c);
+            this.a.add(this.d);
+            dm5 dm5Var = new dm5(this.b);
+            this.e = dm5Var;
+            dm5Var.K(this.c);
+            this.a.add(this.e);
+            gm5 gm5Var = new gm5(this.b);
+            this.o = gm5Var;
+            gm5Var.K(this.c);
+            this.a.add(this.o);
+            wl5 wl5Var = new wl5(this.b);
+            this.f = wl5Var;
+            wl5Var.K(this.c);
+            this.a.add(this.f);
+            yl5 yl5Var = new yl5(this.b);
+            this.g = yl5Var;
+            yl5Var.K(this.c);
+            this.a.add(this.g);
+            xl5 xl5Var = new xl5(this.b);
+            this.h = xl5Var;
+            xl5Var.K(this.c);
+            this.a.add(this.h);
+            zl5 zl5Var = new zl5(this.b);
+            this.i = zl5Var;
+            zl5Var.K(this.c);
+            this.a.add(this.i);
+            am5 am5Var = new am5(this.b);
+            this.j = am5Var;
+            am5Var.K(this.c);
+            this.a.add(this.j);
+            cm5 cm5Var = new cm5(this.b);
+            this.k = cm5Var;
+            cm5Var.K(this.c);
+            this.a.add(this.k);
+            bm5 bm5Var = new bm5(this.b);
+            this.l = bm5Var;
+            bm5Var.K(this.c);
+            this.a.add(this.l);
+            fm5 fm5Var = new fm5(this.b);
+            this.m = fm5Var;
+            fm5Var.K(this.c);
+            this.a.add(this.m);
+            em5 em5Var = new em5(this.b);
+            this.n = em5Var;
+            em5Var.K(this.c);
+            this.a.add(this.n);
+            ul5 ul5Var = new ul5(this.b);
+            this.p = ul5Var;
+            ul5Var.K(this.c);
+            this.a.add(this.p);
+            tl5 tl5Var = new tl5(this.b, zd6.P0);
+            this.q = tl5Var;
+            this.a.add(tl5Var);
+            this.c.a(this.a);
         }
-        return invokeLL.objValue;
     }
 
-    public static final boolean d(File file, byte[] bArr) {
-        InterceptResult invokeLL;
+    public void d() {
+        jo joVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, file, bArr)) == null) {
-            if (file == null || bArr == null) {
-                return false;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (joVar = this.c) != null && joVar.getListAdapter() != null) {
+            this.c.getListAdapter().notifyDataSetChanged();
+        }
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            for (qn qnVar : this.a) {
+                if (qnVar instanceof vl5) {
+                    ((vl5) qnVar).s(i);
+                }
             }
-            FileOutputStream fileOutputStream = null;
-            try {
-                if (file.exists() && !file.delete()) {
-                    return false;
+        }
+    }
+
+    public void f(im5 im5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, im5Var) == null) {
+            for (qn qnVar : this.a) {
+                if (qnVar instanceof vl5) {
+                    ((vl5) qnVar).G(im5Var);
                 }
-                if (!file.createNewFile()) {
-                    return false;
-                }
-                FileOutputStream fileOutputStream2 = new FileOutputStream(file);
-                try {
-                    fileOutputStream2.write(bArr, 0, bArr.length);
-                    fileOutputStream2.flush();
-                    aj.f(fileOutputStream2);
-                    return true;
-                } catch (Throwable th) {
-                    th = th;
-                    fileOutputStream = fileOutputStream2;
-                    try {
-                        BdLog.e(th.getMessage());
-                        return false;
-                    } finally {
-                        aj.f(fileOutputStream);
-                    }
-                }
-            } catch (Throwable th2) {
-                th = th2;
             }
-        } else {
-            return invokeLL.booleanValue;
+        }
+    }
+
+    public void g(List<qn> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        this.a.clear();
+        this.c.a(this.a);
+    }
+
+    public void h(List<Cdo> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
+            this.c.setData(list);
+        }
+    }
+
+    public void i(iv4 iv4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iv4Var) == null) {
+            for (qn qnVar : this.a) {
+                if (qnVar instanceof vl5) {
+                    ((vl5) qnVar).H(iv4Var);
+                }
+            }
+        }
+    }
+
+    public void j(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, bdUniqueId) == null) {
+            for (qn qnVar : this.a) {
+                if (qnVar instanceof vl5) {
+                    ((vl5) qnVar).J(bdUniqueId);
+                }
+            }
+        }
+    }
+
+    public void k(jo joVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, joVar) == null) {
+            for (qn qnVar : this.a) {
+                if (qnVar instanceof vl5) {
+                    ((vl5) qnVar).K(joVar);
+                }
+            }
         }
     }
 }

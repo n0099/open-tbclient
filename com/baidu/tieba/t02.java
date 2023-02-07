@@ -1,61 +1,104 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
-public final class t02 extends qz1 {
+public class t02 implements s02 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String L;
-    public boolean M;
-    public boolean N;
+    public Map<String, e23> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t02() {
-        super("input", "viewId");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], (String) objArr[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948127315, "Lcom/baidu/tieba/t02;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948127315, "Lcom/baidu/tieba/t02;");
                 return;
             }
         }
+        b = gp1.a;
     }
 
-    @Override // com.baidu.tieba.qz1, com.baidu.tieba.vz1, com.baidu.tieba.xz1, com.baidu.tieba.zz1, com.baidu.tieba.iu2
-    public void a(JSONObject jSONObject) throws JSONException {
-        boolean z;
+    public t02() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new ConcurrentHashMap();
+    }
+
+    @Override // com.baidu.tieba.s02
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || this.a.containsKey(str)) {
             return;
         }
-        super.a(jSONObject);
-        if (this.h == null) {
-            this.h = new pu2();
+        if (b) {
+            Log.d("Api-FirstRecorder", "markStart: " + str);
         }
-        this.t = jSONObject.optString("value");
-        this.L = jSONObject.optString("type");
-        boolean z2 = false;
-        if (jSONObject.optInt("confirmHold") == 1) {
-            z = true;
-        } else {
-            z = false;
+        e23 e23Var = new e23();
+        this.a.put(str, e23Var);
+        e23Var.i(System.currentTimeMillis());
+        e23Var.f(str);
+    }
+
+    @Override // com.baidu.tieba.s02
+    @SuppressLint({"BDThrowableCheck"})
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            e23 e23Var = this.a.get(str);
+            if (e23Var == null) {
+                if (!b) {
+                    return;
+                }
+                throw new RuntimeException(str + " markEnd before markStart");
+            } else if (e23Var.d() > 0) {
+            } else {
+                e23Var.h(System.currentTimeMillis());
+                if (b) {
+                    Log.d("Api-FirstRecorder", str + " first called cost " + e23Var.c());
+                }
+                if (TextUtils.equals(str, "request")) {
+                    if (b) {
+                        Log.d("Api-FirstRecorder", "record first request api called " + e23Var.toString());
+                    }
+                    HybridUbcFlow p = b23.p("startup");
+                    UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("first_request_api_call_start");
+                    ubcFlowEvent.h(e23Var.e());
+                    p.F(ubcFlowEvent);
+                    UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("first_request_api_call_end");
+                    ubcFlowEvent2.h(e23Var.d());
+                    p.F(ubcFlowEvent2);
+                }
+            }
         }
-        this.M = z;
-        if (jSONObject.optInt("adjustPosition", 1) == 1) {
-            z2 = true;
-        }
-        this.N = z2;
     }
 }

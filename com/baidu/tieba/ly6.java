@@ -1,50 +1,77 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.card.data.CardHListViewData;
-import com.baidu.tieba.tbadkCore.FrsRequestData;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class ly6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public x9 a;
+    public BdTypeListView b;
+    public final List<qn> c;
+    public ky6 d;
 
-    public static boolean a(ArrayList<yn> arrayList, String str, CardHListViewData cardHListViewData, int i) {
-        InterceptResult invokeLLLI;
+    public ly6(x9 x9Var, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65536, null, arrayList, str, cardHListViewData, i)) == null) {
-            if (cardHListViewData != null && !ListUtils.isEmpty(arrayList) && !StringUtils.isNull(str) && i >= 0) {
-                int size = arrayList.size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    yn ynVar = arrayList.get(i2);
-                    if ((ynVar instanceof CardHListViewData) && str.equals(((CardHListViewData) ynVar).threadId)) {
-                        return false;
-                    }
-                }
-                int i3 = i + 1;
-                if (i3 > 0) {
-                    ListUtils.add(arrayList, i3, cardHListViewData);
-                    return true;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {x9Var, bdTypeListView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeLLLI.booleanValue;
+        this.c = new ArrayList();
+        this.a = x9Var;
+        this.b = bdTypeListView;
+        a();
     }
 
-    public static boolean b(FrsRequestData frsRequestData) {
-        InterceptResult invokeL;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, frsRequestData)) == null) {
-            if (frsRequestData == null || frsRequestData.L() != 1) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ky6 ky6Var = new ky6((TbPageContext) this.a, zx6.b);
+            this.d = ky6Var;
+            this.c.add(ky6Var);
+            this.b.a(this.c);
         }
-        return invokeL.booleanValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (this.b.getAdapter2() instanceof un)) {
+            this.b.getAdapter2().notifyDataSetChanged();
+        }
+    }
+
+    public void c(no noVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, noVar) == null) {
+            for (qn qnVar : this.c) {
+                if (qnVar != null) {
+                    qnVar.setOnAdapterItemClickListener(noVar);
+                }
+            }
+        }
+    }
+
+    public void d(List<Cdo> list) {
+        BdTypeListView bdTypeListView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && (bdTypeListView = this.b) != null) {
+            bdTypeListView.setData(list);
+        }
     }
 }

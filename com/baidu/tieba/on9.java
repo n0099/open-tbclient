@@ -1,76 +1,60 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.retrieve.inter.IFetchJob;
+import com.baidu.searchbox.retrieve.inter.upload.IUploadTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.ref.WeakReference;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ScheduledFuture;
-import java.util.concurrent.TimeUnit;
+import org.json.JSONObject;
+@Service
 /* loaded from: classes5.dex */
-public final class on9 {
+public class on9 extends IFetchJob {
     public static /* synthetic */ Interceptable $ic;
-    public static List<WeakReference<ScheduledFuture<?>>> a;
-    public static ExecutorService b;
-    public static ScheduledExecutorService c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948038159, "Lcom/baidu/tieba/on9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948038159, "Lcom/baidu/tieba/on9;");
-                return;
-            }
-        }
-        a = new ArrayList();
-        b = Executors.newFixedThreadPool(2);
-        c = Executors.newScheduledThreadPool(2);
+    @Override // com.baidu.searchbox.retrieve.inter.IFetchJob
+    public String getFetchJobType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "tbFetch" : (String) invokeV.objValue;
     }
 
-    public static synchronized void a(Runnable runnable) {
+    public on9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, runnable) == null) {
-            synchronized (on9.class) {
-                if (c == null || c.isShutdown()) {
-                    c = Executors.newScheduledThreadPool(2);
-                }
-                c.execute(runnable);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void c(Runnable runnable) {
+    public final void a(String str, String str2, String str3, long j, long j2, long j3, List<String> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
-            ExecutorService executorService = b;
-            if (executorService == null || executorService.isShutdown()) {
-                b = Executors.newFixedThreadPool(2);
-            }
-            b.execute(runnable);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), list}) == null) {
+            ((IUploadTask) ServiceManager.getService(IUploadTask.SERVICE_REFERENCE)).fetchUpload(str, str2, str3, j, j2, j3, list);
         }
     }
 
-    public static synchronized void b(Runnable runnable, long j, long j2) {
+    @Override // com.baidu.searchbox.retrieve.inter.IFetchJob
+    public void dispatch(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{runnable, Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            synchronized (on9.class) {
-                if (c == null || c.isShutdown()) {
-                    c = Executors.newScheduledThreadPool(2);
-                }
-                a.add(new WeakReference<>(c.scheduleAtFixedRate(runnable, j, j2, TimeUnit.MILLISECONDS)));
-            }
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
+        ArrayList arrayList = new ArrayList();
+        arrayList.add("*/*");
+        a(jSONObject.optString("type", "tbFetch"), jSONObject.optString("jobId", ""), jSONObject.optString("version", ""), jSONObject.optLong("maxSizeLimit", com.baidu.down.utils.Constants.TEST_SPEED_THRESHOLD_DEFAULT), jSONObject.optLong("startTime", 0L), jSONObject.optLong("endTime", System.currentTimeMillis()), arrayList);
     }
 }

@@ -21,13 +21,13 @@ import kotlin.internal.InlineOnly;
 import kotlin.jvm.JvmName;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000T\n\u0000\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0016\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\t\u001a\u001c\u0010\u0000\u001a\b\u0012\u0004\u0012\u00020\u00020\u0001*\u00020\u0003H\u0007ø\u0001\u0000¢\u0006\u0004\b\u0004\u0010\u0005\u001a\u001c\u0010\u0000\u001a\b\u0012\u0004\u0012\u00020\u00060\u0001*\u00020\u0007H\u0007ø\u0001\u0000¢\u0006\u0004\b\b\u0010\t\u001a\u001c\u0010\u0000\u001a\b\u0012\u0004\u0012\u00020\n0\u0001*\u00020\u000bH\u0007ø\u0001\u0000¢\u0006\u0004\b\f\u0010\r\u001a\u001c\u0010\u0000\u001a\b\u0012\u0004\u0012\u00020\u000e0\u0001*\u00020\u000fH\u0007ø\u0001\u0000¢\u0006\u0004\b\u0010\u0010\u0011\u001a2\u0010\u0012\u001a\u00020\u0013*\u00020\u00032\u0006\u0010\u0014\u001a\u00020\u00022\b\b\u0002\u0010\u0015\u001a\u00020\u00132\b\b\u0002\u0010\u0016\u001a\u00020\u0013H\u0007ø\u0001\u0000¢\u0006\u0004\b\u0017\u0010\u0018\u001a2\u0010\u0012\u001a\u00020\u0013*\u00020\u00072\u0006\u0010\u0014\u001a\u00020\u00062\b\b\u0002\u0010\u0015\u001a\u00020\u00132\b\b\u0002\u0010\u0016\u001a\u00020\u0013H\u0007ø\u0001\u0000¢\u0006\u0004\b\u0019\u0010\u001a\u001a2\u0010\u0012\u001a\u00020\u0013*\u00020\u000b2\u0006\u0010\u0014\u001a\u00020\n2\b\b\u0002\u0010\u0015\u001a\u00020\u00132\b\b\u0002\u0010\u0016\u001a\u00020\u0013H\u0007ø\u0001\u0000¢\u0006\u0004\b\u001b\u0010\u001c\u001a2\u0010\u0012\u001a\u00020\u0013*\u00020\u000f2\u0006\u0010\u0014\u001a\u00020\u000e2\b\b\u0002\u0010\u0015\u001a\u00020\u00132\b\b\u0002\u0010\u0016\u001a\u00020\u0013H\u0007ø\u0001\u0000¢\u0006\u0004\b\u001d\u0010\u001e\u001a\u001f\u0010\u001f\u001a\u00020\u0002*\u00020\u00032\u0006\u0010 \u001a\u00020\u0013H\u0087\bø\u0001\u0000¢\u0006\u0004\b!\u0010\"\u001a\u001f\u0010\u001f\u001a\u00020\u0006*\u00020\u00072\u0006\u0010 \u001a\u00020\u0013H\u0087\bø\u0001\u0000¢\u0006\u0004\b#\u0010$\u001a\u001f\u0010\u001f\u001a\u00020\n*\u00020\u000b2\u0006\u0010 \u001a\u00020\u0013H\u0087\bø\u0001\u0000¢\u0006\u0004\b%\u0010&\u001a\u001f\u0010\u001f\u001a\u00020\u000e*\u00020\u000f2\u0006\u0010 \u001a\u00020\u0013H\u0087\bø\u0001\u0000¢\u0006\u0004\b'\u0010(\u001a.\u0010)\u001a\u00020**\u00020\u00032\u0012\u0010+\u001a\u000e\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020*0,H\u0087\bø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b-\u0010.\u001a.\u0010)\u001a\u00020/*\u00020\u00032\u0012\u0010+\u001a\u000e\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020/0,H\u0087\bø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b0\u00101\u001a.\u0010)\u001a\u00020**\u00020\u00072\u0012\u0010+\u001a\u000e\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020*0,H\u0087\bø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b-\u00102\u001a.\u0010)\u001a\u00020/*\u00020\u00072\u0012\u0010+\u001a\u000e\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020/0,H\u0087\bø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b0\u00103\u001a.\u0010)\u001a\u00020**\u00020\u000b2\u0012\u0010+\u001a\u000e\u0012\u0004\u0012\u00020\n\u0012\u0004\u0012\u00020*0,H\u0087\bø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b-\u00104\u001a.\u0010)\u001a\u00020/*\u00020\u000b2\u0012\u0010+\u001a\u000e\u0012\u0004\u0012\u00020\n\u0012\u0004\u0012\u00020/0,H\u0087\bø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b0\u00105\u001a.\u0010)\u001a\u00020**\u00020\u000f2\u0012\u0010+\u001a\u000e\u0012\u0004\u0012\u00020\u000e\u0012\u0004\u0012\u00020*0,H\u0087\bø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b-\u00106\u001a.\u0010)\u001a\u00020/*\u00020\u000f2\u0012\u0010+\u001a\u000e\u0012\u0004\u0012\u00020\u000e\u0012\u0004\u0012\u00020/0,H\u0087\bø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b0\u00107\u0082\u0002\u000b\n\u0002\b\u0019\n\u0005\b\u009920\u0001¨\u00068"}, d2 = {"asList", "", "Lkotlin/UByte;", "Lkotlin/UByteArray;", "asList-GBYM_sE", "([B)Ljava/util/List;", "Lkotlin/UInt;", "Lkotlin/UIntArray;", "asList--ajY-9A", "([I)Ljava/util/List;", "Lkotlin/ULong;", "Lkotlin/ULongArray;", "asList-QwZRm1k", "([J)Ljava/util/List;", "Lkotlin/UShort;", "Lkotlin/UShortArray;", "asList-rL5Bavg", "([S)Ljava/util/List;", "binarySearch", "", "element", "fromIndex", "toIndex", "binarySearch-WpHrYlw", "([BBII)I", "binarySearch-2fe2U9s", "([IIII)I", "binarySearch-K6DWlUc", "([JJII)I", "binarySearch-EtDCXyQ", "([SSII)I", "elementAt", "index", "elementAt-PpDY95g", "([BI)B", "elementAt-qFRl0hI", "([II)I", "elementAt-r7IrZao", "([JI)J", "elementAt-nggk6HY", "([SI)S", "sumOf", "Ljava/math/BigDecimal;", "selector", "Lkotlin/Function1;", "sumOfBigDecimal", "([BLkotlin/jvm/functions/Function1;)Ljava/math/BigDecimal;", "Ljava/math/BigInteger;", "sumOfBigInteger", "([BLkotlin/jvm/functions/Function1;)Ljava/math/BigInteger;", "([ILkotlin/jvm/functions/Function1;)Ljava/math/BigDecimal;", "([ILkotlin/jvm/functions/Function1;)Ljava/math/BigInteger;", "([JLkotlin/jvm/functions/Function1;)Ljava/math/BigDecimal;", "([JLkotlin/jvm/functions/Function1;)Ljava/math/BigInteger;", "([SLkotlin/jvm/functions/Function1;)Ljava/math/BigDecimal;", "([SLkotlin/jvm/functions/Function1;)Ljava/math/BigInteger;", "kotlin-stdlib"}, k = 5, mv = {1, 5, 1}, pn = "kotlin.collections", xi = 1, xs = "kotlin/collections/unsigned/UArraysKt")
+@Metadata(d1 = {"\u0000T\n\u0000\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0016\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\t\u001a\u001c\u0010\u0000\u001a\b\u0012\u0004\u0012\u00020\u00020\u0001*\u00020\u0003H\u0007ø\u0001\u0000¢\u0006\u0004\b\u0004\u0010\u0005\u001a\u001c\u0010\u0000\u001a\b\u0012\u0004\u0012\u00020\u00060\u0001*\u00020\u0007H\u0007ø\u0001\u0000¢\u0006\u0004\b\b\u0010\t\u001a\u001c\u0010\u0000\u001a\b\u0012\u0004\u0012\u00020\n0\u0001*\u00020\u000bH\u0007ø\u0001\u0000¢\u0006\u0004\b\f\u0010\r\u001a\u001c\u0010\u0000\u001a\b\u0012\u0004\u0012\u00020\u000e0\u0001*\u00020\u000fH\u0007ø\u0001\u0000¢\u0006\u0004\b\u0010\u0010\u0011\u001a2\u0010\u0012\u001a\u00020\u0013*\u00020\u00032\u0006\u0010\u0014\u001a\u00020\u00022\b\b\u0002\u0010\u0015\u001a\u00020\u00132\b\b\u0002\u0010\u0016\u001a\u00020\u0013H\u0007ø\u0001\u0000¢\u0006\u0004\b\u0017\u0010\u0018\u001a2\u0010\u0012\u001a\u00020\u0013*\u00020\u00072\u0006\u0010\u0014\u001a\u00020\u00062\b\b\u0002\u0010\u0015\u001a\u00020\u00132\b\b\u0002\u0010\u0016\u001a\u00020\u0013H\u0007ø\u0001\u0000¢\u0006\u0004\b\u0019\u0010\u001a\u001a2\u0010\u0012\u001a\u00020\u0013*\u00020\u000b2\u0006\u0010\u0014\u001a\u00020\n2\b\b\u0002\u0010\u0015\u001a\u00020\u00132\b\b\u0002\u0010\u0016\u001a\u00020\u0013H\u0007ø\u0001\u0000¢\u0006\u0004\b\u001b\u0010\u001c\u001a2\u0010\u0012\u001a\u00020\u0013*\u00020\u000f2\u0006\u0010\u0014\u001a\u00020\u000e2\b\b\u0002\u0010\u0015\u001a\u00020\u00132\b\b\u0002\u0010\u0016\u001a\u00020\u0013H\u0007ø\u0001\u0000¢\u0006\u0004\b\u001d\u0010\u001e\u001a\u001f\u0010\u001f\u001a\u00020\u0002*\u00020\u00032\u0006\u0010 \u001a\u00020\u0013H\u0087\bø\u0001\u0000¢\u0006\u0004\b!\u0010\"\u001a\u001f\u0010\u001f\u001a\u00020\u0006*\u00020\u00072\u0006\u0010 \u001a\u00020\u0013H\u0087\bø\u0001\u0000¢\u0006\u0004\b#\u0010$\u001a\u001f\u0010\u001f\u001a\u00020\n*\u00020\u000b2\u0006\u0010 \u001a\u00020\u0013H\u0087\bø\u0001\u0000¢\u0006\u0004\b%\u0010&\u001a\u001f\u0010\u001f\u001a\u00020\u000e*\u00020\u000f2\u0006\u0010 \u001a\u00020\u0013H\u0087\bø\u0001\u0000¢\u0006\u0004\b'\u0010(\u001a.\u0010)\u001a\u00020**\u00020\u00032\u0012\u0010+\u001a\u000e\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020*0,H\u0087\bø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b-\u0010.\u001a.\u0010)\u001a\u00020/*\u00020\u00032\u0012\u0010+\u001a\u000e\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020/0,H\u0087\bø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b0\u00101\u001a.\u0010)\u001a\u00020**\u00020\u00072\u0012\u0010+\u001a\u000e\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020*0,H\u0087\bø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b-\u00102\u001a.\u0010)\u001a\u00020/*\u00020\u00072\u0012\u0010+\u001a\u000e\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020/0,H\u0087\bø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b0\u00103\u001a.\u0010)\u001a\u00020**\u00020\u000b2\u0012\u0010+\u001a\u000e\u0012\u0004\u0012\u00020\n\u0012\u0004\u0012\u00020*0,H\u0087\bø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b-\u00104\u001a.\u0010)\u001a\u00020/*\u00020\u000b2\u0012\u0010+\u001a\u000e\u0012\u0004\u0012\u00020\n\u0012\u0004\u0012\u00020/0,H\u0087\bø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b0\u00105\u001a.\u0010)\u001a\u00020**\u00020\u000f2\u0012\u0010+\u001a\u000e\u0012\u0004\u0012\u00020\u000e\u0012\u0004\u0012\u00020*0,H\u0087\bø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b-\u00106\u001a.\u0010)\u001a\u00020/*\u00020\u000f2\u0012\u0010+\u001a\u000e\u0012\u0004\u0012\u00020\u000e\u0012\u0004\u0012\u00020/0,H\u0087\bø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b0\u00107\u0082\u0002\u000b\n\u0002\b\u0019\n\u0005\b\u009920\u0001¨\u00068"}, d2 = {"asList", "", "Lkotlin/UByte;", "Lkotlin/UByteArray;", "asList-GBYM_sE", "([B)Ljava/util/List;", "Lkotlin/UInt;", "Lkotlin/UIntArray;", "asList--ajY-9A", "([I)Ljava/util/List;", "Lkotlin/ULong;", "Lkotlin/ULongArray;", "asList-QwZRm1k", "([J)Ljava/util/List;", "Lkotlin/UShort;", "Lkotlin/UShortArray;", "asList-rL5Bavg", "([S)Ljava/util/List;", "binarySearch", "", "element", "fromIndex", "toIndex", "binarySearch-WpHrYlw", "([BBII)I", "binarySearch-2fe2U9s", "([IIII)I", "binarySearch-K6DWlUc", "([JJII)I", "binarySearch-EtDCXyQ", "([SSII)I", "elementAt", "index", "elementAt-PpDY95g", "([BI)B", "elementAt-qFRl0hI", "([II)I", "elementAt-r7IrZao", "([JI)J", "elementAt-nggk6HY", "([SI)S", "sumOf", "Ljava/math/BigDecimal;", "selector", "Lkotlin/Function1;", "sumOfBigDecimal", "([BLkotlin/jvm/functions/Function1;)Ljava/math/BigDecimal;", "Ljava/math/BigInteger;", "sumOfBigInteger", "([BLkotlin/jvm/functions/Function1;)Ljava/math/BigInteger;", "([ILkotlin/jvm/functions/Function1;)Ljava/math/BigDecimal;", "([ILkotlin/jvm/functions/Function1;)Ljava/math/BigInteger;", "([JLkotlin/jvm/functions/Function1;)Ljava/math/BigDecimal;", "([JLkotlin/jvm/functions/Function1;)Ljava/math/BigInteger;", "([SLkotlin/jvm/functions/Function1;)Ljava/math/BigDecimal;", "([SLkotlin/jvm/functions/Function1;)Ljava/math/BigInteger;", "kotlin-stdlib"}, k = 5, mv = {1, 6, 0}, pn = "kotlin.collections", xi = 49, xs = "kotlin/collections/unsigned/UArraysKt")
 /* loaded from: classes9.dex */
 public class UArraysKt___UArraysJvmKt {
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: asList--ajY-9A  reason: not valid java name */
-    public static final List<UInt> m1235asListajY9A(int[] asList) {
+    public static final List<UInt> m1236asListajY9A(int[] asList) {
         Intrinsics.checkNotNullParameter(asList, "$this$asList");
         return new UArraysKt___UArraysJvmKt$asList$1(asList);
     }
@@ -35,7 +35,7 @@ public class UArraysKt___UArraysJvmKt {
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: asList-GBYM_sE  reason: not valid java name */
-    public static final List<UByte> m1236asListGBYM_sE(byte[] asList) {
+    public static final List<UByte> m1237asListGBYM_sE(byte[] asList) {
         Intrinsics.checkNotNullParameter(asList, "$this$asList");
         return new UArraysKt___UArraysJvmKt$asList$3(asList);
     }
@@ -43,7 +43,7 @@ public class UArraysKt___UArraysJvmKt {
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: asList-QwZRm1k  reason: not valid java name */
-    public static final List<ULong> m1237asListQwZRm1k(long[] asList) {
+    public static final List<ULong> m1238asListQwZRm1k(long[] asList) {
         Intrinsics.checkNotNullParameter(asList, "$this$asList");
         return new UArraysKt___UArraysJvmKt$asList$2(asList);
     }
@@ -51,7 +51,7 @@ public class UArraysKt___UArraysJvmKt {
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: asList-rL5Bavg  reason: not valid java name */
-    public static final List<UShort> m1238asListrL5Bavg(short[] asList) {
+    public static final List<UShort> m1239asListrL5Bavg(short[] asList) {
         Intrinsics.checkNotNullParameter(asList, "$this$asList");
         return new UArraysKt___UArraysJvmKt$asList$4(asList);
     }
@@ -59,9 +59,9 @@ public class UArraysKt___UArraysJvmKt {
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: binarySearch-2fe2U9s  reason: not valid java name */
-    public static final int m1239binarySearch2fe2U9s(int[] binarySearch, int i, int i2, int i3) {
+    public static final int m1240binarySearch2fe2U9s(int[] binarySearch, int i, int i2, int i3) {
         Intrinsics.checkNotNullParameter(binarySearch, "$this$binarySearch");
-        AbstractList.Companion.checkRangeIndexes$kotlin_stdlib(i2, i3, UIntArray.m926getSizeimpl(binarySearch));
+        AbstractList.Companion.checkRangeIndexes$kotlin_stdlib(i2, i3, UIntArray.m927getSizeimpl(binarySearch));
         int i4 = i3 - 1;
         while (i2 <= i4) {
             int i5 = (i2 + i4) >>> 1;
@@ -80,9 +80,9 @@ public class UArraysKt___UArraysJvmKt {
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: binarySearch-EtDCXyQ  reason: not valid java name */
-    public static final int m1241binarySearchEtDCXyQ(short[] binarySearch, short s, int i, int i2) {
+    public static final int m1242binarySearchEtDCXyQ(short[] binarySearch, short s, int i, int i2) {
         Intrinsics.checkNotNullParameter(binarySearch, "$this$binarySearch");
-        AbstractList.Companion.checkRangeIndexes$kotlin_stdlib(i, i2, UShortArray.m1108getSizeimpl(binarySearch));
+        AbstractList.Companion.checkRangeIndexes$kotlin_stdlib(i, i2, UShortArray.m1109getSizeimpl(binarySearch));
         int i3 = s & UShort.MAX_VALUE;
         int i4 = i2 - 1;
         while (i <= i4) {
@@ -102,9 +102,9 @@ public class UArraysKt___UArraysJvmKt {
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: binarySearch-K6DWlUc  reason: not valid java name */
-    public static final int m1243binarySearchK6DWlUc(long[] binarySearch, long j, int i, int i2) {
+    public static final int m1244binarySearchK6DWlUc(long[] binarySearch, long j, int i, int i2) {
         Intrinsics.checkNotNullParameter(binarySearch, "$this$binarySearch");
-        AbstractList.Companion.checkRangeIndexes$kotlin_stdlib(i, i2, ULongArray.m1004getSizeimpl(binarySearch));
+        AbstractList.Companion.checkRangeIndexes$kotlin_stdlib(i, i2, ULongArray.m1005getSizeimpl(binarySearch));
         int i3 = i2 - 1;
         while (i <= i3) {
             int i4 = (i + i3) >>> 1;
@@ -123,9 +123,9 @@ public class UArraysKt___UArraysJvmKt {
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: binarySearch-WpHrYlw  reason: not valid java name */
-    public static final int m1245binarySearchWpHrYlw(byte[] binarySearch, byte b, int i, int i2) {
+    public static final int m1246binarySearchWpHrYlw(byte[] binarySearch, byte b, int i, int i2) {
         Intrinsics.checkNotNullParameter(binarySearch, "$this$binarySearch");
-        AbstractList.Companion.checkRangeIndexes$kotlin_stdlib(i, i2, UByteArray.m848getSizeimpl(binarySearch));
+        AbstractList.Companion.checkRangeIndexes$kotlin_stdlib(i, i2, UByteArray.m849getSizeimpl(binarySearch));
         int i3 = b & 255;
         int i4 = i2 - 1;
         while (i <= i4) {
@@ -143,79 +143,83 @@ public class UArraysKt___UArraysJvmKt {
     }
 
     /* renamed from: binarySearch-2fe2U9s$default  reason: not valid java name */
-    public static /* synthetic */ int m1240binarySearch2fe2U9s$default(int[] iArr, int i, int i2, int i3, int i4, Object obj) {
+    public static /* synthetic */ int m1241binarySearch2fe2U9s$default(int[] iArr, int i, int i2, int i3, int i4, Object obj) {
         if ((i4 & 2) != 0) {
             i2 = 0;
         }
         if ((i4 & 4) != 0) {
-            i3 = UIntArray.m926getSizeimpl(iArr);
+            i3 = UIntArray.m927getSizeimpl(iArr);
         }
-        return m1239binarySearch2fe2U9s(iArr, i, i2, i3);
+        return m1240binarySearch2fe2U9s(iArr, i, i2, i3);
     }
 
     /* renamed from: binarySearch-EtDCXyQ$default  reason: not valid java name */
-    public static /* synthetic */ int m1242binarySearchEtDCXyQ$default(short[] sArr, short s, int i, int i2, int i3, Object obj) {
+    public static /* synthetic */ int m1243binarySearchEtDCXyQ$default(short[] sArr, short s, int i, int i2, int i3, Object obj) {
         if ((i3 & 2) != 0) {
             i = 0;
         }
         if ((i3 & 4) != 0) {
-            i2 = UShortArray.m1108getSizeimpl(sArr);
+            i2 = UShortArray.m1109getSizeimpl(sArr);
         }
-        return m1241binarySearchEtDCXyQ(sArr, s, i, i2);
+        return m1242binarySearchEtDCXyQ(sArr, s, i, i2);
     }
 
     /* renamed from: binarySearch-K6DWlUc$default  reason: not valid java name */
-    public static /* synthetic */ int m1244binarySearchK6DWlUc$default(long[] jArr, long j, int i, int i2, int i3, Object obj) {
+    public static /* synthetic */ int m1245binarySearchK6DWlUc$default(long[] jArr, long j, int i, int i2, int i3, Object obj) {
         if ((i3 & 2) != 0) {
             i = 0;
         }
         if ((i3 & 4) != 0) {
-            i2 = ULongArray.m1004getSizeimpl(jArr);
+            i2 = ULongArray.m1005getSizeimpl(jArr);
         }
-        return m1243binarySearchK6DWlUc(jArr, j, i, i2);
+        return m1244binarySearchK6DWlUc(jArr, j, i, i2);
     }
 
     /* renamed from: binarySearch-WpHrYlw$default  reason: not valid java name */
-    public static /* synthetic */ int m1246binarySearchWpHrYlw$default(byte[] bArr, byte b, int i, int i2, int i3, Object obj) {
+    public static /* synthetic */ int m1247binarySearchWpHrYlw$default(byte[] bArr, byte b, int i, int i2, int i3, Object obj) {
         if ((i3 & 2) != 0) {
             i = 0;
         }
         if ((i3 & 4) != 0) {
-            i2 = UByteArray.m848getSizeimpl(bArr);
+            i2 = UByteArray.m849getSizeimpl(bArr);
         }
-        return m1245binarySearchWpHrYlw(bArr, b, i, i2);
+        return m1246binarySearchWpHrYlw(bArr, b, i, i2);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: elementAt-PpDY95g  reason: not valid java name */
-    public static final byte m1247elementAtPpDY95g(byte[] bArr, int i) {
-        return UByteArray.m847getw2LRezQ(bArr, i);
+    public static final byte m1248elementAtPpDY95g(byte[] elementAt, int i) {
+        Intrinsics.checkNotNullParameter(elementAt, "$this$elementAt");
+        return UByteArray.m848getw2LRezQ(elementAt, i);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: elementAt-nggk6HY  reason: not valid java name */
-    public static final short m1248elementAtnggk6HY(short[] sArr, int i) {
-        return UShortArray.m1107getMh2AYeg(sArr, i);
+    public static final short m1249elementAtnggk6HY(short[] elementAt, int i) {
+        Intrinsics.checkNotNullParameter(elementAt, "$this$elementAt");
+        return UShortArray.m1108getMh2AYeg(elementAt, i);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: elementAt-qFRl0hI  reason: not valid java name */
-    public static final int m1249elementAtqFRl0hI(int[] iArr, int i) {
-        return UIntArray.m925getpVg5ArA(iArr, i);
+    public static final int m1250elementAtqFRl0hI(int[] elementAt, int i) {
+        Intrinsics.checkNotNullParameter(elementAt, "$this$elementAt");
+        return UIntArray.m926getpVg5ArA(elementAt, i);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: elementAt-r7IrZao  reason: not valid java name */
-    public static final long m1250elementAtr7IrZao(long[] jArr, int i) {
-        return ULongArray.m1003getsVKNKU(jArr, i);
+    public static final long m1251elementAtr7IrZao(long[] elementAt, int i) {
+        Intrinsics.checkNotNullParameter(elementAt, "$this$elementAt");
+        return ULongArray.m1004getsVKNKU(elementAt, i);
     }
 
     @SinceKotlin(version = "1.4")
@@ -223,11 +227,14 @@ public class UArraysKt___UArraysJvmKt {
     @InlineOnly
     @JvmName(name = "sumOfBigDecimal")
     @OverloadResolutionByLambdaReturnType
-    public static final BigDecimal sumOfBigDecimal(byte[] bArr, Function1<? super UByte, ? extends BigDecimal> function1) {
-        BigDecimal valueOf = BigDecimal.valueOf(0);
-        Intrinsics.checkNotNullExpressionValue(valueOf, "BigDecimal.valueOf(this.toLong())");
-        for (byte b : bArr) {
-            valueOf = valueOf.add(function1.invoke(UByte.m784boximpl(b)));
+    public static final BigDecimal sumOfBigDecimal(byte[] sumOf, Function1<? super UByte, ? extends BigDecimal> selector) {
+        Intrinsics.checkNotNullParameter(sumOf, "$this$sumOf");
+        Intrinsics.checkNotNullParameter(selector, "selector");
+        BigDecimal valueOf = BigDecimal.valueOf(0L);
+        Intrinsics.checkNotNullExpressionValue(valueOf, "valueOf(this.toLong())");
+        int m849getSizeimpl = UByteArray.m849getSizeimpl(sumOf);
+        for (int i = 0; i < m849getSizeimpl; i++) {
+            valueOf = valueOf.add(selector.invoke(UByte.m785boximpl(UByteArray.m848getw2LRezQ(sumOf, i))));
             Intrinsics.checkNotNullExpressionValue(valueOf, "this.add(other)");
         }
         return valueOf;
@@ -238,11 +245,14 @@ public class UArraysKt___UArraysJvmKt {
     @InlineOnly
     @JvmName(name = "sumOfBigInteger")
     @OverloadResolutionByLambdaReturnType
-    public static final BigInteger sumOfBigInteger(byte[] bArr, Function1<? super UByte, ? extends BigInteger> function1) {
-        BigInteger valueOf = BigInteger.valueOf(0);
-        Intrinsics.checkNotNullExpressionValue(valueOf, "BigInteger.valueOf(this.toLong())");
-        for (byte b : bArr) {
-            valueOf = valueOf.add(function1.invoke(UByte.m784boximpl(b)));
+    public static final BigInteger sumOfBigInteger(byte[] sumOf, Function1<? super UByte, ? extends BigInteger> selector) {
+        Intrinsics.checkNotNullParameter(sumOf, "$this$sumOf");
+        Intrinsics.checkNotNullParameter(selector, "selector");
+        BigInteger valueOf = BigInteger.valueOf(0L);
+        Intrinsics.checkNotNullExpressionValue(valueOf, "valueOf(this.toLong())");
+        int m849getSizeimpl = UByteArray.m849getSizeimpl(sumOf);
+        for (int i = 0; i < m849getSizeimpl; i++) {
+            valueOf = valueOf.add(selector.invoke(UByte.m785boximpl(UByteArray.m848getw2LRezQ(sumOf, i))));
             Intrinsics.checkNotNullExpressionValue(valueOf, "this.add(other)");
         }
         return valueOf;
@@ -253,11 +263,14 @@ public class UArraysKt___UArraysJvmKt {
     @InlineOnly
     @JvmName(name = "sumOfBigDecimal")
     @OverloadResolutionByLambdaReturnType
-    public static final BigDecimal sumOfBigDecimal(int[] iArr, Function1<? super UInt, ? extends BigDecimal> function1) {
-        BigDecimal valueOf = BigDecimal.valueOf(0);
-        Intrinsics.checkNotNullExpressionValue(valueOf, "BigDecimal.valueOf(this.toLong())");
-        for (int i : iArr) {
-            valueOf = valueOf.add(function1.invoke(UInt.m860boximpl(i)));
+    public static final BigDecimal sumOfBigDecimal(int[] sumOf, Function1<? super UInt, ? extends BigDecimal> selector) {
+        Intrinsics.checkNotNullParameter(sumOf, "$this$sumOf");
+        Intrinsics.checkNotNullParameter(selector, "selector");
+        BigDecimal valueOf = BigDecimal.valueOf(0L);
+        Intrinsics.checkNotNullExpressionValue(valueOf, "valueOf(this.toLong())");
+        int m927getSizeimpl = UIntArray.m927getSizeimpl(sumOf);
+        for (int i = 0; i < m927getSizeimpl; i++) {
+            valueOf = valueOf.add(selector.invoke(UInt.m861boximpl(UIntArray.m926getpVg5ArA(sumOf, i))));
             Intrinsics.checkNotNullExpressionValue(valueOf, "this.add(other)");
         }
         return valueOf;
@@ -268,11 +281,14 @@ public class UArraysKt___UArraysJvmKt {
     @InlineOnly
     @JvmName(name = "sumOfBigInteger")
     @OverloadResolutionByLambdaReturnType
-    public static final BigInteger sumOfBigInteger(int[] iArr, Function1<? super UInt, ? extends BigInteger> function1) {
-        BigInteger valueOf = BigInteger.valueOf(0);
-        Intrinsics.checkNotNullExpressionValue(valueOf, "BigInteger.valueOf(this.toLong())");
-        for (int i : iArr) {
-            valueOf = valueOf.add(function1.invoke(UInt.m860boximpl(i)));
+    public static final BigInteger sumOfBigInteger(int[] sumOf, Function1<? super UInt, ? extends BigInteger> selector) {
+        Intrinsics.checkNotNullParameter(sumOf, "$this$sumOf");
+        Intrinsics.checkNotNullParameter(selector, "selector");
+        BigInteger valueOf = BigInteger.valueOf(0L);
+        Intrinsics.checkNotNullExpressionValue(valueOf, "valueOf(this.toLong())");
+        int m927getSizeimpl = UIntArray.m927getSizeimpl(sumOf);
+        for (int i = 0; i < m927getSizeimpl; i++) {
+            valueOf = valueOf.add(selector.invoke(UInt.m861boximpl(UIntArray.m926getpVg5ArA(sumOf, i))));
             Intrinsics.checkNotNullExpressionValue(valueOf, "this.add(other)");
         }
         return valueOf;
@@ -283,11 +299,14 @@ public class UArraysKt___UArraysJvmKt {
     @InlineOnly
     @JvmName(name = "sumOfBigDecimal")
     @OverloadResolutionByLambdaReturnType
-    public static final BigDecimal sumOfBigDecimal(long[] jArr, Function1<? super ULong, ? extends BigDecimal> function1) {
-        BigDecimal valueOf = BigDecimal.valueOf(0);
-        Intrinsics.checkNotNullExpressionValue(valueOf, "BigDecimal.valueOf(this.toLong())");
-        for (long j : jArr) {
-            valueOf = valueOf.add(function1.invoke(ULong.m938boximpl(j)));
+    public static final BigDecimal sumOfBigDecimal(long[] sumOf, Function1<? super ULong, ? extends BigDecimal> selector) {
+        Intrinsics.checkNotNullParameter(sumOf, "$this$sumOf");
+        Intrinsics.checkNotNullParameter(selector, "selector");
+        BigDecimal valueOf = BigDecimal.valueOf(0L);
+        Intrinsics.checkNotNullExpressionValue(valueOf, "valueOf(this.toLong())");
+        int m1005getSizeimpl = ULongArray.m1005getSizeimpl(sumOf);
+        for (int i = 0; i < m1005getSizeimpl; i++) {
+            valueOf = valueOf.add(selector.invoke(ULong.m939boximpl(ULongArray.m1004getsVKNKU(sumOf, i))));
             Intrinsics.checkNotNullExpressionValue(valueOf, "this.add(other)");
         }
         return valueOf;
@@ -298,11 +317,14 @@ public class UArraysKt___UArraysJvmKt {
     @InlineOnly
     @JvmName(name = "sumOfBigInteger")
     @OverloadResolutionByLambdaReturnType
-    public static final BigInteger sumOfBigInteger(long[] jArr, Function1<? super ULong, ? extends BigInteger> function1) {
-        BigInteger valueOf = BigInteger.valueOf(0);
-        Intrinsics.checkNotNullExpressionValue(valueOf, "BigInteger.valueOf(this.toLong())");
-        for (long j : jArr) {
-            valueOf = valueOf.add(function1.invoke(ULong.m938boximpl(j)));
+    public static final BigInteger sumOfBigInteger(long[] sumOf, Function1<? super ULong, ? extends BigInteger> selector) {
+        Intrinsics.checkNotNullParameter(sumOf, "$this$sumOf");
+        Intrinsics.checkNotNullParameter(selector, "selector");
+        BigInteger valueOf = BigInteger.valueOf(0L);
+        Intrinsics.checkNotNullExpressionValue(valueOf, "valueOf(this.toLong())");
+        int m1005getSizeimpl = ULongArray.m1005getSizeimpl(sumOf);
+        for (int i = 0; i < m1005getSizeimpl; i++) {
+            valueOf = valueOf.add(selector.invoke(ULong.m939boximpl(ULongArray.m1004getsVKNKU(sumOf, i))));
             Intrinsics.checkNotNullExpressionValue(valueOf, "this.add(other)");
         }
         return valueOf;
@@ -313,11 +335,14 @@ public class UArraysKt___UArraysJvmKt {
     @InlineOnly
     @JvmName(name = "sumOfBigDecimal")
     @OverloadResolutionByLambdaReturnType
-    public static final BigDecimal sumOfBigDecimal(short[] sArr, Function1<? super UShort, ? extends BigDecimal> function1) {
-        BigDecimal valueOf = BigDecimal.valueOf(0);
-        Intrinsics.checkNotNullExpressionValue(valueOf, "BigDecimal.valueOf(this.toLong())");
-        for (short s : sArr) {
-            valueOf = valueOf.add(function1.invoke(UShort.m1044boximpl(s)));
+    public static final BigDecimal sumOfBigDecimal(short[] sumOf, Function1<? super UShort, ? extends BigDecimal> selector) {
+        Intrinsics.checkNotNullParameter(sumOf, "$this$sumOf");
+        Intrinsics.checkNotNullParameter(selector, "selector");
+        BigDecimal valueOf = BigDecimal.valueOf(0L);
+        Intrinsics.checkNotNullExpressionValue(valueOf, "valueOf(this.toLong())");
+        int m1109getSizeimpl = UShortArray.m1109getSizeimpl(sumOf);
+        for (int i = 0; i < m1109getSizeimpl; i++) {
+            valueOf = valueOf.add(selector.invoke(UShort.m1045boximpl(UShortArray.m1108getMh2AYeg(sumOf, i))));
             Intrinsics.checkNotNullExpressionValue(valueOf, "this.add(other)");
         }
         return valueOf;
@@ -328,11 +353,14 @@ public class UArraysKt___UArraysJvmKt {
     @InlineOnly
     @JvmName(name = "sumOfBigInteger")
     @OverloadResolutionByLambdaReturnType
-    public static final BigInteger sumOfBigInteger(short[] sArr, Function1<? super UShort, ? extends BigInteger> function1) {
-        BigInteger valueOf = BigInteger.valueOf(0);
-        Intrinsics.checkNotNullExpressionValue(valueOf, "BigInteger.valueOf(this.toLong())");
-        for (short s : sArr) {
-            valueOf = valueOf.add(function1.invoke(UShort.m1044boximpl(s)));
+    public static final BigInteger sumOfBigInteger(short[] sumOf, Function1<? super UShort, ? extends BigInteger> selector) {
+        Intrinsics.checkNotNullParameter(sumOf, "$this$sumOf");
+        Intrinsics.checkNotNullParameter(selector, "selector");
+        BigInteger valueOf = BigInteger.valueOf(0L);
+        Intrinsics.checkNotNullExpressionValue(valueOf, "valueOf(this.toLong())");
+        int m1109getSizeimpl = UShortArray.m1109getSizeimpl(sumOf);
+        for (int i = 0; i < m1109getSizeimpl; i++) {
+            valueOf = valueOf.add(selector.invoke(UShort.m1045boximpl(UShortArray.m1108getMh2AYeg(sumOf, i))));
             Intrinsics.checkNotNullExpressionValue(valueOf, "this.add(other)");
         }
         return valueOf;

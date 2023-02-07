@@ -1,171 +1,93 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Array;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class wc implements dd {
+public class wc extends DiskFileOperate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Object a;
+    public String a;
+    public String b;
 
-    public wc(Object obj) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wc(String str, String str2, DiskFileOperate.Action action) {
+        super(str, str2, action);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {obj};
+            Object[] objArr = {str, str2, action};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1], (DiskFileOperate.Action) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (obj != null && obj.getClass().isArray()) {
-            this.a = obj;
-        }
+        this.a = null;
+        this.b = "UTF-8";
     }
 
-    @Override // com.baidu.tieba.dd
-    public Object a(me meVar) {
-        InterceptResult invokeL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, meVar)) == null) {
-            Object f = f(meVar);
-            if (f != null) {
-                if (f instanceof JSONObject) {
-                    return f.toString();
-                }
-                if (f instanceof JSONArray) {
-                    return f.toString();
-                }
-                return f;
-            }
-            return null;
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.dd
-    public Object b(me meVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, meVar)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.dd
-    public Object c(me meVar) {
-        InterceptResult invokeL;
+    @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
+    public byte[] buildFormatData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, meVar)) == null) {
-            return this.a;
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.dd
-    public Object e(me meVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, meVar)) == null) {
-            return d(meVar);
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.dd
-    public Object d(me meVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, meVar)) == null) {
-            Object obj = this.a;
-            if (obj != null) {
-                Class<?> componentType = obj.getClass().getComponentType();
-                if (componentType == Boolean.TYPE) {
-                    return this.a;
-                }
-                if (componentType == Byte.TYPE) {
-                    return this.a;
-                }
-                if (componentType == Character.TYPE) {
-                    return this.a;
-                }
-                if (componentType == Double.TYPE) {
-                    return this.a;
-                }
-                if (componentType == Float.TYPE) {
-                    return this.a;
-                }
-                if (componentType == Integer.TYPE) {
-                    return this.a;
-                }
-                if (componentType == Long.TYPE) {
-                    return this.a;
-                }
-                if (componentType == Short.TYPE) {
-                    return this.a;
-                }
-                if (componentType == String.class) {
-                    return this.a;
-                }
-                int length = Array.getLength(this.a);
-                JSONArray jSONArray = new JSONArray();
-                for (int i = 0; i < length; i++) {
-                    Object f = pe.a(Array.get(this.a, i)).f(new me(componentType));
-                    if (f != null) {
-                        jSONArray.put(f);
-                    }
-                }
-                return jSONArray.toString();
-            }
-            return null;
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.dd
-    public Object f(me meVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, meVar)) == null) {
-            Object obj = this.a;
-            if (obj != null) {
-                Class<?> componentType = obj.getClass().getComponentType();
-                if (componentType == Character.TYPE) {
-                    return String.valueOf((char[]) this.a);
-                }
-                if (componentType == Byte.TYPE) {
-                    try {
-                        ri.k((byte[]) this.a, 0);
-                    } catch (Exception unused) {
-                        return null;
-                    }
-                } else {
-                    int length = Array.getLength(this.a);
-                    JSONArray jSONArray = new JSONArray();
-                    for (int i = 0; i < length; i++) {
-                        Object f = pe.a(Array.get(this.a, i)).f(new me(componentType));
-                        if (f != null) {
-                            jSONArray.put(f);
-                        }
-                    }
-                    return jSONArray;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            String str = this.a;
+            if (str != null) {
+                try {
+                    return str.getBytes(this.b);
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
                 }
             }
             return null;
         }
-        return invokeL.objValue;
+        return (byte[]) invokeV.objValue;
+    }
+
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
+    public boolean formatData(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bArr)) == null) {
+            if (bArr == null) {
+                return false;
+            }
+            try {
+                this.a = new String(bArr, this.b);
+                return true;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
     }
 }

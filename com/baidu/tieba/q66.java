@@ -1,182 +1,183 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.ala.AlaSharedPrefConfig;
+import com.baidu.ala.AlaSharedPrefHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.browser.BrowserHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
-public class q66 {
+public class q66 extends qn<g76, CardViewHolder<e86>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, String> a;
-    public final HashMap<String, String> b;
-    public ConcurrentHashMap<String, r66> c;
+    public TbPageContext a;
+    public TextView b;
+    public String c;
+    public String d;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final q66 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-535637510, "Lcom/baidu/tieba/q66$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-535637510, "Lcom/baidu/tieba/q66$b;");
-                    return;
-                }
-            }
-            a = new q66(null);
+    public final void x(x66 x66Var, e86 e86Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048582, this, x66Var, e86Var) != null) || x66Var == null || e86Var == null) {
         }
     }
 
-    public q66() {
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ q66 a;
+
+        public a(q66 q66Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q66Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = q66Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+                return;
+            }
+            this.a.u();
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public q66(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), g76.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
-        this.b = new HashMap<>();
-        this.c = new ConcurrentHashMap<>();
+        this.a = tbPageContext;
     }
 
-    public /* synthetic */ q66(a aVar) {
-        this();
-    }
-
-    public r66 c(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: v */
+    public CardViewHolder<e86> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            ConcurrentHashMap<String, r66> concurrentHashMap = this.c;
-            if (concurrentHashMap == null) {
-                return null;
-            }
-            return concurrentHashMap.get(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
+            return new CardViewHolder<>(new e86(this.a));
         }
-        return (r66) invokeL.objValue;
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    public void g(HashMap<String, r66> hashMap) {
+    public final void t(g76 g76Var, e86 e86Var) {
+        x66 c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, hashMap) == null) {
-            this.c.clear();
-            if (hashMap == null) {
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, g76Var, e86Var) == null) && (c = g76Var.c()) != null && e86Var != null) {
+            this.b = e86Var.r();
+            this.c = c.b().user_id;
+            x(c, e86Var);
+            e86Var.w(8);
+            e86Var.x(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0245));
+            e86Var.j(this.a, TbadkCoreApplication.getInst().getSkinType());
+        }
+    }
+
+    public final void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            AlaSharedPrefHelper.getInstance().putBoolean(AlaSharedPrefConfig.ALA_MY_LIVE_PRIVILEGE_HAS_ENTERED, true);
+            y(this.b, this.d, false);
+            StatisticItem statisticItem = new StatisticItem("c13333");
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            TiebaStatic.log(statisticItem);
+            String s = p35.m().s("ala_personal_privilege_detail_url", "http://lumotian.rmb.rmb.otp.baidu.com/cashliveui/privilege.html");
+            if (s == null) {
                 return;
             }
-            this.c.putAll(hashMap);
-        }
-    }
-
-    public static q66 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (q66) invokeV.objValue;
-    }
-
-    public ConcurrentHashMap<String, r66> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (ConcurrentHashMap) invokeV.objValue;
-    }
-
-    public void d(String str) {
-        ConcurrentHashMap<String, r66> concurrentHashMap;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && !TextUtils.isEmpty(str) && (concurrentHashMap = this.c) != null) {
-            Iterator<String> it = concurrentHashMap.keySet().iterator();
-            while (it.hasNext()) {
-                r66 r66Var = this.c.get(it.next());
-                if (r66Var != null && str.equals(r66Var.b)) {
-                    it.remove();
-                }
+            if (s.endsWith("/")) {
+                s = s.substring(0, s.length() - 1);
             }
-        }
-    }
-
-    public void e(boolean z) {
-        ConcurrentHashMap<String, r66> concurrentHashMap;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048579, this, z) != null) || (concurrentHashMap = this.c) == null) {
-            return;
-        }
-        for (String str : concurrentHashMap.keySet()) {
-            r66 r66Var = this.c.get(str);
-            if (r66Var != null) {
-                r66Var.e = z;
+            String str = this.c;
+            StringBuilder sb = new StringBuilder();
+            sb.append("id=");
+            sb.append(str);
+            if (!s.contains("?")) {
+                sb.insert(0, "?");
+            } else {
+                sb.insert(0, "&");
             }
+            sb.insert(0, s);
+            BrowserHelper.p(this.a.getPageActivity(), sb.toString());
         }
     }
 
-    public void f(boolean z, String str) {
-        ConcurrentHashMap<String, r66> concurrentHashMap;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: w */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, g76 g76Var, CardViewHolder<e86> cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZL(1048580, this, z, str) == null) && !TextUtils.isEmpty(str) && (concurrentHashMap = this.c) != null) {
-            for (String str2 : concurrentHashMap.keySet()) {
-                r66 r66Var = this.c.get(str2);
-                if (r66Var != null && str.equals(r66Var.b)) {
-                    r66Var.e = z;
-                }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, g76Var, cardViewHolder})) == null) {
+            if (cardViewHolder.a() == null) {
+                return null;
             }
+            t(g76Var, cardViewHolder.a());
+            cardViewHolder.a().h().setOnClickListener(new a(this));
+            return cardViewHolder.a().h();
         }
+        return (View) invokeCommon.objValue;
     }
 
-    public void h(String str, String str2) {
+    public final void y(TextView textView, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            this.a.put(str, str2);
-        }
-    }
-
-    public void i(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            this.b.put(str, str2);
-        }
-    }
-
-    public void j(String str, HashMap<String, r66> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, hashMap) == null) {
-            if (this.c == null) {
-                this.c = new ConcurrentHashMap<>();
+        if ((interceptable == null || interceptable.invokeLLZ(1048583, this, textView, str, z) == null) && textView != null && this.a != null) {
+            if (z) {
+                textView.setText("");
+                Drawable drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0801e2);
+                drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+                textView.setCompoundDrawables(null, null, drawable, null);
+                return;
             }
-            d(str);
-            this.c.putAll(hashMap);
+            if (str != null) {
+                textView.setText(str);
+            } else {
+                textView.setText("");
+            }
+            textView.setCompoundDrawables(null, null, null, null);
         }
     }
 }

@@ -1,68 +1,93 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Bundle;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.person.PersonMoreData;
+import com.baidu.tieba.person.PersonMoreItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class di8 extends BaseCardInfo {
+public class di8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId l;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public boolean c;
-    public String d;
-    public String e;
-    public long f;
-    public String g;
-    public String h;
-    public boolean i;
-    public int j;
-    public int k;
+    public ei8 a;
+    public TbPageContext b;
+    public List<Cdo> c;
+    public PersonMoreData d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947705622, "Lcom/baidu/tieba/di8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947705622, "Lcom/baidu/tieba/di8;");
-                return;
-            }
-        }
-        l = BdUniqueId.gen();
-    }
-
-    public di8() {
+    public di8(TbPageContext tbPageContext, Bundle bundle, ld6<ej8> ld6Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bundle, ld6Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = tbPageContext;
+        ei8 ei8Var = new ei8(tbPageContext);
+        this.a = ei8Var;
+        ei8Var.f(ld6Var);
+        a(bundle);
+    }
+
+    public final void a(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) && bundle != null && (bundle.get(PersonMoreData.URL_MAPS) instanceof ArrayList)) {
+            this.d = new PersonMoreData();
+            this.d.mUrlMaps.addAll(DataExt.toEntityList(bundle.getStringArrayList(PersonMoreData.URL_MAPS).toString(), PersonMoreItemData.class));
+        }
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c = new ArrayList();
+            PersonMoreData personMoreData = this.d;
+            if (personMoreData != null && !ListUtils.isEmpty(personMoreData.mUrlMaps)) {
+                for (PersonMoreItemData personMoreItemData : this.d.mUrlMaps) {
+                    if (personMoreItemData != null && !StringUtils.isNull(personMoreItemData.mUrl)) {
+                        ej8 ej8Var = new ej8();
+                        ej8Var.e = personMoreItemData.mName;
+                        ej8Var.a = 36;
+                        ej8Var.g = personMoreItemData.mUrl;
+                        ej8Var.k = personMoreItemData.mId;
+                        this.c.add(ej8Var);
+                    }
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return l;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b.getPageActivity().setContentView(R.layout.obfuscated_res_0x7f0d071d);
+            this.a.c(this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091a55));
+            b();
+            this.a.e(this.c);
         }
-        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void d() {
+        ei8 ei8Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (ei8Var = this.a) != null) {
+            ei8Var.d();
+        }
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.tbadk.switchs;
 
-import com.baidu.tieba.cz4;
+import com.baidu.tieba.p35;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +32,7 @@ public class LaunchViewOptSwitch extends BaseNormalSwitch {
         }
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.lf
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.qf
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -58,7 +58,7 @@ public class LaunchViewOptSwitch extends BaseNormalSwitch {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (type > 1) {
-                type = cz4.l().m(KEY_SWITCH, 1);
+                type = p35.m().n(KEY_SWITCH, 1);
             }
             if (type == 1) {
                 return true;

@@ -5,18 +5,18 @@ import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b23;
-import com.baidu.tieba.k23;
-import com.baidu.tieba.m23;
+import com.baidu.tieba.o63;
+import com.baidu.tieba.x63;
+import com.baidu.tieba.z63;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class SPSwitchFSPanelLinearLayout extends LinearLayout implements m23 {
+public class SPSwitchFSPanelLinearLayout extends LinearLayout implements z63 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b23 a;
+    public o63 a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SPSwitchFSPanelLinearLayout(Context context) {
@@ -85,11 +85,11 @@ public class SPSwitchFSPanelLinearLayout extends LinearLayout implements m23 {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = new b23(this);
+            this.a = new o63(this);
         }
     }
 
-    @Override // com.baidu.tieba.m23
+    @Override // com.baidu.tieba.z63
     public void onSoftInputShowing(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
@@ -97,11 +97,11 @@ public class SPSwitchFSPanelLinearLayout extends LinearLayout implements m23 {
         }
     }
 
-    @Override // com.baidu.tieba.m23
+    @Override // com.baidu.tieba.z63
     public void refreshHeight(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            k23.g(this, i);
+            x63.g(this, i);
         }
     }
 }

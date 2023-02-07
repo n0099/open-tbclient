@@ -1,9 +1,14 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import androidx.annotation.Nullable;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 /* loaded from: classes5.dex */
-public interface io {
-    void b(View view2, yn ynVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j);
+public interface io<T> extends eo<T> {
+    int b(int i, int i2);
+
+    qn<Cdo, TypeAdapter.ViewHolder> c(Cdo cdo);
+
+    void notifyItemChanged(int i);
+
+    void notifyItemChanged(int i, @Nullable Object obj);
 }

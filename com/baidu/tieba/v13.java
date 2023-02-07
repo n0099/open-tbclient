@@ -1,33 +1,24 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.KeyEvent;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.EditText;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.publisher.emoji.view.EmojiBagLayout;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public class v13 {
     public static /* synthetic */ Interceptable $ic;
-    @SuppressLint({"StaticFieldLeak"})
-    public static v13 d;
-    public static Context e;
     public transient /* synthetic */ FieldHolder $fh;
-    public EditText a;
-    public boolean b;
-    public Runnable c;
+    public final Map<String, Map<String, HybridUbcFlow>> a;
+    public final Map<String, pn3<HybridUbcFlow>> b;
+    public final pn3<HybridUbcFlow> c;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public class a implements pn3<HybridUbcFlow> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ v13 a;
@@ -50,148 +41,14 @@ public class v13 {
             this.a = v13Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.pn3
+        /* renamed from: b */
+        public void a(HybridUbcFlow hybridUbcFlow) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a.dispatchKeyEvent(new KeyEvent(0, 67));
-                this.a.a.postDelayed(this.a.c, 60L);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
+                this.a.g(hybridUbcFlow.p);
             }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements AdapterView.OnItemClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v13 a;
-
-        public b(v13 v13Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v13Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = v13Var;
-        }
-
-        @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                Object adapter = adapterView.getAdapter();
-                if (adapter instanceof EmojiBagLayout.b) {
-                    EmojiBagLayout.b bVar = (EmojiBagLayout.b) adapter;
-                    if (this.a.a == null) {
-                        return;
-                    }
-                    if (i == bVar.getCount() - 1) {
-                        if (this.a.b) {
-                            this.a.a.removeCallbacks(this.a.c);
-                            this.a.b = false;
-                            return;
-                        }
-                        this.a.a.dispatchKeyEvent(new KeyEvent(0, 67));
-                        return;
-                    }
-                    String item = bVar.getItem(i);
-                    if (!TextUtils.isEmpty(item)) {
-                        this.a.a.getEditableText().insert(this.a.a.getSelectionStart(), w13.c().g(v13.e, item, this.a.a));
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements AdapterView.OnItemLongClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v13 a;
-
-        public c(v13 v13Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v13Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = v13Var;
-        }
-
-        @Override // android.widget.AdapterView.OnItemLongClickListener
-        public boolean onItemLongClick(AdapterView<?> adapterView, View view2, int i, long j) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)})) == null) {
-                Object adapter = adapterView.getAdapter();
-                if (!(adapter instanceof EmojiBagLayout.b) || i != ((EmojiBagLayout.b) adapter).getCount() - 1) {
-                    return false;
-                }
-                this.a.b = true;
-                if (this.a.a != null) {
-                    this.a.a.post(this.a.c);
-                    return false;
-                }
-                return false;
-            }
-            return invokeCommon.booleanValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements View.OnTouchListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v13 a;
-
-        public d(v13 v13Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v13Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = v13Var;
-        }
-
-        @Override // android.view.View.OnTouchListener
-        public boolean onTouch(View view2, MotionEvent motionEvent) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                if (motionEvent.getAction() == 1) {
-                    this.a.k();
-                    return false;
-                }
-                return false;
-            }
-            return invokeLL.booleanValue;
         }
     }
 
@@ -208,65 +65,125 @@ public class v13 {
                 return;
             }
         }
+        this.a = new HashMap();
+        this.b = new HashMap();
         this.c = new a(this);
     }
 
-    public AdapterView.OnItemClickListener h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return new b(this);
-        }
-        return (AdapterView.OnItemClickListener) invokeV.objValue;
-    }
-
-    public AdapterView.OnItemLongClickListener i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return new c(this);
-        }
-        return (AdapterView.OnItemLongClickListener) invokeV.objValue;
-    }
-
-    public View.OnTouchListener j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return new d(this);
-        }
-        return (View.OnTouchListener) invokeV.objValue;
-    }
-
-    public void k() {
-        EditText editText;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (editText = this.a) != null) {
-            editText.removeCallbacks(this.c);
-        }
-    }
-
-    public void f(EditText editText) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, editText) == null) {
-            this.a = editText;
-        }
-    }
-
-    public static v13 g(Context context) {
+    public final HybridUbcFlow a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            e = context.getApplicationContext();
-            if (d == null) {
-                synchronized (v13.class) {
-                    if (d == null) {
-                        d = new v13();
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            HybridUbcFlow hybridUbcFlow = new HybridUbcFlow(str);
+            hybridUbcFlow.H("callback_on_submit", this.c);
+            pn3<HybridUbcFlow> pn3Var = this.b.get(str);
+            if (pn3Var != null) {
+                pn3Var.a(hybridUbcFlow);
             }
-            return d;
+            return hybridUbcFlow;
+        }
+        return (HybridUbcFlow) invokeL.objValue;
+    }
+
+    public HybridUbcFlow b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return c(str, "default");
+        }
+        return (HybridUbcFlow) invokeL.objValue;
+    }
+
+    public synchronized HybridUbcFlow e(String str) {
+        InterceptResult invokeL;
+        HybridUbcFlow f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            synchronized (this) {
+                f = f(str, "default");
+            }
+            return f;
+        }
+        return (HybridUbcFlow) invokeL.objValue;
+    }
+
+    public v13 g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            synchronized (this.a) {
+                this.a.remove(str);
+            }
+            return this;
         }
         return (v13) invokeL.objValue;
+    }
+
+    public HybridUbcFlow c(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            synchronized (this.a) {
+                Map<String, HybridUbcFlow> map = this.a.get(str);
+                if (map == null) {
+                    return null;
+                }
+                return map.get(str2);
+            }
+        }
+        return (HybridUbcFlow) invokeLL.objValue;
+    }
+
+    public v13 d(String str, pn3<HybridUbcFlow> pn3Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, pn3Var)) == null) {
+            synchronized (this.b) {
+                this.b.put(str, pn3Var);
+            }
+            return this;
+        }
+        return (v13) invokeLL.objValue;
+    }
+
+    public v13 h(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) {
+            synchronized (this.a) {
+                Map<String, HybridUbcFlow> map = this.a.get(str);
+                if (map != null) {
+                    map.remove(str2);
+                }
+            }
+            return this;
+        }
+        return (v13) invokeLL.objValue;
+    }
+
+    public synchronized HybridUbcFlow f(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
+            synchronized (this) {
+                synchronized (this.a) {
+                    Map<String, HybridUbcFlow> map = this.a.get(str);
+                    if (map == null) {
+                        HashMap hashMap = new HashMap();
+                        HybridUbcFlow a2 = a(str);
+                        hashMap.put(str2, a2);
+                        this.a.put(str, hashMap);
+                        return a2;
+                    }
+                    HybridUbcFlow hybridUbcFlow = map.get(str2);
+                    if (hybridUbcFlow == null) {
+                        hybridUbcFlow = a(str);
+                        map.put(str2, hybridUbcFlow);
+                    }
+                    return hybridUbcFlow;
+                }
+            }
+        }
+        return (HybridUbcFlow) invokeLL.objValue;
     }
 }

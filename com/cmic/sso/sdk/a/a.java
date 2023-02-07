@@ -33,12 +33,12 @@ public class a implements Cloneable {
 
     /* renamed from: com.cmic.sso.sdk.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0530a {
+    public static class C0534a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final a a;
 
-        public C0530a() {
+        public C0534a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -63,121 +63,121 @@ public class a implements Cloneable {
             return (a) invokeV.objValue;
         }
 
-        public C0530a a(int i) {
+        public C0534a a(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeI = interceptable.invokeI(1048576, this, i)) != null) {
-                return (C0530a) invokeI.objValue;
+                return (C0534a) invokeI.objValue;
             }
             this.a.k = i;
             return this;
         }
 
-        public C0530a b(int i) {
+        public C0534a b(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeI = interceptable.invokeI(1048580, this, i)) != null) {
-                return (C0530a) invokeI.objValue;
+                return (C0534a) invokeI.objValue;
             }
             this.a.l = i;
             return this;
         }
 
-        public C0530a c(String str) {
+        public C0534a c(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeL = interceptable.invokeL(1048583, this, str)) != null) {
-                return (C0530a) invokeL.objValue;
+                return (C0534a) invokeL.objValue;
             }
             this.a.c = str;
             return this;
         }
 
-        public C0530a d(String str) {
+        public C0534a d(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeL = interceptable.invokeL(1048585, this, str)) != null) {
-                return (C0530a) invokeL.objValue;
+                return (C0534a) invokeL.objValue;
             }
             this.a.d = str;
             return this;
         }
 
-        public C0530a e(boolean z) {
+        public C0534a e(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeZ = interceptable.invokeZ(1048587, this, z)) != null) {
-                return (C0530a) invokeZ.objValue;
+                return (C0534a) invokeZ.objValue;
             }
             this.a.i = z;
             return this;
         }
 
-        public C0530a f(boolean z) {
+        public C0534a f(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeZ = interceptable.invokeZ(1048588, this, z)) != null) {
-                return (C0530a) invokeZ.objValue;
+                return (C0534a) invokeZ.objValue;
             }
             this.a.j = z;
             return this;
         }
 
-        public C0530a a(String str) {
+        public C0534a a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) != null) {
-                return (C0530a) invokeL.objValue;
+                return (C0534a) invokeL.objValue;
             }
             this.a.a = str;
             return this;
         }
 
-        public C0530a b(String str) {
+        public C0534a b(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeL = interceptable.invokeL(1048581, this, str)) != null) {
-                return (C0530a) invokeL.objValue;
+                return (C0534a) invokeL.objValue;
             }
             this.a.b = str;
             return this;
         }
 
-        public C0530a c(boolean z) {
+        public C0534a c(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) != null) {
-                return (C0530a) invokeZ.objValue;
+                return (C0534a) invokeZ.objValue;
             }
             this.a.g = z;
             return this;
         }
 
-        public C0530a d(boolean z) {
+        public C0534a d(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeZ = interceptable.invokeZ(1048586, this, z)) != null) {
-                return (C0530a) invokeZ.objValue;
+                return (C0534a) invokeZ.objValue;
             }
             this.a.h = z;
             return this;
         }
 
-        public C0530a a(boolean z) {
+        public C0534a a(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) != null) {
-                return (C0530a) invokeZ.objValue;
+                return (C0534a) invokeZ.objValue;
             }
             this.a.e = z;
             return this;
         }
 
-        public C0530a b(boolean z) {
+        public C0534a b(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeZ = interceptable.invokeZ(1048582, this, z)) != null) {
-                return (C0530a) invokeZ.objValue;
+                return (C0534a) invokeZ.objValue;
             }
             this.a.f = z;
             return this;

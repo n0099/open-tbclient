@@ -1,89 +1,91 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.zxing.client.result.ResultParser;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class rk4 {
+public class rk4 extends fk4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static byte[] a(InputStream inputStream) {
-        InterceptResult invokeL;
-        int i;
+    public rk4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, inputStream)) == null) {
-            if (inputStream == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            byte[] bArr = new byte[1024];
-            while (true) {
-                try {
-                    i = inputStream.read(bArr, 0, 1024);
-                } catch (IOException unused) {
-                    i = 0;
-                }
-                if (i != -1) {
-                    byteArrayOutputStream.write(bArr, 0, i);
-                } else {
-                    byte[] byteArray = byteArrayOutputStream.toByteArray();
-                    nk4.d(byteArrayOutputStream);
-                    return byteArray;
-                }
-            }
-        } else {
-            return (byte[]) invokeL.objValue;
         }
     }
 
-    public static String c(InputStream inputStream) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.fk4
+    public JSONObject d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
             try {
-                byte[] a = a(inputStream);
-                if (a != null) {
-                    String str = new String(a);
-                    if (str.startsWith(ResultParser.BYTE_ORDER_MARK)) {
-                        str = str.substring(1);
-                    }
-                    nk4.d(inputStream);
-                    return str;
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("version", uk4.b().d());
+                jSONObject.put("tipmsgs", jSONObject2);
+                JSONObject jSONObject3 = new JSONObject();
+                el4.b();
+                jSONObject3.put("version", el4.c());
+                jSONObject.put("web_degrade_strategy", jSONObject3);
+                JSONObject jSONObject4 = new JSONObject();
+                jSONObject4.put("version", al4.a().b());
+                jSONObject.put("pkg_preload", jSONObject4);
+                JSONObject jSONObject5 = new JSONObject();
+                jSONObject5.put("version", qk4.b().c());
+                jSONObject.put("pkg_clean_strategy", jSONObject5);
+                JSONObject jSONObject6 = new JSONObject();
+                jSONObject6.put("version", tk4.a().b());
+                jSONObject.put("getpkg_retry_switch", jSONObject6);
+                JSONObject jSONObject7 = new JSONObject();
+                jSONObject7.put("version", gl4.d());
+                jSONObject.put("update_expire_time", jSONObject7);
+                JSONObject jSONObject8 = new JSONObject();
+                jSONObject8.put("version", yk4.f().h());
+                jSONObject.put("page_tips", jSONObject8);
+                if (cl4.a) {
+                    JSONObject jSONObject9 = new JSONObject();
+                    jSONObject9.put("version", cl4.b);
+                    jSONObject.put("heartbeat", jSONObject9);
                 }
-            } catch (Exception unused) {
-            } catch (Throwable th) {
-                nk4.d(inputStream);
-                throw th;
+                JSONObject jSONObject10 = new JSONObject();
+                jSONObject10.put("version", vk4.a().b());
+                jSONObject.put("local_debug", jSONObject10);
+                JSONObject jSONObject11 = new JSONObject();
+                jSONObject11.put("version", hg4.a().a());
+                jSONObject.put(hg4.a().c(), jSONObject11);
+                if (dl4.b()) {
+                    JSONObject jSONObject12 = new JSONObject();
+                    jSONObject12.put("version", dl4.a());
+                    jSONObject.put("api_description", jSONObject12);
+                }
+                JSONObject jSONObject13 = new JSONObject();
+                jSONObject13.put("version", fl4.b().c());
+                jSONObject.put("tts", jSONObject13);
+                new JSONObject().put("version", wk4.a().c());
+                jSONObject.put("no_history_apps", jSONObject13);
+                JSONObject jSONObject14 = new JSONObject();
+                jSONObject14.put("version", il4.d());
+                jSONObject.put("app_inner_preload", jSONObject14);
+                JSONObject jSONObject15 = new JSONObject();
+                jSONObject15.put("version", bl4.a().b());
+                jSONObject.put("simple_control_item", jSONObject15);
+            } catch (JSONException unused) {
             }
-            nk4.d(inputStream);
-            return null;
+            return jSONObject;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            try {
-                return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-                return str;
-            }
-        }
-        return (String) invokeL.objValue;
+        return (JSONObject) invokeV.objValue;
     }
 }

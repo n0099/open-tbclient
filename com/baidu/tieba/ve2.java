@@ -1,11 +1,11 @@
 package com.baidu.tieba;
 
+import android.preference.PreferenceManager;
 import android.util.Log;
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
-import com.baidu.tieba.vf2;
-import com.baidu.tieba.yf2;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,20 +13,43 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public abstract class ve2<P extends vf2, R extends yf2> {
+public class ve2 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public P a;
-    @NonNull
-    public R b;
+    public re2 a;
+    public HashMap<String, se2> b;
 
-    public abstract String b(int i);
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
 
-    @Nullable
-    public abstract ExtensionCore c();
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ve2 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-349205432, "Lcom/baidu/tieba/ve2$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-349205432, "Lcom/baidu/tieba/ve2$b;");
+                    return;
+                }
+            }
+            a = new ve2(null);
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -41,42 +64,43 @@ public abstract class ve2<P extends vf2, R extends yf2> {
                 return;
             }
         }
-        c = tk1.a;
+        c = gp1.a;
     }
 
-    @NonNull
-    public P e() {
+    public static ve2 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
         }
-        return (P) invokeV.objValue;
+        return (ve2) invokeV.objValue;
     }
 
-    @NonNull
-    public R f() {
+    public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getBoolean("sp_swan_sdcard_preset", false);
         }
-        return (R) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public void h() {
+    public final re2 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.a.q();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (c && d()) {
+                return new ue2();
+            }
+            return new qe2();
         }
+        return (re2) invokeV.objValue;
     }
 
-    public ve2(@NonNull P p, @NonNull R r) {
+    public ve2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {p, r};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -86,59 +110,37 @@ public abstract class ve2<P extends vf2, R extends yf2> {
                 return;
             }
         }
-        this.a = p;
-        this.b = r;
+        long currentTimeMillis = System.currentTimeMillis();
+        re2 a2 = a();
+        this.a = a2;
+        this.b = a2.h();
+        if (c) {
+            Log.d("SwanAppPresetManager", "构造PresetMap耗时：" + (System.currentTimeMillis() - currentTimeMillis));
+        }
     }
 
-    public <T extends pf2> Exception a(T t) {
+    public /* synthetic */ ve2(a aVar) {
+        this();
+    }
+
+    @Nullable
+    public se2 c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
-            if (t == null) {
-                return new Exception("ExtCore-Manager doRemoteUpdate: null updateInfo");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            HashMap<String, se2> hashMap = this.b;
+            if (hashMap != null) {
+                return hashMap.get(str);
             }
-            return this.b.e(t);
+            return null;
         }
-        return (Exception) invokeL.objValue;
+        return (se2) invokeL.objValue;
     }
 
-    public void g(@Nullable cj3<Exception> cj3Var) {
+    public void e(se2 se2Var, te2 te2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, cj3Var) == null) {
-            this.a.p(cj3Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, se2Var, te2Var) == null) {
+            this.a.k(se2Var, te2Var);
         }
-    }
-
-    @NonNull
-    public ExtensionCore d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int c2 = this.a.a.c();
-            if (ag2.f(c2)) {
-                ExtensionCore extensionCore = new ExtensionCore();
-                extensionCore.extensionCoreVersionCode = 0L;
-                extensionCore.extensionCoreVersionName = "0";
-                extensionCore.extensionCorePath = b(c2);
-                extensionCore.extensionCoreType = 2;
-                if (c) {
-                    Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: debug=>" + extensionCore.toString());
-                }
-                return extensionCore;
-            }
-            ExtensionCore h = this.a.h();
-            ExtensionCore f = this.b.f();
-            if (h.extensionCoreVersionCode < f.extensionCoreVersionCode && f.isAvailable()) {
-                if (c) {
-                    Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: remote=>" + f.toString());
-                }
-                return f;
-            }
-            if (c) {
-                Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: preset=>" + h.toString());
-            }
-            return h;
-        }
-        return (ExtensionCore) invokeV.objValue;
     }
 }

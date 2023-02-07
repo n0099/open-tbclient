@@ -1,78 +1,84 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
+import android.content.Context;
+import android.graphics.Rect;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tbadk.switchs.ThreadCardImgClickToPBSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.TimerTask;
 /* loaded from: classes6.dex */
-public final class tp5 extends TimerTask {
+public class tp5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public final WheelView d;
 
-    public tp5(WheelView wheelView, int i) {
+    public static boolean a(Context context, String str, sw4 sw4Var) {
+        InterceptResult invokeLLL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wheelView, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, str, sw4Var)) == null) {
+            if (context == null || sw4Var == null) {
+                return false;
             }
+            if ("index".equals(str)) {
+                i = 2;
+            } else if (ImageViewerConfig.FROM_CONCERN.equals(str)) {
+                i = 1;
+            } else if ("hot_topic".equals(str)) {
+                i = 0;
+            } else if ("frs".equals(str)) {
+                i = 3;
+            } else {
+                i = -1;
+            }
+            if (i == -1) {
+                return false;
+            }
+            ThreadCardUtils.jumpToPB(sw4Var.getThreadData().originalThreadData, context, i, (Rect) null, sw4Var.getThreadData().getForum_name());
+            return true;
         }
-        this.d = wheelView;
-        this.c = i;
-        this.a = Integer.MAX_VALUE;
-        this.b = 0;
+        return invokeLLL.booleanValue;
     }
 
-    @Override // java.util.TimerTask, java.lang.Runnable
-    public final void run() {
+    public static boolean b(Context context, String str, sw4 sw4Var) {
+        InterceptResult invokeLLL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.a == Integer.MAX_VALUE) {
-                this.a = this.c;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, str, sw4Var)) == null) {
+            if (context == null || sw4Var == null) {
+                return false;
             }
-            int i = this.a;
-            int i2 = (int) (i * 0.1f);
-            this.b = i2;
-            if (i2 == 0) {
-                if (i < 0) {
-                    this.b = -1;
-                } else {
-                    this.b = 1;
-                }
+            if ("index".equals(str)) {
+                i = 2;
+            } else if (ImageViewerConfig.FROM_CONCERN.equals(str)) {
+                i = 1;
+            } else if ("hot_topic".equals(str)) {
+                i = 0;
+            } else if ("frs".equals(str)) {
+                i = 3;
+            } else {
+                i = -1;
             }
-            if (Math.abs(this.a) <= 1) {
-                this.d.b();
-                this.d.getHandler().sendEmptyMessage(3000);
-                return;
+            if (i == -1) {
+                return false;
             }
-            WheelView wheelView = this.d;
-            wheelView.setTotalScrollY(wheelView.getTotalScrollY() + this.b);
-            if (!this.d.i()) {
-                float itemHeight = this.d.getItemHeight();
-                float itemsCount = ((this.d.getItemsCount() - 1) - this.d.getInitPosition()) * itemHeight;
-                if (this.d.getTotalScrollY() <= (-this.d.getInitPosition()) * itemHeight || this.d.getTotalScrollY() >= itemsCount) {
-                    WheelView wheelView2 = this.d;
-                    wheelView2.setTotalScrollY(wheelView2.getTotalScrollY() - this.b);
-                    this.d.b();
-                    this.d.getHandler().sendEmptyMessage(3000);
-                    return;
-                }
-            }
-            this.d.getHandler().sendEmptyMessage(1000);
-            this.a -= this.b;
+            ThreadCardUtils.jumpToPB(sw4Var, context, i, false);
+            return true;
         }
+        return invokeLLL.booleanValue;
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (ThreadCardImgClickToPBSwitch.getIsOn() && UbsABTestHelper.isImgClickToPb()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

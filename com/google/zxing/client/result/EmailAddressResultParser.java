@@ -1,5 +1,6 @@
 package com.google.zxing.client.result;
 
+import androidx.core.net.MailTo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,8 +8,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebView;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import com.google.zxing.Result;
 import java.util.Map;
 import java.util.regex.Pattern;
@@ -64,7 +63,7 @@ public final class EmailAddressResultParser extends ResultParser {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, result)) == null) {
             String massagedText = ResultParser.getMassagedText(result);
             String[] strArr6 = null;
-            if (!massagedText.startsWith(WebView.SCHEME_MAILTO) && !massagedText.startsWith("MAILTO:")) {
+            if (!massagedText.startsWith("mailto:") && !massagedText.startsWith("MAILTO:")) {
                 if (!EmailDoCoMoResultParser.isBasicallyValidEmailAddress(massagedText)) {
                     return null;
                 }
@@ -84,24 +83,24 @@ public final class EmailAddressResultParser extends ResultParser {
                 }
                 Map<String, String> parseNameValuePairs = ResultParser.parseNameValuePairs(massagedText);
                 if (parseNameValuePairs != null) {
-                    if (strArr == null && (str3 = parseNameValuePairs.get("to")) != null) {
+                    if (strArr == null && (str3 = parseNameValuePairs.get(MailTo.TO)) != null) {
                         strArr = COMMA.split(str3);
                     }
-                    String str4 = parseNameValuePairs.get("cc");
+                    String str4 = parseNameValuePairs.get(MailTo.CC);
                     if (str4 != null) {
                         strArr5 = COMMA.split(str4);
                     } else {
                         strArr5 = null;
                     }
-                    String str5 = parseNameValuePairs.get("bcc");
+                    String str5 = parseNameValuePairs.get(MailTo.BCC);
                     if (str5 != null) {
                         strArr6 = COMMA.split(str5);
                     }
-                    str2 = parseNameValuePairs.get(TtmlNode.TAG_BODY);
+                    str2 = parseNameValuePairs.get("body");
                     strArr2 = strArr;
                     strArr4 = strArr6;
                     strArr3 = strArr5;
-                    str = parseNameValuePairs.get("subject");
+                    str = parseNameValuePairs.get(MailTo.SUBJECT);
                 } else {
                     strArr2 = strArr;
                     strArr3 = null;

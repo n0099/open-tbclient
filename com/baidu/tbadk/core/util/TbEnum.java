@@ -217,7 +217,8 @@ public abstract class TbEnum {
         public static final int MSG_CONTENT_TYPE_SYSTEM_MUZZLE_ALL = 7005;
         public static final short MSG_CONTENT_TYPE_SYSTEM_NOTICE_MODIFY = 7001;
         public static final int MSG_CONTENT_TYPE_SYSTEM_ONLY_MANAGER_CAN_TALK = 7013;
-        public static final short MSG_CONTENT_TYPE_SYSTEM_RECALL_MSG = 7002;
+        public static final int MSG_CONTENT_TYPE_SYSTEM_RECALL_MSG = 7002;
+        public static final int MSG_CONTENT_TYPE_SYSTEM_RECALL_MSG_PERSONAL = 7015;
         public static final int MSG_CONTENT_TYPE_SYSTEM_SHARE_FORUM = 7009;
         public static final int MSG_CONTENT_TYPE_SYSTEM_SHARE_THREAD = 7010;
         public static final int MSG_CONTENT_TYPE_SYSTEM_THRESHOLD_POST = 7011;

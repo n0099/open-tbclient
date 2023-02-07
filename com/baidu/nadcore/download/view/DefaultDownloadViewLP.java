@@ -13,21 +13,21 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jl0;
-import com.baidu.tieba.qk0;
+import com.baidu.tieba.cl0;
+import com.baidu.tieba.vl0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class DefaultDownloadViewLP extends FrameLayout implements jl0<DefaultDownloadViewLP> {
+public class DefaultDownloadViewLP extends FrameLayout implements vl0<DefaultDownloadViewLP> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BannerDownloadView a;
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jl0
+    @Override // com.baidu.tieba.vl0
     @NonNull
     public DefaultDownloadViewLP getRealView() {
         InterceptResult invokeV;
@@ -121,7 +121,7 @@ public class DefaultDownloadViewLP extends FrameLayout implements jl0<DefaultDow
         }
     }
 
-    @Override // com.baidu.tieba.jl0
+    @Override // com.baidu.tieba.vl0
     public void b(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, viewGroup) != null) || !(viewGroup instanceof RelativeLayout)) {
@@ -158,13 +158,13 @@ public class DefaultDownloadViewLP extends FrameLayout implements jl0<DefaultDow
         findViewById.setVisibility(i);
     }
 
-    @Override // com.baidu.tieba.jl0
-    public void update(String str, @NonNull qk0 qk0Var) {
+    @Override // com.baidu.tieba.vl0
+    public void update(String str, @NonNull cl0 cl0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, qk0Var) == null) {
-            if (qk0Var.c == AdDownloadStatus.DOWNLOADING) {
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, cl0Var) == null) {
+            if (cl0Var.c == AdDownloadStatus.DOWNLOADING) {
                 str = getResources().getString(R.string.nad_download_progress_text) + str;
-                setProgress(qk0Var.i);
+                setProgress(cl0Var.i);
             } else {
                 setProgress(0.0f);
             }

@@ -1,152 +1,99 @@
 package com.baidu.tieba;
 
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.AbstractHttpManager;
-import com.baidu.searchbox.http.request.HttpCommonRequest;
-import com.baidu.searchbox.http.request.HttpCommonRequestBuilder;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tieba.hx1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.Request;
-import okhttp3.RequestBody;
+import java.util.ArrayList;
+import java.util.Iterator;
+@Service
 /* loaded from: classes5.dex */
-public class pb4 extends HttpCommonRequest<a> {
+public class pb4 extends hx1 implements iq1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<hx1.a> a;
 
-    /* loaded from: classes5.dex */
-    public static class a extends HttpCommonRequestBuilder<a> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(AbstractHttpManager abstractHttpManager) {
-            super(abstractHttpManager);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {abstractHttpManager};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((AbstractHttpManager) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public a(pb4 pb4Var) {
-            this(pb4Var, null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pb4Var};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    this((pb4) objArr2[0], (AbstractHttpManager) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(pb4 pb4Var, AbstractHttpManager abstractHttpManager) {
-            super(pb4Var, abstractHttpManager);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pb4Var, abstractHttpManager};
-                interceptable.invokeUnInit(65538, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((HttpCommonRequest) objArr2[0], (AbstractHttpManager) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65538, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.request.HttpRequestBuilder
-        /* renamed from: a */
-        public pb4 build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new pb4(this);
-            }
-            return (pb4) invokeV.objValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pb4(a aVar) {
-        super(aVar);
+    public pb4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((HttpCommonRequestBuilder) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new ArrayList<>();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.http.request.HttpRequest
-    /* renamed from: a */
-    public a newBuilder() {
+    @Nullable
+    public static pb4 c() {
+        InterceptResult invokeV;
+        t44 t44Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            f82 V = ju2.U().V();
+            if (V == null || (t44Var = (t44) V.n(t44.class)) == null) {
+                return null;
+            }
+            return t44Var.u3();
+        }
+        return (pb4) invokeV.objValue;
+    }
+
+    public synchronized void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                Iterator<hx1.a> it = this.a.iterator();
+                while (it.hasNext()) {
+                    it.next().a();
+                }
+                this.a.clear();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.iq1
+    public hx1 getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return c();
         }
-        return (a) invokeV.objValue;
+        return (hx1) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.http.request.HttpRequest
-    /* renamed from: b */
-    public a newBuilder(AbstractHttpManager abstractHttpManager) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.hx1
+    public synchronized void a(hx1.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, abstractHttpManager)) == null) {
-            return new a(this, abstractHttpManager);
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            synchronized (this) {
+                if (!this.a.contains(aVar)) {
+                    this.a.add(aVar);
+                }
+            }
         }
-        return (a) invokeL.objValue;
     }
 
-    @Override // com.baidu.searchbox.http.request.HttpRequest
-    public Request buildOkRequest(RequestBody requestBody) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.hx1
+    public synchronized void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, requestBody)) == null) {
-            return this.okRequestBuilder.method("CONNECT", requestBody).build();
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            synchronized (this) {
+                Iterator<hx1.a> it = this.a.iterator();
+                while (it.hasNext()) {
+                    it.next().b(i);
+                }
+            }
         }
-        return (Request) invokeL.objValue;
     }
 }

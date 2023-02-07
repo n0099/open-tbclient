@@ -1,76 +1,75 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import android.os.Build;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.ArrayMap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.Locale;
-import javax.net.ssl.HttpsURLConnection;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class uh1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
+    public static Bundle a(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (str == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, map)) == null) {
+            Bundle bundle = new Bundle();
+            for (String str : map.keySet()) {
+                bundle.putString(str, map.get(str));
             }
-            if (c(str).booleanValue() || d(str).booleanValue()) {
-                return str.split("\\?")[0];
-            }
-            return str;
+            return bundle;
         }
-        return (String) invokeL.objValue;
+        return (Bundle) invokeL.objValue;
     }
 
-    public static HttpURLConnection b(URL url) throws IOException {
+    public static JSONObject b(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, url)) == null) {
-            if (url.getProtocol().toLowerCase().equals("https")) {
-                th1.a();
-                return (HttpsURLConnection) url.openConnection();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, map)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            for (String str : map.keySet()) {
+                jSONObject.put(str, map.get(str));
             }
-            return (HttpURLConnection) url.openConnection();
+            return jSONObject;
         }
-        return (HttpURLConnection) invokeL.objValue;
+        return (JSONObject) invokeL.objValue;
     }
 
-    public static Boolean c(String str) {
+    public static Map<String, String> d(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return e(str, UrlSchemaHelper.SCHEMA_TYPE_HTTP);
-        }
-        return (Boolean) invokeL.objValue;
-    }
-
-    public static Boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            return e(str, UrlSchemaHelper.SCHEMA_TYPE_HTTPS);
-        }
-        return (Boolean) invokeL.objValue;
-    }
-
-    public static Boolean e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
-            boolean z = false;
-            if (str != null && str.trim().toLowerCase(Locale.getDefault()).indexOf(str2) == 0) {
-                z = true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
+            Map<String, String> c = c();
+            if (jSONObject != null) {
+                Iterator<String> keys = jSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    if (!TextUtils.isEmpty(next)) {
+                        c.put(next, jSONObject.optString(next));
+                    }
+                }
             }
-            return Boolean.valueOf(z);
+            return c;
         }
-        return (Boolean) invokeLL.objValue;
+        return (Map) invokeL.objValue;
+    }
+
+    public static <K, V> Map<K, V> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 19) {
+                return new ArrayMap();
+            }
+            return new HashMap();
+        }
+        return (Map) invokeV.objValue;
     }
 }

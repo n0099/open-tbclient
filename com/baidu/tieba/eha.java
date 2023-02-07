@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -8,14 +9,47 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
-import tv.athena.revenue.payui.model.ThemeColorConfig;
+import java.util.concurrent.ThreadFactory;
+import rx.internal.util.RxThreadFactory;
 /* loaded from: classes4.dex */
-public final class eha {
+public class eha {
     public static /* synthetic */ Interceptable $ic;
     public static final eha a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public wca g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (wca) invokeV.objValue;
+    }
+
+    public wca i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (wca) invokeV.objValue;
+    }
+
+    public wca j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (wca) invokeV.objValue;
+    }
+
+    @Deprecated
+    public gda k(gda gdaVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, gdaVar)) == null) ? gdaVar : (gda) invokeL.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -47,42 +81,75 @@ public final class eha {
         }
     }
 
-    public final int a(PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeL;
-        ThemeColorConfig themeColorConfig;
+    public static wca a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, payUIKitConfig)) == null) {
-            if (payUIKitConfig != null && (themeColorConfig = payUIKitConfig.themeColorConfig) != null && themeColorConfig.getThemeResId() != null) {
-                Integer themeResId = payUIKitConfig.themeColorConfig.getThemeResId();
-                if (themeResId == null) {
-                    Intrinsics.throwNpe();
-                }
-                return themeResId.intValue();
-            }
-            return R.style.obfuscated_res_0x7f10014f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b(new RxThreadFactory("RxComputationScheduler-"));
         }
-        return invokeL.intValue;
+        return (wca) invokeV.objValue;
     }
 
-    public final boolean b(PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeL;
-        ThemeColorConfig themeColorConfig;
-        Integer num;
+    public static wca c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, payUIKitConfig)) == null) {
-            if (payUIKitConfig == null || (themeColorConfig = payUIKitConfig.themeColorConfig) == null) {
-                return true;
-            }
-            if (themeColorConfig != null) {
-                num = themeColorConfig.getThemeResId();
-            } else {
-                num = null;
-            }
-            if (num != null && num.intValue() == R.style.obfuscated_res_0x7f10014f) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return d(new RxThreadFactory("RxIoScheduler-"));
         }
-        return invokeL.booleanValue;
+        return (wca) invokeV.objValue;
+    }
+
+    public static wca e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return f(new RxThreadFactory("RxNewThreadScheduler-"));
+        }
+        return (wca) invokeV.objValue;
+    }
+
+    public static eha h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return a;
+        }
+        return (eha) invokeV.objValue;
+    }
+
+    public static wca b(ThreadFactory threadFactory) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, threadFactory)) == null) {
+            if (threadFactory != null) {
+                return new oea(threadFactory);
+            }
+            throw new NullPointerException("threadFactory == null");
+        }
+        return (wca) invokeL.objValue;
+    }
+
+    public static wca d(ThreadFactory threadFactory) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, threadFactory)) == null) {
+            if (threadFactory != null) {
+                return new nea(threadFactory);
+            }
+            throw new NullPointerException("threadFactory == null");
+        }
+        return (wca) invokeL.objValue;
+    }
+
+    public static wca f(ThreadFactory threadFactory) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, threadFactory)) == null) {
+            if (threadFactory != null) {
+                return new sea(threadFactory);
+            }
+            throw new NullPointerException("threadFactory == null");
+        }
+        return (wca) invokeL.objValue;
     }
 }

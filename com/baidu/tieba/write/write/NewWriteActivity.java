@@ -30,24 +30,24 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cx4;
-import com.baidu.tieba.dz8;
-import com.baidu.tieba.ee9;
-import com.baidu.tieba.pf9;
-import com.baidu.tieba.rw4;
-import com.baidu.tieba.sf9;
-import com.baidu.tieba.tf9;
-import com.baidu.tieba.tw4;
+import com.baidu.tieba.e15;
+import com.baidu.tieba.ei9;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.g15;
+import com.baidu.tieba.i39;
+import com.baidu.tieba.p15;
+import com.baidu.tieba.pj9;
+import com.baidu.tieba.sj9;
+import com.baidu.tieba.tj9;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.zg9;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.zk9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class NewWriteActivity extends BaseFragmentActivity implements pf9, VoiceManager.j {
+public class NewWriteActivity extends BaseFragmentActivity implements pj9, VoiceManager.j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -60,11 +60,11 @@ public class NewWriteActivity extends BaseFragmentActivity implements pf9, Voice
     @Nullable
     public View h;
     @Nullable
-    public ee9 i;
+    public ei9 i;
     @Nullable
-    public zg9 j;
+    public zk9 j;
     @Nullable
-    public sf9 k;
+    public sj9 k;
     public boolean l;
     public boolean m;
     public final CustomMessageListener n;
@@ -73,13 +73,13 @@ public class NewWriteActivity extends BaseFragmentActivity implements pf9, Voice
     public VoiceManager.i c1(VoiceData.VoiceModel voiceModel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, voiceModel)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, voiceModel)) == null) {
             return null;
         }
         return (VoiceManager.i) invokeL.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.kf5
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.vj5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -118,9 +118,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements pf9, Voice
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                sf9 sf9Var = this.a.k;
-                if (sf9Var != null) {
-                    sf9Var.j();
+                sj9 sj9Var = this.a.k;
+                if (sj9Var != null) {
+                    sj9Var.j();
                 }
                 this.a.setResult(100);
                 this.a.finish();
@@ -157,9 +157,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements pf9, Voice
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                sf9 sf9Var = this.a.k;
-                if (sf9Var != null) {
-                    sf9Var.C();
+                sj9 sj9Var = this.a.k;
+                if (sj9Var != null) {
+                    sj9Var.C();
                     return false;
                 }
                 return false;
@@ -196,9 +196,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements pf9, Voice
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                sf9 sf9Var = this.a.k;
-                if (sf9Var != null) {
-                    sf9Var.s();
+                sj9 sj9Var = this.a.k;
+                if (sj9Var != null) {
+                    sj9Var.s();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921756));
                 }
                 this.a.h.setVisibility(8);
@@ -234,7 +234,7 @@ public class NewWriteActivity extends BaseFragmentActivity implements pf9, Voice
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.P0("6");
+                this.a.q1("6");
                 this.a.h.setVisibility(8);
             }
         }
@@ -273,11 +273,11 @@ public class NewWriteActivity extends BaseFragmentActivity implements pf9, Voice
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-                sf9 sf9Var = this.a.k;
-                if (sf9Var != null) {
-                    sf9Var.B();
+                sj9 sj9Var = this.a.k;
+                if (sj9Var != null) {
+                    sj9Var.B();
                 }
-                zi.z(this.a.getActivity(), this.a.getCurrentFocus());
+                ej.z(this.a.getActivity(), this.a.getCurrentFocus());
                 return super.onFling(motionEvent, motionEvent2, f, f2);
             }
             return invokeCommon.booleanValue;
@@ -300,39 +300,35 @@ public class NewWriteActivity extends BaseFragmentActivity implements pf9, Voice
         this.n = new a(this, 2921622);
     }
 
-    @Override // com.baidu.tieba.pf9
-    public void A() {
+    @Override // com.baidu.tieba.pj9
+    public void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            R0();
+            u0().stopPlay();
         }
     }
 
-    public boolean Q0() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.pj9
+    public void L0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ee9 ee9Var = this.i;
-            if (ee9Var != null && ee9Var.a()) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.m = true;
+            finish();
         }
-        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.pf9
-    public void c() {
+    @Override // com.baidu.tieba.pj9
+    public void O() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.c.scrollTo(0, this.d.getHeight());
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            s1();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void closeAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (this.l) {
                 ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 1);
             } else {
@@ -341,10 +337,18 @@ public class NewWriteActivity extends BaseFragmentActivity implements pf9, Voice
         }
     }
 
+    @Override // com.baidu.tieba.pj9
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.c.scrollTo(0, this.d.getHeight());
+        }
+    }
+
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void enterExitAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             if (this.l) {
                 ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 1);
             } else {
@@ -355,12 +359,29 @@ public class NewWriteActivity extends BaseFragmentActivity implements pf9, Voice
 
     @Override // androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
-        sf9 sf9Var;
+        sj9 sj9Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            ee9 ee9Var = this.i;
-            if ((ee9Var == null || !ee9Var.d()) && (sf9Var = this.k) != null) {
-                sf9Var.onBackPressed();
+            ei9 ei9Var = this.i;
+            if ((ei9Var == null || !ei9Var.d()) && (sj9Var = this.k) != null) {
+                sj9Var.onBackPressed();
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            super.onDestroy();
+            sj9 sj9Var = this.k;
+            if (sj9Var != null) {
+                sj9Var.onDestroy();
+            }
+            K();
+            u0().onDestory(getPageContext());
+            if (!this.m) {
+                i39.h(null);
             }
         }
     }
@@ -370,13 +391,14 @@ public class NewWriteActivity extends BaseFragmentActivity implements pf9, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             super.onPause();
-            sf9 sf9Var = this.k;
-            if (sf9Var != null) {
-                sf9Var.onPause();
+            sj9 sj9Var = this.k;
+            if (sj9Var != null) {
+                sj9Var.onPause();
+                this.k.h();
             }
-            t0().onPause();
-            zi.z(this, getCurrentFocus());
-            tw4.p(rw4.n);
+            u0().onPause();
+            ej.z(this, getCurrentFocus());
+            g15.p(e15.n);
         }
     }
 
@@ -385,12 +407,12 @@ public class NewWriteActivity extends BaseFragmentActivity implements pf9, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             super.onResume();
-            sf9 sf9Var = this.k;
-            if (sf9Var != null) {
-                sf9Var.onResume();
+            sj9 sj9Var = this.k;
+            if (sj9Var != null) {
+                sj9Var.onResume();
             }
-            t0().onResume(getPageContext());
-            tw4.q(this, rw4.n);
+            u0().onResume(getPageContext());
+            g15.q(this, e15.n);
         }
     }
 
@@ -399,11 +421,11 @@ public class NewWriteActivity extends BaseFragmentActivity implements pf9, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             super.onStart();
-            sf9 sf9Var = this.k;
-            if (sf9Var != null) {
-                sf9Var.onStart();
+            sj9 sj9Var = this.k;
+            if (sj9Var != null) {
+                sj9Var.onStart();
             }
-            t0().onStart(getPageContext());
+            u0().onStart(getPageContext());
         }
     }
 
@@ -412,28 +434,32 @@ public class NewWriteActivity extends BaseFragmentActivity implements pf9, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             super.onStop();
-            sf9 sf9Var = this.k;
-            if (sf9Var != null) {
-                sf9Var.onStop();
+            sj9 sj9Var = this.k;
+            if (sj9Var != null) {
+                sj9Var.onStop();
             }
-            t0().onStop(getPageContext());
+            u0().onStop(getPageContext());
         }
     }
 
-    @Override // com.baidu.tieba.pf9
-    public void q0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            this.m = true;
-            finish();
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public VoiceManager t0() {
+    public boolean r1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            ei9 ei9Var = this.i;
+            if (ei9Var != null && ei9Var.a()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.core.voice.VoiceManager.j
+    public VoiceManager u0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
             if (this.g == null) {
                 this.g = new VoiceManager();
             }
@@ -442,30 +468,11 @@ public class NewWriteActivity extends BaseFragmentActivity implements pf9, Voice
         return (VoiceManager) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pf9
-    public void x() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            t0().stopPlay();
-        }
-    }
-
-    @Override // com.baidu.tieba.pf9
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            BdTopToast bdTopToast = new BdTopToast(this, 3000);
-            bdTopToast.h(false);
-            bdTopToast.g(str);
-            bdTopToast.i((ViewGroup) this.a);
-        }
-    }
-
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.Window.Callback
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
             if (this.f.onTouchEvent(motionEvent)) {
                 motionEvent.setAction(3);
             }
@@ -474,17 +481,28 @@ public class NewWriteActivity extends BaseFragmentActivity implements pf9, Voice
         return invokeL.booleanValue;
     }
 
+    @Override // com.baidu.tieba.pj9
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            BdTopToast bdTopToast = new BdTopToast(this, 3000);
+            bdTopToast.h(false);
+            bdTopToast.g(str);
+            bdTopToast.i((ViewGroup) this.a);
+        }
+    }
+
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            sf9 sf9Var = this.k;
-            if (sf9Var != null) {
-                sf9Var.onChangeSkinType(i);
+            sj9 sj9Var = this.k;
+            if (sj9Var != null) {
+                sj9Var.onChangeSkinType(i);
             }
             View view2 = this.h;
             if (view2 != null && view2.getVisibility() == 0) {
-                R0();
+                s1();
             }
         }
     }
@@ -494,9 +512,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements pf9, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
             super.onKeyboardVisibilityChanged(z);
-            sf9 sf9Var = this.k;
-            if (sf9Var != null) {
-                sf9Var.b(z);
+            sj9 sj9Var = this.k;
+            if (sj9Var != null) {
+                sj9Var.b(z);
             }
         }
     }
@@ -506,9 +524,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements pf9, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, intent) == null) {
             super.onNewIntent(intent);
-            sf9 sf9Var = this.k;
-            if (sf9Var != null) {
-                sf9Var.onNewIntent(intent);
+            sj9 sj9Var = this.k;
+            if (sj9Var != null) {
+                sj9Var.onNewIntent(intent);
             }
         }
     }
@@ -517,71 +535,31 @@ public class NewWriteActivity extends BaseFragmentActivity implements pf9, Voice
     public void onSaveInstanceState(@NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, bundle) == null) {
-            sf9 sf9Var = this.k;
-            if (sf9Var != null) {
-                sf9Var.onSaveInstanceState(bundle);
+            sj9 sj9Var = this.k;
+            if (sj9Var != null) {
+                sj9Var.onSaveInstanceState(bundle);
             }
-            t0().onSaveInstanceState(this);
+            u0().onSaveInstanceState(this);
             super.onSaveInstanceState(bundle);
         }
     }
 
-    public void P0(String str) {
-        String str2;
+    @Override // com.baidu.tieba.pj9
+    public void R0(int i, boolean z) {
+        Intent intent;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            try {
-                int skinType = TbadkCoreApplication.getInst().getSkinType();
-                if (skinType == 4) {
-                    str2 = "&skin=dart";
-                } else if (skinType == 1) {
-                    str2 = "&skin=night";
-                } else {
-                    str2 = "";
-                }
-                UrlManager urlManager = UrlManager.getInstance();
-                TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
-                urlManager.dealOneLink(pageContext, new String[]{tf9.a + str2 + ("&from=" + str)});
-            } catch (Exception e2) {
-                BdLog.e("openPageByUrl fail:" + e2);
-            }
+        if ((interceptable != null && interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) != null) || (intent = getIntent()) == null) {
+            return;
         }
-    }
-
-    public final void R0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.h == null) {
-                ((ViewStub) findViewById(R.id.obfuscated_res_0x7f0926ed)).inflate();
-                this.h = findViewById(R.id.obfuscated_res_0x7f0926ec);
-            }
-            this.h.setVisibility(0);
-            cx4 d2 = cx4.d(this.h);
-            d2.e(R.string.A_X05);
-            d2.f(R.color.CAM_X0611);
-            cx4 d3 = cx4.d(this.h.findViewById(R.id.obfuscated_res_0x7f0926eb));
-            d3.n(R.string.J_X06);
-            d3.f(R.color.CAM_X0201);
-            TextView textView = (TextView) this.h.findViewById(R.id.virtual_image_setting_confirm_cancel_btn);
-            cx4 d4 = cx4.d(textView);
-            d4.A(R.string.F_X01);
-            d4.z(R.dimen.T_X07);
-            d4.v(R.color.CAM_X0105);
-            d4.n(R.string.J_X07);
-            d4.l(R.dimen.L_X02);
-            d4.k(R.color.CAM_X0105);
-            d4.j(R.string.A_X07);
-            textView.setOnClickListener(new c(this));
-            TextView textView2 = (TextView) this.h.findViewById(R.id.virtual_image_setting_confirm_btn);
-            cx4 d5 = cx4.d(textView2);
-            d5.A(R.string.F_X01);
-            d5.z(R.dimen.T_X07);
-            d5.v(R.color.CAM_X0304);
-            d5.n(R.string.J_X07);
-            d5.l(R.dimen.L_X02);
-            d5.k(R.color.CAM_X0304);
-            d5.j(R.string.A_X07);
-            textView2.setOnClickListener(new d(this));
+        intent.putExtra("type", i);
+        zk9 zk9Var = this.j;
+        if (zk9Var != null) {
+            this.k = zk9Var.a(i, z);
+        }
+        sj9 sj9Var = this.k;
+        if (sj9Var != null) {
+            sj9Var.onCreate(null);
+            this.k.onChangeSkinType(TbadkApplication.getInst().getSkinType());
         }
     }
 
@@ -590,9 +568,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements pf9, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048587, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
-            sf9 sf9Var = this.k;
-            if (sf9Var != null) {
-                sf9Var.onActivityResult(i, i2, intent);
+            sj9 sj9Var = this.k;
+            if (sj9Var != null) {
+                sj9Var.onActivityResult(i, i2, intent);
             }
         }
     }
@@ -610,63 +588,86 @@ public class NewWriteActivity extends BaseFragmentActivity implements pf9, Voice
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             setContentView(R.layout.obfuscated_res_0x7f0d005d);
-            this.a = findViewById(R.id.obfuscated_res_0x7f091844);
+            this.a = findViewById(R.id.obfuscated_res_0x7f091883);
             this.b = (NavigationBar) findViewById(R.id.view_navigation_bar);
-            this.c = (ScrollView) findViewById(R.id.obfuscated_res_0x7f0927b4);
-            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906d9);
+            this.c = (ScrollView) findViewById(R.id.obfuscated_res_0x7f0927b9);
+            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906eb);
             this.e = (LinearLayout) findViewById(R.id.tool_view);
             addGlobalLayoutListener();
             adjustResizeForSoftInput();
             this.c.setOnTouchListener(new b(this));
-            zg9 zg9Var = new zg9(getPageContext(), this.b, this.d, this.e, this);
-            this.j = zg9Var;
-            sf9 b2 = zg9Var.b(bundle);
+            zk9 zk9Var = new zk9(getPageContext(), this.b, this.d, this.e, this);
+            this.j = zk9Var;
+            sj9 b2 = zk9Var.b(bundle);
             this.k = b2;
             if (b2 != null) {
                 b2.onCreate(bundle);
             }
             this.f = new GestureDetector(getPageContext().getPageActivity(), new e(this, null));
             registerListener(this.n);
-            t0().onCreate(getPageContext());
-            ee9 ee9Var = new ee9(this);
-            this.i = ee9Var;
-            ee9Var.e();
+            u0().onCreate(getPageContext());
+            ei9 ei9Var = new ei9(this);
+            this.i = ei9Var;
+            ei9Var.e();
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onDestroy() {
+    public void q1(String str) {
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            super.onDestroy();
-            sf9 sf9Var = this.k;
-            if (sf9Var != null) {
-                sf9Var.onDestroy();
-            }
-            x();
-            t0().onDestory(getPageContext());
-            if (!this.m) {
-                dz8.k().x(null);
+        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
+            try {
+                int skinType = TbadkCoreApplication.getInst().getSkinType();
+                if (skinType == 4) {
+                    str2 = "&skin=dart";
+                } else if (skinType == 1) {
+                    str2 = "&skin=night";
+                } else {
+                    str2 = "";
+                }
+                UrlManager urlManager = UrlManager.getInstance();
+                TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
+                urlManager.dealOneLink(pageContext, new String[]{tj9.a + str2 + ("&from=" + str)});
+            } catch (Exception e2) {
+                BdLog.e("openPageByUrl fail:" + e2);
             }
         }
     }
 
-    @Override // com.baidu.tieba.pf9
-    public void x0(int i, boolean z) {
-        Intent intent;
+    public final void s1() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048602, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) != null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra("type", i);
-        zg9 zg9Var = this.j;
-        if (zg9Var != null) {
-            this.k = zg9Var.a(i, z);
-        }
-        sf9 sf9Var = this.k;
-        if (sf9Var != null) {
-            sf9Var.onCreate(null);
-            this.k.onChangeSkinType(TbadkApplication.getInst().getSkinType());
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+            if (this.h == null) {
+                ((ViewStub) findViewById(R.id.obfuscated_res_0x7f0926f2)).inflate();
+                this.h = findViewById(R.id.obfuscated_res_0x7f0926f1);
+            }
+            this.h.setVisibility(0);
+            p15 d2 = p15.d(this.h);
+            d2.e(R.string.A_X05);
+            d2.f(R.color.CAM_X0611);
+            p15 d3 = p15.d(this.h.findViewById(R.id.obfuscated_res_0x7f0926f0));
+            d3.n(R.string.J_X06);
+            d3.f(R.color.CAM_X0201);
+            TextView textView = (TextView) this.h.findViewById(R.id.virtual_image_setting_confirm_cancel_btn);
+            p15 d4 = p15.d(textView);
+            d4.A(R.string.F_X01);
+            d4.z(R.dimen.T_X07);
+            d4.v(R.color.CAM_X0105);
+            d4.n(R.string.J_X07);
+            d4.l(R.dimen.L_X02);
+            d4.k(R.color.CAM_X0105);
+            d4.j(R.string.A_X07);
+            textView.setOnClickListener(new c(this));
+            TextView textView2 = (TextView) this.h.findViewById(R.id.virtual_image_setting_confirm_btn);
+            p15 d5 = p15.d(textView2);
+            d5.A(R.string.F_X01);
+            d5.z(R.dimen.T_X07);
+            d5.v(R.color.CAM_X0304);
+            d5.n(R.string.J_X07);
+            d5.l(R.dimen.L_X02);
+            d5.k(R.color.CAM_X0304);
+            d5.j(R.string.A_X07);
+            textView2.setOnClickListener(new d(this));
         }
     }
 }

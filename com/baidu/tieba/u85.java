@@ -1,335 +1,687 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
-import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Point;
-import android.graphics.Rect;
-import android.os.Build;
-import android.view.Display;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
-import android.view.inputmethod.InputMethodManager;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BdToken.BdTokenController;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.abtest.UbsABTestDataManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.atomData.LowFlowsActivityConfig;
+import com.baidu.tbadk.core.util.CommonHelper;
+import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
+import com.baidu.tbadk.coreExtra.data.ABTestExtraData;
+import com.baidu.tbadk.coreExtra.data.CombineDownload;
+import com.baidu.tbadk.coreExtra.data.NewGodData;
+import com.baidu.tbadk.coreExtra.data.VersionData;
+import com.baidu.tbadk.coreExtra.data.WhiteListData;
+import com.baidu.tbadk.data.HotEventData;
+import com.baidu.tbadk.data.LightEmotionData;
+import com.baidu.tbadk.data.UserGrowthTaskListData;
+import com.baidu.tbadk.dynamicres.data.AgreeMaterial;
+import com.baidu.tieba.interest.InterestPanelShowManager;
+import com.baidu.tieba.interest.data.RecentClientInfo;
+import com.baidu.tieba.wallet.YYLiveConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.gson.Gson;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class u85 {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
-    public static int b;
-    public static int c;
-    public static int d;
     public transient /* synthetic */ FieldHolder $fh;
+    public sn9 A;
+    public NewGodData B;
+    public j75 C;
+    public o65 D;
+    public i75 E;
+    public v65 F;
+    public UserGrowthTaskListData G;
+    public ArrayList<LightEmotionData> H;
+    public VersionData a;
+    public b75 b;
+    public c75 c;
+    public String d;
+    public CombineDownload e;
+    public o75 f;
+    public e85 g;
+    public p65 h;
+    public k65 i;
+    public m65 j;
+    public g75 k;
+    public final j65 l;
+    public s75 m;
+    public h75 n;
+    public int o;
+    public int p;
+    public int q;
+    public int r;
+    public d75 s;
+    public i65 t;
+    public ABTestExtraData u;
+    public JSONArray v;
+    public JSONArray w;
+    public JSONArray x;
+    public JSONObject y;
+    public YYLiveConfig z;
 
     /* loaded from: classes6.dex */
-    public interface b {
-        void a(boolean z);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948164887, "Lcom/baidu/tieba/u85;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948164887, "Lcom/baidu/tieba/u85;");
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class a implements ViewTreeObserver.OnGlobalLayoutListener {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public final ViewGroup b;
-        public final p85 c;
-        public final boolean d;
-        public final boolean e;
-        public final boolean f;
-        public final int g;
-        public boolean h;
-        public final b i;
-        public final int j;
-        public boolean k;
-        public int l;
 
-        public a(boolean z, boolean z2, boolean z3, ViewGroup viewGroup, p85 p85Var, b bVar, int i) {
+        public a(u85 u85Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), viewGroup, p85Var, bVar, Integer.valueOf(i)};
+                Object[] objArr = {u85Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = 0;
-            this.k = false;
-            this.b = viewGroup;
-            this.c = p85Var;
-            this.d = z;
-            this.e = z2;
-            this.f = z3;
-            this.g = v85.a(viewGroup.getContext());
-            this.i = bVar;
-            this.j = i;
-        }
-
-        private Context getContext() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-                return this.b.getContext();
-            }
-            return (Context) invokeV.objValue;
-        }
-
-        public final void a(int i) {
-            int abs;
-            int h;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (this.a == 0) {
-                    this.a = i;
-                    this.c.refreshHeight(u85.h(getContext()));
-                    return;
-                }
-                if (t85.a(this.d, this.e, this.f)) {
-                    abs = ((View) this.b.getParent()).getHeight() - i;
-                } else {
-                    abs = Math.abs(i - this.a);
-                }
-                if (abs <= u85.f(getContext())) {
-                    int height = ((View) this.b.getParent()).getHeight() - i;
-                    if (i < this.a) {
-                        abs = height - this.g;
-                    } else {
-                        return;
-                    }
-                }
-                if (abs != this.g && u85.i(getContext(), abs) && this.c.getHeight() != (h = u85.h(getContext()))) {
-                    this.c.refreshHeight(h);
                 }
             }
         }
 
-        public final void b(int i) {
-            boolean z;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                View view2 = (View) this.b.getParent();
-                int height = view2.getHeight() - view2.getPaddingTop();
-                boolean z2 = true;
-                if (t85.a(this.d, this.e, this.f)) {
-                    if (!this.e && height - i == this.g) {
-                        z = this.h;
-                    } else {
-                        if (height <= i) {
-                            z2 = false;
-                        }
-                        z = z2;
-                    }
-                } else {
-                    int i2 = this.b.getResources().getDisplayMetrics().heightPixels;
-                    int i3 = this.l;
-                    if (i3 == 0) {
-                        z = this.h;
-                    } else {
-                        if (i >= i3 - u85.f(getContext())) {
-                            z2 = false;
-                        }
-                        z = z2;
-                    }
-                    this.l = Math.max(this.l, height);
-                }
-                if (this.h != z) {
-                    this.c.a(z);
-                    b bVar = this.i;
-                    if (bVar != null) {
-                        bVar.a(z);
-                    }
-                }
-                this.h = z;
-            }
-        }
-
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        @TargetApi(13)
-        public void onGlobalLayout() {
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                boolean z = false;
-                View childAt = this.b.getChildAt(0);
-                View view2 = (View) this.b.getParent();
-                Rect rect = new Rect();
-                if (this.e) {
-                    view2.getWindowVisibleDisplayFrame(rect);
-                    i = rect.bottom - rect.top;
-                    if (!this.k) {
-                        if (i == this.j) {
-                            z = true;
-                        }
-                        this.k = z;
-                    }
-                    if (!this.k) {
-                        i += this.g;
-                    }
-                } else if (childAt != null) {
-                    childAt.getWindowVisibleDisplayFrame(rect);
-                    i = rect.bottom - rect.top;
-                } else {
-                    i = -1;
-                }
-                if (i == -1) {
-                    return;
-                }
-                a(i);
-                b(i);
-                this.a = i;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                xf5.f().j();
             }
         }
     }
 
-    @TargetApi(16)
-    public static void c(Activity activity, ViewTreeObserver.OnGlobalLayoutListener onGlobalLayoutListener) {
+    public u85() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, activity, onGlobalLayoutListener) == null) {
-            ViewGroup viewGroup = (ViewGroup) activity.findViewById(16908290);
-            if (Build.VERSION.SDK_INT >= 16) {
-                viewGroup.getViewTreeObserver().removeOnGlobalLayoutListener(onGlobalLayoutListener);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.p = 0;
+        this.a = new VersionData();
+        this.b = new b75();
+        this.c = new c75();
+        this.e = new CombineDownload();
+        this.f = new o75();
+        this.g = new e85();
+        this.s = new d75();
+        this.h = new p65();
+        this.i = new k65();
+        this.l = new j65();
+        this.t = new i65();
+        this.m = new s75();
+        this.n = new h75();
+        this.u = new ABTestExtraData();
+        this.B = new NewGodData();
+        this.C = new j75();
+        this.j = new m65();
+        this.k = new g75();
+        this.D = new o65();
+        this.E = new i75();
+        this.F = new v65();
+        this.H = new ArrayList<>();
+    }
+
+    public final JSONObject A(JSONObject jSONObject, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, str)) == null) {
+            try {
+                return jSONObject.optJSONObject(str);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return null;
+            }
+        }
+        return (JSONObject) invokeLL.objValue;
+    }
+
+    public final JSONArray z(JSONObject jSONObject, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048605, this, jSONObject, str)) == null) {
+            try {
+                return jSONObject.optJSONArray(str);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return null;
+            }
+        }
+        return (JSONArray) invokeLL.objValue;
+    }
+
+    public void B(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            try {
+                C(new JSONObject(str));
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public void C(JSONObject jSONObject) {
+        boolean z;
+        boolean z2;
+        boolean z3;
+        boolean z4;
+        boolean z5;
+        boolean z6;
+        JSONObject optJSONObject;
+        JSONObject jSONObject2;
+        boolean z7;
+        boolean z8;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        try {
+            f15.f().j(jSONObject.optJSONArray("h5_pop_ups"));
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (currentActivity != null) {
+                g15.q(currentActivity, e15.c);
+            }
+            BdTokenController.H().P(jSONObject);
+            TbSingleton.getInstance().setVoiceRoomConfig(c85.a(jSONObject));
+            TbSingleton.getInstance().setUpgradePopWindowConfig(y75.j(jSONObject));
+            TbSingleton.getInstance().setPushStrategyConfig(t75.e(jSONObject));
+            TbSingleton.getInstance().setMainTabPopConfig(p75.c(jSONObject));
+            this.C.a(z(jSONObject, "index_tab_info"));
+            this.a.parserJson(jSONObject.optJSONObject("version"));
+            this.b.b(jSONObject.optJSONObject("client"));
+            CommonHelper.setIp(jSONObject.optString("client_ip", null));
+            rh.g(jSONObject.optString("client_ip", null));
+            this.c.f(jSONObject.optJSONObject("config"));
+            this.g.f0(jSONObject.optJSONObject("wl_config"));
+            TbSingleton.getInstance().setWlConfigData(this.g);
+            jSONObject.optJSONObject("channel_icon_config");
+            this.j.c(jSONObject.optJSONObject("floating_icon"));
+            TbSingleton.getInstance().setAdFloatViewData(this.j);
+            this.k.d(jSONObject.optJSONObject("home_screen_ad"));
+            TbSingleton.getInstance().setHomeInsertAdData(this.k);
+            this.E.c(jSONObject.optJSONObject("https_switch_strategy_info"));
+            TbadkCoreApplication.getInst().setHttpsWhileData(this.E);
+            la5 la5Var = new la5();
+            la5Var.d(jSONObject);
+            if (la5Var.c()) {
+                TbSingleton.getInstance().setHomeOperateData(la5Var);
+            }
+            String optString = jSONObject.optString("new_god_data", "");
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("new_god_data");
+            boolean z9 = true;
+            if (!StringUtils.isNull(optString) && optJSONObject2 != null) {
+                optJSONObject2.put("portrait", cw4.s().q());
+                TbSingleton.getInstance().setNewGodDataJson(optJSONObject2);
+                if (optJSONObject2.optInt("need_show_toast_bubble") == 1) {
+                    p35.m().w(p35.q("key_new_god_pop_is_show"), true);
+                    p35.m().w(p35.q("key_new_god_tip_is_show"), true);
+                }
+                this.B.parserJson(optString);
+            }
+            this.s.c(jSONObject.optJSONObject("consume_path"));
+            TbadkCoreApplication.getInst().setConsumePathData(this.s);
+            this.d = jSONObject.optString("config_version");
+            this.p = jSONObject.optInt("is_uninterest");
+            this.q = jSONObject.optInt("first_time_motivate");
+            this.r = jSONObject.optInt("needNewUserLead");
+            this.e.parserJson(jSONObject.optJSONObject("combine_download"));
+            this.f.a(jSONObject.optJSONObject("mainbar"));
+            jSONObject.optInt(TbConfig.SYNC_ACTIVE, 0);
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001141, jSONObject));
+            this.o = jSONObject.optInt("faceshop_version");
+            if (this.o > TbadkCoreApplication.getInst().getFaceShopVersion()) {
+                TbadkCoreApplication.getInst().setTempFaceShopVersion(this.o);
+                TbadkCoreApplication.getInst().setFaceShopNew(true);
+            }
+            JSONObject optJSONObject3 = jSONObject.optJSONObject("lcs_strategy");
+            if (optJSONObject3 != null) {
+                TbadkCoreApplication.getInst().setLcsSwitchStratgy(optJSONObject3.toString());
+            }
+            new s85().c(jSONObject.optJSONObject("dis_adv_config"));
+            WhiteListData whiteListData = new WhiteListData();
+            whiteListData.saveJson(jSONObject.optJSONArray("whitelist"));
+            TbSingleton.getInstance().setHostWhiteList(whiteListData);
+            q65.c(jSONObject.optJSONArray("scheme_whitelist"));
+            UrlSchemaJumpHelper.setBlackList(z(jSONObject, UrlSchemaJumpHelper.KEY_APP_JUMP_BLACK_LIST));
+            this.h.a(jSONObject.optJSONObject("app_entrance"));
+            this.i.g(jSONObject.optJSONObject("ad_adsense"));
+            w85.d(jSONObject.optJSONObject("video_report_config"));
+            this.l.b(jSONObject.optJSONObject("activity_switch"));
+            this.t.b(A(jSONObject, "abtest_config"));
+            this.u.parseJson(A(jSONObject, "new_abtest_entra"));
+            this.v = z(jSONObject, "new_abtest_config");
+            this.w = z(jSONObject, UbsABTestDataManager.PREF_KEY_SWITCHS);
+            z(jSONObject, "outside_callback_icon");
+            this.x = jSONObject.optJSONArray("windowStrategyList");
+            this.y = A(jSONObject, "bear_sdk_config");
+            if (A(jSONObject, "advertisement_config") != null) {
+                this.D.d(A(jSONObject, "advertisement_config"));
+            }
+            YYLiveConfig yYLiveConfig = new YYLiveConfig();
+            this.z = yYLiveConfig;
+            yYLiveConfig.parseJson(A(jSONObject, "yy_live_config"));
+            sn9 sn9Var = new sn9();
+            this.A = sn9Var;
+            sn9Var.b(z(jSONObject, "yy_live_tab"));
+            this.n.c(jSONObject.optJSONObject("hot_notify_config"));
+            TbSingleton.getInstance().setHotNotifyConfig(this.n);
+            nw4.b().f(this.x);
+            this.m.d(jSONObject.optJSONObject("profile_icon"));
+            TbSingleton tbSingleton = TbSingleton.getInstance();
+            if (jSONObject.optInt("recommend_userstatus", 0) == 1) {
+                z = true;
             } else {
-                viewGroup.getViewTreeObserver().removeGlobalOnLayoutListener(onGlobalLayoutListener);
+                z = false;
             }
-        }
-    }
-
-    public static boolean i(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, context, i)) == null) {
-            if (a == i || i <= 0) {
-                return false;
-            }
-            a = i;
-            TbadkCoreApplication.getInst().setKeyboardHeight(a);
-            cz4.l().x("key_last_keyboard_height", i);
-            return true;
-        }
-        return invokeLI.booleanValue;
-    }
-
-    @TargetApi(13)
-    public static ViewTreeObserver.OnGlobalLayoutListener b(Activity activity, p85 p85Var, b bVar) {
-        InterceptResult invokeLLL;
-        int height;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, activity, p85Var, bVar)) == null) {
-            ViewGroup viewGroup = (ViewGroup) activity.findViewById(16908290);
-            boolean b2 = w85.b(activity);
-            boolean c2 = w85.c(activity);
-            boolean a2 = w85.a(activity);
-            Display defaultDisplay = activity.getWindowManager().getDefaultDisplay();
-            if (Build.VERSION.SDK_INT >= 13) {
-                Point point = new Point();
-                defaultDisplay.getSize(point);
-                height = point.y;
+            tbSingleton.setNewUser(z);
+            p35 m = p35.m();
+            if (jSONObject.optInt("ala_channel_white", 0) == 1) {
+                z2 = true;
             } else {
-                height = defaultDisplay.getHeight();
+                z2 = false;
             }
-            a aVar = new a(b2, c2, a2, viewGroup, p85Var, bVar, height);
-            viewGroup.getViewTreeObserver().addOnGlobalLayoutListener(aVar);
-            return aVar;
-        }
-        return (ViewTreeObserver.OnGlobalLayoutListener) invokeLLL.objValue;
-    }
-
-    public static int d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (a == 0) {
-                int m = cz4.l().m("key_last_keyboard_height", g(context.getResources()));
-                a = m;
-                if (m > 0) {
-                    TbadkCoreApplication.getInst().setKeyboardHeight(a);
+            m.w("key_live_forum_enter_switch", z2);
+            TbSingleton.getInstance().setPcdnConfigData(jSONObject.optJSONObject("pcdn_config"));
+            JSONArray z10 = z(jSONObject, "offpack");
+            if (z10 != null && z10.length() > 0 && (jSONObject2 = z10.getJSONObject(0)) != null) {
+                nq8 nq8Var = new nq8();
+                nq8Var.e(jSONObject2.optString("mod_name"));
+                if (jSONObject2.optInt("upload_offline_web_cache") == 1) {
+                    z7 = true;
+                } else {
+                    z7 = false;
+                }
+                nq8Var.f(z7);
+                if (jSONObject2.optInt("clear_offline_web_cache") == 1) {
+                    z8 = true;
+                } else {
+                    z8 = false;
+                }
+                nq8Var.d(z8);
+                if (!TextUtils.isEmpty(nq8Var.a())) {
+                    TbSingleton.getInstance().setUploadAndClearModule(nq8Var);
                 }
             }
-            return a;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int e(Resources resources) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, resources)) == null) {
-            if (b == 0) {
-                b = resources.getDimensionPixelSize(R.dimen.max_editor_panel_height);
+            String optString2 = jSONObject.optString("proxy_ip");
+            String optString3 = jSONObject.optString("proxy_port");
+            TbadkCoreApplication.getInst().setProxyIp(optString2);
+            TbadkCoreApplication.getInst().setProxyPort(optString3);
+            JSONObject jSONObject3 = new JSONObject();
+            jSONObject3.put("ad_sdk_priority", jSONObject.optString("ad_sdk_priority", null));
+            jSONObject3.put("12_20_0_screen_fill_Ad_experiment", jSONObject.optString("12_20_0_screen_fill_Ad_experiment", null));
+            jSONObject3.put("ad_origin_config_switch", jSONObject.optString("ad_origin_config_switch", null));
+            jSONObject3.put("bear_sid_type", jSONObject.optString("bear_sid_type", null));
+            jSONObject3.put("screen_fill_data_result", jSONObject.optJSONObject("screen_fill_data_result"));
+            int optInt = jSONObject.optInt("ad_num_competition_frs", 5);
+            int optInt2 = jSONObject.optInt("ad_num_competition_personalize", 2);
+            p35.m().z("key_mix_frs_ad_count", optInt);
+            p35.m().z("key_mix_home_page_ad_count", optInt2);
+            MessageManager.getInstance().runTask(2016552, null, jSONObject3);
+            TbSingleton tbSingleton2 = TbSingleton.getInstance();
+            if (jSONObject.optInt("is_yy_user", 1) == 1) {
+                z3 = true;
+            } else {
+                z3 = false;
             }
-            return b;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            if (d == 0) {
-                d = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702c8);
+            tbSingleton2.setSyncYYSwitch(z3);
+            JSONObject optJSONObject4 = jSONObject.optJSONObject(LowFlowsActivityConfig.LF_USER_INFO);
+            if (optJSONObject4 != null) {
+                String optString4 = optJSONObject4.optString(LowFlowsActivityConfig.LF_USER);
+                TbSingleton.getInstance().setLFUser(optString4);
+                if (!StringUtils.isNull(optString4) && "2".equals(optString4)) {
+                    TbSingleton.getInstance().setLFUserTaskId(optJSONObject4.optString(LowFlowsActivityConfig.LF_USER_TASKID));
+                    TbSingleton.getInstance().setBannerText(optJSONObject4.optString(LowFlowsActivityConfig.LF_BANNER_TEXT));
+                }
             }
-            return d;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int g(Resources resources) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, resources)) == null) {
-            if (c == 0) {
-                c = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702c8);
+            p35.m().z("key_personalized_rec_switch", jSONObject.optInt("personalized_rec_switch"));
+            xt7 xt7Var = new xt7();
+            JSONObject optJSONObject5 = jSONObject.optJSONObject("recent_client_info");
+            if (optJSONObject5 != null) {
+                xt7Var.d(RecentClientInfo.parseJson(optJSONObject5));
             }
-            return c;
+            JSONObject optJSONObject6 = jSONObject.optJSONObject("new_user_interest_board_config");
+            if (optJSONObject6 != null) {
+                xt7Var.c(vt7.e(optJSONObject6));
+            }
+            InterestPanelShowManager.a().c(xt7Var);
+            JSONObject optJSONObject7 = jSONObject.optJSONObject("bottom_bubble_config");
+            if (optJSONObject7 != null) {
+                xf5.f().k(optJSONObject7);
+                gh.a().post(new a(this));
+            }
+            p35.m().z("key_work_video_guide_pop", jSONObject.optInt("videoup_guide_pop", -1));
+            TbSingleton.getInstance().setVideoEventsConfig(b85.d(jSONObject));
+            p35.m().B("key_sync_extra_field", jSONObject.optString("extra"));
+            int optInt3 = jSONObject.optInt("icon_task_flag");
+            TbSingleton tbSingleton3 = TbSingleton.getInstance();
+            if (optInt3 == 1) {
+                z4 = true;
+            } else {
+                z4 = false;
+            }
+            tbSingleton3.showStampMissionDialog = z4;
+            int optInt4 = jSONObject.optInt("afSearch_tab", 0);
+            st8 d = st8.d();
+            if (optInt4 == 1) {
+                z5 = true;
+            } else {
+                z5 = false;
+            }
+            d.h(z5);
+            int optInt5 = jSONObject.optInt("is_need_remind_live_rooms");
+            TbSingleton tbSingleton4 = TbSingleton.getInstance();
+            if (optInt5 == 1) {
+                z6 = true;
+            } else {
+                z6 = false;
+            }
+            tbSingleton4.setIsNeedRemindLiveRoom(z6);
+            JSONObject optJSONObject8 = jSONObject.optJSONObject("search_guide");
+            y88.b().a();
+            if (optJSONObject8 != null && (optJSONObject = optJSONObject8.optJSONObject("pb")) != null) {
+                if (optJSONObject.optInt("is_show", 0) != 1) {
+                    z9 = false;
+                }
+                int optInt6 = optJSONObject.optInt("pos", -1);
+                z98 z98Var = new z98();
+                z98Var.a = z9;
+                z98Var.b = optInt6;
+                y88.b().d(z98Var);
+            }
+            kb5.g().a(AgreeMaterial.I(jSONObject.optJSONObject("agree_material")));
+            JSONObject optJSONObject9 = jSONObject.optJSONObject("live_activity_guide");
+            if (optJSONObject9 != null) {
+                na5 na5Var = new na5();
+                na5Var.f(optJSONObject9);
+                TbSingleton.getInstance().mLiveActivityGuide = na5Var;
+            } else {
+                TbSingleton.getInstance().mLiveActivityGuide = null;
+            }
+            iq5.c(jSONObject.optJSONArray("support_cache_url_list"));
+            this.F.h(jSONObject.optJSONObject("bear_sid_config"));
+            D();
+            TbSingleton.getInstance().setColourHeaderConfig(ha5.r(jSONObject));
+            sw5.e().k(jSONObject.optJSONObject("member_guide"));
+            sw5.e().j(jSONObject.optJSONObject("close_ad_tips"));
+            JSONArray optJSONArray = jSONObject.optJSONArray("interact_memes");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    LightEmotionData lightEmotionData = new LightEmotionData();
+                    lightEmotionData.parseJson(optJSONArray.getJSONObject(i));
+                    this.H.add(lightEmotionData);
+                }
+                TbSingleton.getInstance().setLightEmotionInfo(this.H);
+            }
+            UserGrowthTaskListData userGrowthTaskListData = (UserGrowthTaskListData) new Gson().fromJson(jSONObject.optString("user_growth_task_list"), (Class<Object>) UserGrowthTaskListData.class);
+            TbSingleton.getInstance().setUserGrowthTaskListData(userGrowthTaskListData);
+            HotEventData.getInstance().parsJson(jSONObject.optJSONObject("thread_recommend_info"));
+            this.G = userGrowthTaskListData;
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
-        return invokeL.intValue;
     }
 
-    public static int h(Context context) {
-        InterceptResult invokeL;
+    public final void D() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            return Math.min(e(context.getResources()), Math.max(g(context.getResources()), d(context)));
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.F != null) {
+            p35.m().B("key_server_splash_bear_sid", this.F.f());
+            p35.m().B("key_server_homepage_bear_sid", this.F.b());
+            p35.m().B("key_server_frs_bear_sid", this.F.a());
+            p35.m().B("key_server_pb_banner_bear_sid", this.F.c());
+            p35.m().B("key_server_pb_comment_bear_sid", this.F.d());
+            p35.m().B("key_server_picpage_bear_sid", this.F.e());
+            p35.m().B("key_server_videoflow_bear_sid", this.F.g());
         }
-        return invokeL.intValue;
     }
 
-    public static void j(View view2) {
+    public i65 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, view2) == null) {
-            view2.requestFocus();
-            ((InputMethodManager) view2.getContext().getSystemService("input_method")).showSoftInput(view2, 0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.t;
         }
+        return (i65) invokeV.objValue;
+    }
+
+    public ABTestExtraData b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.u;
+        }
+        return (ABTestExtraData) invokeV.objValue;
+    }
+
+    public JSONArray c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.v;
+        }
+        return (JSONArray) invokeV.objValue;
+    }
+
+    public j65 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.l;
+        }
+        return (j65) invokeV.objValue;
+    }
+
+    public k65 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.i;
+        }
+        return (k65) invokeV.objValue;
+    }
+
+    public m65 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.j;
+        }
+        return (m65) invokeV.objValue;
+    }
+
+    public o65 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.D;
+        }
+        return (o65) invokeV.objValue;
+    }
+
+    public p65 h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.h;
+        }
+        return (p65) invokeV.objValue;
+    }
+
+    public b75 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.b;
+        }
+        return (b75) invokeV.objValue;
+    }
+
+    public CombineDownload j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.e;
+        }
+        return (CombineDownload) invokeV.objValue;
+    }
+
+    public c75 k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.c;
+        }
+        return (c75) invokeV.objValue;
+    }
+
+    public JSONObject l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.y;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public h75 m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.n;
+        }
+        return (h75) invokeV.objValue;
+    }
+
+    public boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            if (this.q == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.r;
+        }
+        return invokeV.intValue;
+    }
+
+    public int p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.p;
+        }
+        return invokeV.intValue;
+    }
+
+    public NewGodData q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this.B;
+        }
+        return (NewGodData) invokeV.objValue;
+    }
+
+    public s75 r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return this.m;
+        }
+        return (s75) invokeV.objValue;
+    }
+
+    public JSONArray s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return this.w;
+        }
+        return (JSONArray) invokeV.objValue;
+    }
+
+    public UserGrowthTaskListData t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return this.G;
+        }
+        return (UserGrowthTaskListData) invokeV.objValue;
+    }
+
+    public VersionData u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return this.a;
+        }
+        return (VersionData) invokeV.objValue;
+    }
+
+    public e85 v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return this.g;
+        }
+        return (e85) invokeV.objValue;
+    }
+
+    public YYLiveConfig w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            return this.z;
+        }
+        return (YYLiveConfig) invokeV.objValue;
+    }
+
+    public sn9 x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            return this.A;
+        }
+        return (sn9) invokeV.objValue;
+    }
+
+    public String y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
     }
 }

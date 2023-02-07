@@ -1,67 +1,27 @@
 package com.baidu.tieba;
 
-import android.os.IBinder;
-import com.baidu.pyramid.runtime.multiprocess.IPCServiceManager;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.voyager.impl.IVoyagerService;
-/* loaded from: classes6.dex */
-public class xt9 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static volatile IVoyagerService b;
-    public transient /* synthetic */ FieldHolder $fh;
+import com.baidu.ugc.download.exception.DownloadException;
+/* loaded from: classes7.dex */
+public interface xt9 extends Runnable {
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948312044, "Lcom/baidu/tieba/xt9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948312044, "Lcom/baidu/tieba/xt9;");
-                return;
-            }
-        }
-        a = AppConfig.isDebug();
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a(DownloadException downloadException);
+
+        void onDownloadCanceled();
+
+        void onDownloadCompleted(String str);
+
+        void onDownloadPaused();
+
+        void onDownloadProgress(long j, long j2);
     }
 
-    public xt9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
+    void cancel();
 
-    public static IVoyagerService b() {
-        InterceptResult invokeV;
-        IBinder f;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b == null) {
-                synchronized (xt9.class) {
-                    if (b == null && (f = IPCServiceManager.f("remote_voyager_service", true)) != null) {
-                        b = IVoyagerService.Stub.asInterface(f);
-                    }
-                }
-            }
-            return b;
-        }
-        return (IVoyagerService) invokeV.objValue;
-    }
+    boolean isComplete();
+
+    boolean isDownloading();
+
+    void pause();
 }

@@ -1,129 +1,201 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import android.util.SparseArray;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.im.db.pojo.GroupChatRoomPojo;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.CommonMsgField;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.ImageMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.NoticeModifySysMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.RecallSysMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.ShareForumSysMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.ShareThreadSysMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TextGenImageMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TextMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.VoiceMsg;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class or7 extends BaseAdapter {
+public class or7 {
     public static /* synthetic */ Interceptable $ic;
+    public static final SparseArray<Class<? extends BaseMsg>> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<mr7> a;
-    public Context b;
-    public int c;
-    public int d;
-    public final int e;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    public or7(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948041941, "Lcom/baidu/tieba/or7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948041941, "Lcom/baidu/tieba/or7;");
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.c = 0;
-        this.d = 0;
-        this.b = context;
-        this.c = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b5);
-        this.d = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701be);
-        this.e = i;
+        SparseArray<Class<? extends BaseMsg>> sparseArray = new SparseArray<>();
+        a = sparseArray;
+        sparseArray.put(1, TextMsg.class);
+        a.put(3, VoiceMsg.class);
+        a.put(2, ImageMsg.class);
+        a.put(101, TextGenImageMsg.class);
+        a.put(7009, ShareForumSysMsg.class);
+        a.put(7010, ShareThreadSysMsg.class);
+        a.put(7001, NoticeModifySysMsg.class);
+        f(RecallSysMsg.MSG_TYPE_LIST, RecallSysMsg.class);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public mr7 getItem(int i) {
-        InterceptResult invokeI;
+    @Nullable
+    public static String a(List<GroupChatRoomPojo> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i >= 0 && i < this.a.size()) {
-                return this.a.get(i);
-            }
-            return null;
-        }
-        return (mr7) invokeI.objValue;
-    }
-
-    public void b(List<mr7> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.a.clear();
-            if (list != null && list.size() > 0) {
-                this.a.addAll(list);
-            }
-            notifyDataSetChanged();
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a.size();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
-            if (view2 instanceof TextView) {
-                textView = (TextView) view2;
-            } else {
-                textView = new TextView(this.b);
-                textView.setGravity(17);
-                textView.setTextSize(0, this.c);
-                int i2 = this.d;
-                textView.setPadding(0, i2, 0, i2);
-            }
-            mr7 mr7Var = (mr7) ListUtils.getItem(this.a, i);
-            if (mr7Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
                 return null;
             }
-            textView.setText(StringHelper.cutChineseAndEnglishWithSuffix(mr7Var.c, 8, (String) null));
-            SkinManager.setViewTextColor(textView, R.color.CAM_X0106, 1);
-            if (i == this.e) {
-                SkinManager.setBackgroundResource(textView, R.drawable.btn_label_white_s);
-            } else {
-                SkinManager.setBackgroundResource(textView, R.drawable.lego_btn_more_item);
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < list.size(); i++) {
+                GroupChatRoomPojo groupChatRoomPojo = list.get(i);
+                HashMap hashMap = new HashMap();
+                hashMap.put("room_id", Long.valueOf(groupChatRoomPojo.getRoomId()));
+                hashMap.put("msg_id", String.valueOf(groupChatRoomPojo.getLatestMsgId()));
+                arrayList.add(hashMap);
             }
-            return textView;
+            if (ListUtils.isEmpty(arrayList)) {
+                return null;
+            }
+            return DataExt.toJson(arrayList);
         }
-        return (View) invokeILL.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean b(ChatMsg chatMsg) {
+        InterceptResult invokeL;
+        BaseSysMsg d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, chatMsg)) == null) {
+            if (chatMsg == null || (d = d(chatMsg)) == null || d.getMsgConf() == null || !d.getMsgConf().isVisible()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static long e(@NonNull ChatMsg chatMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, chatMsg)) == null) {
+            long millis = TimeUnit.MICROSECONDS.toMillis(chatMsg.getMsgId());
+            if (millis == 0) {
+                return System.currentTimeMillis();
+            }
+            return millis;
+        }
+        return invokeL.longValue;
+    }
+
+    @Nullable
+    public static BaseMsg c(long j, @NonNull ChatMsg chatMsg) {
+        InterceptResult invokeJL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(65539, null, j, chatMsg)) == null) {
+            if (TextUtils.isEmpty(chatMsg.getChatRoomContentExt())) {
+                return null;
+            }
+            CommonMsgField commonMsgField = (CommonMsgField) DataExt.toEntity(chatMsg.getChatRoomContentExt(), CommonMsgField.class);
+            commonMsgField.setMsgId(chatMsg.getMsgId());
+            commonMsgField.setMsgKey(chatMsg.getMsgKey());
+            commonMsgField.setRoomId(j);
+            commonMsgField.setUserId(Long.parseLong(chatMsg.getSenderUid()));
+            commonMsgField.setUserName(chatMsg.getNickName());
+            commonMsgField.setPortrait(chatMsg.getPortrait());
+            if (commonMsgField.getContent() == null) {
+                commonMsgField.setContent(new HashMap());
+            }
+            BaseChatMsg baseChatMsg = (BaseChatMsg) DataExt.toEntity(commonMsgField.getContent(), a.get(commonMsgField.getType()));
+            baseChatMsg.parseSdkMsg4Base(chatMsg);
+            baseChatMsg.fromSdkMsg(chatMsg);
+            baseChatMsg.setCommonMsgField(commonMsgField);
+            baseChatMsg.setSdkMsg(chatMsg);
+            return baseChatMsg;
+        }
+        return (BaseMsg) invokeJL.objValue;
+    }
+
+    @Nullable
+    public static BaseSysMsg d(@NonNull ChatMsg chatMsg) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, chatMsg)) == null) {
+            if (TextUtils.isEmpty(chatMsg.getMsgContent())) {
+                return null;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(chatMsg.getMsgContent());
+                int optInt = jSONObject.optInt(TableDefine.MessageColumns.COLUME_SERVICE_TYPE);
+                String optString = jSONObject.optString("service_info");
+                if (TextUtils.isEmpty(optString)) {
+                    return null;
+                }
+                BaseSysMsg baseSysMsg = (BaseSysMsg) DataExt.toEntity(optString, a.get(optInt));
+                baseSysMsg.setSdkMsg(chatMsg);
+                baseSysMsg.parseSdkMsg4Base(chatMsg);
+                if (!baseSysMsg.isConvertToNormalMsg()) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                baseSysMsg.setSysMsg(z);
+                CommonMsgField commonMsgField = new CommonMsgField();
+                commonMsgField.setMsgId(chatMsg.getMsgId());
+                commonMsgField.setMsgKey(chatMsg.getMsgKey());
+                commonMsgField.setType(optInt);
+                commonMsgField.setRoomId(baseSysMsg.getRoomId());
+                BaseSysMsg.User userFrom = baseSysMsg.getUserFrom();
+                if (userFrom != null) {
+                    commonMsgField.setUserId(userFrom.getUserId());
+                    commonMsgField.setUserName(userFrom.getUsername());
+                    commonMsgField.setPortrait(userFrom.getPortrait());
+                    commonMsgField.setRole(userFrom.getRole());
+                    commonMsgField.setLevel(userFrom.getLevel());
+                }
+                baseSysMsg.setCommonMsgField(commonMsgField);
+                return baseSysMsg;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (BaseSysMsg) invokeL.objValue;
+    }
+
+    public static void f(@NonNull List<Integer> list, @NonNull Class<? extends BaseMsg> cls) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, list, cls) == null) {
+            for (Integer num : list) {
+                a.put(num.intValue(), cls);
+            }
+        }
     }
 }

@@ -1,62 +1,86 @@
 package com.baidu.tieba;
 
-import android.os.Build;
+import android.content.SharedPreferences;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.common.security.DeviceInfoManager;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.logsystem.basic.upload.identity.ChannelManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.util.Base64Encoder;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 /* loaded from: classes6.dex */
 public class v10 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean d;
+    public static v10 e;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public boolean g;
+    public SharedPreferences c;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948187796, "Lcom/baidu/tieba/v10;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948187796, "Lcom/baidu/tieba/v10;");
+                return;
+            }
+        }
+        d = AppConfig.isDebug();
+    }
 
     public v10() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        g();
+        d();
+    }
+
+    public static v10 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (e == null) {
+                synchronized (v10.class) {
+                    if (e == null) {
+                        e = new v10();
+                    }
+                }
+            }
+            return e;
+        }
+        return (v10) invokeV.objValue;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (TextUtils.isEmpty(this.e)) {
-                i();
-            }
-            return this.e;
+            return this.b;
         }
         return (String) invokeV.objValue;
     }
@@ -64,110 +88,219 @@ public class v10 {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.a;
         }
         return (String) invokeV.objValue;
     }
 
-    public String e() {
-        InterceptResult invokeV;
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.c = AppRuntime.getAppContext().getSharedPreferences(ChannelManager.PREFS_NAME, 0);
+            f();
+            e();
         }
-        return (String) invokeV.objValue;
     }
 
-    public String f() {
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            String g = g();
+            this.b = g;
+            if (TextUtils.isEmpty(g) && !TextUtils.isEmpty(this.a)) {
+                this.b = this.a;
+                j();
+            }
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            String i = i();
+            this.a = i;
+            if (TextUtils.isEmpty(i)) {
+                this.a = h();
+            }
+        }
+    }
+
+    public final String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.f;
+            return this.c.getString("channel", null);
         }
         return (String) invokeV.objValue;
     }
 
-    public final void i() {
+    public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.e = new String(Base64Encoder.B64Encode(this.d.getBytes()));
+            this.c.edit().putString("channel", this.b).apply();
         }
     }
 
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (this.g) {
-                return false;
-            }
-            boolean k = k();
-            this.g = k;
-            if (!k) {
-                t10.b().g(new a20(1));
-            }
-            return !this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return DeviceInfoManager.INSTANCE.getDeviceInfo(AppRuntime.getAppContext(), "pub_param", "", 304).isSync(304);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            DeviceInfoManager.INSTANCE.getDeviceInfo(AppRuntime.getAppContext(), "pub_param", "", 304);
-            String str = DeviceInfoManager.INSTANCE.getModel("pub_param", "").deviceId;
-            this.a = str;
-            if (TextUtils.isEmpty(str)) {
-                this.a = "NUL";
-            } else {
-                this.a = this.a.replace("_", "-");
-            }
-            String str2 = DeviceInfoManager.INSTANCE.getManufacturer(Constants.EXTRA_PARAM, "pub_param").deviceId;
-            this.b = str2;
-            if (TextUtils.isEmpty(str2)) {
-                this.b = "NUL";
-            } else {
-                this.b = this.b.replace("_", "-");
-            }
-            String str3 = DeviceInfoManager.INSTANCE.getOsVersion(Constants.EXTRA_PARAM, "pub_param").deviceId;
-            this.c = str3;
-            if (TextUtils.isEmpty(str3)) {
-                this.c = "0.0";
-            } else {
-                this.c = this.c.replace("_", "-");
-            }
-            this.f = String.valueOf(Build.VERSION.SDK_INT);
-            this.d = h();
-        }
-    }
-
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x003a, code lost:
+        if (com.baidu.tieba.v10.d == false) goto L21;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x003c, code lost:
+        android.util.Log.e(com.baidu.searchbox.logsystem.basic.upload.identity.ChannelManager.TAG, "readLastChannelFromAssets", r2);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:46:0x0070, code lost:
+        if (com.baidu.tieba.v10.d == false) goto L21;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:76:0x0077 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:80:0x0085 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public final String h() {
+        InterceptResult invokeV;
+        BufferedReader bufferedReader;
+        Throwable th;
+        InputStream inputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            String str = null;
+            try {
+                inputStream = AppRuntime.getAppContext().getAssets().open("channel");
+            } catch (Exception e2) {
+                e = e2;
+                inputStream = null;
+                bufferedReader = null;
+            } catch (Throwable th2) {
+                bufferedReader = null;
+                th = th2;
+                inputStream = null;
+            }
+            try {
+                bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+                try {
+                    try {
+                        str = bufferedReader.readLine();
+                        if (inputStream != null) {
+                            try {
+                                inputStream.close();
+                            } catch (Exception e3) {
+                                if (d) {
+                                    Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e3);
+                                }
+                            }
+                        }
+                        try {
+                            bufferedReader.close();
+                        } catch (Exception e4) {
+                            e = e4;
+                        }
+                    } catch (Exception e5) {
+                        e = e5;
+                        if (d) {
+                            Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e);
+                        }
+                        if (inputStream != null) {
+                            try {
+                                inputStream.close();
+                            } catch (Exception e6) {
+                                if (d) {
+                                    Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e6);
+                                }
+                            }
+                        }
+                        if (bufferedReader != null) {
+                            try {
+                                bufferedReader.close();
+                            } catch (Exception e7) {
+                                e = e7;
+                            }
+                        }
+                        return str;
+                    }
+                } catch (Throwable th3) {
+                    th = th3;
+                    if (inputStream != null) {
+                        try {
+                            inputStream.close();
+                        } catch (Exception e8) {
+                            if (d) {
+                                Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e8);
+                            }
+                        }
+                    }
+                    if (bufferedReader != null) {
+                        try {
+                            bufferedReader.close();
+                        } catch (Exception e9) {
+                            if (d) {
+                                Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e9);
+                            }
+                        }
+                    }
+                    throw th;
+                }
+            } catch (Exception e10) {
+                e = e10;
+                bufferedReader = null;
+            } catch (Throwable th4) {
+                bufferedReader = null;
+                th = th4;
+                if (inputStream != null) {
+                }
+                if (bufferedReader != null) {
+                }
+                throw th;
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x0030, code lost:
+        if (com.baidu.tieba.v10.d == false) goto L10;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x0032, code lost:
+        android.util.Log.e(com.baidu.searchbox.logsystem.basic.upload.identity.ChannelManager.TAG, "readLastChannelFromRaw", r3);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x004a, code lost:
+        if (com.baidu.tieba.v10.d == false) goto L10;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            String str = this.a;
-            String str2 = this.c;
-            String str3 = this.b;
-            return str + "_" + str2 + "_" + this.f + "_" + str3;
+            String str = null;
+            try {
+                InputStream openRawResource = AppRuntime.getAppContext().getResources().openRawResource(R.raw.obfuscated_res_0x7f110077);
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(openRawResource));
+                try {
+                    str = bufferedReader.readLine();
+                    try {
+                        openRawResource.close();
+                        bufferedReader.close();
+                    } catch (Exception e2) {
+                        e = e2;
+                    }
+                } catch (Exception e3) {
+                    if (d) {
+                        Log.e(ChannelManager.TAG, "readLastChannelFromRaw", e3);
+                    }
+                    try {
+                        openRawResource.close();
+                        bufferedReader.close();
+                    } catch (Exception e4) {
+                        e = e4;
+                    }
+                }
+            } catch (Exception e5) {
+                if (d) {
+                    Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e5);
+                }
+            }
+            return str;
         }
         return (String) invokeV.objValue;
     }

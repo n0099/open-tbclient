@@ -9,11 +9,11 @@ import com.baidu.bdtask.framework.utils.DebugTrace;
 import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.bdtask.model.response.NextActive;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.tieba.js;
-import com.baidu.tieba.mr;
-import com.baidu.tieba.pt;
-import com.baidu.tieba.vv;
-import com.baidu.tieba.wv;
+import com.baidu.tieba.aw;
+import com.baidu.tieba.bw;
+import com.baidu.tieba.os;
+import com.baidu.tieba.rr;
+import com.baidu.tieba.ut;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,7 +38,7 @@ public final class b {
     public static final a e;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
-    public final vv<Function0<Unit>> b;
+    public final aw<Function0<Unit>> b;
     public String c;
 
     /* loaded from: classes.dex */
@@ -76,12 +76,12 @@ public final class b {
 
     /* renamed from: com.baidu.bdtask.service.cache.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class RunnableC0090b implements Runnable {
+    public static final class RunnableC0089b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
 
-        public RunnableC0090b(b bVar) {
+        public RunnableC0089b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -140,7 +140,7 @@ public final class b {
             }
         }
         this.a = TaskState.key;
-        this.b = new wv();
+        this.b = new bw();
         this.c = "";
     }
 
@@ -148,7 +148,7 @@ public final class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String a2 = mr.c.c().a(this.a);
+            String a2 = rr.c.c().a(this.a);
             if (a2 == null) {
                 return "";
             }
@@ -280,7 +280,7 @@ public final class b {
                         if (m != null) {
                             byte[] bytes = m.getBytes(charset);
                             Intrinsics.checkExpressionValueIsNotNull(bytes, "(this as java.lang.String).getBytes(charset)");
-                            String newFingerprint = pt.b(bytes, false);
+                            String newFingerprint = ut.b(bytes, false);
                             str = this.this$0.c;
                             if (Intrinsics.areEqual(newFingerprint, str)) {
                                 DebugTrace.a.c(AnonymousClass1.INSTANCE);
@@ -335,7 +335,7 @@ public final class b {
                                     return (String) invokeV.objValue;
                                 }
                             });
-                            js c2 = mr.c.c();
+                            os c2 = rr.c.c();
                             str2 = this.this$0.a;
                             c2.a(m, str2);
                             return;
@@ -344,7 +344,7 @@ public final class b {
                     }
                 }
             });
-            ExecutorUtilsExt.postOnSerial(new RunnableC0090b(this), "storageSync");
+            ExecutorUtilsExt.postOnSerial(new RunnableC0089b(this), "storageSync");
         }
     }
 

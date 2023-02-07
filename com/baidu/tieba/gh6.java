@@ -1,42 +1,13 @@
 package com.baidu.tieba;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class gh6 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public uu4 a;
-    public ArrayList<yn> b;
-    public boolean c;
-    public boolean d;
-    public int e;
-    public int f;
-    public hh6 g;
-    public boolean h;
+public interface gh6 {
+    void a(sf6 sf6Var, long j, sh6 sh6Var, mf6 mf6Var);
 
-    public gh6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.c = true;
-        this.d = true;
-        this.e = 0;
-        this.f = 0;
-        this.h = true;
-        this.b = new ArrayList<>();
-        this.a = new uu4();
-    }
+    void b(sf6 sf6Var);
+
+    void c(int i, int i2);
+
+    void clear();
+
+    boolean d(sf6 sf6Var, long j, sh6 sh6Var, mf6 mf6Var);
 }

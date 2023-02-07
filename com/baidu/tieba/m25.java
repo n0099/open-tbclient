@@ -1,6 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,70 +14,140 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class m25 {
     public static /* synthetic */ Interceptable $ic;
+    public static final c a;
+    public static final c b;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public long b;
-    public int c;
 
-    public m25() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public interface c {
+        void a(String str, String str2, String str3);
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class b implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        @Override // com.baidu.tieba.m25.c
+        public void a(String str, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
+                if (str2 != null) {
+                    str3 = "code:" + str2 + " message:" + str3;
+                }
+                Log.e("BridgeLogger", str3);
             }
         }
     }
 
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
+    /* loaded from: classes5.dex */
+    public static final class d implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-        return (String) invokeV.objValue;
-    }
 
-    public long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        public /* synthetic */ d(a aVar) {
+            this();
         }
-        return invokeV.longValue;
-    }
 
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.a = str;
+        @Override // com.baidu.tieba.m25.c
+        public void a(String str, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
+                StatisticItem statisticItem = new StatisticItem("c10729");
+                statisticItem.param("obj_param1", str);
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str2);
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, str3);
+                if (BdBaseApplication.getInst() != null) {
+                    TiebaStatic.log(statisticItem);
+                }
+            }
         }
     }
 
-    public void f(long j) {
+    static {
+        InterceptResult invokeClinit;
+        boolean z;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947920793, "Lcom/baidu/tieba/m25;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947920793, "Lcom/baidu/tieba/m25;");
+                return;
+            }
+        }
+        a = new b(null);
+        b = new d(null);
+        if (BdBaseApplication.getInst() != null && !BdBaseApplication.getInst().isDebugMode()) {
+            z = false;
+        } else {
+            z = true;
+        }
+        c = z;
+    }
+
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.b = j;
+        if ((interceptable == null || interceptable.invokeL(65537, null, str) == null) && c) {
+            a.a(null, null, str);
+        }
+    }
+
+    public static void b(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
+            a(str3);
+        }
+    }
+
+    public static void c(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, str3) == null) {
+            if (c) {
+                a.a(str, str2, str3);
+            }
+            b.a(str, str2, str3);
         }
     }
 }

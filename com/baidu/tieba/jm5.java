@@ -1,29 +1,28 @@
 package com.baidu.tieba;
 
-import android.database.DataSetObservable;
-import android.database.DataSetObserver;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.template.adapter.stats.StatsType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class jm5 {
+public class jm5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public DataSetObservable a;
+    public StatsType a;
+    public View b;
+    public BdUniqueId c;
 
-    public abstract int a();
-
-    public abstract View b(int i, ViewGroup viewGroup);
-
-    public jm5() {
+    public jm5(StatsType statsType, sw4 sw4Var, View view2, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {statsType, sw4Var, view2, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,35 +32,41 @@ public abstract class jm5 {
                 return;
             }
         }
-        this.a = new DataSetObservable();
+        this.a = statsType;
+        this.b = view2;
+        this.c = bdUniqueId;
     }
 
-    public void c() {
+    public BdUniqueId a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.notifyChanged();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public void d(DataSetObserver dataSetObserver) {
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, dataSetObserver) == null) {
-            try {
-                this.a.registerObserver(dataSetObserver);
-            } catch (Throwable th) {
-                BdLog.e(th, true);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.a == StatsType.CLICK) {
+                return true;
             }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public void e(DataSetObserver dataSetObserver) {
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, dataSetObserver) == null) {
-            try {
-                this.a.unregisterObserver(dataSetObserver);
-            } catch (Throwable th) {
-                BdLog.e(th, true);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.a == StatsType.SHOW) {
+                return true;
             }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 }

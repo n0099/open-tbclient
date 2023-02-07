@@ -1,13 +1,9 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,81 +11,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public final class z03 {
+public class z03 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean e;
+    public static final z03 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public c a;
-
-    /* loaded from: classes7.dex */
-    public interface c {
-        void a();
-
-        void b(@NonNull b13 b13Var);
-
-        void c(String str);
-
-        void d(String str);
-    }
-
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b13 a;
-        public final /* synthetic */ z03 b;
-
-        public a(z03 z03Var, b13 b13Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {z03Var, b13Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = z03Var;
-            this.a = b13Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.g(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static z03 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-283605650, "Lcom/baidu/tieba/z03$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-283605650, "Lcom/baidu/tieba/z03$b;");
-                    return;
-                }
-            }
-            a = new z03();
-        }
-    }
+    public final List<b13> a;
+    public final Map<String, b13> b;
+    public boolean c;
+    public y03 d;
 
     static {
         InterceptResult invokeClinit;
@@ -104,7 +41,45 @@ public final class z03 {
                 return;
             }
         }
-        b = tk1.a;
+        e = gp1.a;
+        f = new z03();
+    }
+
+    public static z03 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return f;
+        }
+        return (z03) invokeV.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.c = true;
+            synchronized (this.a) {
+                this.a.clear();
+                this.b.clear();
+            }
+            if (e) {
+                Log.d("MaUpdateRecorder", "done");
+            }
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.c = false;
+            synchronized (this.a) {
+                this.a.clear();
+                this.b.clear();
+            }
+            if (e) {
+                Log.d("MaUpdateRecorder", "reset");
+            }
+        }
     }
 
     public z03() {
@@ -117,89 +92,110 @@ public final class z03 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList();
+        this.b = new HashMap();
+        this.c = false;
     }
 
-    public static z03 e() {
-        InterceptResult invokeV;
+    public void a(HybridUbcFlow hybridUbcFlow) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b.a;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, hybridUbcFlow) != null) || hybridUbcFlow == null) {
+            return;
         }
-        return (z03) invokeV.objValue;
-    }
-
-    public void c() {
-        c cVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (cVar = this.a) != null) {
-            cVar.a();
+        JSONArray e2 = e();
+        if (e2 != null && e2.length() > 0) {
+            hybridUbcFlow.D("ma_update_recorder", e2.toString());
         }
+        c();
     }
 
-    public static void f(String str) {
+    public void h(y03 y03Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && b) {
-            Log.i("SwanAppMessenger", str);
+        if (interceptable == null || interceptable.invokeL(1048582, this, y03Var) == null) {
+            this.d = y03Var;
         }
     }
 
-    public void b(String str) {
-        c cVar;
+    public String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (cVar = this.a) != null) {
-            cVar.d(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (this.c) {
+                return null;
+            }
+            if (e) {
+                Log.d("MaUpdateRecorder", "begin update scope id - " + str);
+            }
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            String str2 = Thread.currentThread().getName() + "-" + UUID.randomUUID().toString();
+            b13 b13Var = new b13(str);
+            b13Var.a(currentTimeMillis);
+            synchronized (this.a) {
+                this.b.put(str2, b13Var);
+            }
+            if (e) {
+                Log.d("MaUpdateRecorder", "begin update uni tag - " + str2);
+                Log.d("MaUpdateRecorder", "begin update ts - " + currentTimeMillis);
+            }
+            return str2;
         }
+        return (String) invokeL.objValue;
     }
 
     public void d(String str) {
-        c cVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (cVar = this.a) != null) {
-            cVar.c(str);
+        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || this.c) {
+            return;
+        }
+        if (e) {
+            Log.d("MaUpdateRecorder", "end update uni tag - " + str);
+        }
+        if (TextUtils.isEmpty(str)) {
+            return;
+        }
+        long currentTimeMillis = System.currentTimeMillis();
+        synchronized (this.a) {
+            b13 b13Var = this.b.get(str);
+            if (b13Var != null) {
+                b13Var.c(currentTimeMillis);
+                this.a.add(b13Var);
+                this.b.remove(str);
+            }
+        }
+        if (e) {
+            Log.d("MaUpdateRecorder", "end update ts - " + currentTimeMillis);
         }
     }
 
-    public final void g(@NonNull b13 b13Var) {
-        c f13Var;
+    public final JSONArray e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, b13Var) == null) {
-            boolean isMainProcess = ProcessUtils.isMainProcess();
-            if (!isMainProcess && !SwanAppProcessInfo.isInited()) {
-                f("send: return by process check");
-                return;
-            }
-            if (this.a == null) {
-                if (isMainProcess) {
-                    f13Var = new j13();
-                } else {
-                    f13Var = new f13();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            synchronized (this.a) {
+                try {
+                    for (b13 b13Var : this.a) {
+                        if (b13Var != null && (this.d == null || this.d.a(b13Var))) {
+                            jSONArray.put(b13Var.d());
+                        }
+                    }
+                } catch (Exception e2) {
+                    if (e) {
+                        e2.printStackTrace();
+                    }
                 }
-                this.a = f13Var;
             }
-            f("send: sender=" + this.a);
-            this.a.a();
-            this.a.b(b13Var);
-            this.a.a();
+            if (e) {
+                Log.d("MaUpdateRecorder", jSONArray.toString());
+            }
+            return jSONArray;
         }
-    }
-
-    public void h(@NonNull b13 b13Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, b13Var) == null) {
-            long i = b13Var.i();
-            int i2 = (i > 0L ? 1 : (i == 0L ? 0 : -1));
-            if (i2 <= 0 && Looper.getMainLooper() == Looper.myLooper()) {
-                g(b13Var);
-                return;
-            }
-            Handler M = i43.M();
-            a aVar = new a(this, b13Var);
-            if (i2 < 0) {
-                i = 0;
-            }
-            M.postDelayed(aVar, i);
-        }
+        return (JSONArray) invokeV.objValue;
     }
 }

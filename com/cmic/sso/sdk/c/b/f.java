@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
@@ -244,7 +243,7 @@ public class f extends g {
                 jSONObject2.put("version", this.a.c());
                 jSONObject.put("header", jSONObject2);
                 jSONObject3.put("log", this.b.a());
-                jSONObject.put(TtmlNode.TAG_BODY, jSONObject3);
+                jSONObject.put("body", jSONObject3);
             } catch (JSONException e) {
                 e.printStackTrace();
             }

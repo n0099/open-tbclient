@@ -1,12 +1,14 @@
 package com.baidu.tieba;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.media.AudioRecord;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,65 +16,223 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.Locale;
+import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Timer;
+import java.util.TimerTask;
+import org.json.JSONException;
+import org.json.JSONObject;
+import rx.schedulers.Schedulers;
 /* loaded from: classes5.dex */
-public class mx2 implements cj3<HybridUbcFlow> {
+public class mx2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean q;
+    @SuppressLint({"StaticFieldLeak"})
+    public static volatile mx2 r;
     public transient /* synthetic */ FieldHolder $fh;
+    public AudioRecord a;
+    public String b;
+    public int c;
+    public int d;
+    public Context e;
+    public String f;
+    public Timer g;
+    public lx2 h;
+    public long i;
+    public long j;
+    public hx2 k;
+    public ix2 l;
+    public boolean m;
+    public TelephonyManager n;
+    public kx2 o;
+    public boolean p;
 
     /* loaded from: classes5.dex */
-    public static class a {
+    public class a implements lx2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public volatile long a;
+        public final /* synthetic */ mx2 a;
 
-        /* renamed from: com.baidu.tieba.mx2$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public static class C0364a {
-            public static /* synthetic */ Interceptable $ic;
-            public static a a;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            static {
-                InterceptResult invokeClinit;
-                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(598257032, "Lcom/baidu/tieba/mx2$a$a;")) != null) {
-                    Interceptable interceptable = invokeClinit.interceptor;
-                    if (interceptable != null) {
-                        $ic = interceptable;
-                    }
-                    if ((invokeClinit.flags & 1) != 0) {
-                        classClinitInterceptable.invokePostClinit(598257032, "Lcom/baidu/tieba/mx2$a$a;");
-                        return;
-                    }
-                }
-                a = new a();
-            }
-        }
-
-        public a() {
+        public a(mx2 mx2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mx2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = mx2Var;
         }
 
-        public static a a() {
-            InterceptResult invokeV;
+        @Override // com.baidu.tieba.lx2
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                return C0364a.a;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (mx2.q) {
+                    Log.d("AudioRecorderManager", "record --- timeOut");
+                }
+                w52.i("recorder", "time out");
+                this.a.F();
+                this.a.z();
             }
-            return (a) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements hda<Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mx2 a;
+
+        public b(mx2 mx2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mx2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = mx2Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.hda
+        public void call(Boolean bool) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, bool) != null) || bool.booleanValue()) {
+                return;
+            }
+            this.a.f();
+            w52.c("recorder", "record error");
+            this.a.z();
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements lda<String, Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mx2 a;
+
+        public c(mx2 mx2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mx2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = mx2Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.lda
+        public Boolean call(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return Boolean.valueOf(this.a.C());
+            }
+            return (Boolean) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class d extends TimerTask {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ lx2 a;
+        public final /* synthetic */ mx2 b;
+
+        public d(mx2 mx2Var, lx2 lx2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mx2Var, lx2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = mx2Var;
+            this.a = lx2Var;
+        }
+
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                lx2 lx2Var = this.a;
+                if (lx2Var != null) {
+                    lx2Var.a();
+                }
+                this.b.G();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class e extends TimerTask {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mx2 a;
+
+        public e(mx2 mx2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mx2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = mx2Var;
+        }
+
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a.h != null) {
+                    this.a.h.a();
+                }
+                this.a.G();
+            }
         }
     }
 
@@ -89,7 +249,7 @@ public class mx2 implements cj3<HybridUbcFlow> {
                 return;
             }
         }
-        a = tk1.a;
+        q = gp1.a;
     }
 
     public mx2() {
@@ -102,216 +262,573 @@ public class mx2 implements cj3<HybridUbcFlow> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cj3
-    /* renamed from: b */
-    public void a(HybridUbcFlow hybridUbcFlow) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
-            c(hybridUbcFlow);
-        }
-    }
-
-    @SuppressLint({"SwanDebugLog", "LogConditional"})
-    public void c(HybridUbcFlow hybridUbcFlow) {
-        String str;
-        String str2;
-        boolean z;
-        boolean z2;
-        String str3;
-        String str4;
-        String str5;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hybridUbcFlow) == null) && hybridUbcFlow != null && !hybridUbcFlow.f.isEmpty()) {
-            long f = hybridUbcFlow.f("slave_first_rendered", "master_dispatch_start");
-            fg3.g.update((eg3<Long>) Long.valueOf(f));
-            String str6 = "naStart";
-            fg3.b.update((eg3<Long>) Long.valueOf(hybridUbcFlow.f("slave_first_rendered", "naStart")));
-            String str7 = "aps_start_download";
-            String str8 = "aps_end_req";
-            fg3.c.update((eg3<Long>) Long.valueOf(hybridUbcFlow.f("aps_end_download", "aps_start_download", "aps_end_req", "aps_start_req", "naStart")));
-            long f2 = hybridUbcFlow.f("na_first_meaningful_paint", "naStart");
-            long j = 1;
-            if (f2 < 1) {
-                f2 = hybridUbcFlow.f("na_first_paint", "naStart");
-            }
-            if (f2 >= 1) {
-                j = f2;
-            }
-            a.a().a = j;
-            j43 b0 = j43.b0();
-            if (b0 == null) {
                 return;
             }
-            if (!a && !i03.d("aiapps_startup_reporter", false)) {
-                return;
-            }
-            int i = i03.u().getInt("aiapps_startup_reporter_resolution", 100);
-            String Z = b0.Z();
-            if (TextUtils.isEmpty(Z)) {
-                Z = "";
-            }
-            if (TextUtils.isEmpty(b0.b)) {
-                str = "";
-            } else {
-                str = b0.b;
-            }
-            Log.i("StartupReporter", "\n\n  小程序启动性能报告: " + Z + " appID: " + str + " speedLog\n");
-            StringBuilder sb = new StringBuilder();
-            for (int i2 = 0; i2 < i; i2++) {
-                sb.append("&");
-            }
-            boolean z3 = true;
-            Log.i("StartupReporter", String.format(" Cost [%s] Delta Src  Total Action", sb.toString()));
-            long g = hybridUbcFlow.f.get(0).g();
-            Iterator<UbcFlowEvent> it = hybridUbcFlow.f.iterator();
-            long j2 = 0;
-            while (it.hasNext()) {
-                UbcFlowEvent next = it.next();
-                if (!next.b() || i03.d("aiapps_startup_reporter_local_report", z3)) {
-                    String[] strArr = new String[2];
-                    Iterator<UbcFlowEvent> it2 = it;
-                    strArr[0] = next.a;
-                    strArr[z3 ? 1 : 0] = str6;
-                    long f3 = hybridUbcFlow.f(strArr);
-                    if (f3 < 0) {
-                        z = true;
-                    } else {
-                        z = false;
+        }
+        this.d = -1;
+        this.k = new hx2();
+        this.p = false;
+    }
+
+    public static mx2 k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (r == null) {
+                synchronized (mx2.class) {
+                    if (r == null) {
+                        r = new mx2();
                     }
-                    if (f3 > j) {
-                        z2 = true;
-                    } else {
-                        z2 = false;
-                    }
-                    if (z) {
-                        f3 = 0;
-                    }
-                    if (z2) {
-                        f3 = j;
-                    }
-                    long j3 = f3 - j2;
-                    if (j3 < 0) {
-                        str3 = str6;
-                        j3 = 0;
-                    } else {
-                        str3 = str6;
-                    }
-                    long j4 = i;
-                    String str9 = str7;
-                    String str10 = str8;
-                    int round = Math.round((float) ((f3 * j4) / j));
-                    if (round > i) {
-                        round = i;
-                    }
-                    int round2 = Math.round((float) ((j4 * j3) / j));
-                    if (round2 > i) {
-                        round2 = i;
-                    }
-                    StringBuilder sb2 = new StringBuilder();
-                    long j5 = j;
-                    sb2.append(String.format(Locale.getDefault(), " %5d ", Long.valueOf(f3)));
-                    if (z) {
-                        str4 = "<";
-                    } else {
-                        str4 = PreferencesUtil.LEFT_MOUNT;
-                    }
-                    sb2.append(str4);
-                    for (int i3 = 0; i3 < i; i3++) {
-                        if (i3 > round) {
-                            sb2.append(".");
-                        } else if (i3 > round2) {
-                            sb2.append("=");
-                        } else {
-                            sb2.append("#");
-                        }
-                    }
-                    if (z2) {
-                        str5 = ">";
-                    } else {
-                        str5 = PreferencesUtil.RIGHT_MOUNT;
-                    }
-                    sb2.append(str5);
-                    sb2.append(String.format(Locale.getDefault(), "%5d", Long.valueOf(j3)));
-                    sb2.append(String.format("  %s", next.f()));
-                    sb2.append(String.format(Locale.getDefault(), " %6d ", Long.valueOf(next.g() - g)));
-                    sb2.append(next.a);
-                    if (next.b()) {
-                        sb2.append("(LocalRecord)");
-                    }
-                    Log.i("StartupReporter", sb2.toString());
-                    it = it2;
-                    j2 = f3;
-                    str6 = str3;
-                    j = j5;
-                    str7 = str9;
-                    str8 = str10;
-                    z3 = true;
                 }
             }
-            String str11 = str6;
-            String str12 = str7;
-            String str13 = str8;
-            long j6 = j;
-            Log.i("StartupReporter", "Total  ： " + hybridUbcFlow.f.size());
-            StringBuilder sb3 = new StringBuilder();
-            sb3.append("\n========APS下载完成:" + hybridUbcFlow.f("aps_end_download", str11));
-            sb3.append("\n========解压包时长:" + hybridUbcFlow.f("package_end_unzip", "first_anim_start", "aps_end_download"));
-            sb3.append("\n========第一次setData的调用:" + hybridUbcFlow.f("slave_first_loaded", "slave_js_parsed"));
-            sb3.append("\n========master第一次和slave通信:" + hybridUbcFlow.f("slave_first_loaded", "master_first_init_data"));
-            sb3.append("\n========slave第一次收到数据:" + hybridUbcFlow.f("slave_first_recieve_data", "master_first_init_data"));
-            sb3.append("\n========slave第一次渲染完成:" + hybridUbcFlow.f("slave_first_rendered", "slave_first_recieve_data"));
-            sb3.append("\n========第一次动画时长:" + hybridUbcFlow.f("first_anim_end", "first_anim_start"));
-            sb3.append("\n========第二次动画时长:" + hybridUbcFlow.f("second_anim_end", "second_anim_start"));
-            sb3.append("\n\n核心指标--------");
-            sb3.append("\n========aps接口时长:" + hybridUbcFlow.f(str13, "aps_start_req", str11));
-            sb3.append("\n========aps纯下载时长:" + hybridUbcFlow.f("aps_end_download", str12, str13, "aps_start_req", str11));
-            sb3.append("\n========");
-            sb3.append("\n========准备启动时长:" + hybridUbcFlow.f("na_launch_activity", str11));
-            sb3.append("\n========准备查库时长:" + hybridUbcFlow.f("na_query_db", str11));
-            sb3.append("\n========Activity调起时长:" + hybridUbcFlow.f("frame_start_create", "na_launch_activity"));
-            sb3.append("\n========");
-            sb3.append("\n========预加载等待时长:" + hybridUbcFlow.f("na_pre_load_ok", "na_pre_load_check"));
-            sb3.append("\n========主线程阻塞时长:" + hybridUbcFlow.f("na_post_to_main_end", "na_post_to_main_start"));
-            sb3.append("\n========本地小程序包加载及渲染总时长:" + hybridUbcFlow.f("slave_first_rendered", "first_anim_start"));
-            sb3.append("\n\n启动线性跟踪分段指标简报--------");
-            sb3.append("\n========取包（网络开销，从小程序入口，到APS及前置接口等网络交互完成）:" + hybridUbcFlow.f("first_anim_start", str11));
-            sb3.append("\n========安装（IO开销，从下载完成，到小程序包解压安装作业完成）:" + hybridUbcFlow.f("package_end_unzip", "first_anim_start"));
-            sb3.append("\n========下载-安装（IO开销，从下载开始，到小程序包解压安装作业完成）:" + hybridUbcFlow.f("package_end_unzip", str12));
-            sb3.append("\n========小程序框架启动总时长（NA开销，从开始，到 NA 准备完成）:" + hybridUbcFlow.f("master_dispatch_start", str11));
-            sb3.append("\n========AppReady派发时长:" + hybridUbcFlow.f("fe_master_dispatch_start", "master_dispatch_start"));
-            sb3.append("\n========小程序业务渲染总时长（H5开销，从 NA 准备完成，到页面渲染）:" + f);
-            int optInt = hybridUbcFlow.m().optInt("type", -1);
-            String h = hybridUbcFlow.h("preload_scene");
-            String h2 = hybridUbcFlow.h("app_package_version");
-            String str14 = "-1";
-            if (TextUtils.isEmpty(h)) {
-                h = "-1";
-            }
-            String h3 = hybridUbcFlow.h("package_type");
-            if (!TextUtils.isEmpty(h3)) {
-                str14 = h3;
-            }
-            String h4 = hybridUbcFlow.h("preload");
-            sb3.append("\n\n小程序启动总时长：========> " + j6 + " LaunchDiff=" + hybridUbcFlow.f(str11, "user_action"));
-            if (!hybridUbcFlow.d.contains("package_start_unzip")) {
-                str2 = "(热启动)";
-            } else {
-                str2 = "(冷启动)";
-            }
-            sb3.append(str2);
-            sb3.append("  relaunchType:" + optInt);
-            sb3.append("  preloadType:" + h);
-            sb3.append(" packageType:" + str14);
-            sb3.append(" preload:" + h4);
-            if (!TextUtils.isEmpty(h2)) {
-                sb3.append(" packageVersion:" + h2);
-            }
-            Log.i("StartupReporter", "Report ： " + sb3.toString());
+            return r;
         }
+        return (mx2) invokeV.objValue;
+    }
+
+    public static void x() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65544, null) != null) || r == null) {
+            return;
+        }
+        r.z();
+        r.H();
+        r.o();
+    }
+
+    public static void y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65545, null) == null) {
+            x();
+            r = null;
+        }
+    }
+
+    public void A() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (q) {
+                Log.d("AudioRecorderManager", "resume record");
+            }
+            D(false);
+            B();
+        }
+    }
+
+    public boolean C() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            byte[] bArr = new byte[this.c];
+            hx2 hx2Var = this.k;
+            nx2 nx2Var = new nx2(hx2Var.b, hx2Var.c, hx2Var.d, hx2Var.e);
+            if (this.a == null) {
+                return false;
+            }
+            return v(bArr, nx2Var);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void G() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if (q) {
+                Log.d("AudioRecorderManager", "stop timer");
+            }
+            w52.i("recorder", "stop timer");
+            this.h = null;
+            Timer timer = this.g;
+            if (timer != null) {
+                timer.cancel();
+                this.g = null;
+            }
+        }
+    }
+
+    public final void H() {
+        TelephonyManager telephonyManager;
+        kx2 kx2Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (telephonyManager = this.n) != null && (kx2Var = this.o) != null) {
+            telephonyManager.listen(kx2Var, 0);
+            this.n = null;
+            this.o = null;
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            g(2002, "error execute");
+        }
+    }
+
+    public ix2 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.l;
+        }
+        return (ix2) invokeV.objValue;
+    }
+
+    public hx2 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.k;
+        }
+        return (hx2) invokeV.objValue;
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            int i = this.d;
+            if (i == 0 || i == 1) {
+                if (!this.p) {
+                    this.p = true;
+                    e(ix2.i, "recorderInterruptionBegin");
+                }
+                t();
+            }
+        }
+    }
+
+    public void o() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && this.p) {
+            this.p = false;
+            e(ix2.j, "recorderInterruptionEnd");
+        }
+    }
+
+    public final void w() {
+        Context context;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048600, this) != null) || (context = this.e) == null) {
+            return;
+        }
+        this.n = (TelephonyManager) context.getSystemService("phone");
+        kx2 kx2Var = new kx2();
+        this.o = kx2Var;
+        this.n.listen(kx2Var, 32);
+    }
+
+    public final void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+            G();
+            this.e = null;
+            this.d = -1;
+            AudioRecord audioRecord = this.a;
+            if (audioRecord != null) {
+                audioRecord.release();
+                this.a = null;
+            }
+        }
+    }
+
+    public static void r(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(65543, null, z) != null) || r == null) {
+            return;
+        }
+        r.s(z);
+    }
+
+    public boolean q(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
+            if (!this.m) {
+                return false;
+            }
+            if (!TextUtils.equals(str, "/swanAPI/recorder/start") && !TextUtils.equals(str, "/swanAPI/recorder/resume")) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void s(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+            if (z && this.d == 1) {
+                t();
+            }
+            this.m = z;
+        }
+    }
+
+    public void B() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (q) {
+                Log.d("AudioRecorderManager", "resume timer");
+            }
+            w52.i("recorder", "resume timer");
+            lx2 lx2Var = this.h;
+            if (lx2Var != null) {
+                if (this.j <= 0) {
+                    lx2Var.a();
+                    return;
+                }
+                Timer timer = new Timer();
+                this.g = timer;
+                timer.schedule(new e(this), this.j);
+                this.i = System.currentTimeMillis();
+            }
+        }
+    }
+
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (q) {
+                Log.d("AudioRecorderManager", "stop record");
+            }
+            AudioRecord audioRecord = this.a;
+            if (audioRecord == null) {
+                f();
+                w52.c("recorder", "none audioRecord");
+                z();
+                return;
+            }
+            try {
+                audioRecord.stop();
+                G();
+                this.d = 3;
+                h();
+                H();
+            } catch (IllegalStateException e2) {
+                f();
+                w52.d("recorder", "stop error", e2);
+                z();
+            }
+        }
+    }
+
+    public void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            if (q) {
+                Log.d("AudioRecorderManager", "pause record");
+            }
+            AudioRecord audioRecord = this.a;
+            if (audioRecord == null) {
+                f();
+                w52.c("recorder", "none audio record");
+                z();
+                return;
+            }
+            try {
+                audioRecord.stop();
+                this.d = 2;
+                u();
+                e(ix2.e, "recorderPause");
+            } catch (IllegalStateException e2) {
+                f();
+                w52.d("recorder", "pause error", e2);
+                z();
+            }
+        }
+    }
+
+    public void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+            if (q) {
+                Log.d("AudioRecorderManager", "pause timer, lastTime:" + this.j);
+            }
+            w52.i("recorder", "pause timer, lastTime:" + this.j);
+            Timer timer = this.g;
+            if (timer != null) {
+                timer.cancel();
+                this.g = null;
+            }
+            this.j = this.k.a - (System.currentTimeMillis() - this.i);
+        }
+    }
+
+    public void D(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            if (this.e == null) {
+                f();
+                w52.c("recorder", "start error, context is null");
+                z();
+            } else if (this.d != -1 && !TextUtils.isEmpty(this.b)) {
+                if (z) {
+                    String str = null;
+                    int i = this.d;
+                    if (i == 1) {
+                        str = "start fail: recorder is recording";
+                    } else if (i != 0 && i != 3) {
+                        str = "start fail: recorder is paused";
+                    }
+                    if (str != null) {
+                        g(2003, str);
+                        w52.c("recorder", str);
+                        return;
+                    }
+                }
+                if (q) {
+                    Log.d("AudioRecorderManager", "start record");
+                }
+                try {
+                    this.a.startRecording();
+                    if (this.a.getRecordingState() != 3) {
+                        f();
+                        w52.c("recorder", "start error, no real permission");
+                        z();
+                        return;
+                    }
+                    if (z) {
+                        E(new a(this));
+                        e(ix2.d, "recorderStart");
+                    } else {
+                        e(ix2.f, "recorderResume");
+                    }
+                    tca.f("").y(Schedulers.io()).h(new c(this)).k(dda.b()).w(new b(this));
+                } catch (IllegalStateException e2) {
+                    f();
+                    w52.d("recorder", "can't start", e2);
+                    z();
+                }
+            } else {
+                f();
+                w52.c("recorder", "start error, wrong state");
+                z();
+            }
+        }
+    }
+
+    public void E(lx2 lx2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, lx2Var) == null) {
+            if (q) {
+                Log.d("AudioRecorderManager", "start timer:" + this.k.a);
+            }
+            w52.i("recorder", "start timer, totalTime:" + this.k.a);
+            this.h = lx2Var;
+            Timer timer = new Timer();
+            this.g = timer;
+            timer.schedule(new d(this, lx2Var), this.k.a);
+            this.i = System.currentTimeMillis();
+        }
+    }
+
+    public final void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) {
+            if (q) {
+                Log.d("AudioRecorderManager", "dispatchCallback: " + str + " " + str2);
+            }
+            if (this.l != null && !TextUtils.isEmpty(str)) {
+                this.l.b(str);
+                return;
+            }
+            ju2.U().u(new xi2(str2));
+        }
+    }
+
+    public final void g(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048586, this, i, str) == null) {
+            if (this.l != null && !TextUtils.isEmpty(ix2.h)) {
+                this.l.d(i, str);
+                return;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, i);
+                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, str);
+                HashMap hashMap = new HashMap();
+                hashMap.put("data", jSONObject.toString());
+                ju2.U().u(new xi2("recorderError", hashMap));
+            } catch (JSONException e2) {
+                w52.d("recorder", "json error", e2);
+                z();
+            }
+        }
+    }
+
+    public final void h() {
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            String J = eg3.J(this.b, this.f);
+            long j2 = -1;
+            if (!TextUtils.isEmpty(this.b)) {
+                j2 = ap4.u(this.b);
+                j = new File(this.b).length();
+            } else {
+                j = -1;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                if (!TextUtils.isEmpty(J)) {
+                    jSONObject.put("tempFilePath", J);
+                }
+                if (j2 >= 0) {
+                    jSONObject.put("duration", j2);
+                }
+                if (j >= 0) {
+                    jSONObject.put("fileSize", j);
+                }
+                if (this.l != null && !TextUtils.isEmpty(ix2.g)) {
+                    this.l.c(ix2.g, jSONObject);
+                    return;
+                }
+                HashMap hashMap = new HashMap();
+                hashMap.put("data", jSONObject.toString());
+                ju2.U().u(new xi2("recorderStop", hashMap));
+            } catch (JSONException e2) {
+                f();
+                w52.d("recorder", "json error", e2);
+                z();
+            }
+        }
+    }
+
+    public void l(String str, hx2 hx2Var, Context context, ix2 ix2Var, String str2) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048590, this, str, hx2Var, context, ix2Var, str2) == null) {
+            int i2 = this.d;
+            if (i2 != -1 && i2 != 3) {
+                w52.c("recorder", "wrong state, can't init");
+                return;
+            }
+            this.k = hx2Var;
+            m(str);
+            this.l = ix2Var;
+            int minBufferSize = AudioRecord.getMinBufferSize(hx2Var.d, hx2Var.c, 2);
+            this.c = minBufferSize;
+            if (minBufferSize <= 0) {
+                f();
+                w52.c("recorder", "wrong buffer size");
+                z();
+                return;
+            }
+            if (hx2Var.c == 1) {
+                i = 16;
+            } else {
+                i = 12;
+            }
+            this.a = new AudioRecord(hx2Var.f, hx2Var.d, i, 2, this.c);
+            this.d = 0;
+            this.e = context;
+            this.f = str2;
+            w();
+        }
+    }
+
+    public final void m(String str) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+            if (TextUtils.equals(this.k.b, "mp3")) {
+                str2 = ".mp3";
+            } else if (TextUtils.equals(this.k.b, "pcm")) {
+                str2 = ".pcm";
+            } else {
+                str2 = DefaultHlsExtractorFactory.AAC_FILE_EXTENSION;
+            }
+            this.b = str + File.separator + "AUDIO_" + Calendar.getInstance().getTimeInMillis() + str2;
+        }
+    }
+
+    public boolean p(String str) {
+        InterceptResult invokeL;
+        int i;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
+            if (TextUtils.equals(str, "/swanAPI/recorder/pause")) {
+                if (this.d != 1) {
+                    str2 = "pause fail: recorder is not recording";
+                }
+                str2 = null;
+            } else if (TextUtils.equals(str, "/swanAPI/recorder/resume")) {
+                if (this.d != 2) {
+                    str2 = "resume fail: recorder is not paused";
+                }
+                str2 = null;
+            } else {
+                if (TextUtils.equals(str, "/swanAPI/recorder/stop") && (i = this.d) != 2 && i != 1) {
+                    str2 = "stop fail: recorder is not started";
+                }
+                str2 = null;
+            }
+            if (str2 == null) {
+                return true;
+            }
+            g(2003, str2);
+            w52.c("recorder", str2);
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean v(byte[] bArr, nx2 nx2Var) {
+        InterceptResult invokeLL;
+        FileOutputStream fileOutputStream;
+        byte[] f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048599, this, bArr, nx2Var)) == null) {
+            FileOutputStream fileOutputStream2 = null;
+            try {
+                try {
+                    File file = new File(this.b);
+                    if (this.d == 0) {
+                        if (file.exists()) {
+                            file.delete();
+                        }
+                        ap4.h(file);
+                    }
+                    fileOutputStream = new FileOutputStream(file, true);
+                } catch (Exception e2) {
+                    e = e2;
+                }
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                this.d = 1;
+                while (this.d == 1) {
+                    if (this.a.read(bArr, 0, this.c) >= 0) {
+                        if (TextUtils.equals(this.k.b, "pcm")) {
+                            f = bArr;
+                        } else {
+                            f = nx2Var.f(bArr);
+                        }
+                        if (f != null && f.length > 0) {
+                            fileOutputStream.write(f);
+                        }
+                    }
+                }
+                ap4.d(fileOutputStream);
+                return true;
+            } catch (Exception e3) {
+                e = e3;
+                fileOutputStream2 = fileOutputStream;
+                w52.d("recorder", "save record error", e);
+                if (this.d == 1) {
+                    this.d = 3;
+                }
+                ap4.d(fileOutputStream2);
+                return false;
+            } catch (Throwable th2) {
+                th = th2;
+                fileOutputStream2 = fileOutputStream;
+                ap4.d(fileOutputStream2);
+                throw th;
+            }
+        }
+        return invokeLL.booleanValue;
     }
 }

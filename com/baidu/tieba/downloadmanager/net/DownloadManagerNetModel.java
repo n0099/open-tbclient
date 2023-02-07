@@ -7,16 +7,16 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.mvc.model.NetAutoModel;
-import com.baidu.tieba.ie5;
-import com.baidu.tieba.je6;
-import com.baidu.tieba.ke6;
+import com.baidu.tieba.ti5;
+import com.baidu.tieba.ui6;
+import com.baidu.tieba.vi6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class DownloadManagerNetModel<T> extends NetAutoModel<je6, ke6, T> {
+public class DownloadManagerNetModel<T> extends NetAutoModel<ui6, vi6, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -45,19 +45,19 @@ public class DownloadManagerNetModel<T> extends NetAutoModel<je6, ke6, T> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DownloadManagerNetModel(TbPageContext<T> tbPageContext, je6 je6Var) {
-        super(tbPageContext, je6Var);
+    public DownloadManagerNetModel(TbPageContext<T> tbPageContext, ui6 ui6Var) {
+        super(tbPageContext, ui6Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, je6Var};
+            Object[] objArr = {tbPageContext, ui6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (ie5) objArr2[1]);
+                super((TbPageContext) objArr2[0], (ti5) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -86,11 +86,11 @@ public class DownloadManagerNetModel<T> extends NetAutoModel<je6, ke6, T> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<ke6> getResponseDataClass() {
+    public Class<vi6> getResponseDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return ke6.class;
+            return vi6.class;
         }
         return (Class) invokeV.objValue;
     }

@@ -54,23 +54,23 @@ public final class aw implements Runnable {
         String c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            com.xiaomi.channel.commonutils.logger.b.m103a("do sync info");
+            com.xiaomi.channel.commonutils.logger.b.m105a("do sync info");
             ii iiVar = new ii(bd.a(), false);
-            b m145a = b.m145a(this.a);
+            b m147a = b.m147a(this.a);
             iiVar.c(ht.v.f529a);
-            iiVar.b(m145a.m146a());
+            iiVar.b(m147a.m148a());
             iiVar.d(this.a.getPackageName());
             HashMap hashMap = new HashMap();
             iiVar.f668a = hashMap;
             Context context = this.a;
-            com.xiaomi.push.n.a(hashMap, "app_version", com.xiaomi.push.h.m457a(context, context.getPackageName()));
+            com.xiaomi.push.n.a(hashMap, "app_version", com.xiaomi.push.h.m459a(context, context.getPackageName()));
             Map<String, String> map2 = iiVar.f668a;
             Context context2 = this.a;
             com.xiaomi.push.n.a(map2, Constants.EXTRA_KEY_APP_VERSION_CODE, Integer.toString(com.xiaomi.push.h.a(context2, context2.getPackageName())));
             com.xiaomi.push.n.a(iiVar.f668a, "push_sdk_vn", "4_9_0");
             com.xiaomi.push.n.a(iiVar.f668a, "push_sdk_vc", Integer.toString(40090));
-            com.xiaomi.push.n.a(iiVar.f668a, "token", m145a.b());
-            if (!com.xiaomi.push.m.m640d()) {
+            com.xiaomi.push.n.a(iiVar.f668a, "token", m147a.b());
+            if (!com.xiaomi.push.m.m642d()) {
                 String a = bp.a(com.xiaomi.push.j.d(this.a));
                 String f = com.xiaomi.push.j.f(this.a);
                 if (!TextUtils.isEmpty(f)) {
@@ -81,8 +81,8 @@ public final class aw implements Runnable {
                 }
             }
             ba.a(this.a).a(iiVar.f668a);
-            com.xiaomi.push.n.a(iiVar.f668a, Constants.EXTRA_KEY_REG_ID, m145a.m153c());
-            com.xiaomi.push.n.a(iiVar.f668a, Constants.EXTRA_KEY_REG_SECRET, m145a.d());
+            com.xiaomi.push.n.a(iiVar.f668a, Constants.EXTRA_KEY_REG_ID, m147a.m155c());
+            com.xiaomi.push.n.a(iiVar.f668a, Constants.EXTRA_KEY_REG_SECRET, m147a.d());
             com.xiaomi.push.n.a(iiVar.f668a, Constants.EXTRA_KEY_ACCEPT_TIME, MiPushClient.getAcceptTime(this.a).replace(",", "-"));
             if (this.f91a) {
                 Map<String, String> map3 = iiVar.f668a;

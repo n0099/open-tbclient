@@ -1,78 +1,93 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.Comparator;
 /* loaded from: classes7.dex */
-public class y84 extends v84<vq2> {
+public class y84 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public long b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948284020, "Lcom/baidu/tieba/y84;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public static class a implements Comparator<y84> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948284020, "Lcom/baidu/tieba/y84;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        boolean z = tk1.a;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(y84 y84Var, y84 y84Var2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, y84Var, y84Var2)) == null) {
+                return (int) (y84Var.a - y84Var2.a);
+            }
+            return invokeLL.intValue;
+        }
     }
 
     public y84() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static y84 d() {
-        InterceptResult invokeV;
+    public static long[] a(y84 y84Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new y84();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, y84Var)) == null) {
+            if (y84Var == null) {
+                return null;
+            }
+            return new long[]{y84Var.a, y84Var.b};
         }
-        return (y84) invokeV.objValue;
+        return (long[]) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.v84
-    public boolean b(Context context, vq2 vq2Var, sq2 sq2Var, j43 j43Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
+    public boolean b(y84 y84Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, vq2Var, sq2Var, j43Var, jSONObject)) == null) {
-            return e(context, vq2Var, sq2Var, j43Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, y84Var)) == null) {
+            long j = this.a;
+            if (j <= y84Var.b) {
+                long j2 = this.b;
+                long j3 = y84Var.a;
+                if (j2 >= j3) {
+                    this.a = Math.min(j, j3);
+                    this.b = Math.max(this.b, y84Var.b);
+                    return true;
+                }
+                return false;
+            }
+            return false;
         }
-        return invokeLLLLL.booleanValue;
-    }
-
-    public final boolean e(Context context, vq2 vq2Var, sq2 sq2Var, j43 j43Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, vq2Var, sq2Var, j43Var)) == null) {
-            j12.i("map", "MapUpdateAction start");
-            boolean update = s84.b().update(context, vq2Var);
-            j12.i("map", "MapUpdateAction end");
-            return update;
-        }
-        return invokeLLLL.booleanValue;
+        return invokeL.booleanValue;
     }
 }

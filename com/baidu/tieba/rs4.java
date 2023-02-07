@@ -1,18 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.FrsPage.Badges;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class rs4 {
+public class rs4 extends os4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.ns4
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "h" : (String) invokeV.objValue;
+    }
 
     public rs4() {
         Interceptable interceptable = $ic;
@@ -28,27 +33,18 @@ public class rs4 {
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.ns4
+    public String a(String[] strArr, Map<String, String> map) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, strArr, map)) == null) {
+            if (strArr != null && strArr.length != 0) {
+                StringBuilder sb = new StringBuilder("com.baidu.tieba://unidispatch/home");
+                c(strArr, sb, map, 1);
+                return sb.toString();
+            }
+            return null;
         }
-        try {
-            jSONObject.optInt("badge_id", 0);
-            jSONObject.optString("badge_url", "");
-            jSONObject.optString(AlbumActivityConfig.FROM_WEB_VIEW);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public void b(Badges badges) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, badges) != null) || badges == null) {
-            return;
-        }
-        badges.badge_id.intValue();
-        String str = badges.badge_url;
-        String str2 = badges.webview;
+        return (String) invokeLL.objValue;
     }
 }

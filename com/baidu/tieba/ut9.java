@@ -1,13 +1,25 @@
 package com.baidu.tieba;
 
-import org.json.JSONObject;
+import com.baidu.ugc.download.exception.DownloadException;
 /* loaded from: classes6.dex */
 public interface ut9 {
-    void a(String str, JSONObject jSONObject);
+    void a(DownloadException downloadException);
 
-    void b(String str, JSONObject jSONObject);
+    void b(DownloadException downloadException);
 
-    void c(String str, int i, String str2, JSONObject jSONObject);
+    void onConnectCanceled();
 
-    void d(String str, String str2, JSONObject jSONObject);
+    void onConnected(long j, long j2, boolean z);
+
+    void onConnecting();
+
+    void onDownloadCanceled();
+
+    void onDownloadCompleted(String str);
+
+    void onDownloadPaused();
+
+    void onDownloadProgress(long j, long j2, int i);
+
+    void onStarted();
 }

@@ -1,131 +1,42 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class xf2 extends wf2 {
+public class xf2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
+    public static Uri a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.vf2
-    public void f() {
+    public static void a(@NonNull SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.vf2
-    public long i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 0L;
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // com.baidu.tieba.vf2
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "0" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.vf2
-    public void n(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.vf2
-    public void o(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948298373, "Lcom/baidu/tieba/xf2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948298373, "Lcom/baidu/tieba/xf2;");
-                return;
-            }
-        }
-        d = tk1.a;
-    }
-
-    public xf2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeL(65536, null, sQLiteDatabase) == null) {
+            try {
+                sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS user_behavior(_id INTEGER PRIMARY KEY AUTOINCREMENT,appKey varchar(100) NOT NULL,launch_type INT NOT NULL,source varchar(100),ext TEXT,time BIGINT);");
+            } catch (Exception e) {
+                w52.d("SwanLaunchBehaviorTable", "createTable", e);
             }
         }
     }
 
-    @Override // com.baidu.tieba.vf2
     @NonNull
-    public ExtensionCore h() {
+    public static synchronized Uri b() {
         InterceptResult invokeV;
+        Uri uri;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ExtensionCore extensionCore = new ExtensionCore();
-            extensionCore.extensionCoreVersionCode = 0L;
-            extensionCore.extensionCoreVersionName = "0";
-            extensionCore.extensionCorePath = "";
-            extensionCore.extensionCoreType = 0;
-            return extensionCore;
-        }
-        return (ExtensionCore) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.wf2, com.baidu.tieba.vf2
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (d) {
-                Log.d("SwanNoPresetExtensionCoreControl", "isNeedUpdate false");
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (xf2.class) {
+                if (a == null) {
+                    a = vf2.c.buildUpon().appendPath("user_behavior").build();
+                }
+                uri = a;
             }
-            return false;
+            return uri;
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.vf2
-    public <T extends pf2> Exception g(@NonNull T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) {
-            if (d) {
-                Log.d("SwanNoPresetExtensionCoreControl", "doUpdate: preset");
-                return null;
-            }
-            return null;
-        }
-        return (Exception) invokeL.objValue;
+        return (Uri) invokeV.objValue;
     }
 }

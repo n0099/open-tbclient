@@ -14,7 +14,7 @@ public final class a {
 
     /* renamed from: com.kwad.sdk.core.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static final class C0623a {
+    public static final class C0627a {
         public static final a Th = new a((byte) 0);
     }
 
@@ -28,7 +28,7 @@ public final class a {
     }
 
     public static a rD() {
-        return C0623a.Th;
+        return C0627a.Th;
     }
 
     public final void a(String str, DownloadParams downloadParams) {

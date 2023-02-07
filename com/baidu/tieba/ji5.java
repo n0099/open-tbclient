@@ -1,92 +1,61 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gi5;
-import com.baidu.tieba.hi5;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.abtest.UbsABTestDataManager;
+import com.baidu.tbadk.mutiprocess.sync.SyncDataEvent;
+import com.baidu.tbadk.switchs.PraiseSwitch;
+import com.baidu.tbadk.switchs.WindowGreySwitch;
+import com.baidu.tieba.person.ProfileVirtualImageInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ji5<Q extends gi5, P extends hi5> implements ii5<Q, P> {
+public class ji5 implements fh5<SyncDataEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public String c;
-    public Q d;
-    public P e;
 
-    public ji5(int i, int i2, String str, Q q, P p) {
+    public ji5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), str, q, p};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = i;
-        this.b = i2;
-        this.c = str;
-        this.d = q;
-        this.e = p;
     }
 
-    @Override // com.baidu.tieba.ii5
-    public int a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.fh5
+    /* renamed from: a */
+    public boolean onEvent(SyncDataEvent syncDataEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, syncDataEvent)) == null) {
+            boolean z = false;
+            if (syncDataEvent == null) {
+                return false;
+            }
+            TbSingleton.getInstance().setSampleId(syncDataEvent.sampleId);
+            sn5.d().f(syncDataEvent.abtestExtraData);
+            UbsABTestDataManager.getInstance().parseJSONArrayByStr(syncDataEvent.ubsABTest);
+            TbSingleton.getInstance().setUserGrowthTaskListData(syncDataEvent.userGrowthTaskListData);
+            ProfileVirtualImageInfo.getInstance().parseRemoteInfo(syncDataEvent.profileVirtualImageInfo);
+            t9 f = t9.f();
+            if (syncDataEvent.themeIsBlack == 1) {
+                z = true;
+            }
+            f.q(z);
+            WindowGreySwitch.setNewValue(syncDataEvent.themeIsBlack);
+            SwitchManager.getInstance().turn(PraiseSwitch.KEY, syncDataEvent.praiseSwitch);
+            return true;
         }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.ii5
-    public Q b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return (Q) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ii5
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ii5
-    public P d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return (P) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ii5
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
+        return invokeL.booleanValue;
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ye7;
+import com.baidu.tieba.jj7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class LoadHistoryMessage extends CustomMessage<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ye7 callback;
+    public jj7 callback;
 
     /* loaded from: classes4.dex */
     public static class a {
@@ -59,19 +59,19 @@ public class LoadHistoryMessage extends CustomMessage<a> {
         }
     }
 
-    public ye7 getCallback() {
+    public jj7 getCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.callback;
         }
-        return (ye7) invokeV.objValue;
+        return (jj7) invokeV.objValue;
     }
 
-    public void setCallback(ye7 ye7Var) {
+    public void setCallback(jj7 jj7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ye7Var) == null) {
-            this.callback = ye7Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jj7Var) == null) {
+            this.callback = jj7Var;
         }
     }
 }

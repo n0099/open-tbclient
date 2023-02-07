@@ -1,170 +1,163 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.ActivityManager;
+import android.content.Context;
+import android.os.Bundle;
+import android.os.Process;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.tieba.d30;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class g30 {
+public class g30 extends d30 {
     public static /* synthetic */ Interceptable $ic;
-    public static final byte[][] a;
     public transient /* synthetic */ FieldHolder $fh;
+    public d30 c;
+    public boolean d;
 
-    /* loaded from: classes4.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public byte[] a;
-
-        public a(byte[] bArr, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bArr, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bArr;
-        }
-
-        public byte[] a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (byte[]) invokeV.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947742853, "Lcom/baidu/tieba/g30;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947742853, "Lcom/baidu/tieba/g30;");
+    public g30(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new byte[][]{new byte[]{0, 0}, new byte[]{0, 1}, new byte[]{0, 2}, new byte[]{1, 0}, new byte[]{1, 1}, new byte[]{1, 2}, new byte[]{2, 0}, new byte[]{2, 1}};
+        this.d = z;
     }
 
-    public static int a(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.d30
+    public void a(String str, Bundle bundle, d30.c<String> cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            int i2 = i % 3;
-            char c = 1;
-            if (i2 == 1) {
-                i += 2;
-                c = 2;
-            } else if (i2 == 2) {
-                i++;
-            } else {
-                c = 0;
-            }
-            int i3 = (i / 3) * 2;
-            return c > 0 ? i3 + 1 : i3;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, bundle, cVar) == null) {
+            this.c.a(str, bundle, cVar);
         }
-        return invokeI.intValue;
     }
 
-    public static a b(byte[] bArr) {
+    @Override // com.baidu.tieba.d30
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c.d();
+        }
+    }
+
+    @Override // com.baidu.tieba.d30
+    public boolean e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
-            int length = (((bArr.length - 1) / 2) * 3) - (bArr.length % 2 != 0 ? bArr[bArr.length - 1] : 0);
-            int i = length / 8;
-            if (length % 8 > 0) {
-                i++;
-            }
-            byte[] bArr2 = new byte[i];
-            int i2 = 0;
-            int i3 = 8;
-            for (int i4 = 0; i4 < bArr.length - 1; i4 += 2) {
-                byte b = (byte) (((bArr[i4] * 3) + bArr[i4 + 1]) & 255);
-                for (int i5 = 2; i5 >= 0; i5--) {
-                    if (i3 <= 0) {
-                        i2++;
-                        i3 = 8;
-                    }
-                    if (i2 >= i) {
-                        break;
-                    }
-                    bArr2[i2] = (byte) ((bArr2[i2] << 1) | ((b >> i5) & 1));
-                    i3--;
-                }
-            }
-            if (i3 > 0 && i2 < i) {
-                bArr2[i2] = (byte) (bArr2[i2] << i3);
-            }
-            return new a(bArr2, length);
-        }
-        return (a) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.c.e(str) : invokeL.booleanValue;
     }
 
-    public static byte[] c(byte[] bArr, int i) {
-        InterceptResult invokeLI;
-        int i2;
-        byte b;
+    @Override // com.baidu.tieba.d30
+    public void f(d30.b bVar) {
+        d30 h30Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, bArr, i)) == null) {
-            int i3 = i % 3;
-            if (i3 == 1) {
-                i2 = i + 2;
-                b = 2;
-            } else if (i3 == 2) {
-                i2 = i + 1;
-                b = 1;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
+            if (this.d ? j() : i()) {
+                h30Var = new f30();
             } else {
-                i2 = i;
-                b = 0;
+                h30Var = new h30(this.d ? ".helios.ipc.default" : ".helios.ipc.isolate");
             }
-            int i4 = (i2 / 3) * 2;
-            if (b > 0) {
-                i4++;
-            }
-            byte[] bArr2 = new byte[i4];
-            int i5 = 0;
-            int i6 = 0;
-            for (byte b2 : bArr) {
-                for (int i7 = 7; i7 >= 0; i7--) {
-                    bArr2[i5] = (byte) ((bArr2[i5] << 1) | ((b2 >> i7) & 1));
-                    if (i6 % 3 == 2) {
-                        byte[][] bArr3 = a;
-                        bArr2[i5 + 1] = bArr3[bArr2[i5]][1];
-                        bArr2[i5] = bArr3[bArr2[i5]][0];
-                        i5 += 2;
-                    }
-                    i6++;
-                    if (i6 == i) {
-                        break;
-                    }
-                }
-                if (i6 == i) {
-                    break;
-                }
-            }
-            if (b > 0) {
-                bArr2[i5] = (byte) (bArr2[i5] << b);
-                byte[][] bArr4 = a;
-                bArr2[i5 + 1] = bArr4[bArr2[i5]][1];
-                bArr2[i5] = bArr4[bArr2[i5]][0];
-                bArr2[i5 + 2] = b;
-            }
-            return bArr2;
+            this.c = h30Var;
+            h30Var.b(this.a);
+            this.c.c(bVar);
         }
-        return (byte[]) invokeLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.d30
+    public d30.d g(String str, Bundle bundle) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, bundle)) == null) ? this.c.g(str, bundle) : (d30.d) invokeLL.objValue;
+    }
+
+    public final String h() {
+        InterceptResult invokeV;
+        BufferedReader bufferedReader;
+        Throwable th;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            try {
+                bufferedReader = new BufferedReader(new FileReader(new File(ProcessUtils.CMD_LINE_NAME)));
+                try {
+                    String readLine = bufferedReader.readLine();
+                    if (!TextUtils.isEmpty(readLine)) {
+                        n50.b(bufferedReader);
+                        return readLine;
+                    }
+                } catch (IOException unused) {
+                } catch (Throwable th2) {
+                    th = th2;
+                    n50.b(bufferedReader);
+                    throw th;
+                }
+            } catch (IOException unused2) {
+                bufferedReader = null;
+            } catch (Throwable th3) {
+                bufferedReader = null;
+                th = th3;
+            }
+            n50.b(bufferedReader);
+            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) this.a.c.getSystemService("activity")).getRunningAppProcesses();
+            if (runningAppProcesses != null) {
+                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
+                    if (runningAppProcessInfo.pid == Process.myPid()) {
+                        return runningAppProcessInfo.processName;
+                    }
+                }
+                return null;
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            String h = h();
+            return h != null && h.contains(":helios");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            String h = h();
+            if (h == null) {
+                return true;
+            }
+            Context context = this.a.c;
+            String str = context.getApplicationInfo().processName;
+            if (TextUtils.isEmpty(str)) {
+                str = context.getPackageName();
+            }
+            if (h.startsWith(str)) {
+                return h.length() == str.length() || h.charAt(str.length()) != ':';
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

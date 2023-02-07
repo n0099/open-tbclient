@@ -1,92 +1,44 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.Uri;
-import android.text.TextUtils;
-import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.swan.apps.storage.PathType;
-import com.baidu.tieba.sz1;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.backends.pipeline.PipelineDraweeControllerBuilder;
-import com.facebook.drawee.controller.AbstractDraweeController;
-import com.facebook.drawee.controller.BaseControllerListener;
-import com.facebook.drawee.drawable.ScalingUtils;
-import com.facebook.drawee.generic.GenericDraweeHierarchy;
-import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
-import com.facebook.drawee.generic.RoundingParams;
-import com.facebook.drawee.view.SimpleDraweeView;
-import com.facebook.imagepipeline.image.ImageInfo;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
-import java.io.File;
-import java.util.HashMap;
 /* loaded from: classes6.dex */
-public abstract class rz1<V extends SimpleDraweeView, M extends sz1> extends wz1<V, M> {
+public class rz1 extends zw1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
+    @Override // com.baidu.tieba.zw1
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Menu" : (String) invokeV.objValue;
+    }
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-444357917, "Lcom/baidu/tieba/rz1$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-444357917, "Lcom/baidu/tieba/rz1$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[PathType.values().length];
-            a = iArr;
-            try {
-                iArr[PathType.BD_FILE.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[PathType.RELATIVE.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[PathType.NETWORK.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[PathType.ERROR.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-        }
+    @Override // com.baidu.tieba.zw1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "MenuButtonBoundsApi" : (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rz1(@Nullable Context context, @NonNull M m) {
-        super(context, m);
+    public rz1(@NonNull xw1 xw1Var) {
+        super(xw1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, m};
+            Object[] objArr = {xw1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (xz1) objArr2[1]);
+                super((xw1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -94,126 +46,24 @@ public abstract class rz1<V extends SimpleDraweeView, M extends sz1> extends wz1
         }
     }
 
-    public static Uri W(@NonNull String str) {
-        InterceptResult invokeL;
-        String str2;
-        String str3;
+    public w02 x() {
+        InterceptResult invokeV;
+        sz1 tz1Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            PathType s = rb3.s(str);
-            j43 M = j43.M();
-            if (M != null) {
-                str2 = M.b;
-                str3 = M.k0();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            boolean z = false;
+            q("#getMenuButtonBoundingClientRect", false);
+            w83 b0 = w83.b0();
+            if (b0 != null) {
+                z = b0.w0();
+            }
+            if (z) {
+                tz1Var = new uz1();
             } else {
-                str2 = null;
-                str3 = null;
+                tz1Var = new tz1();
             }
-            if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
-                return null;
-            }
-            int i = a.a[s.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        return null;
-                    }
-                    return Uri.parse(str);
-                }
-                File file = new File(str);
-                if (file.exists()) {
-                    return Uri.fromFile(file);
-                }
-                String L = rb3.L(str, M, str3);
-                if (TextUtils.isEmpty(L)) {
-                    return null;
-                }
-                return Uri.fromFile(new File(L));
-            }
-            String M2 = rb3.M(str, str2);
-            if (TextUtils.isEmpty(M2)) {
-                return null;
-            }
-            return Uri.fromFile(new File(M2));
+            return tz1Var.a();
         }
-        return (Uri) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wz1
-    /* renamed from: T */
-    public void O(@NonNull V v, @NonNull M m, @NonNull b12 b12Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, v, m, b12Var) == null) {
-            super.C(v, m, b12Var);
-            if (b12Var.a(9)) {
-                U(v, m);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wz1, com.baidu.tieba.yz1
-    @NonNull
-    /* renamed from: S */
-    public b12 k(@NonNull M m, @NonNull M m2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, m, m2)) == null) {
-            b12 k = super.k(m, m2);
-            if (!TextUtils.equals(m.t, m2.t)) {
-                k.b(9);
-            }
-            return k;
-        }
-        return (b12) invokeLL.objValue;
-    }
-
-    public void U(@NonNull V v, @NonNull M m) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, v, m) == null) {
-            V(v, m, null);
-        }
-    }
-
-    public final void V(@NonNull V v, @NonNull M m, @Nullable BaseControllerListener<ImageInfo> baseControllerListener) {
-        Uri W;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048582, this, v, m, baseControllerListener) != null) || m.j == null) {
-            return;
-        }
-        if (yz1.h) {
-            Log.d("Component-SimpleDrawee", "renderImageStyle");
-        }
-        String str = m.t;
-        if (TextUtils.isEmpty(str) || (W = W(str)) == null) {
-            return;
-        }
-        j12.i("Component-SimpleDrawee", "Image Uri:" + W);
-        PipelineDraweeControllerBuilder oldController = Fresco.newDraweeControllerBuilder().setOldController(v.getController());
-        if (baseControllerListener != null) {
-            oldController.setControllerListener(baseControllerListener);
-        }
-        HashMap hashMap = new HashMap();
-        String g0 = db2.U().g0();
-        if (!TextUtils.isEmpty(g0)) {
-            hashMap.put("User-Agent", g0);
-        }
-        String b = qh3.b();
-        if (!TextUtils.isEmpty(b) && qh3.c(W.toString())) {
-            hashMap.put("Referer", b);
-        }
-        dp1 C = qn2.C();
-        ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(W);
-        C.e(newBuilderWithSource, hashMap);
-        oldController.setImageRequest(newBuilderWithSource.build());
-        AbstractDraweeController build = oldController.build();
-        RoundingParams roundingParams = new RoundingParams();
-        roundingParams.setCornersRadius(m.n);
-        GenericDraweeHierarchy build2 = new GenericDraweeHierarchyBuilder(v.getResources()).build();
-        build2.setRoundingParams(roundingParams);
-        build2.setActualImageScaleType(ScalingUtils.ScaleType.FIT_XY);
-        v.setHierarchy(build2);
-        v.setController(build);
+        return (w02) invokeV.objValue;
     }
 }

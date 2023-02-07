@@ -1,37 +1,84 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pb.pb.main.PbLoadMoreItemVideoViewHolder;
+import com.baidu.sapi2.PassportSDK;
+import com.baidu.sapi2.share.ShareStorage;
+import com.baidu.sapi2.shell.listener.WebAuthListener;
+import com.baidu.sapi2.shell.result.WebAuthResult;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.DialogLoginHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.gson.Gson;
 /* loaded from: classes4.dex */
-public class f88 extends p78<f58, PbLoadMoreItemVideoViewHolder> {
+public class f88 extends a88 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View.OnClickListener g;
+    public ShareStorage.StorageModel i;
+
+    /* loaded from: classes4.dex */
+    public class a extends WebAuthListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ f88 a;
+
+        public a(f88 f88Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {f88Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = f88Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onFailure(WebAuthResult webAuthResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) {
+                BaseActivity baseActivity = this.a.b;
+                baseActivity.showToast(String.format(baseActivity.getString(R.string.obfuscated_res_0x7f0f11fe), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onSuccess(WebAuthResult webAuthResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, webAuthResult) == null) {
+                this.a.f();
+                DialogLoginHelper.addLoginDialogSuccessLog(DialogLoginHelper.getOneKeyLoginActivityLocate(), DialogLoginHelper.FULL_SCREEN_TYPE_SHARE, DialogLoginHelper.FULL_SCREEN_TYPE_SHARE);
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f88(kc8 kc8Var, BdUniqueId bdUniqueId) {
-        super(kc8Var, bdUniqueId);
+    public f88(TbPageContext tbPageContext, b88 b88Var) {
+        super(tbPageContext, b88Var, DialogLoginHelper.FULL_SCREEN_TYPE_SHARE);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {kc8Var, bdUniqueId};
+            Object[] objArr = {tbPageContext, b88Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((kc8) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((TbPageContext) objArr2[0], (b88) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -39,39 +86,31 @@ public class f88 extends p78<f58, PbLoadMoreItemVideoViewHolder> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: u */
-    public PbLoadMoreItemVideoViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.a88
+    public void j(c88 c88Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new PbLoadMoreItemVideoViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.new_pb_video_more, viewGroup, false));
+        if ((interceptable != null && interceptable.invokeL(1048576, this, c88Var) != null) || c88Var == null) {
+            return;
         }
-        return (PbLoadMoreItemVideoViewHolder) invokeL.objValue;
+        this.e = c88Var;
+        this.i = (ShareStorage.StorageModel) new Gson().fromJson(c88Var.d, (Class<Object>) ShareStorage.StorageModel.class);
     }
 
-    public void w(View.OnClickListener onClickListener) {
+    @Override // com.baidu.tieba.a88
+    public void n(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.g = onClickListener;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            super.n(view2);
+            if (view2.getId() == R.id.obfuscated_res_0x7f091525) {
+                r();
+            }
         }
     }
 
-    @Override // com.baidu.tieba.p78, com.baidu.tieba.ln
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        v(i, view2, viewGroup, (f58) obj, (PbLoadMoreItemVideoViewHolder) viewHolder);
-        return view2;
-    }
-
-    public View v(int i, View view2, ViewGroup viewGroup, f58 f58Var, PbLoadMoreItemVideoViewHolder pbLoadMoreItemVideoViewHolder) {
-        InterceptResult invokeCommon;
+    public void r() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, f58Var, pbLoadMoreItemVideoViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) f58Var, (f58) pbLoadMoreItemVideoViewHolder);
-            pbLoadMoreItemVideoViewHolder.a(this.g);
-            return view2;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.i != null) {
+            PassportSDK.getInstance().invokeV2ShareLogin(this.b, new a(this), this.i);
         }
-        return (View) invokeCommon.objValue;
     }
 }

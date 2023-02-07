@@ -1,19 +1,72 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.io.File;
+import java.io.IOException;
+import java.nio.channels.ReadableByteChannel;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class kg4 {
+public abstract class kg4<T> implements ng4<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile kg4 a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.ng4
+    public void a(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ng4
+    public void c(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ng4
+    public void e(T t, qh4 qh4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, t, qh4Var) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ng4
+    public void f(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+        }
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return 100;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.ng4
+    public void i(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ng4
+    public void j(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
+        }
+    }
 
     public kg4() {
         Interceptable interceptable = $ic;
@@ -29,45 +82,25 @@ public class kg4 {
         }
     }
 
-    public static kg4 a() {
+    @Override // com.baidu.tieba.ng4
+    public Map<String, Object> k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (kg4.class) {
-                    if (a == null) {
-                        a = new kg4();
-                    }
-                }
-            }
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("queue_priority", Integer.valueOf(g()));
+            return hashMap;
         }
-        return (kg4) invokeV.objValue;
+        return (Map) invokeV.objValue;
     }
 
-    public void b(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        boolean z;
+    @Override // com.baidu.tieba.ng4
+    public qh4 h(T t, File file, long j, ReadableByteChannel readableByteChannel) throws IOException {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{t, file, Long.valueOf(j), readableByteChannel})) == null) {
+            return new qh4(2302, "业务层默认不处理下载流");
         }
-        String optString = jSONObject.optString("version");
-        if (!TextUtils.isEmpty(optString) && (optJSONObject = jSONObject.optJSONObject("data")) != null && ub4.b() != null && ub4.b().i() != null) {
-            JSONArray optJSONArray = optJSONObject.optJSONArray(AlbumActivityConfig.FROM_WEB_VIEW);
-            JSONArray optJSONArray2 = optJSONObject.optJSONArray("js");
-            boolean z2 = true;
-            if (optJSONArray != null) {
-                z = ub4.b().o(false, optJSONArray);
-            } else {
-                z = true;
-            }
-            if (optJSONArray2 != null) {
-                z2 = ub4.b().o(true, optJSONArray2);
-            }
-            if (z && z2) {
-                ub4.b().i().putString("key_online_description_fix_version", optString);
-            }
-        }
+        return (qh4) invokeCommon.objValue;
     }
 }

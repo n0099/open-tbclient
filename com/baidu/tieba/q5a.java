@@ -1,42 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.java_websocket.WebSocket;
-import org.java_websocket.drafts.Draft;
-import org.java_websocket.exceptions.InvalidDataException;
-import org.java_websocket.framing.Framedata;
+import java.util.HashMap;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public abstract class q5a implements s5a {
+public class q5a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public c0a a;
+    public final t0a b;
+    public final HashMap<String, v0a> c;
 
-    @Override // com.baidu.tieba.s5a
-    public void onWebsocketHandshakeReceivedAsClient(WebSocket webSocket, g6a g6aVar, n6a n6aVar) throws InvalidDataException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, webSocket, g6aVar, n6aVar) == null) {
-        }
-    }
+    /* loaded from: classes5.dex */
+    public interface a<E> {
+        void a(E e);
 
-    @Override // com.baidu.tieba.s5a
-    public void onWebsocketHandshakeSentAsClient(WebSocket webSocket, g6a g6aVar) throws InvalidDataException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webSocket, g6aVar) == null) {
-        }
-    }
-
-    @Deprecated
-    public abstract void onWebsocketMessageFragment(WebSocket webSocket, Framedata framedata);
-
-    @Override // com.baidu.tieba.s5a
-    public void onWebsocketPong(WebSocket webSocket, Framedata framedata) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, webSocket, framedata) == null) {
-        }
+        void b(E e);
     }
 
     public q5a() {
@@ -49,25 +31,23 @@ public abstract class q5a implements s5a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = new t0a();
+        this.c = new HashMap<>();
     }
 
-    @Override // com.baidu.tieba.s5a
-    public o6a onWebsocketHandshakeReceivedAsServer(WebSocket webSocket, Draft draft, g6a g6aVar) throws InvalidDataException {
-        InterceptResult invokeLLL;
+    public final <E> void a(Set<E> set, Set<E> set2, a<E> aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webSocket, draft, g6aVar)) == null) {
-            return new k6a();
-        }
-        return (o6a) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.s5a
-    public void onWebsocketPing(WebSocket webSocket, Framedata framedata) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, webSocket, framedata) == null) {
-            webSocket.sendFrame(new e6a((d6a) framedata));
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, set, set2, aVar) == null) {
+            for (E e : set2) {
+                if (set == null || !set.contains(e)) {
+                    aVar.b(e);
+                } else {
+                    aVar.a(e);
+                }
+            }
         }
     }
 }

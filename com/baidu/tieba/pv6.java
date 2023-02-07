@@ -1,74 +1,34 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.frs.entelechy.adapter.FrsGroupCardLayoutHolder;
+import com.baidu.tieba.frs.view.FrsGroupCardLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class pv6 extends ln<zv6, a> {
+public final class pv6 extends qn<sw6, FrsGroupCardLayoutHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public class a extends TypeAdapter.ViewHolder {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public View a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(pv6 pv6Var, View view2) {
-            super(view2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pv6Var, view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((View) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            if (view2 instanceof ViewGroup) {
-                ViewGroup viewGroup = (ViewGroup) view2;
-                if (viewGroup.getChildCount() > 0) {
-                    this.a = viewGroup.getChildAt(0);
-                }
-            }
-        }
-
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                SkinManager.setBackgroundColor(this.a, R.color.CAM_X0209);
-                SkinManager.setBackgroundColor(this.itemView, R.color.CAM_X0205);
-            }
-        }
-    }
+    public final TbPageContext<?> a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pv6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public pv6(TbPageContext<?> pageContext) {
+        super(pageContext.getPageActivity(), sw6.c.a());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
+            Object[] objArr = {pageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -80,36 +40,40 @@ public class pv6 extends ln<zv6, a> {
                 return;
             }
         }
-        this.mPageId = bdUniqueId2;
+        Intrinsics.checkNotNullParameter(pageContext, "pageContext");
+        this.a = pageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
+    @Override // com.baidu.tieba.qn
     /* renamed from: s */
-    public a onCreateViewHolder(ViewGroup viewGroup) {
+    public FrsGroupCardLayoutHolder onCreateViewHolder(ViewGroup parent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            FrameLayout frameLayout = new FrameLayout(this.mContext);
-            View view2 = new View(this.mContext);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
-            layoutParams.leftMargin = zi.g(this.mContext, R.dimen.M_W_X005);
-            layoutParams.rightMargin = zi.g(this.mContext, R.dimen.M_W_X005);
-            frameLayout.addView(view2, layoutParams);
-            return new a(this, frameLayout);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, parent)) == null) {
+            Intrinsics.checkNotNullParameter(parent, "parent");
+            Activity pageActivity = this.a.getPageActivity();
+            Intrinsics.checkNotNullExpressionValue(pageActivity, "pageContext.pageActivity");
+            return new FrsGroupCardLayoutHolder(new FrsGroupCardLayout(pageActivity, null, 2, null));
         }
-        return (a) invokeL.objValue;
+        return (FrsGroupCardLayoutHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
+    @Override // com.baidu.tieba.qn
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, zv6 zv6Var, a aVar) {
+    public View onFillViewHolder(int i, View convertView, ViewGroup parent, sw6 data, FrsGroupCardLayoutHolder holder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, zv6Var, aVar})) == null) {
-            aVar.a();
-            return aVar.getView();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), convertView, parent, data, holder})) == null) {
+            Intrinsics.checkNotNullParameter(convertView, "convertView");
+            Intrinsics.checkNotNullParameter(parent, "parent");
+            Intrinsics.checkNotNullParameter(data, "data");
+            Intrinsics.checkNotNullParameter(holder, "holder");
+            holder.a().setData(data);
+            View view2 = holder.getView();
+            Intrinsics.checkNotNullExpressionValue(view2, "holder.view");
+            return view2;
         }
         return (View) invokeCommon.objValue;
     }

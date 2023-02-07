@@ -1,5 +1,6 @@
 package androidx.core.graphics;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Typeface;
@@ -29,6 +30,7 @@ public class TypefaceCompatBaseImpl {
     public static final int INVALID_KEY = 0;
     public static final String TAG = "TypefaceCompatBaseImpl";
     public transient /* synthetic */ FieldHolder $fh;
+    @SuppressLint({"BanConcurrentHashMap"})
     public ConcurrentHashMap<Long, FontResourcesParserCompat.FontFamilyFilesResourceEntry> mFontFamilies;
 
     /* loaded from: classes.dex */

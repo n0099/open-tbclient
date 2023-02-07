@@ -1,27 +1,52 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes3.dex */
-public class ao2 {
+public class ao2 extends qm2<hp2> {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile zn2 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized zn2 a() {
+    @Override // com.baidu.tieba.qm2
+    @NonNull
+    public String b() {
         InterceptResult invokeV;
-        zn2 zn2Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (ao2.class) {
-                if (a == null) {
-                    a = new zn2();
-                }
-                zn2Var = a;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "enableCamera" : (String) invokeV.objValue;
+    }
+
+    public ao2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return zn2Var;
         }
-        return (zn2) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qm2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull hp2 hp2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, hp2Var) == null) {
+            String str = command.what;
+            d(hp2Var, str, "" + command.obj, true);
+            Object obj = command.obj;
+            if (obj instanceof Boolean) {
+                hp2Var.g(((Boolean) obj).booleanValue());
+            }
+        }
     }
 }

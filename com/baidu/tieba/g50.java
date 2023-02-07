@@ -1,193 +1,144 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayOutputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.util.Collections;
+import java.util.HashMap;
+import javax.crypto.BadPaddingException;
 /* loaded from: classes4.dex */
-public class g50 {
+public final class g50 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public boolean b;
-    public boolean c;
+    public final int a;
+    public final int b;
+    public final int c;
 
-    public static int a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            return i != 5 ? -1 : 0;
-                        }
-                        return 1;
-                    }
-                    return 3;
-                }
-                return 4;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947744775, "Lcom/baidu/tieba/g50;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return 6;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947744775, "Lcom/baidu/tieba/g50;");
+                return;
+            }
         }
-        return invokeI.intValue;
+        Collections.synchronizedMap(new HashMap());
     }
 
-    public static int d(int i) {
-        InterceptResult invokeI;
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            return i != 6 ? -1 : 1;
-                        }
-                        return 2;
-                    }
-                    return 3;
-                }
-                return 4;
-            }
-            return 5;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return invokeI.intValue;
+        return invokeV.intValue;
     }
 
-    public g50(String str, boolean z, boolean z2) {
+    public g50(int i, int i2) throws InvalidKeyException, InvalidAlgorithmParameterException {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.b = z;
-        this.c = z2;
+        this.a = i;
+        this.b = i2;
+        if (i2 >= 64) {
+            if (i != 1 && i != 2) {
+                if (i == 3) {
+                    this.c = i2;
+                    return;
+                }
+                throw new InvalidKeyException("Invalid padding: " + i);
+            }
+            this.c = i2 - 11;
+            return;
+        }
+        throw new InvalidKeyException("Padded size must be at least 64");
     }
 
-    public byte[] b(String str) {
+    public static g50 a(int i, int i2) throws InvalidKeyException, InvalidAlgorithmParameterException {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) {
+            return new g50(i, i2);
+        }
+        return (g50) invokeII.objValue;
+    }
+
+    public byte[] c(byte[] bArr) throws BadPaddingException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            for (byte b : str.getBytes()) {
-                char c = (char) b;
-                if (!Character.isWhitespace(c)) {
-                    byteArrayOutputStream.write((byte) Character.toUpperCase(c));
-                }
-            }
-            if (this.b) {
-                if (byteArrayOutputStream.size() % 8 != 0) {
-                    return null;
-                }
-            } else {
-                while (byteArrayOutputStream.size() % 8 != 0) {
-                    byteArrayOutputStream.write(61);
-                }
-            }
-            byte[] byteArray = byteArrayOutputStream.toByteArray();
-            byteArrayOutputStream.reset();
-            DataOutputStream dataOutputStream = new DataOutputStream(byteArrayOutputStream);
-            for (int i = 0; i < byteArray.length / 8; i++) {
-                short[] sArr = new short[8];
-                int[] iArr = new int[5];
-                int i2 = 8;
-                for (int i3 = 0; i3 < 8; i3++) {
-                    int i4 = (i * 8) + i3;
-                    if (((char) byteArray[i4]) == '=') {
-                        break;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
+            if (bArr.length == this.b) {
+                int i = this.a;
+                if (i != 1 && i != 2) {
+                    if (i == 3) {
+                        return bArr;
                     }
-                    sArr[i3] = (short) this.a.indexOf(byteArray[i4]);
-                    if (sArr[i3] < 0) {
-                        return null;
-                    }
-                    i2--;
+                    throw new AssertionError();
                 }
-                int d = d(i2);
-                if (d < 0) {
-                    return null;
-                }
-                iArr[0] = (sArr[0] << 3) | (sArr[1] >> 2);
-                iArr[1] = ((sArr[1] & 3) << 6) | (sArr[2] << 1) | (sArr[3] >> 4);
-                iArr[2] = ((sArr[3] & 15) << 4) | ((sArr[4] >> 1) & 15);
-                iArr[3] = (sArr[4] << 7) | (sArr[5] << 2) | (sArr[6] >> 3);
-                iArr[4] = sArr[7] | ((sArr[6] & 7) << 5);
-                for (int i5 = 0; i5 < d; i5++) {
-                    try {
-                        dataOutputStream.writeByte((byte) (iArr[i5] & 255));
-                    } catch (IOException unused) {
-                    }
-                }
+                return d(bArr);
             }
-            return byteArrayOutputStream.toByteArray();
+            throw new BadPaddingException("Padded length must be " + this.b);
         }
         return (byte[]) invokeL.objValue;
     }
 
-    public String c(byte[] bArr) {
+    public final byte[] d(byte[] bArr) throws BadPaddingException {
         InterceptResult invokeL;
-        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            for (int i2 = 0; i2 < (bArr.length + 4) / 5; i2++) {
-                short[] sArr = new short[5];
-                int[] iArr = new int[8];
-                int i3 = 5;
-                for (int i4 = 0; i4 < 5; i4++) {
-                    int i5 = (i2 * 5) + i4;
-                    if (i5 < bArr.length) {
-                        sArr[i4] = (short) (bArr[i5] & 255);
-                    } else {
-                        sArr[i4] = 0;
-                        i3--;
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) {
+            if (bArr[0] == 0) {
+                int i = 2;
+                if (bArr[1] != this.a) {
+                    throw new BadPaddingException("Blocktype mismatch: " + ((int) bArr[1]));
                 }
-                int a = a(i3);
-                iArr[0] = (byte) ((sArr[0] >> 3) & 31);
-                iArr[1] = (byte) (((sArr[0] & 7) << 2) | ((sArr[1] >> 6) & 3));
-                iArr[2] = (byte) ((sArr[1] >> 1) & 31);
-                iArr[3] = (byte) (((sArr[1] & 1) << 4) | ((sArr[2] >> 4) & 15));
-                iArr[4] = (byte) (((sArr[2] & 15) << 1) | ((sArr[3] >> 7) & 1));
-                iArr[5] = (byte) ((sArr[3] >> 2) & 31);
-                iArr[6] = (byte) (((sArr[4] >> 5) & 7) | ((sArr[3] & 3) << 3));
-                iArr[7] = (byte) (sArr[4] & 31);
-                int i6 = 0;
                 while (true) {
-                    i = 8 - a;
-                    if (i6 >= i) {
-                        break;
+                    int i2 = i + 1;
+                    int i3 = bArr[i] & 255;
+                    if (i3 == 0) {
+                        int length = bArr.length - i2;
+                        if (length <= this.c) {
+                            byte[] bArr2 = new byte[length];
+                            System.arraycopy(bArr, bArr.length - length, bArr2, 0, length);
+                            return bArr2;
+                        }
+                        throw new BadPaddingException("Padding string too short");
+                    } else if (i2 != bArr.length) {
+                        if (this.a == 1 && i3 != 255) {
+                            throw new BadPaddingException("Padding byte not 0xff: " + i3);
+                        }
+                        i = i2;
+                    } else {
+                        throw new BadPaddingException("Padding string not terminated");
                     }
-                    char charAt = this.a.charAt(iArr[i6]);
-                    if (this.c) {
-                        charAt = Character.toLowerCase(charAt);
-                    }
-                    byteArrayOutputStream.write(charAt);
-                    i6++;
                 }
-                if (this.b) {
-                    while (i < 8) {
-                        byteArrayOutputStream.write(61);
-                        i++;
-                    }
-                }
+            } else {
+                throw new BadPaddingException("Data must start with zero");
             }
-            return new String(byteArrayOutputStream.toByteArray());
+        } else {
+            return (byte[]) invokeL.objValue;
         }
-        return (String) invokeL.objValue;
     }
 }

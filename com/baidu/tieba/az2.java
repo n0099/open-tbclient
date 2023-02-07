@@ -1,260 +1,198 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.io.File;
+import java.io.FileFilter;
+import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public final class az2 {
+public class az2 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile az2 d;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, bz2> a;
-    public HashMap<String, bz2> b;
-    public HashMap<String, bz2> c;
 
-    public az2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes3.dex */
+    public static class a implements FileFilter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.io.FileFilter
+        public boolean accept(File file) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
+                if (file.isDirectory() && TextUtils.isDigitsOnly(file.getName())) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947632400, "Lcom/baidu/tieba/az2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947632400, "Lcom/baidu/tieba/az2;");
                 return;
             }
         }
-        c();
+        a = gp1.a;
     }
 
-    public static az2 b() {
-        InterceptResult invokeV;
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (d == null) {
-                synchronized (az2.class) {
-                    if (d == null) {
-                        d = new az2();
-                    }
-                }
-            }
-            return d;
-        }
-        return (az2) invokeV.objValue;
-    }
-
-    public static synchronized void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            synchronized (az2.class) {
-                if (d != null) {
-                    d.e();
-                    d = null;
-                }
-            }
-        }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.a == null) {
-                this.a = new HashMap<>();
-            }
-            if (this.b == null) {
-                this.b = new HashMap<>();
-            }
-            if (this.c == null) {
-                this.c = new HashMap<>();
-            }
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            HashMap<String, bz2> hashMap = this.a;
-            if (hashMap != null) {
-                hashMap.clear();
-            }
-            HashMap<String, bz2> hashMap2 = this.b;
-            if (hashMap2 != null) {
-                hashMap2.clear();
-            }
-            HashMap<String, bz2> hashMap3 = this.c;
-            if (hashMap3 != null) {
-                hashMap3.clear();
-            }
-        }
-    }
-
-    public final void a(String str, long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLJ(1048576, this, str, j) != null) || TextUtils.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(65537, null, str) != null) || TextUtils.isEmpty(str)) {
             return;
         }
-        char c = 65535;
-        int hashCode = str.hashCode();
-        if (hashCode != 767526192) {
-            if (hashCode != 1331686101) {
-                if (hashCode == 1390184462 && str.equals("PageUpdateRender")) {
-                    c = 2;
-                }
-            } else if (str.equals("PageInitRender")) {
-                c = 1;
-            }
-        } else if (str.equals("PageSwitchCost")) {
-            c = 0;
-        }
-        if (c != 0) {
-            if (c != 1) {
-                if (c == 2) {
-                    fg3.f.update((eg3<Long>) Long.valueOf(j));
-                    return;
-                }
-                return;
-            }
-            fg3.e.update((eg3<Long>) Long.valueOf(j));
+        File file = new File(sr2.g(), str);
+        if (!file.exists()) {
             return;
         }
-        fg3.d.update((eg3<Long>) Long.valueOf(j));
-    }
-
-    public void d(String str, String str2, long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j)}) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && j >= 0) {
-            c();
-            char c = 65535;
-            switch (str2.hashCode()) {
-                case -1880922749:
-                    if (str2.equals("pageUpdateEnd")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case -964566145:
-                    if (str2.equals("pageSwitchStart")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case -410083667:
-                    if (str2.equals("pageInitRenderStart")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case 4028902:
-                    if (str2.equals("pageInitRenderEnd")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-                case 627578634:
-                    if (str2.equals("pageUpdateStart")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 1719651128:
-                    if (str2.equals("pageSwitchEnd")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
+        if (a) {
+            Log.d("PkgInfoExt", "clear all pkg info's ext ,appId - " + str);
+        }
+        File[] listFiles = file.listFiles(new a());
+        if (listFiles != null && listFiles.length > 0) {
+            for (File file2 : listFiles) {
+                b(str, file2.getName());
             }
-            if (c != 0 && c != 1 && c != 2) {
-                if (c == 3 || c == 4 || c == 5) {
-                    g(str, str2, j);
-                    return;
-                }
-                return;
-            }
-            h(str, str2, j);
         }
     }
 
-    public final void g(String str, String str2, long j) {
+    public static String f(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Long.valueOf(j)}) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            bz2 bz2Var = null;
-            char c = 65535;
-            int hashCode = str2.hashCode();
-            if (hashCode != -1880922749) {
-                if (hashCode != 4028902) {
-                    if (hashCode == 1719651128 && str2.equals("pageSwitchEnd")) {
-                        c = 0;
-                    }
-                } else if (str2.equals("pageInitRenderEnd")) {
-                    c = 1;
-                }
-            } else if (str2.equals("pageUpdateEnd")) {
-                c = 2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, pMSAppInfo)) == null) {
+            if (pMSAppInfo == null) {
+                return "";
             }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c == 2) {
-                        bz2Var = this.c.remove(str);
-                    }
-                } else {
-                    bz2Var = this.b.remove(str);
-                }
-            } else {
-                bz2Var = this.a.remove(str);
+            String c = c(pMSAppInfo);
+            if (TextUtils.isEmpty(c)) {
+                return "";
             }
-            if (bz2Var == null) {
+            String string = kh3.a().getString(c, "");
+            if (a) {
+                Log.d("PkgInfoExt", "appId - " + pMSAppInfo.appId + ", get pkg info' ext - " + string);
+            }
+            return string;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            String e = e(str, str2);
+            if (TextUtils.isEmpty(e)) {
                 return;
             }
-            bz2Var.b(j);
-            a(bz2Var.getType(), bz2Var.a());
+            kh3.a().edit().remove(e).apply();
+            if (a) {
+                Log.d("PkgInfoExt", "clear pkg info's ext , appId - " + str + ", version code - " + str2);
+            }
         }
     }
 
-    public final void h(String str, String str2, long j) {
+    public static String c(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Long.valueOf(j)}) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            bz2 bz2Var = null;
-            char c = 65535;
-            int hashCode = str2.hashCode();
-            if (hashCode != -964566145) {
-                if (hashCode != -410083667) {
-                    if (hashCode == 627578634 && str2.equals("pageUpdateStart")) {
-                        c = 2;
-                    }
-                } else if (str2.equals("pageInitRenderStart")) {
-                    c = 1;
-                }
-            } else if (str2.equals("pageSwitchStart")) {
-                c = 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, pMSAppInfo)) == null) {
+            return d(pMSAppInfo.appId, pMSAppInfo.versionCode);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String d(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j)) == null) {
+            return e(str, String.valueOf(j));
+        }
+        return (String) invokeLJ.objValue;
+    }
+
+    public static String e(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                return str + "_" + str2 + "_pkg_info_ext";
+            } else if (a) {
+                Log.e("PkgInfoExt", "#getExtKey appId or version code is empty");
+                Log.d("PkgInfoExt", "#getExtKey appId=" + str + " version=" + str2);
+                return null;
+            } else {
+                return null;
             }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c == 2 && (bz2Var = this.c.get(str)) == null) {
-                        bz2Var = new zy2();
-                        this.c.put(str, bz2Var);
-                    }
-                } else {
-                    bz2Var = this.b.get(str);
-                    if (bz2Var == null) {
-                        bz2Var = new xy2();
-                        this.b.put(str, bz2Var);
-                    }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void g(String str, JSONObject jSONObject, vh4 vh4Var, List<wh4> list) {
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65543, null, str, jSONObject, vh4Var, list) == null) {
+            if (jSONObject == null) {
+                if (a) {
+                    Log.d("PkgInfoExt", "pkgObject from pms is null");
+                }
+            } else if (vh4Var == null && list == null) {
+                if (a) {
+                    Log.d("PkgInfoExt", "pkg info's ext must has at lest one main or sub pkg");
                 }
             } else {
-                bz2Var = this.a.get(str);
-                if (bz2Var == null) {
-                    bz2Var = new yy2();
-                    this.a.put(str, bz2Var);
+                String str2 = null;
+                if (vh4Var != null) {
+                    str = vh4Var.g;
+                    j = vh4Var.i;
+                    str2 = vh4Var.p;
+                } else if (list.size() > 0) {
+                    wh4 wh4Var = list.get(0);
+                    j = wh4Var.i;
+                    str2 = wh4Var.s;
+                } else {
+                    j = -1;
                 }
-            }
-            if (bz2Var != null) {
-                bz2Var.c(j);
+                if (str2 == null) {
+                    if (a) {
+                        Log.e("PkgInfoExt", "can not get ext from pkg ");
+                    }
+                } else if (!TextUtils.isEmpty(str) && j != -1) {
+                    kh3.a().edit().putString(d(str, j), str2).apply();
+                } else if (a) {
+                    Log.e("PkgInfoExt", "can not get appId and version code from pkg ");
+                }
             }
         }
     }

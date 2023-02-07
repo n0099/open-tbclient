@@ -1,32 +1,34 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class d73 extends g63 {
+public class d73 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<a> a;
+    public String b;
 
     /* loaded from: classes4.dex */
-    public class a implements Runnable {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
 
-        public a(d73 d73Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d73Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -36,54 +38,52 @@ public class d73 extends g63 {
                 }
             }
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b43.a();
-            }
-        }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d73(g53 g53Var) {
-        super(g53Var, "/swanAPI/hideToast");
+    public d73() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {g53Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.g63
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j43 j43Var) {
-        InterceptResult invokeLLLL;
+    @Nullable
+    public static d73 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        int length;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j43Var)) == null) {
-            if (g63.b) {
-                Log.d("HideToastAction", "handle entity: " + unitedSchemeEntity.toString());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            if (j43Var == null) {
-                j12.c("hideToast", "aiapp is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
+            d73 d73Var = new d73();
+            d73Var.b = jSONObject.optString("more");
+            JSONArray optJSONArray = jSONObject.optJSONArray("bind_app_list");
+            if (optJSONArray == null || (length = optJSONArray.length()) <= 0) {
+                return null;
             }
-            di3.e0(new a(this));
-            unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            return true;
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                if (optJSONObject != null) {
+                    a aVar = new a();
+                    optJSONObject.optString("app_key");
+                    aVar.b = optJSONObject.optString("app_name");
+                    aVar.a = optJSONObject.optString("photo_addr");
+                    aVar.c = optJSONObject.optString("scheme");
+                    arrayList.add(aVar);
+                }
+            }
+            d73Var.a = arrayList;
+            return d73Var;
         }
-        return invokeLLLL.booleanValue;
+        return (d73) invokeL.objValue;
     }
 }

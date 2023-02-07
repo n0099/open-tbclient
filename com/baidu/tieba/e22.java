@@ -1,18 +1,22 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import android.graphics.Canvas;
+import android.graphics.Path;
+import android.graphics.RectF;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 /* loaded from: classes4.dex */
-public class e22 implements l12 {
+public class e22 extends c22 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
+    public RectF a;
+    public float b;
+    public float c;
+    public boolean d;
 
     public e22() {
         Interceptable interceptable = $ic;
@@ -28,52 +32,46 @@ public class e22 implements l12 {
         }
     }
 
-    public static void d() {
-        j43 M;
+    @Override // com.baidu.tieba.c22
+    public void a(d22 d22Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65537, null) != null) || (M = j43.M()) == null) {
-            return;
-        }
-        sg3.j(M.getActivity());
-        System.exit(0);
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.l12
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return c22.e().getPath();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.l12
-    public void a(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            a = ih3.i(bundle, "extraWSUrl");
-            m12.i(ih3.i(bundle, PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD));
-            m12.j(ih3.i(bundle, "slavePreload"));
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, d22Var, canvas) == null) && this.a != null) {
+            if (!this.d && Math.abs(this.c) >= 360.0f) {
+                Path path = d22Var.f;
+                RectF rectF = this.a;
+                float f = rectF.bottom;
+                float f2 = rectF.top;
+                path.addCircle((rectF.right + rectF.left) / 2.0f, (f + f2) / 2.0f, (f - f2) / 2.0f, Path.Direction.CW);
+                d22Var.f.arcTo(this.a, 0.0f, this.b);
+                return;
+            }
+            float f3 = this.c % 360.0f;
+            if (f3 < 0.0f && !this.d) {
+                f3 += 360.0f;
+            } else if (f3 > 0.0f && this.d) {
+                f3 -= 360.0f;
+            }
+            d22Var.f.arcTo(this.a, this.b, f3);
         }
     }
 
-    @Override // com.baidu.tieba.l12
-    public void b(Bundle bundle) {
+    @Override // com.baidu.tieba.c22
+    public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            bundle.putString("extraWSUrl", a);
-            bundle.putString("slavePreload", m12.c());
-            bundle.putString(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD, m12.a());
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            if (jSONArray.length() > 4) {
+                int g = nm3.g((float) jSONArray.optDouble(0));
+                int g2 = nm3.g((float) jSONArray.optDouble(1));
+                int g3 = nm3.g((float) jSONArray.optDouble(2));
+                float degrees = (float) Math.toDegrees((float) jSONArray.optDouble(3));
+                float degrees2 = (float) Math.toDegrees((float) jSONArray.optDouble(4));
+                this.a = new RectF(g - g3, g2 - g3, g + g3, g2 + g3);
+                this.b = degrees;
+                this.c = degrees2 - degrees;
+            }
+            if (jSONArray.length() > 5) {
+                this.d = jSONArray.optBoolean(5);
+            }
         }
     }
 }

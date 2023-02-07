@@ -40,13 +40,13 @@ import java.lang.ref.WeakReference;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class c extends com.tencent.open.b implements a.InterfaceC0730a {
+public class c extends com.tencent.open.b implements a.InterfaceC0734a {
     public static /* synthetic */ Interceptable $ic;
     public static Toast c;
     public transient /* synthetic */ FieldHolder $fh;
     public String d;
     public IUiListener e;
-    public C0731c f;
+    public C0735c f;
     public Handler g;
     public com.tencent.open.b.a h;
     public com.tencent.open.b.b i;
@@ -190,7 +190,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC0730a {
 
     /* renamed from: com.tencent.open.c$c  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0731c extends DefaultUiListener {
+    public static class C0735c extends DefaultUiListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -199,7 +199,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC0730a {
         public String d;
         public IUiListener e;
 
-        public C0731c(Context context, String str, String str2, String str3, IUiListener iUiListener) {
+        public C0735c(Context context, String str, String str2, String str3, IUiListener iUiListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -285,16 +285,16 @@ public class c extends com.tencent.open.b implements a.InterfaceC0730a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c a;
-        public C0731c b;
+        public C0735c b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(c cVar, C0731c c0731c, Looper looper) {
+        public d(c cVar, C0735c c0735c, Looper looper) {
             super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cVar, c0731c, looper};
+                Object[] objArr = {cVar, c0735c, looper};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -306,7 +306,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC0730a {
                 }
             }
             this.a = cVar;
-            this.b = c0731c;
+            this.b = c0735c;
         }
 
         @Override // android.os.Handler
@@ -355,7 +355,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC0730a {
         }
         this.j = new WeakReference<>(context);
         this.d = str2;
-        this.f = new C0731c(context, str, str2, qQToken.getAppId(), iUiListener);
+        this.f = new C0735c(context, str, str2, qQToken.getAppId(), iUiListener);
         this.g = new d(this, this.f, context.getMainLooper());
         this.e = iUiListener;
         this.k = Math.round(context.getResources().getDisplayMetrics().density * 185.0f);
@@ -481,7 +481,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC0730a {
         }
     }
 
-    @Override // com.tencent.open.b.a.InterfaceC0730a
+    @Override // com.tencent.open.b.a.InterfaceC0734a
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -498,7 +498,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC0730a {
         }
     }
 
-    @Override // com.tencent.open.b.a.InterfaceC0730a
+    @Override // com.tencent.open.b.a.InterfaceC0734a
     public void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {

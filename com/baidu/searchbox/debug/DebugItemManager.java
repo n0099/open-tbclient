@@ -50,27 +50,29 @@ public final class DebugItemManager {
         return (HashMap) invokeV.objValue;
     }
 
-    public final void addDebugInfo(String str, DebugDataGroupProvider debugDataGroupProvider) {
+    public final void addDebugInfo(String type, DebugDataGroupProvider provider) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, debugDataGroupProvider) == null) {
-            ArrayList<DebugDataGroupProvider> arrayList = this.itemListMap.get(str);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, type, provider) == null) {
+            Intrinsics.checkNotNullParameter(type, "type");
+            Intrinsics.checkNotNullParameter(provider, "provider");
+            ArrayList<DebugDataGroupProvider> arrayList = this.itemListMap.get(type);
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
-                this.itemListMap.put(str, arrayList);
+                this.itemListMap.put(type, arrayList);
             }
-            arrayList.add(debugDataGroupProvider);
+            arrayList.add(provider);
         }
     }
 
-    public final ArrayList<DebugDataGroupProvider> getProviderList(String str) {
+    public final ArrayList<DebugDataGroupProvider> getProviderList(String type) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            ArrayList<DebugDataGroupProvider> arrayList = this.itemListMap.get(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, type)) == null) {
+            Intrinsics.checkNotNullParameter(type, "type");
+            ArrayList<DebugDataGroupProvider> arrayList = this.itemListMap.get(type);
             if (arrayList == null) {
-                arrayList = new ArrayList<>();
+                return new ArrayList<>();
             }
-            Intrinsics.checkExpressionValueIsNotNull(arrayList, "itemListMap.get(type) ?: ArrayList()");
             return arrayList;
         }
         return (ArrayList) invokeL.objValue;

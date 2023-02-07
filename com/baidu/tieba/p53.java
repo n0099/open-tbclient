@@ -1,173 +1,127 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.BitmapFactory;
-import android.media.ExifInterface;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.storage.PathType;
+import android.annotation.SuppressLint;
+import android.os.Bundle;
+import android.os.Message;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class p53 extends g63 {
+public class p53 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public final String l(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            switch (i) {
-                case 0:
-                case 1:
-                    return MapBundleKey.OfflineMapKey.OFFLINE_UPDATE;
-                case 2:
-                    return "up-mirrored";
-                case 3:
-                    return "down";
-                case 4:
-                    return "down-mirrored";
-                case 5:
-                    return "left-mirrored";
-                case 6:
-                    return "left";
-                case 7:
-                    return "right-mirrored";
-                case 8:
-                    return "right";
-                default:
-                    return "";
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948012987, "Lcom/baidu/tieba/p53;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-        }
-        return (String) invokeI.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p53(g53 g53Var) {
-        super(g53Var, "/swanAPI/getImageInfo");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {g53Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948012987, "Lcom/baidu/tieba/p53;");
                 return;
             }
         }
+        a = gp1.a;
     }
 
-    @Override // com.baidu.tieba.g63
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j43 j43Var) {
-        InterceptResult invokeLLLL;
+    public static void a(Message message) {
+        Bundle bundle;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j43Var)) == null) {
-            if (j43Var == null) {
-                j12.c("getImageInfo", "illegal swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
-                return false;
+        if (interceptable == null || interceptable.invokeL(65537, null, message) == null) {
+            if (a) {
+                Log.e("ChannelMsgProcessor", "MSG_TYPE_CS_DELEGATION");
             }
-            String optString = jh3.d(unitedSchemeEntity.getParam("params")).optString("src");
-            if (TextUtils.isEmpty(optString)) {
-                j12.c("getImageInfo", "path null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            }
-            JSONObject jSONObject = null;
-            if (rb3.s(optString) == PathType.BD_FILE) {
-                jSONObject = k(rb3.M(optString, j43Var.b), optString);
-            } else if (rb3.s(optString) == PathType.RELATIVE) {
-                jSONObject = k(rb3.L(optString, j43Var, j43Var.k0()), optString);
-            }
-            if (jSONObject != null) {
-                j12.i("getImageInfo", "getImgInfo success");
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                return true;
-            }
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "image not found");
-            return false;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final ExifInterface j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                return new ExifInterface(str);
-            } catch (IOException unused) {
-                return null;
-            }
-        }
-        return (ExifInterface) invokeL.objValue;
-    }
-
-    public final JSONObject k(String str, String str2) {
-        InterceptResult invokeLL;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            j12.i("getImageInfo", "getImgInfo start");
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            int i = 1;
-            options.inJustDecodeBounds = true;
-            BitmapFactory.decodeFile(str, options);
-            int i2 = options.outWidth;
-            int i3 = options.outHeight;
-            String str4 = options.outMimeType;
-            if (!TextUtils.isEmpty(str4)) {
-                String[] split = str4.split("/");
-                str3 = split[split.length - 1];
+            int i = message.arg1;
+            Bundle bundle2 = (Bundle) message.obj;
+            String str = "";
+            String str2 = null;
+            if (bundle2 != null) {
+                str2 = bundle2.getString("ai_apps_delegation_name", null);
+                str = bundle2.getString("ai_apps_observer_id", "");
+                bundle = bundle2.getBundle("ai_apps_data");
             } else {
-                str3 = "";
+                bundle = null;
             }
-            if (!TextUtils.equals("png", str3)) {
-                ExifInterface j = j(str);
-                if (j == null) {
-                    return null;
-                }
-                i = j.getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1);
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("width", i2);
-                jSONObject.put("height", i3);
-                jSONObject.put("path", str2);
-                jSONObject.put("orientation", l(i));
-                jSONObject.put("type", str3);
-            } catch (JSONException e) {
-                j12.c("getImageInfo", "getImgInfo failed by json exception");
-                if (g63.b) {
-                    e.printStackTrace();
-                }
-            }
-            j12.i("getImageInfo", "getImgInfo end");
-            return jSONObject;
+            x43.a(i, str2, str, bundle);
         }
-        return (JSONObject) invokeLL.objValue;
+    }
+
+    public static void b(Message message) {
+        Bundle bundle;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, message) == null) {
+            Bundle bundle2 = (Bundle) message.obj;
+            String str = "";
+            String str2 = null;
+            if (bundle2 != null) {
+                str2 = bundle2.getString("ai_apps_delegation_name", null);
+                str = bundle2.getString("ai_apps_observer_id", "");
+                bundle = bundle2.getBundle("ai_apps_data");
+            } else {
+                bundle = null;
+            }
+            x43.a(-1000, str2, str, bundle);
+        }
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public static void c(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, message) == null) {
+            Object obj = message.obj;
+            if (!(obj instanceof Bundle)) {
+                if (!a) {
+                    return;
+                }
+                throw new RuntimeException("delegation msg obj is not a bundle");
+            }
+            Bundle bundle = (Bundle) obj;
+            z43 z43Var = new z43(bundle.getString("key_observer_id", ""));
+            z43Var.setResult(bundle.getBundle("key_result_data"));
+            a53.b().c(z43Var);
+        }
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public static void d(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, message) == null) {
+            Object obj = message.obj;
+            if (!(obj instanceof Bundle)) {
+                if (!a) {
+                    return;
+                }
+                throw new RuntimeException("delegation msg obj is not a bundle");
+            }
+            Bundle bundle = (Bundle) obj;
+            z43 z43Var = new z43(bundle.getString("key_observer_id", ""));
+            z43Var.setResult(bundle.getBundle("key_result_data"));
+            a53.b().c(z43Var);
+        }
+    }
+
+    public static void e(int i, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65541, null, i, bundle) == null) {
+            m53 e = m53.e();
+            o53 o53Var = new o53(126, bundle);
+            o53Var.a(i);
+            e.h(o53Var);
+        }
+    }
+
+    public static void f(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, bundle) == null) {
+            m53.e().h(new o53(21, bundle));
+        }
     }
 }

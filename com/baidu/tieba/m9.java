@@ -1,205 +1,64 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.config.ABTestConfig;
+import com.baidu.android.util.KVStorageFactory;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.File;
 /* loaded from: classes5.dex */
 public class m9 {
     public static /* synthetic */ Interceptable $ic;
+    public static File a;
+    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
-    public m9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448309697, "Lcom/baidu/tieba/m9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448309697, "Lcom/baidu/tieba/m9;");
                 return;
             }
         }
-        this.a = l9.b().a();
+        a = new File(AppRuntime.getAppContext().getExternalFilesDir(null), "abjson");
+        b = KVStorageFactory.getDefaultSharedPreferences().getBoolean("abtest_mock", false);
     }
 
-    public HashMap<String, b9> a() {
+    public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            HashMap<String, b9> hashMap = new HashMap<>();
-            for (String str : l9.b().f()) {
-                try {
-                    String optString = new JSONObject(l9.b().e(str)).optString("sid");
-                    String[] split = optString.split("_");
-                    if (split.length == 2) {
-                        hashMap.put(optString, new b9(r20.d(split[0]), r20.d(split[1])));
-                    }
-                } catch (JSONException unused) {
-                    if (ABTestConfig.isDebug()) {
-                        Log.d("V2DataProcessor", "ABTest switchInfo string parse json error");
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (a.exists() && a.isDirectory() && a.list() != null && a.list().length > 0) {
+                return true;
             }
-            return hashMap;
+            return false;
         }
-        return (HashMap) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public HashMap<String, b9> b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            HashMap<String, b9> hashMap = new HashMap<>();
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                Iterator<String> keys = jSONObject.keys();
-                while (keys.hasNext()) {
-                    JSONObject optJSONObject = jSONObject.optJSONObject(keys.next());
-                    if (optJSONObject != null) {
-                        String optString = optJSONObject.optString("sid");
-                        String[] split = optString.split("_");
-                        if (split.length == 2) {
-                            hashMap.put(optString, new b9(r20.d(split[0]), r20.d(split[1])));
-                        }
-                    }
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return hashMap;
-        }
-        return (HashMap) invokeL.objValue;
-    }
-
-    public HashMap<String, b9> d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            HashMap<String, b9> hashMap = new HashMap<>();
-            if (!TextUtils.isEmpty(str)) {
-                try {
-                    JSONArray jSONArray = new JSONObject(str).getJSONArray("data");
-                    if (jSONArray != null && jSONArray.length() > 0) {
-                        for (int i = 0; i < jSONArray.length(); i++) {
-                            String string = jSONArray.getString(i);
-                            String[] split = string.split("_");
-                            if (split.length == 2) {
-                                hashMap.put(string, new b9(r20.d(split[0]), r20.d(split[1])));
-                            }
-                        }
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            return hashMap;
-        }
-        return (HashMap) invokeL.objValue;
-    }
-
-    public List<j9> e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (String str : l9.b().f()) {
-                if (s20.a(str, this.a) == i) {
-                    try {
-                        arrayList.add(new j9(str, new JSONObject(l9.b().e(str)).opt("data")));
-                    } catch (JSONException unused) {
-                        if (ABTestConfig.isDebug()) {
-                            Log.d("V2DataProcessor", "ABTest switchInfo string parse json error");
-                        }
-                    }
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeI.objValue;
-    }
-
-    public HashMap<String, b9> c() {
+    public static File a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            HashMap<String, b9> hashMap = new HashMap<>();
-            String c = l9.b().c();
-            if (!TextUtils.isEmpty(c)) {
-                try {
-                    JSONArray jSONArray = new JSONArray(c);
-                    if (jSONArray.length() > 0) {
-                        for (int i = 0; i < jSONArray.length(); i++) {
-                            String string = jSONArray.getString(i);
-                            String[] split = string.split("_");
-                            if (split.length == 2) {
-                                hashMap.put(string, new b9(r20.d(split[0]), r20.d(split[1])));
-                            }
-                        }
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            return hashMap;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a;
         }
-        return (HashMap) invokeV.objValue;
+        return (File) invokeV.objValue;
     }
 
-    public synchronized void f() {
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            synchronized (this) {
-                String d = l9.b().d();
-                String c = l9.b().c();
-                if (!TextUtils.isEmpty(c)) {
-                    try {
-                        JSONObject jSONObject = new JSONObject();
-                        JSONArray jSONArray = new JSONArray(c);
-                        jSONObject.put("version", d);
-                        jSONObject.put("exps", jSONArray);
-                        j20.h(jSONObject);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
         }
-    }
-
-    public synchronized void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            synchronized (this) {
-                Set<String> f = l9.b().f();
-                JSONObject jSONObject = new JSONObject();
-                for (String str : f) {
-                    try {
-                        jSONObject.put(str, new JSONObject(l9.b().e(str)));
-                    } catch (JSONException unused) {
-                        if (ABTestConfig.isDebug()) {
-                            Log.d("V2DataProcessor", "ABTest switchInfo string parse json error");
-                        }
-                    }
-                }
-                j20.k(jSONObject);
-            }
-        }
+        return invokeV.booleanValue;
     }
 }

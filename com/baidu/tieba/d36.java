@@ -1,83 +1,35 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.ala.AlaCmdConfigHttp;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.ala.data.SdkLiveInfoData;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ala.personcenter.privilege.AlaTDouBuyPrivilegeResponsedMessage;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
 public class d36 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public b b;
-    public HttpMessageListener c;
+    public boolean a;
+    public List<String> b;
+    public List<SdkLiveInfoData> c;
+    public n36 d;
+    public List<Cdo> e;
+    public boolean f;
+    public String g;
+    public String h;
 
-    /* loaded from: classes4.dex */
-    public interface b {
-        void a(boolean z, String str);
-    }
-
-    /* loaded from: classes4.dex */
-    public class a extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d36 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(d36 d36Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d36Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = d36Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof AlaTDouBuyPrivilegeResponsedMessage)) {
-                return;
-            }
-            AlaTDouBuyPrivilegeResponsedMessage alaTDouBuyPrivilegeResponsedMessage = (AlaTDouBuyPrivilegeResponsedMessage) httpResponsedMessage;
-            if (alaTDouBuyPrivilegeResponsedMessage.getError() == 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            String errorString = alaTDouBuyPrivilegeResponsedMessage.getErrorString();
-            if (this.a.b != null) {
-                this.a.b.a(z, errorString);
-            }
-        }
-    }
-
-    public d36(TbPageContext tbPageContext, b bVar) {
+    public d36(g26 g26Var, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bVar};
+            Object[] objArr = {g26Var, str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -87,32 +39,151 @@ public class d36 {
                 return;
             }
         }
-        a aVar = new a(this, AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP);
-        this.c = aVar;
-        this.a = tbPageContext;
-        this.b = bVar;
-        tbPageContext.registerListener(aVar);
+        this.a = false;
+        this.f = false;
+        this.b = new ArrayList();
+        this.c = new ArrayList();
+        this.e = new ArrayList();
+        if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
+            this.f = true;
+        }
+        this.g = str;
+        this.h = str2;
+        a(g26Var);
     }
 
-    public void b(String str, int i) {
+    public boolean a(g26 g26Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
-            HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP);
-            httpMessage.addParam("props_id", i);
-            httpMessage.addParam("effect_id", str);
-            httpMessage.addParam("buy_action", 0);
-            this.a.sendMessage(httpMessage);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, g26Var)) == null) {
+            if (g26Var == null) {
+                return false;
+            }
+            boolean e = e(g26Var.b);
+            this.a = g26Var.a;
+            return e;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void g(n36 n36Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, n36Var) == null) {
+            this.d = n36Var;
         }
     }
 
-    public void c(int i, int i2, boolean z) {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP);
-            httpMessage.addParam("props_id", i2);
-            httpMessage.addParam("mark_id", i);
-            httpMessage.addParam("buy_action", z ? 1 : 0);
-            this.a.sendMessage(httpMessage);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a = false;
+            List<String> list = this.b;
+            if (list != null) {
+                list.clear();
+            }
+            List<SdkLiveInfoData> list2 = this.c;
+            if (list2 != null) {
+                list2.clear();
+            }
+            List<Cdo> list3 = this.e;
+            if (list3 != null) {
+                list3.clear();
+            }
         }
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final ArrayList<Cdo> c(List<SdkLiveInfoData> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
+            ArrayList<Cdo> arrayList = new ArrayList<>();
+            int size = list.size();
+            for (int i = 0; i < size; i += 2) {
+                c26 c26Var = new c26();
+                p16 p16Var = new p16();
+                p16Var.a = list.get(i);
+                p16Var.f = true;
+                p16Var.b = this.f;
+                p16Var.c = this.g;
+                p16Var.d = this.h;
+                int i2 = i + 1;
+                p16Var.e = i2;
+                c26Var.a = p16Var;
+                if (i2 < size) {
+                    p16 p16Var2 = new p16();
+                    p16Var2.a = list.get(i2);
+                    p16Var2.b = this.f;
+                    p16Var2.c = this.g;
+                    p16Var2.d = this.h;
+                    p16Var2.e = i + 2;
+                    c26Var.b = p16Var2;
+                    p16Var2.g = true;
+                } else {
+                    p16Var.f = false;
+                    p16Var.h = true;
+                }
+                arrayList.add(c26Var);
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public List<Cdo> d() {
+        InterceptResult invokeV;
+        pd6 pd6Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (!ListUtils.isEmpty(this.e)) {
+                arrayList.addAll(this.e);
+            }
+            n36 n36Var = this.d;
+            if (n36Var != null && (pd6Var = n36Var.a) != null && !ListUtils.isEmpty(pd6Var.c())) {
+                arrayList.add(0, this.d);
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final boolean e(List<SdkLiveInfoData> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return false;
+            }
+            ArrayList arrayList = new ArrayList();
+            for (SdkLiveInfoData sdkLiveInfoData : list) {
+                if (sdkLiveInfoData != null) {
+                    String str = sdkLiveInfoData.liveId;
+                    if (!this.b.contains(str)) {
+                        arrayList.add(sdkLiveInfoData);
+                        this.b.add(str);
+                    }
+                }
+            }
+            if (ListUtils.isEmpty(arrayList)) {
+                return false;
+            }
+            this.c.addAll(arrayList);
+            ArrayList<Cdo> c = c(this.c);
+            this.e = c;
+            if (ListUtils.isEmpty(c)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

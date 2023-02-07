@@ -1,166 +1,82 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Build;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.sapi2.utils.enums.Domain;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.regex.Pattern;
-import tbclient.NovelInfo;
 /* loaded from: classes4.dex */
 public class f65 {
     public static /* synthetic */ Interceptable $ic;
+    public static Domain a;
+    public static boolean b;
+    public static g65 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public long f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
 
-    public f65() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947716100, "Lcom/baidu/tieba/f65;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947716100, "Lcom/baidu/tieba/f65;");
+                return;
             }
         }
+        a = Domain.DOMAIN_ONLINE;
+        b = true;
+        c = null;
     }
 
-    public String a() {
+    public static g65 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return c;
         }
-        return (String) invokeV.objValue;
+        return (g65) invokeV.objValue;
     }
 
-    public long b() {
-        InterceptResult invokeV;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
-        }
-        return invokeV.longValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.h;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
-        }
-        return invokeV.longValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            int i = 0;
-            while (Pattern.compile("\\n").matcher(this.j).find()) {
-                i++;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            if (TbConfig.USE_OLD_LOGIN) {
+                b = true;
+                return;
             }
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return "1".equals(this.e);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (!StringUtils.isNull(this.b) && !StringUtils.isNull(this.c) && !StringUtils.isNull(this.e) && !StringUtils.isNull(this.d)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void j(NovelInfo novelInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, novelInfo) == null) {
-            this.a = novelInfo.novel_id.longValue();
-            String str = novelInfo.img;
-            this.b = novelInfo.name;
-            String str2 = novelInfo.author;
-            String str3 = novelInfo.desc;
-            this.c = novelInfo.discount_price;
-            novelInfo.percent.longValue();
-            this.d = novelInfo.h5_url;
-            this.e = novelInfo.is_pay;
-            this.f = novelInfo.chapters.longValue();
-            this.g = novelInfo.member_text;
-            this.h = novelInfo.member_img;
-            this.i = novelInfo.buy_url;
-        }
-    }
-
-    public void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.j = str;
-        }
-    }
-
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            if (z) {
-                this.e = "1";
+            if (Build.VERSION.SDK_INT < 9) {
+                if (TbadkCoreApplication.getInst().isLowVersionPassV6ShouldOpen()) {
+                    b = false;
+                } else {
+                    b = true;
+                }
+            } else if (TbadkCoreApplication.getInst().isPassportV6ShouldOpen()) {
+                b = false;
             } else {
-                this.e = "0";
+                b = true;
             }
+            if (Build.VERSION.SDK_INT <= 10 && !b && UtilHelper.webViewIsProbablyCorrupt(TbadkCoreApplication.getInst().getContext())) {
+                TbadkCoreApplication.getInst().incPassportV6CrashCount();
+                b = true;
+            }
+        }
+    }
+
+    public static void c() {
+        CustomResponsedMessage runTask;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65539, null) == null) && c == null && (runTask = MessageManager.getInstance().runTask(2001268, g65.class)) != null && runTask.getData() != null) {
+            c = (g65) runTask.getData();
         }
     }
 }

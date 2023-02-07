@@ -42,7 +42,7 @@ public final class z extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public String mo673a() {
+    public String mo675a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "send app absent message." : (String) invokeV.objValue;
@@ -50,11 +50,11 @@ public final class z extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public void mo394a() {
+    public void mo396a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                ah.a(this.f1035a, ah.a(this.a.b(), this.a.m539a()));
+                ah.a(this.f1035a, ah.a(this.a.b(), this.a.m541a()));
             } catch (gh e) {
                 com.xiaomi.channel.commonutils.logger.b.a(e);
                 this.f1035a.a(10, e);

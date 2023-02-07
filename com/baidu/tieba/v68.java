@@ -1,49 +1,39 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.widget.ListAdapter;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.pb.pb.foldcomment.FoldCommentActivity;
-import com.baidu.tieba.pb.pb.sub.adapter.SubPbReplyAdapter;
-import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.tieba.faceshop.EmotionPackageData;
+import com.baidu.tieba.newfaceshop.nativemotionmanager.managers.SingleThreadEmotionHorizontalAdater;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class v68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FoldCommentActivity a;
-    public BdTypeListView b;
-    public ha8 c;
-    public ja8 d;
-    public View.OnClickListener e;
-    public View.OnClickListener f;
-    public TbRichTextView.a0 g;
-    public a68 h;
-    public View.OnLongClickListener i;
-    public SubPbReplyAdapter j;
-    public w68 k;
-    public List<ln> l;
-    public y48 m;
-    public ArrayList<yn> n;
+    public SingleThreadEmotionHorizontalAdater a;
+    public BdListView b;
+    public b78 c;
+    public List<EmotionPackageData> d;
 
-    public v68(FoldCommentActivity foldCommentActivity, BdTypeListView bdTypeListView) {
+    public void update() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    public v68(TbPageContext<?> tbPageContext, BdListView bdListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {foldCommentActivity, bdTypeListView};
+            Object[] objArr = {tbPageContext, bdListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -53,143 +43,27 @@ public class v68 {
                 return;
             }
         }
-        this.l = new ArrayList();
-        this.n = new ArrayList<>();
-        this.a = foldCommentActivity;
-        this.b = bdTypeListView;
+        this.b = bdListView;
+        b78 b78Var = new b78(tbPageContext);
+        this.c = b78Var;
+        b78Var.c(TbadkCoreApplication.getInst().getSkinType());
+        this.b.addHeaderView(this.c.b());
+        this.d = new ArrayList();
+        SingleThreadEmotionHorizontalAdater singleThreadEmotionHorizontalAdater = new SingleThreadEmotionHorizontalAdater(this.d, tbPageContext);
+        this.a = singleThreadEmotionHorizontalAdater;
+        this.b.setAdapter((ListAdapter) singleThreadEmotionHorizontalAdater);
     }
 
-    public void a() {
+    public void update(List<EmotionPackageData> list) {
+        b78 b78Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SubPbReplyAdapter subPbReplyAdapter = new SubPbReplyAdapter(this.a, rb8.b);
-            this.j = subPbReplyAdapter;
-            subPbReplyAdapter.u(false);
-            this.l.add(this.j);
-            FoldCommentActivity foldCommentActivity = this.a;
-            w68 w68Var = new w68(foldCommentActivity, PostData.P0, foldCommentActivity.getPageContext());
-            this.k = w68Var;
-            w68Var.d0(this.c);
-            this.k.e0(this.d);
-            this.k.g0(this.a);
-            this.k.k(this.e);
-            this.k.e(this.f);
-            this.k.n(this.g);
-            this.k.f0(this.h);
-            this.k.d(this.i);
-            this.l.add(this.k);
-            this.b.a(this.l);
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b.getAdapter2() != null) {
-            this.b.getAdapter2().notifyDataSetChanged();
-        }
-    }
-
-    public void c(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.f = onClickListener;
-        }
-    }
-
-    public void d(boolean z) {
-        w68 w68Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && (w68Var = this.k) != null) {
-            w68Var.setFromCDN(z);
-        }
-    }
-
-    public void e(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.e = onClickListener;
-        }
-    }
-
-    public void f(boolean z) {
-        w68 w68Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && (w68Var = this.k) != null) {
-            w68Var.c0(z);
-        }
-    }
-
-    public void g(TbRichTextView.a0 a0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, a0Var) == null) {
-            this.g = a0Var;
-        }
-    }
-
-    public void h(View.OnLongClickListener onLongClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, onLongClickListener) == null) {
-            this.i = onLongClickListener;
-        }
-    }
-
-    public void j(ha8 ha8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, ha8Var) == null) {
-            this.c = ha8Var;
-        }
-    }
-
-    public void k(ja8 ja8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, ja8Var) == null) {
-            this.d = ja8Var;
-        }
-    }
-
-    public void l(a68 a68Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, a68Var) == null) {
-            this.h = a68Var;
-        }
-    }
-
-    public void i(y48 y48Var) {
-        w68 w68Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, y48Var) == null) {
-            this.m = y48Var;
-            w68 w68Var2 = this.k;
-            if (w68Var2 != null) {
-                w68Var2.r(y48Var);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && list != null && (b78Var = this.c) != null && this.a != null) {
+            b78Var.update(Integer.valueOf(list.size()));
+            this.d.clear();
+            if (list != null) {
+                this.d.addAll(list);
             }
-            this.n.clear();
-            y48 y48Var2 = this.m;
-            if (y48Var2 != null && y48Var2.H() != null && this.m.H().size() > 0) {
-                rb8 rb8Var = new rb8();
-                rb8Var.b(y48Var.H().size());
-                this.n.add(rb8Var);
-                Iterator<PostData> it = this.m.H().iterator();
-                while (it.hasNext()) {
-                    PostData next = it.next();
-                    if (next.getType() != PostData.O0) {
-                        this.n.add(next);
-                    }
-                }
-            }
-            if (y48Var.Q() != null && y48Var.Q().getAuthor() != null && (w68Var = this.k) != null) {
-                w68Var.o(y48Var.Q().getAuthor().getUserId());
-            }
-            if (this.m != null) {
-                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_PB_HAS_FOLD_ICON_SHOW);
-                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                statisticItem.param("fid", this.m.m());
-                statisticItem.param("fname", this.m.n());
-                statisticItem.param("tid", this.m.S());
-                TiebaStatic.log(statisticItem);
-            }
-            this.b.setData(this.n);
-            this.b.getAdapter2().notifyDataSetChanged();
+            this.a.notifyDataSetChanged();
         }
     }
 }

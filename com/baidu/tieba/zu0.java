@@ -1,243 +1,211 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.text.TextUtils;
+import android.widget.FrameLayout;
+import android.widget.TextView;
+import androidx.core.content.ContextCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.player.constants.PlayerStatus;
-import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
+import com.baidu.searchbox.player.event.ControlEvent;
+import com.baidu.searchbox.player.event.LayerEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.material.badge.BadgeDrawable;
+import kotlin.Unit;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class zu0 implements rv0 {
+public final class zu0 extends ev0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public lx0 a;
-    public lx0 b;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948372308, "Lcom/baidu/tieba/zu0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948372308, "Lcom/baidu/tieba/zu0;");
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zu0 a;
+
+        public a(zu0 zu0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zu0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zu0Var;
+        }
+
+        @Override // java.lang.Runnable
+        public final void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.w();
+            }
+        }
+    }
 
     public zu0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.rv0
-    public void a(yr0 player) {
+    @Override // com.baidu.tieba.ev0
+    public void E() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, player) == null) {
-            Intrinsics.checkNotNullParameter(player, "player");
-            i(player, player.u());
-            lx0 k = player.k();
-            if (k != null) {
-                if (!Intrinsics.areEqual(k, this.b)) {
-                    j(this.b);
-                    this.b = null;
-                } else if (!Intrinsics.areEqual(k, this.a)) {
-                    j(this.a);
-                    this.a = null;
-                }
-                j(k);
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c.bottomMargin = k61.b(45.0f);
+            this.c.leftMargin = k61.b(15.0f);
+            TextView mNextTips = this.b;
+            Intrinsics.checkNotNullExpressionValue(mNextTips, "mNextTips");
+            mNextTips.setLayoutParams(this.c);
         }
     }
 
-    @Override // com.baidu.tieba.rv0
-    public lx0 b(yr0 player, lx0 lx0Var) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.ev0
+    public void v() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, player, lx0Var)) == null) {
-            Intrinsics.checkNotNullParameter(player, "player");
-            if (player.u1()) {
-                lx0Var = h(player, player.u());
-            }
-            if (lx0Var == null) {
-                lx0Var = f(player.o());
-            }
-            this.a = lx0Var;
-            return lx0Var;
-        }
-        return (lx0) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.rv0
-    public void c(yr0 player, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, player, z) == null) {
-            Intrinsics.checkNotNullParameter(player, "player");
-            lx0 lx0Var = this.a;
-            if (lx0Var != null) {
-                e(player, lx0Var);
-                return;
-            }
-            if (this.b == null) {
-                this.b = f(player.o());
-            }
-            e(player, this.b);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b.postDelayed(new a(this), 5000L);
         }
     }
 
-    public final void e(yr0 yr0Var, lx0 lx0Var) {
+    @Override // com.baidu.tieba.ev0
+    public void D() {
+        int b;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, yr0Var, lx0Var) == null) && lx0Var != null) {
-            yr0Var.e(lx0Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.rv0
-    public boolean d(yr0 player, lx0 lx0Var) {
-        InterceptResult invokeLL;
-        String vid;
-        lx0 lx0Var2;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, player, lx0Var)) == null) {
-            Intrinsics.checkNotNullParameter(player, "player");
-            BdVideoSeries o1 = player.o1();
-            if (o1 == null || (vid = o1.getVid()) == null) {
-                return false;
-            }
-            Intrinsics.checkNotNullExpressionValue(vid, "player.videoSeries?.vid ?: return false");
-            PlayerStatus playerStatus = null;
-            if (!(lx0Var instanceof sx0)) {
-                lx0Var2 = null;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c.bottomMargin = k61.b(10.0f);
+            FrameLayout.LayoutParams layoutParams = this.c;
+            if (q().V()) {
+                b = k61.b(45.0f);
             } else {
-                lx0Var2 = lx0Var;
+                b = k61.b(15.0f);
             }
-            sx0 sx0Var = (sx0) lx0Var2;
-            if (sx0Var != null) {
-                str = sx0Var.y0();
-            } else {
-                str = null;
-            }
-            if (!Intrinsics.areEqual(vid, str)) {
-                return false;
-            }
-            if (lx0Var != null) {
-                playerStatus = lx0Var.R();
-            }
-            if (!PlayerStatus.isActiveStatus(playerStatus)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public boolean g(xr0 player, String str) {
-        InterceptResult invokeLL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, player, str)) == null) {
-            Intrinsics.checkNotNullParameter(player, "player");
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                return false;
-            }
-            lx0 k = player.k();
-            a01.a("ReuseHelper: detach,cache is " + k + ",cacheKey is " + str);
-            if (k != null) {
-                k.Y();
-                ps0.a().c(str, k);
-            }
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public lx0 h(xr0 player, String str) {
-        InterceptResult invokeLL;
-        Boolean bool;
-        rw0 T;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, player, str)) == null) {
-            Intrinsics.checkNotNullParameter(player, "player");
-            lx0 b = ps0.a().b(str);
-            if (b != null && (T = b.T()) != null) {
-                bool = Boolean.valueOf(T.verify(player.o()));
-            } else {
-                bool = null;
-            }
-            if (Intrinsics.areEqual(bool, Boolean.TRUE)) {
-                ps0.a().d(str);
-                player.A0(true);
-                if (b.u() != null) {
-                    b.u().k();
-                    return b;
-                }
-                return b;
-            }
-            player.A0(false);
-            return null;
-        }
-        return (lx0) invokeLL.objValue;
-    }
-
-    public final sx0 f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (str == null) {
-                str = "CyberNetPlayer";
-            }
-            return new sx0(str);
-        }
-        return (sx0) invokeL.objValue;
-    }
-
-    public final void j(lx0 lx0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, lx0Var) == null) && lx0Var != null) {
-            lx0Var.Y();
-            lx0Var.t0();
-            lx0Var.a0();
+            layoutParams.leftMargin = b;
+            TextView mNextTips = this.b;
+            Intrinsics.checkNotNullExpressionValue(mNextTips, "mNextTips");
+            mNextTips.setLayoutParams(this.c);
         }
     }
 
-    public void i(yr0 player, String str) {
-        Activity activity;
-        xr0 xr0Var;
+    @Override // com.baidu.tieba.ev0, com.baidu.tieba.qu0
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, player, str) == null) {
-            Intrinsics.checkNotNullParameter(player, "player");
-            if (player.u1() && player.b0() && !player.S() && (activity = player.getActivity()) != null && activity.isFinishing()) {
-                a01.a("performAutoDetachCache begin");
-                lx0 A = player.A();
-                lx0 lx0Var = this.a;
-                if (lx0Var != null) {
-                    xr0Var = lx0Var.u();
-                } else {
-                    xr0Var = null;
-                }
-                if (Intrinsics.areEqual(xr0Var, player)) {
-                    a01.a("autoDetachCache,cacheKey:" + str + ", kernelLayer:" + A);
-                    if (g(player, str)) {
-                        this.a = null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            TextView textView = new TextView(getContext());
+            Context context = textView.getContext();
+            Intrinsics.checkNotNullExpressionValue(context, "context");
+            textView.setTextSize(0, context.getResources().getDimension(R.dimen.nad_videoplayer_immersive_video_next_text_size));
+            textView.setTextColor(-1);
+            textView.setBackground(ContextCompat.getDrawable(textView.getContext(), R.drawable.nad_videoplayer_next_play_tips_background));
+            textView.setGravity(16);
+            textView.setAlpha(0.0f);
+            textView.setMaxEms(18);
+            textView.setMaxLines(1);
+            textView.setEllipsize(TextUtils.TruncateAt.END);
+            textView.setIncludeFontPadding(false);
+            textView.setPadding(k61.b(13.0f), 0, k61.b(13.0f), 0);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, k61.b(24.0f));
+            this.c = layoutParams;
+            layoutParams.gravity = BadgeDrawable.BOTTOM_START;
+            layoutParams.leftMargin = k61.b(15.0f);
+            textView.setLayoutParams(this.c);
+            Unit unit = Unit.INSTANCE;
+            this.b = textView;
+            x();
+        }
+    }
+
+    @Override // com.baidu.tieba.ev0, com.baidu.tieba.qu0
+    public void k(vv0 event) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, event) == null) {
+            Intrinsics.checkNotNullParameter(event, "event");
+            String c = event.c();
+            switch (c.hashCode()) {
+                case -1327414233:
+                    if (c.equals(LayerEvent.ACTION_OPTIMIZE_CONTINUE_TIPS_SHOW)) {
+                        if (q().r1()) {
+                            return;
+                        }
+                        Object f = event.f(24);
+                        if (!(f instanceof String)) {
+                            f = null;
+                        }
+                        String str = (String) f;
+                        if (str == null) {
+                            str = "";
+                        }
+                        TextView mNextTips = this.b;
+                        Intrinsics.checkNotNullExpressionValue(mNextTips, "mNextTips");
+                        mNextTips.setText(str);
+                        if (this.d) {
+                            E();
+                        } else {
+                            D();
+                        }
+                        if (!y()) {
+                            F();
+                            return;
+                        }
+                        return;
                     }
-                } else if (this.a != null) {
-                    a01.a("detachCache,cacheKey:" + str + ", kernelLayer:" + A);
-                    lx0 lx0Var2 = this.a;
-                    if (lx0Var2 != null) {
-                        lx0Var2.Y();
+                    break;
+                case -552621273:
+                    if (c.equals(LayerEvent.ACTION_SWITCH_FULL)) {
+                        w();
+                        return;
                     }
-                    ps0.a().c(str, this.a);
-                    this.a = null;
-                }
+                    break;
+                case -552580917:
+                    if (c.equals(LayerEvent.ACTION_SWITCH_HALF)) {
+                        A(false);
+                        return;
+                    }
+                    break;
+                case 1933234291:
+                    if (c.equals(ControlEvent.ACTION_CONTINUE_TIPS_SHOW)) {
+                        return;
+                    }
+                    break;
             }
+            super.k(event);
         }
     }
 }

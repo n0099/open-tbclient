@@ -17,30 +17,30 @@ import com.badlogic.gdx.Files;
 import com.badlogic.gdx.Graphics;
 import com.badlogic.gdx.Net;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c7;
-import com.baidu.tieba.d1;
-import com.baidu.tieba.e1;
+import com.baidu.tieba.d3;
 import com.baidu.tieba.e3;
-import com.baidu.tieba.f1;
-import com.baidu.tieba.f3;
-import com.baidu.tieba.g1;
-import com.baidu.tieba.g3;
-import com.baidu.tieba.g7;
+import com.baidu.tieba.h7;
 import com.baidu.tieba.i1;
-import com.baidu.tieba.i2;
-import com.baidu.tieba.i3;
-import com.baidu.tieba.i8;
 import com.baidu.tieba.j1;
-import com.baidu.tieba.j2;
-import com.baidu.tieba.k2;
+import com.baidu.tieba.j3;
+import com.baidu.tieba.k1;
 import com.baidu.tieba.k3;
-import com.baidu.tieba.l2;
+import com.baidu.tieba.l1;
+import com.baidu.tieba.l3;
 import com.baidu.tieba.l7;
-import com.baidu.tieba.m2;
+import com.baidu.tieba.n1;
+import com.baidu.tieba.n2;
+import com.baidu.tieba.n3;
+import com.baidu.tieba.n8;
+import com.baidu.tieba.o1;
+import com.baidu.tieba.o2;
 import com.baidu.tieba.p2;
-import com.baidu.tieba.s2;
+import com.baidu.tieba.p3;
+import com.baidu.tieba.q2;
+import com.baidu.tieba.q7;
+import com.baidu.tieba.r2;
 import com.baidu.tieba.u2;
-import com.baidu.tieba.y2;
+import com.baidu.tieba.x2;
 import com.baidu.tieba.z2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -51,25 +51,25 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @TargetApi(17)
 /* loaded from: classes.dex */
-public class AndroidDaydream extends DreamService implements i2 {
+public class AndroidDaydream extends DreamService implements n2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public e1 applicationLogger;
-    public l2 audio;
-    public m2 clipboard;
-    public final c7<Runnable> executedRunnables;
-    public p2 files;
+    public j1 applicationLogger;
+    public q2 audio;
+    public r2 clipboard;
+    public final h7<Runnable> executedRunnables;
+    public u2 files;
     public boolean firstResume;
-    public s2 graphics;
+    public x2 graphics;
     public Handler handler;
-    public u2 input;
-    public final i8<i1> lifecycleListeners;
-    public d1 listener;
+    public z2 input;
+    public final n8<n1> lifecycleListeners;
+    public i1 listener;
     public int logLevel;
-    public y2 net;
-    public final c7<Runnable> runnables;
+    public d3 net;
+    public final h7<Runnable> runnables;
 
-    @Override // com.baidu.tieba.i2
+    @Override // com.baidu.tieba.n2
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -77,7 +77,7 @@ public class AndroidDaydream extends DreamService implements i2 {
     }
 
     /* loaded from: classes.dex */
-    public class a implements i1 {
+    public class a implements n1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AndroidDaydream a;
@@ -100,7 +100,7 @@ public class AndroidDaydream extends DreamService implements i2 {
             this.a = androidDaydream;
         }
 
-        @Override // com.baidu.tieba.i1
+        @Override // com.baidu.tieba.n1
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -109,7 +109,7 @@ public class AndroidDaydream extends DreamService implements i2 {
             }
         }
 
-        @Override // com.baidu.tieba.i1
+        @Override // com.baidu.tieba.n1
         public void pause() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -117,7 +117,7 @@ public class AndroidDaydream extends DreamService implements i2 {
             }
         }
 
-        @Override // com.baidu.tieba.i1
+        @Override // com.baidu.tieba.n1
         public void resume() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -172,17 +172,17 @@ public class AndroidDaydream extends DreamService implements i2 {
                 return;
             }
         }
-        l7.a();
+        q7.a();
     }
 
-    public p2 createFiles() {
+    public u2 createFiles() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             getFilesDir();
-            return new f3(getAssets(), this, true);
+            return new k3(getAssets(), this, true);
         }
-        return (p2) invokeV.objValue;
+        return (u2) invokeV.objValue;
     }
 
     public FrameLayout.LayoutParams createLayoutParams() {
@@ -204,25 +204,25 @@ public class AndroidDaydream extends DreamService implements i2 {
     }
 
     @Override // com.badlogic.gdx.Application
-    public d1 getApplicationListener() {
+    public i1 getApplicationListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return this.listener;
         }
-        return (d1) invokeV.objValue;
+        return (i1) invokeV.objValue;
     }
 
-    public e1 getApplicationLogger() {
+    public j1 getApplicationLogger() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             return this.applicationLogger;
         }
-        return (e1) invokeV.objValue;
+        return (j1) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.i2
+    @Override // com.baidu.tieba.n2
     public Window getApplicationWindow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -232,32 +232,32 @@ public class AndroidDaydream extends DreamService implements i2 {
         return (Window) invokeV.objValue;
     }
 
-    public f1 getAudio() {
+    public k1 getAudio() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             return this.audio;
         }
-        return (f1) invokeV.objValue;
+        return (k1) invokeV.objValue;
     }
 
-    public g7 getClipboard() {
+    public l7 getClipboard() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             return this.clipboard;
         }
-        return (g7) invokeV.objValue;
+        return (l7) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.i2
-    public c7<Runnable> getExecutedRunnables() {
+    @Override // com.baidu.tieba.n2
+    public h7<Runnable> getExecutedRunnables() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
             return this.executedRunnables;
         }
-        return (c7) invokeV.objValue;
+        return (h7) invokeV.objValue;
     }
 
     public Files getFiles() {
@@ -297,14 +297,14 @@ public class AndroidDaydream extends DreamService implements i2 {
         return invokeV.longValue;
     }
 
-    @Override // com.baidu.tieba.i2
-    public i8<i1> getLifecycleListeners() {
+    @Override // com.baidu.tieba.n2
+    public n8<n1> getLifecycleListeners() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
             return this.lifecycleListeners;
         }
-        return (i8) invokeV.objValue;
+        return (n8) invokeV.objValue;
     }
 
     public int getLogLevel() {
@@ -334,14 +334,14 @@ public class AndroidDaydream extends DreamService implements i2 {
         return (Net) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.i2
-    public c7<Runnable> getRunnables() {
+    @Override // com.baidu.tieba.n2
+    public h7<Runnable> getRunnables() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
             return this.runnables;
         }
-        return (c7) invokeV.objValue;
+        return (h7) invokeV.objValue;
     }
 
     @Override // com.badlogic.gdx.Application
@@ -385,9 +385,9 @@ public class AndroidDaydream extends DreamService implements i2 {
             }
         }
         this.firstResume = true;
-        this.runnables = new c7<>();
-        this.executedRunnables = new c7<>();
-        this.lifecycleListeners = new i8<>(i1.class);
+        this.runnables = new h7<>();
+        this.executedRunnables = new h7<>();
+        this.lifecycleListeners = new n8<>(n1.class);
         this.logLevel = 2;
     }
 
@@ -395,16 +395,16 @@ public class AndroidDaydream extends DreamService implements i2 {
     public void onDreamingStarted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
-            g1.a = this;
+            l1.a = this;
             getInput();
-            g1.c = getAudio();
-            g1.d = getFiles();
-            g1.b = getGraphics();
+            l1.c = getAudio();
+            l1.d = getFiles();
+            l1.b = getGraphics();
             getNet();
-            this.input.O0();
-            s2 s2Var = this.graphics;
-            if (s2Var != null) {
-                s2Var.q();
+            this.input.P0();
+            x2 x2Var = this.graphics;
+            if (x2Var != null) {
+                x2Var.q();
             }
             if (!this.firstResume) {
                 this.graphics.t();
@@ -422,7 +422,7 @@ public class AndroidDaydream extends DreamService implements i2 {
             boolean d = this.graphics.d();
             this.graphics.u(true);
             this.graphics.r();
-            this.input.Z();
+            this.input.b0();
             this.graphics.h();
             this.graphics.j();
             this.graphics.u(d);
@@ -431,47 +431,47 @@ public class AndroidDaydream extends DreamService implements i2 {
         }
     }
 
-    private void init(d1 d1Var, j2 j2Var, boolean z) {
+    private void init(i1 i1Var, o2 o2Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65538, this, d1Var, j2Var, z) == null) {
-            setApplicationLogger(new k2());
-            k3 k3Var = j2Var.r;
-            if (k3Var == null) {
-                k3Var = new i3();
+        if (interceptable == null || interceptable.invokeLLZ(65538, this, i1Var, o2Var, z) == null) {
+            setApplicationLogger(new p2());
+            p3 p3Var = o2Var.r;
+            if (p3Var == null) {
+                p3Var = new n3();
             }
-            s2 s2Var = new s2(this, j2Var, k3Var);
-            this.graphics = s2Var;
-            this.input = createInput(this, this, s2Var.a, j2Var);
-            this.audio = createAudio(this, j2Var);
+            x2 x2Var = new x2(this, o2Var, p3Var);
+            this.graphics = x2Var;
+            this.input = createInput(this, this, x2Var.a, o2Var);
+            this.audio = createAudio(this, o2Var);
             this.files = createFiles();
-            this.net = new y2(this, j2Var);
-            this.listener = d1Var;
+            this.net = new d3(this, o2Var);
+            this.listener = i1Var;
             this.handler = new Handler();
-            this.clipboard = new m2(this);
+            this.clipboard = new r2(this);
             addLifecycleListener(new a(this));
-            g1.a = this;
+            l1.a = this;
             getInput();
-            g1.c = getAudio();
-            g1.d = getFiles();
-            g1.b = getGraphics();
+            l1.c = getAudio();
+            l1.d = getFiles();
+            l1.b = getGraphics();
             getNet();
             if (!z) {
                 setFullscreen(true);
                 setContentView(this.graphics.m(), createLayoutParams());
             }
-            createWakeLock(j2Var.n);
-            hideStatusBar(j2Var);
+            createWakeLock(o2Var.n);
+            hideStatusBar(o2Var);
             if (getResources().getConfiguration().keyboard != 1) {
                 this.input.r(true);
             }
         }
     }
 
-    public void addLifecycleListener(i1 i1Var) {
+    public void addLifecycleListener(n1 n1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, i1Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, n1Var) == null) {
             synchronized (this.lifecycleListeners) {
-                this.lifecycleListeners.a(i1Var);
+                this.lifecycleListeners.a(n1Var);
             }
         }
     }
@@ -483,18 +483,18 @@ public class AndroidDaydream extends DreamService implements i2 {
         }
     }
 
-    public j1 getPreferences(String str) {
+    public o1 getPreferences(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, str)) == null) {
-            return new z2(getSharedPreferences(str, 0));
+            return new e3(getSharedPreferences(str, 0));
         }
-        return (j1) invokeL.objValue;
+        return (o1) invokeL.objValue;
     }
 
-    public void hideStatusBar(j2 j2Var) {
+    public void hideStatusBar(o2 o2Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048608, this, j2Var) != null) || !j2Var.o) {
+        if ((interceptable != null && interceptable.invokeL(1048608, this, o2Var) != null) || !o2Var.o) {
             return;
         }
         View decorView = getWindow().getDecorView();
@@ -502,18 +502,18 @@ public class AndroidDaydream extends DreamService implements i2 {
         decorView.setSystemUiVisibility(1);
     }
 
-    public void initialize(d1 d1Var) {
+    public void initialize(i1 i1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, d1Var) == null) {
-            initialize(d1Var, new j2());
+        if (interceptable == null || interceptable.invokeL(1048609, this, i1Var) == null) {
+            initialize(i1Var, new o2());
         }
     }
 
-    public View initializeForView(d1 d1Var) {
+    public View initializeForView(i1 i1Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, d1Var)) == null) {
-            return initializeForView(d1Var, new j2());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, i1Var)) == null) {
+            return initializeForView(i1Var, new o2());
         }
         return (View) invokeL.objValue;
     }
@@ -537,16 +537,16 @@ public class AndroidDaydream extends DreamService implements i2 {
         if (interceptable == null || interceptable.invokeL(1048619, this, runnable) == null) {
             synchronized (this.runnables) {
                 this.runnables.a(runnable);
-                g1.b.c();
+                l1.b.c();
             }
         }
     }
 
-    public void removeLifecycleListener(i1 i1Var) {
+    public void removeLifecycleListener(n1 n1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048620, this, i1Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048620, this, n1Var) == null) {
             synchronized (this.lifecycleListeners) {
-                this.lifecycleListeners.i(i1Var, true);
+                this.lifecycleListeners.i(n1Var, true);
             }
         }
     }
@@ -562,10 +562,10 @@ public class AndroidDaydream extends DreamService implements i2 {
         }
     }
 
-    public void setApplicationLogger(e1 e1Var) {
+    public void setApplicationLogger(j1 j1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048622, this, e1Var) == null) {
-            this.applicationLogger = e1Var;
+        if (interceptable == null || interceptable.invokeL(1048622, this, j1Var) == null) {
+            this.applicationLogger = j1Var;
         }
     }
 
@@ -583,13 +583,13 @@ public class AndroidDaydream extends DreamService implements i2 {
         }
     }
 
-    public l2 createAudio(Context context, j2 j2Var) {
+    public q2 createAudio(Context context, o2 o2Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, j2Var)) == null) {
-            return new e3(context, j2Var);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, o2Var)) == null) {
+            return new j3(context, o2Var);
         }
-        return (l2) invokeLL.objValue;
+        return (q2) invokeLL.objValue;
     }
 
     @Override // com.badlogic.gdx.Application
@@ -608,18 +608,18 @@ public class AndroidDaydream extends DreamService implements i2 {
         }
     }
 
-    public void initialize(d1 d1Var, j2 j2Var) {
+    public void initialize(i1 i1Var, o2 o2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048610, this, d1Var, j2Var) == null) {
-            init(d1Var, j2Var, false);
+        if (interceptable == null || interceptable.invokeLL(1048610, this, i1Var, o2Var) == null) {
+            init(i1Var, o2Var, false);
         }
     }
 
-    public View initializeForView(d1 d1Var, j2 j2Var) {
+    public View initializeForView(i1 i1Var, o2 o2Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048612, this, d1Var, j2Var)) == null) {
-            init(d1Var, j2Var, true);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048612, this, i1Var, o2Var)) == null) {
+            init(i1Var, o2Var, true);
             return this.graphics.m();
         }
         return (View) invokeLL.objValue;
@@ -633,13 +633,13 @@ public class AndroidDaydream extends DreamService implements i2 {
         }
     }
 
-    public u2 createInput(Application application, Context context, Object obj, j2 j2Var) {
+    public z2 createInput(Application application, Context context, Object obj, o2 o2Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, application, context, obj, j2Var)) == null) {
-            return new g3(this, this, this.graphics.a, j2Var);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, application, context, obj, o2Var)) == null) {
+            return new l3(this, this, this.graphics.a, o2Var);
         }
-        return (u2) invokeLLLL.objValue;
+        return (z2) invokeLLLL.objValue;
     }
 
     public void debug(String str, String str2, Throwable th) {
@@ -665,13 +665,13 @@ public class AndroidDaydream extends DreamService implements i2 {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.i2
-    public u2 getInput() {
+    @Override // com.baidu.tieba.n2
+    public z2 getInput() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
             return this.input;
         }
-        return (u2) invokeV.objValue;
+        return (z2) invokeV.objValue;
     }
 }

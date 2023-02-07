@@ -1,21 +1,20 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 /* loaded from: classes4.dex */
 public interface ea {
-    @NonNull
-    public static final ServiceReference a;
-    @Nullable
-    public static final ea b;
 
-    void a(int i, @NonNull String str, @Nullable Object obj);
-
-    static {
-        ServiceReference serviceReference = new ServiceReference("DebugProcessor", "DebugService4Adp");
-        a = serviceReference;
-        b = (ea) ServiceManager.getService(serviceReference);
+    /* loaded from: classes4.dex */
+    public interface a {
+        void onDatabaseCreated(SQLiteDatabase sQLiteDatabase);
     }
+
+    boolean dropDatabase(Context context);
+
+    SQLiteDatabase getWritableDatabase();
+
+    void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2);
+
+    void setOnCreateCallback(a aVar);
 }

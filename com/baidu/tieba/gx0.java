@@ -1,15 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
 /* loaded from: classes4.dex */
-public class gx0 extends nx0 {
+public class gx0 implements on0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ot0 o;
 
     public gx0() {
         Interceptable interceptable = $ic;
@@ -25,32 +26,13 @@ public class gx0 extends nx0 {
         }
     }
 
-    public void m0() {
+    @Override // com.baidu.tieba.on0
+    public c01 create() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            K(new nt0());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new jx0();
         }
-    }
-
-    public void n0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ot0 ot0Var = new ot0();
-            this.o = ot0Var;
-            K(ot0Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.nx0, com.baidu.tieba.ox0
-    public void R() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            K(new wt0());
-            K(new yt0());
-            K(new xt0());
-            K(new zt0());
-            n0();
-            m0();
-        }
+        return (c01) invokeV.objValue;
     }
 }

@@ -1,42 +1,262 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.app.Activity;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class xf5 {
+public class xf5 implements wf5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public int b;
-    public String c;
-    public Long d;
-    public sf5 e;
-    public int f;
-    public boolean g;
+    public long a;
+    public long b;
+    public ConcurrentHashMap<String, uf5> c;
+    public int d;
+    public boolean e;
 
-    public xf5(Context context, int i, String str, Long l, sf5 sf5Var) {
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final xf5 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-290934267, "Lcom/baidu/tieba/xf5$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-290934267, "Lcom/baidu/tieba/xf5$a;");
+                    return;
+                }
+            }
+            a = new xf5();
+        }
+    }
+
+    public xf5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), str, l, sf5Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = false;
-        this.a = context;
-        this.b = i;
-        this.c = str;
-        this.d = l;
-        this.e = sf5Var;
+        this.c = new ConcurrentHashMap<>();
+    }
+
+    public static final xf5 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.a;
+        }
+        return (xf5) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            long currentTimeMillis = System.currentTimeMillis() / 1000;
+            if (this.e && currentTimeMillis > h() && currentTimeMillis < g()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (z11.c(this.c) || this.d != this.c.hashCode()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public Map<String, uf5> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public long g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b;
+        }
+        return invokeV.longValue;
+    }
+
+    public long h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a;
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.baidu.tieba.wf5
+    public void a() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Iterator<Map.Entry<String, uf5>> it = this.c.entrySet().iterator();
+            while (true) {
+                if (it.hasNext()) {
+                    Map.Entry<String, uf5> next = it.next();
+                    if (next.getValue() != null && !next.getValue().v()) {
+                        z = false;
+                        break;
+                    }
+                } else {
+                    z = true;
+                    break;
+                }
+            }
+            this.e = z;
+            if (z) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921551, Boolean.TRUE));
+            }
+        }
+    }
+
+    public uf5 d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return this.c.get(str);
+        }
+        return (uf5) invokeL.objValue;
+    }
+
+    public void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public vf5 i() {
+        InterceptResult invokeV;
+        vf5 r;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            uf5 d = f().d("style");
+            if (d != null && (r = d.r()) != null && StringUtils.isNotNull(r.b()) && StringUtils.isNotNull(r.c()) && StringUtils.isNotNull(r.a())) {
+                return r;
+            }
+            return null;
+        }
+        return (vf5) invokeV.objValue;
+    }
+
+    public void j() {
+        BdUniqueId bdUniqueId;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (currentActivity instanceof BaseActivity) {
+                bdUniqueId = ((BaseActivity) currentActivity).getUniqueId();
+            } else if (currentActivity instanceof BaseFragmentActivity) {
+                bdUniqueId = ((BaseFragmentActivity) currentActivity).getUniqueId();
+            } else {
+                bdUniqueId = null;
+            }
+            for (Map.Entry<String, uf5> entry : this.c.entrySet()) {
+                if (entry.getValue() != null) {
+                    entry.getValue().A(bdUniqueId);
+                    entry.getValue().z(this);
+                    entry.getValue().x();
+                }
+            }
+        }
+    }
+
+    public void k(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) {
+            this.c.clear();
+            this.a = jSONObject.optLong("start_time");
+            this.b = jSONObject.optLong("end_time");
+            JSONObject optJSONObject = jSONObject.optJSONObject("feed");
+            if (optJSONObject != null) {
+                uf5 uf5Var = new uf5();
+                uf5Var.y(optJSONObject);
+                this.c.put("homePage", uf5Var);
+            }
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("forum");
+            if (optJSONObject2 != null) {
+                uf5 uf5Var2 = new uf5();
+                uf5Var2.y(optJSONObject2);
+                this.c.put("enterForum", uf5Var2);
+            }
+            JSONObject optJSONObject3 = jSONObject.optJSONObject("channel");
+            if (optJSONObject3 != null) {
+                uf5 uf5Var3 = new uf5();
+                uf5Var3.y(optJSONObject3);
+                this.c.put("channel", uf5Var3);
+            }
+            JSONObject optJSONObject4 = jSONObject.optJSONObject("news");
+            if (optJSONObject4 != null) {
+                uf5 uf5Var4 = new uf5();
+                uf5Var4.y(optJSONObject4);
+                this.c.put("message", uf5Var4);
+            }
+            JSONObject optJSONObject5 = jSONObject.optJSONObject("personal");
+            if (optJSONObject5 != null) {
+                uf5 uf5Var5 = new uf5();
+                uf5Var5.y(optJSONObject5);
+                this.c.put("person", uf5Var5);
+            }
+            JSONObject optJSONObject6 = jSONObject.optJSONObject(AlbumActivityConfig.FROM_WRITE);
+            if (optJSONObject6 != null) {
+                uf5 uf5Var6 = new uf5();
+                uf5Var6.y(optJSONObject6);
+                this.c.put(AlbumActivityConfig.FROM_WRITE, uf5Var6);
+            }
+            JSONObject optJSONObject7 = jSONObject.optJSONObject("style");
+            if (optJSONObject7 != null) {
+                uf5 uf5Var7 = new uf5();
+                uf5Var7.y(optJSONObject7);
+                this.c.put("style", uf5Var7);
+            }
+        }
     }
 }

@@ -1,18 +1,29 @@
 package com.baidu.tieba;
 
-import android.view.Window;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
 public class i41 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Window window) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65536, null, window) != null) || window == null) {
-            return;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947803427, "Lcom/baidu/tieba/i41;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947803427, "Lcom/baidu/tieba/i41;");
+                return;
+            }
         }
-        window.getDecorView().setSystemUiVisibility(3846);
+        a = yg0.a;
     }
 }

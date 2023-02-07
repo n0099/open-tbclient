@@ -1,8 +1,12 @@
 package com.baidu.tieba;
 
-import androidx.annotation.WorkerThread;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes4.dex */
 public interface id6 {
-    @WorkerThread
-    void a(hb6 hb6Var);
+    String from();
+
+    void m(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId);
+
+    void setFrom(String str);
 }

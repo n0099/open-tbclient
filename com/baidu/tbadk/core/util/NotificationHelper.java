@@ -18,10 +18,10 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rj;
-import com.baidu.tieba.x35;
-import com.baidu.tieba.yi;
-import com.baidu.tieba.z35;
+import com.baidu.tieba.dj;
+import com.baidu.tieba.k85;
+import com.baidu.tieba.m85;
+import com.baidu.tieba.wj;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -170,8 +170,8 @@ public class NotificationHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
             if ((UtilHelper.isOppoDevice() || RomTypeUtil.isOnePlus()) && Build.VERSION.SDK_INT >= 26) {
-                NotificationChannel notificationChannel = new NotificationChannel(OPPO_IM_CHANNEL, rj.a(R.string.notify_channel_primary_oppo), 4);
-                notificationChannel.setDescription(rj.a(R.string.notify_channel_primary_oppo_desc));
+                NotificationChannel notificationChannel = new NotificationChannel(OPPO_IM_CHANNEL, wj.a(R.string.notify_channel_primary_oppo), 4);
+                notificationChannel.setDescription(wj.a(R.string.notify_channel_primary_oppo_desc));
                 notificationChannel.enableLights(true);
                 ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).createNotificationChannel(notificationChannel);
             }
@@ -239,7 +239,7 @@ public class NotificationHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
             SwitchData switchData = new SwitchData();
-            if (!x35.L() && x35.R()) {
+            if (!k85.L() && k85.R()) {
                 long currentTimeMillis = System.currentTimeMillis();
                 if (currentTimeMillis - TbadkCoreApplication.getInst().getLastNotifyTime() >= 5000) {
                     AudioManager audioManager = (AudioManager) context.getSystemService("audio");
@@ -253,13 +253,13 @@ public class NotificationHelper {
                     } else {
                         z2 = false;
                     }
-                    if (z35.d().A()) {
+                    if (m85.d().A()) {
                         switchData.isSound = true;
                         if (z || z2) {
                             switchData.isSound = false;
                         }
                     }
-                    if (z35.d().B()) {
+                    if (m85.d().B()) {
                         switchData.isVibrate = true;
                         if (z) {
                             switchData.isVibrate = false;
@@ -271,7 +271,7 @@ public class NotificationHelper {
                     TbadkCoreApplication.getInst().setLastNotifyTime(currentTimeMillis);
                 }
             }
-            if (z35.d().w()) {
+            if (m85.d().w()) {
                 switchData.isLight = true;
             }
             return switchData;
@@ -286,7 +286,7 @@ public class NotificationHelper {
             try {
                 NotificationManager notificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
                 if (Build.VERSION.SDK_INT >= 26) {
-                    NotificationChannel notificationChannel = new NotificationChannel(PRIMARY_CHANNEL_2, rj.a(R.string.notify_channel_primary), 3);
+                    NotificationChannel notificationChannel = new NotificationChannel(PRIMARY_CHANNEL_2, wj.a(R.string.notify_channel_primary), 3);
                     notificationChannel.setLightColor(-16776961);
                     notificationChannel.setLockscreenVisibility(0);
                     notificationChannel.enableVibration(false);
@@ -331,7 +331,7 @@ public class NotificationHelper {
                     } else {
                         str = PRIMARY_CHANNEL_2;
                     }
-                    NotificationChannel notificationChannel = new NotificationChannel(str, rj.a(R.string.notify_channel_primary), 3);
+                    NotificationChannel notificationChannel = new NotificationChannel(str, wj.a(R.string.notify_channel_primary), 3);
                     notificationChannel.setLightColor(-16776961);
                     notificationChannel.setLockscreenVisibility(0);
                     notificationChannel.enableVibration(switchData.isVibrate);
@@ -368,7 +368,7 @@ public class NotificationHelper {
             if (switchData == null) {
                 return false;
             }
-            if (yi.isEmpty(str)) {
+            if (dj.isEmpty(str)) {
                 str = context.getString(R.string.obfuscated_res_0x7f0f029e);
             }
             try {

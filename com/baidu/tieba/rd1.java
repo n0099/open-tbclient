@@ -1,174 +1,96 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.text.SpannableStringBuilder;
+import android.text.TextPaint;
+import android.text.TextUtils;
+import android.widget.TextView;
+import com.baidu.tieba.b51;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.bumptech.glide.load.engine.GlideException;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public interface rd1 {
-    void a(a aVar);
+public final class rd1 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final char[] a;
+    public static final String b;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public String b;
-        public long c;
-        public long d;
-        public long e;
-        public String f;
-        public int g;
-        public List<C0429a> h;
-
-        /* renamed from: com.baidu.tieba.rd1$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public static class C0429a {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public String a;
-            public String b;
-
-            public C0429a() {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            public static C0429a a(JSONObject jSONObject) {
-                InterceptResult invokeL;
-                String optString;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-                    if (jSONObject == null) {
-                        return null;
-                    }
-                    C0429a c0429a = new C0429a();
-                    String str = "";
-                    if (jSONObject.isNull("promotionInsId")) {
-                        optString = "";
-                    } else {
-                        optString = jSONObject.optString("promotionInsId");
-                    }
-                    c0429a.a = optString;
-                    if (!jSONObject.isNull("valid")) {
-                        str = jSONObject.optString("valid");
-                    }
-                    c0429a.b = str;
-                    return c0429a;
-                }
-                return (C0429a) invokeL.objValue;
-            }
-
-            public static JSONObject b(C0429a c0429a) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, c0429a)) == null) {
-                    if (c0429a == null) {
-                        return null;
-                    }
-                    JSONObject jSONObject = new JSONObject();
-                    try {
-                        jSONObject.put("promotionInsId", c0429a.a);
-                        jSONObject.put("valid", c0429a.b);
-                    } catch (JSONException e) {
-                        id1.d(e.getMessage());
-                    }
-                    return jSONObject;
-                }
-                return (JSONObject) invokeL.objValue;
-            }
-
-            public static List<C0429a> c(JSONArray jSONArray) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONArray)) == null) {
-                    if (jSONArray == null) {
-                        return null;
-                    }
-                    ArrayList arrayList = new ArrayList();
-                    try {
-                        jSONArray.get(0);
-                        for (int i = 0; i < jSONArray.length(); i++) {
-                            arrayList.add(a((JSONObject) jSONArray.opt(i)));
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                    return arrayList;
-                }
-                return (List) invokeL.objValue;
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948117674, "Lcom/baidu/tieba/rd1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = 2;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948117674, "Lcom/baidu/tieba/rd1;");
+                return;
+            }
         }
+        char[] cArr = {21704};
+        a = cArr;
+        b = new String(cArr);
+    }
 
-        public static JSONObject a(a aVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, aVar)) == null) {
-                if (aVar == null) {
-                    return null;
-                }
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("statusCode", aVar.a);
-                    jSONObject.put("msg", aVar.b);
-                    jSONObject.put("totalAmount", aVar.c);
-                    jSONObject.put("userPayAmount", aVar.d);
-                    jSONObject.put("reduceAmount", aVar.e);
-                    jSONObject.put("overdueStatus", aVar.g);
-                    jSONObject.put("usedHostMarketingDetail", aVar.f);
-                    if (aVar.h != null && !aVar.h.isEmpty()) {
-                        JSONArray jSONArray = new JSONArray();
-                        for (C0429a c0429a : aVar.h) {
-                            jSONArray.put(C0429a.b(c0429a));
-                        }
-                        jSONObject.put("promotionStatus", jSONArray);
-                    }
-                } catch (JSONException e) {
-                    id1.d(e.getMessage());
-                }
-                return jSONObject;
+    public static final String a(String str, String subTag, float f, TextPaint textPaint, float f2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, subTag, Float.valueOf(f), textPaint, Float.valueOf(f2)})) == null) {
+            Intrinsics.checkNotNullParameter(subTag, "subTag");
+            if (TextUtils.isEmpty(subTag)) {
+                subTag = "";
             }
-            return (JSONObject) invokeL.objValue;
+            if (TextUtils.isEmpty(str)) {
+                str = "";
+            }
+            if (textPaint == null) {
+                textPaint = new TextPaint();
+            }
+            CharSequence ellipsize = TextUtils.ellipsize(str, textPaint, f - (textPaint.measureText(GlideException.IndentedAppendable.INDENT) + f2), TextUtils.TruncateAt.END);
+            if (ellipsize != null) {
+                return ellipsize + GlideException.IndentedAppendable.INDENT + subTag;
+            }
+            return subTag;
         }
+        return (String) invokeCommon.objValue;
+    }
 
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "Data{statusCode=" + this.a + ", message='" + this.b + "', totalAmount=" + this.c + ", userPayAmount=" + this.d + ", reduceAmount=" + this.e + ", usedHostMarketingDetail='" + this.f + "', overdueStatus='" + this.g + "'}";
+    public static final SpannableStringBuilder b(String str, int i, TextView textView, Context context, Drawable drawable, int i2) {
+        InterceptResult invokeCommon;
+        float e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), textView, context, drawable, Integer.valueOf(i2)})) == null) {
+            if (!TextUtils.isEmpty(str) && textView != null && context != null && drawable != null && i > 0) {
+                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
+                if (textView.getMeasuredWidth() > 0) {
+                    e = (textView.getMeasuredWidth() * i) - drawable.getIntrinsicWidth();
+                } else {
+                    e = ((b51.c.e(context) - i2) * i) - drawable.getIntrinsicWidth();
+                }
+                float f = e - ((i - 1) * 10);
+                Intrinsics.checkNotNull(str);
+                int length = str.length() + 1;
+                spannableStringBuilder.append((CharSequence) " ").append((CharSequence) b);
+                if (f < textView.getPaint().measureText(spannableStringBuilder.toString())) {
+                    String a2 = a(spannableStringBuilder.toString(), b, f, textView.getPaint(), drawable.getIntrinsicWidth());
+                    SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(a2);
+                    drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+                    spannableStringBuilder2.setSpan(new qd1(drawable), a2.length() - b.length(), a2.length(), 17);
+                    return spannableStringBuilder2;
+                }
+                drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+                spannableStringBuilder.setSpan(new qd1(drawable), length, spannableStringBuilder.length(), 17);
+                return spannableStringBuilder;
             }
-            return (String) invokeV.objValue;
+            return new SpannableStringBuilder("");
         }
+        return (SpannableStringBuilder) invokeCommon.objValue;
     }
 }

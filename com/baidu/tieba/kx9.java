@@ -1,158 +1,151 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hx9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTImage;
-import com.bytedance.sdk.openadsdk.TTNativeAd;
-import com.fun.ad.sdk.ChannelNativeAds;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.FunNativeAd;
-import com.fun.ad.sdk.internal.api.BaseFunNativeAd;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class kx9 extends BaseFunNativeAd {
+public abstract class kx9 implements jx9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ux9 b;
-    public final hx9 c;
+    public Context a;
+    public boolean b;
+    public boolean c;
+    public String d;
+    public String e;
+    public String f;
+    public int g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kx9(ux9 ux9Var, String str, Ssp.Pid pid, hx9 hx9Var) {
-        super(str, pid);
+    public kx9(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ux9Var, str, pid, hx9Var};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (Ssp.Pid) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = ux9Var;
-        this.c = hx9Var;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public ChannelNativeAds getChannelNativeAds() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return ChannelNativeAds.createCsj(this.b.a);
+        this.g = -200;
+        if (context != null) {
+            this.a = context.getApplicationContext();
         }
-        return (ChannelNativeAds) invokeV.objValue;
     }
 
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public String getDescription() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.jx9
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return ((TTNativeAd) this.b.a).getDescription();
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.g = i;
         }
-        return (String) invokeV.objValue;
     }
 
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public String getIconUrl() {
+    @Override // com.baidu.tieba.jx9
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.f = str;
+        }
+    }
+
+    @Override // com.baidu.tieba.jx9
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    @Override // com.baidu.tieba.jx9
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    @Override // com.baidu.tieba.jx9
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.d = str;
+        }
+    }
+
+    @Override // com.baidu.tieba.jx9
+    public void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.b = z;
+        }
+    }
+
+    @Override // com.baidu.tieba.jx9
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            TTImage icon = ((TTNativeAd) this.b.a).getIcon();
-            if (icon == null) {
-                return null;
-            }
-            return icon.getImageUrl();
+            return this.b;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public String getTitle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            String source = ((TTNativeAd) this.b.a).getSource();
-            if (TextUtils.isEmpty(source)) {
-                return ((TTNativeAd) this.b.a).getTitle();
-            }
-            return source;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public View getVideoView() {
+    @Override // com.baidu.tieba.jx9
+    public String getAAID() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return ((TTNativeAd) this.b.a).getAdView();
+            return this.e;
         }
-        return (View) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public List<String> getImageUrls() {
+    @Override // com.baidu.tieba.jx9
+    public String getOAID() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<TTImage> imageList = ((TTNativeAd) this.b.a).getImageList();
-            if (imageList != null && !imageList.isEmpty()) {
-                ArrayList arrayList = new ArrayList();
-                for (TTImage tTImage : imageList) {
-                    arrayList.add(tTImage.getImageUrl());
-                }
-                return arrayList;
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.d;
         }
-        return (List) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public FunNativeAd.InteractionType getInteractionType() {
+    @Override // com.baidu.tieba.jx9
+    public int getStatusCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int interactionType = ((TTNativeAd) this.b.a).getInteractionType();
-            if (interactionType != 2 && interactionType != 3) {
-                if (interactionType != 4) {
-                    if (interactionType != 5) {
-                        return FunNativeAd.InteractionType.TYPE_UNKNOW;
-                    }
-                    return FunNativeAd.InteractionType.TYPE_DIAL;
-                }
-                return FunNativeAd.InteractionType.TYPE_DOWNLOAD;
-            }
-            return FunNativeAd.InteractionType.TYPE_BROWSE;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.g;
         }
-        return (FunNativeAd.InteractionType) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BaseFunNativeAd
-    public void showInternal(Context context, ViewGroup viewGroup, List<View> list, List<View> list2, FunAdInteractionListener funAdInteractionListener) {
+    @Override // com.baidu.tieba.jx9
+    public String getVAID() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048583, this, context, viewGroup, list, list2, funAdInteractionListener) == null) {
-            hx9 hx9Var = this.c;
-            ux9 ux9Var = this.b;
-            hx9Var.g(context, ux9Var, this.mSid, viewGroup, list, list2, new hx9.b(hx9Var, ux9Var), funAdInteractionListener);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.f;
         }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.jx9
+    public boolean isSupport() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
     }
 }

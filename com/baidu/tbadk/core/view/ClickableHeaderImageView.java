@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tq4;
-import com.baidu.tieba.yg;
+import com.baidu.tieba.dh;
+import com.baidu.tieba.gv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -23,11 +23,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ClickableHeaderImageView extends HeadImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThreadData S0;
-    public boolean T0;
-    public View.OnClickListener U0;
-    public tq4 V0;
-    public View.OnClickListener W0;
+    public ThreadData T0;
+    public boolean U0;
+    public View.OnClickListener V0;
+    public gv4 W0;
+    public View.OnClickListener X0;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -59,28 +59,28 @@ public class ClickableHeaderImageView extends HeadImageView {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                tq4 tq4Var = this.a.V0;
-                if ((tq4Var != null && tq4Var.a(view2)) || this.a.S0 == null) {
+                gv4 gv4Var = this.a.W0;
+                if ((gv4Var != null && gv4Var.a(view2)) || this.a.T0 == null) {
                     return;
                 }
-                if (this.a.T0) {
-                    author = this.a.S0.getTopAgreePost().r();
+                if (this.a.U0) {
+                    author = this.a.T0.getTopAgreePost().r();
                 } else {
-                    author = this.a.S0.getAuthor();
+                    author = this.a.T0.getAuthor();
                 }
                 if (author != null && !StringUtils.isNull(author.getName_show()) && !StringUtils.isNull(author.getUserId())) {
-                    long g = yg.g(author.getUserId(), 0L);
-                    if (g == yg.g(TbadkCoreApplication.getCurrentAccount(), 0L)) {
+                    long g = dh.g(author.getUserId(), 0L);
+                    if (g == dh.g(TbadkCoreApplication.getCurrentAccount(), 0L)) {
                         z = true;
                     } else {
                         z = false;
                     }
                     PersonPolymericActivityConfig createNormalConfig = new PersonPolymericActivityConfig(this.a.getContext()).createNormalConfig(g, z, author.isBigV());
-                    createNormalConfig.setSourceTid(this.a.S0.getTid());
-                    createNormalConfig.setSourceNid(this.a.S0.getNid());
+                    createNormalConfig.setSourceTid(this.a.T0.getTid());
+                    createNormalConfig.setSourceNid(this.a.T0.getNid());
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createNormalConfig));
-                    if (this.a.U0 != null) {
-                        this.a.U0.onClick(view2);
+                    if (this.a.V0 != null) {
+                        this.a.V0.onClick(view2);
                     }
                 }
             }
@@ -105,7 +105,7 @@ public class ClickableHeaderImageView extends HeadImageView {
                 return;
             }
         }
-        this.W0 = new a(this);
+        this.X0 = new a(this);
         v();
     }
 
@@ -128,14 +128,14 @@ public class ClickableHeaderImageView extends HeadImageView {
                 return;
             }
         }
-        this.W0 = new a(this);
+        this.X0 = new a(this);
         v();
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
-            this.U0 = onClickListener;
+            this.V0 = onClickListener;
         }
     }
 
@@ -149,10 +149,10 @@ public class ClickableHeaderImageView extends HeadImageView {
         setData(threadData);
     }
 
-    public void setOnInterceptClickEventListener(tq4 tq4Var) {
+    public void setOnInterceptClickEventListener(gv4 gv4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, tq4Var) == null) {
-            this.V0 = tq4Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, gv4Var) == null) {
+            this.W0 = gv4Var;
         }
     }
 
@@ -174,8 +174,8 @@ public class ClickableHeaderImageView extends HeadImageView {
         MetaData author;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{threadData, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && threadData != null && threadData.getAuthor() != null) {
-            this.S0 = threadData;
-            this.T0 = z2;
+            this.T0 = threadData;
+            this.U0 = z2;
             if (z2) {
                 author = threadData.getTopAgreePost().r();
             } else {
@@ -184,7 +184,7 @@ public class ClickableHeaderImageView extends HeadImageView {
             setContentDescription(author.getName_show() + getContext().getString(R.string.somebodys_portrait));
             setUserId(author.getUserId());
             setUserName(author.getUserName());
-            if (threadData.getThreadAlaInfo() != null && (this.S0.getThreadType() == 49 || this.S0.getThreadType() == 69)) {
+            if (threadData.getThreadAlaInfo() != null && (this.T0.getThreadType() == 49 || this.T0.getThreadType() == 69)) {
                 setUrl(threadData.getAuthor().getAvater());
                 K(threadData.getAuthor().getAvater(), 28, false);
             } else {
@@ -202,7 +202,7 @@ public class ClickableHeaderImageView extends HeadImageView {
     public void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            setOnClickListener(this.W0);
+            setOnClickListener(this.X0);
             setDefaultResource(17170445);
             setPlaceHolder(1);
         }

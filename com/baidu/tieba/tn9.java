@@ -1,93 +1,174 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.pms.constants.PmsConstant;
-import com.baidu.searchbox.retrieve.log.bean.FetchLog;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.heytap.mcssdk.mode.CommandMessage;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Locale;
 /* loaded from: classes6.dex */
-public final class tn9 {
+public class tn9 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(com.baidu.ubs.analytics.b bVar) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948187114, "Lcom/baidu/tieba/tn9;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948187114, "Lcom/baidu/tieba/tn9;");
+        }
+    }
+
+    public tn9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            b(str, str2, new Object[0]);
+        }
+    }
+
+    public static String d(String str, Object... objArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, objArr)) == null) {
+            if (objArr != null && objArr.length != 0) {
+                return String.format(Locale.US, str, objArr);
+            }
+            return str;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void b(String str, String str2, Object... objArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, objArr) == null) {
+            String e = e(str2, objArr);
+            Throwable g = g(objArr);
+            if (g != null) {
+                if (a) {
+                    Log.d(i(str), e, g);
+                }
+            } else if (a) {
+                Log.d(i(str), e);
+            }
+        }
+    }
+
+    public static void c(String str, String str2, Object... objArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, objArr) == null) {
+            String d = d(str2, objArr);
+            Throwable g = g(objArr);
+            if (g != null) {
+                if (a) {
+                    Log.e(i(str), d, g);
+                }
+            } else if (a) {
+                Log.e(i(str), d);
+            }
+        }
+    }
+
+    public static void h(String str, String str2, Object... objArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65545, null, str, str2, objArr) == null) {
+            String d = d(str2, objArr);
+            Throwable g = g(objArr);
+            if (g != null) {
+                if (a) {
+                    Log.i(i(str), d, g);
+                }
+            } else if (a) {
+                Log.i(i(str), d);
+            }
+        }
+    }
+
+    public static String e(String str, Object... objArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, objArr)) == null) {
+            return PreferencesUtil.LEFT_MOUNT + f() + "] " + d(str, objArr);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            String name = tn9.class.getName();
+            int i = 0;
+            while (true) {
+                if (i >= stackTrace.length) {
+                    break;
+                } else if (stackTrace[i].getClassName().equals(name)) {
+                    i += 4;
+                    break;
+                } else {
+                    i++;
+                }
+            }
+            return stackTrace[i].getFileName() + ":" + stackTrace[i].getLineNumber();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static Throwable g(Object[] objArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bVar)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
-            JSONArray jSONArray = new JSONArray();
-            JSONArray jSONArray2 = new JSONArray();
-            JSONArray jSONArray3 = new JSONArray();
-            JSONArray jSONArray4 = new JSONArray();
-            try {
-                jSONObject2.put("cuid", bVar.n().l());
-                jSONObject2.put("imei", bVar.n().getImei());
-                jSONObject2.put("osVersion", bVar.n().getOsVersion());
-                jSONObject2.put("brandName", bVar.n().r());
-                jSONObject2.put("deviceType", bVar.n().s());
-                jSONObject2.put("mac", bVar.n().t());
-                jSONObject2.put(CommandMessage.SDK_VERSION, bVar.n().u());
-                jSONObject2.put("testEnable", bVar.n().v());
-                jSONObject2.put("appVersion", bVar.n().w());
-                jSONObject2.put("appVersionName", bVar.n().w());
-                jSONObject2.put("screenWidth", bVar.n().y());
-                jSONObject2.put("screenHeight", bVar.n().z());
-                jSONObject2.put("screenDensity", bVar.n().A());
-                jSONObject2.put("netType", bVar.n().x());
-                jSONObject2.put("appName", bVar.n().C());
-                jSONObject2.put("expInfo", bVar.n().B());
-                jSONObject2.put("phone", bVar.n().getPhone());
-                for (com.baidu.ubs.analytics.a.n nVar : bVar.o()) {
-                    JSONObject jSONObject3 = new JSONObject();
-                    jSONObject3.put(FetchLog.START_TIME, nVar.N());
-                    jSONObject3.put(FetchLog.END_TIME, nVar.O());
-                    jSONObject3.put("keepTime", nVar.P());
-                    jSONObject3.put("sessionId", nVar.I());
-                    jSONArray.put(jSONObject3);
-                }
-                for (com.baidu.ubs.analytics.a.l lVar : bVar.p()) {
-                    JSONObject jSONObject4 = new JSONObject();
-                    jSONObject4.put("pagerName", lVar.E());
-                    jSONObject4.put("sessionId", lVar.I());
-                    jSONObject4.put(FetchLog.END_TIME, lVar.O());
-                    jSONObject4.put(FetchLog.START_TIME, lVar.N());
-                    jSONObject4.put("path", lVar.getPath());
-                    jSONArray2.put(jSONObject4);
-                }
-                for (com.baidu.ubs.analytics.a.a aVar : bVar.getEvents()) {
-                    JSONObject jSONObject5 = new JSONObject();
-                    jSONObject5.put("type", aVar.G());
-                    jSONObject5.put("sessionId", aVar.I());
-                    jSONObject5.put("ext", aVar.H());
-                    jSONObject5.put(PmsConstant.Statistic.Key.REV_TIMESTAMP, aVar.F());
-                    jSONObject5.put("page", aVar.E());
-                    jSONObject5.put("from", aVar.D());
-                    jSONArray3.put(jSONObject5);
-                }
-                for (com.baidu.ubs.analytics.a.i iVar : bVar.q()) {
-                    JSONObject jSONObject6 = new JSONObject();
-                    jSONObject6.put("url", iVar.getUrl());
-                    jSONObject6.put("sessionId", iVar.I());
-                    jSONObject6.put("method", iVar.getType());
-                    jSONObject6.put(PmsConstant.Statistic.Key.REV_TIMESTAMP, iVar.F());
-                    jSONObject6.put(PushConstants.PARAMS, iVar.M());
-                    jSONArray4.put(jSONObject6);
-                }
-                jSONObject.put("deviceinfo", jSONObject2);
-                jSONObject.put("sessions", jSONArray);
-                jSONObject.put("events", jSONArray3);
-                jSONObject.put("pagers", jSONArray2);
-                jSONObject.put("nets", jSONArray4);
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, objArr)) == null) {
+            if (objArr == null || objArr.length == 0) {
+                return null;
             }
-            return jSONObject.toString();
+            Object obj = objArr[objArr.length - 1];
+            if (!(obj instanceof Throwable)) {
+                return null;
+            }
+            return (Throwable) obj;
+        }
+        return (Throwable) invokeL.objValue;
+    }
+
+    public static String i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+            if (str.startsWith("cr_")) {
+                return str;
+            }
+            int i = 0;
+            if (str.startsWith("cr.")) {
+                i = 3;
+            }
+            return "cr_" + str.substring(i, str.length());
         }
         return (String) invokeL.objValue;
     }

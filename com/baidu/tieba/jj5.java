@@ -1,52 +1,20 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.newFriends.RequestPassFriendMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class jj5 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile jj5 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public jj5() {
+    public static void a(long j, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static jj5 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (jj5.class) {
-                    if (a == null) {
-                        a = new jj5();
-                    }
-                }
-            }
-            return a;
-        }
-        return (jj5) invokeV.objValue;
-    }
-
-    public void b(Intent intent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, intent) == null) && intent != null && intent.getData() != null && !StringUtils.isNull(intent.getData().getSchemeSpecificPart())) {
-            cz4.l().E("key_ad_retarget_tips_app_count_" + intent.getData().getSchemeSpecificPart());
+        if (interceptable == null || interceptable.invokeJL(65536, null, j, str) == null) {
+            RequestPassFriendMessage requestPassFriendMessage = new RequestPassFriendMessage();
+            requestPassFriendMessage.setFriendId(j, str);
+            MessageManager.getInstance().sendMessage(requestPassFriendMessage);
         }
     }
 }

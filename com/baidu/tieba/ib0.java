@@ -1,50 +1,51 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Build;
-import android.view.ViewGroup;
+import android.os.Handler;
+import android.os.Message;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.protobuf.CodedInputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes4.dex */
-public class ib0 {
+public class ib0 extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public WeakReference<a> a;
 
-    public static boolean a(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
-            if (Build.VERSION.SDK_INT < 16) {
-                return false;
-            }
-            return ((ViewGroup) activity.findViewById(16908290)).getChildAt(0).getFitsSystemWindows();
-        }
-        return invokeL.booleanValue;
+    /* loaded from: classes4.dex */
+    public interface a {
+        void a(Message message);
     }
 
-    public static boolean b(Activity activity) {
-        InterceptResult invokeL;
+    public ib0(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
-            if ((activity.getWindow().getAttributes().flags & 1024) != 0) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeL.booleanValue;
+        this.a = new WeakReference<>(aVar);
     }
 
-    public static boolean c(Activity activity) {
-        InterceptResult invokeL;
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
-            if (Build.VERSION.SDK_INT < 19 || (activity.getWindow().getAttributes().flags & CodedInputStream.DEFAULT_SIZE_LIMIT) == 0) {
-                return false;
+        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+            if (this.a == null || (aVar = this.a.get()) == null) {
+                return;
             }
-            return true;
+            aVar.a(message);
+            super.handleMessage(message);
         }
-        return invokeL.booleanValue;
     }
 }

@@ -1,13 +1,19 @@
 package com.baidu.tieba;
 
-import android.util.Base64;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes4.dex */
-public class f14 implements w14 {
+public class f14 implements ru1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,31 +31,14 @@ public class f14 implements w14 {
         }
     }
 
-    @Override // com.baidu.tieba.w14
-    public byte[] a(String str, byte[] bArr) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.ru1
+    @Nullable
+    public w02 a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull am2 am2Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bArr)) == null) {
-            if (str != null && bArr != null) {
-                char c = 65535;
-                int hashCode = str.hashCode();
-                if (hashCode != 76158) {
-                    if (hashCode == 1952093519 && str.equals("BASE64")) {
-                        c = 1;
-                    }
-                } else if (str.equals("MD5")) {
-                    c = 0;
-                }
-                if (c != 0) {
-                    if (c != 1) {
-                        return bArr;
-                    }
-                    return Base64.encode(bArr, 2);
-                }
-                return pk4.d(bArr, false).getBytes();
-            }
-            return bArr;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, jSONObject, am2Var)) == null) {
+            return e14.b().a(str, jSONObject, am2Var);
         }
-        return (byte[]) invokeLL.objValue;
+        return (w02) invokeLLL.objValue;
     }
 }

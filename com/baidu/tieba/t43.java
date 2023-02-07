@@ -2,24 +2,26 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.Map;
-import java.util.TreeMap;
+import com.tencent.open.SocialOperation;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.UUID;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class t43 {
+public class t43 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, y43> a;
 
     static {
         InterceptResult invokeClinit;
@@ -34,93 +36,91 @@ public final class t43 {
                 return;
             }
         }
-        b = tk1.a;
+        a = gp1.a;
     }
 
-    public t43() {
+    public static String a(String str, long j, String str2) {
+        InterceptResult invokeCommon;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Long.valueOf(j), str2})) == null) {
+            w83 M = w83.M();
+            if (M == null) {
+                str3 = "";
+            } else {
+                str3 = y02.a(M.O());
+            }
+            String[] strArr = {str3, str, String.valueOf(j), str2};
+            Arrays.sort(strArr);
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < 4; i++) {
+                sb.append(strArr[i]);
+            }
+            try {
+                return ol3.c("SHA-1", sb.toString().getBytes(), false);
+            } catch (NoSuchAlgorithmException e) {
+                if (!a) {
+                    return "";
+                }
+                Log.e("SwanPluginHostSign", "getSignature occurs exception:", e);
+                return "";
             }
         }
-        this.a = null;
+        return (String) invokeCommon.objValue;
     }
 
-    public static String c(String str, String str2) {
-        InterceptResult invokeLL;
+    public static boolean c(String str, String str2, xh4 xh4Var) {
+        InterceptResult invokeLLL;
+        int length;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            File d = qz2.d(str2);
-            if (d == null || !d.exists()) {
-                if (str.endsWith(File.separator)) {
-                    d = new File(str + str2 + ".json");
-                } else {
-                    d = new File(str + File.separator + str2 + ".json");
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, xh4Var)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && xh4Var != null) {
+                String str3 = xh4Var.q;
+                if (TextUtils.isEmpty(str3)) {
+                    return false;
+                }
+                try {
+                    JSONArray optJSONArray = new JSONObject(str3).optJSONArray(str);
+                    if (optJSONArray == null || (length = optJSONArray.length()) == 0) {
+                        return false;
+                    }
+                    ArrayList arrayList = new ArrayList();
+                    for (int i = 0; i < length; i++) {
+                        String optString = optJSONArray.optString(i);
+                        if (!TextUtils.isEmpty(optString)) {
+                            arrayList.add(optString);
+                        }
+                    }
+                    return n93.b(new URI(str2).getHost(), arrayList);
+                } catch (URISyntaxException | JSONException e) {
+                    o43.b(Log.getStackTraceString(e));
                 }
             }
-            if (b) {
-                Log.d("PageConfigData", "parseConfigFile baseUrl : " + str + " ,page: " + str2 + " file exist:" + d.exists());
-            }
-            if (!d.exists()) {
-                return null;
-            }
-            return fn2.m(d);
+            return false;
         }
-        return (String) invokeLL.objValue;
+        return invokeLLL.booleanValue;
     }
 
-    public y43 a(String str, @NonNull String str2, @NonNull y43 y43Var) {
-        InterceptResult invokeLLL;
+    public static String b(xh4 xh4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, y43Var)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                y43 d = d(str, str2, y43Var);
-                this.a.put(str2, d);
-                return d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, xh4Var)) == null) {
+            if (xh4Var == null) {
+                return "";
             }
-            return y43Var;
-        }
-        return (y43) invokeLLL.objValue;
-    }
-
-    public final y43 d(String str, String str2, @NonNull y43 y43Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, y43Var)) == null) {
-            String c = c(str, str2);
-            if (TextUtils.isEmpty(c)) {
-                return y43Var;
+            String str = xh4Var.p;
+            JSONObject jSONObject = new JSONObject();
+            String uuid = UUID.randomUUID().toString();
+            long currentTimeMillis = System.currentTimeMillis() / 1000;
+            try {
+                jSONObject.put("noncestr", uuid);
+                jSONObject.put("timestamp", currentTimeMillis);
+                jSONObject.put(SocialOperation.GAME_SIGNATURE, a(uuid, currentTimeMillis, str));
+            } catch (JSONException e) {
+                o43.b(Log.getStackTraceString(e));
             }
-            return y43.b(c, y43Var);
+            return jSONObject.toString();
         }
-        return (y43) invokeLLL.objValue;
-    }
-
-    public y43 b(String str, String str2, @NonNull y43 y43Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, y43Var)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                if (this.a == null) {
-                    this.a = new TreeMap();
-                }
-                y43 y43Var2 = this.a.get(str2);
-                if (y43Var2 != null) {
-                    return y43Var2;
-                }
-                y43 d = d(str, str2, y43Var);
-                this.a.put(str2, d);
-                return d;
-            }
-            return y43Var;
-        }
-        return (y43) invokeLLL.objValue;
+        return (String) invokeL.objValue;
     }
 }

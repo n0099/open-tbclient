@@ -1,128 +1,133 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.db.TableDefine;
+import android.content.Context;
+import android.view.MotionEvent;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.lego.model.AdCard;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class uo8 {
+public class uo8 extends to8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public int h;
-    public String i;
-    public String j;
-    public boolean k;
+    public int O0;
+    public int P0;
 
-    public uo8() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public uo8(Context context, View view2) {
+        super(context, view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (View) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.k = false;
+        l0(false);
+        this.O0 = ej.l(this.O) / 10;
     }
 
-    public void a(AdvertAppInfo advertAppInfo, @NonNull AdCard adCard) {
+    @Override // com.baidu.tieba.to8
+    public void V(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, advertAppInfo, adCard) != null) || advertAppInfo == null) {
-            return;
-        }
-        int i = advertAppInfo.m;
-        if (i == 3) {
-            this.a = "apk_download";
-            this.f = advertAppInfo.p;
-            this.g = advertAppInfo.o;
-        } else if (i == 1) {
-            this.a = TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT;
-        }
-        this.e = adCard.getButtonText();
-        this.b = adCard.userName;
-        this.c = adCard.userImage;
-        this.d = adCard.scheme;
-        this.i = adCard.threadTitle;
-        this.j = adCard.getButtonCmdScheme();
-    }
-
-    public void b(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        this.a = jSONObject.optString("style");
-        this.b = jSONObject.optString("user_name");
-        this.c = jSONObject.optString(RecommendDetailActivityConfig.USER_PORTRAIT);
-        this.d = jSONObject.optString("scheme");
-        this.e = jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
-        this.h = jSONObject.optInt("close_time");
-        JSONObject optJSONObject = jSONObject.optJSONObject("ext_data");
-        if (optJSONObject != null) {
-            this.f = optJSONObject.optString("pkgname");
-            this.g = optJSONObject.optString("download_url");
-        }
-        jSONObject.optString("content");
-        this.k = true;
-        this.j = jSONObject.optString("button_scheme");
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            b(new JSONObject(str));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("style", this.a);
-                jSONObject.put("user_name", this.b);
-                jSONObject.put(RecommendDetailActivityConfig.USER_PORTRAIT, this.c);
-                jSONObject.put("scheme", this.d);
-                jSONObject.put(GameGuideConfigInfo.KEY_BUTTON_TEXT, this.e);
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("pkgname", this.f);
-                jSONObject2.put("download_url", this.g);
-                jSONObject.put("ext_data", jSONObject2);
-                jSONObject.put("content", this.h);
-                jSONObject.put("button_scheme", this.j);
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            Context context = this.O;
+            if (context instanceof BaseFragmentActivity) {
+                ((BaseFragmentActivity) context).setSwipeBackEnabled(this.Y);
+            } else if (context instanceof BaseActivity) {
+                ((BaseActivity) context).setSwipeBackEnabled(this.Y);
             }
-            return jSONObject.toString();
+            super.V(z);
+            if (this.Y) {
+                this.Q.getLayoutParams().height = -1;
+                return;
+            }
+            this.Q.getLayoutParams().height = this.P0;
         }
-        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.to8
+    public void d0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.t.getControl().setVolume(1.0f, 1.0f);
+        }
+    }
+
+    @Override // com.baidu.tieba.to8
+    public boolean e0(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
+            if (!this.Y && motionEvent.getX() <= this.O0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.to8
+    public void n0(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            super.n0(i);
+            this.J.setVisibility(8);
+            this.D.setVisibility(8);
+        }
+    }
+
+    @Override // com.baidu.tieba.to8, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
+    public void onPrepared() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onPrepared();
+            if (this.t.getControl().getPlayerWidth() == 0) {
+                return;
+            }
+            if (this.t.getControl().getPlayerHeight() > this.t.getControl().getPlayerWidth()) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.T = z;
+            int playerHeight = (int) ((this.t.getControl().getPlayerHeight() / this.t.getControl().getPlayerWidth()) * ej.l(this.O));
+            this.P0 = playerHeight;
+            if (playerHeight > ej.j(this.O)) {
+                this.P0 = ej.j(this.O);
+            }
+            this.Q.getLayoutParams().height = this.P0;
+            this.Q.requestLayout();
+        }
+    }
+
+    public void v0(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
+            this.U = str2;
+            P();
+            Q();
+            n0(this.b);
+            this.F.setPlayer(this.t.getControl());
+            this.B.setVisibility(8);
+            this.u.setPlaceHolder(3);
+            this.u.K(str, 10, false);
+            this.H.setShareData(null);
+        }
     }
 }

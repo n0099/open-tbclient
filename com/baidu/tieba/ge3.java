@@ -1,14 +1,15 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.http.request.HttpRequest;
+import com.baidu.swan.apps.statistic.interfacestability.SwanInterfaceType;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,147 +18,173 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ge3 extends g63 {
+public class ge3 extends he3<JSONObject> {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean r;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Activity m;
+    public final String n;
+    public final String o;
+    public boolean p;
+    public int q;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ge3(g53 g53Var) {
-        super(g53Var, "/swanAPI/brightness");
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947790996, "Lcom/baidu/tieba/ge3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947790996, "Lcom/baidu/tieba/ge3;");
+                return;
+            }
+        }
+        r = gp1.a;
+    }
+
+    @Override // com.baidu.tieba.he3
+    public boolean E() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (sd3.b() && !Q()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.he3
+    public void K() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.q++;
+        }
+    }
+
+    public boolean Q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.q >= A()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.td3
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            v("data", P().toString());
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.he3
+    public SwanInterfaceType z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return SwanInterfaceType.OPEN_DATA;
+        }
+        return (SwanInterfaceType) invokeV.objValue;
+    }
+
+    public ge3(Activity activity, String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {g53Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {activity, str, str2, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.m = activity;
+        this.n = str;
+        this.o = str2;
+        this.p = z;
     }
 
-    @Override // com.baidu.tieba.g63
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j43 j43Var) {
-        InterceptResult invokeLLLL;
+    public JSONObject P() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j43Var)) == null) {
-            if (g63.b) {
-                Log.d("Brightness", "handle entity: " + unitedSchemeEntity.toString());
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                w83 M = M();
+                jSONObject.put("ma_id", M.O());
+                jSONObject.put("scope", this.n);
+                jSONObject.put("host_pkgname", AppRuntime.getApplication().getPackageName());
+                jSONObject.put("host_key_hash", ud3.g());
+                jSONObject.put("app_key", M.O());
+                if (M.Y() != null && M.Y().T() != null) {
+                    jSONObject.put("scene", M.Y().T());
+                }
+                if (this.p) {
+                    jSONObject.put("action_type", "1");
+                }
+                String l = ds2.o().l();
+                if (!TextUtils.isEmpty(l)) {
+                    jSONObject.put("host_api_key", l);
+                }
+                if (!TextUtils.isEmpty(this.o)) {
+                    jSONObject.put("provider_appkey", this.o);
+                }
+            } catch (JSONException e) {
+                if (r) {
+                    e.printStackTrace();
+                }
             }
-            return false;
+            return jSONObject;
         }
-        return invokeLLLL.booleanValue;
+        return (JSONObject) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:65:0x010d  */
-    /* JADX WARN: Removed duplicated region for block: B:68:0x011b  */
-    @Override // com.baidu.tieba.g63
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, j43 j43Var) {
-        InterceptResult invokeLLLLL;
-        Activity activity;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.td3
+    @SuppressLint({"BDThrowableCheck"})
+    /* renamed from: R */
+    public JSONObject m(JSONObject jSONObject) throws JSONException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, j43Var)) == null) {
-            if (g63.b) {
-                Log.d("Brightness", "handleSubAction: " + unitedSchemeEntity.toString());
-            }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (g63.b) {
-                Log.i("Brightness", "handleSubAction params: " + unitedSchemeEntity.getParam("params"));
-            }
-            JSONObject jSONObject = null;
-            if (context instanceof Activity) {
-                activity = (Activity) context;
-            } else {
-                activity = null;
-            }
-            if (activity == null) {
-                j12.c("brightness", "activity is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                return false;
-            }
-            int i = 1001;
-            char c = 65535;
-            int hashCode = str.hashCode();
-            boolean z = true;
-            if (hashCode != -1634890823) {
-                if (hashCode != 1913219981) {
-                    if (hashCode == 1913231513 && str.equals("/swanAPI/brightness/set")) {
-                        c = 0;
-                    }
-                } else if (str.equals("/swanAPI/brightness/get")) {
-                    c = 1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONObject)) == null) {
+            JSONObject c = ud3.c(jSONObject);
+            int optInt = c.optInt("errno", 10001);
+            if (optInt != 0) {
+                if (11001 == optInt) {
+                    ud3.m(c);
+                    ud3.t("MaOpenDataRequest", c.toString());
                 }
-            } else if (str.equals("/swanAPI/brightness/keepScreenOn")) {
-                c = 2;
+                if (r) {
+                    throw new JSONException("Illegal errno=" + optInt + " errms=" + c.optString("errms"));
+                }
             }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c == 2) {
-                        if (optParamsAsJo == null) {
-                            j12.c("brightness", "paramsJson is null");
-                            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                            return false;
-                        }
-                        try {
-                            he3.c().f(activity, optParamsAsJo.getBoolean("keepScreenOn"));
-                        } catch (JSONException unused) {
-                        }
-                    }
-                    z = false;
-                } else {
-                    jSONObject = new JSONObject();
-                    try {
-                        jSONObject.put("value", he3.c().a(activity));
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-                if (z) {
-                    if (jSONObject != null) {
-                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                    } else {
-                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                    }
-                } else {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(i);
-                }
-                return z;
-            } else if (optParamsAsJo == null) {
-                j12.c("brightness", "paramsJson is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                return false;
-            } else {
-                String optString = optParamsAsJo.optString("value");
-                float f = -1.0f;
-                if (!TextUtils.isEmpty(optString)) {
-                    try {
-                        f = Float.parseFloat(optString);
-                    } catch (Exception unused2) {
-                    }
-                }
-                if (f >= 0.0f && f <= 1.0f) {
-                    he3.c().e(activity, f);
-                    if (z) {
-                    }
-                    return z;
-                }
-                i = 202;
-                z = false;
-                if (z) {
-                }
-                return z;
-            }
+            return c;
         }
-        return invokeLLLLL.booleanValue;
+        return (JSONObject) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.he3
+    public HttpRequest w(he3 he3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, he3Var)) == null) {
+            return ds2.o().u(this.m, he3Var.B());
+        }
+        return (HttpRequest) invokeL.objValue;
     }
 }

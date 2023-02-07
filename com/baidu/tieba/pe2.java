@@ -1,23 +1,17 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class pe2<T> extends je2 {
+public class pe2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public T c;
-    public boolean d;
 
     static {
         InterceptResult invokeClinit;
@@ -32,44 +26,51 @@ public class pe2<T> extends je2 {
                 return;
             }
         }
-        e = tk1.a;
+        a = gp1.a;
     }
 
-    public pe2() {
+    @NonNull
+    public static ne2 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            ne2 b = b(c());
+            if (a) {
+                Log.d("PrelinkStrategyFactory", "prelink strategy - " + b.getClass().getSimpleName());
             }
+            return b;
         }
-        this.d = true;
-        this.a = "message";
+        return (ne2) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.je2
-    public void m(Map<String, Object> map) {
+    public static int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            Object obj = this.c;
-            if (obj instanceof String) {
-                String str = (String) obj;
-                if (this.d) {
-                    str = Uri.encode(str);
-                }
-                if (e) {
-                    Log.d("SwanAppWebMessage", "mData: " + this.c);
-                    Log.d("SwanAppWebMessage", "encode mData: " + str);
-                }
-                map.put("message", str);
-            } else if (obj instanceof JSONObject) {
-                map.put("message", obj);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            ds2.g0().getSwitch("swan_prelink_policy_when_prefetch", 0);
+            if (a) {
+                Log.d("PrelinkStrategyFactory", "swan_prelink_policy_when_prefetch = 0");
             }
+            return 0;
         }
+        return invokeV.intValue;
+    }
+
+    public static ne2 b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i == 0) {
+                return new le2();
+            }
+            if (i > 0) {
+                return new oe2(i);
+            }
+            if (i == -1) {
+                return new me2();
+            }
+            return new le2();
+        }
+        return (ne2) invokeI.objValue;
     }
 }

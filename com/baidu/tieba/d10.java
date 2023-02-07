@@ -1,131 +1,100 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.CharArrayWriter;
+import java.io.Closeable;
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 /* loaded from: classes4.dex */
-public class d10 {
+public final class d10 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public File b;
-    public CharSequence c;
 
-    /* loaded from: classes4.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public File b;
-        public CharSequence c;
-        public CharSequence d;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    /* JADX WARN: Removed duplicated region for block: B:46:0x0043 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String a(File file) {
+        InterceptResult invokeL;
+        FileReader fileReader;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65536, null, file)) != null) {
+            return (String) invokeL.objValue;
+        }
+        FileReader fileReader2 = null;
+        try {
+            fileReader = new FileReader(file);
+            try {
+                try {
+                    char[] cArr = new char[8192];
+                    CharArrayWriter charArrayWriter = new CharArrayWriter();
+                    while (true) {
+                        int read = fileReader.read(cArr);
+                        if (read <= 0) {
+                            break;
+                        }
+                        charArrayWriter.write(cArr, 0, read);
+                    }
+                    String charArrayWriter2 = charArrayWriter.toString();
+                    try {
+                        fileReader.close();
+                    } catch (Exception e) {
+                        c(e);
+                    }
+                    return charArrayWriter2;
+                } catch (Exception e2) {
+                    e = e2;
+                    c(e);
+                    if (fileReader != null) {
+                        try {
+                            fileReader.close();
+                        } catch (Exception e3) {
+                            c(e3);
+                        }
+                    }
+                    return null;
                 }
+            } catch (Throwable th) {
+                th = th;
+                fileReader2 = fileReader;
+                if (fileReader2 != null) {
+                    try {
+                        fileReader2.close();
+                    } catch (Exception e4) {
+                        c(e4);
+                    }
+                }
+                throw th;
             }
-        }
-
-        public d10 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new d10(this.a, this.b, this.c, this.d);
+        } catch (Exception e5) {
+            e = e5;
+            fileReader = null;
+        } catch (Throwable th2) {
+            th = th2;
+            if (fileReader2 != null) {
             }
-            return (d10) invokeV.objValue;
-        }
-
-        public a b(File file) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file)) == null) {
-                this.b = file;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a c(CharSequence charSequence) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, charSequence)) == null) {
-                this.c = charSequence;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a d(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.a = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
+            throw th;
         }
     }
 
-    public d10(String str, File file, CharSequence charSequence, CharSequence charSequence2) {
+    public static void b(Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, file, charSequence, charSequence2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (!(interceptable == null || interceptable.invokeL(65537, null, closeable) == null) || closeable == null) {
+            return;
         }
-        this.a = str;
-        this.b = file;
-        this.c = charSequence;
+        try {
+            closeable.close();
+        } catch (IOException e) {
+            c(e);
+        }
     }
 
-    public File a() {
-        InterceptResult invokeV;
+    public static void c(Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeL(65538, null, th) == null) {
         }
-        return (File) invokeV.objValue;
-    }
-
-    public CharSequence b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (TextUtils.isEmpty(this.c)) {
-                this.c = j10.a(c());
-            }
-            return this.c;
-        }
-        return (CharSequence) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
     }
 }

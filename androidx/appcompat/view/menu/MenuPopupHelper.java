@@ -46,7 +46,7 @@ public class MenuPopupHelper implements MenuHelper {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder) {
-        this(context, menuBuilder, null, false, R.attr.obfuscated_res_0x7f040560, 0);
+        this(context, menuBuilder, null, false, R.attr.obfuscated_res_0x7f040562, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,7 +67,7 @@ public class MenuPopupHelper implements MenuHelper {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder, @NonNull View view2) {
-        this(context, menuBuilder, view2, false, R.attr.obfuscated_res_0x7f040560, 0);
+        this(context, menuBuilder, view2, false, R.attr.obfuscated_res_0x7f040562, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

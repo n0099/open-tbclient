@@ -16,7 +16,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.videoplayer.SwanVideoView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jl4;
+import com.baidu.tieba.wp4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,7 +52,7 @@ public class MediaController extends RelativeLayout {
     public SwanVideoView r;
     public boolean s;
     public boolean t;
-    public jl4 u;
+    public wp4 u;
     public boolean v;
     public boolean w;
     public View.OnClickListener x;
@@ -73,12 +73,12 @@ public class MediaController extends RelativeLayout {
 
         /* renamed from: com.baidu.swan.videoplayer.widget.MediaController$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0203a implements Runnable {
+        public class RunnableC0205a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0203a(a aVar) {
+            public RunnableC0205a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -127,7 +127,7 @@ public class MediaController extends RelativeLayout {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.getMainThreadHandler().post(new RunnableC0203a(this));
+                this.a.getMainThreadHandler().post(new RunnableC0205a(this));
             }
         }
     }
@@ -231,20 +231,20 @@ public class MediaController extends RelativeLayout {
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.r != null) {
                 if (this.a.r.z()) {
                     if (this.a.a.getVisibility() == 0) {
-                        this.a.a.setImageResource(R.drawable.obfuscated_res_0x7f081257);
+                        this.a.a.setImageResource(R.drawable.obfuscated_res_0x7f08124c);
                     }
                     if (this.a.i.getVisibility() == 0) {
-                        this.a.i.setImageResource(R.drawable.obfuscated_res_0x7f081257);
+                        this.a.i.setImageResource(R.drawable.obfuscated_res_0x7f08124c);
                     }
                     this.a.r.C();
                     return;
                 }
                 Log.d("SimpleMediaController", "mPlayButton clicked : to resume");
                 if (this.a.a.getVisibility() == 0) {
-                    this.a.a.setImageResource(R.drawable.obfuscated_res_0x7f081256);
+                    this.a.a.setImageResource(R.drawable.obfuscated_res_0x7f08124b);
                 }
                 if (this.a.i.getVisibility() == 0) {
-                    this.a.i.setImageResource(R.drawable.obfuscated_res_0x7f081256);
+                    this.a.i.setImageResource(R.drawable.obfuscated_res_0x7f08124b);
                 }
                 this.a.r.X();
             }
@@ -664,9 +664,9 @@ public class MediaController extends RelativeLayout {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(1048592, this, z) == null) && (imageView = this.c) != null) {
             if (z) {
-                i2 = R.drawable.obfuscated_res_0x7f081263;
+                i2 = R.drawable.obfuscated_res_0x7f081258;
             } else {
-                i2 = R.drawable.obfuscated_res_0x7f081262;
+                i2 = R.drawable.obfuscated_res_0x7f081257;
             }
             imageView.setImageResource(i2);
         }
@@ -688,10 +688,10 @@ public class MediaController extends RelativeLayout {
         }
     }
 
-    public void setToggleScreenListener(jl4 jl4Var) {
+    public void setToggleScreenListener(wp4 wp4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, jl4Var) == null) {
-            this.u = jl4Var;
+        if (interceptable == null || interceptable.invokeL(1048595, this, wp4Var) == null) {
+            this.u = wp4Var;
         }
     }
 
@@ -854,13 +854,13 @@ public class MediaController extends RelativeLayout {
             this.y = z;
             int i3 = 8;
             if (z) {
-                this.k.setImageResource(R.drawable.obfuscated_res_0x7f081255);
+                this.k.setImageResource(R.drawable.obfuscated_res_0x7f08124a);
                 this.B.setVisibility(8);
                 this.C.setVisibility(8);
                 this.l.setVisibility(8);
                 this.a.setVisibility(8);
             } else {
-                this.k.setImageResource(R.drawable.obfuscated_res_0x7f081259);
+                this.k.setImageResource(R.drawable.obfuscated_res_0x7f08124e);
                 this.B.setVisibility(0);
                 this.C.setVisibility(0);
                 TextView textView = this.l;
@@ -896,9 +896,9 @@ public class MediaController extends RelativeLayout {
                 case 0:
                     A();
                     this.a.setEnabled(true);
-                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f081257);
+                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f08124c);
                     this.i.setEnabled(true);
-                    this.i.setImageResource(R.drawable.obfuscated_res_0x7f081257);
+                    this.i.setImageResource(R.drawable.obfuscated_res_0x7f08124c);
                     this.e.setEnabled(false);
                     SwanVideoView swanVideoView = this.r;
                     if (swanVideoView == null) {
@@ -920,9 +920,9 @@ public class MediaController extends RelativeLayout {
                     return;
                 case 2:
                     this.a.setEnabled(true);
-                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f081257);
+                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f08124c);
                     this.i.setEnabled(true);
-                    this.i.setImageResource(R.drawable.obfuscated_res_0x7f081257);
+                    this.i.setImageResource(R.drawable.obfuscated_res_0x7f08124c);
                     this.e.setEnabled(true);
                     SwanVideoView swanVideoView3 = this.r;
                     if (swanVideoView3 == null) {
@@ -942,15 +942,15 @@ public class MediaController extends RelativeLayout {
                     z();
                     this.e.setEnabled(true);
                     this.a.setEnabled(true);
-                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f081256);
+                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f08124b);
                     this.i.setEnabled(true);
-                    this.i.setImageResource(R.drawable.obfuscated_res_0x7f081256);
+                    this.i.setImageResource(R.drawable.obfuscated_res_0x7f08124b);
                     return;
                 case 4:
                     this.a.setEnabled(true);
-                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f081257);
+                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f08124c);
                     this.i.setEnabled(true);
-                    this.i.setImageResource(R.drawable.obfuscated_res_0x7f081257);
+                    this.i.setImageResource(R.drawable.obfuscated_res_0x7f08124c);
                     return;
                 case 5:
                     A();
@@ -958,9 +958,9 @@ public class MediaController extends RelativeLayout {
                     seekBar2.setProgress(seekBar2.getMax());
                     this.e.setEnabled(false);
                     this.a.setEnabled(true);
-                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f081257);
+                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f08124c);
                     this.i.setEnabled(true);
-                    this.i.setImageResource(R.drawable.obfuscated_res_0x7f081257);
+                    this.i.setImageResource(R.drawable.obfuscated_res_0x7f08124c);
                     return;
                 default:
                     return;
@@ -973,21 +973,21 @@ public class MediaController extends RelativeLayout {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0858, this);
-            this.B = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0920ca);
-            this.C = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0920c0);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0851, this);
+            this.B = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0920db);
+            this.C = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0920d1);
             this.x = new b(this);
-            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0920c5);
+            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0920d6);
             this.a = imageView;
             imageView.setOnClickListener(this.x);
-            ImageView imageView2 = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0920c6);
+            ImageView imageView2 = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0920d7);
             this.i = imageView2;
             imageView2.setOnClickListener(this.x);
-            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920cc);
-            this.e = (SeekBar) inflate.findViewById(R.id.obfuscated_res_0x7f0920c9);
-            this.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920cb);
+            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920dd);
+            this.e = (SeekBar) inflate.findViewById(R.id.obfuscated_res_0x7f0920da);
+            this.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920dc);
             this.e.setOnSeekBarChangeListener(new c(this));
-            this.c = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0920c4);
+            this.c = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0920d5);
             SwanVideoView swanVideoView = this.r;
             if (swanVideoView != null && swanVideoView.y()) {
                 z = true;
@@ -996,36 +996,36 @@ public class MediaController extends RelativeLayout {
             }
             ImageView imageView3 = this.c;
             if (z) {
-                i2 = R.drawable.obfuscated_res_0x7f081263;
+                i2 = R.drawable.obfuscated_res_0x7f081258;
             } else {
-                i2 = R.drawable.obfuscated_res_0x7f081262;
+                i2 = R.drawable.obfuscated_res_0x7f081257;
             }
             imageView3.setImageResource(i2);
             this.c.setOnClickListener(new d(this));
-            ImageView imageView4 = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0920c8);
+            ImageView imageView4 = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0920d9);
             this.b = imageView4;
             imageView4.setOnClickListener(new e(this));
             this.e.setEnabled(false);
             this.a.setEnabled(false);
             this.i.setEnabled(false);
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0920c1);
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0920d2);
             this.g = findViewById;
             findViewById.setOnClickListener(new f(this));
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920ce);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920df);
             this.h = textView;
             textView.setVisibility(4);
             this.g.setVisibility(8);
-            ImageView imageView5 = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0920c2);
+            ImageView imageView5 = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0920d3);
             this.j = imageView5;
             imageView5.setVisibility(8);
-            ImageView imageView6 = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0920c3);
+            ImageView imageView6 = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0920d4);
             this.k = imageView6;
             imageView6.setVisibility(8);
             this.k.setOnClickListener(new g(this));
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920cd);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920de);
             this.l = textView2;
             textView2.setOnClickListener(new h(this));
-            View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f0920c7);
+            View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f0920d8);
             this.m = findViewById2;
             findViewById2.setVisibility(8);
             this.m.setOnClickListener(new i(this));
@@ -1059,9 +1059,9 @@ public class MediaController extends RelativeLayout {
             this.v = z;
             ImageView imageView = this.b;
             if (z) {
-                i2 = R.drawable.obfuscated_res_0x7f081254;
+                i2 = R.drawable.obfuscated_res_0x7f081249;
             } else {
-                i2 = R.drawable.obfuscated_res_0x7f081253;
+                i2 = R.drawable.obfuscated_res_0x7f081248;
             }
             imageView.setImageResource(i2);
             int i7 = 8;

@@ -1,64 +1,101 @@
 package com.baidu.tieba;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
-import android.text.method.LinkMovementMethod;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Intent;
+import android.text.TextUtils;
+import androidx.core.app.NotificationCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.framework.task.SocketMessageTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.myCollection.CollectUpdateReceiver;
+import com.baidu.tieba.myCollection.message.GetStoreRemindTimeHttpResponseMessage;
+import com.baidu.tieba.myCollection.message.GetStoreRemindTimeRequestMessage;
+import com.baidu.tieba.myCollection.message.GetStoreRemindTimeSocketResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+import org.json.JSONArray;
+import org.json.JSONException;
 /* loaded from: classes5.dex */
-public class n48 extends BaseAdapter {
+public class n48 {
     public static /* synthetic */ Interceptable $ic;
+    public static n48 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<wb8> a;
-    public Context b;
-    public int c;
-    public int d;
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return 2;
-        }
-        return invokeV.intValue;
-    }
+    public volatile boolean a;
 
     /* loaded from: classes5.dex */
-    public static class a {
+    public class a extends wb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public TbImageView a;
 
-        public a() {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(n48 n48Var, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n48Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.wb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                List<String> list = Collections.EMPTY_LIST;
+                if (responsedMessage instanceof GetStoreRemindTimeHttpResponseMessage) {
+                    list = ((GetStoreRemindTimeHttpResponseMessage) responsedMessage).getTimeList();
+                } else if (responsedMessage instanceof GetStoreRemindTimeSocketResponseMessage) {
+                    list = ((GetStoreRemindTimeSocketResponseMessage) responsedMessage).getTimeList();
+                }
+                if (!list.isEmpty()) {
+                    p35.m().B("collect_update_time_key", new JSONArray((Collection) list).toString());
+                    n48.b().g();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements Comparator<Calendar> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(n48 n48Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n48Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -68,14 +105,27 @@ public class n48 extends BaseAdapter {
                 }
             }
         }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(Calendar calendar, Calendar calendar2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, calendar, calendar2)) == null) {
+                if (calendar.before(calendar2)) {
+                    return -1;
+                }
+                return 1;
+            }
+            return invokeLL.intValue;
+        }
     }
 
-    public n48(Context context) {
+    public n48() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -85,181 +135,148 @@ public class n48 extends BaseAdapter {
                 return;
             }
         }
-        this.c = 0;
-        this.d = 0;
-        this.b = context;
-        this.a = new ArrayList();
-        this.c = zi.l(context) - (((int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070201)) * 2);
-        this.d = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207);
+        this.a = false;
+        MessageManager.getInstance().registerListener(new a(this, CmdConfigHttp.CMD_GET_STORE_REMIND_TIME, 309117));
+        o09.g(309117, GetStoreRemindTimeSocketResponseMessage.class, false, SocketMessageTask.DupLicateMode.REMOVE_ME, true);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_STORE_REMIND_TIME, o09.a("c/f/livegroup/getStoreRemindTime", 309117));
+        tbHttpMessageTask.setIsNeedLogin(true);
+        tbHttpMessageTask.setIsNeedAddCommenParam(true);
+        tbHttpMessageTask.setResponsedClass(GetStoreRemindTimeHttpResponseMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        InterceptResult invokeI;
+    public void g() {
+        Calendar c;
+        Context context;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            List<wb8> list = this.a;
-            if (list != null && list.size() > 0) {
-                if (i >= 0 && i < this.a.size()) {
-                    wb8 wb8Var = this.a.get(i);
-                    if (wb8Var == null) {
-                        return super.getItemViewType(i);
-                    }
-                    if (wb8Var.getType() == 0) {
-                        return 0;
-                    }
-                    if (wb8Var.getType() == 3) {
-                        return 1;
-                    }
-                    return super.getItemViewType(i);
-                }
-                return super.getItemViewType(i);
-            }
-            return super.getItemViewType(i);
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || (c = c()) == null || (context = TbadkCoreApplication.getInst().getContext()) == null) {
+            return;
         }
-        return invokeI.intValue;
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
+        Intent intent = new Intent(CollectUpdateReceiver.ACTION_NAME);
+        intent.setPackage(context.getPackageName());
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(14, 0);
+        if (c.before(calendar)) {
+            c.set(6, calendar.get(6) + 1);
+        }
+        alarmManager.set(1, c.getTimeInMillis(), PendingIntent.getBroadcast(context, 0, intent, 134217728));
     }
 
-    public final View a(int i, View view2) {
-        InterceptResult invokeIL;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, view2)) == null) {
-            if (view2 != null && (view2.getTag() instanceof a)) {
-                aVar = (a) view2.getTag();
-            } else {
-                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d01d8, (ViewGroup) null);
-                aVar = new a();
-                aVar.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091899);
-                view2.setTag(aVar);
-            }
-            wb8 item = getItem(i);
-            if (item instanceof xb8) {
-                xb8 xb8Var = (xb8) item;
-                if (!StringUtils.isNull(xb8Var.e) && !"1".equals(xb8Var.e)) {
-                    aVar.a.setVisibility(0);
-                    ViewGroup.LayoutParams layoutParams = aVar.a.getLayoutParams();
-                    int i2 = this.c;
-                    int c = xb8Var.c(i2);
-                    if (layoutParams == null) {
-                        layoutParams = new AbsListView.LayoutParams(i2, c);
-                    } else {
-                        layoutParams.height = c;
-                        layoutParams.width = i2;
-                    }
-                    aVar.a.setLayoutParams(layoutParams);
-                    aVar.a.K(xb8Var.d(), 17, false);
-                } else {
-                    aVar.a.setVisibility(8);
-                }
-            }
-            return view2;
-        }
-        return (View) invokeIL.objValue;
-    }
-
-    public final View c(int i, View view2) {
-        InterceptResult invokeIL;
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, view2)) == null) {
-            if (view2 instanceof TextView) {
-                textView = (TextView) view2;
-            } else {
-                textView = new TextView(this.b);
-                textView.setTextSize(0, this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b7));
-                textView.setLineSpacing(0.0f, 1.2f);
-                textView.setMovementMethod(LinkMovementMethod.getInstance());
-                int i2 = this.d;
-                textView.setPadding(i2, 0, i2, 0);
-            }
-            wb8 item = getItem(i);
-            if (item instanceof zb8) {
-                zb8 zb8Var = (zb8) item;
-                textView.setText(zb8Var.b());
-                int d = zb8Var.d();
-                if (d != 1) {
-                    if (d != 2) {
-                        textView.setGravity(3);
-                    } else {
-                        textView.setGravity(5);
-                    }
-                } else {
-                    textView.setGravity(17);
-                }
-                if (!StringUtils.isNull(zb8Var.e())) {
-                    if (!SkinManager.setViewTextColor(textView, zb8Var.e())) {
-                        SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
-                    }
-                } else {
-                    SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
-                }
-                if (zb8Var.f() > 0) {
-                    textView.setTextSize(0, zb8Var.f());
-                }
-            }
-            return textView;
-        }
-        return (View) invokeIL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: b */
-    public wb8 getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            List<wb8> list = this.a;
-            if (list != null && list.size() > 0) {
-                int size = this.a.size();
-                if (i >= 0 && i < size) {
-                    return this.a.get(i);
-                }
-            }
-            return null;
-        }
-        return (wb8) invokeI.objValue;
-    }
-
-    public void d(List<wb8> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.a.clear();
-            if (list != null && list.size() > 0) {
-                this.a.addAll(list);
-            }
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public static n48 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<wb8> list = this.a;
-            if (list == null) {
-                return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (n48.class) {
+                    if (b == null) {
+                        b = new n48();
+                    }
+                }
             }
-            return list.size();
+            return b;
         }
-        return invokeV.intValue;
+        return (n48) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
-            int itemViewType = getItemViewType(i);
-            if (itemViewType == 0) {
-                return c(i, view2);
-            }
-            if (itemViewType == 1) {
-                return a(i, view2);
-            }
-            return null;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && a()) {
+            MessageManager.getInstance().sendMessage(new GetStoreRemindTimeRequestMessage());
+            h();
         }
-        return (View) invokeILL.objValue;
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            p35.m().A("collect_request_time_key", System.currentTimeMillis());
+        }
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            long o = p35.m().o("collect_request_time_key", -1L);
+            if (o == -1) {
+                return true;
+            }
+            long currentTimeMillis = System.currentTimeMillis() - o;
+            if (currentTimeMillis > 0 && TimeUnit.MILLISECONDS.toDays(currentTimeMillis) >= 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final Calendar c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            String s = p35.m().s("collect_update_time_key", null);
+            if (TextUtils.isEmpty(s)) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            Calendar calendar = Calendar.getInstance();
+            try {
+                JSONArray jSONArray = new JSONArray(s);
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    String optString = jSONArray.optString(i);
+                    if (!TextUtils.isEmpty(optString)) {
+                        Calendar calendar2 = (Calendar) calendar.clone();
+                        calendar2.setTime(simpleDateFormat.parse(optString));
+                        calendar2.set(calendar.get(1), calendar.get(2), calendar.get(5));
+                        arrayList.add(calendar2);
+                    }
+                }
+            } catch (ParseException e) {
+                BdLog.e(e.getMessage());
+                e.printStackTrace();
+                return null;
+            } catch (JSONException e2) {
+                BdLog.e(e2.getMessage());
+                return null;
+            } catch (Exception e3) {
+                BdLog.e(e3.getMessage());
+            }
+            if (arrayList.isEmpty()) {
+                return null;
+            }
+            Collections.sort(arrayList, new b(this));
+            Calendar calendar3 = (Calendar) arrayList.get(0);
+            Calendar calendar4 = (Calendar) arrayList.get(arrayList.size() - 1);
+            if (arrayList.size() != 1 && !calendar3.after(calendar) && !calendar4.before(calendar)) {
+                for (int i2 = 1; i2 < arrayList.size(); i2++) {
+                    Calendar calendar5 = (Calendar) arrayList.get(i2);
+                    if (!calendar5.before(calendar)) {
+                        return calendar5;
+                    }
+                }
+                return null;
+            }
+            return calendar3;
+        }
+        return (Calendar) invokeV.objValue;
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            if (this.a) {
+                z = false;
+            }
+            p35.m().w("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), z);
+        }
+    }
+
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.a = z;
+        }
     }
 }

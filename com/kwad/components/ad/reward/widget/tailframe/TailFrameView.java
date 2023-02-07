@@ -101,9 +101,9 @@ public class TailFrameView extends KSFrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
                 super.E(context);
-                this.xf = (ImageView) this.wU.findViewById(R.id.obfuscated_res_0x7f0912d4);
-                this.xg = (ImageView) this.wU.findViewById(R.id.obfuscated_res_0x7f0912d5);
-                this.xh = (ImageView) this.wU.findViewById(R.id.obfuscated_res_0x7f0912d6);
+                this.xf = (ImageView) this.wU.findViewById(R.id.obfuscated_res_0x7f091317);
+                this.xg = (ImageView) this.wU.findViewById(R.id.obfuscated_res_0x7f091318);
+                this.xh = (ImageView) this.wU.findViewById(R.id.obfuscated_res_0x7f091319);
             }
         }
 
@@ -160,7 +160,7 @@ public class TailFrameView extends KSFrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
                 super.E(context);
-                this.xi = this.wU.findViewById(R.id.obfuscated_res_0x7f09260b);
+                this.xi = this.wU.findViewById(R.id.obfuscated_res_0x7f092622);
             }
         }
 

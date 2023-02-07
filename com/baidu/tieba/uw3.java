@@ -1,96 +1,236 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.net.Uri;
-import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
-import com.baidu.searchbox.unitedscheme.SchemeRouter;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
-import com.baidu.tieba.gp2;
+import android.os.Process;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.game.ad.downloader.exception.DownloadException;
+import com.baidu.swan.game.ad.downloader.exception.DownloadPauseException;
+import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
+import com.baidu.swan.game.ad.downloader.model.DownloadState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.RandomAccessFile;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 /* loaded from: classes6.dex */
-public final class uw3 extends pw3 {
+public class uw3 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final bx3 a;
+    public final DownloadInfo b;
+    public final a c;
+    public long d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uw3() {
-        super("navigateToSwanGame");
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a();
+
+        void b();
+    }
+
+    public uw3(bx3 bx3Var, DownloadInfo downloadInfo, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bx3Var, downloadInfo, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = bx3Var;
+        this.b = downloadInfo;
+        this.d = downloadInfo.getProgress();
+        this.c = aVar;
     }
 
-    @Override // com.baidu.tieba.pw3
-    public jw1 a(JSONObject paramsJson, nh2 callback) {
-        InterceptResult invokeLL;
-        boolean z;
-        Uri parse;
-        gp2.a W;
-        String I;
-        gp2.a W2;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, paramsJson, callback)) == null) {
-            Intrinsics.checkNotNullParameter(paramsJson, "paramsJson");
-            Intrinsics.checkNotNullParameter(callback, "callback");
-            Application c = qn2.c();
-            if (c == null) {
-                callback.onFail(202, "params may be error");
-                return null;
-            }
-            String optString = paramsJson.optString("appKey");
-            boolean z2 = false;
-            if (optString != null && optString.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                callback.onFail(202, "params may be error");
-                return null;
-            }
-            JSONObject jSONObject = new JSONObject();
-            j43 b0 = j43.b0();
-            String str = "";
-            jSONObject.put("pre_source", (b0 == null || (W2 = b0.W()) == null || (r8 = W2.T()) == null) ? "" : "");
-            j43 b02 = j43.b0();
-            if (b02 != null && (W = b02.W()) != null && (I = W.I()) != null) {
-                str = I;
-            }
-            jSONObject.put("pre_appid", str);
-            paramsJson.put(UBCCloudControlProcessor.UBC_KEY, jSONObject);
-            String d1 = hp2.d1(optString, 1, paramsJson);
-            if ((d1 == null || d1.length() == 0) ? true : true) {
-                parse = null;
-            } else {
-                parse = Uri.parse(d1);
-            }
-            if (parse == null) {
-                callback.onFail(202, "params may be error");
-                return null;
-            }
-            if (SchemeRouter.invokeScheme(c, parse, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE)) {
-                callback.a(null);
-            } else {
-                callback.onFail(202, "params may be error");
-            }
-            return null;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.b.isPause()) {
+            return;
         }
-        return (jw1) invokeLL.objValue;
+        throw new DownloadPauseException(7);
+    }
+
+    public final void b() {
+        InputStream inputStream;
+        RandomAccessFile randomAccessFile;
+        Exception e;
+        IOException e2;
+        ProtocolException e3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            RandomAccessFile randomAccessFile2 = null;
+            try {
+                try {
+                    try {
+                        URL url = new URL(this.b.getUri());
+                        long j = this.d;
+                        Response execute = new OkHttpClient().newCall(new Request.Builder().addHeader("RANGE", "bytes=" + j + "-").url(url).build()).execute();
+                        if (execute != null && execute.body() != null) {
+                            inputStream = execute.body().byteStream();
+                            try {
+                                RandomAccessFile randomAccessFile3 = new RandomAccessFile(this.b.getPath(), "rw");
+                                try {
+                                    randomAccessFile3.seek(j);
+                                    byte[] bArr = new byte[1024];
+                                    int i = 0;
+                                    while (true) {
+                                        int read = inputStream.read(bArr);
+                                        if (read == -1) {
+                                            break;
+                                        }
+                                        a();
+                                        i += read;
+                                        randomAccessFile3.write(bArr, 0, read);
+                                        this.b.setProgress(this.d + i);
+                                        this.c.b();
+                                    }
+                                    execute.body().close();
+                                    this.c.a();
+                                    randomAccessFile2 = randomAccessFile3;
+                                } catch (DownloadPauseException unused) {
+                                    randomAccessFile2 = randomAccessFile3;
+                                    if (randomAccessFile2 != null) {
+                                        randomAccessFile2.close();
+                                    }
+                                    if (inputStream != null) {
+                                        inputStream.close();
+                                        return;
+                                    }
+                                    return;
+                                } catch (ProtocolException e4) {
+                                    e3 = e4;
+                                    throw new DownloadException(4, "Protocol error", e3);
+                                } catch (IOException e5) {
+                                    e2 = e5;
+                                    throw new DownloadException(5, "IO error", e2);
+                                } catch (Exception e6) {
+                                    e = e6;
+                                    throw new DownloadException(9, "other error", e);
+                                }
+                            } catch (DownloadPauseException unused2) {
+                            } catch (ProtocolException e7) {
+                                e = e7;
+                                e3 = e;
+                                throw new DownloadException(4, "Protocol error", e3);
+                            } catch (IOException e8) {
+                                e = e8;
+                                e2 = e;
+                                throw new DownloadException(5, "IO error", e2);
+                            } catch (Exception e9) {
+                                e = e9;
+                                e = e;
+                                throw new DownloadException(9, "other error", e);
+                            } catch (Throwable th) {
+                                th = th;
+                                randomAccessFile = null;
+                                th = th;
+                                if (randomAccessFile != null) {
+                                    try {
+                                        randomAccessFile.close();
+                                    } catch (Exception e10) {
+                                        e10.printStackTrace();
+                                        throw th;
+                                    }
+                                }
+                                if (inputStream != null) {
+                                    inputStream.close();
+                                }
+                                throw th;
+                            }
+                        } else {
+                            inputStream = null;
+                        }
+                        if (randomAccessFile2 != null) {
+                            randomAccessFile2.close();
+                        }
+                        if (inputStream != null) {
+                            inputStream.close();
+                        }
+                    } catch (Exception e11) {
+                        e11.printStackTrace();
+                    }
+                } catch (DownloadPauseException unused3) {
+                    inputStream = null;
+                } catch (ProtocolException e12) {
+                    e = e12;
+                } catch (IOException e13) {
+                    e = e13;
+                } catch (Exception e14) {
+                    e = e14;
+                } catch (Throwable th2) {
+                    th = th2;
+                    inputStream = null;
+                    randomAccessFile = null;
+                }
+            } catch (Throwable th3) {
+                th = th3;
+            }
+        }
+    }
+
+    public final long c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            try {
+                Response execute = new OkHttpClient().newCall(new Request.Builder().url(str).build()).execute();
+                if (execute != null && execute.isSuccessful() && execute.body() != null) {
+                    long contentLength = execute.body().contentLength();
+                    execute.body().close();
+                    return contentLength;
+                }
+                return 0L;
+            } catch (MalformedURLException e) {
+                throw new DownloadException(2, "Bad url.", e);
+            } catch (ProtocolException e2) {
+                throw new DownloadException(4, "Protocol error", e2);
+            } catch (IOException e3) {
+                throw new DownloadException(5, "IO error", e3);
+            } catch (Exception e4) {
+                throw new DownloadException(9, "Unknown error", e4);
+            }
+        }
+        return invokeL.longValue;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            Process.setThreadPriority(10);
+            try {
+                if (this.b.getSize() <= 0) {
+                    long c = c(this.b.getUri());
+                    if (c > 0) {
+                        this.b.setSize(c);
+                    } else {
+                        throw new DownloadException(6, "length <= 0");
+                    }
+                }
+                this.b.setStatus(DownloadState.DOWNLOADING.value());
+                this.a.b(this.b);
+                b();
+            } catch (DownloadException e) {
+                this.b.setStatus(DownloadState.DOWNLOAD_FAILED.value());
+                this.b.setException(e);
+                this.a.b(this.b);
+                this.a.a(e);
+            }
+        }
     }
 }

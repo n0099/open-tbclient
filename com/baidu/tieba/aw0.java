@@ -1,43 +1,33 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideo;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-@Singleton
-@Service
 /* loaded from: classes3.dex */
-public class aw0 implements lv0 {
+public class aw0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public aw0() {
+    public static oz0 a(@NonNull BdVideoSeries bdVideoSeries, @NonNull BdVideo bdVideo, @NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, bdVideoSeries, bdVideo, str, str2)) == null) {
+            oz0 oz0Var = new oz0();
+            oz0Var.k(str2);
+            oz0Var.l(nz0.c(bdVideo.getCurrentLength()) + "/" + nz0.c(bdVideo.getTotalLength()));
+            oz0Var.p(bdVideoSeries.getVid());
+            oz0Var.m(bdVideo.getType());
+            oz0Var.j(System.currentTimeMillis());
+            oz0Var.n(bdVideo.getTitle());
+            oz0Var.o(str);
+            oz0Var.r(bdVideoSeries.getPositionMs());
+            oz0Var.q(bdVideo.getCurrentLength());
+            oz0Var.s(bdVideo.getTotalLength());
+            return oz0Var;
         }
-    }
-
-    @Override // com.baidu.tieba.lv0
-    @NonNull
-    public nv0 a(Map<String, String> map, Object obj) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, map, obj)) == null) {
-            return new hw0(map, obj);
-        }
-        return (nv0) invokeLL.objValue;
+        return (oz0) invokeLLLL.objValue;
     }
 }

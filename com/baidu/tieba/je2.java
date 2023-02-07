@@ -1,11 +1,12 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,97 +14,48 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class je2 {
+public class je2 implements he2 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-
-    public abstract void m(Map<String, Object> map);
+    public final jh3 a;
 
     /* loaded from: classes5.dex */
-    public class a extends he2 {
+    public static class a extends ProviderDelegation {
         public static /* synthetic */ Interceptable $ic;
+        public static boolean a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h32 c;
-        public final /* synthetic */ String d;
 
-        public a(je2 je2Var, h32 h32Var, String str) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {je2Var, h32Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.c = h32Var;
-            this.d = str;
         }
 
-        @Override // com.baidu.tieba.he2
-        public void c() {
+        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+        public Bundle execCall(Bundle bundle) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.c.isDestroyed()) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+                if (!a && ProcessUtils.isMainProcess()) {
+                    a = true;
+                    new jh3("swan_prelink_by_preload_recorder").clear().apply();
                     if (je2.b) {
-                        Log.e("JSEventDispatcher", Log.getStackTraceString(new Exception("webview is destroyed. dispatch action:" + this.d)));
-                        return;
+                        Log.d("SwanPrelinkGlobalRecorder", "clean old data in main process");
                     }
-                    return;
                 }
-                this.c.evaluateJavascript(this.d, null);
-                nx2.a("postMessage", "dispatchJSEvent evaluateJavascript");
+                return null;
             }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends he2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h32 c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ je2 e;
-
-        public b(je2 je2Var, h32 h32Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {je2Var, h32Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = je2Var;
-            this.c = h32Var;
-            this.d = str;
-        }
-
-        @Override // com.baidu.tieba.he2
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.e.l(this.c, this.d);
-            }
+            return (Bundle) invokeL.objValue;
         }
     }
 
@@ -120,7 +72,7 @@ public abstract class je2 {
                 return;
             }
         }
-        b = tk1.a;
+        b = gp1.a;
     }
 
     public je2() {
@@ -133,262 +85,117 @@ public abstract class je2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new jh3("swan_prelink_by_preload_recorder");
+        d();
     }
 
-    public final void b(@NonNull JSONObject jSONObject) {
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            try {
-                jSONObject.put("type", this.a);
-            } catch (JSONException e) {
-                if (b) {
-                    e.printStackTrace();
-                }
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            j53.c(a.class, null);
         }
     }
 
-    public String c(h32 h32Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h32Var)) == null) {
-            return d("event", h32Var);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public boolean f(h32 h32Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, h32Var)) == null) {
-            if (h32Var != null && !h32Var.isWebView() && (h32Var instanceof tb2)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void g(h32 h32Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, h32Var) != null) || h32Var == null) {
-            return;
-        }
-        nx2.a("postMessage", "dispatchJSEvent start.");
-        if (ie2.b) {
-            r(h32Var);
-        } else {
-            q(h32Var);
-        }
-        nx2.a("postMessage", "dispatchJSEvent buildEvent");
-    }
-
-    public final boolean p(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, obj)) == null) {
-            if (obj == null) {
-                return false;
-            }
-            if (!(obj instanceof String)) {
-                return true;
-            }
-            return !TextUtils.isEmpty((String) obj);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void r(@NonNull h32 h32Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, h32Var) == null) {
-            if (f(h32Var)) {
-                h(h32Var);
-            } else {
-                i(h32Var);
-            }
-        }
-    }
-
-    public String d(String str, h32 h32Var) {
+    @Override // com.baidu.tieba.he2
+    public ie2 a(String str, String str2) {
         InterceptResult invokeLL;
-        String format;
-        String b2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, h32Var)) == null) {
-            if (h32Var != null && !TextUtils.isEmpty(this.a)) {
-                if (TextUtils.isEmpty(str)) {
-                    str = "event";
-                }
-                Locale locale = Locale.getDefault();
-                if (h32Var.isWebView()) {
-                    format = String.format(locale, "var %s = new Event('%s');", str, this.a);
-                    b2 = "";
-                } else {
-                    format = String.format(locale, "var %s = new Object();", str);
-                    b2 = fe2.b(str, "type", this.a);
-                }
-                return format + (b2 + o(str)) + String.format(locale, "%s.dispatchEvent(%s);", fe2.c(h32Var), str);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                return null;
             }
-            return null;
+            if (b) {
+                Log.d("SwanPrelinkGlobalRecorder", "get record : appId-" + str + ", url-" + str2);
+            }
+            String string = this.a.getString(e(str, str2), "");
+            if (TextUtils.isEmpty(string)) {
+                return null;
+            }
+            ie2 g = g(string, str, str2);
+            if (b) {
+                Log.d("SwanPrelinkGlobalRecorder", "find record - " + string);
+            }
+            return g;
+        }
+        return (ie2) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.he2
+    public void b(String str, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, z) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            if (b) {
+                Log.d("SwanPrelinkGlobalRecorder", "record : appId-" + str + ", url-" + str2);
+            }
+            String e = e(str, str2);
+            String f = f(str, str2);
+            if (TextUtils.isEmpty(this.a.getString(e, "")) || z) {
+                this.a.putString(e, f);
+            }
+        }
+    }
+
+    public final String e(@NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            String str3 = str + "_##_" + str2.hashCode();
+            if (b) {
+                Log.d("SwanPrelinkGlobalRecorder", "generateKey - " + str3);
+            }
+            return str3;
         }
         return (String) invokeLL.objValue;
     }
 
-    public JSEvent e(h32 h32Var) {
-        InterceptResult invokeL;
+    public final String f(@NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, h32Var)) == null) {
-            if (h32Var != null && !TextUtils.isEmpty(this.a)) {
-                JSEvent jSEvent = new JSEvent(this.a);
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    n(jSONObject);
-                } catch (Exception e) {
-                    if (b) {
-                        e.printStackTrace();
-                    }
-                }
-                b(jSONObject);
-                jSEvent.data = jSONObject;
-                return jSEvent;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
+            String str3 = ProcessUtils.getCurProcessName() + "_##_" + System.currentTimeMillis();
+            if (b) {
+                Log.d("SwanPrelinkGlobalRecorder", "generateValue - " + str3);
+            }
+            return str3;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public final ie2 g(@NonNull String str, @NonNull String str2, @NonNull String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, str, str2, str3)) == null) {
+            String[] split = str.split("_##_");
+            if (split != null && split.length >= 2) {
+                ie2 ie2Var = new ie2();
+                ie2Var.a = split[0];
+                ie2Var.b = h(split[1]);
+                return ie2Var;
             }
             return null;
         }
-        return (JSEvent) invokeL.objValue;
+        return (ie2) invokeLLL.objValue;
     }
 
-    public void n(JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, jSONObject) == null) {
-            HashMap hashMap = new HashMap();
-            m(hashMap);
-            for (String str : hashMap.keySet()) {
-                if (!TextUtils.isEmpty(str)) {
-                    Object obj = hashMap.get(str);
-                    if (p(obj)) {
-                        jSONObject.put(str, obj);
-                    }
-                }
-            }
-        }
-    }
-
-    public void h(h32 h32Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, h32Var) != null) || h32Var == null) {
-            return;
-        }
-        if (b) {
-            Log.d("JSEventDispatcher", "dispatch event - " + this.a + " on v8");
-        }
-        JSEvent e = e(h32Var);
-        if (e == null) {
-            return;
-        }
-        j(h32Var, e);
-        if (b) {
-            Log.d("JSEventDispatcher", "dispatchJSEvent action - " + e.type + " on v8 : " + e.data);
-        }
-    }
-
-    public final void q(h32 h32Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, h32Var) == null) {
-            String c = c(h32Var);
-            if (TextUtils.isEmpty(c)) {
-                return;
-            }
-            String format = String.format(Locale.getDefault(), "javascript:(function(){%s})();", c);
-            if (b) {
-                Log.d("JSEventDispatcher", "dispatchJSEvent action: " + format);
-            }
-            if (h32Var.isWebView()) {
-                ge2.b().c(new b(this, h32Var, format), null);
-            } else {
-                l(h32Var, format);
-            }
-        }
-    }
-
-    public void i(h32 h32Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, h32Var) != null) || h32Var == null) {
-            return;
-        }
-        if (b) {
-            Log.d("JSEventDispatcher", "dispatch event - " + this.a + " on webView");
-        }
-        String c = c(h32Var);
-        if (TextUtils.isEmpty(c)) {
-            return;
-        }
-        String format = String.format(Locale.getDefault(), "javascript:(function(){%s})();", c);
-        k(h32Var, format);
-        if (b) {
-            Log.d("JSEventDispatcher", "dispatchJSEvent action on webView: " + format);
-        }
-    }
-
-    public String o(String str) {
+    public final long h(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            Map<String, Object> hashMap = new HashMap<>();
-            m(hashMap);
-            StringBuilder sb = new StringBuilder();
-            for (String str2 : hashMap.keySet()) {
-                if (!TextUtils.isEmpty(str2)) {
-                    Object obj = hashMap.get(str2);
-                    if (p(obj)) {
-                        if (obj instanceof String) {
-                            obj = JSONObject.quote((String) obj);
-                        }
-                        sb.append(str);
-                        sb.append(".");
-                        sb.append(str2);
-                        sb.append("=");
-                        sb.append(obj);
-                        sb.append(";");
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return 0L;
             }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void j(h32 h32Var, JSEvent jSEvent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, h32Var, jSEvent) != null) || h32Var.isDestroyed()) {
-            return;
-        }
-        if (h32Var instanceof tb2) {
-            ((tb2) h32Var).dispatchEvent(jSEvent);
-        }
-        nx2.a("postMessage", "dispatchJSEvent evaluateJavascript");
-    }
-
-    public void k(h32 h32Var, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048585, this, h32Var, str) == null) && h32Var != null && !TextUtils.isEmpty(str)) {
-            ge2.b().c(new a(this, h32Var, str), null);
-        }
-    }
-
-    public final void l(h32 h32Var, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, h32Var, str) == null) {
-            if (h32Var.isDestroyed()) {
+            try {
+                return Long.parseLong(str);
+            } catch (Exception e) {
                 if (b) {
-                    Log.e("JSEventDispatcher", Log.getStackTraceString(new Exception("webview is destroyed. dispatch action:" + str)));
-                    return;
+                    e.printStackTrace();
                 }
-                return;
+                return 0L;
             }
-            h32Var.evaluateJavascript(str, null);
-            nx2.a("postMessage", "dispatchJSEvent evaluateJavascript");
         }
+        return invokeL.longValue;
     }
 }

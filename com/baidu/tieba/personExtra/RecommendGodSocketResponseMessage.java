@@ -2,7 +2,7 @@ package com.baidu.tieba.personExtra;
 
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.si8;
+import com.baidu.tieba.nm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import tbclient.GetRecommendGodList.GetRecommendGodListResIdl;
 public class RecommendGodSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public si8 recommendGodData;
+    public nm8 recommendGodData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RecommendGodSocketResponseMessage() {
@@ -53,9 +53,9 @@ public class RecommendGodSocketResponseMessage extends SocketResponsedMessage {
                 }
                 setErrorString(getRecommendGodListResIdl.error.usermsg);
             }
-            si8 si8Var = new si8();
-            this.recommendGodData = si8Var;
-            si8Var.b(getRecommendGodListResIdl.data);
+            nm8 nm8Var = new nm8();
+            this.recommendGodData = nm8Var;
+            nm8Var.b(getRecommendGodListResIdl.data);
             return getRecommendGodListResIdl;
         }
         return invokeIL.objValue;

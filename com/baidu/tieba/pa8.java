@@ -1,66 +1,46 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.LinearLayout;
-import com.baidu.adp.BdUniqueId;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
+import android.os.CountDownTimer;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.ItemCardView;
-import com.baidu.tieba.cx;
+import com.baidu.tieba.pb.ejection.value.Direction;
+import com.baidu.tieba.pb.ejection.value.LifeCycleState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class pa8 extends ka8 {
+public class pa8 extends oa8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinearLayout f;
-    public ItemCardView g;
-    public ThreadData h;
-    public fs4 i;
-    public rx j;
+    public boolean A;
+    public final PorterDuffColorFilter B;
+    public Bitmap z;
 
     /* loaded from: classes5.dex */
-    public class a extends fs4 {
+    public class a extends CountDownTimer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ pa8 a;
 
-        @Override // com.baidu.tieba.fs4
-        public cu4 getNegFeedBackData() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return null;
-            }
-            return (cu4) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yn
-        public BdUniqueId getType() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return null;
-            }
-            return (BdUniqueId) invokeV.objValue;
-        }
-
-        public a(pa8 pa8Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(pa8 pa8Var, long j, long j2) {
+            super(j, j2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pa8Var};
+                Object[] objArr = {pa8Var, Long.valueOf(j), Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Long) objArr2[0]).longValue(), ((Long) objArr2[1]).longValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -69,180 +49,246 @@ public class pa8 extends ka8 {
             this.a = pa8Var;
         }
 
-        @Override // com.baidu.tieba.fs4
-        public ThreadData getThreadData() {
-            InterceptResult invokeV;
+        @Override // android.os.CountDownTimer
+        public void onFinish() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a.h;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                pa8 pa8Var = this.a;
+                pa8Var.v = LifeCycleState.DEAD;
+                pa8Var.w.cancel();
             }
-            return (ThreadData) invokeV.objValue;
         }
-    }
 
-    /* loaded from: classes5.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pa8 a;
-
-        public b(pa8 pa8Var) {
+        @Override // android.os.CountDownTimer
+        public void onTick(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pa8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+                if (j <= 2000) {
+                    pa8 pa8Var = this.a;
+                    pa8Var.g = (int) (pa8Var.g - pa8Var.h);
+                }
+                pa8 pa8Var2 = this.a;
+                int i = pa8Var2.t + 10;
+                pa8Var2.t = i;
+                if (i > 360) {
+                    pa8Var2.t = 0;
                 }
             }
-            this.a = pa8Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            pa8 pa8Var;
-            cx.a aVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (aVar = (pa8Var = this.a).c) != null) {
-                aVar.a(pa8Var.i);
-            }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pa8(TbPageContext tbPageContext) {
-        super(tbPageContext);
+    public pa8(Bitmap bitmap, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {bitmap, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.A = false;
+        this.z = bitmap;
+        this.b = i;
+        this.c = i2;
+        this.d = i;
+        this.e = i2;
+        int nextInt = this.x.nextInt(91) + 45;
+        this.a = nextInt;
+        if (nextInt < 90) {
+            this.o = Direction.RIGHT;
+        } else {
+            this.o = Direction.LEFT;
+            this.a = 180 - nextInt;
+        }
+        int sqrt = (int) (Math.sqrt(Math.pow(bitmap.getWidth(), 2.0d) + Math.pow(bitmap.getHeight(), 2.0d)) / 2.0d);
+        this.f = sqrt;
+        this.p = sqrt;
+        this.q = i3 - sqrt;
+        this.r = sqrt;
+        this.s = i4 - sqrt;
+        this.B = new PorterDuffColorFilter(SkinManager.getColor(R.color.CAM_X0501), PorterDuff.Mode.SRC_ATOP);
+        a aVar = new a(this, 3000L, 10L);
+        this.w = aVar;
+        aVar.start();
     }
 
-    @Override // com.baidu.tieba.ka8
-    public void c(OriginalThreadInfo originalThreadInfo) {
-        ThreadData b2;
+    @Override // com.baidu.tieba.oa8
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, originalThreadInfo) == null) {
-            this.d = originalThreadInfo;
-            if (originalThreadInfo == null) {
-                b2 = null;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (!this.A) {
+                this.A = true;
+                return;
+            }
+            int i = this.l + 1;
+            this.l = i;
+            this.i = (int) ((this.k * i) + ((this.m * Math.pow(i, 2.0d)) / 2.0d));
+            double radians = Math.toRadians(this.a);
+            if (this.n == Direction.TOP) {
+                if (this.o == Direction.RIGHT) {
+                    f(radians);
+                } else {
+                    d(radians);
+                }
+            } else if (this.o == Direction.RIGHT) {
+                e(radians);
             } else {
-                b2 = originalThreadInfo.b();
-            }
-            this.h = b2;
-            this.i = new a(this);
-            ItemCardView itemCardView = this.g;
-            if (itemCardView != null && originalThreadInfo != null) {
-                itemCardView.setData(originalThreadInfo.D, 17, originalThreadInfo.f);
-            }
-            rx rxVar = this.j;
-            if (rxVar != null) {
-                rxVar.a(this.i);
+                c(radians);
             }
         }
     }
 
-    @Override // com.baidu.tieba.ka8
-    public void d(cx.a aVar) {
+    @Override // com.baidu.tieba.oa8
+    public void b(Canvas canvas) {
+        Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            super.d(aVar);
-            rx rxVar = this.j;
-            if (rxVar != null) {
-                rxVar.E(aVar);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) && (bitmap = this.z) != null && !bitmap.isRecycled()) {
+            if (this.g < 0) {
+                this.g = 0;
             }
-            LinearLayout linearLayout = this.f;
-            if (linearLayout != null) {
-                linearLayout.setOnClickListener(new b(this));
+            this.u.setAlpha(this.g);
+            int i = this.y;
+            if (i == 4 || i == 1) {
+                this.u.setColorFilter(this.B);
+            }
+            canvas.save();
+            canvas.rotate(this.t, this.d, this.e);
+            Bitmap bitmap2 = this.z;
+            canvas.drawBitmap(bitmap2, this.d - (bitmap2.getWidth() / 2.0f), this.e - (this.z.getHeight() / 2.0f), this.u);
+            canvas.restore();
+        }
+    }
+
+    public final void c(double d) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.d = this.b - ((int) ((this.i - this.j) * Math.cos(d)));
+            this.e = this.c + ((int) ((this.i - this.j) * Math.sin(d)));
+            int i = this.d;
+            int i2 = this.p;
+            if (i <= i2) {
+                int tan = this.c + ((int) ((this.b - i2) * Math.tan(d)));
+                this.e = tan;
+                this.o = Direction.RIGHT;
+                int i3 = this.p;
+                this.b = i3;
+                this.c = tan;
+                this.d = i3;
+                this.j = this.i;
+            }
+            int i4 = this.e;
+            int i5 = this.s;
+            if (i4 >= i5) {
+                int tan2 = this.b - ((int) ((i5 - this.c) / Math.tan(d)));
+                this.d = tan2;
+                this.n = Direction.TOP;
+                int i6 = this.s;
+                this.c = i6;
+                this.b = tan2;
+                this.e = i6;
+                this.j = this.i;
             }
         }
     }
 
-    @Override // com.baidu.tieba.ka8
-    public void e(z86 z86Var) {
+    public final void d(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, z86Var) == null) {
-            super.e(z86Var);
-            rx rxVar = this.j;
-            if (rxVar != null) {
-                rxVar.p(this.b);
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.d = this.b - ((int) ((this.i - this.j) * Math.cos(d)));
+            this.e = this.c - ((int) ((this.i - this.j) * Math.sin(d)));
+            int i = this.d;
+            int i2 = this.p;
+            if (i <= i2) {
+                int tan = this.c - ((int) ((this.b - i2) * Math.tan(d)));
+                this.e = tan;
+                this.o = Direction.RIGHT;
+                int i3 = this.p;
+                this.b = i3;
+                this.c = tan;
+                this.d = i3;
+                this.j = this.i;
+            }
+            int i4 = this.e;
+            int i5 = this.r;
+            if (i4 <= i5) {
+                int tan2 = this.b - ((int) ((this.c - i5) / Math.tan(d)));
+                this.d = tan2;
+                this.n = Direction.BOTTOM;
+                int i6 = this.r;
+                this.c = i6;
+                this.b = tan2;
+                this.e = i6;
+                this.j = this.i;
             }
         }
     }
 
-    @Override // com.baidu.tieba.ka8
-    public View a() {
-        InterceptResult invokeV;
+    public final void e(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f == null) {
-                LinearLayout linearLayout = new LinearLayout(this.a.getPageActivity());
-                this.f = linearLayout;
-                linearLayout.setClipChildren(false);
-                this.f.setClipToPadding(false);
-                SkinManager.setBackgroundColor(this.f, R.color.CAM_X0206);
-                this.f.setOrientation(1);
-                this.f.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.d = ((int) ((this.i - this.j) * Math.cos(d))) + this.b;
+            this.e = this.c + ((int) ((this.i - this.j) * Math.sin(d)));
+            int i = this.d;
+            int i2 = this.q;
+            if (i >= i2) {
+                int tan = this.c + ((int) ((i2 - this.b) * Math.tan(d)));
+                this.e = tan;
+                this.o = Direction.LEFT;
+                int i3 = this.q;
+                this.b = i3;
+                this.c = tan;
+                this.d = i3;
+                this.j = this.i;
             }
-            this.f.removeAllViews();
-            if (this.j == null) {
-                rx rxVar = new rx(this.a.getPageActivity());
-                this.j = rxVar;
-                rxVar.r(Boolean.TRUE);
-                this.j.B("pb");
-                this.j.D(0);
-                this.j.I(this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007), this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005), this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007), 0);
-                this.j.J(false);
-                this.j.H(true);
+            int i4 = this.e;
+            int i5 = this.s;
+            if (i4 >= i5) {
+                int tan2 = this.b + ((int) ((i5 - this.c) / Math.tan(d)));
+                this.d = tan2;
+                this.n = Direction.TOP;
+                int i6 = this.s;
+                this.c = i6;
+                this.b = tan2;
+                this.e = i6;
+                this.j = this.i;
             }
-            this.f.addView(this.j.k());
-            if (this.g == null) {
-                ItemCardView itemCardView = new ItemCardView(this.a.getPageActivity());
-                this.g = itemCardView;
-                itemCardView.setIsShowRightBtn(true);
-            }
-            this.g.setBackGroundColor(R.color.CAM_X0205);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams.topMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X004);
-            layoutParams.leftMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
-            layoutParams.rightMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
-            layoutParams.bottomMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005);
-            this.f.addView(this.g, layoutParams);
-            return this.f;
         }
-        return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ka8
-    public void b(TbPageContext tbPageContext, int i) {
+    public final void f(double d) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) && this.e != i) {
-            this.e = i;
-            SkinManager.setBackgroundColor(this.f, R.color.CAM_X0206);
-            rx rxVar = this.j;
-            if (rxVar != null) {
-                rxVar.onChangeSkinType(tbPageContext, i);
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.d = ((int) ((this.i - this.j) * Math.cos(d))) + this.b;
+            this.e = this.c - ((int) ((this.i - this.j) * Math.sin(d)));
+            int i = this.d;
+            int i2 = this.q;
+            if (i >= i2) {
+                int tan = this.c - ((int) ((i2 - this.b) * Math.tan(d)));
+                this.e = tan;
+                this.j = this.i;
+                this.o = Direction.LEFT;
+                int i3 = this.q;
+                this.b = i3;
+                this.c = tan;
+                this.d = i3;
             }
-            ItemCardView itemCardView = this.g;
-            if (itemCardView != null) {
-                itemCardView.G();
+            int i4 = this.e;
+            int i5 = this.r;
+            if (i4 <= i5) {
+                int tan2 = this.b + ((int) ((this.c - i5) / Math.tan(d)));
+                this.d = tan2;
+                this.n = Direction.BOTTOM;
+                this.b = tan2;
+                int i6 = this.r;
+                this.c = i6;
+                this.e = i6;
+                this.j = this.i;
             }
         }
     }

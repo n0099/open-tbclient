@@ -1,31 +1,46 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.webkit.ValueCallback;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface qq1 extends h32 {
-    boolean canGoBack();
+public class qq1 implements ls1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    View covertToView();
+    public qq1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void destroy();
+    @Override // com.baidu.tieba.ls1
+    public void a(Context context, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, context, i) == null) {
+            kh3.a().putInt("fontSizeLevel", i);
+        }
+    }
 
-    @Override // com.baidu.tieba.h32
-    void evaluateJavascript(String str, ValueCallback<String> valueCallback);
-
-    int getContentHeight();
-
-    View getCurrentWebView();
-
-    float getScale();
-
-    int getWebViewScrollX();
-
-    int getWebViewScrollY();
-
-    void goBack();
-
-    void setDefaultViewSize(int i, int i2, String str);
-
-    void webViewScrollTo(int i, int i2);
+    @Override // com.baidu.tieba.ls1
+    public int b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            return kh3.a().getInt("fontSizeLevel", 1);
+        }
+        return invokeL.intValue;
+    }
 }

@@ -56,6 +56,18 @@ public class ReflectionFactory {
         return new ClassReference(cls);
     }
 
+    @SinceKotlin(version = "1.6")
+    public KType mutableCollectionType(KType kType) {
+        TypeReference typeReference = (TypeReference) kType;
+        return new TypeReference(kType.getClassifier(), kType.getArguments(), typeReference.getPlatformTypeUpperBound$kotlin_stdlib(), typeReference.getFlags$kotlin_stdlib() | 2);
+    }
+
+    @SinceKotlin(version = "1.6")
+    public KType nothingType(KType kType) {
+        TypeReference typeReference = (TypeReference) kType;
+        return new TypeReference(kType.getClassifier(), kType.getArguments(), typeReference.getPlatformTypeUpperBound$kotlin_stdlib(), typeReference.getFlags$kotlin_stdlib() | 4);
+    }
+
     @SinceKotlin(version = "1.3")
     public String renderLambdaToString(FunctionBase functionBase) {
         String obj = functionBase.getClass().getGenericInterfaces()[0].toString();
@@ -75,6 +87,11 @@ public class ReflectionFactory {
 
     public KDeclarationContainer getOrCreateKotlinPackage(Class cls, String str) {
         return new PackageReference(cls, str);
+    }
+
+    @SinceKotlin(version = "1.6")
+    public KType platformType(KType kType, KType kType2) {
+        return new TypeReference(kType.getClassifier(), kType.getArguments(), kType2, ((TypeReference) kType).getFlags$kotlin_stdlib());
     }
 
     @SinceKotlin(version = "1.4")

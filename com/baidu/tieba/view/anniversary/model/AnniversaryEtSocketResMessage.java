@@ -3,7 +3,7 @@ package com.baidu.tieba.view.anniversary.model;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.w99;
+import com.baidu.tieba.vd9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.VideoTemplate.VideoTemplateResIdl;
 public class AnniversaryEtSocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public w99 resultData;
+    public vd9 resultData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AnniversaryEtSocketResMessage() {
@@ -38,13 +38,13 @@ public class AnniversaryEtSocketResMessage extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public w99 getResultData() {
+    public vd9 getResultData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.resultData;
         }
-        return (w99) invokeV.objValue;
+        return (vd9) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -61,9 +61,9 @@ public class AnniversaryEtSocketResMessage extends SocketResponsedMessage {
                     setErrorString(videoTemplateResIdl.error.usermsg);
                 }
                 if (videoTemplateResIdl.data != null) {
-                    w99 w99Var = new w99();
-                    this.resultData = w99Var;
-                    w99Var.g(videoTemplateResIdl.data);
+                    vd9 vd9Var = new vd9();
+                    this.resultData = vd9Var;
+                    vd9Var.g(videoTemplateResIdl.data);
                 }
             }
             return videoTemplateResIdl;

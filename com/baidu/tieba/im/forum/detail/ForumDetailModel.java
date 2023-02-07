@@ -20,11 +20,11 @@ import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
 import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.iw8;
-import com.baidu.tieba.rb;
-import com.baidu.tieba.s9;
-import com.baidu.tieba.tb;
-import com.baidu.tieba.yg;
+import com.baidu.tieba.dh;
+import com.baidu.tieba.g09;
+import com.baidu.tieba.wb;
+import com.baidu.tieba.x9;
+import com.baidu.tieba.yb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,7 +47,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
 
         void e(String str);
 
-        void m1(ForumDetailHttpResponse forumDetailHttpResponse);
+        void l1(ForumDetailHttpResponse forumDetailHttpResponse);
 
         void q1(boolean z);
     }
@@ -93,9 +93,9 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof iw8)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof g09)) {
                 boolean z = true;
-                if (((iw8) customResponsedMessage.getData()).n() != 1) {
+                if (((g09) customResponsedMessage.getData()).n() != 1) {
                     z = false;
                 }
                 this.a.a.J1(z);
@@ -104,7 +104,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
     }
 
     /* loaded from: classes4.dex */
-    public class b extends rb {
+    public class b extends wb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumDetailModel a;
@@ -131,7 +131,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
             this.a = forumDetailModel;
         }
 
-        @Override // com.baidu.tieba.rb
+        @Override // com.baidu.tieba.wb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
@@ -145,7 +145,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
                     }
                 } else {
                     if (responsedMessage instanceof ForumDetailHttpResponse) {
-                        this.a.b.m1((ForumDetailHttpResponse) responsedMessage);
+                        this.a.b.l1((ForumDetailHttpResponse) responsedMessage);
                     }
                     if (responsedMessage instanceof ForumDetailSocketResponse) {
                         this.a.b.P0((ForumDetailSocketResponse) responsedMessage);
@@ -156,7 +156,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
     }
 
     /* loaded from: classes4.dex */
-    public class c extends tb {
+    public class c extends yb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumDetailModel a;
@@ -202,7 +202,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
             }
             if (responseUpdateMaskInfoMessage.getError() != 0) {
                 if (StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString())) {
-                    errorString = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0cd1);
+                    errorString = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0cfe);
                 } else {
                     errorString = responseUpdateMaskInfoMessage.getErrorString();
                 }
@@ -313,7 +313,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((s9) newInitContext.callArgs[0]);
+                super((x9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -342,7 +342,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             ForumDetailRequestMessage forumDetailRequestMessage = new ForumDetailRequestMessage();
-            forumDetailRequestMessage.setForumId(yg.g(str, 0L));
+            forumDetailRequestMessage.setForumId(dh.g(str, 0L));
             sendMessage(forumDetailRequestMessage);
         }
     }

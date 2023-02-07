@@ -1,124 +1,61 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.switchs.ChunkUploadSwitch;
-import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class ny8 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int c = 524288;
-    public static int d = 6144000;
-    public static int e = 524288;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ry8 a;
-    public dz7 b;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public ArrayList<ny8> e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948018908, "Lcom/baidu/tieba/ny8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948018908, "Lcom/baidu/tieba/ny8;");
-        }
-    }
-
-    public ny8(dz7 dz7Var) {
+    public ny8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dz7Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.b = dz7Var;
-    }
-
-    public static void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
-            if (i <= 0) {
-                d = 6144000;
-            } else {
-                d = i;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void c(int i) {
+    public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
-            if (i <= 0) {
-                c = 524288;
-            } else {
-                c = i;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            this.a = jSONObject.optString(ForumListActivityConfig.KEY_MENU_TYPE);
+            this.b = jSONObject.optString("menu_name");
+            this.c = jSONObject.optString("menu_id");
+            String str = null;
+            String optString = jSONObject.optString("default_logo_url", null);
+            this.d = optString;
+            if (optString != null) {
+                str = this.d + "?v=2";
             }
-        }
-    }
-
-    public static void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) {
-            if (i <= 0) {
-                e = 524288;
-            } else {
-                e = i;
-            }
-        }
-    }
-
-    public void a() {
-        ry8 ry8Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (ry8Var = this.a) != null) {
-            ry8Var.cancel();
-        }
-    }
-
-    public VideoFinishResult e(String str, String str2, int i, uy8 uy8Var) {
-        InterceptResult invokeLLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, i, uy8Var)) == null) {
-            try {
-                if (SwitchManager.getInstance().findType(ChunkUploadSwitch.KEY) == 1) {
-                    this.a = new ty8(str2, e, this.b);
-                } else {
-                    this.a = new sy8(str, c, d, this.b);
+            this.d = str;
+            if (jSONObject.has("child_menu_list")) {
+                ArrayList<ny8> arrayList = new ArrayList<>();
+                JSONArray optJSONArray = jSONObject.optJSONArray("child_menu_list");
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    ny8 ny8Var = new ny8();
+                    ny8Var.a(optJSONArray.getJSONObject(i));
+                    arrayList.add(ny8Var);
                 }
-                this.a.a(uy8Var);
-                return this.a.b(str2, i);
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
-                dz7 dz7Var = this.b;
-                if (dz7Var != null) {
-                    dz7Var.f(306, -4399, xy7.a(e2));
-                    return null;
-                }
-                return null;
+                this.e = arrayList;
             }
         }
-        return (VideoFinishResult) invokeLLIL.objValue;
     }
 }

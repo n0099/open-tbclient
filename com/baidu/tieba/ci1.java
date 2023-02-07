@@ -1,55 +1,174 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8ExceptionInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ci1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public V8ExceptionInfo b;
-    public int c;
+public interface ci1 {
+    void a(a aVar);
 
-    public ci1(int i, V8ExceptionInfo v8ExceptionInfo, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), v8ExceptionInfo, Long.valueOf(j)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes4.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public String b;
+        public long c;
+        public long d;
+        public long e;
+        public String f;
+        public int g;
+        public List<C0242a> h;
+
+        /* renamed from: com.baidu.tieba.ci1$a$a  reason: collision with other inner class name */
+        /* loaded from: classes4.dex */
+        public static class C0242a {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public String a;
+            public String b;
+
+            public C0242a() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            public static C0242a a(JSONObject jSONObject) {
+                InterceptResult invokeL;
+                String optString;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+                    if (jSONObject == null) {
+                        return null;
+                    }
+                    C0242a c0242a = new C0242a();
+                    String str = "";
+                    if (jSONObject.isNull("promotionInsId")) {
+                        optString = "";
+                    } else {
+                        optString = jSONObject.optString("promotionInsId");
+                    }
+                    c0242a.a = optString;
+                    if (!jSONObject.isNull("valid")) {
+                        str = jSONObject.optString("valid");
+                    }
+                    c0242a.b = str;
+                    return c0242a;
+                }
+                return (C0242a) invokeL.objValue;
+            }
+
+            public static JSONObject b(C0242a c0242a) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, c0242a)) == null) {
+                    if (c0242a == null) {
+                        return null;
+                    }
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put("promotionInsId", c0242a.a);
+                        jSONObject.put("valid", c0242a.b);
+                    } catch (JSONException e) {
+                        th1.d(e.getMessage());
+                    }
+                    return jSONObject;
+                }
+                return (JSONObject) invokeL.objValue;
+            }
+
+            public static List<C0242a> c(JSONArray jSONArray) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONArray)) == null) {
+                    if (jSONArray == null) {
+                        return null;
+                    }
+                    ArrayList arrayList = new ArrayList();
+                    try {
+                        jSONArray.get(0);
+                        for (int i = 0; i < jSONArray.length(); i++) {
+                            arrayList.add(a((JSONObject) jSONArray.opt(i)));
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    return arrayList;
+                }
+                return (List) invokeL.objValue;
             }
         }
-        this.a = j;
-        this.b = new V8ExceptionInfo(v8ExceptionInfo.exceptionTime, v8ExceptionInfo.exceptionMsg, v8ExceptionInfo.exceptionTrace, v8ExceptionInfo.exceptionType, v8ExceptionInfo.filePath);
-        this.c = i;
-    }
 
-    public V8ExceptionInfo a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = 2;
         }
-        return (V8ExceptionInfo) invokeV.objValue;
-    }
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "StuckScreenExceptionInfo{mLastOnScreenHappenedTime=" + this.a + ", mV8ExceptionInfo=" + this.b + ", type=" + this.c + '}';
+        public static JSONObject a(a aVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, aVar)) == null) {
+                if (aVar == null) {
+                    return null;
+                }
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("statusCode", aVar.a);
+                    jSONObject.put("msg", aVar.b);
+                    jSONObject.put("totalAmount", aVar.c);
+                    jSONObject.put("userPayAmount", aVar.d);
+                    jSONObject.put("reduceAmount", aVar.e);
+                    jSONObject.put("overdueStatus", aVar.g);
+                    jSONObject.put("usedHostMarketingDetail", aVar.f);
+                    if (aVar.h != null && !aVar.h.isEmpty()) {
+                        JSONArray jSONArray = new JSONArray();
+                        for (C0242a c0242a : aVar.h) {
+                            jSONArray.put(C0242a.b(c0242a));
+                        }
+                        jSONObject.put("promotionStatus", jSONArray);
+                    }
+                } catch (JSONException e) {
+                    th1.d(e.getMessage());
+                }
+                return jSONObject;
+            }
+            return (JSONObject) invokeL.objValue;
         }
-        return (String) invokeV.objValue;
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return "Data{statusCode=" + this.a + ", message='" + this.b + "', totalAmount=" + this.c + ", userPayAmount=" + this.d + ", reduceAmount=" + this.e + ", usedHostMarketingDetail='" + this.f + "', overdueStatus='" + this.g + "'}";
+            }
+            return (String) invokeV.objValue;
+        }
     }
 }

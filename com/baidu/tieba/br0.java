@@ -1,49 +1,57 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import androidx.annotation.NonNull;
+import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.nadcore.model.ParseError;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public interface br0 {
-    public static final br0 a;
+public class br0 extends AdBaseModel {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    kr0 a(boolean z);
-
-    /* loaded from: classes3.dex */
-    public static class a implements br0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public br0(@NonNull tq0 tq0Var, @NonNull JSONObject jSONObject) throws ParseError {
+        super(tq0Var, jSONObject);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tq0Var, jSONObject};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((tq0) objArr2[0], (JSONObject) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-        }
-
-        @Override // com.baidu.tieba.br0
-        public kr0 a(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-                return kr0.c;
-            }
-            return (kr0) invokeZ.objValue;
         }
     }
 
-    static {
-        new ServiceReference("nad.core", "http");
-        a = new a();
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public br0(@NonNull tq0 tq0Var, @NonNull JSONObject jSONObject, boolean z) throws ParseError {
+        super(tq0Var, jSONObject, z);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tq0Var, jSONObject, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((tq0) objArr2[0], (JSONObject) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 }

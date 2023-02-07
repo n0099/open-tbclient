@@ -98,6 +98,6 @@ public class ek implements eg {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ecVar) == null) || ecVar == null) {
             return;
         }
-        a(context, ecVar.m369a(), ecVar.c(), ecVar.d());
+        a(context, ecVar.m371a(), ecVar.c(), ecVar.d());
     }
 }

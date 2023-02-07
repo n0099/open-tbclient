@@ -41,7 +41,7 @@ public class AppCompatSeekBar extends SeekBar {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AppCompatSeekBar(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040604);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040607);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

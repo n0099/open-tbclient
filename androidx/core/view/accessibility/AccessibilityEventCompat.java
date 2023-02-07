@@ -3,12 +3,15 @@ package androidx.core.view.accessibility;
 import android.os.Build;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityRecord;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 /* loaded from: classes.dex */
 public final class AccessibilityEventCompat {
     public static /* synthetic */ Interceptable $ic = null;
@@ -16,6 +19,7 @@ public final class AccessibilityEventCompat {
     public static final int CONTENT_CHANGE_TYPE_PANE_APPEARED = 16;
     public static final int CONTENT_CHANGE_TYPE_PANE_DISAPPEARED = 32;
     public static final int CONTENT_CHANGE_TYPE_PANE_TITLE = 8;
+    public static final int CONTENT_CHANGE_TYPE_STATE_DESCRIPTION = 64;
     public static final int CONTENT_CHANGE_TYPE_SUBTREE = 1;
     public static final int CONTENT_CHANGE_TYPE_TEXT = 2;
     public static final int CONTENT_CHANGE_TYPE_UNDEFINED = 0;
@@ -46,6 +50,12 @@ public final class AccessibilityEventCompat {
     @Deprecated
     public static final int TYPE_WINDOW_CONTENT_CHANGED = 2048;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    /* loaded from: classes.dex */
+    public @interface ContentChangeType {
+    }
 
     public AccessibilityEventCompat() {
         Interceptable interceptable = $ic;

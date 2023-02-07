@@ -6,10 +6,10 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ba5;
-import com.baidu.tieba.jn;
-import com.baidu.tieba.rg;
-import com.baidu.tieba.sg;
+import com.baidu.tbadk.imageManager.TbImageMemoryCache;
+import com.baidu.tieba.on;
+import com.baidu.tieba.wg;
+import com.baidu.tieba.xg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -52,7 +52,7 @@ public class PortraitLoaderProc extends AbstractImageLoaderProc {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.vg
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.ah
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -100,7 +100,7 @@ public class PortraitLoaderProc extends AbstractImageLoaderProc {
         this.size = 80;
     }
 
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.vg
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.ah
     public BdAsyncTaskParallel getAsyncTaskParallel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -145,23 +145,23 @@ public class PortraitLoaderProc extends AbstractImageLoaderProc {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.vg
-    public jn getFromLocal(String str, String str2, int i, int i2, sg sgVar, Object... objArr) {
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.ah
+    public on getFromLocal(String str, String str2, int i, int i2, xg xgVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), sgVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), xgVar, objArr})) == null) {
             if (this.mForceDownload) {
                 return null;
             }
-            return super.getFromLocal(str, str2, i, i2, sgVar, objArr);
+            return super.getFromLocal(str, str2, i, i2, xgVar, objArr);
         }
-        return (jn) invokeCommon.objValue;
+        return (on) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.vg
-    public jn getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.ah
+    public on getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         boolean z2;
         Interceptable interceptable = $ic;
@@ -170,18 +170,18 @@ public class PortraitLoaderProc extends AbstractImageLoaderProc {
                 return null;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            jn l = ba5.k().l(str);
+            on q = TbImageMemoryCache.n().q(str);
             if (z) {
-                if (l != null) {
+                if (q != null) {
                     z2 = true;
                 } else {
                     z2 = false;
                 }
-                rg.i(z2, System.currentTimeMillis() - currentTimeMillis);
+                wg.i(z2, System.currentTimeMillis() - currentTimeMillis);
             }
-            return l;
+            return q;
         }
-        return (jn) invokeCommon.objValue;
+        return (on) invokeCommon.objValue;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
@@ -197,15 +197,15 @@ public class PortraitLoaderProc extends AbstractImageLoaderProc {
         return (String) invokeLII.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.vg
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.ah
     public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && (obj instanceof jn)) {
-            jn jnVar = (jn) obj;
-            if (jnVar.u()) {
-                jnVar.A(i);
-                jnVar.z(i2);
-                ba5.k().b(str, jnVar);
+        if ((interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && (obj instanceof on)) {
+            on onVar = (on) obj;
+            if (onVar.u()) {
+                onVar.A(i);
+                onVar.z(i2);
+                TbImageMemoryCache.n().d(str, onVar);
             }
         }
     }

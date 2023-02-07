@@ -1,43 +1,29 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.ISharePrefsWrapper;
-import com.baidu.nps.utils.ContextHolder;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
+@Service
 /* loaded from: classes5.dex */
-public class l91 implements ISharePrefsWrapper {
+public final class l91 extends xi0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
 
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public Set<String> getStringSet(String str, Set<String> set) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.xi0
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, set)) == null) {
-            return null;
-        }
-        return (Set) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public void putStringSet(String str, Set<String> set) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, str, set) == null) {
-        }
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public void remove(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "prerender" : (String) invokeV.objValue;
     }
 
     public l91() {
@@ -50,106 +36,54 @@ public class l91 implements ISharePrefsWrapper {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = "PreRenderAction";
     }
 
-    public final SharedPreferences a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.xi0
+    public boolean b(Context context, bj0 schemeModel, Map<String, Object> map, fj0 fj0Var) {
+        InterceptResult invokeLLLL;
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return ContextHolder.getApplicationContext().getSharedPreferences("nps_frame", 0);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, schemeModel, map, fj0Var)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(schemeModel, "schemeModel");
+            super.b(context, schemeModel, map, fj0Var);
+            if (hn0.b().a().a("ad_do_prerender", 1) == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z) {
+                h91 c = f91.c();
+                if (c != null) {
+                    c.c();
+                }
+                return false;
+            }
+            HashMap<String, String> d = schemeModel.d();
+            Intrinsics.checkNotNullExpressionValue(d, "schemeModel.params");
+            String str = d.get("url");
+            if (str != null && str.length() != 0) {
+                z2 = false;
+            } else {
+                z2 = true;
+            }
+            if (z2) {
+                n91.a("PreRender_" + this.a, "URL 为空，协议错误，无法预渲染");
+                return false;
+            }
+            d.get("web_type");
+            String str2 = d.get(TiebaStatic.Params.REFER);
+            h91 c2 = f91.c();
+            if (c2 != null) {
+                c2.b(str, null, str2);
+            }
+            return true;
         }
-        return (SharedPreferences) invokeV.objValue;
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public boolean getBoolean(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z)) == null) {
-            return a().getBoolean(str, z);
-        }
-        return invokeLZ.booleanValue;
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public float getFloat(String str, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, str, f)) == null) {
-            return a().getFloat(str, f);
-        }
-        return invokeLF.floatValue;
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public int getInt(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i)) == null) {
-            return a().getInt(str, i);
-        }
-        return invokeLI.intValue;
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public long getLong(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048580, this, str, j)) == null) {
-            return a().getLong(str, j);
-        }
-        return invokeLJ.longValue;
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public String getString(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            return a().getString(str, str2);
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public void putBoolean(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048583, this, str, z) == null) {
-            a().edit().putBoolean(str, z).commit();
-        }
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public void putFloat(String str, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, f) == null) {
-            a().edit().putFloat(str, f).commit();
-        }
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public void putInt(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048585, this, str, i) == null) {
-            a().edit().putInt(str, i).commit();
-        }
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public void putLong(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048586, this, str, j) == null) {
-            a().edit().putLong(str, j).commit();
-        }
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public void putString(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) {
-            a().edit().putString(str, str2).commit();
-        }
+        return invokeLLLL.booleanValue;
     }
 }

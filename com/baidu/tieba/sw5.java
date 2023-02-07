@@ -1,25 +1,72 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.swan.apps.scheme.actions.forbidden.ForbiddenInfo;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
+import com.baidu.tieba.ad.AbsDataRecorder;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class sw5 implements mo2 {
+public class sw5 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile sw5 k;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public boolean h;
+    public String i;
+    public String j;
+
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-418380165, "Lcom/baidu/tieba/sw5$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-418380165, "Lcom/baidu/tieba/sw5$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[AbsDataRecorder.Scene.values().length];
+            a = iArr;
+            try {
+                iArr[AbsDataRecorder.Scene.RECOMMEND.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[AbsDataRecorder.Scene.FRS_HOT.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[AbsDataRecorder.Scene.FRS_NEW.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[AbsDataRecorder.Scene.PB.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+        }
+    }
 
     public sw5() {
         Interceptable interceptable = $ic;
@@ -35,52 +82,145 @@ public class sw5 implements mo2 {
         }
     }
 
-    @Override // com.baidu.tieba.mo2
-    public boolean a(Context context, String str, cg3 cg3Var) {
-        InterceptResult invokeLLL;
-        String p;
+    public static sw5 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, cg3Var)) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_AIAPPS_START_FAIL);
-            if (hv5.l().p() == null) {
-                p = "";
-            } else {
-                p = hv5.l().p();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (k == null) {
+                synchronized (sw5.class) {
+                    if (k == null) {
+                        k = new sw5();
+                    }
+                }
             }
-            statisticItem.param("uid", p);
-            statisticItem.param("obj_param1", cg3Var.h());
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, cg3Var.e());
-            TiebaStatic.log(statisticItem);
-            if (cg3Var.j() == 10 && cg3Var.h() == 1013) {
-                b(context, cg3Var);
-                return true;
-            }
-            return false;
+            return k;
         }
-        return invokeLLL.booleanValue;
+        return (sw5) invokeV.objValue;
     }
 
-    public final void b(Context context, cg3 cg3Var) {
-        boolean z;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, cg3Var) == null) {
-            j43 b0 = j43.b0();
-            if (context != null && b0 != null) {
-                String i = od3.i(wp2.U().M(), b0.Y().G());
-                long h = cg3Var.h();
-                String r = cg3Var.r();
-                if (1020 == h && !TextUtils.isEmpty(r)) {
-                    z = true;
-                } else {
-                    z = false;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = null;
+            this.b = null;
+            this.c = 0;
+            this.d = 0;
+            this.e = 0;
+            this.f = 0;
+            this.g = 0;
+            this.h = false;
+            this.i = null;
+            this.j = null;
+        }
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.j;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.i;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.h;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int f(AbsDataRecorder.Scene scene) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, scene)) == null) {
+            int i = a.a[scene.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            return 0;
+                        }
+                        return this.g;
+                    }
+                    return this.f;
                 }
-                if (!z) {
-                    r = hg4.b().a(h);
-                }
-                ForbiddenInfo forbiddenInfo = new ForbiddenInfo(b0.W(), r, "v" + di3.D() + "/" + i + "/" + cg3Var.a());
-                forbiddenInfo.enableSlidingFlag = -1;
-                dp2.l(context, "type_need_update_sdk", cg3Var, forbiddenInfo, b0.Y().D());
+                return this.e;
             }
+            return this.d;
+        }
+        return invokeL.intValue;
+    }
+
+    public void j(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) == null) && jSONObject != null && (optJSONObject = jSONObject.optJSONObject("slogan")) != null) {
+            this.i = optJSONObject.optString("text");
+            this.j = optJSONObject.optString("color");
+        }
+    }
+
+    public void k(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) {
+            if (jSONObject != null) {
+                this.h = true;
+                JSONObject optJSONObject = jSONObject.optJSONObject("slogan");
+                if (optJSONObject != null) {
+                    this.a = optJSONObject.optString("text");
+                    this.b = optJSONObject.optString("color");
+                }
+                this.c = jSONObject.optInt("display_frequency_control");
+                JSONObject optJSONObject2 = jSONObject.optJSONObject("display_after_refresh");
+                if (optJSONObject2 != null) {
+                    this.d = optJSONObject2.optInt(PersonPolymericActivityConfig.VIDEO_PERSON_FROM_HOME);
+                    this.e = optJSONObject2.optInt("frs_hot");
+                    this.f = optJSONObject2.optInt("frs_new");
+                    this.g = optJSONObject2.optInt("pb");
+                    return;
+                }
+                return;
+            }
+            this.h = false;
         }
     }
 }

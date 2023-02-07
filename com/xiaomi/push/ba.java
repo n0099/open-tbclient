@@ -38,7 +38,7 @@ public class ba implements au {
         }
         this.f153a = az.a(context);
         this.f152a = az.a;
-        com.xiaomi.channel.commonutils.logger.b.m103a("create id manager is: " + this.f152a);
+        com.xiaomi.channel.commonutils.logger.b.m105a("create id manager is: " + this.f152a);
     }
 
     public static ba a(Context context) {
@@ -65,10 +65,10 @@ public class ba implements au {
 
     @Override // com.xiaomi.push.au
     /* renamed from: a */
-    public String mo186a() {
+    public String mo188a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a(this.f153a.mo186a()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a(this.f153a.mo188a()) : (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Possible override for method com.xiaomi.push.au.a()Ljava/lang/String; */
@@ -88,9 +88,9 @@ public class ba implements au {
         if (!TextUtils.isEmpty(b)) {
             map.put("udid", b);
         }
-        String mo186a = mo186a();
-        if (!TextUtils.isEmpty(mo186a)) {
-            map.put("oaid", mo186a);
+        String mo188a = mo188a();
+        if (!TextUtils.isEmpty(mo188a)) {
+            map.put("oaid", mo188a);
         }
         String c = c();
         if (!TextUtils.isEmpty(c)) {
@@ -105,10 +105,10 @@ public class ba implements au {
 
     @Override // com.xiaomi.push.au
     /* renamed from: a */
-    public boolean mo187a() {
+    public boolean mo189a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f153a.mo187a() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f153a.mo189a() : invokeV.booleanValue;
     }
 
     public String b() {

@@ -1,214 +1,178 @@
 package com.baidu.tieba;
 
-import android.text.Editable;
-import android.text.Spannable;
-import android.text.Spanned;
-import android.text.TextUtils;
-import android.text.style.BackgroundColorSpan;
-import android.text.style.ForegroundColorSpan;
-import android.widget.EditText;
+import android.graphics.Matrix;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.hardware.Camera;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupEditText;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupForegroundColorSpan;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
 /* loaded from: classes4.dex */
 public class fe9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<String> a;
-    public String b;
 
-    public fe9() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947761391, "Lcom/baidu/tieba/fe9;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947761391, "Lcom/baidu/tieba/fe9;");
+        }
+    }
+
+    public static int a(int i, int i2, int i3) {
+        InterceptResult invokeIII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeIII = interceptable.invokeIII(65537, null, i, i2, i3)) == null) ? i > i3 ? i3 : i < i2 ? i2 : i : invokeIII.intValue;
+    }
+
+    public static int b(TbPageContext tbPageContext, int i) {
+        InterceptResult invokeLI;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, tbPageContext, i)) == null) {
+            int i3 = 0;
+            try {
+                Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
+                Camera.getCameraInfo(i, cameraInfo);
+                int d = d(tbPageContext);
+                if (cameraInfo.facing == 1) {
+                    i3 = (cameraInfo.orientation + d) % 360;
+                    i2 = (360 - i3) % 360;
+                } else {
+                    i2 = ((cameraInfo.orientation - d) + 360) % 360;
+                }
+                return i2;
+            } catch (RuntimeException e) {
+                cw9.g(e);
+                return i3;
             }
         }
+        return invokeLI.intValue;
     }
 
-    public ArrayList<String> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean a(EditText editText) {
-        InterceptResult invokeL;
-        Editable text;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, editText)) == null) {
-            if (editText == null || (text = editText.getText()) == null) {
-                return false;
-            }
-            int d = d(text);
-            if (d > 0) {
-                editText.requestFocus();
-                editText.setSelection(d);
-                return true;
-            }
-            editText.setSelection(editText.getSelectionEnd());
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int d(Spanned spanned) {
+    public static int c(Camera.Parameters parameters) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, spanned)) == null) {
-            if (spanned == null) {
-                return 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, parameters)) == null) {
+            if (parameters == null) {
+                return -1;
             }
-            BackgroundColorSpan[] backgroundColorSpanArr = (BackgroundColorSpan[]) spanned.getSpans(0, spanned.length(), BackgroundColorSpan.class);
-            int length = spanned.length();
-            if (backgroundColorSpanArr != null && backgroundColorSpanArr.length > 0) {
-                return spanned.getSpanEnd(backgroundColorSpanArr[0]);
+            try {
+                if (!parameters.isZoomSupported()) {
+                    return -1;
+                }
+                return Math.min(parameters.getMaxZoom(), 40);
+            } catch (Exception e) {
+                cw9.g(e);
+                return -1;
             }
-            return length;
         }
         return invokeL.intValue;
     }
 
-    public void m(ArrayList<String> arrayList) {
+    public static int d(TbPageContext tbPageContext) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, arrayList) == null) {
-            this.a = arrayList;
-        }
-    }
-
-    public void n(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public boolean b(EditText editText, EditText editText2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editText, editText2)) == null) {
-            if (ListUtils.isEmpty(c())) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext)) == null) {
+            int rotation = tbPageContext.getPageActivity().getWindowManager().getDefaultDisplay().getRotation();
+            if (rotation == 0) {
+                return 0;
             }
-            if (!a(editText) && !a(editText2)) {
-                return false;
+            if (rotation != 1) {
+                if (rotation != 2) {
+                    if (rotation != 3) {
+                        return 0;
+                    }
+                    return 270;
+                }
+                return 180;
             }
-            return true;
+            return 90;
         }
-        return invokeLL.booleanValue;
+        return invokeL.intValue;
     }
 
-    public void h(EditText editText, EditText editText2) {
+    public static void e(TbPageContext tbPageContext, int i, Matrix matrix) {
+        float f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, editText, editText2) == null) {
-            i(editText, true);
-            i(editText2, false);
-            b(editText, editText2);
-        }
-    }
-
-    public void i(EditText editText, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, editText, z) != null) || editText == null) {
+        if ((interceptable != null && interceptable.invokeLIL(65541, null, tbPageContext, i, matrix) != null) || matrix == null) {
             return;
         }
-        f(editText, z);
+        if (1 == i) {
+            f = -1.0f;
+        } else {
+            f = 1.0f;
+        }
+        matrix.setScale(f, 1.0f);
+        matrix.postRotate(b(tbPageContext, i));
+        matrix.postScale(vw9.e() / 2000.0f, vw9.d() / 2000.0f);
+        matrix.postTranslate(vw9.e() / 2.0f, vw9.d() / 2.0f);
     }
 
-    public void l(EditText editText, EditText editText2) {
+    public static void g(int i, int i2, Camera camera) {
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, editText, editText2) == null) {
-            h(editText, editText2);
-        }
-    }
-
-    public void f(EditText editText, boolean z) {
-        Editable text;
-        Object[] spans;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(1048581, this, editText, z) != null) || editText == null || (text = editText.getText()) == null) {
-            return;
-        }
-        for (Object obj : text.getSpans(0, text.length(), Object.class)) {
-            if (((obj instanceof ForegroundColorSpan) && !(obj instanceof SpanGroupForegroundColorSpan)) || (obj instanceof BackgroundColorSpan)) {
-                text.removeSpan(obj);
+        if (interceptable == null || interceptable.invokeIIL(65543, null, i, i2, camera) == null) {
+            Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
+            Camera.getCameraInfo(i2, cameraInfo);
+            int i4 = 0;
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i == 3) {
+                            i4 = 270;
+                        }
+                    } else {
+                        i4 = 180;
+                    }
+                } else {
+                    i4 = 90;
+                }
             }
-        }
-        ck5.j(text);
-        j(text);
-    }
-
-    public void g(SpanGroupEditText spanGroupEditText) {
-        Editable text;
-        Object[] spans;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, spanGroupEditText) != null) || spanGroupEditText == null || (text = spanGroupEditText.getText()) == null) {
-            return;
-        }
-        for (Object obj : text.getSpans(0, text.length(), Object.class)) {
-            if ((obj instanceof ForegroundColorSpan) || (obj instanceof BackgroundColorSpan)) {
-                text.removeSpan(obj);
+            if (cameraInfo.facing == 1) {
+                i3 = (360 - ((cameraInfo.orientation + i4) % 360)) % 360;
+            } else {
+                i3 = ((cameraInfo.orientation - i4) + 360) % 360;
             }
-        }
-        ck5.k(spanGroupEditText);
-    }
-
-    public final void j(Spannable spannable) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, spannable) == null) && spannable != null && !ListUtils.isEmpty(this.a)) {
-            String obj = spannable.toString();
-            if (TextUtils.isEmpty(obj)) {
-                return;
-            }
-            Iterator<String> it = this.a.iterator();
-            while (it.hasNext()) {
-                k(spannable, obj, it.next());
-            }
+            camera.setDisplayOrientation(i3);
         }
     }
 
-    public final void k(Spannable spannable, String str, String str2) {
+    public static void f(RectF rectF, Rect rect) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048586, this, spannable, str, str2) == null) && spannable != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            int indexOf = str.indexOf(str2);
-            int length = str2.length();
-            while (indexOf >= 0) {
-                int i = indexOf + length;
-                int color = SkinManager.getColor(R.color.CAM_X0101);
-                int color2 = SkinManager.getColor(R.color.cp_cont_h_alpha85);
-                ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(color);
-                BackgroundColorSpan backgroundColorSpan = new BackgroundColorSpan(color2);
-                spannable.setSpan(foregroundColorSpan, indexOf, i, 33);
-                spannable.setSpan(backgroundColorSpan, indexOf, i, 33);
-                indexOf = str.indexOf(str2, i);
+        if (interceptable == null || interceptable.invokeLL(65542, null, rectF, rect) == null) {
+            rect.left = Math.round(rectF.left);
+            rect.top = Math.round(rectF.top);
+            rect.right = Math.round(rectF.right);
+            rect.bottom = Math.round(rectF.bottom);
+        }
+    }
+
+    public static void h(TbPageContext tbPageContext, int i, Camera camera) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(65544, null, tbPageContext, i, camera) == null) {
+            Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
+            Camera.getCameraInfo(i, cameraInfo);
+            int d = d(tbPageContext);
+            if (cameraInfo.facing == 1) {
+                i2 = (360 - ((cameraInfo.orientation + d) % 360)) % 360;
+            } else {
+                i2 = ((cameraInfo.orientation - d) + 360) % 360;
             }
+            camera.setDisplayOrientation(i2);
         }
     }
 }

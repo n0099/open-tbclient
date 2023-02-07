@@ -2,29 +2,24 @@ package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.response.TaskProcessData;
-import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebChromeClient;
-import java.util.Arrays;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class vo2 extends uo2 {
+public class vo2 extends qm2<hp2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.yo2
+    @Override // com.baidu.tieba.qm2
+    @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "RequestDescInterceptor" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setRemoteAudioPlayState" : (String) invokeV.objValue;
     }
 
     public vo2() {
@@ -41,56 +36,25 @@ public class vo2 extends uo2 {
         }
     }
 
-    @Override // com.baidu.tieba.yo2
-    public boolean enable() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qm2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull hp2 hp2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return tt1.h();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.yo2
-    public boolean a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (SchemeCollecter.CLASSIFY_SWAN_V8.equals(str) && "request".equals(str2)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.yo2
-    @NonNull
-    public JSONObject c(@NonNull String str, @NonNull JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, jSONObject)) == null) {
-            try {
-                jSONObject.put("invoke", "swan.method.v8BindingObject");
-                jSONObject.put("method", "_naSwan.naRequest");
-                JSONArray optJSONArray = jSONObject.optJSONArray(WebChromeClient.KEY_ARG_ARRAY);
-                if (optJSONArray != null) {
-                    List asList = Arrays.asList("cb", "ping", "__requestDataType__");
-                    for (int length = optJSONArray.length() - 1; length >= 0; length--) {
-                        JSONObject optJSONObject = optJSONArray.optJSONObject(length);
-                        if (optJSONObject != null && asList.contains(optJSONObject.optString("name"))) {
-                            optJSONArray.remove(length);
-                        }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, hp2Var) == null) {
+            String str = command.what;
+            d(hp2Var, str, "" + command.obj, true);
+            Object obj = command.obj;
+            if (obj instanceof JSONObject) {
+                JSONObject jSONObject = (JSONObject) obj;
+                if (jSONObject.has("status") && jSONObject.has("userId")) {
+                    long optLong = jSONObject.optLong("userId", -1L);
+                    boolean optBoolean = jSONObject.optBoolean("status");
+                    if (fp2.a(optLong)) {
+                        hp2Var.p(optLong, optBoolean);
                     }
-                    optJSONArray.put(d("success", "function="));
-                    optJSONArray.put(d(com.baidu.pass.biometrics.face.liveness.b.a.g0, "function="));
-                    optJSONArray.put(d(TaskProcessData.keyComplete, "function="));
                 }
-            } catch (JSONException e) {
-                e.printStackTrace();
             }
-            return jSONObject;
         }
-        return (JSONObject) invokeLL.objValue;
     }
 }

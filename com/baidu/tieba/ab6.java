@@ -1,112 +1,61 @@
 package com.baidu.tieba;
 
-import android.graphics.SurfaceTexture;
-import androidx.core.view.InputDeviceCompat;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
+import android.webkit.WebView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.DuMixErrorType;
-import com.baidu.ar.DuMixInput;
-import com.baidu.ar.DuMixOutput;
-import com.baidu.ar.capture.ICaptureResult;
-import com.baidu.minivideo.arface.bean.Filter;
-import com.baidu.minivideo.arface.bean.Sticker;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.data.QmFilterItem;
-import com.baidu.tieba.cs9;
-import com.baidu.tieba.external.sticker.data.QmStickerItem;
-import com.baidu.tieba.view.capture.camera.AspectGLSurfaceView;
-import com.baidu.tieba.vq9;
-import com.baidu.tieba.za6;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.browser.core.webview.offline.data.OfflineBridgeData;
+import com.baidu.tieba.browser.core.webview.offline.message.OfflineWebViewHttpReqMsg;
+import com.baidu.tieba.browser.core.webview.offline.message.OfflineWebViewHttpResMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer;
-import com.google.android.gms.common.util.GmsVersion;
-import java.io.File;
+import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.TreeSet;
 /* loaded from: classes3.dex */
-public class ab6 implements za6 {
+public class ab6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public boolean b;
-    public boolean c;
-    public boolean d;
-    public TbPageContext e;
-    public vq9 f;
-    public AspectGLSurfaceView g;
-    public za6.b h;
-    public za6.a i;
-    public boolean j;
-    public bf0 k;
-    public vq9.e l;
-    public cs9.a m;
-    public vq9.d n;
-    public w46 o;
-    public t46 p;
+    public final BdUniqueId a;
+    public Map<String, Boolean> b;
+    public Map<String, String> c;
+    public Map<String, String> d;
+    public HttpMessageListener e;
 
     /* loaded from: classes3.dex */
-    public class d implements vq9.d {
+    public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ab6 a;
 
-        @Override // com.baidu.tieba.vq9.d
-        public void onBeautyEnableChanged(df0 df0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, df0Var) == null) {
-            }
-        }
-
-        /* loaded from: classes3.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ HashMap a;
-            public final /* synthetic */ d b;
-
-            public a(d dVar, HashMap hashMap) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar, hashMap};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = dVar;
-                this.a = hashMap;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    cs9.j(this.a, this.b.a.m);
-                }
-            }
-        }
-
-        public d(ab6 ab6Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ab6 ab6Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ab6Var};
+                Object[] objArr = {ab6Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -115,762 +64,373 @@ public class ab6 implements za6 {
             this.a = ab6Var;
         }
 
-        @Override // com.baidu.tieba.vq9.d
-        public void onChangeGender(boolean z) {
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX DEBUG: Multi-variable search result rejected for r5v3, resolved type: boolean */
+        /* JADX WARN: Multi-variable type inference failed */
+        /* JADX WARN: Removed duplicated region for block: B:27:0x009b  */
+        /* JADX WARN: Removed duplicated region for block: B:39:0x018f  */
+        /* JADX WARN: Removed duplicated region for block: B:40:0x0192  */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            String str;
+            String str2;
+            WebView webView;
+            String str3;
+            int i;
+            boolean z;
+            int i2;
+            String str4;
+            String str5;
+            String s;
+            StringBuilder sb;
+            String str6;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) != null) || this.a.f == null || this.a.f.d()) {
-            }
-        }
-
-        @Override // com.baidu.tieba.vq9.d
-        public void onLuaMessage(HashMap<String, Object> hashMap) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) {
-                bh.a().post(new a(this, hashMap));
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class a extends bf0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.ar.DuMixCallback
-        public void onError(DuMixErrorType duMixErrorType, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, duMixErrorType, str, str2) == null) {
-            }
-        }
-
-        @Override // com.baidu.ar.DuMixCallback
-        public void onSetup(boolean z, DuMixInput duMixInput, DuMixOutput duMixOutput) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), duMixInput, duMixOutput}) == null) {
-            }
-        }
-
-        public a(ab6 ab6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ab6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.bf0, com.baidu.ar.DuMixCallback
-        public void onCaseCreate(boolean z, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, str2}) == null) {
-                super.onCaseCreate(z, str, str2);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements vq9.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ab6 a;
-
-        @Override // com.baidu.tieba.vq9.e
-        public void a(ICaptureResult iCaptureResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, iCaptureResult) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.vq9.e
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.vq9.e
-        public void c(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.vq9.e
-        public void d() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.vq9.e
-        public void e() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.vq9.e
-        public void g(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.gr9.b
-        public void onError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048583, this, i, str) == null) {
-            }
-        }
-
-        public b(ab6 ab6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ab6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ab6Var;
-        }
-
-        @Override // com.baidu.tieba.gr9.b
-        public void onProgress(long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) && this.a.i != null) {
-                this.a.i.onProgress(j);
-            }
-        }
-
-        @Override // com.baidu.tieba.vq9.e
-        public void f(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) && i > 0 && i2 > 0) {
-                this.a.g.setAspectRatio(i / i2, 1);
-            }
-        }
-
-        @Override // com.baidu.tieba.gr9.b
-        public void onStartSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-                this.a.d = true;
-                if (this.a.h != null) {
-                    this.a.h.b();
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.gr9.b
-        public void onStopSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-                if (this.a.f != null && this.a.h != null) {
-                    this.a.h.a(this.a.f.b());
-                }
-                this.a.d = false;
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class c implements cs9.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ab6 a;
-
-        @Override // com.baidu.tieba.cs9.a
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.cs9.a
-        public void c(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.cs9.a
-        public void d() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.cs9.a
-        public void f(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.cs9.a
-        public void g(int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeI(1048582, this, i) != null) || i < 3000) {
-            }
-        }
-
-        @Override // com.baidu.tieba.cs9.a
-        public void j(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.cs9.a
-        public void onRecordEnd() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            }
-        }
-
-        public c(ab6 ab6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ab6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ab6Var;
-        }
-
-        @Override // com.baidu.tieba.cs9.a
-        public void e(boolean z) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && this.a.f != null) {
-                this.a.f.o(z);
-            }
-        }
-
-        @Override // com.baidu.tieba.cs9.a
-        public void k(int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(1048586, this, i) == null) && this.a.f != null) {
-                this.a.f.D(i);
-            }
-        }
-
-        @Override // com.baidu.tieba.cs9.a
-        public void b() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a.f != null) {
-                this.a.f.n();
-            }
-        }
-
-        @Override // com.baidu.tieba.cs9.a
-        public void h() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.a.f != null) {
-                this.a.f.j();
-            }
-        }
-
-        @Override // com.baidu.tieba.cs9.a
-        public void i() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.a.f != null) {
-                this.a.f.h();
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class e implements w46 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ab6 a;
-
-        public e(ab6 ab6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ab6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ab6Var;
-        }
-
-        @Override // com.baidu.tieba.w46
-        public boolean a(float f) {
-            InterceptResult invokeF;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
-                if (this.a.f != null) {
-                    this.a.f.x(f);
-                    return true;
-                }
-                return false;
-            }
-            return invokeF.booleanValue;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class f implements t46 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ab6 a;
-
-        public f(ab6 ab6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ab6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ab6Var;
-        }
-
-        @Override // com.baidu.tieba.t46
-        public boolean a(float f) {
-            InterceptResult invokeF;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
-                if (this.a.f != null) {
-                    this.a.f.z(f);
-                    return true;
-                }
-                return false;
-            }
-            return invokeF.booleanValue;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class g implements zn9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ab6 a;
-
-        @Override // com.baidu.tieba.zn9
-        public gp9 c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return null;
-            }
-            return (gp9) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.zn9
-        public String e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "tieba_unknown" : (String) invokeV.objValue;
-        }
-
-        public g(ab6 ab6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ab6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ab6Var;
-        }
-
-        @Override // com.baidu.tieba.zn9
-        public IMediaPlayer a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new xa9(this.a.e.getPageActivity());
-            }
-            return (IMediaPlayer) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.zn9
-        public String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return o59.d;
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class h implements SurfaceTexture.OnFrameAvailableListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ab6 a;
-
-        public h(ab6 ab6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ab6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ab6Var;
-        }
-
-        @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
-        public void onFrameAvailable(SurfaceTexture surfaceTexture) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, surfaceTexture) != null) || !this.a.b) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof OfflineWebViewHttpResMsg)) {
                 return;
             }
-            this.a.b = false;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class i implements vq9.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ab6 a;
-
-        public i(ab6 ab6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ab6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            OfflineWebViewHttpResMsg offlineWebViewHttpResMsg = (OfflineWebViewHttpResMsg) httpResponsedMessage;
+            int i3 = 0;
+            String str7 = null;
+            if (!(offlineWebViewHttpResMsg.getOrginalMessage() instanceof OfflineWebViewHttpReqMsg)) {
+                str = "";
+                str2 = null;
+                webView = null;
+                str3 = null;
+                i = 0;
+            } else {
+                OfflineWebViewHttpReqMsg offlineWebViewHttpReqMsg = (OfflineWebViewHttpReqMsg) offlineWebViewHttpResMsg.getOrginalMessage();
+                boolean z2 = offlineWebViewHttpReqMsg.isFromRequestByNative;
+                webView = offlineWebViewHttpReqMsg.webView;
+                if (StringUtils.isNull(offlineWebViewHttpReqMsg.url)) {
+                    str = "";
+                    str2 = null;
+                    str3 = null;
+                    i = z2;
+                } else {
+                    String str8 = offlineWebViewHttpReqMsg.url;
+                    str = offlineWebViewHttpReqMsg.module;
+                    str3 = offlineWebViewHttpReqMsg.urlSign;
+                    String str9 = offlineWebViewHttpReqMsg.jsCallbackMethod;
+                    if (TextUtils.isEmpty(str9) && z2 == 0) {
+                        str9 = (String) this.a.c.remove(str3);
+                        i3 = 1;
+                    }
+                    z = ((Boolean) this.a.b.remove(str3)).booleanValue();
+                    str7 = str9;
+                    str2 = str8;
+                    i2 = z2;
+                    if (!offlineWebViewHttpResMsg.isSuccess() && !TextUtils.isEmpty(offlineWebViewHttpResMsg.getResult())) {
+                        str5 = offlineWebViewHttpResMsg.getResult();
+                        str4 = BasicPushStatus.SUCCESS_CODE;
+                    } else {
+                        str4 = offlineWebViewHttpResMsg.getError() + "";
+                        str5 = "\"\"";
+                    }
+                    s = kq8.q().s(str);
+                    if (s == null) {
+                        s = "0.0.0.0";
+                    }
+                    sb = new StringBuilder();
+                    sb.append("{");
+                    sb.append("\"status\":");
+                    sb.append("\"");
+                    sb.append(str4);
+                    sb.append("\"");
+                    sb.append(",");
+                    sb.append("\"data\":");
+                    sb.append(str5);
+                    sb.append(",");
+                    sb.append("\"cache_version\":");
+                    sb.append("\"");
+                    sb.append(s);
+                    sb.append("\"");
+                    sb.append(",");
+                    sb.append("\"cache\":");
+                    sb.append("\"");
+                    sb.append(i3);
+                    sb.append("\"");
+                    sb.append(",");
+                    sb.append("\"fromPreRequest\":");
+                    sb.append("\"");
+                    sb.append(i2 ^ 1);
+                    sb.append("\"");
+                    sb.append("}");
+                    ac6.a("lt-http-proxy", "网络请求结果：fromPreRequest=" + (i2 ^ 1));
+                    if (i2 != 0 && !z) {
+                        if (StringUtils.isNull(str7)) {
+                            ac6.a("lt-http-proxy", "请求完成：预请求-收到网络请求结果（" + httpResponsedMessage.getStatusCode() + "），缓存请求结果：url=" + str2);
+                            this.a.d.put(str3, sb.toString());
+                            return;
+                        }
+                        ac6.a("lt-http-proxy", "请求完成：预请求-收到网络请求结果（" + httpResponsedMessage.getStatusCode() + "），开始回调js函数(" + str7 + ")：url=" + str2);
+                        this.a.l(webView, str7, sb.toString());
+                        return;
+                    }
+                    StringBuilder sb2 = new StringBuilder();
+                    sb2.append("请求完成：");
+                    if (i2 == 0) {
+                        str6 = "端能力";
+                    } else {
+                        str6 = "预请求";
+                    }
+                    sb2.append(str6);
+                    sb2.append("-收到网络请求结果（");
+                    sb2.append(httpResponsedMessage.getStatusCode());
+                    sb2.append("），开始回调端能力：url=");
+                    sb2.append(str2);
+                    ac6.a("lt-http-proxy", sb2.toString());
+                    this.a.i(webView, str2, sb.toString());
                 }
             }
-            this.a = ab6Var;
-        }
-
-        @Override // com.baidu.tieba.vq9.c
-        public void a(boolean z) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && this.a.f != null && z) {
-                this.a.f.g();
+            z = false;
+            i2 = i;
+            if (!offlineWebViewHttpResMsg.isSuccess()) {
             }
+            str4 = offlineWebViewHttpResMsg.getError() + "";
+            str5 = "\"\"";
+            s = kq8.q().s(str);
+            if (s == null) {
+            }
+            sb = new StringBuilder();
+            sb.append("{");
+            sb.append("\"status\":");
+            sb.append("\"");
+            sb.append(str4);
+            sb.append("\"");
+            sb.append(",");
+            sb.append("\"data\":");
+            sb.append(str5);
+            sb.append(",");
+            sb.append("\"cache_version\":");
+            sb.append("\"");
+            sb.append(s);
+            sb.append("\"");
+            sb.append(",");
+            sb.append("\"cache\":");
+            sb.append("\"");
+            sb.append(i3);
+            sb.append("\"");
+            sb.append(",");
+            sb.append("\"fromPreRequest\":");
+            sb.append("\"");
+            sb.append(i2 ^ 1);
+            sb.append("\"");
+            sb.append("}");
+            ac6.a("lt-http-proxy", "网络请求结果：fromPreRequest=" + (i2 ^ 1));
+            if (i2 != 0) {
+            }
+            StringBuilder sb22 = new StringBuilder();
+            sb22.append("请求完成：");
+            if (i2 == 0) {
+            }
+            sb22.append(str6);
+            sb22.append("-收到网络请求结果（");
+            sb22.append(httpResponsedMessage.getStatusCode());
+            sb22.append("），开始回调端能力：url=");
+            sb22.append(str2);
+            ac6.a("lt-http-proxy", sb22.toString());
+            this.a.i(webView, str2, sb.toString());
         }
     }
 
-    public ab6(TbPageContext tbPageContext, AspectGLSurfaceView aspectGLSurfaceView, boolean z, za6.b bVar, za6.a aVar) {
+    public ab6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, aspectGLSurfaceView, Boolean.valueOf(z), bVar, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0;
-        this.b = true;
-        this.c = false;
-        this.d = false;
-        this.k = new a(this);
-        this.l = new b(this);
-        this.m = new c(this);
-        this.n = new d(this);
-        this.o = new e(this);
-        this.p = new f(this);
-        this.e = tbPageContext;
-        this.g = aspectGLSurfaceView;
-        this.j = z;
-        this.h = bVar;
-        this.i = aVar;
-        p();
+        this.b = new HashMap();
+        this.c = new HashMap();
+        this.d = new HashMap();
+        this.e = new a(this, CmdConfigHttp.CMD_WEB_HTTP_PROXY);
+        BdUniqueId gen = BdUniqueId.gen();
+        this.a = gen;
+        this.e.setTag(gen);
+        this.e.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.e);
     }
 
-    @Override // com.baidu.tieba.za6
-    public boolean a(QmFilterItem qmFilterItem) {
+    public final void f(WebView webView, OfflineBridgeData offlineBridgeData, String str, boolean z) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{webView, offlineBridgeData, str, Boolean.valueOf(z)}) == null) && offlineBridgeData != null && !StringUtils.isNull(offlineBridgeData.url) && !StringUtils.isNull(offlineBridgeData.type)) {
+            String g = g(offlineBridgeData.url);
+            String remove = this.d.remove(g);
+            if (!TextUtils.isEmpty(remove) && str != null) {
+                ac6.a("lt-http-proxy", "请求完成：命中预请求缓存-执行js回调，url=" + offlineBridgeData.url);
+                l(webView, str, remove);
+            } else if (!TextUtils.isEmpty(remove) && z) {
+                ac6.a("lt-http-proxy", "请求完成：命中预请求缓存-执行端能力回调，url=" + offlineBridgeData.url);
+                i(webView, offlineBridgeData.url, remove);
+            } else {
+                if (this.b.containsKey(g)) {
+                    if (!TextUtils.isEmpty(str)) {
+                        ac6.a("lt-http-proxy", "加入等待队列：重复的请求-js回调函数-等待网络结果完成后回调，url=" + offlineBridgeData.url);
+                        this.c.put(g, str);
+                        return;
+                    } else if (z) {
+                        ac6.a("lt-http-proxy", "加入等待队列：重复的请求-端能力-等待网络结果完成后回调，url=" + offlineBridgeData.url);
+                        this.b.put(g, Boolean.TRUE);
+                        return;
+                    }
+                }
+                StringBuilder sb = new StringBuilder();
+                if (z) {
+                    str2 = "端能力";
+                } else {
+                    str2 = "预请求";
+                }
+                sb.append(str2);
+                sb.append("-正在发起网络请求：");
+                sb.append(offlineBridgeData.url);
+                ac6.a("lt-http-proxy", sb.toString());
+                this.b.put(g, Boolean.valueOf(z));
+                m(webView, offlineBridgeData, str, z, g);
+            }
+        }
+    }
+
+    public final String g(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, qmFilterItem)) == null) {
-            if (qmFilterItem == null) {
-                this.f.l(null);
-                return true;
-            } else if (this.f != null) {
-                if (!StringUtils.isNull(qmFilterItem.localPath) && !"origin".equals(qmFilterItem.localPath)) {
-                    Filter filter = new Filter();
-                    filter.setDataType(1);
-                    filter.setLevel((yg.d(qmFilterItem.effect, 100.0f) * 1.0f) / 100.0f);
-                    filter.setFile(new File(qmFilterItem.localPath));
-                    this.f.l(filter);
-                } else {
-                    this.f.l(null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
+            }
+            try {
+                Uri parse = Uri.parse(str);
+                String str2 = parse.getScheme() + "://" + parse.getAuthority() + parse.getPath();
+                TreeSet<String> treeSet = new TreeSet(parse.getQueryParameterNames());
+                StringBuilder sb = new StringBuilder();
+                boolean z = true;
+                for (String str3 : treeSet) {
+                    if (z) {
+                        z = false;
+                        sb.append("?");
+                        sb.append(str3);
+                        sb.append("=");
+                        sb.append(parse.getQueryParameter(str3));
+                    } else {
+                        sb.append("&");
+                        sb.append(str3);
+                        sb.append("=");
+                        sb.append(parse.getQueryParameter(str3));
+                    }
                 }
-                return true;
-            } else {
-                return false;
+                return lj.c(str2 + ((Object) sb));
+            } catch (Exception unused) {
+                return str;
             }
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.za6
-    public boolean b(QmStickerItem qmStickerItem) {
-        InterceptResult invokeL;
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qmStickerItem)) == null) {
-            if (qmStickerItem == null) {
-                this.f.y(null, "");
-                return true;
-            } else if (this.f != null) {
-                if ("nosticker".equals(qmStickerItem.localPath)) {
-                    this.f.y(null, "");
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.a);
+            MessageManager.getInstance().removeMessage(this.a);
+            this.b.clear();
+            this.b = null;
+            this.d.clear();
+            this.d = null;
+            this.c.clear();
+            this.c = null;
+        }
+    }
+
+    public final void i(WebView webView, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, webView, str, str2) == null) {
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            linkedHashMap.put("result", str2);
+            linkedHashMap.put("NotificationKey", str);
+            wb6.a().a(webView, "RequestByNativeToH5", linkedHashMap);
+        }
+    }
+
+    public void j(WebView webView, OfflineBridgeData offlineBridgeData, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, webView, offlineBridgeData, str) == null) {
+            ac6.a("lt-http-proxy", "预请求：" + offlineBridgeData.url);
+            f(webView, offlineBridgeData, str, false);
+        }
+    }
+
+    public void k(WebView webView, OfflineBridgeData offlineBridgeData, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{webView, offlineBridgeData, str, Boolean.valueOf(z)}) == null) {
+            ac6.a("lt-http-proxy", "端能力请求：" + offlineBridgeData.url);
+            f(webView, offlineBridgeData, str, z);
+        }
+    }
+
+    public final void l(WebView webView, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048582, this, webView, str, str2) == null) && webView != null) {
+            webView.loadUrl("javascript:window." + str + "('" + str2 + "')");
+        }
+    }
+
+    public final void m(WebView webView, OfflineBridgeData offlineBridgeData, String str, boolean z, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{webView, offlineBridgeData, str, Boolean.valueOf(z), str2}) == null) {
+            OfflineWebViewHttpReqMsg offlineWebViewHttpReqMsg = new OfflineWebViewHttpReqMsg();
+            offlineWebViewHttpReqMsg.url = offlineBridgeData.url;
+            offlineWebViewHttpReqMsg.urlSign = str2;
+            offlineWebViewHttpReqMsg.module = offlineBridgeData.module;
+            offlineWebViewHttpReqMsg.begin = offlineBridgeData.begin;
+            offlineWebViewHttpReqMsg.jsCallbackMethod = str;
+            offlineWebViewHttpReqMsg.webView = webView;
+            offlineWebViewHttpReqMsg.setTag(this.a);
+            offlineWebViewHttpReqMsg.isFromRequestByNative = z;
+            CookieSyncManager.createInstance(pb6.getContext());
+            String cookie = CookieManager.getInstance().getCookie("tieba.baidu.com");
+            if (!TextUtils.isEmpty(cookie)) {
+                HashMap<String, String> headers = offlineWebViewHttpReqMsg.getHeaders();
+                if (headers != null) {
+                    String str3 = headers.get("Cookie");
+                    if (!TextUtils.isEmpty(str3)) {
+                        if (str3.endsWith(";")) {
+                            cookie = str3 + cookie;
+                        } else {
+                            cookie = str3 + ";" + cookie;
+                        }
+                    }
+                    offlineWebViewHttpReqMsg.addHeader("Cookie", cookie);
                 } else {
-                    Sticker sticker = new Sticker();
-                    sticker.setMaxVersion(qmStickerItem.sdkVersionMax);
-                    sticker.setMiniVersion(qmStickerItem.sdkVersionMin);
-                    sticker.setFile(new File(qmStickerItem.localPath));
-                    this.f.y(sticker, "");
+                    offlineWebViewHttpReqMsg.addHeader("Cookie", cookie);
                 }
-                return true;
+            }
+            offlineWebViewHttpReqMsg.setUserAgent(webView.getSettings().getUserAgentString());
+            offlineWebViewHttpReqMsg.addCookie("cache_version", kq8.q().s(offlineBridgeData.module));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_WEB_HTTP_PROXY, offlineBridgeData.url);
+            tbHttpMessageTask.setResponsedClass(OfflineWebViewHttpResMsg.class);
+            tbHttpMessageTask.setIsNeedAddCommenParam(false);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(false);
+            tbHttpMessageTask.setPriority(4);
+            if (offlineBridgeData.type.toLowerCase().equals("post")) {
+                Map<String, String> map = offlineBridgeData.data;
+                if (map != null && !map.isEmpty()) {
+                    for (Map.Entry<String, String> entry : offlineBridgeData.data.entrySet()) {
+                        offlineWebViewHttpReqMsg.addParam(entry.getKey(), entry.getValue());
+                    }
+                }
+                tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
             } else {
-                return false;
+                tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
             }
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.za6
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.za6
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            vq9 vq9Var = this.f;
-            if (vq9Var != null) {
-                vq9Var.C();
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.za6
-    public w46 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.o;
-        }
-        return (w46) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.za6
-    public t46 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.p;
-        }
-        return (t46) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.za6
-    public boolean onDestroy() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            vq9 vq9Var = this.f;
-            if (vq9Var != null) {
-                vq9Var.a();
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.za6
-    public boolean onPause() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            vq9 vq9Var = this.f;
-            if (vq9Var != null) {
-                vq9Var.f();
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.za6
-    public boolean onResume() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (!this.c) {
-                q();
-                this.c = true;
-                return true;
-            }
-            vq9 vq9Var = this.f;
-            if (vq9Var != null) {
-                vq9Var.g();
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (w49.a() && this.g != null) {
-                r();
-                this.g.b(2, 0);
-                return true;
-            }
-            this.e.getPageActivity().finish();
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            yn9.c().h(TbadkCoreApplication.getInst());
-            yn9.c().j(FileHelper.getCacheDir());
-            yn9.c().k(new g(this));
-        }
-    }
-
-    @Override // com.baidu.tieba.za6
-    public boolean startRecord() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            vq9 vq9Var = this.f;
-            if (vq9Var != null) {
-                vq9Var.A();
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.za6
-    public boolean stopRecord() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            vq9 vq9Var = this.f;
-            if (vq9Var != null) {
-                vq9Var.B();
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            vq9 vq9Var = new vq9(this.e.getPageActivity());
-            this.f = vq9Var;
-            vq9Var.k(this.k);
-            this.f.m(this.g);
-            this.f.r(this.l);
-            this.f.q(this.n);
-            int i2 = 720;
-            int i3 = 1280;
-            if (this.a == 1) {
-                i2 = 1280;
-                i3 = 720;
-            }
-            this.f.i(i2, i3);
-            da9 D = da9.D(this.e);
-            D.h(true);
-            D.m(true);
-            D.j(true);
-            D.u(this.e.getPageActivity().getWindowManager().getDefaultDisplay().getRotation());
-            this.f.c(D, 30, GmsVersion.VERSION_LONGHORN, this.j, FileHelper.getVideoTmpDir());
-            this.f.t(false);
-            this.f.w(true);
-            this.f.v(true);
-            this.f.s(false);
-            this.f.u(false);
-            this.f.p(new h(this));
-            this.f.e(new i(this));
+            MessageManager.getInstance().sendMessage(offlineWebViewHttpReqMsg, tbHttpMessageTask);
         }
     }
 }

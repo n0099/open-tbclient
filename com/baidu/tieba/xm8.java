@@ -1,5 +1,11 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
+
+import java.util.List;
+/* loaded from: classes7.dex */
 public interface xm8 {
-    <T> void a(T t);
+    boolean f1();
+
+    List<Cdo> getListData();
+
+    zm8 getMainView();
 }

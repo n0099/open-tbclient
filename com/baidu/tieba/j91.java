@@ -1,47 +1,41 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.nps.pm.BundleInfo;
-import com.baidu.nps.pm.SubBundleInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.Closeable;
-import java.util.List;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class j91 {
+public final class j91 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Closeable closeable) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, closeable) == null) && closeable != null) {
-            try {
-                closeable.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947838023, "Lcom/baidu/tieba/j91;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947838023, "Lcom/baidu/tieba/j91;");
         }
     }
 
-    public static boolean b(BundleInfo bundleInfo, BundleInfo bundleInfo2) {
-        InterceptResult invokeLL;
-        List<SubBundleInfo> subBundle;
+    @JvmStatic
+    public static final g91 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bundleInfo, bundleInfo2)) == null) {
-            if (bundleInfo == null || bundleInfo2 == null || (subBundle = bundleInfo.getSubBundle()) == null) {
-                return false;
-            }
-            for (SubBundleInfo subBundleInfo : subBundle) {
-                if (TextUtils.equals(subBundleInfo.getPackageName(), bundleInfo2.getPackageName())) {
-                    if (subBundleInfo.getMaxVersion() < bundleInfo2.getVersionCode() || subBundleInfo.getMinVersion() > bundleInfo2.getVersionCode()) {
-                        return false;
-                    }
-                    return true;
-                }
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            g91 g91Var = g91.a;
+            Intrinsics.checkNotNullExpressionValue(g91Var, "INativeWebViewCreator.EMPTY");
+            return g91Var;
         }
-        return invokeLL.booleanValue;
+        return (g91) invokeV.objValue;
     }
 }

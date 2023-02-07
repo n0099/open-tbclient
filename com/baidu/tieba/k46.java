@@ -1,43 +1,88 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface k46 {
+public class k46 extends mc6<g46> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public l46 i;
+    public l46 j;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        int a(byte[] bArr, int i);
+    @Override // com.baidu.tieba.mc6
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0101 : invokeV.intValue;
     }
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(byte[] bArr);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        }
     }
 
-    View a();
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k46(TbPageContext<?> tbPageContext, boolean z) {
+        super(tbPageContext);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.i = new l46(g(), z);
+        this.j = new l46(g(), z);
+        ViewGroup viewGroup = (ViewGroup) h();
+        View view2 = new View(getContext());
+        viewGroup.addView(this.i.h());
+        viewGroup.addView(view2, new LinearLayout.LayoutParams(g().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224), -1));
+        viewGroup.addView(this.j.h());
+    }
 
-    void b(b bVar);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.mc6
+    /* renamed from: r */
+    public void i(g46 g46Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, g46Var) == null) && g46Var != null) {
+            this.i.i(g46Var.a);
+            this.j.i(g46Var.b);
+        }
+    }
 
-    void c(int i);
+    public void s(p46 p46Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, p46Var) == null) {
+            this.i.y(p46Var);
+            this.j.y(p46Var);
+        }
+    }
 
-    int d();
-
-    void e();
-
-    Rect f();
-
-    void g();
-
-    void h(int i);
-
-    void i(l46 l46Var);
-
-    void pause();
-
-    void resume();
-
-    void start();
-
-    void stop();
+    @Override // com.baidu.tieba.mc6
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            this.i.j(tbPageContext, i);
+            this.j.j(tbPageContext, i);
+        }
+    }
 }

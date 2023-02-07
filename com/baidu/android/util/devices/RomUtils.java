@@ -44,6 +44,7 @@ public class RomUtils {
     public static final String ROM_SMARTISAN = "SMARTISAN";
     public static final String ROM_UNKNOWN = "ROM_UNKNOWN";
     public static final String ROM_VIVO = "VIVO";
+    public static final String ROM_XIAOMI = "XIAOMI";
     public static final String TAG = "Rom";
     public static final String UNKNOWN = "UNKNOWN";
     public static String sRomName;
@@ -214,10 +215,22 @@ public class RomUtils {
         return invokeV.booleanValue;
     }
 
-    public static boolean isNubia() {
+    public static boolean isMiuiOrXiaoMi() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
+            if (!check("MIUI") && !check(ROM_XIAOMI)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isNubia() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
             return check(ROM_NUBIA);
         }
         return invokeV.booleanValue;
@@ -226,7 +239,7 @@ public class RomUtils {
     public static boolean isOppo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) {
             return check("OPPO");
         }
         return invokeV.booleanValue;
@@ -235,7 +248,7 @@ public class RomUtils {
     public static boolean isSmartisan() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
             return check("SMARTISAN");
         }
         return invokeV.booleanValue;
@@ -244,7 +257,7 @@ public class RomUtils {
     public static boolean isVivo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
             return check("VIVO");
         }
         return invokeV.booleanValue;

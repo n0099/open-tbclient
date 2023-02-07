@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.pb.pb.main.emotion.message.GetSugMatchWordsResponseMessage;
-import com.baidu.tieba.s9;
+import com.baidu.tieba.x9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,7 +31,7 @@ public class GetSugMatchWordsModel extends BdBaseModel {
 
     /* loaded from: classes5.dex */
     public interface b {
-        void onFail(int i, String str);
+        void onFail(String str);
 
         void onSuccess(List<String> list);
     }
@@ -87,7 +87,7 @@ public class GetSugMatchWordsModel extends BdBaseModel {
                 GetSugMatchWordsModel.c.addAll(getSugMatchWordsResponseMessage.getData());
                 return;
             }
-            this.a.a.onFail(getSugMatchWordsResponseMessage.getError(), getSugMatchWordsResponseMessage.getErrorString());
+            this.a.a.onFail(getSugMatchWordsResponseMessage.getErrorString());
         }
     }
 
@@ -120,18 +120,18 @@ public class GetSugMatchWordsModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GetSugMatchWordsModel(s9<Object> s9Var) {
-        super(s9Var);
+    public GetSugMatchWordsModel(x9<Object> x9Var) {
+        super(x9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {s9Var};
+            Object[] objArr = {x9Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((s9) newInitContext.callArgs[0]);
+                super((x9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

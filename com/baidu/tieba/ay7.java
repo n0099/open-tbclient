@@ -1,71 +1,46 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.memberCenter.tail.data.TailData;
-import com.baidu.tieba.memberCenter.tail.data.TailEditActivityConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.mainentrance.searchsuggestlist.viewholder.SearchSuggestForumViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes3.dex */
-public class ay7 extends BaseAdapter {
+public class ay7 extends qn<fy7, SearchSuggestForumViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public dy7 b;
-    public List<Object> c;
-    public f d;
-    public View.OnClickListener e;
-    public View.OnClickListener f;
-    public View.OnClickListener g;
-    public oy7<Void> h;
-    public oy7<Integer> i;
+    public final Context a;
 
     /* loaded from: classes3.dex */
-    public interface f {
-        void a();
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return 2;
-        }
-        return invokeV.intValue;
-    }
-
-    /* loaded from: classes3.dex */
-    public class a implements View.OnClickListener {
+    public class a implements no {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ay7 a;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ ay7 b;
 
-        public a(ay7 ay7Var) {
+        public a(ay7 ay7Var, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ay7Var};
+                Object[] objArr = {ay7Var, context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -75,340 +50,138 @@ public class ay7 extends BaseAdapter {
                     return;
                 }
             }
-            this.a = ay7Var;
+            this.b = ay7Var;
+            this.a = context;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.tieba.no
+        public void b(View view2, Cdo cdo, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, cdo, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(cdo instanceof fy7)) {
                 return;
             }
-            this.a.h();
+            fy7 fy7Var = (fy7) cdo;
+            FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.a).createNormalCfg(fy7Var.c(), FrsActivityConfig.FRS_FROM_SEARCH_SUG);
+            createNormalCfg.setCallFrom(16);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, createNormalCfg));
+            this.b.u(fy7Var);
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ay7 a;
-
-        public b(ay7 ay7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ay7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ay7Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            TailData c;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || view2 == null || view2.getTag() == null || (c = ((cy7) view2.getTag()).c()) == null || this.a.b.g()) {
-                return;
-            }
-            this.a.i(c.getId(), c.getContent(), c.getFontColor());
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ay7 a;
-
-        public c(ay7 ay7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ay7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ay7Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            cy7 cy7Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2 != null && (cy7Var = (cy7) view2.getTag()) != null && cy7Var.c() != null) {
-                this.a.b.e(cy7Var.c().getId());
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class d implements oy7<Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ay7 a;
-
-        public d(ay7 ay7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ay7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ay7Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.oy7
-        /* renamed from: b */
-        public void a(boolean z, String str, Void r7) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, r7}) == null) {
-                if (z) {
-                    this.a.a.showToast(str);
-                    return;
-                }
-                ay7 ay7Var = this.a;
-                ay7Var.l(ay7Var.b.h());
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class e implements oy7<Integer> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ay7 a;
-
-        public e(ay7 ay7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ay7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ay7Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.oy7
-        /* renamed from: b */
-        public void a(boolean z, String str, Integer num) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, num}) == null) {
-                if (z) {
-                    this.a.a.showToast(str);
-                    return;
-                }
-                TailData tailData = new TailData();
-                tailData.setId(num.intValue());
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001340, new qx7(3, tailData)));
-            }
-        }
-    }
-
-    public ay7(TbPageContext<?> tbPageContext, dy7 dy7Var, f fVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ay7(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, dy7Var, fVar};
+            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = new a(this);
-        this.f = new b(this);
-        this.g = new c(this);
-        this.h = new d(this);
-        this.i = new e(this);
-        this.a = tbPageContext;
-        this.b = dy7Var;
-        this.c = new ArrayList();
-        this.b.m(this.h);
-        this.b.k(this.i);
-        this.d = fVar;
+        this.a = context;
+        this.mType = bdUniqueId;
+        setOnAdapterItemClickListener(new a(this, context));
     }
 
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
+    public final void t(StatisticItem statisticItem, fy7 fy7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            return this.c.get(i);
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            Object obj = this.c.get(i);
-            if (obj instanceof TailData) {
-                return 0;
-            }
-            if (obj instanceof mx7) {
-                return 1;
-            }
-            return -1;
-        }
-        return invokeI.intValue;
-    }
-
-    public final void l(List<TailData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
-            this.b.n(list);
-            j();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, statisticItem, fy7Var) == null) {
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("fid", fy7Var.b().longValue());
+            statisticItem.param("fname", fy7Var.c());
         }
     }
 
-    public final View f(View view2) {
+    public final void u(fy7 fy7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, fy7Var) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SEARCH_SUG_FORUM_CLICK);
+            t(statisticItem, fy7Var);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: v */
+    public SearchSuggestForumViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
-        View view3;
-        by7 by7Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            if (view2 == null) {
-                by7Var = new by7();
-                view3 = by7Var.b(this.a.getPageActivity());
-                by7Var.c(this.e);
-                by7Var.a(this.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
+            return new SearchSuggestForumViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07c3, viewGroup, false));
+        }
+        return (SearchSuggestForumViewHolder) invokeL.objValue;
+    }
+
+    public final void y(fy7 fy7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, fy7Var) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SEARCH_SUG_FORUM_SHOW);
+            t(statisticItem, fy7Var);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.qn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, fy7 fy7Var, SearchSuggestForumViewHolder searchSuggestForumViewHolder) {
+        w(i, view2, viewGroup, fy7Var, searchSuggestForumViewHolder);
+        return view2;
+    }
+
+    public View w(int i, View view2, ViewGroup viewGroup, fy7 fy7Var, SearchSuggestForumViewHolder searchSuggestForumViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, fy7Var, searchSuggestForumViewHolder})) == null) {
+            if (fy7Var == null) {
+                return view2;
+            }
+            x(searchSuggestForumViewHolder);
+            searchSuggestForumViewHolder.b.setConrers(15);
+            searchSuggestForumViewHolder.b.setRadiusById(R.string.J_X06);
+            searchSuggestForumViewHolder.b.K(fy7Var.a(), 10, false);
+            searchSuggestForumViewHolder.c.setText(fy7Var.c() + this.a.getString(R.string.obfuscated_res_0x7f0f06ad));
+            if (!StringUtils.isNull(fy7Var.g())) {
+                searchSuggestForumViewHolder.d.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1179, fy7Var.g()));
             } else {
-                view3 = view2;
-                by7Var = (by7) view2.getTag();
+                Context context = this.a;
+                searchSuggestForumViewHolder.d.setText(context.getString(R.string.obfuscated_res_0x7f0f1179, context.getString(R.string.obfuscated_res_0x7f0f117a)));
             }
-            by7Var.d(this.b.f());
-            return view3;
+            searchSuggestForumViewHolder.e.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f044c), StringHelper.numberUniformFormatExtraWithRoundInt(fy7Var.f().intValue())));
+            searchSuggestForumViewHolder.f.setText(String.format(this.a.getString(R.string.forum_thread_number), StringHelper.numberUniformFormatExtraWithRoundInt(fy7Var.h().intValue())));
+            y(fy7Var);
+            return view2;
         }
-        return (View) invokeL.objValue;
+        return (View) invokeCommon.objValue;
     }
 
-    public final View g(Object obj, View view2) {
-        InterceptResult invokeLL;
-        View view3;
-        cy7 cy7Var;
+    public final void x(SearchSuggestForumViewHolder searchSuggestForumViewHolder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, view2)) == null) {
-            if (obj != null && (obj instanceof TailData)) {
-                TailData tailData = (TailData) obj;
-                if (view2 == null) {
-                    cy7Var = new cy7();
-                    view3 = cy7Var.b(this.a.getPageActivity());
-                    cy7Var.h(this.f);
-                    cy7Var.f(this.g);
-                    cy7Var.a(this.a);
-                } else {
-                    view3 = view2;
-                    cy7Var = (cy7) view2.getTag();
-                }
-                cy7Var.i(tailData);
-                cy7Var.g(Boolean.valueOf(this.b.g()));
-                return view3;
-            }
-            return null;
-        }
-        return (View) invokeLL.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c.size();
-        }
-        return invokeV.intValue;
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.a.sendMessage(new CustomMessage(2002001, new TailEditActivityConfig(this.a.getPageActivity(), this.b.h().isEmpty())));
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            k();
-            notifyDataSetChanged();
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
-            if (getItemViewType(i) == 0) {
-                return g(getItem(i), view2);
-            }
-            if (getItemViewType(i) == 1) {
-                return f(view2);
-            }
-            return null;
-        }
-        return (View) invokeILL.objValue;
-    }
-
-    public final void i(int i, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048585, this, i, str, str2) == null) {
-            this.a.sendMessage(new CustomMessage(2002001, new TailEditActivityConfig(this.a.getPageActivity(), i, str, str2)));
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            f fVar = this.d;
-            if (fVar != null) {
-                fVar.a();
-            }
-            this.c.clear();
-            this.c.addAll(this.b.h());
-            if (!this.b.g() && this.b.h().size() < 3) {
-                this.c.add(new mx7(this.b.f()));
-            }
+        if (interceptable == null || interceptable.invokeL(1048582, this, searchSuggestForumViewHolder) == null) {
+            p15 d = p15.d(searchSuggestForumViewHolder.c);
+            d.A(R.string.F_X02);
+            d.z(R.dimen.T_X06);
+            d.v(R.color.CAM_X0105);
+            p15 d2 = p15.d(searchSuggestForumViewHolder.d);
+            d2.z(R.dimen.T_X09);
+            d2.v(R.color.CAM_X0108);
+            p15 d3 = p15.d(searchSuggestForumViewHolder.e);
+            d3.z(R.dimen.T_X09);
+            d3.v(R.color.CAM_X0108);
+            p15 d4 = p15.d(searchSuggestForumViewHolder.f);
+            d4.z(R.dimen.T_X09);
+            d4.v(R.color.CAM_X0108);
+            SkinManager.setBackgroundResource(searchSuggestForumViewHolder.a, R.drawable.addresslist_item_bg);
+            p15.d(searchSuggestForumViewHolder.g).f(R.color.CAM_X0203);
         }
     }
 }

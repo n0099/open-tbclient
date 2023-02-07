@@ -7,10 +7,10 @@ import android.view.View;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c23;
-import com.baidu.tieba.l23;
-import com.baidu.tieba.m23;
-import com.baidu.tieba.tk1;
+import com.baidu.tieba.gp1;
+import com.baidu.tieba.p63;
+import com.baidu.tieba.y63;
+import com.baidu.tieba.z63;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,11 +19,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class SPSwitchPanelLinearLayout extends LinearLayout implements l23, m23 {
+public class SPSwitchPanelLinearLayout extends LinearLayout implements y63, z63 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public c23 a;
+    public p63 a;
 
     static {
         InterceptResult invokeClinit;
@@ -38,17 +38,17 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements l23, m23 
                 return;
             }
         }
-        b = tk1.a;
+        b = gp1.a;
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = new c23(this);
+            this.a = new p63(this);
         }
     }
 
-    @Override // com.baidu.tieba.l23
+    @Override // com.baidu.tieba.y63
     public void handleHide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -56,7 +56,7 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements l23, m23 
         }
     }
 
-    @Override // com.baidu.tieba.l23
+    @Override // com.baidu.tieba.y63
     public void handleShow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -143,7 +143,7 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements l23, m23 
         a();
     }
 
-    @Override // com.baidu.tieba.m23
+    @Override // com.baidu.tieba.z63
     public void onSoftInputShowing(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
@@ -151,7 +151,7 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements l23, m23 
         }
     }
 
-    @Override // com.baidu.tieba.m23
+    @Override // com.baidu.tieba.z63
     public void refreshHeight(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {

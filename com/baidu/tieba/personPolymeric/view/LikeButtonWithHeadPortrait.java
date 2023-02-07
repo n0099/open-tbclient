@@ -19,16 +19,16 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.HeadPendantView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c15;
-import com.baidu.tieba.kf5;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.dj;
+import com.baidu.tieba.p55;
+import com.baidu.tieba.vj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class LikeButtonWithHeadPortrait extends FrameLayout implements c15 {
+public class LikeButtonWithHeadPortrait extends FrameLayout implements p55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
@@ -38,7 +38,7 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements c15 {
     public boolean e;
     public Animation.AnimationListener f;
 
-    @Override // com.baidu.tieba.c15
+    @Override // com.baidu.tieba.p55
     public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
@@ -160,17 +160,17 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements c15 {
         f(context);
     }
 
-    @Override // com.baidu.tieba.c15
+    @Override // com.baidu.tieba.p55
     public void a(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
             TiebaStatic.log(new StatisticItem("c12503").param("obj_locate", "4"));
             if (!this.e) {
                 Context context = getContext();
-                if ((context instanceof Activity) && (context instanceof kf5)) {
+                if ((context instanceof Activity) && (context instanceof vj5)) {
                     String stringExtra = ((Activity) context).getIntent().getStringExtra("thread_id");
-                    List<String> currentPageSourceKeyList = ((kf5) context).getCurrentPageSourceKeyList();
-                    if (currentPageSourceKeyList != null && StringHelper.equals((String) ListUtils.getItem(currentPageSourceKeyList, currentPageSourceKeyList.size() - 1), "a002") && !yi.isEmpty(stringExtra)) {
+                    List<String> currentPageSourceKeyList = ((vj5) context).getCurrentPageSourceKeyList();
+                    if (currentPageSourceKeyList != null && StringHelper.equals((String) ListUtils.getItem(currentPageSourceKeyList, currentPageSourceKeyList.size() - 1), "a002") && !dj.isEmpty(stringExtra)) {
                         TiebaStatic.log(new StatisticItem("c12613").param("obj_type", 1).param("tid", stringExtra));
                     }
                 }
@@ -178,7 +178,7 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements c15 {
         }
     }
 
-    @Override // com.baidu.tieba.c15
+    @Override // com.baidu.tieba.p55
     public void b(boolean z, int i, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
@@ -186,7 +186,7 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements c15 {
         }
     }
 
-    @Override // com.baidu.tieba.c15
+    @Override // com.baidu.tieba.p55
     public void d(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
@@ -194,7 +194,7 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements c15 {
         }
     }
 
-    @Override // com.baidu.tieba.c15
+    @Override // com.baidu.tieba.p55
     public void e(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
@@ -205,13 +205,13 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements c15 {
     public final void f(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d091a, this);
-            HeadPendantView headPendantView = (HeadPendantView) findViewById(R.id.obfuscated_res_0x7f090db9);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0910, this);
+            HeadPendantView headPendantView = (HeadPendantView) findViewById(R.id.obfuscated_res_0x7f090dfe);
             this.b = headPendantView;
             headPendantView.getHeadView().setIsRound(true);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090453);
-            this.c = findViewById(R.id.obfuscated_res_0x7f092697);
-            this.d = findViewById(R.id.obfuscated_res_0x7f091d00);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09044e);
+            this.c = findViewById(R.id.obfuscated_res_0x7f09269f);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091d15);
         }
     }
 

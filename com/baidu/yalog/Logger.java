@@ -1,7 +1,6 @@
 package com.baidu.yalog;
 
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,13 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public abstract class Logger {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int ASSERT = 7;
-    public static final int DEBUG = 3;
-    public static final int ERROR = 6;
-    public static final int INFO = 4;
-    public static final int VERBOSE = 2;
-    public static final int WARN = 5;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     public abstract void executeRunnable(@NonNull Runnable runnable);
@@ -24,7 +17,11 @@ public abstract class Logger {
 
     public abstract void log(String str, int i, String str2, String str3);
 
+    public abstract void log(String str, int i, String str2, String str3, int... iArr);
+
     public abstract void logSync(String str, int i, String str2, String str3);
+
+    public abstract void reinitialize();
 
     public Logger() {
         Interceptable interceptable = $ic;
@@ -40,38 +37,52 @@ public abstract class Logger {
         }
     }
 
+    public void c(String str, int i, String str2, String str3, int... iArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i), str2, str3, iArr}) == null) {
+            log(str, i, str2, str3, iArr);
+        }
+    }
+
     public void d(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3) == null) {
             log(str, 3, str2, str3);
         }
     }
 
     public void e(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3) == null) {
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3) == null) {
             log(str, 6, str2, str3);
         }
     }
 
     public void i(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, str3) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, str, str2, str3) == null) {
             log(str, 4, str2, str3);
         }
     }
 
     public void v(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048583, this, str, str2, str3) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048587, this, str, str2, str3) == null) {
             log(str, 2, str2, str3);
         }
     }
 
     public void w(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, str3) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048588, this, str, str2, str3) == null) {
             log(str, 5, str2, str3);
+        }
+    }
+
+    public void n(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            log(null, -1, null, str, 17, 18);
         }
     }
 }

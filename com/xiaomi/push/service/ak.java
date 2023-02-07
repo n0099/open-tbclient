@@ -38,7 +38,7 @@ public final class ak implements bg.b.a {
                 x.a(this.a, true);
                 x.a(this.a);
             } else if (cVar2 == bg.c.a) {
-                com.xiaomi.channel.commonutils.logger.b.m103a("onChange unbind");
+                com.xiaomi.channel.commonutils.logger.b.m105a("onChange unbind");
                 x.a(this.a, ErrorCode.ERROR_SERVICE_UNAVAILABLE, " the push is not connected.");
             }
         }
